@@ -17,12 +17,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 10726bdaf1aa0a98276747868771999625ccf5e5
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 220f2806849e59e8799017a2d7558f1ae622a755
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Использование Oozie с Hadoop для определения и выполнения рабочего процесса в HDInsight
@@ -192,9 +191,9 @@ RunHiveScript имеет несколько переменных. Вы пере�
    
     Оба файла хранятся в общедоступном контейнере больших двоичных объектов.
    
-   * Скопируйте скрипт HiveQL (useoozie.hql) в службу хранилища Azure (wasbs:///tutorials/useoozie/useoozie.hql).
-   * Скопируйте файл workflow.xml в wasbs:///tutorials/useoozie/workflow.xml.
-   * Скопируйте файл данных (/example/data/sample.log) в wasbs:///tutorials/useoozie/data/sample.log.
+   * Копирование сценария HiveQL (useoozie.hql) в службу хранилища Azure (wasbs:///tutorials/useoozie/useoozie.hql).
+   * Копирование файла workflow.xml в wasb:///tutorials/useoozie/workflow.xml.
+   * Копирование файла данных (/example/data/sample.log) в wasb:///tutorials/useoozie/data/sample.log.
 6. Отправка задания Oozie.
    
     Чтобы проанализировать результаты задания Oozie, используйте Visual Studio или другие инструменты для подключения к базе данных SQL Azure.
@@ -449,7 +448,7 @@ RunHiveScript имеет несколько переменных. Вы пере�
 
     #region - submit Oozie job
 
-    $storageUri="wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
+    $storageUri="wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
 
     $oozieJobName = $namePrefix + "OozieJob"
 

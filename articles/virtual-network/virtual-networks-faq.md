@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: d66489b43e983f313028a846d2b7da1534c86b53
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 1032c4e7d378016e36c92efa9478be72e9a557c4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Виртуальная сеть Azure: часто задаваемые вопросы
@@ -59,7 +58,7 @@ ms.lasthandoff: 05/16/2017
 * Azure CLI (для классических виртуальных сетей и виртуальных сетей Resource Manager).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Какие диапазоны адресов можно использовать в виртуальных сетях?
-Можно использовать диапазоны общедоступных IP-адресов и любые диапазоны IP-адресов, определенные в документе [RFC 1918](http://tools.ietf.org/html/rfc1918).
+Любой диапазон IP-адресов, определенный в [RFC 1918](http://tools.ietf.org/html/rfc1918). Например, 10.0.0.0/16.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Можно ли в виртуальных сетях использовать общедоступные IP-адреса?
 Да. Дополнительные сведения о диапазонах общедоступных IP-адресов см. в статье [Общедоступное пространство IP-адресов в виртуальной сети (VNet)](virtual-networks-public-ip-within-vnet.md). Ваши общедоступные IP-адреса не будут доступны непосредственно из Интернета.

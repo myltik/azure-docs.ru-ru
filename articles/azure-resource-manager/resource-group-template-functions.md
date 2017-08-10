@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: b5085f98d01c91ecabb690ad2aaf5992b707f302
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1324bed07e991e9d84cb6832afe78bdb2d3348fa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="azure-resource-manager-template-functions"></a>Функции шаблонов диспетчера ресурсов Azure
@@ -58,6 +58,7 @@ Resource Manager предоставляет ряд функций для раб�
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
 * [intersection](resource-group-template-functions-array.md#intersection)
+* [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [длина](resource-group-template-functions-array.md#length)
 * [min](resource-group-template-functions-array.md#min)
@@ -104,6 +105,15 @@ Resource Manager предоставляет ряд функций для вып�
 <a id="mul" />
 <a id="sub" />
 
+## <a name="logical-functions"></a>Логические функции
+Resource Manager предоставляет для работы с логическими условиями следующие функции:
+
+* [and](resource-group-template-functions-logical.md#and) (и);
+* [bool](resource-group-template-functions-logical.md#bool);
+* [if](resource-group-template-functions-logical.md#if) (если);
+* [not](resource-group-template-functions-logical.md#not) (не);
+* [or](resource-group-template-functions-logical.md#or) (или).
+
 ## <a name="numeric-functions"></a>Числовые функции
 Диспетчер ресурсов предоставляет следующие функции для работы с целыми числами:
 
@@ -139,7 +149,6 @@ Resource Manager предоставляет ряд функций для вып�
 <a id="base64" />
 <a id="base64tojson" />
 <a id="base64tostring" />
-<a id="bool" />
 <a id="concat" />
 <a id="containsstring" />
 <a id="datauri" />
@@ -173,7 +182,6 @@ Resource Manager предоставляет ряд функций для вып�
 * [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
-* [bool](resource-group-template-functions-string.md#bool);
 * [concat](resource-group-template-functions-string.md#concat)
 * [contains](resource-group-template-functions-string.md#contains)
 * [dataUri](resource-group-template-functions-string.md#datauri)

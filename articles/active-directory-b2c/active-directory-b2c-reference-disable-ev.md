@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/06/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: cedc7d3c16dd8acac2700f461305d28a8ba6c802
-ms.openlocfilehash: 5ab121e536479ef5584b222456e127d5bb12e24d
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: d8e44a8aade60d21734477d60bccc2bd5194436e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C: отключение проверки адреса электронной почты во время регистрации потребителя
@@ -27,7 +28,7 @@ ms.openlocfilehash: 5ab121e536479ef5584b222456e127d5bb12e24d
 
 По умолчанию в политиках регистрации определено, что проверка адреса включена. Чтобы ее выключить, следуйте приведенным ниже инструкциям.
 
-1. [Выполните эти действия, чтобы перейти к колонке функций B2C на портале Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Выполните эти действия, чтобы перейти к колонке функций B2C на портале Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. В зависимости от своих настроек регистрации выберите **Sign-up policies** (Политики регистрации) или **Sign-up or sign-in policies** (Политики регистрации или входа).
 3. Откройте политику (например B2C_1_SiUp), щелкнув ее. Щелкните **Изменить** в верхней части колонки.
 4. Щелкните **Page UI Customization** (Настройка пользовательского интерфейса страницы).
@@ -43,8 +44,3 @@ ms.openlocfilehash: 5ab121e536479ef5584b222456e127d5bb12e24d
 > 
 
 Мы всегда рады вашим отзывам и предложениям! Если у вас возникли трудности с выполнением действий, описанных в этой статье или у вас есть рекомендации по улучшению этого материала, поделитесь с нами своими наблюдениями, воспользовавшись формой в нижней части страницы. Запросы функций оставляйте на форуме [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

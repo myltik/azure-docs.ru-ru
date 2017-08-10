@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 196be1e8185a08394944b0f334fcf21f237464dd
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: e7b910ae94b178b5370d4938698e8bcce10775ea
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="documentdb-net-examples"></a>Примеры DocumentDB .NET
+# <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB. Примеры .NET для API DocumentDB
 > [!div class="op_single_selector"]
 > * [Примеры .NET](documentdb-dotnet-samples.md)
 > * [Примеры Node.js](documentdb-nodejs-samples.md)
@@ -101,7 +100,7 @@ ms.lasthandoff: 05/31/2017
 | [Использование диапазонных индексов в строках](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L342-L405) |[IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx)<br>[RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx) |
 | [Преобразование индекса](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L407-L464) |[ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx) |
 
-Дополнительные сведения об индексации см. в статье [Политики индексации DocumentDB](indexing-policies.md).
+Дополнительные сведения об индексации Azure Cosmos DB см. в [этой статье](indexing-policies.md).
 
 ## <a name="geospatial-examples"></a>Примеры с геопространственными данными
 В примере файла с геопространственными данными [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) показано, как выполнить следующие задачи.  
@@ -137,7 +136,7 @@ ms.lasthandoff: 05/31/2017
 | [Выполнение запроса к секционированным коллекциям в параллельном режиме](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L664-L734) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Выполнение запроса к секционированным коллекциям с использованием предложения Order By](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L737-L810) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 
-Дополнительные сведения о написании запросов см. в статье [SQL-запрос в DocumentDB](documentdb-sql-query.md).
+Дополнительные сведения о создании запросов см. в статье [SQL-запрос в Azure Cosmos DB](documentdb-sql-query.md).
 
 ## <a name="server-side-programming-examples"></a>Примеры программирования на стороне сервера
 В файле программирования на стороне сервера [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs) показано, как выполнить следующие задачи.

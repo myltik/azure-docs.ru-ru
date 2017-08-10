@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 1477ed13ef0434ed86938c49e6bb815837cb40fb
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8c6ff4a6b8617cda9b12be060c7c7bed62cb3f44
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Сведения об использовании HDInsight в Linux
@@ -127,9 +127,9 @@ ms.lasthandoff: 07/13/2017
 
 * `wasb:///`: хранилище по умолчанию без шифрования обмена данными.
 
-* `wasbs:///`: хранилище по умолчанию с шифрованием обмена данными.
+* `wasbs:///`: хранилище по умолчанию с шифрованием обмена данными.  Схема wasbs поддерживается только в HDInsight начиная с версии 3.6.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: при взаимодействии с учетной записью хранения, кроме используемой по умолчанию. Например, используется для дополнительной учетной записи хранения или при доступе к данным в общедоступной учетной записи хранения.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: при взаимодействии с учетной записью хранения, кроме используемой по умолчанию. Например, используется для дополнительной учетной записи хранения или при доступе к данным в общедоступной учетной записи хранения.
 
 При использовании __Data Lake Store__ выберите одну из следующих схем URI:
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 07/13/2017
 
 Эта команда возвращает значение, похожее на следующие URI:
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net`, если используется учетная запись хранения Azure.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net`, если используется учетная запись хранения Azure.
 
     Здесь имя учетной записи — это имя учетной записи хранения Azure, а имя контейнера — контейнер больших двоичных объектов, который является корневым в хранилище кластера.
 

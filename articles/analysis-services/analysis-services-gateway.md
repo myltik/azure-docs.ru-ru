@@ -13,17 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/25/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: f8c9e9ab8b8728202ec3f049b309d96d883022f4
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: f07d72a18221e7a2838cec3982990dca21c00153
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="on-premises-data-gateway"></a>Локальный шлюз данных
+# <a name="install-on-premises-data-gateway"></a>Установка локального шлюза данных
 Локальный шлюз данных действует как мост, обеспечивая передачу данных между локальными источниками данных и сервером служб Azure Analysis Services в облаке.
 
 Последняя версия шлюза поддерживает табличные модели 1400, подключенные к локальным источникам данных с помощью запросов Get Data и M в SSDT. 
@@ -32,7 +31,7 @@ ms.lasthandoff: 06/03/2017
 
 Шлюз устанавливается на компьютере в сети. Для каждого сервера служб Azure Analysis Services в подписке Azure необходимо установить один шлюз. Например, при наличии в подписке Azure двух серверов, которые подключаются к локальным источникам данных, шлюз необходимо установить на двух разных компьютерах в сети.
 
-## <a name="requirements"></a>Требования
+## <a name="prerequisites"></a>Предварительные требования
 **Минимальные требования:**
 
 * .NET Framework 4.5;
@@ -61,7 +60,7 @@ ms.lasthandoff: 06/03/2017
 1. Запустите программу установки.
 2. Выберите расположение установки и примите условия лицензионного соглашения.
 3. Войдите в Azure.
-4. Укажите имя сервера анализа данных Azure. Можно указать только один сервер для каждого шлюза. Нажмите кнопку **Настроить**. Теперь все готово.
+4. Укажите имя сервера анализа данных Azure и щелкните **Настройка**. Можно указать только один сервер для каждого шлюза.
 
     ![вход в Azure](./media/analysis-services-gateway/aas-gateway-configure-server.png)
 
@@ -70,7 +69,7 @@ ms.lasthandoff: 06/03/2017
 
 ![Принцип работы](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
-Запросы и поток данных работают следующим образом:
+Запросы и поток данных
 
 1. Облачная служба создает запрос с зашифрованными учетными данными для локального источника. Затем запрос отправляется в очередь, чтобы его обработал шлюз.
 2. Облачная служба шлюза анализирует запрос и отправляет его в [служебную шину Azure](https://azure.microsoft.com/documentation/services/service-bus/).
@@ -111,7 +110,7 @@ ms.lasthandoff: 06/03/2017
 | *.microsoftonline-p.com |443 |Используется для проверки подлинности в зависимости от конфигурации. |
 
 ### <a name="forcing-https-communication-with-azure-service-bus"></a>Принудительное использование протокола HTTPS для связи со служебной шиной Azure
-Можно выбрать принудительное использование протокола HTTPS для связи между шлюзом и служебной шиной Azure вместо прямого подключения TCP. Однако это может значительно снизить производительность. Чтобы принудительно использовать протокол, нужно изменить файл *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config*. Измените значение `AutoDetect` на `Https`. По умолчанию этот файл находится в расположении *C:\Program Files\On-premises data gateway*.
+Можно настроить шлюз для принудительного использования протокола HTTPS для связи со служебной шиной Azure вместо прямого подключения TCP. Однако это может значительно снизить производительность. Для этого можно отредактировать файл *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config*, изменив значение `AutoDetect` на `Https`. По умолчанию этот файл находится в расположении *C:\Program Files\On-premises data gateway*.
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -132,8 +131,8 @@ ms.lasthandoff: 06/03/2017
 
 **Включение телеметрии**
 
-1.    Проверьте клиентский каталог локального шлюза данных на компьютере. Обычно это каталог %системный_диск%\Program Files\On-premises data gateway. Кроме того, можно открыть консоль "Службы" и проверить свойство "Путь доступа к исполняемому файлу" для службы локального шлюза данных.
-2.    В файле Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config в каталоге клиента выполните указанные ниже действия. Измените значение параметра SendTelemetry на true.
+1.  Проверьте клиентский каталог локального шлюза данных на компьютере. Обычно это каталог **%системный_диск%\Program Files\On-premises data gateway**. Кроме того, можно открыть консоль "Службы" и проверить свойство "Путь доступа к исполняемому файлу" для службы локального шлюза данных.
+2.  В файле Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config в каталоге клиента выполните указанные ниже действия. Измените значение параметра SendTelemetry на true.
         
     ```
         <setting name="SendTelemetry" serializeAs="String">
@@ -141,7 +140,7 @@ ms.lasthandoff: 06/03/2017
         </setting>
     ```
 
-3.    Сохраните изменения и перезапустите службу Windows "Локальный шлюз данных".
+3.  Сохраните изменения и перезапустите службу Windows "Локальный шлюз данных".
 
 
 

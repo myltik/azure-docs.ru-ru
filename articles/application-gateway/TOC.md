@@ -27,16 +27,20 @@
 ## Настройка брандмауэра веб-приложения
 ### [Портал](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Azure CLI 2.0](application-gateway-web-application-firewall-cli.md)
 ## Настройка правил брандмауэра веб-приложения
 ### [Портал](application-gateway-customize-waf-rules-portal.md)
+### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 ## Настройка разгрузки SSL
 ### [Портал](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (классическая модель)](application-gateway-ssl.md)
+### [Azure CLI 2.0](application-gateway-ssl.md)
 ### [Политика и сквозное шифрование](application-gateway-end-to-end-ssl-powershell.md)
 ## Настройка маршрутизации на основе URL-путей
 ### [Портал](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 ## Настройка размещения нескольких сайтов
 ### [Портал](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)

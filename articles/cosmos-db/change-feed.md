@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 07/24/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d04d1240fb353a973953b2a90eadc65705219edb
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 5cc565adf4a4b6820ad676d9689c9697e9158b9f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Работа с поддержкой веб-канала изменений в Azure Cosmos DB
@@ -32,9 +31,12 @@ ms.lasthandoff: 06/20/2017
 * выполнение обработки или обновлений в режиме реального времени (поток);
 * синхронизация данных с кэшем, поисковой системой или хранилищем данных.
 
-Изменения в Azure Cosmos DB сохраняются и обрабатываются асинхронно, а также распределяются в один или несколько потребителей для параллельной обработки. Рассмотрим интерфейсы API для веб-канала изменений и их использование для создания масштабируемых приложений, выполняющихся в реальном времени. В этой статье показано, как работать с пространственными данными с помощью API DocumentDB в Azure Cosmos DB. 
+Изменения в Azure Cosmos DB сохраняются и обрабатываются асинхронно, а также распределяются в один или несколько потребителей для параллельной обработки. Рассмотрим интерфейсы API для веб-канала изменений и их использование для создания масштабируемых приложений, выполняющихся в реальном времени. В этой статье показано, как работать с веб-каналом изменений с помощью API DocumentDB в Azure Cosmos DB. 
 
-![Использование веб-канала изменений Azure Cosmos DB для аналитики в реальном времени и вычислений на основе событий](./media/change-feed/changefeed.png)
+![Использование веб-канала изменений Azure Cosmos DB для аналитики в реальном времени и вычислений на основе событий](./media/change-feed/changefeedoverview.png)
+
+> [!NOTE]
+> В данный момент веб-канал изменений поддерживается только в API DocumentDB. API Graph и API таблиц в настоящее время не поддерживаются.
 
 ## <a name="use-cases-and-scenarios"></a>Варианты использования и сценарии
 Веб-канал изменений обеспечивает эффективную обработку больших наборов данных с большим объемом операций записи и представляет собой альтернативу отправке запросов на все наборы данных, чтобы определить, какие изменения были внесены. Например, можно эффективно выполнить следующие задачи:
@@ -64,13 +66,13 @@ Azure Cosmos DB предоставляет возможность постепе
 * Изменения доступны в виде фрагментов диапазонов ключей разделов. Эта возможность позволяет нескольким потребителям и серверам параллельно обрабатывать изменения из больших коллекций.
 * Приложения могут запросить несколько веб-каналов изменений в одной коллекции одновременно.
 
-Веб-канал изменений Azure Cosmos DB включен по умолчанию для всех учетных записей, и дополнительная плата за него в вашей учетной записи не взимается. Вы можете использовать свою [подготовленную пропускную способность](request-units.md) в своем регионе записи или любом [регионе чтения](distribute-data-globally.md) для чтения с веб-канала изменений так же, как и любую другую операцию из Azure Cosmos DB. Веб-канал изменений также отслеживает операции вставки и обновления, внесенные в документы в коллекции. Вы можете отслеживать операции удаления, установив флажок soft-delete в документах вместо удаления. Кроме того, с помощью [функции срока жизни](time-to-live.md) для документов можно задать ограниченный срок действия, например 24 часа, и использовать значение этого свойства для отслеживания операций удаления. При использовании этого решения необходимо обрабатывать изменения в течение более короткого промежутка времени, чем срок жизни. Веб-канал изменений доступен для каждого диапазона ключей разделов в коллекции документов, и поэтому его можно распределить в один или несколько потребителей для параллельной обработки. 
+Веб-канал изменений Azure Cosmos DB включен по умолчанию для всех учетных записей. Вы можете использовать свою [подготовленную пропускную способность](request-units.md) в своем регионе записи или любом [регионе чтения](distribute-data-globally.md) для чтения с веб-канала изменений так же, как и любую другую операцию из Azure Cosmos DB. Веб-канал изменений также отслеживает операции вставки и обновления, внесенные в документы в коллекции. Вы можете отслеживать операции удаления, установив флажок soft-delete в документах вместо удаления. Кроме того, с помощью [функции срока жизни](time-to-live.md) для документов можно задать ограниченный срок действия, например 24 часа, и использовать значение этого свойства для отслеживания операций удаления. При использовании этого решения необходимо обрабатывать изменения в течение более короткого промежутка времени, чем срок жизни. Веб-канал изменений доступен для каждого диапазона ключей разделов в коллекции документов, и поэтому его можно распределить в один или несколько потребителей для параллельной обработки. 
 
 ![Распределенная обработка веб-канала изменений Azure Cosmos DB](./media/change-feed/changefeedvisual.png)
 
-В следующем разделе описывается, как получить доступ к веб-каналу изменений с помощью REST API и пакетов SDK Azure Cosmos DB. Для приложений .NET рекомендуется использовать [библиотеку обработчика веб-канала изменений](), чтобы обрабатывать события из веб-канала изменений.
+Есть несколько вариантов реализации веб-канала изменений в коде клиента. В следующих разделах описывается реализация веб-канала изменений с помощью REST API для базы данных Azure Cosmos DB и пакетов SDK для DocumentDB. Для приложений .NET рекомендуется использовать новую [библиотеку обработчика веб-канала изменений](#change-feed-processor) для обработки событий из веб-канала изменений, так как это упрощает чтение изменений в секциях и позволяет нескольким потокам работать параллельно.
 
-## <a id="rest-apis"></a>Работа с REST API и пакетами SDK
+## <a id="rest-apis"></a>Работа с REST API и пакетами SDK для DocumentDB
 Azure Cosmos DB предоставляет эластичные контейнеры хранилища и пропускной способности, называемые **коллекциями**. Данные в коллекциях логически сгруппированы с помощью [ключей разделов](partition-data.md) для масштабируемости и производительности. Azure Cosmos DB предоставляет различные интерфейсы API для доступа к этим данным, включая поиск по идентификатору (чтение или получение), запросы и чтение каналов (сканирования). Веб-канал изменений можно получить путем заполнения двух новых заголовков запроса в интерфейсе API `ReadDocumentFeed` DocumentDB, и его можно обрабатывать параллельно в диапазонах ключей разделов.
 
 ### <a name="readdocumentfeed-api"></a>Интерфейс API ReadDocumentFeed
@@ -90,14 +92,16 @@ Azure Cosmos DB предоставляет эластичные контейне
 
 **Веб-канал для последовательного чтения документов**
 
-Веб-канал документов можно также получить с помощью одного из поддерживаемых [пакетов SDK для Azure Cosmos DB](documentdb-sdk-dotnet.md). Например, в следующем фрагменте кода показано, как выполнять ReadDocumentFeed в .NET.
+Веб-канал документов можно также получить с помощью одного из поддерживаемых [пакетов SDK для Azure Cosmos DB](documentdb-sdk-dotnet.md). Например, в следующем фрагменте кода показано, как использовать метод [ReadDocumentFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentfeedasync?view=azure-dotnet) в .NET.
 
-    FeedResponse<dynamic> feedResponse = null;
-    do
-    {
-        feedResponse = await client.ReadDocumentFeedAsync(collection, new FeedOptions { MaxItemCount = -1 });
-    }
-    while (feedResponse.ResponseContinuation != null);
+```csharp
+FeedResponse<dynamic> feedResponse = null;
+do
+{
+    feedResponse = await client.ReadDocumentFeedAsync(collection, new FeedOptions { MaxItemCount = -1 });
+}
+while (feedResponse.ResponseContinuation != null);
+```
 
 ### <a name="distributed-execution-of-readdocumentfeed"></a>Распределенное выполнение ReadDocumentFeed
 Для коллекций, содержащих терабайты данных и более или принимающих большое количество обновлений, последовательное выполнение веб-канала чтения с компьютера с одним клиентом может оказаться нецелесообразным. Для поддержки этих сценариев с данными большого размера Azure Cosmos DB содержит интерфейсы API для распределения вызовов `ReadDocumentFeed` по нескольким клиентским считывателям и потребителям открытым образом. 
@@ -110,7 +114,7 @@ Azure Cosmos DB предоставляет эластичные контейне
 * Для каждого диапазона ключей разделов можно выполнить `ReadDocumentFeed`, чтобы читать документы с помощью ключей разделов в пределах диапазона.
 
 ### <a name="retrieving-partition-key-ranges-for-a-collection"></a>Извлечение диапазонов ключей разделов для коллекции
-Диапазоны ключей разделов можно получить путем запроса ресурса `pkranges` в коллекции. Например, следующий запрос возвращает список диапазонов ключей разделов для коллекции `serverlogs`:
+Диапазоны ключей секций можно получить путем запроса ресурса `pkranges` в коллекции. Например, следующий запрос возвращает список диапазонов ключей разделов для коллекции `serverlogs`:
 
     GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
     x-ms-date: Tue, 15 Nov 2016 07:26:51 GMT
@@ -146,7 +150,7 @@ Azure Cosmos DB предоставляет эластичные контейне
     }
 
 
-**Свойства диапазона ключей разделов.** Каждый диапазон ключей разделов содержит свойства метаданных, приведенные в следующей таблице.
+**Свойства диапазона ключей секций.** Каждый диапазон ключей секций содержит свойства метаданных, приведенные в следующей таблице.
 
 <table>
     <tr>
@@ -170,21 +174,23 @@ Azure Cosmos DB предоставляет эластичные контейне
     </tr>       
 </table>
 
-Это можно сделать с помощью одного из поддерживаемых [пакетов SDK для Azure Cosmos DB](documentdb-sdk-dotnet.md). Например, в следующем фрагменте кода показано, как получить диапазон ключей разделов в .NET.
+Это можно сделать с помощью одного из поддерживаемых [пакетов SDK для Azure Cosmos DB](documentdb-sdk-dotnet.md). Например, в следующем фрагменте кода показано, как получить диапазон ключей секций в .NET с помощью метода [ReadPartitionKeyRangeFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync?view=azure-dotnet).
 
-    string pkRangesResponseContinuation = null;
-    List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+```csharp
+string pkRangesResponseContinuation = null;
+List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
 
-    do
-    {
-        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
-            collectionUri, 
-            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+do
+{
+    FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+        collectionUri, 
+        new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
 
-        partitionKeyRanges.AddRange(pkRangesResponse);
-        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
-    }
-    while (pkRangesResponseContinuation != null);
+    partitionKeyRanges.AddRange(pkRangesResponse);
+    pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
+}
+while (pkRangesResponseContinuation != null);
+```
 
 Azure Cosmos DB поддерживает получение документов в диапазоне ключей разделов путем задания необязательного заголовка `x-ms-documentdb-partitionkeyrangeid`. 
 
@@ -197,7 +203,7 @@ ReadDocumentFeed поддерживает следующие сценарии и
 
 Изменения включают операции вставки и обновлений в документах. Для отслеживания операций удаления в документах необходимо использовать свойство soft delete или [встроенное свойство срока жизни](time-to-live.md), чтобы обозначить отложенное удаление в веб-канале изменений.
 
-В следующей таблице перечислены заголовки запроса и ответа для операций ReadDocumentFeed.
+В следующей таблице перечислены [заголовки запроса](/rest/api/documentdb/common-documentdb-rest-request-headers.md) и [ответа](/rest/api/documentdb/common-documentdb-rest-response-headers.md) для операций ReadDocumentFeed.
 
 **Заголовки запроса для добавочного ReadDocumentFeed**
 
@@ -258,147 +264,264 @@ ReadDocumentFeed поддерживает следующие сценарии и
 > [!NOTE]
 > С помощью веб-канала изменений можно получать на странице результатов больше элементов, чем указано в `x-ms-max-item-count`, если несколько документов были вставлены или обновлены транзакционно в хранимых процедурах или триггерах. 
 
-Пакет SDK для .NET предоставляет вспомогательные классы [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) и [ChangeFeedOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx) для доступа к изменениям, внесенным в коллекцию. В следующем фрагменте кода показано, как получить все изменения с самого начала с использованием пакета SDK для .NET из одного клиента.
+Пакет SDK для .NET предоставляет вспомогательные классы [CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery?view=azure-dotnet) и [ChangeFeedOptions](/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) для доступа к изменениям, внесенным в коллекцию. В следующем фрагменте кода показано, как получить все изменения с самого начала с использованием пакета SDK для .NET из одного клиента.
 
-    private async Task<Dictionary<string, string>> GetChanges(
-        DocumentClient client,
-        string collection,
-        Dictionary<string, string> checkpoints)
+```csharp
+private async Task<Dictionary<string, string>> GetChanges(
+    DocumentClient client,
+    string collection,
+    Dictionary<string, string> checkpoints)
+{
+    string pkRangesResponseContinuation = null;
+    List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+
+    do
     {
-        string pkRangesResponseContinuation = null;
-        List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+            collectionUri, 
+            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
 
-        do
-        {
-            FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
-                collectionUri, 
-                new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+        partitionKeyRanges.AddRange(pkRangesResponse);
+        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
+    }
+    while (pkRangesResponseContinuation != null);
 
-            partitionKeyRanges.AddRange(pkRangesResponse);
-            pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
-        }
-        while (pkRangesResponseContinuation != null);
+    foreach (PartitionKeyRange pkRange in partitionKeyRanges)
+    {
+        string continuation = null;
+        checkpoints.TryGetValue(pkRange.Id, out continuation);
 
-        foreach (PartitionKeyRange pkRange in partitionKeyRanges)
-        {
-            string continuation = null;
-            checkpoints.TryGetValue(pkRange.Id, out continuation);
-
-            IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-                collection,
-                new ChangeFeedOptions
-                {
-                    PartitionKeyRangeId = pkRange.Id,
-                    StartFromBeginning = true,
-                    RequestContinuation = continuation,
-                    MaxItemCount = 1
-                });
-
-            while (query.HasMoreResults)
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+            collection,
+            new ChangeFeedOptions
             {
-                FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+                PartitionKeyRangeId = pkRange.Id,
+                StartFromBeginning = true,
+                RequestContinuation = continuation,
+                MaxItemCount = 1
+            });
 
-                foreach (DeviceReading changedDocument in readChangesResponse)
-                {
-                    Console.WriteLine(changedDocument.Id);
-                }
+        while (query.HasMoreResults)
+        {
+            FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
 
-                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            foreach (DeviceReading changedDocument in readChangesResponse)
+            {
+                Console.WriteLine(changedDocument.Id);
             }
-        }
 
-        return checkpoints;
+            checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+        }
     }
 
+    return checkpoints;
+}
+```
 А в следующем фрагменте показано, как обрабатывать изменения в реальном времени с помощью Azure Cosmos DB, используя поддержку веб-канала изменений и предыдущую функцию. Первый вызов возвращает все документы в коллекции, а второй — только два документа, созданные с момента создания последней контрольной точки.
 
-    // Returns all documents in the collection.
-    Dictionary<string, string> checkpoints = await GetChanges(client, collection, new Dictionary<string, string>());
+```csharp
+// Returns all documents in the collection.
+Dictionary<string, string> checkpoints = await GetChanges(client, collection, new Dictionary<string, string>());
 
-    await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-201", MetricType = "Temperature", Unit = "Celsius", MetricValue = 1000 });
-    await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-212", MetricType = "Pressure", Unit = "psi", MetricValue = 1000 });
+await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-201", MetricType = "Temperature", Unit = "Celsius", MetricValue = 1000 });
+await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-212", MetricType = "Pressure", Unit = "psi", MetricValue = 1000 });
 
-    // Returns only the two documents created above.
-    checkpoints = await GetChanges(client, collection, checkpoints);
-
+// Returns only the two documents created above.
+checkpoints = await GetChanges(client, collection, checkpoints);
+```
 
 Вы также можете фильтровать веб-канал изменений с помощью логики на стороне клиента, чтобы обрабатывать события выборочно. Например, ниже приведен фрагмент кода, в котором используется LINQ на стороне клиента для обработки только событий изменения температуры с датчиков устройств.
 
-    FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+```csharp
+FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
 
-    foreach (DeviceReading changedDocument in 
-        readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
-    {
-        // trigger an action, like call an API
-    }
+foreach (DeviceReading changedDocument in 
+    readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
+{
+    // trigger an action, like call an API
+}
+```
 
 ## <a id="change-feed-processor"></a>Библиотека обработчика веб-канала изменений
-[Библиотека обработчика веб-канала изменений Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor) может использоваться для распределения обработки событий из веб-канала изменений между несколькими потребителями. Эту реализацию следует использовать при создании модулей чтения веб-канала изменений на платформе .NET. Класс `ChangeFeedProcessorHost` предоставляет потокобезопасную многопроцессную среду безопасного выполнения для реализаций обработчиков событий. Эта среда также предоставляет средства управления контрольными точками и арендой секций.
+Вторым вариантом является использование [библиотеки обработчика веб-канала изменений Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed), который поможет распределить обработку событий из веб-канала изменений между несколькими потребителями. Эту библиотеку следует использовать при создании модулей чтения веб-канала изменений на платформе .NET. Некоторые рабочие процессы, которые можно упростить с помощью библиотеки обработчика веб-канала изменений, по сравнению с методами, включенными в другие пакетах SDK для Cosmos DB: 
 
-Для использования класса [`ChangeFeedProcessorHost`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/ChangeFeedEventHost.cs) можно реализовать [`IChangeFeedObserver`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/IChangeFeedObserver.cs). Этот интерфейс содержит три метода:
+* Извлечение обновлений из веб-канала изменений, когда данные хранятся в нескольких секциях.
+* Перемещение или репликация данных из одной коллекции в другую.
+* Параллельное выполнение действий, запускаемых обновлениями данных и веб-каналом изменений. 
 
-* OpenAsync
-* CloseAsync
-* ProcessEventsAsync
+Использование интерфейсов API в пакетах SDK для Cosmos обеспечивает точный доступ к обновлениям веб-канала изменений в каждой секции, а использование библиотеки обработчика веб-канала изменений упрощает считывание изменений в секциях и параллельную работу нескольких потоков. Вместо того чтобы считывать изменения из каждого контейнера и сохранять маркер продолжения для каждой секции вручную, обработчик веб-канала изменений автоматически управляет считыванием изменений в секциях с помощью механизма аренды.
 
-Чтобы начать обработку событий, следует создать экземпляр ChangeFeedProcessorHost, указав соответствующие параметры для коллекции Azure Cosmos DB. Затем вызовите метод `RegisterObserverAsync` для регистрации вашей реализации `IChangeFeedObserver` в среде выполнения. На этом этапе узел попытается получить аренду для каждого диапазона ключей секций в коллекции Azure Cosmos DB, используя "жадный" алгоритм. Эти аренды будут продолжаться в течение заданного промежутка времени, после чего их необходимо продлить. По мере перехода новых узлов (в нашем случае это рабочие экземпляры) в оперативный режим они размещают резервирования аренды и со временем нагрузка смещается между узлами при каждой попытке получения дополнительной аренды.
+Библиотека доступна как пакет NuGet: [Microsoft.Azure.Documents.ChangeFeedProcessor](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) и из исходного кода в виде [примера](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor) GitHub. 
 
-![Использование узла обработчика веб-канала изменений Azure Cosmos DB](./media/change-feed/changefeedprocessor.png)
+### <a name="understanding-change-feed-processor-library"></a>Основные сведения о библиотеке обработчика веб-канала изменений 
 
-Со временем устанавливается равновесие. Такая динамическая возможность позволяет применить к потребителям автоматическое масштабирование как вверх, так и вниз на основе использования ресурсов ЦП. Если события становятся доступными в Azure Cosmos DB быстрее, чем могут обработать потребители, то увеличение использования ресурсов ЦП потребителями можно использовать для автоматического масштабирования на основе числа экземпляров исполнителей.
+Существует четыре основных компонента реализации обработчика веб-канала изменений: отслеживаемая коллекция, коллекция аренд, узел обработчика и потребители. 
 
-Класс `ChangeFeedProcessorHost` также реализует механизм создания контрольных точек с помощью отдельной коллекции аренд Azure Cosmos DB. Этот механизм хранит смещение для каждой секции, чтобы каждый потребитель мог определить последнюю контрольную точку от предыдущего потребителя. По мере перехода секций между узлами перенос нагрузки осуществляется за счет механизма синхронизации.
+**Отслеживаемая коллекция** — это данные, из которых формируется веб-канал изменений. Все операции вставки и изменения в отслеживаемой коллекции отражаются в веб-канале изменений коллекции. 
+
+**Коллекция аренд** — это коллекция, которая координирует обработку веб-канала изменений для нескольких рабочих ролей. Отдельная коллекция используется для хранения аренд на каждую секцию. Эту коллекцию аренд следует хранить в другой учетной записи, регион записи которой ближе к региону с обработчиком веб-канала изменений. Объект аренды содержит следующие атрибуты: 
+* Владелец: определяет узел, которому принадлежит аренда.
+* Продолжение: определяет положение (маркер продолжения) определенной секции в веб-канале изменений.
+* Отметка времени: время последнего обновления аренды. Отметка времени может использоваться для проверки истечения срока действия аренды. 
+
+**Узел обработчика.** Каждый узел определяет, сколько секций нужно обработать в зависимости от того, сколько других экземпляров узлов имеют активные аренды. 
+1.  После запуска узла он получает аренды для распределения рабочей нагрузки по всем узлам. Узел периодически обновляет аренды, чтобы они оставалась активными. 
+2.  Узел сопоставляет последний маркер продолжения с арендой перед каждой операцией чтения. Чтобы обеспечить безопасность параллелизма, узел проверяет значение ETag для каждого обновления аренды. Также поддерживаются другие стратегии контрольных точек.  
+3.  После завершения работы узел отменяет все аренды, но сохраняет сведения о продолжении, чтобы иметь позже возможность возобновить чтение с сохраненной контрольной точки. 
+
+В настоящее время количество узлов не может превышать количество секций (аренд).
+
+**Потребители:** объекты-получатели или рабочие роли являются потоками, которые выполняют обработку веб-канала изменений, инициированную каждым узлом. Каждый узел обработчика может иметь несколько объектов-получателей. Каждый объект-получатель считывает веб-канал изменений из секции, которой он присвоен, и уведомляет узел об изменениях и окончании срока действия аренд.
+
+Чтобы лучше разобраться, как взаимодействуют эти четыре элемента обработчика веб-канала изменений, давайте рассмотрим пример на схеме ниже. Отслеживаемая коллекция хранит документы и использует city в качестве ключа секции. Мы видим, что синяя секция содержит документы с полем city от A до E и т. д. Существует два узла, каждый с двумя объектами-получателями, которые выполняют операцию чтения из четырех секций в параллельном режиме. Стрелки показывают конкретные точки в веб-канале изменений, в которых объекты-получатели выполняют операцию чтения. В первой секции синим цветом представлены непрочитанные изменения, а голубым — уже прочитанные изменения в веб-канале изменений. Узлы используют коллекцию аренд для хранения значения "продолжение", чтобы отслеживать текущую позицию чтения каждого объекта-получателя. 
+
+![Использование узла обработчика веб-канала изменений Azure Cosmos DB](./media/change-feed/changefeedprocessornew.png)
+
+### <a name="using-change-feed-processor-library"></a>Использование библиотеки обработчика веб-канала изменений 
+В следующем разделе объясняется, как использовать библиотеку обработчика веб-канала изменений в контексте репликации изменений из исходной коллекции в целевую. В данном случае исходная коллекция — это отслеживаемая коллекция обработчика веб-канала изменений. 
+
+**Установка и добавление пакета NuGet обработчика веб-канала изменений** 
+
+Прежде чем устанавливать пакет NuGet обработчика веб-канала изменений, установите: 
+* Библиотеку Microsoft.Azure.DocumentDB (версии 1.13.1 или выше). 
+* Newtonsoft.Json, версии 9.0.1 или более поздней версии. Установите пакет `Microsoft.Azure.DocumentDB.ChangeFeedProcessor` и добавьте его в качестве ссылки.
+
+**Создайте отслеживаемую коллекцию, коллекцию аренд и назначения** 
+
+Чтобы использовать библиотеку обработчика веб-канала изменений, необходимо создать коллекцию аренд перед запуском узлов обработчика. Напоминаем, что эту коллекцию аренд следует хранить в другой учетной записи, регион записи которой ближе к региону с обработчиком веб-канала изменений. В этом примере перемещения данных необходимо создать целевую коллекцию перед запуском узла обработчика веб-канала изменений. В примере кода мы вызовем вспомогательный метод для создания отслеживаемой коллекции, коллекции аренд и целевой коллекции, если они еще не существуют. 
+
+> [!WARNING]
+> Создание коллекции связано с ценовыми требованиями, так как для взаимодействия с базой данных Azure Cosmos DB для приложения резервируется пропускная способность. Дополнительные сведения см. на [странице цен](https://azure.microsoft.com/pricing/details/cosmos-db/).
+> 
+> 
+
+*Создание узла обработчика*
+
+Класс `ChangeFeedProcessorHost` предоставляет потокобезопасную многопроцессную среду безопасного выполнения для реализаций обработчиков событий. Эта среда также предоставляет средства управления контрольными точками и арендой секций. Для использования класса `ChangeFeedProcessorHost` можно реализовать `IChangeFeedObserver`. Этот интерфейс содержит три метода:
+
+* `OpenAsync` — эта функция вызывается при открытии наблюдателя веб-канала изменений. Ее можно изменить для выполнения определенных действий при открытии объекта-получателя и наблюдателя.  
+* `CloseAsync` — эта функция вызывается при закрытии наблюдателя веб-канала изменений. Ее можно изменить для выполнения определенных действий при закрытии объекта-получателя и наблюдателя.  
+* `ProcessChangesAsync` — эта функция вызывается, когда новые изменения документа доступны в веб-канале изменений. Ее можно изменить для выполнения определенных действий после каждого обновления веб-канала изменений.  
+
+В нашем примере мы реализовали интерфейс `IChangeFeedObserver` посредством класса `DocumentFeedObserver`. Здесь функция `ProcessChangesAsync` вставляет (обновляет) документ из веб-канала изменений в коллекцию назначения. Этот пример полезен для перемещения данных из одной коллекции в другую, чтобы изменить ключ секции набора данных. 
+
+*Запуск узла обработчика*
+
+Перед началом обработки событий можно настроить параметры веб-канала и узла веб-канала. 
+```csharp
+    // Customizable change feed option and host options 
+    ChangeFeedOptions feedOptions = new ChangeFeedOptions();
+
+    // ie customize StartFromBeginning so change feed reads from beginning
+    // can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
+    feedOptions.StartFromBeginning = true;
+
+    ChangeFeedHostOptions feedHostOptions = new ChangeFeedHostOptions();
+
+    // ie. customizing lease renewal interval to 15 seconds
+    // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
+    feedHostOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+
+```
+В следующих таблицах приведены конкретные поля, которые можно настроить. 
+
+**Параметры веб-канала изменений**:
+<table>
+    <tr>
+        <th>Имя свойства</th>
+        <th>Описание</th>
+    </tr>
+    <tr>
+        <td>MaxItemCount</td>
+        <td>Получает или определяет максимальное количество элементов, возвращаемых в операции перечисления в службе базы данных Azure Cosmos DB.</td>
+    </tr>
+    <tr>
+        <td>PartitionKeyRangeId</td>
+        <td>Получает или определяет идентификатор диапазона ключей секции для текущего запроса в службу базы данных Azure Cosmos DB.</td>
+    </tr>
+    <tr>
+        <td>RequestContinuation</td>
+        <td>Получает или определяет маркер продолжения запроса в службе базы данных Azure Cosmos DB.</td>
+    </tr>
+        <tr>
+        <td>SessionToken</td>
+        <td>Получает или определяет маркер сеанса для использования с согласованностью сеансов в службе базы данных Azure Cosmos DB.</td>
+    </tr>
+        <tr>
+        <td>StartFromBeginning</td>
+        <td>Получает или определяет, откуда должен запускаться веб-канал изменений в службе базы данных Azure Cosmos DB (с самого начала (true) или из текущего положения (false)). По умолчанию он начинается с текущего положения (false).</td>
+    </tr>
+</table>
+
+**Параметры узла веб-канала изменений**:
+<table>
+    <tr>
+        <th>Имя свойства</th>
+        <th>Тип</th>
+        <th>Описание</th>
+    </tr>
+    <tr>
+        <td>LeaseRenewInterval</td>
+        <td>TimeSpan</td>
+        <td>Интервал для всех аренд секций, которые в данный момент удерживаются экземпляром ChangeFeedEventHost.</td>
+    </tr>
+    <tr>
+        <td>LeaseAcquireInterval</td>
+        <td>TimeSpan</td>
+        <td>Интервал для запуска задачи вычисления равномерности распределения секций между известными экземплярами узла.</td>
+    </tr>
+    <tr>
+        <td>LeaseExpirationInterval</td>
+        <td>TimeSpan</td>
+        <td>Интервал, за который берется аренда, представляющая секцию. Если аренда не была обновлена в течение этого интервала, она будет просрочена и владение секцией перейдет к другому экземпляру ChangeFeedEventHost.</td>
+    </tr>
+    <tr>
+        <td>FeedPollDelay</td>
+        <td>TimeSpan</td>
+        <td>Задержка между опросами секции на наличие новых изменений в веб-канале, после того как все текущие изменения будут утеряны.</td>
+    </tr>
+    <tr>
+        <td>CheckpointFrequency</td>
+        <td>CheckpointFrequency</td>
+        <td>Частота создания контрольных точек аренд.</td>
+    </tr>
+    <tr>
+        <td>MinPartitionCount</td>
+        <td>int</td>
+        <td>Минимальное количество секций узла.</td>
+    </tr>
+    <tr>
+        <td>MaxPartitionCount</td>
+        <td>int</td>
+        <td>Максимальное число секций, которые можно использовать в узле.</td>
+    </tr>
+    <tr>
+        <td>DiscardExistingLeases</td>
+        <td>Bool</td>
+        <td>При запуске узла следует удалить все существующие аренды и узел должен быть запущен с нуля.</td>
+    </tr>
+</table>
 
 
-Ниже приведен фрагмент кода для простого узла обработчика веб-канала изменений, который выводит изменения в консоль.
+Чтобы начать обработку событий, следует создать экземпляр `ChangeFeedProcessorHost`, указав соответствующие параметры для коллекции Azure Cosmos DB. Затем вызовите метод `RegisterObserverAsync` для регистрации вашей реализации `IChangeFeedObserver` (в этом примере DocumentFeedObserver) в среде выполнения. На этом этапе узел попытается получить аренду для каждого диапазона ключей секций в коллекции Azure Cosmos DB, используя "жадный" алгоритм. Эти аренды будут продолжаться в течение заданного промежутка времени, после чего их необходимо продлить. По мере перехода новых узлов (в нашем случае это рабочие экземпляры) в оперативный режим они размещают резервирования аренды и со временем нагрузка смещается между узлами при каждой попытке получения дополнительных аренд. 
 
-```cs
-    class DocumentFeedObserver : IChangeFeedObserver
+В примере кода мы используем класс фабрики (DocumentFeedObserverFactory.cs) для создания наблюдателя и `RegistObserverFactoryAsync`, чтобы его зарегистрировать. 
+
+```csharp
+using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destCollInfo.MasterKey))
     {
-        private static int s_totalDocs = 0;
-        public Task OpenAsync(ChangeFeedObserverContext context)
-        {
-            Console.WriteLine("Worker opened, {0}", context.PartitionKeyRangeId);
-            return Task.CompletedTask;  // Requires targeting .NET 4.6+.
-        }
-        public Task CloseAsync(ChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
-        {
-            Console.WriteLine("Worker closed, {0}", context.PartitionKeyRangeId);
-            return Task.CompletedTask;
-        }
-        public Task ProcessEventsAsync(IReadOnlyList<Document> docs, ChangeFeedObserverContext context)
-        {
-            Console.WriteLine("Change feed: total {0} doc(s)", Interlocked.Add(ref s_totalDocs, docs.Count));
-            return Task.CompletedTask;
-        }
+        DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory(destClient, destCollInfo);
+        ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation, feedOptions, feedHostOptions);
+
+        await host.RegisterObserverFactoryAsync(docObserverFactory);
+
+        Console.WriteLine("Running... Press enter to stop.");
+        Console.ReadLine();
+
+        await host.UnregisterObserversAsync();
     }
 ```
-
-Указанный ниже фрагмент кода показывает, как зарегистрировать новый узел для ожидания передачи изменений из коллекции Azure Cosmos DB. Здесь мы настраиваем отдельную коллекцию, чтобы управлять арендами для секций между несколькими потребителями:
-
-```cs
-    string hostName = Guid.NewGuid().ToString();
-    DocumentCollectionInfo documentCollectionLocation = new DocumentCollectionInfo
-    {
-        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
-        MasterKey = "YOUR_SECRET_KEY==",
-        DatabaseName = "db1",
-        CollectionName = "documents"
-    };
-
-    DocumentCollectionInfo leaseCollectionLocation = new DocumentCollectionInfo
-    {
-        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
-        MasterKey = "YOUR_SECRET_KEY==",
-        DatabaseName = "db1",
-        CollectionName = "leases"
-    };
-
-    ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation);
-    await host.RegisterObserverAsync<DocumentFeedObserver>();
-```
-
-В этой статье предоставлено руководство по поддержке веб-канала изменений Azure Cosmos DB и отслеживанию изменений, внесенных в данные Azure Cosmos DB, с помощью REST API и (или) пакетов SDK. 
+Со временем устанавливается равновесие. Такая динамическая возможность позволяет применить к потребителям автоматическое масштабирование как вверх, так и вниз на основе использования ресурсов ЦП. Если события становятся доступными в Azure Cosmos DB быстрее, чем могут обработать потребители, то увеличение использования ресурсов ЦП потребителями можно использовать для автоматического масштабирования на основе числа экземпляров исполнителей.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Попробуйте поработать с [примерами кода веб-канала изменений Azure Cosmos DB в GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).

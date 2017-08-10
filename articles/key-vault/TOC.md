@@ -15,22 +15,24 @@
 ### [Ключи с защитой HSM](key-vault-hsm-protected-keys.md)
 ### [Переход на .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### Общие сведения
-#### [Общие сведения о безопасности систем](key-vault-ovw-security-worlds.md)
-#### [Общие сведения об обратимом удалении](key-vault-ovw-soft-delete.md)
-#### [Общие сведения о ключах учетной записи хранения](key-vault-ovw-storage-keys.md)
-#### [Общие сведения о регулировании](key-vault-ovw-throttling.md)
+#### [Системы безопасности](key-vault-ovw-security-worlds.md)
+#### [Обратимое удаление](key-vault-ovw-soft-delete.md)
+#### [Ключи учетной записи хранения](key-vault-ovw-storage-keys.md)
+#### [Регулирование](key-vault-ovw-throttling.md)
 
 ## Управление
 ### [Ведение журнала Azure Key Vault](key-vault-logging.md)
 ### [Доступ за брандмауэрами](key-vault-access-behind-firewall.md)
-### [Изменение идентификатора клиента](key-vault-subscription-move-fix.md)
-### [Использование групп для предоставления доступа](key-vault-group-permissions-for-apps.md)
 ### [Доступность и избыточность](key-vault-disaster-recovery-guidance.md)
+### [Изменение идентификатора клиента](key-vault-subscription-move-fix.md)
+### [Создание и управление с помощью интерфейса командной строки версии 2.0](key-vault-manage-with-cli2.md)
+### [Как использовать обратимое удаление в Key Vault с помощью CLI](key-vault-soft-delete-cli.md)
+### [Как использовать обратимое удаление в Key Vault с помощью PowerShell](key-vault-soft-delete-powershell.md)
+### [Использование групп для предоставления доступа](key-vault-group-permissions-for-apps.md)
 ### [Защита хранилища ключей](key-vault-secure-your-key-vault.md)
 
 ## Автоматизация
 ### [Служба автоматизации Azure](automation-manage-key-vault.md)
-### [Создание и управление с помощью интерфейса командной строки версии 2.0](key-vault-manage-with-cli2.md)
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)

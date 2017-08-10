@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e1d44f85b36d08944351a79d7a4b39cc8de61201
-ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ca8c94cfe6a76ba169b2ec1f7ab3f49caf562289
 ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными
@@ -36,6 +36,14 @@ ms.lasthandoff: 11/17/2016
 Приведенное ниже пошаговое руководство поможет вам создать фабрику данных с конвейером, перемещающим данные из локальной базы данных **SQL Server** в хранилище BLOB-объектов Azure. В рамках этого пошагового руководства вы установите и настроите шлюз управления данными на своем компьютере.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Пошаговое руководство: копирование локальных данных в облако
+
+## <a name="prerequisites-for-the-tutorial"></a>Предварительные требования для прохождения этого учебника
+Для работы с этим пошаговым руководством необходимо следующее:
+
+* **Подписка Azure**.  Если у вас нет подписки, вы можете создать бесплатную пробную версию учетной записи всего за несколько минут. Дополнительные сведения см. в статье [Бесплатная пробная версия](http://azure.microsoft.com/pricing/free-trial/).
+* **исходного**хранилища данных. В этом руководстве в качестве **назначения и приемника** будет использоваться хранилище BLOB-объектов. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account) .
+* **SQL Server.** В этом руководстве используйте локальную базу данных SQL Server в качестве **исходного** хранилища данных. 
+
 ## <a name="create-data-factory"></a>Создание фабрики данных
 На этом этапе вы с помощью портала Azure создадите экземпляр фабрики данных Azure с именем **ADFTutorialOnPremDF**.
 
@@ -263,7 +271,7 @@ ms.lasthandoff: 11/17/2016
    * **folderPath** имеет значение **adftutorial/outfromonpremdf**, где outfromonpremdf — это папка в контейнере adftutorial. Если контейнер **adftutorial** еще не существует, создайте его.
    * Параметр **availability** имеет значение **hourly** (параметру **frequency** присваивается значение **hour**, а параметру **interval** — значение **1**).  Служба фабрики данных каждый час создает срез выходных данных в таблице **emp** в базе данных SQL Azure.
 
-   Если не указать **fileName** для **выходной таблицы**, то созданные в **folderPath** файлы получают имена в следующем формате: Data.<Guid>.txt (например: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Если не указать **fileName** для **выходной таблицы**, то созданные в **folderPath** файлы получают имена в следующем формате: Data<Guid>.txt (например: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Чтобы динамически установить параметры **folderPath** и **fileName** на основе времени **SliceStart**, используйте свойство partitionedBy. В следующем примере folderPath использует год, месяц и день из SliceStart (время начала обработки среза), а в fileName используется время (часы) из SliceStart. Например, если срез выполняется для временной отметки 2014-10-20T08:00:00, folderName получает значение wikidatagateway/wikisampledataout/2014/10/20, а fileName – 08.csv.
 
@@ -342,7 +350,7 @@ ms.lasthandoff: 11/17/2016
 
    * В разделе действий есть только действие, для параметра **type** которого задано значение **Copy**.
    * Для параметра действия **input** установлено значение **EmpOnPremSQLTable**, а для **output** — **OutputBlobTable**.
-   * В разделе **typeProperties** в качестве **типа источника** указано значение **BlobSource**, а в качестве **типа приемника** — **SqlSink**.
+   * В разделе **typeProperties** в качестве **типа источника** указано значение **SqlSink**, а в качестве **типа приемника** — **BlobSource**.
    * Для свойства **sqlReaderQuery** типа **SqlSource** задан тип SQL-запроса `select * from emp`.
 
    Даты начала и окончания должны быть в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. Время **окончания** указывать не обязательно, однако в этом примере мы будем его использовать.

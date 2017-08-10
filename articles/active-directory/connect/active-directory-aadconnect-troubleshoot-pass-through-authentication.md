@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/28/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 05d7c50aaa1209220b6cff3305fdb05dd2c421f8
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 4a687e1edbb2c9b3db3079a70162886092ede521
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -30,6 +30,14 @@ ms.lasthandoff: 06/17/2017
 >Если вы столкнулись с проблемами в работе сквозной аутентификации, которые касаются входа пользователей, не отключайте эту функцию и не удаляйте агенты сквозной аутентификации, если у вас нет облачной учетной записи глобального администратора, на которую можно переключиться. См. дополнительные сведения о [добавлении облачной учетной записи глобального администратора](../active-directory-users-create-azure-portal.md). Этот шаг очень важен для того, чтобы не потерять доступ к клиенту.
 
 ## <a name="general-issues"></a>Общие проблемы
+
+### <a name="check-status-of-the-feature-and-authentication-agents"></a>Проверьте состояние компонента и агентов проверки подлинности
+
+Убедитесь, что компонент сквозной проверки подлинности по-прежнему **включен** в клиенте и что для состояния агентов проверки подлинности отображается значение **Active** (Активны), а не **Inactive** (Неактивны). Это можно проверить в колонке **Azure AD Connect** на [портале Azure](https://portal.azure.com/).
+
+![Портал Azure — колонка Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+
+![Портал Azure — колонка сквозной проверки подлинности](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### <a name="user-facing-sign-in-error-messages"></a>Сообщения об ошибках при входе пользователей
 
@@ -43,13 +51,13 @@ ms.lasthandoff: 06/17/2017
 |AADSTS80005|При проверке было обнаружено непредсказуемое исключение WebException|Это временная проблема. Повторите запрос. Если проблема не исчезла, обратитесь в службу поддержки Майкрософт.
 |AADSTS80007|Произошла ошибка при взаимодействии с Active Directory|Посмотрите дополнительные сведения в журналах агентов и убедитесь, что Active Directory работает должным образом.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Причины сбоя единого входа в центре администрирования Azure Active Directory
+### <a name="sign-in-failure-reasons-on-the-azure-portal"></a>Причины неполадок при входе на портал Azure
 
-При устранении неполадок со входом пользователей при использовании сквозной аутентификации для начала стоит проверить [отчет о действиях при входе](../active-directory-reporting-activity-sign-ins.md) в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/).
+Чтобы устранить проблемы при входе пользователей, сначала просмотрите [отчет действий при входе](../active-directory-reporting-activity-sign-ins.md) на [портале Azure](https://portal.azure.com/).
 
 ![Отчет о входе](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Перейдите в раздел **Azure Active Directory** -> **Вход в систему** в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/) и щелкните конкретное действие пользователя при входе. Найдите поле **КОД ОШИБКИ ВХОДА**. Сопоставьте значение этого поля c причиной сбоя и способом разрешения с помощью следующей таблицы:
+Перейдите в раздел **Azure Active Directory** -> **Вход в систему** на [портале Azure](https://portal.azure.com/) и щелкните конкретное действие пользователя при входе. Найдите поле **КОД ОШИБКИ ВХОДА**. Сопоставьте значение этого поля c причиной сбоя и способом разрешения с помощью следующей таблицы:
 
 |Код ошибки входа|Причина ошибки входа|Способы устранения:
 | --- | --- | ---
@@ -64,10 +72,6 @@ ms.lasthandoff: 06/17/2017
 | 80011 | Агенту аутентификации не удается получить ключ расшифровки. | Если проблема возникает постоянно, установите и зарегистрируйте новый агент аутентификации. Также удалите текущий агент.
 
 ## <a name="authentication-agent-installation-issues"></a>Проблемы с установкой агента аутентификации
-
-### <a name="an-azure-ad-application-proxy-connector-already-exists"></a>Соединитель прокси приложения Azure AD уже установлен
-
-Агент сквозной аутентификации невозможно установить на одном сервере с соединителем [прокси приложения Azure AD](../../active-directory/active-directory-application-proxy-get-started.md). Потребуется установить агент сквозной аутентификации на отдельном сервере.
 
 ### <a name="an-unexpected-error-occurred"></a>Произошла непредвиденная ошибка
 
@@ -115,16 +119,16 @@ ms.lasthandoff: 06/17/2017
 
 ### <a name="authentication-agent-event-logs"></a>Журналы событий агента аутентификации
 
-Чтобы посмотреть ошибки, связанные с агентом аутентификации, откройте на сервере приложение "Просмотр событий" и проверьте расположение **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**.
+Чтобы посмотреть ошибки, связанные с агентом проверки подлинности, откройте на сервере приложение "Просмотр событий" и проверьте расположение **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 Для более детального анализа включите журнал "Сеанс". Не запускайте агент аутентификации со включенным журналом во время обычной работы. Используйте его только для устранения неполадок. Содержимое этого журнала будет видно только после того, как он снова будет отключен.
 
 ### <a name="detailed-trace-logs"></a>Подробные журналы трассировки
 
-Для диагностики и устранения неполадок при входе пользователей найдите журналы трассировки в папке **C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. В этих журналах содержатся причины сбоев, возникших при входе пользователей с помощью сквозной аутентификации. Эти ошибки также сопоставляются с причинами ошибок входа, показанными в предыдущей [таблице](#sign-in-failure-reasons-on-the-Azure-portal). Ниже приведен пример записи в журнале.
+Для диагностики и устранения неполадок при входе пользователей найдите журналы трассировки в папке **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. В этих журналах содержатся причины сбоев, возникших при входе пользователей с помощью сквозной аутентификации. Эти ошибки также сопоставляются с причинами ошибок входа, показанными в предыдущей [таблице](#sign-in-failure-reasons-on-the-Azure-portal). Ниже приведен пример записи в журнале.
 
 ```
-    ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
+    AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
         ThreadId=5
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
@@ -142,7 +146,7 @@ ms.lasthandoff: 06/17/2017
 ```
     <QueryList>
     <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe')]]</Select>
+    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft Azure AD Connect Authentication Agent\AzureADConnectAuthenticationAgentService.exe')]]</Select>
     </Query>
     </QueryList>
 ```

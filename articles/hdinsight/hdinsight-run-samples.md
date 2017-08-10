@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: c3e9ee66974f8b7077a0436b3686fb0515ea5e22
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 34947c6dfd86ddd421f6d8045ed9c5fbf0049e11
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Выполнение примеров Hadoop MapReduce в HDInsight на базе Windows
@@ -52,8 +51,7 @@ ms.lasthandoff: 06/10/2017
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Кластер HDInsight**. Инструкции по различным способам создания таких кластеров см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* <seg>
-  **Рабочая станция с Azure PowerShell**.</seg>
+* **Рабочая станция с Azure PowerShell**.
 
     > [!IMPORTANT]
     > Поддержка Azure PowerShell для управления ресурсами HDInsight с помощью диспетчера служб Azure (ASM) объявлена **устаревшей** и будет прекращена с 1 января 2017 г. В описанных в этом документе инструкциях используются новые командлеты HDInsight, которые работают с Azure Resource Manager.
@@ -61,7 +59,7 @@ ms.lasthandoff: 06/10/2017
     > Чтобы установить последнюю версию Azure PowerShell, выполните действия из статьи [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Установка и настройка Azure PowerShell). Если у вас есть сценарии, в которые нужно добавить новые командлеты, работающие с Azure Resource Manager, см. статью [Переход к средствам разработки на основе Azure Resource Manager для кластеров HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="hdinsight-sample-wordcount"></a>Статистика — Java
-Чтобы отправить проект MapReduce, сначала нужно создать определение задания MapReduce. В определении задания укажите JAR-файл программы MapReduce и расположение JAR-файла, представляющее собой **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, имя класса и аргументы.  Программа подсчета слов MapReduce принимает два аргумента: исходный файл, используемый для подсчета слов, и расположение для выходных данных.
+Чтобы отправить проект MapReduce, сначала нужно создать определение задания MapReduce. В определении задания укажите JAR-файл программы MapReduce и расположение JAR-файла — **wasb:///example/jars/hadoop-mapreduce-examples.jar**, а также имя класса и аргументы.  Программа подсчета слов MapReduce принимает два аргумента: исходный файл, используемый для подсчета слов, и расположение для выходных данных.
 
 Исходный код можно найти в [Приложении А](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -81,9 +79,9 @@ ms.lasthandoff: 06/10/2017
 
     # Define the MapReduce job
     $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
-                                -Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput"
+                                -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
@@ -170,7 +168,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "pi" `
                                 -Arguments "16", "10000000"
     ```

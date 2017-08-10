@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
-ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 0228bf7ce261cfccdec9431d3c9fb67f461eefbd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 07/25/2017
 
 ---
-# Добавление имени личного домена в Azure Active Directory
-<a id="add-a-custom-domain-name-to-azure-active-directory" class="xliff"></a>
+# <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Добавление имени личного домена в Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-domains-add-azure-portal.md)
 > * [классическом портале Azure](active-directory-add-domain.md)
@@ -35,13 +36,12 @@ ms.lasthandoff: 02/22/2017
 2. Добавьте DNS-запись доменного имени в регистратор доменных имен.
 3. Проверьте имя личного домена в Azure AD.
 
-> [!NOTE]
-> Если вы собираетесь настроить имя личного домена для использования в службах федерации Active Directory (AD FS) или другой службе маркеров безопасности в корпоративной сети, следуйте указаниям в статье [Add and configure a domain for federation with Azure Active Directory](active-directory-add-domain-federated.md)(Добавление и настройка домена федерации с использованием Azure Active Directory). Это целесообразно, если вы планируете синхронизировать учетные записи пользователей из каталога организации с Azure AD, а [синхронизация хеша паролей](active-directory-aadconnectsync-implement-password-synchronization.md) не соответствует вашим требованиям.
-> 
-> 
+> [!IMPORTANT]
+> Для управления службой Azure AD мы рекомендуем использовать [Центр администрирования Azure AD](https://aad.portal.azure.com) на портале Azure, а не классический портал Azure, который упоминается в этой статье. Сведения о добавлении доменного имени в центре администрирования Azure AD см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-domains-add-azure-portal.md).
 
-## Добавление имени личного домена в каталог
-<a id="add-a-custom-domain-name-to-your-directory" class="xliff"></a>
+Если вы собираетесь настроить имя личного домена для использования в службах федерации Active Directory (AD FS) или другой службе маркеров безопасности в корпоративной сети, следуйте указаниям в статье [Add and configure a domain for federation with Azure Active Directory](active-directory-add-domain-federated.md)(Добавление и настройка домена федерации с использованием Azure Active Directory). Это целесообразно, если вы планируете синхронизировать учетные записи пользователей из каталога организации с Azure AD, а [синхронизация хеша паролей](active-directory-aadconnectsync-implement-password-synchronization.md) не соответствует вашим требованиям.
+
+## <a name="add-a-custom-domain-name-to-your-directory"></a>Добавление имени личного домена в каталог
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com/) как глобальный администратор каталога Azure AD.
 2. В **Active Directory** откройте каталог и выберите вкладку **Домены**.
 3. На панели команд щелкните **Добавить**. Введите имя пользовательского домена, например contoso.com. Обязательно включите расширение COM, NET или другое расширение верхнего уровня и оставьте флажок единого входа (федеративного) не установленным.
@@ -50,8 +50,7 @@ ms.lasthandoff: 02/22/2017
 
 После того, как вы добавили доменное имя, Azure AD необходимо убедиться, что оно принадлежит вашей организации. Прежде чем Azure AD выполнит эту проверку, в файл зоны DNS необходимо добавить DNS-запись для доменного имени. Эту задачу можно выполнить на веб-сайте регистратора доменных имен, где вы регистрировали доменное имя.
 
-## Добавление DNS-записи домена в регистратор доменных имен
-<a id="add-the-dns-entry-at-the-domain-name-registrar-for-the-domain" class="xliff"></a>
+## <a name="add-the-dns-entry-at-the-domain-name-registrar-for-the-domain"></a>Добавление DNS-записи домена в регистратор доменных имен
 Далее, чтобы использовать имя личного домена в Azure AD, нужно обновить файл зоны DNS для домена. Таким образом Azure AD сможет проверить, что организации принадлежит имя личного домена.
 
 1. Войдите в соответствующий регистратор доменных имен. Если у вас нет права на обновление DNS-записи, попросите пользователя или группу с таким правом выполнить шаг 2 и сообщить вам о его завершении.
@@ -59,8 +58,7 @@ ms.lasthandoff: 02/22/2017
 
 Дополнительные сведения о добавлении записи DNS см. в [инструкциях по добавлению записи DNS на сайтах популярных регистраторов DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
-## Проверка доменного имени в Azure AD
-<a id="verify-the-domain-name-with-azure-ad" class="xliff"></a>
+## <a name="verify-the-domain-name-with-azure-ad"></a>Проверка доменного имени в Azure AD
 Вы можете проверить доменное имя в Azure AD сразу после добавления DNS-записи.
 
 Если мастер **добавления домена** все еще открыт, нажмите на третьей странице кнопку **Проверить**. После выбора команды **Проверить**Azure AD выполнит поиск DNS-записи в файле зоны DNS домена. В Azure AD доменное имя можно проверить только после распространения DNS-записей. Как правило, это занимает всего несколько секунд, но иногда — один или несколько часов. Если не удалось выполнить проверку, повторите попытку позже.
@@ -74,20 +72,17 @@ ms.lasthandoff: 02/22/2017
 
 Теперь можно [назначить имена пользователей, включающие имя вашего личного домена](active-directory-add-domain-add-users.md).
 
-## Устранение неполадок
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>Устранение неполадок
 Если вам не удается проверить имя личного домена, воспользуйтесь приведенными ниже рекомендациями. Начнем с наиболее распространенной и закончим наиболее редкой.
 
 1. **Подождите один час**. Azure AD сможет проверить домен только после распространения DNS-записей. Для этого может понадобиться один или несколько часов.
 2. **Убедитесь, что введена правильная запись DNS**. Выполните этот шаг на веб-сайте регистратора доменных имен, где вы регистрировали домен. Azure AD не сможет проверить доменное имя, если DNS-запись отсутствует в файле зоны DNS или если она не полностью соответствует DNS-записи, предоставленной Azure AD. Если у вас нет прав на обновление DNS-записей домена в регистраторе доменных имен, передайте DNS-запись пользователю или группе с такими правами в рамках организации и попросите их добавить запись.
 3. **Удалите доменное имя из другого каталога в Azure AD**. Доменное имя можно проверить только в одном каталоге. Если доменное имя ранее было проверено в другом каталоге, его нужно удалить из него. Только после этого имя можно будет проверить в новом каталоге. Дополнительные сведения об удалении доменных имен см. в статье об [управлении именами личных доменов](active-directory-add-manage-domain-names.md).
 
-## Добавление имен других личных доменов
-<a id="add-more-custom-domain-names" class="xliff"></a>
+## <a name="add-more-custom-domain-names"></a>Добавление имен других личных доменов
 Если в организации используется несколько имен личных доменов, например contoso.com и contosobank.com, вы можете добавить не более 900 имен. Выполните действия, описанные в этой статье, чтобы добавить все свои доменные имена.
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 * [Сведения о назначении имен пользователей, которые содержат имя пользовательского домена](active-directory-add-domain-add-users.md)
 * [Управление именами пользовательских доменов](active-directory-add-manage-domain-names.md)
 * [Общие сведения об управлении доменами в Azure AD](active-directory-add-domain-concepts.md)

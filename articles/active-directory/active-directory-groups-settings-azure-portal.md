@@ -1,5 +1,4 @@
 ---
-
 title: "Управление свойствами группы в Azure Active Directory | Документы Майкрософт"
 description: "Узнайте, как изменить свойства и другие параметры конфигурации группы в Azure Active Directory."
 services: active-directory
@@ -13,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ad714d4543f2c1990a2262de456f607c876f738d
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 24f5da884a7d9f1d07c32419316d2c046d54d739
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Управление параметрами группы в Azure Active Directory
@@ -31,10 +29,10 @@ ms.lasthandoff: 05/09/2017
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
 
-   ![Открытие страницы "Управление пользователями"](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
+   ![Открытие колонки пользователей и групп](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. В колонке **Пользователи и группы** выберите **Все группы**.
 
-   ![Открытие колонки группы](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
+   ![Открытие колонки всех групп](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Выберите группу в колонке **Пользователи и группы — Все группы** .
 5. В колонке **Группа — *имя_группы*** выберите **Свойства**.
 

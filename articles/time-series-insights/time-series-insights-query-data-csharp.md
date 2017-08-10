@@ -1,37 +1,37 @@
 ---
 title: "Запрос данных из среды Azure Time Series Insights с помощью C# | Документация Майкрософт"
-description: "Это руководство содержит сведения о запросе данных из среды Time Series Insights с помощью C#"
+description: "В этом руководстве описывается, как запрашивать данные из среды Time Series Insights с помощью C#, и приводится пример кода."
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: ankryach
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 07/20/2017
 ms.author: ankryach
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 81d16b4093a4eef77e5a9c88cb39f2dd36bcba4e
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 99507a7bf9ca332f0b7adc56c2d8df0240f29b06
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="query-data-from-the-azure-time-series-insights-environment-by-using-c"></a>Запрос данных из среды Azure Time Series Insights с помощью C#
+# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Запрос данных из среды Azure Time Series Insights с помощью C#
 
 В этом примере C# показано, как запросить данные из среды Azure Time Series Insights.
 В нем показано несколько простых способов использования API запроса:
-1. На этапе подготовки маркер доступа получается через API Azure Active Directory. Этот маркер должен передаваться в заголовке `Authorization` каждого запроса API запроса. Сведения о настройке приложений с неинтерактивной проверкой подлинности см. в статье об [аутентификации и авторизации](time-series-insights-authentication-and-authorization.md).
+1. На этапе подготовки следует получить маркер доступа через API Azure Active Directory. Передавайте этот маркер в заголовке `Authorization` каждого запроса API запроса. Сведения о настройке неинтерактивных приложений см. в статье [Проверка подлинности и авторизация для API Azure Time Series Insights](time-series-insights-authentication-and-authorization.md).
 2. Запрашивается список сред, к которым у пользователя есть доступ. Выбирается одна из этих сред, и последующие данные запрашиваются для этой среды.
 3. В качестве примера HTTPS-запроса для выбранной среды запрашиваются данные о доступности.
 4. В качестве примера запроса веб-сокета для выбранной среды запрашиваются объединенные данные событий. Данные запрашиваются для всего диапазона времени доступности.
 
-## <a name="c-sample"></a>Пример на языке C#
+## <a name="c-example"></a>Пример C#
 
 ```csharp
 using System;

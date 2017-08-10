@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6db2fa2f568c3cf8296bd91214b380a01b85c134
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 1f12a8e3e11bc7eee1fc536e231f71c1d17c3fe4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Подробное техническое руководство по простому единому входу Azure Active Directory
 
-В этой статье приводятся технические сведения о работе функции простого единого входа Azure Active Directory (Azure AD).
+В этой статье приводятся технические сведения о работе функции простого единого входа Azure Active Directory.
 
-## <a name="how-does-azure-ad-seamless-sso-work"></a>Как работает простой единый вход Azure AD?
+## <a name="how-does-seamless-sso-work"></a>Как работает простой единый вход?
 
 Этот раздел состоит из двух частей.
 1. Настройка функции простого единого входа.
@@ -41,6 +41,9 @@ ms.lasthandoff: 06/16/2017
 
 >[!NOTE]
 > Учетная запись компьютера и имена участников-служб Kerberos создаются в каждом лесу AD, который синхронизируется с Azure AD (с помощью Azure AD Connect) и для пользователей которого должен иметься простой единый вход. Переместите учетную запись `AZUREADSSOACCT` компьютера в подразделение (OU), где хранятся другие учетные записи компьютеров, чтобы управлять им таким же образом и избежать удаления.
+
+>[!IMPORTANT]
+>Настоятельно рекомендуется, чтобы вы [меняли ключ расшифровки Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) для учетной записи компьютера `AZUREADSSOACCT` хотя бы раз в 30 дней.
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>Как работает вход с функцией простого единого входа?
 

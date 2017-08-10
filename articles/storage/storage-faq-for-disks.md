@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 06c126f7fde27d17ceab5897fc6439a2513ed362
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 9e5eed35334f1b95441b8181c8e90645be78b389
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Часто задаваемые вопросы о дисках виртуальных машин Azure IaaS, а также об управляемых и неуправляемых дисках уровня "Премиум"
@@ -168,7 +167,7 @@ ms.lasthandoff: 06/30/2017
 
 **Можно ли преобразовать виртуальные машины с неуправляемыми дисками, расположенные в учетных записях хранения, которые шифруются или уже зашифрованы, для использования управляемых дисков?**
 
-Нет. Пока такая возможность не поддерживается. Ожидается, что она появится к концу июля. 
+Да
 
 **Будет ли также зашифрован экспортированный VHD из управляемого диска или моментального снимка?**
 

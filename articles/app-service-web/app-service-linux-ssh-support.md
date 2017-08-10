@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: bfa902aae0b1ab4ca6a93387106b40a16c7288cd
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 964b39053cf91285202f3af165f4313a15e9f9ee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Поддержка SSH для веб-приложения Azure на платформе Linux
@@ -55,7 +55,7 @@ ms.lasthandoff: 07/24/2017
 
 Чтобы пользовательский образ Docker поддерживал обмен данными по протоколу SSH между контейнером и клиентом на портале Azure, выполните следующие действия с образом Docker. 
 
-[Здесь](https://github.com/Azure-App-Service/node/tree/master/4.4.7-1) в качестве примера эти действия показаны в репозитории службы приложений Azure.
+[Здесь](https://github.com/Azure-App-Service/node/blob/master/6.9.3/) в качестве примера эти действия показаны в репозитории службы приложений Azure.
 
 1. Добавьте установку `openssh-server` в инструкцию [`RUN` ](https://docs.docker.com/engine/reference/builder/#run)в Dockerfile для образа и установите пароль для учетной записи привилегированного пользователя `"Docker!"`. 
 

@@ -1,13 +1,27 @@
 # Обзор
 ## [Что такое службы Azure Analysis Services?](analysis-services-overview.md)
 ## [Поддерживаемые источники данных](analysis-services-datasource.md)
+## [Аутентификация и пользовательские разрешения](analysis-services-manage-users.md)
+## [Уровень совместимости](analysis-services-compat-level.md)
+## [Высокая доступность](analysis-services-bcdr.md)
 
-# Быстрое начало работы
-## [Создание сервера (портал)](analysis-services-create-server.md)
-## [Развертывание модели (SSDT)](analysis-services-deploy.md)
+# Приступая к работе
+## [Создание сервера на портале Azure](analysis-services-create-server.md)
+## [Создание сервера с использованием PowerShell](analysis-services-create-powershell.md)
+## [Развертывание модели из Visual Studio](analysis-services-deploy.md)
+## [Создание модели на портале Azure (предварительная версия)](analysis-services-create-model-portal.md)
 
-# Учебники
-## Создание и развертывание модели
+# Инструкции 
+## [Управление сервером](analysis-services-manage.md)
+## [Управление пользователями баз данных](analysis-services-database-users.md)
+## [Управление администраторами сервера](analysis-services-server-admins.md)
+## [Установка локального шлюза данных](analysis-services-gateway.md)
+## [Получение клиентских библиотек](analysis-services-data-providers.md)
+## [Резервное копирование и восстановление](analysis-services-backup.md)
+## [Подключение с помощью Excel](analysis-services-connect-excel.md)
+## [Подключение с помощью Power BI](analysis-services-connect-pbi.md)
+## [Создание ODC-файла](analysis-services-odc.md)
+## Учебники
 ### [Руководство по Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Занятие 1. Создание нового проекта табличной модели](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ### [Занятие 2. Получение данных](tutorials/aas-lesson-2-get-data.md)
@@ -24,23 +38,7 @@
 ### [Занятие 13. Развертывание](tutorials/aas-lesson-13-deploy.md)
 ### [Дополнительное занятие. Строки детализации](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [Дополнительное занятие. Динамическая безопасность](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Дополнительное занятие. Неоднородные иерархии](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
-
-# Основные понятия
-## [Аутентификация и пользовательские разрешения](analysis-services-manage-users.md)
-## [Высокая доступность](analysis-services-bcdr.md)
-
-# Инструкции 
-## [Создание модели на портале Azure (предварительная версия)](analysis-services-create-model-portal.md)
-## [Управление сервером](analysis-services-manage.md)
-## [Управление пользователями баз данных](analysis-services-database-users.md)
-## [Управление администраторами сервера](analysis-services-server-admins.md)
-## [Установка локального шлюза данных](analysis-services-gateway.md)
-## [Подключение с помощью Excel](analysis-services-connect-excel.md)
-## [Подключение с помощью Power BI](analysis-services-connect-pbi.md)
-## [Получение клиентских библиотек](analysis-services-data-providers.md)
-## [Резервное копирование и восстановление](analysis-services-backup.md)
-## [Создание ODC-файла](analysis-services-odc.md)
+### [Дополнительное занятие. Неоднородные иерархии](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Справочные материалы
 ## [PowerShell](analysis-services-powershell.md)

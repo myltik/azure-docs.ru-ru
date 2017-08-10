@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/30/2017
+ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ea438530808b418e1a3b4673a72de5df0738e797
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Настройка отчетов службы Azure Backup
@@ -65,6 +64,11 @@ ms.lasthandoff: 06/30/2017
 
       ![Шаг 6. Выбор учетной записи хранения](./media/backup-azure-configure-reports/save-configuration.png)
 7. Просмотрите все изменения и нажмите кнопку **Сохранить** в верхней части страницы, как показано на приведенном выше рисунке. Теперь все изменения сохранены и учетная запись хранения настроена для хранения данных отчетов.
+
+> [!NOTE]
+> Когда вы настроите отчеты, путем сохранив учетную запись хранения, **подождите 24 часа**, пока не завершится принудительная начальная отправка данных. Импортировать пакет содержимого Azure Backup в Power BI следует только после этого. Дополнительные сведения см. в разделе с [вопросами и ответами](#frequently-asked-questions). 
+>
+>
 
 ## <a name="view-reports-in-power-bi"></a>Просмотр отчетов в Power BI 
 После настройки учетной записи хранения для отчетов с помощью хранилища служб восстановления данные отчетов начнут поступать примерно через 24 часа. Через 24 часа после настройки учетной записи хранения выполните следующие действия, чтобы просмотреть отчеты в Power BI:

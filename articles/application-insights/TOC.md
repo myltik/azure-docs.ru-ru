@@ -92,6 +92,7 @@
 
 ### Использование
 #### [Обзор](app-insights-usage-overview.md)
+#### [Отправка контекста пользователя](app-insights-usage-send-user-context.md)
 #### [Пользователи, сеансы, события](app-insights-usage-segmentation.md)
 #### [Воронки](usage-funnels.md)
 #### [Сохранение](app-insights-usage-retention.md)

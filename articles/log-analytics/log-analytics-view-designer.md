@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d65f730a0f84b89d0228a22b42d0421ad4f2678f
-ms.lasthandoff: 03/09/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 29ffb61715d803340abdb7e02aa64e9233676798
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Использование конструктора представлений для создания пользовательских представлений Log Analytics
@@ -26,8 +26,11 @@ ms.lasthandoff: 03/09/2017
 
 Ниже перечислены другие статьи о конструкторе представлений:
 
-* [Справка по плиткам](log-analytics-view-designer-tiles.md) — справочник по параметрам для каждой плитки, доступной в пользовательских представлениях. 
-* [Log Analytics View Designer visualization part reference](log-analytics-view-designer-parts.md) (Справка по элементам визуализации в конструкторе представлений Log Analytics). Справочник по параметрам всех плиток, которые можно использовать при создании пользовательских представлений. 
+* [Справка по плиткам](log-analytics-view-designer-tiles.md) — справочник по параметрам для каждой плитки, доступной в пользовательских представлениях.
+* [Log Analytics View Designer visualization part reference](log-analytics-view-designer-parts.md) (Справка по элементам визуализации в конструкторе представлений Log Analytics). Справочник по параметрам всех плиток, которые можно использовать при создании пользовательских представлений.
+
+>[!NOTE]
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), запросы во всех представлениях должны создаваться на [новом языке запросов](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Все представления, созданные до обновления рабочей области, будут автоматически преобразованы.
 
 ## <a name="concepts"></a>Основные понятия
 В следующей таблице перечислены элементы, которые входят в представления, созданные с помощью конструктора представлений.
@@ -96,5 +99,4 @@ ms.lasthandoff: 03/09/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Добавление [плиток](log-analytics-view-designer-tiles.md) к пользовательскому представлению.
 * Добавление [элементов визуализации](log-analytics-view-designer-parts.md) к пользовательскому представлению.
-
 

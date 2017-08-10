@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 58db68a1b5000adad4d816c6221881254b9675c7
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f0eb5c1f457380600463a370043f03e6d655a02c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Установка и использование Giraph в кластерах HDInsight под управлением Windows
@@ -96,14 +95,14 @@ Giraph можно установить в кластере любого типа
     ```powershell
     $clusterName = "clustername"
     # Giraph examples jar
-    $jarFile = "wasbs:///example/jars/giraph-examples.jar"
+    $jarFile = "wasb:///example/jars/giraph-examples.jar"
     # Arguments for this job
     $jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
                     "-ca", "mapred.job.tracker=headnodehost:9010",
                     "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-                    "-vip", "wasbs:///example/data/tiny_graph.txt",
+                    "-vip", "wasb:///example/data/tiny_graph.txt",
                     "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-                    "-op",  "wasbs:///example/output/shortestpaths",
+                    "-op",  "wasb:///example/output/shortestpaths",
                     "-w", "2"
     # Create the definition
     $jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -122,7 +121,7 @@ Giraph можно установить в кластере любого типа
     ```
 
     В приведенном выше примере замените **clustername** именем кластера HDInsight, где установлен Giraph.
-3. Просмотрите результаты. После завершения задания результаты будут храниться в двух выходных файлах в папке **wasbs:///example/out/shotestpaths**. Эти файлы называются **part-m-00001** и **part-m-00002**. Выполните следующие действия, чтобы скачать и просмотреть выходные данные.
+3. Просмотрите результаты. Когда задание будет завершено, результаты будут храниться в двух выходных файлах в папке **wasb:///example/out/shotestpaths**. Эти файлы называются **part-m-00001** и **part-m-00002**. Выполните следующие действия, чтобы скачать и просмотреть выходные данные.
 
     ```powershell
     $subscriptionName = "<SubscriptionName>"       # Azure subscription name

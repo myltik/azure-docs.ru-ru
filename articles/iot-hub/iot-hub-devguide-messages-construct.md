@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: be467cf7d3ada41f110f4f6aea686b3d40e01ffa
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: e6eafb1a0030b022da2b5d0b787e092f3067c99f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Создание и чтение сообщений Центра Интернета вещей
@@ -50,7 +49,7 @@ ms.lasthandoff: 05/31/2017
 | UserId |Идентификатор, используемый для указания источника сообщений. Если сообщения создает центр IoT, для этого параметра задается значение `{iot hub name}`. |
 | Ack |Генератор отзывов на сообщения. Это свойство используется в сообщениях, отправляемых из облака в устройство, чтобы запросить у центра IoT отправку отзыва после того, как сообщение будет использовано устройством. Возможные значения: **none** (по умолчанию) — отзывы не создаются, **positive** — отзыв будет получен, когда исходное сообщение будет передано, **negative** — отзыв будет получен, когда истечет срок действия исходного сообщения (или будет превышен лимит доставок) и при этом устройство его не примет, **full** — активированы значения positive и negative. Дополнительные сведения см. в разделе [Отзыв на сообщение][lnk-feedback]. |
 | ConnectionDeviceId |Центр IoT устанавливает этот идентификатор в сообщениях, отправляемых с устройства в облако. Содержит идентификатор **deviceId** устройства, отправившего сообщение. |
-| ConnectionDeviceGenerationId |Центр IoT устанавливает этот идентификатор в сообщениях, отправляемых с устройства в облако. Он содержит идентификатор **generationId** (см. раздел [Свойства удостоверений устройств][lnk-device-properties]) устройства, отправившего сообщение. |
+| ConnectionDeviceGenerationId |Центр IoT устанавливает этот идентификатор в сообщениях, отправляемых с устройства в облако. Содержит идентификатор **generationId** (согласно разделу [Device identity properties][lnk-device-properties] (Свойства удостоверений устройств)) устройства, отправившего сообщение. |
 | ConnectionAuthMethod |Центр IoT устанавливает этот метод проверки подлинности в сообщениях, отправляемых с устройства в облако. Это свойство содержит сведения о методе проверки подлинности, используемом для аутентификации устройства, отправляющего сообщение. Дополнительные сведения см. в разделе [Свойства для защиты от спуфинга][lnk-antispoofing]. |
 
 ## <a name="message-size"></a>Размер сообщения
@@ -75,4 +74,7 @@ ms.lasthandoff: 05/31/2017
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md
-[[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties [lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-propertiess
+[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
+[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
+[lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties
+

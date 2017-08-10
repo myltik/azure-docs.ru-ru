@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2017
+ms.date: 08/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 162be9faa51047f4d0be0e73e3dbe6a3dc87ba4c
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 350576cd7290fdfbfacd526de50c14e5f20b81dc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Аутентификация на основе сертификата в Azure Active Directory на устройстве iOS
@@ -30,7 +30,7 @@ ms.lasthandoff: 06/07/2017
 
 Настройка данной функции избавляет от необходимости ввода имени пользователя и пароля в определенных почтовых клиентах и приложениях Microsoft Office на мобильных устройствах. 
 
-В этой статье приведены требования и поддерживаемые сценарии для настройки CBA на устройстве iOS для пользователей клиентов в тарифных планах Office 365 корпоративный, бизнес, для образования, для государственных организаций США и для Китая.
+В этой статье приведены требования и поддерживаемые сценарии для настройки CBA на устройстве iOS (Android) для пользователей клиентов в тарифных планах Office 365 корпоративный, бизнес, для образования, для государственных организаций США, Китая и Германии.
 
 В тарифных планах Office 365 US Government Defense и Federal доступна предварительная версия этой функции.
 
@@ -47,6 +47,7 @@ ms.lasthandoff: 06/07/2017
 | Outlook |![Проверка][1] |
 | Yammer |![Проверка][1] |
 | Skype для бизнеса |![Проверка][1] |
+| Приложение Azure Information Protection |![Проверка][1] |
 | Microsoft Teams |![Проверка][1] |
 
 ## <a name="requirements"></a>Требования 

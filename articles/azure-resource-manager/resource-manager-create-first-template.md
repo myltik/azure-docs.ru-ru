@@ -6,43 +6,38 @@ documentationcenter:
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/18/2017
+ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 80fd9d79652e4f0d9c4c524e3a762bcc3462bb53
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
-# <a name="create-your-first-azure-resource-manager-template"></a>Создание первого шаблона Azure Resource Manager
+# <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Создание и развертывание первого шаблона Azure Resource Manager
 В этой статье рассматриваются действия по созданию первого шаблона Azure Resource Manager. Шаблоны Resource Manager — это JSON-файлы, которые определяют ресурсы, необходимые для развертывания решения. Основные понятия, связанные с развертыванием и управлением решений Azure, см. в [обзоре Azure Resource Manager](resource-group-overview.md). Если вы уже развернули ресурсы и хотите получить для них шаблон, см. статью [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
 
-Для создания и изменения шаблонов нужен редактор JSON, например [Visual Studio Code](https://code.visualstudio.com/). Это упрощенный кроссплатформенный редактор с открытым исходным кодом. Он поддерживает создание и редактирование шаблонов Resource Manager с помощью расширения. В этой статье предполагается, что вы используете VS Code. Но вы можете использовать и другой редактор JSON (например, Visual Studio).
+Для создания и изменения шаблонов нужен редактор JSON, например [Visual Studio Code](https://code.visualstudio.com/). Это упрощенный кроссплатформенный редактор с открытым исходным кодом. Для создания шаблонов Resource Manager мы настоятельно рекомендуем использовать Visual Studio Code. В этой статье предполагается, что вы используете VS Code. Но вы можете использовать и другой редактор JSON (например, Visual Studio).
 
-## <a name="get-vs-code-and-extension"></a>Получение редактора VS Code и расширения
-1. При необходимости установите VS Code со страницы [https://code.visualstudio.com/](https://code.visualstudio.com/).
+## <a name="prerequisites"></a>Предварительные требования
 
-2. Установите расширение [Средства Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Для этого воспользуйтесь Quick Open (CTRL+P) и выполните следующую команду: 
+* Visual Studio Code. При необходимости установите его со страницы [https://code.visualstudio.com/](https://code.visualstudio.com/).
+* Подписка Azure. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-   ```
-   ext install msazurermtools.azurerm-vscode-tools
-   ```
+## <a name="create-template"></a>Создание шаблона
 
-3. Перезапустите VSCode, когда будет предложено включить расширение.
+Давайте начнем с простого шаблона, который развертывает учетную запись хранения в подписке.
 
-## <a name="create-blank-template"></a>Создание пустого шаблона
+1. Выберите **Файл** > **Создать файл**. 
 
-Сначала мы создадим пустой шаблон, который включает только основные разделы.
-
-1. Создайте файл. 
+   ![Создание файла](./media/resource-manager-create-first-template/new-file.png)
 
 2. Скопируйте и вставьте в него следующий синтаксис JSON:
 
@@ -50,248 +45,176 @@ ms.lasthandoff: 06/01/2017
    {
      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
      "contentVersion": "1.0.0.0",
-     "parameters": {  },
-     "variables": {  },
-     "resources": [  ],
-     "outputs": {  }
-   }
-   ```
-
-3. Сохраните файл как **azuredeploy.json**. 
-
-## <a name="add-storage-account"></a>Добавление учетной записи хранения
-1. Чтобы определить для развертывания учетную запись хранения, укажите ее в разделе шаблона **resources**. Значения, доступные для учетной записи хранения, см. в [справочнике по шаблонам учетных записей хранения](/azure/templates/microsoft.storage/storageaccounts). Скопируйте код JSON, который отображается для учетной записи хранения. 
-
-3. Вставьте код JSON в раздел шаблона **resources**, как показано в примере ниже. 
-
-   ```json
-   {
-     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {  },
-     "variables": {  },
+     "parameters": {
+     },
+     "variables": {
+     },
      "resources": [
        {
-         "name": "string",
+         "name": "[concat('storage', uniqueString(resourceGroup().id))]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-12-01",
+         "apiVersion": "2016-01-01",
          "sku": {
-           "name": "string"
+           "name": "Standard_LRS"
          },
-         "kind": "string",
-         "location": "string",
+         "kind": "Storage",
+         "location": "South Central US",
          "tags": {},
-         "properties": {
-           "customDomain": {
-             "name": "string",
-             "useSubDomain": boolean
-           },
-           "encryption": {
-             "services": {
-               "blob": {
-                 "enabled": boolean
-               }
-             },
-             "keySource": "Microsoft.Storage"
-           },
-           "accessTier": "string"
-         }
+         "properties": {}
        }
      ],
      "outputs": {  }
    }
    ```
 
-  VS Code может указывать на то, что 2016-12-01 не является допустимой версией API. Если вы используете номер версии из справочной документации по шаблонам, это предупреждение можно игнорировать. Это предупреждение отображается, если схема не обновлена до последнего номера версии от поставщика ресурсов. 
-  
-  Предыдущий пример включает множество значений-заполнителей и некоторые свойства, которые, возможно, не потребуются в вашей учетной записи хранения.
+   Для имен учетных записей хранения существует несколько ограничений, которые усложняют настройку имен. Имя должно содержать от 3 до 24 символов, состоять только из цифр и букв нижнего регистра и быть уникальным. Для создания значения хэша предыдущий шаблон использует функцию [uniqueString](resource-group-template-functions-string.md#uniquestring). Чтобы присвоить этому значению хэша дополнительное значение, он добавляет префикс *storage*. 
 
-## <a name="set-values-for-storage-account"></a>Настройка значений для учетной записи хранения
+3. Сохраните этот файл как **azuredeploy.json** в локальной папке.
 
-Теперь вы можете указать значения для своей учетной записи хранения. 
+   ![Сохранение шаблона](./media/resource-manager-create-first-template/save-template.png)
 
-1. Еще раз откройте [справочник по шаблонам учетных записей хранения](/azure/templates/microsoft.storage/storageaccounts), откуда вы скопировали код JSON. В справочнике есть несколько таблиц, в которых описаны свойства и приведены доступные значения. 
+## <a name="deploy-template"></a>Развертывание шаблона
 
-2. Обратите внимание, что элементы **properties**, **customDomain**, **encryption** и **accessTier** отмечены как необязательные. В некоторых ситуациях эти значения могут потребоваться, но для упрощения нашего примера мы их удалим.
+Теперь вы можете развернуть этот шаблон. Чтобы создать группу ресурсов, вы можете использовать PowerShell или Azure CLI. Затем можно развернуть учетную запись хранения в этой группе ресурсов.
 
-   ```json
-   "resources": [
-     {
-       "name": "string",
-       "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-12-01",
-       "sku": {
-         "name": "string"
-       },
-       "kind": "string",
-       "location": "string",
-       "tags": {},
-       "properties": {
-       }
-     }
-   ],
+* Для PowerShell используйте следующие команды из папки, содержащей шаблон:
+
+   ```powershell
+   Login-AzureRmAccount
+   
+   New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+   New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
    ```
 
-3. Сейчас для элемента **kind** указано значение-заполнитель (string). В редакторе VS Code есть много функций, которые помогают понять используемые в шаблоне значения. Обратите внимание, VS Code указывает, что это значение — недопустимое. Если навести указатель мыши на значение string, VS Code предложит для элемента **kind** значения `Storage` или `BlobStorage`. 
+* Для локальной установки Azure CLI используйте следующие команды из папки, содержащей шаблон:
 
-   ![VS Code показывает предлагаемые значения](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ```azurecli
+   az login
 
-   Чтобы просмотреть доступные значения, удалите символы между двойными кавычками и нажмите клавиши **CTRL+ПРОБЕЛ**. Из предложенных вариантов выберите значение **Storage**.
-  
-   ![Показать Intellisense](./media/resource-manager-create-first-template/intellisense.png)
-
-   Если вы не используете редактор VS Code, откройте страницу справочника по шаблонам учетных записей хранения. Обратите внимание, что описание содержит те же допустимые значения. Установите для элемента значение **Storage**.
-
-   ```json
-   "kind": "Storage",
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
 
-Ваш шаблон теперь выглядит так:
+После завершения развертывания учетная запись хранения будет находиться в группе ресурсов.
+
+## <a name="deploy-template-from-cloud-shell"></a>Развертывание шаблона из Cloud Shell
+
+Вы можете использовать [Cloud Shell](../cloud-shell/overview.md) для выполнения команд Azure CLI для развертывания шаблона. Однако сначала необходимо загрузить шаблон в общий файловый ресурс для Cloud Shell. Если вы еще не использовали Cloud Shell, ознакомьтесь со статьей [Обзор Azure Cloud Shell (предварительная версия)](../cloud-shell/overview.md), чтобы узнать о настройке службы.
+
+1. Войдите на [портал Azure](https://portal.azure.com).   
+
+2. Выберите свою группу ресурсов Cloud Shell. Шаблон имени — `cloud-shell-storage-<region>`.
+
+   ![Выбор группы ресурсов](./media/resource-manager-create-first-template/select-cs-resource-group.png)
+
+3. Выберите учетную запись хранения для Cloud Shell.
+
+   ![Выбор учетной записи хранения](./media/resource-manager-create-first-template/select-storage.png)
+
+4. Выберите **Файлы**.
+
+   ![Выбор файлов](./media/resource-manager-create-first-template/select-files.png)
+
+5. Выберите общий файловый ресурс для Cloud Shell. Шаблон имени — `cs-<user>-<domain>-com-<uniqueGuid>`.
+
+   ![Выбор общего файлового ресурса](./media/resource-manager-create-first-template/select-file-share.png)
+
+6. Выберите **Добавить каталог**.
+
+   ![Добавление каталога](./media/resource-manager-create-first-template/select-add-directory.png)
+
+7. Назовите его **templates** и нажмите кнопку **ОК**.
+
+   ![Присвоение имени каталогу](./media/resource-manager-create-first-template/name-templates.png)
+
+8. Выберите новый каталог.
+
+   ![Выбор каталога](./media/resource-manager-create-first-template/select-templates.png)
+
+9. Щелкните **Отправить**.
+
+   ![Кнопка "Отправить"](./media/resource-manager-create-first-template/select-upload.png)
+
+10. Найдите и отправьте свой шаблон.
+
+   ![Отправка файла](./media/resource-manager-create-first-template/upload-files.png)
+
+11. Откройте командную строку.
+
+   ![Открытие Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
+
+12. В Cloud Shell введите следующие команды:
+
+   ```azurecli
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+   ```
+
+После завершения развертывания учетная запись хранения будет находиться в группе ресурсов.
+
+## <a name="customize-the-template"></a>Настройка шаблона
+
+Шаблон работает, как и полагается, но не обладает гибкостью. Он всегда развертывает локально избыточное хранилище в юго-центральный регион США. Именем всегда является *storage*, за которым следует значение хэша. Чтобы использовать шаблон для различных сценариев, добавьте к нему параметры.
+
+В примере ниже показан раздел параметров с двумя параметрами. Первый параметр, `storageSKU`, позволяет указать тип избыточности. Он ограничивает значения, которые можно передать в значения, допустимые для учетной записи хранения. Он также задает значение по умолчанию. Второй параметр, `storageNamePrefix`, допускает максимум 11 знаков. Он задает значение по умолчанию.
 
 ```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {  },
-  "variables": {  },
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "Storage",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
+"parameters": {
+  "storageSKU": {
+    "type": "string",
+    "allowedValues": [
+      "Standard_LRS",
+      "Standard_ZRS",
+      "Standard_GRS",
+      "Standard_RAGRS",
+      "Premium_LRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+      "description": "The type of replication to use for the storage account."
     }
-  ],
-  "outputs": {  }
-}
-```
-
-## <a name="add-template-function"></a>Добавление функции шаблона
-
-Использование функций в шаблоне упрощает его синтаксис и позволяет получить значения, доступные только при его развертывании. Полный список функций шаблонов см. в статье [Функции шаблонов Azure Resource Manager](resource-group-template-functions.md).
-
-Чтобы указать, что учетная запись хранения развертывается в том же расположении, что и группа ресурсов, установите для свойства **location** следующее значение:
-
-```json
-"location": "[resourceGroup().location]",
-```
-
-VS Code опять предложит доступные функции. 
-
-![Отображение функций](./media/resource-manager-create-first-template/show-functions.png)
-
-Обратите внимание, что функция заключена в квадратные скобки. Функция [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) возвращает объект со свойством `location`. Группа ресурсов содержит все связанные ресурсы для вашего решения. Свойство location можно жестко задать прямо в коде (например, указать значение "Central US"), но если вы потом захотите развернуть этот шаблон в другом расположении, вам нужно будет изменить шаблон вручную. Используя функцию `resourceGroup`, вы сможете легко развернуть этот шаблон еще раз в другую группу ресурсов в другом расположении.
-
-Ваш шаблон теперь выглядит так:
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {  },
-  "variables": {  },
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
+  },
+  "storageNamePrefix": {
+    "type": "string",
+    "maxLength": 11,
+    "defaultValue": "storage",
+    "metadata": {
+      "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
     }
-  ],
-  "outputs": {  }
-}
+  }
+},
 ```
 
-## <a name="add-parameters-and-variables"></a>Добавление параметров и переменных
-В шаблоне осталось настроить только два значения: **name** и **sku.name**. Для этих свойств нужно добавить параметры, которые позволяют настраивать эти значения во время развертывания. 
+В разделе переменных добавьте переменную с именем `storageName`. Она объединяет значение префикса из параметров и значение хэша из функции [uniqueString](resource-group-template-functions-string.md#uniquestring). Эта переменная использует функцию [toLower](resource-group-template-functions-string.md#tolower) для преобразования всех знаков в нижний регистр.
 
-Для имен учетных записей хранения существует несколько ограничений, которые усложняют настройку имен. Имя должно содержать от 3 до 24 символов, состоять только из цифр и букв нижнего регистра и быть уникальным. Вместо того чтобы подбирать уникальное значение, которое соответствует ограничениям, используйте функцию [uniqueString](resource-group-template-functions-string.md#uniquestring), которая создает хеш-значение. Чтобы это хеш-значение было осмысленным, добавьте префикс, который поможет после развертывания идентифицировать значение как учетную запись хранения. 
+```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
+```
 
-1. Чтобы передать префикс имени, который соответствует соглашению об именовании, перейдите в раздел шаблона **parameters**. Добавьте параметр в шаблон, который принимает префикс для имени учетной записи хранения:
+Чтобы использовать эти новые значения для учетной записи хранения, измените определение ресурса:
 
-   ```json
-   "parameters": {
-     "storageNamePrefix": {
-       "type": "string",
-       "maxLength": 11,
-       "defaultValue": "storage",
-       "metadata": {
-         "description": "The value to use for starting the storage account name."
-       }
-     }
-   },
-   ```
+```json
+"resources": [
+  {
+    "name": "[variables('storageName')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "[parameters('storageSKU')]"
+    },
+    "kind": "Storage",
+    "location": "[resourceGroup().location]",
+    "tags": {},
+    "properties": {}
+  }
+],
+```
 
-  Длина префикса не может превышать 11 символов, поскольку функция `uniqueString` возвращает 13 символов, а имя учетной записи не должно превышать 24 символов. Если значение параметра не передается во время развертывания, используется значение по умолчанию.
+Обратите внимание, что имени учетной записи хранения теперь присвоена добавленная переменная. Имени номера SKU присваивается значение параметра. Расположению присваивается то же расположение, что и группе ресурсов.
 
-2. Перейдите к разделу шаблона **variables**. Чтобы создать имя из префикса и уникальной строки, добавьте следующую переменную:
-
-   ```json
-   "variables": {
-     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-   },
-   ```
-
-3. В разделе **resources** укажите эту переменную в качестве имени учетной записи хранения.
-
-   ```json
-   "name": "[variables('storageName')]",
-   ```
-
-3. Чтобы настроить передачу в код разных значений SKU для учетной записи хранения, перейдите к разделу **parameters**. После параметра префикса имени учетной записи хранения добавьте параметр, который определяет допустимые значения SKU и значение по умолчанию. Допустимые значения можно найти на странице справочника по шаблонам. Они также указываются в редакторе VS Code. В следующем примере мы укажем все допустимые значения SKU. Но вы можете ограничить допустимые значения только теми типами SKU, которые хотите развернуть с помощью этого шаблона.
-
-   ```json
-   "parameters": {
-     "storageNamePrefix": {
-       "type": "string",
-       "maxLength": 11,
-       "defaultValue": "storage",
-       "metadata": {
-         "description": "The value to use for starting the storage account name."
-       }
-     },
-     "storageSKU": {
-       "type": "string",
-       "allowedValues": [
-         "Standard_LRS",
-         "Standard_ZRS",
-         "Standard_GRS",
-         "Standard_RAGRS",
-         "Premium_LRS"
-       ],
-       "defaultValue": "Standard_LRS",
-       "metadata": {
-         "description": "The type of replication to use for the storage account."
-       }
-     }
-   },
-   ```
-
-3. Измените свойство SKU так, чтобы в нем использовалось значение из параметра:
-
-   ```json
-   "sku": {
-     "name": "[parameters('storageSKU')]"
-   },
-   ```    
-
-4. Сохраните файл.
-
-## <a name="final-template"></a>Окончательная версия шаблона
+Сохраните файл. 
 
 После завершения действий, описанных в этой статье, шаблон будет выглядеть так:
 
@@ -300,14 +223,6 @@ VS Code опять предложит доступные функции.
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
     "storageSKU": {
       "type": "string",
       "allowedValues": [
@@ -321,32 +236,77 @@ VS Code опять предложит доступные функции.
       "metadata": {
         "description": "The type of replication to use for the storage account."
       }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
     }
   },
   "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
+      "apiVersion": "2016-01-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },
       "kind": "Storage",
       "location": "[resourceGroup().location]",
       "tags": {},
-      "properties": {
-      }
+      "properties": {}
     }
   ],
   "outputs": {  }
 }
 ```
 
+## <a name="redeploy-template"></a>Повторное развертывание шаблона
+
+Разверните повторно шаблон с другими значениями.
+
+Для PowerShell используйте команду:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix newstore -storageSKU Standard_RAGRS
+```
+
+Для интерфейса командной строки Azure:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
+```
+
+Для Cloud Shell отправьте измененный шаблон в общий файловый ресурс. Перезапишите существующий файл. Затем используйте следующую команду:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
+```
+
+## <a name="clean-up-resources"></a>Очистка ресурсов
+
+Если развернутые ресурсы вам больше не нужны, вы можете их удалить. Для этого удалите группу ресурсов.
+
+Для PowerShell используйте команду:
+
+```powershell
+Remove-AzureRmResourceGroup -Name examplegroup
+```
+
+Для интерфейса командной строки Azure:
+
+```azurecli
+az group delete --name examplegroup
+```
+
 ## <a name="next-steps"></a>Дальнейшие действия
-* Шаблон готов, и теперь вы можете развернуть его в своей подписке. Инструкции по развертыванию см. в статье [Развертывание ресурсов в Azure](resource-manager-quickstart-deploy.md).
 * Дополнительные сведения о структуре шаблона см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
+* Дополнительные сведения о свойствах учетной записи хранения см. в статье [Microsoft.Storage/storageAccounts template reference](/azure/templates/microsoft.storage/storageaccounts) (Справочник по шаблону Microsoft.Storage/storageAccounts).
 * Полные шаблоны для различных типов решений доступны на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/).
 

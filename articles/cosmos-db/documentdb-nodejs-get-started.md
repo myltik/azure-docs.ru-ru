@@ -15,12 +15,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: fef21c512aa8a6af32cec20e2e44cf4e20ac24ae
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 04b147d98a6d9d508deea40e68a68d3e421f51fa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Руководство по Node.js: консольное приложение Node.js DocumentDB
@@ -84,19 +83,19 @@ ms.lasthandoff: 06/07/2017
 ## <a id="Config"></a>Шаг 3. Настройка конфигурации приложения
 Откройте файл ```config.js``` в предпочитаемом текстовом редакторе.
 
-Затем cкопируйте и вставьте приведенный ниже фрагмент кода и задайте URI конечной точки и первичный ключ DocumentDB в качестве значений свойств ```config.endpoint``` и ```config.primaryKey```. Обе эти конфигурации можно найти на [портале Azure](https://portal.azure.com).
+Скопируйте и вставьте приведенный ниже фрагмент кода, после чего задайте URI конечной точки и первичный ключ Azure Cosmos DB в качестве значений свойств ```config.endpoint``` и ```config.primaryKey```. Обе эти конфигурации можно найти на [портале Azure](https://portal.azure.com).
 
 ![Руководство по Node.js (база данных Node): снимок экрана портала Azure, на котором отображена учетная запись Azure Cosmos DB с выделенным активным концентратором, выделенной кнопкой "Ключи" в колонке учетной записи Azure Cosmos DB и выделенными универсальным кодом ресурса, первичным ключом и вторичным ключом в колонке "Ключи".][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
 
-    config.endpoint = "~your DocumentDB endpoint uri here~";
+    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
 Скопируйте ```database id```, ```collection id``` и ```JSON documents```, а затем вставьте их в объект ```config``` ниже, где задавались значения свойств ```config.endpoint``` и ```config.authKey```. Если у вас уже есть данные, которые необходимо хранить в базе данных, вместо добавления определений документа можно использовать [средство переноса данных](import-data.md) в Azure Cosmos DB.
 
-    config.endpoint = "~your DocumentDB endpoint uri here~";
+    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
     // ADD THIS PART TO YOUR CODE
@@ -166,7 +165,7 @@ ms.lasthandoff: 06/07/2017
     };
 
 
-База данных, коллекция и определения документа будут выступать в качестве ```database id```, ```collection id``` и данных документов в DocumentDB.
+База данных, коллекция и определения документа будут выступать в качестве ```database id```, ```collection id``` и данных документов Azure Cosmos DB.
 
 Теперь экспортируйте объект ```config```, чтобы на него можно было ссылаться в файле ```app.js```.
 
@@ -196,10 +195,10 @@ ms.lasthandoff: 06/07/2017
     // ADD THIS PART TO YOUR CODE
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
-Теперь, когда у нас есть код для инициализации клиента DocumentDB, мы рассмотрим принципы работы с ресурсами DocumentDB.
+Теперь, когда у нас есть код для инициализации клиента Azure Cosmos DB, давайте рассмотрим принципы работы с ресурсами Azure Cosmos DB.
 
 ## <a name="step-5-create-a-node-database"></a>Шаг 5. Создание базы данных Node
-Скопируйте и вставьте приведенный ниже код, чтобы задать значение Not Found для состояния HTTP, а также URL-адрес базы данных и URL-адрес коллекции. По этим URL-адресам клиент DocumentDB найдет подходящую базу данных и коллекцию.
+Скопируйте и вставьте приведенный ниже код, чтобы задать значение Not Found для состояния HTTP, а также URL-адрес базы данных и URL-адрес коллекции. По этим URL-адресам клиент Azure Cosmos DB найдет нужные базу данных и коллекцию.
 
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
@@ -210,7 +209,7 @@ ms.lasthandoff: 06/07/2017
 
 [Базу данных](documentdb-resources.md#databases) можно создать, используя функцию [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. База данных представляет собой логический контейнер для хранения документов, разделенных между коллекциями.
 
-Скопируйте и вставьте функцию **getDatabase**, чтобы создать базу данных в файле app.js с параметром ```id```, указанным в объекте ```config```. Эта функция проверяет наличие базы данных с таким же идентификатором ```FamilyRegistry``` . Если она существует, мы вернем ее вместо создания новой базы данных.
+Скопируйте и вставьте функцию **getDatabase**, чтобы создать базу данных в файле app.js с параметром ```id```, указанным в объекте ```config```. Эта функция проверяет наличие базы данных с таким же идентификатором ```FamilyRegistry```. Если она существует, мы вернем ее вместо создания новой базы данных.
 
     var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
 
@@ -314,10 +313,10 @@ ms.lasthandoff: 06/07/2017
 
 В окне терминала перейдите к файлу ```app.js``` и выполните команду ```node app.js```.
 
-Поздравляем! Коллекция DocumentDB создана.
+Поздравляем! Вы успешно создали коллекцию Azure Cosmos DB.
 
 ## <a id="CreateDoc"></a>Шаг 7. Создание документа
-Вы можете создать [документ](documentdb-resources.md#documents) с помощью функции [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь можно вставить документ в DocumentDB.
+Вы можете создать [документ](documentdb-resources.md#documents) с помощью функции [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь можно вставить документ в Azure Cosmos DB.
 
 Скопируйте функцию **getFamilyDocument** и вставьте ее после функции **getCollection**, чтобы создать документы, которые содержат данные JSON, сохраненные в объекте ```config```. Теперь нужно снова убедиться в том, что документ с таким идентификатором не существует.
 
@@ -366,14 +365,14 @@ ms.lasthandoff: 06/07/2017
 
 В окне терминала перейдите к файлу ```app.js``` и выполните команду ```node app.js```.
 
-Поздравляем! Документы DocumentDB созданы.
+Поздравляем! Вы успешно создали документ Azure Cosmos DB.
 
 ![Руководство по Node.js (база данных Node): на схеме представлены иерархические отношения между учетной записью, базой данных, коллекцией и документами.](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
 ## <a id="Query"></a>Шаг 8. Запрос ресурсов Azure Cosmos DB
 Azure Cosmos DB поддерживает [полнофункциональные запросы](documentdb-sql-query.md) к документам JSON, хранящимся в каждой коллекции. В следующем примере кода показан выполняемый запрос к документам в коллекции.
 
-Скопируйте функцию **queryCollection** и вставьте ее после функции **getFamilyDocument** в файле app.js. DocumentDB поддерживает SQL-подобные запросы, как показано ниже. Дополнительные сведения о создании сложных запросов см. на [площадке для запросов](https://www.documentdb.com/sql/demo) и в [документации по запросам](documentdb-sql-query.md).
+Скопируйте функцию **queryCollection** и вставьте ее после функции **getFamilyDocument** в файле app.js. Azure Cosmos DB поддерживает SQL-подобные запросы, как показано ниже. Дополнительные сведения о создании сложных запросов см. на [площадке для запросов](https://www.documentdb.com/sql/demo) и в [документации по запросам](documentdb-sql-query.md).
 
                 } else {
                     resolve(result);
@@ -405,11 +404,11 @@ Azure Cosmos DB поддерживает [полнофункциональные
     };
 
 
-На приведенной ниже схеме демонстрируется вызов синтаксиса запроса DocumentDB SQL к созданной коллекции.
+На приведенной ниже схеме показан вызов синтаксиса SQL-запроса Azure Cosmos DB к созданной коллекции.
 
 ![Руководство по Node.js (база данных Node): на схеме представлен масштаб и значение запроса.](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-Ключевое слово [FROM](documentdb-sql-query.md#FromClause) использовать в запросе необязательно, так как запросы DocumentDB заранее привязаны к одной коллекции. Поэтому слова "FROM Families f" можно заменить на "FROM root r" или любое другое имя переменной. Поведение службы DocumentDB будет таким, будто Families, root или любая другая переменная указывает на текущую коллекцию по умолчанию.
+Ключевое слово [FROM](documentdb-sql-query.md#FromClause) использовать в запросе необязательно, так как запросы Azure Cosmos DB привязаны только к одной коллекции. Поэтому слова "FROM Families f" можно заменить на "FROM root r" или любое другое имя переменной. Поведение службы Azure Cosmos DB будет таким, будто Families, root или любая другая переменная указывает на текущую коллекцию по умолчанию.
 
 Скопируйте код и вставьте его после вызова функции **getFamilyDocument**, чтобы выполнить функцию **queryCollection**.
 
@@ -456,7 +455,7 @@ Azure Cosmos DB поддерживает замену документов JSON.
         });
     };
 
-Скопируйте код и вставьте его после вызова функции **queryCollection**, чтобы выполнить функцию **replaceDocument**. Кроме того, добавьте код, позволяющий вызвать функцию **queryCollection** , еще раз, чтобы убедиться, что документ изменен успешно.
+Скопируйте код и вставьте его после вызова функции **queryCollection**, чтобы выполнить функцию **replaceDocument**. Кроме того, добавьте код, позволяющий вызвать функцию **queryCollection**, еще раз, чтобы убедиться, что документ изменен успешно.
 
     .then(() => getFamilyDocument(config.documents.Andersen))
     .then(() => getFamilyDocument(config.documents.Wakefield))
@@ -610,7 +609,7 @@ Azure Cosmos DB поддерживает удаление документов J
 Чтобы запустить решение GetStarted, которое содержит все примеры из этой статьи, вам понадобится следующее:
 
 * [Учетная запись Azure Cosmos DB][create-account].
-* решение [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) , доступное в GitHub.
+* решение [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started), доступное в GitHub.
 
 Установите модуль **documentdb** с помощью npm. Используйте следующую команду:
 

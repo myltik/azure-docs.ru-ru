@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 0288d70bb5c0094b5c738b2d0c597e4c6d38a5aa
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Службы синхронизации Azure AD Connect: рабочие задачи и рекомендации
@@ -109,7 +109,9 @@ ms.lasthandoff: 04/18/2017
 Также поддерживается распространенный метод, предусматривающий работу модуля синхронизации на виртуальной машине. Если на узле возникнут проблемы, образ сервера с модулем синхронизации можно будет перенести на другой сервер.
 
 ### <a name="sql-high-availability"></a>Высокий уровень доступности сервера SQL
-Если вы не используете выпуск SQL Server Express, входящий в Azure AD Connect, вам следует также рассмотреть обеспечение высокого уровня доступности для SQL Server. Единственное поддерживаемое решение для обеспечения высокого уровня доступности — кластеризация SQL. Такие решения, как зеркальное отображение и AlwaysOn, не поддерживаются.
+Если вы не используете выпуск SQL Server Express, входящий в Azure AD Connect, вам следует также рассмотреть обеспечение высокого уровня доступности для SQL Server. Поддерживаются такие решения высокого уровня доступности, как кластеры SQL и группы доступности AlwaysOn. Такие решения, как зеркальное отображение, не поддерживаются.
+
+Поддержка групп доступности AlwaysOn SQL добавлена в Azure AD Connect в версии 1.1.524.0. Перед установкой Azure AD Connect включите группы доступности AlwaysOn SQL. При установке Azure AD Connect определяет, включена ли в указанном экземпляре SQL функция SQL AOA. Если функция SQL AOA включена, то Azure AD Connect определяет, какая в SQL AOA настроена репликация (синхронная или асинхронная). При настройке прослушивателя группы доступности рекомендуется задать свойству RegisterAllProvidersIP значение 0. Это требуется то той причине, что для подключения к SQL служба Azure AD Connect сейчас использует SQL Native Client, а SQL Native Client не поддерживает свойство MultiSubNetFailover.
 
 ## <a name="appendix-csanalyzer"></a>Приложение CSAnalyzer
 Сведения об использовании этого сценария см. в разделе [Проверка](#verify).

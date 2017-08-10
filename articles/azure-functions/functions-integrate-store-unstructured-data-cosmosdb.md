@@ -10,87 +10,74 @@ tags:
 keywords: "функции azure, функции, обработка событий, Cosmos DB, динамические вычисления, бессерверная архитектура"
 ms.assetid: 
 ms.service: functions
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/08/2017
-ms.author: rachelap
+ms.date: 08/03/2017
+ms.author: rachelap, glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Хранение неструктурированных данных с помощью служб Функции Azure и Cosmos DB
 
-Azure Cosmos DB — это отличный способ хранения неструктурированных данных и данных в формате JSON. В сочетании с функциями Azure Cosmos DB позволяет быстро и просто сохранять данные, используя код гораздо меньшего объема, чем требуется для хранения данных в реляционной базе данных.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) — это отличный способ хранения неструктурированных данных и данных в формате JSON. В сочетании с функциями Azure Cosmos DB позволяет быстро и просто сохранять данные, используя код гораздо меньшего объема, чем требуется для хранения данных в реляционной базе данных.
 
-В этом руководстве объясняется, как с помощью портала Azure создать функцию Azure, которая сохраняет неструктурированные данные в документе Cosmos DB. 
+В Функциях Azure входные и выходные привязки предоставляют декларативный способ подключения данных внешних служб к функции. В этой статье вы узнаете, как обновить имеющуюся функцию C#, чтобы добавить выходную привязку, которая сохраняет неструктурированные данные в документе Cosmos DB. 
+
+![База данных Cosmos](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## <a name="prerequisites"></a>Предварительные требования
 
+Для работы с этим руководством:
+
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
-## <a name="create-a-function"></a>Создание функции
-
-Создайте новый универсальный объект webhook на C# с именем `MyTaskList`.
-
-1. Разверните список существующих функций и щелкните знак "+", чтобы создать новую функцию.
-1. Выберите GenericWebHook-CSharp и введите имя `MyTaskList`.
-
-![Добавление нового приложения-функции для универсального объекта webhook на C#](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
 
 ## <a name="add-an-output-binding"></a>Добавление выходной привязки
 
-Функция Azure может включать один триггер и любое количество входных или выходных привязок. В этом примере мы будем использовать в качестве выходной привязки триггер HTTP-запроса и документ Cosmos DB.
+1. Разверните ваше приложение-функцию и функцию.
 
-1. Щелкните вкладку *Интегрировать* для функции, чтобы просмотреть или изменить триггеры и привязки функции.
-1. Выберите ссылку *Новое выходное значение* в правом верхнем углу страницы.
+1. Выберите элементы **Интегрировать** и **Новые выходные данные**, которые находятся в верхней правой части страницы. Выберите **Azure Cosmos DB** и щелкните **Выбрать**.
 
-Примечание. Триггер HTTP-запроса уже настроен, однако вам необходимо добавить привязку документа Cosmos DB.
+    ![Добавление выходной привязки Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
 
-![Добавление новой выходной привязки Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+3. Используйте параметры **Azure Cosmos DB output** (Выходные данные Azure Cosmos DB) как указано в таблице: 
 
-1. Введите необходимые сведения, чтобы создать привязку. Используйте следующую таблицу для определения значений.
+    ![Настройка выходной привязки Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
-![Настройка выходной привязки Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
+    | Настройка      | Рекомендуемое значение  | Описание                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **Имя параметра документа** | taskDocument | Имя, которое ссылается на объект Cosmos DB в коде. |
+    | **Database name** (Имя базы данных) | taskDatabase | Имя базы данных для сохранения документов. |
+    | **Имя коллекции** | TaskCollection | Имя коллекции баз данных Cosmos DB. |
+    | **If true, creates the Cosmos DB database and collection** (Если значение равно true, создается база данных Cosmos DB и коллекция) | Флажок установлен | Коллекция не существует, создайте ее. |
 
-|  Поле | Значение  |
-|---|---|
-| Имя параметра документа | Имя, которое ссылается на объект Cosmos DB в коде |
-| Имя базы данных | Имя базы данных для сохранения документов |
-| Имя коллекции | Имя объединения баз данных Cosmos DB |
-| Would you like the Cosmos DB and collection created for you (Нужно ли создать базу данных Cosmos DB и коллекцию автоматически) | "Да" или "Нет" |
-| Cosmos DB account connection (Подключение к учетной записи Cosmos DB) | Строка подключения, указывающая на базу данных Cosmos DB |
+4. Выберите **Новый** рядом с надписью **Cosmos DB document connection** (Подключение к учетной записи Cosmos DB) и выберите **Создать**. 
 
-Необходимо также настроить подключение к базе данных Cosmos DB.
+5. Используйте параметры **Новая учетная запись**, как указано в таблице: 
 
-1. Щелкните ссылку "Создать" рядом с надписью Cosmos DB account connection (Подключение к учетной записи Cosmos DB).
-1. Заполните поля и выберите соответствующие параметры, необходимые для создания документа Cosmos DB.
+    ![Настройка подключения к Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
 
-![Настройка подключения к Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
+    | Настройка      | Рекомендуемое значение  | Описание                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **Идентификатор** | Имя базы данных | Уникальный идентификатор для базы данных Cosmos DB  |
+    | **API** | SQL (DocumentDB) | Выберите API базы данных документов.  |
+    | **Подписка** | Подписка Azure | Подписка Azure  |
+    | **Группа ресурсов** | myResourceGroup |  Используйте имеющуюся группу ресурсов, которая содержит функцию-приложение. |
+    | **Расположение**  | WestEurope | Выберите расположение рядом с приложением-функцией или другими приложениями, которые используют хранимые документы.  |
 
-|  Поле | Значение  |
-|---|---|
-| Идентификатор | Уникальный идентификатор для базы данных Cosmos DB  |
-| API NoSQL | Cosmos DB или MongoDB  |
-| Подписка | Подписка MSDN  |
-| Группа ресурсов  | Создайте новую группу или выберите существующую.  |
-| Расположение  | WestEurope  |
-
-1. Нажмите кнопку *ОК* . Возможно, вам придется подождать несколько минут, пока Azure создает ресурсы.
-1. Нажмите кнопку *Сохранить* .
+6. Нажмите кнопку **ОК**, чтобы создать базу данных. Создание базы данных может занять несколько минут. После создания базы данных строка подключения к базе данных сохраняется в качестве параметра функции-приложения. Имя параметра приложения вставляется в строку **подключения к учетной записи Cosmos DB**. 
+ 
+8. После задания строки подключения выберите **Сохранить**, чтобы создать привязку.
 
 ## <a name="update-the-function-code"></a>Обновление кода функции
 
-Замените код шаблона функции следующим кодом:
-
-Обратите внимание, что для этого примера используется только код на языке C#.
+Замените имеющийся код функции C# следующим кодом:
 
 ```csharp
 using System.Net;
@@ -124,38 +111,31 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 }
 
 ```
-
-Этот пример кода считывает строки HTTP-запроса и назначает их в качестве членов объекта `taskDocument`. Объект `taskDocument` автоматически сохраняет данные в базе данных Cosmos DB и даже создает базу данных при первом использовании.
+Этот пример кода считывает строки HTTP-запроса и назначает их в качестве полей объекта `taskDocument`. Привязка `taskDocument` отправляет данные объекта из этого параметра привязки для их сохранения в связанной базе данных документов. База данных создается при первом запуске функции.
 
 ## <a name="test-the-function-and-database"></a>Тестирование функции и базы данных
 
-1. На вкладке функции щелкните *Проверка* в правой части страницы портала и введите следующие строки HTTP-запроса:
+1. Разверните окно справа и выберите **Тест**. В разделе **Запрос** щелкните **Добавить параметр**, чтобы добавить следующие параметры в строку запроса:
 
-| Строка запроса | Значение |
-|---|---|
-| name | Chris P. Bacon (Крис П. Бэйкон) |
-| task | Make a BLT sandwich (Сделать сэндвич с беконом, салатом и помидором) |
-| duedate | 05/12/2017 |
+    + `name`
+    + `task`
+    + `duedate`
 
-1. Щелкните ссылку *Выполнить*.
-1. Убедитесь, что функция вернула код ответа *HTTP 200 ОК*.
+2. Щелкните **Выполнить**. Должно быть возвращено состояние 200.
 
-![Настройка выходной привязки Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
+    ![Настройка выходной привязки Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
-Убедитесь, что запись создана в базе данных Cosmos DB.
+1. В левой части портала Azure разверните панель значков, введите `cosmos` в поле поиска и выберите **Azure Cosmos DB**.
 
-1. Найдите базу данных на портале Azure и выберите ее.
-1. Выберите пункт *Обозреватель данных*.
-1. Разворачивайте узлы, пока не достигнете уровня записей документов.
-1. Подтвердите запись базы данных. В базе данных вместе с данными будут содержаться дополнительные метаданные.
+    ![Поиск службы Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-![Проверка записи Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
+2. Выберите базу данных, которую вы создали, а затем выберите **Обозреватель данных**. Разверните узлы **Коллекции**, выберите новый документ и убедитесь, что документ содержит ваши значения строки запроса, а также некоторые дополнительные метаданные. 
 
-Если данные есть в документе, вы успешно создали функцию Azure, которая сохраняет неструктурированные данные в базе данных Cosmos DB.
+    ![Проверка записи Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-## <a name="clean-up-resources"></a>Очистка ресурсов
+Вы успешно добавили привязку к триггеру HTTP, которая сохраняет неструктурированные данные в базе данных Cosmos DB.
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

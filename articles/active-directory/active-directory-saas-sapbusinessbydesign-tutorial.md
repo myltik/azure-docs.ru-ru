@@ -2,55 +2,54 @@
 title: "Руководство по интеграции Azure Active Directory с SAP Business ByDesign | Документация Майкрософт"
 description: "Узнайте, как настроить единый вход Azure Active Directory в SAP Business ByDesign."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
+ms.reviewer: joflore
 ms.assetid: 82938920-33ba-47cb-b141-511b46d19e66
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/25/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
-ms.openlocfilehash: e2506fc2fc7802dd0097cbb97687d9d2b0382871
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: ab76a0ac1ef954efd3c66e6f565514b889ed9444
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Руководство по интеграции Azure Active Directory с SAP Business ByDesign
+
 В этом руководстве описано, как интегрировать SAP Business ByDesign с Azure Active Directory (Azure AD).
 
 Интеграция SAP Business ByDesign с Azure AD обеспечивает следующие преимущества.
 
-* С помощью Azure AD вы можете контролировать доступ к приложению SAP Business ByDesign.
-* Вы можете включить автоматический вход пользователей в SAP Business ByDesign (единый вход) с использованием учетной записи Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+- С помощью Azure AD вы можете контролировать доступ к приложению SAP Business ByDesign.
+- Вы можете включить автоматический вход пользователей в SAP Business ByDesign (единый вход) с использованием их учетных записей Azure AD.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 Чтобы настроить интеграцию Azure AD с SAP Business ByDesign, вам потребуется:
 
-* подписка Azure AD;
-* подписка SAP Business ByDesign с поддержкой единого входа.
+- подписка Azure AD;
+- подписка SAP Business ByDesign с поддержкой единого входа.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
-> 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-* Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
-
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление SAP Business ByDesign из коллекции
 2. Настройка и проверка единого входа в Azure AD
@@ -60,102 +59,90 @@ ms.openlocfilehash: e2506fc2fc7802dd0097cbb97687d9d2b0382871
 
 **Чтобы добавить SAP Business ByDesign из коллекции, выполните следующие действия.**
 
-1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**.
-   
-    ![Active Directory][1]
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+    ![Кнопка "Azure Active Directory"][1]
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-    ![Приложения][2]
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-    ![Приложения][3]
+    ![Колонка "Корпоративные приложения"][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Приложения][4]
+    ![Кнопка "Новое приложение"][3]
 
-6. В поле поиска введите **SAP Business ByDesign**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_01.png)
+4. В поле поиска введите **SAP Business ByDesign**, выберите **SAP Business ByDesign** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-7. В области результатов выберите **SAP Business ByDesign** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-    ![Active Directory](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_02.png)
+    ![SAP Business ByDesign в списке результатов](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_addfromgallery.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+
 В этом разделе описана настройка и проверка единого входа Azure AD в SAP Business ByDesign с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в SAP Business ByDesign соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в SAP Business ByDesign.
 
-Чтобы установить эту связь, следует указать **имя пользователя** в Azure AD в качестве значения **имени пользователя** в SAP Business ByDesign.
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в SAP Business ByDesign.
 
 Чтобы настроить и проверить единый вход Azure AD в SAP Business ByDesign, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя SAP Business ByDesign](#creating-an-sap-business-bydesign-test-user)** требуется для создания пользователя Britta Simon в SAP Business ByDesign, связанного с соответствующим пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы разрешить пользователю Britta Simon использовать единый вход Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя SAP Business ByDesign](#create-an-sap-business-bydesign-test-user)** требуется для того, чтобы в SAP Business ByDesign существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении SAP Business ByDesign.
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
-Приложение SAP Business ByDesign ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно на вкладке **"Атрибут"** приложения. На следующем снимке экрана приведен пример. 
+В этом разделе мы включим на портале Azure единый вход Azure AD и настроим его в приложении SAP Business ByDesign.
 
 **Чтобы настроить единый вход Azure AD в SAP Business ByDesign, выполните следующие действия.**
 
-1. На классическом портале Azure на странице интеграции с приложением **SAP Business ByDesign** в меню в верхней части страницы щелкните **Атрибуты**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_80.png) 
+1. На портале Azure на странице интеграции с приложением **SAP Business ByDesign** щелкните **Единый вход**.
 
-2. В списке атрибутов токена SAML выберите имя атрибута и нажмите кнопку **Изменить**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_84.png) 
+    ![Ссылка "Настройка единого входа"][4]
 
-3. В диалоговом окне "Изменение атрибута пользователя" выполните следующие действия:
-   
-    ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_85.png) 
-   
-    а. В списке "Значение атрибута" выберите функцию **ExtractMailPrefix()** .
-   
-    b. В списке "Почта" выберите атрибут пользователя, который вы хотите использовать в своей реализации. 
-    Например, если в качестве уникального идентификатора пользователя вы хотите использовать EmployeeID и сохранили значение атрибута в ExtensionAttribute2, выберите **user.extensionattribute2**. 
-   
-    c. Нажмите **Завершено**. 
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_samlbase.png)
 
-4. На странице интеграции с приложением **SAP Business ByDesign** классического портала щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа][6] 
+3. В разделе **Домены и URL-адреса приложения SAP Business ByDesign** выполните следующие действия:
 
-5. На странице **Как пользователи должны входить в SAP Business ByDesign?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_03.png) 
+    ![Сведения о домене и URL-адресах единого входа для приложения SAP Business ByDesign](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_url.png)
 
-6. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_04.png) 
-   
-    а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение SAP Business ByDesign, в формате `https://<servername>.sapbydesign.com`.
-   
-    b. click **Далее**
-7. На странице **Настройка единого входа в SAP Business ByDesign** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_05.png)
-   
-    а. Нажмите **Загрузить метаданные**и сохраните файл на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<servername>.sapbydesign.com`
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<servername>.sapbydesign.com`
+
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов SAP Business ByDesign](https://www.sap.com/products/cloud-analytics.support.html).
+
+4. В разделе **Атрибуты пользователя** выполните следующие действия.
+
+    ![Раздел атрибутов SAP Business ByDesign](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_attribute.png)
+    
+    а. Из списка **Идентификатор пользователя** выберите функцию **ExtractMailPrefix**.
+    
+    b. В списке **Почта** выберите атрибут пользователя, который вы хотите использовать в своей реализации. Например, если в качестве уникального идентификатора пользователя вы хотите использовать EmployeeID и сохранили значение атрибута в ExtensionAttribute2, выберите user.extensionattribute2.     
+
+5. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_certificate.png) 
+
+6. Нажмите кнопку **Сохранить** .
+
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_400.png)
+
+7. В разделе **Настройка SAP Business ByDesign** щелкните **Настроить SAP Business ByDesign**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![Настройка SAP Business ByDesign](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_configure.png) 
+
 8. Чтобы настроить единый вход для приложения, выполните следующие действия.
    
     а. Войдите на портал SAP Business ByDesign с правами администратора.
    
     b. Перейдите к элементу **Application and User Management Common Task** (Общие задачи управления приложением и пользователем) и откройте вкладку **Identity Provider** (Поставщик удостоверений).
    
-    В. Щелкните **New Identity Provider** (Новый поставщик удостоверений) и выберите XML-файл метаданных, скачанный с классического портала Azure. Импортируя метаданные, система автоматически отправляет требуемые сертификаты подписи и шифрования.
+    c. Щелкните **New Identity Provider** (Новый поставщик удостоверений) и выберите XML-файл метаданных, скачанный с портала Azure. Импортируя метаданные, система автоматически отправляет требуемые сертификаты подписи и шифрования.
    
     ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
    
@@ -169,7 +156,7 @@ ms.openlocfilehash: e2506fc2fc7802dd0097cbb97687d9d2b0382871
    
     ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
    
-    h. Скопируйте значение поля **SSO URL** (URL-адрес единого входа) и вставьте его в поле **Azure AD Sign On URL** (URL-адрес входа Azure AD).
+    h. В текстовое поле **Azure AD Sign On URL** (URL-адрес входа в Azure AD) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
    
     ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_53.png)
    
@@ -192,110 +179,87 @@ ms.openlocfilehash: e2506fc2fc7802dd0097cbb97687d9d2b0382871
    
     k. Сохраните изменения.
 
-9. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
-   
-    ![единого входа Azure AD][10]
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
-10. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
-    
-    ![единого входа Azure AD][11]
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-![Создание пользователя Azure AD][20]
+   ![Создание тестового пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_09.png) 
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_01.png)
 
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_03.png) 
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png) 
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_02.png)
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
 
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_06.png) 
-   
-    а. В текстовом поле **Имя** введите **Britta**.  
-   
-    b. В текстовом поле **Фамилия** введите **Simon**.
-   
-    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-    d. В списке **Роль** выберите **Пользователь**.
-   
-    д. Нажмите кнопку **Далее**.
+    ![Кнопка "Добавить"](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_03.png)
 
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_07.png) 
+4. В диалоговом окне **Пользователь** сделайте следующее.
 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png)
 
-### <a name="creating-an-sap-business-bydesign-test-user"></a>Создание тестового пользователя SAP Business ByDesign
-В этом разделе описано, как создать пользователя Britta Simon в приложении SAP Business ByDesign. Для добавления пользователей к платформе SAP Business ByDesign обратитесь в группу поддержки SAP Business ByDesign. 
+    а. В поле **Имя** введите **BrittaSimon**.
+
+    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
+
+    г) Щелкните **Создать**.
+ 
+### <a name="create-an-sap-business-bydesign-test-user"></a>Создание тестового пользователя SAP Business ByDesign
+
+В этом разделе мы создадим пользователя Britta Simon в приложении SAP Business ByDesign. Чтобы добавить пользователей в SAP Business ByDesign обратитесь в [службу поддержки клиентов SAP Business ByDesign](https://www.sap.com/products/cloud-analytics.support.html). 
 
 > [!NOTE]
 > Значение идентификатора имени должно совпадать с полем имени пользователя на платформе SAP Business ByDesign.
-> 
-> 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к SAP Business ByDesign.
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-![Назначение пользователя][200] 
+В этом разделе мы разрешим пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к приложению SAP Business ByDesign.
+
+![Назначение роли пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon приложению SAP Business ByDesign, выполните следующие действия.**
 
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в меню вверху.
-   
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
     ![Назначение пользователя][201] 
 
 2. В списке приложений выберите **SAP Business ByDesign**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_50.png) 
 
-3. В меню в верхней части страницы щелкните **Пользователи**.
-   
-    ![Назначение пользователя][203]
+    ![Ссылка на SAP Business ByDesign в списке приложений](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_app.png)  
 
-4. В списке пользователей выберите **Britta Simon**.
+3. В меню слева выберите **Пользователи и группы**.
 
-5. На панели инструментов внизу щелкните **Назначить**.
-   
-    ![Назначение пользователя][205]
+    ![Ссылка "Пользователи и группы"][202]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Область "Добавление назначения"][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="test-single-sign-on"></a>Проверка единого входа
+
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув плитку SAP Business ByDesign на панели доступа, вы автоматически войдете в приложение SAP Business ByDesign.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
+
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -306,19 +270,11 @@ ms.openlocfilehash: e2506fc2fc7802dd0097cbb97687d9d2b0382871
 [3]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

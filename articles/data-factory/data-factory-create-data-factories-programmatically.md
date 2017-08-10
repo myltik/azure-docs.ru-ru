@@ -14,34 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 2f33c266c14b62f51745ff67069358c007bc00a2
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 9d9dac75321c5d4e079f49320d9b7c6f56e48754
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 08/04/2017
 
 ---
-<a id="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk" class="xliff"></a>
-
-# Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных Azure для .NET
-<a id="overview" class="xliff"></a>
-
-## Обзор
+# <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных Azure для .NET
+## <a name="overview"></a>Обзор
 Создание, отслеживание фабрик данных и управление ими программным способом с помощью пакета .NET SDK фабрики данных. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. 
 
 > [!NOTE]
 > В этой статье рассматриваются не все API-интерфейсы .NET фабрики данных. Полную документацию по API .NET для фабрики данных см. в [справочнике по API .NET фабрики данных](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1). 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 * Visual Studio 2012, 2013 или 2015
 * Скачанный и установленный [пакет SDK для Azure .NET](http://azure.microsoft.com/downloads/).
 * Azure PowerShell. Далее, чтобы установить Azure PowerShell на локальном компьютере, следуйте указаниям в разделе [Установка и настройка Azure PowerShell](/powershell/azure/overview) . С помощью Azure PowerShell вы создадите приложение Azure Active Directory.
 
-<a id="create-an-application-in-azure-active-directory" class="xliff"></a>
-
-### Создание приложения в Azure Active Directory
+### <a name="create-an-application-in-azure-active-directory"></a>Создание приложения в Azure Active Directory
 Вы создадите приложение Azure Active Directory и субъект-службу для приложения, а затем назначите роль **Участник Data Factory** .
 
 1. Запустите **PowerShell**.
@@ -108,9 +100,7 @@ ms.lasthandoff: 05/12/2017
 * Идентификатор приложения
 * пароль (указан в первой команде).
 
-<a id="walkthrough" class="xliff"></a>
-
-## Пошаговое руководство
+## <a name="walkthrough"></a>Пошаговое руководство
 В этом пошаговом руководстве вы создадите фабрику данных с конвейером, который содержит действие копирования. Действие копирования копирует данные из папки в хранилище BLOB-объектов Azure в другую папку в том же хранилище. 
 
 Действие копирования перемещает данные в фабрике данных Azure. Это действие выполняется с помощью глобально доступной службы, обеспечивающей безопасное, надежное и масштабируемое копирование данных между разными хранилищами. Дополнительные сведения о действии копирования см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md).
@@ -183,7 +173,7 @@ ms.lasthandoff: 05/12/2017
     ```
 
    > [!IMPORTANT]
-   > Замените значение **resourceGroupName** именем своей группы ресурсов Azure. Для создания группы ресурсов можно использовать командлет [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
+   > Замените значение **resourceGroupName** именем своей группы ресурсов Azure. Для создания группы ресурсов можно использовать командлет [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) .
    >
    > Измените имя фабрики данных (dataFactoryName) на уникальное. чтобы оно было глобально уникальным. Ознакомьтесь с разделом [Фабрика данных — правила именования](data-factory-naming-rules.md) , чтобы узнать о правилах именования артефактов фабрики данных.
 7. Добавьте следующий код, создающий **фабрику данных**, в метод **Main**.
@@ -467,9 +457,7 @@ ms.lasthandoff: 05/12/2017
     * Конвейер: **PipelineBlobSample**
 19. Убедитесь, что выходной файл создан в папке **apifactoryoutput** в контейнере **adftutorial**.
 
-<a id="get-a-list-of-failed-data-slices" class="xliff"></a>
-
-## Получение списка невыполненных срезов данных 
+## <a name="get-a-list-of-failed-data-slices"></a>Получение списка невыполненных срезов данных 
 
 ```csharp
 // Parse the resource path
@@ -508,9 +496,7 @@ do
 while (response != null);
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Ниже приведен пример создания конвейера с использованием пакета SDK для .NET, который копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure. 
 
 - [Руководство. Создание конвейера с действием копирования с помощью API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)

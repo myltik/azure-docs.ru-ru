@@ -3,7 +3,7 @@ title: "Настройка Oracle ASM в виртуальной машине Lin
 description: "Быстрая подготовка и запуск Oracle ASM в среде Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
+author: RicksterCDN
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,61 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/2/2017
-ms.author: v-shiuma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 8290885cd4f3d2faede2900971cd7a5b5a59f5bc
+ms.date: 07/19/2017
+ms.author: rclaus
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Настройка Oracle ASM в виртуальной машине Linux в Azure  
 
-Из этой статьи вы узнаете, как установить и настроить Oracle Automatic Storage Management (Oracle ASM) на виртуальной машине Oracle Linux в Azure.
+Виртуальные машины Azure предоставляют полностью настраиваемую и гибкую вычислительную среду. В этом руководстве описано развертывание базовой виртуальной машины Azure, а также установка и настройка Oracle ASM.  Вы узнаете, как выполнять следующие задачи:
 
-Прежде чем начать, убедитесь, что установлен Azure CLI. Дополнительные сведения см. в [руководстве по установке Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Создание виртуальной машины базы данных Oracle и подключение к ней.
+> * Установка и настройка Oracle ASM.
+> * Установка и настройка Oracle Grid Infrastructure.
+> * Инициализация установки Oracle ASM.
+> * Создание базы данных Oracle под управлением ASM.
+
+
+[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+
+Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Подготовка среды
 
-### <a name="sign-in-to-azure"></a>Вход в Azure 
-
-Для входа в подписку Azure в Azure CLI используйте команду [az login](/cli/azure/#login). Затем выполните инструкции на экране.
-
-```azurecli
-az login
-```
-
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Чтобы создать группу ресурсов, используйте команду [az group create](/cli/azure/group#create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. 
+Чтобы создать группу ресурсов, используйте команду [az group create](/cli/azure/group#create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. В этом примере создается группа ресурсов с именем *myResourceGroup* в регионе *eastus*.
 
-В следующем примере создается группа ресурсов с именем myResourceGroup в расположении westus.
-
-```azurecli
-az group create --name myResourceGroup --location westus
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
 ### <a name="create-a-vm"></a>Создание виртуальной машины
 
-Чтобы создать виртуальную машину для использования с Oracle ASM, сделайте следующее:
+Чтобы создать виртуальную машину на основе образа базы данных Oracle и настроить ее для использования Oracle ASM, выполните команду [az vm create](/cli/azure/vm#create). 
 
-1. Чтобы создать виртуальную машину, выполните команду [az vm create](/cli/azure/vm#create). 
+В следующем примере создается виртуальная машина с именем myVM размера Standard_DS2_v2, к которой подключено четыре диска данных по 50 ГБ каждый. Кроме того, создаются ключи SSH, если они не существуют в расположении ключей по умолчанию.  Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`.  
 
-   В следующем примере создаются виртуальная машина с именем myVM и ключи SSH, если они не существуют в расположении ключей по умолчанию. Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`.  
-
-   ```azurecli
-   az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --size Standard_DS2_v2 --generate-ssh-keys
+   ```azurecli-interactive
+   az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image Oracle:Oracle-Database-Ee:12.1.0.2:latest \
+    --size Standard_DS2_v2 \
+    --generate-ssh-keys \
+    --data-disk-sizes-gb 50 50 50 50
    ```
 
-   После создания виртуальной машины в Azure CLI отображается информация следующего вида. Обратите внимание на значение `publicIpAddress`. Этот адрес используется для доступа к виртуальной машине.
+После создания виртуальной машины в Azure CLI отображается информация следующего вида. Обратите внимание на значение `publicIpAddress`. Этот адрес используется для доступа к виртуальной машине.
 
    ```azurecli
    {
      "fqdns": "",
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-     "location": "westus",
+     "location": "eastus",
      "macAddress": "00-0D-3A-36-2F-56",
      "powerState": "VM running",
      "privateIpAddress": "10.0.0.4",
@@ -76,18 +79,9 @@ az group create --name myResourceGroup --location westus
    }
    ```
 
-2. Добавьте диски для использования с конфигурацией Oracle ASM:
-
-   ```azurecli
-   az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk --new --size-gb 50
-   az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk2 --new --size-gb 50
-   az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk3 --new --size-gb 50
-   az vm disk attach -g myResourceGroup --vm-name myVM  --disk myDataDisk4 --new --size-gb 50
-   ```
-
 ### <a name="connect-to-the-vm"></a>Подключение к виртуальной машине
 
-Используйте следующую команду для создания сеанса SSH с виртуальной машиной. Замените IP-адрес общедоступным IP-адресом виртуальной машины (значение `publicIpAddress`).
+Чтобы создать сеанс SSH с виртуальной машиной и настроить дополнительные параметры, используйте следующую команду. Замените IP-адрес общедоступным IP-адресом виртуальной машины (значение `publicIpAddress`).
 
 ```bash 
 ssh <publicIpAddress>
@@ -99,67 +93,79 @@ ssh <publicIpAddress>
 
 Дополнительные сведения об установке Oracle ASM см. в статье [Oracle ASMLib Downloads for Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html) (Скачиваемые компоненты Oracle ASMLib для Oracle Linux 6).  
 
-1. Выполните команду `yum list`:
+1. Необходимо войти в систему как привилегированный пользователь, чтобы продолжить установку ASM:
 
    ```bash
-   $ sudo su -
-   # yum list
+   sudo su -
    ```
-   Для загрузки `yum list` в первый раз может понадобиться несколько минут.
-
-2. Выполните следующие дополнительные команды:
+   
+2. Выполните эти дополнительные команды для установки компонентов Oracle ASM:
 
    ```bash
-   # yum list | grep oracleasm
-   # yum -y install kmod-oracleasm.x86_64
-   # yum -y install oracleasm-support.x86_64
-   # wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm
-   # yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm
-   # rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
+    yum list | grep oracleasm 
+    yum -y install kmod-oracleasm.x86_64 
+    yum -y install oracleasm-support.x86_64 
+    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
 
 3. Убедитесь, что служба Oracle ASM установлена:
 
    ```bash
-   # rpm -qa |grep oracleasm
+   rpm -qa |grep oracleasm
+   ```
+
+    Выходные данные этой команды должны содержать следующие компоненты:
+
+    ```bash
    oracleasm-support-2.1.10-4.el6.x86_64
    kmod-oracleasm-2.0.8-15.el6_9.x86_64
    oracleasmlib-2.0.12-1.el6.x86_64
-   ```
+    ```
 
-4. Добавьте пользователей и группы:
-
-   ```bash
-   # groupadd -g 54345 asmadmin
-   # groupadd -g 54346 asmdba
-   # groupadd -g 54347 asmoper
-   # useradd -u 3000 -g oinstall -G dba,asmadmin,asmdba,asmoper grid
-   # usermod -g oinstall -G dba,asmdba,asmadmin oracle
-   ```
-
-5. Проверьте пользователей и группы:
+4. Для правильной работы ASM требуется конкретный пользователь и роли. Следующие команды создают необходимые учетные записи пользователей и группы: 
 
    ```bash
-   # id grid
-   uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
+    groupadd -g 54345 asmadmin 
+    groupadd -g 54346 asmdba 
+    groupadd -g 54347 asmoper 
+    useradd -u 3000 -g oinstall -G dba,asmadmin,asmdba,asmoper grid 
+    usermod -g oinstall -G dba,asmdba,asmadmin oracle
    ```
 
-6. Создайте папку и измените владельца:
+5. Убедитесь, что пользователи и группы созданы правильно:
 
    ```bash
-   # mkdir /u01/app/grid
-   # chown grid:oinstall /u01/app/grid
+   id grid
+   ```
+
+    Выходные данные этой команды должны содержать следующих пользователей и группы:
+
+    ```bash
+    uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
+    ```
+ 
+6. Создайте папку для пользователя *grid* и смените владельца:
+
+   ```bash
+   mkdir /u01/app/grid 
+   chown grid:oinstall /u01/app/grid
    ```
 
 ## <a name="set-up-oracle-asm"></a>Настройка Oracle ASM
 
 В этом руководстве пользователем по умолчанию является *grid*, а группой по умолчанию — *asmadmin*. Убедитесь, что пользователь *oracle* входит в группу asmadmin. Чтобы настроить установку Oracle ASM, сделайте следующее:
 
-1. Установите драйвер библиотеки Oracle ASM:
+1. При настройке драйвера библиотеки Oracle ASM нужно определить пользователя (grid) и группу по умолчанию (asmadmin), настроить запуск и сканирование дисков во время запуска (выберите y). Необходимо указать сведения в ответ на запросы, используя следующую команду:
 
    ```bash
-   # /usr/sbin/oracleasm configure -i
+   /usr/sbin/oracleasm configure -i
+   ```
 
+   Выходные данные этой команды должны выглядеть следующим образом (указывать сведения в ответ на запросы больше не потребуется).
+
+    ```bash
    Configuring the Oracle ASM library driver.
 
    This will configure the on-boot properties of the Oracle ASM library
@@ -177,13 +183,39 @@ ssh <publicIpAddress>
 
 2. Просмотрите конфигурацию диска:
    ```bash
-   # cat /proc/partitions
+   cat /proc/partitions
    ```
 
-3. Отформатируйте диск:
+   Результат этой команды должен выглядеть примерно как перечисление доступных дисков:
 
    ```bash
-   # fdisk /dev/sdc
+   8       16   14680064 sdb
+   8       17   14678976 sdb1
+   8        0   52428800 sda
+   8        1     512000 sda1
+   8        2   51915776 sda2
+   8       48   52428800 sdd
+   8       64   52428800 sde
+   8       80   52428800 sdf
+   8       32   52428800 sdc
+   11       0       1152 sr0
+   ```
+
+3. Отформатируйте диск */dev/sdc*, выполнив следующую команду и указав следующие сведения в ответ на запрос:
+   - *n* — новый раздел;
+   - *p* — основной раздел;
+   - *1*— выбор первого раздела;
+   - нажмите клавишу `enter` для выбора первого цилиндра по умолчанию;
+   - нажмите клавишу `enter` для выбора последнего цилиндра по умолчанию;
+   - нажмите клавишу *w* для записи изменений в таблицу разделов.  
+
+   ```bash
+   fdisk /dev/sdc
+   ```
+   
+   В соответствии с указанными выше сведениями выходные данные команды fdisk должны выглядеть следующим образом:
+
+   ```bash
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
    Building a new DOS disklabel with disk identifier 0xf865c6ca.
    Changes will remain in memory only, until you decide to write them.
@@ -217,12 +249,17 @@ ssh <publicIpAddress>
    Syncing disks.
    ```
 
-4. Повторите предыдущий шаг для /dev/sdd, /dev/sde и /dev/sdf.
+4. Повторите предыдущую команду fdisk для `/dev/sdd`, `/dev/sde` и `/dev/sdf`.
 
 5. Проверьте конфигурацию диска:
 
    ```bash
-   # cat /proc/partitions
+   cat /proc/partitions
+   ```
+
+   Выходные данные команды должны выглядеть следующим образом:
+
+   ```bash
    major minor  #blocks  name
 
      8       16   14680064 sdb
@@ -238,73 +275,80 @@ ssh <publicIpAddress>
      8        0   52428800 sda
      8        1     512000 sda1
      8        2   51915776 sda2
-     11        0    1048575 sr0
+     11       0    1048575 sr0
    ```
 
-6. Проверьте состояние службы Oracle ASM:
+6. Проверьте состояние службы Oracle ASM и запустите ее:
 
    ```bash
-   # service oracleasm status
+   service oracleasm status 
+   service oracleasm start
+   ```
+
+   Выходные данные команды должны выглядеть следующим образом:
+   
+   ```bash
    Checking if ASM is loaded: no
    Checking if /dev/oracleasm is mounted: no
-   ```
-
-7. Запустите службу Oracle ASM:
-
-   ```bash
-   # service oracleasm start
    Initializing the Oracle ASMLib driver:                     [  OK  ]
    Scanning the system for Oracle ASMLib disks:               [  OK  ]
    ```
 
-8. Создайте диски Oracle ASM:
+7. Создайте диски Oracle ASM:
 
    ```bash
-   # service oracleasm createdisk ASMSP /dev/sdc1
+   service oracleasm createdisk ASMSP /dev/sdc1 
+   service oracleasm createdisk DATA /dev/sdd1 
+   service oracleasm createdisk DATA1 /dev/sde1 
+   service oracleasm createdisk FRA /dev/sdf1
+   ```    
+
+   Выходные данные команды должны выглядеть следующим образом:
+
+   ```bash
    Marking disk "ASMSP" as an ASM disk:                       [  OK  ]
-
-   # service oracleasm createdisk DATA /dev/sdd1
    Marking disk "DATA" as an ASM disk:                        [  OK  ]
-
-   # service oracleasm createdisk DATA1 /dev/sde1
    Marking disk "DATA1" as an ASM disk:                       [  OK  ]
-
-   # service oracleasm createdisk FRA /dev/sdf1
    Marking disk "FRA" as an ASM disk:                         [  OK  ]
    ```
 
-9. Выведите список дисков Oracle ASM:
+8. Выведите список дисков Oracle ASM:
 
    ```bash
-   # service oracleasm listdisks
-   ASMSP
-   DATA
-   DATA1
-   FRA
+   service oracleasm listdisks
+   ```   
+
+   Выходные данные команды должны содержать следующие диски Oracle ASM:
+
+   ```bash
+    ASMSP
+    DATA
+    DATA1
+    FRA
    ```
 
-10. Измените пароли для пользователей root, oracle и grid. (Пароли будут использоваться позже во время установки.)
+9. Измените пароли для пользователей root, oracle и grid. **Запишите эти новые пароли**, так как они пригодятся во время установки позже.
 
-    ```bash
-    # passwd oracle
-    # passwd grid
-    # passwd root
-    ```
+   ```bash
+   passwd oracle 
+   passwd grid 
+   passwd root
+   ```
 
-11. Измените разрешение папки:
+10. Измените разрешение папки:
 
-    ```bash
-    # chmod -R 775 /opt
-    # chown grid:oinstall /opt
-    # chown oracle:oinstall /dev/sdc1
-    # chown oracle:oinstall /dev/sdd1
-    # chown oracle:oinstall /dev/sde1
-    # chown oracle:oinstall /dev/sdf1
-    # chmod 600 /dev/sdc1
-    # chmod 600 /dev/sdd1
-    # chmod 600 /dev/sde1
-    # chmod 600 /dev/sdf1
-    ```
+   ```bash
+   chmod -R 775 /opt 
+   chown grid:oinstall /opt 
+   chown oracle:oinstall /dev/sdc1 
+   chown oracle:oinstall /dev/sdd1 
+   chown oracle:oinstall /dev/sde1 
+   chown oracle:oinstall /dev/sdf1 
+   chmod 600 /dev/sdc1 
+   chmod 600 /dev/sdd1 
+   chmod 600 /dev/sde1 
+   chmod 600 /dev/sdf1
+   ```
 
 ## <a name="download-and-prepare-oracle-grid-infrastructure"></a>Скачивание и подготовка Oracle Grid Infrastructure
 
@@ -317,74 +361,76 @@ ssh <publicIpAddress>
 2. Скачав ZIP-файлы на клиентском компьютере, вы можете скопировать файлы на виртуальную машину по протоколу SCP:
 
    ```bash
-   scp *.zip <publicIpAddress>:<folder>
+   scp *.zip <publicIpAddress>:.
    ```
 
-3. Переместите ZIP-файлы в папку /opt. Затем измените владельца файлов:
+3. Подключитесь к виртуальной машине Oracle в Azure по протоколу SSH, чтобы переместить ZIP-файлы в папку /opt. Затем измените владельца файлов:
 
    ```bash
-   # mv <folder>/*.zip /opt
-   # cd /opt
-   # chown grid:oinstall linuxamd64_12102_grid_1of2.zip
-   # chown grid:oinstall linuxamd64_12102_grid_2of2.zip
+   ssh <publicIPAddress>
+   sudo mv ./*.zip /opt
+   cd /opt
+   sudo chown grid:oinstall linuxamd64_12102_grid_1of2.zip
+   sudo chown grid:oinstall linuxamd64_12102_grid_2of2.zip
    ```
 
 4. Распакуйте файлы. (Установите инструмент Linux для распаковки, если он еще не установлен.)
    
    ```bash
-   # yum install unzip
-   # unzip linuxamd64_12102_grid_1of2.zip
-   # unzip linuxamd64_12102_grid_2of2.zip
+   sudo yum install unzip
+   sudo unzip linuxamd64_12102_grid_1of2.zip
+   sudo unzip linuxamd64_12102_grid_2of2.zip
    ```
 
 5. Измените разрешение:
    
    ```bash
-   # chown -R grid:oinstall /opt/grid
+   sudo chown -R grid:oinstall /opt/grid
    ```
 
-6. Отключите брандмауэр:
-   
+6. Обновите настроенную область буфера. Для установки компонентов Oracle Grid требуется по крайней мере 6,8 ГБ области буфера. Размер файла подкачки по умолчанию для образов Oracle Linux в Azure всего 2048 МБ. Вам нужно увеличить значение `ResourceDisk.SwapSizeMB` в файле `/etc/waagent.conf` и перезапустить службу WALinuxAgent, чтобы изменения вступили в силу. Так как это файл только для чтения, необходимо изменить разрешения, чтобы включить доступ для записи.
+
    ```bash
-   # service iptables status
-   # service iptables stop
+   sudo chmod 777 /etc/waagent.conf  
+   vi /etc/waagent.conf
    ```
+   
+   Найдите параметр `ResourceDisk.SwapSizeMB` и измените его значение на **8192**. Необходимо будет нажать `insert`, чтобы перейти в режим вставки, ввести значение **8192** и нажать клавишу `esc` для возврата в режим команд. Чтобы записать изменения и закрыть файл, введите `:wq` и нажмите клавишу `enter`.
+   
+   > [!NOTE]
+   > Для достижения оптимальной производительности и настройки области буфера мы настоятельно рекомендуем использовать `WALinuxAgent`, чтобы он всегда создавался на локальном временном диске. Дополнительные сведения см. в статье [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines) (Как добавить файл подкачки на виртуальной машине Linux Azure).
 
-7. Проверьте доступную область буфера. Для установки Grid потребуется не менее 6,8 ГБ пространства в области буфера. По умолчанию на виртуальных машинах Linux в Azure буфер не включен и не настроен.
+## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>Подготовка локального клиента и виртуальной машины для запуска x11
+Для установки и настройки Oracle ASM требуется графический интерфейс. Для упрощения установки мы используем протокол x11. Если вы используете клиентскую систему (Mac или Linux) с возможностями X11, вы можете пропустить эту установку и настройку, предназначенную для компьютеров с Windows. 
 
-Для настройки области буфера мы настоятельно рекомендуем использовать waagent, чтобы он всегда создавался на временном диске. Дополнительные сведения см. в статье [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines) (Как добавить файл подкачки на виртуальной машине Linux Azure).
+1. Скачайте [PuTTY](http://www.putty.org/) и [Xming](https://xming.en.softonic.com/) на компьютер с Windows. Прежде чем продолжить, необходимо будет установить оба приложения со значениями по умолчанию.
 
-## <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>Подготовка клиента и виртуальной машины для запуска X11 (только для клиентов Windows)
-Этот параметр является необязательным. Если вы используете клиент Linux или уже установили x11, то этот шаг можно пропустить.
-
-1. Скачайте [PuTTY](http://www.putty.org/) и [Xming](https://xming.en.softonic.com/) на компьютер с Windows.
-
-2. Установив PuTTY в папке PuTTY (например, C:\Program Files\PuTTY), запустите файл puttygen.exe (генератор ключей PuTTY).
+2. После установки PuTTY откройте командную строку, перейдите в папку PuTTY (например, C:\Program Files\PuTTY) и запустите файл `puttygen.exe` для создания ключа.
 
 3. В генераторе ключей PuTTY сделайте следующее:
    
-   1. Чтобы создать ключ, нажмите кнопку **Создать**.
+   1. Чтобы создать ключ, нажмите кнопку `Generate`.
    2. Скопируйте содержимое ключа (CTRL+C).
-   3. Нажмите кнопку **Save private key** (Сохранить закрытый ключ).
-   4. Игнорируйте предупреждение, появившееся на экране, и нажмите кнопку **ОК**.
+   3. Нажмите кнопку `Save private key`.
+   4. Пропустите предупреждение о защите ключа с помощью парольной фразы, а затем нажмите кнопку `OK`.
 
    ![Снимок экрана генератора ключей PuTTY](./media/oracle-asm/puttykeygen.png)
 
 4. В виртуальной машине выполните следующие команды:
 
    ```bash
-   # sudo su - grid
-   $ mkdir .ssh (if not already created)
-   $ cd .ssh
+   sudo su - grid
+   mkdir .ssh 
+   cd .ssh
    ```
 
-5. Создайте файл с именем authorized_keys. Вставьте содержимое ключа в этот файл и сохраните файл.
+5. Создайте файл с именем `authorized_keys`. Вставьте содержимое ключа в этот файл и сохраните файл.
 
    > [!NOTE]
    > Ключ должен содержать строку `ssh-rsa`. Кроме того, содержимое ключа должно быть одной строкой текста.
    >  
 
-6. Запустите PuTTY. В области **Категория** выберите **Подключение** > **SSH** > **Проверка подлинности**. В поле **Private key file for authentication** (Файл закрытого ключа для проверки подлинности) выберите созданный ранее ключ.
+6. В клиентской системе запустите PuTTY. В области **Категория** выберите **Подключение** > **SSH** > **Проверка подлинности**. В поле **Private key file for authentication** (Файл закрытого ключа для проверки подлинности) выберите созданный ранее ключ.
 
    ![Снимок экрана параметров аутентификации SSH](./media/oracle-asm/setprivatekey.png)
 
@@ -392,7 +438,7 @@ ssh <publicIpAddress>
 
    ![Снимок экрана параметров перенаправления X11 SSH](./media/oracle-asm/enablex11.png)
 
-8. В области **Категория** выберите **Сеанс**. Введите сведения об узле, а затем нажмите кнопку **Открыть**.
+8. В области **Категория** выберите **Сеанс**. Введите значение `<publicIPaddress>` виртуальной машины Oracle ASM в диалоговом окне имени узла, укажите новое имя `Saved Session` и нажмите кнопку `Save`.  После сохранения щелкните `open` для подключения к виртуальной машине Oracle ASM.  При первом подключении выводится предупреждение о том, что удаленная система не кэшируется в реестре. Щелкните `yes`, чтобы добавить ее и продолжить.
 
    ![Снимок экрана параметров сеанса PuTTY](./media/oracle-asm/puttysession.png)
 
@@ -400,14 +446,14 @@ ssh <publicIpAddress>
 
 Чтобы установить Oracle Grid Infrastructure, сделайте следующее:
 
-1. Выполните вход в качестве пользователя grid. Вы сможете войти, не вводя пароль. 
+1. Выполните вход в качестве пользователя **grid**. Вы сможете войти, не вводя пароль. 
 
    > [!NOTE]
-   > Перед установкой убедитесь, что Xming работает.
+   > Если вы используете Windows, перед установкой запустите Xming.
 
    ```bash
-   $ cd /opt/grid
-   $ ./runInstaller
+   cd /opt/grid
+   ./runInstaller
    ```
 
    Откроется установщик Oracle Grid Infrastructure 12c Release 1. Запуск установщика может занять несколько минут.
@@ -416,35 +462,26 @@ ssh <publicIpAddress>
 
    ![Снимок экрана со страницей выбора варианта установки в установщике](./media/oracle-asm/install01.png)
 
-3. На странице **выбора языка продукта** выберите **английский** или другой нужный язык.
-
-   ![Снимок экрана со страницей выбора языка продукта в установщике](./media/oracle-asm/install02.png)
+3. На странице **выбора языка продукта** выберите **английский** или другой нужный язык.  Щелкните `next`.
 
 4. На странице **Create ASM Disk Group** (Создание группы дисков ASM) сделайте следующее:
    - Введите имя группы дисков.
    - В разделе **Redundancy** (Избыточность) выберите **External** (Внешняя).
    - В списке **Allocation Unit Size** (Размер единицы распределения) выберите значение **4**.
    - В разделе **Add Disks** (Добавление дисков) выберите **ORCLASMSP**.
-
-   ![Снимок экрана со страницей создания группы дисков ASM в установщике](./media/oracle-asm/install03.png)
+   - Щелкните `next`.
 
 5. На странице **указания пароля ASM** установите переключатель **Use same passwords for these accounts** (Использовать одинаковые пароли для этих учетных записей) и введите пароль.
 
    ![Снимок экрана со страницей указания пароля ASM в установщике](./media/oracle-asm/install04.png)
 
-6. (Необязательно.) На странице **Specify Management Options** (Указать параметры управления) установите флажок **Register with Enterprise Manager (EM) Cloud Control** (Зарегистрироваться с помощью Enterprise Manager (EM) Cloud Control).
+6. На странице **указания параметров управления** предусмотрен параметр настройки EM Cloud Control. Мы пропустим его. Щелкните `next`, чтобы продолжить. 
 
-   ![Снимок экрана со страницей указания параметров управления в установщике](./media/oracle-asm/install05.png)
+7. На странице **привилегированных групп ОС** используйте параметры по умолчанию. Щелкните `next`, чтобы продолжить.
 
-7. На странице **привилегированных групп ОС** используйте параметры по умолчанию.
+8. На странице **указания расположения установки** используйте параметры по умолчанию. Щелкните `next`, чтобы продолжить.
 
-   ![Снимок экрана со страницей привилегированных групп ОС в установщике](./media/oracle-asm/install06.png)
-
-8. На странице **указания расположения установки** используйте параметры по умолчанию.
-
-   ![Снимок экрана со страницей указания расположения установки в установщике](./media/oracle-asm/install07.png)
-
-9. На странице **создания инвентаризации** введите расположение папки или перейдите к нему.
+9. На странице **создания инвентаризации** смените каталог инвентаризации на `/u01/app/grid/oraInventory`. Щелкните `next`, чтобы продолжить.
 
    ![Снимок экрана со страницей создания инвентаризации в установщике](./media/oracle-asm/install08.png)
 
@@ -452,61 +489,53 @@ ssh <publicIpAddress>
 
     ![Снимок экрана со страницей настройки выполнения корневого сценария в установщике](./media/oracle-asm/install09.png)
 
-11. На странице **выполнения проверки предварительных требований** нажмите кнопку **Fix & Check Again** (Внести исправления и продолжить проверку).
+11. На странице **выполнения предварительных проверок** установка завершится ошибкой. Это ожидаемое поведение. Выберите `Fix & Check Again`.
 
-    ![Снимок экрана со страницей выполнения проверки предварительных требований в установщике](./media/oracle-asm/install10.png)
+12. В диалоговом окне **Fixup Script** (Сценарий исправления) нажмите кнопку `OK`.
 
-12. В диалоговом окне **Fixup Script** (Сценарий исправления) нажмите кнопку **ОК**.
-
-    ![Снимок экрана: диалоговое окно "Fixup Script" (Сценарий исправления)](./media/oracle-asm/install11.png)
-
-13. На странице **Сводка** просмотрите выбранные параметры и нажмите кнопку **Установить**.
+13. На странице **Сводка** просмотрите выбранные параметры и нажмите кнопку `Install`.
 
     ![Снимок экрана со страницей сводки в установщике](./media/oracle-asm/install12.png)
 
-14. Появится диалоговое окно с предупреждением. Чтобы продолжить, нажмите кнопку **Да**.
+14. Появится диалоговое окно с предупреждением о том, что сценарии настройки может выполнять только привилегированный пользователь. Щелкните `Yes`, чтобы продолжить.
 
-    ![Снимок экрана с диалоговым окном, содержащим предупреждение](./media/oracle-asm/install14.png)
-
-15. На странице **завершения** нажмите кнопку **Закрыть** для завершения установки.
-
-    ![Снимок экрана со страницей завершения в установщике](./media/oracle-asm/install16.png)
+15. На странице **завершения** нажмите кнопку `Close` для завершения установки.
 
 ## <a name="set-up-your-oracle-asm-installation"></a>Настройка установки Oracle ASM
 
 Чтобы настроить установку Oracle ASM, сделайте следующее:
 
-1. В сеансе X11 выполните вход в качестве пользователя grid:
+1. Убедитесь, что в сеансе X11 по-прежнему используется пользователь **grid**. Может потребоваться нажать кнопку `enter`, чтобы восстановить работу терминала. Затем запустите помощник по настройке Oracle ASM:
 
    ```bash
-   $ cd /u01/app/grid/product/12.1.0/grid/bin
-   $ ./asmca
+   cd /u01/app/grid/product/12.1.0/grid/bin
+   ./asmca
    ```
 
    Откроется Oracle ASM Configuration Assistant.
 
-2. В диалоговом окне **Configure ASM: Disk Groups** (Настройка ASM: группы дисков) нажмите кнопку **Создать**, а затем выберите параметр **Показать расширенные параметры**.
-
-   ![Снимок экрана с диалоговым окном "Configure ASM: Disk Groups" (Настройка ASM: группы дисков)](./media/oracle-asm/asm01.png)
+2. В диалоговом окне **Configure ASM: Disk Groups** (Настройка ASM: группы дисков) нажмите кнопку `Create` и `Show Advanced Options`.
 
 3. В диалоговом окне **Create Disk Group** (Создание группы дисков) выполните следующие действия:
 
-   - Введите имя группы дисков.
+   - Введите имя группы дисков **DATA**.
    - В разделе **Select Member Disks** (Выбор дисков-участников) выберите **ORCL_DATA** и **ORCL_DATA1**.
    - В списке **Allocation Unit Size** (Размер единицы распределения) выберите значение **4**.
+   - Щелкните `ok` для создания группы дисков.
+   - Щелкните `ok`, чтобы закрыть окно подтверждения.
 
    ![Снимок экрана с диалоговым окном "Create Disk Group" (Создание группы дисков)](./media/oracle-asm/asm02.png)
 
-4. В диалоговом окне **Configure ASM: Disk Groups** (Настройка ASM: группы дисков) нажмите кнопку **Создать**, а затем выберите параметр **Показать расширенные параметры**.
-
-   ![Снимок экрана с диалоговым окном "Configure ASM: Disk Groups" (Настройка ASM: группы дисков)](./media/oracle-asm/asm03.png)
+4. В диалоговом окне **Configure ASM: Disk Groups** (Настройка ASM: группы дисков) нажмите кнопку `Create` и `Show Advanced Options`.
 
 5. В диалоговом окне **Create Disk Group** (Создание группы дисков) выполните следующие действия:
 
-   - Введите имя группы дисков.
-   - В разделе **Redundancy** (Избыточность) выберите **External** (Внешняя).
+   - Введите имя группы дисков **FRA**.
+   - В разделе **Redundancy** (Избыточность) выберите **External (none)** (Внешняя(нет)).
    - В разделе **Select Member Disks** (Выбор дисков-участников) выберите **ORCL_FRA**.
    - В списке **Allocation Unit Size** (Размер единицы распределения) выберите значение **4**.
+   - Щелкните `ok` для создания группы дисков.
+   - Щелкните `ok`, чтобы закрыть окно подтверждения.
 
    ![Снимок экрана с диалоговым окном "Create Disk Group" (Создание группы дисков)](./media/oracle-asm/asm04.png)
 
@@ -516,43 +545,38 @@ ssh <publicIpAddress>
 
 ## <a name="create-the-database"></a>Создание базы данных
 
-Программное обеспечение Oracle уже установлено в образе Azure Marketplace. Чтобы установить базу данных, сделайте следующее:
+Программное обеспечение базы данных Oracle уже установлено в образе Azure Marketplace. Чтобы создать базу данных, сделайте следующее:
 
 1. Переключитесь на суперпользователя Oracle и инициализируйте прослушиватель для ведения журнала:
 
    ```bash
-   $ su - oracle
-   Password:
-   $ cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
-   $ ./dbca
-    ```
+   su - oracle
+   cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
+   ./dbca
+   ```
    Откроется Database Configuration Assistant.
 
-2. На странице **Database Operation** (Операция с базой данных) выберите **Create Database** (Создать базу данных).
+2. На странице **операций с базой данных** щелкните `Create Database`.
 
-   ![Снимок экрана со страницей Database Operation (Операции базы данных)](./media/oracle-asm/createdb01.png)
-  
 3. На странице **Creation Mode** (Режим создания) сделайте следующее:
 
    - Введите имя для базы данных.
-   - В списке **Storage Type** (Тип хранилища) выберите **Automatic Storage Management (ASM)**.
-   - В поле **Database Files Location** (Расположение файлов базы данных) перейдите к нужной папке.
-   - В поле **Fast Recovery Area** (Область быстрого восстановления) перейдите к нужной папке.
+   - Выберите **Automatic Storage Management (ASM)** в качестве **типа хранилища**.
+   - В качестве **расположения файлов базы данных** используйте расположение ASM по умолчанию.
+   - В качестве **области быстрого восстановления** используйте расположение ASM по умолчанию.
+   - Введите **пароль администратора** и **подтвердите его**.
+   - Убедитесь, что выбран параметр `create as container database`.
+   - Введите значение `pluggable database name`.
 
-   ![Снимок экрана со страницей Creation Mode (Режим создания)](./media/oracle-asm/createdb02.png)
-
-4. На странице **Сводка** просмотрите выбранные параметры и нажмите кнопку **Готово**, чтобы создать базу данных.
+4. На странице **Сводка** просмотрите выбранные параметры и нажмите кнопку `Finish`, чтобы создать базу данных.
 
    ![Снимок экрана со страницей сводки](./media/oracle-asm/createdb03.png)
 
-5. (Необязательно.) На странице **завершения** для изменения паролей нажмите кнопку **Password Management** (Управление паролями).
-
-   ![Снимок экрана со страницей завершения](./media/oracle-asm/createdb04.png)
-
+5. База данных создана. На странице **завершения** вы можете разблокировать дополнительные учетные записи для использования этой базы данных и изменить пароли. Для этого выберите параметр **управления паролями**. В противном случае щелкните `close`.
 
 ## <a name="delete-the-vm"></a>Удаление виртуальной машины
 
-Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, использовав следующую команду:
+Вы успешно настроили Oracle ASM на основе образа база данных Oracle из Azure Marketplace.  Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, использовав следующую команду:
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -560,7 +584,9 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Создание полной среды Linux с помощью Azure CLI 2.0](../../linux/create-cli-complete.md)
+[Реализация Oracle Data Guard на виртуальной машине Azure под управлением Linux](configure-oracle-dataguard.md)
 
-[Примеры Azure CLI для виртуальных машин Linux](../../linux/cli-samples.md).
+[Реализация Oracle Golden Gate на виртуальной машине Azure под управлением Linux](Configure-oracle-golden-gate.md)
+
+Ознакомьтесь со статьей [Разработка базы данных Oracle и ее внедрение в Azure](oracle-design.md)
 

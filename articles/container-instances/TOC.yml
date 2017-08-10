@@ -23,12 +23,18 @@
   items:
     - name: Связь с оркестраторами
       href: container-instances-orchestrator-relationship.md
+    - name: Группы контейнеров
+      href: container-instances-container-groups.md
 - name: Практические руководства
   items:
-    - name: Многоконтейнерные группы
+    - name: Развертывание многоконтейнерных групп
       href: container-instances-multi-container-group.md
     - name: Управление состоянием при помощи файловых ресурсов Azure
       href: container-instances-mounting-azure-files-volume.md
+    - name: Развертывание из реестра контейнеров Azure
+      href: container-instances-using-azure-container-registry.md
+    - name: Устранение неполадок развертываний в Экземплярах контейнеров Azure
+      href: container-instances-troubleshooting.md
 - name: Справочные материалы
   items:
     - name: "Azure CLI\_2.0"

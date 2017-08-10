@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 09ececc567c09ea4e0b77d4d37445b7c232de23c
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: deb9ce304069e6bd92518610a9953fb1f29cb555
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="deploy-a-sailsjs-web-app-to-azure-app-service"></a>Развертывание веб-приложения Sails.js в службе приложений Azure
@@ -73,7 +72,7 @@ ms.lasthandoff: 05/31/2017
         logDirectory: iisnode
 
     Теперь для сервера [iisnode](https://github.com/tjanczuk/iisnode), который служба приложений Azure использует для запуска приложений Node.js, включено ведение журнала. 
-    Дополнительные сведения об этом см. в статье  [Отладка веб-приложения Node.js в службе приложений Azure](web-sites-nodejs-debug.md).
+    Дополнительные сведения об этом см. в статье [Отладка веб-приложения Node.js в службе приложений Azure](web-sites-nodejs-debug.md).
 
 2. После этого настройте приложение Sails.js для использования переменных среды Azure. Откройте файл config/env/production.js для настройки рабочей среды и установите `port` и `hookTimeout`.
 
@@ -88,7 +87,7 @@ ms.lasthandoff: 05/31/2017
             ...
         };
 
-    Сведения об этих параметрах конфигурации можно найти в  [документации Sails.js](http://sailsjs.org/documentation/reference/configuration/sails-config).
+    Сведения об этих параметрах конфигурации можно найти в [документации по Sails.js](http://sailsjs.org/documentation/reference/configuration/sails-config).
 
 4. Далее жестко задайте версию Node.js, которую следует использовать. Добавьте следующее свойство `engines` в файл package.json, чтобы задать нужную нам версию Node.js.
 
@@ -188,7 +187,7 @@ ms.lasthandoff: 05/31/2017
 
 1. [Создайте учетную запись Cosmos DB с поддержкой протокола MongoDB](../documentdb/documentdb-create-mongodb-account.md).
 2. [Создайте коллекцию и базу данных Cosmos DB](../documentdb/documentdb-create-collection.md). Имя коллекции не имеет значения, но при подключении из Sails.js необходимо знать имя базы данных.
-3. [Найдите сведения о подключении к базе данных Cosmos DB](../cosmos-db/connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+3. [Найдите сведения о подключении к базе данных Cosmos DB](../cosmos-db/connect-mongodb-account.md#GetCustomConnection).
 2. В терминале командной строки установите адаптер MongoDB:
 
         npm install sails-mongo --save
@@ -245,7 +244,7 @@ ms.lasthandoff: 05/31/2017
             migrate: 'alter'
         },
 
-    Объект `migrate: 'alter'` позволяет использовать функции миграции, чтобы легко создавать и обновлять коллекции и таблицы в базе данных. Так как приложение Sails.js не поддерживает параметр `migrate: 'alter'`, в (рабочей) среде Azure используется параметр `migrate: 'safe'` (дополнительные сведения см. в  [документации по Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
+    Объект `migrate: 'alter'` позволяет использовать функции миграции, чтобы легко создавать и обновлять коллекции и таблицы в базе данных. Так как приложение Sails.js не поддерживает параметр `migrate: 'alter'`, в (рабочей) среде Azure используется параметр `migrate: 'safe'` (дополнительные сведения см. в [документации по Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
 8. Чтобы создать базу данных с возможностями миграции Sails.js, в терминале [создайте](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) [проектный API](http://sailsjs.org/documentation/concepts/blueprints) для Sails.js, следуя обычной процедуре, а затем выполните команду `sails lift`. Например:
 
          sails generate api mywidget

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: af932e111ebc60ee86c823e65000d39fa6ea81cb
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1960fa0e17ea9aa0ca15bc3ecb8ce5b1f6630a60
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Настройка Application Insights для веб-сайта ASP.NET
@@ -110,9 +109,9 @@ ms.lasthandoff: 05/17/2017
 [Дополнительные сведения об использовании Application Insights на портале Azure](app-insights-dashboards.md).
 
 ## <a name="step-4-publish-your-app"></a>Шах 4. Публикация приложения
-Опубликуйте приложение на сервере IIS или в Azure. Просмотрите [динамический поток метрик](app-insights-metrics-explorer.md#live-metrics-stream) , чтобы убедиться в бесперебойной работе приложения.
+Опубликуйте приложение на сервере IIS или в Azure. Просмотрите [динамический поток метрик](app-insights-metrics-explorer.md#live-metrics-stream), чтобы убедиться в бесперебойной работе приложения.
 
-Телеметрия создается на портале Application Insights, где можно отслеживать метрики, выполнять поиск данных телеметрии и настраивать [панели мониторинга](app-insights-dashboards.md). Можно также использовать эффективный [язык запросов аналитики](app-insights-analytics.md) для анализа использования и производительности или поиска определенных событий.
+Телеметрия создается на портале Application Insights, где можно отслеживать метрики, выполнять поиск данных телеметрии и настраивать [панели мониторинга](app-insights-dashboards.md). Можно также использовать эффективный [язык запросов Log Analytics](https://docs.loganalytics.io/) для анализа использования и производительности или поиска определенных событий.
 
 Кроме того, можно продолжить анализировать телеметрию в [Visual Studio](app-insights-visual-studio.md) с помощью таких средств, как поиск по журналу диагностики и [тренды](app-insights-visual-studio-trends.md).
 

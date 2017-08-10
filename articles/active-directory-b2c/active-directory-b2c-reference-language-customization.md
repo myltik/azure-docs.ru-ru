@@ -12,12 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 03c65775d7fe7eee0d14ca4551ae8a332dbc39b2
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 3c7c49ee5fbd98762da0eef6f02e7c2f036453cb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C. Настройка языка
@@ -40,7 +39,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="support-uilocales-requested-languages"></a>Поддержка языков, запрашиваемых ui_locales 
 Включив в политике настройки языка, вы сможете управлять языками, доступными пользователю, добавив параметр ui_locales.
-1. [Выполните эти действия, чтобы перейти к колонке функций B2C на портале Azure.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-the-b2c-features-blade)
+1. [Выполните эти действия, чтобы перейти к колонке функций B2C на портале Azure.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings)
 2. Перейдите к политике, которую нужно включить.
 3. Щелкните **Настройка языка**.
 4. Внимательно прочтите предупреждение.  После включения настройку языка невозможно отключить.

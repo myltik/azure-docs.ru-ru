@@ -1,0 +1,2 @@
+>[!NOTE]
+> Если для рабочей области обновлен [язык запросов Log Analytics](../articles/log-analytics/log-analytics-log-search-upgrade.md), следующие запросы необходимо преобразовать. Для выполнения этого преобразования можно использовать [преобразователь языка](../articles/log-analytics/log-analytics-log-search-transition.md#language-converter).

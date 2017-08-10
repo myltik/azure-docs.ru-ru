@@ -12,17 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 07/24/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 0ac8ca0c5407925728ed0431294a3234b58d6e63
-ms.openlocfilehash: 04506596ba21c3ebef7237eaad8c5d786ad672fe
-ms.lasthandoff: 02/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: e6154d990e10f67d4b30b889a62a99cedcbfccbe
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/25/2017
 
 ---
 
 # <a name="install-net-on-a-cloud-service-role"></a>Установка .NET для роли облачной службы
-В этой статье описывается установка различных версий платформы .NET Framework для веб-роли и рабочей роли облачной службы, которые не поставляются с гостевой ОС. Например, вы можете использовать эти действия для установки .NET 4.6.1 в семействе версий 4 гостевой ОС Azure, которая не поставляется с любой версией .NET 4.6. Последние сведения о выпусках гостевой ОС см. в статье [Таблица совместимости выпусков гостевых ОС Azure и пакетов SDK](cloud-services-guestos-update-matrix.md).
+В этой статье описывается установка различных версий платформы .NET Framework для веб-роли и рабочей роли облачной службы, которые не поставляются с гостевой ОС. Например, эти действия можно применить для установки .NET 4.6.1 в семействе версий 4 гостевой ОС Azure, в состав которой не входит ни одна версия .NET 4.6. Самые актуальные сведения о выпусках гостевой ОС см. в статье [Таблица совместимости выпусков гостевых ОС Azure и пакетов SDK](cloud-services-guestos-update-matrix.md).
 
 >[!NOTE]
 >Гостевая ОС версии 5 включает .NET 4.6.
@@ -33,15 +34,18 @@ ms.lasthandoff: 02/27/2017
 Процесс установки .NET для веб-роли и рабочей роли предполагает добавление пакета установщика .NET в облачный проект и запуск установщика вместе с другими начальными задачами роли.  
 
 ## <a name="add-the-net-installer-to-your-project"></a>Добавление установщика .NET в проект
-* Загрузите веб-установщик для .NET framework, который хотите установить
-  * [Веб-установщик .NET 4.6.1](http://go.microsoft.com/fwlink/?LinkId=671729)
+* Загрузите веб-установщик нужной версии .NET Framework.
+  * [Веб-установщик .NET 4.7](http://go.microsoft.com/fwlink/?LinkId=825298).
+  * [Веб-установщик .NET 4.6.1](http://go.microsoft.com/fwlink/?LinkId=671729).
+
 * Для веб-роли:
   1. В **обозревателе решений** в папке **Роли** облачного проекта щелкните правой кнопкой мыши роль и выберите **Добавить > Новая папка**. Создайте папку с именем *bin*
   2. Щелкните папку **bin** правой кнопкой мыши и выберите **Добавить > Существующий элемент**. Выберите установщик .NET и добавьте его в папку bin.
+  
 * Для рабочей роли:
   1. Щелкните роль правой кнопкой мыши и выберите **Добавить > Существующий элемент**. Выберите установщик .NET и добавьте его в роль. 
 
-Файлы, добавленные таким образом в папку содержимого роли, будут автоматически добавлены в пакет облачной службы и развернуты в нужном расположении на виртуальной машине. Повторите эту процедуру для всех веб-ролей и рабочих ролей в облачной службе, чтобы у всех ролей была копия установщика.
+Файлы, добавленные таким образом в папку содержимого роли, автоматически добавляются в пакет облачной службы и развертываются в нужном расположении на виртуальной машине. Повторите эту процедуру для всех веб-ролей и рабочих ролей в облачной службе, чтобы у всех ролей была копия установщика.
 
 > [!NOTE]
 > Установите .NET 4.6.1 в роль облачной службы, даже если приложению необходим .NET 4.6. Гостевая ОС Azure включает в себя обновления [3098779](https://support.microsoft.com/kb/3098779) и [3097997](https://support.microsoft.com/kb/3097997). Установка .NET 4.6 поверх этих обновлений может вызвать проблемы при запуске приложений .NET, поэтому следует сразу же установить .NET 4.6.1 вместо .NET 4.6. Дополнительные сведения см. в исправлении [KB 3118750](https://support.microsoft.com/kb/3118750).
@@ -51,7 +55,7 @@ ms.lasthandoff: 02/27/2017
 ![Роль с файлами установщика][1]
 
 ## <a name="define-startup-tasks-for-your-roles"></a>Определение начальных задач для ролей
-С помощью начальных задач вы можете выполнять различные операции еще до запуска роли. Установка .NET Framework как начальной задачи позволит завершить установку платформы до запуска всех приложений. Дополнительные сведения о начальных задачах см. в статье [Как настроить и выполнить задачи запуска для облачной службы](cloud-services-startup-tasks.md). 
+С помощью начальных задач вы можете выполнять различные операции еще до запуска роли. Установка .NET Framework как начальной задачи позволяет установить платформу до того, как будет запущено выполнение программного кода. Дополнительные сведения о начальных задачах см. в статье [Как настроить и выполнить задачи запуска для облачной службы](cloud-services-startup-tasks.md). 
 
 1. В файл *ServiceDefinition.csdef* в узле **WebRole** или **WorkerRole** добавьте для всех ролей следующий код:
    
@@ -73,15 +77,17 @@ ms.lasthandoff: 02/27/2017
     </Startup>
     ```
    
-    Он выполняет консольную команду *install.cmd* с правами администратора, что позволит установить платформу .NET Framework. Конфигурация также создает LocalStorage с именем *NETFXInstall*. Сценарий запуска в качестве временной папки задаст этот локальный ресурс хранилища, чтобы установщик .NET Framework был скачан и установлен из данного ресурса. Важно задать размер этого ресурса не менее 1024 МБ, чтобы обеспечить правильную установку платформы. Дополнительные сведения о задачах запуска см. в статье [Стандартные задачи запуска в облачной службе](cloud-services-startup-tasks-common.md). 
+    Предыдущая конфигурация выполняет консольную команду *install.cmd* с правами администратора и устанавливает .NET Framework. Кроме того, эта конфигурация создает *LocalStorage* с именем *NETFXInstall*. Сценарий запуска задает временную папку для использования этого локального ресурса хранилища. Для правильной установки платформы необходимо, чтобы размер этого ресурса был не менее 1024 МБ. Дополнительные сведения о начальных задачах см. в статье [Стандартные задачи запуска в облачной службе](cloud-services-startup-tasks-common.md). 
+
 2. Создайте файл **install.cmd** и добавьте его во все роли. Для этого щелкните каждую роль правой кнопкой мыши и выберите **Добавить > Существующий элемент**. Теперь у каждой роли будет файл установщика .NET и файл install.cmd.
    
-    ![Роль со всеми файлами][2]
+   ![Роль со всеми файлами][2]
    
    > [!NOTE]
-   > Для создания этого файла используйте простой текстовый редактор, например Блокнот. Если создать файл в Visual Studio и затем изменить его расширение на CMD, в файле может остаться метка порядка байтов UTF-8 и выполнения первой строки сценария приведет к ошибке. Если вы все же решили создать файл в Visual Studio, оставьте в первой строке отметку REM (комментарий), чтобы она игнорировалась при выполнении. 
+   > Для создания этого файла используйте простой текстовый редактор, например Блокнот. Если создать файл в Visual Studio и затем изменить его расширение на CMD, в файле может остаться метка порядка байтов UTF-8 и выполнение первой строки сценария приведет к ошибке. Убедитесь, что первой строкой файла является команда REM. Это позволяет пропустить обработку метки порядка байтов UTF-8. 
    > 
    > 
+
 3. Добавьте следующий сценарий в файл **install.cmd** .
    
     ```cmd
@@ -90,42 +96,48 @@ ms.lasthandoff: 02/27/2017
     REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
-    set netfx="NDP461"
-   
+    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
+    set netfx="NDP47"
+
     REM ***** Set script start timestamp *****
     set timehour=%time:~0,2%
     set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
     set "log=install.cmd started %timestamp%."
-   
+
     REM ***** Exit script if running in Emulator *****
     if %ComputeEmulatorRunning%=="true" goto exit
-   
+
     REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
     set TMP=%PathToNETFXInstall%
     set TEMP=%PathToNETFXInstall%
-   
+
     REM ***** Setup .NET filenames and registry keys *****
+    if %netfx%=="NDP47" goto NDP47
     if %netfx%=="NDP462" goto NDP462
     if %netfx%=="NDP461" goto NDP461
     if %netfx%=="NDP46" goto NDP46
         set "netfxinstallfile=NDP452-KB2901954-Web.exe"
         set netfxregkey="0x5cbf5"
         goto logtimestamp
-   
+
     :NDP46
     set "netfxinstallfile=NDP46-KB3045560-Web.exe"
     set netfxregkey="0x6004f"
     goto logtimestamp
-   
+
     :NDP461
     set "netfxinstallfile=NDP461-KB3102438-Web.exe"
     set netfxregkey="0x6040e"
     goto logtimestamp
-   
+
     :NDP462
     set "netfxinstallfile=NDP462-KB3151802-Web.exe"
     set netfxregkey="0x60632"
-   
+
+    :NDP47
+    set "netfxinstallfile=NDP47-KB3186500-Web.exe"
+    set netfxregkey="0x707FE"
+
     :logtimestamp
     REM ***** Setup LogFile with timestamp *****
     md "%PathToNETFXInstall%\log"
@@ -135,7 +147,7 @@ ms.lasthandoff: 02/27/2017
     echo Logfile generated at: %startuptasklog% >> %startuptasklog%
     echo TMP set to: %TMP% >> %startuptasklog%
     echo TEMP set to: %TEMP% >> %startuptasklog%
-   
+
     REM ***** Check if .NET is installed *****
     echo Checking if .NET (%netfx%) is installed >> %startuptasklog%
     set /A netfxregkeydecimal=%netfxregkey%
@@ -143,7 +155,7 @@ ms.lasthandoff: 02/27/2017
     FOR /F "usebackq skip=2 tokens=1,2*" %%A in (`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release 2^>nul`) do @set /A foundkey=%%C
     echo Minimum required key: %netfxregkeydecimal% -- found key: %foundkey% >> %startuptasklog%
     if %foundkey% GEQ %netfxregkeydecimal% goto installed
-   
+
     REM ***** Installing .NET *****
     echo Installing .NET with commandline: start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog%  /chainingpackage "CloudService Startup Task" >> %startuptasklog%
     start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% /chainingpackage "CloudService Startup Task" >> %startuptasklog% 2>>&1
@@ -152,17 +164,17 @@ ms.lasthandoff: 02/27/2017
         if %ERRORLEVEL%== 3010 goto restart
         if %ERRORLEVEL%== 1641 goto restart
         echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-   
+
     :restart
     echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
     EXIT /B %ERRORLEVEL%
-   
+
     :installed
     echo .NET (%netfx%) is installed >> %startuptasklog%
-   
+
     :end
     echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
-   
+
     :exit
     EXIT /B 0
     ```
@@ -175,9 +187,9 @@ ms.lasthandoff: 02/27/2017
    > 
 
 ## <a name="configure-diagnostics-to-transfer-the-startup-task-logs-to-blob-storage"></a>Настройка системы диагностики для передачи журналов задач запуска в хранилище BLOB-объектов
-Чтобы упростить устранение любых неполадок при установке, вы можете настроить передачу всех файлов журналов, созданных сценарием запуска или установщиком .NET, в хранилище BLOB-объектов в системе диагностики Azure. Это позволит просматривать журналы, загружая их из хранилища больших двоичных объектов, а не на удаленном рабочем столе, на котором хранится роль.
+Чтобы упростить устранение любых неполадок при установке, вы можете настроить передачу всех файлов журналов, созданных сценарием запуска или установщиком .NET, в хранилище BLOB-объектов в системе диагностики Azure. Это позволит скачивать журналы из хранилища BLOB-объектов и просматривать их без необходимости входить в роль с помощью удаленного рабочего стола.
 
-Чтобы настроить систему диагностики, откройте файл *diagnostics.wadcfgx* и добавьте в узел **Directories** следующий код. 
+Чтобы настроить систему диагностики, откройте файл *diagnostics.wadcfgx* и добавьте в узел **Directories** следующий код: 
 
 ```xml 
 <DataSources>
@@ -187,10 +199,10 @@ ms.lasthandoff: 02/27/2017
 </DataSources>
 ```
 
-Это позволит системе диагностики Azure передавать все файлы из каталога *log* в ресурсе *NETFXInstall* в учетную запись хранения диагностических данных в контейнере больших двоичных объектов *netfx-install*.
+Этот XML-код позволяет системе диагностики Azure передавать все файлы из каталога *log* в ресурсе *NETFXInstall* в учетную запись хранения диагностических данных в контейнере BLOB-объектов *netfx-install*.
 
 ## <a name="deploying-your-service"></a>Развертывание службы
-При развертывании службы запускаются начальные задачи и устанавливается платформа .NET Framework (если она еще не установлена). Ваши роли будут в состоянии занятости во время установки платформы и могут даже перезагрузиться, если это потребуется для установки платформы. 
+При развертывании службы начальные задачи устанавливают платформу .NET Framework, если она еще не установлена. Во время установки платформы ваши роли находятся в *занятом* состоянии и могут даже перезапуститься, если это потребуется для установки платформы. 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Установка платформы .NET Framework][Installing the .NET Framework]

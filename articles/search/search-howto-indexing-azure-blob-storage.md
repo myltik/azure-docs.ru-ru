@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/15/2017
+ms.date: 07/22/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 509682297a3db090caa73bd9438f6434257d558f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b60662cbe655eea11cba2aaaaa4671209bf018f4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -35,12 +35,12 @@ ms.lasthandoff: 06/28/2017
 * ZIP;
 * EML
 * RTF
-* Обычные текстовые файлы
-* JSON (сведения о предварительной версии функции см. в статье [Индексирование больших двоичных объектов JSON с помощью индексатора больших двоичных объектов службы поиска Azure](search-howto-index-json-blobs.md));
+* обычные текстовые файлы (см. также [индексирование обычного текста](#IndexingPlainText));
+* JSON (см. [индексирование BLOB-объектов JSON](search-howto-index-json-blobs.md));
 * CSV (сведения о предварительной версии функции см. в статье [Индексирование больших двоичных объектов CSV с помощью индексатора больших двоичных объектов службы поиска Azure](search-howto-index-csv-blobs.md)).
 
 > [!IMPORTANT]
-> Массивы CSV и JSON сейчас поддерживаются только в предварительной версии. Эти форматы доступны только при использовании версии **2015-02-28-Preview** REST API или версии 2.x-preview пакета SDK для .NET. Помните, что предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде.
+> Массивы CSV и JSON сейчас поддерживаются только в предварительной версии. Эти форматы доступны только при использовании версии **2016-09-01-Preview** REST API или версии 2.x-preview пакета SDK для .NET. Помните, что предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде.
 >
 >
 
@@ -89,8 +89,8 @@ ms.lasthandoff: 06/28/2017
 Учетные данные для контейнера BLOB-объектов можно указать одним из описанных ниже способов.
 
 - **Строка подключения учетной записи хранения с полным доступом**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Строку подключения можно получить на портале Azure, перейдя в колонку учетной записи хранения и щелкнув "Параметры" > "Ключи" (для классических учетных записей хранения) или "Параметры" > "Ключи доступа" (для учетных записей хранения Azure Resource Manager).
-- Строка подключения с **подписанным URL-адресом (SAS) учетной записи хранения**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. Подписанный URL-адрес должен иметь разрешения "Список" и "Чтение" для контейнеров и объектов (в данном случае — больших двоичных объектов).
--  **Подписанный URL-адрес контейнера**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. Подписанный URL-адрес должен иметь разрешения "Список" и "Чтение" для контейнера.
+- **Строка подключения с подписанным URL-адресом (SAS) учетной записи хранения**. `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` Подписанный URL-адрес должен иметь разрешения на перечисление и чтение для контейнеров и объектов (в этом случае BLOB-объектов).
+-  **Подписанный URL-адрес контейнера**. `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` Подписанный URL-адрес должен иметь разрешения на перечисление и чтение для контейнера.
 
 Дополнительные сведения о подписанных URL-адресах см. в статье [Использование подписанных URL-адресов (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -340,13 +340,35 @@ ms.lasthandoff: 06/28/2017
 
 - Создайте соответствующий индексатор для каждого источника данных. Все индексаторы могут указывать на один и тот же целевой индекс поиска.  
 
+- Одна единица поиска в службе в определенный момент времени может запустить один индексатор. Создание нескольких индексаторов, как описано выше, полезно только при их фактическом параллельном выполнении. Для параллельного выполнения нескольких индексаторов следует увеличить масштаб службы поиска, создав достаточное число секций и реплик. Например, если служба поиска содержит 6 единиц поиска (скажем, 2 секции x 3 реплики), то параллельно могут выполняться 6 индексаторов. Это позволяет достичь шестикратного увеличения пропускной способности индексации. Дополнительные сведения о масштабировании и планировании емкости см. в статье [Масштабирование уровней ресурсов для рабочих нагрузок запросов и индексирования в Поиске Azure](search-capacity-planning.md).
+
 ## <a name="indexing-documents-along-with-related-data"></a>Индексация документов и связанных данных
 
-У документов могут быть связанные метаданные (например, отдел, создавший документ), которые хранятся в виде структурированных данных в одном из следующих расположений.
--   В отдельном хранилище данных, таком как база данных SQL или Azure Cosmos DB.
--   Непосредственно в каждом документе в хранилище BLOB-объектов Azure в виде вложенных пользовательских метаданных. (Дополнительные сведения см. в разделе [Setting and Retrieving Properties and Metadata for Blob Resources](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Задание и получение свойств и метаданных для ресурсов больших двоичных объектов).)
+Возможно, вам нужно создать в индексе "сборку" документов из нескольких источников. Например, можно объединить текст из BLOB-объектов с другими метаданными, хранящимися в Cosmos DB. Можно даже использовать API принудительного индексирования вместе с другими индексаторами, чтобы создавать документы для поиска из нескольких частей. 
 
-Можно индексировать документы вместе с их метаданными, назначив для каждого документа и его метаданных одно уникальное значение ключа и указав действие `mergeOrUpload` для каждого индексатора. Подробное описание этого решения приведено во внешней статье: [Combine documents with other data in Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Объединение документов с другими данными в Поиске Azure).
+Чтобы это работало, ключ документа должен быть согласован для всех индексаторов и других компонентов. Подробное пошаговое руководство см. в статье [Combine documents with other data in Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Объединение документов с другими данными в службе "Поиск Azure").
+
+<a name="IndexingPlainText"></a>
+## <a name="indexing-plain-text"></a>Индексирование обычного текста 
+
+Если все BLOB-объекты содержат обычный текст в одной и той же кодировке, можно существенно повысить производительность индексирования, используя **текстовый режим анализа**. Чтобы использовать текстовый режим анализа, задайте для свойства конфигурации `parsingMode` значение `text`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text" } }
+    }
+
+По умолчанию предполагается кодировка `UTF-8`. Чтобы указать другую кодировку, используйте свойство конфигурации `encoding`: 
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+    }
+
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Свойства метаданных определенного типа содержимого

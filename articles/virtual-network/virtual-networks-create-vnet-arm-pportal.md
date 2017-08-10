@@ -1,5 +1,5 @@
 ---
-title: "Создание виртуальной сети Azure с подсетями | Документация Майкрософт"
+title: "Создание виртуальной сети Azure с несколькими подсетями | Документация Майкрософт"
 description: "Узнайте, как создать виртуальную сеть с несколькими подсетями в Azure."
 services: virtual-network
 documentationcenter: 
@@ -9,37 +9,37 @@ editor:
 tags: azure-resource-manager
 ms.assetid: 4ad679a4-a959-4e48-a317-d9f5655a442b
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1ecfba0470c31d1119b5e6c0f9d8538abe40f834
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: a31f0524a6fa1de45498f340a27b863a3c627e04
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>Создание виртуальной сети с несколькими подсетями
 
-В рамках этого руководства вы узнаете, как создать базовую виртуальную сеть Azure с отдельными общедоступной и частной подсетями. К подсетям можно подключать различные ресурсы Azure, например виртуальные машины, среды службы приложений Azure, масштабируемые наборы виртуальных машин, Azure HDInsight и другие облачные службы. Ресурсы, подключенные к виртуальным сетям, могут взаимодействовать друг с другом через частную сеть Azure.
+В рамках этого руководства вы узнаете, как создать базовую виртуальную сеть Azure с отдельными общедоступной и частной подсетями. В подсетях можно создавать различные ресурсы Azure, например виртуальные машины, среды службы приложений Azure, масштабируемые наборы виртуальных машин, Azure HDInsight и облачные службы. Ресурсы в виртуальной сети могут взаимодействовать друг с другом и с ресурсами в других сетях, подключенных к виртуальной сети.
 
-В следующих разделах приведены шаги по развертыванию виртуальной сети с помощью [портала Azure](#portal), интерфейса командной строки Azure ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell) и [шаблона Azure Resource Manager](#resource-manager-template). Результат использования любого из этих инструментов для развертывания виртуальной сети одинаков. Щелкните нужную ссылку, чтобы перейти в соответствующий раздел этого руководства. Дополнительные сведения о всех параметрах виртуальной сети и подсети см. в статьях [Создание, изменение или удаление виртуальных сетей](virtual-network-manage-network.md) и [Создание, изменение и удаление подсетей в виртуальных сетях](virtual-network-manage-subnet.md).
+В следующих разделах приведены шаги по созданию виртуальной сети с помощью [портала Azure](#portal), интерфейса командной строки Azure ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell) и [шаблона Azure Resource Manager](#resource-manager-template). Результат использования любого из этих инструментов для создания виртуальной сети одинаков. Щелкните нужную ссылку, чтобы перейти в соответствующий раздел этого руководства. Дополнительные сведения обо всех параметрах виртуальной сети и подсети см. в [этой](virtual-network-manage-network.md) и [этой](virtual-network-manage-subnet.md) статье.
+
+Эта статья содержит инструкции по созданию виртуальной сети с использованием модели развертывания с помощью Resource Manager. Мы рекомендуем использовать эту модель при создании виртуальных сетей. Если требуется создать классическую виртуальную сеть, см. [эту статью](create-virtual-network-classic.md). Если вы не знакомы с моделями развертывания Azure, см. статью [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="portal"></a>Портал Azure
 
-1. С помощью браузера войдите на [портал Azure](https://portal.azure.com). Выполните вход с помощью [учетной записи Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Если у вас нет учетной записи Azure, вы можете зарегистрироваться и получить [бесплатную пробную версию](https://azure.microsoft.com/offers/ms-azr-0044p).
+1. С помощью браузера войдите на [портал Azure](https://portal.azure.com). Войдите с использованием [учетной записи Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Если у вас нет учетной записи Azure, вы можете зарегистрироваться и получить [бесплатную пробную версию](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. На портале щелкните **+ Создать** > **Сети** > **Виртуальная сеть**.
-3. В открывшейся колонке **Виртуальная сеть** в разделе **Выбор модели развертывания** оставьте выбранным пункт **Диспетчер ресурсов**, а затем щелкните **Создать**.
-4. В колонке **Создать виртуальную сеть** введите приведенные ниже значения, а затем щелкните **Создать**:
+3. В колонке **Создать виртуальную сеть** введите приведенные ниже значения, а затем щелкните **Создать**:
 
     |Настройка|Значение|
     |---|---|
-    |Имя|MyVnet|
+    |Имя|myVnet|
     |Пространство адресов|10.0.0.0/16|
     |Имя подсети|Общедоступные|
     |Диапазон адресов подсети|10.0.0.0/24|
@@ -47,64 +47,65 @@ ms.lasthandoff: 06/01/2017
     |Подписка и расположение|Выберите подписку и расположение.
 
     Если вы еще не работали с Azure, ознакомьтесь со сведениями о [группах ресурсов](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [подписках](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) и [расположениях](https://azure.microsoft.com/regions) (которые также называются *регионами*).
-6. На портале при создании виртуальной сети можно создать только одну подсеть. В рамках этого руководства вы узнаете, как создать вторую подсеть после создания виртуальной сети. Позже вы можете подключить ресурсы, доступные из Интернета, к **общедоступной** подсети. Ресурсы, которые недоступны из Интернета, можно подключить к **частной** подсети. Чтобы создать вторую подсеть, введите **MyVnet** в поле **Поиск ресурсов** в верхней части страницы. В результатах поиска щелкните **MyVnet**. Если в подписке есть несколько виртуальных сетей с одним именем, проверьте группы ресурсов, которые отображаются для каждой из них. Удостоверьтесь, что вы выбрали результат поиска **MyVnet**, содержащий группу ресурсов **MyResourceGroup**.
-7. В колонке **MyVnet** в разделе **Параметры** щелкните **Подсети**.
-8. В колонке **MyVnet — Subnets** (MyVnet — подсети) щелкните **+Subnet** (+ Подсеть).
-9. В колонке **Добавление подсети** для **имени** введите **Частное**. Для **Диапазон адресов** введите **10.0.1.0/24**.  Нажмите кнопку **ОК**.
-10. Просмотрите подсети в колонке **MyVnet — Subnets** (MyVnet — подсети). Вы увидите созданную **общедоступную** и **частную** подсети.
-11. **Необязательно.** Чтобы удалить ресурсы, созданные в рамках этого руководства, выполните инструкции, описанные в разделе по [удалению ресурсов](#delete-portal).
+4. На портале при создании виртуальной сети можно создать только одну подсеть. В рамках этого руководства вы узнаете, как создать вторую подсеть после создания виртуальной сети. Позже вы можете создать ресурсы, доступные из Интернета, в **общедоступной** подсети. Ресурсы, которые недоступны из Интернета, можно создать в **частной** подсети. Чтобы создать вторую подсеть, введите **myVnet** в поле **Поиск ресурсов** в верхней части страницы. В результатах поиска щелкните **myVnet**. Если в подписке есть несколько виртуальных сетей с одним именем, проверьте группы ресурсов, которые отображаются для каждой из них. Удостоверьтесь, что вы выбрали результат поиска **myVnet**, содержащий группу ресурсов **myResourceGroup**.
+5. В колонке **myVnet** в разделе **Параметры** щелкните **Подсети**.
+6. В колонке **myVnet — подсети** щелкните **+Subnet** (+Подсеть).
+7. В колонке **Добавление подсети** для **имени** введите **Частное**. Для **Диапазон адресов** введите **10.0.1.0/24**.  Нажмите кнопку **ОК**.
+8. Просмотрите подсети в колонке **myVnet — подсети**. Вы увидите созданную **общедоступную** и **частную** подсети.
+9. **Необязательно.** Чтобы удалить ресурсы, созданные в рамках этого руководства, выполните инструкции, описанные в разделе по [удалению ресурсов](#delete-portal).
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
 
-Команды Azure CLI одинаковы для ОС Windows, Linux или macOS. Тем не менее существуют различия в сценариях между оболочками операционных систем. Приведенные ниже инструкции предназначены для выполнения сценария Bash, содержащего команды интерфейса командной строки Azure:
+Команды Azure CLI одинаковы для ОС Windows, Linux или macOS. Тем не менее существуют различия в сценариях между оболочками операционных систем. Сценарий ниже выполняется в оболочке Bash. 
 
-1. Откройте в браузере [портал Azure](https://portal.azure.com). Выполните вход с помощью [учетной записи Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Если у вас нет учетной записи Azure, вы можете зарегистрироваться и получить [бесплатную пробную версию](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. В верхней части страницы портала справа от поля **Поиск ресурсов** щелкните значок **>_**, чтобы запустить Azure Cloud Shell для Bash (предварительная версия). В нижней области портала появится панель Cloud Shell. А через несколько секунд появится командная строка **username@Azure:~$**. Cloud Shell выполняет автоматический вход в Azure с помощью учетных данных, использованных для входа на портал.
-3. В браузере скопируйте приведенный ниже сценарий.
-    ```azurecli
+1. [Установите и настройте Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Убедитесь, что у вас установлена самая последняя версия Azure CLI. Для получения справки по командам интерфейса командной строки введите `az <command> --help`. Вы можете не устанавливать интерфейс командной строки и его зависимости, а воспользоваться Azure Cloud Shell. Azure Cloud Shell — это бесплатная оболочка Bash, которую можно запускать непосредственно на портале Azure. Cloud Shell включает предварительно установленный и настроенный интерфейс Azure CLI для использования с вашей учетной записью. Чтобы использовать Cloud Shell, нажмите кнопку Cloud Shell (**>_**) в верхней части [портала](https://portal.azure.com) или просто нажмите кнопку *Попробуйте!* в последующих шагах. 
+2. При локальном выполнении интерфейса командной строки войдите в Azure с помощью команды `az login`. При использовании Cloud Shell вход выполняется автоматически.
+3. Просмотрите следующий сценарий и комментарии к нему. В браузере скопируйте сценарий и вставьте его в окно сеанса интерфейса командной строки:
+
+    ```azurecli-interactive
     #!/bin/bash
     
     # Create a resource group.
     az group create \
-      --name MyResourceGroup \
+      --name myResourceGroup \
       --location eastus
     
-    # Create a virtual network with one subnet.
+    # Create a virtual network with one subnet named Public.
     az network vnet create \
-      --name MyVnet \
-      --resource-group MyResourceGroup \
+      --name myVnet \
+      --resource-group myResourceGroup \
       --subnet-name Public
     
-    # Create an additional subnet within the virtual network.
+    # Create an additional subnet named Private in the virtual network.
     az network vnet subnet create \
       --name Private \
       --address-prefix 10.0.1.0/24 \
-      --vnet-name MyVnet \
-      --resource-group MyResourceGroup
+      --vnet-name myVnet \
+      --resource-group myResourceGroup
     ```
-4. Создайте файл сценария и сохраните его. В командной строке Cloud Shell введите `nano myscript.sh --nonewlines`. Эта команда запускает редактор Nano GNU с открытым в нем пустым файлом myscript.sh. Наведите указатель мыши на окно редактора, щелкните правой кнопкой мыши и выберите **Вставить**.  
-5. Чтобы сохранить файл как myscript.sh, нажмите сочетание клавиш Ctrl + X, введите **Y**, а затем нажмите клавишу ВВОД. Хранилище Cloud Shell не сохраняет файлы, сохраненные между сеансами. Если нужно сохранить сценарий в сеансах Cloud Shell, настройте [постоянное хранилище](../cloud-shell/persisting-shell-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json) для Cloud Shell и сохраните в нем файл.
-6. В командной строке Cloud Shell пометьте этот файл как исполняемый, выполнив команду `chmod +x myscript.sh`.
-7. Чтобы выполнить сценарий, введите `./myscript.sh`.
-8. По завершении выполнения сценария вы можете просмотреть подсети для виртуальной сети. Для этого скопируйте команду ниже, а затем вставьте ее в панель Bash Cloud Shell.
+    
+4. По завершении сценария просмотрите подсети для виртуальной сети. Скопируйте следующую команду и вставьте ее в окно сеанса интерфейса командной строки:
+
     ```azurecli
-    az network vnet subnet list --resource-group MyResourceGroup --vnet-name MyVnet --output table
+    az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
     ```
-9. **Необязательно.** Чтобы удалить ресурсы, созданные в рамках этого руководства, выполните инструкции, описанные в разделе по [удалению ресурсов](#delete-cli).
+
+5. **Необязательно**. Чтобы удалить ресурсы, созданные в этом руководстве, выполните инструкции, описанные в разделе [Удаление ресурсов](#delete-cli) этой статьи.
 
 ## <a name="powershell"></a>PowerShell
 
 1. Установите последнюю версию модуля [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) PowerShell. Если вы еще не работали с Azure PowerShell, ознакомьтесь со статьей [Overview of Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Общие сведения об Azure PowerShell).
-2. Чтобы запустить сеанс PowerShell, перейдите в **Начало**, введите **powershell**, а затем щелкните **PowerShell**.
-3. В окне PowerShell введите `login-azurermaccount`, чтобы выполнить вход с помощью [учетной записи Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account).
-4. В браузере скопируйте приведенный ниже сценарий.
+2. В сеансе PowerShell войдите в Azure с использованием [учетной записи Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) с помощью команды `login-azurermaccount`.
+
+3. Просмотрите следующий сценарий и комментарии к нему. В браузере скопируйте сценарий и вставьте его в окно сеанса PowerShell:
+
     ```powershell
     # Create a resource group.
     New-AzureRmResourceGroup `
-      -Name MyResourceGroup `
+      -Name myResourceGroup `
       -Location eastus
     
-    # Create two subnets.
+    # Create the public and private subnets.
     $Subnet1 = New-AzureRmVirtualNetworkSubnetConfig `
       -Name Public `
       -AddressPrefix 10.0.0.0/24
@@ -114,19 +115,20 @@ ms.lasthandoff: 06/01/2017
     
     # Create a virtual network.
     $Vnet=New-AzureRmVirtualNetwork `
-      -ResourceGroupName MyResourceGroup `
+      -ResourceGroupName myResourceGroup `
       -Location eastus `
-      -Name MyVnet `
+      -Name myVnet `
       -AddressPrefix 10.0.0.0/16 `
       -Subnet $Subnet1,$Subnet2
-    #
     ```
-5. Чтобы выполнить скрипт, щелкните правой кнопкой мыши в окне PowerShell.
-6. Чтобы просмотреть подсети для виртуальной сети, скопируйте команду ниже, а затем вставьте ее в окно PowerShell:
+
+4. Чтобы просмотреть подсети для виртуальной сети, скопируйте следующую команду, а затем вставьте ее в окно сеанса PowerShell:
+
     ```powershell
-    $Vnet = $Vnet.subnets | Format-Table Name, AddressPrefix
+    $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
-7. **Необязательно.** Чтобы удалить ресурсы, созданные в рамках этого руководства, выполните инструкции, описанные в разделе по [удалению ресурсов](#delete-powershell).
+
+5. **Необязательно**. Чтобы удалить ресурсы, созданные в этом руководстве, выполните инструкции, описанные в разделе [Удаление ресурсов](#delete-powershell) этой статьи.
 
 ## <a name="resource-manager-template"></a>Шаблон Resource Manager
 
@@ -137,16 +139,16 @@ ms.lasthandoff: 06/01/2017
 ### <a name="template-portal"></a>Портал Azure
 
 1. В браузере откройте [страницу шаблона](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
-2. Нажмите кнопку **Deploy to Azure** (Развернуть в Azure). Откроется страница входа на портале Azure.
+2. Нажмите кнопку **Deploy to Azure** (Развернуть в Azure). Если вы еще не вошли в Azure, сделайте это на появившемся экране входа портала Azure.
 3. Войдите на портал с помощью [учетной записи Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Если у вас нет учетной записи Azure, вы можете зарегистрироваться и получить [бесплатную пробную версию](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Введите следующие значения параметров.
 
     |Параметр|Значение|
     |---|---|
     |Подписки|Выберите свою подписку.|
-    |Группа ресурсов|MyResourceGroup|
+    |Группа ресурсов|myResourceGroup|
     |Расположение|Выберите расположение|
-    |Имя виртуальной сети|MyVnet|
+    |Имя виртуальной сети|myVnet|
     |Префикс адреса виртуальной сети|10.0.0.0/16|
     |Subnet1Prefix|10.0.0.0/24|
     |Subnet1Name|Общедоступные|
@@ -157,11 +159,20 @@ ms.lasthandoff: 06/01/2017
 
 ### <a name="template-cli"></a>Интерфейс командной строки Azure
 
-1. Войдите на [портал](https://portal.azure.com) с помощью своей [учетной записи Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Если у вас нет учетной записи Azure, вы можете зарегистрироваться и получить [бесплатную пробную версию](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Справа от поля **Поиск ресурсов** щелкните значок **>_**, чтобы запустить Azure Cloud Shell для Bash (предварительная версия). В нижней области портала появится панель Cloud Shell. А через несколько секунд появится командная строка **username@Azure:~$**. Cloud Shell выполняет автоматический вход в Azure с помощью учетных данных, использованных для входа на портал Azure.
-3. Чтобы создать группу ресурсов для виртуальной сети, введите следующую команду:  `az group create --name MyResourceGroup --location eastus`
+1. [Установите и настройте Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Убедитесь, что у вас установлена самая последняя версия Azure CLI. Для получения справки по командам интерфейса командной строки введите `az <command> --help`. Вы можете не устанавливать интерфейс командной строки и его зависимости, а воспользоваться Azure Cloud Shell. Azure Cloud Shell — это бесплатная оболочка Bash, которую можно запускать непосредственно на портале Azure. Cloud Shell включает предварительно установленный и настроенный интерфейс Azure CLI для использования с вашей учетной записью. Чтобы использовать Cloud Shell, нажмите кнопку Cloud Shell, **>_**, в верхней части [портала](https://portal.azure.com) или просто нажмите кнопку **Попробуйте!** в последующих шагах. 
+2. При локальном выполнении интерфейса командной строки войдите в Azure с помощью команды `az login`. При использовании Cloud Shell вход выполняется автоматически.
+3. Чтобы создать группу ресурсов для виртуальной сети, скопируйте следующую команду и вставьте ее в окно сеанса интерфейса командной строки:
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location eastus
+    ```
+    
 4. Вы можете развернуть шаблон с помощью одного из следующих вариантов параметров:
-    - **Значений параметров по умолчанию.** Введите следующую команду:   `az group deployment create --resource-group MyResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
+    - **Значений параметров по умолчанию.** Введите следующую команду:
+    
+        ```azurecli-interactive
+        az group deployment create --resource-group myResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
+        ```
     - **Настраиваемых значений параметров.** Загрузите и измените шаблон перед его развертыванием. Кроме того, можно развернуть шаблон с помощью параметров командной строки или отдельного файла параметров. Чтобы скачать файлы шаблона и параметров, нажмите кнопку **Browse on GitHub** (Найти на GitHub) на странице шаблона [Create a Virtual Network with two Subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) (Создание виртуальной сети с двумя подсетями). На сайте GitHub щелкните файл **azuredeploy.parameters.json** или **azuredeploy.json**. А затем нажмите кнопку **Необработанный**, чтобы отобразить файл. Скопируйте содержимое файла в браузере. Сохраните содержимое в файл на компьютере. Вы можете изменить значения параметров в шаблоне или развернуть шаблон с помощью отдельного файла параметров.  
 
     Чтобы узнать больше о развертывании шаблонов с помощью этих методов, введите `az group deployment create --help`.
@@ -169,37 +180,55 @@ ms.lasthandoff: 06/01/2017
 ### <a name="template-powershell"></a>PowerShell
 
 1. Установите последнюю версию модуля [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) PowerShell. Если вы еще не работали с Azure PowerShell, ознакомьтесь со статьей [Overview of Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Общие сведения об Azure PowerShell).
-2. Чтобы запустить сеанс PowerShell, перейдите в **Начало**, введите **powershell**, а затем щелкните **PowerShell**.
-3. В окне PowerShell введите `login-azurermaccount`, чтобы выполнить вход с помощью [учетной записи Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account).
-4. Чтобы создать группу ресурсов для виртуальной сети, введите следующую команду:  `New-AzureRmResourceGroup -Name MyResourceGroup -Location eastus`
-5. Вы можете развернуть шаблон с помощью одного из следующих вариантов параметров:
-    - **Значений параметров по умолчанию.** Введите следующую команду:   `New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName MyResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`        
+2. В окне сеанса PowerShell введите `login-azurermaccount`, чтобы выполнить вход с помощью [учетной записи Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account).
+3. Чтобы создать группу ресурсов для виртуальной сети, введите следующую команду:
+
+    ```powershell
+    New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
+    ```
+    
+4. Вы можете развернуть шаблон с помощью одного из следующих вариантов параметров:
+    - **Значений параметров по умолчанию.** Введите следующую команду:
+    
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName myResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json
+        ```
+        
     - **Настраиваемых значений параметров.** Загрузите и измените шаблон перед его развертыванием. Кроме того, можно развернуть шаблон с помощью параметров командной строки или отдельного файла параметров. Чтобы скачать файлы шаблона и параметров, нажмите кнопку **Browse on GitHub** (Найти на GitHub) на странице шаблона [Create a Virtual Network with two Subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) (Создание виртуальной сети с двумя подсетями). На сайте GitHub щелкните файл **azuredeploy.parameters.json** или **azuredeploy.json**. А затем нажмите кнопку **Необработанный**, чтобы отобразить файл. Скопируйте содержимое файла в браузере. Сохраните содержимое в файл на компьютере. Вы можете изменить значения параметров в шаблоне или развернуть шаблон с помощью отдельного файла параметров.  
 
     Чтобы узнать больше о развертывании шаблонов с помощью этих методов, введите `Get-Help New-AzureRmResourceGroupDeployment`. 
 
 ## <a name="delete"></a>Удаление ресурсов
-По завершении работы с этим руководством может потребоваться удалить созданные ресурсы, чтобы за их использование не взималась плата. При удалении группы ресурсов будут также удалены все ресурсы, содержащиеся в ней.
+
+По завершении работы с этим руководством может потребоваться удалить созданные ресурсы, чтобы за их использование не взималась плата: При удалении группы ресурсов будут также удалены все ресурсы, содержащиеся в ней.
 
 ### <a name="delete-portal"></a>Портал Azure
 
-1. В поле поиска на портале введите **MyResourceGroup**. В результатах поиска щелкните **MyResourceGroup**.
-2. В колонке **MyResourceGroup** щелкните значок **Удалить**.
-3. Чтобы подтвердить удаление, введите **MyResourceGroup** в поле **Введите имя группы ресурсов**, а затем щелкните **Удалить**.
+1. В поле поиска на портале введите **myResourceGroup**. В результатах поиска щелкните **myResourceGroup**.
+2. В колонке **myResourceGroup** щелкните значок **Удалить**.
+3. Чтобы подтвердить удаление, введите **myResourceGroup** в поле **Введите имя группы ресурсов**, а затем щелкните **Удалить**.
 
 ### <a name="delete-cli"></a>Интерфейс командной строки Azure
 
-В командной строке Cloud Shell введите следующую команду: `az group delete --name MyResourceGroup --yes`
+В окне сеанса интерфейса командной строки введите следующую команду:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes
+```
 
 ### <a name="delete-powershell"></a>PowerShell
 
-В командной строке PowerShell введите следующую команду: `Remove-AzureRmResourceGroup -Name MyResourceGroup`
+В окне сеанса PowerShell введите следующую команду:
+
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Дополнительные сведения о всех параметрах виртуальной сети и подсети см. в статьях [Создание, изменение или удаление виртуальных сетей](virtual-network-manage-network.md#view-vnet) и [Создание, изменение и удаление подсетей в виртуальных сетях](virtual-network-manage-subnet.md#create-subnet). Доступны различные варианты использования виртуальных сетей и подсетей в рабочей среде для соответствия различным требованиям.
-- Вы можете фильтровать входящий и исходящий трафик подсети, создавая и применяя к ней [группы безопасности сети](virtual-networks-nsg.md) (NSG).
-- Создайте [виртуальную машину с Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или [виртуальную машину с Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), а затем подключите ее к виртуальной сети.
-- Подключите виртуальную сеть к другой виртуальной сети в том же расположении, используя [пиринг между виртуальными сетями](virtual-network-peering-overview.md).
-- Подключите виртуальную сеть к локальной сети с помощью [виртуальной частной сети типа "сеть — сеть"](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или канала [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Дополнительные сведения о всех параметрах виртуальной сети и подсети см. в статьях [Создание, изменение или удаление виртуальных сетей](virtual-network-manage-network.md#view-vnet) и [Создание, изменение и удаление подсети в виртуальной сети](virtual-network-manage-subnet.md#create-subnet). Доступны различные варианты использования виртуальных сетей и подсетей в рабочей среде для соответствия различным требованиям.
+- Вы можете фильтровать входящий и исходящий трафик подсети, создавая и применяя к ней [группы безопасности сети](virtual-networks-nsg.md).
+- Создайте виртуальную машину [с Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или [с Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), а затем подключите ее к имеющейся виртуальной сети.
+- Чтобы подключить две виртуальные сети в одном расположении Azure, создайте [пиринг виртуальных сетей](virtual-network-peering-overview.md) между ними.
+- Чтобы подключить виртуальную сеть к локальной сети, используйте [VPN-шлюз](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или канал [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 07/23/2017
 ms.author: mahi
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: d4e4bb5e18b63a9d9494a2294743fa9f45b64fa1
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: b79f6dd20d2e8e298b8d1824b70ff9f0d0fde9aa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Управление аналитикой озера данных Azure с помощью Azure PowerShell
@@ -128,8 +128,6 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg
 
 ## <a name="managing-firewall-rules"></a>Управление правилами брандмауэра
 
-### <a name="add-or-remove-firewall-rules"></a>Добавление или удаление правил брандмауэра
-
 Вывод списка правил брандмауэра.
 
 ```powershell
@@ -158,13 +156,7 @@ Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $sta
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
 
-### <a name="enable-or-disable-firewall-rules"></a>Включение и отключение правил брандмауэра
 
-Включение правила брандмауэра.
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
-```
 
 Разрешение IP-адресов Azure.
 
@@ -172,9 +164,8 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
 Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
 ```
 
-Отключение правил брандмауэра.
-
 ```powershell
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
 Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 ```
 
@@ -193,26 +184,22 @@ $adla_acct = Get-AdlAnalyticsAccount -Name $adla
 $dataLakeStoreName = $adla_acct.DefaultDataLakeAccount
 ```
 
-Кроме того, при перечислении списка источников данных можно найти учетную запись Data Lake Store по умолчанию с помощью следующего шаблона:
+Чтобы найти учетную запись по умолчанию для Data Lake Store, отфильтруйте список источников данных по свойству `IsDefault`:
 
 ```powershell
 Get-AdlAnalyticsDataSource -Account $adla  | ? { $_.IsDefault } 
 ```
 
-### <a name="add-data-sources"></a>Добавление источников данных
-
-Добавление дополнительной учетной записи хранения (BLOB-объектов).
+### <a name="add-a-data-source"></a>Добавление источника данных
 
 ```powershell
+
+# Add an additional Storage (Blob) account.
 $AzureStorageAccountName = "<AzureStorageAccountName>"
 $AzureStorageAccountKey = "<AzureStorageAccountKey>"
-
 Add-AdlAnalyticsDataSource -Account $adla -Blob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
-```
 
-Добавление дополнительной учетной записи Data Lake Store.
-
-```powershell
+# Add an additional Data Lake Store account.
 $AzureDataLakeStoreName = "<AzureDataLakeStoreAccountName"
 Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName 
 ```
@@ -230,11 +217,9 @@ Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "DataLakeStore
 Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
 ```
 
-## <a name="managing-jobs"></a>Управление заданиями
+## <a name="submit-u-sql-jobs"></a>Отправка заданий U-SQL
 
-### <a name="submit-a-u-sql-job"></a>Отправка задания U-SQL
-
-Отправка строки как скрипта U-SQL.
+### <a name="submit-a-string-as-a-u-sql-script"></a>Отправка строки как скрипта U-SQL
 
 ```powershell
 $script = @"
@@ -256,7 +241,7 @@ Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
 
-Отправка файла как скрипта U-SQL.
+### <a name="submit-a-file-as-a-u-sql-script"></a>Отправка файла как скрипта U-SQL
 
 ```powershell
 $scriptpath = "d:\test.usql"
@@ -264,13 +249,16 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 ```
 
-### <a name="list-jobs"></a>Список заданий
+## <a name="list-jobs-in-an-account"></a>Получение списка заданий в учетной записи
 
-Откройте список всех заданий в учетной записи. Результаты включают в себя текущие и недавно завершенные задания.
+### <a name="list-all-the-jobs-in-the-account"></a>Откройте список всех заданий в учетной записи. 
+
+Результаты включают в себя текущие и недавно завершенные задания.
 
 ```powershell
 Get-AdlJob -Account $adla
 ```
+
 
 ### <a name="list-a-specific-number-of-jobs"></a>Получение списка определенного числа заданий
 
@@ -280,44 +268,83 @@ Get-AdlJob -Account $adla
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
 
+
 ### <a name="list-jobs-based-on-the-value-of-job-property"></a>Получение списка заданий на основе значения свойства задания
 
-Вывод списка заданий, отправленных за последний день.
+Использование параметра `-State`. Вы можете использовать любое сочетание следующих значений:
 
-```
-$d = [DateTime]::Now.AddDays(-1)
-Get-AdlJob -Account $adla -SubmittedAfter $d
-```
-
-Вывод списка заданий, отправленных за последние пять дней и успешно завершенных.
-
-```
-$d = (Get-Date).AddDays(-5)
-Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
-```
-
-Вывод списка успешно выполненных заданий.
-
-```
-Get-AdlJob -Account $adla -State Ended -Result Succeeded
-```
-
-Вывод списка невыполненных заданий.
+* `Accepted`
+* `Compiling`
+* `Ended`
+* `New`
+* `Paused`
+* `Queued`
+* `Running`
+* `Scheduling`
+* `Start`
 
 ```powershell
+# List the running jobs
+Get-AdlJob -Account $adla -State Running
+
+# List the jobs that have completed
+Get-AdlJob -Account $adla -State Ended
+
+# List the jobs that have not started yet
+Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
+```
+
+Используйте параметр `-Result`, чтобы определить, успешно ли выполнено завершенное задание. Возможны следующие значения:
+
+* Отменено
+* Сбой
+* None
+* Успешно
+
+``` powershell
+# List Successful jobs.
+Get-AdlJob -Account $adla -State Ended -Result Succeeded
+
+# List Failed jobs.
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
-Вывод списка всех невыполненных заданий, отправленных пользователем joe@contoso.com за последние семь дней.
+
+Параметр `-Submitter` позволяет определить, кто отправил это задание.
 
 ```powershell
+Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
+```
+
+Параметр `-SubmittedAfter` используется для фильтрации по диапазону времени.
+
+
+```powershell
+# List  jobs submitted in the last day.
+$d = [DateTime]::Now.AddDays(-1)
+Get-AdlJob -Account $adla -SubmittedAfter $d
+
+# List  jobs submitted in the last seven day.
+$d = [DateTime]::Now.AddDays(-7)
+Get-AdlJob -Account $adla -SubmittedAfter $d
+```
+
+### <a name="common-scenarios-for-listing-jobs"></a>Распространенные сценарии для получения списка заданий
+
+
+```
+# List jobs submitted in the last five days and that successfully completed.
+$d = (Get-Date).AddDays(-5)
+Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
+
+# List all failed jobs submitted by "joe@contoso.com" within the past seven days.
 Get-AdlJob -Account $adla `
     -Submitter "joe@contoso.com" `
     -SubmittedAfter (Get-Date).AddDays(-7) `
     -Result Failed
 ```
 
-### <a name="filtering-a-list-of-jobs"></a>Фильтрация списка заданий
+## <a name="filtering-a-list-of-jobs"></a>Фильтрация списка заданий
 
 После получения списка заданий в текущем сеансе PowerShell можно использовать стандартные командлеты PowerShell для фильтрации этого списка.
 
@@ -383,18 +410,32 @@ $jobs = Get-AdlJob -Account $adla -Top 10
 $jobs = $jobs | %{ annotate_job( $_ ) }
 ```
 
-### <a name="get-information-about-a-job"></a>Получение информации о задании
+## <a name="get-information-about-pipelines-and-recurrences"></a>Получение сведений о конвейерах и повторениях
+
+Используйте командлет `Get-AdlJobPipeline`, чтобы получить сведения о конвейерах для ранее отправленных заданий.
+
+```powershell
+$pipelines = Get-AdlJobPipeline -Account $adla
+
+$pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
+```
+
+Используйте командлет `Get-AdlJobRecurrence`, чтобы получить сведения о повторениях для ранее отправленных заданий.
+
+```powershell
+$recurrences = Get-AdlJobRecurrence -Account $adla
+
+$recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>"
+```
+
+## <a name="get-information-about-a-job"></a>Получение информации о задании
+
+### <a name="get-job-status"></a>Получение состояния задания
 
 Получите состояние конкретного задания.
 
 ```powershell
 Get-AdlJob -AccountName $adla -JobId $job.JobId
-```
-
-Вместо того чтобы повторно выполнять `Get-AdlAnalyticsJob`, пока задание не завершится, можно использовать командлет `Wait-AdlJob`, чтобы дождаться завершения задания.
-
-```powershell
-Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 ### <a name="examine-the-job-outputs"></a>Изучение выходных данных задания
@@ -405,16 +446,46 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 Get-AdlStoreChildItem -Account $adls -Path "/"
 ```
 
-Проверьте наличие файла.
-
-```powershell
-Test-AdlStoreItem -Account $adls -Path "/data.csv"
-```
+## <a name="manage-running-jobs"></a>Управление выполнением заданий
 
 ### <a name="cancel-a-job"></a>Отмена задания
 
 ```powershell
 Stop-AdlJob -Account $adls -JobID $jobID
+```
+
+### <a name="wait-for-a-job-to-finish"></a>Ожидание завершения задания
+
+Вместо того чтобы повторно выполнять `Get-AdlAnalyticsJob`, пока задание не завершится, можно использовать командлет `Wait-AdlJob`, чтобы дождаться завершения задания.
+
+```powershell
+Wait-AdlJob -Account $adla -JobId $job.JobId
+```
+
+## <a name="manage-compute-policies"></a>Управление политиками вычислений
+
+### <a name="list-existing-compute-policies"></a>Список существующих политик вычислений
+
+Командлет `Get-AdlAnalyticsComputePolicy` извлекает информацию о политиках вычислений для учетной записи Data Lake Analytics.
+
+```powershell
+$policies = Get-AdlAnalyticsComputePolicy -Account $adla
+```
+
+### <a name="create-a-compute-policy"></a>Создание политики вычислений
+
+Командлет `New-AdlAnalyticsComputePolicy` создает новую политику вычислений для учетной записи Data Lake Analytics. Этот пример устанавливает для указанного пользователя максимальное количество единиц аналитики (50) и минимальный приоритет задания (250).
+
+```powershell
+$userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
+
+New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
+```
+
+## <a name="check-for-the-existence-of-a-file"></a>Проверьте наличие файла.
+
+```powershell
+Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
 ## <a name="uploading-and-downloading"></a>Отправка и скачивание
@@ -447,10 +518,10 @@ Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recu
 > Если процесс отправки или скачивания прервался, вы можете попытаться возобновить его, выполнив командлет еще раз с флагом ``-Resume``.
 
 ## <a name="manage-catalog-items"></a>Управление элементами каталога
+
 Каталог U-SQL используется для структурирования данных и кода, чтобы их могли совместно использовать сценарии U-SQL. Каталог обеспечивает максимальную производительность, возможную с данными в озере данных Azure. Дополнительные сведения см. в разделе [Использование каталога U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
 ### <a name="list-items-in-the-u-sql-catalog"></a>Получение списка элементов в каталоге U-SQL
-
 
 ```powershell
 # List U-SQL databases
@@ -530,6 +601,7 @@ Write-Host '$subid' " = ""$adla_subid"" "
 Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
+
 ## <a name="working-with-azure"></a>Работа с Azure
 
 ### <a name="get-details-of-azurerm-errors"></a>Получение сведений об ошибках AzureRm

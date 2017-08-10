@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 3a85fa624dc55f31822f00910b6d124c1d37323f
-ms.lasthandoff: 03/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: e5d9519998346619093f443b740c8904283f76e8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Создание определяемых пользователем маршрутов с помощью Azure CLI 2.0
@@ -192,7 +192,7 @@ ms.lasthandoff: 03/22/2017
 
 Чтобы включить IP-пересылку в сетевом интерфейсе, используемом **FW1**, выполните следующие действия:
 
-1. Выполните команду [az network nic show](/cli/az/network/nic#show) с фильтром JMESPATH, чтобы отобразить текущее значение **enable-ip-forwarding** для параметра **enableIpForwarding**. Оно должно быть равно *false*.
+1. Выполните команду [az network nic show](/cli/azure/network/nic#show) с фильтром JMESPATH, чтобы отобразить текущее значение **enable-ip-forwarding** для параметра **enableIpForwarding**. Оно должно быть равно *false*.
 
     ```azurecli
     az network nic show \

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/28/2017
 ms.author: maquaran
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: c05faeca0ef831dd85fea85793c919d1e34e4f15
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: b2987800aa0d8aaf237f46a9435d53fec7372a92
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>Пакет SDK для обработчика веб-канала изменений для DocumentDB .NET: скачивание и заметки о выпуске
@@ -39,6 +39,8 @@ ms.lasthandoff: 07/19/2017
 
 <tr><td>**Скачивание пакета SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)</td></tr>
 
+<tr><td>**Документация по API**</td><td>[Справочная документация по изменению API библиотеки обработчика веб-каналов](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)</td></tr>
+
 <tr><td>**Приступая к работе**</td><td>[Приступая к работе с пакетом SDK для обработчика веб-канала изменений в .NET для DocumentDB](change-feed.md)</td></tr>
 
 <tr><td>**Текущая поддерживаемая платформа**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
@@ -48,6 +50,7 @@ ms.lasthandoff: 07/19/2017
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Пакет SDK общей доступности.
+* Совместимость с [пакетом SDK для .NET для DocumentDB](documentdb-sdk-dotnet.md) версии 1.14.1 и ниже.
 
 ## <a name="release--retirement-dates"></a>Даты выпуска и выбытия
 Корпорация Майкрософт отправит уведомление минимум за **12 месяцев** до вывода пакета SDK из эксплуатации, чтобы обеспечить более плавный переход на новую или поддерживаемую версию.

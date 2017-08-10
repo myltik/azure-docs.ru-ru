@@ -14,23 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: a442d398cf5c54b00dc92ebcbe62597fb3ece30c
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
-<a id="what-is-site-recovery" class="xliff"></a>
-
-# Что такое Site Recovery?
+# <a name="what-is-site-recovery"></a>Что такое Site Recovery?
 
 Вас приветствует служба Azure Site Recovery. В этой статье содержится общий обзор этой службы.
 
-<a id="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services" class="xliff"></a>
-
-## Непрерывность бизнес-процессов и аварийное восстановление (BDCR) с помощью служб Azure Site Recovery
+## <a name="business-continuity-and-disaster-recovery-bcdr-with-azure-recovery-services"></a>Непрерывность бизнес-процессов и аварийное восстановление (BCDR) с помощью служб восстановления Azure
 
 Каждая организация стремится обеспечить безопасное хранение данных, а также выполнение приложений и рабочих нагрузок при запланированных и незапланированных простоях.
 
@@ -45,9 +40,7 @@ Site Recovery управляет репликацией для:
 - локальных виртуальных машин и физических серверов в Azure или на дополнительный сайт.
 
 
-<a id="what-does-site-recovery-provide" class="xliff"></a>
-
-## Какие функции предоставляет служба Site Recovery?
+## <a name="what-does-site-recovery-provide"></a>Какие функции предоставляет служба Site Recovery?
 
 **Компонент** | **Дополнительные сведения**
 --- | ---
@@ -66,9 +59,7 @@ Site Recovery управляет репликацией для:
 **Управление параметрами сети** | Site Recovery интегрируется с Azure, обеспечивая простое сетевое управление приложениями, включая резервирование IP-адресов, настройку подсистем балансировки нагрузки и интеграцию диспетчера трафика Azure для эффективного переключения сетей.
 
 
-<a id="what-can-i-replicate" class="xliff"></a>
-
-## Что можно реплицировать?
+## <a name="what-can-i-replicate"></a>Что можно реплицировать?
 
 **Поддерживаются** | **Дополнительные сведения**
 --- | ---
@@ -79,17 +70,13 @@ Site Recovery управляет репликацией для:
 **Какие рабочие нагрузки можно реплицировать?** | Можно реплицировать любую рабочую нагрузку, выполняемую на поддерживающем репликацию компьютере. Кроме того, команда Site Recovery выполнила специальную проверку [ряда приложений](site-recovery-workload.md#workload-summary).
 
 
-<a id="azure-portal-considerations" class="xliff"></a>
-
-## Рекомендации для портала Azure
+## <a name="azure-portal-considerations"></a>Рекомендации для портала Azure
 
 * Службу Site Recovery можно развернуть на [портале Azure](https://portal.azure.com).
 * На классическом портале Azure поддерживается классическая модель управления службой Site Recovery.
 - Классический портал следует использовать только для поддержки существующих развернутых служб Site Recovery. Создать новые хранилища с помощью классического портала невозможно.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения см. в статье [Какие рабочие нагрузки можно защитить с помощью службы Azure Site Recovery?](site-recovery-workload.md)
 * Начало работы с [репликацией виртуальных машин Azure между регионами](site-recovery-azure-to-azure.md), [репликацией VMware в Azure](vmware-walkthrough-overview.md) или [репликацией Hyper-V в Azure](hyper-v-site-walkthrough-overview.md).
 

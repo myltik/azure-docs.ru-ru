@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: bb61222ae01d1613ec27bb016ff1f94bcdaf8935
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 858ce2c748c3383afb6d66ed7b66a5f019902594
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Создание и экспорт сертификатов для подключений типа "точка — сеть" с помощью MakeCert
@@ -55,7 +54,7 @@ ms.lasthandoff: 06/20/2017
   ```cmd
   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
   ```
-3. Создайте и установите сертификат в личном хранилище сертификатов на компьютере. В следующем примере создается соответствующий *CER-файл* , передаваемый в Azure при настройке подключений типа "точка — сеть". Замените P2SRootCert и P2SRootCert.cer именем, которое необходимо использовать для сертификата. Сертификат будет расположен в хранилище сертификатов: Certificates - <текущий_пользователь>\Personal\Certificates.
+3. Создайте и установите сертификат в личном хранилище сертификатов на компьютере. В следующем примере создается соответствующий *CER-файл* , передаваемый в Azure при настройке подключений типа "точка — сеть". Замените P2SRootCert и P2SRootCert.cer именем, которое необходимо использовать для сертификата. Сертификат расположен в хранилище сертификатов: Certificates — <текущий_пользователь>\Personal\Certificates.
 
   ```cmd
   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My

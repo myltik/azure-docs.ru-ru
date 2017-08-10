@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: f907f388ecb897c05e822f2abd5431b3976b7987
-ms.openlocfilehash: 10581234a4475d0d3b32c7891fcf97eed55f7a1d
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Аналитика журналов для групп безопасности сети
@@ -47,18 +47,18 @@ ms.lasthandoff: 03/02/2017
 
 ### <a name="azure-portal"></a>Портал Azure
 
-Чтобы включить ведение журнала, войдите на [портал](https://portal.azure.com). Щелкните **дополнительные службы**, затем введите *группы безопасности сети*. Выберите NSG, для которой хотите включить ведение журнала. Выполните инструкции, предложенные в статье [Включение журналов диагностики на портале](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-in-the-portal) для невычислительных ресурсов. Выберите категории журналов: **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** или обе сразу.
+Чтобы включить ведение журнала, войдите на [портал](https://portal.azure.com). Щелкните **дополнительные службы**, затем введите *группы безопасности сети*. Выберите NSG, для которой хотите включить ведение журнала. Выполните инструкции, предложенные в статье [Включение журналов диагностики на портале](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) для невычислительных ресурсов. Выберите категории журналов: **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** или обе сразу.
 
 ### <a name="powershell"></a>PowerShell
 
-Чтобы включить ведение журналов с помощью PowerShell, выполните инструкции из статьи [Включение журналов диагностики с помощью PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-powershell). Прежде чем выполнять команды, указанные в этой статье, получите следующую информацию.
+Чтобы включить ведение журналов с помощью PowerShell, выполните инструкции из статьи [Включение журналов диагностики с помощью PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Прежде чем выполнять команды, указанные в этой статье, получите следующую информацию.
 
 - Значение для параметра `-ResourceId` можно получить, заменив значения в квадратных скобках правильными значениями и выполнив такую команду: `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]` Идентификатор, полученный в результате ее выполнения, будет выглядеть примерно так: */subscriptions/ [идентификатор_подписки]/resourceGroups/[группа_ресурсов]/providers/Microsoft.Network/networkSecurityGroups/[имя_NSG]*.
 - Если журнал нужно собирать только для одной категории, добавьте в конец предложенной команды параметр `-Categories [category]`, где в качестве значения категории укажите *NetworkSecurityGroupEvent* или *NetworkSecurityGroupRuleCounter*. Если вы не укажете параметр `-Categories`, сбор данных будет включен для обеих категорий журнала.
 
 ### <a name="azure-command-line-interface-cli"></a>интерфейс командной строки Azure (CLI)
 
-Чтобы включить ведение журналов с помощью CLI, выполните инструкции из статьи [Включение журналов диагностики с помощью интерфейса командной строки](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-cli). Прежде чем выполнять команды, указанные в этой статье, получите следующую информацию.
+Чтобы включить ведение журналов с помощью CLI, выполните инструкции из статьи [Включение журналов диагностики с помощью интерфейса командной строки](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Прежде чем выполнять команды, указанные в этой статье, получите следующую информацию.
 
 - Значение для параметра `-ResourceId` можно получить, заменив значения в квадратных скобках правильными значениями и выполнив такую команду: `azure network nsg show [resource-group-name] [nsg-name]` Идентификатор, полученный в результате ее выполнения, будет выглядеть примерно так: */subscriptions/ [идентификатор_подписки]/resourceGroups/[группа_ресурсов]/providers/Microsoft.Network/networkSecurityGroups/[имя_NSG]*.
 - Если журнал нужно собирать только для одной категории, добавьте в конец предложенной команды параметр `-Categories [category]`, где в качестве значения категории укажите *NetworkSecurityGroupEvent* или *NetworkSecurityGroupRuleCounter*. Если вы не укажете параметр `-Categories`, сбор данных будет включен для обеих категорий журнала.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: e2bfbdd5ca8ec178c2c32c7b52637a8ec7e88a4c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Приемы разработки шаблонов Azure Resource Manager при развертывании сложных решений
@@ -34,7 +33,7 @@ ms.lasthandoff: 05/26/2017
 * Управление доступом на основе ролей (RBAC) для предоставления соответствующего доступа пользователям, группам и службам.
 * Использование сопоставления добавления тегов для упрощения задач, включая сведение при выставлении счетов.
 
-В этой статье приводятся сведения об использовании сценариев, архитектуры и шаблонов реализации, определенных во время сеансов разработки и реализации шаблона в реальных условиях с клиентами группы консультирования клиентов Azure (AzureCAT). Далеко не теоретические, эти проверенные методики подкреплены опытом разработки шаблонов для 12 популярных программных решений с открытым исходным кодом на основе ОС Linux, включая Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise, управляемых Apache-Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis и Nagios. 
+В этой статье приводятся сведения об использовании сценариев, архитектуры и шаблонов реализации, определенных во время сеансов разработки и реализации шаблона в реальных условиях с клиентами группы консультирования клиентов Azure (AzureCAT). Далеко не теоретические, эти проверенные методики подкреплены опытом разработки шаблонов для 12 популярных программных решений с открытым исходным кодом на основе ОС Linux, включая Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise, управляемых Apache-Cassandra, Elasticsearch, Jenkins, MongoDB, PostgreSQL, Redis и Nagios. 
 
 В статье приводятся эти проверенные методики, помогающие проектировать шаблоны диспетчера ресурсов Azure мирового класса.  
 

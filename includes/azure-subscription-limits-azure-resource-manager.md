@@ -1,6 +1,6 @@
 | Ресурс | Ограничение по умолчанию | Максимальное ограничение |
 | --- | --- | --- |
-| Число ВМ на [подписку](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> для каждого региона |10 000 для каждого региона |
+| Число ВМ на [подписку](../articles/billing-buy-sign-up-azure-subscription.md) |10 000<sup>1</sup> для каждого региона |10 000 для каждого региона |
 | Общее количество ядер виртуальных машин на [подписку](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> для каждого региона | Обратитесь в службу поддержки. |
 | Виртуальных машин на ядра серий (Dv2, F и т. д) на [подписку](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> для каждого региона | Обратитесь в службу поддержки. |
 | [Дополнительные администраторы](../articles/billing-add-change-azure-subscription-administrator.md) на подписку |Без ограничений |Без ограничений |

@@ -17,10 +17,10 @@ ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: f632d94222590f97b7a95edf9d4941a66b0710e6
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 8051742c7c368d1ed84bcd90ab75b20f62105e2f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Ключевые понятия и иерархическая модель ресурсов в Azure Cosmos DB
@@ -38,7 +38,7 @@ ms.lasthandoff: 07/18/2017
 Как показано на следующей схеме, иерархическая **модель ресурсов** Cosmos DB состоит из наборов ресурсов в учетной записи базы данных, каждый из которых имеет логический постоянный идентификатор URI. Набор ресурсов в этой статье называется **каналом** . 
 
 > [!NOTE]
-> Cosmos DB предлагает весьма эффективный протокол TCP, который также является API-интерфейсом RESTful в своей коммуникационной модели, доступной с помощью [клиентского API для DocumentDB .NET](documentdb-sdk-dotnet.md).
+> Azure Cosmos DB предлагает весьма эффективный протокол TCP, который также является API-интерфейсом RESTful в своей коммуникационной модели, доступной с помощью [клиентского API для DocumentDB .NET](documentdb-sdk-dotnet.md).
 > 
 > 
 

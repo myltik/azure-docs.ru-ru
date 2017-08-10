@@ -16,30 +16,24 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
-<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
-
-# Добавление сообщений в очередь службы хранилища Azure с помощью Функций
+# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Добавление сообщений в очередь службы хранилища Azure с помощью Функций
 
 В Функциях Azure входные и выходные привязки предоставляют декларативный способ подключения данных внешних служб к функции. В этой статье вы узнаете, как обновить имеющуюся функцию, добавив выходную привязку, которая отправляет сообщения в хранилище очередей Azure.  
 
 ![Просмотр сообщения в журналах](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования 
+## <a name="prerequisites"></a>Предварительные требования 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
 * Установите [обозреватель службы хранилища Microsoft Azure](http://storageexplorer.com/).
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
 ## <a name="add-binding"></a>Добавление выходной привязки
  
@@ -49,7 +43,7 @@ ms.lasthandoff: 06/26/2017
     
     ![Добавление выходной привязки хранилища очередей к функции на портале Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Используйте настройки, указанные в таблице, а затем щелкните **Сохранить**: 
+3. Используйте настройки, указанные в таблице: 
 
     ![Добавление выходной привязки хранилища очередей к функции на портале Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -59,11 +53,11 @@ ms.lasthandoff: 06/26/2017
     | **Подключение к учетной записи хранения** | AzureWebJobStorage | Вы можете использовать подключение к учетной записи хранения, которое уже используется вашим приложением-функцией, или создать его.  |
     | **Имя параметра сообщения** | outQueueItem | Имя параметра выходной привязки. | 
 
+4. Щелкните **Сохранить**, чтобы добавить привязку.
+ 
 Теперь, когда выходная привязка определена, вам нужно обновить код, чтобы использовать привязку для добавления сообщений в очередь.  
 
-<a id="update-the-function-code" class="xliff"></a>
-
-## Обновление кода функции
+## <a name="update-the-function-code"></a>Обновление кода функции
 
 1. Щелкните функцию для отображения ее кода в редакторе. 
 
@@ -92,9 +86,7 @@ ms.lasthandoff: 06/26/2017
 
 Значение, переданное триггеру HTTP, включено в сообщение, которое добавлено в очередь.
  
-<a id="test-the-function" class="xliff"></a>
-
-## Проверка функции 
+## <a name="test-the-function"></a>Проверка функции 
 
 1. Сохранив изменения в коде, щелкните **ОК**. 
 
@@ -104,9 +96,7 @@ ms.lasthandoff: 06/26/2017
 
 Затем вы можете подключиться к своей учетной записи хранения, чтобы проверить новую очередь и добавленное в нее сообщение. 
 
-<a id="connect-to-the-queue" class="xliff"></a>
-
-## Подключение к очереди
+## <a name="connect-to-the-queue"></a>Подключение к очереди
 
 Пропустите первые три шага, если вы уже установили обозреватель хранилищ и подключили его к своей учетной записи хранения.    
 
@@ -127,15 +117,11 @@ ms.lasthandoff: 06/26/2017
     ![Создание очереди службы хранилища](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Очистка ресурсов
+## <a name="clean-up-resources"></a>Очистка ресурсов
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Вы добавили выходную привязку в имеющуюся функцию. 
 
