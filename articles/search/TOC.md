@@ -28,10 +28,12 @@
 ### [Конструктивные шаблоны для мультитенантности](search-modeling-multitenant-saas-applications.md)
 
 ## Разработка
+### [Версии API](search-api-versions.md)
 ### [Обновление пакета SDK](search-dotnet-sdk-migration.md)
 ### [Обновление REST API](search-api-migration.md)
 ### [Моделирование сложных типов данных](search-howto-complex-data-types.md)
 ### [Обработка одновременных обновлений](search-howto-concurrency.md)
+### [Примеры кода](https://azure.microsoft.com/resources/samples/?service=search)
 
 ## Управление
 ### Администрирование Поиска Azure
@@ -68,31 +70,33 @@
 
 # Справочные материалы
 
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=search)
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (управление)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (управление)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (управление)](/rest/api/searchmanagement)
+## [REST для службы (предварительная версия)](search-api-2015-02-28-preview.md)
 
 # Ресурсы
-## [Версии API](search-api-versions.md)
+
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Вопросы и ответы](search-faq-frequently-asked-questions.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/search/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
-## [REST для службы (предварительная версия)](search-api-2015-02-28-preview.md)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=search)
 ## Обучающие программы и учебники
-## Сайты с демоверсиями
-## Партнеры и сообщество
-### [Поиск Azure и GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Поиск Azure и GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Форум](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
-### [Приложение с описаниями заданий](http://aka.ms/azjobsdemo)
-### [Демонстрационные приложения, работающие в реальном времени](https://searchsamples.azurewebsites.net/)
-### [Моделирование реляционных данных](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [Многоуровневая фасетизация](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Search Analyzer Demo](http://alice.unearth.ai/)
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Видео и учебники](search-video-demo-tutorial-list.md)
 ### [Виртуальная академия](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
+## Сайты с демоверсиями
+### [Search Analyzer Demo](http://alice.unearth.ai/)
+### [Демонстрационные приложения, работающие в реальном времени](https://searchsamples.azurewebsites.net/)
+### [Приложение с описаниями заданий](http://aka.ms/azjobsdemo)
+## Партнеры и сообщество
+### [Поиск Azure и GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Форум MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
+### [Блог: моделирование реляционных данных](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
+### [Блог: многоуровневая фасетизация](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+
+
+

@@ -23,6 +23,8 @@
   items:
     - name: Связь с оркестраторами
       href: container-instances-orchestrator-relationship.md
+    - name: Группы контейнеров
+      href: container-instances-container-groups.md
 - name: Практические руководства
   items:
     - name: Развертывание многоконтейнерных групп

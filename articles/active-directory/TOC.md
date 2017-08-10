@@ -9,6 +9,7 @@
 ## [Получение клиента Azure AD](active-directory-howto-tenant.md)
 ## [Регистрация для использования Azure AD Premium](active-directory-get-started-premium.md)
 ## [Сопоставление подписок Azure](active-directory-how-subscriptions-associated-directory.md)
+## [Краткое руководство: самостоятельный сброс пароля](active-directory-passwords-getting-started.md)
 ## Управление лицензированием Azure AD
 ### [Портал Azure](active-directory-licensing-get-started-azure-portal.md)
 ### [Классический портал.](active-directory-licensing-what-is.md)
@@ -18,7 +19,7 @@
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 #### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
-## [Как получить поддержку для Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [Получение поддержки для Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Руководства по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
 # Практическое руководство
@@ -78,6 +79,7 @@
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 #### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
+### [Настройка срока действия групп Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Просмотр всех групп](active-directory-groups-view-azure-portal.md)
 ### [Включение выделенных групп](active-directory-accessmanagement-dedicated-groups.md)
 ### [Включение доступа для групп в приложениях SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -124,7 +126,6 @@
 #### [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
 #### [Рекомендации по паролям](active-directory-secure-passwords.md)
 #### [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
-### [Краткое руководство. Самостоятельный сброс пароля](active-directory-passwords-getting-started.md)
 ### [Лицензия SSPR](active-directory-passwords-licensing.md)
 ### [Развертывание SSPR](active-directory-passwords-best-practices.md)
 ### ИТ-администрирование. Сброс паролей

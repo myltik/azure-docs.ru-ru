@@ -19,6 +19,7 @@
 ### [Виртуальные машины для ресурсоемких вычислений](batch-pool-compute-intensive-sizes.md)
 ### [Параллельные задачи узла](batch-parallel-node-tasks.md)
 ### [Подсчет задач по состоянию](batch-get-task-counts.md)
+### [Создание пула с помощью пользовательского образа](batch-custom-images.md)
 ### [Эффективные запросы на вывод списка](batch-efficient-list-queries.md)
 ### [Задачи для подготовки и выполнения заданий](batch-job-prep-release.md)
 ### [Вычислительные узлы Linux](batch-linux-nodes.md)
