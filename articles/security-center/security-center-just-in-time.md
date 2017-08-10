@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/08/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ad47c198b98f235b5a75fed6c403493a33594429
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3bc1023d084205171b6b405932cf80f3da59fe8b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Управление доступом к виртуальным машинам с помощью JIT
@@ -157,7 +157,7 @@ JIT-доступ к виртуальной машине позволяет за�
 ## <a name="using-just-in-time-vm-access-via-powershell"></a>Использование JIT-доступа через PowerShell
 
 Для использования JIT-доступа через PowerShell убедитесь, что у вас установлена [последняя](/powershell/azure/install-azurerm-ps) версия Azure PowerShell.
-После этого установите [последнюю](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.10) версию центра безопасности Azure из коллекции PowerShell.
+После этого установите [последнюю](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.12) версию центра безопасности Azure из коллекции PowerShell.
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Настройка политики JIT-доступа для виртуальной машины
 

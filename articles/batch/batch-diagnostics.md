@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>События журнала для диагностики и мониторинга решений пакетной службы
@@ -46,7 +45,7 @@ ms.lasthandoff: 02/28/2017
 ## <a name="enable-diagnostic-logging"></a>Включение ведения журналов диагностики
 Ведение журналов диагностики для учетной записи пакетной службы по умолчанию отключено. Ведение журналов диагностики следует явно включить для каждой учетной записи пакетной службы, которые нужно отслеживать.
 
-[Как включить сбор журналов диагностики](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[Как включить сбор журналов диагностики](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 Мы рекомендуем полностью прочитать статью [Обзор журналов диагностики Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), чтобы не только научиться включать ведение журнала, но и узнать, какие категории журналов поддерживаются различными службами Azure. Например, пакетная служба Azure в настоящее время поддерживает только одну категорию журналов: **журналы служб**.
 

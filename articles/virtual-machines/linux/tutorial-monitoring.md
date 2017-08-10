@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0899a8f3c87b6b25e52313ff271364f862d0a893
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3fe8390e88e609b57a462e066f972346f8e8730e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>Мониторинг виртуальных машин Linux в Azure
@@ -43,7 +43,7 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="create-vm"></a>Создание виртуальной машины
 
-Чтобы увидеть данные диагностики и метрики в действии, необходима виртуальная машина. Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/gropu#create). В следующем примере создается группа ресурсов с именем *myResourceGroupMonitor* в расположении *eastus*.
+Чтобы увидеть данные диагностики и метрики в действии, необходима виртуальная машина. Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroupMonitor* в расположении *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus

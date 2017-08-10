@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 13811996654a238fd28d17547eacbdf74c932e9f
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: bb3129f70f5eeed99d5889226aa6727f675b6217
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Добавление подключения типа "сеть-сеть" к виртуальной сети с помощью существующего подключения VPN-шлюза (классическая модель)
@@ -72,7 +71,7 @@ ms.lasthandoff: 06/17/2017
 Это отлично, если у вас уже есть подключение VPN типа "сеть — сеть" со шлюзом с динамической маршрутизацией. Можно перейти к [экспорту параметров конфигурации виртуальной сети](#export). Если нет, выполните следующее:
 
 ### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Если у вас уже есть виртуальная сеть типа "сеть — сеть", но со шлюзом со статической маршрутизацией (на основе политики)
-1. Измените тип шлюза на шлюз с динамической маршрутизацией. Для многосайтового подключения VPN требуется шлюз с динамической маршрутизацией (также известный как шлюз на основе маршрутов). Чтобы изменить тип шлюза, необходимо сначала удалить существующий шлюз, а затем создать новый. Инструкции см. в разделе [Как изменить тип маршрутизации VPN для шлюза](vpn-gateway-configure-vpn-gateway-mp.md#how-to-change-the-vpn-routing-type-for-your-gateway).  
+1. Измените тип шлюза на шлюз с динамической маршрутизацией. Для многосайтового подключения VPN требуется шлюз с динамической маршрутизацией (также известный как шлюз на основе маршрутов). Чтобы изменить тип шлюза, необходимо сначала удалить существующий шлюз, а затем создать новый. Инструкции см. в разделе [Как изменить тип маршрутизации VPN для шлюза](vpn-gateway-configure-vpn-gateway-mp.md).  
 2. Настройте новый шлюз и создайте VPN-туннель. Инструкции см. в разделе [Настройка VPN-шлюза на классическом портале Azure](vpn-gateway-configure-vpn-gateway-mp.md). Сначала измените тип шлюза на шлюз с динамической маршрутизацией.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Если у вас нет виртуальной сети типа "сеть — сеть"

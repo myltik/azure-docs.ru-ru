@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 7610ae44d8c9b828fb46333b143d7b1f6dc915eb
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: вызов веб-API .NET из веб-приложения .NET
@@ -37,9 +36,9 @@ Azure AD B2C позволяет добавлять в веб-приложени
 
 1. [Создайте клиента Azure AD B2C](active-directory-b2c-get-started.md).
 2. [Зарегистрируйте веб-API](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [Зарегистрируйте веб-приложение](active-directory-b2c-app-registration.md#register-a-web-application).
+3. [Зарегистрируйте веб-приложение](active-directory-b2c-app-registration.md#register-a-web-app).
 4. [Настройте политики](active-directory-b2c-reference-policies.md).
-5. [Предоставьте веб-приложению права для использования веб-API](active-directory-b2c-access-tokens.md#granting-permissions-to-a-web-api).
+5. [Предоставьте веб-приложению права для использования веб-API](active-directory-b2c-access-tokens.md#publishing-permissions).
 
 > [!IMPORTANT]
 > Клиентское приложение и веб-API должны использовать один и тот же каталог Azure AD B2C.

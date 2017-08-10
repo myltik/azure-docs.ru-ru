@@ -16,10 +16,10 @@ ms.date: 07/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 494d9445ac1e1add24d085bd33ccd73aa152ec47
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: ee0191c63f12ae32708095362b8028a61ca731cc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Добавление решений для управления Azure Log Analytics в рабочую область
@@ -156,7 +156,7 @@ ms.lasthandoff: 07/28/2017
 | Монитор производительности сети | Windows | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | Подтверждения TCP выполняются каждые 5 секунд, данные отправляются каждые 3 минуты |
 | Office 365 Analytics (предварительная версия) |Windows |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |при уведомлении |
 | Анализ Service Fabric |Windows |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 мин |
-| Схема услуги | Windows и Linux | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | 15 секунд |
+| Схема услуги | Windows и Linux | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | 15 секунд |
 | Оценка SQL |Windows |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |7 дней |
 | SurfaceHub |Windows |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |При получении |
 | Оценка System Center Operations Manager (предварительная версия) | Windows | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | 7 дней |

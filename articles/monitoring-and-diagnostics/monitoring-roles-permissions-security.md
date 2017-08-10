@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: a28f971ae898ffdd1168550a909f2a48e1b3b652
 ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Приступая к работе с ролями, разрешениями и системой безопасности с помощью Azure Monitor
@@ -33,8 +33,8 @@ ms.lasthandoff: 11/17/2016
 * Просмотр панелей мониторинга на портале и создание собственных частных панелей мониторинга.
 * Запрос метрик с помощью [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [командлетов PowerShell](insights-powershell-samples.md) или [кроссплатформенного интерфейса командной строки](insights-cli-samples.md).
 * Запрос журнала действий с помощью портала, REST API Azure Monitor, командлетов PowerShell или кроссплатформенного интерфейса командной строки.
-* Просмотр [параметров диагностики](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) для ресурса.
-* Просмотр [профиля журнала](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) для подписки.
+* Просмотр [параметров диагностики](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) для ресурса.
+* Просмотр [профиля журнала](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) для подписки.
 * Просмотр параметров автомасштабирования.
 * Просмотр действий и параметров оповещений.
 * Доступ к данным Application Insights и просмотр данных в Application Insights Analytics.
@@ -54,8 +54,8 @@ ms.lasthandoff: 11/17/2016
 Пользователи, которым назначена роль Monitoring Contributor, могут просматривать все данные мониторинга в подписке и создавать или изменять параметры мониторинга, но не могут изменять какие-либо другие ресурсы. Эта роль включает в себя все разрешения роли Monitoring Reader и подходит для участников команды мониторинга в организации или поставщиков управляемых служб, которым, помимо приведенных выше разрешений, также необходимо иметь следующие возможности.
 
 * Публикация панелей мониторинга для совместного использования.
-* Настройка [параметров диагностики](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) для ресурса.*
-* Настройка [профиля журнала](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) для подписки.*
+* Настройка [параметров диагностики](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) для ресурса.*
+* Настройка [профиля журнала](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) для подписки.*
 * Настройка действий и параметров оповещений.
 * Создание веб-тестов и компонентов Application Insights.
 * Вывод списка общих ключей рабочей области Log Analytics (OMS).

@@ -1,5 +1,5 @@
 ---
-title: "Создание и экспорт сертификатов для подключений типа &quot;точка-сеть&quot; в Azure с помощью PowerShell | Документы Майкрософт"
+title: "Создание и экспорт сертификатов для подключений типа \"точка-сеть\" в Azure с помощью PowerShell | Документы Майкрософт"
 description: "В этой статье приведены инструкции по созданию самозаверяющего корневого сертификата, экспорту открытого ключа и созданию сертификатов клиента с помощью PowerShell в Windows 10."
 services: vpn-gateway
 documentationcenter: na
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 08/09/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: a7594c37a5d8b92144a1984d58ededd04927d189
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: f96b9b212b9322d0677e49ff95184d0feccca2df
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Создание и экспорт сертификатов для подключений типа "точка-сеть" с помощью PowerShell в Windows 10
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/25/2017
 
 > [!div class="op_single_selector"]
 > * [Создание самозаверяющих сертификатов с помощью PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Создание самозаверяющих сертификатов с помощью MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
+> * [Создание и экспорт сертификатов для подключений типа "точка — сеть" с помощью MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [Настройка подключения "точка — сеть" модели Resource Manager на портале Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Настройка подключения "точка-сеть" — Resource Manager — PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Настройка подключения "точка —сеть" классической модели на портале Azure](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
@@ -39,7 +38,7 @@ ms.lasthandoff: 05/25/2017
 
 Выполните описанные действия на компьютере с Windows 10. Командлеты PowerShell, которые используются для создания сертификатов, являются частью операционной системы Windows 10 и не работают в других версиях Windows. Компьютер Windows 10 требуется только для создания сертификатов. После создания сертификатов их можно отправить или установить в любой поддерживаемой клиентской операционной системе. 
 
-При отсутствии доступа к компьютеру с Windows 10 для создания сертификатов можно использовать средство [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). Но MakeCert не может создавать сертификаты SHA-2, а только SHA-1. Сертификаты SHA-1 по-прежнему действительны для подключения "точка-сеть", но алгоритм SHA-1 использует хэш шифрования и, соответственно, менее надежен, чем SHA-2. Поэтому мы советуем выполнить команды PowerShell, если это возможно. Сертификаты, созданные с помощью другого метода, можно установить в любой [поддерживаемой](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) клиентской операционной системе.
+При отсутствии доступа к компьютеру с Windows 10 для создания сертификатов можно использовать средство [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). Сертификаты, созданные с помощью другого метода, можно установить в любой [поддерживаемой](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) клиентской операционной системе.
 
 ## <a name="rootcert"></a>Создание самозаверяющего корневого сертификата
 
