@@ -15,10 +15,10 @@ ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: da885141a18e9a862c6db1005805fca247b75f25
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -194,7 +194,7 @@ ms.lasthandoff: 07/24/2017
 
 * **Включить необходимые компоненты**: `Configure with Deployment Group agent`.
 
-* **Конечная точка TFS или VSTS**: щелкните **Добавить**, затем в диалоговом окне "Add new Team Foundation Server/Team Services Connection" (Добавление нового подключения к Team Foundation Server или Team Services) выберите **Проверка подлинности на основе токена**. Введите имя подключения и URL-адрес командного проекта. Затем создайте и введите [личный маркер доступа (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md) для аутентификации подключения к командному проекту.
+* **Конечная точка TFS или VSTS**: щелкните **Добавить**, затем в диалоговом окне "Add new Team Foundation Server/Team Services Connection" (Добавление нового подключения к Team Foundation Server или Team Services) выберите **Проверка подлинности на основе токена**. Введите имя подключения и URL-адрес командного проекта. Затем создайте и введите [личный маркер доступа (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) для аутентификации подключения к командному проекту.
 
   ![Создание личного маркера доступа](media/tutorial-build-deploy-jenkins/create-a-pat.png)
 
@@ -228,7 +228,7 @@ ms.lasthandoff: 07/24/2017
 
 1. Щелкните созданную сборку в выделенном раскрывающемся списке и выберите **Создать**.
 
-1. Перейдите по ссылке на выпуск во всплывающем сообщении. Пример: "Release **Release-1** has been created" (Создан выпуск **Release-1**).
+1. Перейдите по ссылке на выпуск во всплывающем сообщении. Пример: Создан выпуск **Release-1**.
 
 1. Откройте вкладку **Журналы**, чтобы просмотреть выходные данные консоли для выпуска.
 
@@ -258,4 +258,4 @@ ms.lasthandoff: 07/24/2017
 Чтобы увидеть предварительно созданные примеры скриптов виртуальной машины, перейдите по ссылке ниже.
 
 > [!div class="nextstepaction"]
-> [Примеры сценариев для виртуальной машины Linux](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cli-samples.md)
+> [Примеры сценариев для виртуальной машины Linux](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)
