@@ -3,7 +3,7 @@ title: "Добавление имени личного домена в Azure Act
 description: "Сведения о добавлении доменных имен компании в Azure Active Directory и проверке этих имен."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249

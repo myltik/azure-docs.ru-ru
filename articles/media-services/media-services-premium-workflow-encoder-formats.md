@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/09/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ef5db062ac320995ff8bfa64f38c89d860957868
 ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/28/2017
-
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Форматы и кодеки рабочего процесса Premium Media Encoder
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/28/2017
 
 **Расширенный рабочий процесс кодировщика мультимедиа** поддерживает скрытые субтитры, описанные в [этом](#closed_captioning) разделе. 
 
-## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Входные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
+## <a id="input_formats"></a>Входные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
 В следующем разделе приводится список кодеков и форматов файлов, которые этот кодировщик мультимедиа поддерживает на входе.
 
 ### <a name="input-containerfile-formats"></a>Контейнер ввода/ форматы файлов
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/28/2017
 * Windows Media Audio
 * WAV/PCM
 
-## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Выходные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
+## <a id="output_format"></a>Выходные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
 В следующем разделе приводится список кодеков и форматов файлов, которые этот кодировщик мультимедиа поддерживает на выходе.
 
 ### <a name="output-containerfile-formats"></a>Контейнер вывода/ форматы файлов
@@ -104,7 +104,7 @@ ms.lasthandoff: 01/28/2017
 >[!NOTE]
 >При кодировании в формат Dolby® Digital (AC3) выходные данные могут записываться только в MP4-файл ISO.
 
-## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>Поддержка скрытых титров
+## <a id="closed_captioning"></a>Поддержка скрытых титров
 При приеме **расширенный рабочий процесс кодировщика мультимедиа** поддерживает:
 
 1. файлы SCC
