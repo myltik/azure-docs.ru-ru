@@ -3,7 +3,7 @@ title: "Назначение пользователей для личного д
 description: "Инструкции по заполнению пользовательского домена в Azure Active Directory учетными записями пользователей."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 717b5a7c-7bc3-4ab1-98b5-4740b53338fe
