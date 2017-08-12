@@ -12,7 +12,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/11/2017
 ms.author: nisoneji
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
@@ -20,12 +20,11 @@ ms.openlocfilehash: c49f283971b33a4e88573e1d67ba159021fbccb8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/04/2017
 
-
 ---
 # <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Репликация локальных виртуальных машин VMware или физических серверов на вторичный сайт с помощью классического портала Azure
 
 ## <a name="overview"></a>Обзор
-InMage Scout в Azure Site Recovery обеспечивает репликацию между локальными расположениями VMWare в режиме реального времени. InMage Scout включается в подписки на службу Azure Site Recovery.
+InMage Scout в Azure Site Recovery обеспечивает репликацию между локальными расположениями VMWare в режиме реального времени. InMage Scout включается в подписки на службу Azure Site Recovery. 
 
 ## <a name="prerequisites"></a>Предварительные требования
 **Учетная запись Azure**. Вам потребуется учетная запись [Microsoft Azure](https://azure.microsoft.com/). Начните с [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/). [дополнительными сведениями](https://azure.microsoft.com/pricing/details/site-recovery/) о ценах на использование Site Recovery.
