@@ -4,7 +4,7 @@ description: "Сведения о том, каким образом Stream Analy
 keywords: "Выходные данные JSON"
 documentationcenter: 
 services: stream-analytics,documentdb
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: cb85dff7f8bf8a8715aaa9ecd02da59b9108915c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Направление Azure Cosmos DB из Stream Analytics в формат JSON
