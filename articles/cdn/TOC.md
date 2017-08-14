@@ -10,6 +10,8 @@
 ### [Облачные службы](cdn-cloud-service-with-cdn.md)
 ### [Хранилище](cdn-create-a-storage-account-with-cdn.md)
 ### [Общий доступ к ресурсам независимо от источника](cdn-cors.md)
+### [Сопоставление личного домена с CDN](cdn-map-content-to-custom-domain.md)
+### [Включение HTTPS для пользовательского домена](cdn-custom-ssl.md)
 ## Оптимизация содержимого
 ### [Общие сведения об оптимизации](cdn-optimization-overview.md)
 ####[Оптимизация больших файлов](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[Динамическое ускорение сайтов](cdn-dynamic-site-acceleration.md)
  
 ## Управление
-### [Включение HTTPS для пользовательского домена](cdn-custom-ssl.md)
 ### [Управление с помощью PowerShell](cdn-manage-powershell.md)
 ### Настройка срока жизни
 #### [Содержимое веб-приложений, облачных служб, ASP.NET или IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Содержимое службы BLOB-объектов в службе хранилища](cdn-manage-expiration-of-blob-content.md)
-### [Сопоставление личного домена с CDN](cdn-map-content-to-custom-domain.md)
 ### [Ограничение доступа в зависимости от страны](cdn-restrict-access-by-country.md)
 ### [Повышение производительности за счет сжатия файлов](cdn-improve-performance.md)
 ### Кэширование содержимого по строке запроса

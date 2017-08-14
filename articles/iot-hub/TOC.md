@@ -5,7 +5,7 @@
 
 # [Приступая к работе](iot-hub-get-started.md)
 
-## Настройка вашего устройства
+## Настройка устройства
 ### [Моделирование устройства на ПК](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)

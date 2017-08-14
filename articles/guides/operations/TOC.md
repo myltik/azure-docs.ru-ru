@@ -81,8 +81,6 @@
 ### [создать учетную запись хранения;](../../storage/storage-create-storage-account.md#create-a-storage-account)
 ### [Использование Azure PowerShell со службой хранилища Azure](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Использование Azure CLI со службой хранилища Azure](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Рекомендации по использованию инфраструктуры службы хранилища в Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Рекомендации по использованию инфраструктуры службы хранилища в Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Клиентские инструменты службы хранилища Azure](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Справочник по REST API службы хранилища Azure](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
 ### [Использование подписанных URL-адресов](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
