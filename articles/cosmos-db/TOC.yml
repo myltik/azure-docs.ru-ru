@@ -105,9 +105,6 @@
       href: consistency-levels.md
     - name: Пропускная способность
       href: request-units.md
-      items:
-        - name: Единиц запроса в секунду
-          href: request-units-per-minute.md
     - name: Многомодельные API-интерфейсы
       items:
         - name: DocumentDB
