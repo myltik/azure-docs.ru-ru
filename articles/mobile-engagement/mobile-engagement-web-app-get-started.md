@@ -1,6 +1,6 @@
 ---
-title: "Приступая к работе с Azure Mobile Engagement для веб-приложений | Документация Майкрософт"
-description: "Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для веб-приложений."
+title: "Приступая к работе со Службами мобильного взаимодействия Azure для веб-приложений | Документация Майкрософт"
+description: "Узнайте, как использовать Службы мобильного взаимодействия Azure с аналитическими функциями и push-уведомлениями для веб-приложений."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
@@ -14,21 +14,25 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Приступая к работе с Azure Mobile Engagement для веб-приложений
+# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Приступая к работе со Службами мобильного взаимодействия Azure для веб-приложений
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-В этой статье показано, как с помощью Azure Mobile Engagement понять тенденции использования веб-приложения.
+В этой статье показано, как с помощью Служб мобильного взаимодействия Azure понять тенденции использования веб-приложения.
+
+> [!NOTE]
+> Мы прекратим использование Служб мобильного взаимодействия Azure в марте 2018 г. Сейчас они доступны только существующим клиентам. Дополнительные сведения см. на странице [Службы мобильного взаимодействия](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 Для работы с данным учебником требуется следующее:
 
 * Visual Studio 2015 или другой редактор по вашему выбору;
-* [веб-пакет SDK](http://aka.ms/P7b453) 
+* [веб-пакет SDK](http://aka.ms/P7b453)
 
 Сейчас веб-пакет SDK находится в предварительной версии и поддерживает только функцию аналитики. Пока он не поддерживает отправку push-уведомлений в приложении или браузере. 
 
@@ -37,10 +41,10 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 > 
 > 
 
-## <a name="setup-mobile-engagement-for-your-web-app"></a>Настройка Mobile Engagement для веб-приложения
+## <a name="setup-mobile-engagement-for-your-web-app"></a>Настройка Служб мобильного взаимодействия для веб-приложения
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
+## <a id="connecting-app"></a>Подключение приложения к серверной части Служб мобильного взаимодействия
 В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных.
 
 Мы создадим базовое веб-приложение с помощью Visual Studio, чтобы продемонстрировать интеграцию, хотя вы можете выполнить эти действия для любого веб-приложения, созданного вне Visual Studio. 
@@ -52,9 +56,9 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 2. Во всплывающем окне последовательно выберите пункты **Веб** -> **Веб-приложение ASP.NET**. Введите необходимые значения в полях **Имя**, **Расположение** и **Имя решения**, а затем нажмите кнопку **ОК**.
 3. Во всплывающем окне **Выбор шаблона** выберите **пустой шаблон** в списке **шаблонов ASP.Net 4.5** и нажмите кнопку **ОК**. 
 
-Вы создали пустой проект веб-приложения, в которое мы интегрируем веб-пакет SDK для Azure Mobile Engagement.
+Вы создали пустой проект веб-приложения, в которое мы интегрируем веб-пакет SDK для Служб мобильного взаимодействия Azure.
 
-### <a name="connect-your-app-to-mobile-engagement-backend"></a>Подключение приложения к серверной части Mobile Engagement
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Подключение приложения к серверной части Служб мобильного взаимодействия
 1. Создайте новую папку с именем **javascript** в решении и добавьте в нее JS-файл веб-пакета SDK с именем **azure-engagement.js**. 
 2. Добавьте в папку javascript новый файл с именем **main.js** , содержащий следующий код. Обязательно обновите строку подключения. Этот объект `azureEngagement` будет использоваться для доступа к методам веб-пакета SDK. 
    
@@ -66,7 +70,7 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
     ![Использование JS-файлов в Visual Studio][1]
 
 ## <a name="enable-real-time-monitoring"></a>Включение мониторинга в режиме реального времени
-Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере одно действие в серверную часть Mobile Engagement. Действие в контексте веб-приложения — это веб-страница. 
+Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере одно действие в серверную часть Служб мобильного взаимодействия. Действие в контексте веб-приложения — это веб-страница. 
 
 1. Создайте страницу с именем **home.html** в решении и настройте ее в качестве начальной страницы для веб-приложения. 
 2. Включите два сценария JavaScript, добавленных ранее на этой странице. Для этого добавьте в тег body следующий код. 
@@ -114,10 +118,5 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

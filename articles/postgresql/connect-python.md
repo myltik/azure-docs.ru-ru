@@ -1,6 +1,6 @@
 ---
 title: "Подключение к базе данных Azure для PostgreSQL с помощью Python | Документация Майкрософт"
-description: "В этом руководстве представлен пример кода Python, который можно использовать для подключения к базе данных Azure для PostgreSQL и запроса данных из нее."
+description: "В этом кратком руководстве представлен пример кода Python, который можно использовать для подключения к базе данных Azure для PostgreSQL и запроса данных из нее."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,12 +10,12 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью Python
@@ -49,7 +49,7 @@ pip install psycopg2
 5. Если вы забыли данные для входа на сервер, перейдите на страницу **Обзор**, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль.
 
 ## <a name="how-to-run-python-code"></a>Как выполнять код Python
-- С помощью предпочитаемого текстового редактора создайте файл с именем postgres.py и сохраните его в папку проекта. Скопируйте и вставьте пример кода, показанный ниже, в текстовый файл и сохраните его. При сохранении файла в ОС Windows выберите кодировку UTF-8. 
+- С помощью предпочитаемого текстового редактора создайте файл с именем postgres.py и сохраните его в папку проекта. Скопируйте и вставьте пример кода, показанный ниже, в текстовый файл. Замените значения параметров host, dbname, user и password значениями, указанными при создании сервера и базы данных. Затем сохраните файл. При сохранении файла в ОС Windows выберите кодировку UTF-8. 
 - Чтобы выполнить код, запустите командную строку или оболочку Bash. Перейдите в папку проекта, например `cd postgresql`. Затем введите команду python, за которой следует имя файла, например `python postgres.py`.
 
 > [!NOTE]

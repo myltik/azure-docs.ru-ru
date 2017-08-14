@@ -1,6 +1,6 @@
 ---
-title: "Приступая к работе с Azure Mobile Engagement для приложений Windows Phone Silverlight"
-description: "Узнайте, как использовать Azure Mobile Engagement для аналитики и отправки push-уведомлений для приложений Windows Phone Silverlight."
+title: "Приступая к работе со Служб мобильного взаимодействия Azure для приложений Windows Phone Silverlight"
+description: "Узнайте, как использовать Службы мобильного взаимодействия Azure для аналитики и отправки push-уведомлений для приложений Windows Phone Silverlight."
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
@@ -15,20 +15,23 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c05a3a24ea8cc663edb8232dc31d664be77a9597
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d2334a59d83c90bdd02c4fa29261d36aad292892
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Приступая к работе с Azure Mobile Engagement для приложений Windows Phone Silverlight
+# <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Приступая к работе со Службами мобильного взаимодействия Azure для приложений Windows Phone Silverlight
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-В этой статье показано, как использовать Azure Mobile Engagement, чтобы понять направление использования приложения и отправлять push-уведомления сегментированным пользователям приложения Windows Phone Silverlight.
-В этом учебнике описывается простой сценарий вещания с использованием Mobile Engagement. Здесь вы создадите пустое приложение Windows Phone Silverlight, которое будет собирать основные данные и получать push-уведомления, используя службу push-уведомлений (Майкрософт) (MPNS).
+В этой статье показано, как использовать Службы мобильного взаимодействия Azure, чтобы понять направление использования приложения и отправлять push-уведомления сегментированным пользователям приложения Windows Phone Silverlight.
+В этом учебнике описывается простой сценарий вещания с использованием Служб мобильного взаимодействия. Здесь вы создадите пустое приложение Windows Phone Silverlight, которое будет собирать основные данные и получать push-уведомления, используя службу push-уведомлений (Майкрософт) (MPNS).
 
 > [!NOTE]
-> Проекты для версии Windows Phone 8.1 и более ранних версий не поддерживаются в Visual Studio 2017.  Дополнительные сведения см. в статье [Целевая платформа и совместимость для Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+> Мы прекратим использование Служб мобильного взаимодействия Azure в марте 2018 г. Сейчас они доступны только существующим клиентам. Дополнительные сведения см. на странице [Службы мобильного взаимодействия](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+
+> [!NOTE]
+> Проекты для версии Windows Phone 8.1 и более ранних версий не поддерживаются в Visual Studio 2017.  Дополнительные сведения см. в статье [Целевая платформа и совместимость для Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 > [!NOTE]
 > Если вы ориентируетесь на Windows Phone 8.1 (без Silverlight), см. [руководство по универсальным приложениям для Windows](mobile-engagement-windows-store-dotnet-get-started.md).
@@ -45,11 +48,11 @@ ms.lasthandoff: 07/25/2017
 > 
 > 
 
-## <a id="setup-azme"></a>Настройка Mobile Engagement для приложения Windows Phone
+## <a id="setup-azme"></a>Настройка Служб мобильного взаимодействия для приложения Windows Phone
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
-В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции см. в статье [Общие сведения о пакете SDK для Windows Phone Silverlight для Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md).
+## <a id="connecting-app"></a>Подключение приложения к серверной части Служб мобильного взаимодействия
+В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции см. в статье [Общие сведения о пакете SDK для Windows Phone Silverlight для Служб мобильного взаимодействия Azure](mobile-engagement-windows-phone-sdk-overview.md).
 
 Мы создадим базовое приложение в Visual Studio, чтобы продемонстрировать интеграцию.
 
@@ -62,9 +65,9 @@ ms.lasthandoff: 07/25/2017
     ![][1]
 3. Вы можете выбрать версию **Windows Phone 8.0** или **Windows Phone 8.1**.
 
-Вы создали приложение Windows Phone Silverlight, в которое нам предстоит интегрировать пакет SDK для Azure Mobile Engagement.
+Вы создали приложение Windows Phone Silverlight, в которое нам предстоит интегрировать пакет SDK для Служб мобильного взаимодействия Azure.
 
-### <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Подключение приложения к серверной части Mobile Engagement
+### <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Подключение приложения к серверной части Служб мобильного взаимодействия
 1. Установите пакет NuGet [MicrosoftAzure.MobileEngagement] в проект.
 2. Откройте `WMAppManifest.xml` (в папке "Свойства") и убедитесь, что в теге `<Capabilities />` есть указанные ниже объявления (в противном случае добавьте их).
    
@@ -72,7 +75,7 @@ ms.lasthandoff: 07/25/2017
         <Capability Name="ID_CAP_IDENTITY_DEVICE" />
    
     ![][2]
-3. Теперь вставьте строку подключения, которую вы скопировали ранее для приложения Mobile Engagement, в файл `Resources\EngagementConfiguration.xml` между тегами `<connectionString>` и `</connectionString>`.
+3. Теперь вставьте строку подключения, которую вы скопировали ранее для приложения Служб мобильного взаимодействия, в файл `Resources\EngagementConfiguration.xml` между тегами `<connectionString>` и `</connectionString>`.
    
     ![][3]
 4. В файле `App.xaml.cs`:
@@ -96,7 +99,7 @@ ms.lasthandoff: 07/25/2017
             }
 
 ## <a id="monitor"></a>Включение мониторинга в режиме реального времени
-Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере один экран (действие) в серверную часть Mobile Engagement.
+Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере один экран (действие) в серверную часть Служб мобильного взаимодействия.
 
 1. В файле MainPage.xaml.cs добавьте инструкцию `using`.
    
@@ -116,7 +119,7 @@ ms.lasthandoff: 07/25/2017
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении
-Mobile Engagement позволяет взаимодействовать и связываться с пользователями с помощью push-уведомлений и сообщений в приложении в контексте кампаний. На портале Mobile Engagement этот модуль называется МОДУЛЕМ ОБРАБОТКИ РЕКЛАМНЫХ КАМПАНИЙ.
+Службы мобильного взаимодействия позволяют взаимодействовать и связываться с пользователями с помощью push-уведомлений и сообщений в приложении в контексте кампаний. На портале Служб мобильного взаимодействия этот модуль называется МОДУЛЕМ ОБРАБОТКИ РЕКЛАМНЫХ КАМПАНИЙ.
 В следующих разделах показано, как настроить приложение для приема уведомлений и сообщений.
 
 ### <a name="enable-your-app-to-receive-mpns-push-notifications"></a>Настройка приложения для приема push-уведомлений MPNS
