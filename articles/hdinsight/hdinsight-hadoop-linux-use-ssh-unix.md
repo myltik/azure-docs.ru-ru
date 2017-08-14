@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 3eb1d4df7ab87ec692716339eb0ecb9df4c58732
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Подключение к HDInsight (Hadoop) с помощью SSH
@@ -134,7 +133,34 @@ Microsoft Windows не предоставляет клиенты SSH по умо
 
 Дополнительные сведения см. в статье [Настройка присоединенных к домену кластеров HDInsight (предварительная версия)](hdinsight-domain-joined-configure.md).
 
-## <a name="connect-to-worker-and-zookeeper-nodes"></a>Подключение к рабочим узлам и узлам Zookeeper
+## <a name="connect-to-nodes"></a>Подключение к узлам
+
+К головному узлу и граничному узлу (если он есть) можно подключиться по Интернету через порты 22 и 23.
+
+* При подключении к __головному узлу__ используйте порт __22__, чтобы подключиться к первичному головному узлу, и порт __23__, чтобы подключиться к вторичному головному узлу. Используйте полное доменное имя `clustername-ssh.azurehdinsight.net`, где `clustername` — имя кластера.
+
+    ```bash
+    # Connect to primary head node
+    # port not specified since 22 is the default
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+
+    # Connect to secondary head node
+    ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
+    ```
+    
+* Чтобы подключиться к __граничному узлу__, используйте порт 22. Полное доменное имя — `edgenodename.clustername-ssh.azurehdinsight.net`, где `edgenodename` — это имя, которое вы указали при создании граничного узла. `clustername` — это имя кластера.
+
+    ```bash
+    # Connect to edge node
+    ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
+    ```
+
+> [!IMPORTANT]
+> В предыдущих примерах предполагается, что вы используете проверку пароля, или проверка подлинности сертификата выполняется автоматически. Если вы используете пару ключей SSH для проверки подлинности и сертификат не используется автоматически, укажите закрытый ключ с помощью параметра `-i`. Например, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+
+После подключения командная строка изменится, и в ней отобразится имя пользователя SSH и узел, к которому вы подключены. Например, если к первичному головному узлу подключается пользователь `sshuser`, командная строка выглядит так: `sshuser@hn0-clustername:~$`.
+
+### <a name="connect-to-worker-and-zookeeper-nodes"></a>Подключение к рабочим узлам и узлам Zookeeper
 
 Рабочие узлы и узлы Zookeeper недоступны напрямую через Интернет, но к ним можно получить доступ с головного или граничного узла кластера. Шаги ниже описывают общую процедуру подключения к другим узлам.
 
@@ -188,6 +214,33 @@ Microsoft Windows не предоставляет клиенты SSH по умо
     Если закрытый ключ хранится в другом файле, замените `~/.ssh/id_rsa` на путь к файлу.
 
 5. Подключитесь к граничному или головному узлу кластера с помощью SSH. Затем воспользуйтесь командой SSH для подключения к рабочему узлу или узлу Zookeeper. Подключение устанавливается с использованием перенаправленного ключа.
+
+## <a name="copy-files"></a>Копирование файлов
+
+Программу `scp` можно использовать для копирования файлов в отдельные узлы в кластере и обратно. Например, следующая команда копирует каталог `test.txt` из локальной системы в первичный головной узел:
+
+```bash
+scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
+```
+
+Так как после символа `:` не указан путь, файл помещается в домашний каталог `sshuser`.
+
+Например, следующая команда копирует файл `test.txt` из домашнего каталога `sshuser` в первичный головной узел в локальной системе:
+
+```bash
+scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
+```
+
+> [!IMPORTANT]
+> Команда `scp` может получать доступ только к файловой системе отдельных узлов в кластере. Ее нельзя использовать для доступа к данным в HDFS-совместимом хранилище кластера.
+>
+> Используйте команду `scp`, если вам нужно отправить ресурс, чтобы использовать его из сеанса SSH. Например, отправьте скрипт Python, а затем запустите его из сеанса SSH.
+>
+> Сведения о непосредственной загрузке данных в HDFS-совместимое хранилище см. в следующих документах:
+>
+> * [Использование службы хранилища Azure с кластерами Azure HDInsight](hdinsight-hadoop-use-blob-storage.md).
+>
+> * [Использование Data Lake Store с кластерами Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

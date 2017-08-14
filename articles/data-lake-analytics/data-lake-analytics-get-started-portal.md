@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: b004310a3b2667134c9ad890bd907dc8ae439dd9
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Начало работы с Azure Data Lake Analytics с помощью портала Azure
@@ -36,7 +35,7 @@ ms.lasthandoff: 06/16/2017
 Теперь мы одновременно создадим учетные записи Data Lake Analytics и Data Lake Store.  Этот простой шаг занимает около минуты.
 
 1. Выполните вход на [портал Azure](https://portal.azure.com).
-2. Щелкните **Создать** >  **Аналитика** > **Data Lake Analytics**.
+2. Щелкните **Создать** >  **Данные+аналитика** > **Data Lake Analytics**.
 3. Выберите значения для следующих параметров:
    * **Имя**: имя учетной записи Data Lake Analytics (разрешены только строчные буквы и цифры).
    * **Подписка**: выберите подписку Azure, которая используется для учетной записи аналитики.
@@ -71,7 +70,7 @@ OUTPUT @a
 3. Щелкните **Отправить задание**.   
 4. Подождите, пока состояние задания не изменится на **Успешно**.
 5. Если задание завершилось сбоем, см. сведения о [мониторинге и устранении неполадок с заданиями Azure Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-6. Перейдите на вкладку **Выходные данные** и щелкните `SearchLog-from-Data-Lake.csv`. 
+6. Перейдите на вкладку **Выходные данные** и щелкните `data.csv`. 
 
 ## <a name="see-also"></a>См. также
 

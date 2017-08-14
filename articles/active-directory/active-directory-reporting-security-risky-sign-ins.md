@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: f66c4c0b7c391b3fc5ee042cc7a6643e46566d3f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Отчет о событиях входа, представляющих риск, на портале Azure Active Directory
@@ -35,6 +35,19 @@ Azure AD обнаруживает подозрительные действия
 На [портале Azure](https://portal.azure.com) отчеты о безопасности можно найти в колонке **Azure Active Directory** в разделе **Безопасность**. 
 
 ![события входа, представляющие риск.](./media/active-directory-reporting-security-risky-sign-ins/10.png)
+
+
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Какая лицензия Azure AD требуется для доступа к отчету безопасности?  
+
+Все выпуски Azure Active Directory предоставляют отчеты о событиях входа, представляющих риск.  
+Однако уровень детализации отчета может для выпусков отличаться. 
+
+- В **бесплатном и базовом выпусках Azure Active Directory** у вас будет список событий входа, представляющих риск. 
+
+- Выпуск **Azure Active Directory Premium 1** расширяет эту модель, также позволяя вам изучать некоторые базовые события риска, обнаруженные для каждого отчета. 
+
+- Выпуск **Azure Active Directory Premium 2** предоставляет наиболее полные сведения о базовых событиях риска, а также позволяет настроить политики безопасности, автоматически реагирующие на настроенные уровни риска.
+
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Выпуски "Бесплатный" и "Базовый" Azure Active Directory

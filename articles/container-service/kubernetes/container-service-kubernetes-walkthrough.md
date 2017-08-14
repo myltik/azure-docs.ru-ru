@@ -16,18 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: a278f76fc0ac2aa42633ed0ce2ad4fbc4e7290da
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 7c96a5b9bc2cb6cea60b200c22e4e4e1d49d8d08
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Развертывание кластера Kubernetes для контейнеров Linux
 
-В этом кратком руководстве мы развернем кластер Kubernetes с помощью Azure CLI. Затем в кластере будет развернуто и запущено многоконтейнерное приложение, состоящее из веб-интерфейса и экземпляра Redis. По завершении приложение будет доступно через Интернет.
+В этом кратком руководстве мы развернем кластер Kubernetes с помощью Azure CLI. Затем в кластере будет развернуто и запущено многоконтейнерное приложение, состоящее из веб-интерфейса и экземпляра Redis. По завершении приложение будет доступно через Интернет. 
+
+Примера приложения, который используется в этом документе, написан на языке Python. Основные понятия и действия, описанные здесь, можно использовать для развертывания в кластере Kubernetes любого образа контейнера. Файл кода (Dockerfile) и предварительно созданные файлы манифеста Kubernetes, относящиеся к этому проекту, доступны на портале [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
 ![Изображение перехода к приложению Azure для голосования](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -69,7 +71,7 @@ az group create --name myResourceGroup --location eastus
 Создание кластера Kubernetes в Службе контейнеров Azure с помощью команды [az acs create](/cli/azure/acs#create). В следующем примере создается кластер с именем *myK8sCluster* при помощи одного главного узла Linux и трех узлов-агентов Linux.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
 ```
 
 Через несколько минут выполнение команды завершается, и отображаются сведения о кластере в формате JSON. 
@@ -80,7 +82,7 @@ az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --
 
 Если вы используете Azure CloudShell, клиент kubectl уже установлен. Для локальной установки можно использовать команду [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
 
-Чтобы настроить kubectl для подключения к кластеру Kubernetes, выполните команду [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). На этих шагах скачиваются учетные данные и настраивается интерфейс командной строки Kubernetes для их использования.
+Чтобы настроить kubectl для подключения к кластеру Kubernetes, выполните команду [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). На этом шаге скачиваются учетные данные и настраивается интерфейс командной строки Kubernetes для их использования.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
@@ -104,9 +106,9 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 ## <a name="run-the-application"></a>Выполнение приложения
 
-Файл манифеста Kubernetes определяет требуемое состояние для кластера, включая образы контейнеров, которые должны быть запущены. В этом примере манифест используется для создания всех объектов, необходимых для запуска приложения Azure для голосования. 
+Файл манифеста Kubernetes определяет требуемое состояние для кластера, включая образы контейнеров, которые нужно запустить. В этом примере манифест используется для создания всех объектов, необходимых для запуска приложения Azure для голосования. 
 
-Создайте файл с именем `azure-vote.yaml` и скопируйте в него следующий YAML-файл:
+Создайте файл с именем `azure-vote.yaml` и скопируйте в него следующий YAML-файл: Если вы работаете в Azure Cloud Shell, этот файл можно создать с помощью Vi или Nano, как при работе в виртуальной или физической системе.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -226,3 +228,4 @@ az group delete --name myResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [Create container images to be used with Azure Container Service](./container-service-tutorial-kubernetes-prepare-app.md) (Создание образов контейнеров для использования со Службой контейнеров Azure)
+

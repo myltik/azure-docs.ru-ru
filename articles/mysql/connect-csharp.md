@@ -12,10 +12,10 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: e0db2d0a59d62eebbb624a3ad32f19fa634ad5db
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: f1488f6b4a240165c71c95f759af73d6b9fd7bfe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -209,7 +209,7 @@ namespace driver
 
 
 ## <a name="delete-data"></a>Удаление данных
-Используйте указанный ниже код с инструкцией SQL **DELETE** для подключения и чтения данных. 
+Используйте указанный ниже код с инструкцией SQL **DELETE** для подключения и удаления данных. 
 
 В коде используется класс ODBC с методом [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx), чтобы установить подключение к MySQL. Затем код использует метод [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), устанавливает свойство CommandText и вызывает метод [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx), чтобы выполнить команды базы данных.
 

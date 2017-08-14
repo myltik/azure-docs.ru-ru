@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 08/08/2017
 ms.author: kaanan
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 1dcfcde43bf2a41cf5ac3651a23c097a30a84dd3
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: a98c216fcc4351a339554ce0adcf8fccb717d3e0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
@@ -83,9 +83,9 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Лондон** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Лос-Анджелес** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Мельбурн** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **Майами** |Megaport |
+| **Майами** |C3ntro+, Megaport |
 | **Монреаль** |Bell Canada, Cologix |
-| **Мумбай** |Airtel+, Tata Communications |
+| **Мумбай** |Airtel+, Sify, Tata Communications |
 | **Нью-Йорк** |Coresite, Equinix, Megaport, Zayo Group |
 | **Ньюпорт (Уэльс)** |Next Generation Data |
 | **Осака** |Equinix, Internet Initiative Japan Inc. (IIJ), NTT Communications, NTT SmartConnect, Softbank |
