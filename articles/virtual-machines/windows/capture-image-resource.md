@@ -21,7 +21,6 @@ ms.openlocfilehash: e428b755f6696bd6d4047ad77579a8e9665dfbd8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Создание управляемого образа универсальной виртуальной машины в Azure
 
@@ -83,7 +82,8 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](/powershell/azure/overview).
 
 
-1. Создайте несколько переменных. 
+1. Создайте несколько переменных.
+
     ```powershell
     $vmName = "myVM"
     $rgName = "myResourceGroup"
