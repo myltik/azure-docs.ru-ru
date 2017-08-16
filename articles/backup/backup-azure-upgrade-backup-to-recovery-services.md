@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/02/2017
-ms.author: markgal;arunak
+ms.date: 08/03/2017
+ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: cf5a7c1ac323a33c5f6985fb25b5b005ae06657c
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Обновление резервного хранилища до хранилища служб восстановления
@@ -108,11 +108,11 @@ RecoveryServicesVaultUpgrade.ps1 -SubscriptionID 53a3c692-5283-4f0a-baf6-49412f5
 
 Когда резервное хранилище будет обновлено до хранилища служб восстановления, для него будут автоматически включены параметры безопасности. Если параметры безопасности включены, для выполнения некоторых операций, таких как удаление резервных копий или изменение парольной фразы, будет необходимо ввести PIN-код [Многофакторной идентификации Azure](../multi-factor-authentication/multi-factor-authentication.md). Дополнительные сведения о повышенной безопасности см. в статье [Функции безопасности для защиты гибридных резервных копий, использующих службу архивации Azure](backup-azure-security-feature.md). 
 
-Если включена повышенная безопасность, данные будут храниться до 14 дней после того, как оплачиваемые данные были удалены из хранилища. Эта функция хранения данных применяется к данным, резервная копия которых создавалась для агента службы Azure Backup, Azure Backup Server и System Center Data Protection Manager.
+Если включена повышенная безопасность, данные будут храниться до 14 дней после удаления сведений о точке восстановления из хранилища. Клиентам выставляется счет за хранение этих данных безопасности. Функция хранения данных безопасности применяется к точкам восстановления, созданных для агента службы Azure Backup, Azure Backup Server и System Center Data Protection Manager. 
 
 ## <a name="gather-data-on-your-vault"></a>Сбор данных в хранилище
 
-После обновления до хранилища служб восстановления настройте отчеты для службы Azure Backup (для виртуальных машин IaaS и служб восстановления Microsoft Azure (MARS)) и используйте Power BI, чтобы получить к ним доступ.
+После обновления до хранилища служб восстановления настройте отчеты для службы Azure Backup (для виртуальных машин IaaS и служб восстановления Microsoft Azure (MARS)) и используйте Power BI, чтобы получить к ним доступ. Дополнительные сведения о сборе данных см. в статье [Настройка отчетов службы Azure Backup](backup-azure-configure-reports.md).
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 

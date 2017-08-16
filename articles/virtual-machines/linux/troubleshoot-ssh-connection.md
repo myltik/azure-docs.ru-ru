@@ -1,6 +1,6 @@
 ---
 title: "Устранение неполадок SSH-подключения к виртуальной машине Azure | Документация Майкрософт"
-description: "Диагностика ошибок, например &quot;ошибка SSH-подключения&quot; или &quot;в SSH-подключении отказано&quot;, для виртуальной машины под управлением Linux."
+description: "Диагностика ошибок, например \"ошибка SSH-подключения\" или \"в SSH-подключении отказано\", для виртуальной машины под управлением Linux."
 keywords: "отклонение SSH-подключения, ошибка SSH, Azure SSH, ошибка SSH-подключения"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 24f903c6b8b982599904b95f86d648927a3be5ce
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение
@@ -64,7 +63,7 @@ ms.lasthandoff: 06/01/2017
 ![Сброс конфигурации SSH или учетных данных на портале Azure](./media/troubleshoot-ssh-connection/reset-credentials-using-portal.png)
 
 ### <a name="reset-the-ssh-configuration"></a>Сброс конфигурации SSH
-Сначала в раскрывающемся меню **Режим** выберите `Reset SSH configuration only`, как на предыдущем снимке экрана, и нажмите кнопку **Сброс**. Сделав это, попытайтесь снова войти в виртуальною машину.
+Сначала в раскрывающемся меню **Режим** выберите `Reset configuration only`, как на предыдущем снимке экрана, и нажмите кнопку **Сброс**. Сделав это, попытайтесь снова войти в виртуальною машину.
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Сброс учетных данных SSH пользователя
 Чтобы сбросить учетные данные имеющегося пользователя, в раскрывающемся меню **Режим** выберите `Reset SSH public key` или `Reset password`, как на приведенном выше снимке экрана. Укажите имя пользователя и ключ SSH или новый пароль, а затем нажмите кнопку **Сброс**.
@@ -76,18 +75,26 @@ ms.lasthandoff: 06/01/2017
 
 Если вы создали и отправили пользовательский образ диска Linux, убедитесь, что установлен [агент Linux для Microsoft Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) версии 2.0.5 или более поздней. В виртуальных машинах, созданных с помощью образов из коллекции, это расширение для доступа уже установлено и настроено.
 
-### <a name="reset-ssh-credentials-for-a-user"></a>Сброс учетных данных SSH пользователя
-В следующем примере используется команда [az vm access set-linux-user](/cli/azure/vm/access#set-linux-user), чтобы сбросить учетные данные для `myUsername` к значению, указанному в `myPassword` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
+### <a name="reset-ssh-configuration"></a>Сбросьте конфигурацию SSH.
+Вы можете сначала попробовать сбросить конфигурацию SSH к значениям по умолчанию и перезагрузить сервер SSH на виртуальной машине. Обратите внимание, что при этом не изменяется имя учетной записи пользователя, пароль или ключи SSH.
+В следующем примере используется команда [az vm user reset-ssh](/cli/azure/vm/user#reset-ssh) для сброса конфигурации SSH на виртуальной машине с именем `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
 
 ```azurecli
-az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+az vm user reset-ssh --resource-group myResourceGroup --name myVM
+```
+
+### <a name="reset-ssh-credentials-for-a-user"></a>Сброс учетных данных SSH пользователя
+В следующем примере используется команда [aaz vm user update](/cli/azure/vm/user#update), чтобы сбросить учетные данные для `myUsername` к значению, указанному в `myPassword` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
+
+```azurecli
+az vm user update --resource-group myResourceGroup --name myVM \
      --username myUsername --password myPassword
 ```
 
 При использовании аутентификации с помощью ключа SSH можно сбросить ключ SSH для отдельного пользователя. В следующем примере используется команда **az vm access set-linux-user**, чтобы сбросить учетные данные для `~/.ssh/id_rsa.pub` к значению, указанному в `myUsername` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
 
 ```azurecli
-az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+az vm user update --resource-group myResourceGroup --name myVM \
     --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
@@ -95,7 +102,7 @@ az vm access set-linux-user --resource-group myResourceGroup --name myVM \
 Расширение для доступа к виртуальной машине для Linux выполняет чтение в JSON-файле. При этом сбрасывается SSHD и ключ SSH или добавляется пользователь. Azure CLI по-прежнему используется для вызова расширения VMAccess, но при необходимости JSON-файлы можно использовать повторно в нескольких виртуальных машинах. Такой подход позволяет создать репозиторий JSON-файлов, которые можно впоследствии вызывать для заданных сценариев.
 
 ### <a name="reset-sshd"></a>Сброс SSHD
-Создайте файл `PrivateConf.json` со следующим содержимым:
+Создайте файл `settings.json` со следующим содержимым:
 
 ```json
 {  
@@ -103,16 +110,15 @@ az vm access set-linux-user --resource-group myResourceGroup --name myVM \
 }
 ```
 
-С помощью Azure CLI вызовите расширение `VMAccessForLinux` для сброса подключения SSHD, указав JSON-файл. В следующем примере сбрасывается SSHD на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
+С помощью Azure CLI вызовите расширение `VMAccessForLinux` для сброса подключения SSHD, указав JSON-файл. В следующем примере используется команда [az vm extension set](/cli/azure/vm/extension#set) для сброса SSHD на виртуальной машине с именем `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-    VMAccessForLinux Microsoft.OSTCExtensions "1.2" \
-    --private-config-path PrivateConf.json
+az vm extension set --resource-group philmea --vm-name Ubuntu \
+    --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Сброс учетных данных SSH пользователя
-Если SSHD работает корректно, можно сбросить учетные данные для отдельного пользователя. Чтобы сбросить пароль для пользователя, создайте файл с именем `PrivateConf.json`. В следующем примере сбрасываются учетные данные для имени пользователя `myUsername` до значения, указанного в пароле `myPassword`. Введите следующие строки в файл `PrivateConf.json`, используя свои значения:
+Если SSHD работает корректно, можно сбросить учетные данные для отдельного пользователя. Чтобы сбросить пароль для пользователя, создайте файл с именем `settings.json`. В следующем примере сбрасываются учетные данные для имени пользователя `myUsername` до значения, указанного в пароле `myPassword`. Введите следующие строки в файл `settings.json`, используя свои значения:
 
 ```json
 {
@@ -120,7 +126,7 @@ azure vm extension set myResourceGroup myVM \
 }
 ```
 
-Чтобы сбросить ключ SSH для пользователя, сначала создайте файл с именем `PrivateConf.json`. В следующем примере сбрасываются учетные данные для имени пользователя `myUsername` до значения, указанного в пароле `myPassword` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Введите следующие строки в файл `PrivateConf.json`, используя свои значения:
+Чтобы сбросить ключ SSH для пользователя, сначала создайте файл с именем `settings.json`. В следующем примере сбрасываются учетные данные для имени пользователя `myUsername` до значения, указанного в пароле `myPassword` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Введите следующие строки в файл `settings.json`, используя свои значения:
 
 ```json
 {
@@ -131,9 +137,8 @@ azure vm extension set myResourceGroup myVM \
 Создав JSON-файл, используйте Azure CLI, чтобы вызвать расширение `VMAccessForLinux` для сброса учетных данных пользователя SSH, указав JSON-файл. В следующем примере сбрасываются учетные данные на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-    VMAccessForLinux Microsoft.OSTCExtensions "1.2" \
-    --private-config-path PrivateConf.json
+az vm extension set --resource-group philmea --vm-name Ubuntu \
+    --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
 ## <a name="use-the-azure-cli-10"></a>Использование Azure CLI 1.0
@@ -236,7 +241,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
   * Создайте учетную запись пользователя *sudo*.
   * сбросить конфигурацию SSH.
 * Проверьте работоспособность ресурсов виртуальной машины, чтобы выявить любые проблемы, связанные с платформой.<br>
-  Выберите свою виртуальную машину и прокрутите вниз до раздела **Параметры** > **Проверка работоспособности**.
+     Выберите свою виртуальную машину и прокрутите вниз до раздела **Параметры** > **Проверка работоспособности**.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * Если вам по-прежнему не удается выполнить SSH-подключение к виртуальной машине, см. [дополнительные действия по устранению неполадок](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), которые позволят просмотреть дополнительные шаги по устранению проблемы.

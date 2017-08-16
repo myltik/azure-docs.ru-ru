@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c82459bfddc2755a56fdad6eb8ab4c8bb41862f6
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: abddbe6b78c5c15d4deac68ff8c2504d2321fab0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure и Linux
@@ -100,7 +100,7 @@ Microsoft Azure поддерживает различные дистрибути
 Первым шагом к использованию облака Azure является регистрация учетной записи Azure.  Чтобы приступить к работе, перейдите на страницу [регистрации учетной записи Azure](https://azure.microsoft.com/pricing/free-trial/) .
 
 ### <a name="install-the-cli"></a>Установка интерфейса командной строки
-С помощью новой учетной записи Azure можно немедленно приступить к использованию портала Azure, представляющего собой веб-панель администрирования.  Чтобы управлять облаком Azure с помощью командной строки, установите `azure-cli`.  Установите [Azure CLI 2.0](/cli/azure/install) на рабочей станции Mac или Linux.
+С помощью новой учетной записи Azure можно немедленно приступить к использованию портала Azure, представляющего собой веб-панель администрирования.  Чтобы управлять облаком Azure с помощью командной строки, установите `azure-cli`.  Установите [Azure CLI 2.0](/cli/azure/install-azure-cli) на рабочей станции Mac или Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Создание пары ключей SSH
 Теперь вы можете использовать учетную запись Azure, веб-портал Azure и Azure CLI.  Следующим шагом является создание пары ключей SSH, которые используются для подключения по протоколу SSH в Linux без использования пароля.  [Создайте ключи SSH в Linux и Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), чтобы обеспечить возможность входа без пароля и повысить безопасность.

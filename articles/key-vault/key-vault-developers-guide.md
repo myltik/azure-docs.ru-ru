@@ -1,21 +1,19 @@
 ---
-title: "Руководство для разработчика Azure Key Vault | Документация Майкрософт"
+title: "Руководство разработчика хранилища ключей Azure"
 description: "Разработчики могут использовать хранилище ключей Azure для управления криптографическими ключами в среде Microsoft Azure."
 services: key-vault
-documentationcenter: 
 author: BrucePerlerMS
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 08/04/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: b046e95e2167009727f6ea8f3dd237619c61434f
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 115862aca98926e354e4703f86cb4a7e1d1f72a2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="azure-key-vault-developers-guide"></a>Руководство разработчика хранилища ключей Azure
@@ -29,14 +27,18 @@ ms.lasthandoff: 05/10/2017
 
 Дополнительные сведения о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md).
 
-## <a name="public-preview---may-10-2017"></a>Общедоступная предварительная версия, 10 мая 2017 года
+## <a name="public-previews"></a>Общедоступные предварительные версии
+
+Периодически мы выпускаем общедоступные предварительные версии нового компонента Key Vault. Мы предлагаем вам испытать их и отправить отзыв на наш адрес электронной почты для обратной связи: azurekeyvault@microsoft.com.
+
+### <a name="storage-account-keys---july-10-2017"></a>Ключи учетной записи хранения — 10 июля 2017 г.
 
 >[!NOTE]
->В этой предварительной версии Azure Key Vault только функция **обратимого удаления** находится на стадии предварительной версии. В целом Azure Key Vault — полностью рабочая служба.
+>В этом обновлении Azure Key Vault в режиме предварительной версии доступна только функция **Ключи учетной записи хранения**.
 
-Эта предварительная версия включает нашу новую функцию обратимого удаления, восстанавливаемое удаление Key Vault и его объектов и обновленные интерфейсы для разработчиков, такие как [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) и [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+Эта предварительная версия включает новую функцию "Ключи учетной записи хранения", доступную через интерфейсы [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) или [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
 
-Дополнительные сведения о новой функции обратимого удаления Azure Key Vault см.в [этой статье](key-vault-ovw-soft-delete.md).
+Дополнительные сведения о новой функции "Ключи учетной записи хранения" см. в статье, посвященной [учетной записи хранилища ключей Azure Key Vault](key-vault-ovw-storage-keys.md).
 
 ## <a name="videos"></a>Видеоролики
 
@@ -63,7 +65,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="coding-with-key-vault"></a>Программирование с помощью хранилища ключей
 
-Система управления Key Vault для программистов включает несколько интерфейсов на основе REST. Интерфейс REST хранилища ключей предоставляет доступ ко всем связанным ресурсам: ключам, секретным данным и сертификатам. [Справочник по REST API для Key Vault](https://docs.microsoft.com/rest/api/keyvault/) 
+Система управления Key Vault для программистов включает несколько интерфейсов на основе REST. Интерфейс REST предоставляет доступ ко всем ресурсам хранилищ ключей: ключам, секретам и сертификатам. [Справочник по REST API для Key Vault](https://docs.microsoft.com/rest/api/keyvault/) 
 
 ### <a name="supported-programming-languages"></a>Поддерживаемые языки программирования
 
@@ -78,6 +80,8 @@ ms.lasthandoff: 05/10/2017
 - [Пакет Java SDK для Key Vault](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
 
 #### <a name="nodejs"></a>Node.js
+
+В Node.js API функции управления хранилищем не включены в API объекта хранилища. Управление Key Vault позволяет создавать и обновлять хранилище ключей. API операций Key Vault предназначен для работы с такими объектами хранилища, как ключи, секреты и сертификаты. 
 
 - [Справочник по API Node.js для управления Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
 - [Справочник по API Node.js для операций Key Vault](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
@@ -107,8 +111,9 @@ ms.lasthandoff: 05/10/2017
 - [Настройка полной смены ключей и аудита в Key Vault](key-vault-key-rotation-log-monitoring.md) — руководство по настройке смены ключей и аудита журналов с помощью Azure Key Vault.
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Развертывание сертификата службы веб-приложения Azure с помощью Key Vault) — пошаговое руководство по развертыванию сертификатов, хранящихся в Key Vault, в рамках предложения [Сертификаты службы приложений](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
 - [Предоставление разрешения на доступ к Key Vault нескольким приложениям](key-vault-group-permissions-for-apps.md). Политика контроля доступа Key Vault поддерживает не более 16 приложений. Однако вы можете создать группу безопасности Azure Active Directory. Добавьте все связанные субъекты-службы в эту группу безопасности, а затем предоставьте доступ данной группе безопасности к Key Vault.
-
-Руководство по интеграции и использованию хранилищ ключей в Azure см. в этой статье [с примерами шаблонов Azure Resource Manager для хранилища ключей от Райана Джонса (Ryan Jones)](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- Руководство по интеграции и использованию хранилищ ключей в Azure см. в этой статье [с примерами шаблонов Azure Resource Manager для хранилища ключей от Райана Джонса (Ryan Jones)](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- В разделе [Как использовать обратимое удаление в Key Vault с помощью интерфейса командной строки](key-vault-soft-delete-cli.md) описывается использование и жизненный цикл хранилища ключей, а также различных объектов хранилища ключей с возможностью обратимого удаления.
+- В разделе [Как использовать обратимое удаление в Key Vault с помощью PowerShell](key-vault-soft-delete-powershell.md) описывается использование и жизненный цикл хранилища ключей, а также различных объектов хранилища ключей, поддерживающих обратимое удаление.
 
 ## <a name="integrated-with-key-vault"></a>Интеграция с хранилищем ключей
 
@@ -120,20 +125,20 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="key-vault-overviews-and-concepts"></a>Основные сведения о Key Vault
 
-- [Системы безопасности и географические ограничения хранилища ключей Azure](key-vault-ovw-security-worlds.md)
-- [Общие сведения о функции обратимого удаления в хранилище ключей Azure](key-vault-ovw-soft-delete.md)
+- [Общие сведения о функции обратимого удаления в Azure Key Vault](key-vault-ovw-soft-delete.md). Описание функции, которая позволяет восстанавливать случайно или намеренно удаленные объекты.
+- [Руководство по регулированию Azure Key Vault](key-vault-ovw-throttling.md). Описание основных механизмов регулирования числа запросов и подходов к созданию приложения.
+- [Key Vault storage account keys overview](key-vault-ovw-storage-keys.md) (Общие сведения об учетной записи хранения Key Vault). Описание интеграции Key Vault с ключами учетных записей службы хранилища Azure.
+- [Системы безопасности и географические ограничения Azure Key Vault](key-vault-ovw-security-worlds.md). Описание взаимосвязей между регионами и областями безопасности.
 
 ## <a name="social"></a>Социальные сети
 
 - [Блог хранилища ключей](http://aka.ms/kvblog)
 - [Форум хранилища ключей](http://aka.ms/kvforum)
 
-
 ## <a name="supporting-libraries"></a>Поддержка библиотек
 
 - [Библиотека ядра Key Vault Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) предоставляет интерфейсы **IKey** и **IKeyResolver** для поиска ключей по идентификаторам и выполнения операций с ключами.
 - [Расширения хранилища ключей Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) предоставляют расширенные возможности для хранилища ключей Azure.
 
-## <a name="other-key-vault-resources"></a>Другие ресурсы хранилища ключей
 
 

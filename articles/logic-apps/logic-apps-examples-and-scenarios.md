@@ -1,25 +1,24 @@
 ---
-title: "Примеры и сценарии для Azure Logic Apps | Документация Майкрософт"
-description: "Примеры приложений логики для распространенных сценариев."
+title: "Примеры и распространенные сценарии для Azure Logic Apps | Документация Майкрософт"
+description: "Узнайте больше о приложениях логики, используя примеры, сценарии и руководства."
 services: logic-apps
 author: jeffhollan
 manager: anneta
 editor: 
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
-ms.devlang: multiple
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 03/14/2017
+ms.date: 08/9/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: dcf089d680249d0a2f9d748b315076d91c8c78e8
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 2d45090b09d83a98cc0811dca8d6f2384d1b11ad
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/30/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="examples-and-common-scenarios-for-azure-logic-apps"></a>Примеры и распространенные сценарии для Azure Logic Apps
@@ -34,30 +33,31 @@ ms.lasthandoff: 03/30/2017
 
 Каждое приложение логики начинается с триггера. Например, рабочий процесс можно начать с запланированного события, вызова вручную или события из внешней системы, например триггера "при добавлении файла на FTP-сервер". Служба Azure Logic Apps в настоящее время поддерживает более 100 готовых соединителей для различных решений, от локальной системы SAP до Azure Cognitive Services. Для систем и служб, для которых соединители не опубликованы, можно также расширить приложения логики.
 
-* [Руководство. Создание панели мониторинга социальных сетей на базе ИИ за несколько минут с помощью Logic Apps и Power BI](http://aka.ms/logicappsdemo)
 * [Создание настраиваемых триггеров или действий](../logic-apps/logic-apps-create-api-app.md)
 * [Настройка длительных действий для запусков рабочего процесса](../logic-apps/logic-apps-create-api-app.md)
 * [Реагирование на внешние события и действия с помощью объектов webhook](../logic-apps/logic-apps-create-api-app.md)
-* [Вызов, активация или вложение рабочих процессов с использованием синхронных ответов на HTTP-запросы](logic-apps-http-endpoint.md)
+* [Вызов, активация или вложение рабочих процессов с использованием синхронных ответов на HTTP-запросы](../logic-apps/logic-apps-http-endpoint.md)
 * [Руководство. Реагирование на объекты webhook для SMS Twilio и отправка текстового ответа](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [Руководство. Создание панели мониторинга социальных сетей на базе ИИ за несколько минут с помощью Logic Apps и Power BI](http://aka.ms/logicappsdemo)
 
 ## <a name="error-handling-logging-and-control-flow-capabilities"></a>Возможности обработки ошибок, ведения журнала и потока управления
 
 Служба Logic Apps предоставляет широкие возможности для расширенного потока управления, в том числе условия, выключатели, циклы и области. Чтобы обеспечить устойчивость решений, в рабочих процессах можно также реализовать обработку ошибок и исключений. Для ведения журналов уведомлений и диагностики состояния рабочего процесса служба Azure Logic Apps обеспечивает средства мониторинга и уведомления.
 
-* [Выполнение различных действий с помощью операторов switch](logic-apps-switch-case.md)
-* [Обработка элементов в массивах и коллекциях с помощью циклов и пакетов в приложениях логики](logic-apps-loops-and-scopes.md)
-* [Реализация обработки ошибок и исключений в рабочем процессе](logic-apps-exception-handling.md)
-* [Мониторинг приложений логики](logic-apps-monitor-your-logic-apps.md)
-* [Вариант использования. Как компания в сфере здравоохранения использует обработку исключений в приложении логики для рабочих процессов HL7 FHIR](logic-apps-scenario-error-and-exception-handling.md)
+* [Выполнение различных действий с помощью операторов switch](../logic-apps/logic-apps-switch-case.md)
+* [Обработка элементов в массивах и коллекциях с помощью циклов и пакетов в приложениях логики](../logic-apps/logic-apps-loops-and-scopes.md)
+* [Реализация обработки ошибок и исключений в рабочем процессе](../logic-apps/logic-apps-exception-handling.md)
+* [Включение мониторинга, ведения журнала и оповещений для существующих приложений логики](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Включение мониторинга и ведения журнала диагностики при создании приложений логики](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
+* [Вариант использования. Как компания в сфере здравоохранения использует обработку исключений в приложении логики для рабочих процессов HL7 FHIR](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 
 ## <a name="deploy-and-manage-logic-apps"></a>Развертывание приложений логики и управление ими
 
 Можно полностью разработать и развернуть приложения логики с помощью Visual Studio, Visual Studio Team Services или любых других инструментов системы управления версиями и автоматической сборки. Для поддержки развертывания рабочих процессов и зависимых подключений в шаблоне ресурсов приложения логики используют шаблоны развертывания ресурсов Azure. Средства Visual Studio автоматически создают эти шаблоны, которые можно записать после изменения в систему управления версиями для управления версиями.
 
 * [Создание шаблона для автоматического развертывания](../logic-apps/logic-apps-create-deploy-template.md)
-* [Развертывание из Visual Studio](logic-apps-deploy-from-vs.md)
-* [Мониторинг работоспособности приложений логики](logic-apps-monitor-your-logic-apps.md)
+* [Развертывание из Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Мониторинг работоспособности приложений логики](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Типы содержимого и их преобразование во время выполнения
 
@@ -71,13 +71,13 @@ ms.lasthandoff: 03/30/2017
 
 Служба Logic Apps также поддерживает интеграцию со многими службами, включая Функции Azure, управление API Azure, службы приложений Azure и пользовательские конечные точки HTTP, например REST и SOAP.
 
-* [Создание панели мониторинга сведений о клиентах в режиме реального времени с помощью Функций Azure и Azure Logic Apps](logic-apps-scenario-social-serverless.md)
+* [Создание панели мониторинга сведений о клиентах в режиме реального времени с помощью Функций Azure и Azure Logic Apps](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Вызов Функций Azure из приложений логики](../logic-apps/logic-apps-azure-functions.md)
-* [Сценарий. Активация приложений логики с помощью Функций Azure](logic-apps-scenario-function-sb-trigger.md)
+* [Сценарий. Активация приложений логики с помощью Функций Azure](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Блог. Вызов конечных точек SOAP из приложения логики](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- [Обработка ошибок и исключений в приложениях логики](logic-apps-exception-handling.md)
-- [Создание определений рабочих процессов на языке определения рабочего процесса](logic-apps-author-definitions.md)
+- [Обработка ошибок и исключений в приложениях логики](../logic-apps/logic-apps-exception-handling.md)
+- [Создание определений рабочих процессов на языке определения рабочего процесса](../logic-apps/logic-apps-author-definitions.md)
 - [Отправка комментариев, вопросов, отзывов или предложений по улучшению Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)

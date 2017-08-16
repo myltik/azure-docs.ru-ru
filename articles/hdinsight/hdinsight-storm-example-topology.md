@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: b68b723aaff1f47dbd2d36503ce1a5db282ed9b4
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: daf03179c3a9383c6ff3ca11215cc760164f96d5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="example-storm-toplogies-and-components-for-apache-storm-on-hdinsight"></a>Примеры топологий и компонентов Storm для Apache Storm в HDInsight
@@ -34,7 +34,6 @@ ms.lasthandoff: 08/02/2017
 | [Создание топологии Apache Storm на языке Java][5797064f] |Maven |Java |
 | [Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio][16fce2d1] |Средства HDInsight для Visual Studio |C#, Java |
 | [Create multiple data streams in a C# Storm topology][ec5a4064] (Создание нескольких потоков данных в топологии Storm на C#) |Несколько потоков |C# |
-| [Определение популярных тем в Twitter с помощью Apache Storm в HDInsight][3c86c7c8] |Trident |Java, Trident |
 | [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C#)][844d1d81] |Концентраторы событий |C# и Java |
 | [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) |Концентраторы событий |Java |
 | [Использование средств Power BI для визуализации данных из топологии Apache Storm][94d15238] |Power BI |C# |
@@ -60,7 +59,6 @@ ms.lasthandoff: 08/02/2017
 [ec5a4064]: https://github.com/Blackmist/csharp-storm-example "Демонстрация реализованной на языке C# простой топологии Storm для подсчета статистики. Этот пример также демонстрирует возможность создания нескольких потоков данных в топологии C#."
 [844d1d81]: hdinsight-storm-develop-csharp-event-hub-topology.md "Считывание данных из концентраторов событий Azure и запись их туда с использованием Storm в HDInsight."
 [ab894747]: hdinsight-storm-sensor-data-analysis.md "Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C#)."
-[3c86c7c8]: hdinsight-storm-twitter-trending.md "Определение популярных тем в Twitter с помощью Apache Storm в HDInsight."
 [246ee964]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md "Обработка данных с датчиков автомобилей из концентраторов событий Azure с использованием средств Apache Storm в HDInsight."
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "Несколько топологий, демонстрирующих пропускную способность при считывании данных из концентраторов событий Azure и их записи в базу данных SQL с использованием средств Apache Storm в HDInsight."
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "Real Time ETL Example" (Пример ETL в режиме реального времени).

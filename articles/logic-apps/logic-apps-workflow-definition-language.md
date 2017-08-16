@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 8066621670e6e79ff4169253f2a97972e376eaa3
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 06/07/2017
 |$schema|Нет|Расположение файла схемы JSON, который описывает версию языка определения. Это расположение требуется для ссылки на определение извне. В этой статье используется расположение: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
 |contentVersion|Нет|Версия определения. Это значение позволяет гарантировать использование правильного определения при развертывании рабочего процесса с помощью определения.|  
 |parameters|Нет|Параметры, используемые для ввода данных в определение. Можно определить до 50 параметров.|  
-|триггеры;|Нет|Сведения о триггерах, которые запускают рабочий процесс. Можно определить до 250 триггеров.|  
+|триггеры;|Нет|Сведения о триггерах, которые запускают рабочий процесс. Можно определить до 10 триггеров.|  
 |actions|Нет|Действия, предпринимаемые при выполнении потока. Можно определить до 250 действий.|  
 |outputs|Нет|Сведения о развернутых ресурсах. Можно определить до 10 выводов.|  
   
@@ -72,7 +72,7 @@ ms.lasthandoff: 06/07/2017
 
 |Имя элемента|Обязательно|Description (Описание)|  
 |------------------|--------------|-----------------|  
-|type|Да|**Тип:** string. <p> **Объявление:** `"parameters": {"parameter1": {"type": "string"}` <p> **Спецификация:** `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Тип:** securestring. <p> **Объявление:** `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Спецификация:** `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Тип:** int. <p> **Объявление:** `"parameters": {"parameter1": {"type": "int"}}` <p> **Спецификация:** `"parameters": {"parameter1": {"value" : 5}}` <p> **Тип:** bool. <p> **Объявление:** `"parameters": {"parameter1": {"type": "array"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": true }}` <p> **Тип:** array. <p> **Объявление:** `"parameters": {"parameter1": {"type": "array"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Тип:** object. <p> **Объявление:** `"parameters": {"parameter1": {"type": "object"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Тип:** secureobject. <p> **Объявление:** `"parameters": {"parameter1": {"type": "object"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Примечание.** Типы `securestring` и `secureobject` не возвращаются в операциях `GET`. Этот тип нужно использовать для всех паролей, ключей и секретов.|  
+|type|Да|**Тип:** string. <p> **Объявление:** `"parameters": {"parameter1": {"type": "string"}` <p> **Спецификация:** `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Тип:** securestring. <p> **Объявление:** `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Спецификация:** `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Тип:** int. <p> **Объявление:** `"parameters": {"parameter1": {"type": "int"}}` <p> **Спецификация:** `"parameters": {"parameter1": {"value" : 5}}` <p> **Тип:** bool. <p> **Объявление:** `"parameters": {"parameter1": {"type": "bool"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": true }}` <p> **Тип:** array. <p> **Объявление:** `"parameters": {"parameter1": {"type": "array"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Тип:** object. <p> **Объявление:** `"parameters": {"parameter1": {"type": "object"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Тип:** secureobject. <p> **Объявление:** `"parameters": {"parameter1": {"type": "object"}}` <p> **Спецификация:** `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Примечание.** Типы `securestring` и `secureobject` не возвращаются в операциях `GET`. Этот тип нужно использовать для всех паролей, ключей и секретов.|  
 |defaultValue|Нет|Значение по умолчанию для параметра, если во время создания ресурса не было указано значение.|  
 |allowedValues|Нет|Массив допустимых значений параметра.|  
 |metadata|Нет|Дополнительные сведения о параметре, например понятное описание или данные, касающиеся разработки, используемые Visual Studio или другими средствами.|  

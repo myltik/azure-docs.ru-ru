@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1f12a8e3e11bc7eee1fc536e231f71c1d17c3fe4
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: f0bcbdb03fbb70ff91ac3a56974a88eb1b26c245
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Подробное техническое руководство по простому единому входу Azure Active Directory
 
 В этой статье приводятся технические сведения о работе функции простого единого входа Azure Active Directory.
+
+>[!IMPORTANT]
+>Функция простого единого входа находится на этапе предварительной версии.
 
 ## <a name="how-does-seamless-sso-work"></a>Как работает простой единый вход?
 
@@ -61,7 +64,7 @@ ms.lasthandoff: 07/25/2017
 6. Active Directory находит учетную запись компьютера и возвращает браузеру билет Kerberos, зашифрованный с использованием секрета этой учетной записи компьютера.
 7. Браузер отправляет билет Kerberos, полученный из Active Directory, в Azure AD (по одному из [URL-адресов Azure AD, предварительно добавленных в настройки зоны интрасети браузера](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
 8. Azure AD расшифровывает билет Kerberos, который содержит удостоверение пользователя, выполнившего вход в корпоративное устройство, с помощью полученного ранее общего ключа.
-9. После анализа Azure AD либо возвращает маркер приложению, либо предлагает пользователю выполнить дополнительную проверку, например многофакторную идентификацию.
+9. После анализа Azure AD либо возвращает маркер приложению, либо предлагает пользователю выполнить дополнительную проверку, например Многофакторную идентификацию.
 10. При успешном входе в систему пользователь может получить доступ к приложению.
 
 На схеме ниже показаны все соответствующие компоненты и шаги.

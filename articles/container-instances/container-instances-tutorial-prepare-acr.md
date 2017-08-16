@@ -11,16 +11,17 @@ keywords: "Docker, контейнеры, микрослужбы, Kubernetes, DC/
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 5f3fc5f3624cf1ef881adf2af0cb69ad67d09ad3
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -61,9 +62,9 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 ## <a name="get-azure-container-registry-information"></a>Получение сведений о реестре контейнеров Azure
 
-Создав реестр контейнеров, можно запросить его сервер входа и пароль. Следующий код возвращает эти значения. Запишите все значения, так как они понадобятся дальше в этом руководстве.
+Создав реестр контейнеров, можно запросить его сервер входа и пароль. Следующий код возвращает эти значения. Обратите внимание на значения сервера входа и пароль, так как они используются в этом руководстве.
 
-Сервер входа в реестр контейнеров (укажите используемое имя реестра):
+Сервер для входа в реестр контейнеров (введите используемое имя реестра):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
@@ -74,7 +75,7 @@ az acr show --name <acrName> --query loginServer
 Пароль для реестра контейнеров:
 
 ```azurecli
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 В этом руководстве будет использоваться имя `<acrPassword>` как заполнитель значения пароля для реестра контейнеров.
@@ -179,3 +180,4 @@ v1
 
 > [!div class="nextstepaction"]
 > [Deploy a container to Azure Container Instances](./container-instances-tutorial-deploy-app.md) (Развертывание контейнера в службе "Экземпляры контейнеров Azure")
+

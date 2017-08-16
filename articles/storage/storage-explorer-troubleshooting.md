@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/09/2017
 ms.author: delhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 470b2d87ffdc4769bb2963df7dea646901469e00
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -32,7 +32,7 @@ Microsoft Azure Storage Explorer (предварительная версия) 
 
 ## <a name="sign-in-issues"></a>Проблемы входа
 
-Прежде всего, попытайтесь перезапустить приложение: возможно, это поможет решить проблему.
+Поддерживаются только учетные записи Azure Active Directory (AAD). При использовании учетной записи ADFS предполагается, что вход в обозреватель хранилища не будет работать. Прежде всего, попытайтесь перезапустить приложение: возможно, это поможет решить проблему.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Ошибка "Самозаверяющий сертификат в цепочке сертификатов"
 

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
-ms.author: bwren
+ms.date: 08/05/2017
+ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 9502e37df8b0bf72c02edacf8e0bb5b2d7fba237
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 783fb22b0154915f2e3d8574ab95538dbd646705
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Автоматизация ресурсов в центре обработки данных или облаке с помощью гибридной рабочей роли Runbook
-Модули runbook в службе автоматизации Azure не могут получить доступ к ресурсам в других облаках или локальной среде, так как они выполняются в облаке Azure.  Гибридная рабочая роль Runbook службы автоматизации Azure позволяет выполнять модули runbook непосредственно на компьютере и за его пределами для работы с ресурсами в среде, что позволяет управлять этими локальными ресурсами. Для хранения модулей runbook и управления ими используется служба автоматизации Azure, затем они передаются на один или несколько целевых компьютеров.  
+Модули runbook в службе автоматизации Azure не могут получить доступ к ресурсам в других облаках или локальной среде, так как они выполняются в облаке Azure.  Гибридная рабочая роль Runbook службы автоматизации Azure позволяет выполнять модули runbook непосредственно на компьютере, размещающем роль, для работы с ресурсами в среде, что позволяет управлять этими локальными ресурсами. Для хранения модулей runbook и управления ими используется служба автоматизации Azure, затем они передаются на один или несколько целевых компьютеров.  
 
 Эта функция проиллюстрирована на рисунке ниже.<br>  
 
@@ -48,9 +48,9 @@ ms.lasthandoff: 07/28/2017
 * Компонент SMA входит в состав System Center. Следовательно, для его использования требуется лицензия System Center 2012 R2. Служба автоматизации Azure основана на модели многоуровневой подписки.
 * Служба автоматизации Azure обладает дополнительными функциями, такими как создание графических модулей Runbook, которые недоступны в SMA.
 
-## <a name="installing-hybrid-runbook-worker"></a>Установка гибридного компонента Runbook Worker
+## <a name="installing-the-windows-hybrid-runbook-worker"></a>Установка гибридной рабочей роли Runbook Windows 
 
-Ниже описаны два метода установки и настройки гибридной рабочей роли Runbook.  Мы рекомендуем использовать модуль runbook службы автоматизации для полностью автоматической настройки компьютера Windows.  Второй метод заключается в пошаговом выполнении инструкций по ручной установке и настройке роли.  
+Ниже описаны два метода установки и настройки гибридной рабочей роли Runbook Windows.  Мы рекомендуем использовать модуль runbook службы автоматизации для полностью автоматической настройки компьютера Windows.  Второй метод заключается в пошаговом выполнении инструкций по ручной установке и настройке роли.  
 
 > [!NOTE]
 > Чтобы управлять конфигурацией серверов, поддерживающих гибридную рабочую роль Runbook с настройкой требуемого состояния (DSC), добавьте такие серверы в качестве узлов DSC.  Дополнительные сведения о развертывании этих узлов для управления с помощью DSC см. в статье [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md).           
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/28/2017
  
 ### <a name="automated-deployment"></a>Автоматизированное развертывание
 
-Выполните следующие действия для автоматизации установки и настройки гибридной рабочей роли.  
+Выполните следующие действия для автоматизации установки и настройки гибридной рабочей роли Windows.  
 
 1. Скачайте сценарий *New-OnPremiseHybridWorker.ps1* из [коллекции PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) непосредственно на компьютер, на котором выполняется гибридная рабочая роль Runbook, или на другой компьютер в вашей среде, после чего скопируйте этот сценарий в рабочую роль.  
 
@@ -136,41 +136,55 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
 
 Так как главной целью функции гибридной рабочей роли Runbook является управление локальными ресурсами, вам могут потребоваться модули, которые поддерживают эти ресурсы.  Сведения об установке модулей Windows PowerShell можно найти в разделе [Установка модулей](http://msdn.microsoft.com/library/dd878350.aspx) .  Устанавливаемые модули должны находиться в расположении, указанном в переменной среды PSModulePath, чтобы гибридная рабочая роль автоматически импортировала их.  Дополнительные сведения см. в статье [об изменении пути установки PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx). 
 
-## <a name="removing-hybrid-runbook-worker"></a>Удаление гибридного компонента Runbook Worker 
-Можно удалить одну или несколько гибридных рабочих ролей Runbook из группы либо удалить группу, в зависимости ваших целей.  Чтобы удалить гибридную рабочую роль Runbook на локальном компьютере, выполните следующие действия.
+## <a name="installing-linux-hybrid-runbook-worker"></a>Установка гибридной рабочей роли Runbook Linux
+Установка и настройка гибридной рабочей роли Runbook в Linux — очень простая процедура, позволяющая вручную установить и настроить роли.  Для этого необходимо включить решение **гибридной рабочей роли службы автоматизации** в рабочей области OMS, а затем выполнить несколько команд для регистрации компьютера в качестве рабочей роли и его добавления в новую или имеющуюся группу. 
 
-1. На портале Azure перейдите к учетной записи службы автоматизации.  
-2. В колонке **Параметры** щелкните **Ключи** и запишите значения полей **URL-адрес** и **Первичный ключ доступа**.  Эти сведения потребуются для выполнения следующего шага.
-3. Откройте сеанс PowerShell в режиме администратора и выполните команду `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`.  Получить подробный журнал процедуры удаления можно с помощью параметра **-Verbose** .
+1.  Включите решение "Гибридная рабочая роль службы автоматизации" в OMS. Для этого нужно:
+
+   1. Из коллекции решений на [портале OMS](https://mms.microsoft.com) включите решение **Гибридная рабочая роль службы автоматизации**.
+   2. Выполните следующий командлет:
+
+        ```$null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
+        ```
+2.  Run the following command with the proper parameters (endpoint and key can be taken from the portal from the automation account linked to the workspace used in the steps above):
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <automationsharedkey> --groupname <hybridgroupname> -e <automationendpoint>
+
+
+## Removing Hybrid Runbook Worker 
+You can remove one or more Hybrid Runbook Workers from a group or you can remove the group, depending on your requirements.  To remove a Hybrid Runbook Worker from an on-premises computer, perform the following steps.
+
+1. In the Azure portal, navigate to your Automation account.  
+2. From the **Settings** blade, select **Keys** and note the values for field **URL** and **Primary Access Key**.  You need this information for the next step.
+3. Open a PowerShell session in Administrator mode and run the following command - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`.  Use the **-Verbose** switch for a detailed log of the removal process.
 
 > [!NOTE]
-> Агент мониторинга Майкрософт не удаляется с компьютера, удаляются только функциональные возможности и настройки гибридной рабочей роли Runbook.  
+> This does not remove the Microsoft Monitoring Agent from the computer, only the functionality and configuration of the Hybrid Runbook Worker role.  
 
-## <a name="remove-hybrid-worker-groups"></a>Удаление групп гибридных рабочих ролей
-Чтобы удалить группу, необходимо сначала удалить гибридную рабочую роль Runbook с каждого компьютера, который является участником этой группы, с помощью приведенной выше процедуры, а затем выполнить приведенные ниже инструкции по удалению группы.  
+## Remove Hybrid Worker groups
+To remove a group, you first need to remove the Hybrid Runbook Worker from every computer that is a member of the group using the procedure shown earlier, and then you perform the following steps to remove the group.  
 
-1. На портале Azure откройте учетную запись службы автоматизации.
-2. Выберите элемент **Группы гибридных рабочих ролей** и в колонке **Группы гибридных рабочих ролей** выберите группу, которую требуется удалить.  После выбора конкретной группы отобразится колонка свойств **гибридной рабочей роли**.<br> ![Колонка группы гибридных рабочих ролей Runbook](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
-3. В колонке свойств выбранной группы щелкните **Удалить**.  Появится запрос на подтверждение этого действия. Выберите **Да**, если вы уверены, что хотите продолжить.<br> ![Диалоговое окно подтверждения удаления группы](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Этот процесс может занять несколько секунд. Ход его выполнения можно просмотреть в разделе **Уведомления** в меню.  
+1. Open the Automation account in the Azure portal.
+2. Select the **Hybrid Worker Groups** tile and in the **Hybrid Worker Groups** blade, select the group you wish to delete.  After selecting the specific group, the **Hybrid worker group** properties blade is displayed.<br> ![Hybrid Runbook Worker Group Blade](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
+3. On the properties blade for the selected group, click **Delete**.  A message appears asking you to confirm this action, select **Yes** if you are sure you want to proceed.<br> ![Delete Group Confirmation Dialog](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> This process can take several seconds to complete and you can track its progress under **Notifications** from the menu.  
 
-## <a name="troubleshooting"></a>Устранение неполадок 
-Гибридная рабочая роль Runbook зависит от службы Microsoft Monitoring Agent, которая используется для взаимодействия с учетной записью автоматизации для регистрации рабочей роли, получения заданий runbook и сообщения о состоянии. Если при регистрации рабочей роли произошла ошибка, ознакомьтесь с некоторыми возможными причинами ниже.  
+## Troubleshooting 
+The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If  registration of the worker fails, here are some possible causes for the error:  
 
-1. Гибридная рабочая роль находится за прокси-сервером или брандмауэром.  
-    Проверьте, имеет ли компьютер исходящий доступ к *.azure-automation.net на порту 443.  
+1. The hybrid worker is behind a proxy or firewall.  
+    Verify the computer has outbound access to *.azure-automation.net on port 443.  
 
-2. Компьютер, на котором выполняется гибридная рабочая роль, не соответствует минимальным [требованиям](automation-offering-get-started.md#hybrid-runbook-worker) к оборудованию.  
-    Прежде чем назначать компьютеры, на которых будет выполняться гибридная рабочая роль Runbook, необходимо выполнить на них соответствующие минимальные требования к оборудованию. В противном случае в зависимости от использования ресурсов других фоновых процессов и при возникновении конфликта, вызванного модулями Runbook во время выполнения, компьютер становится чрезмерно загруженным. Из-за этого при выполнении задания Runbook возникают задержки и простои.
-   Убедитесь, что компьютер, предназначенный для выполнения гибридной рабочей роли Runbook, соответствует минимальным требованиям к оборудованию.  Если требования выполнены, отследите использование ЦП и памяти, чтобы определить корреляцию между производительностью процессов гибридной рабочей роли Runbook и Windows.  Если есть нагрузка на память или ЦП, возможно, необходимо обновить или добавить дополнительные процессоры либо увеличить объем памяти, чтобы устранить ошибку и проблему нехватки ресурсов. Как вариант, выберите другой вычислительный ресурс, который соответствует минимальным требованиям и масштабируется в соответствии с требованиями рабочей нагрузки.
+2. The computer the hybrid worker is running on has less than the minimum hardware [requirements](automation-offering-get-started.md#hybrid-runbook-worker).  
+    Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention caused by runbooks during execution, the computer will become over utilized and cause runbook job delays or timeouts.
+    Confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements.  If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows.  If there is memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
     
-3. Служба Microsoft Monitoring Agent не работает.  
-    Если не запущена служба Windows Microsoft Monitoring Agent, то гибридная рабочая роль Runbook не может взаимодействовать со службой автоматизации Azure.  Проверьте, запущен ли агент, введя в PowerShell команду `get-service healthservice`.  Если служба остановлена, введите в PowerShell команду `start-service healthservice`, чтобы запустить эту службу.  
+3. The Microsoft Monitoring Agent service is not running.  
+    If the Microsoft Monitoring Agent Windows service is not running, this prevents the Hybrid Runbook Worker from communicating with Azure Automation.  Verify the agent is running by entering the following command in PowerShell: `get-service healthservice`.  If the service is stopped, enter the following command in PowerShell to start the service: `start-service healthservice`.  
 
-4. В журнале событий в папке **Application and Services Logs\Operations Manager** отображается событие 4502 и EventMessage с **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** со следующим описанием: *Сертификат, представленный службой <wsid>.oms.opinsights.azure.com, не был выдан центром сертификации для служб Майкрософт. Обратитесь к администратору сети, чтобы узнать, использует ли он прокси-сервер, перехватывающий связь по протоколам TLS и SSL. Дополнительные сведения об устранении неполадок, связанных с подключением, содержатся в статье базы знаний KB3126513.*
-    Это может быть вызвано тем, что прокси-сервер или сетевой брандмауэр блокируют подключение к Microsoft Azure.  Проверьте, имеет ли компьютер исходящий доступ к *.azure-automation.net на порту 443.
+4. In the **Application and Services Logs\Operations Manager** event log, you see event 4502  and EventMessage containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description:  *The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication. The article KB3126513 has additional troubleshooting information for connectivity issues.*
+    This can be caused by your proxy or network firewall blockking communication to Microsoft Azure.  Verify the computer has outbound access to *.azure-automation.net on ports 443.
 
-Журналы сохраняются локально в каждом гибридном компоненте Worker по адресу C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Можно проверить, зарегистрированы ли в журналах событий в папках **Application and Services Logs\Microsoft-SMA\Operations** и **Application and Services Logs\Operations Manager** какие-либо предупреждения или ошибки, которые указывают на проблемы подключения или другие проблемы, связанные с адаптацией роли службы автоматизации Azure, либо на проблемы во время выполнения обычных операций.  
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while performing normal operations.  
 
-## <a name="next-steps"></a>Дальнейшие действия
-Ознакомьтесь с [запуском модулей runbook в гибридной рабочей роли Runbook](automation-hrw-run-runbooks.md), чтобы узнать, как настроить модули runbook для автоматизации процессов в локальном центре обработки данных или другой облачной среде.
+## Next steps
+Review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 

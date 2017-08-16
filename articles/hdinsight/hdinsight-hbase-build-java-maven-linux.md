@@ -1,5 +1,5 @@
 ---
-title: "Приложение Java HBase для Azure HDInsight | Документация Майкрософт"
+title: "Клиент Java HBase для Azure HDInsight | Документация Майкрософт"
 description: "Сведения об использовании Apache Maven для создания приложения Java для Apache HBase и его последующем развертывании в HBase в Azure HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9cf2a997e3016995b0dbb0e0adf9f388f70c2599
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d6ef6c988533f27338a61a587b3ce5174d8fa806
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Создание приложений Java для Apache HBase
@@ -27,6 +27,9 @@ ms.lasthandoff: 07/08/2017
 Узнайте, как создать приложение [Apache HBase](http://hbase.apache.org/) в среде Java. Затем вы будете использовать приложение с HBase в Azure HDInsight.
 
 В этом руководстве используется [Maven](http://maven.apache.org/) для создания и сборки проекта. Maven — это инструмент для управления и повышения обозримости проектов программного обеспечения, позволяющий создавать ПО, документацию и отчеты для проектов Java.
+
+> [!NOTE]
+> Действия, описанные в этом документе, в последний раз были протестированы с помощью HDInsight 3.6.
 
 > [!IMPORTANT]
 > Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -36,7 +39,7 @@ ms.lasthandoff: 07/08/2017
 * [Пакет JDK для платформы Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) версии 8 или более поздней.
 
     > [!NOTE]
-    > Для работы HDInsight 3.5 требуется Java 8. Для работы более ранних версий HDInsight требуется Java 7.
+    > Для HDInsight 3.5 и более поздних версий требуется Java 8. Для работы более ранних версий HDInsight требуется Java 7.
 
 * [Maven](http://maven.apache.org/)
 
@@ -47,13 +50,18 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="create-the-project"></a>Создание проекта
 
-1. Из командной строки вашей среды разработки измените каталоги на расположение, где вы хотите создать проект. Например, `cd code/hdinsight`.
+1. Из командной строки вашей среды разработки измените каталоги на расположение, где вы хотите создать проект. Например, `cd code\hbase`.
 
 2. Используйте команду **mvn** , которая будет установлена вместе с Maven, для создания шаблона проекта.
 
     ```bash
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
+
+    > [!NOTE]
+    > При использовании PowerShell параметры `-D` необходимо заключить в кавычки.
+    >
+    > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     При этом будет создан каталог, имя которого будет совпадать с именем параметра **artifactID** (в нашем случае **hbaseapp**). Этот каталог содержит следующие элементы:
 
@@ -87,7 +95,7 @@ ms.lasthandoff: 07/08/2017
    | Версия кластера HDInsight | Используемая версия HBase |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
-   | 3.3, 3.4 и 3.5 |1.1.2 |
+   | 3.3, 3.4, 3.5 и 3.6 |1.1.2 |
 
     Дополнительные сведения о версиях и компонентах HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md)
 
@@ -153,7 +161,9 @@ ms.lasthandoff: 07/08/2017
 
 6. Для копирования конфигурации HBase из кластера HBase в каталог `conf` используйте следующую команду. Замените `USERNAME` именем пользователя SSH, а `CLUSTERNAME` — именем кластера HDInsight:
 
-        scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```bash
+    scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```
 
    Дополнительные сведения об использовании `ssh` и `scp` см. в статье [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -374,7 +384,9 @@ ms.lasthandoff: 07/08/2017
 
 2. Чтобы подключиться к кластеру HBase, используйте следующую команду:
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
     Замените `USERNAME` именем для входа SSH, а `CLUSTERNAME` — именем кластера HDInsight.
 
@@ -400,6 +412,10 @@ ms.lasthandoff: 07/08/2017
         Rae Schroeder - rae@contoso.com - ID: 4
         Gabriela Ingram - ID: 6
         Gabriela Ingram - gabriela@contoso.com - ID: 6
+
+5. Чтобы удалить таблицу, используйте следующую команду:
+
+    
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Передача JAR-файла и запуск заданий (PowerShell)
 
@@ -666,7 +682,7 @@ ms.lasthandoff: 07/08/2017
 
 __Из сеанса `ssh`__ :
 
-`hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
+`yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
 
 __Из Azure PowerShell__:
 

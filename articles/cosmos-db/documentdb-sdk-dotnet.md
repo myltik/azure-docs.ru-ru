@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 08/08/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 8d6b953ae95713dc8b5a4037fa59bec49ea52b85
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Пакет SDK для Azure Cosmos DB .NET: скачивание и заметки о выпуске
@@ -52,6 +52,13 @@ ms.lasthandoff: 07/25/2017
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* Устранена проблема в классе JsonSerializable, которая могла порождать исключение переполнения стека.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+*   Устранена проблема, при которой требовалась повторная компиляция приложения из-за добавления JsonSerializerSettings в качестве необязательного параметра в конструкторе DocumentClient.
+* Помечено как устаревшее требование конструктора DocumentClient, из-за которого при передаче параметра JsonSerializerSettings этот параметр должен был указываться как последний параметр для разрешения значений по умолчанию параметров ConnectionPolicy и ConsistencyLevel.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 *   Добавлена поддержка для указания пользовательских параметров JsonSerializerSettings при создании экземпляра [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
@@ -247,6 +254,8 @@ ms.lasthandoff: 07/25/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |7 августа 2017 г. |--- |
+| [1.16.0](#1.16.0) |2 августа 2017 г. |--- |
 | [1.15.0](#1.15.0) |30 июня 2017 г. |--- |
 | [1.14.1](#1.14.1) |23 мая 2017 г. |--- |
 | [1.14.0](#1.14.0) |10 мая 2017 г. |--- |

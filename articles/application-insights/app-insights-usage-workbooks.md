@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: cfreeman
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: ecd3d86db1d6b3b65015d1d560027cedb4f2df58
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 05e3246de51e1c092a7d8a15dddea3c99b6e5b15
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -118,9 +118,11 @@ Workbooks предлагают четыре типа визуализации а
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Общие сведения об использовании](app-insights-usage-overview.md)
-* [Анализ пользователей, сеансов и событий в Application Insights](app-insights-usage-segmentation.md)
-* [Сохранение](app-insights-usage-retention.md)
-* [API Application Insights для пользовательских событий и метрик](app-insights-api-custom-events-metrics.md)
-
+## <a name="next-steps"></a>Дальнейшие действия
+- Чтобы обеспечить оптимальное использование, начните отправлять [пользовательские события](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) или [сведения о просмотрах страниц](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Если вы уже сделали это, изучите инструменты использования, чтобы узнать, как пользователи используют службу.
+    - [Пользователи, сеансы, события](app-insights-usage-segmentation.md)
+    - [Воронки](usage-funnels.md)
+    - [Сохранение](app-insights-usage-retention.md)
+    - [Добавление контекста пользователей](app-insights-usage-send-user-context.md)
 

@@ -12,20 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/03/2017
 ms.author: robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: c42e419984ee4b7f30c8423b9a0c420e2c981949
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 44d350d2d098be14ad254066a8528fe117200ec4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Приобретение имени личного домена для веб-приложений Azure
 
 Домены службы приложений (предварительная версия) — это домены верхнего уровня, которые управляются непосредственно в Azure. Они упрощают управление личными доменами для [веб-приложений Azure](app-service-web-overview.md). В этом руководстве показано, как приобрести домен службы веб-приложений и назначить DNS-имена веб-приложениям Azure.
 
-Эта статья посвящена службе приложений Azure (веб-приложениям, приложениям API, мобильным приложениям и приложениям логики). Информацию об облачных службах можно найти в статье [Настройка пользовательского доменного имени для облачной службы Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
+Эта статья предназначена для службы приложений Azure ("Веб-приложения", "Приложения API", "Мобильные приложения", Logic Apps). Сведения о виртуальной машине Azure или службе хранилища Azure см. в статье [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Назначение домена службы приложений виртуальной машине Azure или службе хранилища Azure). Сведения об облачных службах см. в статье [Настройка пользовательского доменного имени для облачной службы Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: df167435757b2d9d2d25b58b1b548a811b490eb5
-ms.lasthandoff: 04/04/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c184e94a04cfbdedcae70ed154aeb7dd134d1baf
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>Создание правила на основе пути для шлюза приложений с помощью портала
@@ -27,6 +27,7 @@ ms.lasthandoff: 04/04/2017
 > [!div class="op_single_selector"]
 > * [Портал Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-url-route-arm-ps.md)
+> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 
 Маршрутизация на основе URL-адресов позволяет связывать маршруты на основе URL-пути HTTP-запроса. Она проверяет, настроен ли для URL-адресов в шлюзе приложений маршрут к пулу тыловых серверов, и отправляет сетевой трафик в указанный пул. Как правило, маршрутизация на основе URL-адресов используется для распределения запросов содержимого разных типов между разными пулами тыловых серверов.
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 04/04/2017
 
 **Основные параметры**
 
-* **Имя** — понятное пользователю имя правила, которое отображается на портале.
+* **Имя** — понятное имя правила, которое отображается на портале.
 * **Прослушиватель** — прослушиватель, который используется для этого правила.
 * **Пул тыловых серверов по умолчанию** — этот параметр определяет, какие тыловые серверы будут использоваться для правила по умолчанию.
 * **Параметр HTTP по умолчанию** — этот параметр определяет, какие параметры HTTP будут использоваться для правила по умолчанию.
@@ -84,7 +85,7 @@ ms.lasthandoff: 04/04/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В можете узнать, как [настроить разгрузку SSL](application-gateway-ssl-portal.md)
+Сведения по настройке разгрузки SSL с использованием шлюза приложений Azure см. в статье [Настройка шлюза приложений для разгрузки SSL с помощью портала](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-url-route-portal/figure1.png
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png

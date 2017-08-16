@@ -11,16 +11,17 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/04/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: e48477a79e28db2c40c99fd46d9c5b84506a4279
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: d8c2056734bc1fdea71543157debd089a9ca743d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -46,41 +47,34 @@ az acr show --name <acrName> --query loginServer
 Пароль для реестра контейнеров:
 
 ```azurecli-interactive
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 Чтобы развернуть образ контейнера из реестра контейнеров с запросом ресурсов (одно ядро ЦП и 1 ГБ памяти), выполните следующую команду:
 
 ```azurecli-interactive
-az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --ip-address public -g myResourceGroup
+az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
 В течение нескольких секунд вы получите исходный ответ Azure Resource Manager. Чтобы просмотреть состояние развертывания, используйте следующую команду:
 
 ```azurecli-interactive
-az container show --name aci-tutorial-app --resource-group myResourceGroup
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
-В выходных данных содержится общедоступный IP-адрес, по которому можно получить доступ к приложению в браузере.
-
-```json
-...
-"ipAddress": {
-      "ip": "13.88.176.27",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": "TCP"
-        }
-      ]
-    }
-...
-```
-
+Мы можем и дальше выполнять эту команду, пока состояние не изменится с *Ожидание* на *Выполняется*. Затем можно продолжить.
 
 ## <a name="view-the-application-and-container-logs"></a>Просмотр приложения и журналов контейнера
 
-После успешного развертывания можно открыть в браузере IP-адрес, показанный в выходных данных `az container show`.
+После успешного развертывания откройте в браузере IP-адрес, показанный в выходных данных следующей команды:
+
+```bash
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
+```
+
+```json
+"13.88.176.27"
+```
 
 ![Приложение Hello World в браузере][aci-app-browser]
 

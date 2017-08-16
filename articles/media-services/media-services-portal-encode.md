@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 50e9095d38c96323db3ccce4e3601eccbb9eb2ab
-ms.lasthandoff: 01/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: efe7db8a36273b4755dd057139bb1c673af868d3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="encode-an-asset-using-media-encoder-standard-with-the-azure-portal"></a>Кодирование ресурса-контейнера с помощью Media Encoder Standard на портале Azure
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/13/2017
 2. В окне **Параметры** выберите элемент **Ресурсы**.  
 3. В окне **Ресурсы-контейнеры** выберите ресурс, который требуется закодировать.
 4. Нажмите кнопку **Кодировать** .
-5. В окне**кодирования ресурса** выберите обработчик Media Encoder Standard с предустановкой. Например, если известно, что исходное видео имеет разрешение 1920 x 1080 пикселей, можно использовать предустановку "H264 Multiple Bitrate 1080p". Дополнительные сведения о предустановках см. [здесь](media-services-mes-presets-overview.md). Важно выбрать предустановку в соответствии с параметрами исходного видео. Если у вас есть видео с низким разрешением (640 x 360), не следует использовать предустановку по умолчанию ("H264 Multiple Bitrate 1080p").
+5. В окне**кодирования ресурса** выберите обработчик Media Encoder Standard с предустановкой. Дополнительные сведения о предустановках см. в статьях [Использование стандартной версии кодировщика мультимедиа Azure для автоматического создания схемы скоростей](media-services-autogen-bitrate-ladder-with-mes.md) и [Предустановки задач для Media Encoder Standard](media-services-mes-presets-overview.md). Если вы планируете контролировать используемую предустановку кодирования, то не забывайте следующее правило: важно выбрать предустановку в соответствии с параметрами исходного видео. Например, если известно, что исходное видео имеет разрешение 1920 x 1080 пикселей, можно использовать предустановку "H264 Multiple Bitrate 1080p". Если у вас есть видео с низким разрешением (640 x 360), то не следует использовать предустановку "H264 Multiple Bitrate 1080p".
    
    Для упрощения управления предусмотрена возможность изменения имени выходного ресурса и задания.
    

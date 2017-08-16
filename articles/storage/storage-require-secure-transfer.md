@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 516618653064fd4e334197bba767a013a805260a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 78737c681a91f24f73502a9cc25a301efc9304a4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="require-secure-transfer"></a>Требование безопасной передачи
@@ -50,6 +50,64 @@ ms.lasthandoff: 06/21/2017
 1. В разделе **Требуется безопасное перемещение** щелкните **Включено**.
 
   ![Снимок экрана](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+
+## <a name="enable-secure-transfer-required-programmatically"></a>Включение параметра "Требуется безопасное перемещение" программным способом
+
+Имя параметра в свойствах учетной записи хранения — _supportsHttpsTrafficOnly_. Вы можете включить параметр "Требуется безопасное перемещение" с помощью REST API, инструментов или библиотек:
+
+* **REST API** (версия 2016-12-01): [пакет выпуска](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts);
+* **PowerShell** (версия 4.1.0): [пакет выпуска](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0);
+* **интерфейс командной строки** (версия 2.0.11): [пакет выпуска](https://pypi.python.org/pypi/azure-cli-storage/2.0.11);
+* **NodeJS** (версия 1.1.0): [пакет выпуска](https://www.npmjs.com/package/azure-arm-storage/);
+* **пакет SDK для .NET** (версия 6.3.0): [пакет выпуска](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview);
+* **пакет SDK для Python** (версия 1.1.0): [пакет выпуска](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0);
+* **пакет SDK для Ruby** (версия 0.11.0): [пакет выпуска](https://rubygems.org/gems/azure_mgmt_storage).
+
+### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>Включение параметра "Требуется безопасное перемещение" с помощью REST API
+
+Чтобы упростить тестирование с помощью REST API, можно использовать [ArmClient](https://github.com/projectkudu/ARMClient) для вызова из командной строки.
+
+ Для проверки параметра с помощью REST API можно использовать командную строку ниже:
+
+```
+# Login Azure and proceed with your credentials
+> armclient login
+
+> armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
+```
+
+В ответе можно найти параметр _supportsHttpsTrafficOnly_. Пример:
+
+```Json
+{
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+  "kind": "Storage",
+  ...
+  "properties": {
+    ...
+    "supportsHttpsTrafficOnly": false
+  },
+  "type": "Microsoft.Storage/storageAccounts"
+}
+```
+
+Для включения параметра с помощью REST API можно использовать командную строку ниже:
+
+```
+# Login Azure and proceed with your credentials
+> armclient login
+
+> armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01 < Input.json
+```
+Пример Input.json:
+```Json
+{
+  "location": "westus",
+  "properties": {
+    "supportsHttpsTrafficOnly": true
+  }
+}
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Служба хранилища Azure предоставляет полный набор возможностей обеспечения безопасности, которые в совокупности позволяют разработчикам создавать защищенные приложения. Дополнительные сведения см. в [руководстве по безопасности службы хранилища](storage-security-guide.md).

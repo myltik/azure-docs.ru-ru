@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: c528974951d3b4a83111cb92b931810a91f660f4
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: dda5ea77b35fa8491128135ea7709016781f2aea
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Развертывание приложения с непрерывной интеграцией и развертыванием в кластере Service Fabric
-В этом руководстве описано, как настроить непрерывную интеграцию и развертывание для приложения Azure Service Fabric с помощью Visual Studio Team Services.  Вам потребуется приложение Service Fabric. В качестве примера используется приложение, созданное в разделе [Создание приложения .NET](service-fabric-tutorial-create-dotnet-app.md).
+Это руководство из цикла. В нем описано, как настроить непрерывные интеграцию и развертывание для приложения Azure Service Fabric с помощью Visual Studio Team Services.  Вам потребуется приложение Service Fabric. В качестве примера используется приложение, созданное в разделе [Создание приложения .NET](service-fabric-tutorial-create-dotnet-app.md).
 
-Из этого руководства вы узнаете, как выполнять такие задачи:
+В третьей части цикла вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
 > * Добавление проекта в систему управления версиями
@@ -33,7 +33,11 @@ ms.lasthandoff: 07/15/2017
 > * Создание определения выпуска в Team Services
 > * Автоматическое развертывание и обновление приложения
 
-Руководство разбито на три статьи, эта статья — третья в серии.
+Из этого цикла руководств вы узнаете, как выполнять такие задачи:
+> [!div class="checklist"]
+> * [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
+> * [Развертывание приложения в удаленном кластере](service-fabric-tutorial-deploy-app-to-party-cluster.md).
+> * Настройка непрерывной интеграции и непрерывного развертывания с помощью Visual Studio Team Services.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим руководством выполните следующие действия:

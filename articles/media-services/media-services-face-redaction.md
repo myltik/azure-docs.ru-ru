@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 6095135e49a6da3ef37fb566c2fb56702cfd70c9
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 74f38ae61d4a360cabe8a9fbd33d30a6b0751654
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Скрытие лиц с помощью аналитики мультимедиа Azure
@@ -133,7 +133,37 @@ ms.lasthandoff: 08/01/2017
      1
      2
      3
+
+## <a name="blur-types"></a>Типы размытия
+
+В режиме **Combined** (Объединенный) или **Redact** (Скрытие) существует 5 различных режимов размытия, которые можно выбирать с помощью входной конфигурации JSON: **Low** (Низкий), **Med** (Средний), **High** (Высокий), **Debug** (Отладка) и **Black** (Черный). По умолчанию используется режим **Med** (Средний).
+
+Примеры типов размытия можно просмотреть ниже.
+
+### <a name="example-json"></a>Пример JSON:
+
+    {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### <a name="low"></a>Низкий
+
+![Низкий](./media/media-services-face-redaction/blur1.png)
  
+#### <a name="med"></a>Средний
+
+![Средний](./media/media-services-face-redaction/blur2.png)
+
+#### <a name="high"></a>Высокий
+
+![Высокий](./media/media-services-face-redaction/blur3.png)
+
+#### <a name="debug"></a>Отладка
+
+![Отладка](./media/media-services-face-redaction/blur4.png)
+
+#### <a name="black"></a>Черный
+
+![Черный](./media/media-services-face-redaction/blur5.png)
+
 ## <a name="elements-of-the-output-json-file"></a>Элементы выходного JSON-файла
 
 Обработчик мультимедиа с функцией скрытия лиц обеспечивает высокую точность обнаружения и отслеживания лиц с возможностью определения до 64 человеческих лиц в одном видеокадре. Скрытие лиц в анфас выполняется с лучшим результатом по сравнению с лицами в профиль или небольшим лицами (не более 24x24 пикселей), которые сложнее обработать.

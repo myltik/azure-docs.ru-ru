@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 08/03/2017
 ms.author: chrande; glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 31661e5840a6b65f54f9df027a7e3ecab8768055
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure
@@ -82,15 +82,15 @@ ms.lasthandoff: 07/06/2017
 | Цены |Оплата за использование или в рамках плана службы приложений |В рамках плана службы приложений |
 | Тип запуска |Активация, по расписанию (с помощью триггера таймера) |Активация, непрерывная работа, по расписанию |
 | События триггера |[Таймер](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [HTTP или Webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [мобильные приложения службы приложений Azure](functions-bindings-mobile-apps.md), [центры уведомлений Azure](functions-bindings-notification-hubs.md), [служебная шина Azure](functions-bindings-service-bus.md), [служба хранилища Azure](functions-bindings-storage.md) |[Служба хранилища Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [служебная шина Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
-| Разработка в браузере |x | |
-| Написание скриптов в окне |Экспериментальная возможность |x |
-| PowerShell |Экспериментальная возможность |x |
-| C# |x |x |
-| F# |x | |
-| Bash |Экспериментальная возможность |x |
-| PHP |Экспериментальная возможность |x |
-| Python |Экспериментальная возможность |x |
-| JavaScript |x |x |
+| Разработка в браузере |Поддерживается | Не поддерживается |
+| Написание скриптов в окне |Экспериментальная возможность |Поддерживается |
+| PowerShell |Экспериментальная возможность |Поддерживается |
+| C# |Поддерживается |Поддерживается |
+| F# |Поддерживается |Не поддерживается |
+| Bash |Экспериментальная возможность |Поддерживается |
+| PHP |Экспериментальная возможность |Поддерживается |
+| Python |Экспериментальная возможность |Поддерживается |
+| JavaScript |Поддерживается |Поддерживается |
 
 Выбор между функциями и веб-заданиями зависит от того, какие процессы уже выполнялись в службе приложений. Если для приложения службы приложений необходимо выполнить фрагменты кода и управлять ими совместно в среде разработки и операций, следует использовать веб-задания. Если вы хотите выполнить фрагменты кода для других служб Azure или сторонних приложений, управлять фрагментами кода для интеграции отдельно от других приложений службы приложений или вызвать фрагменты кода из Logic Apps, то воспользуйтесь преимуществами всех улучшений функций.  
 

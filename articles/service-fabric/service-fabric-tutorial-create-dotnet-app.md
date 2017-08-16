@@ -12,29 +12,33 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 8f824e451abd2ca87875c416184e4d7265e8c72b
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 71d910bc0e459528805521ba991e5291396a3b8d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Создание и развертывание приложения с клиентской частью ASP.NET Core и серверной частью в виде надежной службы с отслеживанием состояния
-В этом учебнике показано, как создать приложение Azure Service Fabric с клиентской частью веб-API ASP.NET Core и серверной частью в виде надежной службы с отслеживанием состояния для хранения данных.
+Это руководство является одним из цикла. В нем показано, как создать приложение Azure Service Fabric с внешним интерфейсом веб-API ASP.NET Core и серверной частью в виде надежной службы с отслеживанием состояния для хранения данных. 
 
 ![Диаграмма приложения](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-Из этого руководства вы узнаете, как выполнять такие задачи:
+В первой части цикла вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
 > * Создание службы веб-API ASP.NET Core как надежной службы
 > * Создание надежной службы с отслеживанием состояния
 > * Реализация удаленного взаимодействия служб и использование прокси службы
 
-Руководство разбито на три статьи, эта статья — первая в серии.
+Из этого цикла руководств вы узнаете, как выполнять такие задачи:
+> [!div class="checklist"]
+> * Создание приложения .NET Service Fabric.
+> * [Развертывание приложения в удаленном кластере](service-fabric-tutorial-deploy-app-to-party-cluster.md).
+> * [Настройка непрерывной интеграции и непрерывного развертывания с помощью Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим руководством выполните следующие действия:

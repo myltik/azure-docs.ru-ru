@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: adf358a130fd20674cbf2585de93005a9e1cb3ec
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: da79c2451463794f7a205182830b6be53134507f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Порты и протоколы, необходимые для гибридной идентификации
@@ -35,6 +35,7 @@ ms.lasthandoff: 04/27/2017
 | Kerberos |88 (TCP или UDP) |Проверка подлинности Kerberos для леса AD. |
 | MS-RPC |135 (TCP или UDP) |Используется во время начальной настройки мастера Azure AD Connect, когда он выполняет привязку к лесу AD, а также при синхронизации паролей. |
 | LDAP |389 (TCP или UDP) |Используется для импорта данных из AD. Данные шифруются с помощью функции подписи и запечатывания Kerberos. |
+| RPC | 445 (TCP/UDP) |Используется функцией простого единого входа для создания учетной записи компьютера в лесу AD. |
 | LDAP или SSL |636 (TCP или UDP) |Используется для импорта данных из AD. Передача данных подписывается и шифруется. Используется только при применении SSL. |
 | RPC |49152- 65535 (произвольные верхние порты RPC) (TCP или UDP) |Используется во время начальной настройки мастера Azure AD Connect, когда он выполняет привязку к лесам AD, а также во время синхронизации паролей. Дополнительную информацию см. в статьях базы знаний [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) и [KB224196](https://support.microsoft.com/kb/224196). |
 

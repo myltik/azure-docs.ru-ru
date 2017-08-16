@@ -14,13 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/04/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 658c316d8d9d14ce11dbb92188afbf0e68c00493
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: c019ea9207379ea1b88ec5d990e1c2b8565092a2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Подготовка новых клиентов и их регистрация в каталоге
@@ -82,7 +82,7 @@ ms.lasthandoff: 07/28/2017
 
 В этом упражнении подготавливается пакет дополнительных клиентов. Рекомендуется подготовить пакет клиентов перед выполнением других руководств по SaaS Wingtip, чтобы вы могли работать не только с несколькими базами данных.
 
-1. Откройте файл …\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* в *интегрированной среде сценариев PowerShell* и задайте для параметра *$DemoScenario* значение 3:
+1. Откройте файл …\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* в *интегрированной среде сценариев PowerShell* и задайте для параметра *$DemoScenario* значение 3.
    * **$DemoScenario** = **3**. Установите значение **3** для *подготовки пакета клиентов*.
 1. Нажмите клавишу **F5** для запуска скрипта.
 
@@ -95,24 +95,31 @@ ms.lasthandoff: 07/28/2017
    ![список баз данных](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
 
-## <a name="provision-and-catalog-details"></a>Сведения о подготовке и каталогизации
+## <a name="stepping-through-the-provision-and-catalog-implementation-details"></a>Получение дополнительных сведений о подготовке и реализации каталога
 
 Чтобы получить более полное представление о том, как приложение Wingtip реализует подготовку новых клиентов, еще раз запустите скрипт *Demo-ProvisionAndCatalog* и подготовьте еще один клиент. На этот раз добавьте точку останова и перейдите к выполнению рабочего процесса:
 
-1. Откройте файл …\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1 и задайте следующие параметры.
+1. Откройте файл …\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ и задайте следующие параметры.
    * **$TenantName** — имена клиентов должны быть уникальными, поэтому задайте имя, отличное от имен имеющихся клиентов (например, *Hackberry Hitters*).
    * **$VenueType** — используйте один из предопределенных типов мероприятия (например, *judo*).
    * **$DemoScenario** = **1**. Установите значение **1** для *подготовки одного клиента*.
 
-1. Добавьте точку останова, поместив курсор в любом месте строки *New-Tenant `* и нажмите клавишу **F9**.
+1. Добавьте точку останова, поместив курсор в любом месте строки 48, содержащей *New-Tenant `*, и нажмите клавишу **F9**.
 
    ![точка останова](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Нажмите клавишу **F5** для запуска сценария. По достижении точки останова нажмите клавишу **F11**, чтобы перейти к нужному компоненту. Отслеживайте выполнение сценария и используйте клавиши **F10** и **F11** (меню "Отладка"), чтобы обойти вызываемые функции или перейти в них по очереди. Дополнительные сведения об отладке сценариев PowerShell см. в разделе [Отладка сценариев в интегрированной среде сценариев Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+1. Нажмите клавишу **F5** для запуска сценария.
 
-### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>Получение дополнительных сведений о подготовке и каталогизации в процессе выполнения скрипта
+1. После остановки выполнения сценария в точке останова нажмите клавишу **F11**, чтобы пошагово выполнить код.
 
-Ниже представлены этапы подготовки и каталогизации новых клиентов в скрипте:
+   ![точка останова](media/sql-database-saas-tutorial-provision-and-catalog/debug.png)
+
+
+
+Отслеживайте выполнение сценария и используйте клавиши **F10** и **F11** (меню **Отладка**), чтобы обойти вызываемые функции или перейти в них по очереди. Дополнительные сведения об отладке сценариев PowerShell см. в разделе [Отладка сценариев в интегрированной среде сценариев Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+
+
+Ниже приведены не конкретные действия, а описание рабочего процесса отладки сценария.
 
 1. **Импорт модуля SubscriptionManagement.psm1**, который содержит функции для входа в Azure и выбора рабочей подписки Azure.
 1. **Импорт модуля CatalogAndDatabaseManagement.psm1**, предоставляющего каталог и абстракцию на уровне клиента с помощью функций[управления сегментами](sql-database-elastic-scale-shard-map-management.md). Это важный модуль, который инкапсулирует большую часть шаблона каталога. Его следует изучить.

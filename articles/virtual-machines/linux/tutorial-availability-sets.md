@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 927eb9f4f40759c0a79daa6dd3e91e5ab0853520
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 486405aca760922ebed5f413495d3a0e1e339229
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="create-an-availability-set"></a>"Создать группу доступности"
 
-Вы можете создать группу доступности с помощью команды [az vm availability-set create](/cli/azure/availability-set#create). В этом примере мы задали число доменов обновления и сбоя равным *2* для группы доступности *myAvailabilitySet* в группе ресурсов *myResourceGroupAvailability*.
+Вы можете создать группу доступности с помощью команды [az vm availability-set create](/cli/azure/vm/availability-set#create). В этом примере мы задали число доменов обновления и сбоя равным *2* для группы доступности *myAvailabilitySet* в группе ресурсов *myResourceGroupAvailability*.
 
 Создайте группу ресурсов.
 

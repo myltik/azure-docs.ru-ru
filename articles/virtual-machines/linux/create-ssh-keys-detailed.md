@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 0cb70d36bd6e8d4cf5fcd5ed4a3e85c42f3cf81d
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: d4548c6f21d04effd57ea36e4fc0d15f77568903
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -57,9 +57,8 @@ ssh-keygen \
 
 `ssh-keygen` — программа, с помощью которой создаются ключи.
 
-`-t rsa` — тип ключа, который создается в формате RSA [wikipedia](https://ru.wikipedia.org/wiki/RSA).
-
-`-b 2048` — число битов в ключе.
+`-t rsa` — тип создаваемого ключа, который является форматом RSA [статья в Википедии] [со скобками в конце](`https://en.wikipedia.org/wiki/RSA_(cryptosystem) `); 
+`-b 2048` — биты ключа.
 
 `-C "azureuser@myserver"` — комментарий, который будет добавлен в конец файла открытого ключа для идентификации.  Обычно в качестве комментария используется адрес электронной почты, но вы можете выбрать для своей инфраструктуры любой удобный метод идентификации.
 

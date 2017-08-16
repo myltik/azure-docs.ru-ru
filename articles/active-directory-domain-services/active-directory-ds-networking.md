@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/04/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0749a73569286daf9bbbe2c4064db472f41d7171
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 8306c1ff72d348f5f327b79617e1422a78e26bdb
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Рекомендации по сетям для доменных служб Azure AD
@@ -75,6 +75,16 @@ ms.lasthandoff: 11/17/2016
 | 5986 |Управление доменом |
 | 636 |Безопасный доступ LDAP (LDAPS) к управляемому домену |
 
+### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Пример NSG для виртуальных сетей с доменными службами Azure AD
+В следующей таблице показан пример группы безопасности сети (NSG), которую можно настроить для виртуальной сети с управляемым доменом доменных служб Azure AD. Это правило разрешает входящий трафик из указанных выше портов. Это необходимо для установки исправлений и обновлений для управляемого домена, а также для его отслеживания корпорацией Майкрософт. Правило "DenyAll" по умолчанию применяется ко всему входящему трафику из Интернета.
+
+Кроме того, данная NSG также показывает, как можно заблокировать защищенный доступ LDAP через Интернет. Пропустите это правило, если вы не включили защищенный доступ LDAP к управляемому домену через Интернет. Группа безопасности сети содержит набор правил, которые разрешают входящий доступ по протоколу LDAPS через TCP-порт 636 только для указанного набора IP-адресов. Правило группы безопасности сети, которое разрешает доступ по протоколу LDAPS через Интернет только с указанных IP-адресов, имеет более высокий приоритет по сравнению с правилом группы безопасности сети "DenyAll".
+
+![Пример группы безопасности сети для доступа по защищенному протоколу LDAPS через Интернет](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+
+**Дополнительные сведения** - [Создание группы безопасности сети](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+
+
 ## <a name="network-connectivity"></a>Сетевое подключение
 Управляемый домен доменных служб Azure AD можно включить только в пределах одной классической виртуальной сети в Azure. Виртуальные сети, созданные с помощью Azure Resource Manager, не поддерживаются.
 
@@ -109,4 +119,5 @@ ms.lasthandoff: 11/17/2016
 * [Пиринговая связь между виртуальными сетями](../virtual-network/virtual-network-peering-overview.md)
 * [Настройка подключения между виртуальными сетями для классической модели развертывания](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Группы безопасности сети](../virtual-network/virtual-networks-nsg.md)
+* [Создание группы безопасности сети](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 
