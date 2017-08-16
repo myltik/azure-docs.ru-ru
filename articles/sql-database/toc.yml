@@ -59,7 +59,7 @@
       href: sql-database-powershell-samples.md
 - name: Основные понятия
   items:
-    - name: Базы данных и серверы
+    - name: Функции службы
       items:
         - name: Обзор
           href: sql-database-servers-databases.md
@@ -69,6 +69,8 @@
           href: sql-database-elastic-pool.md
         - name: Архитектура подключения
           href: sql-database-connectivity-architecture.md
+        - name: Правила файрволла
+          href: sql-database-firewall-configure.md
         - name: DTU и eDTU
           href: sql-database-what-is-a-dtu.md
         - name: Тест производительности DTU
@@ -77,7 +79,25 @@
           href: sql-database-resource-limits.md
         - name: PaaS или IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Функции
+        - name: Аудит
+          href: sql-database-auditing.md
+        - name: Обнаружение угроз
+          href: sql-database-threat-detection.md
+        - name: Резервные копии базы данных
+          href: sql-database-automated-backups.md
+        - name: Хранение резервных копий
+          href: sql-database-long-term-retention.md
+        - name: Группы отработки отказа
+          href: sql-database-geo-replication-overview.md
+        - name: Эластичная клиентская библиотека
+          href: sql-database-elastic-database-client-library.md
+        - name: Эластичные запросы
+          href: sql-database-elastic-query-overview.md
+        - name: Эластичные транзакции
+          href: sql-database-elastic-transactions-overview.md
+        - name: Задания обработки эластичных БД
+          href: sql-database-elastic-jobs-overview.md
+        - name: Общие компоненты SQL Server
           href: sql-database-features.md
     - name: Безопасность
       items:
@@ -85,34 +105,22 @@
           href: sql-database-security-overview.md
         - name: управление доступом;
           href: sql-database-control-access.md
-        - name: Правила файрволла
-          href: sql-database-firewall-configure.md
         - name: Azure AD
           href: sql-database-aad-authentication.md
         - name: Имена входа и пользователи
           href: sql-database-manage-logins.md
         - name: Многофакторная идентификация
           href: sql-database-ssms-mfa-authentication.md
-        - name: Аудит
-          href: sql-database-auditing.md
         - name: Аудит таблиц и TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Обнаружение угроз
-          href: sql-database-threat-detection.md
         - name: Маскирование данных
           href: sql-database-dynamic-data-masking-get-started.md
     - name: Непрерывность бизнес-процессов
       items:
         - name: Обзор
           href: sql-database-business-continuity.md
-        - name: Резервные копии базы данных
-          href: sql-database-automated-backups.md
-        - name: Хранение резервных копий
-          href: sql-database-long-term-retention.md
         - name: Восстановление базы данных
           href: sql-database-recovery-using-backups.md
-        - name: Группы отработки отказа
-          href: sql-database-geo-replication-overview.md
         - name: Настройка безопасности
           href: sql-database-geo-replication-security-config.md
         - name: Проектирование и восстановление приложений
@@ -159,16 +167,10 @@
           href: sql-database-compatibility-level-query-performance-130.md
         - name: Мониторинг в памяти
           href: sql-database-in-memory-oltp-monitoring.md
-    - name: Развертывание приложений
+    - name: Масштабирование
       items:
         - name: Обзор
           href: sql-database-elastic-scale-introduction.md
-        - name: Шаблоны проектирования SaaS
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-        - name: Безопасность приложений SaaS
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-        - name: Эластичная клиентская библиотека
-          href: sql-database-elastic-database-client-library.md
         - name: Карты сегментов
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Маршрутизация запросов
@@ -185,16 +187,12 @@
           href: sql-database-elastic-scale-working-with-dapper.md
         - name: Часто задаваемые вопросы по инструментам эластичных баз данных
           href: sql-database-elastic-scale-faq.md
-        - name: Эластичные запросы
-          href: sql-database-elastic-query-overview.md
-        - name: Горизонтальные данные
-          href: sql-database-elastic-query-horizontal-partitioning.md
-        - name: Вертикальные данные
-          href: sql-database-elastic-query-vertical-partitioning.md
-        - name: Транзакции
-          href: sql-database-elastic-transactions-overview.md
-        - name: Задания обработки эластичных БД
-          href: sql-database-elastic-jobs-overview.md
+    - name: Мультитенантное приложение SaaS
+      items:
+        - name: Шаблоны проектирования SaaS
+          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+        - name: Безопасность приложений SaaS
+          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: Разработка баз данных
       items:
         - name: Данные JSON
@@ -225,6 +223,26 @@
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Практические руководства
   items:
+    - name: Функции службы
+      items:
+        - name: Обновление клиентской библиотеки эластичной базы данных
+          href: sql-database-elastic-scale-upgrade-client-library.md
+        - name: Установка эластичных заданий
+          href: sql-database-elastic-jobs-service-installation.md
+        - name: 'Создание задания: портал'
+          href: sql-database-elastic-jobs-create-and-manage.md
+        - name: 'Создание задания: PowerShell'
+          href: sql-database-elastic-jobs-powershell.md
+        - name: 'Создание задания: пример приложения'
+          href: sql-database-elastic-jobs-getting-started.md
+        - name: Удаление эластичных заданий
+          href: sql-database-elastic-jobs-uninstall.md
+        - name: Запрос вертикально секционированных данных
+          href: sql-database-elastic-query-getting-started-vertical.md
+        - name: Отчеты по масштабируемым уровням данных
+          href: sql-database-elastic-query-horizontal-partitioning.md
+        - name: Запрос к таблицам с разными схемами
+          href: sql-database-elastic-query-vertical-partitioning.md
     - name: Безопасность
       items:
         - name: "Настройка аутентификации Azure\_AD"
@@ -285,10 +303,12 @@
           href: sql-database-manage-automation.md
         - name: Azure RemoteApp
           href: sql-database-ssms-remoteapp.md
-    - name: Развертывание приложений
+    - name: Масштабирование
       items:
         - name: Создание сегментированного приложения
           href: sql-database-elastic-scale-get-started.md
+        - name: Запрос горизонтально сегментированных данных
+          href: sql-database-elastic-query-getting-started.md
         - name: Перемещение сегментированных данных
           href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
         - name: Конфигурация системы безопасности
@@ -303,24 +323,26 @@
           href: sql-database-elastic-database-perf-counters.md
         - name: Использование Entity Framework
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-        - name: Обновление клиентов
-          href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Установка эластичных заданий
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: 'Создание задания: портал'
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: 'Создание задания: PowerShell'
-          href: sql-database-elastic-jobs-powershell.md
-        - name: 'Создание задания: пример приложения'
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Удаление эластичных заданий
-          href: sql-database-elastic-jobs-uninstall.md
-        - name: Запрос к горизонтальным данным
-          href: sql-database-elastic-query-getting-started.md
-        - name: Запрос к вертикальным данным
-          href: sql-database-elastic-query-getting-started-vertical.md
-        - name: Руководство по приложениям SaaS
+    - name: Мультитенантное приложение SaaS
+      items:
+        - name: Ознакомление с руководствами
           href: sql-database-wtp-overview.md
+        - name: Развертывание примера приложения
+          href: sql-database-saas-tutorial.md
+        - name: Подготовка клиентов
+          href: sql-database-saas-tutorial-provision-and-catalog.md
+        - name: Мониторинг производительности базы данных
+          href: sql-database-saas-tutorial-performance-monitoring.md
+        - name: Мониторинг с помощью Log Analytics
+          href: sql-database-saas-tutorial-log-analytics.md
+        - name: Восстановление для отдельного клиента
+          href: sql-database-saas-tutorial-restore-single-tenant.md
+        - name: Управление схемой для нескольких клиентов
+          href: sql-database-saas-tutorial-schema-management.md
+        - name: Выполнение ad-hoc-запросов
+          href: sql-database-saas-tutorial-adhoc-analytics.md
+        - name: 'Извлечение, преобразование и загрузка для анализа'
+          href: sql-database-saas-tutorial-tenant-analytics.md
     - name: Разработка приложений
       items:
         - name: C и C++

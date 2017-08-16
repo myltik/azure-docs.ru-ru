@@ -46,6 +46,7 @@
 ### [Порталы поиска по журналам](log-analytics-log-search-portals.md)
 #### [Использование портала поиска по журналам](log-analytics-log-search-log-search-portal.md)
 ### [Переход от устаревшего языка](log-analytics-log-search-transition.md)
+### [Соединитель для Microsoft Flow](log-analytics-flow-tutorial.md)
 
 ## Анализ данных
 ### [Панели мониторинга](log-analytics-dashboards.md)

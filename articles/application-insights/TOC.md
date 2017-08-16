@@ -96,6 +96,7 @@
 #### [Пользователи, сеансы, события](app-insights-usage-segmentation.md)
 #### [Воронки](usage-funnels.md)
 #### [Сохранение](app-insights-usage-retention.md)
+#### [Последовательности](app-insights-usage-flows.md)
 #### [Книги](app-insights-usage-workbooks.md)
 
 ### Аналитика

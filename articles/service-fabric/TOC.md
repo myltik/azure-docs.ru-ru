@@ -69,6 +69,7 @@
 ##### [Служба DNS](service-fabric-dnsservice.md)
 ##### [Обратный прокси-сервер](service-fabric-reverseproxy.md)
 ##### [Настройка обратного прокси-сервера для безопасного подключения](service-fabric-reverseproxy-configure-secure-communication.md)
+##### [Диагностика обратного прокси-сервера](service-fabric-reverse-proxy-diagnostics.md)
 ### [Масштабируемость приложений](service-fabric-concepts-scalability.md)
 ### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
@@ -136,6 +137,7 @@
 #### [Docker Compose (предварительная версия)](service-fabric-docker-compose.md)
 #### [Управление ресурсами для контейнеров и служб](service-fabric-resource-governance.md)
 #### [Драйверы томов и драйверы ведения журналов](service-fabric-containers-volume-logging-drivers.md)
+#### [Службы в контейнерах](service-fabric-services-inside-containers.md)
 
 ### Создание службы Reliable Services
 #### [Обзор](service-fabric-reliable-services-introduction.md)
@@ -173,10 +175,10 @@
 #### Начало работы
 ##### [C# в Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java в Linux](service-fabric-reliable-actors-get-started-java.md)
-#### [Отправка уведомлений](service-fabric-reliable-actors-events.md) 
+#### [Отправка уведомлений](service-fabric-reliable-actors-events.md)
 #### [Настройка таймеров и напоминаний](service-fabric-reliable-actors-timers-reminders.md)
 #### [Настройка KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [Настройка параметров подключения](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Настройка параметров подключения](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Настройка ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ### [Настройка обратного прокси-сервера для безопасного подключения](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -240,17 +242,17 @@
 
 ## Создание кластеров и управление ими
 ### Кластеры в Azure
-#### Создание 
+#### Создание
 ##### [Создание первого кластера в Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Портал Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Диспетчер ресурсов Azure](service-fabric-cluster-creation-via-arm.md)
-#### Масштаб 
+#### Масштаб
 ##### [Вручную](service-fabric-cluster-scale-up-down.md)
 ##### [Программным способом](service-fabric-cluster-programmatic-scaling.md)
 #### [Обновление](service-fabric-cluster-upgrade.md)
 #### [Настройка управления доступом](service-fabric-cluster-security-roles.md)
 #### [Настройка](service-fabric-cluster-fabric-settings.md)
-#### [Управление сертификатами кластера](service-fabric-cluster-security-update-certs-azure.md) 
+#### [Управление сертификатами кластера](service-fabric-cluster-security-update-certs-azure.md)
 #### [Удалить](service-fabric-cluster-delete.md)
 
 ### Изолированные кластеры
@@ -264,7 +266,7 @@
 #### [Масштабирование](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Настройка управления доступом](service-fabric-cluster-security-roles.md)
 #### [Настройка](service-fabric-cluster-manifest.md)
-#### [Обновление](service-fabric-cluster-upgrade-windows-server.md) 
+#### [Обновление](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Визуализация кластера](service-fabric-visualizing-your-cluster.md)
 ### [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md)
@@ -333,4 +335,3 @@
 ## [Варианты поддержки](service-fabric-support.md)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-

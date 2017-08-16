@@ -3,13 +3,13 @@
 ## [Об управлении удостоверениями Azure](identity-fundamentals.md)
 ## [Основные сведения о решениях для идентификации в Azure](understand-azure-identity-solutions.md)
 ## [Выбор решения для гибридной идентификации](choose-hybrid-identity-solution.md)
+## [Сопоставление подписок Azure](active-directory-how-subscriptions-associated-directory.md)
 ## [Часто задаваемые вопросы](active-directory-faq.md)
 
 # Начало работы
-## [Получение клиента Azure AD](active-directory-howto-tenant.md)
 ## [Регистрация для использования Azure AD Premium](active-directory-get-started-premium.md)
-## [Сопоставление подписок Azure](active-directory-how-subscriptions-associated-directory.md)
-## [Краткое руководство: самостоятельный сброс пароля](active-directory-passwords-getting-started.md)
+## [Добавление имени личного домена](add-custom-domain.md)
+## [Настройка самостоятельного сброса пароля](active-directory-passwords-getting-started.md)
 ## Управление лицензированием Azure AD
 ### [Портал Azure](active-directory-licensing-get-started-azure-portal.md)
 ### [Классический портал.](active-directory-licensing-what-is.md)
@@ -19,8 +19,7 @@
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 #### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
-## [Получение поддержки для Azure Active Directory](active-directory-troubleshooting-support-howto.md)
-## [Руководства по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
+
 
 # Практическое руководство
 ## планирование и разработка
@@ -55,7 +54,6 @@
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 #### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
-
 ### [Добавление пользователей из других каталогов (классический портал)](active-directory-create-users-external.md)
 ### [Удаление пользователей](active-directory-users-delete-user-azure-portal.md)
 ### [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
@@ -164,6 +162,7 @@
 ## Управление приложениями
 ### [Обзор](active-directory-enable-sso-scenario.md)
 ### [Приступая к работе](active-directory-integrating-applications-getting-started.md)
+### [Руководства по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 ### [Обнаружение облачных приложений](active-directory-cloudappdiscovery-whatis.md)
 #### [Обновление параметров реестра](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Общие сведения о безопасности и конфиденциальности](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -239,11 +238,6 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Имена пользовательских доменов
 #### [Обзор](active-directory-add-domain-concepts.md)
-#### Добавление имени домена
-##### [Портал Azure](active-directory-domains-add-azure-portal.md)
-##### [Классический портал.](active-directory-add-domain.md)
-##### [С AD FS](active-directory-add-domain-federated.md)
-#### [Назначение пользователей](active-directory-add-domain-add-users.md)
 #### Управление именами доменов
 ##### [Портал Azure](active-directory-domains-manage-azure-portal.md)
 ##### [Классический портал.](active-directory-add-manage-domain-names.md)
@@ -270,6 +264,7 @@
 #### [Пример самостоятельной регистрации на портале](active-directory-b2b-self-service-portal.md)
 #### [Сообщение электронной почты с приглашением](active-directory-b2b-invitation-email.md)
 #### [Активация приглашения](active-directory-b2b-redemption-experience.md)
+#### [Добавление пользователей B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 #### [Условный доступ для B2B](active-directory-b2b-mfa-instructions.md)
 #### [Политики общего доступа к B2B](active-directory-b2b-delegate-invitations.md)
 #### [Добавление B2B-пользователя к роли](active-directory-b2b-add-guest-to-role.md)
@@ -357,7 +352,8 @@
 ### [Высокая доступность](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Изменение хэш-алгоритма подписи](active-directory-federation-sha256-guidance.md)
 
-## [Устранение неполадок](active-directory-troubleshooting.md)
+## [Устранение неполадок](active-directory-troubleshooting-support-howto.md)
+### [Устранение неполадок в Active Directory: элемент отсутствует или недоступен](active-directory-troubleshooting.md)
 
 ## Развертывание подтверждения концепции Azure AD (PoC)
 ### [Сборник тренировочных заданий по PoC: введение](active-directory-playbook-intro.md)
@@ -374,7 +370,7 @@
 ## [Ограничения службы](active-directory-service-limits-restrictions.md)
 
 # Сопутствующие материалы
-## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
+## [Многофакторная идентификация Microsoft Azure](/azure/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Информация для разработчиков об Azure AD](./develop/active-directory-how-to-integrate.md)

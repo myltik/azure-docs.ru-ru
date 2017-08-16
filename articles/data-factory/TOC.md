@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Веб-таблица](data-factory-web-table-connector.md)
-### [Шлюз управления данными](data-factory-data-management-gateway.md)
+### Шлюз управления данными
+#### [Обзор](data-factory-data-management-gateway.md)
+#### [Высокий уровень доступности и масштабируемости (предварительная версия)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [Пошаговое руководство по перемещению данных из локальной базы данных SQL Server в хранилище BLOB-объектов Azure](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Преобразование данных](data-factory-data-transformation-activities.md)

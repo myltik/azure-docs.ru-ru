@@ -50,34 +50,28 @@
     - name: Регионы и доступность
       href: regions-and-availability.md
     - name: Хранилище
-      href: >-
-        ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Сеть
       href: network-overview.md
     - name: наборы масштабирования виртуальных машин;
-      href: >-
-        ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Служба метаданных экземпляров
       href: ../virtual-machines-instancemetadataservice-overview.md
     - name: Контейнеры
       href: containers.md
     - name: Диспетчер ресурсов
-      href: >-
-        ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       items:
         - name: Модели развертывания
-          href: >-
-            ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Шаблоны для виртуальных машин
           href: template-description.md
     - name: Агент Azure для Windows
       href: agent-user-guide.md
     - name: Центр безопасности Azure
-      href: >-
-        ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Аварийное восстановление
-      href: >-
-        ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Плановое техническое обслуживание
       href: planned-maintenance.md
       items:
@@ -107,210 +101,157 @@
           href: acu.md
         - name: Вычисление результатов теста производительности
           href: compute-benchmark-scores.md
-        - name: Рекомендации по запуску виртуальных машин Windows
-          href: guidance-compute-single-vm.md
     - name: Рекомендации по развертыванию
       items:
-        - name: Рекомендации по инфраструктуре
-          href: infrastructure-virtual-machine-guidelines.md
-        - name: Подписки и учетные записи
-          href: infrastructure-subscription-accounts-guidelines.md
-        - name: Именование
-          href: infrastructure-naming-guidelines.md
-        - name: Группы ресурсов
-          href: infrastructure-resource-groups-guidelines.md
-        - name: Хранилище
-          href: infrastructure-storage-solutions-guidelines.md
-        - name: Сеть
-          href: infrastructure-networking-guidelines.md
-        - name: Группы доступности
-          href: infrastructure-availability-sets-guidelines.md
-        - name: Пример инфраструктуры
+        - name: Пример базового развертывания
           href: infrastructure-example.md
 - name: Практические руководства
   items:
     - name: Создание виртуальных машин
       items:
-        - name: Общие сведения о создании виртуальных машин
-          href: creation-choices.md
-        - name: Создание виртуальной машины на основе специализированного VHD
-          href: create-vm-specialized.md
-        - name: Создание виртуальной машины с помощью шаблона
-          href: ps-template.md
-        - name: 'Создание и администрирование виртуальных машин с помощью C#'
+        - name: 'Использование C#'
           href: csharp.md
-        - name: "Создание виртуальной машины с помощью\_C# и шаблона"
+        - name: 'Использование шаблона с C#'
           href: csharp-template.md
-        - name: Создание виртуальной машины с помощью Chef
-          href: chef-automation.md
-        - name: Создание и администрирование виртуальных машин с помощью Python
+        - name: Использование Python
           href: python.md
-        - name: Создание виртуальной машины с помощью Terraform
-          items:
-            - name: Установка и настройка
-              href: ../terraform-install-configure.md
-            - name: Создание базовой инфраструктуры
-              href: ../terraform-create-complete-vm.md
-        - name: >-
-            Создание популярных платформ приложений, запускаемых на виртуальных
-            машинах
-          href: app-frameworks.md
-        - name: Перемещение виртуальных машин между подписками
-          href: move-vm.md
-    - name: Настройка виртуальных машин
+        - name: Использование шаблона
+          href: ps-template.md
+        - name: Подключение к виртуальной машине
+          href: connect-logon.md
+        - name: Использование лицензирования AHUB
+          href: hybrid-use-benefit-licensing.md
+    - name: Защита виртуальных машин
       items:
-        - name: Изменение размера виртуальной машины
-          href: resize-vm.md
-        - name: Использование тегов
-          href: >-
-            ../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-          items:
-            - name: Добавление тега для виртуальной машины
-              href: tag.md
-        - name: Архивация с помощью служб восстановления
-          href: >-
-            ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Управление резервными копиями с помощью PowerShell
-          href: >-
-            ../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Скачивание шаблона виртуальной машины
-          href: download-template.md
+        - name: шифрование;
+          href: encrypt-disks.md
+        - name: Использование WinRM
+          href: winrm.md
+        - name: Использование элементов управления доступом
+          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Использование политик
+          href: policy.md
+        - name: создать хранилище ключей;
+          href: key-vault-setup.md
+    - name: Управление виртуальными машинами
+      items:
         - name: Общие задачи в PowerShell
           href: ps-common-ref.md
-        - name: Общие задачи в CLI
-          href: cli-manage.md
-        - name: >-
-            Управление виртуальными машинами с помощью интерфейса командной
-            строки
-          href: cli-deploy-templates.md
-    - name: Подключение по RDP
+        - name: Перемещение виртуальной машины
+          href: move-vm.md
+        - name: Изменение размера виртуальной машины
+          href: resize-vm.md
+        - name: Добавление тега для виртуальной машины
+          href: tag.md
+        - name: Выполнение скриптов на виртуальной машине
+          href: extensions-customscript.md
+        - name: Изменение буквы временного диска
+          href: change-drive-letter.md
+        - name: Изменение группы доступности
+          href: change-availability-set.md
+        - name: Скачивание шаблона
+          href: download-template.md
+        - name: Агент виртуальной машины Azure
+          href: agent-user-guide.md
+    - name: Использование образов
       items:
-        - name: Вход на виртуальную машину
-          href: connect-logon.md
-    - name: Управление образами виртуальных машин
-      items:
-        - name: Поиск образов виртуальных машин в Мarketplace
+        - name: Поиск и использование образов
           href: cli-ps-findimage.md
-        - name: >-
-            Использование лицензий в программе преимуществ гибридного
-            использования Azure
-          href: hybrid-use-benefit-licensing.md
+        - name: Подготовка виртуальной машины к отправке
+          href: prepare-for-upload-vhd-image.md
+        - name: Использование универсального образа
+          href: create-vm-generalized-managed.md
+        - name: Использование специализированного образа
+          href: create-vm-specialized.md
+        - name: Запись образа виртуальной машины
+          href: capture-image-resource.md
+        - name: Создание образа с помощью Packer
+          href: build-image-with-packer.md
         - name: Использование образов клиентских версий Windows
           href: client-images.md
-        - name: Загрузка VHD
+        - name: Загрузка существующего диска
           href: download-vhd.md
-        - name: Подготовка диска VHD к отправке
-          href: prepare-for-upload-vhd-image.md
-        - name: Создание образа управляемого диска
-          href: capture-image-resource.md
-        - name: >-
-            Создание виртуальной машины на основе универсального образа
-            управляемого диска
-          href: create-vm-generalized-managed.md
-        - name: Создание образов с помощью Packer
-          href: build-image-with-packer.md
-    - name: Управление хранилищем виртуальной машины
+    - name: Высокая доступность и масштабирование
       items:
-        - name: Создание управляемого диска
-          href: create-managed-disk-ps.md
-        - name: Перенос виртуальных машин на управляемые диски
-          href: migrate-to-managed-disks.md
+        - name: Наборы для масштабирования виртуальных машин
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: высокую доступность;
+          href: manage-availability.md
+        - name: Вертикальное масштабирование
+          href: vertical-scaling-automation.md
+    - name: Использование средств автоматизации
+      items:
+        - name: Chef
+          href: chef-automation.md
+    - name: Запуск приложений
+      items:
+        - name: SQL Server
+          href: /sql/virtual-machines-windows-sql-server-iaas-overview
+        - name: MongoDB
+          href: install-mongodb.md
+        - name: SAP в Azure
+          href: ../workloads/sap/get-started.md
+        - name: Кластер MATLAB
+          href: matlab-mdcs-cluster.md
+        - name: Высокопроизводительные вычисления (HPC)
+          href: hpcpack-cluster-options.md
           items:
-            - name: >-
-                Переключение виртуальной машины с неуправляемых дисков на
-                управляемые
-              href: convert-unmanaged-to-managed-disks.md
-            - name: >-
-                Перенос виртуальной машины из классической модели развертывания
-                в службу управляемых дисков
-              href: migrate-single-classic-to-resource-manager.md
-        - name: Создание моментального снимка управляемого диска
-          href: snapshot-copy-managed-disk.md
-        - name: Присоединение диска данных
+            - name: Кластер пакета HPC 2016
+              href: hpcpack-2016-cluster.md
+            - name: Интеграция пакета HPC 2016 с Azure Active Directory
+              href: hpcpack-cluster-active-directory.md
+            - name: "Головной узел пакета HPC 2012\_R2"
+              href: hpcpack-cluster-headnode.md
+            - name: "Отправка локальных заданий в пакет HPC 2012\_R2"
+              href: hpcpack-cluster-submit-jobs.md
+            - name: Использование Excel с пакетом HPC
+              href: excel-cluster-hpcpack.md
+    - name: Управление хранилищем
+      items:
+        - name: Добавление диска
           items:
             - name: Azure PowerShell
               href: attach-disk-ps.md
             - name: Портал Azure
               href: attach-managed-disk-portal.md
-        - name: Отключение диска данных
+        - name: Отсоединение диска
           href: detach-disk.md
-        - name: Расширение диска операционной системы
+        - name: Изменение размера диска
           href: expand-os-disk.md
-        - name: Расширение диска данных
-          href: expand-data-disks.md
-        - name: Использование общего файлового ресурса
+        - name: Моментальный снимок диска
+          href: snapshot-copy-managed-disk.md
+        - name: Переход между хранилищами класса "Стандартный" и "Премиум" для дисков
+          href: convert-disk-storage.md
+        - name: Часто задаваемые вопросы о дисках
+          href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Использование хранилища файлов
           href: mount-azure-file-storage.md
-        - name: "Использование диска\_D в качестве диска данных"
-          href: change-drive-letter.md
-    - name: Сеть виртуальной машины
+        - name: Переход на управляемые диски
+          href: migrate-to-managed-disks.md
+          items:
+            - name: Переключение виртуальной машины с неуправляемых дисков на управляемые
+              href: convert-unmanaged-to-managed-disks.md
+            - name: Переключение классической виртуальной машины на управляемые диски ARM
+              href: migrate-single-classic-to-resource-manager.md
+    - name: Управление сетями
       href: ps-common-network-ref.md
       items:
-        - name: Создание виртуальных сетей
-          href: >-
-            ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Создание виртуальной машины с несколькими сетевыми адаптерами
-          href: multiple-nics.md
-        - name: Создание статического общедоступного IP-адреса
-          href: >-
-            ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 'Настройка портов и конечных точек, а также обеспечение безопасности'
-          href: endpoints-in-resource-manager.md
-        - name: Разрешение доступа к виртуальной машине
+        - name: Создание виртуальной сети
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Открытие портов для виртуальной машины
           items:
-            - name: Azure PowerShell
-              href: nsg-quickstart-powershell.md
             - name: Портал Azure
               href: nsg-quickstart-portal.md
-        - name: Варианты разрешения DNS-имен
-          href: >-
-            ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Создание полного доменного имени (FQDN) с помощью портала
+            - name: Azure PowerShell
+              href: nsg-quickstart-powershell.md
+        - name: Назначение общедоступного IP-адреса
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Использование нескольких сетевых адаптеров
+          href: multiple-nics.md
+        - name: Назначение общедоступного DNS-имени
           href: portal-create-fqdn.md
-    - name: Масштабируемость и доступность
-      items:
-        - name: Доступность виртуальной машины
-          href: manage-availability.md
-        - name: '"Создать группу доступности"'
-          href: create-availability-set.md
-        - name: Изменение группы доступности для виртуальной машины
-          href: change-availability-set.md
-        - name: Обзор подсистемы балансировки нагрузки
-          href: load-balance.md
-          items:
-            - name: Создание балансировщика нагрузки
-              href: >-
-                ../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Масштабирование нескольких виртуальных машин с помощью VMSS
-          href: vmss-powershell-creating.md
-        - name: Создание нескольких виртуальных машин Azure
-          href: multiple-vms.md
-        - name: >-
-            Вертикальное масштабирование виртуальных машин с помощью службы
-            автоматизации Azure
-          href: vertical-scaling-automation.md
-        - name: >-
-            Создание виртуальной машины с использованием мониторинга и
-            диагностики
-          href: extensions-diagnostics-template.md
-        - name: Обзор службы автоматизации Azure
-          href: manage-using-azure-automation.md
-    - name: Управление безопасностью виртуальной машины
-      items:
-        - name: Сброс пароля
-          href: reset-local-password-without-agent.md
-        - name: "Создание рабочего или учебного удостоверения в Azure\_AD"
-          href: create-aad-work-id.md
-        - name: Управление доступом
-          href: >-
-            ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Шифрование диска
-          href: encrypt-disks.md
-        - name: Применение политик к виртуальным машинам
-          href: policy.md
-        - name: Настройка хранилища ключей
-          href: key-vault-setup.md
-        - name: Настройка WinRM
-          href: winrm.md
+        - name: Разрешение DNS
+          href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Использование расширений виртуальной машины
       items:
         - name: Обзор расширений виртуальной машины
@@ -330,46 +271,26 @@
           href: log-collector-extension.md
         - name: Расширение системы диагностики Azure
           href: ps-extensions-diagnostics.md
-        - name: Расширения в шаблонах
-          href: extensions-authoring-templates.md
         - name: Экспорт расширений виртуальной машины
           href: extensions-export-templates.md
-        - name: Примеры конфигурации
-          href: extensions-configuration-samples.md
         - name: Устранение неполадок расширений
           href: extensions-troubleshoot.md
-    - name: Запуск приложений
-      items:
-        - name: SQL Server
-          href: ./sql/virtual-machines-windows-sql-server-iaas-overview.md
-        - name: SharePoint
-          href: sharepoint-farm.md
-        - name: Настройка веб бизнес-приложения в гибридном облаке для тестирования
-          href: ps-hybrid-cloud-test-env-lob.md
-        - name: Создание имитации гибридной облачной среды для тестирования
-          href: ps-hybrid-cloud-test-env-sim.md
-        - name: MongoDB
-          href: install-mongodb.md
-        - name: Высокопроизводительные вычислительные системы (HPC)
-          href: hpcpack-cluster-options.md
-        - name: MATLAB
-          href: matlab-mdcs-cluster.md
-        - name: SAP в Azure
-          href: ../workloads/sap/get-started.md
+        - name: Расширение мониторинга и диагностики
+          href: extensions-diagnostics-template.md
+        - name: Агент службы "Наблюдатель за сетями"
+          href: extensions-nwa.md
     - name: Перенос виртуальных машин
       items:
-        - name: Обзор переноса AWS и локальных виртуальных машин в Azure
+        - name: Миграция AWS и локальных виртуальных машин
           href: on-prem-to-azure.md
           items:
-            - name: Перенос из Amazon Web Services (AWS) в Azure
-              href: aws-to-azure.md
-            - name: >-
-                Отправка и создание виртуальной машины из универсального диска
-                VHD
+            - name: Отправка VHD для создания локальной виртуальной машины
               href: upload-generalized-managed.md
-        - name: >-
-            Переход с классической модели развертывания на модель Azure Resource
-            Manager
+            - name: Перемещение из Amazon Web Services (AWS)
+              href: aws-to-azure.md
+            - name: Использование Azure Site Recovery
+              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Переход с классической модели развертывания на модель Azure Resource Manager
           href: migration-classic-resource-manager-overview.md
           items:
             - name: Подробный обзор миграции
@@ -386,10 +307,6 @@
               href: migration-classic-resource-manager-faq.md
     - name: Устранение неполадок
       items:
-        - name: Поддержка добавления ВМ Azure в существующую группу доступности
-          href: ../virtual-machines-availability-set-supportability.md
-        - name: Общие сведения о перезагрузке системы
-          href: understand-vm-reboot.md
         - name: Подключения к удаленному рабочему столу
           href: troubleshoot-rdp-connection.md
           items:
@@ -399,6 +316,10 @@
               href: troubleshoot-specific-rdp-errors.md
         - name: Сброс пароля RDP
           href: reset-rdp.md
+        - name: Сброс локального пароля без агента Azure
+          href: reset-local-password-without-agent.md
+        - name: Общие сведения о перезагрузке системы
+          href: understand-vm-reboot.md
         - name: Сброс сетевой карты
           href: reset-network-interface.md
         - name: Диагностика загрузки
@@ -419,15 +340,13 @@
           href: redeploy-to-new-node.md
         - name: Распространенные сообщения об ошибках
           href: error-messages.md
-        - name: >-
-            Подключение виртуального жесткого диска для устранения неполадок
-            виртуальной машины
+        - name: Доступ к виртуальной машине восстановления
           items:
             - name: Azure PowerShell
               href: troubleshoot-recovery-disks.md
             - name: Портал Azure
               href: troubleshoot-recovery-disks-portal.md
-        - name: Устранение проблем производительности с помощью PerfInsights
+        - name: Использование PerfInsights
           href: how-to-use-perfInsights.md
 - name: Справочные материалы
   items:
@@ -450,8 +369,7 @@
 - name: Ресурсы
   items:
     - name: Создание шаблонов
-      href: >-
-        ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Шаблоны сообщества
@@ -463,7 +381,6 @@
     - name: Переполнение стека
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Видеоролики
-      href: >-
-        https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: Часто задаваемые вопросы
       href: faq.md
