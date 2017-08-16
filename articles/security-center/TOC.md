@@ -57,9 +57,10 @@
 ## Выявление и реагирование
 ### [Возможности обнаружения](security-center-detection-capabilities.md)
 ### [Управление оповещениями системы безопасности](security-center-managing-and-responding-alerts.md)
+### [Типы оповещений системы безопасности](security-center-alerts-type.md)
+### [Проверка оповещений](security-center-alert-validation.md)
 ### [Управление инцидентами безопасности](security-center-incident.md)
 ### [Интеграция журналов Azure](security-center-integrating-alerts-with-log-integration.md)
-### [Типы оповещений системы безопасности](security-center-alerts-type.md)
 ### [Отчет об исследовании угроз](security-center-threat-report.md)
 
 ## Устранение неполадок
