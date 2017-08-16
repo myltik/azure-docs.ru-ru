@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: banders
+ms.date: 08/08/2017
+ms.author: magoedte;banders
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 524c63d358ce22c10b7a23e5bcf0b33e9f2e5f26
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 5fe0c4c5642fcaa83bcfc830e64600986b8fbf7f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="containers-preview-solution-in-log-analytics"></a>Решение "Контейнеры" (предварительная версия) в Log Analytics
@@ -50,21 +50,25 @@ ms.lasthandoff: 08/03/2017
 | Linux Server<br>(изолированный) | | Да | | Да | Да | Да | Да | Да | | Да |
 
 
-### <a name="supported-linux-operating-system"></a>Поддерживаемая операционная система Linux
+### <a name="docker-versions-supported-on-linux"></a>Версии Docker, поддерживаемые в Linux
 
 - Docker 1.11–1.13
-- Docker CE и EE v17.03
+- Docker CE и EE v17.06
 
-В качестве узлов контейнера поддерживаются следующие дистрибутивы Linux (x64):
+### <a name="x64-linux-distributions-supported-as-container-hosts"></a>Дистрибутивы Linux x64, поддерживаемые в качестве узлов контейнера
 
-- Ubuntu 14.04 LTS, 16.04 LTS;
+- Ubuntu 14.04 LTS и 16.04 LTS
 - CoreOS (стабильный выпуск);
 - Amazon Linux 2016.09.0;
 - openSUSE 13.2
 - openSUSE LEAP 42.2
-- CentOS 7.2, 7.3
+- CentOS 7.2 и 7.3
 - SLES 12
-- RHEL 7.2, 7.3
+- RHEL 7.2 и 7.3
+- Платформа контейнеров Red Hat OpenShift (OCP) 3.4 и 3.5
+- ACS Mesosphere DC/OS 1.7.3–1.8.8
+- ACS Kubernetes 1.4.5–1.6
+- ACS Docker Swarm
 
 ### <a name="supported-windows-operating-system"></a>Поддерживаемая операционная система Windows
 
@@ -73,33 +77,31 @@ ms.lasthandoff: 08/03/2017
 
 ### <a name="docker-versions-supported-on-windows"></a>Версии Docker, поддерживаемые в Windows
 
-- Docker 1.12–1.13
+- Docker 1.12 и 1.13
 - Docker 17.03.0 
 
 ## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
 Для установки и настройки решений используйте указанные ниже данные.
 
-Решение для контейнеров необходимо добавить в рабочую область OMS из [Azure Мarketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
+1. Решение для контейнеров необходимо добавить в рабочую область OMS из [Azure Мarketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
 
-Docker с OMS можно установить и использовать несколькими способами:
+2. Установите и используйте Docker с OMS.  В зависимости от операционной системы можно выбрать один из следующих методов:
 
-* В поддерживаемых операционных системах Linux установите и запустите Docker, а затем установите и настройте агент OMS для Linux.
-* В CoreOS невозможно запустить агент OMS для Linux. Вместо этого можно запустить контейнерную версию агента OMS для Linux.
-* В Windows Server 2016 и Windows 10 установите модуль и клиент Docker, после чего подключите агент, чтобы собрать сведения и отправить их в Log Analytics.
-
-
-Вы можете ознакомиться с поддерживаемыми версиями Docker и операционными системами Linux для узла контейнера на портале [GitHub](https://github.com/Microsoft/OMS-docker).
+  * В поддерживаемых операционных системах Linux установите и запустите Docker, а затем установите и настройте агент OMS для Linux.  
+  * В CoreOS невозможно запустить агент OMS для Linux. Вместо этого можно запустить контейнерную версию агента OMS для Linux. Если вы работаете с контейнерами в облаке "Azure для государственных организаций", то см. раздел [Для всех узлов контейнера Linux, включая CoreOS](#for-all-linux-container-hosts-including-coreos) или [Для всех узлов контейнера Linux Azure для государственных организаций, включая CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos).
+  * В Windows Server 2016 и Windows 10 установите модуль и клиент Docker, после чего подключите агент, чтобы собрать сведения и отправить их в Log Analytics.  
 
 ### <a name="container-services"></a>Служба контейнеров
 
-- При наличии кластера Kubernetes, использующего службу контейнеров Azure, дополнительные сведения см. в статье [Мониторинг кластера службы контейнеров Azure с помощью Microsoft Operations Management Suite (OMS)](../container-service/kubernetes/container-service-kubernetes-oms.md).
+- Если вы используете среду Red Hat OpenShift, то см. раздел [Настройка агента OMS для Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
+- При наличии кластера Kubernetes, использующего службу контейнеров Azure, см. статью [Мониторинг кластера Службы контейнеров Azure с помощью Microsoft Operations Management Suite (OMS)](../container-service/kubernetes/container-service-kubernetes-oms.md).
 - При наличии кластера DC/OS в службе контейнеров Azure дополнительные сведения см. в статье [Мониторинг кластера DC/OS в службе контейнеров Azure с помощью Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
 - При наличии среды режима Docker Swarm ознакомьтесь с разделом [Настройка агента OMS для Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
-- При использовании контейнеров в Service Fabric см. дополнительные сведения в разделе [Общие сведения о Service Fabric](../service-fabric/service-fabric-overview.md).
+- При использовании контейнеров с Service Fabric см. статью [Общие сведения о Service Fabric](../service-fabric/service-fabric-overview.md).
 - Дополнительные сведения о том, как установить и настроить модули Docker на компьютерах под управлением Windows, см. в [этой статье](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 > [!IMPORTANT]
-> Docker необходимо запустить **перед** установкой [агента OMS для Linux](log-analytics-agent-linux.md) на узлах контейнера. Если вы уже установили агент перед установкой Docker, необходимо переустановить агент OMS для Linux. Дополнительные сведения о Docker см. на [веб-сайте Docker](https://www.docker.com).
+> Docker необходимо запустить **перед** установкой [агента OMS для Linux](log-analytics-agent-linux.md) на узлах контейнера. Если вы уже установили агент перед установкой Docker, то необходимо переустановить агент OMS для Linux. Дополнительные сведения о Docker см. на [веб-сайте Docker](https://www.docker.com).
 >
 >
 
@@ -107,8 +109,7 @@ Docker с OMS можно установить и использовать нес
 
 ## <a name="linux-container-hosts"></a>Узлы контейнера Linux
 
-После установки Docker используйте приведенные ниже параметры узла контейнера, чтобы настроить агент для использования с Docker. Вам потребуется [идентификатор и ключ рабочей области OMS](log-analytics-agent-linux.md).
-
+После установки Docker используйте приведенные ниже параметры узла контейнера, чтобы настроить агент для использования с Docker. Сначала необходимо получить идентификатор и ключ рабочей области OMS, которые можно найти, переключившись на [классический портал OMS](https://mms.microsoft.com).  На странице **Обзор** в верхнем меню выберите **Параметры** и перейдите в раздел **Подключенные источники\Серверы с Windows**.  Вы увидите необходимые значения справа от полей **Идентификатор рабочей области** и **Первичный ключ**.  Скопируйте их и вставьте в любой удобный для вас редактор.    
 
 ### <a name="for-all-linux-container-hosts-except-coreos"></a>Для всех узлов контейнера Linux, за исключением CoreOS
 
@@ -130,13 +131,12 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
 ```
 
-
 ### <a name="switching-from-using-an-installed-linux-agent-to-one-in-a-container"></a>Переход от использования установленного агента Linux к использованию агента в контейнере
-Если ранее вы использовали установленный напрямую агент и теперь вместо него хотите использовать агент, работающий в контейнере, сначала необходимо удалить агент OMS для Linux. См. раздел [Удаление агента OMS для Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux).
+Если ранее вы использовали установленный напрямую агент и теперь вместо него хотите использовать агент, работающий в контейнере, сначала необходимо удалить агент OMS для Linux. Сведения об удалении агента см. в разделе [Удаление агента OMS для Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux).  
 
 ### <a name="configure-an-oms-agent-for-docker-swarm"></a>Настройка агента OMS для Docker Swarm
 
-Агент OMS можно запускать в качестве глобальной службы в Docker Swarm. Используйте приведенные ниже сведения для создания службы агента OMS. Необходимо вставить свой идентификатор рабочей области и первичный ключ.
+Агент OMS можно запускать в качестве глобальной службы в Docker Swarm. Используйте приведенные ниже сведения для создания службы агента OMS. Необходимо вставить свой идентификатор рабочей области OMS и первичный ключ.
 
 - Выполните следующую команду на главном узле.
 
@@ -144,9 +144,119 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
     ```
 
-### <a name="secure-your-secret-information-for-container-services"></a>Защита секретных сведений для служб контейнеров
+### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Настройка агента OMS для Red Hat OpenShift
+Существует три способа добавления агента OMS в Red Hat OpenShift, чтобы начать сбор данных мониторинга контейнера: 
+ 
+* [установить агент OMS для Linux](log-analytics-agent-linux.md) непосредственно на каждом узле OpenShift;  
+* [включить расширение виртуальной машины Log Analytics](log-analytics-azure-vm-extension.md) на каждом узле OpenShift, размещенном в Azure;  
+* установить агент OMS как набор daemon-set для OpenShift.  
 
-Вы можете защитить секретный идентификатор рабочей области OMS и первичные ключи для Docker Swarm и Kubernetes.
+В этом разделе описаны действия, которые необходимо выполнить для установки агента OMS как набора daemon-set для OpenShift.  
+
+1. Войдите на главный узел OpenShift и скопируйте YAML-файл [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) с портала GitHub на свой главный узел. При этом замените значения идентификатора рабочей области OMS и первичного ключа своими значениями.
+2. Выполните следующие команды, чтобы создать проект для OMS и настроить учетную запись пользователя.
+
+    ```
+    oadm new-project omslogging --node-selector='zone=default'
+    oc project omslogging  
+    oc create serviceaccount omsagent  
+    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    ```
+
+4. Чтобы развернуть набор daemon-set, выполните следующую команду: 
+    
+    `oc create -f ocp-omsagent.yaml`
+
+5. Чтобы проверить правильность его настроек и работоспособность, введите следующую команду: 
+
+    `oc describe daemonset omsagent`  
+    
+    Выходные данные должны выглядеть примерно так:
+
+    ```
+    [ocpadmin@khm-0 ~]$ oc describe ds oms  
+    Name:           oms  
+    Image(s):       microsoft/oms  
+    Selector:       name=omsagent  
+    Node-Selector:  zone=default  
+    Labels:         agentVersion=1.4.0-12  
+                    dockerProviderVersion=10.0.0-25  
+                    name=omsagent  
+    Desired Number of Nodes Scheduled: 3  
+    Current Number of Nodes Scheduled: 3  
+    Number of Nodes Misscheduled: 0  
+    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
+    No events.  
+    ```
+
+Чтобы применить секреты для защиты идентификатора рабочей области OMS и первичного ключа, когда используется YAML-файл набора daemon-set агента OMS, выполните следующие действия.
+
+1. Войдите на главный узел OpenShift и скопируйте YAML-файл [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) и сценарий создания секретов [ocp secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) с портала GitHub.  Этот сценарий создаст YAML-файл секретов для идентификатора рабочей области OMS и первичного ключа, чтобы защитить ваши секретные сведения.  
+2. Выполните следующие команды, чтобы создать проект для OMS и настроить учетную запись пользователя. Сценарий создания секретов запросит ввести идентификатор рабочей области OMS <WSID> и первичный ключ <KEY>, после чего создаст файл ocp-secret.yaml.  
+    
+    ```
+    oadm new-project omslogging --node-selector='zone=default'  
+    oc project omslogging  
+    oc create serviceaccount omsagent  
+    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    ```
+
+4. Разверните файл секретов, выполнив следующую команду:
+
+    `oc create -f ocp-secret.yaml`
+
+5. Проверьте развертывание, выполнив следующую команду: 
+
+    `oc describe secret omsagent-secret`  
+
+    Выходные данные должны выглядеть примерно так:  
+    
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
+    Name:           oms  
+    Image(s):       microsoft/oms  
+    Selector:       name=omsagent  
+    Node-Selector:  zone=default  
+    Labels:         agentVersion=1.4.0-12  
+                    dockerProviderVersion=10.0.0-25  
+                    name=omsagent  
+    Desired Number of Nodes Scheduled: 3  
+    Current Number of Nodes Scheduled: 3  
+    Number of Nodes Misscheduled: 0  
+    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
+    No events.  
+    ```
+
+6. Разверните YAML-файл набора daemon-set агента OMS, выполнив следующую команду: 
+
+    `oc create -f ocp-ds-omsagent.yaml`  
+  
+7. Проверьте развертывание, выполнив следующую команду: 
+
+    `oc describe ds oms`
+  
+    Выходные данные должны выглядеть примерно так:
+
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
+    Name:           omsagent-secret  
+    Namespace:      omslogging  
+    Labels:         <none>  
+    Annotations:    <none>  
+    
+    Type:   Opaque  
+    
+     Data  
+     ====  
+     KEY:    89 bytes  
+     WSID:   37 bytes  
+    ```
+
+### <a name="secure-your-secret-information-for-docker-swarm-and-kubernetes"></a>Защита секретных сведений для Docker Swarm и Kubernetes 
+
+Вы можете защитить секретный идентификатор рабочей области OMS и первичные ключи для служб контейнеров Docker Swarm и Kubernetes.
 
 #### <a name="secure-secrets-for-docker-swarm"></a>Защита секретов для Docker Swarm
 
@@ -179,10 +289,10 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 #### <a name="secure-secrets-for-kubernetes-with-yaml-files"></a>Защита секретов для Kubernetes с помощью файлов YAML
 
-Для Kubernetes используйте сценарий, чтобы создать файл YAML секретов для идентификатора рабочей области и первичного ключа. На странице [OMS Docker Kubernetes в GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) есть файлы, которые можно использовать с секретными данными или без них:
+Для Kubernetes используйте сценарий, чтобы создать YAML-файл секретов для идентификатора рабочей области и первичного ключа. На странице [OMS Docker Kubernetes в GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) есть файлы, которые можно использовать с секретными данными или без них:
 
-- стандартный файл DaemonSet агента OMS, который не поддерживает секретные сведения (omsagent.yaml);
-- файл YAML DaemonSet агента OMS, использующий секретные сведения (omsagent-ds-secrets.yaml) со сценариями формирования секретов, который создает файл YAML (omsagentsecret.yaml).
+- стандартный файл DaemonSet агента OMS не поддерживает секретные сведения (omsagent.yaml);
+- YAML-файл DaemonSet агента OMS использует секретные сведения (omsagent-ds-secrets.yaml) со сценариями формирования секретов, чтобы создать YAML-файл секретов (omsagentsecret.yaml).
 
 Вы можете создать DaemonSet агента OMS с секретными данными или без них.
 
@@ -200,7 +310,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     1. Скопируйте сценарий и файл шаблона секретов в один и тот же каталог.
         - Сценарий создания секретов — secret-gen.sh
         - Шаблон секретов — secret-template.yaml
-    2. Выполните сценарий, как показано в следующем примере. Сценарий запрашивает идентификатор рабочей области OMS и первичный ключ, а после их ввода создает файл YAML секретов, который можно запустить.   
+    2. Выполните сценарий, как показано в следующем примере. Сценарий запрашивает идентификатор рабочей области OMS и первичный ключ, а после их ввода создает YAML-файл секретов, который можно запустить.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -276,7 +386,6 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-
 ## <a name="windows-container-hosts"></a>Узлы контейнеров Windows
 
 ### <a name="preparation-before-installing-windows-agents"></a>Подготовка к установке агентов Windows
@@ -311,7 +420,7 @@ KEY:    88 bytes
 
 ### <a name="install-windows-agents"></a>Установка агентов Windows
 
-Чтобы включить мониторинг контейнеров Windows и Hyper-V, установите агенты на компьютерах Windows, которые являются узлами контейнера. Сведения для компьютеров под управлением Windows в локальной среде см. в статье [Подключение компьютеров Windows к Log Analytics](log-analytics-windows-agents.md). Виртуальные машины, запущенные в Azure, следует подключить к Log Analytics с помощью [расширения виртуальной машины](log-analytics-azure-vm-extension.md).
+Чтобы включить мониторинг контейнеров Windows и Hyper-V, установите Microsoft Monitoring Agent (MMA) на компьютерах Windows, которые являются узлами контейнера. Сведения для компьютеров под управлением Windows в локальной среде см. в статье [Подключение компьютеров Windows к Log Analytics](log-analytics-windows-agents.md). Виртуальные машины, запущенные в Azure, следует подключить к Log Analytics с помощью [расширения виртуальной машины](log-analytics-azure-vm-extension.md).
 
 Вы можете отслеживать контейнеры Windows, запущенные в Service Fabric. Однако сейчас для Service Fabric поддерживаются только [виртуальные машины, работающие в Azure](log-analytics-azure-vm-extension.md), и [компьютеры под управлением Windows в локальной среде](log-analytics-windows-agents.md).
 
@@ -340,7 +449,7 @@ KEY:    88 bytes
 | --- | --- | --- | --- | --- | --- | --- |
 | Таблицы Azure |![Да](./media/log-analytics-containers/oms-bullet-green.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |Каждые 3 минуты |
 
-В таблице ниже приведены примеры типов данных, собранных решением "Контейнеры", и типов данных, которые используются при поиске в журналах и в результатах.
+В таблице ниже приведены примеры типов данных, собранных решением "Контейнеры", и типов данных, которые используются при поиске по журналам и в результатах.
 
 | Тип данных | Тип данных, используемый для поиска в журналах | Поля |
 | --- | --- | --- |

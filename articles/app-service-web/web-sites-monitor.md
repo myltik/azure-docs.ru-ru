@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Мониторинг приложений в службе приложений Azure
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/16/2017
 Для приложений, работающих в режиме плана **Бесплатный** или **Общий**, предоставляются следующие **квоты**.
 
 * **CPU (Short)**
-  * объем ресурсов ЦП, которые может потребить приложение в течение 3 минут. Эта квота повторно назначается каждые 3 минуты;
+  * Объем ресурсов ЦП, которые может потребить приложение в течение 5 минут. Эта квота повторно назначается каждые 5 минут.
 * **CPU (Day)**
   * объем ресурсов ЦП, которые может потребить приложение в течение одного дня. Эта квота повторно назначается каждые 24 часа в полночь (в формате UTC);
 * **Память**

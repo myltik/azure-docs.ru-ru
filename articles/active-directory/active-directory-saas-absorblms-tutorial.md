@@ -5,20 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 07/26/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 5119772dd7c3d55ed4e0ad44e71bd67b2e923409
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 3c68c3ac7d6be593476d419f8c015931b206eead
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Руководство. Интеграция Azure Active Directory с Absorb LMS
@@ -46,7 +46,7 @@ ms.lasthandoff: 06/03/2017
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не используйте рабочую среду без необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
@@ -61,25 +61,22 @@ ms.lasthandoff: 06/03/2017
 
 1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Кнопка "Azure Active Directory"][1]
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![Колонка "Корпоративные приложения"][2]
     
 3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-    ![Приложения][3]
+    ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **Absorb LMS**.
+4. В поле поиска введите **Absorb LMS**, выберите **Absorb LMS** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_search.png)
+    ![Absorb LMS в списке результатов](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_addfromgallery.png)
 
-5. На панели результатов выберите **Absorb LMS** и нажмите кнопку **Добавить**, чтобы добавить приложение.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в Absorb LMS с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD нужно знать, какой пользователь в Absorb LMS соответствует пользователю в Azure AD. Иными словами, нужно установить связь между пользователем Azure AD и соответствующим пользователем в Absorb LMS.
@@ -88,13 +85,13 @@ ms.lasthandoff: 06/03/2017
 
 Чтобы настроить и проверить единый вход Azure AD в Absorb LMS, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Absorb LMS](#creating-an-absorb-lms-test-user)** требуется для создания в Absorb LMS пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Absorb LMS](#create-an-absorb-lms-test-user)** требуется для того, чтобы в Absorb LMS существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
 В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Absorb LMS.
 
@@ -102,40 +99,34 @@ ms.lasthandoff: 06/03/2017
 
 1. На портале Azure на странице интеграции с приложением **Absorb LMS** щелкните **Единый вход**.
 
-    ![Настройка единого входа][4]
+    ![Ссылка "Настройка единого входа"][4]
 
 2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
  
-    ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_samlbase.png)
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_samlbase.png)
 
-3. Если вы хотите настроить приложение в **режиме, инициированном поставщиком удостоверений**, то в разделе **Домены и URL-адреса приложения Absorb LMS** выполните следующие действия:
+3. В разделе **Домены и URL-адреса приложения Absorb LMS** сделайте следующее.
 
-    ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_url.png)
+    ![Сведения о домене и URL-адресах единого входа для приложения Absorb LMS](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_url.png)
 
     а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.myabsorb.com/Account/SAML`
 
     b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<subdomain>.myabsorb.com/Account/SAML`.
-
-4. Установите флажок **Показать дополнительные параметры URL-адресов**, если хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**.
-
-    ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_url2.png)
-
-    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.myabsorb.com/`
      
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора, URL-адреса ответа и URL-адреса входа. Мы рекомендуем использовать уникальное значение строки идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Absorb LMS](https://www.absorblms.com/support). 
+    > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Absorb LMS](https://www.absorblms.com/support). 
 
-5. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
+4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
-    ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_certificate.png) 
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_certificate.png) 
 
 6. Нажмите кнопку **Сохранить** .
 
-    ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
 7. В разделе **Настройка Absorb LMS** щелкните **Настроить Absorb LMS**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
-    ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_configure.png) 
+    ![Конфигурация Absorb LMS](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_configure.png) 
 
 8. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Absorb LMS в качестве администратора.
 
@@ -147,7 +138,7 @@ ms.lasthandoff: 06/03/2017
 
     ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/2.png)
     
-11.    Откройте вкладку **Пользователи** .
+11. Откройте вкладку **Пользователи** .
 
     ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/3.png)
 
@@ -156,9 +147,6 @@ ms.lasthandoff: 06/03/2017
     ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/4.png)
 
     а. Выберите необходимый **Режим**.
-
-    > [!NOTE]
-    > Режим: поддерживаются оба режима — инициация поставщиком услуг и поставщиком удостоверений.
 
     b. Откройте сертификат, скачанный с портала Azure, в Блокноте. Удалите тег **---BEGIN CERTIFICATE---** и **---END CERTIFICATE---**, а затем вставьте остальное содержимое в текстовое поле **Ключ**.
     
@@ -177,28 +165,29 @@ ms.lasthandoff: 06/03/2017
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-![Создание пользователя Azure AD][100]
+![Создание тестового пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
 1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-absorblms-tutorial/create_aaduser_01.png) 
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-absorblms-tutorial/create_aaduser_01.png) 
 
 2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
     
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-absorblms-tutorial/create_aaduser_02.png) 
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-absorblms-tutorial/create_aaduser_02.png) 
 
 3. В верхней части диалогового окна щелкните **Добавить**, чтобы открыть диалоговое окно **Пользователь**.
  
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-absorblms-tutorial/create_aaduser_03.png) 
+    ![Кнопка "Добавить"](./media/active-directory-saas-absorblms-tutorial/create_aaduser_03.png) 
 
 4. На странице диалогового окна **Пользователь** выполните следующие действия.
  
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-absorblms-tutorial/create_aaduser_04.png) 
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-absorblms-tutorial/create_aaduser_04.png) 
 
     а. В текстовом поле **Имя** введите **BrittaSimon**.
 
@@ -208,7 +197,7 @@ ms.lasthandoff: 06/03/2017
 
     d. Щелкните **Создать**.
 
-### <a name="creating-an-absorb-lms-test-user"></a>Создание тестового пользователя Absorb LMS
+### <a name="create-an-absorb-lms-test-user"></a>Создание тестового пользователя Absorb LMS
 
 Чтобы пользователи Azure AD могли входить в Absorb LMS, их нужно подготовить для Absorb LMS.  
 Эта подготовка для Absorb LMS выполняется вручную.
@@ -243,15 +232,15 @@ ms.lasthandoff: 06/03/2017
 
     д. В текстовом поле **Подтверждение пароля** введите пароль еще раз.
     
-    f. Выберите значение **Активно**.    
+    f. Выберите значение **Активно**.   
 
 6. Нажмите кнопку **Сохранить**.
  
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к Absorb LMS.
 
-![Назначение пользователя][200] 
+![Назначение роли пользователя][200]
 
 **Чтобы назначить пользователя Britta Simon в Absorb LMS, выполните следующие действия:**
 
@@ -261,15 +250,15 @@ ms.lasthandoff: 06/03/2017
 
 2. В списке приложений выберите **Absorb LMS**.
 
-    ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_app.png) 
+    ![Ссылка на Absorb LMS в списке "Приложения"](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_app.png) 
 
 3. В меню слева выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][202] 
+    ![Ссылка "Пользователи и группы"][202] 
 
 4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][203]
+    ![Область "Добавление назначения"][203]
 
 5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
 
@@ -277,7 +266,7 @@ ms.lasthandoff: 06/03/2017
 
 7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
     
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
@@ -287,7 +276,6 @@ ms.lasthandoff: 06/03/2017
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
 
 
 <!--Image references-->

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 88f7460c5414e7c33adbe86928fd6b56b22b3ad7
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>Шаг 6. Подготовка локальных ресурсов VMware для репликации в Azure
@@ -28,7 +27,7 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="prepare-for-automatic-discovery"></a>Подготовка для автоматического обнаружения
 
-Site Recovery автоматически обнаруживает виртуальные машины, которые размещены на узлах vSphere ESXi и (или) управляются серверами vCenter.  Для этого Site Recovery необходимы учетные данные, которые предоставляют доступ к серверам vCenter и узлам vSphere ESXi. Создайте их следующим образом:
+Site Recovery автоматически обнаруживает виртуальные машины, выполняющиеся на узлах vSphere ESXi (с сервером vCenter или без него). Для автоматического обнаружения Site Recovery требуется учетная запись, чтобы получить доступ к узлам и серверам:
 
 1. Чтобы использовать выделенную учетную запись, создайте роль на уровне vCenter с разрешениями, описанными в приведенной ниже таблице. Присвойте ей имя, например **Azure_Site_Recovery**.
 2. Создайте пользователя на узле vSphere или на сервере vCenter и назначьте ему роль. Укажите эту учетную запись пользователя во время развертывания Site Recovery.
@@ -58,12 +57,12 @@ Site Recovery автоматически обнаруживает виртуал
 
 - Можно использовать доменную или локальную учетную запись.
 - Для Windows, если учетная запись домена не используется, на локальном компьютере потребуется отключить контроль удаленного доступа пользователей. Для этого в разделе реестра **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** добавьте запись **LocalAccountTokenFilterPolicy** DWORD и задайте для нее значение 1.
-- Если требуется добавить запись в реестр Windows из командной строки, введите:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Если требуется добавить запись в реестр Windows из командной строки, введите: ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Для Linux учетная запись должна принадлежать привилегированному пользователю на исходном сервере Linux.
 
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Перейдите к разделу [Шаг 7. Создание хранилища](vmware-walkthrough-create-vault.md).
+Перейдите к статье [Шаг 7. Настройка хранилища для репликации Hyper-V](vmware-walkthrough-create-vault.md).
 

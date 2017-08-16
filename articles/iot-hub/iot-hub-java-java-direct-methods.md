@@ -1,6 +1,6 @@
 ---
-title: "Использование прямых методов Центра Интернета вещей Azure (.NET или Node) | Документация Майкрософт"
-description: "Использование прямых методов Центра Интернета вещей Azure. Используйте пакет SDK для устройств Azure IoT для Node.js, чтобы реализовать приложение имитации устройства, включающее прямой метод, и пакет SDK для служб Azure IoT для .NET, чтобы реализовать приложение-службу, вызывающее прямой метод."
+title: "Использование прямых методов (Java) Центра Интернета вещей Azure | Документация Майкрософт"
+description: "Использование прямых методов Центра Интернета вещей Azure. Используйте пакет SDK для устройств Azure IoT для Java, чтобы реализовать приложение имитации устройства, включающее прямой метод, и пакет SDK для служб Azure IoT для Java, чтобы реализовать приложение-службу, вызывающее прямой метод."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: fe804cc01925cee58a1d694bdb94b85a8f994cef
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 5fa42c4fe7ad04bc74f70b023715bb61f81806ab
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-direct-methods-java"></a>Использование прямых методов (Java)
@@ -29,10 +28,10 @@ ms.lasthandoff: 05/19/2017
 В этом руководстве создаются два консольных приложения для Java:
 
 * **invoke-direct-method**, внутреннее приложение для Java, вызывающее метод в приложении имитации устройства и выводящее ответ.
-* **simulated-device**, приложение для Java, имитирующее устройство, которое подключается к Центру Интернета вещей с использованием созданного удостоверения устройства, и отвечающее на прямой метод, вызванный серверной частью.
+* **simulated-device**, приложение для Java, имитирующее устройство, которое подключается к Центру Интернета вещей с использованием созданного удостоверения устройства. Это приложение отвечает на прямой метод, вызываемый серверной частью.
 
 > [!NOTE]
-> Статья о [пакетах SDK для Центра Интернета вещей Azure][lnk-hub-sdks] содержит сведения о различных пакетах SDK, которые можно использовать для создания приложений, которые будут работать на устройствах и в серверной части решения.
+> Статья о [пакетах SDK для Центра Интернета вещей Azure][lnk-hub-sdks] содержит сведения о различных пакетах SDK, которые можно использовать для создания приложений, работающих на устройствах и в серверной части решения.
 
 Для работы с этим руководством необходимы указанные ниже компоненты.
 
@@ -48,9 +47,9 @@ ms.lasthandoff: 05/19/2017
 
 В этом разделе вы создадите консольное приложение для Java, отвечающее на метод, вызываемый из серверной части решения.
 
-1. Создайте пустую папку с именем iot-java-direct-method. В папке iot-java-direct-method создайте проект Maven с именем **simulated-device**, выполнив в командной строке следующую команду. Обратите внимание, что это одна длинная команда.
+1. Создайте пустую папку с именем iot-java-direct-method.
 
-1. В папке iot-java-direct-method создайте проект Maven с именем **simulated-device**, выполнив в командной строке следующую команду. Обратите внимание, что это одна длинная команда.
+1. В папке iot-java-direct-method создайте проект Maven с именем **simulated-device**, выполнив в командной строке следующую команду. Следующая команда является одной длинной командой:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -62,7 +61,7 @@ ms.lasthandoff: 05/19/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -102,7 +101,7 @@ ms.lasthandoff: 05/19/2017
     import java.util.Scanner;
     ```
 
-1. Добавьте в класс **App** . Замените значение **{youriothubname}** именем Центра Интернета вещей, а **{yourdevicekey}** — значением ключа устройства, сформированным при работе с разделом *Создание удостоверения устройства*.
+1. Добавьте в класс **App** . Замените значение `{youriothubname}` именем Центра Интернета вещей, а `{yourdevicekey}` — значением ключа устройства, сформированным при работе с разделом *Создание удостоверения устройства*:
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -114,7 +113,7 @@ ms.lasthandoff: 05/19/2017
 
     При создании экземпляра объекта **DeviceClient** в этом примере приложения используется переменная **protocol**. Сейчас использование прямых методов возможно только с протоколом MQTT.
 
-1. Добавьте в класс **App**, приведенный ниже, вложенный класс для возврата кода состояния в Центр Интернета вещей:
+1. Для возврата кода состояния в Центр Интернета вещей добавьте в класс **App** следующий вложенный класс:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -126,7 +125,7 @@ ms.lasthandoff: 05/19/2017
     }
     ```
 
-1. Добавьте в класс **App**, приведенный ниже, вложенный класс для обработки вызовов прямых методов из серверной части решения:
+1. Для обработки вызовов прямых методов из серверной части решения добавьте в класс **App** следующий вложенный класс:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -155,7 +154,7 @@ ms.lasthandoff: 05/19/2017
     }
     ```
 
-1. Добавьте метод **main** в класс **App** для создания **DeviceClient** и прослушивания вызовов методов:
+1. Для создания **DeviceClient** и прослушивания вызовов прямых методов добавьте метод **main** в класс **App**:
 
     ```java
     public static void main(String[] args)
@@ -195,9 +194,9 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="call-a-direct-method-on-a-device"></a>Вызов прямого метода на устройстве
 
-В этом разделе вы создадите консольное приложение Java, которое вызывает метод в приложении для имитации устройства и выводит ответ. Это консольное приложение подключается к Центру Интернета вещей для вызова прямого метода.
+В этом разделе вы создадите консольное приложение Java, которое вызывает прямой метод и выводит ответ. Это консольное приложение подключается к Центру Интернета вещей для вызова прямого метода.
 
-1. В папке iot-java-direct-method folder создайте проект Maven с именем **invoke-direct-method**, выполнив в командной строке следующую команду. Обратите внимание, что это одна длинная команда.
+1. В папке iot-java-direct-method folder создайте проект Maven с именем **invoke-direct-method**, выполнив в командной строке следующую команду. Следующая команда является одной длинной командой:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=invoke-direct-method -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -209,7 +208,7 @@ ms.lasthandoff: 05/19/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -250,7 +249,7 @@ ms.lasthandoff: 05/19/2017
     import java.util.concurrent.TimeUnit;
     ```
 
-1. Добавьте в класс **App** . Замените **{youriothubconnectionstring}** строкой подключения к вашему Центру Интернета вещей, которую вы записали, выполняя инструкции в разделе *Создание Центра Интернета вещей*:
+1. Добавьте в класс **App** . Замените `{youriothubconnectionstring}` строкой подключения к вашему Центру Интернета вещей, которую вы записали, выполняя инструкции в разделе *Создание Центра Интернета вещей*:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -262,7 +261,7 @@ ms.lasthandoff: 05/19/2017
     public static final String payload = "a line to be written";
     ```
 
-1. Добавьте следующий код в метод **main** для вызова метода на имитируемом устройстве:
+1. Для вызова метода на имитации устройства добавьте следующий код в метод **main**:
 
     ```java
     System.out.println("Starting sample...");

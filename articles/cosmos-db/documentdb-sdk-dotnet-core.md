@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 08/08/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 28eb505bf58943f7a687b79af3427a0ee74fe9bb
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 05538e1633d6e8353cc7980d081af3672a3f97d8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Пакет SDK .NET Core для Azure Cosmos DB: заметки о выпуске и ресурсы
@@ -57,6 +57,14 @@ ms.lasthandoff: 07/25/2017
 
 > [!NOTE] 
 > Пакет SDK .NET Core для Azure Cosmos DB пока несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+*   Устранена проблема в классе JsonSerializable, которая могла порождать исключение переполнения стека.
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+*   Добавлена поддержка для указания пользовательских параметров JsonSerializerSettings при создании экземпляра [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 
@@ -125,6 +133,8 @@ ms.lasthandoff: 07/25/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.4.1](#1.4.1) |7 августа 2017 г. |--- |
+| [1.4.0](#1.4.0) |2 августа 2017 г. |--- |
 | [1.3.2](#1.3.2) |12 июня 2017 г. |--- |
 | [1.3.1](#1.3.1) |23 мая 2017 г. |--- |
 | [1.3.0](#1.3.0) |10 мая 2017 г. |--- |

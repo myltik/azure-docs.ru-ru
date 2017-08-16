@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4a687e1edbb2c9b3db3079a70162886092ede521
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 72bd39bcf720cf5704274fcdfa0f2b8fc44a77bc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -33,11 +33,11 @@ ms.lasthandoff: 08/01/2017
 
 ### <a name="check-status-of-the-feature-and-authentication-agents"></a>Проверьте состояние компонента и агентов проверки подлинности
 
-Убедитесь, что компонент сквозной проверки подлинности по-прежнему **включен** в клиенте и что для состояния агентов проверки подлинности отображается значение **Active** (Активны), а не **Inactive** (Неактивны). Это можно проверить в колонке **Azure AD Connect** на [портале Azure](https://portal.azure.com/).
+Убедитесь, что компонент сквозной проверки подлинности по-прежнему **включен** в клиенте и что для состояния агентов проверки подлинности отображается значение **Active** (Активны), а не **Inactive** (Неактивны). Можно проверить состояние, перейдя в колонку **Azure AD Connect** в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/).
 
-![Портал Azure — колонка Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+![Центр администрирования Active Directory Azure — колонка "Azure AD Connect"](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
 
-![Портал Azure — колонка сквозной проверки подлинности](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
+![Центр администрирования Active Directory Azure — колонка "Сквозная проверка подлинности"](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### <a name="user-facing-sign-in-error-messages"></a>Сообщения об ошибках при входе пользователей
 
@@ -51,13 +51,13 @@ ms.lasthandoff: 08/01/2017
 |AADSTS80005|При проверке было обнаружено непредсказуемое исключение WebException|Это временная проблема. Повторите запрос. Если проблема не исчезла, обратитесь в службу поддержки Майкрософт.
 |AADSTS80007|Произошла ошибка при взаимодействии с Active Directory|Посмотрите дополнительные сведения в журналах агентов и убедитесь, что Active Directory работает должным образом.
 
-### <a name="sign-in-failure-reasons-on-the-azure-portal"></a>Причины неполадок при входе на портал Azure
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Причины сбоя единого входа в центре администрирования Azure Active Directory
 
-Чтобы устранить проблемы при входе пользователей, сначала просмотрите [отчет действий при входе](../active-directory-reporting-activity-sign-ins.md) на [портале Azure](https://portal.azure.com/).
+Чтобы устранить проблемы при входе пользователей, сначала просмотрите [отчет о действиях при входе](../active-directory-reporting-activity-sign-ins.md) в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/).
 
-![Отчет о входе](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
+![Центр администрирования Azure Active Directory — отчет о действиях входа](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Перейдите в раздел **Azure Active Directory** -> **Вход в систему** на [портале Azure](https://portal.azure.com/) и щелкните конкретное действие пользователя при входе. Найдите поле **КОД ОШИБКИ ВХОДА**. Сопоставьте значение этого поля c причиной сбоя и способом разрешения с помощью следующей таблицы:
+Перейдите в раздел **Azure Active Directory** -> **Вход в систему** в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/) и щелкните конкретное действие пользователя при входе. Найдите поле **КОД ОШИБКИ ВХОДА**. Сопоставьте значение этого поля c причиной сбоя и способом разрешения с помощью следующей таблицы:
 
 |Код ошибки входа|Причина ошибки входа|Способы устранения:
 | --- | --- | ---
@@ -97,7 +97,7 @@ ms.lasthandoff: 08/01/2017
 
 Если вы включили сквозную аутентификацию на клиенте и пытаетесь удалить Azure AD Connect, то появится следующее предупреждение: "Пользователи не смогут войти в Azure AD, если на других серверах не установлены другие агенты сквозной аутентификации".
 
-Убедитесь, что у вас [высокодоступная](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) конфигурация, прежде чем удалять Azure AD Connect, чтобы избежать нарушения входа пользователей.
+Убедитесь, что у вас [высокодоступная](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) конфигурация, прежде чем удалять Azure AD Connect, чтобы избежать нарушения входа пользователей.
 
 ## <a name="issues-with-enabling-the-feature"></a>Проблемы с включением функции
 
@@ -112,6 +112,18 @@ ms.lasthandoff: 08/01/2017
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Не удалось включить функцию из-за ошибок проверки подлинности учетной записи или токена
 
 При включении функции вы должны использовать только облачную учетную запись глобального администратора. Существует известная проблема с учетными записями глобального администратора с поддержкой MFA. В качестве обходного решения временно отключите Многофакторную идентификацию (только чтобы завершить операции).
+
+## <a name="exchange-activesync-configuration-issues"></a>Проблемы с конфигурацией Exchange ActiveSync
+
+Ниже приведены распространенные проблемы, возникающие при настройке поддержки Exchange ActiveSync для сквозной аутентификации.
+
+### <a name="exchange-powershell-issue"></a>Проблема Exchange PowerShell
+
+Если вы видите сообщение об ошибке "**Не удается найти параметр, соответствующий имени параметра "PerTenantSwitchToESTSEnabled"\.**" при выполнении команды `Set-OrganizationConfig` Exchange PowerShell, обратитесь в службу поддержки Майкрософт.
+
+### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync не работает
+
+Для вступления конфигурации в силу требуется некоторое время, которое зависит от вашей среды. Если такая ситуация повторяется в течение продолжительного времени, обратитесь в службу поддержки Майкрософт.
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>Сбор журналов агента сквозной аутентификации
 
@@ -150,4 +162,13 @@ ms.lasthandoff: 08/01/2017
     </Query>
     </QueryList>
 ```
+
+### <a name="performance-monitor-counters"></a>Счетчики системного монитора
+
+Другой способ наблюдения за агентами аутентификации — отслеживание счетчиков системного монитора на каждом сервере, на котором установлен агент аутентификации. Используйте приведенные глобальные счетчики (**# PTA authentications**, **#PTA failed authentications** и **#PTA successful authentications**) и счетчики ошибок (**# PTA authentication errors**).
+
+![Счетчики системного монитора для сквозной аутентификации](./media/active-directory-aadconnect-pass-through-authentication/pta12.png)
+
+>[!IMPORTANT]
+>Сквозная аутентификация обеспечивает высокий уровень доступности за счет нескольких агентов аутентификации, но _не_ предоставляет возможности балансировки нагрузки. В зависимости от вашей конфигурации _не_ все агенты аутентификации могут получать примерно _одинаковое_ число запросов. Возможно, какой-либо агент аутентификации вообще не получает трафик.
 

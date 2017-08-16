@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 08/02/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 861921e6bcb7eafdf3e7279eaf09945fc8f38b85
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 77acb23f33fd656a12c27107cb159613a8b2aec4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -57,9 +57,15 @@ ms.lasthandoff: 07/24/2017
 
 2. Если брандмауэр или прокси-сервер поддерживают внесение DNS в список разрешений, то можно добавить подключения к msappproxy.net и servicebus.windows.net в список разрешений. Если нет, то необходимо разрешить доступ к [диапазонам IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/details.aspx?id=41653). Список диапазонов IP-адресов обновляется еженедельно.
 
-3. Соединителю требуется доступ к адресам login.windows.net и login.microsoftonline.net для процесса регистрации, поэтому откройте эти URL-адреса в брандмауэре.
+3. Корпорация Майкрософт использует четыре адреса для проверки сертификатов. Разрешите доступ к следующим URL-адресам, если это не было сделано для других продуктов:
+   * mscrl.microsoft.com:80
+   * crl.microsoft.com:80
+   * ocsp.msocsp.com:80
+   * www.microsoft.com:80
 
-4. Воспользуйтесь [средством проверки портов соединителей прокси-службы приложения Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/), чтобы проверить, сможет ли ваш соединитель подключиться к прокси-службе приложения. Как минимум следует убедиться, что для региона Central US (Центральная часть США) и ближайшего к вам региона отображаются все зеленые флажки. Учитывайте также, что большее число зеленых флажков означает большую устойчивость.
+4. Соединителю требуется доступ к адресам login.windows.net и login.microsoftonline.net для процесса регистрации.
+
+5. Воспользуйтесь [средством проверки портов соединителей прокси-службы приложения Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/), чтобы проверить, сможет ли ваш соединитель подключиться к прокси-службе приложения. Как минимум следует убедиться, что для региона Central US (Центральная часть США) и ближайшего к вам региона отображаются все зеленые флажки. Учитывайте также, что большее число зеленых флажков означает большую устойчивость.
 
 ## <a name="install-and-register-a-connector"></a>Установка и регистрация соединителя
 1. Войдите на [портал Azure](https://portal.azure.com/) с учетной записью администратора.

@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 3337e3ad36792c1dcd0eaf183a2b695503b8f02c
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: cea811918147a25947ec654bb06f2c994bae5ce6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -45,7 +44,7 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="log-and-event-sources"></a>Источники журналов и событий
 
-### <a name="service-fabric-infrastructure-events"></a>События инфраструктуры Service Fabric
+### <a name="service-fabric-platform-events"></a>События платформы Service Fabric
 Как упоминалось в [этой статье](service-fabric-diagnostics-event-generation-infra.md), Service Fabric настраивает несколько стандартных каналов ведения журнала. Следующие каналы легко настраиваются с помощью WAD для отправки данных мониторинга и диагностики в таблицу хранилища или в другое место:
   * Рабочие события: операции более высокого уровня, выполняемые платформой Service Fabric. Некоторые примеры: создание приложений и служб, изменение состояния узлов и сведения об обновлении. Они передаются в рамках журнала трассировки событий для Windows (ETW).
   * [События модели программирования на основе Reliable Actors](service-fabric-reliable-actors-diagnostics.md).
@@ -192,6 +191,47 @@ ms.lasthandoff: 07/06/2017
     }
 ```
 
+## <a name="collect-reverse-proxy-events"></a>Сбор событий обратного прокси-сервера
+
+Начиная с выпуска Service Fabric 5.7 для сбора доступны события [обратного прокси-сервера](service-fabric-reverseproxy.md).
+Обратный прокси-сервер передает события в два канала. Один из них содержит события ошибок, отражающие сбои обработки запросов, а другой содержит подробные события всех запросов, обработанных на обратном прокси-сервере. 
+
+1. Сбор событий ошибок. Чтобы просмотреть эти события в окне просмотра событий диагностики Visual Studio, добавьте Microsoft-ServiceFabric:4:0x4000000000000010 в список поставщиков трассировки событий Windows.
+Чтобы включить сбор событий из кластеров Azure, измените шаблон Resource Manager, добавив в него следующее.
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387920",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+
+2. Сбор всех событий обработки запросов. В средстве просмотра событий диагностики Visual Studio измените запись Microsoft-ServiceFabric в списке поставщиков трассировки событий Windows, указав Microsoft-ServiceFabric:4:0x4000000000000020.
+Для кластеров Azure Service Fabric измените шаблон Resource Manager, добавив в него следующее.
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387936",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+> Рекомендуется с осторожностью включать сбор событий из этого канала, так как это означает сбор всего трафика, проходящего через обратный прокси-сервер, что может привести к быстрому потреблению емкости хранилища.
+
+События на всех узлах кластеров Azure Service Fabric собираются и объединяются в SystemEventTable.
+Подробные сведения об устранении неполадок, связанных с событиями обратного прокси-сервера, приведены в [руководстве по диагностике обратного прокси-сервера](service-fabric-reverse-proxy-diagnostics.md).
+
 ## <a name="collect-from-new-eventsource-channels"></a>Сбор из новых каналов EventSource
 
 Чтобы обновить службу диагностики для сбора журналов из новых каналов EventSource, представляющих новое приложение, которое вы собираетесь развернуть, выполните шаги, описанные выше, чтобы настроить службу диагностики для имеющегося кластера.
@@ -218,21 +258,22 @@ ms.lasthandoff: 07/06/2017
 
 К примеру, установим один счетчик производительности, который будет делать выборку каждые 15 секунд (это можно изменить и указывается в формате "РТ\<время>\<единица_измерения>", например для РТ3М выборка будет выполняться каждые три минуты) и переносить соответствующие данные в требуемую таблицу хранилища каждую минуту.
 
-    ```json
-    "PerformanceCounters": {
-        "scheduledTransferPeriod": "PT1M",
-        "PerformanceCounterConfiguration": [
-            {
-                "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                "sampleRate": "PT15S",
-                "unit": "Percent",
-                "annotation": [
-                ],
-                "sinks": ""
-            }
-        ]
-    }
-    ```
+  ```json
+  "PerformanceCounters": {
+      "scheduledTransferPeriod": "PT1M",
+      "PerformanceCounterConfiguration": [
+          {
+              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+              "sampleRate": "PT15S",
+              "unit": "Percent",
+              "annotation": [
+              ],
+              "sinks": ""
+          }
+      ]
+  }
+  ```
+  
 Если вы используете приемник Application Insights, как описано в разделе ниже, и вам нужно, чтобы эти метрики отображались в Application Insights, добавьте имя приемника в соответствующем разделе, как показано выше. Кроме того, создайте отдельную таблицу для отправки счетчиков производительности, чтобы они не вытесняли данные, поступающие с других включенных каналов ведения журналов.
 
 

@@ -12,25 +12,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 5281f6af0e93da7aa1c72891c179afea99c6a26c
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: d973e52a6b19d6a066de1677e5707d182a815205
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Создание Центра Интернета вещей с помощью шаблона Azure Resource Manager (.NET)
+
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>Введение
-Диспетчер ресурсов Azure можно использовать для создания центров Azure IoT программным способом и управления ими. В этом учебнике показано, как использовать шаблон Azure Resource Manager для создания Центра Интернета вещей из программы на C#.
+Диспетчер ресурсов Azure можно использовать для создания Центров Интернета вещей Azure программным способом и управления ими. В этом учебнике показано, как использовать шаблон Azure Resource Manager для создания Центра Интернета вещей из программы на C#.
 
 > [!NOTE]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Azure Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md).  В этой статье описывается использование модели развертывания на основе Azure Resource Manager.
-> 
-> 
 
 Для работы с этим учебником требуется:
 
@@ -42,22 +40,28 @@ ms.lasthandoff: 05/16/2017
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## <a name="prepare-your-visual-studio-project"></a>Подготовка проекта Visual Studio
+
 1. В Visual Studio создайте проект классического приложения Windows на языке Visual C# с помощью шаблона проекта **консольного приложения (.NET Framework)**. Дайте проекту имя **CreateIoTHub**.
+
 2. В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите **Управление пакетами NuGet**.
+
 3. В диспетчере пакетов NuGet выберите **Включить предварительные выпуски** и на странице **Обзор** найдите **Microsoft.Azure.Management.ResourceManager**. Выберите пакет, щелкните **Установить**, на странице **Просмотр изменений** нажмите кнопку **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
+
 4. В диспетчере пакетов NuGet найдите **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Щелкните **Установить**, на странице **Просмотр изменений** нажмите кнопку **ОК** и выберите **Я принимаю**, чтобы принять условия лицензии.
+
 5. Откройте файл Program.cs и замените существующие инструкции **using** следующим кодом:
-   
-    ```
+
+    ```csharp
     using System;
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-6. В Program.cs добавьте следующие статические переменные, заменив значения заполнителей. Ранее в этом учебнике вы записали **ApplicationId**, **SubscriptionId**, **TenantId** и **Password**. **Your Azure Storage account name** — это имя учетной записи хранения Azure, в которой вы храните файлы шаблона Azure Resource Manager. **Resource group name** — это имя группы ресурсов, используемых при создании Центра Интернета вещей. Это может быть существующая группа ресурсов или новая. **Deployment name** — это имя развертывания, например **Deployment_01**.
-   
-    ```
+
+6. В Program.cs добавьте следующие статические переменные, заменив значения заполнителей. Ранее в этом учебнике вы записали **ApplicationId**, **SubscriptionId**, **TenantId** и **Password**. **Your Azure Storage account name** — это имя учетной записи хранения Azure, в которой вы храните файлы шаблона Azure Resource Manager. **Resource group name** — это имя группы ресурсов, используемой при создании Центра Интернета вещей. Это может быть существующая группа ресурсов или новая. **Deployment name** — это имя развертывания, например **Deployment_01**.
+
+    ```csharp
     static string applicationId = "{Your ApplicationId}";
     static string subscriptionId = "{Your SubscriptionId}";
     static string tenantId = "{Your TenantId}";
@@ -69,13 +73,15 @@ ms.lasthandoff: 05/16/2017
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
-## <a name="submit-an-azure-resource-manager-template-to-create-an-iot-hub"></a>Отправка шаблона Azure Resource Manager для создания Центра Интернета вещей
-Для создания центра IoT в группе ресурсов используйте шаблон JSON и файл параметров. Можно также использовать шаблон Azure Resource Manager для изменения существующего Центра Интернета вещей.
+## <a name="submit-a-template-to-create-an-iot-hub"></a>Отправка шаблона для создания Центра Интернета вещей
+
+Для создания Центра Интернета вещей в группе ресурсов используйте шаблон JSON и файл параметров. Можно также использовать шаблон Azure Resource Manager для изменения существующего Центра Интернета вещей.
 
 1. В обозревателе решений щелкните правой кнопкой мыши проект, выберите пункт **Добавить**, а затем щелкните **Новый элемент**. Добавьте файл JSON с именем **template.json** в проект.
-2. Замените содержимое файла **template.json** следующим определением ресурса для добавления стандартного Центра Интернета вещей в регион **Восточная часть США**. Текущий список регионов, которые поддерживают Центр Интернета вещей, указан на странице [Состояние Azure][lnk-status].
-   
-    ```
+
+2. Для добавления стандартного Центра Интернета вещей в регион **Восточная часть США** замените содержимое файла **template.json** следующим определением ресурса. Текущий список регионов, которые поддерживают Центр Интернета вещей, указан на странице [Состояние Azure][lnk-status].
+
+    ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
@@ -108,10 +114,12 @@ ms.lasthandoff: 05/16/2017
       }
     }
     ```
+
 3. В обозревателе решений щелкните правой кнопкой мыши проект, выберите пункт **Добавить**, а затем щелкните **Новый элемент**. Добавьте в проект файл JSON с именем **parameters.json** .
+
 4. Замените содержимое файла **parameters.json** следующим параметром, который задает имя нового Центра Интернета вещей, например **{ваши_инициалы}mynewiothub**. Имя Центра Интернета вещей должно быть глобально уникальным, поэтому оно должно включать ваше имя или инициалы:
-   
-    ```
+
+    ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
       "contentVersion": "1.0.0.0",
@@ -121,24 +129,27 @@ ms.lasthandoff: 05/16/2017
     }
     ```
   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 5. В **обозревателе сервера** подключитесь к подписке Azure и в учетной записи хранения Azure создайте контейнер с именем **templates**. На панели **Свойства** задайте разрешениям **Общий доступ на чтение** для контейнера **templates** значение **Большой двоичный объект**.
+
 6. В **обозревателе сервера** щелкните правой кнопкой мыши контейнер **templates**, а затем выберите **Просмотреть контейнер больших двоичных объектов**. Нажмите кнопку **Передать BLOB-объект**, выберите файлы **parameters.json** и **templates.json**, а затем нажмите кнопку **Открыть**, чтобы передать файлы JSON в контейнер **templates**. URL-адреса больших двоичных объектов, содержащих данные JSON, таковы:
-   
-    ```
+
+    ```csharp
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
     https://{Your storage account name}.blob.core.windows.net/templates/template.json
     ```
 7. Добавьте в класс Program.cs следующий метод:
-   
-    ```
+
+    ```csharp
     static void CreateIoTHub(ResourceManagementClient client)
     {
-   
+
     }
     ```
+
 8. Добавьте следующий код в метод **CreateIoTHub** для отправки файлов шаблонов и параметров в Azure Resource Manager:
-   
-    ```
+
+    ```csharp
     var createResponse = client.Deployments.CreateOrUpdate(
         rgName,
         deploymentName,
@@ -158,12 +169,13 @@ ms.lasthandoff: 05/16/2017
           }
         });
     ```
-9. Добавьте следующий код в метод **CreateIoTHub** , который отображает состояние и ключи для нового центра IoT:
-   
-    ```
+
+9. Добавьте следующий код в метод **CreateIoTHub** , который отображает состояние и ключи для нового Центра Интернета вещей:
+
+    ```csharp
     string state = createResponse.Properties.ProvisioningState;
     Console.WriteLine("Deployment state: {0}", state);
-   
+
     if (state != "Succeeded")
     {
       Console.WriteLine("Failed to create iothub");
@@ -172,25 +184,27 @@ ms.lasthandoff: 05/16/2017
     ```
 
 ## <a name="complete-and-run-the-application"></a>Завершение и запуск приложения
+
 Теперь можно завершить приложение, вызвав метод **CreateIoTHub** , а затем собрать и запустить приложение.
 
 1. Добавьте в конец метода **Main** следующий код:
-   
-    ```
+
+    ```csharp
     CreateIoTHub(client);
     Console.ReadLine();
     ```
+
 2. Щелкните **Построить** и **Построить решение**. Исправьте все ошибки.
+
 3. Щелкните **Отладка** и **Начать отладку** для запуска приложения. Для запуска развертывания может потребоваться несколько минут.
-4. Убедитесь, что в приложение добавлен новый Центр Интернета вещей, посетив [портал Azure][lnk-azure-portal] и просмотрев список ресурсов, или с помощью командлета PowerShell **Get-AzureRmResource**.
+
+4. Чтобы убедиться, что в приложение добавлен новый Центр Интернета вещей, посетите [портал Azure][lnk-azure-portal] и просмотрите список ресурсов. Вы также можете воспользоваться командлетом PowerShell **Get-AzureRmResource**.
 
 > [!NOTE]
-> В этом примере приложения добавляется стандартный центр IoT S1, который подлежит оплате. Когда закончите, Центр Интернета вещей можно удалить через [портал Azure][lnk-azure-portal] или с помощью командлета PowerShell **Remove-AzureRmResource**.
-> 
-> 
+> В этом примере приложения добавляется стандартный Центр Интернета вещей S1, который подлежит оплате. Когда закончите, Центр Интернета вещей можно удалить через [портал Azure][lnk-azure-portal] или с помощью командлета PowerShell **Remove-AzureRmResource**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-После развертывания центра IoT с использованием шаблона Azure Resource Manager и программы на C# вас могут заинтересовать следующие статьи:
+После развертывания Центра Интернета вещей с использованием шаблона Azure Resource Manager и программы на C# вас могут заинтересовать следующие статьи:
 
 * Ознакомьтесь с возможностями [REST API поставщика ресурсов Центра Интернета вещей][lnk-rest-api].
 * Сведения о возможностях Azure Resource Manager см. в статье [Общие сведения об Azure Resource Manager][lnk-azure-rm-overview].
@@ -200,7 +214,7 @@ ms.lasthandoff: 05/16/2017
 * [Знакомство с пакетом SDK для устройств Azure IoT для C][lnk-c-sdk]
 * [IoT Hub SDKs][lnk-sdks] (Пакеты SDK для Центра Интернета вещей)
 
-Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
 * [Отправка сообщений с устройства в облако с помощью имитации устройства (Linux) с использованием Edge Интернета вещей Azure][lnk-iotedge]
 

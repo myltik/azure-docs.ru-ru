@@ -12,25 +12,29 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/03/2017
+ms.date: 08/09/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 1fde062d9673a48698b269d79e009c7b179e5934
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: c0546fd5b1398759ef98afa267146ced8a4084da
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Развертывание приложения в кластер сообщества в Azure
-В этом руководстве показано, как развернуть приложение Azure Service Fabric в кластер сообщества в Azure.
+Это руководство из цикла. В нем показано, как развернуть приложение Azure Service Fabric в кластер сообщества в Azure.
 
-В этой части руководства вы узнаете, как выполнить следующие действия:
+Во втором руководстве из цикла вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]
 > * Развертывание приложения на удаленный кластер с помощью Visual Studio
 > * Удаление приложения из кластера с помощью Service Fabric Explorer
 
-Руководство разбито на три статьи, эта статья — вторая в серии.
+Из этого цикла руководств вы узнаете, как выполнять такие задачи:
+> [!div class="checklist"]
+> * [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
+> * Развертывание приложения в удаленном кластере.
+> * [Настройка непрерывной интеграции и непрерывного развертывания с помощью Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим руководством выполните следующие действия:

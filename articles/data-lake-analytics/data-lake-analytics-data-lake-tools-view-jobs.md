@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 08/02/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 2e5dbaf595e3d3cd7dee09431fbb1cb6f2403ef4
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Использование браузера и представления для заданий Azure Data Lake Analytics
@@ -31,7 +30,7 @@ ms.lasthandoff: 06/20/2017
 См. раздел о [предварительных требованиях в отношении средств Data Lake для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Доступ к браузеру заданий
-Браузер заданий можно открыть, выбрав **Обозреватель серверов > Azure > Data Lake Analytics > Задания** в Visual Studio.  С помощью этого браузера можно получить доступ к хранилищу запросов учетной записи Data Lake Analytics. Слева в браузере заданий отображается хранилище запросов, где указываются основные сведения о заданиях. Справа отображается представление задания, где указываются подробные сведения о задании.
+Браузер заданий можно открыть, выбрав **Обозреватель серверов > Azure > Data Lake Analytics > Задания** в Visual Studio.  С помощью браузера заданий можно получить доступ к хранилищу запросов учетной записи Data Lake Analytics. В браузере заданий слева отображается хранилище запросов, в котором видны базовые сведения о задании, а справа — представление задания с подробными сведениями о задании.
 
 ## <a name="job-view"></a>Представление задания
 В представлении задания отображаются подробные сведения о задании. Чтобы открыть задание, дважды щелкните его в браузере или откройте его из меню Data Lake, щелкнув пункт Job View ("Представление задания"). Вы увидите диалоговое окно с URL-адресом задания.

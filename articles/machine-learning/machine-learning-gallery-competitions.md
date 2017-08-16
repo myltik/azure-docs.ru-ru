@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
-ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
-ms.lasthandoff: 02/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25ec625c1f32fd1477685196ea21ad6f582bc7ce
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Сведения о конкурсах в коллекции Cortana Intelligence
@@ -34,8 +34,7 @@ ms.lasthandoff: 02/21/2017
 
 ![Переход в раздел конкурсов с главной страницы коллекции](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
 
- На странице **[конкурсов](https://gallery.cortanaintelligence.com/competitions)**
- отобразится список наиболее популярных конкурсов.
+ На странице **[конкурсов](https://gallery.cortanaintelligence.com/competitions)** отобразится список наиболее популярных конкурсов.
 Щелкните **See all** (Показать все), чтобы просмотреть все конкурсы.
 На этой странице можно просмотреть все конкурсы в коллекции. Кроме того, для поиска можно задать условия фильтра в левой части страницы и ввести условия поиска вверху.
 
@@ -46,15 +45,13 @@ ms.lasthandoff: 02/21/2017
 ![Добавляйте свои комментарии](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="enter-a-competition"></a>Участие в конкурсе
-Если конкурс открыт, на странице сведений отображается состояние **Active** (Активный). Чтобы принять участие в конкурсе, нажмите кнопку **Enter Competition** (Принять участие в конкурсе). Появится окно со сведениями о необходимых ресурсах и дальнейших действиях.
+Если конкурс открыт, то на странице сведений отображается состояние **Active** (Активный). Чтобы принять участие в конкурсе, нажмите кнопку **Enter Competition** (Принять участие в конкурсе). Появится окно со сведениями о необходимых ресурсах и дальнейших действиях.
 
-![Конкурс завершен](media/machine-learning-gallery-competitions/open-competition.png)
+![Конкурс активен](media/machine-learning-gallery-competitions/open-competition.png)
 
-Если конкурс завершен, на странице с его описанием будет указано состояние **Выполнено**, а вместо кнопки **Enter Competition** (Принять участие) будет надпись **Готово**.
+Если конкурс завершен, то отображается список победителей.
 
-![Конкурс завершен](media/machine-learning-gallery-competitions/completed-competition.png)
-
-**[ПЕРЕЙТЕ В КОЛЛЕКЦИЮ >>](http://gallery.cortanaintelligence.com)**
+**[ПЕРЕЙТИ В КОЛЛЕКЦИЮ >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

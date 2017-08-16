@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 870436655c84c0bc53ca41eaa67f6fd32ef93ceb
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 6fd58edd830df8ea3f77a68e8dfcaf6de055b17c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="datasets-in-azure-data-factory"></a>Наборы данных в фабрике данных Azure
@@ -202,7 +201,7 @@ structure:
     Для структурированных источников данных информация о типах уже доступна, поэтому ее не следует включать при добавлении раздела structure.
 * **Для схемы на основе считываемых источников данных (особенно хранилища BLOB-объектов)** вы можете выбрать хранение данных без сохранения какой-либо схемы или сведений о типах вместе с данными. Для этих типов источников данных вы можете добавить раздел structure, если хотите сопоставить столбцы источника со столбцами приемника. Вы также можете добавить этот раздел в случае, когда набор данных представляет собой входные данные для действия копирования и типы данных исходного набора данных должны быть преобразованы в собственные типы для приемника. 
     
-    Фабрика данных поддерживает следующие значения для указания в разделе structure сведений о типах: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset и Timespan. Это значения типов на основе .NET, совместимые со спецификацией CLS.
+    Фабрика данных поддерживает следующие значения для указания в разделе structure сведений о типах: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset и Timespan**. Это значения типов на основе .NET, совместимые со спецификацией CLS.
 
 Фабрика данных автоматически преобразует типы при переносе данных из источника в приемник. 
   
@@ -269,7 +268,7 @@ structure:
 "availability": {
     "frequency": "Month",
     "interval": 1,
-    "offset": "3.08:00:00",    
+    "offset": "3.08:00:00", 
     "style": "StartOfInterval"
 }
 ```

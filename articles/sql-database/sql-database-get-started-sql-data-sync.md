@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: af4d41f8fa04902c766cd85d7e90f61dff8133e7
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2d0f9d7f32ad79f49d58165d734b9df4af862835
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Приступая к работе с синхронизацией данных SQL Azure (предварительная версия)
@@ -28,6 +28,10 @@ ms.lasthandoff: 06/30/2017
 В этом руководстве предполагается, что у вас имеется некоторый опыт работы с базой данных SQL и SQL Server. 
 
 Общие сведения о синхронизации данных SQL см. в разделе [Синхронизация данных](sql-database-sync-data.md).
+
+Полные примеры PowerShell, которые демонстрируют, как настроить синхронизацию данных SQL, приведены в следующих статьях:
+-   [Использование PowerShell для синхронизации данных между несколькими базами данных SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+-   [Использование PowerShell для синхронизации данных между базой данных SQL Azure и локальной базой данных SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 > [!NOTE]
 > Полная техническая документация по синхронизации данных SQL Azure, которая ранее располагалась на сайте MSDN, доступна в виде PDF-файла. Его можно скачать [здесь](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).

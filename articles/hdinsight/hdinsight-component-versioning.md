@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 406a1d0af58cb7b9145a836027d470272be17004
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 26512049dba3d4dde575c5a67ba884fb56374236
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Что представляют собой компоненты и версии Hadoop, доступные в HDInsight?
@@ -38,7 +38,7 @@ Azure HDInsight поддерживает несколько версий кла�
 > [!NOTE]
 > Версия по умолчанию службы HDInsight может измениться без предварительного уведомления. Если используется зависимость версии, укажите версию HDInsight при создании кластеров с использованием пакета SDK для .NET, Azure PowerShell и Azure CLI.
 
-| Компонент | HDInsight 3.6 | HDInsight 3.5 (по умолчанию) | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
+| Компонент | HDInsight 3.6 (по умолчанию) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2,0 |
 | Apache Hadoop и YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -85,7 +85,7 @@ Azure HDInsight поддерживает несколько версий кла�
 | Версия HDInsight | Версия HDP | ОС виртуальной машины | высокую доступность; | Дата выпуска | Доступность на портале Azure | Дата прекращения поддержки | Дата вывода |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |Да |4 апреля 2017 г. |Да | | |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Да |30 сентября 2016 г. |Да |5 июля 2017 г. |31 мая 2018 г. |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Да |30 сентября 2016 г. |Да |5 сентября 2017 г. |31 мая 2018 г. |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Да |29 марта 2016 г. |Да |29 декабря 2016 г. |9 января 2018 г. |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Да |2 декабря 2015 г. |Да |27 июня 2016 г. |31 июля 2018 г. |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Да |2 декабря 2015 г. |Да |27 июня 2016 г. |31 июля 2017 г. |

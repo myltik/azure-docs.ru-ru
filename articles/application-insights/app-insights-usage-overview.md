@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 9ac6ed0d6171b572e0d5729a4fe7c8bd7869525d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 33aebd002458d40a5a09b6fe334ad43ec578df83
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -41,6 +41,10 @@ ms.lasthandoff: 07/19/2017
 
     Опубликуйте ваше приложение для отслеживания его производительности и узнайте, что делают с ним пользователи.
 
+## <a name="include-user-and-session-id-in-your-telemetry"></a>Добавление идентификатора пользователя и сеанса к телеметрии
+Для долговременного отслеживания пользователей Application Insights требуется способ их идентификации. Инструмент "События" — это единственный инструмент использования, не требующий идентификатор пользователя или сеанса.
+
+Приступите к отправке этих идентификаторов [сюда](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Изучение демографических данных об использовании и статистики
 Узнайте, когда люди используют ваше приложение, какие страницы им наиболее интересны, где находятся ваши пользователи, какие браузеры и операционные системы они используют. 
@@ -166,9 +170,9 @@ ms.lasthandoff: 07/19/2017
 Все новые клиенты телеметрии автоматически добавляют указанное значение свойства. Отдельные события телеметрии могут переопределять значения по умолчанию.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-* [Пользователи и сеансы](app-insights-usage-segmentation.md)
-* [Сохранение](app-insights-usage-retention.md)
-* [Программирование пользовательских событий](app-insights-api-custom-events-metrics.md)
-
+   - [Пользователи, сеансы, события](app-insights-usage-segmentation.md)
+   - [Воронки](usage-funnels.md)
+   - [Сохранение](app-insights-usage-retention.md)
+   - [Книги](app-insights-usage-workbooks.md)
+   - [Добавление контекста пользователей](app-insights-usage-send-user-context.md)
 

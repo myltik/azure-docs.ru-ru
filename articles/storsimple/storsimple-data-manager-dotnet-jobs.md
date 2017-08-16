@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 270f890b5ec58ffd009ff913a6df9d941889a6dc
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -31,12 +31,12 @@ ms.lasthandoff: 05/08/2017
 ## <a name="prerequisites"></a>Предварительные требования
 
 Перед началом работы убедитесь, что у вас есть следующие компоненты:
-*    Система, в которой установлена среда Visual Studio 2012, 2013 или 2015.
-*    Azure PowerShell установлен. [Скачать Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*    Параметры конфигурации для инициализации задания преобразования данных (инструкции для получения этих параметров приведены в этой статье).
-*    Определение задания, которое правильно настроено в гибридном ресурсе данных в группе ресурсов.
-*    Все необходимые библиотеки DLL. Их можно скачать из [репозитория GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*    [Скрипт](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) `Get-ConfigurationParams.ps1` из репозитория GitHub.
+*   Система, в которой установлена среда Visual Studio 2012, 2013, 2015 или 2017.
+*   Azure PowerShell установлен. [Скачать Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*   Параметры конфигурации для инициализации задания преобразования данных (инструкции для получения этих параметров приведены в этой статье).
+*   Определение задания, которое правильно настроено в гибридном ресурсе данных в группе ресурсов.
+*   Все необходимые библиотеки DLL. Их можно скачать из [репозитория GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
+*   [Скрипт](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) `Get-ConfigurationParams.ps1` из репозитория GitHub.
 
 ## <a name="step-by-step"></a>Пошаговое руководство
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 05/08/2017
     5. В поле **Расположение** выберите **C:\DataTransformation**.
     6. Нажмите кнопку **ОК** , чтобы создать проект.
 
-4.    Теперь добавьте все библиотеки DLL из папки [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) в качестве **ссылочных** в созданный проект. Чтобы скачать DLL-файлы, сделайте следующее:
+4.  Теперь добавьте все библиотеки DLL из папки [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) в качестве **ссылочных** в созданный проект. Чтобы скачать DLL-файлы, сделайте следующее:
 
     1. В Visual Studio выберите **Просмотр > Обозреватель решений**.
     1. Щелкните стрелку слева от проекта приложения преобразования данных. Щелкните **Ссылки**, а затем щелкните этот элемент правой кнопкой мыши и выберите **Добавить ссылку**.

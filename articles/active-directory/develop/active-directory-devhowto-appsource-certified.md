@@ -12,35 +12,109 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2017
+ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e1299c1f7f8a31f7034fc0736fcd9d66153a9758
-ms.openlocfilehash: 3290a375963bc3e625cbdb05b5f9686e8cfb34f6
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: d8e2f8fc19ff879e6a7b632f033fd0ed9d77392a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="how-to-get-appsource-certified-for-azure-active-directory-ad"></a>Как получить сертификат AppSource для Azure Active Directory (AD)
-Чтобы получить сертификат AppSource для Azure AD, в приложении необходимо реализовать мультитенантный вход с помощью Azure AD с использованием протоколов OpenID Connect или OAuth 2.0.  
 
-Если вы не знакомы с процедурой входа в Azure AD или с разработкой мультитенантных приложений:
+# <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Как получить сертификат AppSource для Azure Active Directory
+С помощью [Microsoft AppSource](https://appsource.microsoft.com/) бизнес-пользователи могут обнаруживать бизнес-приложения SaaS (автономные приложения SaaS и дополнения к имеющимся продуктам SaaS Microsoft), использовать их и управлять ими.
 
-1. Начните с изучения [раздела "Из веб-браузера в веб-приложение" статьи "Сценарии аутентификации в Azure Active Directory"][AAD-Auth-Scenarios-Browser-To-WebApp].  
-2. Затем ознакомьтесь с [краткими руководствами по началу работы с веб-приложениями][AAD-QuickStart-Web-Apps] для Azure AD, в которых показано, как реализовывать вход и включать сопутствующие примеры кода.
+Чтобы вывести список автономных приложений SaaS на AppSource, приложение должно принять единый вход из рабочих учетных записей любой компании или организации с Azure Active Directory. В процессе входа необходимо использовать протоколы [OpenID Connect](./active-directory-protocols-openid-connect-code.md) или [OAuth 2.0](./active-directory-protocols-oauth-code.md). Для сертификации AppSource интеграции SAML не принимается.
 
-   > [!TIP]
-   > Воспользуйтесь предварительной версией нашего нового [портала разработчиков](https://identity.microsoft.com/Docs/Web) , который поможет вам приступить к работе с Azure Active Directory через несколько минут.  Портал разработчиков поможет зарегистрировать приложение и интегрировать Azure AD в коде.  Завершив работу, вы получите простое приложение, с помощью которого выполняется проверка подлинности пользователей в клиенте и на сервере, принимающем маркеры и проводящем проверку.
-   >
-   >
-3. Чтобы узнать, как реализовать мультитенантный вход с помощью Azure AD, см. статью [Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения][AAD-Howto-Multitenant-Overview].
+## <a name="guides-and-code-samples"></a>Руководства и примеры кода
+Если вы хотите узнать о том, как интегрировать приложения с Azure Active Directory с помощью Open ID Connect, следуйте инструкциям и используйте примеры кода из [руководства разработчика Azure Active Directory](./active-directory-developers-guide.md#get-started "Начало работы").
 
-## <a name="related-content"></a>Связанная информация
-Для получения дополнительных сведений о создании приложений с поддержкой входа в Azure AD или справочной информации и технической поддержки см. [руководство разработчика по Azure Active Directory][AAD-Dev-Guide].
+## <a name="multi-tenant-applications"></a>Мультитенантные приложения
 
-Оставляйте свои замечания и пожелания в разделе DISQUS ниже. Они помогают нам улучшать содержимое веб-сайта.
+Приложение, принимающее вход пользователя из любой компании или организации с Azure Active Directory, не требуя отдельного экземпляра, конфигурации и развертывания, называется *многопользовательским приложением*. AppSource рекомендует реализовать поддержку мультитенантности в приложениях, чтобы добавить бесплатную пробную версию возможности входа *одним щелчком*.
+
+Чтобы включить мультитенантность в приложении, сделайте следующее:
+- Задайте для свойства `Multi-Tenanted` значение `Yes` в сведениях о регистрации приложения на [портале Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (по умолчанию, приложения, созданные на портале Azure, настроены как *приложения с одним клиентом*).
+- Обновите код, чтобы отправлять запросы к конечной точке `common` (измените конечную точку с *https://login.microsoftonline.com/{ваш_клиент}* на *https://login.microsoftonline.com/common*).
+- Для некоторых платформ, например ASP.NET, необходимо также обновить код, чтобы принимать нескольких издателей.
+
+Дополнительные сведения о мультитенантности см. в статье [Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения](./active-directory-devhowto-multi-tenant-overview.md).
+
+### <a name="single-tenant-applications"></a>Приложения с одним клиентом
+Приложения, которые принимают вход пользователей только из определенного экземпляра Azure Active Directory, называются *приложениями с одним клиентом*. Внешние пользователи (включая рабочие или учебные учетные записи из других организаций или личные учетные записи) могут войти в приложение с одним клиентом после добавления каждого пользователя в качестве *гостевой учетной записи* в экземпляр Azure Active Directory, в котором регистрируется приложение. В Azure Active Directory пользователей можно добавлять в качестве гостевых учетных записей через [*службу совместной работы Azure AD B2B*](../active-directory-b2b-what-is-azure-ad-b2b.md). Это можно сделать [программным образом](../active-directory-b2b-code-samples.md). При добавлении пользователя в качестве гостевой учетной записи в Azure Active Directory ему отправляется письмо с приглашением, которое он должен принять, щелкнув ссылку в этом письме. Дополнительному пользователю в приглашающей организации, который также входит в партнерскую организацию, не нужно принимать приглашение для входа.
+
+В приложениях с одним клиентом можно включить возможность *Свяжитесь со мной*. Однако если требуется включить вход одним щелчком или пробную версию возможности входа, рекомендуемые AppSource, включите в приложении мультитенантность.
+
+
+## <a name="appsource-trial-experiences"></a>Пробные версии возможностей AppSource
+
+### <a name="free-trial-customer-led-trial-experience"></a>Бесплатная пробная версия возможности (для заказчика) 
+*Пробная версия возможности для заказчика* рекомендуется AppSource, так как она позволяет воспользоваться доступом к приложению одним щелчком. Ниже показано, как выглядит эта возможность.<br/><br/>
+
+<table >
+<tr>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>Пользователь находит ваше приложение на веб-сайте AppSource.</li><li>Затем выбирает "Бесплатная пробная версия".</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource перенаправляет пользователя по URL-адресу вашего веб-сайта.</li><li>На вашем веб-сайте автоматически запускается <i>единый вход</i> (при загрузке страницы).</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>Пользователь перенаправляется на страницу входа Майкрософт.</li><li>Пользователь указывает учетные данные для входа.</li></ul></td>
+</tr>
+<tr>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>Пользователь дает согласие для приложения.</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Вход выполняется и пользователь перенаправляется на ваш веб-сайт.</li><li>Пользователь запускает бесплатную пробную версию.</li></ul></td>
+    <td></td>
+</tr>
+</table>
+
+### <a name="contact-me-partner-led-trial-experience"></a>Функция "Связаться со мной" (партнерская пробная версия)
+*Партнерскую пробную версию* можно использовать для операций, выполняемых вручную, длительных операций для подготовки пользователя или компании, например, когда приложению необходимо подготовить виртуальные машины или экземпляры базы данных. В этом случае если пользователь нажмет кнопку *Request Trial* (Запросить пробную версию) и заполнит форму, AppSource отправит вам контактные данные пользователя. Получив эти сведения, вы подготавливаете среду и отправляете пользователю инструкции по получению доступа к пробной версии:<br/><br/>
+
+<table valign="top">
+<tr>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>Пользователь находит ваше приложение на веб-сайте AppSource.</li><li>Выбирает параметр "Связаться со мной".</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>Заполняет форму контактными данными.</li></ul></td>
+     <td valign="top" width="33%">3.<br/><br/>
+        <table bgcolor="#f7f7f7">
+        <tr>
+            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
+            <td>Вы получаете сведения о пользователе.</td>
+        </tr>
+        <tr>
+            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
+            <td>Настраиваете среду.</td>
+        </tr>
+        <tr>
+            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
+            <td>Связываетесь с пользователем по поводу информации о пробной версии.</td>
+        </tr>
+        </table><br/><br/>
+        <ul><li>Вы получаете сведения пользователя и настраиваете пробный экземпляр.</li><li>Вы отправляете пользователю гиперссылку на получение доступа к приложению.</li></ul>
+    </td>
+</tr>
+<tr>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>Пользователь получает доступ к приложению и завершает процесс единого входа.</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>Пользователь дает согласие для приложения.</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Вход выполняется и пользователь перенаправляется на ваш веб-сайт.</li><li>Пользователь запускает бесплатную пробную версию.</li></ul></td>
+   
+</tr>
+</table>
+
+### <a name="more-information"></a>Дополнительные сведения
+Дополнительные сведения о пробной версии AppSource см. [в этом видео](https://aka.ms/trialexperienceforwebapps). 
+ 
+## <a name="next-steps"></a>Дальнейшие действия
+
+- Дополнительные сведения о разработке приложений, поддерживающих вход с помощью Azure Active Directory, см. в статье [Сценарии аутентификации в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios). 
+
+- Сведения о выводе списка приложений SaaS в AppSource см. на [странице сведений для партнеров AppSource](https://appsource.microsoft.com/partners).
+
+
+## <a name="get-support"></a>Получение поддержки
+Для интеграции Azure Active Directory мы используем [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory). Кроме того, участники сообщества могут предоставить поддержку. 
+
+Мы настоятельно рекомендуем сначала задавать вопросы на сайте Stack Overflow и просмотреть имеющиеся проблемы, чтобы узнать, не задавал ли кто-то аналогичные вопросы раньше. Пометьте вопросы и комментарии тегом `[azure-active-directory]`.
+
+Оставляйте свои замечания и пожелания в разделе ниже. Они помогают нам улучшать содержимое веб-сайта.
 
 <!--Reference style links -->
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -51,4 +125,3 @@ ms.lasthandoff: 03/01/2017
 
 
 <!--Image references-->
-

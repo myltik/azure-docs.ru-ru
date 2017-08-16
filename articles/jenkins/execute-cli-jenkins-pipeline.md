@@ -1,5 +1,5 @@
 ---
-title: "Развертывание в службу приложений Azure с помощью Jenkins и Azure CLI | Документы Майкрософт"
+title: "Выполнение Azure CLI с помощью Jenkins | Документация Майкрософт"
 description: "Сведения об использовании Azure CLI для развертывания веб-приложения Java в Azure в конвейере Jenkins"
 services: app-service\web
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: d0d20c10c7b14ff8873bb71feb9047a1c49700ef
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 5ca8338d4bf343f08fe70081cff755fa76a126a9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 

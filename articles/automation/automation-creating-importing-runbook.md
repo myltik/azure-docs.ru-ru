@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 08/07/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b590329e204c189ea2ef67b7c6c6bb6dacaf1628
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 0264de12caaf62e976673a423df731ad27ab01e0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Создание или импорт модуля Runbook в службе автоматизации Azure
@@ -36,7 +37,7 @@ ms.openlocfilehash: b590329e204c189ea2ef67b7c6c6bb6dacaf1628
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Создание нового модуля Runbook в службе автоматизации Azure с помощью портала Azure
 1. На портале Azure выберите свою учетную запись службы автоматизации.
-2. Щелкните плитку **Модули Runbook** , чтобы открыть список модулей Runbook.
+2. В концентраторе выберите **Модули Runbook**, чтобы открыть список модулей Runbook.
 3. Нажмите кнопку **Добавить Runbook**, а затем **Создать новый Runbook**.
 4. Введите **имя** для модуля Runbook и выберите его [тип](automation-runbook-types.md). Имя модуля Runbook должно начинаться с буквы и содержать буквы, цифры, символы подчеркивания и дефисы.
 5. Щелкните **Создать** , чтобы создать модуль Runbook и открыть текстовый редактор.
@@ -75,7 +76,7 @@ ms.openlocfilehash: b590329e204c189ea2ef67b7c6c6bb6dacaf1628
 > 
 
 1. На портале Azure выберите свою учетную запись службы автоматизации.
-2. Щелкните плитку **Модули Runbook** , чтобы открыть список модулей Runbook.
+2. В концентраторе выберите **Модули Runbook**, чтобы открыть список модулей Runbook.
 3. Нажмите кнопку **Добавить Runbook**, а затем **Импорт**.
 4. Щелкните **файл модуля Runbook** и выберите файл для импорта.
 5. Если поле **Имя** активно, его можно изменить.  Имя модуля Runbook должно начинаться с буквы и содержать буквы, цифры, символы подчеркивания и дефисы.
@@ -131,10 +132,5 @@ ms.openlocfilehash: b590329e204c189ea2ef67b7c6c6bb6dacaf1628
 * Дополнительные сведения о преимуществах использования коллекции модулей Runbook и PowerShell см. в статье [Коллекции модулей Runbook и других модулей для службы автоматизации Azure](automation-runbook-gallery.md).
 * Дополнительные сведения о редактировании модулей Runbook PowerShell и рабочих процессов PowerShell с помощью текстового редактора см. в статье [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md).
 * Дополнительные сведения о графической разработке модулей Runbook см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

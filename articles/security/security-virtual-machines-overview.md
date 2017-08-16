@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 9307b1688ed9e3dc412d044e72bdf88b7bb4d1ec
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: f1fb7f876c7dc010c03f01a4f6698ddc18da1100
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Общие сведения о безопасности при использовании виртуальных машин Azure
@@ -77,7 +76,7 @@ Azure предлагает антивредоносное ПО таких пос
 * [Решения для защиты, представленные в Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
 ## <a name="hardware-security-module"></a>Аппаратные модули безопасности.
-Шифрование и проверка подлинности не повысят безопасность, если ключи не защищены. Вы можете упростить защиту важных секретных кодов и ключей и управление ими, поместив их в хранилище ключей Azure. Хранилище ключей позволяет хранить ключи в аппаратных модулях безопасности (HSM), сертифицированных в соответствии со стандартами FIPS 140-2 (уровень 2). Ваши ключи шифрования SQL Server для резервного копирования или [прозрачного шифрования данных](https://msdn.microsoft.com/library/bb934049.aspx) могут храниться в хранилище ключей вместе с любыми ключами или секретными кодами приложений. Управление разрешениями и доступом к защищенным элементам осуществляется с помощью [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Защиту путем шифрования и аутентификации можно усилить, улучшив основные инструменты защиты. Вы можете упростить защиту важных секретных кодов и ключей и управление ими, поместив их в хранилище ключей Azure. Хранилище ключей позволяет хранить ключи в аппаратных модулях безопасности (HSM), сертифицированных в соответствии со стандартами FIPS 140-2 (уровень 2). Ваши ключи шифрования SQL Server для резервного копирования или [прозрачного шифрования данных](https://msdn.microsoft.com/library/bb934049.aspx) могут храниться в хранилище ключей вместе с любыми ключами или секретными кодами приложений. Управление разрешениями и доступом к защищенным элементам осуществляется с помощью [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Подробнее.
 

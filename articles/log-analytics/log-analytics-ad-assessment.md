@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/03/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 5dbb669d9f78ef7ba3f2668855b08750b7447040
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Оптимизация среды Active Directory с помощью решения оценки Active Directory в Log Analytics
@@ -53,7 +53,21 @@ ms.lasthandoff: 07/28/2017
   >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Сведения о сборе данных оценки Active Directory
-Оценка Active Directory собирает данные WMI, данные реестра и данные производительности с помощью включенных агентов.
+
+Оценка Active Directory собирает данные из следующих источников с помощью включенных агентов:
+
+- Сборщики данных реестра
+- Сборщики LDAP
+- .NET Framework
+- Сборщики журналируемых данных событий
+- Интерфейс ADSI
+- Windows PowerShell
+- Сборщики данных файлов
+- Инструментарий управления Windows (WMI)
+- API инструмента DCDIAG
+- API службы репликации файлов (NTFRS)
+- Пользовательский код C#
+
 
 В следующей таблице показаны методы сбора данных для агентов, необходимость Operations Manager (SCOM) и периодичность сбора данных агентом.
 

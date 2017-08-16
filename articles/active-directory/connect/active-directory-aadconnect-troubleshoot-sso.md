@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 39dd859d60e7f1dcf697e3c59b8f084e400bbae0
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -29,14 +29,23 @@ ms.lasthandoff: 07/25/2017
 ## <a name="known-issues"></a>Известные проблемы
 
 - При синхронизации 30 лесов AD и более простой единый вход через Azure AD Connect включить невозможно. Чтобы избежать этого, можно [вручную включить](#manual-reset-of-azure-ad-seamless-sso) эту функцию на своем клиенте.
-- Добавление URL-адресов службы Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) в зону "Надежные сайты" вместо зоны "Местная интрасеть" блокирует вход пользователей.
-- Простой единый вход не работает в конфиденциальном режиме просмотра в Firefox.
+- Добавление URL-адресов службы Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) в зону "Надежные сайты" вместо зоны "Местная интрасеть" **блокирует вход пользователей**.
+- Простой единый вход не работает в конфиденциальном режиме просмотра в Firefox и Edge, а также в Internet Explorer при включенном режиме повышенной защиты.
+
+>[!IMPORTANT]
+>Мы недавно выполнили откат поддержки Edge, чтобы найти причину проблем, о которых сообщили клиенты.
+
+## <a name="check-status-of-the-feature"></a>Проверка состояния функции
+
+Убедитесь, что функция простого единого входа по-прежнему **включена** в клиенте. Можно проверить состояние, перейдя в колонку **Azure AD Connect** в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/).
+
+![Центр администрирования Active Directory Azure — колонка "Azure AD Connect"](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Причины сбоя единого входа в центре администрирования Azure Active Directory
 
 Лучше всего начать поиск неполадок со входом пользователей при использовании простого единого входа — проверить [отчет о действиях при входе](../active-directory-reporting-activity-sign-ins.md) в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/).
 
-![Отчет о входе](./media/active-directory-aadconnect-sso/sso9.png)
+![Центр администрирования Azure Active Directory — отчет о действиях входа](./media/active-directory-aadconnect-sso/sso9.png)
 
 Перейдите в раздел **Azure Active Directory** -> **Вход в систему** в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/) и щелкните конкретное действие пользователя при входе. Найдите поле **КОД ОШИБКИ ВХОДА**. Сопоставьте значение этого поля c причиной сбоя и способом разрешения с помощью следующей таблицы:
 
@@ -81,7 +90,7 @@ ms.lasthandoff: 07/25/2017
     </QueryList>
 ```
 
-## <a name="manual-reset-of-azure-ad-seamless-sso"></a>Ручной сброс простого единого входа Azure AD
+## <a name="manual-reset-of-the-feature"></a>Ручной сброс функции
 
 Если устранение неполадок не помогло, можно сбросить вручную эту функцию на клиенте. Выполните следующие действия на локальном сервере, на котором выполняется Azure AD Connect:
 
