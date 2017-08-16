@@ -5,10 +5,11 @@
 ## [Защита вычислений](security-virtual-machines-overview.md)
 ## [Операционная безопасность](azure-operational-security-overview.md)
 ## [Управление безопасностью и мониторинг](security-management-and-monitoring-overview.md)
+## [Безопасность Service Fabric](azure-service-fabric-security-overview.md)
 ## [Управление удостоверениями](security-identity-management-overview.md)
 ## [Безопасность Интернета вещей](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Архитектура безопасности](azure-security-architecture-overview.md)
-### [Операционная безопасность](azure-operational-security.md)
+### [Включение функций операционной безопасности](azure-operational-security.md)
 ### [Расширенное обнаружение угроз](azure-threat-detection.md)
 ### [Ведение журналов и аудит](azure-log-audit.md)
 ### [Изоляция в общедоступном облаке](azure-isolation.md)
@@ -40,6 +41,9 @@
 #### [Устранение неполадок с шифрованием дисков](azure-security-disk-encryption-tsg.md)
 ### [Шифрование виртуальной машины Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
+## Операционная безопасность
+### [Рекомендации по обеспечению операционной безопасности](azure-operational-security-best-practices.md)
+
 ## Управление безопасностью и мониторинг
 ### [Управление безопасностью](azure-security-management.md)
 ### [Центр безопасности Azure](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -49,6 +53,10 @@
 #### [Интеграция оповещений центра безопасности](security-azure-log-integration-security-center.md)
 #### [Интеграция журналов из Key Vault с помощью концентраторов событий](security-azure-log-integration-keyvault-eventhub.md)
 #### [Часто задаваемые вопросы](security-azure-log-integration-faq.md)
+
+## Service Fabric
+### [Рекомендации по работе с Service Fabric](azure-service-fabric-security-best-practices.md)
+### [Контрольный список Service Fabric](azure-service-fabric-security-checklist.md)
 
 ## Управление удостоверениями
 ### [Рекомендации по управлению удостоверениями для обеспечения безопасности](azure-security-identity-management-best-practices.md)

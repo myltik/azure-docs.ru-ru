@@ -39,6 +39,7 @@
 ### [Потоковая передача журналов действий в концентраторы событий](monitoring-stream-activity-logs-event-hubs.md)
 ### [Операции аудита с помощью диспетчера ресурсов](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Создание оповещений о журнале действий с помощью Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+### [Переход к использованию оповещений журнала действий](monitoring-migrate-management-alerts.md)
 ## Использование уведомлений службы
 ### [Просмотр уведомлений службы](monitoring-service-notifications.md)
 ### [Настройка оповещений об уведомлениях службы](monitoring-activity-log-alerts-on-service-notifications.md)

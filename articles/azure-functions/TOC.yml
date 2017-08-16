@@ -109,6 +109,8 @@
           href: functions-bindings-event-hubs.md
         - name: Внешний файл
           href: functions-bindings-external-file.md
+        - name: Внешняя таблица
+          href: functions-bindings-external-table.md
         - name: HTTP и вызовы webhook
           href: functions-bindings-http-webhook.md
         - name: Мобильные приложения
