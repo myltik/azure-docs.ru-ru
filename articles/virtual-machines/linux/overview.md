@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: abddbe6b78c5c15d4deac68ff8c2504d2321fab0
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure и Linux
@@ -117,8 +117,6 @@ Microsoft Azure поддерживает различные дистрибути
 
 ### <a name="login-using-ssh-without-a-password"></a>Вход по протоколу SSH без пароля
 Теперь виртуальная машина работает в Azure, и вы готовы войти в систему.  Использование паролей для входа по протоколу SSH небезопасно и требует много времени.  Использование ключей SSH — наиболее безопасный и самый быстрый способ входа в систему.  При создании виртуальной машины Linux на портале или с помощью интерфейса командной строки можно выбрать один из двух вариантов аутентификации.  Если выбрать пароль для SSH, Azure настроит виртуальную машину для входа с помощью паролей.  Если выбрать использование открытого ключа SSH, Azure настроит виртуальную машину для входа только посредством ключей SSH и отключит вход по паролю. Чтобы защитить виртуальную машину Linux, разрешив только вход посредством ключей SSH, выберите использование открытого ключа SSH во время создания виртуальной машины с помощью портала или интерфейса командной строки.
-
-* [Отключение паролей SSH на виртуальной машине Linux в настройках SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="related-azure-components"></a>Связанные компоненты Azure
 ## <a name="storage"></a>Хранилище
