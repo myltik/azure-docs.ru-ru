@@ -92,8 +92,7 @@ Azure предлагает следующие значения Docker:
 Недавно в Azure выпущен интерфейс REST API [управления ресурсами Azure](../articles/resource-manager-deployment-model.md), а также обновленные инструменты интерфейса командной строки Azure и PowerShell, которыми легко пользоваться. С помощью [шаблонов диспетчера ресурсов Azure](../articles/resource-group-authoring-templates.md) и API управления ресурсами Azure можно выполнять развертывание, изменение или повторное развертывание топологий всего приложения, используя:
 
 * [портал Azure и шаблоны](https://github.com/Azure/azure-quickstart-templates)&mdash; (примечание: используйте кнопку DeployToAzure);
-* [интерфейс командной строки Azure](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json);
-* [модули Azure PowerShell](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [интерфейс командной строки Azure](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json);
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Развертывание всей группы виртуальных машин Azure и контейнеров и управление ими
 Существует несколько популярных систем, которые позволяют развертывать целые группы виртуальных машин и устанавливать Docker (или другие узлы контейнеров Linux) в виде автоматизируемой группы. Прямые ссылки см. в разделе [контейнеров и инструментов](#containers-and-vm-technologies) ниже. Существует несколько систем, которые в большей или меньшей степени позволяют сделать это, и этот список не является исчерпывающим. В зависимости от доступных навыков и сценариев, они могут быть или не быть полезными.
@@ -104,7 +103,7 @@ Azure предлагает следующие значения Docker:
 
 Кроме того, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) — это система для управления группами виртуальных машин и контейнеров с открытым исходным кодом, созданная с учетом опыта Google. Вы даже можете использовать [kubernetes совместно с weave для обеспечения поддержки сети](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.com/) является проектом с открытым исходным кодом класса "Платформа как услуга" (PaaS), который упрощает развертывание приложений и управление ими на собственных серверах. Deis собран на основе Docker и CoreOS для предоставления упрощенной PaaS и рабочего процесса в стиле Heroku. Вы можете легко [создать 3-узловую группу виртуальных машин Azure и установить Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) в Azure, а затем [установить приложение Hello World Go](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) является проектом с открытым исходным кодом класса "Платформа как услуга" (PaaS), который упрощает развертывание приложений и управление ими на собственных серверах. Deis собран на основе Docker и CoreOS для предоставления упрощенной PaaS и рабочего процесса в стиле Heroku.
 
 [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html) — это оптимизированный по размеру дистрибутив Linux с поддержкой Docker, собственной системой контейнеров [rkt](https://github.com/coreos/rkt) и инструментом управления группами контейнеров под названием [fleet](https://coreos.com/fleet/docs/latest/).
 
@@ -163,9 +162,6 @@ Docker в Microsoft Azure:
 
 * [Fleet в CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
-
-  * [Создание 3-узловой группы виртуальных машин Azure, установка Deis и запуск приложения Hello World Go](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* kubernetes
 
   * [Полное руководство по автоматизированному развертыванию кластера Kubernetes с помощью CoreOS и Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)

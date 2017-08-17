@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: b382225b9e355148279181fbf6238eb1e08f382d
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-resource-manager-overview"></a>Общие сведения о диспетчере ресурсов Azure
@@ -139,8 +139,6 @@ REQUEST BODY
 ![шаблон уровня](./media/resource-group-overview/tier-templates.png)
 
 Дополнительные сведения о разработке шаблонов см. в статье [Рекомендации по разработке шаблонов Azure Resource Manager](best-practices-resource-manager-design-templates.md). Дополнительные сведения см. в статье [Использование связанных шаблонов в Azure Resource Manager](resource-group-linked-templates.md).
-
-Сведения об автоматизации развертывания см. в статье [Automating application deployments to Azure Virtual Machines](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Автоматизация развертывания приложений на виртуальных машинах Azure), которая входит в цикл из четырех частей. Этот цикл охватывает такие аспекты, как архитектура приложения, доступ и безопасность, доступность и масштабирование, а также развертывание приложения.
 
 Azure Resource Manager анализирует зависимости, чтобы обеспечить создание ресурсов в правильном порядке. Если один ресурс зависит от значения в другом ресурсе (например, виртуальная машина, для которой требуется учетная запись хранения диска), можно задать зависимость. Дополнительные сведения см. в статье [Определение зависимостей в шаблонах диспетчера ресурсов Azure](resource-group-define-dependencies.md).
 

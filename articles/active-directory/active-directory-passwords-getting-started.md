@@ -17,10 +17,10 @@ ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="quickstart-azure-ad-self-service-password-reset"></a>Быстрое начало работы с самостоятельным сбросом пароля в Azure AD
@@ -79,13 +79,7 @@ ms.lasthandoff: 08/08/2017
 
 Отключить самостоятельный сброс пароля так же просто, как и включить. Откройте клиент Azure AD, выберите **Сброс пароля > Свойства**, а затем для параметра **Разрешен самостоятельный сброс пароля** установите значение **Нет**.
 
-## <a name="next-steps"></a>Дальнейшие действия
-
-Из этого краткого руководства вы узнали, как настроить самостоятельный сброса пароля для пользователей. Чтобы продолжить работу с порталом Azure и выполнить эти инструкции, перейдите на портал по указанной ниже ссылке.
-
-> [!div class="nextstepaction"]
-> [Включение самостоятельного сброса пароля](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
+### <a name="learn-more"></a>Подробнее
 Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих источниках:
 
 * [**Licensing requirements for Azure AD self-service password reset**](active-directory-passwords-licensing.md) (Требования к лицензированию самостоятельного сброса пароля в Azure AD). Сведения о настройке лицензирования Azure AD.
@@ -97,4 +91,12 @@ ms.lasthandoff: 08/08/2017
 * [**Как работает управление паролями в Azure Active Directory**](active-directory-passwords-how-it-works.md). Сведения о принципе работы управления паролями.
 * [**Вопросы и ответы об управлении паролями**](active-directory-passwords-faq.md). Как? Почему? Что? Где? Кто? Когда? Здесь приведены ответы на интересующие вас вопросы.
 * [**Устранение неполадок, связанных с управлением паролями**](active-directory-passwords-troubleshoot.md). Сведения об устранении распространенных проблем с SSPR.
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Из этого краткого руководства вы узнали, как настроить самостоятельный сброса пароля для пользователей. Чтобы продолжить работу с порталом Azure и выполнить эти инструкции, перейдите на портал по указанной ниже ссылке.
+
+> [!div class="nextstepaction"]
+> [Включение самостоятельного сброса пароля](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 
