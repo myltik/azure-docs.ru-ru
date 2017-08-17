@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 4d8e3f1252bc71cbf4bbbd30a16897bf4a0444d7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Обзор виртуальных машин Windows в Azure
@@ -38,7 +38,7 @@ ms.lasthandoff: 05/31/2017
 Вы можете увеличить масштаб виртуальных машин, используемых приложением, а также развернуть дополнительные виртуальные машины в соответствии с требованиями.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>О чем следует подумать перед созданием виртуальной машины?
-При создании инфраструктуры приложения в Azure всегда нужно учитывать множество [рекомендаций по проектированию](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Перед началом работы следует подумать о следующих аспектах для виртуальной машины:
+При создании инфраструктуры приложения в Azure всегда нужно учитывать множество [рекомендаций по проектированию](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Перед началом работы следует подумать о следующих аспектах для виртуальной машины:
 
 * имена ресурсов приложения;
 * расположение, в котором хранятся ресурсы;
@@ -49,7 +49,7 @@ ms.lasthandoff: 05/31/2017
 * связанные ресурсы, необходимые для виртуальной машины.
 
 ### <a name="naming"></a>Именование
-Виртуальной машине назначается [имя](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Кроме того, для нее настраивается имя компьютера как часть операционной системы. Имя виртуальной машины может содержать не более 15 символов.
+Виртуальной машине назначается [имя](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Кроме того, для нее настраивается имя компьютера как часть операционной системы. Имя виртуальной машины может содержать не более 15 символов.
 
 Если диск операционной системы создается с помощью Azure, имя компьютера и имя виртуальной машины совпадают. При [передаче и использовании собственного образа](upload-generalized-managed.md), содержащего ранее настроенную операционную систему, а также создании виртуальной машины с его помощью имена могут различаться. При передаче файла собственного образа мы советуем указать одинаковые имя компьютера в операционной системе и имя виртуальной машины.
 
@@ -106,7 +106,7 @@ Azure предоставляет множество [образов из Marketp
 | [Виртуальная сеть](../../virtual-network/virtual-networks-overview.md) |Да |Виртуальная машина должна быть подключена к виртуальной сети. |
 | [Общедоступный IP-адрес](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Нет |Для удаленного доступа к виртуальной машине ей можно назначить общедоступный IP-адрес. |
 | [Сетевой интерфейс](../../virtual-network/virtual-network-network-interface.md) |Да |Для обмена данными в сети виртуальной машине нужен сетевой интерфейс. |
-| [Диски данных](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Нет |Виртуальная машина может содержать диски данных для расширения объема ресурсов хранения. |
+| [Диски данных](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Нет |Виртуальная машина может содержать диски данных для расширения объема ресурсов хранения. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Как создать первую виртуальную машину?
 Существует несколько способов создания виртуальной машины. Выбор зависит от используемой среды. 
@@ -142,7 +142,7 @@ Azure предоставляет множество [образов из Marketp
 ### <a name="manage-availability"></a>Управление доступностью
 Важно понимать, как [обеспечить высокий уровень доступности](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) для приложения. Эта конфигурация требует создания нескольких виртуальных машин, чтобы гарантировать работу хотя бы одной из них.
 
-Чтобы обеспечить соответствие соглашению об уровне обслуживания на 99,95 %, необходимо развернуть две или больше виртуальные машины для выполнения рабочих нагрузок в рамках [группы доступности](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Такая конфигурация гарантирует, что виртуальные машины распределяются по нескольким доменам сбоя, а также развертываются на узлах с разными периодами обслуживания. В полном [соглашении об уровне обслуживания Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) поясняется гарантированная доступность Azure в целом.
+Чтобы обеспечить соответствие соглашению об уровне обслуживания на 99,95 %, необходимо развернуть две или больше виртуальные машины для выполнения рабочих нагрузок в рамках [группы доступности](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Такая конфигурация гарантирует, что виртуальные машины распределяются по нескольким доменам сбоя, а также развертываются на узлах с разными периодами обслуживания. В полном [соглашении об уровне обслуживания Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) поясняется гарантированная доступность Azure в целом.
 
 ### <a name="back-up-the-vm"></a>Архивация виртуальной машины
 [Хранилище служб восстановления](../../backup/backup-introduction-to-azure-backup.md) используется для защиты данных и ресурсов в службе архивации Azure и службах Azure Site Recovery. Хранилище служб восстановления позволяет [развертывать резервные копии виртуальных машин, развернутых с помощью Resource Manager, и управлять ими с использованием PowerShell](../../backup/backup-azure-vms-automation.md). 
@@ -150,6 +150,3 @@ Azure предоставляет множество [образов из Marketp
 ## <a name="next-steps"></a>Дальнейшие действия
 * Если планируется работать с виртуальными машинами Linux, см. сведения в статье [Azure и Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Дополнительные рекомендации по настройке инфраструктуры см. в статье [Пошаговое руководство по примеру инфраструктуры Azure](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Обязательно следуйте рекомендациям из статьи [Рекомендации по запуску виртуальных машин Windows в Azure](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
