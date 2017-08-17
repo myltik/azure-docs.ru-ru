@@ -7,6 +7,8 @@
 - name: Быстрое начало работы
   expanded: true
   items:
+    - name: Docker Swarm для Linux
+      href: container-service-swarm-walkthrough.md
     - name: DC/OS Linux
       href: container-service-dcos-quickstart.md
 - name: Учебники
@@ -29,7 +31,7 @@
       href: container-service-connect.md
     - name: Масштабирование кластера ACS
       href: container-service-scale.md
-    - name: Управление с помощью DC/OS
+    - name: DC/OS
       items:
         - name: "Управление контейнерами\_— пользовательский интерфейс DC/OS"
           href: container-service-mesos-marathon-ui.md
@@ -55,8 +57,10 @@
               href: container-service-monitoring-sysdig.md
             - name: Мониторинг с помощью Dynatrace
               href: container-service-monitoring-dynatrace.md
-    - name: Управление с помощью Docker Swarm
+    - name: Docker Swarm
       items:
+        - name: Краткое руководство по работе в режиме Swarm
+          href: container-service-swarm-mode-walkthrough.md
         - name: Docker и Docker Compose
           href: container-service-docker-swarm.md
         - name: CI/CD с помощью Docker Swarm и VSTS

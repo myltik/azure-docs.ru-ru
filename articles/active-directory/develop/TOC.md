@@ -33,6 +33,7 @@
 # Руководства
 ## [Регистрация приложения](active-directory-integrating-applications.md)
 ## [Мультитенантные приложения](active-directory-devhowto-multi-tenant-overview.md)
+## [Условный доступ](active-directory-conditional-access-developer.md)
 ## OAuth и OpenID Connect
 ### [Протокол OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Предоставление кода аутентификации OAuth 2.0](active-directory-protocols-oauth-code.md)
@@ -50,15 +51,15 @@
 ## [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)
 ## [Подготовка пользователей с использованием SCIM](../active-directory-scim-provisioning.md)
 ## [API Graph Azure AD](active-directory-graph-api.md)
-### [Приступая к работе с AAD Graph](active-directory-graph-api-quickstart.md)
-## [Сертификат AppSource](active-directory-devhowto-appsource-certified.md)
-## [Коллекция приложений Azure AD](active-directory-app-gallery-listing.md)
+### [Начало работы с AAD Graph](active-directory-graph-api-quickstart.md)
+## [Получение сертификата AppSource](active-directory-devhowto-appsource-certified.md)
+## [Коллекция приложений Azure Active Directory](active-directory-app-gallery-listing.md)
 ## [Панель мониторинга продавца Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 ## Работа с Visual Studio
 ### [Начало работы с подключенными службами Visual Studio](vs-active-directory-dotnet-getting-started.md)
 ### [Ошибка при обнаружении аутентификации](vs-active-directory-error.md)
 ### [Приступая к работе с WebApi](vs-active-directory-webapi-getting-started.md)
-### [Что произошло с моим проектом WebApi?](vs-active-directory-webapi-what-happened.md)
+### [Что произошло с моим проектом веб-API?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
@@ -102,7 +103,7 @@
 #### [Предоставление кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 #### [Неявное разрешение Oauth 2.0](active-directory-v2-protocols-implicit.md)
 #### [Предоставление учетных данных клиента OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-#### [Поток Oauth 2.0 On-Behalf-Of](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [Поток On-Behalf-Of в Oauth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Справочник по маркерам](active-directory-v2-tokens.md)
 #### [Учетные данные сертификата](active-directory-certificate-credentials.md)
 ### [Области действия](active-directory-v2-scopes.md)

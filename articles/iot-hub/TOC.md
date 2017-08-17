@@ -19,6 +19,8 @@
 #### [Подключение устройства Raspberry Pi 3 к Центру Интернета вещей с помощью C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### [Raspberry Pi с Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 
+#### [Набор для разработки решений Интернета вещей с использованием Visual Studio Code](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+
 #### [Подключение устройства Intel Edison к Центру Интернета вещей с помощью Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Подключение устройства Intel Edison к Центру Интернета вещей с помощью C](iot-hub-intel-edison-kit-c-get-started.md)
 
