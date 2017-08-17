@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 376b61037de8b1af657095b8b32ee16568af8894
-ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 337c6142c27314150a21f1c80a17aae17cd0d67f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Защита данных, хранимых в хранилище озера данных Azure
@@ -41,6 +40,18 @@ ms.lasthandoff: 02/07/2017
 ## <a name="create-security-groups-in-azure-active-directory"></a>Создание групп безопасности в Azure Active Directory
 Инструкции по созданию групп безопасности AAD и добавлению пользователей в группу см. в статье [Управление группами в Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
+> [!NOTE] 
+> Добавить пользователей и другие группы в группу в Azure AD можно с помощью портала Azure. Тем не менее, чтобы добавить в группу субъект-службу, используйте [модуль PowerShell Azure AD](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+> 
+> ```powershell
+> # Get the desired group and service principal and identify the correct object IDs
+> Get-AzureADGroup -SearchString "<group name>"
+> Get-AzureADServicePrincipal -SearchString "<SPI name>"
+> 
+> # Add the service principal to the group
+> Add-AzureADGroupMember -ObjectId <Group object ID> -RefObjectId <SPI object ID>
+> ```
+ 
 ## <a name="assign-users-or-security-groups-to-azure-data-lake-store-accounts"></a>Назначение пользователей или групп безопасности учетным записям хранения озера данных Azure
 При назначении пользователей или групп безопасности учетной записи хранения озера данных Azure вы контролируете доступ к операциям управления в учетной записи с помощью портала Azure и API диспетчера ресурсов Azure. 
 
@@ -60,7 +71,7 @@ ms.lasthandoff: 02/07/2017
    
     ![Добавление роли для пользователя](./media/data-lake-store-secure-data/adl.add.user.1.png "Добавление роли для пользователя")
    
-    Роли **Владелец** и **Участник** предоставляют доступ ко множеству функций администрирования учетной записи Data Lake. Пользователям, которые будут взаимодействовать с данными в озере данных, можно назначить роль **Читатель **. Область этих ролей ограничена операциями управления, относящимися к учетной записи хранения озера данных Azure.
+    Роли **Владелец** и **Участник** предоставляют доступ ко множеству функций администрирования учетной записи Data Lake. Пользователям, которые будут взаимодействовать с данными в озере данных, можно назначить роль **Читатель**. Область этих ролей ограничена операциями управления, относящимися к учетной записи хранения озера данных Azure.
    
     Разрешения отдельной файловой системы определяют, какие операции с данными могут выполнять пользователи. Таким образом, пользователь с ролью «Читатель» может только просматривать параметры администрирования, связанные с учетной записью, но потенциально может считывать и записывать данные в зависимости от назначенных ему разрешений файловой системы. Разрешения файловой системы хранилища озера данных описаны в разделе [Назначение группы безопасности в виде ACL в файловой системе хранилища озера данных Azure](#filepermissions).
 5. В колонке **Добавление доступа** щелкните **Добавить пользователей**, чтобы открыть колонку **Добавление пользователей**. В этой колонке найдите группу безопасности, созданную ранее в Azure Active Directory. Если у вас много групп для поиска, воспользуйтесь текстовым полем в верхней части для фильтрации по имени группы. Нажмите кнопку **Выбрать**.

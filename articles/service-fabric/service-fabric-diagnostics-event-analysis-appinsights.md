@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c88b2b5cff70e7a4b3642c53502f348f2e789e81
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -75,7 +74,7 @@ Azure Application Insights — это расширяемая платформа
 
 В обоих приведенных выше фрагментах кода имя applicationInsights использовалось для указания приемника. Это не является обязательным. Если имя приемника включено в элемент sinks, именем может быть любая строка.
 
-В настоящее время журналы кластера отображаются в средстве просмотра журналов Application Insights как трассировки. Так как большинство трассировок, поступающих с уровня инфраструктуры, имеют тип "Информация", можно также изменить конфигурацию приемника так, чтобы отправлялись журналы только типа "Критический" или "Ошибка". Для этого в приемник можно добавить каналы, как показано в [этой статье](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+В настоящее время журналы кластера отображаются в средстве просмотра журналов Application Insights как трассировки. Так как большинство трассировок, поступающих с платформы, имеют уровень "Информационный", можно также изменить конфигурацию приемника так, чтобы отправлялись журналы только типа "Критический" или "Ошибка". Для этого в приемник можно добавить каналы, как показано в [этой статье](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 >[!NOTE]
 >При использовании неправильного ключа инструментирования Application Insights на портале или в шаблоне Resource Manager его необходимо поменять вручную, а затем обновить или повторно развернуть кластер. 

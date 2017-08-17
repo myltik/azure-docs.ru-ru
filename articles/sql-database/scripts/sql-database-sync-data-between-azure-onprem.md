@@ -3,7 +3,7 @@ title: "Пример PowerShell. Синхронизация данных меж�
 description: "Пример сценария PowerShell для синхронизации данных между базой данных SQL Azure и локальной базой данных SQL Server."
 services: sql-database
 documentationcenter: sql-database
-author: douglaslms
+author: jognanay
 manager: jhubbard
 editor: 
 tags: 

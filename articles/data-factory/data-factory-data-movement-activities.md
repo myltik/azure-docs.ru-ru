@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 07/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Перемещение данных с помощью действия копирования
@@ -187,6 +186,12 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Сведения о ключевых факторах, влияющих на производительность перемещения данных (действие копирования) в фабрике данных Azure см. в [руководстве по настройке производительности действия копирования](data-factory-copy-activity-performance.md). В ней также приведены сведения о производительности, наблюдаемой во время внутреннего тестирования, и рассматриваются различные способы оптимизировать производительность действия копирования.
+
+## <a name="fault-tolerance"></a>Отказоустойчивость
+По умолчанию действие копирования останавливает копирование данных и возвращает сбой при возникновении несовместимости данных между источником и приемником; можно явно настроить пропуск несовместимых строк и их регистрацию в журнале и копировать только совместимые данные, чтобы операция копирования была выполнена успешно. Дополнительные сведения см. в разделе [Отказоустойчивость действий копирования](data-factory-copy-activity-fault-tolerance.md).
+
+## <a name="security-considerations"></a>Вопросы безопасности
+Обратитесь к разделу [Вопросы безопасности](data-factory-data-movement-security-considerations.md), в котором описывается базовая инфраструктура безопасности, используемая службами перемещения данных в фабрике данных Azure для защиты данных.
 
 ## <a name="scheduling-and-sequential-copy"></a>Планирование и последовательное копирование
 Подробные сведения о планировании и исполнении в фабрике данных см. в [этой статье](data-factory-scheduling-and-execution.md). Несколько операций копирования можно выполнить друг за другом последовательно или упорядоченно. См. раздел [Последовательное копирование](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).

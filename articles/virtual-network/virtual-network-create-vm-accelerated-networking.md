@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 0d74a13968338d5dc88eab3353316c77c7544615
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: c852a1297261504015a3a985fe14a38957d1a64a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Создание виртуальной машины с ускоренной сетью
@@ -36,7 +35,8 @@ ms.lasthandoff: 07/06/2017
 
 Возможности функции ускорения сети применяются только к той виртуальной машине, где она включена. Для получения наилучших результатов необходимо включить эту функцию по крайней мере на двух виртуальных машинах, подключенных к одной виртуальной сети Azure. При обмене данными между виртуальными или локальными сетями эта функция практически не влияет на общую задержку.
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
+> [!WARNING]
+> Эта общедоступная предварительная версия Linux может не отличаться таким же уровнем доступности и надежности, как функции, предоставляемые в режиме общедоступной версии. Эта функция не поддерживается, может иметь ограничения и быть доступной не во всех расположениях Azure. Актуальные сведения о доступности и состоянии этой функции см. на странице обновлений виртуальной сети Azure.
 
 ## <a name="benefits"></a>Преимущества
 * **Уменьшение задержки (больше пакетов в секунду).** Благодаря обходу виртуального коммутатора на пути к данным на узле не выполняется обработка политики пакетов. Таким образом, увеличивается число пакетов, которые могут быть обработаны на виртуальной машине.
@@ -51,6 +51,7 @@ ms.lasthandoff: 07/06/2017
 * **Регионы.** Виртуальные машины Windows с ускоренной сетью доступны в большинстве регионов Azure, Виртуальные машины Linux с ускоренной сетью доступны в нескольких регионах. Набор поддерживаемых регионов будет расширяться. Для получения последних сведений см. блог обновлений виртуальной сети Azure.   
 * **Поддерживаемые операционные системы.** Windows: Microsoft Windows Server 2012 R2 Datacenter и Windows Server 2016. Linux: Ubuntu Server 16.04 LTS с ядром 4.4.0-77 или более поздней версии, SLES 12 SP2, RHEL 7.3 и CentOS 7.3 (опубликована Rogue Wave Software).
 * **Размер виртуальной машины.** Экземпляры общего назначения и оптимизированные для вычислений экземпляры с минимум восемью ядрами. Дополнительные сведения см. в статье [Размеры виртуальных машин Windows в Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или [Размеры виртуальных машин Linux в Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Набор поддерживаемых размеров экземпляров виртуальных машин будет расширяться в будущем.
+* **Развертывание только с помощью Azure Resource Manager (ARM).** Ускоренная сеть недоступна для развертывания с помощью ASM/RDFE.
 
 Сведения об изменениях этих ограничений публикуются на [этой странице](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 
@@ -324,11 +325,11 @@ ms.lasthandoff: 07/06/2017
 
 1.  Подготовьте виртуальную машину CentOS 7.3 без SRIOV в Azure.
 
-2.  Установите LIS 4.2.1:
+2.  Установите LIS 4.2.2:
     
     ```bash
-    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
-    tar -xvf lis-rpms-4.2.1-1.tar.gz
+    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
+    tar -xvf lis-rpms-4.2.2-2.tar.gz
     cd LISISO && sudo ./install.sh
     ```
 
@@ -402,8 +403,8 @@ ms.lasthandoff: 07/06/2017
 
     # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
     # Must end with ".vhd" extension
-    $destOsDiskName = "MyOsDiskName.vhd" 
-    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $destOsDiskName
+    $OsDiskName = "MyOsDiskName.vhd" 
+    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $OsDiskName
     
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
@@ -417,7 +418,7 @@ ms.lasthandoff: 07/06/2017
      -Credential $Cred | `
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
     Set-AzureRmVMOSDisk `
-     -Name $OSDiskName `
+     -Name $OsDiskName `
      -SourceImageUri $sourceUri `
      -VhdUri $destOsDiskUri `
      -CreateOption FromImage `

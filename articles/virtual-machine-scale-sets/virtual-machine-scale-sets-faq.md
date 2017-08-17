@@ -13,15 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/03/2017
+ms.date: 7/20/2017
 ms.author: negat
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 718732df4455831454245ea1a80d49e042c20f09
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f320dd5d1f8c99317792f4ae9e09bc5adaf79e25
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -511,7 +510,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Как переключить виртуальный IP-адрес для масштабируемого набора виртуальных машин в той же подписке и в том же регионе?
 
-Если у вас есть два масштабируемых набора виртуальных машин с внешними интерфейсами Azure Load Balancer и они находятся в одной подписке и регионе, можно освободить общедоступные IP-адреса в одном из них и назначить их другому. Пример приведен в статье [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Переключение виртуальных IP-адресов: развертывание по схеме "blue-green" в Azure Resource Manager). Это подразумевает задержку, так как ресурсы освобождаются и выделяются на уровне сети. Другой вариант — разместить приложение в [службе приложений Azure](https://azure.microsoft.com/en-us/services/app-service/), которая обеспечивает быстрое переключение между промежуточными и рабочими слотами.
+Если у вас есть два масштабируемых набора виртуальных машин с внешними интерфейсами Azure Load Balancer и они находятся в одной подписке и регионе, можно освободить общедоступные IP-адреса в одном из них и назначить их другому. Пример приведен в статье [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Переключение виртуальных IP-адресов: развертывание по схеме "blue-green" в Azure Resource Manager). Это подразумевает задержку, так как ресурсы освобождаются и выделяются на уровне сети. Другой, более быстрый вариант — воспользоваться шлюзом приложений Azure с двумя серверными пулами и правилом маршрутизации. Также можно разместить приложение в [службе приложений Azure](https://azure.microsoft.com/en-us/services/app-service/), которая обеспечивает быстрое переключение между промежуточными и рабочими слотами.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Как указать диапазон частных IP-адресов для выделения статических частных IP-адресов?
 
@@ -570,6 +569,10 @@ IP-адреса выбираются из указанной подсети.
         }
     }
 ```
+
+### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Можно ли настроить масштабируемый набор для работы с несколькими шлюзами приложений?
+
+Да. Можно добавить идентификаторы ресурсов для нескольких серверных пулов адресов шлюза приложений в список _applicationGatewayBackendAddressPools_ в разделе _ipConfigurations_ сетевого профиля масштабируемого набора.
 
 ## <a name="scale"></a>Масштаб
 

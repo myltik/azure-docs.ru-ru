@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 532afb45c73d68d6dc259fa504d9520eecdb23b7
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 3ecd6ff8edf189b9389cd239b20236a2a228ed94
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-media-services-release-notes"></a>Заметки о выпуске служб мультимедиа Azure
@@ -44,6 +44,13 @@ ms.lasthandoff: 04/25/2017
 
 ## <a id="rest_version_history"></a>Журнал версий интерфейса API REST
 Сведения о журнале версий интерфейса REST API служб мультимедиа см. в [этом справочнике].
+
+## <a name="june-2017-release"></a>Выпуск: июнь 2017 г.
+
+Службы мультимедиа теперь поддерживают [аутентификацию на основе Azure Active Directory (Azure AD)](media-services-use-aad-auth-to-access-ams-api.md).
+
+> [!IMPORTANT]
+> Службы мультимедиа в настоящее время поддерживают модель аутентификации с помощью службы контроля доступа Azure. Тем не менее авторизация посредством службы контроля доступа будет объявлена устаревшей 1 июня 2018 года. Мы рекомендуем как можно быстрее перейти на использование модели аутентификации Azure AD.
 
 ## <a name="march-2017-release"></a>Выпуск от марта 2017 г.
 
@@ -133,7 +140,7 @@ ms.lasthandoff: 04/25/2017
 Обратите внимание, что службами мультимедиа Azure предоставляется предварительная версия служб доставки лицензий Widevine. Дополнительные сведения см. в [этом блоге](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Выпуск: октябрь 2015 г.
-Службы мультимедиа Azure (AMS) теперь доступны в следующих центрах обработки данных: южная Бразилия, западная Индия, южная Индия и центральная Индия. Теперь с помощью портала Azure вы можете [создавать учетные записи служб мультимедиа](media-services-portal-create-account.md) и выполнять различные задачи, описанные [здесь](https://azure.microsoft.com/documentation/services/media-services/). Но в этих центрах обработки данных не поддерживается кодирование в реальном времени. Кроме того, в этих центрах обработки данных доступны не все типы зарезервированных единиц кодирования.
+Службы мультимедиа Azure (AMS) теперь доступны в следующих центрах обработки данных: южная Бразилия, западная Индия, южная Индия и центральная Индия. Теперь с помощью портала Azure вы можете [создавать учетные записи служб мультимедиа](media-services-portal-create-account.md) и выполнять различные задачи, описанные [здесь](https://azure.microsoft.com/documentation/services/media-services/). Но в этих центрах обработки данных не поддерживается Сервис Кодирования в реальном времени. Кроме того, в этих центрах обработки данных доступны не все типы зарезервированных единиц кодирования.
 
 * Южная Бразилия: доступны зарезервированные единицы кодирования только уровня "Стандартный" и "Базовый".
 * Западная Индия, южная Индия и Центральная Индия: доступны зарезервированные единицы кодирования только уровня "Базовый".
@@ -159,7 +166,7 @@ ms.lasthandoff: 04/25/2017
   
   * [Запись блога](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
   * [Репозиторий примеров для Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-* Обновление мультимедиапроигрывателя Azure с поддержкой нескольких аудиопотоков. Дополнительные сведения можно найти в разделе 
+* Обновление Проигрывателя Мультимедиа Azure с поддержкой нескольких аудиопотоков. Дополнительные сведения можно найти в разделе 
   * [Запись блога](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
 
 ## <a id="july_changes_15"></a>Выпуск: июль 2015 г.
@@ -197,7 +204,7 @@ ms.lasthandoff: 04/25/2017
 
 ## <a id="april_changes_15"></a>Выпуск: апрель 2015 г.
 ### <a name="general-media-services-updates"></a>Общие обновления служб мультимедиа
-* [Выход мультимедиапроигрывателя Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+* [Выход Проигрывателя Мультимедиа Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
 * Начиная с интерфейса REST 2.10 служб мультимедиа, каналы, которые настроены для приема протокола RTMP, создаются с первичными и вторичными URL-адресами приема. Дополнительные сведения см. в разделе [Конфигурации входа (приема) канала](media-services-live-streaming-with-onprem-encoders.md#channel_input).
 * Обновления индексатора мультимедийных данных Azure
 * Поддержка испанского языка

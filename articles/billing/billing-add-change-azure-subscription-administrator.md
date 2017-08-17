@@ -13,24 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 782489e7551fef3daed4de8212821e93f7777535
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: da5995535d42ed52772cb09e0f4da51bbf878748
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
-<a id="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services" class="xliff"></a>
-
-# Добавление или изменение ролей администратора Azure, управляющих подписками и службами
+# <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Добавление или изменение ролей администратора Azure, управляющих подписками и службами
 Вы можете изменить администратора Azure, который управляет подпиской Azure или службами Azure, используемыми в подписке. Для просмотра сведений о выставлении счетов и управления подписками Azure необходимо войти в [центр управления учетной записью](https://account.windowsazure.com/Home/Index) в качестве администратора учетной записи. 
 
-<a id="add-an-admin-for-a-subscription" class="xliff"></a>
-
-## Добавление администратора подписки
+## <a name="add-an-admin-for-a-subscription"></a>Добавление администратора подписки
 Администратора Azure можно добавить на портале Azure или на классическом портале Azure.
 
 **Портал Azure**
@@ -42,18 +37,24 @@ ms.lasthandoff: 06/28/2017
 
     ![Снимок экрана, на котором показана выбранная подписка](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
-3. В колонке подписки выберите **Управление доступом (IAM)**> **Добавить**.
+3. В колонке подписки выберите **Управление доступом (IAM)**.
+4. Выберите **Добавить** > **Роль** > **Владелец**. Введите адрес электронной почты пользователя, которого следует добавить в качестве владельца, а затем нажмите **Сохранить**.
 
-    ![Снимок экрана, на котором показана выбранная кнопка "Добавить"](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. Щелкните **Выберите роль** > **Владелец**.
+    ![Снимок экрана, на котором показана выбранная роль "Владелец"](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-    ![Снимок экрана, на котором показана выбранная роль "Владелец"](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+5. Если учетную запись владельца необходимо добавить как соадминистратора, на странице **Управление доступом (IAM)** щелкните правой кнопкой мыши пользователя и выберите **Добавить как соадминистратора**. Эта функция в настоящее время доступна в [предварительной версии портала Azure](https://preview.portal.azure.com/). 
 
-5. Введите адрес электронной почты пользователя, которого следует добавить в качестве владельца, а затем щелкните **Выбрать**.
+     ![Снимок экрана, на котором показаны элементы для добавления соадминистратора](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    ![Снимок экрана, на котором показан добавленный и выбранный адрес электронной почты пользователя](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+    >[!TIP]
+    >Необходимо добавить пользователя "Владелец" в качестве соадминистратора, если пользователю требуется возможность управлять службами Azure на [классическом портале Azure](https://manage.windowsazure.com/).
 
-**классический портал Azure**
+    Чтобы удалить разрешения соадминистратора, щелкните правой кнопкой мыши пользователя "Соадминистратор", а затем выберите **Удалить соадминистратора**.
+
+    ![Снимок экрана, на котором показаны элементы для удаления соадминистратора](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
+
+**классическом портале Azure**
 
 1. Перейдите на [классический портал Azure](https://manage.windowsazure.com/).
 2. В области навигации выберите **Параметры**> **Администраторы**> **Добавить**. </br>
@@ -72,32 +73,24 @@ ms.lasthandoff: 06/28/2017
 
     пользователь@&lt;домен&gt;.onmicrosoft.com
 
-
-
-<a id="change-service-administrator-for-a-subscription" class="xliff"></a>
-
-## Изменение администратора службы для подписки
+## <a name="change-service-administrator-for-a-subscription"></a>Изменение администратора службы для подписки
 Только администратор учетной записи может изменить администратора службы для подписки.
 
 1. Войдите в [центр учетных записей Azure](https://account.windowsazure.com/subscriptions) в качестве администратора учетной записи.
 2. Выберите подписку, которую требуется изменить.
-3. В правой части щелкните **Изменить сведения о подписке** . </br>
+3. В правой части выберите **Изменить сведения о подписке**. </br>
 
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 4. В поле **АДМИНИСТРАТОР СЛУЖБЫ** введите адрес электронной почты нового администратора службы. </br>
 
     ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-<a id="change-the-account-administrator" class="xliff"></a>
-
-## Изменение администратора учетной записи
+## <a name="change-the-account-administrator"></a>Изменение администратора учетной записи
 Передача учетной записи Azure другой учетной записи описана в статье [Передача подписки Azure](billing-subscription-transfer.md).
 
 Настоятельно рекомендуется не удалять и не переименовывать адрес электронной почты администратора учетной записи. Это может привести к непредвиденным и нежелательным последствиям в учетной записи Azure. Могут возникать ошибки при попытке входа в Azure или управлении ресурсами с помощью этой учетной записи, а также при внесении в нее изменений. 
 
-<a id="check-the-account-administrator-of-the-subscription" class="xliff"></a>
-
-## Проверка администратора учетной записи подписки
+## <a name="check-the-account-administrator-of-the-subscription"></a>Проверка администратора учетной записи подписки
 Если вы не знаете, кто является администратором учетной записи для вашей подписки, следуйте инструкциям ниже, чтобы узнать это.
 
   1. Войдите на [портал Azure](https://portal.azure.com).
@@ -105,9 +98,7 @@ ms.lasthandoff: 06/28/2017
   3. Выберите подписку, которую требуется проверить, а затем просмотрите раздел **Параметры**.
   4. Выберите **Свойства**. Администратор учетной записи подписки отобразится в поле **Администратор учетной записи** .  
 
-<a id="types-of-azure-admin-accounts" class="xliff"></a>
-
-## Типы учетных записей администратора Azure
+## <a name="types-of-azure-admin-accounts"></a>Типы учетных записей администратора Azure
  В Microsoft Azure предусмотрено три роли администратора: администратор учетной записи, администратор службы и соадминистратор. В следующей таблице представлены различия между этими тремя ролями администратора.
 
 | Роль администратора | Ограничение | Description (Описание) |
@@ -118,9 +109,7 @@ ms.lasthandoff: 06/28/2017
 
 Контроль доступа на основе ролей Azure Active Directory позволяет назначать пользователям сразу несколько ролей. Дополнительные сведения см. в статье [Контроль доступа на основе ролей в Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
-<a id="limitations-and-restrictions-for-admin-accounts" class="xliff"></a>
-
-## Ограничения для учетных записей администратора
+## <a name="limitations-and-restrictions-for-admin-accounts"></a>Ограничения для учетных записей администратора
 * Каждая подписка связана с каталогом Azure AD (также известным как каталог по умолчанию). Чтобы найти каталог по умолчанию, с которым связана подписка, перейдите на [классический портал Azure](https://manage.windowsazure.com/) и выберите **Параметры** > **Подписки**. Проверьте идентификатор подписки, чтобы найти каталог по умолчанию.
 * Если выполнен вход с использованием учетной записи Майкрософт, в качестве соадминистраторов вы можете добавить только другие учетные записи Майкрософт или пользователей каталога по умолчанию.
 * Если вы выполняете вход с использованием учетной записи организации, вы можете добавлять другие учетные записи организации в своей организации в качестве соадминистраторов. Например, abby@contoso.com может добавить bob@contoso.com в качестве администратора службы или соадминистратора, но не может добавить john@notcontoso.com, если john@notcontoso.com не находится в каталоге по умолчанию. Пользователи, выполнившие вход с использованием учетной записи организации, могут и далее добавлять пользователей учетной записи Майкрософт в качестве администратора служб или соадминистратора.
@@ -131,14 +120,10 @@ ms.lasthandoff: 06/28/2017
   |  Учетная запись Майкрософт |Да |Нет |Нет |
   |  Учетная запись организации |Да |Да |Нет |
 
-<a id="learn-more-about-resource-access-control-and-active-directory" class="xliff"></a>
-
-## Дополнительные сведения о контроле доступа к ресурсам и Active Directory
+## <a name="learn-more-about-resource-access-control-and-active-directory"></a>Дополнительные сведения о контроле доступа к ресурсам и Active Directory
 * Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в [этой статье](../active-directory/active-directory-understanding-resource-access.md).
 * Дополнительные сведения об Azure Active Directory см. в статьях [Связь между подписками Azure и службой Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) и [Назначение ролей администратора в Azure Active Directory](../active-directory/active-directory-assign-admin-roles.md).
 
-<a id="need-help-contact-support" class="xliff"></a>
-
-## Требуется помощь? Обратитесь в службу поддержки.
+## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 Если вам все еще нужна помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
 

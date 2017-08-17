@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 07/11/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: aabc0cf743487752312f5e1b078837545169e964
-ms.lasthandoff: 03/31/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -47,30 +48,14 @@ ms.lasthandoff: 03/31/2017
 * **[Устранение неполадок шлюза виртуальной сети и подключений](network-watcher-troubleshoot-manage-rest.md)**. Дает возможность устранять неполадки шлюза виртуальной сети и подключений.
 * **[Ограничения сетевых ресурсов подписки](#network-subscription-limits)**. Возможность просмотреть данные об использовании сетевых ресурсов относительно установленных ограничений.
 * **[Настройка журналов диагностики](#diagnostic-logs)**. Предоставляет отдельную область для включения или отключения журналов диагностики сетевых ресурсов в группе ресурсов.
+* **[Возможность подключения (предварительная версия)](network-watcher-connectivity-overview.md)**. Позволяет проверить возможность прямого подключения TCP между виртуальной машиной и определенной конечной точкой.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Управление доступом на основе ролей (RBAC) в Наблюдателе за сетями
 
 Наблюдатель за сетями использует [модель управления доступом на основе ролей Azure](../active-directory/role-based-access-control-what-is.md). Для Наблюдателя за сетями необходимы указанные ниже разрешения. Важно убедиться, что у роли, которая используется для вызова интерфейсов API Наблюдателя за сетями или для работы с Наблюдателем за сетями на портале, имеется необходимый уровень доступа.
 
-|Ресурс| Разрешение|
-|---|---|
-|Microsoft.Storage/ |чтение|
-|Microsoft.Authorization/| чтение|
-|Microsoft.Resources/subscriptions/resourceGroups/| чтение|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Действие|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Действие|
-|Microsoft.Storage/storageAccounts/listKeys/ | Действие|
-|Microsoft.Compute/virtualMachines/ |чтение|
-|Microsoft.Compute/virtualMachines/ |запись|
-|Microsoft.Compute/virtualMachineScaleSets/ |чтение|
-|Microsoft.Compute/virtualMachineScaleSets/ |запись|
-|Microsoft.Network/networkWatchers/packetCaptures/| чтение|
-|Microsoft.Network/networkWatchers/packetCaptures/| запись|
-|Microsoft.Network/networkWatchers/packetCaptures/| Удалить|
-|Microsoft.Network/networkWatchers/ |запись|
-|Microsoft.Network/networkWatchers/| чтение|
-|Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/| *|
+|Ресурс| Разрешение| | |---|---| | |Microsoft.
+|Microsoft.Storage/ |Чтение| | |Microsoft.Authorization/| Чтение| | |Microsoft.Resources/subscriptions/resourceGroups/| Чтение| | |Microsoft.Storage/storageAccounts/listServiceSas/ | Действие| | |Microsoft.Storage/storageAccounts/listAccountSas/ |Действие| | |Microsoft.Storage/storageAccounts/listKeys/ | Действие| | |Microsoft.Compute/virtualMachines/ |Чтение| | |Microsoft.Compute/virtualMachines/ |Запись| | |Microsoft.Compute/virtualMachineScaleSets/ |Чтение| | |Microsoft.Compute/virtualMachineScaleSets/ |Запись| | |Microsoft.Network/networkWatchers/packetCaptures/| Чтение| | |Microsoft.Network/networkWatchers/packetCaptures/| Запись| | |Microsoft.Network/networkWatchers/packetCaptures/| Удаление| | |Microsoft.Network/networkWatchers/ |Запись| | |Microsoft.Network/networkWatchers/| Чтение| | |Microsoft.Insights/alertRules/ |*| | |Microsoft.Support/| *| |
 
 ### <a name="network-subscription-limits"></a>Ограничения сетевых ресурсов подписки
 
@@ -123,6 +108,8 @@ ms.lasthandoff: 03/31/2017
 Упреждающий мониторинг и диагностика с помощью [записи пакетов, активируемой оповещениями](network-watcher-alert-triggered-packet-capture.md).
 
 Обнаружение уязвимостей путем [анализа записываемых пакетов с помощью Wireshark](network-watcher-deep-packet-inspection.md) и использования инструментов с открытым кодом.
+
+Дополнительные сведения о некоторых других ключевых [сетевых возможностях](../networking/networking-overview.md) Azure.
 
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png

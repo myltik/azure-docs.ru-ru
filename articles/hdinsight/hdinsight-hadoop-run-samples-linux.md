@@ -23,7 +23,6 @@ ms.openlocfilehash: 07b292064178aee9ff94dc47554be2b0098ef807
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Выполнение примеров MapReduce, включенных в HDInsight
 
@@ -224,7 +223,6 @@ GraySort — это измерение производительности со
 * [Использование Hive с Hadoop в HDInsight][hdinsight-use-hive]
 * [Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce]
 
-[hdinsight-errors]: hdinsight-debug-jobs.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 

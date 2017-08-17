@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 78025789fd03d3c3a6cfb170329d9d51ac282034
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 617da1cf41db08d319d6fe9fa7bc96b794a0001e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -126,10 +126,12 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Обзор балансировщика нагрузки с доступом к Интернету](load-balancer-internet-overview.md)
+- Дополнительные сведения о [подсистеме балансировки нагрузки, подключенной к Интернету](load-balancer-internet-overview.md)
 
-[Обзор внутренней подсистемы балансировки нагрузки](load-balancer-internal-overview.md)
+- Дополнительные сведения о [внутренней подсистеме балансировки нагрузки](load-balancer-internal-overview.md)
 
-[Начало работы по созданию балансировщика нагрузки для Интернета](load-balancer-get-started-internet-arm-ps.md)
+- Создание [подсистемы балансировки нагрузки, подключенной к Интернету](load-balancer-get-started-internet-portal.md)
+
+- Дополнительные сведения о некоторых других ключевых [сетевых возможностях](../networking/networking-overview.md) Azure
 
 

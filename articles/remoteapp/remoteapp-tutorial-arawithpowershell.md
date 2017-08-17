@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8bea98274f94853cb52fe8b51fdaa4f224c649e4
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e6338dc283b5a26f20a467df9582181381967931
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="use-windows-powershell-cmdlets-with-azure-remoteapp"></a>Использование командлетов Windows PowerShell с Azure RemoteApp
@@ -45,9 +45,20 @@ ms.lasthandoff: 04/27/2017
 2. Запустите Microsoft Azure PowerShell.
 3. Выполните команду **Add-AzureAccount** для аутентификации в своей подписке Azure. При появлении запроса введите имя пользователя и пароль, которые используются для входа на портал Azure.  
 4. Выполните команду **Get-AzureSubscription** , чтобы получить список подписок, связанных с вашей учетной записью. 
-5. Выполните команду **Select-AzureSubscription** и укажите имя или идентификатор подписки, которые будут использоваться в консоли PowerShell.
+5. Выполните команду **Select-AzureSubscription -SubscriptionName &lt;название подписки&gt;** или **Select-AzureSubscription -SubscriptionId &lt;ИД подписки&gt;**, чтобы указать подписку, которую следует использовать.
 
 Поздравляем, консоль Azure PowerShell настроена и готова к работе. Имейте в виду, что вам потребуется повторять шаги 2–5 при каждом запуске консоли Azure PowerShell.  
+
+
+## <a name="list-all-collections"></a>Список всех коллекций
+- - -
+     Get-AzureRemoteAppCollection
+
+## <a name="delete-a-collection"></a>Удаление коллекции
+- - -
+    Remove-AzureRemoteAppCollection <enter collection name>
+
+Пример: `Remove-AzureRemoteAppCollection ContosoProduction`.
 
 ## <a name="create-a-cloud-collection"></a>Создание облачной коллекции
 - - -

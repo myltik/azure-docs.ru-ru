@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: c66c895eb9b905ea265341783c153a9554bd1259
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5d24fb99e1095d53e5ea547e53b80178d9cb77c0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала
@@ -161,43 +160,17 @@ ms.lasthandoff: 05/16/2017
 
 ## <a name="log-in-as-the-application"></a>Вход с учетной записью приложения
 
-Настройка приложения в Azure Active Directory завершена. У вас есть идентификатор и ключ для входа от имени приложения. Приложению назначена роль, которая разрешает выполнять определенные действия. 
+Настройка приложения в Azure Active Directory завершена. У вас есть идентификатор и ключ для входа от имени приложения. Приложению назначена роль, которая разрешает выполнять определенные действия. Сведения о входе в систему в качестве приложения с помощью различных платформ см. в следующих разделах:
 
-Сведения о входе в систему с помощью PowerShell см. в разделе [Предоставление учетных данных с помощью PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
+* [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
+* [Интерфейс командной строки Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [REST](/rest/api/#create-the-request)
+* [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+* [Java](/java/azure/java-sdk-azure-authenticate)
+* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
+* [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-Сведения о входе в систему с помощью интерфейса командной строки Azure (Azure CLI) см. в разделе [Предоставление учетных данных через Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
-
-Чтобы получить маркер доступа для операций REST, ознакомьтесь с разделом [Create the request](/rest/api/#create-the-request) (Создание запроса).
-
-Рассмотрим следующие примеры приложений, чтобы узнать о входе в систему посредством кода.
-
-### <a name="sample-applications"></a>Примеры приложений
-В следующих примерах приложений показано, как выполнить вход от имени приложения Active Directory.
-
-**.NET**
-
-* [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона с помощью .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-* [Управление ресурсами и группами ресурсов Azure с помощью .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-
-**Java**
-
-* [Приступая к работе с ресурсами: развертывание с помощью шаблона Azure Resource Manager на Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-* [Приступая к работе с ресурсами: управление группой ресурсов на Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
-
-**Python**
-
-* [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона на Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-* [Управление ресурсами и группами ресурсов Azure с помощью Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-
-**Node.js**
-
-* [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона на Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-* [Управление ресурсами и группами ресурсов Azure с помощью Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-
-**Ruby**
-
-* [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона на Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-* [Управление ресурсами и группами ресурсов Azure с помощью Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о настройке мультитенантного приложения см. в статье [Управление ресурсами клиента с помощью Azure Active Directory и Resource Manager](resource-manager-api-authentication.md).

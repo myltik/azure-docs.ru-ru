@@ -3,9 +3,9 @@ title: "Добавление push-уведомлений в приложение
 description: "Узнайте, как использовать мобильные приложения Azure для отправки push-уведомлений в приложение Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-manager: adrianha
+manager: syntaxc4
 editor: 
-author: ysxu
+author: ggailey777
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 47063276d7bb6bb3b3aac0cca4290dfbea5488f7
-ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
-ms.lasthandoff: 02/16/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Добавление push-уведомлений в приложение Apache Cordova
@@ -156,7 +156,7 @@ ms.lasthandoff: 02/16/2017
 
         pushRegistration.on('error', handleError);
         }
-3. Для Android: в приведенном выше коде замените значение `Your_Project_ID` числовым идентификатором проекта своего приложения, полученным на сайте  [Google Developer Console][18].
+3. Для Android: в приведенном выше коде замените значение `Your_Project_ID` числовым идентификатором проекта своего приложения, полученным на сайте [Google Developer Console][18].
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>Настройка и запуск приложения в Android (необязательно)
 В этом разделе описано, как включить поддержку push-уведомлений для платформы Android.
@@ -187,8 +187,8 @@ ms.lasthandoff: 02/16/2017
 #### <a name="configure-device"></a>Настройка устройства Android для отладочного режима USB
 Перед развертыванием приложения на устройстве Android необходимо включить отладку USB.  На телефоне Android выполните следующие действия:
 
-1. Выберите элементы **Settings** > **About phone** (Параметры > О телефоне), коснитесь пункта **Build number** (Номер сборки) и дождитесь включения режима разработчика (примерно 7 секунд).
-2. Вернитесь в раздел **Settings** > **Developer Options** (Параметры > Параметры разработчика), включите **отладочный режим USB**, а затем подключите телефон Android к компьютеру разработки с помощью USB-кабеля.
+1. Выберите элементы **Settings** > **About phone** (Параметры > О телефоне), коснитесь пункта **Build number** (Номер сборки) и дождитесь включения режима разработчика (примерно 7 секунд).
+2. Вернитесь в раздел **Settings** > **Developer Options** (Параметры > Параметры разработчика), включите **отладочный режим USB**, а затем подключите телефон Android к компьютеру разработки с помощью USB-кабеля.
 
 Мы проверили этот способ, используя устройство Google Nexus 5X с Android 6.0 (Marshmallow).  Все описанные приемы подходят для любой современной версии платформы Android.
 
@@ -266,8 +266,7 @@ ms.lasthandoff: 02/16/2017
 5. Перестройте свой проект.
 
 ##### <a name="test-push-notifications-in-your-ios-app"></a>Тестирование push-уведомлений в приложении iOS
-1. В Visual Studio выберите **iOS** в качестве целевого объекта развертывания, а затем выберите **устройство**
-   , которое нужно запустить на подключенном устройстве iOS.
+1. В Visual Studio выберите **iOS** в качестве целевого объекта развертывания, а затем выберите **устройство**, которое нужно запустить на подключенном устройстве iOS.
 
     Можно выполнить запуск на устройстве iOS, подключенном к компьютеру с помощью iTunes. Симулятор iOS не поддерживает push-уведомления.
 

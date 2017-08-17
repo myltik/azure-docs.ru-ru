@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ac019d5393e9e9b7edb7960aa50edd5af3b49ebc
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -32,12 +32,6 @@ ms.lasthandoff: 07/06/2017
 
 | Категория счетчика | Имя счетчика |
 | --- | --- |
-| Физический диск (всего) | Среднее Длина очереди чтения с диска |
-| Физический диск (всего) | Среднее Длина очереди записи на диск |
-| Физический диск (всего) | Операций чтения с диска в секунду  |
-| Физический диск (всего) | Скорость чтения с диска (байт/с)  |
-| Физический диск (всего) | Операций записи на диск в секунду |
-| Физический диск (всего) | Скорость записи на диск (байт/с) |
 | Физический диск (а диск) | Среднее Длина очереди чтения с диска |
 | Физический диск (а диск) | Среднее Длина очереди записи на диск |
 | Физический диск (а диск) | Среднее время чтения с диска (с) |
@@ -85,6 +79,6 @@ Service Fabric создает достаточное число настраив
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Узнайте больше о [создании событий на уровне инфраструктуры](service-fabric-diagnostics-event-generation-infra.md) в Service Fabric.
+* Узнайте больше о [создании событий на уровне платформы](service-fabric-diagnostics-event-generation-infra.md) в Service Fabric.
 * Собирайте метрики производительности с помощью [системы диагностики Azure](service-fabric-diagnostics-event-aggregation-wad.md).
 

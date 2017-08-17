@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/22/2017
+ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: d44bb8207edae22ab9d6b1c7b9a3e4da888aa06e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Планирование инфраструктуры резервного копирования виртуальных машин в Azure
@@ -40,6 +39,7 @@ ms.lasthandoff: 06/16/2017
 > [!NOTE]
 > 1. Во время резервного копирования служба архивации Azure не использует временный диск, подключенный к виртуальной машине. Дополнительные сведения см. в записи блога о [временном хранилище](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 > 2. Так как служба архивации Azure создает моментальный снимок на уровне хранилища и передает его в хранилище, не меняйте ключи учетной записи хранения, пока задание резервного копирования не завершится.
+> 3. Для виртуальных машин из ценовой категории "Премиум" мы копируем моментальный снимок для учетной записи хранилища. Это позволяет гарантировать, что служба Microsoft Azure Backup получает достаточно операций ввода-вывода для передачи данных в хранилище. Такая дополнительная копия хранилища оплачивается согласно выделенному размеру виртуальной машины. 
 >
 
 ### <a name="data-consistency"></a>Согласованность данных

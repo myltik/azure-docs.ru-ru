@@ -1,5 +1,6 @@
 ---
-title: "Удаление хранилища служб восстановления"
+title: "Удаление хранилища Site Recovery"
+description: "Узнайте, как удалить хранилище Azure Site Recovery в зависимости от сценария Site Recovery."
 service: site-recovery
 documentationcenter: 
 author: rajani-janaki-ram
@@ -13,25 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajani-janaki-ram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 32fcab0c9e4665d07691dc3792bdee90fb01fe66
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: b95b9defa0a037f7d7d3ef36b99bc7c53c751050
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="delete-recovery-services-vault"></a>Удаление хранилища служб восстановления
-Зависимости не позволяют удалить хранилище служб восстановления, а действия, которые необходимо выполнить, отличаются в зависимости от типа сценария Azure Site Recovery. Возможны такие варианты: VMWare в Azure, Hyper-V (с VMM и без VMM) в Azure и Azure Backup. Чтобы удалить хранилище, используемое в Azure Backup, перейдите по [этой ссылке](../backup/backup-azure-delete-vault.md).
+# <a name="delete-a-site-recovery-vault"></a>Удаление хранилища Site Recovery
+Зависимости не позволяют удалить хранилище Azure Site Recovery. Действия, которые необходимо выполнить, различаются в зависимости от типа сценария Site Recovery: VMware в Azure, Hyper-V (с System Center Virtual Machine Manager и без него) в Azure и Azure Backup. Чтобы удалить хранилище, используемое в Azure Backup, см. сведения в статье [Удаление резервного хранилища в Azure](../backup/backup-azure-delete-vault.md).
 
 >[!Important]
->Если вы тестируете продукт и хотите быстро удалить хранилище, при этом вас не беспокоит возможная потеря данных, то можно использовать метод принудительного удаления хранилища и всех его зависимостей.
+>Если вы тестируете продукт и вас не беспокоит возможная потеря данных, используйте метод принудительного удаления для быстрого удаления хранилища и всех его зависимостей.
 
-> Обратите внимание, что команда PowerShell удалит все содержимое хранилища. Этот шаг является необратимым.
+> Команда PowerShell удаляет все содержимое хранилища и является необратимой.
 
-## <a name="force-delete-vault-using-powershell"></a>Принудительное удаление хранилища с помощью Powershell
+## <a name="use-powershell-to-force-delete-the-vault"></a>Принудительное удаление хранилища с помощью PowerShell 
 
-Выполните описанные ниже действия, чтобы удалить хранилище Site Recovery, даже если оно содержит защищенные элементы.
+Используйте приведенные ниже команды, чтобы удалить хранилище Site Recovery, даже если оно содержит защищенные элементы.
 
     Login-AzureRmAccount
 
@@ -42,27 +42,39 @@ ms.lasthandoff: 07/06/2017
     Remove-AzureRmSiteRecoveryVault -Vault $vault
 
 
+## <a name="delete-a-site-recovery-vault"></a>Удаление хранилища Site Recovery 
+Чтобы удалить хранилище, выполните рекомендуемые действия для своего сценария.
 
-Выполните рекомендуемые действия (в указанном порядке) для своего сценария, чтобы удалить хранилище.
+### <a name="vmware-vms-to-azure"></a>Виртуальные машины VMware в Azure
 
-## <a name="delete-vault-used-in-site-recovery-for-protecting-vmware-vms-to-azure"></a>Удаление хранилища, используемого в Site Recovery для защиты виртуальных машин VMWare в Azure:
-1. Убедитесь, что удалены все защищенные виртуальные машины. Узнайте, [как это сделать](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
-2.  Убедитесь, что удалены все политики репликации. Узнайте, [как это сделать](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
-3.  Убедитесь, что удалены ссылки на vCenter. Узнайте, [как это сделать](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
-4. Убедитесь, что удален сервер конфигурации. Узнайте, [как это сделать](site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server).
-5. Теперь попробуйте удалить хранилище.
+1. Удалите все защищенные виртуальные машины, выполнив действия, описанные в разделе [Отключение защиты для VMware](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
+
+2. Удалите все политики репликации, выполнив действия, описанные в разделе [Удаление политики репликации](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+
+3. Удалите ссылки на vCenter, выполнив действия, описанные в разделе [Удаление vCenter](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
+
+4. Удалите сервер конфигурации, выполнив действия, описанные в разделе [Списание сервера конфигурации](site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server).
+
+5. Удалите хранилище.
 
 
-## <a name="delete-vault-used-in-site-recovery-for-protecting-hyper-v-vms-with-vmm-to-azure"></a>Удаление хранилища, используемого в Site Recovery для защиты виртуальных машин Hyper-V (с VMM) в Azure:
-1.  Убедитесь, что удалены все защищенные виртуальные машины. Узнайте, [как это сделать](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
-- Убедитесь, что удалены все политики репликации. Узнайте, [как это сделать](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
--   Удалите ссылки на серверы VMM. Узнайте, [как это сделать](site-recovery-manage-registration-and-protection.md##unregister-a-connected-vmm-server).
--   Теперь попробуйте удалить хранилище.
+### <a name="hyper-v-vms-with-virtual-machine-manager-to-azure"></a>Виртуальные машины Hyper-V (с Virtual Machine Manager) в Azure
+1. Удалите все защищенные виртуальные машины, выполнив действия, описанные в разделе [Отключение защиты для виртуальной машины VMware или физического сервера](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
 
-## <a name="delete-vault-used-in-site-recovery--for-protecting-hyper-v-vms-without-vmm-to-azure"></a>Удаление хранилища, используемого в Site Recovery для защиты виртуальных машин Hyper-V (без VMM) в Azure:
-1. Убедитесь, что удалены все защищенные виртуальные машины. Узнайте, [как это сделать](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
-- Убедитесь, что удалены все политики репликации. Узнайте, [как это сделать](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
--   Удалите ссылки на серверы Hyper-V. Узнайте, [как это сделать](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
--   Удалите сайт Hyper-V.
--   Теперь попробуйте удалить хранилище.
+2. Удалите все политики репликации, выполнив действия, описанные в разделе [Удаление политики репликации](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+
+3.  Удалите ссылки на серверы Virtual Machine Manager, выполнив действия, описанные в разделе [Отмена регистрации подключенного сервера VMM](site-recovery-manage-registration-and-protection.md##unregister-a-connected-vmm-server).
+
+4.  Удалите хранилище.
+
+### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>Виртуальные машины Hyper-V (без Virtual Machine Manager) в Azure
+1. Удалите все защищенные виртуальные машины, выполнив действия, описанные в разделе [Отключение защиты для виртуальной машины VMware или физического сервера](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
+
+2. Удалите все политики репликации, выполнив действия, описанные в разделе [Удаление политики репликации](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+
+3. Удалите ссылки на серверы Hyper-V, выполнив действия, описанные в разделе [Отмена регистрации узла Hyper-V](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
+
+4. Удалите сайт Hyper-V.
+
+5. Удалите хранилище.
 
