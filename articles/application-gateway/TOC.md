@@ -7,6 +7,7 @@
 ## [Маршрутизация URL-адресов](application-gateway-url-route-overview.md)
 ## [Несколько сайтов](application-gateway-multi-site-overview.md)
 ## [Сквозное шифрование SSL](application-gateway-backend-ssl.md)
+## [Политика SSL](application-gateway-ssl-policy-overview.md)
 ## [Перенаправление](application-gateway-redirect-overview.md)
 ## [Поддержка мультитенантного режима](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## Настройка правил брандмауэра веб-приложения
 ### [Портал](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
-## Настройка разгрузки SSL
+## Настройка SSL
 ### [Портал](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (классическая модель)](application-gateway-ssl.md)
 ### [Azure CLI 2.0](application-gateway-ssl.md)
-### [Политика и сквозное шифрование](application-gateway-end-to-end-ssl-powershell.md)
+### [Сквозное шифрование](application-gateway-end-to-end-ssl-powershell.md)
+### [Политика SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Настройка маршрутизации на основе URL-путей
 ### [Портал](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)

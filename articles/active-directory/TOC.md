@@ -9,6 +9,7 @@
 # Начало работы
 ## [Регистрация для использования Azure AD Premium](active-directory-get-started-premium.md)
 ## [Добавление имени личного домена](add-custom-domain.md)
+## [Настройка фирменной символики компании](customize-branding.md)
 ## [Настройка самостоятельного сброса пароля](active-directory-passwords-getting-started.md)
 ## Управление лицензированием Azure AD
 ### [Портал Azure](active-directory-licensing-get-started-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## Управление устройствами
+### [Введение](device-management-introduction.md)
 ### [Регистрация устройств](active-directory-device-registration-overview.md)
 #### [Настройка](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Локальное развертывание](active-directory-device-registration-on-premises-setup.md)
@@ -241,10 +243,6 @@
 #### Управление именами доменов
 ##### [Портал Azure](active-directory-domains-manage-azure-portal.md)
 ##### [Классический портал.](active-directory-add-manage-domain-names.md)
-### Настройка страницы входа
-#### [Портал Azure](active-directory-branding-custom-signon-azure-portal.md)
-#### [Языковые настройки](active-directory-branding-localize-azure-portal.md)
-#### [Классический портал.](active-directory-add-company-branding.md)
 ### [Администрирование каталога](active-directory-administer.md)
 ### [Несколько каталогов](active-directory-licensing-directory-independence.md)
 ### [Каталоги Office 365](active-directory-manage-o365-subscription.md)

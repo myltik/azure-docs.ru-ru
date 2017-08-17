@@ -133,11 +133,12 @@
 ### Создание службы контейнеров
 #### [Создание приложения-контейнера Windows](service-fabric-get-started-containers.md)
 #### [Создание приложения-контейнера Linux](service-fabric-get-started-containers-linux.md)
-#### [Развертывание контейнера Linux](service-fabric-deploy-container-linux.md)
+#### [Безопасность контейнеров](service-fabric-securing-containers.md)
 #### [Docker Compose (предварительная версия)](service-fabric-docker-compose.md)
 #### [Управление ресурсами для контейнеров и служб](service-fabric-resource-governance.md)
 #### [Драйверы томов и драйверы ведения журналов](service-fabric-containers-volume-logging-drivers.md)
 #### [Службы в контейнерах](service-fabric-services-inside-containers.md)
+#### [Cетевые режимы контейнеров](service-fabric-networking-modes.md)
 
 ### Создание службы Reliable Services
 #### [Обзор](service-fabric-reliable-services-introduction.md)

@@ -55,8 +55,6 @@
       href: network-overview.md
     - name: наборы масштабирования виртуальных машин;
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Служба метаданных экземпляров
-      href: ../virtual-machines-instancemetadataservice-overview.md
     - name: Контейнеры
       href: containers.md
     - name: Диспетчер ресурсов
@@ -153,6 +151,10 @@
           href: download-template.md
         - name: Агент виртуальной машины Azure
           href: agent-user-guide.md
+        - name: Запланированные события
+          href: scheduled-events.md
+        - name: Монитор метаданных
+          href: instance-metadata-service.md
     - name: Использование образов
       items:
         - name: Поиск и использование образов
