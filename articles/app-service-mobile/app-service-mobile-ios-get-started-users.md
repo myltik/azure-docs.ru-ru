@@ -3,8 +3,8 @@ title: "Добавление проверки подлинности на iOS с
 description: "Узнайте, как использовать мобильные приложения для проверки подлинности пользователей приложения iOS с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
 services: app-service\mobile
 documentationcenter: ios
-author: ysxu
-manager: yochayk
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.service: app-service-mobile
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 604c1f84365954ddd3ba2de21fffa90ba5cc274b
-ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 21a2cc6c1eaf4b34cbe8c2d7c4dbb69c8730cf32
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Добавление проверки подлинности в приложение iOS
@@ -25,10 +26,10 @@ ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
 
 В этом учебнике описывается добавление проверки подлинности в проект учебника по [быстрому запуску iOS] с помощью поддерживаемого поставщика удостоверений. Этот учебник использует материал учебника по [быстрому запуску iOS] , который необходимо пройти в первую очередь.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Регистрация приложения для проверки подлинности и настройка службы приложений
+## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка службы приложений
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="a-nameredirecturlaadd-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Добавление приложения в список разрешенных URL-адресов внешнего перенаправления
+## <a name="redirecturl"></a>Добавление приложения в список разрешенных URL-адресов внешнего перенаправления
 
 Для безопасной аутентификации требуется определить новую схему URL-адресов для своего приложения.  Это позволяет системе аутентификации выполнять перенаправление обратно в приложение после завершения процесса аутентификации.  В этом руководстве мы повсеместно используем схему URL-адресов _appname_.  Тем не менее можно использовать любую схему URL-адресов на свой выбор.  Она должна быть уникальной для мобильного приложения.  Вот как можно включить перенаправление на стороне сервера.
 
@@ -46,12 +47,12 @@ ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
 
 7. Щелкните **Сохранить**.
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
+## <a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 В Xcode нажмите кнопку **Выполнить** , чтобы запустить приложение. Будет порождено исключение, так как приложение попытается получить доступ к серверной части как пользователь, не прошедший аутентификацию, а для таблицы *TodoItem* теперь требуется аутентификация.
 
-## <a name="a-nameadd-authenticationaadd-authentication-to-app"></a><a name="add-authentication"></a>Добавление проверки подлинности в приложение
+## <a name="add-authentication"></a>Добавление проверки подлинности в приложение
 **Objective-C**:
 
 1. На компьютере Mac откройте файл *QSTodoListViewController.m* в Xcode и добавьте следующий метод.
@@ -76,8 +77,7 @@ ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
     }
     ```
 
-    Измените *google* на *microsoftaccount*, *twitter*, *facebook* или *windowsazureactivedirectory*, если Google не используется как поставщик удостоверений. Если используется Facebook, то [требуется добавить домены Facebook в список разрешений][1]
-    в приложении.
+    Измените *google* на *microsoftaccount*, *twitter*, *facebook* или *windowsazureactivedirectory*, если Google не используется как поставщик удостоверений. Если используется Facebook, то [требуется добавить домены Facebook в список разрешений][1] в приложении.
 
     Замените **urlScheme** уникальным именем своего приложения.  Значение urlScheme должно быть таким же, как и для протокола схемы URL-адресов, указанного в поле **Разрешенные URL-адреса внешнего перенаправления** на портале Azure. urlScheme используется при обратном вызове аутентификации для переключения на приложение после завершения запроса аутентификации.
 
@@ -163,8 +163,7 @@ ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
     }
     ```
 
-    Измените *google* на *microsoftaccount*, *twitter*, *facebook* или *windowsazureactivedirectory*, если Google не используется как поставщик удостоверений. Если используется Facebook, то [требуется добавить домены Facebook в список разрешений][1]
-    в приложении.
+    Измените *google* на *microsoftaccount*, *twitter*, *facebook* или *windowsazureactivedirectory*, если Google не используется как поставщик удостоверений. Если используется Facebook, то [требуется добавить домены Facebook в список разрешений][1] в приложении.
 
     Замените **urlScheme** уникальным именем своего приложения.  Значение urlScheme должно быть таким же, как и для протокола схемы URL-адресов, указанного в поле **Разрешенные URL-адреса внешнего перенаправления** на портале Azure. urlScheme используется при обратном вызове аутентификации для переключения на приложение после завершения запроса аутентификации.
 
@@ -221,10 +220,5 @@ ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
 [портале Azure]: https://portal.azure.com
 
 [быстрому запуску iOS]: app-service-mobile-ios-get-started.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

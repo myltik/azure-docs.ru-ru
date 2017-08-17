@@ -1,6 +1,6 @@
 ---
-title: "Виртуальные машины для обработки и анализа данных в Azure | Документация Майкрософт"
-description: "Настройка виртуальной машины для обработки и анализа данных."
+title: "Подготовка виртуальных машин Azure для обработки и анализа данных в качестве серверов IPython Notebook | Документы Майкрософт"
+description: "Настройка виртуальной машины для обработки и анализа данных в качестве сервера IPython Notebook с помощью вспомогательных средств."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: xibingao;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
-ms.lasthandoff: 12/20/2016
-
+ms.date: 07/21/2017
+ms.author: bradsev
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: db1ffb2a226a087ecea2ea6f560c6b803e33d8c7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/22/2017
 
 ---
-# <a name="data-science-virtual-machines-in-azure"></a>Виртуальные машины для обработки и анализа данных в Azure
+# <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>Подготовка виртуальных машин Azure для обработки и анализа данных в качестве серверов IPython Notebook
 Приведенные здесь инструкции касаются настройки виртуальной машины Azure и виртуальной машины Azure со службой SQL в качестве серверов IPython Notebook. Виртуальная машина под управлением Windows настраивается с помощью инструментов поддержки, таких как IPython Notebook, Azure Storage Explorer и AzCopy, а также других служебных программ, подходящих для проектов обработки данных. Обозреватель хранилищ Azure и AzCopy, например, позволяют с легкостью передавать данные в хранилище Azure с локального компьютера и наоборот. 
 
 Это меню содержит ссылки на разделы, описывающие настройку различных сред обработки и анализа данных, используемых [процессом обработки и анализа данных группы (TDSP)](data-science-process-overview.md).

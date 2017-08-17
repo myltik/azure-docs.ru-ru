@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 88628fb2c07ad72c646f7e3ed076e7a4b1519200
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 13268f14388e511f2ad106939b0913388b89e16c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
-<a id="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics" class="xliff"></a>
-# Преобразование данных с помощью сценариев U-SQL в Azure Data Lake Analytics 
+# <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Преобразование данных с помощью сценариев U-SQL в Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Действие Hive](data-factory-hive-activity.md) 
 > * [Действие Pig](data-factory-pig-activity.md)
@@ -43,42 +41,86 @@ ms.lasthandoff: 07/06/2017
 > 
 > В руководстве по [созданию первого конвейера](data-factory-build-your-first-pipeline.md) подробно описаны процедуры создания фабрики данных, связанных служб, наборов данных и конвейера. Для создания сущностей фабрики данных запустите предложенные фрагменты кода JSON в редакторе фабрики данных, Visual Studio или Azure PowerShell.
 
+## <a name="supported-authentication-types"></a>Поддерживаемые типы аутентификации
+Действие U-SQL поддерживает указанные ниже типы проверки подлинности Data Lake Analytics.
+* Проверка подлинности субъекта-службы
+* Проверка подлинности учетных данных пользователя (OAuth) 
 
-<a id="azure-data-lake-analytics-linked-service" class="xliff"></a>
-## Связанная служба аналитики озера данных Azure
+Мы рекомендуем использовать проверку подлинности субъекта-службы, особенно для выполнения U-SQL по расписанию. При проверке подлинности учетных данных пользователя может истечь срок действия маркера. Сведения о настройке см. в разделе [Свойства связанной службы](#azure-data-lake-analytics-linked-service).
+
+## <a name="azure-data-lake-analytics-linked-service"></a>Связанная служба аналитики озера данных Azure
 Можно создать связанную службу **Azure Data Lake Analytics** , чтобы связать службу вычислений Azure Data Lake Analytics с фабрикой данных Azure. Действие U-SQL Data Lake Analytics в конвейере ссылается на эту связанную службу. 
 
-В следующем примере представлено определение JSON для связанной службы аналитики озера данных Azure. 
+В следующей таблице приведены описания универсальных свойств из определения JSON. Вы можете выбирать между проверкой подлинности на основе субъекта-службы и учетных данных пользователя.
 
-```JSON
+| Свойство | Описание | Обязательно |
+| --- | --- | --- |
+| **type** |Свойству type необходимо присвоить значение **AzureDataLakeAnalytics**. |Да |
+| **accountName** |Имя учетной записи аналитики озера данных Azure. |Да |
+| **dataLakeAnalyticsUri** |Универсальный код ресурса (URI) аналитики озера данных Azure. |Нет |
+| **subscriptionId** |Идентификатор подписки Azure |Нет (если не указан, используется подписка фабрики данных). |
+| **resourceGroupName** |Имя группы ресурсов Azure |Нет (если не указано, используется группа ресурсов фабрики данных). |
+
+### <a name="service-principal-authentication-recommended"></a>Проверка подлинности на основе субъекта-службы (рекомендуется)
+При использовании проверки подлинности на основе субъекта-службы необходимо зарегистрировать сущность приложения в Azure Active Directory (Azure AD) и предоставить ей доступ к Data Lake Store. Подробные инструкции см. в статье [Аутентификация между службами в Data Lake Store с помощью Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Запишите следующие значения, которые используются для определения связанной службы:
+* Идентификатор приложения
+* Ключ приложения 
+* Tenant ID
+
+Используйте проверку подлинности на основе субъекта-службы, указав следующие свойства:
+
+| Свойство | Описание | Обязательно |
+|:--- |:--- |:--- |
+| **servicePrincipalId** | Укажите идентификатора клиента приложения. | Да |
+| **servicePrincipalKey** | Укажите ключ приложения. | Да |
+| **tenant** | Укажите сведения о клиенте (доменное имя или идентификатор клиента), в котором находится приложение. Эти сведения можно получить, наведя указатель мыши на правый верхний угол страницы портала Azure. | Да |
+
+**Пример. Проверка подлинности на основе субъекта-службы**
+```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
             "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
-            "authorization": "<authcode>",
-            "sessionId": "<session ID>", 
-            "subscriptionId": "<subscription id>",
-            "resourceGroupName": "<resource group name>"
+            "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
         }
     }
 }
 ```
 
-В следующей таблице приведены описания свойств из определения JSON. 
+### <a name="user-credential-authentication"></a>Использование проверки подлинности на основе учетных данных пользователя
+Кроме того, для Data Lake Analytics можно использовать проверку подлинности на основе учетных данных пользователя, указав приведенные ниже свойства.
 
 | Свойство | Описание | Обязательно |
-| --- | --- | --- |
-| Тип |Свойству type необходимо присвоить значение **AzureDataLakeAnalytics**. |Да |
-| accountName |Имя учетной записи аналитики озера данных Azure. |Да |
-| dataLakeAnalyticsUri |Универсальный код ресурса (URI) аналитики озера данных Azure. |Нет |
-| authorization |Код авторизации извлекается автоматически после нажатия кнопки **Авторизовать** в редакторе фабрики данных и выполнения входа с авторизацией OAuth. |Да |
-| subscriptionId |Идентификатор подписки Azure |Нет (если не указан, используется подписка фабрики данных). |
-| имя_группы_ресурсов |Имя группы ресурсов Azure |Нет (если не указано, используется группа ресурсов фабрики данных). |
-| sessionid |Идентификатор сеанса из сеанса авторизации OAuth. Каждый идентификатор сеанса является уникальным и используется только один раз. Идентификатор сеанса создается автоматически в редакторе фабрики данных. |Да |
+|:--- |:--- |:--- |
+| **authorization** | Нажмите кнопку **Авторизовать** в редакторе фабрики данных и введите учетные данные. URL-адрес авторизации будет создан автоматически и присвоен этому свойству. | Да |
+| **sessionId** | Идентификатор сеанса OAuth из сеанса авторизации OAuth. Каждый идентификатор сеанса является уникальным и используется только один раз. Этот параметр создается автоматически при использовании редактора фабрики данных. | Да |
 
+**Пример. Использование проверки подлинности на основе учетных данных пользователя**
+```json
+{
+    "name": "AzureDataLakeAnalyticsLinkedService",
+    "properties": {
+        "type": "AzureDataLakeAnalytics",
+        "typeProperties": {
+            "accountName": "adftestaccount",
+            "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
+            "authorization": "<authcode>",
+            "sessionId": "<session ID>", 
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
+        }
+    }
+}
+```
+
+#### <a name="token-expiration"></a>Срок действия маркера
 Срок действия кода авторизации, созданного с помощью кнопки **Авторизовать**, через некоторое время истекает. Сроки действия для различных типов учетных записей пользователей см. в следующей таблице. По истечении **срока действия маркера** проверки подлинности может появиться следующее сообщение об ошибке: "Произошла ошибка при операции с учетными данными: invalid_grant — AADSTS70002: ошибка при проверке учетных данных". AADSTS70008: срок действия предоставленных прав доступа истек или они были отозваны. Идентификатор отслеживания: d18629e8-af88-43c5-88e3-d8419eb1fca1 Идентификатор корреляции: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Временная отметка: 2015-12-15 21:09:31Z".
 
 | Тип пользователя | Срок действия |
@@ -86,10 +128,7 @@ ms.lasthandoff: 07/06/2017
 | Учетные записи пользователей, которые не управляются с помощью Azure Active Directory (@hotmail.com, @live.com и т. д.) |12 часов |
 | Учетные записи пользователей, которые управляются Azure Active Directory (AAD) |14 дней после последнего запуска среза. <br/><br/>90 дней, если срез, основанный на связанной службе на основе OAuth, выполняется по крайней мере раз в 14 дней. |
 
-Чтобы избежать этой ошибки или исправить ее, вам потребуется повторно авторизоваться с помощью кнопки **Авторизовать** и повторно развернуть связанную службу, когда **срок действия маркера истечет**. Значения свойств **sessionId** и **authorization** можно также задавать программно с помощью кода, приведенного в следующем разделе.
-
-<a id="to-programmatically-generate-sessionid-and-authorization-values" class="xliff"></a>
-### Программное создание значений свойств sessionId и authorization
+Чтобы избежать этой ошибки или исправить ее, вам потребуется повторно авторизоваться с помощью кнопки **Авторизовать** и повторно развернуть связанную службу, когда **срок действия маркера истечет**. Значения свойств **sessionId** и **authorization** также можно задавать программно с помощью кода:
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -118,11 +157,10 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 Подробные сведения о классах фабрики данных, используемых в коде, см. в статьях [AzureDataLakeStoreLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) и [AuthorizationSessionGetResponse — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Для использования класса WindowsFormsWebAuthenticationDialog следует добавить ссылку на Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll. 
 
-<a id="data-lake-analytics-u-sql-activity" class="xliff"></a>
-## Действие U-SQL в аналитике озера данных
+## <a name="data-lake-analytics-u-sql-activity"></a>Действие U-SQL в аналитике озера данных
 В следующем фрагменте кода JSON определяется конвейер с действием U-SQL в аналитике озера данных. Определение действия содержит ссылку на созданную ранее связанную службу аналитики озера данных Azure.   
 
-```JSON
+```json
 {
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
@@ -189,13 +227,11 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 Определение сценария см. в разделе [Определение сценария SearchLogProcessing.txt](#sample-u-sql-script). 
 
-<a id="sample-input-and-output-datasets" class="xliff"></a>
-## Примеры входных и выходных наборов данных
-<a id="input-dataset" class="xliff"></a>
-### Входной набор данных
+## <a name="sample-input-and-output-datasets"></a>Примеры входных и выходных наборов данных
+### <a name="input-dataset"></a>Входной набор данных
 В этом примере входной набор данных находится в хранилище озера данных Azure (файл SearchLog.tsv в папке datalake/input). 
 
-```JSON
+```json
 {
     "name": "DataLakeTable",
     "properties": {
@@ -218,11 +254,10 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }    
 ```
 
-<a id="output-dataset" class="xliff"></a>
-### Выходной набор данных
+### <a name="output-dataset"></a>Выходной набор данных
 В этом примере выходные данные, порождаемые скриптом U-SQL, сохраняются в хранилище озера данных Azure (папка datalake/output). 
 
-```JSON
+```json
 {
     "name": "EventsByRegionTable",
     "properties": {
@@ -239,19 +274,19 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-<a id="sample-data-lake-store-linked-service" class="xliff"></a>
-### Пример связанной службы Data Lake Store
+### <a name="sample-data-lake-store-linked-service"></a>Пример связанной службы Data Lake Store
 Вот определение примера связанной службы Azure Data Lake Store, используемой наборами входных и выходных данных. 
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreLinkedService",
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
             "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-            "sessionId": "<session ID>",
-            "authorization": "<authorization URL>"
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
         }
     }
 }
@@ -259,8 +294,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 Описания свойств JSON см. в статье [Перемещение данных в озеро данных Azure и обратно с помощью фабрики данных Azure](data-factory-azure-datalake-connector.md). 
 
-<a id="sample-u-sql-script" class="xliff"></a>
-## Пример сценария U-SQL
+## <a name="sample-u-sql-script"></a>Пример сценария U-SQL
 
 ```
 @searchlog =
@@ -293,11 +327,10 @@ OUTPUT @rs1
 
 В определении конвейера для заданий, которые выполняются в службе Azure Data Lake Analytics, можно определить другие свойства, например degreeOfParallelism и priority.
 
-<a id="dynamic-parameters" class="xliff"></a>
-## Динамические параметры
+## <a name="dynamic-parameters"></a>Динамические параметры
 В примере определения конвейера параметрам in и out присвоено жестко заданные значения. 
 
-```JSON
+```json
 "parameters": {
     "in": "/datalake/input/SearchLog.tsv",
     "out": "/datalake/output/Result.tsv"
@@ -306,7 +339,7 @@ OUTPUT @rs1
 
 Вместо этого можно использовать динамические параметры. Например: 
 
-```JSON
+```json
 "parameters": {
     "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
     "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"

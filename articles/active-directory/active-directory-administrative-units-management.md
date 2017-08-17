@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/20/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 355ae7a13ab3d32b69a2b90e5410d5fc90fb6916
+ms.reviewer: elkuzmen
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 439dc6635a0df8c70da41bd3aadfa04616e4cc1b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Управление административными единицами в Azure AD (общедоступной предварительной версии)
@@ -35,9 +36,9 @@ ms.lasthandoff: 06/01/2017
 С точки зрения администратора центра, административная единица является объектом каталога, который можно создать и заполнить ресурсами. **В этом выпуске предварительной версии ресурсами могут быть только пользователи.** Созданную и заполненную административную единицу можно использовать для предоставления разрешений, ограниченных содержащимися в ней ресурсами.
 
 ## <a name="managing-administrative-units"></a>Управление административными единицами
-В предварительной версии создание и управление административными единицами осуществляется с помощью модуля Azure Active Directory для Windows PowerShell. См. дополнительные сведения об [использовании административных единиц](https://docs.microsoft.com/en-us/powershell/azure/working-with-administrative-units?view=azureadps-2.0).
+В предварительной версии создание и управление административными единицами осуществляется с помощью модуля Azure Active Directory для Windows PowerShell. См. дополнительные сведения об [использовании административных единиц](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
 
-Дополнительные сведения о требованиях к программному обеспечению и установке модуля Azure AD, а также информацию о командлетах управления административными единицами через модуль Azure AD, включая синтаксис, описание параметров и примеры, см. в разделе [Управление Azure AD с помощью Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Дополнительные сведения о требованиях к программному обеспечению и установке модуля Azure AD, а также информацию о командлетах управления административными единицами через модуль Azure AD, включая синтаксис, описание параметров и примеры, см. в разделе [Управление Azure AD с помощью Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Выпуски Azure Active Directory](active-directory-editions.md)
