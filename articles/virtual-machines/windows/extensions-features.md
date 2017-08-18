@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 09b4a34a45ad676a5279dad85fc84578f40a212a
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Обзор расширений и компонентов виртуальной машины под управлением Windows
@@ -40,7 +40,6 @@ ms.lasthandoff: 03/31/2017
 
 Помимо расширений, созданных для конкретных процессов, существует расширение пользовательских сценариев для виртуальных машин под управлением Windows и Linux. Расширение пользовательских сценариев для Windows позволяет запустить на виртуальной машине любой сценарий PowerShell. Это полезно при разработке развертывания Azure, требующего дополнительной настройки, которую не могут выполнить собственные средства Azure. Подробнее см. [Использование расширений пользовательских сценариев для виртуальной машины Windows с шаблонами Azure Resource Manager](extensions-customscript.md).
 
-Следуя инструкциям из статьи [Automating application deployments to Azure virtual machines](dotnet-core-1-landing.md) (Автоматизация развертывания приложений в виртуальных машинах Azure), вы можете выполнить пример комплексного развертывания приложения, используя расширения виртуальной машины.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -159,7 +158,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 }
 ```
 
-Дополнительные сведения см. в статье [Создание шаблонов Azure Resource Manager с помощью расширений виртуальной машины Windows](extensions-authoring-templates.md).
+Дополнительные сведения см. в статье [Создание шаблонов Azure Resource Manager с помощью расширений виртуальной машины Windows](template-description.md#extensions).
 
 ## <a name="secure-vm-extension-data"></a>Защита данных в расширениях ВМ
 

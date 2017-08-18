@@ -1,8 +1,8 @@
 ---
-title: "Примеры для быстрого запуска интерфейса командной строки Azure Monitor. | Документация Майкрософт"
-description: "Примеры команд интерфейса командной строки для функций монитора Azure Monitor. Azure Monitor — это служба Microsoft Azure, которая позволяет отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии, а также выполнять автоматическое масштабирование облачных служб, виртуальных машин и веб-приложений."
+title: "Примеры для быстрого начала работы с интерфейсом командной строки 1.0 в Azure Monitor | Документация Майкрософт"
+description: "Примеры команд интерфейса командной строки 1.0 для функций Azure Monitor. Azure Monitor — это служба Microsoft Azure, которая позволяет отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии, а также выполнять автоматическое масштабирование облачных служб, виртуальных машин и веб-приложений."
 author: kamathashwin
-manager: carolz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 08/09/2017
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0e629dac553f576f2dd3059453b00d6b10e48fd7
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: ec4512500dc3c77a40d2ebd1e6b460d5bb005811
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/10/2017
 
 ---
-# <a name="azure-monitor--cross-platform-cli-quick-start-samples"></a>Примеры команд для межплатформенного интерфейса командной строки Azure Monitor
+# <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Примеры команд для кроссплатформенного интерфейса командной строки 1.0 в Azure Monitor
 В этой статье приведены примеры команд интерфейса командной строки для работы с функциями Azure Monitor. Azure Monitor позволяет выполнять автомасштабирование облачных служб, виртуальных машин и веб-приложений, отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии.
 
 > [!NOTE]
@@ -122,11 +122,6 @@ azure insights alerts rule list abhingrgtest123 --ruleName andy0323
 azure insights alerts actions email create --customEmails foo@microsoft.com
 azure insights alerts actions webhook create https://someuri.com
 azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
-```
-
-### <a name="create-a-log-alert-rule"></a>Создание правила генерации оповещения для журнала
-```console
-azure insights alerts rule log set ruleName eastus resourceGroupName someOperationName
 ```
 
 ### <a name="create-webtest-alert-rule"></a>Создание правила генерации оповещения для веб-теста

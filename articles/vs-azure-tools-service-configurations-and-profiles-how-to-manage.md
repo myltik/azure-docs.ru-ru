@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 8/11/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: b939f2af75723739ffab16d9a75ea8f6484e5e05
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>Управление конфигурациями и профилями службы
@@ -60,7 +61,7 @@ ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
     Имя файла конфигурации службы изменится в проекте Azure в обозревателе решений.
 
 ### <a name="to-change-a-service-configuration"></a>Изменение конфигурации службы
-* Если вы хотите изменить конфигурацию службы, откройте контекстное меню для роли, которую нужно изменить в проекте Azure, и выберите пункт **Свойства**. Дополнительные сведения см. в статье [Настройка ролей для облачной службы Azure в среде Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx).
+* Если вы хотите изменить конфигурацию службы, откройте контекстное меню для роли, которую нужно изменить в проекте Azure, и выберите пункт **Свойства**. Дополнительные сведения см. в статье [Настройка ролей для облачной службы Azure в среде Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service).
 
 ## <a name="make-different-setting-combinations-by-using-profiles"></a>Создание различных комбинаций параметров с помощью профилей
 С помощью профилей вы можете автоматически добавлять в **мастер публикации** комбинации параметров для различных целей. Например, вы можете создать один профиль для отладки, а другой — для сборок выпуска. В таком случае в профиле **Отладка** будет включен параметр **IntelliTrace** и выбрана конфигурация **Отладка**, а в профиле **Выпуск** будет отключен параметр **IntelliTrace** и выбрана конфигурация **Выпуск**. Также вы можете использовать различные профили для развертывания службы с помощью разных учетных записей хранения.
@@ -101,10 +102,5 @@ ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о настройке других частей проекта Azure в Visual Studio см. в статье [Настройка проекта Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

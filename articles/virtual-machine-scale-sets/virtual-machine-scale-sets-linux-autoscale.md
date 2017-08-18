@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7d67ae1bd0c53f99d9c298f5ae8f161e6a484359
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3a8a5d25123905e6c5cf91c4bc0c04258e442b5c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Автоматическое масштабирование машин Linux в наборе масштабирования виртуальных машин
@@ -55,7 +55,7 @@ ms.lasthandoff: 04/03/2017
     ```
    
     > [!NOTE]
-    > Если у вас есть рабочий или учебный идентификатор, для которого не включена двухфакторная проверка подлинности, используйте его в сочетании с `azure login -u` для входа без интерактивного интерфейса. Если у вас нет рабочего или учебного идентификатора, его можно [создать в личной учетной записи Майкрософт](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Если у вас есть рабочий или учебный идентификатор, для которого не включена двухфакторная проверка подлинности, используйте его в сочетании с `azure login -u` для входа без интерактивного интерфейса. Если у вас нет рабочего или учебного идентификатора, его можно [создать в личной учетной записи Майкрософт](../active-directory/active-directory-users-create-azure-portal.md).
     
 2. **Создайте группу ресурсов**.  
 Все ресурсы должны развертываться в группе ресурсов. В нашем примере группа ресурсов будет называться **vmsstest1**.

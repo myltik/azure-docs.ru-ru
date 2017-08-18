@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 5fdf061d6bf9961455377935304e9075ef4e59fa
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: db1a550b9273925b304fe4280f2a1b0e115f856d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Установка и настройка базы данных MongoDB на виртуальной машине Windows в Azure
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/12/2017
 Прежде чем установить и настроить MongoDB, необходимо создать виртуальную машину и по возможности добавить в нее диск данных. С помощью приведенных ниже ссылок можно ознакомиться со статьями, в которых описывается создание виртуальной машины и добавление диска данных.
 
 * Создайте виртуальную машину Windows на [портале Azure](quick-create-portal.md) или с помощью [PowerShell](quick-create-powershell.md).
-* Подключите диск данных к виртуальной машине Windows Server на [портале Azure](attach-disk-portal.md) или с помощью [PowerShell](attach-disk-ps.md).
+* Подключите диск данных к виртуальной машине Windows Server на [портале Azure](attach-managed-disk-portal.md) или с помощью [PowerShell](attach-disk-ps.md).
 
 Чтобы начать установку и настройку MongoDB, [выполните вход в виртуальную машину Windows Server](connect-logon.md) с помощью удаленного рабочего стола.
 

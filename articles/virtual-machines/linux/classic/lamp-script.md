@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 43175672c81373b5c9cc1bddc8ce27bcaaf5ec14
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8d8c1e583939b9d1aea53db3f4378829e9b40410
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="deploy-a-lamp-app-using-the-azure-customscript-extension-for-linux"></a>Развертывание приложения LAMP с помощью расширения Azure CustomScript для Linux#
@@ -105,7 +104,3 @@ ms.lasthandoff: 06/03/2017
 [Автоматизация задач настройки виртуальных машин под управлением Linux с помощью расширения CustomScript](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Расширения Azure для Linux (GitHub)](https://github.com/Azure/azure-linux-extensions)
-
-[Linux и вычисления с открытым кодом в Azure](../opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
