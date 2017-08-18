@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 1775ddaf548bdc62f37f8bac0b6f3f33870e5dd5
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -71,6 +71,7 @@ ms.lasthandoff: 08/09/2017
 - Если вы уже сделали это, изучите инструменты использования, чтобы узнать, как пользователи используют службу.
     - [Воронки](usage-funnels.md)
     - [Сохранение](app-insights-usage-retention.md)
+    - [Средство "Маршруты пользователей"](app-insights-usage-flows.md)
     - [Книги](app-insights-usage-workbooks.md)
     - [Добавление контекста пользователей](app-insights-usage-send-user-context.md)
 
