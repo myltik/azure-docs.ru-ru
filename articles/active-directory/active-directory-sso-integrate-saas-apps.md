@@ -1,5 +1,4 @@
 ---
-
 title: "Интеграция единого входа Azure Active Directory с приложениями SaaS | Документация Майкрософт"
 description: "Управляйте централизованным доступом к приложениям SaaS, реализовав проверку подлинности единого входа и подготовку пользователей в Azure Active Directory. Общие сведения об интеграции Azure Active Directory с приложениями SaaS."
 services: active-directory
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
+ms.reviewer: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/08/2017
-
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Интеграция единого входа Azure Active Directory с приложениями SaaS

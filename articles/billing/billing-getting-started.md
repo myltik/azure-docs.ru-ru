@@ -3,7 +3,7 @@ title: "Предотвращение непредвиденных расходо
 description: "Узнайте, как избежать непредвиденных расходов по счету Azure. Используйте функции отслеживания затрат и управления для подписки Microsoft Azure."
 services: 
 documentationcenter: 
-author: jlian
+author: tonguyen10
 manager: tonguyen
 editor: 
 tags: billing
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
-ms.author: jlian
+ms.date: 08/10/2017
+ms.author: tonguyen
+experimental_id: a2b2579c-cd2e-41
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/26/2017
 
-
 ---
+
 # <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>Предотвращение непредвиденных расходов с помощью функции выставления счетов и управления затратами в Azure
 
 При регистрации в Azure можно сделать несколько вещей, которые помогут вам лучше понять свои затраты. На [портале Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) при выборе подписки представлены ваши текущие детализация затрат и график расходов. Вы также можете [скачать прошлые счета и файлы сведений об использовании](billing-download-azure-invoice-daily-usage-date.md). Если требуется сгруппировать затраты для ресурсов, используемых для разных проектов или команд, воспользуйтесь [маркировкой ресурсов тегами](../azure-resource-manager/resource-group-using-tags.md). Если вы предпочитаете использовать систему отчетности, применяемую в вашей организации, то ознакомьтесь с [интерфейсами API выставления счетов](billing-usage-rate-card-overview.md). 
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/26/2017
 
 Воспользуйтесь [калькулятором цен](https://azure.microsoft.com/pricing/calculator/) и [калькулятором совокупной стоимости владения](https://aka.ms/azure-tco-calculator), чтобы примерно оценить ежемесячные расходы на интересующие вас службы. Например, стоимость часов вычислений виртуальной машины Windows A1 оценивается в 66,96 долл. США в месяц, если она будет работать все время:
 
-![Снимок экрана калькулятора цен, показывающий, что стоимость виртуальной машины Windows A1 оценивается в 66,96 долл. США в месяц](./media/billing-getting-started/pricing-calc.PNG)
+![Снимок экрана калькулятора цен, показывающий, что стоимость виртуальной машины Windows A1 оценивается в 66,96 долл. США в месяц](./media/billing-getting-started/pricing-calcVM.png)
 
 Дополнительные сведения см. на странице [Часто задаваемые вопросы по приобретению Azure](https://azure.microsoft.com/pricing/faq/). Или, если вы хотите поговорить с нашим сотрудником, позвоните по номеру 1-800-867-1389.
 
@@ -136,7 +137,7 @@ ms.lasthandoff: 04/26/2017
 
 7. Щелкните ресурс, чтобы просмотреть историю затрат с данными за каждый день.
 
-    ![Снимок экрана представления истории затрат на портале Azure](./media/billing-getting-started/spend-history.PNG)
+    ![Снимок экрана представления истории затрат на портале Azure](./media/billing-getting-started/costhistory.PNG)
 
 Рекомендуется сверить фактические затраты с расчетной стоимостью, которую вы видели при выборе служб. Если затраты значительно отличаются от расчетной стоимости, еще раз проверьте тарифный план (например, сравните виртуальные машины A1 и A0), выбранный для ресурсов. 
 
@@ -187,3 +188,4 @@ ms.lasthandoff: 04/26/2017
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 
 Если вам нужна помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
+
