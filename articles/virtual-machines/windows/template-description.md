@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 907e5b80aeeee4ab2eb0466490ba9ef9b0348144
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 61e9cab7ba0b1b86a54b5282662bef3bdfba6e7d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -281,7 +281,7 @@ Resource Manager параллельно развертывает все ресу
 При определении ресурса виртуальной машины используются несколько элементов профиля. Некоторые являются обязательными, а другие — необязательными. Например, элементы hardwareProfile, osProfile, storageProfile и networkProfile являются обязательными, а diagnosticsProfile — необязательным. С помощью этих профилей задаются следующие параметры:
    
 - [размер;](sizes.md)
-- [имя](../linux/infrastructure-naming-guidelines.md) и учетные данные;
+- [имя](/architecture/best-practices/naming-conventions) и учетные данные;
 - диск и [параметры операционной системы;](cli-ps-findimage.md)
 - [сетевой интерфейс;](../../virtual-network/virtual-networks-multiple-nics.md) 
 - диагностика загрузки.

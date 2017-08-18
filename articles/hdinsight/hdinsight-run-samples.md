@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 34947c6dfd86ddd421f6d8045ed9c5fbf0049e11
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 741cce6f2c81efed1e4bd0547fcb46a231815263
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Выполнение примеров Hadoop MapReduce в HDInsight на базе Windows
@@ -219,7 +219,6 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 * [Использование Hive с Hadoop в HDInsight][hdinsight-use-hive]
 * [Отправка заданий Hadoop в HDInsight][hdinsight-submit-jobs]
 * [Документация по пакету SDK для Azure HDInsight][hdinsight-sdk-documentation]
-* [Анализ журналов HDInsight][hdinsight-errors]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Приложение А — исходный код для подсчета количества слов
 
@@ -985,8 +984,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-errors]: hdinsight-debug-jobs.md
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 

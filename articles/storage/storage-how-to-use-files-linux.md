@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: d93c82b9c2e66c7241ddd579c1be74396174fd65
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 27b393a899c60a3a0393619f338a396dff659498
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="use-azure-file-storage-with-linux"></a>Использование хранилища файлов Azure в Linux
@@ -36,10 +36,7 @@ ms.lasthandoff: 08/07/2017
     * CentOS 7 или более поздней версии;
     * Debian 8;
     * openSUSE 13.2 или более поздней версии.
-    * SUSE Linux Enterprise Server 12   
-
-    > [!Note]  
-    > С хранилищем файлов Azure можно использовать любой дистрибутив Linux, в котором установлены или скомпилированы последние версии пакета cifs-utils.
+    * SUSE Linux Enterprise Server 12
 
 * <a id="install-cifs-utils"></a>**Установите пакет cifs-utils**. Пакет cifs-utils можно установить с помощью диспетчера пакетов в дистрибутиве Linux по своему усмотрению. 
 

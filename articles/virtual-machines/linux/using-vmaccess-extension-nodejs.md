@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d58bf287284673c0767a25289660db06aa8e5863
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 278bf1785aac71068ab94cf9916af69a204c44be
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-10"></a>Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Linux в Azure с помощью расширения VMAccess и Azure CLI 1.0
@@ -268,7 +268,7 @@ azure vm extension set \
 
 [Обзор расширений и компонентов виртуальной машины](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Разработка шаблонов Azure Resource Manager с расширениями виртуальной машины Linux](../windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Разработка шаблонов Azure Resource Manager с расширениями виртуальной машины Linux](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Настройка виртуальной машины Linux во время создания с помощь cloud-init](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

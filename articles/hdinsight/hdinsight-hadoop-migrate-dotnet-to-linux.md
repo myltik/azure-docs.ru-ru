@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 538b0064fef8d54c5cac9d4dd43f70ebf1772819
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 6ad188fb752474ff5c7d8a3fb9d609eefe8c7a9a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Перенос решений .NET из HDInsight под управлением Windows в HDInsight под управлением Linux
@@ -71,7 +71,6 @@ Mono версии 4.2.1 входит в состав HDInsight версии 3.5.
 
 Дополнительные сведения о доступе к журналам см. в следующих документах:
 
-* [Анализ журналов HDInsight](hdinsight-debug-jobs.md)
 * [Доступ к журналам приложений YARN в HDInsight под управлением Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия

@@ -14,14 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-ms.date: 04/26/2017
+ms.date: 08/15/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: ef647b4414cc3f338719eff8ccd403abaefd41b5
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 45b3df39dcabf8be640bf6b9e5b83a452d6dd824
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Указатель статей об устранении неполадок Hadoop в HDInsight
@@ -36,7 +35,6 @@ ms.lasthandoff: 06/10/2017
 
 ## <a name="more-troubleshooting-articles"></a>Дополнительные статьи об устранении неполадок
 * [Сведения об использовании HDInsight в Linux](hdinsight-hadoop-linux-information.md)
-* [Отладка Hadoop в среде HDInsight: просмотр журналов и интерпретация сообщений об ошибках](hdinsight-debug-jobs.md)
 * [Доступ к журналам приложений YARN в HDInsight под управлением Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Включение дампов кучи для служб Hadoop в HDInsight под управлением Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Заметки о выпуске для компонентов Hadoop в Azure HDInsight](hdinsight-release-notes.md)

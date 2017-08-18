@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d7d68cfd4c3fa54c889651a43b2252ffaf181495
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Пошаговое руководство по примеру инфраструктуры Azure для виртуальных машин Windows
@@ -119,8 +118,3 @@ Adventure Works Cycles хочет создать приложение интер
 * внешний набор с балансировкой нагрузки для веб-трафика HTTPS из Интернета на веб-серверы;
 * внешний набор с балансировкой нагрузки для незашифрованного веб-трафика с веб-серверов на серверы приложений.
 * одну группу ресурсов.
-
-## <a name="next-steps"></a>Дальнейшие действия
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-

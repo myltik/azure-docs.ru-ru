@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 953704c7eb8613d321a15a9f245118f87d33b51e
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 34a4d8fa176484fbadb1b385d794cada5be607c8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="about-disks-and-vhds-for-azure-windows-vms"></a>Сведения о дисках и VHD для виртуальных машин Azure под управлением Windows
@@ -81,7 +80,7 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Подключите диск](../virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , чтобы увеличить емкость хранилища для виртуальной машины.
+* [Подключите диск](../virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , чтобы увеличить емкость хранилища для виртуальной машины.
 * [Измените букву временного диска Windows](../virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) , чтобы приложение могло использовать диск D для данных.
 
 

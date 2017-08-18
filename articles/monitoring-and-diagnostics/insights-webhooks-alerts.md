@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7282de704a1053e2052a189990fb2b30b2adad6f
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Настройка объектов webhook для оповещений на основе метрик Azure
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/03/2017
 
 ![Добавить правило оповещения](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-Вы также можете настроить оповещение так, чтобы при его активации в URI объекта webhook добавлялись соответствующие сведения. Для этого можно использовать [командлеты Azure PowerShell](insights-powershell-samples.md#create-alert-rules), [кроссплатформенный интерфейс командной строки](insights-cli-samples.md#work-with-alerts) или [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Вы также можете настроить оповещение так, чтобы при его активации в URI объекта webhook добавлялись соответствующие сведения. Для этого можно использовать [командлеты Azure PowerShell](insights-powershell-samples.md#create-metric-alerts), [кроссплатформенный интерфейс командной строки](insights-cli-samples.md#work-with-alerts) или [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticating-the-webhook"></a>Проверка подлинности объекта webhook
 Для webhook может использоваться аутентификация на основе маркеров. Универсальный код ресурса (URI) webhook сохраняется вместе с идентификатором маркера, например: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

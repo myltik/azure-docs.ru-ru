@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 4ee65a10616fff81044c181fce8708a596e9e6de
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 01/31/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Вызов webhook для оповещений журнала действий Azure
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/31/2017
 >
 >
 
-Оповещение журнала действий можно настроить с помощью [командлетов Azure PowerShell](insights-powershell-samples.md#create-alert-rules), [кроссплатформенного интерфейса командной строки](insights-cli-samples.md#work-with-alerts) или [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx). В настоящее время его невозможно настроить с помощью портала Azure.
+Оповещение журнала действий можно настроить с помощью [командлетов Azure PowerShell](insights-powershell-samples.md#create-metric-alerts), [кроссплатформенного интерфейса командной строки](insights-cli-samples.md#work-with-alerts) или [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx). В настоящее время его невозможно настроить с помощью портала Azure.
 
 ## <a name="authenticating-the-webhook"></a>Проверка подлинности объекта webhook
 Объект webhook может проходить проверку подлинности с помощью любого из этих методов:

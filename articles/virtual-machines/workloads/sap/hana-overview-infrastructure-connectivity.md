@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: abc3f5ee70130b6be093e63afb495c86b921ba26
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 07/20/2017
      - код узла ExpressRoute.
 - Данные для доступа к крупным экземплярам HANA по настроенному каналу ExpressRoute и виртуальной сети Azure.
 
-Можно также обратиться к последовательности подключения крупных экземпляров HANA, которая описана в документе [Комплексная настройка крупных экземпляров SAP HANA](https://msdnshared.blob.core.windows.net/media/2017/06/End-to-End-Setup-of-SAP-HANA-Large-Instances.pdf). Многие из следующих действий демонстрируются в примере развертывания в этом документе. 
+Можно также обратиться к последовательности подключения крупных экземпляров HANA, которая описана в документе [Комплексная настройка крупных экземпляров SAP HANA](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Многие из следующих действий демонстрируются в примере развертывания в этом документе. 
 
 
 ## <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>Подключение виртуальной сети к каналу ExpressRoute крупных экземпляров HANA
