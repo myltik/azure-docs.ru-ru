@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 185e09366a8d68746415f4cbbac217d4ad558de7
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: fb3b4ea612777d0ba801342dacf4b2ece46afed6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>Подключение диска данных к виртуальной машине Linux на портале Azure
-В этой статье показано, как подключить новый и существующий диски к виртуальной машине Linux на портале Azure. Вы также можете [подключить диск данных к виртуальной машине Windows на портале Azure](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Вы можете использовать Управляемые диски Azure или неуправляемые диски. Управляемые диски полностью контролируются платформой Azure и не требуют никакой подготовки или выделения места. Неуправляемые диски требуют учетную запись хранения и применения некоторых [квот и ограничений](../../azure-subscription-service-limits.md#storage-limits). Дополнительные сведения об Управляемых дисках Azure см. в [обзоре Управляемых дисков Azure](../../storage/storage-managed-disks-overview.md).
+В этой статье показано, как подключить новый и существующий диски к виртуальной машине Linux на портале Azure. Вы также можете [подключить диск данных к виртуальной машине Windows на портале Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Вы можете использовать Управляемые диски Azure или неуправляемые диски. Управляемые диски полностью контролируются платформой Azure и не требуют никакой подготовки или выделения места. Неуправляемые диски требуют учетную запись хранения и применения некоторых [квот и ограничений](../../azure-subscription-service-limits.md#storage-limits). Дополнительные сведения об Управляемых дисках Azure см. в [обзоре Управляемых дисков Azure](../../storage/storage-managed-disks-overview.md).
 
 Прежде чем подключить диски к виртуальной машине, ознакомьтесь со следующими советами:
 

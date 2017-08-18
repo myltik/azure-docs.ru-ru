@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3109da1dac6ebb6564c94b5c6635ded77ea9be8d
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f7ba456a0d23560ee70f14ecb61c0d016e24e7e1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -96,17 +96,6 @@ ms.lasthandoff: 08/09/2017
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
-
-## <a name="managed-disks-and-azure-storage-service-encryption"></a>Управляемые диски и шифрование службы хранилища Azure
-Невозможно преобразовать неуправляемый диск в управляемый, выполнив предыдущие шаги, если неуправляемый диск размещен в учетной записи хранения, которая зашифрована или когда-либо шифровалась с помощью [шифрования службы хранилища Azure](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ниже приведены инструкции по копированию и использованию неуправляемых дисков, которые находятся в зашифрованной учетной записи хранения.
-
-1. Выполните команду [az storage blob copy start](/cli/azure/storage/blob/copy#start), чтобы скопировать VHD в учетную запись хранения, для которой никогда не использовалось шифрование службы хранилища Azure.
-
-2. Используйте скопированную виртуальную машину одним из следующих способов:
-
-   * Создайте виртуальную машину, которая использует управляемые диски, и в процессе создания укажите этот VHD-файл с помощью команды [az vm create](/cli/azure/vm#create).
-
-   * Можно также с помощью команды [az vm disk attach](/cli/azure/vm/disk#attach) подключить этот VHD к работающей виртуальной машине, использующей управляемые диски.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о возможностях хранения данных доступны в [обзоре Управляемых дисков Azure](../../storage/storage-managed-disks-overview.md).

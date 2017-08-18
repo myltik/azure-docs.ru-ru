@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: f6fbefc212197ca8802e7857c67a5b9c297770a8
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Создание образа виртуальной машины или виртуального жесткого диска
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/15/2017
 ## <a name="before-you-begin"></a>Перед началом работы
 Необходимо выполнить следующие условия.
 
-* Необходима виртуальная машина Azure, созданная в модели развертывания с помощью Resource Manager с использованием управляемых дисков. Если вы еще не создали виртуальную машину Linux, то для этого можно использовать [портал](quick-create-portal.md), [интерфейс командной строки Azure (Azure CLI)](quick-create-cli.md) или [шаблоны Resource Manager](cli-deploy-templates.md). Настройте виртуальную машину согласно своим требованиям. Например, [добавьте диски данных](add-disk.md), примените обновления и установите приложения. 
+* Необходима виртуальная машина Azure, созданная в модели развертывания с помощью Resource Manager с использованием управляемых дисков. Если вы еще не создали виртуальную машину Linux, то для этого можно использовать [портал](quick-create-portal.md), [интерфейс командной строки Azure (Azure CLI)](quick-create-cli.md) или [шаблоны Resource Manager](create-ssh-secured-vm-from-template.md). Настройте виртуальную машину согласно своим требованиям. Например, [добавьте диски данных](add-disk.md), примените обновления и установите приложения. 
 
 * Также необходимо установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 

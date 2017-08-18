@@ -1,0 +1,357 @@
+---
+title: "Проверка возможности подключения с помощью службы \"Наблюдатель за сетями Azure\" в PowerShell | Документация Майкрософт"
+description: "На этой странице объясняется, как проверить возможность подключения с помощью службы \"Наблюдатель за сетями\" в PowerShell"
+services: network-watcher
+documentationcenter: na
+author: georgewallace
+manager: timlt
+editor: 
+ms.service: network-watcher
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/11/2017
+ms.author: gwallace
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/17/2017
+
+---
+
+# <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Проверка возможности подключения с помощью службы "Наблюдатель за сетями Azure" в PowerShell
+
+> [!div class="op_single_selector"]
+> - [Портал](network-watcher-connectivity-portal.md)
+> - [PowerShell](network-watcher-connectivity-powershell.md)
+> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure REST API](network-watcher-connectivity-rest.md)
+
+Узнайте, как проверить возможность прямого подключения TCP между виртуальной машиной и определенной конечной точкой.
+
+## <a name="before-you-begin"></a>Перед началом работы
+
+В данной статье предполагается, что у вас есть следующие ресурсы:
+
+* экземпляр службы "Наблюдатель за сетями" в регионе, в котором нужно проверить возможность подключения;
+
+* виртуальные машины, возможность подключения к которым необходимо проверить.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
+> [!IMPORTANT]
+> Для проверки возможности подключения требуется расширение виртуальной машины `AzureNetworkWatcherExtension`. Информацию об установке расширения для виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md), а для виртуальной машины Linux — в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md).
+
+## <a name="register-the-preview-capability"></a>Регистрация возможностей предварительной версии
+
+Возможность подключения сейчас поддерживается в общедоступной предварительной версии. Для использования этой функции компонент необходимо зарегистрировать. Для этого выполните следующие командлеты PowerShell.
+
+```powershell
+Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Чтобы проверить, была ли регистрация успешно завершена, выполните приведенный ниже командлет PowerShell.
+
+```powershell
+Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
+```
+
+Если компонент был правильно зарегистрирован, выходные данные должны выглядеть следующим образом.
+
+```
+FeatureName         ProviderName      RegistrationState
+-----------         ------------      -----------------
+AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
+```
+
+## <a name="check-connectivity-to-a-virtual-machine"></a>Проверка возможности подключения к виртуальной машине
+
+В этом примере проверяется возможность подключения к целевой виртуальной машине через порт 80.
+
+### <a name="example"></a>Пример
+
+```powershell
+$rgName = "ContosoRG"
+$sourceVMName = "MultiTierApp0"
+$destVMName = "Database0"
+
+$RG = Get-AzureRMResourceGroup -Name $rgName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+
+$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+$VM2 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $destVMName
+
+Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationId $VM2.Id -DestinationPort 80
+```
+
+### <a name="response"></a>Ответ
+
+Следующий ответ взят из предыдущего примера.  В этом ответе параметр `ConnectionStatus` имеет значение **Unreachable** (Недоступно). Как видите, все отправленные пробы завершились неудачей. Попытка подключения завершилась сбоем в виртуальном модуле из-за пользовательского правила `NetworkSecurityRule` с именем **UserRule_Port80**, настроенного на блокировку входящего трафика на порту 80. Эти сведения можно использовать для анализа проблем с подключением.
+
+```
+ConnectionStatus : Unreachable
+AvgLatencyInMs   : 
+MinLatencyInMs   : 
+MaxLatencyInMs   : 
+ProbesSent       : 100
+ProbesFailed     : 100
+Hops             : [
+                     {
+                       "Type": "Source",
+                       "Id": "c5222ea0-3213-4f85-a642-cee63217c2f3",
+                       "Address": "10.1.1.4",
+                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGrou
+                   ps/ContosoRG/providers/Microsoft.Network/networkInterfaces/appNic0/ipConfigurat
+                   ions/ipconfig1",
+                       "NextHopIds": [
+                         "9283a9f0-cc5e-4239-8f5e-ae0f3c19fbaa"
+                       ],
+                       "Issues": []
+                     },
+                     {
+                       "Type": "VirtualAppliance",
+                       "Id": "9283a9f0-cc5e-4239-8f5e-ae0f3c19fbaa",
+                       "Address": "10.1.2.4",
+                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGrou
+                   ps/ContosoRG/providers/Microsoft.Network/networkInterfaces/fwNic/ipConfiguratio
+                   ns/ipconfig1",
+                       "NextHopIds": [
+                         "0f1500cd-c512-4d43-b431-7267e4e67017"
+                       ],
+                       "Issues": []
+                     },
+                     {
+                       "Type": "VirtualAppliance",
+                       "Id": "0f1500cd-c512-4d43-b431-7267e4e67017",
+                       "Address": "10.1.3.4",
+                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGrou
+                   ps/ContosoRG/providers/Microsoft.Network/networkInterfaces/auNic/ipConfiguratio
+                   ns/ipconfig1",
+                       "NextHopIds": [
+                         "a88940f8-5fbe-40da-8d99-1dee89240f64"
+                       ],
+                       "Issues": [
+                         {
+                           "Origin": "Outbound",
+                           "Severity": "Error",
+                           "Type": "NetworkSecurityRule",
+                           "Context": [
+                             {
+                               "key": "RuleName",
+                               "value": "UserRule_Port80"
+                             }
+                           ]
+                         }
+                       ]
+                     },
+                     {
+                       "Type": "VnetLocal",
+                       "Id": "a88940f8-5fbe-40da-8d99-1dee89240f64",
+                       "Address": "10.1.4.4",
+                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGrou
+                   ps/ContosoRG/providers/Microsoft.Network/networkInterfaces/dbNic0/ipConfigurati
+                   ons/ipconfig1",
+                       "NextHopIds": [],
+                       "Issues": []
+                     }
+                   ]
+```
+
+## <a name="validate-routing-issues"></a>Проверка проблем с маршрутизацией
+
+В этом примере проверяется возможность подключения между виртуальной машиной и удаленной конечной точкой.
+
+### <a name="example"></a>Пример
+
+```powershell
+$rgName = "ContosoRG"
+$sourceVMName = "MultiTierApp0"
+
+$RG = Get-AzureRMResourceGroup -Name $rgName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+
+$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+
+Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress 13.107.21.200 -DestinationPort 80
+```
+
+### <a name="response"></a>Ответ
+
+В следующем примере состояние `ConnectionStatus` отображается как **Unreachable** (Недоступно). В блоке `Hops` в разделе `Issues` видно, что трафик заблокирован из-за `UserDefinedRoute`. 
+
+```
+ConnectionStatus : Unreachable
+AvgLatencyInMs   : 
+MinLatencyInMs   : 
+MaxLatencyInMs   : 
+ProbesSent       : 100
+ProbesFailed     : 100
+Hops             : [
+                     {
+                       "Type": "Source",
+                       "Id": "b4f7bceb-07a3-44ca-8bae-adec6628225f",
+                       "Address": "10.1.1.4",
+                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/appNic0/ipConfigurations/ipconfig1",
+                       "NextHopIds": [
+                         "3fee8adf-692f-4523-b742-f6fdf6da6584"
+                       ],
+                       "Issues": [
+                         {
+                           "Origin": "Outbound",
+                           "Severity": "Error",
+                           "Type": "UserDefinedRoute",
+                           "Context": [
+                             {
+                               "key": "RouteType",
+                               "value": "User"
+                             }
+                           ]
+                         }
+                       ]
+                     },
+                     {
+                       "Type": "Destination",
+                       "Id": "3fee8adf-692f-4523-b742-f6fdf6da6584",
+                       "Address": "13.107.21.200",
+                       "ResourceId": "Unknown",
+                       "NextHopIds": [],
+                       "Issues": []
+                     }
+                   ]
+```
+
+## <a name="check-website-latency"></a>Проверка задержки веб-сайта
+
+В следующем примере проверяется возможность подключения к веб-сайту.
+
+### <a name="example"></a>Пример
+
+```powershell
+$rgName = "ContosoRG"
+$sourceVMName = "MultiTierApp0"
+
+$RG = Get-AzureRMResourceGroup -Name $rgName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+
+$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+
+Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress http://bing.com/
+```
+
+### <a name="response"></a>Ответ
+
+В следующем ответе видно, что параметр `ConnectionStatus` отображается со значением **Reachable** (Достижимо). Когда подключение будет установлено, отобразятся значения задержки.
+
+```
+ConnectionStatus : Reachable
+AvgLatencyInMs   : 1
+MinLatencyInMs   : 0
+MaxLatencyInMs   : 7
+ProbesSent       : 100
+ProbesFailed     : 0
+Hops             : [
+                     {
+                       "Type": "Source",
+                       "Id": "1f0e3415-27b0-4bf7-a59d-3e19fb854e3e",
+                       "Address": "10.1.1.4",
+                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/appNic0/ipConfigurations/ipconfig1",
+                       "NextHopIds": [
+                         "f99f2bd1-42e8-4bbf-85b6-5d21d00c84e0"
+                       ],
+                       "Issues": []
+                     },
+                     {
+                       "Type": "Internet",
+                       "Id": "f99f2bd1-42e8-4bbf-85b6-5d21d00c84e0",
+                       "Address": "204.79.197.200",
+                       "ResourceId": "Internet",
+                       "NextHopIds": [],
+                       "Issues": []
+                     }
+                   ]
+```
+
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Проверка возможности подключения к конечной точке хранилища
+
+В следующем примере проверяется возможность подключения между виртуальной машиной и учетной записью хранилища BLOB-объектов.
+
+### <a name="example"></a>Пример
+
+```powershell
+$rgName = "ContosoRG"
+$sourceVMName = "MultiTierApp0"
+
+$RG = Get-AzureRMResourceGroup -Name $rgName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location }
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+
+$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+
+Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://contosostorageexample.blob.core.windows.net/ 
+```
+
+### <a name="response"></a>Ответ
+
+JSON-код ниже — это пример ответа на предыдущий командлет. Так как назначение доступно, для свойства `ConnectionStatus` отображается значение **Reachable** (Доступно).  Также отображаются сведения о числе прыжков, необходимых для доступа к BLOB-объекту в хранилище, а также о задержке.
+
+```
+ConnectionStatus : Reachable
+AvgLatencyInMs   : 1
+MinLatencyInMs   : 0
+MaxLatencyInMs   : 8
+ProbesSent       : 100
+ProbesFailed     : 0
+Hops             : [
+                     {
+                       "Type": "Source",
+                       "Id": "9e7f61d9-fb45-41db-83e2-c815a919b8ed",
+                       "Address": "10.1.1.4",
+                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/appNic0/ipConfigurations/ipconfig1",
+                       "NextHopIds": [
+                         "1e6d4b3c-7964-4afd-b959-aaa746ee0f15"
+                       ],
+                       "Issues": []
+                     },
+                     {
+                       "Type": "Internet",
+                       "Id": "1e6d4b3c-7964-4afd-b959-aaa746ee0f15",
+                       "Address": "13.71.200.248",
+                       "ResourceId": "Internet",
+                       "NextHopIds": [],
+                       "Issues": []
+                     }
+                   ]
+```
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Сведения о состоянии (разрешен или запрещен) входящего и исходящего трафика виртуальной машины см. в статье, посвященной [проверке потока IP-адресов](network-watcher-check-ip-flow-verify-portal.md).
+
+Если трафик блокируется, чего не должно быть, см. статью [Управление группами безопасности сети с помощью портала](../virtual-network/virtual-network-manage-nsg-arm-portal.md). В ней содержатся сведения об отслеживании группы безопасности сети и определенных правил безопасности.
+
+<!-- Image references -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

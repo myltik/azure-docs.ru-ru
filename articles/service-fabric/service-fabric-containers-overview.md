@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/16/2017
 ms.author: msfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: be8504b492bdbdf7445abcdf1fb55e375eda133e
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: f770b6181a99d24ea6a6e945d505da914e1b6128
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric и контейнеры
@@ -48,13 +47,13 @@ Service Fabric поддерживает контейнеры как в Windows, 
 
 ### <a name="docker-containers-on-linux"></a>Контейнеры Docker в Linux
 Docker предоставляет API-интерфейсы высокого уровня для создания контейнеров и управления ими поверх контейнеров из ядер Linux. Docker Hub — это центральный репозиторий для хранения и извлечения образов контейнеров.
-Руководство см. в статье [Развертывание контейнера Docker в Service Fabric](service-fabric-deploy-container-linux.md).
+Руководство см. в статье [Развертывание контейнера Docker в Service Fabric](service-fabric-get-started-containers-linux.md).
 
 ### <a name="windows-server-containers"></a>Контейнеры Windows Server
 Windows Server 2016 поддерживает два типа контейнеров, которые отличаются уровнем изоляции. Как и в контейнерах Docker, в контейнерах Windows Server предусмотрена изоляция пространства имен и файловой системы. Но эти контейнеры совместно используют ядро и узел, на котором выполняются. В Linux эта изоляция обычно обеспечивается с помощью `cgroups` и `namespaces`. У контейнеров Windows Server все аналогично.
 
 Контейнеры Windows Hyper-V обеспечивают более высокую степень изоляции и безопасности, так как каждый контейнер не использует ядро операционной системы совместно с другими контейнерами или узлом. Благодаря высокому уровню изоляции и безопасности контейнеры Hyper-V предназначены для неблагоприятных мультитенантных сред.
-Дополнительные сведения см. в статье [Развертывание контейнера Windows в Service Fabric](service-fabric-deploy-container.md).
+Дополнительные сведения см. в статье [Развертывание контейнера Windows в Service Fabric](service-fabric-get-started-containers.md).
 
 На рисунке ниже показаны доступные в операционной системе уровни изоляции и виртуализации разных типов.
 ![Платформа Service Fabric][Image1]
@@ -88,9 +87,9 @@ Windows Server 2016 поддерживает два типа контейнер
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье описывается использование контейнеров и службы Service Fabric как их оркестратора. Также рассмотрены функции, предоставляемые этой службой для поддержки контейнеров. Дальше можно переходить к изучению примеров использования каждой функции.
 
-[Развертывание контейнера Windows в Service Fabric на платформе Windows Server 2016](service-fabric-deploy-container.md)
+[Развертывание контейнера Windows в Service Fabric на платформе Windows Server 2016](service-fabric-get-started-containers.md)
 
-[Развертывание контейнера Docker в Service Fabric на платформе Linux](service-fabric-deploy-container-linux.md)
+[Развертывание контейнера Docker в Service Fabric на платформе Linux](service-fabric-get-started-containers-linux.md)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 
