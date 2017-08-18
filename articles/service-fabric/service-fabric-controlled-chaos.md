@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2017
+ms.date: 08/09/2017
 ms.author: motanv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 00f703cf9e727cd5981c4f8254fc11330e41a470
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3b3b93bc9ec5ecdcfc289e5b62e84de6aa4172ed
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Вызов контролируемого хаоса в кластерах Service Fabric
@@ -53,10 +52,6 @@ Chaos выполняет несколько итераций. Каждая из 
 
 ## <a name="important-configuration-options"></a>Важные параметры конфигурации
 * **TimeToRun**. Общее время выполнения Chaos до успешного завершения. Вы можете остановить выполнение Chaos до истечения периода TimeToRun с помощью API StopChaos.
-
-> [!NOTE]
-> Chaos может по-прежнему выполняться, если *TimeToRun* работает. Для автоматической остановки может потребоваться некоторое время, (MaxClusterStabilizationTime + MaxConcurrentFaults * WaitTimeBetweenFaults + WaitTimeBetweenIterations).
->
 
 * **MaxClusterStabilizationTimeout**. Максимальный период ожидания возврата кластера в работоспособное состояние до создания события ValidationFailedEvent. Это нужно, чтобы уменьшить нагрузку на кластер, пока его работоспособность восстанавливается. Выполняемые проверки:
   * работоспособен ли кластер;

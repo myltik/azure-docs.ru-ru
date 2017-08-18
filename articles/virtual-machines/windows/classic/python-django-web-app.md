@@ -15,25 +15,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: a9ccbb3da29670da9a377be2212905c67b3ec7d0
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Веб-приложение Hello World на Django на виртуальной машине Windows Server
-> [!div class="op_single_selector"]
-> * [Windows](python-django-web-app.md)
-> * [Mac/Linux](../../linux/python-django-web-app.md)
-> 
-> 
-
-<br>
 
 > [!IMPORTANT] 
-> В Azure предлагаются две разные модели развертывания для создания ресурсов и работы с ними: [Azure Resource Manager и классическая модель развертывания](../../../resource-manager-deployment-model.md). В этой статье рассматривается классическая модель развертывания. Для большинства новых развертываний рекомендуется использовать модель Resource Manager. Сведения о шаблоне Resource Manager, который можно использовать для развертывания Django, см. на странице о [развертывании приложения Django](https://azure.microsoft.com/documentation/templates/django-app/).
+> В Azure предлагаются две разные модели развертывания для создания ресурсов и работы с ними: [Azure Resource Manager и классическая модель развертывания](../../../resource-manager-deployment-model.md). В этой статье рассматривается классическая модель развертывания. Для большинства новых развертываний рекомендуется использовать модель Resource Manager.
 
 В этом руководстве описывается размещение веб-сайта на основе Django в Windows Server на виртуальных машинах Azure. Для работы с этим руководством опыт работы с Azure не требуется. По завершении работы с этим руководством у вас будет готовое приложение на базе Django, выполняющееся в облаке.
 
@@ -175,7 +167,7 @@ ms.lasthandoff: 06/22/2017
 ![Окно браузера, отображающее страницу Hello World в Azure][1]
 
 ## <a name="shut-down-your-azure-virtual-machine"></a>Завершение работы виртуальной машины Azure
-По завершении работы с этим руководством мы рекомендуем завершить работу виртуальной машины Azure (созданной для работы с этим руководством) или же удалить ее. Это позволит освободить ресурсы для работы с другими руководствами, а также избежать расходов на использование Azure.
+По завершении работы с этим руководством мы рекомендуем завершить работу виртуальной машины Azure (созданной для работы с этим руководством) или же удалить ее. Это позволит освободить ресурсы для работы с другими руководствами, а также избежать расходов за использование Azure.
 
 [1]: ./media/python-django-web-app/django-helloworld-browser-azure.png
 

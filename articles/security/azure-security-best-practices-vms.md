@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c306000e898f5fe0260ef3347988923266ed096e
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Рекомендации по обеспечению безопасности виртуальных машин Azure
@@ -65,7 +65,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="vm-availability-and-network-access"></a>Доступность виртуальной машины и ее доступ к сети
 
-Если на виртуальной машине выполняются критически важные приложения, которым требуется высокий уровень доступности, настоятельно рекомендуем использовать несколько виртуальных машин. Для повышения уровня доступности создайте в [группе доступности](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md) не менее двух виртуальных машин.
+Если на виртуальной машине выполняются критически важные приложения, которым требуется высокий уровень доступности, настоятельно рекомендуем использовать несколько виртуальных машин. Для повышения уровня доступности создайте в [группе доступности](../virtual-machines/windows/tutorial-availability-sets.md) не менее двух виртуальных машин.
 
 Для службы [Azure Load Balancer](../load-balancer/load-balancer-overview.md) также необходимо, чтобы виртуальные машины с балансировкой нагрузки входили в одну группу доступности. Если к этим виртуальным машинам требуется доступ из Интернета, необходимо настроить [подсистему балансировки нагрузки для Интернета](../load-balancer/load-balancer-internet-overview.md).
 

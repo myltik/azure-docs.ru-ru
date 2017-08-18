@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 24c2b27948e9373bc3957f706ed802cc36c04148
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8a9d7c7f3f8aefa5312e5e3313dbd581d6df900a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Рекомендации по созданию шаблонов Azure Resource Manager
@@ -32,7 +31,7 @@ ms.lasthandoff: 05/11/2017
 * имена ресурсов, которые могут не быть уникальными, но должны помогать в определении ресурса на основе контекста;
 * имена ресурсов, которые могут быть универсальными.
 
-Для получения справки по установлению соглашения об именовании ознакомьтесь со статьей [Рекомендации по именованию для инфраструктуры Azure для виртуальных машин Windows](../virtual-machines/windows/infrastructure-naming-guidelines.md). Сведения об ограничениях имен ресурсов см. в статье [Рекомендуемые соглашения об именовании для ресурсов Azure](../guidance/guidance-naming-conventions.md).
+ Сведения об ограничениях имен ресурсов см. в статье [Рекомендуемые соглашения об именовании для ресурсов Azure](../guidance/guidance-naming-conventions.md).
 
 ### <a name="unique-resource-names"></a>Уникальные имена ресурсов
 Необходимо указать уникальное имя для любого типа ресурса, который имеет конечную точку доступа к данным. Ниже приведено несколько распространенных типов ресурсов, для которых требуются уникальные имена:
@@ -396,7 +395,6 @@ ms.lasthandoff: 05/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Рекомендации по разработке архитектуры решения для виртуальных машин см. в статьях [Run a Windows VM on Azure](../guidance/guidance-compute-single-vm.md) (Запуск виртуальной машины Windows в Azure) и [Run a Linux VM on Azure](../guidance/guidance-compute-single-vm-linux.md) (Запуск виртуальной машины Linux в Azure).
 * Рекомендации по настройке учетной записи хранения см. в статье [Производительность хранилища Microsoft Azure и контрольный список масштабируемости](../storage/storage-performance-checklist.md).
-* Справку по виртуальным сетям можно найти в статье [Рекомендации по сетевой инфраструктуре Azure для виртуальных машин Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md).
 * Сведения об использовании Resource Manager для эффективного управления подписками в организациях см. в статье [Корпоративный каркас Azure: рекомендуемая система управления подписками](resource-manager-subscription-governance.md).
 
 

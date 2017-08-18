@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 1bfce97dba3cfc371900c0e3c6a93369e768c181
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Установка MySQL на виртуальной машине Windows Server 2016 R2, созданной с помощью классической модели развертывания
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/18/2017
 ## <a name="attach-a-data-disk"></a>Присоединение диска данных
 После создания виртуальной машины к ней можно подключить диск данных. Рекомендуется добавить его для рабочих нагрузок. Кроме того, это позволит гарантировать свободное пространство на диске с операционной системой (C).
 
-Ознакомьтесь со статьей [Подключение диска данных к виртуальной машине Windows](../attach-disk-portal.md) и следуйте изложенным в ней указаниям по подключению пустого диска. Установите для параметра кэширования узла значение **Нет** или **Только для чтения**.
+Ознакомьтесь со статьей [Подключение диска данных к виртуальной машине Windows](../attach-managed-disk-portal.md) и следуйте изложенным в ней указаниям по подключению пустого диска. Установите для параметра кэширования узла значение **Нет** или **Только для чтения**.
 
 ## <a name="log-on-to-the-virtual-machine"></a>Вход на виртуальную машину
 Далее вам необходимо [войти в систему виртуальной машины](./connect-logon.md), чтобы установить MySQL.
