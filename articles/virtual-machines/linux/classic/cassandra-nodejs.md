@@ -4,7 +4,7 @@ description: "Как запустить кластер Cassandra под упра
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: hanuk
-manager: erikre
+manager: routlaw
 editor: 
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: hanuk;robmcm
+ms.date: 08/17/2017
+ms.author: hanuk;tarcher
 ms.translationtype: HT
 ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: acfa9f6f0166167341fc54c4d55fb37e0a338024
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
-
 
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Запуск Cassandra под управлением Linux в Azure и доступ к нему из Node.js

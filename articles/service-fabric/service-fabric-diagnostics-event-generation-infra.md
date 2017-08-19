@@ -70,7 +70,7 @@ Service Fabric предоставляет 5 различных готовых �
 Чтобы создать отчет о метрике, используйте примерно такой код:
 
   ```csharp
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+    this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
   ```
 
 ### <a name="service-fabric-support-logs"></a>Журналы поддержки Service Fabric

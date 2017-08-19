@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
+ms.reviewer: harshja
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: f4d72d4d11ee64e3431879f6ad1b5d8d091a0c87
@@ -21,9 +22,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 05/15/2017
 
 ---
-<a id="silently-install-the-azure-ad-application-proxy-connector" class="xliff"></a>
-
-# Автоматическая установка соединителя прокси приложения Azure AD
+# <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Автоматическая установка соединителя прокси приложения Azure AD
 Необходимо иметь возможность отправки сценария установки на несколько серверов Windows или на серверы Windows, на которых отключен пользовательский интерфейс. Этот раздел поможет вам создать сценарий Windows PowerShell, позволяющий выполнить автоматическую установку и регистрацию соединитель прокси приложения Azure AD.
 
 Эта возможность полезна в тех случаях, когда требуется:
@@ -35,9 +34,7 @@ ms.lasthandoff: 05/15/2017
 
 Прокси приложения работает путем установки в сети компактной службы Windows Server, называемой соединителем. Для работы соединителя прокси приложения он должен быть зарегистрирован в вашем каталоге Azure AD с использованием пароля и имени глобального администратора. Обычно эти сведения вводятся во всплывающем окне во время установки соединителя. Тем не менее с помощью Windows PowerShell можно создать объект учетных данных и указать в нем данные регистрации. Кроме того, вы можете создать собственный маркер и использовать его для ввода данных регистрации.
 
-<a id="install-the-connector" class="xliff"></a>
-
-## Установка соединителя
+## <a name="install-the-connector"></a>Установка соединителя
 Установите MSI-файлы соединителя без регистрации соединителя следующим образом.
 
 1. Откройте окно командной строки.
@@ -45,17 +42,13 @@ ms.lasthandoff: 05/15/2017
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
-<a id="register-the-connector-with-azure-ad" class="xliff"></a>
-
-## Регистрация соединителя в Azure AD
+## <a name="register-the-connector-with-azure-ad"></a>Регистрация соединителя в Azure AD
 Существуют два метода регистрации соединителя:
 
 * регистрация соединителя с помощью объекта учетных данных Windows PowerShell;
 * регистрация соединителя с помощью маркера, созданного в автономном режиме.
 
-<a id="register-the-connector-using-a-windows-powershell-credential-object" class="xliff"></a>
-
-### Регистрация соединителя с помощью объекта учетных данных Windows PowerShell
+### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Регистрация соединителя с помощью объекта учетных данных Windows PowerShell
 1. Создайте объект учетных данных Windows PowerShell, выполнив следующую команду. Замените *\<username\>* и *\<password\>* именем пользователя и паролем для каталога.
    
         $User = "<username>"
@@ -66,9 +59,7 @@ ms.lasthandoff: 05/15/2017
    
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
-<a id="register-the-connector-using-a-token-created-offline" class="xliff"></a>
-
-### Регистрация соединителя с помощью маркера, созданного в автономном режиме
+### <a name="register-the-connector-using-a-token-created-offline"></a>Регистрация соединителя с помощью маркера, созданного в автономном режиме
 1. Создайте автономный маркер с помощью класса AuthenticationContext, используя значения, указанные во фрагменте кода:
 
         using System;
@@ -133,9 +124,7 @@ ms.lasthandoff: 05/15/2017
 
    `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия 
+## <a name="next-steps"></a>Дальнейшие действия 
 * [Публикация приложений с помощью доменного имени](active-directory-application-proxy-custom-domains.md)
 * [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
 * [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
