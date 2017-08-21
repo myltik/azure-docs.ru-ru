@@ -4,8 +4,6 @@
   items:
     - name: О базе данных Azure Cosmos
       href: introduction.md
-    - name: Вступительная часть о DocumentDB
-      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: Быстрое начало работы
   expanded: true
   items:

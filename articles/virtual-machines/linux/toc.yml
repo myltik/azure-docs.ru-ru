@@ -76,11 +76,6 @@
       href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Плановое техническое обслуживание
       href: planned-maintenance.md
-      items:
-        - name: Обслуживание с сохранением
-          href: maintenance-in-place.md
-        - name: Обслуживание с перезапуском
-          href: impactful-maintenance.md
     - name: Размеры виртуальной машины
       items:
         - name: Общие сведения о размерах виртуальных машин

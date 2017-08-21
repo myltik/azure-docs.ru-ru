@@ -199,7 +199,6 @@
 #### [Hadoop: память и производительность](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [Доступ к журналам приложений YARN Hadoop в Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 #### [Включение дампов кучи для служб Hadoop](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-#### [Анализ журналов HDInsight](hdinsight-debug-jobs.md)
 #### [Понимание и устранение ошибок WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [Исправление ошибки "нехватка памяти" с помощью параметров Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Отладка заданий Tez с помощью представлений Ambari](hdinsight-debug-ambari-tez-view.md)
