@@ -28,7 +28,6 @@
 ## [REST](/rest/api/datacatalog/)
 ## [Справочник по синтаксису поиска](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Понятия, используемые разработчиками](data-catalog-developer-concepts.md)
-## [Примеры для разработчиков](data-catalog-samples.md)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
