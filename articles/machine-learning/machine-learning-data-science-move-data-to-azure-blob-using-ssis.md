@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 179cac8856cd42cfad4a4d4aaa6301afb2c58329
-ms.openlocfilehash: 6d802148cec5b12004d1d374485f56af8eae64f8
-ms.lasthandoff: 12/17/2016
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 303d7b06d259bc42c8093fb20a0e4a55410e28f5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -82,10 +83,10 @@ ms.lasthandoff: 12/17/2016
 > 
 
 ## <a name="download-data-from-azure-blob-storage"></a>Загрузка данных из хранилища BLOB-объектов Azure
-Для загрузки данных из хранилища BLOB-объектов Azure в локальное хранилище служб SSIS используйте экземпляр [задачи отправки BLOB-объектов Azure](https://msdn.microsoft.com/library/mt146779.aspx).
+Чтобы скачать данные из хранилища BLOB-объектов Azure в локальное хранилище с помощью служб SSIS, используйте экземпляр [задачи отправки BLOB-объектов Azure](https://msdn.microsoft.com/library/mt146779.aspx).
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>Более сложные сценарии SSIS-Azure
-С помощью пакета дополнительных компонентов SSIS можно обрабатывать более сложные потоки, используя упаковку задач. Например, данные большого двоичного объекта можно передать непосредственно в кластер HDInsight. После этого полученный результат можно скачать обратно в большой двоичный объект, а затем — в локальное хранилище. Службы SSIS могут запускать задания Hive и Pig в кластере HDInsight с помощью дополнительных соединительных служб SSIS.
+С помощью пакета дополнительных компонентов SSIS можно обрабатывать более сложные потоки, используя упаковку задач. Например, данные BLOB-объекта можно передать непосредственно в кластер HDInsight. После этого полученный результат можно скачать обратно в BLOB-объект, а затем — в локальное хранилище. Службы SSIS могут запускать задания Hive и Pig в кластере HDInsight с помощью дополнительных соединительных служб SSIS.
 
 * Чтобы запустить сценарий Hive в кластере Azure HDInsight с помощью служб SSIS, используйте [задачу Hive Azure HDInsight](https://msdn.microsoft.com/library/mt146771.aspx).
 * Чтобы запустить сценарий Pig в кластере Azure HDInsight с помощью служб SSIS, используйте [задачу Pig Azure HDInsight](https://msdn.microsoft.com/library/mt146781.aspx).

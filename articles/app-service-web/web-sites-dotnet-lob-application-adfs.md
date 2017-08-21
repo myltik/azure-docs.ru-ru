@@ -1,6 +1,6 @@
 ---
 title: "Создание бизнес-приложения Azure с аутентификацией AD FS | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как создать бизнес-приложение в службе приложений Azure, которая выполняет проверку подлинности с помощью службы маркеров безопасности. В этом учебнике рассматриваются службы федерации Acive Directory в качестве локальной службы STS."
+description: "Из этой статьи вы узнаете, как создать бизнес-приложение в службе приложений Azure, которая выполняет проверку подлинности с помощью службы маркеров безопасности. В этом руководстве рассматриваются службы федерации Acive Directory в качестве локальной службы STS."
 services: app-service\web
 documentationcenter: .net
 author: cephalin
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1895094b28d9596eec644078b6f9a877b526b89e
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f9a8984400378d154a504af8a41609900128d052
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-ad-fs-authentication"></a>Создание бизнес-приложения Azure с проверкой подлинности AD FS
@@ -105,7 +104,7 @@ ms.lasthandoff: 06/01/2017
    &lt;add key="ClientValidationEnabled" value="true" /&gt;
    &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
    <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
-   <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
+   <mark><del>&lt;add key="ida:AADInstance" value="https://login.microsoftonline.com" /&gt;</del></mark>
    <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
    <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
    <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 9820cef564e291d1c8aee7c360198de1dc05379e
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 5b9e497078fe0b276ec8a717b43a0080e1667592
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Использование эмулятора хранения Azure для разработки и тестирования
@@ -209,6 +208,10 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-
 Хранилище очередей в эмуляторе не имеет отличий.
 
 ## <a name="storage-emulator-release-notes"></a>Замечания к выпуску эмулятора хранения
+### <a name="version-52"></a>Версия 5.2
+* Теперь эмулятор хранения поддерживает версию 2017-04-17 служб хранения для конечных точек служб BLOB-объектов, очередей и таблиц.
+* Исправлена ошибка, когда значения свойств таблиц кодировались неправильно.
+
 ### <a name="version-51"></a>Версия 5.1
 * Исправлена ошибка, когда эмулятор хранения возвращал заголовок `DataServiceVersion` в некоторых ответах, а служба не возвращала.
 

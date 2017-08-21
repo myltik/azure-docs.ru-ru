@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 06/9/2017
+ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 4b6f21c7949493ac1f95e7c0f255e5c96613adf1
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Доступ к локальным источникам данных из приложений логики с помощью локального шлюза данных
@@ -29,7 +28,7 @@ ms.lasthandoff: 06/13/2017
 
 Шлюз поддерживает подключения к таким локальным источникам данных:
 
-*   BizTalk Server
+*   BizTalk Server 2016
 *   DB2  
 *   Файловая система
 *   Informix
@@ -39,18 +38,18 @@ ms.lasthandoff: 06/13/2017
 *   PostgreSQL
 *   сервер приложений SAP; 
 *   сервер сообщений SAP;
-*   SharePoint только для HTTP (не для HTTPS)
+*   SharePoint
 *   SQL Server
 *   Teradata
 
 Далее представлена процедура настройки локального шлюза данных для работы с приложениями логики. Дополнительные сведения о поддерживаемых соединителях см. статье [Список соединителей](../connectors/apis-list.md). 
 
-Дополнительные сведения о шлюзах данных для других служб Майкрософт см. в следующих статьях:
+Сведения о том, как использовать шлюз с другими службами, см. в следующих статьях:
 
-*   [Шлюз приложений](https://azure.microsoft.com/services/application-gateway/): [Обзор шлюза приложений](../application-gateway/application-gateway-introduction.md)
 *   [Локальный шлюз данных](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 *   [Локальный шлюз данных](../analysis-services/analysis-services-gateway.md)
 *   [Управление локальным шлюзом данных в Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
+*   [Управление локальным шлюзом данных в PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 ## <a name="requirements"></a>Требования
 
@@ -105,7 +104,7 @@ ms.lasthandoff: 06/13/2017
 
     ![Предоставление сведений для создания локального шлюза данных](./media/logic-apps-gateway-connection/createblade.png)
 
-    Чтобы в любое время найти или просмотреть шлюз данных, из главного меню Azure слева перейдите на страницу  **Больше служб** > **Интеграция с предприятием** > **Локальный шлюз данных**.
+    Чтобы в любое время найти или просмотреть шлюз данных, из главного меню Azure слева перейдите на страницу **Больше служб**>**Интеграция с предприятием**>**Локальный шлюз данных**.
 
     ![Выбор элементов "Больше служб", "Интеграция с предприятием", "Локальный шлюз данных"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
@@ -142,7 +141,7 @@ ms.lasthandoff: 06/13/2017
 
      ![Переход к приложению логики, выбор "Подключения API"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * Можно из главного меню Azure слева выбрать **Больше служб** > **Web & Mobile Services** (Веб-службы и мобильные службы) > **Подключения API** для всех подключений API, в том числе подключений, связанных с вашей подпиской Azure. 
+   * Выберите в главном меню Azure слева элементы **Больше служб** > **Веб-службы и мобильные службы** > **Подключения API** для всех подключений API, в том числе подключений, связанных с вашей подпиской Azure. 
 
    * А можно в главном меню Azure слева перейти к разделу **Все ресурсы** для всех подключений API, включая подключения шлюза, связанные с вашей подпиской Azure.
 

@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/16/2016
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 529c723a9e071b7cc388cf92423c1f74707cb831
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 8ff6b9825212359617b748aba1c78ed789b130dd
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -28,20 +29,21 @@ ms.lasthandoff: 03/22/2017
 Мы рассмотрим, как удаленно установить систему диагностики на виртуальной машине Azure с компьютера разработчика. Также вы узнаете, как реализовать приложение, которое выполняется на виртуальной машине Azure и отправляет данные телеметрии через класс .NET [EventSource][EventSource Class]. Система диагностики Azure используется для сбора телеметрии и хранения ее в учетной записи хранения Azure.
 
 ### <a name="pre-requisites"></a>Предварительные требования
-В этом пошаговом учебнике предполагается, что у вас есть подписка Azure и вы используете Visual Studio 2013 с пакетом SDK для Azure. Если у вас нет подписки Azure, можно зарегистрироваться для получения [бесплатной пробной версии][Free Trial]. Следует обязательно [установить и настроить Azure PowerShell версии 0.8.7 или более поздней][Install and configure Azure PowerShell version 0.8.7 or later].
+В этом пошаговом учебнике предполагается, что у вас есть подписка Azure и вы используете Visual Studio 2017 с пакетом SDK для Azure. Если у вас нет подписки Azure, можно зарегистрироваться для получения [бесплатной пробной версии][Free Trial]. Следует обязательно [установить и настроить Azure PowerShell версии 0.8.7 или более поздней][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-virtual-machine"></a>Шаг 1. Создание виртуальной машины
-1. На компьютере разработчика запустите Visual Studio 2013.
+1. На компьютере разработчика запустите Visual Studio 2017.
 2. В **обозревателе сервера** Visual Studio разверните **Azure**, щелкните правой кнопкой мыши элемент **Виртуальные машины** и выберите команду **Создать виртуальную машину**.
 3. В диалоговом окне **Выбор подписки** выберите свою подписку Azure и нажмите кнопку **Далее**.
-4. В диалоговом окне **Выбор образа виртуальной машины** выберите **Windows Server 2012 R2 Datacenter, November 2014** и нажмите кнопку **Далее**.
+4. В диалоговом окне **Выбор образа виртуальной машины** выберите **Windows Server 2012 R2 Datacenter, June 2017** и нажмите кнопку **Далее**.
 5. В разделе **базовых параметров виртуальной машины**укажите для виртуальной машины имя wadexample. Укажите имя пользователя и пароль администратора и щелкните **Далее**.
 6. В диалоговом окне **Параметры облачной службы** создайте новую облачную службу с именем wadexampleVM. Создайте новую учетную запись хранения с именем wadexample и нажмите кнопку **Далее**.
 7. Щелкните **Создать**.
 
 ### <a name="step-2-create-your-application"></a>Шаг 2. Создание приложения
-1. На компьютере разработчика запустите Visual Studio 2013.
+1. На компьютере разработчика запустите Visual Studio 2017.
 2. Создайте новое приложение консоли Visual C#, предназначенное для платформы .NET Framework 4.5. Назовите проект «WadExampleVM».
+
    ![CloudServices_diag_new_project](./media/virtual-machines-dotnet-diagnostics/NewProject.png)
 3. Замените содержимое файла Program.cs на код, приведенный ниже. Класс **SampleEventSourceWriter** реализует четыре метода ведения журнала: **SendEnums**, **MessageMethod**, **SetOther** и **HighFreq**. Первый параметр для метода WriteEvent определяет идентификатор соответствующего события. Метод Run реализует бесконечный цикл, который вызывает каждый из методов ведения журнала, реализованных в классе **SampleEventSourceWriter** , каждые 10 секунд.
 
@@ -116,7 +118,7 @@ ms.lasthandoff: 03/22/2017
 1. Скачайте общедоступное определение схемы файла конфигурации на свой компьютер для разработки, выполнив следующую команду PowerShell:
 
      (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
-2. Откройте новый XML-файл в Visual Studio либо в уже открытом проекте, либо в экземпляре Visual Studio без открытых проектов. В Visual Studio выберите **Добавить** -> **Новый элемент…** -> **Элементы Visual C#** -> **Данные** -> **XML-файл**. Назовите файл «WadExample.xml».
+2. Откройте новый XML-файл в Visual Studio либо в уже открытом проекте, либо в экземпляре Visual Studio без открытых проектов. В Visual Studio выберите **Добавить** -> **Новый элемент...** -> **Элементы Visual C#** -> **Данные** -> **XML-файл**. Назовите файл «WadExample.xml».
 3. Свяжите файл WadConfig.xsd с файлом конфигурации. Убедитесь, что окно редактора WadExample.xml активно. Нажмите клавишу **F4**, чтобы открыть окно **Свойства**. Щелкните свойство **Schemas** в окне **Свойства**. Щелкните **…** in the **Schemas** . Щелкните **Добавить…** , перейдите в расположение, где сохранен XSD-файл, и выберите файл WadConfig.xsd. Нажмите кнопку **ОК**.
 4. Замените содержимое файла настройки WadExample.xml приведенным кодом XML и сохраните файл. Этот файл конфигурации определяет пару счетчиков производительности: один — для использование ЦП, и один — для использования памяти. Затем конфигурация определяет четыре события, соответствующие методам в классе SampleEventSourceWriter.
 
@@ -147,10 +149,18 @@ ms.lasthandoff: 03/22/2017
 Командлеты PowerShell для управления диагностикой на виртуальной машине: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension и Remove-AzureVMDiagnosticsExtension.
 
 1. На компьютере разработчика откройте Azure PowerShell.
-2. Выполните сценарий для удаленной установки системы диагностики в своей виртуальной машине (замените *StorageAccountKey* ключом для учетной записи хранения wadexamplevm):
-
-     $storage_name = "wadexamplevm"   $key = "<StorageAccountKey>"   $config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExampleVM\WadExampleVM\WadExample.xml"   $service_name="wadexamplevm"   $vm_name="WadExample"   $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key   $VM1 = Get-AzureVM -ServiceName $service_name -Name $vm_name   $VM2 = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $config_path -Version "1.*" -VM $VM1 -StorageContext $storageContext   $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
-
+2. Выполните сценарий, чтобы удаленно установить диагностику на виртуальной машине (Замените `<user>` своим именем пользователя каталога. Замените `<StorageAccountKey>` ключом учетной записи хранения для вашей учетной записи wadexamplevm):
+```
+     $storage_name = "wadexamplevm"
+     $key = "<StorageAccountKey>"
+     $config_path="c:\users\<user>\documents\visual studio 2017\Projects\WadExampleVM\WadExampleVM\WadExample.xml"
+     $service_name="wadexamplevm"
+     $vm_name="WadExample"
+     $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key
+     $VM1 = Get-AzureVM -ServiceName $service_name -Name $vm_name
+     $VM2 = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $config_path -Version "1.*" -VM $VM1 -StorageContext $storageContext
+     $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
+```
 ### <a name="step-6-look-at-your-telemetry-data"></a>Шаг 6. Просмотр данных телеметрии
 В **обозревателе решений** Visual Studio перейдите к учетной записи хранения wadexample. После того, как виртуальная машина проработала около пяти минут, следует посмотреть таблицы **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** и **WADSetOtherTable**. Дважды щелкните одну из таблиц, чтобы просмотреть собранную телеметрию.
 

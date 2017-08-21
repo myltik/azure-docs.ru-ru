@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 104986e88ededf2137725fe258b6ce51f608b37d
-ms.lasthandoff: 01/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: ea42b7135d0695b66d569095e70bb3d9f8b9594b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="sql-data-warehouse-restore"></a>Восстановление хранилища данных SQL
@@ -58,7 +58,12 @@ Yes, you can restore the last available restore point.
 Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
 
 ## <a name="geo-redundant-restore"></a>Геоизбыточное восстановление
-При использовании геоизбыточного хранилища можно восстановить хранилище данных в [сопряженный центр обработки данных](../best-practices-availability-paired-regions.md) в другом географическом регионе. Хранилище данных восстанавливается из последнего ежедневного архива. 
+Хранилище данных можно восстановить в любой регион, поддерживающий хранилище данных SQL Azure выбранного вами уровня производительности. Обратите внимание, что 9000 и 18000 DWU не поддерживаются во всех регионах на этапе предварительной версии.
+
+> [!NOTE]
+> Чтобы выполнить географически избыточное восстановление, необходимо отказаться от этой функции.
+> 
+> 
 
 ## <a name="restore-timeline"></a>Временная шкала восстановления
 Вы можете восстановить базу данных до любой точки восстановления за последние семь дней. Моментальные снимки создаются каждые четыре-восемь часов и доступны в течение семи дней. Если моментальный снимок старше семи дней, то срок его действия истекает и его точка восстановления перестает быть доступной.

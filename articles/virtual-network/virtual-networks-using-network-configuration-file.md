@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 6baf1a642778bdd281ae641611bc09ee26aaec70
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/24/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 06/24/2017
 
 Для создания и настройки (классической) виртуальной сети с помощью файла конфигурации сети необходимо экспортировать, изменить и импортировать файл.
 
-## <a name="export-a-network-configuration-file"></a>Экспорт файла конфигурации сети
+## <a name="export"></a>Экспорт файла конфигурации сети
 
 Чтобы экспортировать файл конфигурации сети, можно использовать PowerShell или Azure CLI. PowerShell экспортирует XML-файл, а Azure CLI — JSON-файл.
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 06/24/2017
 
 Если экспортируемый файл конфигурации сети пуст, можно скопировать код JSON из предыдущего примера и вставить его в новый файл.
 
-## <a name="import-a-network-configuration-file"></a>Импорт файла конфигурации сети
+## <a name="import"></a>Импорт файла конфигурации сети
 
 Чтобы импортировать файл конфигурации сети, можно использовать PowerShell или Azure CLI. PowerShell импортирует XML-файл, а Azure CLI — JSON-файл. При сбое импорта убедитесь, что файл соответствует [схеме конфигурации сети](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
@@ -143,3 +143,4 @@ ms.lasthandoff: 06/24/2017
     ```azurecli
     azure network import c:\azure\networkconfig.json
     ```
+

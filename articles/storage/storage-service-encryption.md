@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7b91be16b5820f379f7408b477311ea86b213ccd
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: dcd843ae1ba768ce02256dcc91c61693730c60e4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Шифрование службы хранилища Azure для неактивных данных (предварительная версия)
@@ -40,7 +39,7 @@ ms.lasthandoff: 05/10/2017
 
 Дополнительные сведения см. в разделе вопросов и ответов.
 
-Чтобы включить или отключить шифрование службы хранилища для учетной записи хранения, войдите на [портал Azure](https://azure.portal.com) и выберите нужную учетную запись. В колонке "Параметры" найдите раздел "Служба BLOB-объектов", как показано на следующем снимке экрана, и щелкните "Шифрование".
+Чтобы включить или отключить шифрование службы хранилища для учетной записи хранения, войдите на [портал Azure](https://portal.azure.com) и выберите нужную учетную запись. В колонке "Параметры" найдите раздел "Служба BLOB-объектов", как показано на следующем снимке экрана, и щелкните "Шифрование".
 
 ![Снимок экрана портала с параметром шифрования](./media/storage-service-encryption/image1.png)
 <br/>*Рис. 1. Включение SSE для службы BLOB-объектов (шаг 1)*
@@ -85,7 +84,7 @@ AzCopy — это служебная программа командной ст
 Дополнительные сведения см. в статье [Передача данных с помощью служебной программы командной строки AzCopy](storage-use-azcopy.md).
 
 #### <a name="using-smb"></a>Использование SMB
-Хранилище файлов Azure предоставляет общие папки в облаке с доступом по стандартному протоколу SMB. Общую папку можно подключить через клиент на локальном компьютере или в Azure. После подключения можно копировать файлы в общие папки Azure с помощью таких инструментов, как Robocopy. Дополнительные сведения см. в разделах о [подключении общей папки Azure в Windows](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-files#mount-the-file-share) и [в Linux](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share).
+Хранилище файлов Azure предоставляет общие папки в облаке с доступом по стандартному протоколу SMB. Общую папку можно подключить через клиент на локальном компьютере или в Azure. После подключения можно копировать файлы в общие папки Azure с помощью таких инструментов, как Robocopy. Дополнительные сведения см. в статьях [Подключение общей папки Azure и получение доступа к этой папке в Windows](storage-file-how-to-use-files-windows.md) и [Использование хранилища файлов Azure в Linux](storage-how-to-use-files-linux.md).
 
 
 #### <a name="using-the-storage-client-libraries"></a>Использование клиентских библиотек хранилища

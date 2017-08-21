@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 92c715015067363fa6d6b58f436891f4d38e19e5
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 34072574f83b51280e60e2f8766c6c5d5a33c307
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Развертывание топологий Apache Storm в HDInsight под управлением Windows и управление ими
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/18/2017
 Панель мониторинга и компоненты Storm в средствах HDInsight используют интерфейс REST API для Storm, с помощью которого можно создавать собственные решения для мониторинга и управления.
 
 > [!IMPORTANT]
-> Действия, описанные в этом документе, требуют наличия Storm в кластере HDInsight с операционной системой Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Действия, описанные в этом документе, требуют наличия Storm в кластере HDInsight с операционной системой Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Сведения о развертывании топологий Storm и управлении ими с помощью кластера HDInsight под управлением Linux см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими](hdinsight-storm-deploy-monitor-topology-linux.md).
 
@@ -45,14 +44,13 @@ ms.lasthandoff: 05/18/2017
 
     Одна из следующих версий Visual Studio:
 
-  * Visual Studio 2012 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 с обновлением 4;
 
-  * Visual Studio 2013 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=44921) или [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
-  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
+  * Visual Studio 2013 с обновлением 4 или Visual Studio 2013 Community;
 
-  * Visual Studio 2015 (любой выпуск)
+  * Visual Studio 2015 (любой выпуск);
 
-  * Visual Studio 2017 (любой выпуск)
+  * Visual Studio 2017 (любой выпуск).
 
 ## <a name="storm-dashboard"></a>Панель мониторинга Storm
 

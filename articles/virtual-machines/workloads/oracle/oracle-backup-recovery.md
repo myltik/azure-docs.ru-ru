@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 7a53ca814170a6651fc499c41395fe088a6f869a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -27,19 +27,20 @@ ms.lasthandoff: 06/15/2017
 
 Вы можете использовать Azure CLI, чтобы создать ресурсы Azure и управлять ими из командной строки или с помощью сценариев. В этой статье используются сценарии Azure CLI для развертывания базы данных Oracle Database 12c из коллекции образов Azure Marketplace.
 
-Прежде чем начать, убедитесь, что установлен Azure CLI. Дополнительные сведения см. в [руководстве по установке Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Прежде чем начать, убедитесь, что установлен Azure CLI. Дополнительные сведения см. в [руководстве по установке Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Подготовка среды
-### <a name="step-1-assumptions"></a>Шаг 1. Предварительные требования
 
-*   Для резервного копирования и восстановления вам необходимо создать виртуальную машину Linux с установленным экземпляром базы данных Oracle Database 12c. Имя образа Marketplace, который вы будете использовать для создания виртуальных машин, — *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
+### <a name="step-1-prerequisites"></a>Шаг 1. Предварительные требования
+
+*   Для резервного копирования и восстановления вам необходимо сначала создать виртуальную машину Linux с установленным экземпляром базы данных Oracle Database 12c. Имя образа Marketplace, который вы будете использовать для создания виртуальных машин, — *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
 
     Инструкции по созданию базы данных Oracle см. в статье [Создание базы данных Oracle 12c на виртуальной машине Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
 
 
 ### <a name="step-2-connect-to-the-vm"></a>Шаг 2. Подключение к виртуальной машине
 
-*   Чтобы создать сеанс Secure Shell (SSH) на виртуальной машине, используйте команду ниже. Замените IP-адрес и имя узла значением `publicIpAddress` для виртуальной машины.
+*   Используйте следующую команду для создания сеанса Secure Shell (SSH) с виртуальной машиной. Замените сочетание IP-адреса и имени узла значением `publicIpAddress` вашей виртуальной машины.
 
     ```bash 
     ssh <publicIpAddress>
@@ -133,172 +134,191 @@ ms.lasthandoff: 06/15/2017
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Шаг 4. Согласованное с приложениями резервное копирование для виртуальных машин Linux
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Шаг 4. Согласованное с приложениями резервное копирование для виртуальных машин Linux
 
-Это новая функция службы Azure Backup, которая позволяет пользователям указывать сценарии (с параметрами pre и post) для выполнения до и после создания моментального снимка виртуальной машины.
+Согласованное с приложениями резервное копирование — это новая функция в службе Azure Backup. Можно создавать скрипты и выбирать скрипты для выполнения до и после создания моментального снимка виртуальной машины.
 
-#### <a name="1-download-vmsnapshotscriptpluginconfigjson-from-httpsgithubcommicrosoftazurebackupvmsnapshotpluginconfig-content-should-be-similar-to-following"></a>1. Скачайте файл VMSnapshotScriptPluginConfig.json со страницы https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Содержимое файла должно выглядеть примерно следующим образом:
+1. Скачайте файл JSON.
 
-```azurecli
-{
-    "pluginName" : "ScriptRunner",
-    "preScriptLocation" : "",
-    "postScriptLocation" : "",
-    "preScriptParams" : ["", ""],
-    "postScriptParams" : ["", ""],
-    "preScriptNoOfRetries" : 0,
-    "postScriptNoOfRetries" : 0,
-    "timeoutInSeconds" : 30,
-    "continueBackupOnFailure" : true,
-    "fsFreezeEnabled" : true
-}
-```
+    Скачайте файл VMSnapshotScriptPluginConfig.json со страницы https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Содержимое файла будет выглядеть следующим образом:
 
-#### <a name="2-create-etcazure-folder-on-vm"></a>2) На виртуальной машине создайте папку /etc/azure:
+    ```azurecli
+    {
+        "pluginName" : "ScriptRunner",
+        "preScriptLocation" : "",
+        "postScriptLocation" : "",
+        "preScriptParams" : ["", ""],
+        "postScriptParams" : ["", ""],
+        "preScriptNoOfRetries" : 0,
+        "postScriptNoOfRetries" : 0,
+        "timeoutInSeconds" : 30,
+        "continueBackupOnFailure" : true,
+        "fsFreezeEnabled" : true
+    }
+    ```
 
-```bash
-$ sudo su -
-# mkdir /etc/azure
-# cd /etc/azure
-```
+2. Создайте папку /etc/azure на виртуальной машине:
 
-#### <a name="3-copy-vmsnapshotscriptpluginconfigjson-file-to-folder-etcazure"></a>3. Скопируйте файл VMSnapshotScriptPluginConfig.json в папку /etc/azure.
+    ```bash
+    $ sudo su -
+    # mkdir /etc/azure
+    # cd /etc/azure
+    ```
 
-#### <a name="4-edit-the-vmsnapshotscriptpluginconfigjson-file-to-included-the-prescriptlocation-and-postscriptlocation-parameters-for-example"></a>4. Измените файл VMSnapshotScriptPluginConfig.json, чтобы добавить параметры PreScriptLocation и PostScriptlocation. Например:
-```azurecli
-{
-    "pluginName" : "ScriptRunner",
-    "preScriptLocation" : "/etc/azure/pre_script.sh",
-    "postScriptLocation" : "/etc/azure/post_script.sh",
-    "preScriptParams" : ["", ""],
-    "postScriptParams" : ["", ""],
-    "preScriptNoOfRetries" : 0,
-    "postScriptNoOfRetries" : 0,
-    "timeoutInSeconds" : 30,
-    "continueBackupOnFailure" : true,
-    "fsFreezeEnabled" : true
-}
-```
-#### <a name="5-create-the-pre-and-post-script-files"></a>5. Создайте файлы сценариев предварительного и последующего выполнения.
+3. Скопируйте файл JSON.
 
-Ниже приведены примеры сценариев предварительного и последующего выполнения для холодного резервного копирования (завершение работы и перезапуск).
+    Скопируйте файл VMSnapshotScriptPluginConfig.json в папку /etc/azure.
 
-Для /etc/azure/pre_script.sh:
+4. Измените файл JSON.
 
-```bash
-v_date=`date +%Y%m%d%H%M`
-ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
-ORA_OWNER=oracle
-su - $ORA_OWNER -c "$ORA_HOME/bin/dbshut $ORA_HOME" > /etc/azure/pre_script_$v_date.log
-```
+    Измените файл VMSnapshotScriptPluginConfig.json, добавив в него параметры `PreScriptLocation` и `PostScriptlocation`. Например:
 
-Для /etc/azure/post_script.sh:
+    ```azurecli
+    {
+        "pluginName" : "ScriptRunner",
+        "preScriptLocation" : "/etc/azure/pre_script.sh",
+        "postScriptLocation" : "/etc/azure/post_script.sh",
+        "preScriptParams" : ["", ""],
+        "postScriptParams" : ["", ""],
+        "preScriptNoOfRetries" : 0,
+        "postScriptNoOfRetries" : 0,
+        "timeoutInSeconds" : 30,
+        "continueBackupOnFailure" : true,
+        "fsFreezeEnabled" : true
+    }
+    ```
 
-```bash
-v_date=`date +%Y%m%d%H%M`
-ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
-ORA_OWNER=oracle
-su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" > /etc/azure/post_script_$v_date.log
-```
+5. Создайте файлы скриптов, выполняемых перед и после создания моментального снимка.
 
-Ниже приведены примеры сценариев предварительного и последующего выполнения для оперативного резервного копирования:
+    Вот пример скриптов, выполняемых до и после создания моментальных снимков, для холодного резервного копирования (автономное резервное копирование с завершением работы и перезагрузкой):
 
-```bash
-v_date=`date +%Y%m%d%H%M`
-ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
-ORA_OWNER=oracle
-su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/pre_script.sql" > /etc/azure/pre_script_$v_date.log
-```
+    Для /etc/azure/pre_script.sh:
 
-Для /etc/azure/post_script.sh:
+    ```bash
+    v_date=`date +%Y%m%d%H%M`
+    ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+    ORA_OWNER=oracle
+    su - $ORA_OWNER -c "$ORA_HOME/bin/dbshut $ORA_HOME" > /etc/azure/pre_script_$v_date.log
+    ```
 
-```bash
-v_date=`date +%Y%m%d%H%M`
-ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
-ORA_OWNER=oracle
-su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/post_script.sql" > /etc/azure/pre_script_$v_date.log
-```
+    Для /etc/azure/post_script.sh:
 
-Для /etc/azure/pre_script.sql необходимо изменить содержимое файла в соответствии с требованиями:
+    ```bash
+    v_date=`date +%Y%m%d%H%M`
+    ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+    ORA_OWNER=oracle
+    su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" > /etc/azure/post_script_$v_date.log
+    ```
 
-```bash
-alter tablespace SYSTEM begin backup;
-...
-...
-alter system switch logfile;
-alter system archive log stop;
-```
+    Вот пример скриптов, выполняемых до и после создания моментальных снимков, для горячего резервного копирования (оперативное резервное копирование):
 
-Для /etc/azure/post_script.sql необходимо изменить содержимое файла в соответствии с требованиями:
+    ```bash
+    v_date=`date +%Y%m%d%H%M`
+    ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+    ORA_OWNER=oracle
+    su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/pre_script.sql" > /etc/azure/pre_script_$v_date.log
+    ```
 
-```bash
-alter tablespace SYSTEM end backup;
-...
-...
-alter system archive log start;
-```
+    Для /etc/azure/post_script.sh:
 
-#### <a name="6-change-file-permissions"></a>6. Измените разрешения файла:
+    ```bash
+    v_date=`date +%Y%m%d%H%M`
+    ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+    ORA_OWNER=oracle
+    su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/post_script.sql" > /etc/azure/pre_script_$v_date.log
+    ```
 
-```bash
-# chmod 600 /etc/azure/VMSnapshotScriptPluginConfig.json
-# chmod 700 /etc/azure/pre_script.sh
-# chmod 700 /etc/azure/post_script.sh
-```
+    Для /etc/azure/pre_script.sql измените содержимое файла в соответствии с требованиями:
 
-#### <a name="7-test-the-scripts-sign-in-as-root-make-sure-no-errors"></a>7. Протестируйте сценарии (выполните вход как суперпользователь) и проверьте отсутствие ошибок.
+    ```bash
+    alter tablespace SYSTEM begin backup;
+    ...
+    ...
+    alter system switch logfile;
+    alter system archive log stop;
+    ```
 
-```bash
-# /etc/azure/pre_script.sh
-# /etc/azure/post_script.sh
-```
+    Для /etc/azure/post_script.sql измените содержимое файла в соответствии с требованиями:
+
+    ```bash
+    alter tablespace SYSTEM end backup;
+    ...
+    ...
+    alter system archive log start;
+    ```
+
+6. Измените разрешения файла:
+
+    ```bash
+    # chmod 600 /etc/azure/VMSnapshotScriptPluginConfig.json
+    # chmod 700 /etc/azure/pre_script.sh
+    # chmod 700 /etc/azure/post_script.sh
+    ```
+
+7. Протестируйте скрипты.
+
+    Чтобы протестировать скрипты, сначала выполните вход в качестве привилегированного пользователя. Затем убедитесь, что отсутствуют ошибки:
+
+    ```bash
+    # /etc/azure/pre_script.sh
+    # /etc/azure/post_script.sh
+    ```
 
 Дополнительные сведения см. в записи блога [Announcing application consistent backup for Linux VMs using Azure Backup](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/) (Объявление согласованного с приложениями резервного копирования для виртуальных машин Linux).
 
 
 ### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Шаг 5. Использование хранилищ служб восстановления Azure для резервного копирования виртуальной машины
 
-1.  Войдите на портал Azure, а затем найдите экземпляр хранилищ служб восстановления.
-![Страница хранилищ служб восстановления](./media/oracle-backup-recovery/recovery_service_01.png)
+1.  На портале Azure найдите **Хранилища служб восстановления**.
 
-2.  Нажмите кнопку **Добавить**, чтобы добавить новое хранилище.
-![Страница добавления хранилищ служб восстановления](./media/oracle-backup-recovery/recovery_service_02.png)
+    ![Страница хранилищ служб восстановления](./media/oracle-backup-recovery/recovery_service_01.png)
 
-3.  Чтобы продолжить, щелкните раздел **myVault**. Откроется страница сведений о хранилище.
-![Страница сведений о хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_03.png)
+2.  В колонке **Хранилища служб восстановления** щелкните **Добавить**, чтобы добавить новое хранилище.
 
-4.  Нажмите кнопку **Архивация**. Затем вам нужно добавить цель, политику и элементы резервного копирования.
-![Страница резервного копирования хранилищ служб восстановления](./media/oracle-backup-recovery/recovery_service_04.png)
+    ![Страница добавления хранилищ служб восстановления](./media/oracle-backup-recovery/recovery_service_02.png)
 
-5.  Для **цели архивации** используйте значения по умолчанию — **Azure** и **Виртуальная машина**. Чтобы продолжить, нажмите кнопку **ОК**.
-![Страница сведений о хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_05.png)
+3.  Чтобы продолжить, щелкните раздел **myVault**.
 
-6.  Для **политики резервного копирования** используйте параметры **DefaultPolicy** или **Создание новой политики**. Чтобы продолжить, нажмите кнопку **ОК**.
-![Страница сведений о политике резервного копирования хранилищ служб восстановления](./media/oracle-backup-recovery/recovery_service_06.png)
+    ![Страница сведений о хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_03.png)
 
-7.  Установите флажок для элемента **myVM1**, нажмите кнопку **ОК**, а затем нажмите кнопку **Enable backup** (Включить резервное копирование).
-![Страница сведений об элементах резервного копирования в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_07.png)
+4.  В колонке **myVault** щелкните **Резервное копирование**.
+
+    ![Страница резервного копирования хранилищ служб восстановления](./media/oracle-backup-recovery/recovery_service_04.png)
+
+5.  В колонке **Цель резервного копирования** используйте значения по умолчанию — **Azure** и **Виртуальная машина**. Нажмите кнопку **ОК**.
+
+    ![Страница сведений о хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_05.png)
+
+6.  Для **политики резервного копирования** используйте параметр **DefaultPolicy** или выберите **Создание новой политики**. Нажмите кнопку **ОК**.
+
+    ![Страница сведений о политике резервного копирования хранилищ служб восстановления](./media/oracle-backup-recovery/recovery_service_06.png)
+
+7.  В колонке **Выбор виртуальных машин** установите флажок **myVM1**, а затем щелкните **ОК**. Нажмите кнопку **Включить резервное копирование**.
+
+    ![Страница сведений об элементах резервного копирования в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_07.png)
 
     > [!IMPORTANT]
-    > После нажатия кнопки **Enable backup** (Включить резервное копирование) процесс резервного копирования запустится только в запланированное время. Чтобы настроить немедленное резервное копирование, сделайте следующее:
+    > После нажатия кнопки **Включить резервное копирование** процесс резервного копирования запустится только в запланированное время. Чтобы настроить немедленное резервное копирование, сделайте следующее:
 
-8.  Щелкните колонку **Элементы архивации**, а затем под разделом **числа элементов архивации** выберите число элементов.
+8.  Перейдите к колонке myVault, щелкните **Архивные элементы** и в столбце **Количество элементов архивации** выберите количество элементов архивации.
 
     ![Страница сведений о хранилище myVault в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  В правой области страницы нажмите кнопку с многоточием (**…**), а затем щелкните **Создать резервную копию**.
+9.  В колонке **Backup Items (Azure Virtual Machine)** (Элементы архивации (виртуальная машина Azure)) в правой части страницы щелкните многоточие (**...**) и выберите **Создать резервную копию**.
 
     ![Команда "Создать резервную копию" в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Нажмите кнопку **Архивация**, дождитесь завершения процесса резервного копирования, а затем перейдите к шагу 5 — удалению файлов базы данных.
-Чтобы просмотреть состояние задания резервного копирования, щелкните **Задания**.
-![Страница задания в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_10.png)
+10. Нажмите кнопку **Архивация**. Дождитесь завершения процесса резервного копирования. Затем перейдите к разделу [Шаг 6. Удаление файлов базы данных](#step-6-remove-the-database-files).
 
-    Появится состояние задания резервного копирования:
+    Чтобы просмотреть состояние задания резервного копирования, щелкните **Задания**.
+
+    ![Страница задания в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_10.png)
+
+    Состояние задания резервного копирования отобразится на следующем рисунке:
 
     ![Страница задания в хранилищах служб восстановления с отображением состояния](./media/oracle-backup-recovery/recovery_service_11.png)
 
-11. Для согласованного с приложениями резервного копирования Сведения об ошибках см. в файле журнала /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
+11. Для согласованных с приложениями резервных копий устраните все ошибки в файле журнала. Файл журнала находится в каталоге /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
 
 ### <a name="step-6-remove-the-database-files"></a>Шаг 6. Удаление файлов базы данных 
 Далее в этой статье вы узнаете, как выполнить тестирование процесса восстановления. Перед тестированием процесса восстановления вам нужно удалить файлы базы данных.
@@ -321,24 +341,28 @@ alter system archive log start;
     ORACLE instance shut down.
     ```
 
-## <a name="restore-the-deleted-files-from-recovery-services-vaults"></a>Восстановление удаленных файлов из хранилищ служб восстановления
-Чтобы восстановить удаленные файлы, сделайте следующее:
+## <a name="restore-the-deleted-files-from-the-recovery-services-vaults"></a>Восстановление удаленных файлов из хранилищ служб восстановления
+Чтобы восстановить удаленные файлы, выполните следующие действия:
 
-1. Войдите на портал Azure, а затем найдите элемент хранилищ служб восстановления для хранилища *myVault*. В правом верхнем углу в разделе **Элементы архивации** щелкните число элементов.
-![Элементы архивации хранилища myVault в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_12.png)
+1. На портале Azure найдите элемент хранилищ служб восстановления *myVault*. В колонке **Обзор** в разделе **Архивные элементы** выберите число элементов.
 
-2. В разделе **числа элементов архивации** щелкните число элементов.
-![Число элементов архивации виртуальной машины Azure в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_13.png)
+    ![Элементы архивации хранилища myVault в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_12.png)
 
-3. Щелкните **File Recovery (Preview)** (Восстановление файлов (предварительная версия)).
-![Снимок экрана страницы восстановления файлов в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_14.png)
+2. В разделе **Количество элементов архивации** выберите число элементов.
 
-4. Нажмите кнопку **Скачать скрипт**, а затем сохраните файл скачивания (SH) в папку на клиентском компьютере.
-![Параметры сохранения файла скачивания сценария](./media/oracle-backup-recovery/recovery_service_15.png)
+    ![Число элементов архивации виртуальной машины Azure в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_13.png)
+
+3. В колонке **myvm1** щелкните **Восстановление файлов (предварительная версия)**.
+
+    ![Снимок экрана страницы восстановления файлов в хранилищах служб восстановления](./media/oracle-backup-recovery/recovery_service_14.png)
+
+4. В области **Восстановление файлов (предварительная версия)** щелкните **Скачать скрипт**. Затем скачайте SH-файл в папку на клиентском компьютере.
+
+    ![Параметры сохранения файла скачивания сценария](./media/oracle-backup-recovery/recovery_service_15.png)
 
 5. Скопируйте SH-файл на виртуальную машину.
 
-    В примере ниже показано, как использовать команду безопасного копирования для перемещения файла на виртуальную машину. Вы можете также скопировать содержимое в буфер обмена, а затем вставить его в новый файл, установленный на виртуальной машине.
+    В следующем примере показано, как использовать команду безопасного копирования для перемещения файла на виртуальную машину. Вы также можете скопировать содержимое в буфер обмена, а затем вставить его в новый файл, установленный на виртуальной машине.
 
     > [!IMPORTANT]
     > Чтобы перейти к следующему примеру, вы должны обновить значения IP-адреса и папки. Значения должны соответствовать папке, в которой сохранен файл.
@@ -346,9 +370,9 @@ alter system archive log start;
     ```bash
     $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
     ```
-6. Измените файл, чтобы он принадлежал суперпользователю.
+6. Измените файл, чтобы он принадлежал привилегированному пользователю.
 
-    В следующем примере вы измените файл, чтобы он принадлежал суперпользователю, а затем измените разрешение.
+    В следующем примере измените файл, чтобы он принадлежал привилегированному пользователю. Затем измените разрешения.
 
     ```bash 
     $ ssh <publicIpAddress>
@@ -357,7 +381,7 @@ alter system archive log start;
     # chmod 755 /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     # /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     ```
-    В примере ниже показано содержимое, которое вы должны увидеть после выполнения предыдущего сценария. Когда появится запрос продолжить, введите **Y**.
+    В следующем примере показано, что вы должны увидеть после выполнения предыдущего скрипта. Когда появится запрос продолжить, введите **Y**.
 
     ```bash
     Microsoft Azure VM Backup - File Recovery
@@ -393,9 +417,9 @@ alter system archive log start;
 
     Чтобы выйти, введите **q**, а затем найдите подключенные тома. Чтобы создать список добавленных томов, введите в командной строке **df -k**.
 
-    ![команда df -k](./media/oracle-backup-recovery/recovery_service_16.png)
+    ![Команда df -k](./media/oracle-backup-recovery/recovery_service_16.png)
 
-8. Чтобы скопировать недостающие файлы обратно в папки, используйте следующий сценарий:
+8. Чтобы скопировать недостающие файлы обратно в папки, используйте следующий скрипт:
 
     ```bash
     # cd /root/myVM-2017XXXXXXX/Volume2/u01/app/oracle/fast_recovery_area/CDB1/backupset/2017_xx_xx
@@ -421,7 +445,7 @@ alter system archive log start;
     
 10. Отключите диск.
 
-    На портале Azure нажмите кнопку **Unmount Disks** (Отключить диски).
+    На портале Azure в колонке **Восстановление файлов (предварительная версия)** нажмите кнопку **Unmount Disks** (Отключить диски).
 
     ![Команда отключения дисков](./media/oracle-backup-recovery/recovery_service_17.png)
 
@@ -429,74 +453,83 @@ alter system archive log start;
 
 Вместо того чтобы восстанавливать удаленные файлы из хранилищ служб восстановления, можно восстановить всю виртуальную машину.
 
-### <a name="step-1-drop-the-myvm"></a>Шаг 1. Удаление хранилища myVM
+### <a name="step-1-delete-myvm"></a>Ша 1. Удаление myVM
 
-*   Войдите на портал Azure, перейдите в хранилище *myVM*, а затем выберите **Удалить**.
+*   На портале Azure перейдите в хранилище **myVM1**, а затем выберите **Удалить**.
 
-    ![Команда удаления](./media/oracle-backup-recovery/recover_vm_01.png)
+    ![Команда удаления хранилища](./media/oracle-backup-recovery/recover_vm_01.png)
 
 ### <a name="step-2-recover-the-vm"></a>Шаг 2. Восстановление виртуальной машины
 
 1.  Перейдите в **Хранилища служб восстановления**, а затем выберите **myVault**.
-![Запись myVault, которая отображается в пользовательском интерфейсе](./media/oracle-backup-recovery/recover_vm_02.png)
 
-2.  В правом верхнем углу в разделе **Элементы архивации** щелкните число элементов.
-![Элементы архивации myVault](./media/oracle-backup-recovery/recover_vm_03.png)
+    ![Запись myVault](./media/oracle-backup-recovery/recover_vm_02.png)
 
-3.  В разделе **числа элементов архивации** щелкните число элементов.
-![Страница восстановления виртуальной машины](./media/oracle-backup-recovery/recover_vm_04.png)
+2.  В колонке **Обзор** в разделе **Архивные элементы** выберите число элементов.
 
-4.  В правой области страницы нажмите кнопку с многоточием (**…**), а затем щелкните **Restore VM** (Восстановить виртуальную машину).
-![Команда восстановления виртуальной машины](./media/oracle-backup-recovery/recover_vm_05.png)
+    ![Элементы архивации myVault](./media/oracle-backup-recovery/recover_vm_03.png)
 
-5.  Выберите элемент, который нужно восстановить, а затем нажмите кнопку **ОК**.
-В разделе ![Выберите точку восстановления](./media/oracle-backup-recovery/recover_vm_06.png) в случае включения согласованного с приложениями резервного копирования появится голубая вертикальная линия.
+3.  В колонке **Backup Items (Azure Virtual Machine)** (Элементы архивации (виртуальная машина Azure)) выберите **myvm1**.
 
-6.  Выберите **Имя виртуальной машины**, выберите **группу ресурсов**, а затем нажмите кнопку **ОК**.
-![Значения восстановления конфигурации](./media/oracle-backup-recovery/recover_vm_07.png)
+    ![Страница восстановления виртуальной машины](./media/oracle-backup-recovery/recover_vm_04.png)
 
-7.  Чтобы восстановить виртуальную машину, в левом нижнем углу пользовательского интерфейса (см. предыдущий снимок экрана) щелкните **Восстановить**.
+4.  В колонке **myvm1** нажмите кнопку с многоточием (**...**), а затем щелкните **Восстановить виртуальную машину**.
 
-8.  Чтобы просмотреть состояние процесса восстановления, щелкните **Задания**.
-![Команда состояния заданий резервного копирования](./media/oracle-backup-recovery/recover_vm_08.png)
+    ![Команда восстановления виртуальной машины](./media/oracle-backup-recovery/recover_vm_05.png)
 
-    На снимке экрана ниже показано состояние процесса восстановления.
+5.  В колонке **Выбор точки восстановления** выберите элемент, который нужно восстановить, и щелкните **ОК**.
+
+    ![Выбор точки восстановления](./media/oracle-backup-recovery/recover_vm_06.png)
+
+    Если выбрано согласованное с приложениями резервное копирование, появится вертикальная синяя полоска.
+
+6.  В колонке **Конфигурация восстановления** выберите имя виртуальной машины, группу ресурсов и щелкните **ОК**.
+
+    ![Значения восстановления конфигурации](./media/oracle-backup-recovery/recover_vm_07.png)
+
+7.  Чтобы восстановить виртуальную машину, нажмите кнопку **Восстановление**.
+
+8.  Чтобы просмотреть состояние процесса восстановления, щелкните **Задания**, а затем — **Задания архивации**.
+
+    ![Команда состояния заданий резервного копирования](./media/oracle-backup-recovery/recover_vm_08.png)
+
+    На следующем рисунке показано состояние процесса восстановления:
 
     ![Состояние процесса восстановления](./media/oracle-backup-recovery/recover_vm_09.png)
 
 ### <a name="step-3-set-the-public-ip-address"></a>Шаг 3. Задание общедоступного IP-адреса
 После восстановления виртуальной машины необходимо настроить общедоступный IP-адрес.
 
-1.  Используйте поле поиска для поиска **общедоступного IP-адреса**.
+1.  В поле поиска введите **общедоступный IP-адрес**.
 
     ![Список общедоступных IP-адресов](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  В левом верхнем углу щелкните **Добавить**. Для **имени** выберите общедоступное имя IP-адреса, а для **группы ресурсов** выберите **использование существующей**. Щелкните **Создать**.
+2.  В колонке **Общедоступные IP-адреса** щелкните **Добавить**. В колонке **Создать общедоступный IP-адрес** для параметра **Имя** выберите имя общедоступного IP-адреса. Для параметра **Группа ресурсов** выберите **Использовать существующий**. Затем щелкните **Создать**.
 
     ![Создание IP-адреса](./media/oracle-backup-recovery/create_ip_01.png)
 
-3.  Чтобы связать общедоступный IP-адрес с сетевым интерфейсом для виртуальной машины, найдите и выберите **myVMip**, а затем щелкните **Связать**.
+3.  Чтобы сопоставить общедоступный IP-адрес с сетевым интерфейсом для виртуальной машины, найдите и выберите **myVMip**. Щелкните **Сопоставить**.
 
     ![Связывание IP-адреса](./media/oracle-backup-recovery/create_ip_02.png)
 
-4.  Для **типа ресурса** выберите **Сетевой интерфейс**, выберите сетевой интерфейс, используемый экземпляром myVM, а затем нажмите кнопку **ОК**.
+4.  Для **Тип ресурса** выберите **Сетевой интерфейс**. Выберите сетевой интерфейс, который используется экземпляром myVM, и щелкните **ОК**.
 
     ![Выбор значений типа ресурса и сетевого интерфейса](./media/oracle-backup-recovery/create_ip_03.png)
 
-5.  Найдите и откройте экземпляр myVM, перенесенный из портала. IP-адрес, связанный с виртуальной машиной, появится в правом верхнем углу.
+5.  Найдите и откройте экземпляр myVM, перенесенный из портала. Связанный с виртуальной машиной IP-адрес появится в колонке myVM **Обзор**.
 
     ![Значение IP-адреса](./media/oracle-backup-recovery/create_ip_04.png)
 
 ### <a name="step-4-connect-to-the-vm"></a>Шаг 4. Подключение к виртуальной машине
 
-*   Для подключения выполните сценарий ниже:
+*   Чтобы подключиться к виртуальной машине, используйте следующий скрипт:
 
     ```bash 
     ssh <publicIpAddress>
     ```
 
 ### <a name="step-5-test-whether-the-database-is-accessible"></a>Шаг 5. Проверка доступности базы данных
-*   Чтобы проверить доступность базы данных, выполните сценарий ниже:
+*   Чтобы проверить доступность, используйте следующий скрипт:
 
     ```bash 
     $ sudo su - oracle
@@ -504,11 +537,11 @@ alter system archive log start;
     SQL> startup
     ```
 
-> [!IMPORTANT]
-> Если команда базы данных **startup** вызывает ошибку, то чтобы восстановить базу данных, используйте инструкции, описанные в разделе ниже.
+    > [!IMPORTANT]
+    > Если команда базы данных **startup** вызывает ошибку, то чтобы восстановить базу данных, используйте инструкции, [описанные в шаге 6](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-use-rman-to-recover-the-database-optional-step"></a>Шаг 6. Использование RMAN для восстановления базы данных (необязательно)
-*   Чтобы восстановить базу данных, выполните сценарий ниже:
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>(Необязательно) Шаг 6. Использование RMAN для восстановления базы данных
+*   Чтобы восстановить базу данных, используйте следующий скрипт:
 
     ```bash
     # sudo su - oracle
@@ -520,7 +553,8 @@ alter system archive log start;
     RMAN> SELECT * FROM scott.scott_table;
     ```
 
-Вы успешно выполнили резервное копирование и восстановление базы данных Oracle 12c на виртуальной машине Linux в Azure.
+Резервное копирование и восстановление базы данных Oracle 12c на виртуальной машине Linux в Azure успешно завершено.
+
 ## <a name="delete-the-vm"></a>Удаление виртуальной машины
 
 Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, использовав следующую команду:
@@ -534,4 +568,7 @@ az group delete --name myResourceGroup
 Изучите [руководство по созданию высокодоступных виртуальных машин](../../linux/create-cli-complete.md).
 
 [Изучите примеры развертывания виртуальных машин с помощью интерфейса командной строки](../../linux/cli-samples.md).
+
+
+
 

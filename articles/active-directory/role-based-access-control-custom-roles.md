@@ -5,24 +5,25 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: kgremban
+ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e7a85813ae5e26f402837774a40fa3630a436bee
-ms.lasthandoff: 03/31/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 0479f3c4bb65d208cae2424071dface5606a6fa6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Создание пользовательских ролей для управления доступом на основе ролей в Azure
-Если ни одна из встроенных ролей не соответствует вашим требованиям к доступу, создайте пользовательскую роль с помощью механизма RBAC Azure (управление доступом на основе ролей). Настраиваемые роли можно создавать с помощью [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [интерфейса командной строки (CLI) Azure](role-based-access-control-manage-access-azure-cli.md) и интерфейса [REST API](role-based-access-control-manage-access-rest.md). Пользовательские роли, так же как и встроенные, могут назначаться пользователям, группам и приложениям в рамках подписки, группы ресурсов или области ресурсов. Пользовательские роли хранятся в клиенте Azure AD и могут совместно использоваться всеми подписками, которые используют этот клиент как каталог Azure AD для подписки.
+Если ни одна из встроенных ролей не соответствует вашим требованиям к доступу, создайте пользовательскую роль с помощью механизма RBAC Azure (управление доступом на основе ролей). Настраиваемые роли можно создавать с помощью [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [интерфейса командной строки (CLI) Azure](role-based-access-control-manage-access-azure-cli.md) и интерфейса [REST API](role-based-access-control-manage-access-rest.md). Пользовательские роли, так же как и встроенные, можно назначать пользователям, группам и приложениям в рамках подписки, группы ресурсов или области ресурсов. Пользовательские роли хранятся в клиенте Azure AD и могут использоваться несколькими подписками.
 
 В каждом клиенте можно создать до 2000 пользовательских ролей. 
 

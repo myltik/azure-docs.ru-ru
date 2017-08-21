@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: raymondl;garye;v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 0dc0f84ed65e76a95dcac523e42268039212773c
-ms.openlocfilehash: 5032e66556622e44e5f5bba84c4ddf5318b1e194
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: cf7a39e14a935d0d0e0df07e66a8f37480ec9687
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Программное переобучение моделей машинного обучения
@@ -91,7 +91,7 @@ ms.lasthandoff: 03/02/2017
 
 Чтобы вызвать интерфейсы API:
 
-1. Создайте приложение для консоли C# в Visual Studio ("Создать->Проект->Рабочий стол Windows->Консольное приложение").
+1. Создайте консольное приложение C# в Visual Studio (**Создать** > **Проект** > **Visual C#** > **Классический рабочий стол Windows** > **Консольное приложение (.NET Framework**).
 2. Войдите на портал веб-служб Машинного обучения.
 3. Если вы работаете с классической веб-службой, щелкните **Classic Web Services**(Классические веб-службы).
    1. Щелкните веб-службу, с которой вы работаете.

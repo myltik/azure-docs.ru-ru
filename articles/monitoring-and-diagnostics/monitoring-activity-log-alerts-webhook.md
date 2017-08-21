@@ -1,9 +1,32 @@
+---
+title: "Получение оповещений журнала действий для уведомлений службы Azure | Документация Майкрософт"
+description: "Получайте уведомления по SMS, электронной почте или с помощью веб-перехватчика при появлении проблем в службе Azure."
+author: johnkemnetz
+manager: orenr
+editor: 
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: johnkem
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: c8339c08333aaa471b42f6468ca2a59ee4efacf9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/18/2017
+
+---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Объекты webhook для оповещений журнала действий Azure
-В определении группы действий можно настроить конечные точки webhook для получения уведомлений об оповещениях журнала действий. Объекты webhook позволяют направлять эти уведомления в другие системы для последующей обработки или выполнения настраиваемых действий. В этой статье показано, как выглядят полезные данные HTTP POST для webhook.
+В определении группы действий можно настроить конечные точки веб-перехватчика для получения уведомлений об оповещениях журнала действий. Объекты webhook позволяют направлять эти уведомления в другие системы для последующей обработки или выполнения настраиваемых действий. В этой статье показано, как выглядят полезные данные HTTP POST для webhook.
 
-Дополнительные сведения о настройке и схеме для оповещений журнала действий Azure приведены [на этой странице](monitoring-activity-log-alerts.md).
+Дополнительные сведения о создании оповещений журнала действий Azure см. [на этой странице](monitoring-activity-log-alerts.md).
 
-Дополнительные сведения о настройке и схеме для групп действий приведены [на этой странице](monitoring-action-groups.md).
+Дополнительные сведения о создании групп действий см. [на этой странице](monitoring-action-groups.md).
 
 ## <a name="authenticating-the-webhook"></a>Проверка подлинности объекта webhook
 Для аутентификации webhook может использоваться маркер. Универсальный код ресурса (URI) webhook сохраняется вместе с идентификатором маркера. Пример: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
@@ -90,7 +113,7 @@
                     "stage": "Active",
                     "communicationId": "...",
                     "version": "0.1"
-                },
+                }
             }
         },
         "properties": {}
@@ -136,3 +159,4 @@
 * [Использование приложения логики для отправки SMS с помощью Twilio из оповещения Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Это пример для оповещений на основе метрик, но его можно изменить для работы с оповещениями журнала действий.
 * [Использование приложения логики для отправки сообщений Slack из оповещения Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Это пример для оповещений на основе метрик, но его можно изменить для работы с оповещениями журнала действий.
 * [Использование приложения логики для отправки сообщений в очередь Azure из оповещения Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Это пример для оповещений на основе метрик, но его можно изменить для работы с оповещениями журнала действий.
+

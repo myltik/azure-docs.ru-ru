@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0ebed14fe5a24f2b161c0bab0a0e1d36dadb6b5b
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 7c883c53fd3d151401173e4569818ee769505113
 ms.contentlocale: ru-ru
-ms.lasthandoff: 01/27/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
-# <a name="how-to-configure-on-premise-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Настройка локальных кодировщиков при использовании служб мультимедиа Azure для создания потоков с разными скоростями
+# <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Как настроить локальные кодировщики при использовании служб мультимедиа Azure для создания потоков с несколькими скоростями
 В этом разделе перечислены локальные динамические кодировщики, которые можно использовать для захвата динамических событий и отправки односкоростного динамического потока в каналы AMS (с включенным кодированием в реальном времени) для дальнейшей обработки. Кроме того, этот раздел содержит ссылки на учебники, в которых описывается, как настроить перечисленные кодировщики.
 
 ## <a name="elemental-live"></a>Elemental Live

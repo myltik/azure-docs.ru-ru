@@ -15,12 +15,11 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4371092aa31db444c4ca0374b4b2e7d700029a8b
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 024b70df99fdefa1598225ebb1fbfee85ea375d0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Использование Apache Phoenix и SQuirreL с кластерами HBase под управлением Windows в HDinsight
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/26/2017
 >
 
 > [!IMPORTANT]
-> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows. Для версий ниже HDInsight 3.4 кластер HDInsight доступен только в Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). Сведения об использовании Phoenix в HDInsight под управлением Linux см. в статье [Использование Apache Phoenix с кластерами HBase под управлением Linux в HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows. Для версий ниже HDInsight 3.4 кластер HDInsight доступен только в Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement). Сведения об использовании Phoenix в HDInsight под управлением Linux см. в статье [Использование Apache Phoenix с кластерами HBase под управлением Linux в HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -89,7 +88,7 @@ ms.lasthandoff: 05/26/2017
 * Получить для кластера HBase DNS-суффикс, зависящий от подключения. Для этого войдите в кластер с помощью RDP и запустите команду IPConfig.  DNS-суффикс имеет следующий вид:
 
         myhbase.b7.internal.cloudapp.net
-* Загрузить и установить [Microsoft Visual Studio Express 2013 для Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) на рабочую станцию. Необходимо выполнить команду makecert из пакета для создания сертификата.  
+* Скачать и установить [Microsoft Visual Studio Express для Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) на рабочую станцию. Необходимо выполнить команду makecert из пакета для создания сертификата.  
 * Загрузить и установить среду [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) на рабочую станцию.  Для SQL-клиента SQuirreL версии 3.0 и выше требуется JRE версии 1.6 или выше.  
 
 ### <a name="configure-a-point-to-site-vpn-connection-to-the-azure-virtual-network"></a>Настройка VPN-подключения «точка-сайт» к виртуальной сети Azure
@@ -128,7 +127,7 @@ ms.lasthandoff: 05/26/2017
     На схеме показано 0 клиентских подключений. После подключения к виртуальной сети число обновится до единицы.
 
 #### <a name="create-your-certificates"></a>Создание сертификатов
-Одним из способов создания сертификата X.509 является использование средства создания сертификатов (makecert.exe), входящего в состав [Microsoft Visual Studio Express 2013 для Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+Одним из способов создания сертификата X.509 является использование средства создания сертификатов (makecert.exe), входящего в состав [Microsoft Visual Studio Express для Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
 **Создание самозаверяющего корневого сертификата**
 

@@ -1,10 +1,10 @@
 ---
 title: "Intel Edison в облако (Node.js) — подключение Intel Edison к Центру Интернета вещей Azure | Документы Майкрософт"
-description: "Подключение Intel Edison к Центру Интернета вещей Azure, чтобы Intel Edison мог отправлять данные в облако Azure."
+description: "Узнайте, как настроить и подключить модуль Intel Edison к Центру Интернета вещей Azure и передавать данные с этого модуля в облако Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "Интернет вещей azure intel edison, Центр Интернета вещей intel edison, отправка данных intel edison в облако, intel edison в облако"
 ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
@@ -16,18 +16,15 @@ ms.workload: na
 ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 9e9198f827d0906f65f59322126ef27ba6428d3e
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 5a31efba704045196b5563f7bc467c773bea7805
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="connect-intel-edison-to-azure-iot-hub-nodejs" class="xliff"></a>
-
-# Подключение Intel Edison к Центру Интернета вещей Azure (Node.js)
+# <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>Подключение Intel Edison к Центру Интернета вещей Azure (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
@@ -35,29 +32,23 @@ ms.lasthandoff: 06/17/2017
 
 Нет начального набора? Начните [здесь](https://azure.microsoft.com/develop/iot/starter-kits)
 
-<a id="what-you-do" class="xliff"></a>
-
-## В рамках этого руководства мы:
+## <a name="what-you-do"></a>В рамках этого руководства мы:
 
 * Настройте модули Intel Edison и Grove.
-* Создайте центр IoT.
+* Создайте Центр Интернета вещей.
 * Зарегистрируйте устройство для Edison в Центре Интернета вещей.
 * Запустите пример приложения на Edison для отправки данных в Центр Интернета вещей.
 
 Подключите Intel Edison к созданному Центру Интернета вещей. После этого запустите пример приложения на Edison, чтобы собрать данные о температуре и влажности с датчика температуры Grove. После этого отправьте данные с датчика в Центр Интернета вещей.
 
-<a id="what-you-learn" class="xliff"></a>
-
-## Что вы узнаете
+## <a name="what-you-learn"></a>Что вы узнаете
 
 * Как создать Центр Интернета вещей Azure и получить строку подключения нового устройства.
 * Как подключить Edison к датчику температуры Grove.
 * Как собирать данные датчика, запустив пример приложения на Edison.
 * Как отправить данные датчика в Центр Интернета вещей.
 
-<a id="what-you-need" class="xliff"></a>
-
-## Необходимые элементы
+## <a name="what-you-need"></a>Необходимые элементы
 
 ![Необходимые элементы](media/iot-hub-intel-edison-kit-node-get-started/0_kit.png)
 
@@ -84,13 +75,9 @@ ms.lasthandoff: 06/17/2017
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-<a id="setup-intel-edison" class="xliff"></a>
+## <a name="setup-intel-edison"></a>Настройка Intel Edison
 
-## Настройка Intel Edison
-
-<a id="assemble-your-board" class="xliff"></a>
-
-### Сборка платы
+### <a name="assemble-your-board"></a>Сборка платы
 
 Этот раздел описывает процедуру подключения модуля Intel® Edison к плате расширения.
 
@@ -116,9 +103,7 @@ ms.lasthandoff: 06/17/2017
 
    ![Собранная плата](media/iot-hub-intel-edison-kit-node-get-started/5_assembled_board.jpg)
 
-<a id="connect-the-grove-base-shield-and-the-temperature-sensor" class="xliff"></a>
-
-### Подключение Grove Base Shield и датчика температуры
+### <a name="connect-the-grove-base-shield-and-the-temperature-sensor"></a>Подключение Grove Base Shield и датчика температуры
 
 1. Расположите Grove Base Shield на плате. Убедитесь, что все контакты хорошо подключены к плате.
    
@@ -132,9 +117,7 @@ ms.lasthandoff: 06/17/2017
 
 Теперь датчик готов.
 
-<a id="power-up-edison" class="xliff"></a>
-
-### Подключение питания Edison
+### <a name="power-up-edison"></a>Подключение питания Edison
 
 1. Подключите источник питания.
 
@@ -147,9 +130,7 @@ ms.lasthandoff: 06/17/2017
    > [!NOTE]
    > Если у вас нет источника питания постоянного тока, вы можете подать на плату питание через порт USB. Дополнительные сведения см. в разделе `Connect Edison to your computer`. Такой способ подачи питания может привести к непредсказуемому поведению системной платы, особенно при использовании Wi-Fi или двигателей.
 
-<a id="connect-edison-to-your-computer" class="xliff"></a>
-
-### Подключение Edison к компьютеру
+### <a name="connect-edison-to-your-computer"></a>Подключение Edison к компьютеру
 
 1. Переведите микропереключатель вниз, в сторону двух портов micro-USB, чтобы перевести Edison в режим устройства. Различия между режимами устройства и узла описаны [здесь](https://software.intel.com/en-us/node/628233#usb-device-mode-vs-usb-host-mode).
 
@@ -165,31 +146,23 @@ ms.lasthandoff: 06/17/2017
 
 4. Вы можете быть уверены, что инициализация платы завершилась, когда компьютер присоединит новый диск (примерно так же, как при подключении SD-карты).
 
-<a id="download-and-run-the-configuration-tool" class="xliff"></a>
-
-## Скачивание и запуск инструмента настройки
+## <a name="download-and-run-the-configuration-tool"></a>Скачивание и запуск инструмента настройки
 Скачайте последнюю версию инструмента настройки, выбрав нужный вариант в разделе `Installers` на [этой странице](https://software.intel.com/en-us/iot/hardware/edison/downloads). Запустите инструмент и выполните инструкции, которые будут отображаться на экране. Нажимайте кнопку "Далее" по мере необходимости.
 
-<a id="flash-firmware" class="xliff"></a>
-
-### Встроенное ПО
+### <a name="flash-firmware"></a>Встроенное ПО
 1. На странице `Set up options` нажмите кнопку `Flash Firmware`.
 2. Выберите образ, который нужно установить на плату:
    - чтобы скачать и установить последнюю версию встроенного ПО, предлагаемого Intel для вашей платы, выберите `Download the latest image version xxxx`;
    - чтобы установить образ, который вы ранее сохранили на своем компьютере, выберите `Select the local image`. Найдите и выберите образ для установки на плату.
 3. Инструмент настройки попытается установить ПО на плату. Этот процесс может занять до 10 минут.
 
-<a id="set-password" class="xliff"></a>
-
-### Установка пароля
+### <a name="set-password"></a>Установка пароля
 1. На странице `Set up options` нажмите кнопку `Enable Security`.
 2. Для платы Intel® Edison вы можете задать пользовательское имя. Это необязательно.
 3. Введите пароль для вашей платы, а затем щелкните `Set password`.
 4. Запишите пароль, он вам пригодится позднее.
 
-<a id="connect-wi-fi" class="xliff"></a>
-
-### Подключение Wi-Fi
+### <a name="connect-wi-fi"></a>Подключение Wi-Fi
 1. На странице `Set up options` нажмите кнопку `Connect Wi-Fi`. Подождите примерно одну минуту, пока компьютер найдет доступные сети Wi-Fi.
 2. В раскрывающемся списке `Detected Networks` выберите нужную сеть.
 3. В раскрывающемся списке `Security` выберите режим безопасности для этой сети.
@@ -203,13 +176,9 @@ ms.lasthandoff: 06/17/2017
 
 Поздравляем! Вы успешно настроили устройство Edison.
 
-<a id="run-a-sample-application-on-intel-edison" class="xliff"></a>
+## <a name="run-a-sample-application-on-intel-edison"></a>Запуск примера приложения на Intel Edison
 
-## Запуск примера приложения на Intel Edison
-
-<a id="prepare-the-azure-iot-device-sdk" class="xliff"></a>
-
-### Подготовка пакета SDK устройства для Центра Интернета вещей
+### <a name="prepare-the-azure-iot-device-sdk"></a>Подготовка пакета SDK устройства для Центра Интернета вещей
 
 1. Используйте один из следующих SSH-клиентов для подключения к Intel Edison с главного компьютера. IP-адрес и пароль взяты из средства настройки.
     - [PuTTY](http://www.putty.org/) для Windows.
@@ -229,9 +198,7 @@ ms.lasthandoff: 06/17/2017
    ```
 
 
-<a id="configure-and-run-the-sample-application" class="xliff"></a>
-
-### Настройка и запуск примера приложения
+### <a name="configure-and-run-the-sample-application"></a>Настройка и запуск примера приложения
 
 1. Откройте файл конфигурации, выполнив следующие команды:
 
@@ -261,9 +228,7 @@ ms.lasthandoff: 06/17/2017
 
 ![Выходные данные — данные датчика, отправленные с Intel Edison в Центр Интернета вещей](media/iot-hub-intel-edison-kit-node-get-started/15_message_sent.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей.
 

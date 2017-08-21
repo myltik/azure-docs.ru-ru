@@ -13,14 +13,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 06/9/2017
+ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 7122b970c2e4703df9771e8ace4e710399ca3e6c
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 34e68ae7d35019848b35c785a2715ec458dc6e73
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Установка локального шлюза данных для Azure Logic Apps
@@ -29,7 +28,7 @@ ms.lasthandoff: 06/13/2017
 
 Шлюз поддерживает подключения к таким локальным источникам данных:
 
-*   BizTalk Server
+*   BizTalk Server 2016
 *   DB2  
 *   Файловая система
 *   Informix
@@ -39,18 +38,18 @@ ms.lasthandoff: 06/13/2017
 *   PostgreSQL
 *   сервер приложений SAP; 
 *   сервер сообщений SAP;
-*   SharePoint только для HTTP (не для HTTPS)
+*   SharePoint
 *   SQL Server
 *   Teradata
 
 Ниже описывается, как установить локальный шлюз данных перед [настройкой подключения между шлюзом и приложениями логики](./logic-apps-gateway-connection.md). Дополнительные сведения о поддерживаемых соединителях см. статье [Список соединителей](https://docs.microsoft.com/azure/connectors/apis-list). 
 
-Дополнительные сведения о шлюзах данных для других служб Майкрософт см. в следующих статьях:
+Сведения о том, как использовать шлюз с другими службами, см. в следующих статьях:
 
-*   [Шлюз приложений](https://azure.microsoft.com/services/application-gateway/): [Обзор шлюза приложений](../application-gateway/application-gateway-introduction.md)
 *   [Локальный шлюз данных](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 *   [Локальный шлюз данных](../analysis-services/analysis-services-gateway.md)
 *   [Управление локальным шлюзом данных в Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
+*   [Управление локальным шлюзом данных в PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 <a name="requirements"></a>
 ## <a name="requirements"></a>Требования

@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5c22c2d8c00882c45ecc2991916e389b2a00586d
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 62cd62ec3a2900f06acacc0852a48b5e3ff1c8cd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>Устранение неполадок в работе хранилища файлов Azure в Linux
@@ -84,11 +83,11 @@ ms.lasthandoff: 06/17/2017
 
 ### <a name="cause"></a>Причина:
 
-В настоящее время дистрибутивы Linux не поддерживают функции шифрования в SMB 3.0. В некоторых дистрибутивах при попытке подключения хранилища файлов Azure с помощью SMB 3.0 пользователь может получить сообщение об ошибке 115. Это связано с отсутствием функции шифрования.
+Некоторые дистрибутивы Linux не поддерживают функции шифрования в SMB 3.0. Поэтому при попытке подключения хранилища файлов Azure с помощью SMB 3.0. пользователь может получить сообщение об ошибке "115".
 
 ### <a name="solution"></a>Решение
 
-Если используемый SMB-клиент Linux не поддерживает шифрование, то следует подключить хранилище файлов Azure с помощью SMB 2.1 с виртуальной машины Linux в Azure, расположенной в том же центре обработки данных, что и учетная запись хранения службы файлов.
+Функция шифрования протокола SMB 3.0 для Linux появилась в ядре версии 4.11. Эта функция позволяет подключать общую папку файлов Azure из локальной среды или другого региона Azure. На момент публикации этой статьи функция была добавлена в дистрибутивы Ubuntu 17.04 и Ubuntu 16.10. Если используемый SMB-клиент Linux не поддерживает шифрование, подключите хранилище файлов Azure с помощью SMB 2.1 с виртуальной машины Linux в Azure, расположенной в том же центре обработки данных, что и учетная запись хранения службы файлов.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Низкая производительность файлового ресурса Azure, подключенного к виртуальной машине Linux
@@ -111,18 +110,7 @@ ms.lasthandoff: 06/17/2017
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Если параметр **cache=strict** или **serverino** отсутствует, отключите и повторно подключите хранилище файлов Azure, выполнив команду mount из [документации](storage-how-to-use-files-linux.md#mount-the-file-share). Затем еще раз проверьте наличие правильных параметров в записи **/etc/fstab**.
-
-<a id="error11"></a>
-## <a name="mount-error11-resource-temporarily-unavailable-when-youre-mounting-to-an-ubuntu-48-kernel"></a>Отображается сообщение "Mount error(11): Resource temporarily unavailable" (Ошибка подключения (11): ресурс временно недоступен) при подключении к ядру Ubuntu 4.8
-
-### <a name="cause"></a>Причина:
-
-В документации по ядру Ubuntu 16.10 (версии 4.8) указано, что клиент поддерживает шифрование, однако на самом деле это не так.
-
-### <a name="solution"></a>Решение
-
-До устранения ошибки в Ubuntu 16.10 указывайте параметр подключения `vers=2.1` или используйте Ubuntu 16.04.
+Если параметр **cache=strict** или **serverino** отсутствует, отключите и повторно подключите хранилище файлов Azure, выполнив команду mount из [документации](storage-how-to-use-files-linux.md). Затем еще раз проверьте наличие правильных параметров в записи **/etc/fstab**.
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>При копировании файлов из Windows в Linux были потеряны метки времени

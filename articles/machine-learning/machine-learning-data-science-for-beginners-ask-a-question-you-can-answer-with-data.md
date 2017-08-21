@@ -1,6 +1,6 @@
 ---
-title: "Задайте вопрос, на который можно ответить с помощью данных. Задачи обработки и анализа данных в Azure | Документация Майкрософт"
-description: "Узнайте, как формулировать точные вопросы обработки и анализа данных. В этом вам поможет видео 3 из цикла &quot;Обработка и анализ данных для начинающих&quot;. Включает сравнение вопросов классификации и регрессии."
+title: "Задайте вопрос, на который можно ответить с помощью данных. Задачи обработки и анализа данных в Azure. Машинное обучение Azure | Документация Майкрософт"
+description: "Узнайте, как формулировать точные вопросы обработки и анализа данных. В этом вам поможет видео 3 из цикла \"Обработка и анализ данных для начинающих\". Включает сравнение вопросов классификации и регрессии."
 keywords: "задачи обработки и анализа данных,вопросы обработки и анализа данных,формулирование вопроса,вопросы регрессии,вопросы классификации,точный вопрос"
 services: machine-learning
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
-ms.lasthandoff: 02/10/2017
-
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 403c496d4f032d1f373dacc16868abb40f968b6f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Задайте вопрос, на который можно ответить с помощью данных
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/10/2017
 Узнайте, как формулировать задачи обработки и анализа данных в форме вопроса. В этом вам поможет видео 3 из цикла "Обработка и анализ данных для начинающих". Это видео содержит сравнение вопросов для алгоритмов классификации и регрессии.
 
 Для получения оптимального результата просмотрите все видео. [Перейти к списку видео](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
 >
@@ -66,7 +67,7 @@ ms.lasthandoff: 02/10/2017
 
 Если наш вопрос "Какой автомобиль в моем парке сломается первым?", необходимо убедиться, что наши данные включают информацию о предыдущих поломках.
 
-![Целевые данные — примеры ответа. Сформулируйте вопрос обработки и анализа данных.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-target-data.png)
+![Целевые данные — примеры ответа. Сформулируйте вопрос обработки и анализа данных.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
 Эти примеры ответов называются целевыми данными. Целевые данные — это то, что мы пытаемся спрогнозировать о будущих точках данных, будь то категория или число.
 
@@ -83,7 +84,7 @@ ms.lasthandoff: 02/10/2017
 
 Но ответить на этот вопрос будет проще, если изменить его формулировку на следующую: "Насколько интересна этому читателю каждая новость из этого списка?" Теперь каждой статье можно присвоить числовую оценку, и тогда будет легко определить статью с наивысшей оценкой. Это пример перефразирования вопроса классификации в вопрос регрессии или вопрос "Сколько?"
 
-![Измените формулировку вопроса. Сравнение вопроса классификации и вопроса регрессии.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-classification-question-vs-regression-question.png)
+![Измените формулировку вопроса. Сравнение вопроса классификации и вопроса регрессии.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
 То, как задается вопрос, является ключом к выбору алгоритма ответа.
 

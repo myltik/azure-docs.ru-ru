@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: b52e5bcf443afd05bf8cc37ce436cb80ab41412f
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: d252a4a8b811f966098348866cc498e2be2924f2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 #<a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Использование инструментов HDInsight для IntelliJ с песочницей Hortonworks
@@ -55,15 +54,15 @@ ms.lasthandoff: 01/24/2017
 3. В левой области щелкните **HDInsight**, выберите **Spark on HDInsight(Scala)** (Spark в HDInsight (Scala)), а затем нажмите кнопку **Next** (Далее).
 
     ![Создание проекта IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+    - Средство сборки: мастер создания проекта Scala поддерживает Maven или SBT для управления зависимостями и сборки проекта Scala. Выберите одно из средств в соответствии с вашими задачами.
 4. Введите следующие сведения:
 
     ![Создание свойств проекта IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
     - **Project name** (Имя проекта): введите имя проекта.
     - **Project location** (Расположение проекта): введите расположение проекта.
-    - **Project SDK** (Пакет SDK проекта): щелкните **New** (Создать), **JDK**, а затем укажите папку пакета Java JDK версии 7 или более поздней версии.  Расположение по умолчанию: C:\Program Files\Java\jdk1.8.x_xxx.
-    - **Scala SDK** (Пакет SDK для Scala ): щелкните **Select** (Выбрать), выберите версию **2.10.6**, а затем нажмите кнопку **ОК**. Если такой версии нет в списке, то щелкните **Download** (Скачать), выберите **Scala version** (Версия Scala) и нажмите кнопку **ОК**. Не используйте версию 2.11.x. В этой статье используется версия 2.10.6.
-    - **Spark SDK** (Пакет SDK для Spark): скачайте [пакет SDK](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Кроме того, можно использовать репозиторий Spark Maven, однако убедитесь, что у вас установлен нужный репозиторий Maven для разработки приложений Spark. (Например, при использовании потоковой передачи Spark необходимо убедиться, что установлена часть Spark Streaming. Кроме того, убедитесь, что используется репозиторий, помеченный как Scala 2.10, — не используйте репозиторий, помеченный как Scala 2.11).
+    - **Project SDK** (Пакет SDK проекта): щелкните **New** (Создать), **JDK**, а затем укажите папку пакета Java JDK версии 7 или более поздней версии. Используйте Java 1.8 для кластера Spark 2.x или Java 1.7 для кластера Spark 1.x. Расположение по умолчанию: C:\Program Files\Java\jdk1.8.x_xxx.
+    - **Spark Version** (Версия Spark). Мастер создания проекта Scala подставит правильную версию пакета SDK Spark и пакета SDK Scala. Если версия кластера Spark ниже, чем 2.0, выберите Spark 1.x. В противном случае следует выбрать Spark 2.x. В этом примере используется Spark 1.6.2 (Scala 2.10.5). Также убедитесь, что используемый репозиторий имеет обозначение Scala 2.10.x. Не используйте репозиторий, обозначенный как Scala 2.11.x.
 5. Нажмите кнопку **Готово**
 6. Нажмите клавиши **[ALT]+1**, чтобы открыть представление проекта, если оно не открыто.
 7. Из **обозревателя проектов** разверните проект и щелкните **src**.
@@ -140,10 +139,11 @@ ms.lasthandoff: 01/24/2017
     - **Main class name** (Имя класса Main): выберите или введите имя класса Main.  Для работы с этим руководством выберите **GroupByTest**.
 3. Нажмите кнопку **Submit**(Отправить). Журналы отправки заданий отображаются в окне инструмента отправки Spark.
 
-##<a name="next-steps"></a>Дальнейшие действия:
+## <a name="next-steps"></a>Дальнейшие действия:
 
 - Сведения о создании приложений Spark для HDInsight с помощью инструментов HDInsight для IntelliJ см. в статье [Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md).
-- Просмотрите видеоролик [Introduce HDInsight Tools for IntelliJ for Spark Development](https://mix.office.com/watch/1nqkqjt5xonza) (Вводные сведения об инструментах HDInsight для IntelliJ для разработки Spark).
-- Сведения об удаленной отладке приложений Spark с помощью набора средств в HDInsight см. в статье [Удаленная отладка приложений Spark в кластере HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
+- Просмотрите видеоролик [Introduce HDInsight Tools for IntelliJ for Spark Development](https://www.youtube.com/watch?v=YTZzYVgut6c) (Вводные сведения об инструментах HDInsight для IntelliJ для разработки Spark).
+- Сведения об удаленной отладке приложений Spark в HDInsight по протоколу SSH см. в статье [Удаленная отладка приложений Spark в кластере HDInsight с помощью набора средств Azure для IntelliJ через SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md).
+- Сведения об удаленной отладке приложений Spark через VPN с помощью набора средств в HDInsight см. в статье [Удаленная отладка приложений в HDInsight Spark через VPN с помощью набора средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 - Сведения об использовании средств HDInsight для Eclipse для создания приложений Spark см. в статье [Использование HDInsight в наборе средств Azure для Eclipse для создания приложений Spark](hdinsight-apache-spark-eclipse-tool-plugin.md).
 - Просмотрите видеоролик [Use HDInsight Tool for Eclipse to create Spark applications](https://mix.office.com/watch/1rau2mopb6fha) (Использование средств HDInsight для Eclipse для создания приложений Spark).

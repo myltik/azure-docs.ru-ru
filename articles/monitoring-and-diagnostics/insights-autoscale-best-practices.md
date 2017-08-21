@@ -1,8 +1,8 @@
 ---
 title: "Рекомендации по автомасштабированию | Документы Майкрософт"
-description: "Узнайте о принципах эффективного автомасштабирования виртуальных машин, масштабируемых наборов виртуальных машин и облачных служб."
-author: kamathashwin
-manager: carmonm
+description: "Шаблоны автоматического масштабирования в веб-приложениях службы приложений Azure, масштабируемых наборах виртуальных машин и облачных службах"
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
-ms.author: ashwink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f1e4a60cd98d40794c63dc334f242415445e0d6d
+ms.date: 07/07/2017
+ms.author: ancav
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 54dad831287376db7fb2dc46e4591be1499dc072
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="best-practices-for-autoscale"></a>Рекомендации по автомасштабированию
@@ -151,4 +150,10 @@ ms.lasthandoff: 05/10/2017
 * Службе автомасштабирования не доступны метрики для принятия решения по масштабированию.
 * Метрики для принятия решения по масштабированию стали доступны (восстановились).
   Помимо приведенных условий можно настроить уведомления по электронной почте или через веб-перехватчики, чтобы узнавать об успешных действиях масштабирования.
+  
+С помощью оповещений журнала действий также можно отслеживать работоспособность системы автоматического масштабирования. Ниже приведены примеры [создания оповещения журнала действий для отслеживания всех операций системы автомасштабирования в подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) или [создания оповещения журнала действий для отслеживания всех неудачных операций свертывания и развертывания автомасштабирования в подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+## <a name="next-steps"></a>Дальнейшие действия
+- [Создайте оповещение журнала действий, чтобы отслеживать все операции системы автомасштабирования в своей подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- [Создайте оповещение журнала действий, чтобы отслеживать все ошибки автомасштабирования в своей подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

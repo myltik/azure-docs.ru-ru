@@ -2,7 +2,7 @@
 title: "Создание оповещения журнала действий с помощью шаблона Resource Manager | Документация Майкрософт"
 description: "Получение уведомлений при создании ресурсов в Azure."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 07/06/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 239b8fe2a7724bb34e7060c90af73825e61d8398
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 26b140fef46a176b21bddbd7588543e71c251ed6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Создание оповещения журнала действий с помощью шаблона Resource Manager
@@ -27,10 +26,8 @@ ms.lasthandoff: 04/12/2017
 
 Основные этапы:
 
-1.    Создайте шаблон в виде JSON-файла, который описывает создание оповещения журнала действий.
-2.    [Разверните шаблон с помощью любого метода развертывания](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
-
-Ниже описано, как сначала создать шаблон Resource Manager только для оповещения журнала действий, а затем — как это сделать во время создания другого ресурса.
+1.  Создайте шаблон в виде JSON-файла, который описывает создание оповещения журнала действий.
+2.  [Разверните шаблон с помощью любого метода развертывания](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ## <a name="resource-manager-template-for-an-activity-log-alert"></a>Шаблон Resource Manager для оповещения журнала действий
 Чтобы создать оповещение журнала действий с помощью шаблона Resource Manager, создайте ресурс типа `microsoft.insights/activityLogAlerts` и заполните все связанные свойства. Ниже приведен шаблон, который создает оповещение журнала действий.
@@ -101,7 +98,11 @@ ms.lasthandoff: 04/12/2017
 }
 ```
 
+Также рекомендуем просмотреть нашу [коллекцию шаблонов для быстрого начала работы с Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights). Там вы найдете некоторые примеры шаблонов для оповещений журнала действий.
+
 ## <a name="next-steps"></a>Дальнейшие действия
-Узнайте больше об [оповещениях](monitoring-overview-alerts.md).  
-Узнайте, как добавить [группы действий с помощью шаблона Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
+- Узнайте больше об [оповещениях](monitoring-overview-alerts.md).  
+- Узнайте, как добавить [группы действий с помощью шаблона Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
+- [Создайте оповещение журнала действий, чтобы отслеживать все операции системы автомасштабирования в своей подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- [Создайте оповещение журнала действий, чтобы отслеживать все ошибки автомасштабирования в своей подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

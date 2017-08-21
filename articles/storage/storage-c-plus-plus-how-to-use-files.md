@@ -1,6 +1,6 @@
 ---
-title: "Использование хранилища файлов из C++ | Документация Майкрософт"
-description: "Хранение файловых данных в облаке в хранилище файлов Azure."
+title: "Разработка для хранилища файлов Azure на языке C++ | Документация Майкрософт"
+description: "Узнайте, как разрабатывать приложения и службы С++, использующие хранилище файлов Azure для хранения файлов данных."
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -12,29 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 05/27/2017
 ms.author: renashahmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: f8ecb68fddf4293592e546c0c10d0c86664bd090
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: fc0d8451442f1337db4a36718c3fc746f8eb5125
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/06/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="how-to-use-file-storage-from-c"></a>Использование хранилища файлов из C++
+
+# <a name="develop-for-azure-file-storage-with-c"></a>Разработка для хранилища файлов Azure на языке C++
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
-[!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
-
 ## <a name="about-this-tutorial"></a>О данном учебнике
-В этом руководстве вы узнаете, как выполнять основные операции в службе хранилища файлов Microsoft Azure. С помощью примеров на языке C++ вы узнаете, как создавать общие папки и каталоги, отправлять и удалять файлы, а также получать список файлов. Если вы не знакомы со службой хранилища файлов Microsoft Azure, рекомендуем изучить информацию, изложенную в последующих разделах. Это будет полезно для понимания примеров.
 
-[!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
+Из этого руководства вы узнаете, как выполнять основные операции в хранилище файлов Azure. С помощью примеров на языке C++ вы узнаете, как создавать общие папки и каталоги, отправлять и удалять файлы, а также получать список файлов. Если вы не знакомы с хранилищем файлов Azure, мы предлагаем вам изучить понятия, описанные в последующих разделах. Это будет полезно для понимания примеров.
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+
+* Создание и удаление общих папок Azure.
+* Создание и удаление каталогов.
+* Перечисление файлов и каталогов в файловом ресурсе Azure.
+* Передача, загрузка и удаление файлов.
+* Установка квоты (максимального размера) для файлового ресурса Azure.
+* Создайте подпись общего доступа (ключ SAS) для файла, который использует политику общего доступа, определенную в общей папке.
+
+> [!Note]  
+> Так как к хранилищу файлов Azure можно обращаться через SMB, вы можете создавать простые приложения, которые получают доступ к общей папке Azure с использованием стандартных классов и функций ввода-вывода в C++. Из этой статьи вы узнаете, как применять в приложениях пакет SDK C++ для службы хранилища Azure, который использует [REST API хранилища файлов Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) для взаимодействия с хранилищем файлов Azure.
 
 ## <a name="create-a-c-application"></a>Создание приложения на C++
 Для создания примеров необходимо установить клиентскую библиотеку хранилища Azure версии 2.4.0 для C++. Вам также необходимо создать учетную запись хранилища Azure.
@@ -42,14 +48,14 @@ ms.lasthandoff: 04/06/2017
 Чтобы установить клиентскую библиотеку хранилища Azure версии 2.4.0 для C++, можно использовать следующие методы:
 
 * **Linux:** следуйте инструкциям, указанным в файле README [клиентской библиотеки хранилища Azure для C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
-* **Windows.** В Visual Studio щелкните **Инструменты &gt; Диспетчер пакетов NuGet**  Консоль диспетчера пакетов&gt;. Введите следующую команду в [консоли диспетчера пакетов NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) и нажмите клавишу **ВВОД**.
+* **Windows.** В Visual Studio щелкните **Инструменты &gt; Диспетчер пакетов NuGet** Консоль диспетчера пакетов&gt;. Введите следующую команду в [консоли диспетчера пакетов NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) и нажмите клавишу **ВВОД**.
   
 ```
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-file-storage"></a>Настройка приложения для использования хранилища файлов
-Добавьте следующие инструкции в начало файла C++, где требуется использовать API-интерфейсы Azure для доступа к файлам:
+## <a name="set-up-your-application-to-use-azure-file-storage"></a>Настройка приложения для работы с хранилищем файлов Azure
+Добавьте следующие инструкции include в начало исходного файла C++, в котором вам нужен доступ к хранилищу файлов Azure:
 
 ```cpp
 #include <was/storage_account.h>
@@ -74,16 +80,16 @@ azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-share"></a>Как создать общую папку
-Все файлы и каталоги в хранилище файлов находятся в контейнере с именем **Share**. Учетная запись хранения может иметь столько общих папок, насколько позволяет емкость вашей учетной записи. Чтобы получить доступ к общей папке и ее содержимому, необходимо использовать клиент хранилища файлов.
+## <a name="create-an-azure-file-share"></a>Создание файлового ресурса Azure
+Все файлы и каталоги в хранилище файлов Azure размещаются в контейнере, который называется общей папкой (**Share**). Учетная запись хранения может иметь столько общих папок, насколько позволяет емкость вашей учетной записи. Чтобы получить доступ к общей папке и ее содержимому, необходимо использовать клиент хранилища файлов Azure.
 
 ```cpp
-// Create the file storage client.
+// Create the Azure File storage client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
 
-С помощью клиента хранилища файлов можно затем получить ссылку на общий ресурс.
+С помощью клиента хранилища файлов Azure вы получите ссылку на общую папку.
 
 ```cpp
 // Get a reference to the file share
@@ -101,8 +107,84 @@ if (share.create_if_not_exists()) {
 
 На этом этапе объект **share** содержит ссылку на общую папку с именем **my-sample-share**.
 
-## <a name="how-to-upload-a-file"></a>Как отправить файл
-Общая папка хранилища файлов Azure содержит по крайней мере корневой каталог, где могут размещаться файлы. В этом разделе вы узнаете, как отправить файл из локального хранилища в корневой каталог общего ресурса.
+## <a name="delete-an-azure-file-share"></a>Удаление общей папки Azure
+Удалить общую папку можно путем вызова метода **delete_if_exists** объекта cloud_file_share. Ниже приведен пример кода, который выполняет это действие.
+
+```cpp
+// Get a reference to the share.
+azure::storage::cloud_file_share share = 
+  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
+
+// delete the share if exists
+share.delete_share_if_exists();
+```
+
+## <a name="create-a-directory"></a>Создайте каталог
+Вы можете упорядочить файлы в хранилище, разместив их в подкаталогах, чтобы не захламлять корневой каталог. Хранилище файлов Azure позволяет создать столько каталогов, сколько может позволить ваша учетная запись. В следующем примере кода создается каталог с именем **my-sample-directory** в корневом каталоге, а также подкаталог **my-sample-subdirectory**.
+
+```cpp
+// Retrieve a reference to a directory
+azure::storage::cloud_file_directory directory = share.get_directory_reference(_XPLATSTR("my-sample-directory"));
+
+// Return value is true if the share did not exist and was successfully created.
+directory.create_if_not_exists();
+
+// Create a subdirectory.
+azure::storage::cloud_file_directory subdirectory = 
+  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
+subdirectory.create_if_not_exists();
+```
+
+## <a name="delete-a-directory"></a>Удаление каталога
+Удаление каталога является простой задачей, однако следует отметить, что нельзя удалить каталог, по-прежнему содержащий файлы или другие каталоги.
+
+```cpp
+// Get a reference to the share.
+azure::storage::cloud_file_share share = 
+  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
+
+// Get a reference to the directory.
+azure::storage::cloud_file_directory directory = 
+  share.get_directory_reference(_XPLATSTR("my-sample-directory"));
+
+// Get a reference to the subdirectory you want to delete.
+azure::storage::cloud_file_directory sub_directory =
+  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
+
+// Delete the subdirectory and the sample directory.
+sub_directory.delete_directory_if_exists();
+
+directory.delete_directory_if_exists();
+```
+
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Перечисление файлов и каталогов в файловом ресурсе Azure
+Получить список файлов и каталогов в общей папке довольно просто, вызвав метод **list_files_and_directorie** по ссылке **cloud_file_directory**. Для доступа к широкому набору свойств и методов возвращаемого объекта **list_file_and_directory_item** необходимо вызвать метод **list_file_and_directory_item.as_file**, чтобы получить объект **cloud_file**, или метод **list_file_and_directory_item.as_directory**, чтобы получить объект **cloud_file_directory**.
+
+Следующий код демонстрирует, как получить и вывести URI каждого элемента в корневом каталоге общей папки.
+
+```cpp
+//Get a reference to the root directory for the share.
+azure::storage::cloud_file_directory root_dir = 
+  share.get_root_directory_reference();
+
+// Output URI of each item.
+azure::storage::list_file_and_diretory_result_iterator end_of_results;
+
+for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
+{
+    if(it->is_directory())
+    {
+        ucout << "Directory: " << it->as_directory().uri().primary_uri().to_string() << std::endl;
+    }
+    else if (it->is_file())
+    {
+        ucout << "File: " << it->as_file().uri().primary_uri().to_string() << std::endl;
+    }        
+}
+```
+
+## <a name="upload-a-file"></a>Отправить файл.
+Общая папка Azure содержит по меньшей мере один каталог для размещения файлов (корневой каталог). В этом разделе вы узнаете, как отправить файл из локального хранилища в корневой каталог общего ресурса.
 
 Первым шагом при отправке файла является получение ссылки на каталог, где файл будет находиться. Для этого нужно вызвать метод **getRootDirectoryReference** объекта общей папки.
 
@@ -133,49 +215,7 @@ azure::storage::cloud_file file4 =
 file4.upload_from_file(_XPLATSTR("DataFile.txt"));    
 ```
 
-## <a name="how-to-create-a-directory"></a>Как создать каталог
-Вы также можете организовать хранилище, помещая файлы в подкаталоги, а не размещая их в корневом каталоге. Служба хранилища файлов Azure позволяет создавать столько каталогов, сколько может позволить ваша учетная запись. В следующем примере кода создается каталог с именем **my-sample-directory** в корневом каталоге, а также подкаталог **my-sample-subdirectory**.
-
-```cpp
-// Retrieve a reference to a directory
-azure::storage::cloud_file_directory directory = share.get_directory_reference(_XPLATSTR("my-sample-directory"));
-
-// Return value is true if the share did not exist and was successfully created.
-directory.create_if_not_exists();
-
-// Create a subdirectory.
-azure::storage::cloud_file_directory subdirectory = 
-  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
-subdirectory.create_if_not_exists();
-```
-
-## <a name="how-to-list-files-and-directories-in-a-share"></a>Как получить список файлов и каталогов в общей папке
-Получить список файлов и каталогов в общей папке довольно просто, вызвав метод **list_files_and_directorie** по ссылке **cloud_file_directory**. Для доступа к широкому набору свойств и методов возвращаемого объекта **list_file_and_directory_item** необходимо вызвать метод **list_file_and_directory_item.as_file**, чтобы получить объект **cloud_file**, или метод **list_file_and_directory_item.as_directory**, чтобы получить объект **cloud_file_directory**.
-
-Следующий код демонстрирует, как получить и вывести URI каждого элемента в корневом каталоге общей папки.
-
-```cpp
-//Get a reference to the root directory for the share.
-azure::storage::cloud_file_directory root_dir = 
-  share.get_root_directory_reference();
-
-// Output URI of each item.
-azure::storage::list_file_and_diretory_result_iterator end_of_results;
-
-for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
-{
-    if(it->is_directory())
-    {
-        ucout << "Directory: " << it->as_directory().uri().primary_uri().to_string() << std::endl;
-    }
-    else if (it->is_file())
-    {
-        ucout << "File: " << it->as_file().uri().primary_uri().to_string() << std::endl;
-    }        
-}
-```
-
-## <a name="how-to-download-a-file"></a>Как скачать файл
+## <a name="download-a-file"></a>Скачивание файла
 Чтобы скачать файлы, сначала получите ссылку на файл, а затем вызовите метод **download_to_stream** для передачи содержимого файла в объект потока, который затем можно сохранить в локальном файле. Кроме того, можно использовать метод **download_to_file**, чтобы скачать содержимое файла в локальный файл. Вы можете также использовать метод **download_text**, чтобы скачать содержимое файла в виде текстовой строки.
 
 В следующем примере используются методы **download_to_stream** и **download_text** для демонстрации скачивания файлов, созданных в предыдущих разделах.
@@ -200,8 +240,8 @@ outfile.write((char *)&data[0], buffer.size());
 outfile.close();
 ```
 
-## <a name="how-to-delete-a-file"></a>Как удалить файл
-Другой распространенной операцией над хранилищем файлов является удаление файлов. Следующий код удаляет файл с именем my-sample-file-3, который хранится в корневом каталоге.
+## <a name="delete-a-file"></a>Удаление файла
+Следующая распространенная операция в хранилище файлов Azure — это удаление файлов. Следующий код удаляет файл с именем my-sample-file-3, который хранится в корневом каталоге.
 
 ```cpp
 // Get a reference to the root directory for the share.    
@@ -217,41 +257,7 @@ azure::storage::cloud_file file =
 file.delete_file_if_exists();
 ```
 
-## <a name="how-to-delete-a-directory"></a>Как удалить каталог
-Удаление каталога является простой задачей, однако следует отметить, что нельзя удалить каталог, по-прежнему содержащий файлы или другие каталоги.
-
-```cpp
-// Get a reference to the share.
-azure::storage::cloud_file_share share = 
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-
-// Get a reference to the directory.
-azure::storage::cloud_file_directory directory = 
-  share.get_directory_reference(_XPLATSTR("my-sample-directory"));
-
-// Get a reference to the subdirectory you want to delete.
-azure::storage::cloud_file_directory sub_directory =
-  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
-
-// Delete the subdirectory and the sample directory.
-sub_directory.delete_directory_if_exists();
-
-directory.delete_directory_if_exists();
-```
-
-## <a name="how-to-delete-a-share"></a>Как удалить общую папку
-Удалить общую папку можно путем вызова метода **delete_if_exists** объекта cloud_file_share. Ниже приведен пример кода, который выполняет это действие.
-
-```cpp
-// Get a reference to the share.
-azure::storage::cloud_file_share share = 
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-
-// delete the share if exists
-share.delete_share_if_exists();
-```
-
-## <a name="set-the-maximum-size-for-a-file-share"></a>Установка максимального размера для файлового ресурса
+## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Установка квоты (максимального размера) для файлового ресурса Azure
 Для файлового ресурса можно установить квоту (или максимальный размер) в гигабайтах. Можно также проверить, какой объем данных хранится в настоящее время в общей папке.
 
 Задав квоту для файлового ресурса, можно ограничить общий размер файлов, хранящихся в общей папке. Если общий размер файлов в файловом ресурсе превышает установленную квоту, клиенты не смогут увеличить размер существующих файлов или создать новые файлы, только если они не являются пустыми.
@@ -349,9 +355,6 @@ if (share.exists())
 
 }
 ```
-
-Дополнительные сведения о подписанных URL-адресах см. в статье [Использование подписанных URL-адресов (SAS)](storage-dotnet-shared-access-signature-part-1.md).
-
 ## <a name="next-steps"></a>Дальнейшие действия
 Для получения дополнительных сведений о службе хранилища Azure изучите следующие ресурсы:
 
@@ -359,5 +362,3 @@ if (share.exists())
 * [Примеры для службы хранилища файлов Azure на языке C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure Storage Explorer;](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-

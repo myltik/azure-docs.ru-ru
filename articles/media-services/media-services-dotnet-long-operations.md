@@ -12,16 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/18/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 763f97855695a51d8fb6050cf1404c787b72c6f6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Доставка динамической потоковой передачи с помощью служб мультимедиа Azure
+
 ## <a name="overview"></a>Обзор
+
 Службы Microsoft Azure Media Services предоставляют интерфейсы API, которые отправляют запросы в службы мультимедиа на запуск операций (например, создание, запуск, остановка или удаление канала). Эти операции являются долговременными.
 
 Пакет SDK .NET служб мультимедиа предоставляет интерфейсы API, которые отправляют запрос и ожидают завершения операции (на внутреннем уровне API выполняют опрос о ходе операции через определенные промежутки времени). Например, при вызове channel.Start() метод возвращается после запуска канала. Кроме того, вы можете использовать асинхронную версию: await channel.StartAsync() (сведения об асинхронном шаблоне на основе задач см. в статье [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API, которые отправляют запрос на операцию, а затем запрашивают состояние до завершения операции, называются методами опроса. Такие методы (особенно асинхронная версия) рекомендуются для полнофункциональных клиентских приложений и (или) служб с отслеживанием состояния.
@@ -33,12 +36,24 @@ ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
 
 Чтобы опросить состояние операции, используйте метод **GetOperation** в классе **OperationBaseCollection**. Для проверки состояния операции используйте такие интервалы: для операций **Channel** и **StreamingEndpoint** — 30 секунд, для операций **Program** — 10 секунд.
 
+## <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
+
+Настройте среду разработки и укажите в файле app.config сведения о подключении, как описано в статье [Разработка служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md).
+
 ## <a name="example"></a>Пример
+
 Пример ниже определяет класс, который называется **ChannelOperations**. Это определение класса может быть стартовой точкой для определения класса веб-службы. Для простоты в примерах ниже используются синхронные версии методов.
 
 В примере также показано, как клиент может использовать этот класс.
 
 ### <a name="channeloperations-class-definition"></a>Определение класса ChannelOperations
+
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Net;
+
     /// <summary> 
     /// The ChannelOperations class only implements 
     /// the Channel’s creation operation. 
@@ -46,21 +61,21 @@ ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
     public class ChannelOperations
     {
         // Read values from the App.config file.
-        private static readonly string _mediaServicesAccountName =
-            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-        private static readonly string _mediaServicesAccountKey =
-            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
-        private static MediaServicesCredentials _cachedCredentials = null;
 
         public ChannelOperations()
         {
-                _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName,
-                    _mediaServicesAccountKey);
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                _context = new CloudMediaContext(_cachedCredentials);    }
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+        }
 
         /// <summary>  
         /// Initiates the creation of a new channel.  
@@ -118,7 +133,6 @@ ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
             return completed;
         }
 
-
         private static ChannelInput CreateChannelInput()
         {
             return new ChannelInput
@@ -127,14 +141,14 @@ ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
                 AccessControl = new ChannelAccessControl
                 {
                     IPAllowList = new List<IPRange>
-                    {
-                        new IPRange
                         {
-                            Name = "TestChannelInput001",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
+                            new IPRange
+                            {
+                                Name = "TestChannelInput001",
+                                Address = IPAddress.Parse("0.0.0.0"),
+                                SubnetPrefixLength = 0
+                            }
                         }
-                    }
                 }
             };
         }
@@ -146,14 +160,14 @@ ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
                 AccessControl = new ChannelAccessControl
                 {
                     IPAllowList = new List<IPRange>
-                    {
-                        new IPRange
                         {
-                            Name = "TestChannelPreview001",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
+                            new IPRange
+                            {
+                                Name = "TestChannelPreview001",
+                                Address = IPAddress.Parse("0.0.0.0"),
+                                SubnetPrefixLength = 0
+                            }
                         }
-                    }
                 }
             };
         }
@@ -190,10 +204,5 @@ ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

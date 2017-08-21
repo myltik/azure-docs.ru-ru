@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5617f6453cb5dbb1c86ec41d7b9649356a3d9c78
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 3d6a46116ae9d7d940bc10dfa832540f42c0af7e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Определение порядка развертывания ресурсов в шаблонах Azure Resource Manager
@@ -154,7 +153,7 @@ Resource Manager выявляет циклические зависимости 
 3. Расширение на vm1 зависит от vm1 и vm2. Расширение задает на vm1 значения, получаемые от vm2.
 4. Расширение на vm2 зависит от vm1 и vm2. Расширение задает на vm2 значения, получаемые от vm1.
 
-Сведения об оценке порядка развертывания и устранении ошибок зависимостей см. в разделе [Проверка последовательности развертывания](resource-manager-common-deployment-errors.md#check-deployment-sequence).
+Сведения об оценке порядка развертывания и устранении ошибок зависимостей см. в статье [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Чтобы узнать об устранении ошибок зависимостей во время развертывания, ознакомьтесь с разделом [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).

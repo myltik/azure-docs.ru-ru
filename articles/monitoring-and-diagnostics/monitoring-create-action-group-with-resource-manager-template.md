@@ -2,7 +2,7 @@
 title: "Создание групп действий с помощью шаблонов Resource Manager | Документация Майкрософт"
 description: "Группы действий позволяют отправлять уведомления по электронной почте, SMS или вызывать объекты webhook при определенных событиях."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 2dd7b14f1466fa7244a2af2c030d8b794658aaad
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 88e7b2e7781b80ea360531f4c3a45256de83b594
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -28,10 +27,10 @@ ms.lasthandoff: 04/12/2017
 
 Основные этапы:
 
-1.    Создайте шаблон в виде JSON-файла, который описывает создание группы действий.
-2.    [Разверните шаблон с помощью любого метода развертывания](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+1.  Создайте шаблон в виде JSON-файла, который описывает создание группы действий.
+2.  [Разверните шаблон с помощью любого метода развертывания](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-Ниже описано, как сначала создать шаблон Resource Manager только для группы действий, а затем — как это сделать во время создания другого ресурса.
+Ниже описано, как сначала создать шаблон Resource Manager для группы действий, в котором жестко запрограммированы определения действия, а затем создать шаблон, принимающий сведения конфигурации веб-перехватчика в качестве входных параметров при развертывании.
 
 ## <a name="resource-manager-template-for-an-action-group"></a>Шаблон Resource Manager для группы действий
 

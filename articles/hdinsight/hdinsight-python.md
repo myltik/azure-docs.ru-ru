@@ -1,5 +1,5 @@
 ---
-title: "Использование Python с Hive и Pig в HDInsight | Документация Майкрософт"
+title: "Использование определяемых пользователем функций Python с Apache Hive и Pig в Azure HDInsight | Документация Майкрософт"
 description: "Узнайте, как использовать пользовательские функции (UDF) технологической платформы Hadoop на базе Azure — Python с Hive и Pig в HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -13,46 +13,49 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 985f14ce7b8249c8e80deb1851cfee8c89651786
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: ad96b5dcb3bce98abc7ab776880dfec4f4a91620
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Использование пользовательских функций Python с Hive и Pig в Azure HDInsight
 
-Hive и Pig отлично подходят для работы с данными в HDInsight, но в некоторых случаях вам может понадобиться язык программирования более общего назначения. Как Hive, так и Pig позволяют вам создавать пользовательские функции с использованием многих языков программирования. В этой статье вы узнаете, как использовать пользовательские функции на Python из Hive и Pig.
-
-## <a name="requirements"></a>Требования
-
-* Кластер HDInsight.
-
-  > [!IMPORTANT]
-  > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
-
-* Текстовый редактор
+Узнайте, как использовать определяемые пользователем функции (UDF) Python с Apache Hive и Pig в Hadoop на кластерах Azure HDInsight.
 
 ## <a name="python"></a>Python в HDInsight
 
-По умолчанию на кластерах HDInsight 3.0 и более поздних версий установлен Python версии 2.7. Для обработки потоков Hive можно использовать с этой версией Python (данные передаются между Hive и Python с использованием STDOUT/STDIN).
+По умолчанию на кластерах HDInsight 3.0 и более поздних версиях установлен Python версии 2.7. Apache Hive можно использовать с этой версией Python для потоковой обработки. При этом для передачи данных между Hive и определяемой пользователем функцией используется STDOUT и STDIN.
 
-В состав HDInsight также входят Jython, который представляет собой реализацию Python, написанную на Java. Pig может взаимодействовать с Jython без необходимости прибегать к использованию потоков, поэтому предпочтительнее применять его с Pig. Вы также можете использовать обычный язык Python (CPython) с Pig.
+В состав HDInsight также входят Jython, который представляет собой реализацию Python, написанную на Java. Jython выполняется непосредственно на виртуальной машине Java и не использует потоковую передачу. Jython является рекомендуемым интерпретатором Python при использовании Python с Pig.
 
-## <a name="hivepython"></a>Hive и Python
+> [!WARNING]
+> Шаги в этом документе основаны на следующих предположениях: 
+>
+> * Вы создаете скрипты Python в локальной среде разработки.
+> * Вы отправляете скрипты в HDInsight, используя либо команду `scp` из локального сеанса Bash либо предоставленный сценарий PowerShell.
+>
+> Если вы хотите использовать предварительную версию [Azure Cloud Shell (оболочка)](https://docs.microsoft.com/azure/cloud-shell/overview) для работы с HDInsight, вам необходимо:
+>
+> * Создать скрипты в среде Cloud Shell.
+> * Использовать `scp` для отправки файлов из Cloud Shell в HDInsight.
+> * Использовать `ssh` из Cloud Shell для подключения к HDInsight и выполнения примеров.
 
-Скрипт Python можно использовать в виде UDF из Hive через HiveQL с помощью инструкции **TRANSFORM** . Так, следующий запрос HiveQL вызывает скрипт Python, хранящийся в файле **streaming.py** .
+## <a name="hivepython"></a>Определяемая пользователем функция Hive
+
+Скрипт Python можно использовать в качестве определяемой пользователем функции из Hive через HiveQL с помощью инструкции `TRANSFORM`. Например, следующий запрос HiveQL вызывает файл `hiveudf.py`, хранящийся в учетной записи хранения Azure по умолчанию для кластера.
 
 **HDInsight под управлением Linux**
 
 ```hiveql
-add file wasbs:///streaming.py;
+add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
-    USING 'python streaming.py' AS
+    USING 'python hiveudf.py' AS
     (clientid string, phoneLable string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
@@ -61,25 +64,30 @@ ORDER BY clientid LIMIT 50;
 **HDInsight под управлением Windows**
 
 ```hiveql
-add file wasbs:///streaming.py;
+add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
-    USING 'D:\Python27\python.exe streaming.py' AS
+    USING 'D:\Python27\python.exe hiveudf.py' AS
     (clientid string, phoneLable string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
 > [!NOTE]
-> В кластерах HDInsight под управлением Windows оператор **USING** должен задавать полный путь к python.exe.
+> В кластерах HDInsight под управлением Windows оператор `USING` должен задавать полный путь к python.exe.
 
 Вот что делает данный пример:
 
-1. Инструкция **add file** в начале файла добавляет файл **streaming.py** в распределенный кэш, и он становится доступен всем узлам кластера.
-2. Инструкция **SELECT TRANSFORM ... USING** выбирает данные из **hivesampletable**. Он также передает параметры clientid, devicemake и devicemodel в скрипт **streaming.py**.
-3. Предложение **AS** описывает поля, возвращаемые из **streaming.py**.
+1. Инструкция `add file` в начале файла добавляет файл `hiveudf.py` в распределенный кэш, и он становится доступен всем узлам кластера.
+2. Инструкция `SELECT TRANSFORM ... USING` выбирает данные из `hivesampletable`. Она также передает параметры clientid, devicemake и devicemodel в скрипт `hiveudf.py`.
+3. Предложение `AS` описывает поля, возвращаемые из `hiveudf.py`.
 
-<a name="streamingpy"></a> Вот файл **streaming.py** , который используется в примере HiveQL.
+<a name="streamingpy"></a>
+
+### <a name="create-the-hiveudfpy-file"></a>Создание файла hiveudf.py
+
+
+В среде разработки создайте текстовый файл с именем `hiveudf.py`. Используйте следующий код в качестве содержимого файла:
 
 ```python
 #!/usr/bin/env python
@@ -103,23 +111,24 @@ while True:
 1. Чтение данных из STDIN.
 2. Стоящий в конце знак новой строки удаляется с помощью `string.strip(line, "\n ")`.
 3. При обработке потока в одной строке будут содержаться все значения, разделенные символом табуляции. Поэтому можно использовать `string.split(line, "\t")` для разделения входящих данных при каждой табуляции, возвращая лишь поля.
-4. По завершении обработки результат должен быть записан в поток STDOUT в виде одной строки, с разделенными символами табуляции полями. Для этого используется `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+4. По завершении обработки результат должен быть записан в поток STDOUT в виде одной строки, с разделенными символами табуляции полями. Пример: `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 5. Цикл `while` повторяется до тех пор, пока считывается `line`.
 
 Выходные данные скрипта представляют собой объединенные входные значения для `devicemake` и `devicemodel`, а также хэш для объединенного значения.
 
 Сведения о выполнении этого примера в кластере HDInsight см. в разделе [Выполнение примеров](#running).
 
-## <a name="pigpython"></a>Pig и Python
+## <a name="pigpython"></a>Определяемая пользователем функция Pig
 
-Скрипт Python можно использовать в виде UDF из Pig с использованием инструкции **GENERATE** . Вы можете запустить скрипт с помощью Jython или CPython.
+Скрипт Python можно использовать в виде определяемой пользователем функции из Pig с использованием инструкции `GENERATE`. Вы можете запустить скрипт с помощью Jython или CPython.
 
-Различие между ними заключается в том, что Jython работает на JVM и изначально может быть вызван из Pig. CPython является внешним процессом, поэтому данные из Pig на JVM отправляются в скрипт, выполняющийся в процессе Python. Выходные данные скрипта Python отправляются обратно в Pig.
+* Jython работает на виртуальной машине Java и изначально может вызываться из Pig.
+* CPython является внешним процессом, поэтому данные из Pig на JVM отправляются в скрипт, выполняющийся в процессе Python. Выходные данные скрипта Python отправляются обратно в Pig.
 
-Чтобы определить, какой интерпретатор будет использовать Pig (Jython или CPython) для выполнения скрипта, используйте команду **register** при выполнении скрипта Python из Pig Latin. Следующие примеры регистрируют скрипты с Pig в качестве **myfuncs**.
+Чтобы указать интерпретатор Python, используйте `register` при указании ссылки на скрипт Python. Следующие примеры регистрируют скрипты с Pig в качестве `myfuncs`:
 
-* **Для использования Jython:** `register '/path/to/pig_python.py' using jython as myfuncs;`
-* **Для использования CPython:** `register '/path/to/pig_python.py' using streaming_python as myfuncs;`
+* **Для использования Jython:** `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Для использования CPython:** `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]
 > При использовании Jython путь к файлу pig_jython может быть локальным путем или путем WASB://. Но при использовании CPython необходимо указать ссылку на файл в локальной файловой системе узла, который используется для отправки задания Pig.
@@ -127,7 +136,7 @@ while True:
 После регистрации язык Pig Latin будет одинаковым для обоих примеров:
 
 ```pig
-LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
 LOG = FILTER LOGS by LINE is not null;
 DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
 DUMP DETAILS;
@@ -135,12 +144,14 @@ DUMP DETAILS;
 
 Вот что делает данный пример:
 
-1. Первая строка загружает файл с демонстрационными данными **sample.log** в **LOGS**. Она также определяет каждую запись как массив символов **chararray**.
-2. Следующая строка отфильтровывает все пустые значения, сохраняя результат работы в **LOG**.
-3. Далее выполняется проход по всем записям в **LOG** и используется инструкция **GENERATE** для вызова метода **create_structure**, находящегося в скрипте Python или Jython, загруженном как **myfuncs**.  **LINE** используется для передачи текущей записи в функцию.
-4. Наконец, выходные данные сбрасываются в поток STDOUT командой **DUMP** . После завершения операции будет выведен результат.
+1. Первая строка загружает образец файла данных `sample.log` в `LOGS`. Она также определяет каждую запись как массив символов `chararray`.
+2. Следующая строка отфильтровывает все пустые значения, сохраняя результат работы в `LOG`.
+3. Затем выполняется итерация по записям в `LOG` и используется инструкция `GENERATE` для вызова метода `create_structure`, содержащегося в скрипте Python или Jython, загруженном как `myfuncs`. `LINE` используется для передачи текущей записи в функцию.
+4. Наконец, выходные данные сбрасываются в поток STDOUT командой `DUMP`. После завершения операции эта команда выведет результат.
 
-Файл скрипта Python аналогичен для CPython и Jython. Единственное различие заключается в том, что при использовании интерпретатора CPython его необходимо импортировать из **pig\_util**. Ниже приведен пример скрипта **pig\_python.py**:
+### <a name="create-the-pigudfpy-file"></a>Создание файла pigudf.py
+
+В среде разработки создайте текстовый файл с именем `pigudf.py`. Используйте следующий код в качестве содержимого файла:
 
 <a name="streamingpy"></a>
 
@@ -156,12 +167,9 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-> [!NOTE]
-> Вам не нужно устанавливать pig_util. Эта служебная программа автоматически доступна для сценария.
+В примере Pig Latin мы определили вход `LINE` в виде массива строк, потому что для ввода нет согласованной схемы. Скрипт Python выполняет преобразование данных в согласованную схему на выходе.
 
-Помните, что ранее мы определили ввод **LINE** в виде массива строк только потому, что согласованная схема для ввода отсутствует? Скрипт Python выполняет преобразование данных в согласованную схему на выходе.
-
-1. Оператор **@outputSchema** задает формат данных, в котором они возвращаются в Pig. В данном случае это **data bag**, являющийся типом данных Pig. Корзина содержит следующие поля, все они имеют тип "Массив строк" (строки):
+1. Инструкция `@outputSchema` задает формат данных, в котором они возвращаются в Pig. В данном случае это **data bag**, являющийся типом данных Pig. Корзина содержит следующие поля, все они имеют тип "Массив строк" (строки):
 
    * date — дата создания записи журнала;
    * date — время создания записи журнала;
@@ -169,52 +177,61 @@ def create_structure(input):
    * level — уровень журналирования;
    * detail — подробная информация о записи журнала.
 
-2. Далее **def create_structure(input)** определяет функцию, используемую для передачи строковых элементов в Pig.
+2. Затем `def create_structure(input)` определяет функцию, в которую Pig отправляет строковые элементы.
 
-3. Данные для примера, **sample.log**, в основном соответствуют схеме даты, времени, имени класса, уровня и подробной информации, которую мы хотим возвращать. Но они также имеют несколько строк, которые начинаются со значения '*java.lang.Exception*', которые нам необходимо привести в соответствие со схемой. Инструкция **if** проверяет на наличие таких строк, затем манипулирует входными данным, переставляя строку '*java.lang.Exception*' в конец, формируя данные в соответствии с ожидаемой схемой.
+3. Данные для примера, `sample.log`, в основном соответствуют схеме даты, времени, имени класса, уровня и подробной информации, которую мы хотим возвращать. Однако он содержит несколько строк, начинающихся с `*java.lang.Exception*`. Эти строки должны быть изменены в соответствии со схемой. Инструкция `if` проверяет на наличие таких строк, затем манипулирует входными данными, переставляя строку `*java.lang.Exception*` в конец, формируя данные в соответствии с ожидаемой схемой.
 
-4. Затем, команда **split** используется для разделения данных по первым четырем символам пробела. Выходным данным присваиваются значения **date**, **time**, **classname**, **level** и **detail**.
+4. Затем команда `split` используется для разделения данных по первым четырем символам пробела. Выходным данным присваиваются значения `date`, `time`, `classname`, `level` и `detail`.
 
 5. И результаты возвращаются в Pig.
 
-Когда данные возвращаются в Pig, они имеют согласованную схему, определенную оператором **@outputSchema**.
+Когда данные возвращаются в Pig, они имеют согласованную схему, определенную инструкцией `@outputSchema`.
 
-## <a name="running"></a>Выполнение примеров
-Если используется кластер HDInsight под управлением Linux, примените указанные действия с **SSH**. Если используется кластер HDInsight под управлением Windows и клиент Windows, примените действия с **PowerShell** .
+## <a name="running"></a>Отправка и выполнение примеров
+
+> [!IMPORTANT]
+> Действия с **SSH** работают только с кластером HDInsight на базе Linux. Действия с **PowerShell** работают с кластером HDInsight на базе Linux и Windows, но требуют клиента Windows.
 
 ### <a name="ssh"></a>SSH
 
 Дополнительные сведения об использовании SSH см. в разделе [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Создайте локальные копии файлов на компьютере для разработки, используя примеры Python [streaming.py](#streamingpy) и [pig_python.py](#jythonpy).
+1. Используйте `scp` для копирования файлов в кластер HDInsight. Например, следующая команда позволяет скопировать файлы в кластер с именем **mycluster**.
 
-2. Используйте `scp` для копирования файлов в кластер HDInsight. Например, следующая команда позволяет скопировать файлы в кластер с именем **mycluster**.
+    ```bash
+    scp hiveudf.py pigudf.py myuser@mycluster-ssh.azurehdinsight.net:
+    ```
 
-        scp streaming.py pig_python.py myuser@mycluster-ssh.azurehdinsight.net:
+2. Используйте SSH, чтобы подключиться к кластеру.
 
-3. Используйте SSH, чтобы подключиться к кластеру. Например, следующая команда позволяет подключиться к кластеру с именем **mycluster** от имени пользователя **myuser**.
+    ```bash
+    ssh myuser@mycluster-ssh.azurehdinsight.net
+    ```
 
-        ssh myuser@mycluster-ssh.azurehdinsight.net
-4. В сеансе SSH добавьте переданные ранее файлы Python в хранилище WASB для кластера.
+3. В сеансе SSH добавьте переданные ранее файлы Python в хранилище WASB для кластера.
 
-        hdfs dfs -put streaming.py /streaming.py
-        hdfs dfs -put pig_python.py /pig_python.py
+    ```bash
+    hdfs dfs -put hiveudf.py /hiveudf.py
+    hdfs dfs -put pigudf.py /pigudf.py
+    ```
 
 После передачи файлов выполните следующие действия для выполнения заданий Hive и Pig.
 
-#### <a name="hive"></a>Hive
+#### <a name="use-the-hive-udf"></a>Использование определяемой пользователем функции Hive
 
 1. Используйте команду `hive` , чтобы запустить оболочку Hive. После загрузки оболочки вы увидите запрос `hive>` .
-2. В окне запроса `hive>` введите следующее.
+
+2. Введите следующий запрос `hive>` в командной строке:
 
    ```hive
-   add file wasbs:///streaming.py;
+   add file wasb:///hiveudf.py;
    SELECT TRANSFORM (clientid, devicemake, devicemodel)
-       USING 'python streaming.py' AS
+       USING 'python hiveudf.py' AS
        (clientid string, phoneLabel string, phoneHash string)
    FROM hivesampletable
    ORDER BY clientid LIMIT 50;
    ```
+
 3. После ввода последней строки запустится задание. По завершении задания эта команда возвращает выходные данные следующего вида:
 
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -223,15 +240,15 @@ def create_structure(input):
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### <a name="pig"></a>Pig,
+#### <a name="use-the-pig-udf"></a>Использование определяемой пользователем функции Pig
 
-1. Используйте команду `pig` , чтобы запустить оболочку. После загрузки оболочки вы увидите запрос `grunt>` .
+1. Используйте команду `pig` , чтобы запустить оболочку. После загрузки оболочки вы увидите запрос `grunt>`.
 
 2. В окне запроса `grunt>` введите следующие операторы:
 
    ```pig
-   Register wasbs:///pig_python.py using jython as myfuncs;
-   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   Register wasb:///pigudf.py using jython as myfuncs;
+   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -245,21 +262,25 @@ def create_structure(input):
         ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
         ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-4. Используйте `quit` для выхода из оболочки Grunt, а затем следующую команду для изменения файла pig_python.py в локальной файловой системе:
+4. Используйте `quit` для выхода из оболочки Grunt, а затем следующую команду для изменения файла pigudf.py в локальной файловой системе:
 
-    nano pig_python.py
+    ```bash
+    nano pigudf.py
+    ```
 
 5. Войдите в редактор и раскомментируйте следующую строку, удалив символ `#` в начале строки.
 
-        #from pig_util import outputSchema
+    ```bash
+    #from pig_util import outputSchema
+    ```
 
     Закончив вносить изменения, нажмите сочетание клавиш CTRL+X, чтобы выйти из редактора. Выберите Y и нажмите ВВОД, чтобы сохранить изменения.
 
 6. Используйте команду `pig` , чтобы снова запустить оболочку. При появлении запроса `grunt>` введите следующие инструкции, чтобы запустить сценарий Python с помощью интерпретатора CPython.
 
    ```pig
-   Register 'pig_python.py' using streaming_python as myfuncs;
-   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   Register 'pigudf.py' using streaming_python as myfuncs;
+   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -267,63 +288,67 @@ def create_structure(input):
 
     Когда это задание будет выполнено, вы увидите такой же результат, как при запуске сценария с помощью Jython.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell-upload-the-files"></a>PowerShell: отправка файлов
 
-Для этих действий используется Azure PowerShell. Дополнительные сведения об использовании Azure PowerShell см. в статье [How to install and configure Azure PowerShell](/powershell/azure/overview) (Как установить и настроить Azure PowerShell).
+Вы можете использовать PowerShell для отправки файлов на сервер HDInsight. Используйте следующий скрипт для отправки файлов Python:
 
-1. Создайте локальные копии файлов на компьютере для разработки, используя примеры Python [streaming.py](#streamingpy) и [pig_python.py](#jythonpy).
-2. Для передачи файлов **streaming.py** и **pig\_python.py** на сервер используйте следующий скрипт PowerShell. Подставьте имя своего кластера Azure HDInsight и путь к файлам **streaming.py** и **pig\_python.py** в первые три строки скрипта.
+> [!IMPORTANT] 
+> В этом разделе используется Azure PowerShell. Дополнительные сведения об использовании Azure PowerShell см. в статье [How to install and configure Azure PowerShell](/powershell/azure/overview) (Как установить и настроить Azure PowerShell).
 
-   ```powershell
-    # Login to your Azure subscription
-    # Is there an active Azure subscription?
-    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
-        Add-AzureRmAccount
-    }
+```powershell
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Add-AzureRmAccount
+}
 
-    # Get cluster info
-    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-    $pathToStreamingFile = "C:\path\to\streaming.py"
-    $pathToJythonFile = "C:\path\to\pig_python.py"
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+# Change the path to match the file location on your system
+$pathToStreamingFile = "C:\path\to\hiveudf.py"
+$pathToJythonFile = "C:\path\to\pigudf.py"
 
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroup = $clusterInfo.ResourceGroup
-    $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-    $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=(Get-AzureRmStorageAccountKey `
-        -Name $storageAccountName `
-    -ResourceGroupName $resourceGroup)[0].Value
+$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$resourceGroup = $clusterInfo.ResourceGroup
+$storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+$container=$clusterInfo.DefaultStorageContainer
+$storageAccountKey=(Get-AzureRmStorageAccountKey `
+    -Name $storageAccountName `
+-ResourceGroupName $resourceGroup)[0].Value
 
-    #Create a storage content and upload the file
-    $context = New-AzureStorageContext `
-        -StorageAccountName $storageAccountName `
-        -StorageAccountKey $storageAccountKey
+#Create a storage content and upload the file
+$context = New-AzureStorageContext `
+    -StorageAccountName $storageAccountName `
+    -StorageAccountKey $storageAccountKey
 
-    Set-AzureStorageBlobContent `
-        -File $pathToStreamingFile `
-        -Blob "streaming.py" `
-        -Container $container `
-        -Context $context
+Set-AzureStorageBlobContent `
+    -File $pathToStreamingFile `
+    -Blob "hiveudf.py" `
+    -Container $container `
+    -Context $context
 
-    Set-AzureStorageBlobContent `
-        -File $pathToJythonFile `
-        -Blob "pig_python.py" `
-        -Container $container `
-        -Context $context
-   ```
+Set-AzureStorageBlobContent `
+    -File $pathToJythonFile `
+    -Blob "pigudf.py" `
+    -Container $container `
+    -Context $context
+```
+> [!IMPORTANT]
+> Измените значение `C:\path\to` на путь к файлам в среде разработки.
 
-    Этот скрипт получает информацию для кластера HDInsight, извлекает учетную запись и ключ для учетной записи хранения по умолчанию и загружает файлы в корневую папку контейнера.
+Этот скрипт получает информацию для кластера HDInsight, извлекает учетную запись и ключ для учетной записи хранения по умолчанию и загружает файлы в корневую папку контейнера.
 
-   > [!NOTE]
-   > Другие способы передачи сценариев можно найти в документе [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md) .
+> [!NOTE]
+> Дополнительные сведения о загрузке файлов см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 
-После загрузки файлов используйте следующий скрипт PowerShell для запуска заданий. После завершения задания результат должен записаться в консоль PowerShell.
+#### <a name="powershell-use-the-hive-udf"></a>PowerShell: использование определяемой пользователем функции Hive
 
-#### <a name="hive"></a>Hive
+PowerShell также можно использовать для удаленного запуска запросов на использование Hive. Используйте следующий сценарий PowerShell для запуска запроса Hive, который использует скрипт **hiveudf.py**:
 
-Следующий скрипт запускает скрипт **streaming.py**. Перед запуском он предлагает вам ввести сведения об HTTPS и учетной записи администратора для кластера HDInsight.
+> [!IMPORTANT]
+> Перед запуском он предлагает вам ввести сведения об HTTPS и учетной записи администратора для кластера HDInsight.
 
 ```powershell
 # Login to your Azure subscription
@@ -339,10 +364,10 @@ $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
 $creds=Get-Credential -Message "Enter the login for the cluster"
 
 # If using a Windows-based HDInsight cluster, change the USING statement to:
-# "USING 'D:\Python27\python.exe streaming.py' AS " +
-$HiveQuery = "add file wasbs:///streaming.py;" +
+# "USING 'D:\Python27\python.exe hiveudf.py' AS " +
+$HiveQuery = "add file wasb:///hiveudf.py;" +
                 "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
-                "USING 'python streaming.py' AS " +
+                "USING 'python hiveudf.py' AS " +
                 "(clientid string, phoneLabel string, phoneHash string) " +
                 "FROM hivesampletable " +
                 "ORDER BY clientid LIMIT 50;"
@@ -382,7 +407,7 @@ Get-AzureRmHDInsightJobOutput `
 
 #### <a name="pig-jython"></a>Pig (Jython)
 
-В следующем примере используется скрипт **pig_python.py** с интерпретатором Jython. Перед запуском он предлагает вам ввести сведения об HTTPS и учетной записи администратора для кластера HDInsight.
+PowerShell также можно использовать для запуска заданий Pig Latin. Для запуска задания Pig Latin, использующего скрипт **pigudf.py**, используйте следующий сценарий PowerShell:
 
 > [!NOTE]
 > При удаленной отправке задания с помощью PowerShell нельзя использовать CPython в качестве интерпретатора.
@@ -400,8 +425,8 @@ if(-not($sub))
 $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
 $creds=Get-Credential -Message "Enter the login for the cluster"
 
-$PigQuery = "Register wasbs:///pig_python.py using jython as myfuncs;" +
-            "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
+$PigQuery = "Register wasb:///pigudf.py using jython as myfuncs;" +
+            "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
             "LOG = FILTER LOGS by LINE is not null;" +
             "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
             "DUMP DETAILS;"
@@ -431,7 +456,7 @@ Get-AzureRmHDInsightJobOutput `
     -HttpCredential $creds
 ```
 
-Результат выполнения задания **Pig** должен выглядеть аналогично следующему:
+Результат выполнения задания **Pig** должен выглядеть аналогично следующим данным:
 
     ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
     ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
@@ -447,12 +472,12 @@ Get-AzureRmHDInsightJobOutput `
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 
-Эта проблема может быть вызвана символами окончания строк в файле streaming.py. Многие редакторы Windows по умолчанию используют символы CRLF, но в приложениях Linux обычно ожидается использование символа LF.
+Эта проблема может быть вызвана символами окончания строк в файле Python. Многие редакторы Windows по умолчанию используют символы CRLF, но в приложениях Linux обычно ожидается использование символа LF.
 
 Вы можете использовать следующие команды PowerShell для удаления символов CR перед передачей файла в HDInsight:
 
 ```powershell
-$original_file ='c:\path\to\streaming.py'
+$original_file ='c:\path\to\hiveudf.py'
 $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 [IO.File]::WriteAllText($original_file, $text)
 ```

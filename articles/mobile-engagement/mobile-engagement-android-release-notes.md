@@ -1,6 +1,6 @@
 ---
-title: "Интеграция пакета Android SDK для Azure Mobile Engagement"
-description: "Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
+title: "Интеграция пакета Android SDK для Служб мобильного взаимодействия Azure"
+description: "Последние обновления и процедуры пакета Android SDK для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -12,16 +12,26 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e50c1c70a4378560f8ce3182069cba4832fa4d22
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: c179c39a43da0aa35e945acceacbf27fe8e328f3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="release-notes"></a>Заметки о выпуске
+
+## <a name="431-07172017"></a>4.3.1 (17.07.2017)
+* Исправлена проблема с аварийным завершением работы, которое изредка могло происходить при вызове `EngagementAgentUtils.isInDedicatedEngagementProcess` (также используется классом `EngagementApplication`).
+
+## <a name="430-06272017"></a>4.3.0 (27.06.2017)
+* Поддержка Android 8 (предыдущие версии пакета SDK не будут работать с Android 8).
+* Удалена зависимость от библиотеки поддержки.
+* Удален класс `EngagementFragmentActivity`.
+* Из-за [ограничений на фоновое выполнение приложений](https://developer.android.com/preview/features/background.html) в Android 8 журналы в фоновом режиме могут отображаться с задержкой (когда пользователь воспользуется устройством), что, в свою очередь, может повлиять на отображение статистики по **доставленным** push-уведомлениям и **отображенным системным уведомлениям**. Причина — соответствующие данные не поступают, пока устройство находится в спящем режиме. (Это не повлияет на отображение уведомления, подачу устройством звукового сигнала и вибросигнала в реальном времени.)
+* Из-за [ограничений на доступ к геолокационным данным в фоновом режиме](https://developer.android.com/preview/features/background-location-limits.html) данные о текущем местонахождении не будут часто обновляться в Android 8.
 
 ## <a name="424-03302017"></a>4.2.4 (30.03.2017)
 * Исправление цвета текста уведомления в приложениях на Android 7 для совпадения с цветом в старых версиях Android.
@@ -73,7 +83,7 @@ ms.lasthandoff: 03/31/2017
 * Обновлено лицензионное соглашение с пользователем.
 
 ## <a name="300-02172015"></a>3.0.0 (02/17/2015)
-* Первый выпуск Azure Mobile Engagement
+* Первый выпуск Служб мобильного взаимодействия Azure
 * Конфигурация appId заменена на конфигурацию строки подключения.
 * Удален API для отправки и получения произвольных сообщений XMPP из произвольных сущностей XMPP.
 * Удален API для отправки и получения сообщений между устройствами.

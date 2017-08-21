@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f46facee3e45704f74a13db7a18274f5ce90ceff
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 46d71ebd493004bc1ac1b7634722d2abe8b67343
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure
@@ -87,7 +87,7 @@ ms.lasthandoff: 03/31/2017
 > 
 
 ## <a name="set-up-a-file-share-for-linux-nodes"></a>Настройка файлового ресурса для узлов Linux
-Теперь настройте стандартный общий ресурс SMB и смонтируйте общую папку на всех узлах Linux, чтобы узлы Linux могли обращаться к файлам NAMD по общему пути. Ниже приведены действия для подключения общей папки на головном узле. Мы советуем выполнять эти действия для таких дистрибутивов, как CentOS 6.6, которые в настоящее время не поддерживают службу файлов Azure. Если ваши узлы Linux поддерживают общую папку службы файлов Azure, см. статью [Использование хранилища файлов Azure в Linux](../../../storage/storage-how-to-use-files-linux.md). Дополнительные параметры использования файловых ресурсов с помощью пакета HPC описаны в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](hpcpack-cluster.md).
+Теперь настройте стандартный общий ресурс SMB и смонтируйте общую папку на всех узлах Linux, чтобы узлы Linux могли обращаться к файлам NAMD по общему пути. Ниже приведены действия для подключения общей папки на головном узле. Мы советуем выполнять эти действия для таких дистрибутивов, как CentOS 6.6, которые в настоящее время не поддерживают службу файлов Azure. Если ваши узлы Linux поддерживают файловый ресурс Azure, см. статью [Использование хранилища файлов Azure в Linux](../../../storage/storage-how-to-use-files-linux.md). Дополнительные параметры использования файловых ресурсов с помощью пакета HPC описаны в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](hpcpack-cluster.md).
 
 1. Создайте папку на головном узле и сделайте ее общедоступной для чтения и записи для всех пользователей. В этом примере \\\\CentOS66HN\Namd — это имя папки, где CentOS66HN — имя головного узла.
 2. Создайте в общей папке вложенную папку namd2. В namd2 создайте вложенную папку namdsample.

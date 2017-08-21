@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 159aed19b4c5e381ef15c40c15cf6bd7694d2fa3
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/24/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Создание Центра Интернета вещей с помощью Azure CLI 2.0
@@ -64,7 +63,7 @@ ms.lasthandoff: 03/24/2017
     az account set --subscription {your subscription name or id}
     ```
 
-## <a name="create-an-iot-hub"></a>Создание центра IoT
+## <a name="create-an-iot-hub"></a>Создание Центра Интернета вещей
 
 Создайте группу ресурсов и добавьте Центр Интернета вещей с помощью Azure CLI.
 
@@ -79,14 +78,17 @@ ms.lasthandoff: 03/24/2017
     >
     >
 
-2. Выполните следующую [команду для создания Центра Интернета вещей][lnk-az-iot-command] в своей группе ресурсов:
+2. Выполните в своей группе ресурсов следующую [команду для создания Центра Интернета вещей][lnk-az-iot-command], указав глобально уникальное имя своего Центра Интернета вещей.
     
     ```azurecli
     az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
     ```
 
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
+
 > [!NOTE]
-> Имя Центра Интернета вещей должно быть глобально уникальным. Предыдущая команда создает Центр Интернета вещей в оплачиваемой ценовой категории S1. Дополнительные сведения см. на странице с [ценами на Центр Интернета вещей Azure][lnk-iot-pricing].
+> Предыдущая команда создает Центр Интернета вещей в оплачиваемой ценовой категории S1. Дополнительные сведения см. на странице с [ценами на Центр Интернета вещей Azure][lnk-iot-pricing].
 >
 >
 
@@ -111,7 +113,7 @@ az group delete --name {your resource group name}
 
 * [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
 
-Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
 * [Создание Центра Интернета вещей через портал Azure][lnk-portal]
 

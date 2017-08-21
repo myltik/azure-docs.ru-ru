@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 810b4c236975a25d12b2e350d0a6cd5a39eb30aa
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 71a8f4edf7776556b383f446e5aad007748ef090
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="troubleshoot-azure-file-storage-problems-in-windows"></a>Устранение неполадок хранилища файлов Azure в Windows
 
-В этой статье приведен список распространенных проблем, возникающих в хранилище файлов Microsoft Azure при подключении с клиентов Windows. Кроме того, здесь представлены возможные причины этих проблем и способы их устранения. Помимо действий по устранению неполадок, описываемых в этой статье, можно также использовать [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5), чтобы обеспечить выполнение необходимых условий для среды клиента Windows. AzFileDiagnostics автоматизирует обнаружение большинства симптомов, упомянутых в этой статье, и помогает настроить среду для достижения оптимальной производительности.
+В этой статье приведен список распространенных проблем, возникающих в хранилище файлов Microsoft Azure при подключении с клиентов Windows. Кроме того, здесь представлены возможные причины этих проблем и способы их устранения. Помимо действий по устранению неполадок, описываемых в этой статье, можно также использовать [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5), чтобы обеспечить выполнение необходимых условий для среды клиента Windows. AzFileDiagnostics автоматизирует обнаружение большинства симптомов, упомянутых в этой статье, и помогает настроить среду для достижения оптимальной производительности. Эту информацию можно найти также на странице [устранения неполадок с общими ресурсами Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), где приведены пошаговые инструкции по устранению проблем с подключением и сопоставлением общих ресурсов Azure.
 
 
 <a id="error53-67-87"></a>

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c65a932d0bf9bfb00f138997babc1bd642bcf879
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure
@@ -53,7 +52,7 @@ ms.lasthandoff: 04/27/2017
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
     > [!TIP]
-    > Чтобы использовать сеть Azure RDMA с виртуальной машиной, размер которой поддерживает RDMA, укажите образ SUSE Linux Enterprise Server 12 HPC или образ CentOS для HPC из каталога Azure Marketplace. Дополнительные сведения см. в статье [Виртуальные машины серии A (для ресурсоемких вычислений) и серии H](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Чтобы использовать сеть Azure RDMA с виртуальной машиной, размер которой поддерживает RDMA, укажите образ SUSE Linux Enterprise Server 12 HPC или образ CentOS для HPC из каталога Azure Marketplace. Дополнительные сведения см. в статье [Размеры виртуальных машин Linux, оптимизированных для HPC](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
@@ -187,7 +186,7 @@ ms.lasthandoff: 04/27/2017
 ### <a name="azure-file-storage"></a>Хранилище файлов Azure
 Служба [файлов Azure](https://azure.microsoft.com/services/storage/files/) предоставляет общие папки с помощью стандартного протокола SMB 2.1. Виртуальные машины Azure могут использовать файловые данные компонентов приложений через подключенные ресурсы, а локальные приложения получают доступ к этим данным совместно с помощью API хранилища файлов. 
 
-Подробное описание создания и подключения общей папки Azure на головном узле см. в статье [Приступая к работе с хранилищем файлов Azure в Windows](../../../storage/storage-dotnet-how-to-use-files.md). Сведения о подключении общей папки Azure к узлам Linux см. в статье [Использование хранилища файлов Azure в Linux](../../../storage/storage-how-to-use-files-linux.md). Чтобы настроить сохраняемые подключения, см. статью [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Подробное описание создания и подключения общей папки Azure на головном узле см. в статье [Приступая к работе с хранилищем файлов Azure в Windows](../../../storage/storage-file-how-to-use-files-windows.md). Сведения о подключении общей папки Azure к узлам Linux см. в статье [Использование хранилища файлов Azure в Linux](../../../storage/storage-how-to-use-files-linux.md). Чтобы настроить сохраняемые подключения, см. статью [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 В следующем примере создайте файловый ресурс Azure в учетной записи хранения. Чтобы подключить общую папку на головном узле, откройте окно командной строки и введите следующие команды:
 
@@ -300,7 +299,7 @@ clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rd
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Попробуйте масштабировать кластер, чтобы увеличить количество узлов, или запустите в кластере рабочую нагрузку Linux. Пример см. в статье [Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](hpcpack-cluster-namd.md).
-* Для запуска рабочих нагрузок MPI используйте кластер с [поддержкой RDMA и высокопроизводительных виртуальных машин](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). С примером можно ознакомиться в статье [Выполнение заданий OpenFoam в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](hpcpack-cluster-openfoam.md).
+* Для запуска рабочих нагрузок MPI используйте кластер с [поддержкой RDMA и высокопроизводительных виртуальных машин](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). С примером можно ознакомиться в статье [Выполнение заданий OpenFoam в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](hpcpack-cluster-openfoam.md).
 * Дополнительные сведения о работе с узлами Linux в локальном кластере пакета HPC см. в [руководстве TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->

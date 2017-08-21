@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 20e2c9edc4729015f65fbe72649e32effe7f8a3a
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 123c8c2b1c5bae268b2a61c185743f2c3920175e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Развертывание веб-служб машинного обучения Azure, использующих модули импорта и экспорта данных
@@ -102,14 +102,14 @@ ms.lasthandoff: 03/29/2017
 2. По завершении выполнения щелкните **Deploy Web Service** (Развернуть веб-службу) и выберите **Deploy Web Service [Classic]** (Развернуть веб-службу [классическую]).
 3. На панели мониторинга веб-службы найдите ключ API. Скопируйте и сохраните его для последующего использования.
 4. В таблице **Default Endpoint** (Конечная точка по умолчанию) щелкните ссылку **Выполнение пакета**, чтобы открыть страницу справки API.
-5. Создайте в Visual Studio консольное приложение C#.
+5. В Visual Studio создайте консольное приложение C# в Visual Studio (**Создать** > **Проект** > **Visual C#** > **Классический рабочий стол Windows** > **Консольное приложение (.NET Framework**).
 6. На странице справки API в нижней части страницы найдите раздел **Sample Code** (Пример кода).
 7. Скопируйте пример кода C# и вставьте его в файл Program.cs, а также удалите все ссылки на хранилище BLOB-объектов.
 8. Обновите значение переменной *apiKey* , заменив его на ключ API, сохраненный ранее.
 9. Найдите объявление запроса и обновите значения параметров веб-службы, которые передаются в модули *Импорт данных* и *Экспорт данных*. В этом случае используется исходный запрос, но определяется имя новой таблицы.
    
         var request = new BatchExecutionRequest() 
-        {            
+        {           
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
@@ -131,13 +131,13 @@ ms.lasthandoff: 03/29/2017
 3. На странице "Deploy Experiment" (Развертывание эксперимента) введите имя веб-службы и выберите ценовой план, а затем нажмите кнопку **Deploy** (Развернуть).
 4. На странице **Быстрый запуск** щелкните **Consume** (Использование).
 5. В разделе **Sample Code** (Пример кода) щелкните **Пакетная служба**.
-6. Создайте в Visual Studio консольное приложение C#.
+6. В Visual Studio создайте консольное приложение C# в Visual Studio (**Создать** > **Проект** > **Visual C#** > **Классический рабочий стол Windows** > **Консольное приложение (.NET Framework**).
 7. Скопируйте пример кода C# и вставьте его в файл Program.cs.
 8. Обновите значение переменной *apiKey*, заменив его на **Первичный ключ**, указанный в разделе **Basic consumption info** (Основные сведения об использовании).
 9. Найдите объявление *scoreRequest* и обновите значения параметров веб-службы, которые передаются в модули *Импорт данных* и *Экспорт данных*. В этом случае используется исходный запрос, но определяется имя новой таблицы.
    
         var scoreRequest = new
-        {        
+        {       
             Inputs = new Dictionary<string, StringTable>()
             {
             },

@@ -13,53 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 07/07/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 96921f4be8aabb6d960ee4f66acd6c07d7ba7f95
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: aa2d4f671bab46929ccc4444f8fe9de98a3e0eb2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Установка драйверов GPU для виртуальных машин серии N под управлением Windows Server
-Чтобы воспользоваться преимуществами возможностей GPU виртуальных машин Azure серии N под управлением Windows Server 2016 или Windows Server 2012 R2, необходимо установить графические драйверы NVIDIA на каждую виртуальную машину после развертывания. Сведения об установке драйверов также доступны для [виртуальных машин Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Чтобы воспользоваться преимуществами возможностей GPU виртуальных машин Azure серии N под управлением Windows Server 2016 или Windows Server 2012 R2, необходимо установить графические драйверы NVIDIA. В этой статье приводятся действия по установке драйверов после развертывания виртуальных машин серии N. Сведения об установке драйверов также доступны для [виртуальных машин Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Основные характеристики, сведения о дисках и объеме памяти см. в статье [Размеры виртуальных машин в Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ознакомьтесь также с разделом [Общие рекомендации для виртуальных машин серии N](#general-considerations-for-n-series-vms).
+Основные характеристики, сведения о дисках и объеме памяти см. в статье [Графический процессор](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 
-
-## <a name="supported-gpu-drivers"></a>Поддерживаемые драйверы GPU
-
-Подключитесь к каждой виртуальной машине серии N с помощью удаленного рабочего стола. Скачайте, извлеките и установите поддерживаемый драйвер для своей операционной системы Windows. 
-
-### <a name="nvidia-tesla-drivers-for-nc-vms-tesla-k80"></a>Драйверы NVIDIA Tesla для виртуальных машин NC (Tesla K80)
+[!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
 
 
-| ОС | Версия драйвера |
-| -------- |------------- |
-| Windows Server 2016 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2016-international-whql.exe) (EXE-файл) |
-| Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (EXE-файл) |
+## <a name="driver-installation"></a>Установка драйвера
 
-> [!NOTE]
-> Предоставленные в статье ссылки для скачивания драйверов Tesla актуальны на момент ее публикации. Последние версии драйверов можно получить на веб-сайте [NVIDIA](http://www.nvidia.com/).
->
+1. Подключитесь к каждой виртуальной машине серии N с помощью удаленного рабочего стола.
 
-### <a name="nvidia-grid-drivers-for-nv-vms-tesla-m60"></a>Драйверы NVIDIA GRID для виртуальных машин NV (Tesla M60)
-
-| ОС | Версия драйвера |
-| -------- |------------- |
-| Windows Server 2016 | [369.95](https://go.microsoft.com/fwlink/?linkid=836843) (ZIP-файл) |
-| Windows Server 2012 R2 | [369.95](https://go.microsoft.com/fwlink/?linkid=836844) (ZIP-файл)  |
-
-
-
-## <a name="verify-gpu-driver-installation"></a>Проверка установки драйвера GPU
+2. Скачайте, извлеките и установите поддерживаемый драйвер для своей операционной системы Windows.
 
 После установки драйвера на виртуальных машинах Azure серии NV их требуется перезагрузить. На виртуальных машинах NC перезагрузка не требуется.
+
+## <a name="verify-driver-installation"></a>Проверка установки драйверов
 
 Установку драйвера можно проверить в диспетчере устройств. В следующем примере показана успешная конфигурация карты Tesla K80 на виртуальной машине Azure серии NC.
 
@@ -67,9 +49,9 @@ ms.lasthandoff: 07/04/2017
 
 Чтобы запросить состояние устройства GPU, выполните служебную программу командной строки [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface), установленную вместе с драйвером.
 
-1. Откройте командную строку и измените каталога на **:\Program Files\NVIDIA Corporation\NVSMI**.
+1. Откройте командную строку и измените каталог на **:\Program Files\NVIDIA Corporation\NVSMI**.
 
-2. Запустите **nvidia-smi**. Если драйвер установлен, то отобразятся выходные данные, аналогичные приведенным ниже. Обратите внимание, что **GPU-Util** отобразит **0 %**, если в данный момент графический процессор не выполняет рабочую нагрузку на виртуальной машине.
+2. Запустите **nvidia-smi**. Если драйвер установлен, то отобразятся выходные данные, аналогичные приведенным ниже. Обратите внимание, что **GPU-Util** отобразит **0 %**, если в данный момент графический процессор не выполняет рабочую нагрузку на виртуальной машине.
 
 ![Состояние устройства NVIDIA](./media/n-series-driver-setup/smi.png)  
 
@@ -89,7 +71,6 @@ ms.lasthandoff: 07/04/2017
 
 Сеть RDMA поддерживает трафик MPI (Message Passing Interface) для приложений, использующих [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) или Intel MPI 5.x. 
 
-[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

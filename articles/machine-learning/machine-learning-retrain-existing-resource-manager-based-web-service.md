@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: dc4716a26ba5c2ba93dda83890dbff81f22cbd2a
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: bdc994daf441d397157f8e6cbcf84d72584927f0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Переобучение прогнозной веб-службы
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/02/2017
 
 Чтобы вызвать интерфейсы API переобучения:
 
-1. Создайте приложение для консоли C# в Visual Studio (**Создать** > **Проект** > **Windows Desktop** > **Консольное приложение**).
+1. Создайте консольное приложение C# в Visual Studio (**Создать** > **Проект** > **Visual C#** > **Классический рабочий стол Windows** > **Консольное приложение (.NET Framework**).
 2. Войдите на портал веб-служб Машинного обучения.
 3. Щелкните веб-службу, с которой работаете.
 4. Щелкните **Consume**(Использование).

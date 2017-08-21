@@ -13,31 +13,30 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 67b023ccd761bc08b96c9ebda907c6451bfbe52f
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: d84c20dc74feedd7329cd390ff35765532bcf74d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Создание виртуальной машины Windows с использованием шаблона Resource Manager
 
-В этой статье описывается развертывание шаблона Azure Resource Manager с помощью PowerShell. Этот [шаблон](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) позволяет выполнить развертывание одной виртуальной машины под управлением Windows Server в новой виртуальной сети с одной подсетью.
+В этой статье описывается развертывание шаблона Azure Resource Manager с помощью PowerShell. Созданный шаблон развертывает одну виртуальную машину под управлением Windows Server в новой виртуальной сети с одной подсетью.
 
 Подробное описание ресурса виртуальной машины см. в статье [Виртуальные машины в шаблоне Azure Resource Manager](template-description.md). Дополнительные сведения обо всех ресурсах в шаблоне см. в статье [Пошаговое руководство по созданию шаблона Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Процедура, описанная в этой статье, занимает около 5 минут.
 
-## <a name="step-1-install-azure-powershell"></a>Шаг 1. Установка Azure PowerShell
+## <a name="install-azure-powershell"></a>Установка Azure PowerShell
 
 Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](../../powershell-install-configure.md).
 
-## <a name="step-2-create-a-resource-group"></a>Шаг 2. Создание группы ресурсов
+## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
 Все ресурсы должны развертываться в [группе ресурсов](../../azure-resource-manager/resource-group-overview.md).
 
@@ -47,61 +46,169 @@ ms.lasthandoff: 05/17/2017
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
-2. Создайте группу ресурсов в выбранном расположении. В этом примере показано, как создать группу ресурсов с именем **MyResourceGroup** в расположении **Central US**.
+2. Создайте группу ресурсов в выбранном расположении. В этом примере показано, как создать группу ресурсов с именем **myResourceGroup** в расположении **West US**.
 
     ```powershell   
-    New-AzureRmResourceGroup -Name "myResourceGroup" -Location "Central US"
-    ```
-   
-  Вы увидите нечто вроде этого примера:
-
-    ```powershell 
-    ResourceGroupName : myResourceGroup
-    Location          : centralus
-    ProvisioningState : Succeeded
-    Tags              :
-    ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup
+    New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
     ```
 
-## <a name="step-3-create-the-resources"></a>Шаг 3. Создание ресурсов
-Разверните шаблон и укажите значения параметров при появлении запроса. В примере ниже развертывается шаблон 101-vm-simple-windows в созданной группе ресурсов.
+## <a name="create-the-files"></a>Создание файлов
+
+На этом шаге вы создадите файл шаблона, который развертывает ресурсы, и файл параметров, который предоставляет значения для параметров шаблона. Кроме того, вы создадите файл авторизации для выполнения операций Azure Resource Manager.
+
+1. Создайте файл с именем *CreateVMTemplate.json* и добавьте в него такой код JSON:
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "adminUsername": { "type": "string" },
+        "adminPassword": { "type": "securestring" }
+      },
+      "variables": {
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+      },
+      "resources": [
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/publicIPAddresses",
+          "name": "myPublicIPAddress",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "publicIPAllocationMethod": "Dynamic",
+            "dnsSettings": {
+              "domainNameLabel": "myresourcegroupdns1"
+            }
+          }
+        },
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/virtualNetworks",
+          "name": "myVNet",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "addressSpace": { "addressPrefixes": [ "10.0.0.0/16" ] },
+            "subnets": [
+              {
+                "name": "mySubnet",
+                "properties": { "addressPrefix": "10.0.0.0/24" }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/networkInterfaces",
+          "name": "myNic",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/publicIPAddresses/', 'myPublicIPAddress')]",
+            "[resourceId('Microsoft.Network/virtualNetworks/', 'myVNet')]"
+          ],
+          "properties": {
+            "ipConfigurations": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Dynamic",
+                  "publicIPAddress": { "id": "[resourceId('Microsoft.Network/publicIPAddresses','myPublicIPAddress')]" },
+                  "subnet": { "id": "[variables('subnetRef')]" }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2016-04-30-preview",
+          "type": "Microsoft.Compute/virtualMachines",
+          "name": "myVM",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/networkInterfaces/', 'myNic')]"
+          ],
+          "properties": {
+            "hardwareProfile": { "vmSize": "Standard_DS1" },
+            "osProfile": {
+              "computerName": "myVM",
+              "adminUsername": "[parameters('adminUsername')]",
+              "adminPassword": "[parameters('adminPassword')]"
+            },
+            "storageProfile": {
+              "imageReference": {
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2012-R2-Datacenter",
+                "version": "latest"
+              },
+              "osDisk": {
+                "name": "myManagedOSDisk",
+                "caching": "ReadWrite",
+                "createOption": "FromImage"
+              }
+            },
+            "networkProfile": {
+              "networkInterfaces": [
+                {
+                  "id": "[resourceId('Microsoft.Network/networkInterfaces','myNic')]"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+    ```
+
+2. Создайте файл с именем *Parameters.json* и добавьте в него такой код JSON:
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+      "adminUserName": { "value": "azureuser" },
+        "adminPassword": { "value": "Azure12345678" }
+      }
+    }
+    ```
+
+3. Создайте учетную запись хранения и контейнер:
+
+    ```powershell
+    $storageName = "st" + (Get-Random)
+    New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" -AccountName $storageName -Location "West US" -SkuName "Standard_LRS" -Kind Storage
+    $accountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name $storageName).Value[0]
+    $context = New-AzureStorageContext -StorageAccountName $storageName -StorageAccountKey $accountKey 
+    New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
+    ```
+
+4. Отправьте файлы в учетную запись хранения:
+
+    ```powershell
+    Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
+    Set-AzureStorageBlobContent -File "C:\templates\Parameters.json" -Context $context -Container templates
+    ```
+
+    Измените пути -File так, чтобы они указывали на расположение ваших файлов.
+
+## <a name="create-the-resources"></a>Создание ресурсов
+
+Разверните шаблон с помощью параметров:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json" 
+$templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
+$parametersPath = "https://" + $storageName + ".blob.core.windows.net/templates/Parameters.json"
+New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "myDeployment" -TemplateUri $templatePath -TemplateParameterUri $parametersPath 
 ```
-Вам будет предложено указать имя и пароль учетной записи администратора виртуальной машины, а также префикс DNS.
-
-Вы увидите нечто вроде этого примера:
-
-    DeploymentName    : azuredeploy
-    ResourceGroupName : myResourceGroup
-    ProvisioningState : Succeeded
-    Timestamp         : 12/29/2016 8:11:37 PM
-    Mode              : Incremental
-    TemplateLink      :
-       Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/
-                        101-vm-simple-windows/azuredeploy.json
-       ContentVersion : 1.0.0.0
-    Parameters        :
-      Name             Type                       Value
-      ===============  =========================  ==========
-      adminUsername    String                     myAdminUser
-      adminPassword    SecureString
-      dnsLabelPrefix   String                     myDomain
-      windowsOSVersion String                     2016-Datacenter
-    Outputs           :
-      Name             Type                       Value
-      ===============  =========================  ===========
-      hostname         String                     myDomain.centralus.cloudapp.azure.com
-    DeploymentDebugLogLevel :
 
 > [!NOTE]
 > Шаблоны и параметры можно также развернуть из локальных файлов. Дополнительные сведения см. в статье [Использование Azure PowerShell со службой хранилища Azure](../../storage/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении распространенных ошибок при развертывании Azure с помощью Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
-- Узнайте, как использовать Azure PowerShell для создания виртуальной машины, изучив раздел [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Сведения об управлении созданной виртуальной машиной см. в статье [Создание виртуальных машин Windows и управление ими с помощью модуля Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Если возникнут проблемы с развертыванием, см. статью [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Сведения о создании виртуальной машины и управлении ею см. в статье [Создание виртуальных машин Windows и управление ими с помощью модуля Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
