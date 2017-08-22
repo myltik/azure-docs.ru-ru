@@ -14,6 +14,7 @@
 
 # Справочные материалы
 ## [Azure CLI 2.0](/cli/azure) 
+
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

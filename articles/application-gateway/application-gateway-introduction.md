@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 396d8b9532eb55341670ad61bd4c2a16882b35e4
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Обзор шлюза приложений
@@ -42,6 +42,7 @@ ms.lasthandoff: 07/28/2017
 * **[Маршрутизация для нескольких сайтов.](application-gateway-multi-site-overview.md)** На одном шлюзе приложений можно объединять до 20 веб-сайтов.
 * **[Поддержка WebSocket.](application-gateway-websocket.md)** Еще одна отличная функция шлюза приложений — встроенная поддержка WebSocket.
 * **[Мониторинг работоспособности.](application-gateway-probe-overview.md)** Шлюз приложений обеспечивает используемый по умолчанию мониторинг работоспособности ресурсов серверной части, а также пользовательские пробы для мониторинга в конкретных сценариях.
+* **[Политика SSL и шифры](application-gateway-ssl-policy-overview.md)** — это функция, обеспечивающая возможность ограничения версий протокола SSL и наборы шифров, которые поддерживаются, а также порядок их обработки.
 * **[Перенаправление запросов.](application-gateway-redirect-overview.md)** Эта функция предоставляет возможность перенаправлять HTTP запросы в прослушиватель HTTPS.
 * **[Поддержка мультитенантной серверной части](application-gateway-web-app-overview.md)**. Шлюз приложения поддерживает настройку мультитенантных серверных служб, таких как веб-приложения Azure и шлюз API, в качестве участников пула серверной части. 
 * **[Расширенная диагностика.](application-gateway-diagnostics.md)** Шлюз приложений предоставляет все журналы доступа и диагностики. Журналы брандмауэра доступны для ресурсов шлюза приложений с включенным WAF.
@@ -105,5 +106,5 @@ ms.lasthandoff: 07/28/2017
 
 Чтобы узнать, как создать шлюз приложений с маршрутизацией содержимого на основе URL-адресов, за дополнительной информацией обратитесь к статье [Создание шлюза приложений с помощью маршрутизации на основе URL-адресов](application-gateway-create-url-route-arm-ps.md) .
 
-Дополнительные сведения о некоторых других ключевых сетевых возможностях Azure см. в разделе [Сети Azure]((../networking/networking-overview.md).
+Дополнительные сведения о некоторых других ключевых сетевых возможностях Azure см. в разделе [Сеть Azure](../networking/networking-overview.md).
 

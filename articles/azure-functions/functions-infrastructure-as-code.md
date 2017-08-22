@@ -1,5 +1,5 @@
 ---
-title: "Автоматизация развертывания ресурсов приложения-функции для службы &quot;Функции Azure&quot; | Документация Майкрософт"
+title: "Автоматизация развертывания ресурсов приложения-функции для службы \"Функции Azure\" | Документация Майкрософт"
 description: "Узнайте, как создать шаблон Azure Resource Manager, позволяющий развертывать приложения-функции."
 services: Functions
 documtationcenter: na
@@ -11,17 +11,16 @@ keywords: "функции Azure, функции, независимая от с�
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: donnam;glenga
+ms.author: glenga
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
 ms.openlocfilehash: 9458b3b619649d094ddab1638e146571d9268fb0
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/05/2017
-
 
 ---
 

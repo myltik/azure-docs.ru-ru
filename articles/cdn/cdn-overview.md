@@ -3,7 +3,7 @@ title: "Обзор Azure CDN | Документация Майкрософт"
 description: "Узнайте, что собой представляет сеть доставки содержимого (CDN) Azure и как ее использовать для доставки больших объемов содержимого посредством кэширования BLOB-объектов и статического содержимого."
 services: cdn
 documentationcenter: 
-author: lichard
+author: smcevoy
 manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
-ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 299e55e095ac323ed0ded7c7844d7cd103174af2
+ms.author: v-semcev
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 0517f35a43e99181075dc5a6836e406c2c06824e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Общие сведения о сети доставки содержимого(CDN) Azure
@@ -51,28 +50,37 @@ ms.lasthandoff: 06/01/2017
 
 |  | Akamai уровня "Стандартный" | Verizon уровня "Стандартный" | Verizon уровня "Premium" |
 | --- | --- | --- | --- |
-| Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [облачные службы](cdn-cloud-service-with-cdn.md), [веб-приложения](../app-service-web/app-service-web-tutorial-content-delivery-network.md) и [службы мультимедиа](../media-services/media-services-portal-manage-streaming-endpoints.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Управление с помощью [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) или [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Поддержка HTTPS с конечной точкой CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Пользовательский домен HTTPS | |**&#x2713;** |**&#x2713;** |
-| Балансировка нагрузки. |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [DDOS-атак-атак](https://www.us-cert.gov/ncas/tips/ST04-015)  |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Двойной стек IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Поддержка пользовательских доменных имен.](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Кэширование строк запроса.](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Геофильтрация](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Возможности для повышения производительности и оптимизации__ |
+| [Динамическое ускорение сайтов](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| [Оптимизация потоковой передачи видео](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
+| [Оптимизация больших файлов](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
+| [Глобальная балансировка нагрузки сервера (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Быстрая очистка.](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Предварительная загрузка ресурса.](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
-| [Базовая аналитика.](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
+| [Кэширование строк запроса.](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Двойной стек IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Поддержка HTTP/2](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Безопасность__ |
+| Поддержка HTTPS с конечной точкой CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Пользовательский домен HTTPS | |**&#x2713;** |**&#x2713;** |
+| [Поддержка пользовательских доменных имен.](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Геофильтрация](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Проверка подлинности по маркерам](cdn-token-auth.md)|  |  |**&#x2713;**| 
+| [Защита от атак DDoS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Analytics и отчетность__ |
+| [Базовая аналитика.](cdn-analyze-usage-patterns.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Расширенные HTTP-отчеты.](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Статистика в режиме реального времени.](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Оповещения в реальном времени](cdn-real-time-alerts.md) | | |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Простота использования__ |
+| Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [облачные службы](cdn-cloud-service-with-cdn.md), [веб-приложения](../app-service-web/app-service-web-tutorial-content-delivery-network.md) и [службы мультимедиа](../media-services/media-services-portal-manage-streaming-endpoints.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Управление с помощью [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) или [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Настраиваемый модуль доставки контента на основе правил.](cdn-rules-engine.md) | | |**&#x2713;** |
 | Параметры кэша и заголовка (с использованием [обработчика правил](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Перенаправление или перезапись URL-адреса (с использованием [обработчика правил](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Правила для мобильных устройств (с использованием [обработчик правил](cdn-rules-engine.md)) | | |**&#x2713;** |
-| [Проверка подлинности по маркерам](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
+\*Verizon поддерживает доставку больших файлов и мультимедиа непосредственно через общую веб-доставку.
 
 
 > [!TIP]

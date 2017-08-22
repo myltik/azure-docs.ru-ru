@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
+ms.date: 06/24/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1cce449a87571fdabd0dbf76f764f442b2990ffe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Приступая к работе с Azure Multi-Factor Authentication в облаке
@@ -41,66 +41,8 @@ ms.lasthandoff: 04/27/2017
 У вас могут отсутствовать эти лицензии или может не хватать их числа, чтобы охватить всех пользователей. Ничего страшного. Вам просто нужно выполнить дополнительное действие, чтобы [создать поставщика Многофакторной идентификации](multi-factor-authentication-get-started-auth-provider.md) в своем каталоге.
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Включение двухфакторной проверки подлинности для пользователей
-Чтобы включить двухфакторную проверку подлинности для пользователей, измените состояние пользователя с "Отключено" на "Включено".  Дополнительные сведения о состояниях пользователей см. в статье [Состояния пользователей в многофакторной идентификации Azure](multi-factor-authentication-get-started-user-states.md).
 
-Чтобы включить MFA для пользователей, выполните процедуру ниже.
-
-### <a name="to-turn-on-multi-factor-authentication"></a>Включение многофакторной проверки подлинности
-1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с учетной записью администратора.
-2. В левой части щелкните **Active Directory**.
-3. В разделе "Каталог" выберите каталог пользователя, которого нужно включить.
-   ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4. В верхней части щелкните **Пользователи**.
-5. В нижней части страницы щелкните **Управление Multi-Factor Auth**. Откроется новая вкладка браузера.
-   ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6. Найдите пользователя, для которого нужно включить двухфакторную проверку подлинности. Возможно, потребуется изменить представление в верхней части страницы. Для состояния должно быть установлено значение **Отключено**.
-   ![Включение пользователя](./media/multi-factor-authentication-get-started-cloud/enable1.png)
-7. Установите **флажок** рядом с именем пользователя.
-8. В правой части окна щелкните **Включить**.
-   ![Включение пользователя](./media/multi-factor-authentication-get-started-cloud/user1.png)
-9. Щелкните **Включить проверку Multi-Factor Auth**.
-   ![Включение пользователя](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-10. Обратите внимание, что состояние пользователя изменилось с **Отключено** на **Включено**.
-    ![Включение пользователей](./media/multi-factor-authentication-get-started-cloud/user.png)
-
-После включения рекомендуется уведомить пользователей по электронной почте. В следующий раз при попытке входа в систему им нужно будет зарегистрировать свою учетную запись для прохождения двухфакторной проверки. Им также потребуется задать пароли для приложений, чтобы они не были заблокированы при входе в приложения, не использующие браузер.
-
-## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Автоматизация включения двухфакторной проверки подлинности с помощью PowerShell
-Чтобы изменить [состояние](multi-factor-authentication-whats-next.md) с помощью [Azure AD PowerShell](/powershell/azure/overview), можно использовать команды, приведенные ниже.  Для параметра `$st.State` можно задать одно из следующих состояний:
-
-* Включено
-* Принудительно
-* Отключено  
-
-> [!IMPORTANT]
-> Не рекомендуется менять состояние пользователя непосредственно с "Отключено" на "Принудительно". Приложения, не использующие браузер, перестанут работать, так как пользователь не прошел регистрацию многофакторной идентификации и не получил [пароль приложения](multi-factor-authentication-whats-next.md#app-passwords). Если вы используете приложения, работающие вне браузера, и вам требуются пароли приложения, рекомендуется переключаться с состояния "Отключено" на состояние "Включено". Так пользователи могут пройти регистрацию и получить пароли. После этого вы можете задать для них состояние "Принудительно".
-
-Для массового включения пользователей можно использовать PowerShell. В настоящее время на портале Azure невозможно массово включать пользователей и необходимо выбирать каждого пользователя отдельно. Это может быть сложной задачей, если у вас много пользователей. Создав скрипт PowerShell с помощью кода ниже, можно перебрать список пользователей и включить их.
-
-```PowerShell
-
-$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-$st.RelyingParty = "*"
-$st.State = "Enabled"
-$sta = @($st)
-Set-MsolUser -UserPrincipalName "bsimon@contoso.com" -StrongAuthenticationRequirements $sta
-```
-
-Пример:
-
-```Powershell
-$users = @("bsimon@contoso.com", "jsmith@contoso.com", "ljacobson@contoso.com")
-foreach ($user in $users)
-{
-   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-   $st.RelyingParty = "*"
-   $st.State = "Enabled"
-   $sta = @($st)
-   Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-}
-```
-
-Дополнительные сведения см. в статье [Состояния пользователей в многофакторной идентификации Azure](multi-factor-authentication-get-started-user-states.md).
+Используйте одну из процедур, перечисленных в статье [Состояние пользователей в службе Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md), для начала работы с Azure MFA. Вы можете применять двухфакторную проверку подлинности для всех входов или создать политики условного доступа, чтобы требовать ее только там, где нужно.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда многофакторная идентификация в облаке настроена, можно настроить и выполнить развертывание. Дополнительные сведения см. в статье [Настройка многофакторной идентификации Azure](multi-factor-authentication-whats-next.md).

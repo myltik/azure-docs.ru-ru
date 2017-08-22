@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 85d89568f5022dafd44ae7f8578e0bebb22d472d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Настройка подключения VPN-шлюза между виртуальными сетями с помощью Azure CLI
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/03/2017
 
 ![Сведения о подключениях](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>Что может дать связь между виртуальными сетями
+### <a name="why"></a>Что может дать связь между виртуальными сетями?
 
 Вам может потребоваться подключить виртуальные сети по следующим причинам.
 
@@ -185,11 +185,11 @@ ms.lasthandoff: 08/03/2017
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-4---create-the-connections"></a>Шаг 4. Создание подключений
+### <a name="createconnect"></a>Шаг 4. Создание подключений
 
 Теперь у вас есть две виртуальные сети с VPN-шлюзами. Далее необходимо установить подключения VPN-шлюза между шлюзами виртуальной сети. Если вы использовали пример выше, шлюзы виртуальной сети находятся в разных группах ресурсов. В этом случае при установке подключения необходимо определить и задать идентификаторы ресурсов для каждого шлюза. Если виртуальные сети находятся в той же группе ресурсов, используйте [второй набор инструкций](#samerg), так как указывать идентификаторы ресурсов не нужно.
 
-### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>Подключение виртуальных сетей, расположенных в разных группах ресурсов
+### <a name="diffrg"></a>Подключение виртуальных сетей, расположенных в разных группах ресурсов
 
 1. Получите идентификатор ресурса VNet1GW из выходных данных следующей команды:
 
@@ -322,7 +322,7 @@ ms.lasthandoff: 08/03/2017
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-8---create-the-connections"></a>Шаг 8. Создание подключений
+### <a name="connections5"></a>Шаг 8. Создание подключений
 
 Так как шлюзы находятся в разных подписках, мы разделили этот шаг на два сеанса интерфейса командной строки, обозначенные как **[Подписка 1]** и **[Подписка 5]**. Чтобы переключиться между подписками, выведите список доступных в учетной записи подписок с помощью команды az account list --all, а затем с помощью команды az account set --subscription <subscriptionID> переключитесь на нужную подписку.
 

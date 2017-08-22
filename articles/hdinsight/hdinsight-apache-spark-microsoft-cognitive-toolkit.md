@@ -21,7 +21,6 @@ ms.openlocfilehash: 253315f3012853f5261e057571c0ddfbd849dd85
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Использование модели глубокого обучения Microsoft Cognitive Toolkit в кластере Azure HDInsight Spark
 
@@ -127,5 +126,5 @@ Microsoft Cognitive Toolkit в кластере Spark можно установ�
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 

@@ -76,8 +76,9 @@ ms.lasthandoff: 07/13/2017
 6. Добавьте следующий код, чтобы создать определение устройства в реестре удостоверений в Центре Интернета вещей. Этот код создает устройство, если идентификатор устройства отсутствует в реестре удостоверений. В противном случае он возвращает ключ существующего устройства:
    
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);

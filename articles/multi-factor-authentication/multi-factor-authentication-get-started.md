@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/23/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8c3cc27f1fa708371d415d00cdff59f77712cd41
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 6f8ee3449244b12d2c8b5714e6ad893e2f0b10ee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Выберите для себя решение "Многофакторная идентификация Azure".
@@ -40,7 +39,7 @@ ms.lasthandoff: 05/03/2017
 | Приложения SaaS в коллекции приложений |● |  |
 | Веб-приложения, опубликованные через прокси приложения Azure AD |● |  |
 | Приложения IIS, опубликованные не через прокси приложения Azure AD | |● |
-| Удаленный доступ, например VPN или RDG | |● |
+| Удаленный доступ, например VPN или RDG | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>Где находятся пользователи?
 В зависимости от местонахождения пользователей можно определить, какое решение нам нужно для использования сервера MFA — облачное или локальное.
@@ -54,7 +53,7 @@ ms.lasthandoff: 05/03/2017
 | Локальная служба Active Directory | |● |
 
 ## <a name="what-features-do-i-need"></a>Какие функции мне нужны?
-В приведенной ниже таблице сравниваются возможности "Многофакторной идентификации" в облаке и на сервере "Многофакторной идентификации".
+В приведенной ниже таблице сравниваются возможности службы "Многофакторная идентификация" в облаке и на сервере.
 
 | Функция | MFA в облаке | Сервер MFA |
 | --- |:---:|:---:|
@@ -77,6 +76,8 @@ ms.lasthandoff: 05/03/2017
 | Условный доступ | ● | ● |
 | Кэш |  | ● |
 
+## <a name="next-steps"></a>Дальнейшие действия
+
 Определившись с вариантом (облачная многофакторная проверка подлинности или локальный сервер Multi-Factor Authentication), можно начинать настройку и использование службы Azure Multi-Factor Authentication. **Выберите значок, соответствующий вашему сценарию.**
 
 <center>
@@ -84,6 +85,5 @@ ms.lasthandoff: 05/03/2017
 
 
 
-[![Облако](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Подтверждение](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</center>
+[![Облако](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Сервер](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
 

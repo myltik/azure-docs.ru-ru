@@ -125,7 +125,7 @@ Azure взимает почасовую оплату на основе разм�
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 [О виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Различные способы создания виртуальной машины Linux](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Создание виртуальных машин Linux и управление ими с помощью Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Различные способы создания виртуальной машины Windows](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Создание виртуальных машин Windows и управление ими с помощью Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
