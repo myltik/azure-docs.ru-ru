@@ -144,8 +144,14 @@
 
 ## Управление устройствами
 ### [Введение](device-management-introduction.md)
-### [Регистрация устройств](active-directory-device-registration-overview.md)
-#### [Настройка](active-directory-conditional-access-automatic-device-registration-setup.md)
+### [Часто задаваемые вопросы](device-management-faq.md)
+### Задачи
+#### [Настройка устройств, присоединенных к гибридному облаку Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### Устранение неполадок
+##### [Устройства под управлением Windows 10 и Windows Server 2016, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
+##### [Устройства под управлением прежних версий Windows, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+
+### Регистрация устройств
 #### [Локальное развертывание](active-directory-device-registration-on-premises-setup.md)
 #### [Часто задаваемые вопросы](active-directory-device-registration-faq.md)
 #### Устранение неполадок

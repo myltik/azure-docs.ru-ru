@@ -3,9 +3,10 @@
 ## [Что такое машинное обучение?](machine-learning-what-is-machine-learning.md)
 
 ## Процесс обработки и анализа данных группы
-### [Обзор](http://aka.ms/datascienceprocess)
-### [Жизненный цикл](data-science-process-overview.md)
+### [Обзор](data-science-process-overview.md)
+### [Жизненный цикл](data-science-process-lifecycle.md)
 ### [Пошаговые руководства](data-science-process-walkthroughs.md)
+### [Машинное обучение Azure](http://aka.ms/datascienceprocess)
 
 ## Студия машинного обучения
 ### [Что такое студия?](machine-learning-what-is-ml-studio.md)

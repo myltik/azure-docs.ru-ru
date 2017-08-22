@@ -6,6 +6,7 @@
 ### [Реагирование на инциденты](security-center-incident-response.md)
 ### [Использование рекомендаций для повышения уровня безопасности](security-center-using-recommendations.md)
 ## [Платформа миграции](security-center-platform-migration.md)
+### [Миграция платформы: часто задаваемые вопросы](security-center-platform-migration-faq.md)
 
 # Начало работы
 ## [Краткое руководство](security-center-get-started.md)

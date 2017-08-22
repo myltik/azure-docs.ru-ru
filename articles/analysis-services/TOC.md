@@ -2,6 +2,7 @@
 ## [Что такое службы Azure Analysis Services?](analysis-services-overview.md)
 ## [Поддерживаемые источники данных](analysis-services-datasource.md)
 ## [Аутентификация и пользовательские разрешения](analysis-services-manage-users.md)
+## [Подключение к локальным источникам данных](analysis-services-gateway.md)
 ## [Уровень совместимости](analysis-services-compat-level.md)
 ## [Высокая доступность](analysis-services-bcdr.md)
 
@@ -15,7 +16,7 @@
 ## [Управление сервером](analysis-services-manage.md)
 ## [Управление пользователями баз данных](analysis-services-database-users.md)
 ## [Управление администраторами сервера](analysis-services-server-admins.md)
-## [Установка локального шлюза данных](analysis-services-gateway.md)
+## [Установка и настройка локального шлюза данных](analysis-services-gateway-install.md)
 ## [Получение клиентских библиотек](analysis-services-data-providers.md)
 ## [Резервное копирование и восстановление](analysis-services-backup.md)
 ## [Подключение с помощью Excel](analysis-services-connect-excel.md)

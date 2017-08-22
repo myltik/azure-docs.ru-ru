@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по службе "Сетка событий Azure"
+metadata:
+  title: Документация по службе "Сетка событий Azure". Руководства и справочник по API
+  description: Служба "Сетка событий Azure" реагирует на соответствующие события в службах Azure и сторонних службах практически в реальном времени.
+  services: event-grid
+  author: banisadr
+  manager: timlt
+  ms.service: event-grid
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/10/2017
+  ms.author: banisadr
+abstract:
+  description: "\"Сетка событий Azure\"\_— это полностью управляемая интеллектуальная служба маршрутизации событий, которая обеспечивает равномерное потребление событий с помощью модели \"публикация\_— подписка\". Служба \"Сетка событий Azure\" реагирует на соответствующие события в службах Azure и сторонних службах практически в реальном времени. Узнайте, как использовать службу \"Сетка событий Azure\", ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
+sections:
+  - title: 5-минутные руководства по началу работы
+    items:
+      - type: paragraph
+        text: 'Узнайте, как создавать пользовательские события и подписываться на них.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/app-service-api/media/index/cli.svg
+            text: Инфраструктура CLI Azure
+            href: /azure/event-grid/custom-event-quickstart
+  - title: Пошаговые руководства
+    items:
+      - type: paragraph
+        text: 'Узнайте, как разрабатывать приложения, которые реагируют на события.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Отслеживание изменений в виртуальных машинах с помощью приложений логики</a>
+  - title: Справочные материалы
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Интерфейсы API REST
+            html: <p><a href="/rest/api/eventgrid">REST</a></p>
+          - title: Схемы
+            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Схема подписки</a></p><p><a href="/azure/event-grid/event-schema">Схема событий</a></p>
