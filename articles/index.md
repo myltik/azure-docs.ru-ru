@@ -4,10 +4,10 @@ hide_bc: true
 title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 745c7bdc2898d20ac361f4d0fb92b4c1313a89f1
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: c9bb109df050041aaff861adfa8dfcd2947d981d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 <div id="main" class="v2">
@@ -1040,6 +1040,12 @@ ms.lasthandoff: 08/02/2017
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Диспетчер ресурсов Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-grid/">
+                                                <img src="media/index/azure_event_grid.svg" alt="" />
+                                                <p>Сетка событий Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -3066,6 +3072,25 @@ ms.lasthandoff: 08/02/2017
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/event-grid/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Сетка событий Azure</h3>
+                                                    <p>Надежная крупномасштабная доставка событий</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3628,4 +3653,3 @@ ms.lasthandoff: 08/02/2017
         </ul>
     </div>
 </div>
-

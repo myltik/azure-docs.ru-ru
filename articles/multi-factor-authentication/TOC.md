@@ -17,7 +17,7 @@
 ### [Использование существующих серверов политики сети](multi-factor-authentication-nps-extension.md)
 #### [Расширенная конфигурация для расширения NPS](nps-extension-advanced-configuration.md)
 ### [Создание поставщика аутентификации](multi-factor-authentication-get-started-auth-provider.md)
-### Локальная Многофакторная идентификация (MFA) Azure
+### Развертывание MFA в локальной среде
 #### [Установка портала пользователей](multi-factor-authentication-get-started-portal.md)
 #### [Расширенные конфигурации VPN](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Веб-служба мобильного приложения](multi-factor-authentication-get-started-server-webservice.md)
@@ -31,24 +31,28 @@
 ### [Руководство пользователя MFA](./end-user/multi-factor-authentication-end-user.md)
 
 ## Интеграция
-### [Службы федерации](multi-factor-authentication-get-started-adfs.md)
-#### [Использование AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
-#### [Использование AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-#### [Использование AD FS на платформе Windows Server 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md)
-### Каталоги
-#### [Проверка подлинности LDAP](multi-factor-authentication-get-started-server-ldap.md)
-#### [Проверка подлинности RADIUS](multi-factor-authentication-get-started-server-radius.md)
-#### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
-### [Веб-приложения IIS](multi-factor-authentication-get-started-server-iis.md)
-### [Шлюз удаленных рабочих столов](multi-factor-authentication-get-started-server-rdg.md)
+### [Шлюз удаленных рабочих столов](nps-extension-remote-desktop-gateway.md)
+### [VPN](nps-extension-vpn.md)
+### Интеграция MFA в локальной среде
+#### [Службы федерации](multi-factor-authentication-get-started-adfs.md)
+##### [Использование AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [Использование AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
+##### [Использование AD FS на платформе Windows Server 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md)
+#### Каталоги
+##### [Проверка подлинности LDAP](multi-factor-authentication-get-started-server-ldap.md)
+##### [Проверка подлинности RADIUS](multi-factor-authentication-get-started-server-radius.md)
+##### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
+#### [Веб-приложения IIS](multi-factor-authentication-get-started-server-iis.md)
+#### [Шлюз удаленных рабочих столов](multi-factor-authentication-get-started-server-rdg.md)
 
 ## Разработка
-### [Создание пользовательских приложений (пакет SDK)](multi-factor-authentication-sdk.md)
+### [Встраивание в пользовательские приложения (пакет SDK)](multi-factor-authentication-sdk.md)
 
 ## Устранение неполадок
 ### [Часто задаваемые вопросы](multi-factor-authentication-faq.md)
 ### [Задать вопрос](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Ошибки расширения NPS](multi-factor-authentication-nps-errors.md)
+
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

@@ -54,14 +54,12 @@
 ### [Создание веб-приложения с помощью Visual Studio](web-app-visual-studio.md)
 ### [Кластер RDMA для выполнения приложений MPI](rdma-cluster.md)
 ### [Как использовать подчиненный подключаемый модуль Azure с непрерывной интеграцией Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## Пакет HPC
-### [Кластер Windows RDMA для выполнения приложений MPI](hpcpack-cluster.md)
-### [Кластер Windows HPC: использование скрипта развертывания IaaS пакета HPC](hpcpack-cluster-starccm.md)
-### [Управление количеством и доступностью вычислительных узлов](hpcpack-cluster-powershell-script.md)
-### [Добавление узлов по запросу](hpcpack-cluster-openfoam.md)
-### [Автоматическое масштабирование ресурсов](hpcpack-cluster-namd.md)
+### Пакет HPC
+#### [Создание кластера для рабочих нагрузок Linux](hpcpack-cluster-powershell-script.md)
+#### [Управление кластером с узлами Linux](hpcpack-cluster.md)
+#### [Выполнение заданий STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Выполнение заданий OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Выполнение заданий NAMD](hpcpack-cluster-namd.md)
 
 ## Устранение неполадок
 ### [Развернутые виртуальные машины](troubleshoot-deployment-new-vm.md)

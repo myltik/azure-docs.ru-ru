@@ -19,6 +19,8 @@
       items:
         - name: Таймер
           href: functions-create-scheduled-function.md
+        - name: Универсальный веб-перехватчик
+          href: functions-create-generic-webhook-triggered-function.md
         - name: Объект webhook GitHub
           href: functions-create-github-webhook-triggered-function.md
         - name: Хранилище BLOB-объектов

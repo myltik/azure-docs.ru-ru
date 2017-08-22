@@ -83,6 +83,7 @@
 ## [Настройка оплаты](active-directory-b2c-how-to-enable-billing.md)
 ## [Управление угрозами](active-directory-b2c-reference-threat-management.md)
 ## [Проблемы при создании каталога](active-directory-b2c-support-create-directory.md)
+## [Приложение расширений](active-directory-b2c-reference-extensions-app.md)
 
 # Сопутствующие материалы
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
