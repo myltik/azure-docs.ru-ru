@@ -15,12 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: ef2e6e7a19c7ed1730fdec5eca73c941e1b319c4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Резервные копии хранилища данных SQL
@@ -54,6 +53,11 @@ ms.lasthandoff: 01/24/2017
 > [!NOTE]
 > В службе хранилища Azure термин *репликация* обозначает копирование файлов из одного расположения в другое. *Репликация базы данных SQL* означает хранение нескольких баз данных-получателей, синхронизированных с основной базой данных. 
 > 
+> 
+
+> [!NOTE]
+> В случае с DWU 9000 и DWU 18000 вы не можете отказаться от геоизбыточных резервных копий. 
+>
 > 
 
 Дополнительная информация:

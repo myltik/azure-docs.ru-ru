@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 07/16/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 612b58db48e160cb1b4cfef1f8f4c2b203061064
-ms.lasthandoff: 03/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: ca5e537bd4347e17190ff4f66cc4d42a36870936
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="media-services-development-with-net"></a>Разработка служб мультимедиа с помощью .NET
@@ -37,13 +37,13 @@ ms.lasthandoff: 03/10/2017
 ## <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
 В этом разделе показано, как создать проект в Visual Studio и настроить его для разработки с использованием служб мультимедиа.  Хотя в нашем примере проект — это консольное приложение Windows на C#, те же действия для установки применяются для других типов проектов, которые можно создать для приложений служб мультимедиа (например, приложения Windows Forms или веб-приложения ASP.NET).
 
-В этом разделе показано, как использовать **NuGet** для добавления пакета SDK служб мультимедиа для .NET и другие зависимые библиотеки.
+В этом разделе показано, как с помощью **NuGet** добавить расширения пакета SDK служб мультимедиа для .NET или другие зависимые библиотеки.
 
 Кроме того, вы можете получить на GitHub актуальный код для пакета SDK служб мультимедиа для .NET ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) и [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), создать решение и добавить ссылки на клиентский проект. Все необходимые зависимости скачиваются и извлекаются автоматически.
 
 1. Создайте в Visual Studio консольное приложение C#. Введите значения в поля **Имя**, **Расположение** и **Имя решения**, а затем нажмите кнопку "ОК".
 2. Выполните сборку решения.
-3. Используйте **NuGet** для установки и добавьте **расширения пакета SDK служб мультимедиа для .NET**. При установке этого пакета также устанавливается **пакет SDK служб мультимедиа для .NET** и добавляются все остальные необходимые зависимости.
+3. Используйте пакет **NuGet**, чтобы установить и добавить **расширения пакета SDK служб мультимедиа Azure для .NET** (**windowsazure.mediaservices.extensions**). При установке этого пакета также устанавливается **пакет SDK служб мультимедиа для .NET** и добавляются все остальные необходимые зависимости.
    
     Убедитесь, что у вас установлена новейшая версия NuGet. Дополнительную информацию и инструкции по установке см. на сайте [NuGet](http://nuget.codeplex.com/).
 4. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите "Управление пакетами NuGet".
@@ -59,33 +59,68 @@ ms.lasthandoff: 03/10/2017
    
     Откроется диалоговое окно "Управление ссылками".
 8. В списке сборок платформы .NET найдите и выберите сборку System.Configuration, а затем нажмите кнопку "ОК".
-9. Откройте файл App.config (добавьте файл в проект, если он не был добавлен по умолчанию) и добавьте в него раздел *appSettings* .     
-   Установите значения для имени и ключа учетной записи служб мультимедиа Azure, как показано в следующем примере.
+9. Откройте файл App.config и добавьте в него раздел *appSettings*.     
    
-    Чтобы найти значения имени и ключа, перейдите на портал Azure и выберите свою учетную запись. Справа появится окно "Параметры". В окне "Параметры" выберите элемент "Ключи". Щелкните значок рядом с каждым текстовым полем, чтобы скопировать значения в буфер обмена.
+    Укажите необходимые значения для подключения к API служб мультимедиа. Дополнительные сведения см. в статье [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+    Если вы используете [аутентификацию пользователей](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication), в файле конфигурации у вас, скорее всего, уже есть значения для домена клиента Azure AD и конечной точки API-интерфейса REST AMS.
+    
+    >[!Important]
+    >Примеры, представленные в пакете документации по службам мультимедиа Azure, используют для подключения к API AMS интерактивную (с запросом к пользователю) аутентификацию. Такой метод аутентификации неплохо работает для приложений управления или мониторинга на устройствах: мобильные приложения, приложения Windows и консольные приложения. Но он совершенно не пригоден для аутентификации приложений, работающих на серверах, в веб-службах или API-интерфейсах.  Дополнительные сведения см. в статье [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...
             <appSettings>
-              <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-              <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+              <add key="AADTenantDomain" value="YourAADTenantDomain" />
+              <add key="MediaServiceRESTAPIEndpoint" value="YourRESTAPIEndpoint" />
             </appSettings>
 
         </configuration>
 
-1. Замените существующие инструкции **using** в начале файла Program.cs на следующий код.
-   
+10. Замените существующие инструкции **using** в начале файла Program.cs на следующий код.
+           
         using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Text;
-        using System.Threading.Tasks;
         using System.Configuration;
-        using System.Threading;
         using System.IO;
         using Microsoft.WindowsAzure.MediaServices.Client;
+        using System.Threading;
+        using System.Collections.Generic;
+        using System.Linq;
 
 На этом этапе вы готовы начать разработку приложения служб мультимедиа.    
+
+## <a name="example"></a>Пример
+
+Ниже приведен пример небольшого приложения, которое подключается к API AMS и выводит все доступные обработчики мультимедиа.
+    
+    class Program
+    {
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+    
+        private static CloudMediaContext _context = null;
+        static void Main(string[] args)
+        {
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+    
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+    
+            // List all available Media Processors
+            foreach (var mp in _context.MediaProcessors)
+            {
+                Console.WriteLine(mp.Name);
+            }
+    
+        }
+
+##<a name="next-steps"></a>Дальнейшие действия
+
+Теперь вы готовы [подключиться к API AMS](media-services-use-aad-auth-to-access-ams-api.md) и [начать разработку](media-services-dotnet-get-started.md).
+
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

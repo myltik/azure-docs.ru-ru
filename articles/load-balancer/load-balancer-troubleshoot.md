@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 53425eaf388e5164d2664c163f56a33d48cf8a36
-ms.lasthandoff: 04/20/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: df5c836abbf09889f4859170359c0ee6c1b03378
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -119,7 +120,7 @@ ms.lasthandoff: 04/20/2017
 * Настройте для каждого приложения отдельные виртуальные машины внутреннего пула. 
 * Настройте приложение в виртуальных машинах с двумя сетевыми картами, чтобы каждое приложение использовало свои собственные сетевой интерфейс и IP-адрес. 
 
-### <a name="cause-4-accessing-the-internet-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Причина 4: доступ к виртуальному IP-адресу внутренней подсистемы балансировки нагрузки осуществляется из виртуальной машины внутреннего пула подсистемы балансировки нагрузки
+### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Причина 4: доступ к виртуальному IP-адресу внутренней подсистемы балансировки нагрузки осуществляется из виртуальной машины внутреннего пула подсистемы балансировки нагрузки
 
 Если виртуальный IP-адрес внутренней подсистемы балансировки нагрузки настроен внутри виртуальной сети и одна из виртуальных машин, входящих во внутренний пул, пытается получить доступ к этому виртуальному IP-адресу, то такая попытка завершится ошибкой. Этот сценарий не поддерживается.
 **Способы устранения**. Оцените, сможет ли шлюз приложений или другие прокси-серверы (например, nginx или HAProxy) поддерживать такой сценарий. Дополнительные сведения о шлюзе приложений см. в статье [Обзор шлюза приложений](../application-gateway/application-gateway-introduction.md).

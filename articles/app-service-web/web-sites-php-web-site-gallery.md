@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: hero-article
+ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 83ef925a8268873d09c4a1611a1f2341acd92ba7
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-wordpress-web-app-in-azure-app-service"></a>Создание веб-приложения WordPress в службе приложений Azure

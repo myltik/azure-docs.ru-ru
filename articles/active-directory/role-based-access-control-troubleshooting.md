@@ -5,20 +5,20 @@ services: azure-portal
 documentationcenter: na
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32b335d8a1f84348ab28bcc081cc42fd79fb08fc
-ms.lasthandoff: 03/04/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 9ad194308d30ca652b32ec3b76750b0e838472f4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Устранение неполадок при управлении доступом на основе ролей
@@ -63,8 +63,8 @@ ms.lasthandoff: 03/04/2017
 
 Элементы, требующие доступа на **запись** ко всей **группе ресурсов**, которая содержит веб-сайт:  
 
-* SSL-сертификаты и привязки (это связано с тем, что SSL-сертификаты могут совместно использоваться сайтами, относящимися к одной группе ресурсов и находящимися в одном географическом расположении);  
-* правила оповещений.  
+* SSL-сертификаты и привязки (SSL-сертификаты могут совместно использоваться сайтами, относящимися к одной группе ресурсов и находящимися в одном географическом расположении);  
+* Правила оповещения  
 * параметры автоматического масштабирования;  
 * компоненты Application Insights;  
 * Веб-тесты  
@@ -87,7 +87,7 @@ ms.lasthandoff: 03/04/2017
 * набор балансировки нагрузки;  
 * Правила оповещения  
 
-Если у вас нет доступа ни к одному из этих элементов, то попросите администратора предоставить вам права участника для группы ресурсов.
+Если у вас нет доступа ни к одному из этих элементов, попросите администратора предоставить вам права участника для группы ресурсов.
 
 ## <a name="see-more"></a>Дополнительные сведения
 * [Управление доступом на основе ролей.](role-based-access-control-configure.md) Начало работы с RBAC на портале Azure.

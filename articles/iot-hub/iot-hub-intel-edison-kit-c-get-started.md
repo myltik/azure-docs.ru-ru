@@ -1,10 +1,10 @@
 ---
 title: "Intel Edison в облако (C) — подключение Intel Edison к Центру Интернета вещей Azure | Документы Майкрософт"
-description: "Подключение Intel Edison к Центру Интернета вещей Azure, чтобы Intel Edison мог отправлять данные в облако Azure."
+description: "Узнайте, как настроить и подключить модуль Intel Edison к Центру Интернета вещей Azure и передавать данные с этого модуля в облако Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "Интернет вещей azure intel edison, Центр Интернета вещей intel edison, отправка данных intel edison в облако, intel edison в облако"
 ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 4/17/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: fd6d04159c46439b5f1a91be7d2fa1b500bc92b3
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Подключение Intel Edison к Центру Интернета вещей Azure (C)
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/20/2017
 ## <a name="what-you-do"></a>В рамках этого руководства мы:
 
 * Настройте модули Intel Edison и Grove.
-* Создайте центр IoT.
+* Создайте Центр Интернета вещей.
 * Зарегистрируйте устройство для Edison в Центре Интернета вещей.
 * Запустите пример приложения на Edison для отправки данных в Центр Интернета вещей.
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 04/20/2017
 
 1. Используйте один из следующих SSH-клиентов для подключения к Intel Edison с главного компьютера. IP-адрес и пароль взяты из средства настройки.
     - [PuTTY](http://www.putty.org/) для Windows.
-    - Встроенный SSH-клиент ОС Ubuntu или macOS.
+    - Встроенный SSH-клиент ОС Ubuntu или macOS (выполните `ssh root@"the IP address"`).
 
 2. Клонируйте пример клиентского приложения на свое устройство. 
    
@@ -241,3 +241,4 @@ ms.lasthandoff: 04/20/2017
 Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 485fb2e8ac96e2cdb8e4293b63971af1c1b9baf4
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 2eed74ae9bd173b0944ec190dfe5d9a4bdc54c37
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -108,7 +108,7 @@ private DocumentClient client;
 
 Скопируйте универсальный код ресурса (URI) с портала и вставьте его в параметр `<your endpoint URL>` в файле program.cs. Затем скопируйте на портале значение поля "Первичный ключ" и вставьте его в параметр `<your primary key>`. Не забудьте удалить `<` и `>` из значений.
 
-![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения C#. Отображается учетная запись Azure Cosmos DB со следующими выделенными элементами: кнопка "Ключи" в колонке учетной записи Azure Cosmos DB, а также значения универсального кода ресурса и первичного ключа в колонке "Ключи"] [ключи]
+![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения C#. Показана учетная запись Azure Cosmos DB со следующими выделенными элементами: кнопка "Ключи" в колонке учетной записи Azure Cosmos DB и значения универсального кода ресурса и первичного ключа в колонке "Ключи".](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png)
 
 ## <a id="instantiate"></a>Создание экземпляра DocumentClient
 

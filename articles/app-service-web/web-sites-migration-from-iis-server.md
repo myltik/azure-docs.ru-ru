@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 6fdee57d33b19569ef892d0d32ea7007fd69faaf
-ms.lasthandoff: 03/23/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 18d6a8da38b42dcf5c1500f7fc26638aea26a809
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -55,7 +56,7 @@ ms.lasthandoff: 03/23/2017
 * Другие компоненты, например SharePoint, серверные расширения главных страниц (FPSE), FTP-служба и SSL-сертификаты, перенесены не будут.
 
 ## <a name="how-to-use-the-web-apps-migration-assistant"></a>Использование помощника по миграции веб-приложений
-В данном разделе рассмотрен пошаговый пример миграции нескольких веб-сайтов, использующих базу данных SQL Server и работающих на локальном компьютере Windows Server 2003 R2 (IIS 6.0):
+В этом разделе мы рассмотрим пошаговый пример переноса нескольких веб-сайтов, использующих базу данных SQL Server и работающих на локальном компьютере Windows Server 2003 R2 (IIS 6.0).
 
 1. На IIS-сервере или на клиентской машине перейдите на веб-сайт [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
    
@@ -107,7 +108,7 @@ ms.lasthandoff: 03/23/2017
     ![](./media/web-sites-migration-from-iis-server/migration-settings.png)
     
     > [!NOTE]
-    > Флажок **Включить Azure Active Directory** в пользовательских настройках позволяет интегрировать веб-приложение Azure с [Azure Active Directory](../active-directory/active-directory-whatis.md) (**каталог по умолчанию**). Дополнительные сведения о синхронизации Azure Active Directory с локальным каталогом Active Directory см. в разделе [Интеграция каталогов](http://msdn.microsoft.com/library/jj573653).
+    > Флажок **Включить Azure Active Directory** в пользовательских настройках позволяет интегрировать веб-приложение Azure с [Azure Active Directory](../active-directory/active-directory-whatis.md) (**каталог по умолчанию**). Дополнительные сведения о синхронизации службы Azure Active Directory с локальной службой Active Directory см. в статье [Интеграция служб каталогов](http://msdn.microsoft.com/library/jj573653).
     > 
     > 
 11. После внесения всех необходимых изменений нажмите кнопку **Создать** , чтобы запустить процесс миграции. Средство миграции создаст базу данных SQL Azure и веб-приложение Azure, а затем опубликует содержимое веб-сайта и баз данных. Процесс миграции четко отображается в средстве миграции, а по окончании миграции отобразится окно сводки, в котором будут указаны сведения о перенесенных компонентах сайтов, результатах миграции, а также ссылки на созданные веб-приложения Azure. 

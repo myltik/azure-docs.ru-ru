@@ -3,7 +3,7 @@ title: "Размеры виртуальных машин Linux в Azure, опт�
 description: "Список различных размеров виртуальных машин Linux в Azure, оптимизированных для GPU."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
-ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: e0cd2a14b4102797024925a72783ecaf56919aec
+ms.date: 07/28/2017
+ms.author: jonbeck
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: ec289cf53f2cfecd2744b739667ef831dafd59a4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -28,11 +27,12 @@ ms.lasthandoff: 05/02/2017
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
-## <a name="supported-operating-systems"></a>Поддерживаемые операционные системы
-
-Сведения о поддерживаемых операционных системах и требованиях к драйверам доступны в разделе [Установка драйверов GPU для виртуальных машин серии N под управлением Linux](n-series-driver-setup.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+[!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+
+Инструкции по установке и проверке драйверов см. в статье [Установка драйверов GPU NVIDIA на виртуальные машины серии N под управлением Linux](n-series-driver-setup.md).
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 

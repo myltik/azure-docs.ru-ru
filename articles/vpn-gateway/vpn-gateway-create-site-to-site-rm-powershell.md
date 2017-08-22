@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 9edaa81111d9439bfbad4775e49c3e29454ad31f
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27f4a8fb9a83b98e99df635bf4c80f6048ce348c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью PowerShell
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/15/2017
 
 ![Схема подключения типа "сеть — сеть" через VPN-шлюз](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>Перед началом работы
+## <a name="before"></a>Перед началом работы
 
 Перед началом настройки убедитесь, что удовлетворены следующие требования:
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/15/2017
 * Если вы не знаете диапазоны IP-адресов в своей конфигурации локальной сети, найдите того, кто сможет предоставить вам нужную информацию. При создании этой конфигурации необходимо указать префиксы диапазона IP-адресов, которые Azure будет направлять к локальному расположению. Ни одна из подсетей локальной сети не может перекрывать виртуальные подсети, к которым вы хотите подключиться.
 * Установите последнюю версию командлетов PowerShell для Azure Resource Manager. Командлеты PowerShell обновляются часто, и вам, как правило, необходимо обновить командлеты PowerShell, чтобы получить новейшие функциональные возможности. Если вы не обновите командлеты PowerShell, указанные значения могут завершиться с ошибкой. Для получения дополнительной информации о загрузке и установке командлетов PowerShell, см.раздел [Как установить и настроить Azure PowerShell](/powershell/azure/overview).
 
-### <a name="example-values"></a>Примеры значений
+### <a name="example"></a>Примеры значений
 
 В примерах этой статьи мы используем следующие значения. Эти значения можно использовать для создания тестовой среды или для лучшего понимания примеров в этой статье.
 
@@ -88,7 +88,7 @@ ConnectionName          = VNet1toSite2
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>Создание виртуальной сети и подсети шлюза
+### <a name="vnet"></a>Создание виртуальной сети и подсети шлюза
 
 В этом примере создается виртуальная сеть и подсеть шлюза. Если у вас уже есть виртуальная сеть, в которую необходимо добавить подсеть шлюза, см. раздел [Добавление подсети шлюза в созданную виртуальную сеть](#gatewaysubnet).
 

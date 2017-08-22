@@ -1,6 +1,6 @@
 ---
-title: "Подключение хранилища файлов Azure на виртуальных машинах Linux с помощью SMB | Документация Майкрософт"
-description: "Как подключить хранилище файлов Azure к виртуальным машинам Linux по протоколу SMB с помощью Azure CLI 2.0."
+title: "Подключение хранилища файлов Azure на виртуальных машинах Linux с помощью протокола SMB | Документация Майкрософт"
+description: "Как подключить хранилище файлов Azure на виртуальных машинах Linux, используя протокол SMB и Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 279b165cbdb924dcae0cb95ad9f9d187aed1a1b3
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 
-# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Подключение хранилища файлов Azure на виртуальных машинах Linux с помощью SMB
+# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Подключение хранилища файлов Azure на виртуальных машинах Linux с помощью протокола SMB
 
-В этой статье показано, как использовать службу хранилища файлов Azure на виртуальной машине Linux с помощью подключения SMB посредством Azure CLI 2.0. Хранилище файлов Azure предоставляет общие папки в облаке с доступом по стандартному протоколу SMB. Эти действия можно также выполнить с помощью [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Для этого необходимы следующие компоненты:
+Из этой статье вы узнаете, как работать со службой хранилища файлов Azure на виртуальной машине Linux, используя SMB-подключение и Azure CLI 2.0. Хранилище файлов Azure предоставляет общие папки в облаке с доступом по стандартному протоколу SMB. Эти действия можно также выполнить с помощью [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Для этого необходимы следующие компоненты:
 
 - [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/);
 - [файлы открытого и закрытого ключа SSH](mac-create-ssh-keys.md).

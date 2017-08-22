@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1d35dc01aba57dcf8a37db757138abbd7b22c8c5
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -135,7 +135,7 @@ ms.lasthandoff: 06/01/2017
 * В этом примере развертывания службы Analysis Services, Reporting Services и ядро СУБД SQL Server выполняются на одной виртуальной машине. На этой виртуальной машине размещаются базы данных сервера отчетов. Виртуальная машина присоединена к локальному домену через виртуальную сеть Azure или некоторое другое решение туннелирования VPN.
 * Источник данных находится в локальной среде.
 
-![сценарии бизнес-аналитики iaas с виртуальной машиной и локальными источниками данных](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
+![сценарии бизнес-аналитики IaaS с виртуальной машиной и локальными источниками данных](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
 
 ## <a name="reporting-services-native-mode-configuration"></a>Конфигурация собственного режима служб Reporting Services
 Коллекция образов виртуальных машин для SQL Server включает в себя установленный собственный режим Reporting Services, однако сервер отчетов при этом не настроен. Действия, описанные в этом разделе, позволяют настроить сервер отчетов служб Reporting Services. Дополнительные сведения о настройке собственного режима служб Reporting Services см. в разделе [Установка сервера отчетов служб Reporting Services в основном режиме](https://msdn.microsoft.com/library/ms143711.aspx).
@@ -227,7 +227,7 @@ ms.lasthandoff: 06/01/2017
 2. Откройте порт 80 в брандмауэре виртуальной машины.
 3. Перейдите к веб-порталу или диспетчеру отчетов, используя **DNS-имя** виртуальной машины Azure в качестве имени сервера в URL-адресе. Например:
    
-    **Сервер отчетов**: http://uebi.cloudapp.net/reportserver,  **веб-портал**: http://uebi.cloudapp.net/reports.
+    **Сервер отчетов**: http://uebi.cloudapp.net/reportserver  **Веб-портал**: http://uebi.cloudapp.net/reports
    
     [Настройка брандмауэра для доступа к серверу отчетов](https://msdn.microsoft.com/library/bb934283.aspx)
 

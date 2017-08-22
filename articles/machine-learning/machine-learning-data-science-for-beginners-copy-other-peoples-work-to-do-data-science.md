@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
-ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
-ms.lasthandoff: 02/10/2017
-
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 440a1ded1f1dc1b8fbe73e3bbcbbd68ec9422bf8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Копирование работы других пользователей для обработки и анализа данных
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/10/2017
 Одним из секретов успешного процесса обработки и анализа данных является умение использовать работу других пользователей в своих целях. Найдите в коллекции Cortana Analytics пример алгоритма кластеризации для выполнения собственного эксперимента машинного обучения.
 
 Для получения оптимального результата просмотрите все видео. [Перейти к списку видео](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
 >
@@ -51,7 +52,7 @@ ms.lasthandoff: 02/10/2017
 ## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Поиск примеров в коллекции Cortana Intelligence
 Корпорация Майкрософт предоставляет облачную службу [Машинное обучение Azure](https://azure.microsoft.com/services/machine-learning/), которую можно испытать бесплатно. Используя ее, вы получаете рабочую область, где можно экспериментировать с разными алгоритмами машинного обучения. Если вы разработаете готовое решение, его можно запустить как веб-службу.
 
-В эту службу также входит **[коллекции Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery)**. В ней содержится множество ресурсов, например коллекция экспериментов Машинного обучения Azure, и моделей, которые создали и предоставили другие пользователи. Эти эксперименты — отличный способ начать создание собственных решений, используя разработки других пользователей.
+В эту службу также входит **[коллекции Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery)**. Она содержит множество ресурсов, например коллекцию экспериментов Машинного обучения Azure, и модели, которые создали и предоставили другие пользователи. Эти эксперименты — отличный способ начать создание собственных решений, используя разработки других пользователей.
 
 Эту коллекцию можно найти на сайте [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). Давайте внимательно его рассмотрим.
 
@@ -60,7 +61,7 @@ ms.lasthandoff: 02/10/2017
 Если щелкнуть вверху вкладку **Experiments** (Эксперименты), то отобразятся недавно добавленные и самые популярные эксперименты в коллекции. Чтобы просмотреть другие эксперименты, щелкните вкладку **Browse All** (Просмотреть все) в верхней части экрана. Откроется страница, где можно ввести условия и выбрать фильтры для поиска.
 
 ## <a name="find-and-use-a-clustering-algorithm-example"></a>Поиск и использование примера с применением алгоритма кластеризации
-Предположим, вы хотите увидеть, как работает кластеризация. В таком случае вам необходимо искать эксперименты со словом **clustering**.
+Предположим, вы хотите увидеть, как работает кластеризация. В таком случае вам необходимо искать эксперименты, содержащие слова **clustering sweep**.
 
 ![Поиск экспериментов с применением кластеризации](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 

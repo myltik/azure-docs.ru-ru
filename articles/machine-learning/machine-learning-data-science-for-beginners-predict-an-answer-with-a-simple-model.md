@@ -1,6 +1,6 @@
 ---
-title: "Прогнозирование ответа с помощью простой модели регрессии в Azure | Документация Майкрософт"
-description: "Создание простой модели регрессии для прогнозирования цены в видео 4 из цикла &quot;Обработка и анализ данных для начинающих&quot;. Содержит линейную регрессию с целевыми данными."
+title: "Прогнозирование ответа с помощью простой модели регрессии. Машинное обучение Azure | Документация Майкрософт"
+description: "Создание простой модели регрессии для прогнозирования цены в видео 4 из цикла \"Обработка и анализ данных для начинающих\". Содержит линейную регрессию с целевыми данными."
 keywords: "создание модели,простая модель,прогнозирование цены,простая модель регрессии"
 services: machine-learning
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
-ms.lasthandoff: 02/10/2017
-
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: ef651e3faa2abd7c1becb5dc2888d465330d4d73
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Прогнозирование ответа с помощью простой модели
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/10/2017
 Узнайте, как создать простую модель регрессии для прогнозирования стоимости бриллиантов. В этом вам поможет видео 4 из цикла "Обработка и анализ данных для начинающих". Мы создадим модель регрессии с целевыми данными.
 
 Для получения оптимального результата просмотрите все видео. [Перейти к списку видео](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 >

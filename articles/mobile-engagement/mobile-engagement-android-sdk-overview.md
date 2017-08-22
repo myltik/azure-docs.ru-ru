@@ -1,6 +1,6 @@
 ---
-title: "Интеграция пакета Android SDK с Azure Mobile Engagement"
-description: "Описывает, как интегрировать пакет SDK для Azure Mobile Engagement в приложения Android."
+title: "Интеграция пакета SDK для Служб мобильного взаимодействия Azure с Android"
+description: "Описывает, как интегрировать пакет SDK для Служб мобильного взаимодействия Azure в приложения Android."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 1438b9479b3bbb8b7599d7d05b48e4cd6d981e0c
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/18/2017
 
 ---
-# <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Интеграция пакета Android SDK с Azure Mobile Engagement
+# <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Интеграция пакета SDK для Служб мобильного взаимодействия Azure с Android
 > [!div class="op_single_selector"]
 > * [Универсальная платформа Windows](mobile-engagement-windows-store-sdk-overview.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/31/2017
 > 
 > 
 
-В этом документе описываются все параметры интеграции и конфигурации в пакете Android SDK для Azure Mobile Engagement.
+В этом документе описываются все параметры интеграции и конфигурации в пакете SDK для Android для Служб мобильного взаимодействия Azure.
 
 ## <a name="prerequisites"></a>Предварительные требования
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
@@ -46,15 +46,23 @@ ms.lasthandoff: 03/31/2017
 ### <a name="notifications"></a>Уведомления:
 [Интеграция модуля Reach (уведомления) в приложение Android](mobile-engagement-android-integrate-engagement-reach.md)
 
-1. Google Cloud Messaging (GCM): [Интеграция GCM с помощью службы Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
-2. Amazon Device Messaging (ADM): [Интеграция ADM с помощью службы Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+1. Google Cloud Messaging (GCM): [Интеграция GCM с помощью Служб мобильного взаимодействия](mobile-engagement-android-gcm-integrate.md)
+2. Amazon Device Messaging (ADM): [Интеграция ADM с помощью Служб мобильного взаимодействия](mobile-engagement-android-adm-integrate.md)
 
 ### <a name="tag-plan-implementation"></a>Реализация плана добавления тегов:
-[Использование расширенного API добавления тегов службы Mobile Engagement в приложении Android](mobile-engagement-android-use-engagement-api.md)
+[Использование расширенного API добавления тегов Служб мобильного взаимодействия в приложении Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Заметки о выпуске
-### <a name="424-03302017"></a>4.2.4 (30.03.2017)
-* Исправление цвета текста уведомления в приложениях на Android 7 для совпадения с цветом в старых версиях Android.
+
+### <a name="431-07172017"></a>4.3.1 (17.07.2017)
+* Исправлена проблема с аварийным завершением работы, которое изредка могло происходить при вызове `EngagementAgentUtils.isInDedicatedEngagementProcess` (также используется классом `EngagementApplication`).
+
+### <a name="430-06272017"></a>4.3.0 (27.06.2017)
+* Поддержка Android 8 (предыдущие версии пакета SDK не будут работать с Android 8).
+* Удалена зависимость от библиотеки поддержки.
+* Удален класс `EngagementFragmentActivity`.
+* Из-за [ограничений на фоновое выполнение приложений](https://developer.android.com/preview/features/background.html) в Android 8 журналы в фоновом режиме могут отображаться с задержкой (когда пользователь воспользуется устройством), что, в свою очередь, может повлиять на отображение статистики по **доставленным** push-уведомлениям и **отображенным системным уведомлениям**. Причина — соответствующие данные не поступают, пока устройство находится в спящем режиме. (Это не повлияет на отображение уведомления, подачу устройством звукового сигнала и вибросигнала в реальном времени.)
+* Из-за [ограничений на доступ к геолокационным данным в фоновом режиме](https://developer.android.com/preview/features/background-location-limits.html) данные о текущем местонахождении не будут часто обновляться в Android 8.
 
 Информацию о всех версиях см. в [полной версии заметок о выпуске](mobile-engagement-android-release-notes.md).
 

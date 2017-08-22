@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 3d9bdd4f07d22a7bc6c80150ae27453813d39f07
-ms.lasthandoff: 04/06/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: e54c3bc484b0b3b81cc495e54c17e8ef448abe91
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/06/2017
 > ReportViewer в режиме локальной обработки не поддерживается в Microsoft Azure.
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>Добавление сборок в пакет развертывания
-При локальном размещении приложения ASP.NET сборки ReportViewer обычно устанавливаются непосредственно в глобальный кэш сборок (GAC) сервера IIS во время установки Visual Studio и приложение может обращаться к сборкам напрямую. Однако при размещении приложения ASP.NET в облаке Microsoft Azure не позволяет устанавливать что-либо в глобальный кэш сборок, поэтому необходимо убедиться в том, что сборки ReportViewer доступны для приложения локально. Для этого можно добавить ссылки на них в свой проект и настроить их для копирования локально.
+Когда приложение ASP.NET размещено локально, сборки ReportViewer обычно устанавливаются непосредственно в глобальный кэш сборок (GAC) сервера IIS во время установки Visual Studio и приложение может обращаться к этим сборкам напрямую. Однако при размещении приложения ASP.NET в облаке Microsoft Azure не позволяет устанавливать что-либо в глобальный кэш сборок, поэтому необходимо убедиться в том, что сборки ReportViewer доступны для приложения локально. Для этого можно добавить ссылки на них в свой проект и настроить их для копирования локально.
 
 В режиме удаленной обработки элемент управления ReportViewer использует следующие сборки.
 

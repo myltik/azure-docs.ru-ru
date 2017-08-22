@@ -1,6 +1,6 @@
 ---
 title: "Службы мобильного взаимодействия Azure: интеграция пакета SDK для iOS | Документация Майкрософт"
-description: "Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
+description: "Последние обновления и указания для пакета SDK для iOS для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58baae6fb3d338ef94caca79b9248afc0fb7f841
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="how-to-integrate-engagement-on-ios"></a>Интеграция службы Engagement в iOS
@@ -28,17 +27,17 @@ ms.lasthandoff: 07/06/2017
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
 > * [Android](mobile-engagement-android-integrate-engagement.md)
-> 
-> 
+>
+>
 
 Эта процедура описывает самый простой способ активации функции аналитики и мониторинга службы Engagement в приложении iOS.
 
-Пакет SDK Engagement требует использования версии iOS 6 или выше и Xcode 8 (целевое устройство для развертывания приложения должно быть с версией не ниже iOS 6).
+Для пакета SDK Engagement требуется версия iOS 7 или выше и Xcode 8 (на целевом устройстве для развертывания приложения должна быть установлена версия не ниже iOS 7).
 
 > [!NOTE]
 > Если вам крайне важно оставить версию XCode 7, то можете воспользоваться [пакетом SDK Служб взаимодействия для iOS версии 3.2.4](https://aka.ms/r6oouh). В предыдущей версии выявлена ошибка в модуле обработки рекламных кампаний при выполнении на устройствах iOS 10. Дополнительные сведения см. в статье [Как интегрировать рекламные кампании Engagement в iOS](mobile-engagement-ios-integrate-engagement-reach.md). Если вы решили использовать пакет SDK версии 3.2.4, то просто пропустите импорт платформы `UserNotifications.framework`, описанный на следующем шаге.
-> 
-> 
+>
+>
 
 Достаточно выполнить следующие шаги, чтобы активировать отчеты по журналам, которые необходимы для вычисления всех статистических данных, касающихся пользователей, сеансов, действий, сбоев и технической информации. Отчеты по журналам, необходимые для вычисления других статистических данных (например, касающихся событий, ошибок и заданий), требуется создавать вручную с помощью API Engagement (см. статью [Как использовать API Engagement в iOS](mobile-engagement-ios-use-engagement-api.md)), так как эти статистические данные зависят от приложения.
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 07/06/2017
 * Скачайте пакет SDK для iOS [отсюда](http://aka.ms/qk2rnj).
 * Добавьте пакет SDK для Engagement в проект iOS: в Xcode щелкните правой кнопкой мыши проект, выберите элемент **Add files to...** (Добавить файлы в...) и укажите папку `EngagementSDK`.
 * Служба Engagement требует дополнительные среды для работы: в обозревателе проектов откройте панель проекта и выберите правильную цель. Затем откройте вкладку **Build Phases** (Этапы сборки) и в меню **Link Binary With Libraries** (Компоновка двоичного файла с библиотеками) добавьте указанные платформы.
-  
+
   * `UserNotifications.framework`: задайте для связи значение `Optional`
   * `AdSupport.framework`: задайте для связи значение `Optional`
   * `SystemConfiguration.framework`
@@ -57,18 +56,18 @@ ms.lasthandoff: 07/06/2017
 
 > [!NOTE]
 > Среду AdSupport можно удалить. Службе Engagement необходима эта среда для сбора IDFA. Однако сбор IDFA можно отключить \<ios-sdk-engagement-idfa\>, чтобы обеспечить соответствие новой политике Apple в отношении этого идентификатора.
-> 
-> 
+>
+>
 
 ## <a name="initialize-the-engagement-sdk"></a>Запуск пакета SDK для Engagement
 Необходимо изменить делегат приложения:
 
 * В верхнюю часть файла реализации импортируйте агент Engagement:
-  
+
       [...]
       #import "EngagementAgent.h"
 * Инициализация Engagement в методе **applicationDidFinishLaunching:** или **application:didFinishLaunchingWithOptions:**:
-  
+
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
         [...]
@@ -110,13 +109,13 @@ ms.lasthandoff: 07/06/2017
 
 > [!IMPORTANT]
 > Пакет SDK для iOS автоматически вызывает метод `endActivity()` при закрытии приложения. Поэтому мы *настоятельно* рекомендуем вызывать метод `startActivity` при каждом изменении действия пользователя и *никогда* не вызывать метод `endActivity`, так как это приводит к завершению текущего сеанса.
-> 
-> 
+>
+>
 
 ## <a name="location-reporting"></a>Отчеты о расположении
 Условия предоставления услуг Apple не позволяет приложениям использовать отслеживание расположения только для целей статистики. Таким образом, рекомендуется включить отчеты о расположении только в том случае, если приложение также использует расположение отслеживания по другой причине.
 
-Начиная с версии iOS 8, необходимо предоставлять описание того, как приложение использует службы расположений, задавая строку для ключа [NSLocationWhenInUseUsageDescription] или [NSLocationAlwaysUsageDescription] в файле Info.plist приложения. Если необходимо создать отчет о расположении в фоновом режиме с помощью службы Engagement, добавьте ключ NSLocationAlwaysUsageDescription. Во всех остальных случаях добавьте ключ NSLocationWhenInUseUsageDescription.
+Начиная с версии iOS 8, необходимо предоставлять описание того, как приложение использует службы расположений, задавая строку для ключа [NSLocationWhenInUseUsageDescription] или [NSLocationAlwaysUsageDescription] в файле Info.plist приложения. Если необходимо создать отчет о расположении в фоновом режиме с помощью службы Engagement, добавьте ключ NSLocationAlwaysUsageDescription. Во всех остальных случаях добавьте ключ NSLocationWhenInUseUsageDescription. Обратите внимание, что ключи NSLocationAlwaysAndWhenInUseUsageDescription и NSLocationWhenInUseUsageDescription необходимы для сообщения расположения при работе приложения на устройстве iOS 11 в фоновом режиме.
 
 ### <a name="lazy-area-location-reporting"></a>Отчеты о расположении отложенной области
 Отчеты о расположении отложенной области позволяют включать в отчеты страну, область и населенный пункт, связанные с устройствами. Этот тип отчетов о расположении использует только сетевые расположения (на основе идентификатора ячейки или Wi-Fi). Отчеты об области устройства выполняются максимум один раз за сеанс. GPS никогда не используется, и в результате этот тип отчета о расположении оказывает исключительно небольшое (если не сказать вообще не оказывает) воздействие на батарею.
@@ -153,8 +152,8 @@ ms.lasthandoff: 07/06/2017
 
 > [!NOTE]
 > Когда приложение выполняется в фоновом режиме, в отчете показываются только расположения на основе сети, даже если включен GPS.
-> 
-> 
+>
+>
 
 Реализация этой функции будет вызывать [startMonitoringSignificantLocationChanges] при переходе приложения в фоновый режим. Имейте в виду, что при этом автоматически выполняется повторный запуск приложения в фоновом режиме при поступлении нового события расположения.
 

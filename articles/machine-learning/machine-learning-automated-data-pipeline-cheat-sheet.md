@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 22f9369d18edae34f51f20712c3f92e0a57700f2
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: e212b2c935eb0ae64ed1cd2e6dc1564f8fcd503b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---

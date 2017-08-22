@@ -14,35 +14,17 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 07/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7dfd3f7f0bebd0dbe20ffc9952d83cb8b4fcfe3e
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: aa204efcdc1a3fce5093abd7c9e94566ba6dd259
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager | Microsoft Azure
 В этой статье объясняется, как устранить некоторые распространенные ошибки при развертывании в Azure.
-
-## <a name="two-types-of-errors"></a>Два типа ошибок
-Существует два типа ошибок, которые могут произойти:
-
-* ошибки проверки;
-* ошибки развертывания.
-
-На следующем рисунке показан журнал действий для подписки. В двух развертываниях были выполнены три операции. В первом развертывании шаблон прошел проверку, но при создании ресурсов произошел сбой (**запись развертываний**). Во втором развертывании шаблон не прошел проверку и **запись развертываний** не была начата.
-
-![Отображение кода ошибки](./media/resource-manager-common-deployment-errors/show-activity-log.png)
-
-Ошибки проверки возникают в ситуациях, которые можно предварительно определить как проблемные. Причинами ошибок проверки могут быть синтаксические ошибки в шаблоне или попытки развертывания ресурсов, которые приведут к превышению квот для подписки. Ошибки развертывания возникают из-за условий, возникающих во время развертывания. Например, ошибка развертывания может возникнуть из-за попытки получить доступ к ресурсу, который развертывается параллельно.
-
-Ошибки обоих типов возвращают код ошибки, с помощью которого можно устранить неполадки развертывания. Ошибки обоих типов отображаются в [журнале действий](resource-group-audit.md). Однако ошибки проверки не отображаются в журнале развертывания, так как при их наличии развертывание не запускается.
-
-
-## <a name="error-codes"></a>Коды ошибок
 
 В этом разделе описаны следующие коды ошибок:
 
@@ -65,13 +47,13 @@ ms.lasthandoff: 05/11/2017
 * [StorageAccountAlreadyExists](#storagenamenotunique);
 * [StorageAccountAlreadyTaken](#storagenamenotunique).
 
-### <a name="deploymentfailed"></a>DeploymentFailed
+## <a name="deploymentfailed"></a>DeploymentFailed
 
 Этот код ошибки указывает на общую ошибку развертывания, но не следует сразу же использовать его для устранения неполадок. Код ошибки, который действительно поможет устранить возникшую проблему, обычно находится на один уровень ниже этой ошибки. Например, на следующем рисунке показан код ошибки **RequestDisallowedByPolicy**, который находится под кодом ошибки развертывания.
 
 ![Отображение кода ошибки](./media/resource-manager-common-deployment-errors/error-code.png)
 
-### <a name="skunotavailable"></a>SkuNotAvailable
+## <a name="skunotavailable"></a>SkuNotAvailable
 
 При развертывании ресурса (как правило, виртуальной машины) могут появиться код ошибки и сообщение об ошибке:
 
@@ -124,9 +106,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
   }    
   ```
 
-Если вам не удастся найти в этом или альтернативном регионе подходящий SKU, который соответствует потребностям вашей компании, обратитесь в [службу поддержки Azure](https://portal.azure.com/#create/Microsoft.Support).
+Если вам не удалось найти подходящий номер SKU в этом или любом другом регионе, который соответствует потребностям вашей компании, обратитесь в [службу поддержки Azure](https://aka.ms/skurestriction).
 
-### <a name="disallowedoperation"></a>DisallowedOperation
+## <a name="disallowedoperation"></a>DisallowedOperation
 
 ```
 Code: DisallowedOperation
@@ -160,7 +142,7 @@ az account list
 az account set --subscription {subscription-name}
 ```
 
-### <a name="invalidtemplate"></a>InvalidTemplate
+## <a name="invalidtemplate"></a>InvalidTemplate
 Эта ошибка может появится в результате ошибок нескольких различных типов.
 
 - Синтаксическая ошибка
@@ -260,7 +242,7 @@ az account set --subscription {subscription-name}
 
 - Обнаружена циклическая зависимость
 
-   Эта ошибка возникает, когда ресурсы зависят друг от друга таким образом, что это не позволяет начать развертывание. Сочетание взаимозависимостей вынуждает два или более ресурсов ожидать другие ресурсы, которые также находятся в ожидании. Например, resource1 зависит от resource3, resource2 зависит от resource1, а resource3 зависит от resource2. Как правило, эту проблему можно устранить, удалив ненужные зависимости. Предложения по устранению ошибок зависимостей доступны в разделе [Проверка последовательности развертывания](#check-deployment-sequence).
+   Эта ошибка возникает, когда ресурсы зависят друг от друга таким образом, что это не позволяет начать развертывание. Сочетание взаимозависимостей вынуждает два или более ресурсов ожидать другие ресурсы, которые также находятся в ожидании. Например, resource1 зависит от resource3, resource2 зависит от resource1, а resource3 зависит от resource2. Как правило, эту проблему можно устранить, удалив ненужные зависимости. 
 
 <a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound и ResourceNotFound
@@ -305,7 +287,7 @@ group {resource group name} was not found.
 
 Найдите выражение с функцией **reference**. Убедитесь, что значения параметров правильные.
 
-### <a name="parentresourcenotfound"></a>ParentResourceNotFound
+## <a name="parentresourcenotfound"></a>ParentResourceNotFound
 
 Если один ресурс является родительским для другого ресурса, то перед созданием этого дочернего ресурса должен существовать его родительский ресурс. Если он еще не существует, появляется приведенная ниже ошибка.
 
@@ -332,7 +314,8 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 ```
 
 <a id="storagenamenotunique" />
-### <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>StorageAccountAlreadyExists и StorageAccountAlreadyTaken
+
+## <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>StorageAccountAlreadyExists и StorageAccountAlreadyTaken
 Для учетных записей хранения необходимо указывать имя ресурса, уникальное в среде Azure. Если не указать уникальное имя, возникнет такая ошибка:
 
 ```
@@ -349,15 +332,16 @@ Message=The storage account named mystorage is already taken.
 
 Если при развертывании учетной записи хранения указать для нее то же имя, что и для существующей учетной записи хранения в подписке, но указать другое расположение, появится сообщение о том, что учетная запись хранения уже существует в другом расположении. Удалите существующую учетную запись хранения или укажите то же расположение, что и для существующей учетной записи хранения.
 
-### <a name="accountnameinvalid"></a>AccountNameInvalid
+## <a name="accountnameinvalid"></a>AccountNameInvalid
 Ошибка **AccountNameInvalid** отображается при попытке указать для учетной записи хранения имя, содержащее запрещенные знаки. Имя учетной записи хранения должно содержать от 3 до 24 символов и состоять только из цифр и букв нижнего регистра. Функция [UniqueString](resource-group-template-functions-string.md#uniquestring) возвращает 13 знаков. Если используется сцепка префикса с результатом **uniqueString**, то следует использовать префикс, содержащий не более 11 знаков.
 
-### <a name="badrequest"></a>BadRequest
+## <a name="badrequest"></a>BadRequest
 
 При указании недопустимого значения для свойства может возникнуть состояние BadRequest. Например, если указано неправильное значение SKU для учетной записи хранения, развертывание завершится сбоем. Чтобы определить допустимые значения для свойства, просмотрите сведения о [REST API](/rest/api) для типа развертываемого ресурса.
 
 <a id="noregisteredproviderfound" />
-### <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound и MissingSubscriptionRegistration
+
+## <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound и MissingSubscriptionRegistration
 При развертывании ресурсов вы можете получить следующий код ошибки и сообщение об ошибке:
 
 ```
@@ -440,7 +424,8 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 ```
 
 <a id="quotaexceeded" />
-### <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded и OperationNotAllowed
+
+## <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded и OperationNotAllowed
 Если развертывание превышает квоту, могут возникнуть проблемы, связанные с группой ресурсов, подписками, учетными записями и другими компонентами. Например, для подписки может быть настроено ограничение числа ядер для региона. При попытке развертывания виртуальной машины с большим количеством ядер, чем разрешено, вы получите сообщение о том, что квота превышена.
 Дополнительные сведения о квотах Azure см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 
@@ -501,7 +486,7 @@ Unit         : null
 >
 >
 
-### <a name="invalidcontentlink"></a>InvalidContentLink
+## <a name="invalidcontentlink"></a>InvalidContentLink
 При появлении ошибки
 
 ```
@@ -511,7 +496,7 @@ Message=Unable to download deployment content from ...
 
 скорее всего была предпринята попытка связать недоступный вложенный шаблон. Внимательно проверьте URI, указанный для вложенного шаблона. Если шаблон существует в учетной записи хранения, убедитесь, что URI доступен. Возможно, понадобится передать маркер SAS. Дополнительные сведения см. в статье [Использование связанных шаблонов в диспетчере ресурсов Azure](resource-group-linked-templates.md).
 
-### <a name="requestdisallowedbypolicy"></a>RequestDisallowedByPolicy
+## <a name="requestdisallowedbypolicy"></a>RequestDisallowedByPolicy
 Эта ошибка возникает, когда подписка включает в себя политику ресурсов, предотвращающую действие, которое вы пытаетесь выполнить во время развертывания. В сообщении об ошибке найдите идентификатор политики.
 
 ```
@@ -524,184 +509,22 @@ Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/p
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-В **Azure CLI 2.0** укажите имя определения политики.
+В **Azure CLI** укажите имя определения политики.
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
 ```
 
-Дополнительные сведения о политиках см. в статье [Применение политик для управления ресурсами и контроля доступа](resource-manager-policy.md).
+Дополнительные сведения см. в следующих статьях:
 
-### <a name="authorization-failed"></a>Ошибка авторизации
+- [Ошибка RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md).
+- [Общие сведения о политике ресурсов](resource-manager-policy.md).
+
+## <a name="authorization-failed"></a>Ошибка авторизации
 Эта ошибка может возникнуть во время развертывания, если учетная запись или субъект-служба, пытающиеся развернуть ресурсы, не имеют доступа на выполнение этих действий. Azure Active Directory позволяет вам или вашему администратору управлять удостоверениями, которые могут получать доступ к тем или иным ресурсам. Например, если учетной записи назначена роль "Читатель", вы не сможете создавать ресурсы. В таком случае появится сообщение об ошибке авторизации.
 
 Дополнительные сведения об управлении доступом на основе ролей см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
 
-## <a name="troubleshooting-tricks-and-tips"></a>Рекомендации и советы по устранению неполадок
-
-### <a name="enable-debug-logging"></a>Включение ведения журнала отладки
-Вы сможете найти ценную информацию о ходе выполнения развертывания, ведя журнал запросов, журнал ответов или журнал запросов и ответов.
-
-- PowerShell
-
-   В PowerShell для параметра **DeploymentDebugLogLevel** задайте значение All, ResponseContent или RequestContent.
-
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
-
-   Проверьте содержимое запроса с помощью следующего командлета.
-
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
-
-   Или проверьте содержимое ответа, выполнив команду, указанную ниже.
-
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
-
-   Эти сведения помогут определить, правильно ли задано то или иное значение в шаблоне.
-
-- Azure CLI 2.0
-
-   Для просмотра операций развертывания выполните следующую команду.
-
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
-
-- Вложенный шаблон
-
-   Чтобы вести журнал отладочной информации для вложенного шаблона, используйте элемент **debugSetting**.
-
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
-
-
-### <a name="create-a-troubleshooting-template"></a>Создание шаблона для устранения неполадок
-В некоторых случаях устранить неполадки шаблона проще всего, проверяя его части. Можно создавать упрощенный шаблон, позволяющий сосредоточиться на части, которая, как вы считаете, вызывает ошибку. Для примера предположим, что вы получили сообщение об ошибке при указании ссылки на ресурс. Вместо того, чтобы проверять весь шаблон, создайте шаблон, возвращающий часть, которая может быть причиной проблемы. Это поможет определить, передаются ли правильные параметры, правильно ли используются функции шаблона и получается ли ожидаемый ресурс.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageName": {
-        "type": "string"
-    },
-    "storageResourceGroup": {
-        "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "exampleOutput": {
-        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
-        "type" : "object"
-    }
-  }
-}
-```
-
-Или предположим, что возникают ошибки развертывания, которые, как вы считаете, связаны с неправильно заданными зависимостями. Проверьте шаблон, разбив его на более простые шаблоны. Сначала создайте шаблон, который развертывает только один ресурс (например, SQL Server). Когда вы убедитесь, что этот ресурс определен правильно, добавьте зависящий от него ресурс (например, базу данных SQL). Проверив правильность определения этих двух ресурсов, добавьте другие зависимые ресурсы (например, политики аудита). В перерывах между тестовыми развертываниями удаляйте группу ресурсов, чтобы гарантировать адекватную проверку зависимостей. 
-
-### <a name="check-deployment-sequence"></a>Проверка последовательности развертывания
-
-Многие ошибки развертывания происходят, когда ресурсы развертываются в непредвиденном порядке. Такие ошибки возникают, когда зависимости заданы неправильно. Если необходимая зависимость отсутствует, то один ресурс может пытаться использовать значение другого ресурса, который еще не существует. Произойдет ошибка и отобразится сообщение о том, что ресурс не найден. Такие ошибки могут происходить время от времени, так как время развертывания каждого ресурса может отличаться. Например, первая попытка развернуть ресурсы может завершиться успешно, так как требуемый ресурс случайно будет развернут в срок. Однако вторая попытка может завершиться сбоем, так как необходимый ресурс не будет развернут вовремя. 
-
-Но следует избегать задания ненужных зависимостей. Ненужные зависимости могут замедлить развертывание, мешая параллельному развертыванию независимых между собой ресурсов. Кроме того, возможно образование циклических зависимостей, которые блокируют развертывание. Функция [reference](resource-group-template-functions-resource.md#reference) создает неявную зависимость от ресурса, указываемого в ней как параметр, при развертывании этого ресурса в том же шаблоне. Таким образом можно использовать больше зависимостей, чем задано в свойстве **dependsOn**. Функция [ResourceId](resource-group-template-functions-resource.md#resourceid) не создает неявную зависимость и не проверяет, существует ли ресурс.
-
-При возникновении проблем с зависимостями необходимо узнать, в каком порядке развертываются ресурсы. Вот как можно просмотреть порядок операций развертывания.
-
-1. Выберите журнал развертывания для группы ресурсов.
-
-   ![Выбор журнала развертывания](./media/resource-manager-common-deployment-errors/select-deployment.png)
-
-2. Выберите развертывание в журнале, затем выберите **События**.
-
-   ![Выбор событий развертывания](./media/resource-manager-common-deployment-errors/select-deployment-events.png)
-
-3. Изучите последовательность событий для каждого ресурса. Обратите внимание на состояние каждой операции. Например, на следующем рисунке показаны три учетные записи хранения, которые были развернуты параллельно. Обратите внимание, что эти три учетные записи хранения были запущены одновременно.
-
-   ![Параллельное развертывание](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
-
-   На следующем рисунке показаны три учетные записи хранения, которые не были развернуты параллельно. Вторая учетная запись хранения зависит от первой учетной записи хранения, а третья учетная запись хранения — от второй. Поэтому первая учетная запись хранения должна быть запущена, принята и завершена, прежде чем будет запущена следующая.
-
-   ![Последовательное развертывание](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
-
-Реальные сценарии могут быть значительно сложнее, но с помощью данного метода можно определять, когда начинается и завершается развертывание каждого из ресурсов. Просмотрите события развертывания, чтобы узнать, не была ли нарушена ожидаемая последовательность развертывания. Если какой-либо ресурс нарушил ее, проверьте его зависимости.
-
-Resource Manager выявляет циклические зависимости во время проверки шаблона. Он возвращает сообщение об ошибке, в котором специально сообщается о наличии циклической зависимости. Устранить циклическую зависимость можно следующим образом.
-
-1. Найдите в шаблоне ресурс, указанный в циклической зависимости. 
-2. Изучите свойство **dependsOn** и все случаи использования функции **reference** для этого ресурса, чтобы узнать, от каких ресурсов он зависит. 
-3. Изучите эти ресурсы, чтобы узнать, от каких ресурсов зависят они. Отслеживайте зависимости, пока не найдете ресурс, который зависит от первоначального ресурса.
-5. Для ресурсов, участвующих в циклической зависимости, тщательно изучите все случаи использования свойства **dependsOn**, чтобы выявить все лишние зависимости. Удалите эти зависимости. Если вы не уверены, нужна ли зависимость, попробуйте удалить ее. 
-6. Повторно разверните шаблон.
-
-Удаление значений из свойства **dependsOn** может привести к ошибкам при развертывании шаблона. Если возникла ошибка, верните удаленную зависимость в шаблон. 
-
-Если этот подход не помог устранить циклическую зависимость, рекомендуется переместить часть логики развертывания в дочерние ресурсы (например, расширения или параметры конфигурации). Настройте эти дочерние ресурсы для развертывания после ресурсов, участвующих в циклической зависимости. Предположим, что вы развертываете две виртуальные машины, но на каждой из них необходимо задать свойства, которые ссылаются на другую виртуальную машину. Их можно развернуть в следующем порядке.
-
-1. vm1.
-2. vm2.
-3. Расширение на vm1 зависит от vm1 и vm2. Расширение задает на vm1 значения, получаемые от vm2.
-4. Расширение на vm2 зависит от vm1 и vm2. Расширение задает на vm2 значения, получаемые от vm1.
-
-Этот подход пригоден и для приложений службы приложений. Рекомендуется переместить значения конфигурации в дочерний ресурс ресурса приложения. Два веб-приложения можно развернуть в следующем порядке.
-
-1. webapp1.
-2. webapp2.
-3. Конфигурация webapp1 зависит от webapp1 и webapp2. Она содержит параметры приложения со значениями из webapp2.
-4. Конфигурация webapp2 зависит от webapp1 и webapp2. Она содержит параметры приложения со значениями из webapp1.
-
-## <a name="troubleshooting-other-services"></a>Устранение неполадок в других службах
-Если предыдущие коды ошибок развертывания не помогли устранить проблему, то можно найти более подробные рекомендации по устранению неполадок для конкретной службы Azure.
-
-В следующей таблице перечислены разделы по устранению неполадок для виртуальных машин.
-
-| Ошибка | Статьи |
-| --- | --- |
-| Ошибки расширений пользовательских скриптов |[Устранение неполадок расширений для виртуальных машин Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение неполадок расширения виртуальной машины Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Ошибки при подготовке образа операционной системы |[Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure](../virtual-machines/windows/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Linux в Azure](../virtual-machines/linux/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Ошибки выделения ресурсов |[Устранение неполадок в классическом развертывании при создании виртуальной машины Windows в Azure](../virtual-machines/windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин Linux в Azure](../virtual-machines/linux/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Ошибки Secure Shell (SSH) при попытке подключения |[Устранение неполадок с подключением Secure Shell к виртуальной машине Azure под управлением Linux](../virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Ошибки при подключении к приложению, выполняющемуся на виртуальной машине |[Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](../virtual-machines/windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](../virtual-machines/linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Ошибки при подключении к удаленному рабочему столу |[Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Ошибки подключения, устраняемые путем повторного развертывания |[Повторное развертывание виртуальной машины на новом узле Azure](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Ошибки облачной службы |[Устранение неполадок, которые могут возникнуть при развертывании облачной службы](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
-
-В следующей таблице перечислены разделы по устранению неполадок для служб Azure. Они посвящены проблемам, связанным с развертыванием или настройкой ресурсов. Если вам нужна помощь в устранении неполадок во время выполнения, см. документацию для соответствующей службы Azure.
-
-| служба | Статья |
-| --- | --- |
-| Автоматизация |[Советы по устранению неполадок при возникновении типичных ошибок в службе автоматизации Azure](../automation/automation-troubleshooting-automation-errors.md) |
-| Azure Stack |[Microsoft Azure Stack troubleshooting (Устранение неполадок, связанных с Microsoft Azure Stack)](../azure-stack/azure-stack-troubleshooting.md) |
-| Фабрика данных |[Устранение неполадок фабрики данных](../data-factory/data-factory-troubleshoot.md) |
-| Service Fabric |[Мониторинг и диагностика приложений Azure Service Fabric](../service-fabric/service-fabric-diagnostics-overview.md) |
-| Site Recovery |[Мониторинг и устранение неполадок защиты виртуальных машин и физических серверов](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
-| Хранилище |[Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md) |
-| StorSimple |[Устранение неполадок в развертывании устройства StorSimple](../storsimple/storsimple-troubleshoot-deployment.md) |
-| База данных SQL |[Устранение неполадок подключения к базе данных SQL Azure](../sql-database/sql-database-troubleshoot-common-connection-issues.md) |
-| Хранилище данных SQL |[Устранение неполадок хранилища данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о действиях аудита см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).

@@ -1,0 +1,119 @@
+---
+title: "Наблюдатель за сетями Azure: общие сведения о проверке подключения | Документация Майкрософт"
+description: "Эта страница содержит общие сведения о возможности проверки подключения в Наблюдателе за сетями."
+services: network-watcher
+documentationcenter: na
+author: georgewallace
+manager: timlt
+editor: 
+ms.service: network-watcher
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/11/2017
+ms.author: gwallace
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 83a88df8c20c89a72047884b69c52e12adf1549b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
+
+---
+
+# <a name="introduction-to-connectivity-check-in-azure-network-watcher"></a>Наблюдатель за сетями Azure: общие сведения о проверке подключения
+
+Функция подключения к сети Наблюдателя за сетями предоставляет возможность проверять прямое подключение TCP от виртуальной машины к виртуальной машине, полное доменное имя, универсальный код ресурса (URI) или адрес IPv4. Сетевые сценарии сложные. Они реализуются с помощью групп безопасности сети, брандмауэров, определяемых пользователем маршрутов и ресурсов, предоставляемых Azure. Сложные конфигурации делают устранение неполадок, связанных с подключением, непростой задачей. Наблюдатель за сетями помогает сократить время поиска и обнаружения проблем с подключением. Полученные результаты могут дать представление о том, с чем связана проблема подключения: с платформой или конфигурацией пользователя. Подключение можно проверить с помощью [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md) и [REST API](network-watcher-connectivity-rest.md).
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
+> [!IMPORTANT]
+> Для проверки возможности подключения требуется расширение виртуальной машины `AzureNetworkWatcherExtension`. Информацию об установке расширения для виртуальной машины Windows см. в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Windows](../virtual-machines/windows/extensions-nwa.md), а для виртуальной машины Linux — в статье [Расширение виртуальной машины агента Наблюдателя за сетями для Linux](../virtual-machines/linux/extensions-nwa.md).
+
+## <a name="register-the-preview-capability"></a>Регистрация возможностей предварительной версии
+
+Проверка возможности подключения в настоящее время поддерживается в общедоступной предварительной версии. Для использования этой функции ее необходимо зарегистрировать. Для этого выполните следующие командлеты PowerShell.
+
+```powershell
+Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Чтобы проверить, была ли регистрация успешно завершена, выполните приведенный ниже командлет PowerShell.
+
+```powershell
+Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
+```
+
+Если компонент был правильно зарегистрирован, выходные данные должны выглядеть следующим образом.
+
+```
+FeatureName         ProviderName      RegistrationState
+-----------         ------------      -----------------
+AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
+```
+
+## <a name="response"></a>Ответ
+
+В таблице ниже приведены свойства, возвращаемые после завершения проверки подключения.
+
+|Свойство  |Описание  |
+|---------|---------|
+|ConnectionStatus     | Состояние проверки подключения. Возможные результаты: **Reachable** и **Unreachable**.        |
+|AvgLatencyInMs     | Среднее время задержки при проверке подключения в миллисекундах. (Возвращается, только если подключение доступно.)        |
+|MinLatencyInMs     | Минимальное время задержки при проверке подключения в миллисекундах. (Возвращается, только если подключение доступно.)        |
+|MaxLatencyInMs     | Максимальное время задержки при проверке подключения в миллисекундах. (Возвращается, только если подключение доступно.)        |
+|ProbesSent     | Число проб, отправленных во время проверки. Максимальное значение — 100.        |
+|ProbesFailed     | Число проб, которые завершились сбоем во время проверки. Максимальное значение — 100.        |
+|Hops     | Путь по прыжкам от источника к назначению.        |
+|Hops[].Type     | Тип ресурса. Возможные значения: **Source**, **VirtualAppliance**, **VnetLocal** и **Internet**.        |
+|Hops[].Id | Уникальный идентификатор прыжка.|
+|Hops[].Address | IP-адрес прыжка.|
+|Hops[].ResourceId | ResourceID прыжка, если прыжок — это ресурс Azure. Если это ресурс интернета, ResourceID — это **Интернет**. |
+|Hops[].NextHopIds | Уникальный идентификатор следующего выполненного прыжка.|
+|Hops[].Issues | Набор проблем, возникших во время проверки этого прыжка. Если проблем не обнаружено, значение будет пустым.|
+|Hops[].Issues[].Origin | Текущий прыжок, где возникла проблем. Возможные значения:<br/> **Inbound**. Проблема обнаружена в пути от предыдущего прыжка к текущему.<br/>**Outbound**. Проблема обнаружена в пути от текущего прыжка к следующему.<br/>**Local**. Проблема возникла на текущем прыжке.|
+|Hops[].Issues[].Severity | Степень серьезности обнаруженной проблемы. Возможные значения: **Error** и **Warning**. |
+|Hops[].Issues[].Type |Тип обнаруженной проблемы. Возможные значения: <br/>**ЦП**<br/>**Память**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Hops[].Issues[].Context |Сведения об обнаруженной проблеме.|
+|Hops[].Issues[].Context[].key |Возвращенный ключ из пары "ключ — значение".|
+|Hops[].Issues[].Context[].value |Возвращенное значение из пары "ключ — значение".|
+
+Ниже приведен пример проблемы, обнаруженной при прыжке.
+
+```json
+"Issues": [
+    {
+        "Origin": "Outbound",
+        "Severity": "Error",
+        "Type": "NetworkSecurityRule",
+        "Context": [
+            {
+                "key": "RuleName",
+                "value": "UserRule_Port80"
+            }
+        ]
+    }
+]
+```
+## <a name="fault-types"></a>Типы ошибок
+
+Проверка возможности подключения возвращает типы ошибок подключения. Следующая таблица предоставляет список возвращаемых типов текущих ошибок.
+
+|Тип  |Описание  |
+|---------|---------|
+|ЦП     | Высокая загрузка ЦП.       |
+|Память     | Высокий уровень использования памяти.       |
+|GuestFirewall     | Трафик блокируется из-за конфигурации брандмауэра виртуальной машины.        |
+|DnsResolution     | Сбой разрешения DNS для адреса назначения.        |
+|NetworkSecurityRule    | Трафик блокируется правилом группы безопасности сети (возвращается правило).        |
+|UserDefinedRoute|Трафик сбрасывается из-за определенного пользователем или системой маршрута. |
+
+### <a name="next-steps"></a>Дальнейшие действия
+
+Дополнительные сведения о подключении к ресурсу см. в статье [Проверка возможности подключения с помощью Наблюдателя за сетями Azure (PowerShell)](network-watcher-connectivity-powershell.md).
+
+<!--Image references-->
+[1]: ./media/network-watcher-next-hop-overview/figure1.png
+
+

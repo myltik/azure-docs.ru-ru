@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 2576b658eaf1df95aa9700e06559edf6066cc534
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -312,7 +312,7 @@ If you need role-based access control (RBAC) for your line-of-business app in Az
         AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
     
     > [!NOTE]
-    > Вам нужна эта строка кода, так как шаблон MVC по умолчанию использует декорирование <code>[ValidateAntiForgeryToken]</code> в некоторых действиях. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) (MVC 4, маркер защиты от подделки и утверждения), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
+    > Вам нужна эта строка кода, так как шаблон MVC по умолчанию использует в некоторых действиях декорирование <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) (MVC 4, маркер защиты от подделки и утверждения), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
     > 
     > * Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, что требуется по умолчанию для маркера защиты от подделки.
     > * Если Azure Active Directory является каталогом, синхронизированным с AD FS, то средство доверия AD FS по умолчанию также не отправляет утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, хотя можно настроить вручную AD FS для отправки такого утверждения.

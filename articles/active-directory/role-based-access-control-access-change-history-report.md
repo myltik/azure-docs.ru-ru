@@ -5,27 +5,28 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
+ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: 433dc731c342924d962e2f08e392556558a0168d
-ms.lasthandoff: 02/28/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 43ddeebfea4c914b8377d3363ba3d0c12db0adca
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Создание отчета о доступе для управления доступом на основе ролей
 Когда кто-то предоставляет или отменяет доступ в рамках ваших подписок, изменения регистрируются в журнале событий Azure. Чтобы просмотреть все изменения за последние 90 дней, создайте отчет по журналу изменений доступа.
 
 ## <a name="create-a-report-with-azure-powershell"></a>Создание отчета с помощью Azure PowerShell
-Чтобы создать отчет по журналу изменений доступа в PowerShell, используйте команду `Get-AzureRMAuthorizationChangeLog`. Дополнительные сведения об этом командлете см. в [коллекции PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
+Чтобы создать отчет по журналу изменений доступа в PowerShell, используйте команду [Get-AzureRMAuthorizationChangeLog](/powershell/module/azurerm.resources/get-azurermauthorizationchangelog).
 
 При вызове этой команды можно указывать, какие свойства назначения нужно включить в список, в частности:
 
@@ -33,16 +34,15 @@ ms.lasthandoff: 02/28/2017
 | --- | --- |
 | **Действие** |Предоставление доступа или его отмена |
 | **Caller** |Владелец, ответственный за изменение доступа |
-| **Дата** |Дата и время изменения доступа |
-| **DirectoryName** |Каталог Azure Active Directory |
+| **PrincipalId** | Уникальный идентификатор пользователя, группы или приложения, которым назначена роль |
 | **PrincipalName** |Имя пользователя, группы или приложения |
 | **PrincipalType** |Кому адресовано назначение — пользователю, группе или приложению |
-| **RoleId** |Идентификатор GUID роли, которая была назначена или отменена |
+| **RoleDefinitionId** |Идентификатор GUID роли, которая была назначена или отменена |
 | **RoleName** |Роль, которая была назначена или отменена |
+| **Область** | Уникальный идентификатор подписки, группы ресурсов или ресурса, к которым применяется назначение | 
 | **ScopeName** |Название подписки, группы ресурсов или ресурса |
 | **ScopeType** |Область назначения: подписка, группа ресурсов или ресурс |
-| **SubscriptionId** |Идентификатор GUID подписки Azure |
-| **Параметр SubscriptionName** |Имя подписки Azure |
+| **Timestamp** |Дата и время изменения доступа |
 
 Следующий пример команды создает список всех изменений доступа в подписке за последние семь дней.
 

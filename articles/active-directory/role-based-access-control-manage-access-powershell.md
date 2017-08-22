@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/02/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
-ms.lasthandoff: 04/27/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: e7323325c303c26e2ea4d9f2a8ac5178fa33b875
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Управление доступом на основе ролей с помощью Azure PowerShell
@@ -128,7 +128,7 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 ## <a name="create-a-custom-role"></a>Создание настраиваемой роли
 Чтобы создать настраиваемую роль, используйте команду ```New-AzureRmRoleDefinition``` . Существует два способа структурирования роли: с помощью PSRoleDefinitionObject и с помощью шаблона JSON. 
 
-## <a name="get-actions-from-particular-resource-provider"></a>Получение действий определенного поставщика ресурсов
+## <a name="get-actions-for-a-resource-provider"></a>Получение действий для поставщика ресурсов
 При создании пользовательских ролей с нуля важно знать все возможные операции поставщиков ресурсов.
 Используйте команду ```Get-AzureRMProviderOperation``` для получения этих сведений.
 Например, если вы хотите проверить все доступные операции для виртуальной машины, то используйте эту команду:
@@ -166,7 +166,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>Создание роли с помощью шаблона JSON
-Шаблон JSON может использоваться в качестве определения источника для пользовательской роли. В следующем примере создается пользовательская роль, которая разрешает доступ на чтение к хранилищу и вычислительным ресурсам, доступ для поддержки, и добавляет эту роль к двум подпискам. Создайте файл `C:\CustomRoles\customrole1.json` со следующим содержимым. При первичном создании роли идентификатору должно быть присвоено значение `null`, так как новый идентификатор создается автоматически. 
+Шаблон JSON может использоваться в качестве определения источника для пользовательской роли. В следующем примере создается пользовательская роль, которая разрешает доступ на чтение к хранилищу и вычислительным ресурсам, доступ для поддержки, и добавляет эту роль к двум подпискам. Создайте файл `C:\CustomRoles\customrole1.json` с приведенным ниже содержимым. При первичном создании роли идентификатору должно быть присвоено значение `null`, так как новый идентификатор создается автоматически. 
 
 ```
 {

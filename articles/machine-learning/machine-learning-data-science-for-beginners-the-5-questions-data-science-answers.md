@@ -1,6 +1,6 @@
 ---
-title: "5 вопросов, на которые дают ответ обработка и анализ данных. Обработка и анализ данных для начинающих в Azure | Документация Майкрософт"
-description: "Ознакомьтесь с кратким введением &quot;Обработка и анализ данных для начинающих&quot;. Это пять коротких видео, первое из которых — &quot;5 вопросов, на которые дают ответ обработка и анализ данных&quot;."
+title: "5 вопросов об обработке и анализе данных. Обработка и анализ данных для начинающих. Машинное обучение Azure | Документация Майкрософт"
+description: "Обработка и анализ данных для начинающих объясняет основные понятия в пяти коротких видеороликах. Первое видео содержит ответы на 5 вопросов об обработке и анализе данных. Из машинного обучения Azure."
 keywords: "выполнение обработки и анализа данных,введение в обработку и анализ данных,обработка и анализ данных для начинающих,основы обработки и анализа данных,вопросы по обработке и анализу данных,видео по обработке и анализу данных,введение в обработку и анализ данных"
 services: machine-learning
 documentationcenter: na
@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
-ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: e77e7e99747995a4a6ad800e391f0c063bded82f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Обработка и анализ данных для начинающих (видео 1): 5 вопросов, на которые дают ответ обработка и анализ данных
 Ознакомьтесь с кратким введением *Обработка и анализ данных для начинающих*, которое состоит из пяти коротких видео с участием ведущих специалистов по обработке и анализу данных. Эти простые видео будут полезны как тем, кто только интересуется обработкой и анализом данных, так и тем, кто работает со специалистами в этой области.
 
 Первое видео посвящено типам вопросов, на которые можно ответить с помощью обработки и анализа данных. Для получения оптимального результата просмотрите все видео. [Перейти к списку видео](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
 >
 >
 
 ## <a name="other-videos-in-this-series"></a>Другие видео из этого цикла
-*Обработка и анализ данных для начинающих* — это пять коротких видеороликов об основах обработки и анализа данных, которые займут у вас не более 25 минут. Ознакомьтесь с другими 4 видео:
+*Обработка и анализ данных для начинающих* — это пять коротких видеороликов об основах обработки и анализа данных, которые займут у вас не более 25 минут. Просмотрите все пять видеороликов:
 
 * Видео 1. 5 вопросов, на которые дают ответ обработка и анализ данных.
 * Видео 2. [Готовы ли ваши данные к обработке и анализу?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 мин 56 с)*
 * Видео 3. [Задайте вопрос, на который можно ответить с помощью данных](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 мин 17 с)*
 * Видео 4. [Прогнозирование ответа с помощью простой модели](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 мин 42 с)*
-* Видео 5. [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)  *(3 мин 18 с)*
+* Видео 5. [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 мин 18 с)*
 
 ## <a name="transcript-the-5-questions-data-science-answers"></a>Расшифровка видео "5 вопросов, на которые дают ответ обработка и анализ данных"
 Привет! Добро пожаловать в цикл видеороликов *Обработка и анализ данных для начинающих*.
@@ -58,14 +58,14 @@ ms.lasthandoff: 05/05/2017
 * Как это организовано?
 * Что делать дальше?
 
-  Для ответа на каждый из этих вопросов используется отдельная группа методов машинного обучения, называемых алгоритмами.
+Для ответа на каждый из этих вопросов используется отдельная группа методов машинного обучения, называемых алгоритмами.
 
 Чтобы лучше понять, представьте, что алгоритм — это рецепт блюда, а данные — это ингредиенты для его приготовления. Алгоритм указывает, как объединить и смешать данные, чтобы получить ответ. Компьютер можно сравнить с миксером. Большую часть тяжелой работы алгоритма компьютер делает за вас, и делает это довольно быстро.
 
 ## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>Вопрос 1 "Это A или B?" использует алгоритмы классификации
 Давайте начнем с вопроса "Это A или B?"
 
-![Алгоритмы классификации: "Это A или B?"](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-classification-algorithms.png)
+![Алгоритмы классификации: "Это A или B?"](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
 Эта группа алгоритмов называется двуклассовой классификацией.
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 05/05/2017
 ## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>Вопрос 2 "Является ли это странным?" использует алгоритмы обнаружения аномалий
 Следующий вопрос, на который дают ответ обработка и анализ данных: "Является ли это странным?" Для ответа на этот вопрос используется группа алгоритмов, называемых обнаружением аномалий.
 
-![Алгоритмы обнаружения аномалий: "Является ли это странным?"](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-anomaly-detection-algorithms.png)
+![Алгоритмы обнаружения аномалий: "Является ли это странным?"](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
 Если у вас есть кредитная карта, то вы уже пользовались функцией обнаружения аномалий. Компания (банк), обслуживающая кредитную карту, анализирует ваши стандартные покупки и может предупредить вас о возможной попытке мошенничества. "Странными" расходами могут, например, считаться покупки в магазине, где вы обычно не бываете, или покупка очень дорогостоящего товара.
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 05/05/2017
 ## <a name="question-3-how-much-or-how-many-uses-regression-algorithms"></a>Вопрос 3 "Сколько?" использует алгоритмы регрессии
 Служба машинного обучения также может прогнозировать ответ на вопрос "Сколько?" Группа алгоритмов, отвечающая на этот вопрос, называется регрессией.
 
-![Алгоритмы регрессии: "Сколько?"](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-regression-algorithms.png)
+![Алгоритмы регрессии: "Сколько?"](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
 
 Алгоритмы регрессии делают числовые прогнозы, такие как в приведенных ниже примерах.
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 05/05/2017
 
 Существует множество способов выявления структуры данных. Одним из способов является кластеризация. Она разделяет данные на естественные группы, чтобы упростить их интерпретацию. При использовании кластеризации нет единого правильного ответа.
 
-![Алгоритмы кластеризации: "Как это организовано?"](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)
+![Алгоритмы кластеризации: "Как это организовано?"](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
 
 Ниже приводятся распространенные примеры вопросов с кластеризацией.
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 05/05/2017
 
 Как правило, обучение с подкреплением подходит для автоматизированных систем, которые должны принимать много мелких решений без вмешательства человека.
 
-![Алгоритмы обучения с подкреплением: "Что делать дальше?"](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-reinforcement-learning-algorithms.png)
+![Алгоритмы обучения с подкреплением: "Что делать дальше?"](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
 Ответом на вопрос всегда является то, какое действие необходимо выполнить. Обычно это относится к машине или роботу. Примеры
 

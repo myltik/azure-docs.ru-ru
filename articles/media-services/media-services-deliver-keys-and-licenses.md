@@ -12,19 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/18/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 69019f41bcc72b71bcc7d0bf8a66fe37d5243b7b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Использование служб мультимедиа Azure для доставки лицензий DRM или ключей AES
 Службы мультимедиа Azure (AMS) позволяют принимать и кодировать содержимое, добавлять функции защиты содержимого, а также передавать содержимое в потоковом режиме (см. [эту статью](media-services-protect-with-drm.md)). Однако некоторые клиенты хотят использовать AMS только для доставки лицензий и (или) ключей, а выполнять кодирование, шифрование и потоковую передачу содержимого — с помощью своих локальных серверов AMS. В этой статье содержатся сведения об использовании AMS для доставки лицензий PlayReady и (или) Widevine и использовании локальных серверов для остальных задач. 
 
 ## <a name="overview"></a>Обзор
-Службы мультимедиа обеспечивают доставку лицензий PlayReady и DRM Widevine, а также ключей AES-128. Они также предоставляют API-интерфейсы для настройки прав и ограничений, которые должны применяться в среде выполнения DRM, когда пользователь воспроизводит защищенное DRM содержимое. Когда пользователь запрашивает защищенное содержимое, приложение проигрывателя запросит лицензию из службы лицензий AMS. Служба лицензий AMS выдаст лицензию проигрывателю (если он авторизован). Лицензии PlayReady и Widevine содержат ключ расшифровки, который может использоваться клиентским проигрывателем для расшифровки и потоковой передачи содержимого.
+Службы мультимедиа обеспечивают доставку лицензий PlayReady и Widevine DRM, а также ключей AES-128. Они также предоставляют API-интерфейсы для настройки прав и ограничений, которые должны применяться в среде выполнения DRM, когда пользователь воспроизводит защищенное DRM содержимое. Когда пользователь запрашивает защищенное содержимое, приложение проигрывателя запросит лицензию из службы лицензий AMS. Служба лицензий AMS выдаст лицензию проигрывателю (если он авторизован). Лицензии PlayReady и Widevine содержат ключ расшифровки, который может использоваться клиентским проигрывателем для расшифровки и потоковой передачи содержимого.
 
 Службы мультимедиа поддерживают несколько способов авторизации пользователей, которые запрашивают лицензии или ключи. При настройке политики авторизации ключа содержимого можно задать одно или несколько ограничений: открытая авторизация или с ограничением по маркеру. При ограничении по маркеру к политике должен прилагаться маркер, выданный службой маркеров безопасности (STS). Службы мультимедиа поддерживают маркеры в формате простого веб-маркера (SWT) и формате веб-маркера JSON (JWT).
 
@@ -35,31 +36,34 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
 ## <a name="download-sample"></a>Скачивание образца
 Пример, описанный в этой статье, можно скачать [по этой ссылке](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
+## <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
+
+1. Настройте среду разработки и укажите в файле app.config сведения о подключении, как описано в статье [Разработка служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md). 
+2. Добавьте следующие элементы в **appSettings**, определенные в файле app.config:
+
+    <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
+
 ## <a name="net-code-example"></a>Пример кода .NET
-В примере кода в этой статье показано, как создать общий ключ содержимого и получить URL-адреса для получения лицензии PlayReady или Widevine. Вам нужно настроить локальный сервер и получить следующие сведения из AMS: **ключ содержимого**, **идентификатор ключа**, **URL-адрес для получения лицензии**. После настройки локального сервера можно передавать потоки данных с собственного сервера потоковой передачи. Поскольку зашифрованный поток указывает на сервер лицензирования AMS, проигрыватель будет запрашивать лицензии из AMS. При выборе проверки подлинности маркеров сервер лицензирования AMS проверит маркер, отправленный по протоколу HTTPS, и (если он является допустимым) доставит лицензию обратно в проигрыватель. (В примере кода показано только создание общего ключа содержимого и получение URL-адресов для получения лицензий PlayReady или Widevine. Если вам требуется доставка ключей AES-128, нужно создать ключ содержимого типа "конверт" и получить URL-адрес для получения ключа. Инструкции см. в [этой статье](media-services-protect-with-aes128.md).)
+
+В приведенном ниже примере кода показано создание общего ключа содержимого и получение URL-адресов для получения лицензий PlayReady или Widevine. Вам нужно настроить локальный сервер и получить следующие сведения из AMS: **ключ содержимого**, **идентификатор ключа**, **URL-адрес для получения лицензии**. После настройки локального сервера можно передавать потоки данных с собственного сервера потоковой передачи. Поскольку зашифрованный поток указывает на сервер лицензирования AMS, проигрыватель будет запрашивать лицензии из AMS. При выборе проверки подлинности маркеров сервер лицензирования AMS проверит маркер, отправленный по протоколу HTTPS, и (если он является допустимым) доставит лицензию обратно в проигрыватель. (В примере кода показано только создание общего ключа содержимого и получение URL-адресов для получения лицензий PlayReady или Widevine. Если вам требуется доставка ключей AES-128, нужно создать ключ содержимого типа "конверт" и получить URL-адрес для получения ключа. Инструкции см. в [этой статье](media-services-protect-with-aes128.md).)
 
     using System;
     using System.Collections.Generic;
     using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
     using Microsoft.WindowsAzure.MediaServices.Client;
     using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
     using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
     using Newtonsoft.Json;
-
 
     namespace DeliverDRMLicenses
     {
         class Program
         {
             // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             private static readonly Uri _sampleIssuer =
                 new Uri(ConfigurationManager.AppSettings["Issuer"]);
@@ -68,16 +72,13 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 bool tokenRestriction = true;
                 string tokenTemplateString = null;
@@ -86,10 +87,10 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
                 IContentKey key = CreateCommonTypeContentKey();
 
                 // Print out the key ID and Key in base64 string format
-                Console.WriteLine("Created key {0} with key value {1} ", 
+                Console.WriteLine("Created key {0} with key value {1} ",
                     key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
 
-                Console.WriteLine("PlayReady License Key delivery URL: {0}", 
+                Console.WriteLine("PlayReady License Key delivery URL: {0}",
                     key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
 
                 Console.WriteLine("Widevine License Key delivery URL: {0}",
@@ -100,7 +101,7 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
                 else
                     AddOpenAuthorizationPolicy(key);
 
-                Console.WriteLine("Added authorization policy: {0}", 
+                Console.WriteLine("Added authorization policy: {0}",
                     key.AuthorizationPolicyId);
                 Console.WriteLine();
                 Console.ReadLine();
@@ -112,15 +113,15 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
                 // Create ContentKeyAuthorizationPolicy with Open restrictions 
                 // and create authorization policy          
 
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
                     new List<ContentKeyAuthorizationPolicyRestriction>
                 {
-                    new ContentKeyAuthorizationPolicyRestriction
-                    {
-                        Name = "Open",
-                        KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-                        Requirements = null
-                    }
+                        new ContentKeyAuthorizationPolicyRestriction
+                        {
+                            Name = "Open",
+                            KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+                            Requirements = null
+                        }
                 };
 
                 // Configure PlayReady and Widevine license templates.
@@ -155,15 +156,15 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
             {
                 string tokenTemplateString = GenerateTokenRequirements();
 
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
                     new List<ContentKeyAuthorizationPolicyRestriction>
                 {
-                    new ContentKeyAuthorizationPolicyRestriction
-                    {
-                        Name = "Token Authorization Policy",
-                        KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-                        Requirements = tokenTemplateString,
-                    }
+                        new ContentKeyAuthorizationPolicyRestriction
+                        {
+                            Name = "Token Authorization Policy",
+                            KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+                            Requirements = tokenTemplateString,
+                        }
                 };
 
                 // Configure PlayReady and Widevine license templates.
@@ -220,7 +221,7 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
                 //and the application (may be useful for custom app logic) 
                 //as well as a list of one or more license templates.
 
-                PlayReadyLicenseResponseTemplate responseTemplate = 
+                PlayReadyLicenseResponseTemplate responseTemplate =
                     new PlayReadyLicenseResponseTemplate();
 
                 // The PlayReadyLicenseTemplate class represents a license template 
@@ -274,14 +275,14 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
                     allowed_track_types = AllowedTrackTypes.SD_HD,
                     content_key_specs = new[]
                     {
-                        new ContentKeySpecs
-                        {
-                            required_output_protection = 
-                                new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-                            security_level = 1,
-                            track_type = "SD"
-                        }
-                    },
+                            new ContentKeySpecs
+                            {
+                                required_output_protection =
+                                    new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+                                security_level = 1,
+                                track_type = "SD"
+                            }
+                        },
                     policy_overrides = new
                     {
                         can_play = true,
@@ -310,8 +311,6 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
                 return key;
             }
 
-
-
             static private byte[] GetRandomBuffer(int length)
             {
                 var returnValue = new byte[length];
@@ -324,11 +323,8 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
 
                 return returnValue;
             }
-
-
         }
     }
-
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -342,10 +338,5 @@ ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
 [Использование динамического шифрования AES-128 и службы доставки ключей](media-services-protect-with-aes128.md)
 
 [Использование партнеров для доставки лицензий Widevine для служб мультимедиа Azure](media-services-licenses-partner-integration.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 06/14/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 19cf0a68a8cd05d94badee2efc6c8b023fee7461
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 8a399ca2f529568dbe5ffd4b58c3f0f69248b71d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Перенос базы данных PostgreSQL с помощью дампа и ее восстановление
@@ -27,7 +27,7 @@ ms.lasthandoff: 06/16/2017
 Выполните указанные ниже действия, чтобы создать дамп базы данных PostgreSQL и восстановить ее.
 
 ## <a name="create-a-dump-file-using-pgdump-that-contains-the-data-to-be-loaded"></a>Создание файла дампа, содержащего загружаемые данные, с помощью pg_dump
-Чтобы создать резервную копию имеющейся базы данных PostgreSQL локально или на виртуальной машине, выполните следующую команду.
+Чтобы создать резервную копию базы данных PostgreSQL локально или на виртуальной машине, выполните следующую команду:
 ```bash
 pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
 ```

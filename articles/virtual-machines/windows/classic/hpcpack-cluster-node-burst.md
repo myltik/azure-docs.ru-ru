@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d27376e81f5be3d4f473ef044a84a18ac451921f
-ms.lasthandoff: 03/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Добавление "расширительных" узлов по запросу в кластер пакета HPC в Azure
@@ -77,7 +77,7 @@ ms.lasthandoff: 03/27/2017
 Если при развертывании узлов Azure возникли проблемы, ознакомьтесь со статьей [Устранение неполадок развертываний узлов Azure с помощью пакета Microsoft HPC](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Рекомендации по использованию размеров экземпляров для ресурсоемких вычислений для расширительных узлов см. в статье [Виртуальные машины серии A (для ресурсоемких вычислений) и серии H](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Рекомендации по использованию размеров экземпляров для ресурсоемких вычислений для расширительных узлов см. в статье [Размеры виртуальных машин, оптимизированных для высокопроизводительных вычислений](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Если вам требуется возможность автоматического увеличения или уменьшения вычислительных ресурсов Azure в соответствии с текущей рабочей нагрузкой, ознакомьтесь со статьей [Автоматическое изменение размера ресурсов кластера пакета HPC в Azure в соответствии с рабочей нагрузкой кластера](hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->

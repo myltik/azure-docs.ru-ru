@@ -5,21 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2017
+ms.date: 07/13/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 06daecfe8cd61cbb3ab9d2307acb07e30270d921
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 68213a40755ae7dc675556c595da032b408be261
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Начало работы с управлением доступом на основе ролей на портале Azure
@@ -48,7 +47,7 @@ ms.lasthandoff: 04/27/2017
 В статье [RBAC: встроенные роли](role-based-access-built-in-roles.md) перечислены роли, доступные в Azure. В статье указаны также операции и области, которые каждая встроенная роль предоставляет пользователям. Если вы хотите определить собственные роли для дополнительного управления, см. статью [Пользовательские роли в Azure RBAC](role-based-access-control-custom-roles.md).
 
 ## <a name="resource-hierarchy-and-access-inheritance"></a>Иерархия ресурсов и наследование прав доступа
-* Каждая **подписка** в Azure относится только к одному каталогу.
+* Каждая **подписка** в Azure относится только к одному каталогу, но в каждом каталоге может быть несколько подписок.
 * Каждая **группа ресурсов** относится только к одной подписке.
 * Каждый **ресурс** относится только к одной группе ресурсов.
 

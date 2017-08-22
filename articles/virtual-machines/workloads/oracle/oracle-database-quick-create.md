@@ -1,9 +1,9 @@
 ---
-title: "Создание базы данных Oracle 12c на виртуальной машине Azure | Документы Майкрософт"
+title: "Создание базы данных Oracle на виртуальной машине Azure | Документация Майкрософт"
 description: "Быстрое создание и запуск базы данных Oracle 12c в среде Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: tonyguid
+author: rickstercdn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 95e37d57ad92ef47a358527189997e7dd29d7b8d
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 8683b016c4db2c66fb1dd994405b70c3d137a7fc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 
-# <a name="create-an-oracle-database-12c-database-in-an-azure-virtual-machine"></a>Создание базы данных Oracle 12c на виртуальной машине Azure
+# <a name="create-an-oracle-database-in-an-azure-vm"></a>Создание базы данных Oracle на виртуальной машине Azure
 
-В этом руководстве объясняется, как с помощью Azure CLI развернуть виртуальную машину Azure, используя [образ из коллекции Oracle Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview), чтобы создать базу данных Oracle 12c. После развертывания сервера создается SSH-подключение для последующей настройки базы данных Oracle. 
+В этом руководстве объясняется, как с помощью Azure CLI развернуть виртуальную машину Azure, используя [образ из коллекции Oracle Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview), чтобы создать базу данных Oracle 12c. После развертывания сервера вы подключитесь к нему по протоколу SSH для настройки базы данных Oracle. 
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
 
@@ -78,7 +78,7 @@ az vm create \
 Используйте следующую команду для создания сеанса SSH с виртуальной машиной. Замените IP-адрес общедоступным IP-адресом виртуальной машины (значение `publicIpAddress`).
 
 ```bash 
-ssh azureuser@<publicIpAddress>
+ssh <publicIpAddress>
 ```
 
 ## <a name="create-the-database"></a>Создание базы данных
@@ -123,7 +123,7 @@ ssh azureuser@<publicIpAddress>
 2.  Создание базы данных
 
     ```bash
-    $ dbca -silent \
+    dbca -silent \
            -createDatabase \
            -templateName General_Purpose.dbc \
            -gdbname cdb1 \
@@ -149,12 +149,12 @@ ssh azureuser@<publicIpAddress>
 Прежде чем подключиться, необходимо задать две переменные среды: *ORACLE_HOME* и *ORACLE_SID*.
 
 ```bash
-$ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=cdb1; export ORACLE_SID
+ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
+ORACLE_SID=cdb1; export ORACLE_SID
 ```
-При необходимости можно добавить переменные ORACLE_HOME и ORACLE_SID в BASHRC-файл. Это позволит сохранить переменные среды для входа в систему в дальнейшем. Добавьте следующие инструкции в BASHRC-файл, используя любой текстовый редактор.
+При необходимости можно добавить переменные ORACLE_HOME и ORACLE_SID в BASHRC-файл. Это позволит сохранить переменные среды для следующих входов в систему. Добавьте следующие инструкции в файл `~/.bashrc` с помощью любого редактора.
 
-```
+```bash
 # Add ORACLE_HOME. 
 export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1 
 # Add ORACLE_SID. 
@@ -168,32 +168,38 @@ export ORACLE_SID=cdb1
 1. Подключитесь к базе данных с помощью SQL Plus.
 
     ```bash
-    $ sqlplus / as sysdba
+    sqlplus / as sysdba
     ```
 
 2. После подключения задайте порт 5502 для EM Express.
 
     ```bash
-    SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
+    exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
     ```
 
 3. Откройте контейнер PDB1, если вы еще не сделали этого, но сначала проверьте его состояние.
 
     ```bash
-    SQL> select con_id, name, open_mode from v$pdbs;
- 
+    select con_id, name, open_mode from v$pdbs;
+    ```
+
+    Выход аналогичен приведенному ниже:
+
+    ```bash
       CON_ID NAME                           OPEN_MODE 
       ----------- ------------------------- ---------- 
       2           PDB$SEED                  READ ONLY 
       3           PDB1                      MOUNT
     ```
 
-4. Если значение переменной OPEN_MODE отличается от READ WRITE, выполните следующие команды, чтобы открыть PDB1.
+4. Если значение переменной OPEN_MODE для `PDB1` отличается от READ WRITE, выполните следующие команды, чтобы открыть PDB1.
 
    ```bash
-    SQL> alter session set container=pdb1;
-    SQL> alter database open;
+    alter session set container=pdb1;
+    alter database open;
    ```
+
+Теперь введите команду `quit` для завершения сеанса sqlplus, а затем `exit` для завершения сеанса пользователя oracle.
 
 ## <a name="automate-database-startup-and-shutdown"></a>Автоматизация запуска и завершения работы базы данных
 
@@ -201,16 +207,16 @@ export ORACLE_SID=cdb1
 
 1. Войдите с правами привилегированного пользователя.
     ```bash
-    $ sudo su -
+    sudo su -
     ```
 
-2.  Измените файл */etc/oratab* и замените используемое по умолчанию значение `N` на `Y`.
+2.  В любом удобном редакторе откройте файл `/etc/oratab` и замените значение по умолчанию `N` на `Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  Создайте файл с именем */etc/init.d/dbora* и вставьте следующее содержимое.
+3.  Создайте файл с именем `/etc/init.d/dbora` и вставьте в него следующее содержимое:
 
     ```
     #!/bin/sh
@@ -244,22 +250,22 @@ export ORACLE_SID=cdb1
 4.  Измените разрешения для файлов с помощью команды *chmod*:
 
     ```bash
-    # chgrp dba /etc/init.d/dbora
-    # chmod 750 /etc/init.d/dbora
+    chgrp dba /etc/init.d/dbora
+    chmod 750 /etc/init.d/dbora
     ```
 
 5.  Создайте символьные ссылки для запуска и завершения работы:
 
     ```bash
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
 6.  Чтобы проверить изменения, перезапустите виртуальную машину.
 
     ```bash
-    # reboot
+    reboot
     ```
 
 ## <a name="open-ports-for-connectivity"></a>Открытие портов для подключения
@@ -268,7 +274,7 @@ export ORACLE_SID=cdb1
 
 1.  Чтобы открыть конечную точку для удаленного доступа к базе данных Oracle, создайте правило группы безопасности сети с помощью команды [az network nsg rule create](/cli/azure/network/nsg/rule#create): 
 
-    ```azurecli
+    ```azurecli-interactive
     az network nsg rule create \
         --resource-group myResourceGroup\
         --nsg-name myVmNSG \
@@ -280,7 +286,7 @@ export ORACLE_SID=cdb1
 
 2.  Чтобы открыть конечную точку для удаленного доступа к Oracle EM Express, создайте правило группы безопасности сети с помощью команды [az network nsg rule create](/cli/azure/network/nsg/rule#create):
 
-    ```azurecli
+    ```azurecli-interactive
     az network nsg rule create \
         --resource-group myResourceGroup \
         --nsg-name myVmNSG \
@@ -292,7 +298,7 @@ export ORACLE_SID=cdb1
 
 3. При необходимости получите общедоступный IP-адрес виртуальной машины еще раз с помощью команды [az network public-ip show](/cli/azure/network/public-ip#show):
 
-    ```azurecli
+    ```azurecli-interactive
     az network public-ip show \
         --resource-group myResourceGroup \
         --name myVMPublicIP \
@@ -300,19 +306,19 @@ export ORACLE_SID=cdb1
         --output tsv
     ```
 
-4.  Подключите EM Express из своего браузера. 
+4.  Подключите EM Express с помощью браузера. Убедитесь, что браузер совместим с EM Express (также необходимо установить Flash). 
 
     ```
     https://<VM ip address or hostname>:5502/em
     ```
 
-Вы можете войти с помощью учетной записи *SYS* и установить флажок *as sysdba*. Используйте пароль *OraPasswd1*, заданный во время установки. Убедитесь, что браузер совместим с EM Express. (Может потребоваться быстрая установка.)
+Вы можете войти с помощью учетной записи **SYS** и установить флажок **as sysdba**. Используйте пароль **OraPasswd1**, заданный во время установки. 
 
 ![Снимок экрана со страницей входа Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, выполнив команду [az group delete](/cli/azure/group#delete).
+Когда вы завершите изучение первой базы данных Oracle в Azure, вы можете удалить ненужную виртуальную машину, группу ресурсов и все связанные с ней ресурсы с помощью команды [az group delete](/cli/azure/group#delete).
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

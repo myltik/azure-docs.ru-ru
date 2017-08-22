@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 4c373eef77605ab45c9a08ed7f60476abafa229c
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: fe6a28afbee573351186e361126ddca7db764311
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Перемещение ресурсов в новую группу ресурсов или подписку
@@ -125,6 +124,7 @@ ms.lasthandoff: 06/30/2017
 ## <a name="services-that-do-not-enable-move"></a>Службы, не поддерживающие перемещение
 Службы, которые в настоящее время не поддерживают перемещение ресурсов:
 
+* доменные службы Active Directory;
 * служба работоспособности гибридного AD;
 * Шлюз приложений
 * Группы доступности, содержащие виртуальные машины с управляемыми дисками.

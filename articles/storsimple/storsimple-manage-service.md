@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 07/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 99fab8eafe4e17f50db8e7e33637001be03abe7b
-ms.openlocfilehash: 0cb356910b858bf231dfadffa1d4561df1977af0
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: ba3637a3a8b15b45c16bf5a00c1f4225bcfc5af8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Развертывание службы диспетчера StorSimple на классическом портале Azure
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/28/2017
 
 На главной странице диспетчера StorSimple перечислены все службы диспетчера StorSimple, которые можно использовать для управления запоминающими устройствами StorSimple. Для каждой службы диспетчера StorSimple на странице диспетчера StorSimple представлена следующая информация:
 
-* **Имя** — имя, назначенное вашей службе диспетчера StorSimple при ее создании. Имя службы невозможно изменить после ее создания.
+* **Имя** — имя, назначенное вашей службе диспетчера StorSimple при ее создании. **Имя службы невозможно изменить после ее создания. Это также верно для других сущностей, таких как устройства, тома, контейнеры томов и политики резервного копирования, которые не могут быть переименованы на классическом портале Azure.**
 * **Состояние** — состояние службы. Оно может иметь значение **Работает**, **Идет создание** или **В сети**.
 * **Местоположение** — географическое местоположение, в котором будет развернуто устройство StorSimple.
 * **Подписка** — подписка выставления счетов, связанная с вашей службой.
