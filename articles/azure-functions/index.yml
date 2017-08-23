@@ -8,7 +8,7 @@ metadata:
   services: functions
   author: czeumault
   manager: carolz
-  ms.service: virtual-machines\linux
+  ms.service: functions
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -18,76 +18,75 @@ abstract:
   description: "Функции Azure\_— это независимая от сервера служба вычислений, которая позволяет выполнять код по требованию без необходимости явно подготавливать или администрировать инфраструктуру. Используйте функции Azure для выполнения скрипта или фрагмента кода в ответ на разные события. Узнайте, как использовать функции Azure, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video-thumb-get-started.png
-      width: 250  
+      width: 250
     title: 'Приступая к работе с функциями Azure. (2:39)'
-    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
+    href: 'https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/'
     width: 250
 sections:
-- title: 5-минутные руководства по началу работы
-  items:
-  - type: paragraph
-    text: 'Узнайте, как создавать функции, которые выполняются в результате событий, созданных с помощью следующих средств:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/http.svg
-      text: HTTP
-      href: /azure/azure-functions/functions-create-first-azure-function
-    - image: 
-        src: media/index/stopwatch.svg
-      text: Таймер
-      href: /azure/azure-functions/functions-create-scheduled-function
-    - image: 
-        src: media/index/octokitty.svg
-      text: Объект webhook GitHub
-      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
-    - image: 
-        src: media/index/blob.svg
-      text: BLOB-объект
-      href: /azure/azure-functions/functions-create-storage-blob-triggered-function
-    - image: 
-        src: media/index/storage.svg
-      text: Очередь
-      href: /azure/azure-functions/functions-create-storage-queue-triggered-function
-  - type: paragraph
-    text: 'Дополнительные сведения о локальной разработке и отладке:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /media/logos/logo_visual-studio.svg
-      text: Visual Studio
-      href: /azure/azure-functions/functions-create-your-first-function-visual-studio
-- title: Пошаговые руководства
-  items:
-  - type: paragraph
-    text: 'Дополнительные сведения о сборке и администрировании функций Azure:'
-  - type: list
-    style: ordered
+  - title: 5-минутные руководства по началу работы
     items:
-    - html: '<a href="/azure/azure-functions/functions-twitter-email">Создание функции, интегрируемой с Azure Logic Apps</a>'
-    - html: <a href="/azure/azure-functions/functions-create-serverless-api">Создание бессерверного API с помощью Функций Azure</a>
-- title: Примеры
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Узнайте, как создавать функции, которые выполняются в результате событий, созданных с помощью следующих средств:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/http.svg
+            text: HTTP
+            href: /azure/azure-functions/functions-create-first-azure-function
+          - image:
+              src: media/index/stopwatch.svg
+            text: Таймер
+            href: /azure/azure-functions/functions-create-scheduled-function
+          - image:
+              src: media/index/octokitty.svg
+            text: Объект webhook GitHub
+            href: /azure/azure-functions/functions-create-github-webhook-triggered-function
+          - image:
+              src: media/index/blob.svg
+            text: BLOB-объект
+            href: /azure/azure-functions/functions-create-storage-blob-triggered-function
+          - image:
+              src: media/index/storage.svg
+            text: Очередь
+            href: /azure/azure-functions/functions-create-storage-queue-triggered-function
+      - type: paragraph
+        text: 'Дополнительные сведения о локальной разработке и отладке:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /media/logos/logo_visual-studio.svg
+            text: Visual Studio
+            href: /azure/azure-functions/functions-create-your-first-function-visual-studio
+  - title: Пошаговые руководства
     items:
-    - html: <a href="/azure/azure-functions/functions-cli-samples">Интерфейс командной строки Azure</a>
-- title: Справочные материалы
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Дополнительные сведения о сборке и администрировании функций Azure:'
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="/azure/azure-functions/functions-twitter-email">Создание функции, интегрируемой с Azure Logic Apps</a>'
+          - html: <a href="/azure/azure-functions/functions-create-serverless-api">Создание бессерверного API с помощью Функций Azure</a>
+  - title: Примеры
     items:
-    - title: Командная строка
-      html: <p><a href="/cli/azure">Интерфейс командной строки Azure</a></p>
-    - title: REST
-      html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
-    - title: Привязки
- 
-      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Хранилище BLOB-объектов</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Концентратор событий</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Внешний файл</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP и вызовы webhook</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Мобильные приложения</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Центры уведомлений</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Хранилище очередей</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Служебная шина</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Хранилище таблиц</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Таймер</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Привязка к выходным данным Twilio</a></p>
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/azure-functions/functions-cli-samples">Интерфейс командной строки Azure</a>
+  - title: Справочные материалы
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Командная строка
+            html: <p><a href="/cli/azure">Интерфейс командной строки Azure</a></p>
+          - title: REST
+            html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
+          - title: Привязки
+            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Хранилище BLOB-объектов</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Концентратор событий</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Внешний файл</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP и вызовы webhook</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Мобильные приложения</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Центры уведомлений</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Хранилище очередей</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Служебная шина</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Хранилище таблиц</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Таймер</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Привязка к выходным данным Twilio</a></p>

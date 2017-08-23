@@ -53,7 +53,7 @@ ms.lasthandoff: 07/18/2017
 
 Используя приведенную ниже команду на сервере служб федерации Active Directory, можно добавить ссылку на страницу входа служб федерации Active Directory, которая позволяет пользователям напрямую приступить к процессу самостоятельного сброса пароля.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?<A/></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-and-access-panel-look-and-feel"></a>Настройка выполнения входа и оформления панели доступа
 

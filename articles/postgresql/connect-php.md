@@ -6,10 +6,10 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/29/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
@@ -19,48 +19,34 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-php-to-connect-and-query-data" class="xliff"></a>
-
-# База данных Azure для PostgreSQL: подключение и запрос данных с помощью PHP
+# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью PHP
 В этом кратком руководстве объясняется, как подключиться к базе данных Azure для PostgreSQL с помощью приложения [PHP](http://php.net/manual/intro-whatis.php). Здесь также показано, как использовать инструкции SQL для запроса, вставки, обновления и удаления данных в базе данных. В этой статье предполагается, что у вас уже есть опыт разработки на PHP, но вы только начали работу с базой данных Azure для PostgreSQL.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 В качестве отправной точки в этом кратком руководстве используются ресурсы, созданные в соответствии со следующими материалами:
 - [Создание базы данных с помощью портала](quickstart-create-server-database-portal.md)
 - [Создание базы данных с помощью Azure CLI](quickstart-create-server-database-azure-cli.md)
 
-<a id="install-php" class="xliff"></a>
-
-## Установка PHP
+## <a name="install-php"></a>Установка PHP
 Установите PHP на своем сервере или создайте [веб-приложение](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) Azure с PHP.
 
-<a id="windows" class="xliff"></a>
-
-### Windows
+### <a name="windows"></a>Windows
 - Скачайте [PHP 7.1.4 (x64) непотокобезопасной версии](http://windows.php.net/download#php-7.1).
 - Установите PHP и выполните настройку согласно инструкциям в [руководстве по PHP](http://php.net/manual/install.windows.php).
 - В коде используется класс **pgsql** (ext/php_pgsql.dll), который устанавливается с PHP. 
 - Включите расширение **pgsql**, изменив файл конфигурации php.ini. Как правило, он находится в папке `C:\Program Files\PHP\v7.1\php.ini`. Файл конфигурации должен содержать строку с текстом `extension=php_pgsql.so`. Если текст не отображается, добавьте его и сохраните файл. Если текст есть, но закомментирован префиксом в виде точки с запятой, раскомментируйте его, удалив точку с запятой.
 
-<a id="linux-ubuntu" class="xliff"></a>
-
-### Linux (Ubuntu)
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 - Скачайте [PHP 7.1.4 (x64) непотокобезопасной версии](http://php.net/downloads.php). 
 - Установите PHP и выполните настройку согласно инструкциям в [руководстве по PHP](http://php.net/manual/install.unix.php).
 - В коде используется класс **pgsql** (php_pgsql.so). Установите его, выполнив команду `sudo apt-get install php-pgsql`.
 - Включите расширение **pgsql**, изменив файл конфигурации `/etc/php/7.0/mods-available/pgsql.ini`. Файл конфигурации должен содержать строку с текстом `extension=php_pgsql.so`. Если текст не отображается, добавьте его и сохраните файл. Если текст есть, но закомментирован префиксом в виде точки с запятой, раскомментируйте его, удалив точку с запятой.
 
-<a id="macos" class="xliff"></a>
-
-### MacOS
+### <a name="macos"></a>MacOS
 - Скачайте [PHP версии 7.1.4](http://php.net/downloads.php).
 - Установите PHP и выполните настройку согласно инструкциям в [руководстве по PHP](http://php.net/manual/install.macosx.php).
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Получение сведений о подключении
+## <a name="get-connection-information"></a>Получение сведений о подключении
 Получите сведения, необходимые для подключения к базе данных Azure.для PostgreSQL. Вам потребуется полное имя сервера и учетные данные для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
@@ -70,9 +56,7 @@ ms.lasthandoff: 06/30/2017
  ![База данных Azure для PostgreSQL. Учетные данные администратора сервера для входа](./media/connect-php/1-connection-string.png)
 5. Если вы забыли данные для входа на сервер, перейдите на страницу **Обзор**, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль.
 
-<a id="connect-and-create-a-table" class="xliff"></a>
-
-## Подключение и создание таблицы
+## <a name="connect-and-create-a-table"></a>Подключение и создание таблицы
 Используйте приведенный ниже код для подключения и создайте таблицу с помощью инструкции SQL **CREATE TABLE**. Добавьте строки в таблицу, применив инструкцию SQL **INSERT INTO**.
 
 Код вызывает метод [pg_connect()](http://php.net/manual/en/function.pg-connect.php), чтобы подключиться к базе данных Azure для PostgreSQL. Затем он вызывает метод [pg_query()](http://php.net/manual/en/function.pg-query.php) несколько раз, чтобы выполнить несколько команд, и метод [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php), чтобы проверить сведения, если каждое выполнение завершилось ошибкой. После этого вызывается метод [mysqli_close](http://php.net/manual/en/function.pg-close.php), чтобы разорвать подключение.
@@ -130,9 +114,7 @@ ms.lasthandoff: 06/30/2017
 ?>
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Считывание данных
+## <a name="read-data"></a>Считывание данных
 Используйте указанный ниже код с инструкцией SQL **SELECT** для подключения и чтения данных. 
 
  Код вызывает метод [pg_connect()](http://php.net/manual/en/function.pg-connect.php), чтобы подключиться к базе данных Azure для PostgreSQL. Затем он вызывает метод [pg_query()](http://php.net/manual/en/function.pg-query.php) для выполнения команды SELECT, сохраняя результаты в результирующем наборе, и метод [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php), чтобы проверить сведения, если произошла ошибка.  Чтобы считать данные результирующего набора, в цикле вызывается метод [pg_fetch_row()](http://php.net/manual/en/function.pg-fetch-row.php) для каждой строки. Данные строки извлекаются в виде массива `$row` с одним значением данных для каждого столбца в каждой позиции массива.  Чтобы освободить результирующий набор, вызывается метод [pg_free_result()](http://php.net/manual/en/function.pg-free-result.php). После этого вызывается метод [mysqli_close](http://php.net/manual/en/function.pg-close.php), чтобы разорвать подключение.
@@ -170,9 +152,7 @@ ms.lasthandoff: 06/30/2017
 ?>
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Обновление данных
+## <a name="update-data"></a>Обновление данных
 Используйте указанный ниже код с инструкцией SQL **UPDATE** для подключения и обновления данных.
 
 Код вызывает метод [pg_connect()](http://php.net/manual/en/function.pg-connect.php), чтобы подключиться к базе данных Azure для PostgreSQL. Затем он вызывает метод [pg_query()](http://php.net/manual/en/function.pg-query.php), чтобы выполнить команду, и метод [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php), чтобы проверить сведения, если произошла ошибка. После этого вызывается метод [mysqli_close](http://php.net/manual/en/function.pg-close.php), чтобы разорвать подключение.
@@ -207,9 +187,7 @@ ms.lasthandoff: 06/30/2017
 ```
 
 
-<a id="delete-data" class="xliff"></a>
-
-## Удаление данных
+## <a name="delete-data"></a>Удаление данных
 Используйте указанный ниже код с инструкцией SQL **DELETE** для подключения и чтения данных. 
 
  Код вызывает метод [pg_connect()](http://php.net/manual/en/function.pg-connect.php), чтобы подключиться к базе данных Azure для PostgreSQL. Затем он вызывает метод [pg_query()](http://php.net/manual/en/function.pg-query.php), чтобы выполнить команду, и метод [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php), чтобы проверить сведения, если произошла ошибка. После этого вызывается метод [mysqli_close](http://php.net/manual/en/function.pg-close.php), чтобы разорвать подключение.
@@ -242,9 +220,7 @@ ms.lasthandoff: 06/30/2017
 ?>
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 > [!div class="nextstepaction"]
 > [Перенос базы данных с помощью экспорта и импорта](./howto-migrate-using-export-and-import.md)
 
