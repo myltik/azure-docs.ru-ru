@@ -1,0 +1,12 @@
+- name: Обзор
+  items:
+    - name: Введение
+      href: ./common/storage-introduction.md
+    - name: 'Выбор больших двоичных объектов, файлов или дисков данных'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: BLOB-объекты
+  href: ./blobs/storage-blobs-introduction.md
+- name: Файлы
+  href: ./files/storage-files-introduction.md
+- name: Очереди
+  href: ./queues/storage-queues-introduction.md

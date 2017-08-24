@@ -10,16 +10,9 @@
 ## [Регистрация для использования Azure AD Premium](active-directory-get-started-premium.md)
 ## [Добавление имени личного домена](add-custom-domain.md)
 ## [Настройка фирменной символики компании](customize-branding.md)
+## [Добавление пользователей в Azure AD](add-users-azure-active-directory.md)
+## [Назначение лицензий пользователям](license-users-groups.md)
 ## [Настройка самостоятельного сброса пароля](active-directory-passwords-getting-started.md)
-## Управление лицензированием Azure AD
-### [Портал Azure](active-directory-licensing-get-started-azure-portal.md)
-### [Классический портал.](active-directory-licensing-what-is.md)
-### [Назначение лицензий с помощью групп](active-directory-licensing-whatis-azure-portal.md)
-#### [Назначение лицензий группе](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Поиск и устранение проблем с лицензированием групп](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
-#### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
-#### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 
 
 # Практическое руководство
@@ -44,11 +37,6 @@
 #### [Сравнение инструментов](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Управление пользователями
-### Добавление пользователей
-#### [Портал Azure](active-directory-users-create-azure-portal.md)
-#### [Классический портал.](active-directory-create-users.md)
-
-
 ### [Назначение лицензий с помощью групп](active-directory-licensing-whatis-azure-portal.md)
 #### [Назначение лицензий группе](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Поиск и устранение проблем с лицензированием групп](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -147,16 +135,10 @@
 ### [Часто задаваемые вопросы](device-management-faq.md)
 ### Задачи
 #### [Настройка устройств, присоединенных к гибридному облаку Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### Устранение неполадок
-##### [Устройства под управлением Windows 10 и Windows Server 2016, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
-##### [Устройства под управлением прежних версий Windows, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
-### Регистрация устройств
 #### [Локальное развертывание](active-directory-device-registration-on-premises-setup.md)
-#### [Часто задаваемые вопросы](active-directory-device-registration-faq.md)
-#### Устранение неполадок
-##### [Устранение неполадок в Windows 10 и Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
-##### [Устранение неполадок для клиентов Windows нижнего уровня](active-directory-device-registration-troubleshoot-windows-legacy.md)
+### Устранение неполадок
+#### [Устройства под управлением Windows 10 и Windows Server 2016, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
+#### [Устройства под управлением прежних версий Windows, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 ### [Присоединение к Azure AD](active-directory-azureadjoin-overview.md)
 #### [План](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Настройка регистрации устройств](active-directory-azureadjoin-setup.md)

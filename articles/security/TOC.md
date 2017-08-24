@@ -8,6 +8,7 @@
 ## [Безопасность Service Fabric](azure-service-fabric-security-overview.md)
 ## [Управление удостоверениями](security-identity-management-overview.md)
 ## [Безопасность Интернета вещей](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Общие сведения о шифровании в Azure](security-azure-encryption-overview.md)
 ## [Архитектура безопасности](azure-security-architecture-overview.md)
 ### [Включение функций операционной безопасности](azure-operational-security.md)
 ### [Расширенное обнаружение угроз](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## Безопасность хранилищ
 ### [Рекомендации по шифрованию и обеспечению защиты данных](azure-security-data-encryption-best-practices.md)
-### [Руководство по безопасности хранилища](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Руководство по безопасности хранилища](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Защита вычислений
 ### [Рекомендации по виртуальным машинам Azure](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## Службы PaaS
 ### [Защита развернутых приложений PaaS](security-paas-deployments.md)
-#### [Защита мобильных приложений и веб-приложений PaaS с помощью SQL](security-paas-applications-using-sql.md)
-#### [Рекомендации по обеспечению безопасности базы данных SQL](azure-database-security-best-practices.md)
-#### [Контрольный список безопасности базы данных SQL](azure-database-security-checklist.md)
 #### [Защита мобильных приложений и веб-приложений PaaS с помощью служб приложений](security-paas-applications-using-app-services.md)
+#### [Защита мобильных приложений и веб-приложений PaaS с помощью SQL](security-paas-applications-using-sql.md)
+##### [Рекомендации по обеспечению безопасности базы данных SQL](azure-database-security-best-practices.md)
+##### [Контрольный список безопасности базы данных SQL](azure-database-security-checklist.md)
 ####[Контрольный список операционной безопасности](azure-operational-security-checklist.md)
+#### [Защита мобильных приложений и веб-приложений PaaS с помощью службы хранилища Azure](security-paas-applications-using-storage.md)
 
 ## Интернет вещей
 ### [Защита развертывания Интернета вещей](../iot-suite/iot-suite-security-deployment.md)

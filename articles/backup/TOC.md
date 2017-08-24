@@ -55,6 +55,7 @@
 #### [Резервное копирование фермы SharePoint с помощью сервера резервного копирования Azure](backup-azure-backup-sharepoint-mabs.md)
 #### [Резервное копирование баз данных SQL Server с помощью сервера резервного копирования Azure](backup-azure-sql-mabs.md)
 #### [Защита состояния системы и восстановление исходного состояния системы](backup-mabs-system-state-and-bmr.md)
+### [Восстановление данных с сервера Azure Backup Server](backup-azure-alternate-dpm-server.md)
 
 ## Data Protection Manager
 ### [Подготовка рабочих нагрузок DPM на портале Azure](backup-azure-dpm-introduction.md)

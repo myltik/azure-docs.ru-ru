@@ -115,6 +115,8 @@
           items:
             - name: Обзор
               href: app-service-linux-intro.md
+            - name: Управление с помощью интерфейса командной строки
+              href: app-service-linux-cli.md
             - name: Создание веб-приложения на платформе Linux
               href: app-service-linux-how-to-create-web-app.md
             - name: Веб-приложения Ruby на платформе Linux

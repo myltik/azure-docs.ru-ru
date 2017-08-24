@@ -32,6 +32,7 @@
 ### [Проблемы при регистрации](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Карта не принимается](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Проблемы при входе](billing-cannot-login-subscription.md)
+### [Подписки не найдены](billing-no-subscriptions-found.md)
 
 # Справочные материалы
 ## [Обзор API](billing-usage-rate-card-overview.md)

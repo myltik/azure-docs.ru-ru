@@ -298,6 +298,16 @@
     - name: Хранилище
       tocHref: /azure/storage/
       topicHref: /azure/storage/
+      items:
+        - name: BLOB-объекты
+          tocHref: /azure/storage/blobs/
+          topicHref: /azure/storage/blobs/storage-blobs-introduction
+        - name: Файлы
+          tocHref: /azure/storage/files/
+          topicHref: /azure/storage/files/storage-files-introduction
+        - name: Очереди
+          tocHref: /azure/storage/queues/
+          topicHref: /azure/storage/queues/storage-queues-introduction
     - name: StorSimple
       tocHref: /azure/storsimple/
       topicHref: /azure/storsimple/

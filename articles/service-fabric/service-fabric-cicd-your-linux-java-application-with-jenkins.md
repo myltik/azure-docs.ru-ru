@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 08/23/2017
 ms.author: saysa
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 32d39e2c19348bc4a1ba218cfc411a70f9f212e3
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/30/2017
-
 
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Создание и развертывание приложения Linux на Java с помощью Jenkins
@@ -49,7 +48,7 @@ cd service-fabric-java-getting-started/Services/JenkinsDocker/
 
 3. Необходимо иметь сведения о параметрах подключения общей папки службы хранилища Azure, в которой необходимо сохранить состояние экземпляра контейнера Jenkins. Если вы используете для этого портал Microsoft Azure, выполните следующие действия. Создайте учетную запись хранения, например ``sfjenkinsstorage1``. Затем создайте **общую папку** для этой учетной записи хранения, например ``sfjenkins``. Щелкните **Подключить** для общей папки. Обратите внимание на значения, которые отображаются в разделе **Connecting from Linux** (Подключение из Linux). Они должны выглядеть следующим образом:
 ```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
 4. Замените значения заполнителей в скрипте ```setupentrypoint.sh``` соответствующими сведениями службы хранилища Azure.
@@ -60,8 +59,8 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
 Замените ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` значением ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` из пункта 3, описанного выше.
 
 5. Подключитесь к кластеру и установите приложение-контейнер.
-```sh
-azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+```azurecli
+sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 Контейнер Jenkins установится в кластер, и его можно будет отслеживать с помощью Service Fabric Explorer.

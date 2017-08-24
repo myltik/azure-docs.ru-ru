@@ -3,10 +3,17 @@
 ## [Что такое машинное обучение?](machine-learning-what-is-machine-learning.md)
 
 ## Процесс обработки и анализа данных группы
-### [Обзор](data-science-process-overview.md)
-### [Жизненный цикл](data-science-process-lifecycle.md)
+### [Обзор](http://aka.ms/datascienceprocess)
+### [Жизненный цикл](data-science-process-overview.md)
 ### [Пошаговые руководства](data-science-process-walkthroughs.md)
-### [Машинное обучение Azure](http://aka.ms/datascienceprocess)
+####[Spark с PySpark и Scala](data-science-process-walkthroughs-spark.md)
+##### [Изучение данных](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Оценка моделей](machine-learning-data-science-spark-model-consumption.md)
+##### [Расширенное изучение данных](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+####[Hive с HDInsight Hadoop](data-science-process-walkthroughs-hdinsight-hadoop.md)
+####[U-SQL с Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
+####[R, Python и T-SQL с SQL Server](data-science-process-walkthroughs-sql-server.md)
+####[T-SQL и Python с хранилищем данных SQL](data-science-process-walkthroughs-sql-data-warehouse.md)
 
 ## Студия машинного обучения
 ### [Что такое студия?](machine-learning-what-is-ml-studio.md)
@@ -100,12 +107,6 @@
 ##### [Использование Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [Использование виртуальной машины SQL](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Использование конвейера данных](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Обработка данных с использованием Spark
-##### [Обзор](machine-learning-data-science-spark-overview.md)
-##### [Изучение данных](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Оценка моделей](machine-learning-data-science-spark-model-consumption.md)
-##### [Расширенное изучение данных](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Использование Scala и Spark](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## Разработка моделей
 ### Проектирование и выбор компонентов
@@ -166,11 +167,7 @@
 ### [Примеры экспериментов](machine-learning-sample-experiments.md)
 ### [Примеры наборов данных](machine-learning-use-sample-datasets.md)
 ### [Пример оттока клиентов](machine-learning-azure-ml-customer-churn-scenario.md)
-### Комплексные сценарии
-#### [Использование кластеров Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
-#### [Использование Hadoop с 1 ТБ данных](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [Использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-#### [Использование хранилища данных SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # Справочные материалы
 

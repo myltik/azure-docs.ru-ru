@@ -64,12 +64,12 @@
 ### [Создание виртуальных машин Linux из шаблона](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Создание виртуальных машин Windows из шаблона](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Хранение данных
-### [BLOB-объекты](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [Файловые ресурсы](../../storage/storage-dotnet-how-to-use-files.md)
-### [Пары "ключ-значение"](../../storage/storage-dotnet-how-to-use-tables.md)
+### [BLOB-объекты](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [Файловые ресурсы](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [Пары "ключ-значение"](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [Документы JSON](../../documentdb/documentdb-get-started.md)
 ### [Реляционные таблицы](../../sql-database/sql-database-get-started.md)
-### [Очереди сообщений](../../storage/storage-dotnet-how-to-use-queues.md)
+### [Очереди сообщений](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Масштаб
 ### [Мобильные приложения и веб-приложения](../../app-service-web/web-sites-scale.md)

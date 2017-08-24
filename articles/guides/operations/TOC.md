@@ -72,18 +72,18 @@
 
 ## [Хранилище](azure-operations-guide.md#azure-storage)
 
-### [хранилище BLOB-объектов Azure](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](../../storage/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Приступая к работе с хранилищем файлов Azure в Windows](../../storage/storage-file-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [Использование хранилища файлов Azure в Linux](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Начало работы с хранилищем таблиц Azure](../../storage/storage-dotnet-how-to-use-tables.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Начало работы с хранилищем очередей Azure](../../storage/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [создать учетную запись хранения;](../../storage/storage-create-storage-account.md#create-a-storage-account)
-### [Использование Azure PowerShell со службой хранилища Azure](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Использование Azure CLI со службой хранилища Azure](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Клиентские инструменты службы хранилища Azure](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [хранилище BLOB-объектов Azure](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Приступая к работе с хранилищем файлов Azure в Windows](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### [Использование хранилища файлов Azure в Linux](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Начало работы с хранилищем таблиц Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Начало работы с хранилищем очередей Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [создать учетную запись хранения;](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [Использование Azure PowerShell со службой хранилища Azure](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Использование Azure CLI со службой хранилища Azure](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Клиентские инструменты службы хранилища Azure](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Справочник по REST API службы хранилища Azure](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
-### [Использование подписанных URL-адресов](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Использование подписанных URL-адресов](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 
 

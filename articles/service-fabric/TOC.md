@@ -176,11 +176,14 @@
 #### Начало работы
 ##### [C# в Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java в Linux](service-fabric-reliable-actors-get-started-java.md)
+##### [Субъект Java в Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Отправка уведомлений](service-fabric-reliable-actors-events.md)
 #### [Настройка таймеров и напоминаний](service-fabric-reliable-actors-timers-reminders.md)
 #### [Настройка KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Настройка параметров подключения](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Настройка ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Перенос старого приложения Java для поддержки Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Настройка обратного прокси-сервера для безопасного подключения](service-fabric-reverseproxy-configure-secure-communication.md)
 

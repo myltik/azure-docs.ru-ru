@@ -1,6 +1,6 @@
 # Обзор
 ## [About Azure virtual machines (Сведения о виртуальных машинах Azure)](../../virtual-machines-windows-about.md)
-## [Диски и виртуальные жесткие диски](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Диски и виртуальные жесткие диски](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Виртуальные сети](../../../virtual-network/virtual-networks-overview.md)
 ## [Часто задаваемые вопросы](faq.md)
 ## [Сравнение службы приложений Azure, виртуальных машин, Service Fabric и облачных служб](../../../app-service-web/choose-web-site-cloud-service-vm.md)

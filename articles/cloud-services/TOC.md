@@ -17,9 +17,9 @@
 ### [Сборка и развертывание приложения Node.js](cloud-services-nodejs-develop-deploy-app.md)
 ### [Сборка веб-приложения Node.js с использованием Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Хранилище и Visual Studio
-#### [Хранилище BLOB-объектов и подключенные службы](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Хранилище очередей и подключенные службы](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Хранилище таблиц и подключенные службы](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Хранилище BLOB-объектов и подключенные службы](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Хранилище очередей и подключенные службы](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Хранилище таблиц и подключенные службы](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Настройка пакетов для непрерывного процесса сборки и развертывания
 #### [TFS и командная сборка](cloud-services-dotnet-continuous-delivery.md)
 ### [Настройка правил трафика для роли](cloud-services-enable-communication-role-instances.md)

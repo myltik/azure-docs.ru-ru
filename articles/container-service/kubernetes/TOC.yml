@@ -33,17 +33,15 @@
   items:
     - name: Безопасные контейнеры
       href: container-service-security.md
-    - name: "Субъект-служба\_— Kubernetes"
-      href: container-service-kubernetes-service-principal.md
 - name: Практические руководства
   items:
-    - name: Краткое руководство по использованию Kubernetes с Windows
+    - name: Использование Kubernetes с Windows
       href: container-service-kubernetes-windows-walkthrough.md
-    - name: "Управление контейнерами\_— пользовательский интерфейс Kubernetes"
+    - name: Веб-интерфейс Kubernetes
       href: container-service-kubernetes-ui.md
     - name: Развертывание диаграмм Helm
       href: container-service-kubernetes-helm.md
-    - name: CI/CD с помощью Kubernetes и Jenkins
+    - name: Интеграция Jenkins с ACS и Kubernetes
       href: container-service-kubernetes-jenkins.md
     - name: Использование Draft с ACR и ACS
       href: container-service-draft-up.md
