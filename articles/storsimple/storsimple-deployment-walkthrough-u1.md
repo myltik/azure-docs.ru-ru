@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Развертывание локального устройства StorSimple (с обновлением 1)
@@ -213,7 +214,7 @@ ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Настройка новой учетной записи хранения для службы
 Это необязательный шаг, который вам потребуется выполнить, только если вы не использовали возможность автоматически создать учетную запись хранения для вашей службы. Учетная запись хранения Microsoft Azure необходима для создания контейнера томов StorSimple.
 
-Если вам нужно создать учетную запись хранения Azure в другом регионе, см. пошаговые инструкции в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+Если вам нужно создать учетную запись хранения Azure в другом регионе, см. пошаговые инструкции в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md).
 
 На классическом портале Azure на странице **Служба диспетчера StorSimple** выполните следующее.
 
@@ -266,10 +267,5 @@ MPIO представляет собой дополнительный компо
 ## <a name="next-steps"></a>Дальнейшие действия
 * Настройте [виртуальное устройство](storsimple-virtual-device-u2.md).
 * Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md) .
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

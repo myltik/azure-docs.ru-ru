@@ -1,6 +1,6 @@
 ---
-title: "Настройка сосуществующих подключений VPN типа ExpressRoute и &quot;сеть — сеть&quot; с помощью классической модели Azure | Документация Майкрософт"
-description: "В этой статье описывается настройка параллельных подключений ExpressRoute и VPN типа &quot;сеть-сеть&quot; для классической модели развертывания."
+title: "Настройка сосуществующих подключений VPN типа ExpressRoute и \"сеть — сеть\" с помощью классической модели Azure | Документация Майкрософт"
+description: "В этой статье описывается настройка параллельных подключений ExpressRoute и VPN типа \"сеть-сеть\" для классической модели развертывания."
 documentationcenter: na
 services: expressroute
 author: charwen
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 594dee64f49e83949403fc85903ec66f9cf0d996
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8dafdf8183e2a30773274c2433fbcb4346727996
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Настройка параллельных подключений ExpressRoute и "сайт — сайт" (классическая версия)
@@ -55,6 +54,11 @@ ms.lasthandoff: 04/27/2017
 ## <a name="configuration-designs"></a>Схемы конфигурации
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Настройка VPN типа "сеть-сеть" как пути отработки отказа для ExpressRoute
 VPN-подключение типа "сеть-сеть" можно настроить как службу архивации для ExpressRoute. Это относится только к виртуальным сетям, привязанным к пути пиринга Azure Private. Для служб, доступ к которым осуществляется через пиринг Azure Public или Microsoft, решения для отработки отказа на основе VPN не существует. Канал ExpressRoute всегда является основной ссылкой. Данные передаются по пути VPN типа "сеть-сеть" только в том случае, если канал ExpressRoute не справляется с этой задачей. 
+
+> [!NOTE]
+> Хотя канал ExpressRoute лучше использовать для VPN типа "сеть — сеть", когда оба маршрута одинаковы, Azure будет выбирать маршрут для назначения пакета по совпадению самого длинного префикса.
+> 
+> 
 
 ![Существуют одновременно](media/expressroute-howto-coexist-classic/scenario1.jpg)
 

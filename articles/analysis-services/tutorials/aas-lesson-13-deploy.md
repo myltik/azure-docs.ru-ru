@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Занятие 13. Развертывание
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/19/2017
 
 На этом уроке вы настроите свойства развертывания, указав сервер Azure Analysis Services, на котором оно будет выполняться, развертывания и имя модели. Затем вы развернете модель на этом экземпляре. После развертывания модели пользователи смогут подключаться к ней с помощью клиентского приложения по созданию отчетов. Дополнительные сведения см. в статье [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) (Развертывание в службы Azure Analysis Services).  
   
-Предполагаемое время выполнения этого занятия: **5 минут**  
+Предполагаемое время выполнения этого занятия: **5 минут**  
   
 ## <a name="prerequisites"></a>Предварительные требования  
 Этот раздел входит в учебник по табличному моделированию, который следует изучать в предложенном порядке. Прежде чем выполнять задачи в этом разделе, нужно завершить предыдущее занятие: [Занятие 12. Анализ в Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  

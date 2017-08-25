@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 6f31b082e47e46f023f593a5fe14ef6027b0d17d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 77042219cbe698a33ab9447aa952586772897241
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Руководство: создание фабрики данных с помощью Visual Studio
@@ -88,7 +88,7 @@ ms.lasthandoff: 07/21/2017
 1. Щелкните правой кнопкой мыши **Связанные службы** в обозревателе решений, наведите указатель мыши на команду **Добавить** и выберите **Новый элемент**.      
 2. В диалоговом окне **Добавление нового элемента** выберите в списке пункт **Azure Storage Linked Service** (Связанная служба хранилища Azure) и нажмите кнопку **Добавить**.
     ![Связанная служба хранения Azure](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. Замените `<accountname>` и `<accountkey>` именем и ключом учетной записи хранения Azure. Сведения о получении, просмотре, копировании и повторном создании ключей доступа к хранилищу см. в разделе [Управление учетной записью хранения](../storage/storage-create-storage-account.md#manage-your-storage-account).
+3. Замените `<accountname>` и `<accountkey>` именем и ключом учетной записи хранения Azure. Сведения о получении, просмотре, копировании и повторном создании ключей доступа к хранилищу см. в разделе [Управление учетной записью хранения](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
     ![Связанная служба хранения Azure](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Сохраните файл **AzureStorageLinkedService1.json** .
 

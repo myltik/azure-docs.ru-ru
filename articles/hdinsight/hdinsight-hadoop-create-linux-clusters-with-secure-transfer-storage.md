@@ -14,27 +14,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/07/2017
+ms.date: 08/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 5e9cae224e5a36e1529c962ad8cbab77176dda8c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 370b2f081930fe88527436a1a127309aed6681f0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Создание кластера Hadoop с помощью учетных записей хранения с безопасной передачей в Azure HDInsight
 
-Функция [Secure transfer required](../storage/storage-require-secure-transfer.md) (Необходима безопасная передача) усиливает безопасность учетной записи хранения Azure путем принудительной передачи всех запросов к вашей учетной записи через безопасное подключение. Эта функция и схема wasbs поддерживаются только кластером HDInsight версии 3.6 или более новым. 
-
->[!NOTE] 
-> Создание кластеров с учетной записью хранения с включенной безопасной передачей, используя пакет SDK для .NET, в настоящее время не поддерживается. В качестве решения можно задать wasbs в свойстве fs.defaultFS в конфигурации основного узла как части ClusterCreateParametersExtended.
+Функция [Secure transfer required](../storage/common/storage-require-secure-transfer.md) (Необходима безопасная передача) усиливает безопасность учетной записи хранения Azure путем принудительной передачи всех запросов к вашей учетной записи через безопасное подключение. Эта функция и схема wasbs поддерживаются только кластером HDInsight версии 3.6 или более новым. 
 
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с этим руководством вам потребуется:
 
 * **Подписка Azure**: чтобы создать бесплатную пробную учетную запись (на один месяц), перейдите по адресу [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* **Учетная запись хранения Azure с включенной безопасной передачей**. Инструкции см. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account) и [Требование безопасной передачи](../storage/storage-require-secure-transfer.md).
+* **Учетная запись хранения Azure с включенной безопасной передачей**. Инструкции см. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) и [Требование безопасной передачи](../storage/common/storage-require-secure-transfer.md).
 * **Контейнер больших двоичных объектов в учетной записи хранения**. 
 ## <a name="create-cluster"></a>Создание кластера
 

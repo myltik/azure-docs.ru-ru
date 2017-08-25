@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 08/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: fd923fa711aa0af72e8d81d84fd0adb2e003596a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 696f8025d0d7a65f59be650fac0a6e0e68f1a2ca
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Архивация виртуальных машин Azure в хранилище служб восстановления
@@ -183,7 +183,7 @@ ms.lasthandoff: 06/01/2017
 Теперь, когда вы создали хранилище, можно приступить к настройке репликации.
 
 ### <a name="set-storage-replication"></a>Настройка репликации хранилища
-При настройке репликации хранилища можно выбирать между геоизбыточным хранилищем и локально избыточным хранилищем. По умолчанию это геоизбыточное хранилище. Если хранилище служб восстановления является основной резервной копией, оставьте для параметра репликации хранилища это значение. Если вам нужно более дешевое и не такое надежное решение, выберите локально избыточное хранилище. Дополнительные сведения о [геоизбыточном](../storage/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/storage-redundancy.md#locally-redundant-storage) хранилищах см. в [обзоре репликации службы хранилища Azure](../storage/storage-redundancy.md).
+При настройке репликации хранилища можно выбирать между геоизбыточным хранилищем и локально избыточным хранилищем. По умолчанию это геоизбыточное хранилище. Если хранилище служб восстановления является основной резервной копией, оставьте для параметра репликации хранилища это значение. Если вам нужно более дешевое и не такое надежное решение, выберите локально избыточное хранилище. Дополнительные сведения о [геоизбыточном](../storage/common/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/common/storage-redundancy.md#locally-redundant-storage) хранилищах см. в [обзоре репликации службы хранилища Azure](../storage/common/storage-redundancy.md).
 
 Чтобы изменить параметр репликации хранилища:
 
@@ -204,7 +204,7 @@ ms.lasthandoff: 06/01/2017
 
     ![Варианты конфигурации хранилища](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    По умолчанию это геоизбыточное хранилище. Если в качестве конечной точки основного хранилища службы архивации используется Azure, выберите **геоизбыточное хранилище**, а если нет, — **локально избыточное** (это позволит снизить плату за хранилище Azure). Дополнительные сведения о [геоизбыточном](../storage/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/storage-redundancy.md#locally-redundant-storage) хранилищах см. в статье [Репликация службы хранилища Azure](../storage/storage-redundancy.md).
+    По умолчанию это геоизбыточное хранилище. Если в качестве конечной точки основного хранилища службы архивации используется Azure, выберите **геоизбыточное хранилище**, а если нет, — **локально избыточное** (это позволит снизить плату за хранилище Azure). Дополнительные сведения о [геоизбыточном](../storage/common/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/common/storage-redundancy.md#locally-redundant-storage) хранилищах см. в статье [Репликация службы хранилища Azure](../storage/common/storage-redundancy.md).
 
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Выбор цели архивации, настройка политики и определение объектов для защиты

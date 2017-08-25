@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c989ca38e2463f8365b55c509e8b2bcf4572b409
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b21edb70eca3ec9552dc157ee3bb658d243b8fcd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Первое знакомство. Резервное копирование файлов и папок с использованием модели развертывания с помощью Resource Manager
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/06/2017
 
 Дополнительные сведения о службе архивации Azure см. в этом [обзоре](backup-introduction-to-azure-backup.md).
 
-Если у вас нет подписки Azure, вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free/) , предоставляющую доступ ко всем службам Azure.
+Если у вас нет подписки Azure, вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free/), предоставляющую доступ ко всем службам Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Создание хранилища служб восстановления
 Для резервного копирования файлов и папок нужно создать хранилище служб восстановления в том регионе, в котором планируется хранить данные. Кроме того, необходимо определить способ репликации хранилища.
@@ -88,7 +88,7 @@ ms.lasthandoff: 07/06/2017
 
     ![Варианты конфигурации хранилища](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    По умолчанию это геоизбыточное хранилище. Если в качестве конечной точки основного хранилища службы архивации используется Azure, выберите **геоизбыточное хранилище**, а если нет, — **локально избыточное** (это позволит снизить плату за хранилище Azure). Дополнительные сведения о [геоизбыточном](../storage/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/storage-redundancy.md#locally-redundant-storage) хранилищах см. в статье [Репликация службы хранилища Azure](../storage/storage-redundancy.md).
+    По умолчанию это геоизбыточное хранилище. Если в качестве конечной точки основного хранилища службы архивации используется Azure, выберите **геоизбыточное хранилище**, а если нет, — **локально избыточное** (это позволит снизить плату за хранилище Azure). Дополнительные сведения о [геоизбыточном](../storage/common/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/common/storage-redundancy.md#locally-redundant-storage) хранилищах см. в статье [Репликация службы хранилища Azure](../storage/common/storage-redundancy.md).
 
 Теперь, когда вы создали хранилище, настройте в нем резервное копирование файлов и папок.
 
@@ -216,7 +216,7 @@ ms.lasthandoff: 07/06/2017
 
     ![Моментальная архивация Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 2. На странице "Подтверждение" проверьте параметры, которые мастер будет использовать для архивации данных на компьютере. Затем нажмите кнопку **Архивировать**.
-3. Нажмите кнопку **Закрыть** , чтобы закрыть мастер. Если сделать это до завершения архивации, мастер продолжит работу в фоновом режиме.
+3. Нажмите кнопку **Закрыть**, чтобы закрыть мастер. Если сделать это до завершения архивации, мастер продолжит работу в фоновом режиме.
 
 После завершения начальной архивации в консоли службы архивации отобразится состояние **Задание выполнено** .
 

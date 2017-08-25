@@ -2,7 +2,7 @@
 | --- | --- | --- |
 | Ядер на [подписку](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10 000 |
 | [Дополнительные администраторы](../articles/billing-add-change-azure-subscription-administrator.md) на подписку |200 |200 |
-| [Учетных записей хранения](../articles/storage/storage-create-storage-account.md) на подписку<sup>2</sup> |200 |250 |
+| [Учетных записей хранения](../articles/storage/common/storage-create-storage-account.md) на подписку<sup>2</sup> |200 |250 |
 | [Облачные службы](../articles/cloud-services/cloud-services-choose-me.md) на подписку |20 |200 |
 | [Локальные сети](http://msdn.microsoft.com/library/jj157100.aspx) на подписку |10 |500 |
 | Серверов баз данных SQL на подписку |6 |150 |

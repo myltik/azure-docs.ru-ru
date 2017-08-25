@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>Развертывание локального устройства StorSimple
@@ -141,7 +142,7 @@ ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
 |  | | |
 | **NTP** |После ввода NTP-сервера сразу же запускается синхронизация времени. При вводе `time.windows.com` или общедоступных серверов времени проверьте, открыт ли UDP-порт 123. |[Загрузите и используйте этот скрипт](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 |  | | |
-| **Прокси (необязательно)** |Это допустимые URI и порт прокси-сервера? </br>  Правильно ли установлен режим проверки подлинности? |<code>wget http://bing.com &#124; % {$_.StatusCode}</code></br>Эту команду следует выполнить сразу после настройки веб-прокси. Если возвращается код состояния 200, это значит, что подключение установлено успешно. |
+| **Прокси (необязательно)** |Это допустимые URI и порт прокси-сервера? </br> Правильно ли установлен режим проверки подлинности? |<code>wget http://bing.com &#124; % {$_.StatusCode}</code></br>Эту команду следует выполнить сразу после настройки веб-прокси. Если возвращается код состояния 200, это значит, что подключение установлено успешно. |
 | &nbsp; |Маршрутизируется ли трафик через прокси? |Выполните проверку DNS, NTP или HTTP один раз после настройки прокси-сервера на своем устройстве. Это позволит четко увидеть, блокируется ли трафик на прокси-сервере или в другом месте. |
 |  | | |
 | **Регистрация** |Проверьте, открыты ли исходящие порты TCP 443, 80, 9354. |`Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Дополнительные сведения для командлета Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -239,7 +240,7 @@ ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Настройка новой учетной записи хранения для службы
 Это необязательный шаг, который вам потребуется выполнить, только если вы не использовали возможность автоматически создать учетную запись хранения для вашей службы. Учетная запись хранения Microsoft Azure необходима для создания контейнера томов StorSimple.
 
-Если вам нужно создать учетную запись хранения Azure в другом регионе, см. пошаговые инструкции в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+Если вам нужно создать учетную запись хранения Azure в другом регионе, см. пошаговые инструкции в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md).
 
 На классическом портале Azure на странице **Служба диспетчера StorSimple** выполните следующее.
 
@@ -282,10 +283,5 @@ ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
 ## <a name="next-steps"></a>Дальнейшие действия
 * Настройте [виртуальное устройство](storsimple-virtual-device-u2.md).
 * Для управления устройством StorSimple используется [служба Диспетчера StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) .
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

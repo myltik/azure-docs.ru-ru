@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1156135200e05f8a2585467f37805a72d67279ba
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 144f4ea213b8ed0a3530495e185f489155c474c9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Типы IP-адресов и методы распределения в Azure
@@ -36,7 +35,7 @@ ms.lasthandoff: 05/10/2017
 Если вы знакомы с классической моделью развертывания, ознакомьтесь с [различиями в IP-адресации для классической модели развертывания и модели Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
 
 ## <a name="public-ip-addresses"></a>Общедоступные IP-адреса
-Общедоступные IP-адреса позволяют ресурсам Azure подключаться к Интернету и другим общедоступным службам Azure, таким как [кэш Redis для Azure](https://azure.microsoft.com/services/cache/), [концентраторы событий Azure](https://azure.microsoft.com/services/event-hubs/), [базы данных SQL](../sql-database/sql-database-technical-overview.md) и [служба хранилища Azure](../storage/storage-introduction.md).
+Общедоступные IP-адреса позволяют ресурсам Azure подключаться к Интернету и другим общедоступным службам Azure, таким как [кэш Redis для Azure](https://azure.microsoft.com/services/cache/), [концентраторы событий Azure](https://azure.microsoft.com/services/event-hubs/), [базы данных SQL](../sql-database/sql-database-technical-overview.md) и [служба хранилища Azure](../storage/common/storage-introduction.md).
 
 В диспетчере ресурсов Azure [общедоступный IP-адрес](resource-groups-networking.md#public-ip-address) — это ресурс, который имеет собственные свойства. Связать ресурс общедоступного IP-адреса можно с любым из таких ресурсов:
 

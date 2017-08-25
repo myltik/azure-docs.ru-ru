@@ -7,7 +7,7 @@
 * Рекомендации по масштабированию службы приложений
   
   * Нехватка портов и использование пулов соединений
-  * [Использование хранилища BLOB-объектов из .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md)
+  * [Использование хранилища BLOB-объектов из .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md)
   * [Общие сведения о сети доставки содержимого (CDN) Azure](../articles/cdn/cdn-overview.md)
   * [Как использовать кэш Redis для Azure](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
 * Географическое распределение

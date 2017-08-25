@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Приступая к работе с обозревателем службы хранилища (предварительная версия)
@@ -156,7 +156,7 @@ ms.lasthandoff: 07/18/2017
 2. В окне с подтверждающим сообщением нажмите кнопку **Да**, чтобы подтвердить отсоединение учетной записи внешнего хранилища.
 
 ## <a name="attach-a-storage-account-by-using-an-sas"></a>Присоединение учетной записи хранения с помощью SAS
-[SAS](storage/storage-dotnet-shared-access-signature-part-1.md) позволяет администратору подписки Azure предоставить временный доступ к учетной записи хранения без необходимости предоставлять учетные данные подписки Azure.
+[SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) позволяет администратору подписки Azure предоставить временный доступ к учетной записи хранения без необходимости предоставлять учетные данные подписки Azure.
 
 Чтобы продемонстрировать этот сценарий, представим, что пользователь UserA является администратором подписки Azure и хочет предоставить пользователю UserB доступ к учетной записи хранения на ограниченный период времени с определенными разрешениями:
 

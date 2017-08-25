@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -160,7 +160,7 @@ ms.lasthandoff: 03/31/2017
 
     ![Содержимое группы ресурсов](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Дополнительные сведения см. в статьях с общими сведениями о [виртуальных машинах](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [дисках](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) и [учетных записях хранения Azure](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Вы увидите две группы безопасности сети и два сетевых интерфейса, созданных по умолчанию на портале. Сетевой интерфейс позволяет виртуальной машине подключаться к другим ресурсам через виртуальную сеть. Дополнительные сведения о сетевых интерфейсах см. в [этой статье](virtual-network-network-interface.md). Портал также создает один ресурс общедоступного IP-адреса. Общедоступные IP-адреса являются параметром ресурса частного IP-адреса. Дополнительные сведения об общедоступных IP-адресах см. в соответствующем разделе статьи [Типы IP-адресов и методы распределения в Azure](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Дополнительные сведения см. в статьях с общими сведениями о [виртуальных машинах](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [дисках](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-network%2ftoc.json) и [учетных записях хранения Azure](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Вы увидите две группы безопасности сети и два сетевых интерфейса, созданных по умолчанию на портале. Сетевой интерфейс позволяет виртуальной машине подключаться к другим ресурсам через виртуальную сеть. Дополнительные сведения о сетевых интерфейсах см. в [этой статье](virtual-network-network-interface.md). Портал также создает один ресурс общедоступного IP-адреса. Общедоступные IP-адреса являются параметром ресурса частного IP-адреса. Дополнительные сведения об общедоступных IP-адресах см. в соответствующем разделе статьи [Типы IP-адресов и методы распределения в Azure](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Подключение к виртуальным машинам
 

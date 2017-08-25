@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 94d228f38a760b40f1acb4685702e6244f03bb5d
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Службы Azure Analysis Services
@@ -34,7 +34,7 @@ ms.lasthandoff: 08/05/2017
 Ознакомьтесь с [этим видео](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4), чтобы узнать больше о том, как службы Azure Analysis Services дополняют общие возможности средств бизнес-аналитики от Майкрософт и как воспользоваться преимуществами переноса моделей данных в облако.
 
 ## <a name="built-on-sql-server-analysis-services"></a>На основе SQL Server Analysis Services
-Службы Azure Analysis Services совместимы с множеством полезных функций служб SQL Server Analysis Services выпуска Enterprise Edition. Они также поддерживают табличные модели на [уровнях совместимости](https://docs.microsoft.com/sql/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services) 1200 и 1400. Кроме того, поддерживаются секции, безопасность на уровне строк, двунаправленные связи и переводы. Режимы выполнения в памяти и DirectQuery обеспечивают высокую скорость обработки запросов в больших и сложных наборах данных.
+Службы Azure Analysis Services совместимы с множеством полезных функций служб SQL Server Analysis Services выпуска Enterprise Edition. Они также поддерживают табличные модели на [уровнях совместимости](analysis-services-compat-level.md) 1200 и 1400. Кроме того, поддерживаются секции, безопасность на уровне строк, двунаправленные связи и переводы. Режимы выполнения в памяти и DirectQuery обеспечивают высокую скорость обработки запросов в больших и сложных наборах данных.
 
 Табличные модели помогают выполнять быструю разработку и использовать широкие возможности настройки. В табличных моделях разработчики могут использовать для описания объектов моделей табличную модель объектов (TOM). TOM предоставляется в JSON с помощью [языка TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) и языка описания данных AMO в пространстве имен [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 

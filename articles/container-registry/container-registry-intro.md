@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 4eb32dd18c57af8d46e7afb63047c0985458705d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fd0356286be46f99fd9ab8eabc53256103038407
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Общие сведения о частных реестрах контейнеров Docker
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/25/2017
 
 
 ## <a name="key-concepts"></a>Основные понятия
-* **Реестр.** Создайте один или несколько реестров контейнеров в своей подписке Azure. Для создания реестра используется стандартная [учетная запись хранения](../storage/storage-introduction.md) Azure в том же расположении. Создание реестра в том же расположении Azure, где находятся развертывания, позволяет воспользоваться преимуществами локального хранилища образов контейнеров с доступом по сети. Полное имя реестра имеет формат `myregistry.azurecr.io`.
+* **Реестр.** Создайте один или несколько реестров контейнеров в своей подписке Azure. Для создания реестра используется стандартная [учетная запись хранения](../storage/common/storage-introduction.md) Azure в том же расположении. Создание реестра в том же расположении Azure, где находятся развертывания, позволяет воспользоваться преимуществами локального хранилища образов контейнеров с доступом по сети. Полное имя реестра имеет формат `myregistry.azurecr.io`.
 
   [Контроль доступа](container-registry-authentication.md) к реестру контейнеров осуществляется с помощью [субъекта-службы](../active-directory/active-directory-application-objects.md) на основе Azure Active Directory или предоставленной учетной записи администратора. Чтобы пройти проверку подлинности с помощью реестра, используется стандартная команда `docker login`.
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: b41e8eba7d1f5c999b3371d835b595b6caf161c1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d2023c3e129cfdea27f343a41b3cc373c0c3b8f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Развертывание локального устройства StorSimple (с обновлением 3 и более поздней версии)
@@ -170,7 +170,7 @@ ms.lasthandoff: 07/12/2017
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Настройка новой учетной записи хранения для службы
 Это необязательный шаг, который вам потребуется выполнить, только если вы не использовали возможность автоматически создать учетную запись хранения для вашей службы. Учетная запись хранения Microsoft Azure необходима для создания контейнера томов StorSimple.
 
-Если вам нужно создать учетную запись хранения Azure в другом регионе, см. пошаговые инструкции в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+Если вам нужно создать учетную запись хранения Azure в другом регионе, см. пошаговые инструкции в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md).
 
 На портале Azure на странице **службы диспетчера устройств StorSimple** выполните следующее.
 

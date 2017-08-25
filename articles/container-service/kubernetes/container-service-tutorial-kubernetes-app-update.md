@@ -72,7 +72,7 @@ SHOWHOST = 'false'
 Используйте команду [docker-compose](https://docs.docker.com/compose/) для повторного создания образа внешнего приложения и запуска обновленного приложения.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml up --build -d
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml up --build -d
 ```
 
 ## <a name="test-application-locally"></a>Локальное тестирование приложения
