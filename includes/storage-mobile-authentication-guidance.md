@@ -12,7 +12,7 @@
 > 
 > 
 
-При использовании аутентификации с общим ключом вам нужно создать [строку подключения](../articles/storage/storage-configure-connection-string.md). Строка подключения состоит из следующих элементов:  
+При использовании аутентификации с общим ключом вам нужно создать [строку подключения](../articles/storage/common/storage-configure-connection-string.md). Строка подключения состоит из следующих элементов:  
 
 * **DefaultEndpointsProtocol** — можно выбрать HTTP или HTTPS. Настоятельно рекомендуется использовать протокол HTTPS.
 * **AccountName** — имя вашей учетной записи хранения.
@@ -36,5 +36,5 @@
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Как видите, при использовании SAS в приложении вам не нужно предоставлять ключ учетной записи. Дополнительные сведения и рекомендации по использованию SAS см. в статье [о подписанных URL-адресах и общих сведениях о модели SAS](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
+Как видите, при использовании SAS в приложении вам не нужно предоставлять ключ учетной записи. Дополнительные сведения и рекомендации по использованию SAS см. в статье [о подписанных URL-адресах и общих сведениях о модели SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

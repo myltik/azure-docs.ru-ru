@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Репликация виртуальных машин Hyper-V из облачных сред VMM в Azure
@@ -52,7 +51,7 @@ ms.lasthandoff: 04/03/2017
 | **Предварительные требования** | **Дополнительные сведения** |
 | --- | --- |
 | **Учетная запись Azure** |Вам потребуется учетная запись [Microsoft Azure](https://azure.microsoft.com/) . Начните с [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/). [дополнительными сведениями](https://azure.microsoft.com/pricing/details/site-recovery/) о ценах на использование Site Recovery. |
-| **Служба хранилища Azure** |Для хранения реплицируемых данных потребуется учетная запись хранения Azure. Реплицированные данные хранятся в службе хранилища Azure, а виртуальные машины Azure развертываются при отработке отказа. <br/><br/>Необходима [учетная запись хранения для геоизбыточного хранилища уровня "Стандартный"](../storage/storage-redundancy.md#geo-redundant-storage). Она должна находиться в том же регионе, что и служба Site Recovery, и быть связана с той же подпиской. Обратите внимание, что сейчас репликация в учетные записи хранилища класса Premium не поддерживается и ее не следует использовать.<br/><br/>[Прочтите статью](../storage/storage-introduction.md) о службе хранилища Azure. |
+| **Служба хранилища Azure** |Для хранения реплицируемых данных потребуется учетная запись хранения Azure. Реплицированные данные хранятся в службе хранилища Azure, а виртуальные машины Azure развертываются при отработке отказа. <br/><br/>Необходима [учетная запись хранения для геоизбыточного хранилища уровня "Стандартный"](../storage/common/storage-redundancy.md#geo-redundant-storage). Она должна находиться в том же регионе, что и служба Site Recovery, и быть связана с той же подпиской. Обратите внимание, что сейчас репликация в учетные записи хранилища класса Premium не поддерживается и ее не следует использовать.<br/><br/>[Прочтите статью](../storage/common/storage-introduction.md) о службе хранилища Azure. |
 | **Сеть Azure** |Потребуется виртуальная сеть Azure, к которой будут подключаться виртуальные машины Azure при отработке отказа. Виртуальная сеть Azure должна располагаться в том же регионе, что и хранилище Site Recovery. |
 
 ## <a name="on-premises-prerequisites"></a>Предварительные требования для локальной среды
