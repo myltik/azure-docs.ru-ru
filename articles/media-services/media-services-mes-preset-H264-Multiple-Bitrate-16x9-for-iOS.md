@@ -2,7 +2,7 @@
 title: "H264 Multiple Bitrate 16x9 для iOS | Документация Майкрософт"
 description: "Этот раздел содержит общие сведения о предустановке задачи **H264 Multiple Bitrate 16x9 для iOS**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

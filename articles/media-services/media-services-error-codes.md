@@ -2,7 +2,7 @@
 title: "Коды ошибок служб мультимедиа Azure | Документация Майкрософт"
 description: "Здесь приводится обзор кодов ошибок служб мультимедиа Azure."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

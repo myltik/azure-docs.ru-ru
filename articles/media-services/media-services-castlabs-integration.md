@@ -4,7 +4,7 @@ description: "В этой статье описывается использов
 services: media-services
 documentationcenter: 
 author: Mingfeiy
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
 ms.service: media-services

@@ -3,8 +3,8 @@ title: "Как перенести веб-приложение из Visual Studio
 description: "Узнайте, как перенести и опубликовать веб-приложение в облачную службу Azure из среды Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 9394adfd-a645-4664-9354-dd5df08e8c91
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
 ms.openlocfilehash: a30859610aed55c1ffa22e821de3702d265a7fa7
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio
@@ -201,9 +202,4 @@ ms.openlocfilehash: a30859610aed55c1ffa22e821de3702d265a7fa7
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о публикации см. в статье [Подготовка к публикации или развертыванию приложения Azure из Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Ознакомьтесь также со статьей [Настройка именованных учетных данных для проверки подлинности](vs-azure-tools-setting-up-named-authentication-credentials.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

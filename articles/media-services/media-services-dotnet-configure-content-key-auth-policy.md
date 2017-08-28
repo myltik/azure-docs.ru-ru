@@ -4,7 +4,7 @@ description: "Узнайте, как настроить политику авт�
 services: media-services
 documentationcenter: 
 author: Mingfeiy
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
 ms.service: media-services

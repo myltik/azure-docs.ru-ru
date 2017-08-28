@@ -2,7 +2,7 @@
 title: "H264 Multiple Bitrate 4x3 SD Audio 5.1 | Документация Майкрософт"
 description: "Этот раздел содержит общие сведения о предустановке задачи **H264 Multiple Bitrate 4x3 SD Audio 5.1**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

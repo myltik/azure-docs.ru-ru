@@ -3,8 +3,8 @@ title: "Отладка облачной службы или виртуально
 description: "Отладка облачной службы или виртуальной машины в Visual Studio"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
 ms.service: visual-studio-online
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
 ms.openlocfilehash: dd9019a6feb86d90fc6219b06bf1e69da4c2b18f
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Отладка облачной службы или виртуальной машины Azure в Visual Studio
@@ -165,9 +166,4 @@ Visual Studio предоставляет разнообразные вариан
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте **Intellitrace** для сбора данных журнала вызовов и событий с сервера выпуска. Ознакомьтесь со статьей [Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 * Используйте **систему диагностики Azure** для регистрации подробных сведений из кода, выполняющегося в ролях, независимо от того, запущены ли эти роли в среде разработки или в Azure. Ознакомьтесь со статьей [Включение системы диагностики Azure в облачных службах Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

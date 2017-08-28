@@ -4,7 +4,7 @@ description: "В этом разделе содержится обзор пре�
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.service: media-services
 ms.workload: media

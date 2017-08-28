@@ -2,7 +2,7 @@
 title: "Встраивание адаптивного потокового видео MPEG-DASH в приложение HTML5 с помощью DASH.js | Документация Майкрософт"
 description: "В этом разделе демонстрируется встраивание адаптивного потокового видео MPEG-DASH в приложение HTML5 с помощью DASH.js."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 35ba9161f70a27a215685830d1a9e7c1881cc3bb
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Встраивание адаптивного потокового видео MPEG-DASH в приложение HTML5 с помощью DASH.js
@@ -105,10 +106,5 @@ Dash.js — это проигрыватель видео MPEG-DASH с откр�
 [Разработка приложений видеопроигрывателя](media-services-develop-video-players.md)
 
 [Репозиторий dash.js на GitHub](https://github.com/Dash-Industry-Forum/dash.js) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

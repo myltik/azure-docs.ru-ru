@@ -37,4 +37,4 @@
     - name: Калькулятор цен
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Переполнение стека
-      href: 'http://stackoverflow.com/questions/tagged/azure-event-grid'
+      href: 'http://stackoverflow.com/questions/tagged/azure-eventgrid'

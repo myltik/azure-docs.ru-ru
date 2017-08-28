@@ -2,7 +2,7 @@
 title: "Предустановка Media Encoder Standard в Azure: H264 Single Bitrate 720p | Документация Майкрософт"
 description: "Этот раздел содержит общие сведения о предустановке задачи **H264 Single Bitrate 720p**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

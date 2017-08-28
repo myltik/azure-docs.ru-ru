@@ -2,7 +2,7 @@
 title: "H264 Multiple Bitrate 16x9 SD| Документация Майкрософт"
 description: "Этот раздел содержит общие сведения о предустановке задачи **H264 Multiple Bitrate 16x9 SD**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

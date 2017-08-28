@@ -2,7 +2,7 @@
 title: "Предустановка Media Encoder Standard в Azure: H264 Multiple Bitrate 1080p | Документация Майкрософт"
 description: "Этот раздел содержит общие сведения о предустановке задачи **H264 Multiple Bitrate 1080p**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

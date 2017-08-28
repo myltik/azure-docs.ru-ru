@@ -4,7 +4,7 @@ description: "В этой статье показано, как настроит
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
@@ -14,10 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/11/2017
 
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Использование кодировщика Wirecast для отправки односкоростного обновляющегося потока
@@ -69,7 +70,7 @@ ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
 >
 >
 
-## <a name="a-idconfigurewirecastrtmpaconfigure-the-telestream-wirecast-encoder"></a><a id=configure_wirecast_rtmp></a>Настройка кодировщика Telestream Wirecast
+## <a id=configure_wirecast_rtmp></a>Настройка кодировщика Telestream Wirecast
 В этом руководстве используются следующие параметры вывода. В оставшейся части этого раздела этапы настройки описываются более подробно.
 
 **Видео:**
@@ -176,9 +177,4 @@ ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

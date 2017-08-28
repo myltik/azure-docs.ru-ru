@@ -3,7 +3,7 @@ title: "Устранение неполадок управления досту�
 description: "Справка по проблемам при управлении доступом к ресурсам на основе ролей и ответы на распространенные вопросы."
 services: azure-portal
 documentationcenter: na
-author: kgremban
+author: andredm7
 manager: femila
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
-ms.author: kgremban
+ms.author: andredm
 ms.reviewer: rqureshi
 ms.translationtype: HT
 ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148

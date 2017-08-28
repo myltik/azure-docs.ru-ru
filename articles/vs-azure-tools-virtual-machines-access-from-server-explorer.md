@@ -3,8 +3,8 @@ title: "Доступ к виртуальным машинам Azure из обо�
 description: "Общие сведения о просмотре и создании виртуальных машин Azure, а также об управлении ими в обозревателе сервера в Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 009b325054737b63d5bdaefbe005d6a613126f52
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>Доступ к виртуальным машинам Azure из обозревателя сервера
@@ -51,10 +52,5 @@ ms.openlocfilehash: 009b325054737b63d5bdaefbe005d6a613126f52
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об использовании ролей Azure в Visual Studio см. в статье [Использование удаленного рабочего стола с ролями Azure](vs-azure-tools-remote-desktop-roles.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

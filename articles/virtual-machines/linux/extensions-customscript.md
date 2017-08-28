@@ -21,7 +21,6 @@ ms.openlocfilehash: 89001404fa7255efc656b98983502d1f1d84fd73
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/12/2017
 
-
 ---
 # <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Использование расширения пользовательских сценариев Azure на виртуальных машинах Linux
 Расширение пользовательских сценариев загружает и запускает сценарии на виртуальных машинах Azure. Это расширение можно использовать для настройки после развертывания, установки программного обеспечения и других задач настройки или управления. Сценарии можно загрузить из службы хранилища Azure или другого расположения, доступного из Интернета, или передать во время выполнения расширения. Расширение пользовательских сценариев интегрируется с шаблонами Azure Resource Manager, а также его можно запустить с помощью интерфейса командной строки Azure, PowerShell, портала Azure или API REST виртуальной машины Azure.
@@ -119,7 +118,7 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 
 ```json
 {
-  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
+  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"]
 }
 ```
 
@@ -134,7 +133,7 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 Команда интерфейса командной строки Azure:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings ./protected-config.json
 ```
 
 ## <a name="resource-manager-template"></a>Шаблон Resource Manager

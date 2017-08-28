@@ -2,7 +2,7 @@
 title: "Логика повторного выполнения операций в пакете SDK служб мультимедиа для .NET | Документация Майкрософт"
 description: "В этом разделе содержится обзор логики повторных попыток в пакете SDK служб мультимедиа для .NET."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

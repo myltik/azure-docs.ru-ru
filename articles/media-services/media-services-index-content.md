@@ -4,7 +4,7 @@ description: "Индексатор мультимедийных данных Azu
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
 ms.service: media-services

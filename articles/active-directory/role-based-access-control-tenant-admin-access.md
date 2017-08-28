@@ -3,7 +3,7 @@ title: "Повышение прав доступа администраторо�
 description: "В этом разделе описаны встроенные роли для управления доступом на основе ролей (RBAC)."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
-ms.author: kgremban
+ms.author: andredm
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/17/2017
-
 
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Повышение прав доступа администратором клиентов с помощью управления доступом на основе ролей

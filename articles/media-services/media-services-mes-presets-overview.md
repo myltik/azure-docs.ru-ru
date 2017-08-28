@@ -2,7 +2,7 @@
 title: "Предустановки задач для Media Encoder Standard | Документация Майкрософт"
 description: "Этот раздел содержит обзор предустановок задач MES (Media Encoder Standard)."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

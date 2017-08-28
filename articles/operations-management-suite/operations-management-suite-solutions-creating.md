@@ -21,7 +21,6 @@ ms.openlocfilehash: 312f84fe2aaf3f63fe2b8d818786ef1c570ccfe1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/11/2017
 
-
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Проектирование и создание решения по управлению в Operations Management Suite (OMS) (предварительная версия)
 > [!NOTE]
@@ -86,4 +85,3 @@ ms.lasthandoff: 05/11/2017
 * Узнайте, как [создать файл решения](operations-management-suite-solutions-solution-file.md) для решения по управлению.
 * Узнайте больше о [создании шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Найдите в коллекции [шаблонов быстрого запуска Azure](https://azure.microsoft.com/documentation/templates) примеры разных шаблонов Resource Manager.
-
