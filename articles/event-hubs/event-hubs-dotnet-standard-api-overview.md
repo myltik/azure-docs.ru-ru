@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 4e05b1cc41038b2239f9314c17b93d20eed33844
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: eea682c40cd415b383a8b2f0004a5f3648e2f01f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/18/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -30,20 +29,20 @@ ms.lasthandoff: 04/18/2017
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
   * Эта библиотека расширяет функциональные возможности, позволяя отслеживать обработанные события. Это самый простой способ чтения из концентратора событий.
 
-## <a name="event-hub-client"></a>Клиент концентратора событий
-[**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) является основным объектом, который используется для отправки событий, создания приемников и получения данных среды выполнения. Этот клиент связан с определенным концентратором событий и создает подключение к конечной точке концентраторов событий.
+## <a name="event-hubs-client"></a>Клиент концентраторов событий
+[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) является основным объектом, который используется для отправки событий, создания приемников и получения данных среды выполнения. Этот клиент связан с определенным концентратором событий и создает подключение к конечной точке концентраторов событий.
 
-### <a name="create-an-event-hub-client"></a>Создание клиента концентратора событий
-Объект [**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) создается из строки подключения. В следующем примере показан самый простой способ создания клиента:
+### <a name="create-an-event-hubs-client"></a>Создание клиента концентратора событий
+Объект [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) создается из строки подключения. В следующем примере показан самый простой способ создания клиента:
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hub connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
 ```
 
-Чтобы изменить строку подключения программными средствами, можно использовать класс [**EventHubsConnectionStringBuilder**](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) и передать строку подключения в качестве параметра в [**EventHubClient.CreateFromConnectionString**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
+Чтобы изменить строку подключения программными средствами, можно использовать класс [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) и передать строку подключения в качестве параметра в [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
 {
     EntityPath = EhEntityPath
 };
@@ -52,7 +51,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 ```
 
 ### <a name="send-events"></a>Отправка событий
-Для отправки событий в концентратор событий используйте класс [**EventData**](/dotnet/api/microsoft.azure.eventhubs.eventdata). Текст должен быть массивом `byte` или сегментом массива `byte`.
+Для отправки событий в концентратор событий используйте класс [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata). Текст должен быть массивом `byte` или сегментом массива `byte`.
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -64,13 +63,12 @@ await eventHubClient.SendAsync(data);
 ```
 
 ### <a name="receive-events"></a>Получение событий
-Для получения событий из концентраторов событий рекомендуется использовать узел [**EventProcessorHost**](##Event-Processor-Host-APIs), который предоставляет возможность автоматически отслеживать данные о смещении и секциях. Однако, существуют определенные ситуации, в которых для получения событий может потребоваться гибкость основной библиотеки концентраторов событий.
+Для получения событий из концентраторов событий рекомендуется использовать узел [Event Processor Host](#event-processor-host-apis), который предоставляет возможность автоматически отслеживать смещение и сведения о секциях. Однако, существуют определенные ситуации, в которых для получения событий может потребоваться гибкость основной библиотеки концентраторов событий.
 
 #### <a name="create-a-receiver"></a>Создание приемника
-Приемники связаны с определенными секциями, поэтому для получения всех событий в концентраторе событий необходимо создать несколько экземпляров. Как правило, рекомендуется получать сведения о секциях программными средствами, не задавая идентификаторы секций жестко в коде. Для этого можно использовать метод [**GetRuntimeInformationAsync**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync).
+Приемники связаны с определенными секциями, поэтому для получения всех событий в концентраторе событий необходимо создать несколько экземпляров. Как правило, рекомендуется получать сведения о секциях программными средствами, не задавая идентификаторы секций жестко в коде. Для этого можно использовать метод [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync).
 
 ```csharp
-
 // Create a list to keep track of the receivers
 var receivers = new List<PartitionReceiver>();
 // Use the eventHubClient created above to get the runtime information
@@ -85,12 +83,12 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 }
 ```
 
-Так как события никогда не удаляются из концентратора событий (только истекает их срок действия), необходимо правильно указать отправную точку. В следующем примере показаны возможные комбинации.
+Так как события никогда не удаляются из концентратора событий (только истекает их срок действия), правильно укажите отправную точку. В следующем примере показаны возможные комбинации.
 
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
 
-// Using the constant 'PartitionReceiver.EndOfStream' will only receive all messages from this point forward.
+// Using the constant PartitionReceiver.EndOfStream only receives all messages from this point forward.
 var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, PartitionReceiver.EndOfStream);
 
 // All messages available
@@ -116,7 +114,7 @@ if (ehEvents != null)
         var customType = ehEvent.Properties["Type"];
         // Implement processing logic here
     }
-}        
+}       
 ```
 
 ## <a name="event-processor-host-apis"></a>Интерфейсы API узла обработчика событий
@@ -127,7 +125,7 @@ if (ehEvents != null)
 
 // Read these connection strings from a secure location
 var ehConnectionString = "{Event Hubs connection string}";
-var ehEntityPath = "{Event Hub path/name}";
+var ehEntityPath = "{event hub path/name}";
 var storageConnectionString = "{Storage connection string}";
 var storageContainerName = "{Storage account container name}";
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 08/08/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6c01fe7a791742d283505057a310891a075029ef
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Фильтрование поиска по журналам в Log Analytics с помощью регулярных выражений
@@ -25,6 +25,9 @@ ms.lasthandoff: 04/12/2017
 [Поиск по журналам](log-analytics-log-searches.md) позволяет извлекать сведения из репозитория Log Analytics.  [Выражения фильтра](log-analytics-search-reference.md#filter-expressions) позволяют фильтровать результаты поиска в соответствии с определенными критериями.  Ключевое слово **RegEx** позволяет указать регулярное выражение для фильтра.  
 
 Эта статья содержит сведения о синтаксисе регулярных выражений, используемых службой Log Analytics.
+
+> [!NOTE]
+> Регулярное выражение можно использовать только в полях с поддержкой поиска.  Дополнительные сведения о полях, поддерживающих поиск, см. в разделе **Типы полей** статьи [Поиск данных по журналам в Log Analytics](log-analytics-log-searches.md#use-additional-filters).
 
 
 ## <a name="regex-keyword"></a>Ключевое слово RegEx
@@ -71,9 +74,9 @@ ms.lasthandoff: 04/12/2017
 
 | Character | Описание | Пример | Пример совпадений |
 |:--|:--|:--|:--|
-| a{n} |  *n* вхождений знаков. | Computer=RegEx("bw-win-sc01{3}.bwren.lab") | bw-win-sc0111.bwren.lab |
-| a{n,} |  *n* или несколько вхождений знака. | Computer=RegEx("bw-win-sc01{3,}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab<br>bw-win-sc0111111.bwren.lab |
-| a{n,m} |  Вхождения знака в диапазоне от *n* до *m*. | Computer=RegEx("bw-win-sc01{3,5}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab |
+| a{n} |  *n* вхождений знака. | Computer=RegEx("bw-win-sc01{3}.bwren.lab") | bw-win-sc0111.bwren.lab |
+| a{n,} |  *n* или больше вхождений знака. | Computer=RegEx("bw-win-sc01{3,}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab<br>bw-win-sc0111111.bwren.lab |
+| a{n,m} |  Вхождений знака от *n* до *m*. | Computer=RegEx("bw-win-sc01{3,5}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab |
 
 
 ## <a name="logical-expressions"></a>Логические выражения

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rclaus
 ms.custom: 
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8925de446b9dc7e17a2f2033426eb380329c8249
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: e4d5c78299903659a18aa9b8d04495e215bcca0d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Сертификаты и конфигурации SAP на платформе Microsoft Azure
@@ -44,8 +44,8 @@ ms.lasthandoff: 04/03/2017
 
 | Продукт SAP | Гостевая ОС | Реляционная СУБД | Типы виртуальных машин |
 | --- | --- | --- | --- |
-| ПО SAP Business Suite |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (только Windows), DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
-| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (только Windows), DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
+| ПО SAP Business Suite |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (только Windows и Oracle Linux), DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
+| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (только Windows и Oracle Linux), DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
 | Бизнес-аналитика SAP BusinessObjects |Windows |Недоступно |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
-| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (только Windows), DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
+| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (только Windows и Oracle Linux), DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
 

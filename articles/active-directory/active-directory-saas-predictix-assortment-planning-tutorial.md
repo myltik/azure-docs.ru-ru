@@ -2,205 +2,229 @@
 title: "Руководство по интеграции Azure Active Directory с Predictix Assortment Planning | Документация Майкрософт"
 description: "Узнайте, как настроить единый вход между Azure Active Directory и Predictix Assortment Planning."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
+ms.reviewer: joflore
 ms.assetid: 37e686ff-f8e5-40b1-9d7e-f64b076917b7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 07/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
-ms.openlocfilehash: 8314db293ac3c9cbc2882c9a981819d0c5c02df3
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: cc7ad4aa5260276e26406b6b79c039372e5ee69f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Руководство. Интеграция Azure Active Directory с Predictix Assortment Planning
+
 В этом руководстве описано, как интегрировать Predictix Assortment Planning с Azure Active Directory (Azure AD).
 
 Интеграция Azure AD с Predictix Assortment Planning дает следующие преимущества:
 
-* С помощью Azure AD вы можете контролировать доступ к Predictix Assortment Planning.
-* Вы можете включить автоматический вход пользователей в Predictix Assortment Planning (единый вход) с использованием учетных записей Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+- С помощью Azure AD вы можете контролировать доступ к Predictix Assortment Planning.
+- Вы можете включить автоматический вход пользователей в Predictix Assortment Planning (единый вход) с использованием учетных записей Azure AD.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 Чтобы настроить интеграцию Azure AD с Predictix Assortment Planning, вам потребуется:
 
-* подписка Azure AD;
-* подписка на Predictix Assortment Planning с поддержкой единого входа.
+- подписка Azure AD;
+- подписка на Predictix Assortment Planning с поддержкой единого входа.
 
->[!NOTE]
->Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике. 
-> 
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-* Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого руководства — показать, как выполнить проверку единого входа Microsoft Azure AD в тестовой среде.
-
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление Predictix Assortment Planning из коллекции
-2. Настройка и проверка единого входа Microsoft Azure AD.
+2. Настройка и проверка единого входа в Azure AD
 
-## <a name="add-predictix-assortment-planning-from-the-gallery"></a>Добавление Predictix Assortment Planning из коллекции
+## <a name="adding-predictix-assortment-planning-from-the-gallery"></a>Добавление Predictix Assortment Planning из коллекции
 Чтобы настроить интеграцию Predictix Assortment Planning с Azure AD, необходимо добавить приложение Predictix Assortment Planning из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Predictix Assortment Planning из коллекции, сделайте следующее:**
 
-1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**.
-   
-    ![Active Directory][1]
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-    ![Приложения][2]
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-    ![Приложения][3]
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Приложения][4]
-6. В поле поиска введите **Predictix Assortment Planning**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_01.png)
-7. В области результатов выберите **Predictix Assortment Planning** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_02.png)
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-## <a name="configure-and-test-microsoft-azure-ad-sso"></a>Настройка и проверка единого входа Microsoft Azure AD
-В этом разделе описана настройка и проверка единого входа Microsoft Azure AD в Predictix Assortment Planning с использованием тестового пользователя Britta Simon.
+    ![Кнопка "Azure Active Directory"][1]
 
-Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в Predictix Assortment Planning соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Predictix Assortment Planning.
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Predictix Assortment Planning.
+    ![Колонка "Корпоративные приложения"][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-Чтобы настроить и проверить единый вход Microsoft Azure AD в Predictix Assortment Planning, выполните следующие стандартные действия.
+    ![Кнопка "Новое приложение"][3]
 
-1. **[Настройка единого входа Microsoft Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы позволить пользователям использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Microsoft Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Predictix Assortment Planning](#creating-a-predictix-price-reporting-test-user)** требуется для создания в Predictix Assortment Planning пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Microsoft Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. В поле поиска введите **Predictix Assortment Planning**, выберите **Predictix Assortment Planning** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-### <a name="configure-microsoft-azure-ad-sso"></a>Настройка единого входа Microsoft Azure AD
-В этом разделе описано, как включить единый вход Microsoft Azure AD на классическом портале и настроить его в приложении Predictix Assortment Planning.
+    ![Predictix Assortment Planning в списке результатов поиска](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_addfromgallery.png)
 
-**Чтобы настроить единый вход Microsoft Azure AD в Predictix Assortment Planning, сделайте следующее:**
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-1. На классическом портале на странице интеграции с приложением **Predictix Assortment Planning** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа][6] 
-2. На странице **Как пользователи должны входить в Predictix Assortment Planning** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_03.png) 
-3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_04.png) 
-  1. В текстовом поле **URL-адрес входа** введите URL-адрес, применяемый пользователями для входа в приложение Predictix Assortment Planning, в следующем формате: **https://\<имя_компании-ценовая_категория\>.ap.predictix.com/sso/request**.
-  2. click **Далее**
-4. На странице **Configure single sign-on at Predictix Assortment Planning** (Настройка единого входа в Predictix Assortment Planning) выполните следующие действия:
-   
-    ![Настройка единого входа](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_05.png)
-  1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.  
-  2. Нажмите кнопку **Далее**.
-5. Для настройки единого входа для своего приложения обратитесь в службу поддержки Predictix Assortment Planning и предоставьте следующие сведения:
-   
-  * Скачанный сертификат
-  * **идентификатор сущности**  
-  * **URL-адрес единого входа SAML**
-  * **URL-адрес службы единого выхода**
-6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
-   
-    ![единого входа Azure AD][10]
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
-   
-    ![единого входа Azure AD][11]
+В этом разделе описана настройка и проверка единого входа Azure AD в Predictix Assortment Planning с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Predictix Assortment Planning соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Predictix Assortment Planning.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Predictix Assortment Planning.
+
+Чтобы настроить и проверить единый вход Azure AD в Predictix Assortment Planning, выполните следующие стандартные действия.
+
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Predictix Assortment Planning](#create-a-predictix-assortment-planning-test-user)** требуется для создания в Predictix Assortment Planning пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Predictix Assortment Planning.
+
+**Чтобы настроить единый вход Azure AD в Predictix Assortment Planning, выполните указанные ниже действия.**
+
+1. На портале Azure на странице интеграции с приложением **Predictix Assortment Planning** щелкните **Единый вход**.
+
+    ![Ссылка "Настройка единого входа"][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Predictix Assortment Planning** выполните следующие действия.
+
+    ![Сведения о домене и URL-адресах единого входа для приложения Predictix Assortment Planning](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате:
+    | |
+    |--|--|
+    | `https://<sub-domain>.ap.predictix.com/sso/request`|
+    | `https://<sub-domain>.dev.ap.predictix.com/`|
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
+    | |
+    |--|--|
+    | `https://<sub-domain>.ap.predictix.com`|
+    | `https://<sub-domain>.dev.ap.predictix.com`|
+    
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Predictix Assortment Planning](http://www.infor.com/support). 
+ 
+
+
+4. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)**, а затем сохраните файл сертификата на компьютере.
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_400.png)
+
+6. В разделе **Конфигурация Predictix Assortment Planning** щелкните **Настроить Predictix Assortment Planning**, чтобы открыть окно **Настройка входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+
+    ![Настройка Predictix Assortment Planning](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_configure.png) 
+
+7. Чтобы настроить единый вход на стороне **Predictix Assortment Planning**, нужно передать скачанный **сертификат (Base64)**, **идентификатор сущности SAML**, **URL-адрес службы единого входа SAML** и **URL-адрес выхода** в [службу поддержки Predictix Assortment Planning](http://www.infor.com/support). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
+
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
 
-![Создание пользователя Azure AD][20]
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+   ![Создание тестового пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_09.png) 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_03.png) 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_05.png) 
-  1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-  3. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_01.png)
 
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_06.png) 
-  1. В текстовом поле **Имя** введите **Britta**.  
-  2. В текстовом поле **Фамилия** введите **Simon**.
-  3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-  4. В списке **Роль** выберите **Пользователь**.
-  5. Нажмите кнопку **Далее**.
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_07.png) 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_08.png) 
-  1. Запишите значение поля **Новый пароль**. 
-  2. Нажмите **Завершено**.   
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
 
-### <a name="create-an-predictix-assortment-planning-test-user"></a>Создание тестового пользователя Predictix Assortment Planning
-В этом разделе описано, как создать пользователя Britta Simon в приложении Predictix Assortment Planning. Чтобы добавить пользователей на платформу Predictix Assortment Planning, обратитесь в службу поддержки Predictix Assortment Planning.
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_02.png)
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
+
+    ![Кнопка "Добавить"](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_03.png)
+
+4. В диалоговом окне **Пользователь** сделайте следующее.
+
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_04.png)
+
+    а. В поле **Имя** введите **BrittaSimon**.
+
+    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
+
+    г) Щелкните **Создать**.
+ 
+### <a name="create-a-predictix-assortment-planning-test-user"></a>Создание тестового пользователя Predictix Assortment Planning
+
+В этом разделе описано, как создать пользователя Britta Simon в приложении Predictix Assortment Planning. Чтобы добавить пользователей на платформу Predictix Assortment Planning, обратитесь в [службу поддержки Predictix Assortment Planning](http://www.infor.com/contact/).
+ > [!NOTE]
+ > Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-В этом разделе описано, как позволить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к Predictix Assortment Planning.
 
-![Назначение пользователя][200] 
+В этом разделе описано, как позволить пользователю Britta Simon использовать единый вход Azure, предоставив пользователю доступ к Predictix Assortment Planning.
+
+![Назначение роли пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon приложению Predictix Assortment Planning, сделайте следующее:**
 
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
-   
-    ![Назначение пользователя][201] 
-2. В списке приложений выберите **Predictix Assortment Planning**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_50.png) 
-3. В меню в верхней части страницы щелкните **Пользователи**.
-   
-    ![Назначение пользователя][203]
-4. В списке пользователей выберите **Britta Simon**.
-5. На панели инструментов внизу щелкните **Назначить**.
-   
-    ![Назначение пользователя][205]
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
-### <a name="test-sso"></a>Проверка единого входа
-В этом разделе описано, как проверить конфигурацию единого входа Microsoft Azure AD с помощью панели доступа.
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Predictix Assortment Planning**.
+
+    ![В списке приложений выберите ссылку "Predictix Assortment Planning".](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_app.png)  
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Ссылка "Пользователи и группы"][202]
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Область "Добавление назначения"][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="test-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент Predictix Assortment Planning на панели доступа, вы автоматически войдете в приложение Predictix Assortment Planning.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>дополнительные ресурсы.
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -209,14 +233,11 @@ ms.lasthandoff: 02/28/2017
 [3]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_205.png
+
 

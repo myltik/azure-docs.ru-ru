@@ -11,17 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 285f3bc3faeffc94c639658ba375910bc4463e25
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 170f431525ffdc93a01fc085e48e69c3a774968e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="how-to-use-service-bus-queues"></a>Как использовать очереди служебной шины
+# <a name="how-to-use-service-bus-queues-with-java"></a>Как использовать очереди служебной шины с Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 В этой статье показано, как использовать очереди служебной шины. Примеры написаны на Java и используют [пакет Azure SDK для Java][Azure SDK for Java]. Здесь описаны такие сценарии, как **создание очередей**, **отправка и получение сообщений**, а также **удаление очередей**.
@@ -48,7 +47,7 @@ import javax.xml.datatype.*;
 ## <a name="create-a-queue"></a>Создание очереди
 Операции управления для очередей служебной шины можно выполнять с помощью класса **ServiceBusContract**. Объект **ServiceBusContract** создается с соответствующей конфигурацией, которая инкапсулирует маркер SAS с разрешениями на управление им, а класс **ServiceBusContract** является единственной точкой связи с Azure.
 
-Класс **ServiceBusService** предоставляет методы для создания, перечисления и удаления очередей. В примере ниже показано, каким образом можно использовать объект **ServiceBusService** для создания очереди с именем TestQueue и пространством имен HowToSample.
+Класс **ServiceBusService** предоставляет методы для создания, перечисления и удаления очередей. В примере ниже показано, каким образом можно использовать объект **ServiceBusService** для создания очереди с именем `TestQueue` и пространством имен `HowToSample`:
 
 ```java
 Configuration config =
@@ -73,7 +72,7 @@ catch (ServiceException e)
 }
 ```
 
-Существуют методы **QueueInfo**, позволяющие настраивать свойства очереди (например, значение времени жизни (Time to Live, TTL) по умолчанию для применения к сообщениям, отправленным в очередь). Следующий пример показывает, как создать очередь с именем `TestQueue` и размером не более 5 ГБ.
+Существуют методы `QueueInfo`, позволяющие настраивать свойства очереди (например, значение времени жизни (TTL) по умолчанию для применения к сообщениям, отправленным в очередь). Следующий пример показывает, как создать очередь с именем `TestQueue` и размером не более 5 ГБ.
 
 ````java
 long maxSizeInMegabytes = 5120;
@@ -82,7 +81,7 @@ queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateQueueResult result = service.createQueue(queueInfo);
 ````
 
-Обратите внимание, что метод **listQueues** можно использовать для объектов **ServiceBusContract**, чтобы проверить, существует ли уже очередь с указанным именем в пространстве имен службы.
+Обратите внимание, что метод `listQueues` можно использовать для объектов **ServiceBusContract**, чтобы проверить, существует ли уже очередь с указанным именем в пространстве имен службы.
 
 ## <a name="send-messages-to-a-queue"></a>Отправка сообщений в очередь
 Чтобы отправить сообщение в очередь служебной шины, приложение получает объект **ServiceBusContract**. В следующем примере кода показано, как отправить сообщение в очередь `TestQueue`, созданную ранее в пространстве имен `HowToSample`.

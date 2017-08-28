@@ -1,5 +1,5 @@
 ---
-title: "Настройка политики SSL и сквозного режима связи SSL для шлюза приложений | Документация Майкрософт"
+title: "Настройка сквозного режима связи SSL для шлюза приложений Azure| Документация Майкрософт"
 description: "В этой статье описывается настройка сквозного режима связи SSL на шлюзе приложений с помощью PowerShell для Azure Resource Manager."
 services: application-gateway
 documentationcenter: na
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 07/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6d969d6a0c649c263e1d5bb99bdbceec484cb9a3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="configure-ssl-policy-and-end-to-end-ssl-with-application-gateway-using-powershell"></a>Настройка политики SSL и сквозного режима связи SSL для шлюза приложений с помощью PowerShell
+# <a name="configure-end-to-end-ssl-with-application-gateway-using-powershell"></a>Настройка сквозного режима связи SSL для шлюза приложений с помощью PowerShell
 
 ## <a name="overview"></a>Обзор
 
 Шлюз приложений поддерживает сквозное шифрование трафика. Для этого шлюз приложений завершает SSL-соединение. Затем шлюз применяет правила маршрутизации к трафику, повторно шифрует пакет и пересылает его в соответствующую серверную часть согласно определенным правилам маршрутизации. Любой ответ веб-сервера проходит через тот же процесс на пути к пользователю.
 
-Еще одна поддерживаемая шлюзом приложений функция — отключение определенных версий протокола SSL. Шлюз приложений поддерживает отключение следующих версий протокола: **TLSv1.0**, **TLSv1.1** и **TLSv1.2**.
+Еще одна поддерживаемая шлюзом приложений функция — отключение определенных версий протокола SSL. Шлюз приложений поддерживает отключение следующих версий протокола: **TLSv1.0**, **TLSv1.1** и **TLSv1.2**. Также шлюз поддерживает определение комплектов шифров для использования и их приоритет.  Дополнительные сведения о настраиваемых параметрах SSL см. в статье [Общие сведения о политике SSL](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > Протоколы SSL 2.0 и SSL 3.0 отключены по умолчанию, и их нельзя включать. Они считаются небезопасными и не могут использоваться со шлюзом приложений.
@@ -40,9 +41,9 @@ ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
 Вы узнаете:
 
 * как создать группу ресурсов **appgw-rg**;
-* как создать виртуальную сеть **appgwvnet** с зарезервированным блоком CIDR (10.0.0.0/16);
+* как создать виртуальную сеть **appgwvnet** с адресным пространством 10.0.0.0/16;
 * как создать две подсети, **appgwsubnet** и **appsubnet**;
-* как создать небольшой шлюз приложений, поддерживающий сквозное шифрование SSL, который отключает определенные протоколы SSL.
+* как создать небольшой шлюз приложений, поддерживающий сквозное шифрование SSL, который ограничивает определенные версии протокола SSL и комплекты шифров.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -178,7 +179,7 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 Настройте сертификат для шлюза приложений. Этот сертификат используется для шифрования и расшифровки трафика на шлюзе приложений.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
 ```
 
 > [!NOTE]
@@ -186,15 +187,15 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 
 ### <a name="step-6"></a>Шаг 6
 
-Создайте прослушиватель HTTP для шлюза приложений. Назначьте используемую конфигурацию IP внешнего интерфейса, порт и сертификат SSL.
+Создайте прослушиватель HTTP для шлюза приложений. Назначьте используемую конфигурацию IP внешнего интерфейса, порт и SSL-сертификат.
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
 ```
 
 ### <a name="step-7"></a>Шаг 7
 
-Передайте используемый сертификат в ресурсы внутреннего пула с поддержкой протокола SSL.
+Передайте сертификат, который будет использоваться для ресурсов внутреннего пула, поддерживающих протокол SSL.
 
 > [!NOTE]
 > Проба по умолчанию получает открытый ключ из привязки SSL **по умолчанию** по IP-адресу серверной части и сравнивает полученное значение открытого ключа со значением, которое предоставляете вы. **Если** на серверной части используются заголовки узлов и SNI, полученный открытый ключ не обязательно будет ключом сайта, на который направляется интернет-трафик. Если вы сомневаетесь, перейдите по адресу https://127.0.0.1/ на серверных частях, чтобы проверить, какой сертификат используется для привязки SSL **по умолчанию**. В этом разделе используйте открытый ключ из этого запроса. Если в привязках HTTPS используются заголовки узлов и SNI и вы не получаете ответ и сертификат, после того как вручную отправили в браузере запрос на адрес https://127.0.0.1/ для серверных частей, на них необходимо настроить привязку SSL по умолчанию. Если этого не сделать, пробы будут завершены ошибкой и серверная часть не будет добавлена в список разрешений.
@@ -235,18 +236,18 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 ### <a name="step-11"></a>Шаг 11
 
-Настройте политику SSL для шлюза приложений. Шлюз приложений поддерживает отключение определенных версий протокола SSL.
+Настройте политику SSL для шлюза приложений. Шлюз приложений поддерживает возможность установить минимальную версию для версии протокола SSL.
 
-Ниже приведен список значений для версий протокола, которые можно отключить.
+Ниже приведен список значений для версий протокола, которые можно определить.
 
 * **TLSv1_0**
 * **TLSv1_1**
 * **TLSv1_2**
 
-В следующем примере отключается **TLSv1\_0**.
+Задает **TLSv1_2** в качестве минимальной версии протокола и разрешает только шифры **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** и **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
 
 ```powershell
-$sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0
+$SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
 ## <a name="create-the-application-gateway"></a>Создание шлюза приложений
@@ -254,10 +255,10 @@ $sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_
 Создайте шлюз приложений в соответствии с действиями, выполненными на предыдущих шагах. Имейте ввиду, что создание шлюза — долгий процесс.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgateway -SslCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-## <a name="disable-ssl-protocol-versions-on-an-existing-application-gateway"></a>Отключение версий протокола SSL на существующем шлюзе приложений
+## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Ограничение версий протокола SSL на существующем шлюзе приложений
 
 Выше было описано создание шлюза приложений со сквозным режимом связи SSL и отключение определенных версий протокола SSL. В следующем примере отключаются определенные политики SSL на существующем шлюзе приложений.
 
@@ -271,10 +272,11 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 
 ### <a name="step-2"></a>Шаг 2
 
-Определите политику SSL. В следующем примере отключаются TLSv1.0 и TLSv1.1.
+Определите политику SSL. Ниже представлен пример отключения версий TLSv1.0 и TLSv1.1 и разрешения только комплектов шифров **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** и **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
 
 ```powershell
-Set-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0, TLSv1_1 -ApplicationGateway $gw
+Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+
 ```
 
 ### <a name="step-3"></a>Шаг 3.
@@ -287,7 +289,7 @@ $gw | Set-AzureRmApplicationGateway
 
 ## <a name="get-application-gateway-dns-name"></a>Получение DNS-имени шлюза приложений
 
-После создания шлюза следует настроить внешний интерфейс для обмена данными. Если вы используете общедоступный IP-адрес, шлюзу приложений требуется динамически назначаемое непонятное имя DNS. Чтобы гарантировать попадание пользователей на шлюз приложений, можно использовать запись CNAME, чтобы указать общедоступную конечную точку шлюза приложения. [Настройка пользовательского имени домена в Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Получите информацию о шлюзе приложений и соответствующее IP- или DNS-имя с помощью элемента PublicIPAddress, связанного со шлюзом приложений. DNS-имя шлюза приложений должно использоваться для создания записи CNAME, указывающей двум веб-приложениям на это DNS-имя. Использование записи A не рекомендуется, так как виртуальный IP-адрес может измениться после перезапуска приложения шлюза.
+После создания шлюза следует настроить внешний интерфейс для обмена данными. Если вы используете общедоступный IP-адрес, шлюзу приложений требуется динамически назначаемое непонятное имя DNS. Чтобы гарантировать попадание пользователей на шлюз приложений, можно использовать запись CNAME, чтобы указать общедоступную конечную точку шлюза приложений. [Настройка пользовательского имени домена в Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Получите информацию о шлюзе приложений и соответствующее IP- или DNS-имя с помощью элемента PublicIPAddress, связанного со шлюзом приложений. DNS-имя шлюза приложений должно использоваться для создания записи CNAME, указывающей двум веб-приложениям на это DNS-имя. Использование записи A не рекомендуется, так как виртуальный IP-адрес может измениться после перезапуска приложения шлюза.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -319,10 +321,5 @@ DnsSettings              : {
 
 Дополнительные сведения об усилении безопасности веб-приложений с помощью брандмауэра веб-приложения в шлюзе приложений см. в разделе [Обзор брандмауэра веб-приложения](application-gateway-webapplicationfirewall-overview.md).
 
-[scenario]: ./media/application-gateway-end-to-end-ssl-powershell/scenario.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 02/13/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9c057534ae8168146d389a1d76213d48e24ae9cb
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="install-a-linux-master-target-server"></a>Установка главного целевого сервера Linux
@@ -50,6 +50,15 @@ ms.lasthandoff: 07/24/2017
 - **Размер диска ОС**: 100 ГБ или больше (для установки CentOS 6.6).
 - **Дополнительное пространство для диска хранения**: 1 ТБ.
 - **Ядра ЦП**: 4 ядра или больше.
+
+Поддерживаются следующие ядра Ubuntu.
+
+
+|Серии ядер  |Поддержка версий  |
+|---------|---------|
+|4.4.      |4.4.0-81-generic         |
+|4.8      |4.8.0-56-generic         |
+|4.10     |4.10.0-24-generic        |
 
 
 ## <a name="deploy-the-master-target-server"></a>Развертывание главного целевого сервера
@@ -198,9 +207,9 @@ ms.lasthandoff: 07/24/2017
 
 #### <a name="disable-kernel-upgrades"></a>Отключение обновления ядра
 
-Так как для главного целевого сервера Azure Site Recovery требуется специальная версия Ubuntu, следует убедиться, что на виртуальной машине отключено обновление ядра.
+Для главного целевого сервера Azure Site Recovery требуется специальная версия Ubuntu. Убедитесь, что на виртуальной машине отключено обновление ядра.
 
- Если обновление включено, то какое-либо регулярное обновление приведет к неисправности главного целевого сервера.
+Если обновление включено, то какое-либо регулярное обновление приведет к неисправности главного целевого сервера.
 
 #### <a name="download-and-install-additional-packages"></a>Скачивание и установка дополнительных пакетов
 

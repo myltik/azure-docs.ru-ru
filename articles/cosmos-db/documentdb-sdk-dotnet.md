@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Пакет SDK для Azure Cosmos DB .NET: скачивание и заметки о выпуске
@@ -53,6 +53,11 @@ ms.lasthandoff: 08/09/2017
 
 ## <a name="release-notes"></a>Заметки о выпуске
 
+### <a name="a-name11701170"></a><a name="1.17.0"/>1.17.0 
+
+* Добавлена поддержка PartitionKeyRangeId как FeedOption для ограничения области результатов запроса определенным диапазоном ключа секции. 
+* Добавлена поддержка StartTime как ChangeFeedOption для поиска изменений после указанного периода.
+
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * Устранена проблема в классе JsonSerializable, которая могла порождать исключение переполнения стека.
 
@@ -67,7 +72,6 @@ ms.lasthandoff: 08/09/2017
 *   Устранена проблема, возникающая на компьютерах x64, которые не поддерживают инструкции SSE4 и порождают исключение SEHException при выполнении запросов API DocumentDB в Azure Cosmos DB.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*   Добавлена поддержка использования единиц запроса в минуту (ЕЗ/мин.).
 *   Добавлена поддержка нового уровня согласованности с именем ConsistentPrefix.
 *   Добавлена поддержка запроса метрик отдельных секций.
 *   Добавлена поддержка ограничения размера маркера продолжения запросов.
@@ -254,6 +258,7 @@ ms.lasthandoff: 08/09/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.17.0](#1.17.0) |10 августа 2017 г. |--- |
 | [1.16.1](#1.16.1) |7 августа 2017 г. |--- |
 | [1.16.0](#1.16.0) |2 августа 2017 г. |--- |
 | [1.15.0](#1.15.0) |30 июня 2017 г. |--- |

@@ -15,11 +15,10 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: pkc
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 70b2fefa654a73693a8064654cde1d767bfdd496
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 78e68cff3a757cbbcd8dc6f53120e6a4af54591a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-service-fabric-support-options"></a>Варианты поддержки Azure Service Fabric
@@ -84,7 +83,8 @@ ms.lasthandoff: 07/11/2017
 | 5.3.* |Не выше версии 2.3 |24 февраля 2017 г. |
 | 5.4.* |Не выше версии 2.4 |10 мая 2017 г.     |
 | 5.5.* |Не выше версии 2.5 |10 августа 2017 г.    |
-| 5.6.* |Не выше версии 2.6 |Текущая версия, дата окончания поддержки не определена.
+| 5.6.* |Не выше версии 2.6 |13 октября 2017 г.    |
+| 5.7.* |Не выше версии 2.7 |Текущая версия, дата окончания поддержки не определена.
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Предварительные версии Service Fabric не поддерживаются для использования в рабочей среде.

@@ -1,6 +1,6 @@
 ---
 title: "Как настроить приложение Spring Boot Initializer для использования кэша Redis"
-description: "Узнайте, как настроить приложение, созданное с помощью Spring Boot Initializer, для использования кэша Redis для Azure."
+description: "Узнайте, как настроить приложение Spring Boot, созданное с помощью Spring Initializer, для использования кэша Redis для Azure."
 services: redis-cache
 documentationcenter: java
 author: rmcmurray
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/21/2017
 ms.author: robmcm;zhijzhao;yidon
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ea85a9cfe7079ade33a437987798a165a056dc02
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: fb3fc96a2136b7c326bb0eb291b7204e7acf0190
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/28/2017
 
 * Подписка Azure; если у вас еще нет подписки Azure, вы можете активировать [преимущества для подписчиков MSDN] или зарегистрироваться для получения [бесплатной учетной записи Azure].
 
-* [Пакет разработчиков Java (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/) версии 1.7 или более поздней.
+* [Пакет разработчиков Java (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/) версии 1.7 или более поздней.
 
 * [Apache Maven](http://maven.apache.org/) версии 3.0 или более поздней.
 
@@ -51,15 +51,15 @@ ms.lasthandoff: 07/28/2017
 
    ![Портал Azure][AZ02]
 
-1. В колонке **Новый кэш Redis** введите **DNS-имя** кэша, а затем укажите **подписку**, **группу ресурсов**, **расположение** и **ценовую категорию**. Указав эти параметры, щелкните **Создать**, чтобы создать кэш.
+1. На странице **Новый кэш Redis** введите **DNS-имя** кэша, а затем укажите **подписку**, **группу ресурсов**, **расположение** и **ценовую категорию**. Указав эти параметры, щелкните **Создать**, чтобы создать кэш.
 
    ![Портал Azure][AZ03]
 
-1. После создания кэша он появится в списке на **панели мониторинга** Azure, а также в колонках **Все ресурсы** и **Кэши Redis**. Вы можете выбрать свой кэш в любом из этих расположений, чтобы открыть колонку свойств кэша.
+1. После создания кэша он появится в списке на **информационной панели** Azure, а также на страницах **Все ресурсы** и **Кэш Redis**. Вы можете выбрать свой кэш в любом из этих расположений, чтобы открыть страницу свойств кэша.
 
    ![Портал Azure][AZ04]
 
-1. Когда отобразится колонка, содержащая список свойств кэша, щелкните **Ключи доступа** и скопируйте ключи доступа для кэша.
+1. Когда отобразится страница, содержащая список свойств кэша, щелкните **Ключи доступа** и скопируйте ключи доступа для кэша.
 
    ![Портал Azure][AZ05]
 
@@ -98,10 +98,13 @@ ms.lasthandoff: 07/28/2017
 
    ```yaml
    # Specify the DNS URI of your Redis cache.
-   spring.redisHost=myspringbootcache.redis.cache.windows.net
+   spring.redis.host=myspringbootcache.redis.cache.windows.net
+
+   # Specify the port for your Redis cache.
+   spring.redis.port=6380
 
    # Specify the access key for your Redis cache.
-   spring.redisPassword=447564652c20426f6220526f636b7321
+   spring.redis.password=57686f6120447564652c2049495320526f636b73=
    ```
 
    ![Редактирование файла application.properties][RE02]
@@ -116,7 +119,7 @@ ms.lasthandoff: 07/28/2017
 
    `/users/example/home/myazuredemo/src/main/java/com/contoso/myazuredemo/controller`
 
-1. Создайте файл с именем *HelloController.java* в только что созданной папке *controller* и добавьте в него следующий код:
+1. Создайте файл с именем *HelloController.java* в папке *controller*. Откройте файл в текстовом редакторе и добавьте в него следующий код:
 
    ```java
    package com.contoso.myazuredemo;
@@ -131,11 +134,15 @@ ms.lasthandoff: 07/28/2017
    public class HelloController {
    
       // Retrieve the DNS name for your cache.
-      @Value("${spring.redisHost}")
+      @Value("${spring.redis.host}")
       private String redisHost;
 
+      // Retrieve the port for your cache.
+      @Value("${spring.redis.port}")
+      private int redisPort;
+
       // Retrieve the access key for your cache.
-      @Value("${spring.redisPassword}")
+      @Value("${spring.redis.password}")
       private String redisPassword;
 
       @RequestMapping("/")
@@ -143,7 +150,7 @@ ms.lasthandoff: 07/28/2017
       public String hello() {
       
          // Create a JedisShardInfo object to connect to your Redis cache.
-         JedisShardInfo jedisShardInfo = new JedisShardInfo(redisHost, 6380, true);
+         JedisShardInfo jedisShardInfo = new JedisShardInfo(redisHost, redisPort, true);
          // Specify your access key.
          jedisShardInfo.setPassword(redisPassword);
          // Create a Jedis object to store/retrieve information from your cache.
@@ -165,8 +172,8 @@ ms.lasthandoff: 07/28/2017
 1. Создайте приложение Spring Boot с помощью Maven и запустите его, например, следующим образом:
 
    ```shell
-   mvn package
-   java -jar target/myazuredemo-0.0.1-SNAPSHOT.jar
+   mvn clean package
+   mvn spring-boot:run
    ```
 
 1. Протестируйте веб-приложение, перейдя по адресу http://localhost:8080 в веб-браузере, или, если имеется программа curl, используйте синтаксис, как в следующем примере:

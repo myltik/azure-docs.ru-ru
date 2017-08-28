@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 05538e1633d6e8353cc7980d081af3672a3f97d8
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a7ce4d771e9c655687f72f4b46c7405cf64aeb74
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Пакет SDK .NET Core для Azure Cosmos DB: заметки о выпуске и ресурсы
@@ -58,6 +58,11 @@ ms.lasthandoff: 08/09/2017
 > [!NOTE] 
 > Пакет SDK .NET Core для Azure Cosmos DB пока несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
+
+* Добавлена поддержка PartitionKeyRangeId как FeedOption для ограничения области результатов запроса определенным диапазоном ключа секции. 
+* Добавлена поддержка StartTime как ChangeFeedOption для поиска изменений после указанного периода. 
+
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
 *   Устранена проблема в классе JsonSerializable, которая могла порождать исключение переполнения стека.
@@ -76,7 +81,6 @@ ms.lasthandoff: 08/09/2017
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*   Добавлена поддержка использования единиц запроса в минуту.
 *   Добавлена поддержка нового уровня согласованности с именем ConsistentPrefix.
 *   Добавлена поддержка запроса метрик отдельных секций.
 *   Добавлена поддержка ограничения размера маркера продолжения запросов.
@@ -133,6 +137,7 @@ ms.lasthandoff: 08/09/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.5.0](#1.5.0) |10 августа 2017 г. |--- | 
 | [1.4.1](#1.4.1) |7 августа 2017 г. |--- |
 | [1.4.0](#1.4.0) |2 августа 2017 г. |--- |
 | [1.3.2](#1.3.2) |12 июня 2017 г. |--- |

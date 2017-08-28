@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 77f50a830c38b3a90110845e58ee7cbb28742c10
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8a5b39351f665c51ae7d83f755329e54ff3cf786
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -34,13 +34,12 @@ ms.lasthandoff: 06/28/2017
 Существует несколько разных расширений ВМ Azure, которые используются в определенных сценариях. Ниже приведены некоторые примеры.
 
 - Применение к виртуальной машине конфигураций требуемого состояния PowerShell с помощью расширения DSC для Linux. Подробнее см. [Общие сведения об обработчике расширения Desired State Configuration в Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Настройка мониторинга виртуальной машины с помощью расширения ВМ Microsoft Monitoring Agent. Дополнительные сведения см. в статье [Включение и отключение мониторинга виртуальной машины Azure](vm-monitoring.md).
+- Настройка мониторинга виртуальной машины с помощью расширения ВМ Microsoft Monitoring Agent. Дополнительные сведения см. в статье [Мониторинг виртуальных машин Linux в Azure](tutorial-monitoring.md).
 - Настройка мониторинга инфраструктуры Azure с помощью расширения Datadog. Дополнительную информацию см. в [блоге Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Настройка узла Docker на виртуальной машине Azure с помощью расширения Docker. Дополнительные сведения см. в статье [Использование расширения виртуальной машины Docker для развертывания среды](dockerextension.md).
 
 Помимо расширений, созданных для конкретных процессов, существует расширение пользовательских сценариев для виртуальных машин под управлением Windows и Linux. Расширение пользовательских сценариев для Linux позволяет запустить на виртуальной машине любой сценарий Bash. Пользовательские сценарии могут пригодиться при проектировании развертывания Azure, для которого требуется дополнительная настройка, ее невозможно выполнить собственными средствами Azure. Дополнительные сведения см. в статье [Использование расширения пользовательских сценариев Azure на виртуальных машинах Linux](extensions-customscript.md).
 
-Следуя инструкциям из статьи [Automating application deployments to Azure virtual machines](../linux/dotnet-core-1-landing.md) (Автоматизация развертывания приложений в виртуальных машинах Azure), вы можете выполнить пример комплексного развертывания приложения, используя расширения виртуальной машины.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -131,7 +130,7 @@ info:    vm extension set command OK
 }
 ```
 
-Дополнительные сведения см. в статье [Разработка шаблонов Azure Resource Manager с расширениями виртуальной машины Linux](../linux/extensions-authoring-templates.md).
+Дополнительные сведения см. в статье [Создание шаблонов Azure Resource Manager](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions).
 
 ## <a name="secure-vm-extension-data"></a>Защита данных в расширениях ВМ
 

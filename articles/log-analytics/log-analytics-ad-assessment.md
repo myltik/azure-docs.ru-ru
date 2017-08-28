@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Оптимизация среды Active Directory с помощью решения оценки Active Directory в Log Analytics
@@ -73,7 +73,7 @@ ms.lasthandoff: 08/04/2017
 
 | платформа | Direct Agent | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Да](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Да](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Нет](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Нет](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Да](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 дней |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 дней |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Основные сведения о приоритизации рекомендаций
 Каждая рекомендация получает взвешенное значение, определяющее относительную важность рекомендаций. Отображаются только 10 наиболее важных рекомендаций.
@@ -176,13 +176,6 @@ ms.lasthandoff: 08/04/2017
 *Сколько времени требуется для сбора данных?*
 
 * Время сбора данных на сервере занимает примерно 1 час. На серверах, которые имеют большое количество серверов Active Directory, процесс сбора может занять больше времени.
-
-*Какие типы данных собираются?*
-
-* Собираются следующие типы данных:
-  * WMI
-  * Реестр
-  * Счетчики производительности
 
 *Можно ли настроить время сбора данных?*
 

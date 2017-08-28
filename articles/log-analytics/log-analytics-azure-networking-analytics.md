@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 10ca10b2f644c29aad244abab720d2ce5586714f
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 06b67322b3812a668a515ecc357171ede1d85441
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Решения для мониторинга сетей Azure в Log Analytics
@@ -64,7 +63,7 @@ Log Analytics предлагает следующие решения для мо
 
 | платформа | Direct Agent | Агент Systems Center Operations Manager | Таблицы Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-| Таблицы Azure |![Нет](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Нет](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Да](./media/log-analytics-azure-networking/oms-bullet-green.png) |![Нет](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Нет](./media/log-analytics-azure-networking/oms-bullet-red.png) |при входе |
+| Таблицы Azure |  |  |&#8226; |  |  |при входе |
 
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Решение для анализа шлюзов приложений Azure в Log Analytics

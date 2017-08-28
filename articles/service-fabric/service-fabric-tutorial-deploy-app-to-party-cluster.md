@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: c0546fd5b1398759ef98afa267146ced8a4084da
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 6624d683edb548a65d07ab4012c599faaf940ed0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -42,6 +42,13 @@ ms.lasthandoff: 08/10/2017
 - [Установите Visual Studio 2017](https://www.visualstudio.com/), а также рабочие нагрузки **разработка Azure** и **ASP.NET и веб-разработка**.
 - [Установка пакета SDK для Service Fabric](service-fabric-get-started.md)
 
+## <a name="download-the-voting-sample-application"></a>Скачивание примера приложения для голосования
+Если вы не создавали пример приложения для голосования [в первой части этой серии руководств](service-fabric-tutorial-create-dotnet-app.md), вы можете скачать его. В окне терминала выполните следующую команду, чтобы клонировать репозиторий с примером приложения на локальный компьютер.
+
+```
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
+```
+
 ## <a name="set-up-a-party-cluster"></a>Настройка кластера сообщества
 Кластеры сообщества — это бесплатные кластеры Service Fabric, которые доступны в течение ограниченного времени. Эти кластеры размещены в Azure и поддерживаются командой Service Fabric. Любой пользователь может развертывать приложения на этих кластерах и знакомиться с платформой. Бесплатно!
 
@@ -50,16 +57,28 @@ ms.lasthandoff: 08/10/2017
 > [!NOTE]
 > Кластеры сообщества не защищены, поэтому все ваши приложения и данные, размещенные на этих кластерах, могут быть доступны для других пользователей. Не разворачивайте приложения, которые не должны увидеть другие пользователи. Обязательно прочтите условия использования, чтобы получить все необходимые сведения.
 
-## <a name="make-your-application-ready-for-deployment"></a>Подготовка приложения к развертыванию
-Так как наша служба веб-API ASP.NET Core выступает в роли клиентской части этого приложения и принимает внешний трафик, мы хотим привязать эту службу к фиксированному и хорошо известному порту. Указание порта в файле служб **ServiceManifest.xml**.
+## <a name="configure-the-listening-port"></a>Настройка порта прослушивания
+Когда создается интерфейсная служба VotingWeb, Visual Studio случайным образом выбирает порт для ее прослушивания.  Так как служба VotingWeb выступает в роли клиентской части этого приложения и принимает внешний трафик, мы привяжем эту службу к фиксированному и хорошо известному порту. В обозревателе решений откройте файл *VotingWeb/PackageRoot/ServiceManifest.xml*.  В разделе **Ресурсы** найдите ресурс **Конечная точка** и задайте для **порта** значение 80.
 
-1. В обозревателе решений откройте файл **WebAPIFrontEnd -> PackageRoot -> ServiceManifest.xml**.
-2. Измените атрибут **Port** для существующего элемента **Endpoint** на **80** и сохраните изменения.
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+Обновите значение свойства "URL-адрес приложения" в проекте Voting, чтобы в веб-браузере открывался правильный порт при отладке с помощью клавиши F5.  В обозревателе решений выберите проект **Voting** и обновите свойство **URL-адрес приложения**.
+
+![URL-адрес приложения](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>Развертывание приложения в Azure
 Теперь, когда приложение готово, можно развернуть его в кластер сообщества прямо из Visual Studio.
 
-1. Щелкните правой кнопкой мыши **MyApplication** в обозревателе решений и выберите **Опубликовать**.
+1. Щелкните правой кнопкой мыши **Voting** в обозревателе решений и выберите **Опубликовать**.
 
     ![Диалоговое окно "Опубликовать"](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
@@ -67,7 +86,7 @@ ms.lasthandoff: 08/10/2017
 
     После завершения публикации вы сможете отправить запрос к приложению через браузер.
 
-3. Откройте браузер и введите адрес кластера (конечную точку подключения без указания порта — например win1kw5649s.westus.cloudapp.azure.com), добавьте к URL-адресу `/api/values`.
+3. Откройте любой браузер и введите адрес кластера (конечную точку подключения без указания порта — например, win1kw5649s.westus.cloudapp.azure.com).
 
     Вы должны увидеть такой же результат, как и при локальном запуске приложения.
 
@@ -76,21 +95,22 @@ ms.lasthandoff: 08/10/2017
 ## <a name="remove-the-application-from-a-cluster-using-service-fabric-explorer"></a>Удаление приложения из кластера с помощью Service Fabric Explorer
 Service Fabric Explorer — графический пользовательский интерфейс для просмотра приложений в кластере Service Fabric и управления ими.
 
-Чтобы удалить приложение, развернутое в кластер сообщества, выполните следующие действия:
+Чтобы удалить приложение из кластера сообщества, сделайте следующее:
 
 1. Перейдите в Service Fabric Explorer, используя соответствующую ссылку на странице регистрации для кластера сообщества. Например, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. В Service Fabric Explorer перейдите к узлу **fabric://MyApplication** в дереве слева.
+2. В Service Fabric Explorer перейдите к узлу **fabric://Voting** в дереве слева.
 
 3. Нажмите кнопку **Действия** в области **Основные действия** справа и выберите **Удалить приложение**. Подтвердите удаление экземпляра приложения. После этого экземпляр нашего приложения, запущенный в кластере, будет удален.
 
 ![Удаление приложения в Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
 
+## <a name="remove-the-application-type-from-a-cluster-using-service-fabric-explorer"></a>Удаление типа приложения из кластера с помощью Service Fabric Explorer
 Приложения в кластере Service Fabric развертываются по типам приложений. Это позволяет иметь несколько экземпляров и версий приложения в одном и том же кластере. После удаления запущенного экземпляра приложения также можно удалить тип, чтобы завершить очистку.
 
 Дополнительные сведения о моделировании приложений в Service Fabric см. в разделе [Моделирование приложений в Service Fabric](service-fabric-application-model.md).
 
-1. Перейдите к узлу **MyApplicationType** в дереве.
+1. Перейдите к узлу **VotingType** в дереве.
 
 2. Нажмите кнопку **Действия** в области **Основные действия** справа и выберите **Отменить подготовку типа**. Подтвердите отмену подготовки типа приложения.
 

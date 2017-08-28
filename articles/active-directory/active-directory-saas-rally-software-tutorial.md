@@ -1,120 +1,192 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Rally Software | Документация Майкрософт"
-description: "Узнайте, как использовать Rally Software с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и других задач."
+title: "Учебник. Интеграция Azure Active Directory с Rally Software | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Rally Software."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: ba25fade-e152-42dd-8377-a30bbc48c3ed
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/23/2017
+ms.date: 08/04/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8d913c024fce9945cfd5eaf336deed259dfbef50
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6481c9ef0ca71419ccfa6f7956f4702985743df3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Учебник. Интеграция Azure Active Directory с Rally Software
-Цель данного учебника — показать интеграцию Azure и Rally Software.  
 
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+В этом учебнике описано, как интегрировать Rally Software с Azure Active Directory (Azure AD).
 
-* действующая подписка Azure;
-* Клиент Rally Software.
+Интеграция Rally Software с Azure AD обеспечивает следующие преимущества:
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+- С помощью Azure AD вы можете контролировать доступ к Rally Software.
+- Вы можете включить автоматический вход пользователей в Rally Software (единый вход) под учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
-1. Включение интеграции приложений для Rally Software
-2. Настройка единого входа.
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Сценарий](./media/active-directory-saas-rally-software-tutorial/IC769525.png "Сценарий")
+## <a name="prerequisites"></a>Предварительные требования
 
-## <a name="enable-the-application-integration-for-rally-software"></a>Включение интеграции приложений для Rally Software
-В этом разделе показано, как включить интеграцию приложений для Rally Software.
+Чтобы настроить интеграцию Azure AD с Rally Software, вам потребуется следующее:
 
-**Чтобы включить интеграцию приложений для Rally Software, сделайте следующее:**
+- подписка Azure AD;
+- подписка Rally Software с поддержкой единого входа.
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
+
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+
+1. Добавление Rally Software из коллекции
+2. Настройка и проверка единого входа в Azure AD
+
+## <a name="adding-rally-software-from-the-gallery"></a>Добавление Rally Software из коллекции
+Чтобы настроить интеграцию Rally Software с Azure AD, вам потребуется добавить Rally Software из коллекции в список управляемых приложений SaaS.
+
+**Чтобы добавить Rally Software из коллекции, выполните следующие действия:**
+
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
+    ![Кнопка "Azure Active Directory"][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Колонка "Корпоративные приложения"][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Кнопка "Новое приложение"][3]
+
+4. В поле поиска введите **Rally Software**, выберите **Rally Software** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+
+    ![Rally Software в списке результатов](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+
+В этом разделе описана настройка и проверка единого входа Azure AD в Rally Software для тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Rally Software соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователям Azure AD и соответствующим пользователем в Rally Software.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Rally Software.
+
+Чтобы настроить и проверить единый вход в Azure AD в Rally Software, вам потребуется выполнить действия в следующих стандартных блоках:
+
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Rally Software](#create-a-rally-software-test-user)** требуется для создания дублирующего Britta Simon пользователя в Rally Software, связанного с представлением этого пользователя в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Rally Software.
+
+**Чтобы настроить единый вход в Azure AD для Rally Software, выполните следующие действия:**
+
+1. На портале Azure на странице интеграции с приложением **Rally Software** щелкните **Единый вход**.
+
+    ![Ссылка "Настройка единого входа"][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_samlbase.png)
+
+3. В разделе **Домены и URL-адреса Rally Software** выполните следующие действия:
+
+    ![Сведения о домене и URL-адресах единого входа приложения Rally Software](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<tenant-name>.rally.com`
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<tenant-name>.rally.com`
+
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Rally Software](https://help.rallydev.com/). 
+ 
+
+
+4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-rally-software-tutorial/tutorial_general_400.png)
+
+6. В разделе **Настройка Rally Software** щелкните **Настроить Rally Software**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода и идентификатор сущности SAML** из раздела **Краткий справочник**.
+
+    ![Настройка Rally Software](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_configure.png) 
+
+7. Выполните вход в клиент **Rally Software** .
+
+8. На панели инструментов вверху щелкните **Setup** (Настройка), затем выберите **Subscription** (Подписка).
    
-    ![Active Directory](./media/active-directory-saas-rally-software-tutorial/IC700993.png "Active Directory")
+    ![Подписка](./media/active-directory-saas-rally-software-tutorial/ic769531.png "Подписка")
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+9. Нажмите кнопку **Действие**. В правой верхней части панели инструментов выберите **Изменение подписки**.
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+10. На странице диалогового окна **Subscription** (Подписка) выполните указанные ниже действия, после чего нажмите кнопку **Save & Close** (Сохранить и закрыть).
    
-    ![Приложения](./media/active-directory-saas-rally-software-tutorial/IC700994.png "Приложения")
-
-4. В нижней части страницы нажмите кнопку **Добавить** .
+    ![Аутентификация](./media/active-directory-saas-rally-software-tutorial/ic769542.png "Аутентификация")
    
-    ![Добавление приложения](./media/active-directory-saas-rally-software-tutorial/IC749321.png "Добавление приложения")
+    а. Из раскрывающегося списка "Аутентификация" выберите пункт **Rally or SSO authentication** (Аутентификация Rally или путем единого входа).
 
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Добавление приложения из коллекции](./media/active-directory-saas-rally-software-tutorial/IC749322.png "Добавление приложения из коллекции")
+    b. В текстовое поле **Identity Provider URL** (URL-адрес поставщика удостоверений) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure. 
 
-6. В **поле поиска** введите **rally**.
-   
-    ![Коллекция приложений](./media/active-directory-saas-rally-software-tutorial/IC769526.png "Коллекция приложений")
+    c. В текстовое поле **SSO Logout** (Выход из службы единого входа) вставьте значение **URL-адреса выхода**, скопированное на портале Azure.
 
-7. В области результатов выберите **Rally Software** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-    ![Rally Software](./media/active-directory-saas-rally-software-tutorial/IC769527.png "Rally Software")
-   
-## <a name="configure-single-sign-on"></a>Настройка единого входа
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в Rally Software со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
-В рамках этой процедуры потребуется отправить сертификат на сайт Rally Software.
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+   ![Создание тестового пользователя Azure AD][100]
 
-1. На классическом портале Azure на странице интеграции с приложением **Rally Software** щелкните **Configure Single Sign On** (Настройка единого входа), чтобы открыть диалоговое окно **Configure Single Sign On** (Настройка единого входа).
-   
-    ![Настройка единого входа](./media/active-directory-saas-rally-software-tutorial/IC749323.png "Настройка единого входа")
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-2. На странице **Как пользователи должны входить в Rally?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Единый вход Microsoft Azure AD](./media/active-directory-saas-rally-software-tutorial/IC769528.png "Единый вход Microsoft Azure AD")
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
 
-3. На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес клиента Rally Software** введите свой URL-адрес, используя шаблон *https://\<имя_клиента\>.rally.com*, а затем нажмите кнопку **Далее**.
-   
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-rally-software-tutorial/IC769529.png "Настройка URL-адреса приложения")
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-rally-software-tutorial/create_aaduser_01.png)
 
-4. На странице **Настройка единого входа в Rally** нажмите кнопку "Загрузить метаданные", а затем сохраните эти данные локально на компьютере.
-   
-    ![Настройка единого входа](./media/active-directory-saas-rally-software-tutorial/IC769530.png "Настройка единого входа")
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
 
-5. Выполните вход в клиент **Rally Software** .
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-rally-software-tutorial/create_aaduser_02.png)
 
-6. На панели инструментов вверху щелкните **Setup** (Настройка), затем выберите **Subscription** (Подписка).
-   
-    ![Подписка](./media/active-directory-saas-rally-software-tutorial/IC769531.png "Подписка")
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
 
-7. Нажмите кнопку **Action** (Действие) на панели инструментов вверху справа и выберите **Edit Subscription** (Изменить подписку).
+    ![Кнопка "Добавить"](./media/active-directory-saas-rally-software-tutorial/create_aaduser_03.png)
 
-8. На странице диалогового окна **Subscription** (Подписка) выполните указанные ниже действия, после чего нажмите кнопку **Save & Close** (Сохранить и закрыть).
-   
-    ![Аутентификация](./media/active-directory-saas-rally-software-tutorial/IC769542.png "Аутентификация")
-   
-  1. Из раскрывающегося списка "Аутентификация" выберите пункт **Rally or SSO authentication** (Аутентификация Rally или путем единого входа).
-  2. На странице диалогового окна **Настройка единого входа в Rally Software** классического портала Azure скопируйте значение поля **Идентификатор поставщика удостоверений** и вставьте его в текстовое поле **Identity Provider URL** (URL-адрес поставщика удостоверений).
-  3. На странице диалогового окна **Настройка единого входа в Rally Software** на классическом портале Azure скопируйте значение поля **URL-адрес удаленного выхода**.
+4. В диалоговом окне **Пользователь** сделайте следующее.
 
-9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-rally-software-tutorial/IC769547.png "Настройка единого входа")
-   
-## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-rally-software-tutorial/create_aaduser_04.png)
 
-Чтобы пользователи AAD могли войти систему, их необходимо подготовить для приложения Rally Software, используя их имена пользователей Azure Active Directory.
+    а. В поле **Имя** введите **BrittaSimon**.
+
+    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
+
+    г) Щелкните **Создать**.
+ 
+### <a name="create-a-rally-software-test-user"></a>Создание тестового пользователя Rally Software
+
+Чтобы пользователи Azure AD могли войти систему, их необходимо подготовить для приложения Rally Software, используя их имена пользователей Azure Active Directory.
 
 **Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.**
 
@@ -122,38 +194,82 @@ ms.lasthandoff: 04/03/2017
 
 2. Щелкните **Setup \> USERS** ("Настройка" > "ПОЛЬЗОВАТЕЛИ"), затем выберите **+ Add New** (+ Добавить).
    
-    ![Пользователи](./media/active-directory-saas-rally-software-tutorial/IC781039.png "Пользователи")
+    ![Пользователи](./media/active-directory-saas-rally-software-tutorial/ic781039.png "Пользователи")
 
 3. Введите имя в текстовом поле "Новый пользователь" и щелкните **Добавить со сведениями**.
 
 4. В разделе **Создание пользователя** выполните следующие действия.
    
-    ![Создание пользователя](./media/active-directory-saas-rally-software-tutorial/IC781040.png "Создание пользователя")
+    ![Создание пользователя](./media/active-directory-saas-rally-software-tutorial/ic781040.png "Создание пользователя")
+
+    а. В текстовое поле **Имя пользователя** введите имя пользователя, например **Brittsimon**.
    
-   1. В текстовом поле **Имя пользователя** введите имя пользователя Azure AD, которого хотите подготовить.
-   2. В текстовом поле **Адрес электронной почты** введите электронный адрес пользователя Azure AD, которого хотите подготовить.
-   3. Щелкните **Save & Close** (Сохранить и закрыть).
+    b. В текстовое поле **Email address** (Адрес электронной почты) введите адрес электронной почты пользователя, например **brittasimon@contoso.com**.
 
->[!NOTE]
->Вы можете использовать любые другие инструменты создания учетных записей пользователя Rally Software или API, предоставляемые Rally Software для подготовки учетных записей пользователя AAD.
-> 
-> 
+    c. В текстовое поле **First Name** (Имя) введите имя пользователя, например **Britta**.
 
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+    d. В текстовое поле **Last Name** (Фамилия) введите фамилию пользователя, например **Simon**.
 
-**Чтобы назначить пользователей Rally Software, сделайте следующее:**
+    д. Щелкните **Save & Close** (Сохранить и закрыть).
 
-1. На классическом портале Azure создайте тестовую учетную запись.
+   >[!NOTE]
+   >Вы можете использовать любые другие инструменты создания учетных записей пользователя Rally Software или API, предоставляемые Rally Software для подготовки учетных записей пользователя Azure AD.
 
-2. На странице интеграции с приложением **Rally Software** щелкните **Назначить пользователей**.
-   
-    ![Назначение пользователей](./media/active-directory-saas-rally-software-tutorial/IC769548.png "Назначение пользователей")
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-    ![Да](./media/active-directory-saas-rally-software-tutorial/IC767830.png "Да")
+В этом разделе описано, как включить единый вход Azure для пользователя Britta Simon и предоставить этому пользователю доступ к Rally Software.
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+![Назначение роли пользователя][200] 
+
+**Чтобы назначить Britta Simon для Rally Software, выполните следующие действия:**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Rally Software**.
+
+    ![Ссылка на Rally Software в списке "Приложения"](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_app.png)  
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Ссылка "Пользователи и группы"][202]
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Область "Добавление назначения"][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="test-single-sign-on"></a>Проверка единого входа
+
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув элемент Rally Software на панели доступа, вы автоматически войдете в приложение Rally Software.
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-rally-software-tutorial/tutorial_general_203.png
 
 

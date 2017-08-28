@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 045c4cd49e7b7b1e0b02cc7dc6ede636d0622208
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Оптимизация среды SQL Server с помощью решения оценки SQL в Log Analytics
@@ -66,7 +66,7 @@ ms.lasthandoff: 07/28/2017
 
 | платформа | Direct Agent | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Да](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Да](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Нет](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Нет](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Да](./media/log-analytics-sql-assessment/oms-bullet-green.png) |7 дней |
+| Windows | &#8226; | &#8226; |  |  | &#8226; |7 дней |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Учетные записи запуска от имени в Operations Manager для службы OMS
 Log Analytics в OMS использует агент Operations Manager и группу управления для сбора и отправки данных в службу OMS. С целью предоставления ценных услуг служба OMS строится на пакетах управления для рабочих нагрузок. Каждой рабочей нагрузке требуются права, относящиеся к конкретным рабочим нагрузкам, для запуска пакетов управления в другом контексте безопасности, например в учетной записи домена. Необходимо предоставить учетные данные, настроив учетную запись запуска от имени для Operations Manager.

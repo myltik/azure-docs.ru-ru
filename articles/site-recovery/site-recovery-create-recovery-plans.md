@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 618c6fead3dbad385c4ded39352eea0cfcf1b134
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="create-recovery-plans"></a>Создание планов восстановления
@@ -44,6 +44,7 @@ ms.lasthandoff: 06/16/2017
     - Для репликации из VMM в Azure выберите **Тип источника** > **VMM**.  Затем выберите исходный сервер VMM, а в качестве целевого сервера — **Azure**.
     - Для репликации Hyper-V в Azure (без использования VMM), выберите **Тип источника** > **Узел Hyper-V**. Выберите нужный сайт в качестве источника, а в качестве целевого сервера — **Azure**.
     - Для репликации виртуальной машины VMware или локального физического сервера в Azure выберите в качестве источника сервер конфигурации, а в качестве целевого сервера — **Azure**.
+    - Для плана восстановления из Azure в Azure выберите регион Azure, который является источником, и вторичный регион Azure, который является целевым. Ко вторичным регионам Azure относятся только регионы, в которых защищены виртуальные машины.
 2. В окне **Выбор виртуальных машин** укажите виртуальные машины (или группу репликации), которые хотите добавить в группу по умолчанию (Group 1) в плане восстановления.
 
 ## <a name="customize-and-extend-recovery-plans"></a>Настройка и расширение планов восстановления

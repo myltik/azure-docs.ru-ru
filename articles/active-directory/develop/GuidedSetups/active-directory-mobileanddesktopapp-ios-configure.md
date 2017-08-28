@@ -1,4 +1,24 @@
+---
+title: "Приступая к работе с Azure AD версии 2 для iOS. Настройка | Документация Майкрософт"
+description: "В этой статье описано, как приложения iOS (Swift) могут вызывать API, которому необходимы маркеры доступа, с помощью конечной точки Azure Active Directory версии 2."
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 8a4f412102c0e75654030f5d4f8aab575fdcebba
+ms.contentlocale: ru-ru
 
+---
 ## <a name="create-an-application-express"></a>Создание приложения (экспресс)
 Теперь вам необходимо зарегистрировать приложение на *портале регистрации приложений Майкрософт*:
 1. Зарегистрируйте свое приложение на [портале регистрации приложений Майкрософт](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure).
@@ -49,3 +69,4 @@ let kClientID = "Your_Application_Id_Here"
 Замените <i><code>[Your_Application_Id_Here]</code></i> зарегистрированным идентификатором приложения.
 </li>
 </ol>
+

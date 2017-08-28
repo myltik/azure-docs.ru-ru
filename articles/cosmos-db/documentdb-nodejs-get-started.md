@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/14/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 04b147d98a6d9d508deea40e68a68d3e421f51fa
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6510e0270bb2efa252a2b2ad40014c5d26b74a81
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Руководство по Node.js: консольное приложение Node.js DocumentDB
+# <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Руководство по Node.js: использование API DocumentDB в Azure Cosmos DB для создания консольного приложения Node.js
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -65,7 +65,7 @@ ms.lasthandoff: 07/25/2017
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupNode"></a> Шаг 2. Настройка приложения Node.js
+## <a id="SetupNode"></a>Шаг 2. Настройка приложения Node.js
 1. Откройте удобный для вас терминал.
 2. Перейдите в папку или каталог, где вы хотите сохранить приложение Node.js.
 3. Создайте два пустых файла JavaScript с помощью следующих команд:
@@ -85,7 +85,7 @@ ms.lasthandoff: 07/25/2017
 
 Скопируйте и вставьте приведенный ниже фрагмент кода, после чего задайте URI конечной точки и первичный ключ Azure Cosmos DB в качестве значений свойств ```config.endpoint``` и ```config.primaryKey```. Обе эти конфигурации можно найти на [портале Azure](https://portal.azure.com).
 
-![Руководство по Node.js (база данных Node): снимок экрана портала Azure, на котором отображена учетная запись Azure Cosmos DB с выделенным активным концентратором, выделенной кнопкой "Ключи" в колонке учетной записи Azure Cosmos DB и выделенными универсальным кодом ресурса, первичным ключом и вторичным ключом в колонке "Ключи".][keys]
+![Руководство по Node.js (база данных Node): снимок экрана портала Azure, на котором отображена учетная запись Azure Cosmos DB с выделенным активным концентратором, выделенной кнопкой "Ключи" в колонке учетной записи Azure Cosmos DB и выделенным универсальным кодом ресурса, первичным ключом и вторичным ключом в колонке "Ключи".][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
@@ -367,7 +367,7 @@ ms.lasthandoff: 07/25/2017
 
 Поздравляем! Вы успешно создали документ Azure Cosmos DB.
 
-![Руководство по Node.js (база данных Node): на схеме представлены иерархические отношения между учетной записью, базой данных, коллекцией и документами.](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Руководство по Node.js (база данных Node): на схеме представлены иерархические отношения между учетной записью, базой данных, коллекцией и документами.](./media/documentdb-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
 ## <a id="Query"></a>Шаг 8. Запрос ресурсов Azure Cosmos DB
 Azure Cosmos DB поддерживает [полнофункциональные запросы](documentdb-sql-query.md) к документам JSON, хранящимся в каждой коллекции. В следующем примере кода показан выполняемый запрос к документам в коллекции.

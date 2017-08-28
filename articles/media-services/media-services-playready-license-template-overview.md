@@ -2,7 +2,7 @@
 title: "Обзор шаблонов лицензий PlayReady служб мультимедиа"
 description: "В этом разделе содержится обзор шаблонов лицензий PlayReady, которые используются для настройки лицензий PlayReady."
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

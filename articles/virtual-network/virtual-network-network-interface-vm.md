@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 9f040a87367219a937d4f5a83fd23ce1ba328c8c
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 57f95b765b1b116814683a6643db16091c3041f6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 
@@ -64,26 +64,26 @@ ms.lasthandoff: 08/01/2017
 При создании виртуальной машины с помощью портала автоматически создается сетевой интерфейс с параметрами по умолчанию, который подключается к виртуальной машине. На портале Azure невозможно добавить имеющиеся сетевые интерфейсы в новую виртуальную машину или создать виртуальную машину с несколькими сетевыми интерфейсами. Это можно сделать с помощью интерфейса командной строки или PowerShell. В виртуальную машину можно добавить любое количество сетевых интерфейсов, поддерживаемое размером создаваемой виртуальной машины. Дополнительные сведения об определении числа сетевых интерфейсов, поддерживаемых каждым из размеров виртуальной машины, см. в статьях [Размеры виртуальных машин Linux в Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) и [Размеры виртуальных машин Windows в Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Сейчас сетевые интерфейсы, добавляемые в виртуальную машину, невозможно подключить к другой виртуальной машине. Дополнительные сведения о создании сетевых интерфейсов см. в разделе [Создание сетевой карты](virtual-network-network-interface.md#create-a-network-interface).
 
 > [!WARNING]
-> Если сетевому интерфейсу назначен частный адрес IPv6, вы сможете подключить этот сетевой интерфейс к виртуальной машине только при ее создании. К виртуальной машине, к которой подключен сетевой интерфейс с назначенным адресом IPv6, нельзя будет добавить другие сетевые интерфейсы ни при создании этой виртуальной машины, ни позднее. См. дополнительные сведения о [назначении IP-адресов для сетевых интерфейсов](virtual-network-network-interface-addresses.md).
+> Если сетевому интерфейсу назначен частный адрес IPv6, вы сможете подключить этот сетевой интерфейс к виртуальной машине только при ее создании. К виртуальной машине, к которой подключен сетевой интерфейс с назначенным адресом IPv6, можно добавить только один сетевой интерфейс при создании этой виртуальной машины или после ее создания. См. дополнительные сведения о [назначении IP-адресов для сетевых интерфейсов](virtual-network-network-interface-addresses.md).
 
 **Команды**
 
 |Средство|Команда|
 |---|---|
 |Интерфейс командной строки|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Добавление имеющегося сетевого интерфейса к имеющейся виртуальной машине
 
 В виртуальную машину можно добавить столько сетевых интерфейсов, сколько поддерживает ее размер. Чтобы узнать, сколько сетевых интерфейсов поддерживается каждым из размеров виртуальной машины, ознакомьтесь со статьями [Размеры виртуальных машин Linux в Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) и [Размеры виртуальных машин Windows в Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Виртуальная машина, к которой будет добавлен сетевой интерфейс, должна поддерживать достаточное число сетевых интерфейсов и должна в этот момент быть остановлена (освобождена). Сейчас сетевые интерфейсы, добавляемые в одну виртуальную машину, невозможно подключить к другой виртуальной машине. Невозможно добавить сетевые интерфейсы в имеющуюся виртуальную машину с помощью портала Azure. Чтобы добавить сетевые интерфейсы к существующей виртуальной машине, используйте интерфейс командной строки или PowerShell. 
 
 > [!WARNING]
-> Если сетевому интерфейсу назначен частный адрес IPv6, его нельзя добавить к существующей виртуальной машине. Сетевой интерфейс с частным адресом IPv6 можно добавлять к виртуальной машине только при ее создании. См. дополнительные сведения о [назначении IP-адресов для сетевых интерфейсов](virtual-network-network-interface-addresses.md).
+> Если сетевому интерфейсу назначен частный адрес IPv6, его нельзя добавить к существующей виртуальной машине. Сетевой интерфейс с частным адресом IPv6 можно добавить к виртуальной машине только при ее создании. См. дополнительные сведения о [назначении IP-адресов для сетевых интерфейсов](virtual-network-network-interface-addresses.md).
 
 |Средство|Команда|
 |---|---|
 |Интерфейс командной строки|az vm nic add — см. [раздел руководства](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add) или [подробные инструкции](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|Add-AzureRmVMNetworkInterface — см. [раздел руководства](/powershell/resourcemanager/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) или [подробные инструкции](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|PowerShell|Add-AzureRmVMNetworkInterface — см. [раздел руководства](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) или [подробные инструкции](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="vm-view-nic"></a> Просмотр сетевых интерфейсов для виртуальной машины
 
@@ -99,18 +99,25 @@ ms.lasthandoff: 08/01/2017
 |Средство|Команда|
 |---|---|
 |Интерфейс командной строки|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVM](/powershell/resourcemanager/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-remove-nic"></a> Удаление сетевого интерфейса из виртуальной машины
 
-Виртуальная машина, из которой следует удалить сетевой интерфейс, должна быть остановлена (освобождена) и к ней должны быть подключены по крайней мере два сетевых интерфейса. Вы можете удалить любой сетевой интерфейс, но к виртуальной машине всегда должен быть подключен по крайней мере один сетевой интерфейс. При удалении основного сетевого интерфейса Azure назначает основным сетевой интерфейс, который был подключен к виртуальной машине дольше всего. Кроме того, любой сетевой интерфейс можно самостоятельно указать в качестве основного. С помощью портала Azure невозможно удалить сетевые интерфейсы из виртуальной машины или назначить сетевой интерфейс основным. Эти операции можно выполнить с помощью интерфейса командной строки или PowerShell. 
+Виртуальная машина, в которой следует удалить (или отключить) сетевой интерфейс, должна быть остановлена (освобождена), и к ней должны быть подключены по крайней мере два сетевых интерфейса. Вы можете удалить любой сетевой интерфейс, но к виртуальной машине всегда должен быть подключен по крайней мере один сетевой интерфейс. При удалении основного сетевого интерфейса Azure назначает основным сетевой интерфейс, который был подключен к виртуальной машине дольше всего. 
+
+1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи, которой назначены роли "Владелец", "Участник" или "Участник сети" для подписки. Дополнительные сведения о назначении ролей учетным записям см. в статье [Встроенные роли для управления доступом на основе ролей в Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+2. В верхней части портала Azure в поле с текстом *Поиск ресурсов* введите *виртуальные машины*. Когда **виртуальные машины** появятся в результатах поиска, щелкните их.
+3. В появившейся колонке **Виртуальные машины** щелкните имя виртуальной машины, из которой следует удалить сетевой интерфейс.
+4. В разделе **Параметры** колонки "Виртуальная машина", которая отобразилась для выбранной виртуальной машины, щелкните **Сетевые интерфейсы**. Дополнительную информацию о параметрах сетевого интерфейса и сведения об их изменении см. в статье [Создание, изменение или удаление сетевых интерфейсов](virtual-network-network-interface.md). См. дополнительные сведения о [добавлении, изменении и удалении IP-адресов, назначенных сетевому интерфейсу](virtual-network-network-interface-addresses.md).
+5. В появившейся колонке "Сетевые интерфейсы" щелкните значок **…** справа от имени сетевого интерфейса, который нужно отключить.
+6. Щелкните **Отключить**. Если к виртуальной машине подключен только один сетевой интерфейс, параметр **Отключить** недоступен. Щелкните **Да** в появившемся окне подтверждения.
 
 **Команды**
 
 |Средство|Команда|
 |---|---|
 |Интерфейс командной строки|az vm nic remove — см. [раздел руководства](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove) или [подробные инструкции](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|Remove-AzureRmVMNetworkInterface — см. [раздел руководства](/powershell/resourcemanager/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) или [подробные инструкции](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|PowerShell|Remove-AzureRmVMNetworkInterface — см. [раздел руководства](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) или [подробные инструкции](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы создать виртуальную машину с несколькими сетевыми интерфейсами или IP-адресами, прочитайте приведенные ниже статьи.
@@ -119,7 +126,7 @@ ms.lasthandoff: 08/01/2017
 
 |Задача|Средство|
 |---|---|
-|Создание виртуальной машины с несколькими сетевыми адаптерами|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Создание виртуальной машины с одним сетевым адаптером, которому назначено несколько адресов IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Создание виртуальной машины с одним сетевым адаптером, которому назначен частный адрес IPv6 (за Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [шаблон Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Создание виртуальной машины с несколькими сетевыми адаптерами|[Интерфейс командной строки](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Создание виртуальной машины с одним сетевым адаптером, которому назначено несколько IPv4-адресов|[Интерфейс командной строки](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+|Создание виртуальной машины с одним сетевым адаптером, которому назначен частный IPv6-адрес (обслуживаемый Azure Load Balancer).|[Интерфейс командной строки](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [шаблон Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 

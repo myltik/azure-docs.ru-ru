@@ -2,7 +2,7 @@
 title: "H264 Single Bitrate 720p для Android | Документация Майкрософт"
 description: "Этот раздел содержит общие сведения о предустановке задачи **H264 Single Bitrate 720p для Android**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

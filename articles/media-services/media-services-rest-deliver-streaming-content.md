@@ -2,7 +2,7 @@
 title: "Публикация содержимого служб мультимедиа Azure с помощью REST"
 description: "Узнайте, как создать указатель для создания URL-адреса потоковой передачи. Код использует REST API."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: bb3ae3d26d174d0f37cc348cde570250699bf067
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3aa6bdac17a78b78490f255b0e86e1c210b64cc6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/14/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Публикация содержимого служб мультимедиа Azure с помощью REST
@@ -37,6 +37,17 @@ ms.lasthandoff: 03/14/2017
 В этом разделе показано, как создать указатель потоковой передачи OnDemand, чтобы опубликовать ресурс-контейнер и сформировать URL-адреса потоковой передачи Smooth, MPEG DASH и HLS. В нем также показывается, как создать URL-адреса последовательного скачивания.
 
 В [этих](#types) разделах показаны типы перечисления, значения которых используются в вызовах REST.   
+
+> [!NOTE]
+> При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).
+> 
+
+## <a name="connect-to-media-services"></a>Подключение к службам мультимедиа
+
+Сведения о подключении к API AMS см. в разделе [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Создание указателя потоковой передачи OnDemand
 Чтобы создать указатель потоковой передачи OnDemand и получить URL-адреса, вам нужно выполнить следующее:
@@ -183,7 +194,9 @@ URL: **Путь** + имя MP4-файла ресурса
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
+[Обзор REST API операций служб мультимедиа](media-services-rest-how-to-use.md)
+
 [Настройка политики доставки для ресурса-контейнера](media-services-rest-configure-asset-delivery-policy.md)
 
 

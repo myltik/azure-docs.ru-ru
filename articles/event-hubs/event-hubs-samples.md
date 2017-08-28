@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 89049688ab60842910f1bab8e56c349029dd17a7
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
 # <a name="event-hubs-samples"></a>Примеры концентраторов событий 
 
-Примеры концентраторов событий Azure демонстрируют основные функции [концентраторов событий Azure](/azure/event-hubs/). В этой статье приведены категории примеров с описаниями и ссылками.
+Набор примеров концентраторов событий Azure демонстрирует основные функции [концентраторов событий Azure](/azure/event-hubs/). В этой статье приведены категории примеров с описаниями и ссылками.
 
 На момент написания этой статьи примеры концентраторов событий доступны по нескольким ссылкам:
 
@@ -46,11 +45,11 @@ ms.lasthandoff: 05/02/2017
 
 ### <a name="receive-events"></a>Получение событий 
 
-В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) содержится консольное приложение .NET Core, которое получает сообщения из концентратора событий, используя `Event Processor Host`.
+В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) содержится консольное приложение .NET Core, которое получает сообщения из концентратора событий, используя узел обработчика событий.
 
-## <a name="net-framework"></a>.NET Framework    
+## <a name="net-framework"></a>.NET Framework   
 
-В этих примерах демонстрируются другие функции концентраторов событий Azure, предназначенные для [библиотеки .NET Framework](https://msdn.microsoft.com/library/w0x726c2.aspx).
+В этих примерах демонстрируются другие функции концентраторов событий Azure, предназначенные для [библиотеки .NET Framework](/dotnet/framework/index).
  
 ### <a name="notify-users-of-events-received"></a>Уведомление пользователей о полученных событиях
 
@@ -77,7 +76,7 @@ ms.lasthandoff: 05/02/2017
 Дополнительные сведения о версиях платформы .NET Framework см. по следующим ссылкам:
 
 - [Платформы и целевые объекты](/dotnet/articles/standard/frameworks)
-- [.NET Framework 4.6 и 4.5](https://msdn.microsoft.com/library/w0x726c2.aspx)
+- [.NET Framework 4.6 и 4.5](/dotnet/framework/index)
 
 Чтобы узнать больше о концентраторах событий, обратитесь к следующим статьям:
 

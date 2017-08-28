@@ -12,35 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: rodejo
+ms.date: 08/09/2017
+ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7dd4833000e8550b172e0451c48788b1e627a1fb
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2ee71536257d4349fdf8d80bdcb1899a1d244293
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Настройка параметров групп с помощью командлетов Azure Active Directory
 
 > [!IMPORTANT]
-> Это содержимое применяется только к группам Office 365. 
+> Это содержимое применяется только к группам Office 365. Чтобы узнать, как разрешить пользователям создавать группы безопасности, установите `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True`, как описано в статье [Set-MSOLCompanySettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
-Параметры групп Office 365 настраиваются с помощью объектов Settings и SettingsTemplate. Изначально в каталоге не отображаются объекты Settings. Это означает, что каталог настроен с параметрами по умолчанию. Чтобы изменить параметры по умолчанию, необходимо с помощью шаблона параметров создать объект параметров. Шаблоны параметров определены корпорацией Майкрософт. Поддерживается несколько разных шаблонов параметров. Для настройки параметров группы для каталога будет использован шаблон Group.Unified. Для настройки параметров отдельной группы используйте шаблон Group.Unified.Guest. Этот шаблон используется для управления гостевым доступом к группе. 
+Параметры групп Office 365 настраиваются с помощью объектов Settings и SettingsTemplate. Изначально в каталоге не отображаются все объекты параметров, так как он настроен с параметрами по умолчанию. Чтобы изменить параметры по умолчанию, необходимо с помощью шаблона параметров создать объект параметров. Шаблоны параметров определены корпорацией Майкрософт. Поддерживается несколько разных шаблонов параметров. Чтобы настроить параметры группы Office 365 для каталога, используйте шаблон Group.Unified. Для настройки параметров отдельной группы Office 365 используйте шаблон Group.Unified.Guest. Этот шаблон используется для управления гостевым доступом к группе Office 365. 
 
-Командлеты являются частью модуля PowerShell версии 2 для Azure Active Directory. Дополнительные сведения об этом модуле и инструкции по его скачиванию и установке на компьютер см. в разделе [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (PowerShell версии 2 для Azure Active Directory). Можно установить выпуск версии 2 модуля [отсюда](https://www.powershellgallery.com/packages/AzureAD/).
+Командлеты являются частью модуля PowerShell версии 2 для Azure Active Directory. Дополнительные сведения о скачивании и установке модуля на компьютер см. в статье [PowerShell версии 2 для Azure Active Directory](https://docs.microsoft.com/powershell/azuread/). Вы можете установить выпуск версии 2 модуля [из коллекции PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="retrieve-a-specific-settings-value"></a>Получение определенного значения параметра
-Если вам известно имя параметра, которое необходимо получить, можно использовать приведенный ниже командлет. В этом примере показано получение значения для параметра с именем "UsageGuidelinesUrl". Дополнительные сведения о параметрах каталога и их именах приводятся далее в этой статье.
+Если вам известно имя параметра, которое необходимо получить, можно использовать приведенный ниже командлет. В этом примере показано получение значения для параметра с именем UsageGuidelinesUrl. Дополнительные сведения о параметрах каталога и их именах приводятся далее в этой статье.
 
 ```powershell
 (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>Создание параметров на уровне каталога
-Далее приведены действия, необходимые для создания параметров на уровне каталога, которые применяются ко всем единым группам в каталоге.
+Далее приведены действия, необходимые для создания параметров на уровне каталога, которые применяются ко всем группам Office 365 в каталоге.
 
-1. В командлетах DirectorySettings потребуется указать идентификатор объекта SettingsTemplate, который вы хотите использовать. Если он вам неизвестен, выполните приведенный ниже командлет, чтобы отобразить все шаблоны параметров.
+1. В командлетах DirectorySettings необходимо указать идентификатор объекта SettingsTemplate, который вы хотите использовать. Если он вам неизвестен, выполните приведенный ниже командлет, чтобы отобразить все шаблоны параметров.
   
   ```
   PS C:> Get-AzureADDirectorySettingTemplate

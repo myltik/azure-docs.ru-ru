@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 08/08/2017
 ms.author: bharatn
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: cb37c7209a3449047bad97ce50344e1530f0e222
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7897458e9e4a0bbe185bd3f7b4c133c1b26769f9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Обратный прокси-сервер в Azure Service Fabric
@@ -135,6 +135,15 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 Этот заголовок ответа HTTP указывает обычную ситуацию возникновения ошибки "HTTP 404", в которой запрошенный ресурс не существует, и шлюз приложений не будет пытаться повторно разрешить адрес службы.
 
 ## <a name="setup-and-configuration"></a>Установка и настройка
+
+### <a name="enable-reverse-proxy-via-azure-portal"></a>Включение обратного прокси-сервера на портале Azure
+
+Во время создания нового кластера Service Fabric на портале Azure можно включить обратный прокси-сервер.
+Во время **создания кластера Service Fabric** на шаге 2 ("Конфигурация кластера" > "Конфигурация типа узла") установите флажок возле параметра "Включить обратный прокси-сервер".
+Для настройки безопасного обратного прокси-сервера можно указать SSL-сертификат на шаге 3 ("Безопасность" > "Настройка параметров безопасности кластера"): установите флажок возле параметра "Включить SSL-сертификат для обратного прокси-сервера" и введите сведения о сертификате.
+
+### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Включение обратного прокси-сервера с помощью шаблонов Azure Resource Manager
+
 Обратный прокси-сервер можно включить для кластера в Service Fabric с помощью [шаблона Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 В статье [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) (Настройка обратного прокси-сервера HTTPS в защищенном кластере) приведены примеры шаблонов Azure Resource Manager для настройки защищенного обратного прокси-сервера с сертификатом и обработки смены сертификатов.

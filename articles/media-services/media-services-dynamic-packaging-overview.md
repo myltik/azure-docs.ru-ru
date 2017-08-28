@@ -2,7 +2,7 @@
 title: "Обзор динамической упаковки служб мультимедиа Azure | Документация Майкрософт"
 description: "В этой статье представлены общие сведения о технологии динамической упаковки."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6722365e5a5e4c58d91dd178de264a403d53c02
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/01/2017
 |Средство|Команда|
 |---|---|
 |Интерфейс командной строки|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-ip-address-settings"></a>Изменение параметров IP-адреса
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 08/01/2017
 |Средство|Команда|
 |---|---|
 |Интерфейс командной строки|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-ip-addresses"></a>Удаление IP-адресов
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 08/01/2017
 |Средство|Команда|
 |---|---|
 |Интерфейс командной строки|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="ip-configurations"></a>Конфигурации IP
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 08/01/2017
 4. Запустите виртуальную машину.
 5. [Вручную настройте](virtual-network-multiple-ip-addresses-portal.md#os-config) дополнительные IP-адреса в операционной системе (и также основной IP-адрес в Windows) в соответствии с адресами, задаваемыми в Azure.
  
-Если выполнить приведенные выше инструкции, то частный IP-адрес, назначенный сетевому интерфейсу в Azure, и IP-адрес в операционной системе виртуальной машины не будут отличаться. Чтобы следить за тем, для каких виртуальных машин в подписке вы вручную задали IP-адреса в операционной системе, рассмотрите возможность добавления [тега](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) Azure к таким виртуальным машинам. Например, можно использовать тег "Назначение IP-адресов: статическое". Таким образом можно будет легко находить в подписке виртуальные машины, для которых вы вручную задали IP-адрес в операционной системе.
+Если выполнить приведенные выше инструкции, частный IP-адрес, назначенный сетевому интерфейсу в Azure, и IP-адрес в операционной системе виртуальной машины не изменятся. Чтобы следить за тем, для каких виртуальных машин в подписке вы вручную задали IP-адреса в операционной системе, рассмотрите возможность добавления [тега](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) Azure к таким виртуальным машинам. Например, можно использовать тег "Назначение IP-адресов: статическое". Таким образом можно будет легко находить в подписке виртуальные машины, для которых вы вручную задали IP-адрес в операционной системе.
 
 Помимо возможности взаимодействия виртуальной машины с другими ресурсами в той же виртуальной сети или в подключенных к ней виртуальных сетях, частный IP-адрес также обеспечивает исходящее подключение к Интернету. Для установления исходящих подключений Azure преобразовывает исходный сетевой адрес в непредсказуемый общедоступный IP-адрес. Чтобы узнать больше об исходящих интернет-подключениях Azure, прочитайте статью [Общие сведения об исходящих подключениях в Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). К частному IP-адресу виртуальной машины невозможно подключиться из Интернета.
 
@@ -183,21 +183,19 @@ ms.lasthandoff: 08/01/2017
 
 ### <a name="ipv6"></a>IPv6
 
-Можно не назначать вовсе или назначить один частный [IPv6](#ipv6)-адрес одной дополнительной IP-конфигурации сетевого интерфейса. Для этого у сетевого интерфейса не должно быть каких-либо дополнительных IP-конфигураций. Невозможно добавить IP-конфигурацию с IPv6-адресом с помощью портала. Чтобы добавить IP-конфигурацию с частным IPv6-адресом для существующего сетевого интерфейса, необходимо использовать PowerShell или интерфейс командной строки. Этого нельзя сделать для имеющейся виртуальной машины.
+Можно не назначать вовсе или назначить один частный [IPv6](#ipv6)-адрес одной дополнительной IP-конфигурации сетевого интерфейса. Для этого у сетевого интерфейса не должно быть каких-либо дополнительных IP-конфигураций. Невозможно добавить IP-конфигурацию с IPv6-адресом с помощью портала. Чтобы добавить IP-конфигурацию с частным IPv6-адресом для существующего сетевого интерфейса, используйте PowerShell или интерфейс командной строки. Этого нельзя сделать для имеющейся виртуальной машины.
 
 > [!NOTE]
-> Хотя с помощью портала можно создать сетевой интерфейс с IPv6-адресом, с его помощью невозможно ни создать виртуальную машину с частным IPv6-адресом, ни подключить такой сетевой интерфейс при создании виртуальной машины. Необходимо использовать PowerShell или Azure CLI 2.0, чтобы создать сетевой интерфейс с частным IPv6-адресом, а затем подключить этот сетевой интерфейс при создании виртуальной машины. Невозможно подключить сетевой интерфейс, которому назначен частный IPv6-адрес, к существующей виртуальной машине. Невозможно добавить частный IPv6-адрес в IP-конфигурацию для какого-либо сетевого интерфейса, подключенного к виртуальной машине, используя любые инструменты (портал, интерфейс командной строки или PowerShell).
+> Хотя сетевой интерфейс с IPv6-адресом можно создать с помощью портала, невозможно с помощью портала добавить существующий сетевой интерфейс на новую или существующую виртуальную машину. Используйте PowerShell или Azure CLI 2.0, чтобы создать сетевой интерфейс с частным IPv6-адресом, а затем подключить этот сетевой интерфейс при создании виртуальной машины. Невозможно подключить сетевой интерфейс, которому назначен частный IPv6-адрес, к существующей виртуальной машине. Невозможно добавить частный IPv6-адрес в IP-конфигурацию для какого-либо сетевого интерфейса, подключенного к виртуальной машине, используя любые инструменты (портал, интерфейс командной строки или PowerShell).
 
 Общедоступный IPv6-адрес невозможно назначить основной или дополнительной IP-конфигурации.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы создать виртуальную машину с разными IP-конфигурациями, ознакомьтесь со следующими статьями:
 
-**Команды**
-
 |Задача|Средство|
 |---|---|
 |Создание виртуальной машины с несколькими сетевыми адаптерами|[Интерфейс командной строки](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Создание виртуальной машины с одним сетевым адаптером, которому назначено несколько IPv4-адресов.|[Интерфейс командной строки](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+|Создание виртуальной машины с одним сетевым адаптером, которому назначено несколько IPv4-адресов|[Интерфейс командной строки](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Создание виртуальной машины с одним сетевым адаптером, которому назначен частный IPv6-адрес (обслуживаемый Azure Load Balancer).|[Интерфейс командной строки](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [шаблон Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 

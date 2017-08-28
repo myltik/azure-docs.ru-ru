@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 8094f6e619bde8b25323cddb42bc04b1ead62113
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 07/28/2017
 
 | платформа | Direct Agent | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Да](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | 7 дней |
+| Windows | | | | &#8226; | | 7 дней |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Учетные записи запуска от имени в Operations Manager для службы OMS
 

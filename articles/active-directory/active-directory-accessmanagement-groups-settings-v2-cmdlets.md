@@ -1,5 +1,5 @@
 ---
-title: "Командлеты Azure Active Directory PowerShell для управления группами в Azure AD | Документы Майкрософт"
+title: "Примеры PowerShell для управления группами в Azure Active Directory | Документация Майкрософт"
 description: "На этой странице представлены примеры командлетов PowerShell, которые помогут вам управлять группами в Azure Active Directory."
 keywords: "Azure AD, Azure Active Directory, PowerShell, группы, управление группами"
 services: active-directory
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c2a313c5ad011d03309a962bf2905750a478b890
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f1ce76178baa44428afca5631c749c2739ad779e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Командлеты Azure Active Directory версии 2 для управления группами
@@ -31,10 +31,10 @@ ms.lasthandoff: 08/05/2017
 >
 >
 
-В следующем документе представлены примеры использования PowerShell для управления группами в Azure Active Directory (Azure AD).  Также в нем содержатся сведения о том, как выполнить настройки модуля Azure AD PowerShell. Во-первых, необходимо [скачать модуль Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+В этой статье приведены примеры управления группами в Azure Active Directory (Azure AD) с помощью PowerShell.  Кроме того, в ней содержатся сведения о том, как выполнить настройки модуля Azure AD PowerShell. Во-первых, необходимо [скачать модуль Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Установка модуля Azure AD PowerShell
-Чтобы установить модуль AzureAD PowerShell, воспользуйтесь следующими командами:
+Чтобы установить модуль Azure AD PowerShell, выполните следующие команды:
 
     PS C:\Windows\system32> install-module azuread
 
@@ -46,10 +46,10 @@ ms.lasthandoff: 08/05/2017
     ---------- ---------    ----                                ----------------
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 
-Теперь можно начать использование командлетов в модуле. Полное описание командлетов в модуле AzureAD см. в [электронной справочной документации](/powershell/azure/install-adv2?view=azureadps-2.0).
+Теперь можно начать использование командлетов в модуле. Полное описание командлетов в модуле Azure AD см. в электронной справочной документации по [PowerShell версии 2 для Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## <a name="connecting-to-the-directory"></a>Подключение к каталогу
-Прежде чем приступить к управлению группами с помощью командлетов Azure AD PowerShell, необходимо подключить сеанс PowerShell к каталогу, которым вы хотите управлять. Для этого воспользуйтесь следующей командой:
+Прежде чем приступить к управлению группами с помощью командлетов Azure AD PowerShell, необходимо подключить сеанс PowerShell к каталогу, которым вы хотите управлять. Используйте следующую команду:
 
     PS C:\Windows\system32> Connect-AzureAD
 
@@ -109,7 +109,8 @@ ms.lasthandoff: 08/05/2017
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-Обратите внимание, что командлеты AzureAD PowerShell используют стандарт запросов OData; дополнительные сведения можно найти [здесь](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> [!NOTE] 
+> Командлеты AzureAD PowerShell используют стандарт запросов OData. Дополнительные сведения см. в разделе **$filter** статьи [OData system query options using the OData endpoint](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter) (Параметры системных запросов OData с использованием конечной точки OData).
 
 ## <a name="creating-groups"></a>Создание групп
 Чтобы создать новую группу в каталоге, используйте командлет New-AzureADGroup. Этот командлет создает новую группу безопасности с именем Marketing:
@@ -222,13 +223,12 @@ ms.lasthandoff: 08/05/2017
     ----------------- --------                             ----------
                           e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 
-Для удаления владельца из группы, используйте командлет Remove-AzureADGroupOwner:
+Для удаления владельца из группы используйте командлет Remove-AzureADGroupOwner:
 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="reserved-aliases"></a>Зарезервированные псевдонимы 
-После создания группы определенные конечные точки позволяют пользователю указать mailNickname или псевдоним, который можно использовать как часть адреса электронной почты группы.   
-Группы с приведенными ниже привилегированными псевдонимами электронной почты может создавать только глобальный администратор Azure AD. 
+После создания группы определенные конечные точки позволяют пользователю указать mailNickname или псевдоним, который можно использовать как часть адреса электронной почты группы. Группы с приведенными ниже привилегированными псевдонимами электронной почты может создавать только глобальный администратор Azure AD. 
   
 * abuse 
 * admin 

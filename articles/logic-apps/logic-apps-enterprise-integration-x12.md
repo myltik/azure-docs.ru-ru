@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 4a41d9eb8b28aed499bb20e17e3c979962c78bcd
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Обмен сообщениями X12 для интеграции с предприятием с помощью приложений логики
@@ -272,6 +271,9 @@ ms.lasthandoff: 07/06/2017
 | Символ замены |Введите символ замены, которым будут заменены все символы разделителей в полезных данных при создании исходящего сообщения X12. |
 | Признак конца сегмента |Введите один символ, который будет обозначать конец сегмента EDI. |
 | Суффикс |Выберите символ, который будет использоваться с идентификатором сегмента. Если указывается суффикс, то элемент данных признака конца сегмента может быть пустым. Если признак конца сегмента оставить пустым, то необходимо будет указать суффикс. |
+
+> [!TIP]
+> Чтобы ввести значения со специальными знаками, откройте соглашение в редакторе как JSON-файл и укажите значение ASCII для специального знака.
 
 ### <a name="validation"></a>Проверка
 

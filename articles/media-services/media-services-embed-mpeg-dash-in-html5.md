@@ -2,7 +2,7 @@
 title: "Встраивание адаптивного потокового видео MPEG-DASH в приложение HTML5 с помощью DASH.js | Документация Майкрософт"
 description: "В этом разделе демонстрируется встраивание адаптивного потокового видео MPEG-DASH в приложение HTML5 с помощью DASH.js."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 3fbb2f0629e510dfa9dac8e363eafb8e668e81d4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Секционирование в базе данных Azure Cosmos DB с помощью API DocumentDB
@@ -42,7 +42,10 @@ ms.lasthandoff: 07/25/2017
 <a name="partition-keys"></a>
 <a name="single-partition-and-partitioned-collections"></a>
 <a name="migrating-from-single-partition"></a>
-## Ключи секции в DocumentDB AP. Укажите определение ключа секции в формате пути к файлу JSON. В следующей таблице приведены примеры определений для ключей секции и соответствующие значения. Ключ секции указывается в виде пути, например `/department` представляет свойство отдела. 
+
+## <a name="partition-keys"></a>Ключи секции
+
+В API DocumentDB укажите определение ключа секции в формате пути к файлу JSON. В следующей таблице приведены примеры определений для ключей секции и соответствующие значения. Ключ секции указывается в виде пути, например `/department` представляет свойство отдела. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>

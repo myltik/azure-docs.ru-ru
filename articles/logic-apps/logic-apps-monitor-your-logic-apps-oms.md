@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 91c747a4fbb3c3c3d799741e7d3b5d4646931136
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 0e9f0ef3c87b5c0da1cc4ad16d37178c8f5c9625
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 08/09/2017
 
    ![Выберите "Портал OMS"](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. На домашней странице OMS выберите **Коллекция решений**.
+4. Если на домашней странице OMS отображается баннер обновления, щелкните его, чтобы сначала обновить рабочую область OMS. Затем выберите **Коллекция решений**.
 
    ![Выбор "Коллекции решений"](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
 
@@ -91,6 +91,11 @@ ms.lasthandoff: 08/09/2017
 1. Чтобы просмотреть число и состояние выполнений приложений логики, перейдите на страницу обзора своей рабочей области OMS. Просмотрите сведения в элементе **Logic Apps Management**.
 
    ![Элемент обзора, показывающий количество и состояние выполнений приложений логики](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+
+   > [!Note]
+   > Если баннер обновления отображается вместо элемента "Logic Apps Management" (Управление Logic Apps), щелкните баннер, чтобы сначала обновить рабочую область OMS.
+  
+   > ![Обновление рабочей области OMS](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. Чтобы просмотреть сводку с более подробными сведениями о выполнении приложений логики, выберите элемент **Logic Apps Management**.
 

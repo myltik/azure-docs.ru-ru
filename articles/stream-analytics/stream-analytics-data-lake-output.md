@@ -4,7 +4,7 @@ description: "Настройка проверки подлинности и ав
 keywords: 
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
@@ -14,23 +14,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
-ms.lasthandoff: 01/25/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Выходные данные хранилища озера данных в Stream Analytics
 Задания Stream Analytics поддерживают несколько методов вывода, одним из которых является [хранилище озера данных Azure](https://azure.microsoft.com/services/data-lake-store/). Хранилище озера данных Azure — это крупномасштабный репозиторий корпоративного уровня для рабочих нагрузок анализа больших данных. Озеро данных Azure позволяет сохранять данные с любым размером, типом и скоростью приема в одном месте для эксплуатационной и исследовательской аналитики.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Авторизация учетной записи хранения озера данных Azure
-1. Если на портале управления Azure для вывода данных выбрано Data Lake Store, вам будет предложено разрешить использование существующего Data Lake Store или запросить доступ к Data Lake Store на классическом портале Azure.
+1. Если на портале Azure для вывода данных выбрано Data Lake Store, вам будет предложено разрешить использование существующего Data Lake Store или запросить доступ к Data Lake Store на классическом портале.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
-2. Если у вас уже есть доступ к хранилищу озера данных, нажмите кнопку "Авторизовать сейчас", после чего на непродолжительное время откроется страница с сообщением "Перенаправление для авторизации...". Страница закроется автоматически, а затем появится страница для настройки выходных данных хранилища озера данных.
+2. Если у вас уже есть доступ к Data Lake Store, нажмите кнопку "Авторизовать сейчас", после чего на короткое время откроется страница с сообщением "Перенаправление для авторизации". Страница закроется автоматически, а затем появится страница для настройки выходных данных хранилища озера данных.
 
 Если вы не зарегистрировались для использования Data Lake Store, перейдите по ссылке "Зарегистрируйтесь сейчас", чтобы отправить запрос, или следуйте [инструкциям по началу работы](../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/25/2017
 </tr>
 <tr>
 <td>Учетная запись хранилища озера данных</td>
-<td>Имя учетной записи хранения, в которую отправляются выходные данные. Появится раскрывающийся список учетных записей хранилища озера данных, к которым имеет доступ вошедший на портал пользователь.</td>
+<td>Имя учетной записи хранения, в которую отправляются выходные данные. Появится список учетных записей Data Lake Store, к которым у пользователя есть доступ.</td>
 </tr>
 <tr>
 <td>Шаблон префикса пути [<I>необязательное свойство</I>]</td>

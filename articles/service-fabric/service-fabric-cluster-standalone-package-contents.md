@@ -11,14 +11,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/10/2017
+ms.date: 8/10/2017
 ms.author: chackdan;maburlik
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 54fa2a5ea9bd54add6df68db6ce492299ca94207
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6a6bacedde04419449a061554d5ce9ad37259a2f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -54,6 +53,9 @@ ms.lasthandoff: 05/11/2017
 
 ## <a name="cluster-configuration-samples"></a>Примеры конфигурации кластера
 Последние версии шаблонов конфигурации кластера можно найти на странице [примеров конфигурации изолированного кластера](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) на сайте GitHub.
+
+## <a name="independent-runtime-package"></a>Независимый пакет среды выполнения
+Последняя версия пакета среды выполнения автоматически загружается во время развертывания кластера по [ссылке для скачивания среды выполнения Service Fabric для Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).
 
 ## <a name="related"></a>Сопутствующие материалы
 * [Создание изолированного кластера Azure Service Fabric](service-fabric-cluster-creation-for-windows-server.md)

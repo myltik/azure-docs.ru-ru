@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d8c8ad96ba0ba55692e80a29b7de74165a2c13bd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: d1daa01191480eaeb81727416b2134b00c698dc3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Изменение группы доступности для виртуальной машины Windows
@@ -89,7 +89,7 @@ ms.lasthandoff: 03/31/2017
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. Добавьте в нее диски данных и расширения. Дополнительные сведения см. в статьях [Подключение диска данных к виртуальной машине Windows на портале Azure](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и [Примеры конфигурации расширения виртуальной машины Microsoft Azure](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Диски данных и расширения можно добавить в виртуальную машину с помощью PowerShell или интерфейса командной строки Azure.
+5. Добавьте в нее диски данных и расширения. Дополнительные сведения см. в статье [Как подключить управляемый диск данных к виртуальной машине Windows на портале Azure](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и в разделе [Расширения](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions). Диски данных и расширения можно добавить в виртуальную машину с помощью PowerShell или интерфейса командной строки Azure.
 
 ## <a name="example-script"></a>Пример сценария
 Следующий сценарий иллюстрирует сбор необходимых сведений, удаление исходной виртуальной машины и ее повторное создание в новой группе доступности.
@@ -156,6 +156,6 @@ ms.lasthandoff: 03/31/2017
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Увеличьте емкость хранилища для виртуальной машины, добавив дополнительный [диск данных](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Увеличьте емкость хранилища для виртуальной машины, добавив дополнительный [диск данных](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

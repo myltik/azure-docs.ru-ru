@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 08/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: fceaf1b1d1c243ef8cff6ba6b188bb66514d0591
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 2b8d519e11f70eda164bd8f6e131a3989f242ab0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -49,7 +49,9 @@ ms.lasthandoff: 06/20/2017
 ## <a name="create-an-app-to-scale"></a>Создание приложения для масштабирования
 Для использования в рабочей среде может потребоваться [создать пользовательский образ виртуальной машины](tutorial-custom-images.md), включающий установленное и настроенное приложение. В этом учебнике виртуальные машины настраиваются при первом запуске для быстрого ознакомления с работой масштабируемого набора.
 
-В предыдущем руководстве вы узнали, [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md) с помощью cloud-init. Тот же самый файл конфигурации cloud-init можно использовать и для установки NGINX, а также для запуска простого приложения Node.js "Hello World". Создайте файл *cloud-init.txt*и вставьте в него приведенную ниже конфигурацию.
+В предыдущем руководстве вы узнали, [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md) с помощью cloud-init. Тот же самый файл конфигурации cloud-init можно использовать и для установки NGINX, а также для запуска простого приложения Node.js "Hello World". 
+
+В текущей оболочке создайте файл *cloud-init.txt* и вставьте в него следующую конфигурацию. Например, создайте файл в Cloud Shell, не на локальном компьютере. Введите `sensible-editor cloud-init.txt`, чтобы создать файл и просмотреть список доступных редакторов. Убедитесь, что весь файл cloud-init скопирован правильно, особенно первая строка:
 
 ```yaml
 #cloud-config
@@ -107,14 +109,14 @@ az group create --name myResourceGroupScaleSet --location eastus
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
   --generate-ssh-keys      
 ```
 
-Создание и настройка всех ресурсов и виртуальных машин масштабируемого набора занимает несколько минут.
+Создание и настройка всех ресурсов и виртуальных машин масштабируемого набора занимает несколько минут. Некоторые фоновые задачи продолжают работу после возврата к командной строке в Azure CLI. Прежде чем вы получите доступ к приложению, может пройти несколько минут.
 
 
 ## <a name="allow-web-traffic"></a>Разрешение веб-трафика
@@ -215,14 +217,14 @@ az vmss list-instance-connection-info \
 
 ```azurecli-interactive 
 az vmss create \
-  --resource-group myResourceGroupScaleSet \
-  --name myScaleSetDisks \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
-  --upgrade-policy-mode automatic \
-  --custom-data cloud-init.txt \
-  --admin-username azureuser \
-  --generate-ssh-keys \
-  --data-disk-sizes-gb 50
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSetDisks \
+    --image UbuntuLTS \
+    --upgrade-policy-mode automatic \
+    --custom-data cloud-init.txt \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --data-disk-sizes-gb 50
 ```
 
 Когда экземпляры удаляются из масштабируемого набора, также удаляются подключенные к ним диски данных.
@@ -231,10 +233,10 @@ az vmss create \
 Чтобы добавить диск данных к экземплярам в масштабируемом наборе, выполните команду [az vmss disk attach](/cli/azure/vmss/disk#attach). В следующем примере к каждому экземпляру добавляется диск данных объемом в *50* ГБ.
 
 ```azurecli-interactive 
-az vmss disk attach `
-    --resource-group myResourceGroupScaleSet `
-    --name myScaleSet `
-    --size-gb 50 `
+az vmss disk attach \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
+    --size-gb 50 \
     --lun 2
 ```
 
@@ -242,9 +244,9 @@ az vmss disk attach `
 Чтобы удалить диск данных из экземпляра в масштабируемом наборе, выполните команду [az vmss disk detach](/cli/azure/vmss/disk#detach). В следующем примере из каждого экземпляра удаляется диск данных LUN *2*.
 
 ```azurecli-interactive 
-az vmss disk detach `
-    --resource-group myResourceGroupScaleSet `
-    --name myScaleSet `
+az vmss disk detach \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
     --lun 2
 ```
 

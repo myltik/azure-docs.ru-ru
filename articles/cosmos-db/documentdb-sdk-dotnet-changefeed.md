@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/14/2017
 ms.author: maquaran
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: b2987800aa0d8aaf237f46a9435d53fec7372a92
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 40c796bc5af1220c46950a6fac062ffdd243e59f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>Пакет SDK для обработчика веб-канала изменений для DocumentDB .NET: скачивание и заметки о выпуске
@@ -48,6 +48,10 @@ ms.lasthandoff: 07/31/2017
 
 ## <a name="release-notes"></a>Заметки о выпуске
 
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Добавлен метод для оценки оставшейся работы для обработки в веб-канале изменений.
+* Совместимость с [пакетом SDK для .NET для DocumentDB](documentdb-sdk-dotnet.md) версии 1.13.2 и выше.
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Пакет SDK общей доступности.
 * Совместимость с [пакетом SDK для .NET для DocumentDB](documentdb-sdk-dotnet.md) версии 1.14.1 и ниже.
@@ -63,6 +67,7 @@ ms.lasthandoff: 07/31/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.1.0](#1.1.0) |13 августа 2017 г. |--- |
 | [1.0.0](#1.0.0) |7 июля 2017 г. |--- |
 
 

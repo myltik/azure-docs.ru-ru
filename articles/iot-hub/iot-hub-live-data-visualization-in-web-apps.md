@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/16/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 74f95d571da2e3066958cf3c5ab1938a5c631f7d
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Визуализация данных, поступающих от датчиков в реальном времени, из Центра Интернета вещей с помощью веб-приложений службы приложений Azure
@@ -83,7 +83,7 @@ ms.lasthandoff: 07/06/2017
 
    ![Настройка развертывания веб-приложения для использования локального репозитория Git](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. Щелкните **Учетные данные развертывания**, укажите имя пользователя и пароль, которые будут использоваться для подключения к репозиторию Git в Azure, а затем нажмите кнопку **ОК**.
+2. Щелкните **Учетные данные развертывания**, укажите имя пользователя и пароль, которые будут использоваться для подключения к репозиторию Git в Azure, а затем нажмите кнопку **Сохранить**.
 
 3. Щелкните **Обзор** и запишите значение **URL-адреса клона Git**.
 
@@ -112,6 +112,9 @@ ms.lasthandoff: 07/06/2017
 Данные о температуре и влажности, полученные в реальном времени, должны отображаться в Центре Интернета вещей.
 
 ![Страница веб-приложения с данными о температуре и влажности, полученными в реальном времени](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
+
+> [!NOTE]
+> Убедитесь, что пример приложения запущен на устройстве. Если это не так, отобразится пустая диаграмма. Вы можете обратиться к руководствам в статье [Подключение Raspberry Pi к Центру Интернета вещей Azure (Node.js)](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы успешно использовали веб-приложение для визуализации данных датчика, полученных в реальном времени, из Центра Интернета вещей.

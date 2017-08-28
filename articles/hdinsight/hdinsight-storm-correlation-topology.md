@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d35232cdb9d7076c27e98f7c2300ec910479e8d
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 06630096383601e48e8f69f8553314cee42f5f3e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Сопоставление событий, поступающих в разное время, с помощью Storm и HBase
@@ -35,8 +35,8 @@ ms.lasthandoff: 07/08/2017
 
 * Apache Storm в кластере HDInsight (под управлением Windows).
 
-  > [!IMPORTANT]
-  > Топологии SCP.NET поддерживаются в кластерах Storm под управлением Linux с 28 октября 2016 года, однако пакет SDK .NET для HBase, доступный с этой же даты, некорректно работает в среде Linux.
+  > [!WARNING]
+  > Топологии SCP.NET поддерживаются в кластерах Storm под управлением Linux с 28 октября 2016 года, однако пакет SDK .NET для HBase, доступный с этой же даты, некорректно работает в HDInsight под управлением Linux.
 
 * Apache HBase в кластере HDInsight (под управлением Linux или Windows).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: nini
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6f864581fe1d1771371d6805407cb881fedb4187
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Оценка приложений и микрослужб Azure Service Fabric на портале Azure
@@ -56,11 +56,12 @@ ms.lasthandoff: 07/06/2017
 
 ![Service Fabric](./media/log-analytics-service-fabric/3.png)
 
-Примите условия и нажмите кнопку "Создать", чтобы начать развертывание. После завершения развертывания вы увидите новую рабочую область и созданный кластер с добавленными таблицами WADServiceFabric*Event, WADWindowsEventLogs и WADETWEvent:
+Примите условия и нажмите кнопку **Создать**, чтобы начать развертывание. После завершения развертывания вы увидите новую рабочую область и созданный кластер с добавленными таблицами WADServiceFabric*Event, WADWindowsEventLogs и WADETWEvent:
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace-with-vm-extension-installed"></a>Развертывание кластера Service Fabric, подключенного к рабочей области Log Analytics с установленным расширением виртуальной машины
+
 Этот шаблон делает следующее:
 
 1. Развертывает кластер Azure Service Fabric, уже подключенный к рабочей области Log Analytics. Вы можете создать новую рабочую область или использовать существующую.
@@ -75,48 +76,53 @@ ms.lasthandoff: 07/06/2017
 ![Service Fabric](./media/log-analytics-service-fabric/5.png)
 
 ### <a name="viewing-performance-data"></a>Просмотр данных о производительности
+
 Чтобы просмотреть данные о производительности из узлов, сделайте следующее:
-</br>
+
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-* Запустите рабочую область Log Analytics на портале Azure.
-
-![Service Fabric](./media/log-analytics-service-fabric/6.png)
-
-* Перейдите к параметрам на левой панели и последовательно выберите "Данные" >> "Счетчики производительности Windows" >> "Добавить выбранные счетчики производительности": ![Service Fabric](./media/log-analytics-service-fabric/7.png).
-* В функции поиска по журналам используйте следующие запросы, чтобы получить основные метрики производительности узлов:
-  </br>
+- Запустите рабочую область Log Analytics на портале Azure.
+  ![Service Fabric](./media/log-analytics-service-fabric/6.png)
+- Перейдите к параметрам на левой панели и последовательно выберите "Данные" >> "Счетчики производительности Windows" >> "Добавить выбранные счетчики производительности": ![Service Fabric](./media/log-analytics-service-fabric/7.png).
+- В функции поиска по журналам используйте следующие запросы, чтобы получить основные метрики производительности узлов:
 
     а. Сравните среднее использование ЦП на всех узлах за последний час, чтобы определить проблемные узлы и промежуток времени, в течение которого для узла зарегистрирован пик:
 
-    ``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
+    ```
+    Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR.
+    ```
 
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
     b. Просмотрите аналогичные графики для доступной памяти на каждом узле, используя этот запрос:
 
-    ```Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.```
+    ```
+    Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.
+    ```
 
     Чтобы просмотреть список всех узлов с отображением точного среднего значения доступной памяти в МБ для каждого узла, используйте этот запрос:
 
-    ```Type=Perf (ObjectName=Memory) (CounterName="Available MBytes") | measure avg(CounterValue) by Computer ```
+    ```
+    Type=Perf (ObjectName=Memory) (CounterName="Available MBytes") | measure avg(CounterValue) by Computer
+    ```
 
     ![Service Fabric](./media/log-analytics-service-fabric/11.png)
 
-
     c. Чтобы просмотреть подробные сведения об определенном узле, включая показатели среднего почасового, минимального и максимального использования ЦП, а также использования по 75-му процентилю, можно выполнить следующий запрос (замените поле Computer своим значением):
 
-    ```Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR```
+    ```
+    Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR
+    ```
 
     ![Service Fabric](./media/log-analytics-service-fabric/12.png)
 
-    Дополнительные сведения о метриках производительности в Log Analytics см. [здесь]. (https://blogs.technet.microsoft.com/msoms/tag/metrics/)
+Дополнительные сведения о метриках производительности в Log Analytics см. в [блоге по Operations Management Suite](https://blogs.technet.microsoft.com/msoms/tag/metrics/).
 
 
 ## <a name="adding-an-existing-storage-account-to-log-analytics"></a>Добавление существующей учетной записи хранения в Log Analytics
+
 Этот шаблон просто добавляет существующие учетные записи хранения в новую или существующую рабочую область Log Analytics.
-</br>
 
 [![Развертывание в Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json)
 
@@ -130,6 +136,7 @@ ms.lasthandoff: 07/06/2017
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
 
 ## <a name="view-service-fabric-events"></a>Просмотр событий Service Fabric
+
 Когда развертывание будет завершено и решение Service Fabric будет включено в рабочей области, щелкните плитку **Service Fabric** на портале Log Analytics, чтобы запустить панель мониторинга Service Fabric. Панель мониторинга содержит столбцы, перечисленные в приведенной ниже таблице. В каждом столбце отображены 10 наиболее распространенных событий, соответствующих указанным для столбца критериям, на выбранном диапазоне времени. Можно выполнить поиск по журналам, выводящий весь список, щелкнув элемент **Показать все** в правой нижней части каждого столбца или заголовок этого столбца.
 
 | **Событие Service Fabric** | **description** |
@@ -148,7 +155,7 @@ ms.lasthandoff: 07/06/2017
 
 | платформа | Direct Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Да](./media/log-analytics-malware/oms-bullet-green.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |10 минут |
+| Windows |  |  | &#8226; |  |  |10 минут |
 
 > [!NOTE]
 > Область этих событий можно изменить в решении Service Fabric, щелкнув в верхней части панели мониторинга элемент **Data based on last 7 days** (Данные за последние 7 дней). Кроме того, можно отобразить события, созданные за последние семь дней, один день или шесть часов. Можно также выбрать вариант **Custom** (Другое) и указать диапазон дат.
@@ -156,5 +163,6 @@ ms.lasthandoff: 07/06/2017
 >
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 * Подробные сведения о данных событий Service Fabric см. в статье [Поиск по журналам в Log Analytics](log-analytics-log-searches.md).
 

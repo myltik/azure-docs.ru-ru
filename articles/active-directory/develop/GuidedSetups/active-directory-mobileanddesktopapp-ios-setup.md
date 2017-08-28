@@ -1,4 +1,24 @@
+---
+title: "Приступая к работе с Azure AD версии 2 для iOS. Настройка | Документация Майкрософт"
+description: "В этой статье описано, как приложения iOS (Swift) могут вызывать API, которому необходимы маркеры доступа, с помощью конечной точки Azure Active Directory версии 2."
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 78c6ca83a2711ad81b7819a8723869980a1925a3
+ms.contentlocale: ru-ru
 
+---
 ## <a name="setting-up-your-ios-application"></a>Настройка приложения iOS
 
 В этом разделе содержатся пошаговые инструкции по созданию проекта, который демонстрирует, как интегрировать приложение iOS (Swift) с *входом с учетной записью Майкрософт*. Это позволит приложению выполнять вызовы к веб-API, для которых требуется маркер.
@@ -137,3 +157,4 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
     </scene>
 </scenes>
 ```
+

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: ac797f879ef306a7d423969ecfadca3a423b4cd5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b1bc18307227a728e2bc8fd95e30fdc1cbdb8c59
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Удаление шлюза виртуальной сети с помощью PowerShell (классическая модель)
@@ -33,7 +32,7 @@ ms.lasthandoff: 05/11/2017
 
 В этой статье описано, как удалить VPN-шлюз в классической модели развертывания с помощью PowerShell. После удаления шлюза виртуальной сети измените файл конфигурации сети, чтобы удалить элементы, которые больше не используются.
 
-##<a name="step-1-connect-to-azure"></a>Шаг 1. Подключение к Azure
+##<a name="connect"></a>Шаг 1. Подключение к Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Установите последнюю версию командлетов Azure PowerShell.
 
@@ -47,7 +46,7 @@ ms.lasthandoff: 05/11/2017
 Add-AzureAccount
 ```
 
-## <a name="step-2-export-and-view-the-network-configuration-file"></a>Шаг 2. Экспорт и просмотр файла конфигурации сети
+## <a name="export"></a>Шаг 2. Экспорт и просмотр файла конфигурации сети
 
 Создайте каталог на компьютере, а затем экспортируйте в него файл конфигурации сети. С помощью этого файла можно просмотреть сведения о текущей конфигурации, а также изменить конфигурацию сети.
 
@@ -59,7 +58,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
 Откройте файл в текстовом редакторе и просмотрите имя для классической виртуальной сети. При создании виртуальной сети на портале Azure полное имя, которое используется Azure, не отображается на портале. Например, если виртуальной сеть отображается на портале Azure с именем ClassicVNet1, то в файле конфигурации сети она может иметь гораздо более длинное имя. Это имя может выглядеть примерно следующим образом: Group ClassicRG1 ClassicVNet1. Имена виртуальных сетей перечислены как **VirtualNetworkSite name =**. При выполнении командлетов PowerShell используйте имена из файла конфигурации сети.
 
-## <a name="step-3-delete-the-virtual-network-gateway"></a>Шаг 3. Удаление шлюза виртуальной сети
+## <a name="delete"></a>Шаг 3. Удаление шлюза виртуальной сети
 
 При удалении шлюза виртуальной сети все подключения к виртуальной сети через шлюз будут отключены. Если к виртуальной сети подключены клиенты P2S, то они будут отключены без предупреждения.
 
@@ -75,11 +74,11 @@ Remove-AzureVNetGateway -VNetName "Group ClassicRG1 ClassicVNet1"
 Status : Successful
 ```
 
-## <a name="step-4-modify-the-network-configuration-file"></a>Шаг 4. Изменение файла конфигурации сети
+## <a name="modify"></a>Шаг 4. Изменение файла конфигурации сети
 
 При удалении шлюза виртуальной сети командлет не изменяет файл конфигурации сети. Необходимо изменить файл, чтобы удалить элементы, которые больше не используются. В следующих разделах описывается, как изменить скачанный файл конфигурации сети.
 
-### <a name="local-network-site-references"></a>Ссылки на сайты локальной сети
+### <a name="lnsref"></a>Ссылки на сайты локальной сети
 
 Чтобы удалить данные ссылок на сайты, внесите изменения в элемент **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. Удаление ссылки на локальный сайт Azure инициирует удаление туннеля. В зависимости от созданной конфигурации элемент **LocalNetworkSiteRef** может отсутствовать.
 
@@ -102,7 +101,7 @@ Status : Successful
  </Gateway>
 ```
 
-###<a name="local-network-sites"></a>Сайты локальной сети
+###<a name="lns"></a>Сайты локальной сети
 
 Удалите все локальные сайты, которые больше не используются. В зависимости от созданной конфигурации элемент **LocalNetworkSite** может отсутствовать.
 
@@ -136,7 +135,7 @@ Status : Successful
  </LocalNetworkSites>
 ```
 
-### <a name="client-addresspool"></a>Пул адресов клиента
+### <a name="clientaddresss"></a>Пул адресов клиента
 
 Если к виртуальной сети установлено подключение типа "точка — сеть", то должен быть элемент **VPNClientAddressPool**. Удалите пулы адресов клиента, которые соответствуют удаленному шлюзу виртуальной сети.
 
@@ -157,7 +156,7 @@ Status : Successful
  </Gateway>
 ```
 
-### <a name="gatewaysubnet"></a>Подсеть шлюза
+### <a name="gwsub"></a>Подсеть шлюза
 
 Удалите подсеть шлюза (элемент **GatewaySubnet**), которая соответствует виртуальной сети.
 
@@ -182,7 +181,7 @@ Status : Successful
  </Subnets>
 ```
 
-## <a name="step-5-upload-the-network-configuration-file"></a>Шаг 5. Передача файла конфигурации сети
+## <a name="upload"></a>Шаг 5. Передача файла конфигурации сети
 
 Сохраните изменения и передайте файл конфигурации сети в Azure. Обязательно измените путь к файлу в соответствии с вашей средой.
 

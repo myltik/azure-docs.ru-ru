@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 14736524bf3c6d299838d8e3dc8b18db117d1041
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 3144ced01b524abb035dc1c6f0cdf764bec46804
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Создание веб-приложения ASP.NET с возможностями регистрации, входа, редактирования профиля и сброса пароля Azure Active Directory B2C
@@ -61,7 +61,7 @@ ms.lasthandoff: 08/08/2017
 
 ### <a name="add-your-identity-providers"></a>Добавление поставщиков удостоверений
 
-В разделе параметров щелкните **Поставщики удостоверений** и выберите один из двух вариантов — регистрация с использованием идентификатора пользователя или регистрация с использованием адреса электронной почты.
+В разделе параметров щелкните **Поставщики удостоверений** и выберите вход с помощью имени пользователя или электронной почты.
 
 ### <a name="create-a-sign-up-and-sign-in-policy"></a>Создание политики регистрации и входа в систему
 

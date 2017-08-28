@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 91c443f6d9998f15f4b1b1eaad33f0a319fcf4d4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: aa1cec2ef11da6aa8a8c4089be36994ab5f61682
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Подготовка диска VHD или VHDX для Windows к отправке в Azure
@@ -265,9 +265,12 @@ Set-Service -Name RemoteRegistry -StartupType Auto
     ```
     В отчете должен быть указан исправный диск без данных.
 
-2. Задайте параметры данных конфигурации загрузки. Выполните следующие команды в окне командной строки с повышенными привилегиями:
+2. Задайте параметры данных конфигурации загрузки. 
+
+    > [!Note]
+    > Обязательно выполните следующие команды в окне командной строки с повышенными привилегиями, а **НЕ** в PowerShell:
    
-   ```PowerShell
+   ```CMD
    bcdedit /set {bootmgr} integrityservices enable
    
    bcdedit /set {default} device partition=C:

@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: cfd4822820270dbaf44a25f3e0fe749492765df8
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Как использовать API службы сообщений Java (JMS) со служебной шиной и AMQP 1.0
@@ -313,7 +312,7 @@ exit
 * Для одного **сеанса** допускается только один **MessageProducer** или **MessageConsumer**. Если требуется создать несколько **MessageProducers** или **MessageConsumers** в приложении, создайте специальный **сеанс** для каждого из них.
 * Временные подписки раздела в настоящее время не поддерживаются.
 * **MessageSelectors** сейчас не поддерживаются.
-* Временные назначения, т. е. **TemporaryQueue** и **TemporaryTopic**, сейчас не поддерживаются, как и API-интерфейсы **QueueRequestor** и **TopicRequestor**, которые используют их.
+* Временные назначения, например **TemporaryQueue** и **TemporaryTopic**, сейчас не поддерживаются, как и использующие их API-интерфейсы **QueueRequestor** и **TopicRequestor**.
 * Сеансы транзакций и распределенные транзакции не поддерживаются.
 
 ## <a name="summary"></a>Сводка

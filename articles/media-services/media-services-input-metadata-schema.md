@@ -2,7 +2,7 @@
 title: "Схема входных метаданных служб мультимедиа Azure | Документация Майкрософт"
 description: "Эта статья содержит обзор схемы входных метаданных служб мультимедиа Azure."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

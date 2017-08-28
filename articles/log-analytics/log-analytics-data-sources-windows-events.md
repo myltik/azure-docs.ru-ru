@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 08/15/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 1cdaa8c4bf511a07383023f1baf79449ef7fdd35
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Источники данных для журнала событий Windows в Log Analytics
@@ -38,7 +38,9 @@ Log Analytics собирает события только из журналов
 ## <a name="data-collection"></a>Сбор данных
 По мере создания событий служба Log Analytics собирает из отслеживаемого журнала событий все события, соответствующие заданной степени серьезности.  Агент фиксирует место сбора в каждом журнале событий, который используется для сбора данных.  Если агент на некоторое время переходит в автономный режим, Log Analytics собирает события, начиная с места остановки, даже если эти события были созданы, пока агент был отключен.  Существует вероятность, что эти события не будут собраны, если оболочки журнала событий с несобранными событиями будут перезаписаны, пока агент находится вне сети.
 
-
+>[!NOTE]
+>Log Analytics не собирает события аудита, созданные SQL Server, из источника *MSSQLSERVER* с идентификатором события 18453, которые содержат ключевые слова *Classic* или *Audit Success* и ключевое слово *0xa0000000000000*.
+>
 
 ## <a name="windows-event-records-properties"></a>Свойства записей о событиях Windows
 Записи о событиях Windows имеют тип **Событие** и свойства, описанные в приведенной ниже таблице.

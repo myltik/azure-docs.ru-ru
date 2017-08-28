@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 08/16/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 398abb0a56f1a12ad563dce889c602af4a5b9bcf
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 7f56f6d89a9990ab7e7f50a86993e9e22b73d646
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Руководство по Power BI для Azure Cosmos DB: визуализация данных с помощью соединителя Power BI
@@ -34,6 +34,9 @@ ms.lasthandoff: 07/26/2017
 * Как получить данные из коллекции в Power BI Desktop?
 * Как преобразовывать вложенные данные JSON в Power BI Desktop?
 * Как публиковать и совместно использовать отчеты в PowerBI.com?
+
+> [!NOTE]
+> Соединитель Power BI для Azure Cosmos DB подключается к Power BI Desktop для извлечения и преобразования данных. Затем отчеты, созданные в Power BI Desktop, можно опубликовать на сайте PowerBI.com. Невозможно напрямую извлекать и преобразовывать данные Azure Cosmos DB на сайте PowerBI.com. 
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед выполнением инструкций в этом руководстве по Power BI убедитесь в наличии доступа к следующим ресурсам:

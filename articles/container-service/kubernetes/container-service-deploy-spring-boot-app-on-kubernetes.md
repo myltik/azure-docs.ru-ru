@@ -1,24 +1,25 @@
 ---
 title: "Развертывание приложения Spring Boot в Kubernetes в службе контейнеров Azure | Документация Майкрософт"
 description: "В этом руководстве содержатся пошаговые инструкции по развертыванию приложения Spring Boot в кластере Kubernetes в Microsoft Azure."
-services: 
+services: container-service
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: container-service
 ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/20/2017
+ms.date: 08/04/2017
 ms.author: asirveda;robmcm
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 824eaf3362243763c8e24080c351e5c43d319ad7
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7f726436b2d459b8c16abb02e07de099abfd8974
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -298,10 +299,7 @@ ms.lasthandoff: 07/25/2017
 Дополнительные сведения об использовании Spring Boot в Azure см. в следующих статьях:
 
 * [Развертывание приложения Spring Boot Application в службе приложений Azure](../../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
-
-* [Запуск приложения Spring Boot в Linux в службе контейнеров Azure](container-service-deploy-spring-boot-app-on-linux.md)
-
-## <a name="additional-resources"></a>Дополнительные ресурсы
+* [Развертывание приложения Spring Boot в Linux в службе контейнеров Azure](container-service-deploy-spring-boot-app-on-linux.md)
 
 Дополнительные сведения об использовании Azure см. в [центре разработчиков Java для Azure] и на странице [инструментов Java для Visual Studio Team Services].
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: a9fc8427e76ee8fa48fa8f1ad452c6fe9b544ce2
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -81,7 +81,7 @@ vSphere ESXi Host версий 5.5 и 6.0.
 
 | платформа | Агент OMS для Linux | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![Да](./media/log-analytics-vmware/oms-bullet-green.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |Каждые 3 минуты |
+| Linux |&#8226; |  |  |  |  |Каждые 3 минуты |
 
 В следующей таблице приведены примеры типов данных, собираемых решением для мониторинга VMware.
 

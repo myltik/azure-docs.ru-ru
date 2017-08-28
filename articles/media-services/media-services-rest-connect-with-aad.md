@@ -4,7 +4,7 @@ description: "Узнайте, как обращаться к API служб му
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

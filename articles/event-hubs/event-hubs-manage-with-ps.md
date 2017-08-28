@@ -12,19 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a3ba385e15510139929735adb5e50b6291846356
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Управление ресурсами концентраторов событий с помощью PowerShell
 
-Microsoft Azure PowerShell — это среда сценариев, которую можно использовать для контроля и автоматизации развертывания служб Azure, а также для управления ими. В этой статье описывается, как с помощью [модуля Resource Manager PowerShell для концентраторов событий](/powershell/module/azurerm.eventhub) подготавливать сущности концентраторов событий (пространства имен, концентраторы событий и группы потребителей) и управлять ими, используя локальную консоль или сценарий Azure PowerShell.
+Microsoft Azure PowerShell — это среда сценариев, которую можно использовать для контроля и автоматизации развертывания служб Azure, а также для управления ими. В этой статье описывается, как с помощью [модуля Resource Manager PowerShell для концентраторов событий](/powershell/module/azurerm.eventhub) подготавливать сущности концентраторов событий (пространства имен, отдельные концентраторы событий и группы потребителей) и управлять ими, используя локальную консоль или сценарий Azure PowerShell.
 
 Вы также можете управлять ресурсами концентраторов событий с помощью шаблонов Azure Resource Manager. Дополнительные сведения см. в статье [Создание пространства имен концентраторов событий с концентратором событий и группой потребителей с помощью шаблона Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
@@ -38,7 +37,7 @@ Microsoft Azure PowerShell — это среда сценариев, котор
 
 ## <a name="get-started"></a>Начало работы
 
-Сначала мы используем PowerShell для входа в учетную запись Azure и подписку Azure. Выполните инструкции, приведенные в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azure/get-started-azureps), чтобы войти в учетную запись Azure, а также получить и просмотреть ресурсы в подписке Azure.
+Сначала мы используем PowerShell для входа в учетную запись Azure и подписку Azure. Выполните инструкции, приведенные в руководстве по [началу работы с командлетами Azure PowerShell](/powershell/azure/get-started-azureps), чтобы войти в учетную запись Azure, а также получить и просмотреть ресурсы в подписке Azure.
 
 ## <a name="provision-an-event-hubs-namespace"></a>Подготовка пространства имен концентраторов событий
 
@@ -81,25 +80,25 @@ Microsoft Azure PowerShell — это среда сценариев, котор
 
 ## <a name="create-an-event-hub"></a>Создание концентратора событий
 
-Чтобы создать концентратор событий, проверьте пространство имен с помощью сценария, приведенного в предыдущем разделе. Затем создайте концентратор событий, используя командлет New-[AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub):
+Чтобы создать концентратор событий, проверьте пространство имен с помощью сценария, приведенного в предыдущем разделе. Затем создайте концентратор событий, используя командлет [New-AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub):
 
 ```powershell
-# Check if Event Hub already exists
+# Check if event hub already exists
 $CurrentEH = Get-AzureRMEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 
 if($CurrentEH)
 {
-    Write-Host "The Event Hub $EventHubName already exists in the $Location region:"
+    Write-Host "The event hub $EventHubName already exists in the $Location region:"
     # Report what was found
     Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
 else
 {
-    Write-Host "The $EventHubName Event Hub does not exist."
-    Write-Host "Creating the $EventHubName Event Hub in the $Location region..."
+    Write-Host "The $EventHubName event hub does not exist."
+    Write-Host "Creating the $EventHubName event hub in the $Location region..."
     New-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -Location $Location -MessageRetentionInDays 3
     $CurrentEH = Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
-    Write-Host "The $EventHubName Event Hub in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "The $EventHubName event hub in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
@@ -113,7 +112,7 @@ $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -Na
 
 if($CurrentCG)
 {
-    Write-Host "The consumer group $ConsumerGroupName in Event Hub $EventHubName already exists in the $Location region:"
+    Write-Host "The consumer group $ConsumerGroupName in event hub $EventHubName already exists in the $Location region:"
     # Report what was found
     Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
@@ -123,7 +122,7 @@ else
     Write-Host "Creating the $ConsumerGroupName consumer group in the $Location region..."
     New-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -ConsumerGroupName $ConsumerGroupName
     $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
-    Write-Host "The $ConsumerGroupName consumer group in Event Hub $EventHubName in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "The $ConsumerGroupName consumer group in event hub $EventHubName in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
@@ -141,7 +140,7 @@ Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $
 
 ## <a name="remove-event-hub"></a>Удаление концентратора событий
 
-Для удаления созданных вами сущностей концентраторов событий можно использовать командлеты `Remove-*`, как показано в следующем примере:
+Чтобы удалить созданные вами концентраторы событий, используйте командлеты `Remove-*`, как показано в следующем примере:
 
 ```powershell
 # Clean up
@@ -153,7 +152,7 @@ Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $N
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - С полной документацией по модулю Resource Manager PowerShell для концентраторов событий можно ознакомиться [здесь](/powershell/module/azurerm.eventhub). На этой странице перечислены все доступные командлеты.
-- Дополнительные сведения о шаблонах Azure Resource Manager см. в статье [Создание пространства имен концентраторов событий с концентратором событий и группой потребителей с помощью шаблона Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
+- Дополнительные сведения об использовании шаблонов Azure Resource Manager см. в статье [Создание пространства имен концентраторов событий с концентратором событий и группой потребителей с помощью шаблона Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 - Сведения о [библиотеках управления .NET для концентраторов событий](event-hubs-management-libraries.md).
 
 [purchase options]: http://azure.microsoft.com/pricing/purchase-options/

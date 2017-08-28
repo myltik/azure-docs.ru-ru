@@ -1,6 +1,6 @@
 ---
-title: "Настройка политики IPsec/IKE для VPN-подключений типа &quot;сеть — сеть&quot; или &quot;виртуальная сеть — виртуальная сеть&quot;. Azure Resource Manager: PowerShell | Документация Майкрософт"
-description: "В этой статье описана настройка политики IPsec/IKE для подключений типа &quot;сеть — сеть&quot; или &quot;виртуальная сеть — виртуальная сеть&quot; с VPN-шлюзами Azure с помощью Azure Resource Manager и PowerShell."
+title: "Настройка политики IPsec/IKE для VPN-подключений типа \"сеть — сеть\" или \"виртуальная сеть — виртуальная сеть\". Azure Resource Manager: PowerShell | Документация Майкрософт"
+description: "В этой статье описана настройка политики IPsec/IKE для подключений типа \"сеть — сеть\" или \"виртуальная сеть — виртуальная сеть\" с VPN-шлюзами Azure с помощью Azure Resource Manager и PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 12502c91f7dff01651e3edcfd1dfa6a9d5ffe234
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 798014b6e8d4495db99ef2e2d2ea487ae7d02fd0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Настройка политики IPsec/IKE для VPN-подключений типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть"
 
-В этой статье содержится пошаговое описание процесса по настройке политики IPsec/IKE для VPN-подключений типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть" с помощью модели развертывания диспетчера ресурсов и PowerShell.
+В этой статье содержится пошаговое описание настройки политики IPsec/IKE для VPN-подключений типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть" с помощью модели развертывания Resource Manager и PowerShell.
 
-## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Параметры политики IPsec и IKE для VPN-шлюзов Azure
+## <a name="about"></a>Параметры политики IPsec и IKE для VPN-шлюзов Azure
 Стандарт протоколов IPsec и IKE поддерживает широкий набор алгоритмов шифрования в различных сочетаниях. Ознакомьтесь [с требованиями к шифрованию и VPN-шлюзами Azure](vpn-gateway-about-compliance-crypto.md), чтобы узнать больше о том, как обеспечить следование требованиям безопасности или соответствия для подключений между локальными и виртуальными сетями.
 
 Эта статья содержит инструкции по созданию и настройке политики IPsec/IKE, а также ее применению к новому или имеющемуся подключению.
@@ -39,10 +38,12 @@ ms.lasthandoff: 06/15/2017
 * [Часть 5. Управление политикой IPsec/IKE (а также ее создание, добавление и удаление) для подключения](#managepolicy)
 
 > [!IMPORTANT]
-> 1. Обратите внимание, что политика IPsec/IKE будет актуальна только для ***стандартных*** ***высокопроизводительных*** VPN-шлюзов ***на основе маршрутов***.
+> 1. Обратите внимание, что политика IPsec/IKE будет актуальна только для следующих номеров SKU шлюзов:
+>    * ***VpnGw1, VpnGw2, VpnGw3*** (на основе маршрутов);
+>    * ***Standard*** и ***HighPerformance*** (на основе маршрутов).
 > 2. Можно указать только ***одну*** комбинацию политик для каждого подключения.
 > 3. Вам следует указать все алгоритмы и параметры для IKE (основной режим) и IPsec (быстрый режим). Указать частичную политику нельзя.
-> 4. Мы рекомендуем ознакомиться со спецификациями поставщиков устройств VPN, чтобы убедиться, что политика поддерживается локальными устройствами VPN. Если политики несовместимы, невозможно будет установить VPN-подключения типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть".
+> 4. Ознакомьтесь со спецификациями поставщиков VPN-устройств, чтобы убедиться, что политика поддерживается на локальных VPN-устройствах. Если политики несовместимы, невозможно будет установить VPN-подключения типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть".
 
 ## <a name ="workflow"></a>Часть 1. Рабочий процесс, необходимый для создания и настройки политики IPsec/IKE
 В этом разделе описывается рабочий процесс, необходимый для создания и обновления политики IPsec/IKE для VPN-подключений типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть":
@@ -52,51 +53,67 @@ ms.lasthandoff: 06/15/2017
 4. Создание подключения (IPsec или VNet2VNet) с помощью политики IPsec/IKE.
 5. Добавление, обновление и удаление политики IPsec/IKE для существующего подключения.
 
-Инструкции в этой статье помогут установить и настроить политики IPsec/IKE, как показано на схеме ниже:
+Инструкции из этой статьи помогут установить и настроить политики IPsec/IKE, как показано на следующей схеме:
 
 ![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 ## <a name ="params"></a>Часть 2. Поддерживаемые алгоритмы шифрования и уровни стойкости ключей
 
-В следующей таблице перечислены поддерживаемые алгоритмы шифрования и уровни стойкости ключей, которые могут настроить клиенты.
+В таблице ниже перечислены поддерживаемые алгоритмы шифрования и уровни стойкости ключей, которые могут настроить клиенты.
 
-| **IPsec/IKEv2**  | **Варианты**                                                                 |
-| ---              | ---                                                                         |
-| Шифрование IKEv2 | AES256, AES192, AES128, DES3, DES                                           |
-| Проверка целостности IKEv2  | SHA384, SHA256, SHA1, MD5                                                   |
-| Группа DH         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, нет |
+| **IPsec/IKEv2**  | **Варианты**    |
+| ---  | --- 
+| Шифрование IKEv2 | AES256, AES192, AES128, DES3, DES  
+| Проверка целостности IKEv2  | SHA384, SHA256, SHA1, MD5  |
+| Группа DH         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, нет |
 | Шифрование IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, нет    |
-| Целостность IPsec  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
-| Группа PFS        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, нет                     |
-| Время существования QM SA*  | Секунды (целое число) и килобайты (целое число)                                      |
-| Селектор трафика | UsePolicyBasedTrafficSelectors** ($True/$False - default $False)            |
-|                  |                                                                             |
+| Целостность IPsec  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
+| Группа PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, нет 
+| Время существования QM SA   | (**Необязательно** — используются значения по умолчанию, если не заданы другие значения.)<br>Секунды (целое число, **минимум 300**, по умолчанию — 27 000 с)<br>Килобайты (целое число, **минимум 1024**, по умолчанию — 102 400 000 КБ)   |
+| Селектор трафика | UsePolicyBasedTrafficSelectors** ($True/$False; **необязательно** — по умолчанию используется значение $False, если не задано другое значение.)    |
+|  |  |
 
-> [!NOTE]
-> * (*) Время существования SA основного режима IKEv2 составляет 28 800 секунд на VPN-шлюзах Azure
-> * (**) Если указать для параметра UsePolicyBasedTrafficSelectors значение $True для подключения, это позволит настроить VPN-шлюз Azure для локального подключения к брандмауэру VPN на основе политики. Если вы включили параметр PolicyBasedTrafficSelectors, необходимо обеспечить соответствующие селекторы трафика для VPN-устройства, которые определены с помощью всех комбинаций префиксов локальной сети (шлюза локальной сети) с префиксами виртуальной сети Azure, а не разрешать совпадение любого префикса с любым. Например, если префиксы локальной сети — 10.1.0.0/16 и 10.2.0.0/16, а префиксы виртуальной сети — 192.168.0.0/16 и 172.16.0.0/16, необходимо указать следующие селекторы трафика:
->   * 10.1.0.0/16 <====> 192.168.0.0/16;
->   * 10.1.0.0/16 <====> 172.16.0.0/16;
->   * 10.2.0.0/16 <====> 192.168.0.0/16;
->   * 10.2.0.0/16 <====> 172.16.0.0/16.
+> [!IMPORTANT]
+> 1. **Если для шифрования IPsec используется алгоритм GCMAES, необходимо указать одинаковую длину алгоритма и ключа для проверки целостности IPsec, например GCMAES128 в обоих случаях.**
+> 2. Время существования SA основного режима IKEv2 составляет 28 800 секунд на VPN-шлюзах Azure
+> 3. Если задать для параметра UsePolicyBasedTrafficSelectors значение $True для подключения, это позволит настроить VPN-шлюз Azure, чтобы локально подключаться к брандмауэру VPN на основе политик. Если вы включили параметр PolicyBasedTrafficSelectors, необходимо обеспечить соответствующие селекторы трафика для VPN-устройства, которые определены с помощью всех комбинаций префиксов локальной сети (шлюза локальной сети) с префиксами виртуальной сети Azure, а не разрешать совпадение любого префикса с любым. Например, если префиксы локальной сети — 10.1.0.0/16 и 10.2.0.0/16, а префиксы виртуальной сети — 192.168.0.0/16 и 172.16.0.0/16, необходимо указать следующие селекторы трафика:
+>    * 10.1.0.0/16 <====> 192.168.0.0/16;
+>    * 10.1.0.0/16 <====> 172.16.0.0/16;
+>    * 10.2.0.0/16 <====> 192.168.0.0/16;
+>    * 10.2.0.0/16 <====> 172.16.0.0/16.
 
 Дополнительные сведения о селекторах трафика на основе политик см. в статье [Подключение VPN-шлюзов Azure к нескольким локальным VPN-устройствам на основе политики с помощью PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
+В следующей таблице перечислены соответствующие группы Диффи — Хеллмана, поддерживаемые пользовательскими политиками.
+
+| **Группа Диффи-Хелмана**  | **DHGroup**              | **PFSGroup** | **Длина ключа** |
+| --- | --- | --- | --- |
+| 1                         | DHGroup1                 | PFS1         | MODP (768 бит)   |
+| 2                         | DHGroup2                 | PFS2         | MODP (1024 бит)  |
+| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | MODP (2048 бит)  |
+| 19                        | ECP256                   | ECP256       | ECP (256 бит)    |
+| 20                        | ECP384                   | ECP284       | ECP (384 бит)    |
+| 24                        | DHGroup24                | PFS24        | MODP (2048 бит)  |
+
+Дополнительные сведения см. в статье о группе [RFC3526](https://tools.ietf.org/html/rfc3526) и [RFC5114](https://tools.ietf.org/html/rfc5114).
+
 ## <a name ="crossprem"></a>Часть 3. Создание нового подключения VPN типа "сеть — сеть" с помощью политики IPsec/IKE
 
-В этом разделе описаны действия по созданию VPN-подключения типа "сеть — сеть" с помощью политики IPsec/IKE. С помощью инструкций ниже вы сможете создать подключение, как показано на схеме:
+В этом разделе описаны действия по созданию VPN-подключения типа "сеть — сеть" с помощью политики IPsec/IKE. С помощью приведенных ниже инструкций вы сможете создать подключение, как показано на этой схеме:
 
 ![s2s-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
 
 Пошаговые инструкции по созданию VPN-подключения типа "сеть — сеть" см. в статье [Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-### <a name="before-you-begin"></a>Перед началом работы
-* Убедитесь в том, что у вас уже есть подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
-* Вам потребуется установить командлеты PowerShell диспетчера ресурсов Azure. Дополнительные сведения об установке командлетов PowerShell см. в разделе [Общие сведения об Azure PowerShell](/powershell/azure/overview).
+### <a name="before"></a>Перед началом работы
 
-### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Шаг 1. Создание виртуальной сети, VPN-шлюза и шлюза локальной сети
+* Убедитесь в том, что у вас уже есть подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
+* Установите командлеты PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в разделе [Общие сведения об Azure PowerShell](/powershell/azure/overview).
+
+### <a name="createvnet1"></a>Шаг 1. Создание виртуальной сети, VPN-шлюза и шлюза локальной сети
 
 #### <a name="1-declare-your-variables"></a>1. Объявление переменных
+
 В этом упражнении мы начнем с объявления переменных. Обязательно замените значения своими при настройке для рабочей среды.
 
 ```powershell
@@ -125,6 +142,7 @@ $LNGIP6        = "131.107.72.22"
 ```
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2) Подключение к подписке Azure и создание группы ресурсов
+
 Для работы с командлетами диспетчера ресурсов необходимо перейти в режим PowerShell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
 Откройте консоль PowerShell и подключитесь к своей учетной записи. Для подключения используйте следующий пример.
@@ -136,7 +154,8 @@ New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
 #### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Создание виртуальной сети, VPN-шлюза и шлюза локальной сети
-В следующем примере создается виртуальная сеть — TestVNet1 с тремя подсетями и VPN-шлюзом. При замене значений важно, чтобы вы назвали подсеть шлюза именем GatewaySubnet. Если вы используете другое имя, шлюз не будет создан.
+
+В следующем примере создается виртуальная сеть TestVNet1 с тремя подсетями и VPN-шлюзом. При замене значений важно, чтобы вы назвали подсеть шлюза именем GatewaySubnet. Если вы используете другое имя, создание шлюза завершится сбоем.
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -155,10 +174,12 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
 
-### <a name="step-2---creat-a-s2s-vpn-connection-with-an-ipsecike-policy"></a>Шаг 2. Создание подключения VPN типа "сеть — сеть" с помощью политики IPsec/IKE
+### <a name="s2sconnection"></a>Шаг 2. Создание VPN-подключения типа "сеть — сеть" с помощью политики IPsec/IKE
 
-#### <a name="1-create-an-ipsecike-policy"></a>1. Создайте политику IPsec/IKE.
-Пример сценария ниже создает политику IPsec/IKE со следующими параметрами и алгоритмами:
+#### <a name="1-create-an-ipsecike-policy"></a>1. Создайте политику IPsec/IKE
+
+Следующий пример скрипта создает политику IPsec/IKE со следующими параметрами и алгоритмами:
+
 * IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS24, SA Lifetime 7200 seconds & 2048KB
 
@@ -166,8 +187,18 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
 ```
 
+Если для IPsec используется алгоритм GCMAES, необходимо указать одинаковую длину ключа и алгоритма для шифрования и целостности данных IPsec, например:
+
+* IKEv2: AES256, SHA384, DHGroup24
+* IPsec: **GCMAES256, GCMAES256**, PFS24, время существования SA (7200 секунд), 2048 КБ
+
+```powershell
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+```
+
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2) Создание подключения VPN типа "сеть — сеть" с помощью политики IPsec/IKE
-Создайте подключение VPN типа "сеть — сеть" и примените созданную выше политику IPsec/IKE.
+
+Создайте VPN-подключение типа "сеть — сеть" и примените созданную ранее политику IPsec/IKE.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -179,19 +210,21 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 При необходимости можно добавить "-UsePolicyBasedTrafficSelectors $True", чтобы создать командлет подключения для включения VPN-шлюза Azure для локального подключения к VPN-устройствам на основе политики, как описано выше.
 
 > [!IMPORTANT]
-> После указания для подключения политики IPsec/IKE VPN-шлюз Azure будет только отправлять и принимать предложения IPsec/IKE с определенными алгоритмами шифрования и уровнями стойкости ключей для этого подключения. Локальное VPN-устройство для подключения должно использовать или принимать точную комбинацию политик. В противном случае VPN-туннель типа "сеть — сеть" установлен не будет.
+> После указания для подключения политики IPsec/IKE VPN-шлюз Azure будет только отправлять и принимать предложения IPsec/IKE с определенными алгоритмами шифрования и уровнями стойкости ключей для этого подключения. Локальное VPN-устройство для подключения должно использовать или принимать точную комбинацию политик. Иначе VPN-туннель типа "сеть — сеть" не будет установлен.
 
 
 ## <a name ="vnet2vnet"></a>Часть 4. Создание нового подключения VPN типа "виртуальная сеть — виртуальная сеть" с помощью политики IPsec/IKE
-Этапы создания подключения типа "виртуальная сеть — виртуальная сеть" с помощью политики IPsec/IKE схожи с этапами, описанными при создании подключения VPN типа "сеть — сеть". Примеры сценариев ниже создают подключение, как показано на схеме:
+
+Этапы создания подключения типа "виртуальная сеть — виртуальная сеть" с помощью политики IPsec/IKE схожи с этапами, описанными при создании подключения VPN типа "сеть — сеть". Следующие примеры скриптов создают подключение, как показано на схеме:
 
 ![v2v-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/v2vpolicy.png)
 
-Дополнительные сведения о создании подключения типа "виртуальная сеть — виртуальная сеть" см. в статье [Настройка подключения VPN-шлюза между виртуальными сетями с помощью PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). Чтобы создать и настроить сеть TestVNet1 и VPN-шлюз, сначала следует выполнить инструкции из [третьей части](#crossprem). 
+Подробные инструкции по созданию подключения типа "виртуальная сеть — виртуальная сеть" см. в статье [Настройка подключения VPN-шлюза между виртуальными сетями с помощью PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). Чтобы создать и настроить сеть TestVNet1 и VPN-шлюз, сначала следует выполнить инструкции из [третьей части](#crossprem).
 
-### <a name="step-1---create-the-second-virtual-network-and-vpn-gateway"></a>Шаг 1. Создание второй виртуальной сети и VPN-шлюза
+### <a name="createvnet2"></a>Шаг 1. Создание второй виртуальной сети и VPN-шлюза
 
 #### <a name="1-declare-your-variables"></a>1. Объявление переменных
+
 Не забудьте заменить значения теми, которые вы хотите использовать для конфигурации.
 
 ```powershell
@@ -215,6 +248,7 @@ $Connection12 = "VNet1toVNet2"
 ```
 
 #### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2) Создание второй виртуальной сети и VPN-шлюза в новой группе ресурсов
+
 ```powershell
 New-AzureRmResourceGroup -Name $RG2 -Location $Location2
 
@@ -232,11 +266,13 @@ $gw2ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf1 -Subnet
 New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance
 ```
 
-### <a name="step-2---creat-a-vnet-tovnet-connection-with-the-ipsecike-policy"></a>Шаг 2. Создайте подключение типа "виртуальная сеть — виртуальная сеть" с помощью политики IPsec/IKE
+### <a name="step-2---create-a-vnet-tovnet-connection-with-the-ipsecike-policy"></a>Шаг 2. Создание подключения типа "виртуальная сеть — виртуальная сеть" с помощью политики IPsec/IKE
+
 Аналогично созданию подключения VPN типа "сеть — сеть" создайте политику IPsec/IKE, а затем примените ее к новому подключению.
 
-#### <a name="1-create-an-ipsecike-policy"></a>1. Создайте политику IPsec/IKE.
-Пример сценария ниже создает другую политику IPsec/IKE со следующими параметрами и алгоритмами:
+#### <a name="1-create-an-ipsecike-policy"></a>1. Создайте политику IPsec/IKE
+
+Следующий пример скрипта создает другую политику IPsec/IKE с такими параметрами и алгоритмами:
 * IKEv2: AES128, SHA1, DHGroup14
 * IPsec: GCMAES128, GCMAES128, PFS14, SA Lifetime 7200 seconds & 4096KB
 
@@ -245,7 +281,8 @@ $ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 
 ```
 
 #### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2) Создание подключений типа "виртуальная сеть — виртуальная сеть" с помощью политики IPsec/IKE
-Создайте подключение VPN типа "виртуальная сеть — виртуальная сеть" и примените созданную выше политику IPsec/IKE. В этом примере оба шлюза находятся в одной подписке. Поэтому можно создать и настроить оба подключения с помощью одной политики IPsec/IKE в одном сеансе PowerShell.
+
+Создайте VPN-подключение типа "виртуальная сеть — виртуальная сеть" и примените созданную вами политику IPsec/IKE. В этом примере оба шлюза находятся в одной подписке. Поэтому можно создать и настроить оба подключения с помощью одной политики IPsec/IKE в одном сеансе PowerShell.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -257,17 +294,18 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 ```
 
 > [!IMPORTANT]
-> После указания для подключения политики IPsec/IKE VPN-шлюз Azure будет только отправлять и принимать предложения IPsec/IKE с определенными алгоритмами шифрования и уровнями стойкости ключей для этого подключения. Политики IPsec для двух подключений должны быть одинаковы, в противном случае подключение VPN типа "виртуальная сеть — виртуальная сеть" установлено не будет.
+> После указания для подключения политики IPsec/IKE VPN-шлюз Azure будет только отправлять и принимать предложения IPsec/IKE с определенными алгоритмами шифрования и уровнями стойкости ключей для этого подключения. Политики IPsec для обоих подключений должны быть одинаковыми, иначе подключение типа "виртуальная сеть — виртуальная сеть" не будет установлено.
 
-После выполнения этих действий подключение будет установлено в течение нескольких минут и вы получите следующую топологию сети, как показано в начале:
+После выполнения этих действий подключение будет установлено в течение нескольких минут, и вы получите следующую топологию сети, как показано в начале статьи:
 
 ![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
 ## <a name ="managepolicy"></a>Часть 5. Обновление политики IPsec/IKE для подключения
+
 В последнем разделе описывается управление политикой IPsec/IKE для существующего подключения типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть". Действия ниже помогут выполнить следующие операции подключения:
 
-1. Показать политику подключения IPsec/IKE.
+1. Отображение политики подключения IPsec/IKE
 2. Добавить или обновить политику IPsec/IKE для подключения.
 3. Удалить политику IPsec/IKE из подключения.
 
@@ -277,6 +315,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 > Политика IPsec/IKE поддерживается только для *стандартных* и *высокопроизводительных* VPN-шлюзов на основе маршрутов. Она не работает для шлюзов со SKU класса "Базовый" или VPN-шлюзов на основе политики.
 
 #### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. Отображение политики подключения IPsec/IKE
+
 В примере ниже показано, как получить настроенную для подключения политику IPsec/IKE. Примеры сценариев являются продолжением примеров выше.
 
 ```powershell
@@ -286,21 +325,24 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-Последняя команда отображает текущую политику IPsec/IKE, настроенную для подключения (если таковое имеется). Выходные данные ниже отображаются для подключения:
+Последняя команда отображает текущую политику IPsec/IKE, настроенную для подключения (если оно есть). Следующий пример выходных данных предназначен для подключения:
 
-    SALifeTimeSeconds   : 3600
-    SADataSizeKilobytes : 2048
-    IpsecEncryption     : AES256
-    IpsecIntegrity      : SHA256
-    IkeEncryption       : AES256
-    IkeIntegrity        : SHA384
-    DhGroup             : DHGroup24
-    PfsGroup            : PFS24
+```powershell
+SALifeTimeSeconds   : 3600
+SADataSizeKilobytes : 2048
+IpsecEncryption     : AES256
+IpsecIntegrity      : SHA256
+IkeEncryption       : AES256
+IkeIntegrity        : SHA384
+DhGroup             : DHGroup24
+PfsGroup            : PFS24
+```
 
-Если политика IPsec/IKE не настроена, команда (PS> $connection6.policy) вернет пустой список. Это не значит, что для подключения не настроена политика IPsec/IKE. Это значит, что отсутствует настраиваемая политика IPsec/IKE. Фактическое подключение будет использовать политику по умолчанию, согласованную между локальным VPN-устройством и VPN-шлюзом Azure.
+Если политика IPsec/IKE не настроена, команда (PS> $connection6.policy) возвращает пустой список. Это не значит, что для подключения не настроена политика IPsec/IKE. Это значит, что отсутствует настраиваемая политика IPsec/IKE. Фактическое подключение использует политику по умолчанию, согласованную между локальным VPN-устройством и VPN-шлюзом Azure.
 
 #### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2) Добавление или обновление политики IPsec/IKE для подключения
-Шаги по добавлению новой политики или обновлению существующей (для подключения) остаются теми же. Создайте новую политику, а затем примените ее к подключению.
+
+Действия по добавлению новой политики или обновлению существующей (для подключения) остаются теми же. Создайте новую политику, а затем примените ее к подключению.
 
 ```powershell
 $RG1          = "TestPolicyRG1"
@@ -327,17 +369,20 @@ $connection6.IpsecPolicies
 
 В последней строке вы должны увидеть следующие выходные данные:
 
-    SALifeTimeSeconds   : 3600
-    SADataSizeKilobytes : 2048
-    IpsecEncryption     : GCMAES128
-    IpsecIntegrity      : GCMAES128
-    IkeEncryption       : AES128
-    IkeIntegrity        : SHA1
-    DhGroup             : DHGroup14--
-    PfsGroup            : None
+```powershell
+SALifeTimeSeconds   : 3600
+SADataSizeKilobytes : 2048
+IpsecEncryption     : GCMAES128
+IpsecIntegrity      : GCMAES128
+IkeEncryption       : AES128
+IkeIntegrity        : SHA1
+DhGroup             : DHGroup14--
+PfsGroup            : None
+```
 
 #### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Удаление политики IPsec/IKE из подключения
-После удаления настраиваемой политики из подключения VPN-шлюз Azure вернется к [списку предложений IPsec/IKE по умолчанию](vpn-gateway-about-vpn-devices.md) и снова возобновит согласование для локального VPN-устройства.
+
+После удаления настраиваемой политики из подключения VPN-шлюз Azure возвращается к [списку предложений IPsec/IKE по умолчанию](vpn-gateway-about-vpn-devices.md) и возобновляет согласование для локального VPN-устройства.
 
 ```powershell
 $RG1           = "TestPolicyRG1"
@@ -350,10 +395,10 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
 
-Вы снова можете использовать тот же сценарий выше, чтобы проверить, была ли политика удалена из подключения.
+Вы снова можете использовать тот же скрипт, чтобы проверить, удалена ли политика из подключения.
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Дополнительные сведения о селекторах трафика на основе политик см. в статье [Подключение VPN-шлюзов Azure к нескольким локальным VPN-устройствам на основе политики с помощью PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Инструкции см. в статье о [создании виртуальной машины](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

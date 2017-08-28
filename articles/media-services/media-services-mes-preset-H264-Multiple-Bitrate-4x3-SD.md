@@ -2,7 +2,7 @@
 title: "H264 Multiple Bitrate 4x3 SD | Документация Майкрософт"
 description: "Этот раздел содержит общие сведения о предустановке задачи **H264 Multiple Bitrate 4x3 SD**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

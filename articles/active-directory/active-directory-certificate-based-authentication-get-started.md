@@ -13,11 +13,11 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c32f2ca2c799332652d38d882a4d6337bade4f93
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Приступая к работе с аутентификацией на основе сертификата в Azure Active Directory
@@ -40,6 +40,8 @@ ms.lasthandoff: 05/18/2017
 ## <a name="requirements"></a>Требования
 
 Для настройки аутентификации на основе сертификата должны выполняться следующие условия:  
+
+- Аутентификация на основе сертификата (CBA) поддерживается только для браузерных приложений и собственных клиентов в федеративных средах, использующих современную аутентификацию (ADAL). Единственным исключением является решение Exchange Active (EAS) для EXO, которое можно использовать для федеративных и управляемых учетных записей. 
 
 - Корневой центр сертификации и все промежуточные центры сертификации должны быть настроены в Azure Active Directory.  
 

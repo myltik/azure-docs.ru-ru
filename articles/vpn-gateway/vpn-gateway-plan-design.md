@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b9b53ca61ff9448b4b587f6c406046b3d1a80d15
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Планирование и проектирование VPN-шлюза
@@ -40,13 +40,13 @@ ms.lasthandoff: 08/03/2017
 * Какой тип VPN-шлюза необходим для решения, которое вы хотите создать?
 * Какой номер SKU шлюза следует использовать?
 
-### <a name="planning-table"></a>Таблица планирования
+### <a name="planningtable"></a>Таблица планирования
 
 Приведенная ниже таблица поможет вам подобрать наилучший вариант подключения для решения.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gateway-skus"></a>Артикулы шлюзов
+### <a name="gwsku"></a>SKU шлюзов
 
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 08/03/2017
 
 В следующих разделах представлены основные сведения о VPN-шлюзе. 
 
-#### <a name="networking-services-limits"></a>Ограничения сетевых служб
+#### <a name="servicelimits"></a>Ограничения сетевых служб
 
 Прокрутите таблицы для просмотра [ограничений сетевых служб](../azure-subscription-service-limits.md#networking-limits). Эти ограничения могут повлиять на проектирование.
 

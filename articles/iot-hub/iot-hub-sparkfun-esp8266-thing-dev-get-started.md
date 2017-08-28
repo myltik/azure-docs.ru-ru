@@ -1,10 +1,10 @@
 ---
 title: "Подключение Sparkfun ESP8266 Thing Dev к Центру Интернета вещей Azure | Документация Майкрософт"
-description: "Руководство по подключению устройства Arduino с платой Sparkfun ESP8266 Thing Dev к Центру Интернета вещей — облачной службе Майкрософт, которая помогает управлять ресурсами Интернета вещей."
+description: "Узнайте, как настроить и подключить плату Sparkfun ESP8266 Thing Dev к Центру Интернета вещей Azure и передавать с нее данные в облако Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ms.assetid: 587fe292-9602-45b4-95ee-f39bba10e716
@@ -13,14 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 08/16/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 0b7ce531c73d991897f1c35932e795a97dd33162
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Подключение Sparkfun ESP8266 Thing Dev к Центру Интернета вещей в облаке Azure
@@ -192,6 +191,14 @@ ms.lasthandoff: 06/28/2017
 
 1. В Arduino IDE щелкните **Tool** > **Port** (Средства > Порт), а затем выберите последовательный порт для Sparkfun ESP8266 Thing Dev.
 1. Чтобы создать и развернуть пример приложения на Sparkfun ESP8266 Thing Dev, щелкните **Sketch** > **Upload** (Скетч > Загрузка).
+
+> [!Note]
+> Если вы используете macOS, то во время передачи данных могут отображаться следующие сообщения. `warning: espcomm_sync failed`,`error: espcomm_open failed`. Откройте окно терминала выполните приведенные ниже действия, чтобы устранить эту проблему.
+> ```bash
+> cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
+> sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
+> sudo touch /System/Library/Extensions
+> ```
 
 ### <a name="enter-your-credentials"></a>Ввод учетных данных
 

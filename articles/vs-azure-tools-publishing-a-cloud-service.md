@@ -3,8 +3,8 @@ title: "Публикация облачной службы с помощью и�
 description: "Узнайте, как публиковать проекты облачных служб Azure с помощью Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
 ms.service: multiple
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5e83532c65c5f6699d401ec9371ac2ad7f3868e8
-
+ms.date: 8/14/2017
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 23cea0486a769d4f446f5114016d5accbe8113cf
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Публикация облачной службы с помощью инструментов Azure
@@ -147,10 +148,5 @@ ms.openlocfilehash: 5e83532c65c5f6699d401ec9371ac2ad7f3868e8
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о публикации в Azure из Visual Studio см. в статье [Мастер публикации приложения Azure](vs-azure-tools-publish-azure-application-wizard.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

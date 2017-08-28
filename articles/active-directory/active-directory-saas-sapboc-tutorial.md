@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 08/14/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 85723eeb9c030dc51bdad47ea8e0996ff7868336
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a09e965b6fc9b89023c09092860fcf79773a4518
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Руководство по интеграции Azure Active Directory с SAP Business Object Cloud
@@ -45,7 +46,7 @@ ms.lasthandoff: 06/16/2017
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не используйте рабочую среду без необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
@@ -111,9 +112,17 @@ ms.lasthandoff: 06/16/2017
 
     ![Настройка единого входа](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<sub-domain>.projectorca.cloud/`
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: 
+    | |
+    |-|-|
+    | `https://<sub-domain>.sapanalytics.cloud/` |
+    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `<sub-domain>.projectorca.cloud`
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
+    | |
+    |-|-|
+    | `<sub-domain>.sapbusinessobjects.cloud` |
+    | `<sub-domain>.sapanalytics.cloud` |
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Обратитесь в [службу поддержки клиентов SAP Business Object Cloud](https://www.sap.com/product/analytics/cloud-analytics.support.html) для получения URL-адрес входа. Вы можете получить идентификатор при загрузке метаданных SAP Business Object Cloud на консоли администратора — эта процедура будет рассмотрена ниже в этом учебнике. 
@@ -195,8 +204,7 @@ ms.lasthandoff: 06/16/2017
  
 ### <a name="creating-an-sap-business-object-cloud-test-user"></a>Создание тестового пользователя SAP Business Object Cloud
 
-Чтобы пользователи Azure AD могли выполнять вход в SAP Business Object Cloud, они должны быть подготовлены в SAP Business Object Cloud.  
-В случае SAP Business Object Cloud подготовка выполняется вручную.
+Чтобы пользователи Azure AD могли выполнять вход в SAP Business Object Cloud, они должны быть подготовлены в SAP Business Object Cloud. В случае SAP Business Object Cloud подготовка выполняется вручную.
 
 **Чтобы подготовить учетную запись пользователя, сделайте следующее:**
 
@@ -210,7 +218,7 @@ ms.lasthandoff: 06/16/2017
 
     ![Приглашение пользователей](./media/active-directory-saas-sapboc-tutorial/user4.png)
 
-    а. В текстовом поле **идентификатор пользователя** введите идентификатор пользователя, например Britta.
+    а. В текстовом поле **ИД ПОЛЬЗОВАТЕЛЯ** введите идентификатор пользователя, например Britta.
 
     b. В текстовом поле **Имя** введите имя, допустим, Britta.
 

@@ -2,7 +2,7 @@
 title: "Публикация содержимого служб мультимедиа Azure с помощью .NET | Документация Майкрософт"
 description: "Узнайте, как создать указатель для создания URL-адреса потоковой передачи. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET."
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
