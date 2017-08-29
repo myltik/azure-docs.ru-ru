@@ -1,5 +1,5 @@
 
-Дополнительные сведения о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин Azure](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Дополнительные сведения о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин Azure](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 

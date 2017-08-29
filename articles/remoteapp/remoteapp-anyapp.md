@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 348e154f8398b5e60ad5a698cd319fa381de2fa5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Запуск любых приложений Windows на любом устройстве с помощью Azure RemoteApp
@@ -88,7 +88,7 @@ ms.lasthandoff: 03/31/2017
 1. Начните с публикации интерфейса командной строки (cmd.exe). На вкладке **Публикация** выберите **cmd** и щелкните **Опубликовать > Опубликовать программу, используя путь**.
 2. Введите имя приложения и путь. Для наших целей мы используем имя "Проводник" и путь "%SYSTEMDRIVE%\windows\explorer.exe".
    ![Публикация файла cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Теперь нужно создать [учетную запись хранения](../storage/storage-create-storage-account.md)в Azure. Мы назвали свою учетную запись "accessstorage", поэтому выберите имя, понятное вам. (Может существовать только одна учетная запись "accessstorage"). ![Учетная запись хранения Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Теперь нужно создать [учетную запись хранения](../storage/common/storage-create-storage-account.md)в Azure. Мы назвали свою учетную запись "accessstorage", поэтому выберите имя, понятное вам. (Может существовать только одна учетная запись "accessstorage"). ![Учетная запись хранения Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Теперь вернитесь на панель мониторинга, чтобы получить путь к хранилищу (расположение конечной точки). Он потребуется через несколько минут, поэтому скопируйте его куда-нибудь.
    ![Путь к учетной записи хранения](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. После создания учетной записи хранения потребуется первичный ключ доступа. Щелкните **Упр. ключами доступа**, а затем скопируйте первичный ключ доступа.
