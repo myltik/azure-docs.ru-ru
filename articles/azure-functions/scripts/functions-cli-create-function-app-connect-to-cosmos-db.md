@@ -4,7 +4,7 @@ description: "Пример скрипта Azure CLI для создания фу
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: functions
 ms.assetid: 

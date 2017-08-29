@@ -5,7 +5,7 @@ services: functions, logic-apps, cognitive-services
 keywords: "рабочий процесс, облачные приложения, облачные службы, бизнес-процессы, системная интеграция, интеграция приложений, EAI"
 documentationcenter: 
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: functions

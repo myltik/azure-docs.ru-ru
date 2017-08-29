@@ -3,7 +3,7 @@ title: "Создание бессерверного API с помощью Фун
 description: "Руководство по созданию бессерверного API с помощью Функций Azure."
 services: functions
 author: mattchenderson
-manager: erikre
+manager: cfowler
 ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple

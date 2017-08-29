@@ -4,7 +4,7 @@ description: "Узнайте, как использовать триггеры �
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"

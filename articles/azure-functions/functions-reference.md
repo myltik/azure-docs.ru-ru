@@ -4,7 +4,7 @@ description: "Узнайте о концепциях и методах Функ�
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "руководство разработчика, Функции Azure, функции, обработка событий, объекты webhook, динамические вычисления, независимая архитектура"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="azure-functions-developers-guide"></a>Руководство для разработчиков по Функциям Azure

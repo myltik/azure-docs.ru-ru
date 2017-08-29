@@ -4,7 +4,7 @@ description: "Узнайте, как создать шаблон Azure Resource 
 services: Functions
 documtationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "функции Azure, функции, независимая от сервера архитектура, инфраструктура как код, Azure Resource Manager"

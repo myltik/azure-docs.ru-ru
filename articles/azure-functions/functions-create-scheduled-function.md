@@ -4,7 +4,7 @@ description: "Узнайте, как создать в Azure функцию, к�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701

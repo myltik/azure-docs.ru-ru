@@ -4,7 +4,7 @@ description: "Узнайте, как использовать Функции Azu
 services: functions
 documentationcenter: na
 author: mattchenderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "функции azure, функции, обработка событий, веб-перехватчики, динамические вычисления, независимая архитектура"

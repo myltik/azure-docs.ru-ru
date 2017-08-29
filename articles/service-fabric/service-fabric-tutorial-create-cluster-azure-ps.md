@@ -72,7 +72,7 @@ ms.lasthandoff: 08/16/2017
 5. Создайте кластер с сертификатом, выполнив следующую команду:
 
    ```powershell
-      New-AzureRmServiceFabricCluster
+      New-AzureRmServiceFabricCluster `
           -TemplateFile C:\Users\me\Desktop\azuredeploy.json `
           -ParameterFile C:\Users\me\Desktop\azuredeploy.parameters.json `
           -CertificateOutputFolder C:\Users\me\Desktop\ `
