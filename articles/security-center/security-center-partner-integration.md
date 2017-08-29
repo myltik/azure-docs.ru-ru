@@ -12,14 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 4d0909e926de14a0cbe9799b969ac7a1946d69d1
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="partner-integration-in-azure-security-center"></a>Интеграция партнеров в центре безопасности Azure
@@ -62,9 +61,9 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="manage-partner-solutions"></a>Управление партнерскими решениями
 
-После развертывания, чтобы просмотреть сведения о работоспособности решения и выполнить основные задачи управления, в колонке **Центр безопасности** выберите плитку **Решения партнеров**. Дополнительные сведения об управлении партнерскими решениями с помощью центра безопасности Azure см. [в этой статье](security-center-partner-solutions.md).
+После развертывания выберите параметр **Решения партнеров** в колонке **Центр безопасности**, чтобы просмотреть сведения о работоспособности решения и выполнить основные задачи управления. Дополнительные сведения об управлении партнерскими решениями с помощью центра безопасности Azure см. [в этой статье](security-center-partner-solutions.md).
 
-![Интеграция партнеров](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
+![Интеграция партнеров](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
 
 > [!NOTE]
 > Symantec Endpoint Protection поддерживается только для обнаружения. Оповещения о работоспособности недоступны.
