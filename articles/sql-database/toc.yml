@@ -416,7 +416,7 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
     - name: Обновления службы
       href: 'https://azure.microsoft.com/updates/?service=sql-database'
-    - name: Руководство по архитектуре
-      href: /azure/architecture/guide/
+    - name: Центр архитектуры
+      href: /azure/architecture/
     - name: Истории клиентов
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

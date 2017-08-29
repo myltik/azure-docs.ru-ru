@@ -64,6 +64,7 @@
 ## [Источники данных мониторинга](monitoring-data-sources.md)
 ## [Список поддерживаемых метрик](monitoring-supported-metrics.md)
 ## [Схема событий журнала действий](monitoring-activity-log-schema.md)
+## [Поддерживаемые службы, категории и схемы для журналов диагностики](monitoring-diagnostic-logs-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)

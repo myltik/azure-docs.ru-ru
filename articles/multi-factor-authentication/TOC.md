@@ -18,9 +18,10 @@
 #### [Расширенная конфигурация для расширения NPS](nps-extension-advanced-configuration.md)
 ### [Создание поставщика аутентификации](multi-factor-authentication-get-started-auth-provider.md)
 ### Развертывание MFA в локальной среде
-#### [Установка портала пользователей](multi-factor-authentication-get-started-portal.md)
+#### [Установка пользовательского портала](multi-factor-authentication-get-started-portal.md)
 #### [Расширенные конфигурации VPN](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Веб-служба мобильного приложения](multi-factor-authentication-get-started-server-webservice.md)
+#### [Настройка высокого уровня доступности](mfa-server-high-availability.md)
 #### [Проверка подлинности Windows](multi-factor-authentication-get-started-server-windows.md)
 #### [Обновление сервера MFA](multi-factor-authentication-server-upgrade.md)
 #### [Обновление PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)

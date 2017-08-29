@@ -42,8 +42,11 @@
 ## Управление шаблонами для повторного использования
 ### [Добавление репозитория Git для артефактов и шаблонов](devtest-lab-add-artifact-repo.md)
 ### [Использование шаблона Resource Manager](devtest-lab-use-resource-manager-template.md)
-### [Создание настраиваемых артефактов](devtest-lab-artifact-author.md)
 ### [Управление формулами](devtest-lab-manage-formulas.md)
+
+## Управление артефактами
+### [Создание настраиваемых артефактов](devtest-lab-artifact-author.md)
+### [Диагностика сбоев артефактов](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## Управление виртуальными сетями
 ### [Настройка виртуальных сетей](devtest-lab-configure-vnet.md)

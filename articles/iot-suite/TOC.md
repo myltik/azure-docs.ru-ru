@@ -53,6 +53,7 @@
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Часто задаваемые вопросы](iot-suite-faq.md)
+## [Подключенная фабрика: вопросы и ответы](iot-suite-faq-cf.md)
 ## [Схема обучения работе с IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 

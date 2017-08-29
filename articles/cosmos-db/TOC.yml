@@ -218,10 +218,12 @@
               href: gremlin-support.md
         - name: API таблицы
           items:
-            - name: Хранилище таблиц
-              href: /rest/api/storageservices/Table-Service-Concepts
+            - name: Обзор хранилища таблиц
+              href: table-storage-overview.md
             - name: Руководство по проектированию хранилищ таблиц
               href: table-storage-design-guide.md
+            - name: API REST хранилищ таблиц
+              href: /rest/api/storageservices/Table-Service-Concepts
             - name: Учебники
               items:
                 - name: .NET

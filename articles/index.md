@@ -4,10 +4,10 @@ hide_bc: true
 title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8d0d10a53be9299931821c75c8c17bb967a05449
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: cec37e94b31d08930d7262b2f30dd3e84793af46
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 <div id="main" class="v2">
@@ -705,6 +705,12 @@ ms.lasthandoff: 08/23/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>диски;</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>Хранилище файлов</p>
@@ -739,7 +745,7 @@ ms.lasthandoff: 08/23/2017
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                     <h3>Данные и аналитика</h3>
                                     <ul>
@@ -1200,7 +1206,7 @@ ms.lasthandoff: 08/23/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Пакетная служба</h3>
-                                                    <p>Запуск заданий с помощью контейнеров</p>
+                                                    <p>Планирование заданий и управление вычислениями через облако</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1483,6 +1489,25 @@ ms.lasthandoff: 08/23/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>диски;</h3>
+                                                    <p>Хранилища дисков для виртуальных машин</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/storage/files/storage-files-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1595,7 +1620,7 @@ ms.lasthandoff: 08/23/2017
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -1865,7 +1890,7 @@ ms.lasthandoff: 08/23/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Пакетная служба</h3>
-                                                    <p>Запуск заданий с помощью контейнеров</p>
+                                                    <p>Планирование заданий и управление вычислениями через облако</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,3 +3753,4 @@ ms.lasthandoff: 08/23/2017
         </ul>
     </div>
 </div>
+

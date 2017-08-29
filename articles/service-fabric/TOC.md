@@ -18,7 +18,9 @@
 # Примеры
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Интерфейс командной строки Azure](samples-cli.md)
+## [Интерфейс командной строки Service Fabric](samples-cli.md)
+### [Развертывание образца](scripts/cli-deploy-application.md)
+### [Удаление образца](scripts/cli-remove-application.md)
 # Основные понятия
 ## [Основные сведения о микрослужбах](service-fabric-overview-microservices.md)
 ## [Общая картина](service-fabric-content-roadmap.md)
@@ -221,7 +223,7 @@
 ### Развертывание или удаление приложений
 #### [Развертывание приложений в локальном кластере](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Интерфейс командной строки Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [API-интерфейсы FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -256,6 +258,7 @@
 #### [Обновление](service-fabric-cluster-upgrade.md)
 #### [Настройка управления доступом](service-fabric-cluster-security-roles.md)
 #### [Настройка](service-fabric-cluster-fabric-settings.md)
+#### [Открытие порта в подсистеме балансировки нагрузки](create-load-balancer-rule.md)
 #### [Управление сертификатами кластера](service-fabric-cluster-security-update-certs-azure.md)
 #### [Удалить](service-fabric-cluster-delete.md)
 
@@ -275,8 +278,7 @@
 ### [Визуализация кластера](service-fabric-visualizing-your-cluster.md)
 ### [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md)
 
-### [Управление кластером с помощью интерфейса командной строки XPlat](service-fabric-azure-cli.md)
-### [Управление кластером с помощью команд Azure CLI 2.0 ](service-fabric-azure-cli-2-0.md)
+### [Управлять кластером с помощью интерфейса командной строки Service Fabric](service-fabric-cli.md)
 ### [Установка исправлений для узлов кластера](service-fabric-patch-orchestration-application.md)
 
 ### Ресурсы кластера: управление и оркестрация

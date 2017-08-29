@@ -1,16 +1,21 @@
-# [Обзор](../azure-portal-overview.md)
-## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-# Начало работы
-## [Развертывание с помощью шаблона Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
-
-# Практическое руководство
-## Развертывание
+# Обзор
+## [О портале Azure](../azure-portal-overview.md)
+# Учебники
+## [Разработка и операции на портале Azure](tutorial-azureportal-devops.md)
+# Основные понятия
+## [Диспетчер ресурсов Azure](../azure-resource-manager/resource-group-overview.md)
+## [Сочетания клавиш](azure-portal-keyboard-shortcuts.md)
+## [Поддерживаемые браузеры и устройства](../azure-preview-portal-supported-browsers-devices.md)
+# Практические руководства
+## Развернуть
 ### [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-
+### [Развертывание с помощью шаблона Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
+### [Создание панелей мониторинга Azure и предоставление общего доступа к ним](azure-portal-dashboards.md)
 ## Управление
-### [Управление ресурсами с помощью портала предварительной версии](../azure-resource-manager/resource-group-portal.md)
-### [Управление доступом с помощью RBAC](../active-directory/role-based-access-control-configure.md)
+### [Включение режима высокой контрастности или изменение темы](azure-portal-change-theme-high-contrast.md)
+### [Управление ресурсами с помощью портала](../azure-resource-manager/resource-group-portal.md)
+### [Управление доступом на основе ролей](../active-directory/role-based-access-control-configure.md)
+### [Предоставление общего доступа с управлением доступом на основе ролей](azure-portal-dashboard-share-access.md)
 ### [Организация ресурсов с помощью тегов](../azure-resource-manager/resource-group-using-tags.md)
 ### [Как масштабировать свои ресурсы](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Создание субъекта-службы Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
@@ -23,7 +28,7 @@
 ### [Создание оповещений для служб Azure с помощью портала Azure](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Сопутствующие материалы
-## [Функции шаблона Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
+## [Функции шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
 ## [Рекомендации по автомасштабированию](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Общие метрики автомасштабирования](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Использование webhook для уведомлений об автомасштабировании](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)

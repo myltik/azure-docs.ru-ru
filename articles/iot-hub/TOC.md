@@ -15,11 +15,11 @@
 ### [Использование онлайн-симулятора](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ### [Использование физического устройства](iot-hub-get-started-physical.md)
+#### [Raspberry Pi с Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 #### [Приступая к работе с Raspberry Pi 3 (Node.JS)](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Подключение устройства Raspberry Pi 3 к Центру Интернета вещей с помощью C](iot-hub-raspberry-pi-kit-c-get-started.md)
-#### [Raspberry Pi с Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 
-#### [Набор для разработки решений Интернета вещей с использованием Visual Studio Code](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+#### [Набор разработки IoT MXChip с Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
 #### [Подключение устройства Intel Edison к Центру Интернета вещей с помощью Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Подключение устройства Intel Edison к Центру Интернета вещей с помощью C](iot-hub-intel-edison-kit-c-get-started.md)

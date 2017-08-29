@@ -28,6 +28,10 @@ sections:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
             text: Создание кластера DC/OS
             href: /azure/container-service/container-service-dcos-quickstart
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
+            text: Создание кластера Docker Swarm
+            href: /azure/container-service/dcos-swarm/container-service-swarm-walkthrough
   - title: Пошаговые руководства
     items:
       - type: paragraph

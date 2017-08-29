@@ -56,9 +56,12 @@
 ## [Пользовательские политики](active-directory-b2c-overview-custom.md)
 ## Руководства
 ### [Начало работы](active-directory-b2c-get-started-custom.md)
-### Настройка поставщиков OIDC
+### Настройка поставщиков OIDC/OAUTH2
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Учетная запись Майкрософт](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### Настройка поставщиков SAML
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Интеграции API-интерфейсов RESTful
 #### [Проверка пользовательского ввода](active-directory-b2c-rest-api-validation-custom.md)
@@ -72,7 +75,7 @@
 #### [Сбор журналов с помощью Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Справочные материалы
 ### [Заметки о выпуске](active-directory-b2c-developer-notes-custom.md)
-
+### [Определение инфраструктуры доверия](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Глоссарий

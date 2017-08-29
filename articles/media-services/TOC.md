@@ -190,6 +190,7 @@
 #### [Проигрыватели Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Вставка рекламы на стороне клиента](media-services-inserting-ads-on-client-side.md)
 ### [Лицензирование пакета для переноса клиента потоковой передачи Microsoft Smooth Streaming](media-services-sspk.md)
+### [Воспроизведение HLS, зашифрованного с помощью AES, в Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Интеграция
 ### [Использование функций Azure и служб мультимедиа](media-services-dotnet-how-to-use-azure-functions.md)
