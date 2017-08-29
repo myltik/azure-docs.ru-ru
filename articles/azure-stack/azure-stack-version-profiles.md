@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: a55cc1673e1dc9ecd197eea345bf646e953389c6
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: b70f8a392fdddade31383fc5cc9496cb39d73fd4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -115,5 +114,5 @@ Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 
 ## <a name="next-steps"></a>Next steps
 * [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
-* [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
+* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)  
 

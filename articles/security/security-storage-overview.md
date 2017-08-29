@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 1fdff8fcc031f585b0d4eec7f1afa224e6bca089
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Общие сведения о безопасности при использовании службы хранилища Azure
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/10/2017
 * Делегированный доступ к объектам данных в службе хранилища Azure можно предоставлять с помощью подписанных URL-адресов.
 * Метод проверки подлинности, который используется при доступе к хранилищу, можно отслеживать с помощью функций аналитики службы хранилища.
 
-Подробные сведения о безопасности в службе хранилища Azure см. в [этом руководстве](../storage/storage-security-guide.md). Это руководство содержит подробные сведения о компонентах системы безопасности хранилища Azure, в том числе о ключах учетной записи хранения, шифровании данных при передаче и хранении, а также об аналитике хранилища.
+Подробные сведения о безопасности в службе хранилища Azure см. в [этом руководстве](../storage/common/storage-security-guide.md). Это руководство содержит подробные сведения о компонентах системы безопасности хранилища Azure, в том числе о ключах учетной записи хранения, шифровании данных при передаче и хранении, а также об аналитике хранилища.
 
 В этой статье содержатся общие сведения о функциях безопасности Azure, которые можно использовать в службе хранилища Azure. Здесь также приводятся ссылки на статьи с дополнительными сведениями о каждой функции.
 
@@ -56,15 +56,15 @@ ms.lasthandoff: 08/10/2017
 
 Подробнее.
 
-* [Основные сведения о модели SAS.](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Подписанные URL-адреса. Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов](../storage/storage-dotnet-shared-access-signature-part-2.md)
+* [Основные сведения о модели SAS.](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Подписанные URL-адреса. Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>Шифрование при передаче
 Шифрование при передаче — это механизм защиты данных, передаваемых по сетям. Служба хранилища Azure позволяет применять для защиты данных:
 
-* [шифрование транспортного уровня](../storage/storage-security-guide.md#encryption-in-transit), например протокол HTTPS, при передаче данных в службу хранилища Azure или из нее;
-* [шифрование подключения](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), например шифрование SMB 3.0 для файловых ресурсов Azure;
-* [шифрование на стороне клиента](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), которое шифрует данные перед их передачей в хранилище и расшифровывает данные после получения из хранилища.
+* [шифрование транспортного уровня](../storage/common/storage-security-guide.md#encryption-in-transit), например протокол HTTPS, при передаче данных в службу хранилища Azure или из нее;
+* [шифрование подключения](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), например шифрование SMB 3.0 для файловых ресурсов Azure;
+* [шифрование на стороне клиента](../storage/common/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), которое шифрует данные перед их передачей в хранилище и расшифровывает данные после получения из хранилища.
 
 Дополнительные сведения о шифровании на стороне клиента.
 
@@ -74,14 +74,14 @@ ms.lasthandoff: 08/10/2017
 ## <a name="encryption-at-rest"></a>Шифрование при хранении
 Для многих организаций [шифрование неактивных данных](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) является обязательным шагом для защиты данных, соблюдения стандартов и обеспечения конфиденциальности данных. В Azure есть три функции, обеспечивающие шифрование неактивных данных.
 
-* [Шифрование службы хранилища](../storage/storage-security-guide.md#encryption-at-rest) позволяет настроить автоматическое шифрование данных, записываемых в службу хранилища Azure.
-* [Шифрование на стороне клиента](../storage/storage-security-guide.md#client-side-encryption) также обеспечивает шифрование при хранении.
-* [Шифрование дисков Azure](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) позволяет шифровать диски ОС и диски данных, используемые виртуальными машинами IaaS.
+* [Шифрование службы хранилища](../storage/common/storage-security-guide.md#encryption-at-rest) позволяет настроить автоматическое шифрование данных, записываемых в службу хранилища Azure.
+* [Шифрование на стороне клиента](../storage/common/storage-security-guide.md#client-side-encryption) также обеспечивает шифрование при хранении.
+* [Шифрование дисков Azure](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) позволяет шифровать диски ОС и диски данных, используемые виртуальными машинами IaaS.
 
 Дополнительные сведения о шифровании службы хранилища.
 
 * [Шифрование службы хранилища Azure](https://azure.microsoft.com/services/storage/) доступно для [хранилища BLOB-объектов Azure](https://azure.microsoft.com/services/storage/blobs/). Сведения о других типах хранилища Azure см. в описании хранилищ [файлов](https://azure.microsoft.com/services/storage/files/), [дисков (хранилище класса Premium)](https://azure.microsoft.com/services/storage/premium-storage/), [таблиц](https://azure.microsoft.com/services/storage/tables/) и [очередей](https://azure.microsoft.com/services/storage/queues/).
-* [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/storage-service-encryption.md)
+* [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Дисковое шифрование Azure
 Шифрование дисков Azure для виртуальных машин помогает соблюдать требования (включая корпоративные требования к безопасности). Эта служба выполняет шифрование дисков виртуальных машин (загрузочных дисков и дисков данных) с использованием ключей и политик, которыми вы управляете в [хранилище ключей Azure](https://azure.microsoft.com/services/key-vault/).

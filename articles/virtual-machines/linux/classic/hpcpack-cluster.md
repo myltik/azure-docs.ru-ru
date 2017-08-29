@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure
@@ -186,7 +186,7 @@ ms.lasthandoff: 07/12/2017
 ### <a name="azure-file-storage"></a>Хранилище файлов Azure
 Служба [файлов Azure](https://azure.microsoft.com/services/storage/files/) предоставляет общие папки с помощью стандартного протокола SMB 2.1. Виртуальные машины Azure могут использовать файловые данные компонентов приложений через подключенные ресурсы, а локальные приложения получают доступ к этим данным совместно с помощью API хранилища файлов. 
 
-Подробное описание создания и подключения общей папки Azure на головном узле см. в статье [Приступая к работе с хранилищем файлов Azure в Windows](../../../storage/storage-file-how-to-use-files-windows.md). Сведения о подключении общей папки Azure к узлам Linux см. в статье [Использование хранилища файлов Azure в Linux](../../../storage/storage-how-to-use-files-linux.md). Чтобы настроить сохраняемые подключения, см. статью [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Подробное описание создания и подключения общей папки Azure на головном узле см. в статье [Приступая к работе с хранилищем файлов Azure в Windows](../../../storage/files/storage-how-to-use-files-windows.md). Сведения о подключении общей папки Azure к узлам Linux см. в статье [Использование хранилища файлов Azure в Linux](../../../storage/files/storage-how-to-use-files-linux.md). Чтобы настроить сохраняемые подключения, см. статью [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 В следующем примере создайте файловый ресурс Azure в учетной записи хранения. Чтобы подключить общую папку на головном узле, откройте окно командной строки и введите следующие команды:
 

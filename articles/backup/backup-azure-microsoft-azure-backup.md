@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 366de49b1cb1d21aca4ef4de1c413a33ac4ae7b0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Подготовка к резервному копированию рабочих нагрузок с использованием сервера службы архивации Azure
@@ -101,7 +101,7 @@ ms.lasthandoff: 07/21/2017
    Сразу после создания хранилище откроется на портале.
 
 ### <a name="set-storage-replication"></a>Настройка репликации хранилища
-При настройке репликации хранилища можно выбирать между геоизбыточным хранилищем и локально избыточным хранилищем. По умолчанию это геоизбыточное хранилище. Если данное хранилище является основным, оставьте установленный параметр, соответствующий геоизбыточному хранилищу. Если вам нужно более дешевое и не такое надежное решение, выберите локально избыточное хранилище. Дополнительные сведения о [геоизбыточном](../storage/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/storage-redundancy.md#locally-redundant-storage) хранилищах см. в [обзоре репликации службы хранилища Azure](../storage/storage-redundancy.md).
+При настройке репликации хранилища можно выбирать между геоизбыточным хранилищем и локально избыточным хранилищем. По умолчанию это геоизбыточное хранилище. Если данное хранилище является основным, оставьте установленный параметр, соответствующий геоизбыточному хранилищу. Если вам нужно более дешевое и не такое надежное решение, выберите локально избыточное хранилище. Дополнительные сведения о [геоизбыточном](../storage/common/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/common/storage-redundancy.md#locally-redundant-storage) хранилищах см. в [обзоре репликации службы хранилища Azure](../storage/common/storage-redundancy.md).
 
 Чтобы изменить параметр репликации хранилища:
 

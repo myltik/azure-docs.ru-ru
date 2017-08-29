@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: d62a4463bb24760e5abea7a870e6987e1275d0be
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0974b9eda2cb7e3ba54a4a0fad0a768db644caf9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="managed-disk-considerations"></a>Рекомендации относительно управляемых дисков
 
-[Управляемые диски](../storage/storage-managed-disks-overview.md) упрощают управление дисками виртуальных машин Azure. Они управляют учетными записями хранения, связанными с этими дисками. 
+[Управляемые диски](../virtual-machines/windows/managed-disks-overview.md) упрощают управление дисками виртуальных машин Azure. Они управляют учетными записями хранения, связанными с этими дисками. 
 
 - Управляемые диски создаются и подключаются к виртуальной машине только при отработке отказа в Azure. При включении защиты данные из локальных виртуальных машин реплицируются в учетные записи хранения.
 - Управляемые диски можно создавать только для виртуальных машин, развернутых с помощью модели развертывания Resource Manager.
@@ -66,9 +66,9 @@ ms.lasthandoff: 06/23/2017
     ![Включение репликации](./media/hyper-v-site-walkthrough-test-failover/test-failover2.png)
 3. В разделе **Вычисления и сеть** можно выполнить следующие действия:
     - Изменить имя виртуальной машины Azure. Это имя должно соответствовать [требованиям Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Указать [группу ресурсов](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md), которая будет использоваться после отработки отказа.
+    - Указать [группу ресурсов], которая будет использоваться после отработки отказа.
     - Указать целевой размер для виртуальной машины Azure.
-    - Выбрать [группу доступности](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Выбрать [группу доступности](../virtual-machines/windows/tutorial-availability-sets.md).
     - Указать, следует ли использовать [управляемые диски](#managed-disk-considerations). Выберите значение **Да**, если требуется подключить управляемые диски к виртуальной машине при переносе в Azure.
     - Просмотреть или изменить параметры сети, включая сеть (или подсеть), в которой будет размещаться виртуальная машина Azure после отработки отказа, и IP-адрес, который будет ей назначен.
 

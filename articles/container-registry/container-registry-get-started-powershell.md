@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: cristyg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 2fb060749c203a445196530bb7711d50d83c2923
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1e5d5ea5b1ec121fe008abc48178b1d58f540ce1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 06/09/2017
 ## <a name="prerequisites"></a>Предварительные требования
 * **Azure PowerShell.** Инструкции по установке и началу работы с Azure PowerShell см. [здесь](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps). Войдите в свою подписку Azure, выполнив команду `Login-AzureRMAccount`. Дополнительные сведения см. в статье [Начало работы с Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azurep).
 * **Группа ресурсов.** Перед созданием реестра контейнеров создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md#resource-groups) или используйте имеющуюся. Группа ресурсов должна находиться в расположении, где [доступна](https://azure.microsoft.com/regions/services/) служба реестра контейнеров. Сведения о создании группы ресурсов с помощью Azure PowerShell см. в [справочнике по PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps#create-a-resource-group).
-* **Учетная запись хранения (необязательно).** Создайте стандартную [учетную запись хранения](../storage/storage-introduction.md) Azure для хранения сведений реестра контейнеров в том же расположении. Учетную запись хранения (если она не задана при создании реестра) можно создать с помощью команды `New-AzureRMContainerRegistry`. Сведения о создании учетной записи хранения с помощью Azure PowerShell см. в [справочнике по PowerShell](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount). Хранилище класса Premium сейчас не поддерживается.
+* **Учетная запись хранения (необязательно).** Создайте стандартную [учетную запись хранения](../storage/common/storage-introduction.md) Azure для хранения сведений реестра контейнеров в том же расположении. Учетную запись хранения (если она не задана при создании реестра) можно создать с помощью команды `New-AzureRMContainerRegistry`. Сведения о создании учетной записи хранения с помощью Azure PowerShell см. в [справочнике по PowerShell](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount). Хранилище класса Premium сейчас не поддерживается.
 * **Субъект-служба (необязательно).** Если реестр создан с помощью PowerShell, по умолчанию доступ к нему не предоставляется. В зависимости от ваших требований можно назначить для реестра существующий субъект-службу Azure Active Directory или создать и назначить новый. Кроме того, можно включить учетную запись администратора реестра. См. следующие разделы этой статьи. Дополнительные сведения о доступе к реестру см. в статье [Authenticate with the container registry](container-registry-authentication.md) (Проверка подлинности с помощью реестра контейнеров).
 
 ## <a name="create-a-container-registry"></a>Создание реестра контейнеров

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: a03f097d0106ac153ef45e0c10b677597c76207a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4ee4c3a979a3cdd7ec793d12f812e5b126a2ce94
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="use-case---customer-profiling"></a>Вариант использования: профилирование клиентов
@@ -32,7 +32,7 @@ Contoso — это компания, которая создает игры дл
 В этом решении компания Contoso хочет оценить эффективность маркетинговой кампании, которую она недавно запустила. Начнем с необработанных журналов игр, обработаем и дополним их данными о географическом положении. Затем присоединим к ним рекламные ссылочные данные. И, наконец, скопируем их в Базу данных SQL Azure для анализа эффективности кампании.
 
 ## <a name="deploy-solution"></a>Развертывание решения
-Для реализации этого сценария требуется только [подписка Azure](https://azure.microsoft.com/pricing/free-trial/), [учетная запись хранения BLOB-объектов](../storage/storage-create-storage-account.md#create-a-storage-account) и [База данных SQL](../sql-database/sql-database-get-started.md). На домашней странице фабрики данных разверните конвейер профилирования клиентов из элемента **Примеры конвейеров**.
+Для реализации этого сценария требуется только [подписка Azure](https://azure.microsoft.com/pricing/free-trial/), [учетная запись хранения BLOB-объектов](../storage/common/storage-create-storage-account.md#create-a-storage-account) и [База данных SQL](../sql-database/sql-database-get-started.md). На домашней странице фабрики данных разверните конвейер профилирования клиентов из элемента **Примеры конвейеров**.
 
 1. Создайте или откройте существующую фабрику данных. Инструкции по созданию фабрики данных см. в статье [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 2. В колонке **ФАБРИКА ДАННЫХ** для этой фабрики данных щелкните элемент **Примеры конвейеров**.

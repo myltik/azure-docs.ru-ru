@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: c1485205f49dae28adbddbf679fc120a6e52bff6
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c29f1f01b660c4eb780e178a68036327fafa9ba6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Загрузка 1 ТБ в хранилище данных SQL Azure с помощью фабрики данных менее чем за 15 минут
@@ -43,7 +43,7 @@ ms.lasthandoff: 06/07/2017
 >
 
 ## <a name="prerequisites"></a>Предварительные требования
-* Хранилище BLOB-объектов Azure: в этом эксперименте хранилище BLOB-объектов Azure (GRS) используется для хранения тестового набора данных TPC-H.  Если у вас нет учетной записи хранения Azure, узнайте, как [создать учетную запись хранения](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Хранилище BLOB-объектов Azure: в этом эксперименте хранилище BLOB-объектов Azure (GRS) используется для хранения тестового набора данных TPC-H.  Если у вас нет учетной записи хранения Azure, узнайте, как [создать учетную запись хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Данные [TPC-H](http://www.tpc.org/tpch/): в качестве тестового набора данных мы будем использовать TPC-H.  Для этого необходимо использовать `dbgen` из набора средств TPC-H. Это поможет создать набор данных.  Можно скачать исходный код `dbgen` из [инструментов TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) и скомпилировать его или скачать скомпилированный двоичный файл с сайта [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Выполните dbgen.exe с приведенными ниже командами, чтобы создать неструктурированный файл размером в 1 ТБ для таблицы `lineitem`, распределенной на 10 файлов.
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -77,7 +77,7 @@ ms.lasthandoff: 06/07/2017
 
     В этом эксперименте данные загружаются в хранилище данных SQL Azure с помощью класса ресурсов `xlargerc`.
 
-    Для получения наилучшей пропускной способности копирование нужно выполнить с помощью пользователя хранилища данных SQL, относящегося к классу ресурсов `xlargerc`.  Узнайте, как это сделать, ознакомившись с [примером изменения класса ресурсов пользователя](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).  
+    Для получения наилучшей пропускной способности копирование нужно выполнить с помощью пользователя хранилища данных SQL, относящегося к классу ресурсов `xlargerc`.  Узнайте, как это сделать, ознакомившись с [примером изменения класса ресурсов пользователя](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).  
 * Создайте схему целевой таблицы в базе данных хранилища данных SQL Azure, выполнив следующую инструкцию DDL.
 
     ```SQL  

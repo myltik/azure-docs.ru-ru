@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 24855004f8ea15f2d4f40ba35e6f708929143879
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a9de327c20463469bc91d9720aa17333a36f919e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>Сохранение данных заданий и задач в службе хранилища Azure с помощью библиотеки соглашений о пакетных файлах для .NET 
@@ -69,10 +68,10 @@ ms.lasthandoff: 06/23/2017
 
 Для сохранения выходных данных заданий и задач с помощью библиотеки соглашений об именовании файлов создайте контейнер в службе хранилища Azure, а затем сохраните в нем выходные данные. Для отправки выходных данных задачи в контейнер используйте [клиентскую библиотеку службы хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage) в коде задачи. 
 
-Дополнительные сведения о работе с контейнерами и большими двоичными объектами в службе хранилища Azure см. в разделе [Приступая к работе со службой хранилища больших двоичных объектов Azure с помощью .NET](../storage/storage-dotnet-how-to-use-blobs.md).
+Дополнительные сведения о работе с контейнерами и большими двоичными объектами в службе хранилища Azure см. в разделе [Приступая к работе со службой хранилища больших двоичных объектов Azure с помощью .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Все выходные данные заданий и задач, сохраненные с помощью библиотеки соглашений об именовании файлов, хранятся в одном и том же контейнере. Если большое число задач попытаются одновременно сохранить файлы, могут быть применены [пределы для регулирования хранилища](../storage/storage-performance-checklist.md#blobs).
+> Все выходные данные заданий и задач, сохраненные с помощью библиотеки соглашений об именовании файлов, хранятся в одном и том же контейнере. Если большое число задач попытаются одновременно сохранить файлы, могут быть применены [пределы для регулирования хранилища](../storage/common/storage-performance-checklist.md#blobs).
 > 
 > 
 

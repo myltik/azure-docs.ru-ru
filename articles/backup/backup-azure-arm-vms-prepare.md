@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/10/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: eb6a7069da36a462f8dd27454bc1834d2e3844f0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8d701f4a459da2e08510e8001adca0847b08e924
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Подготовка среды к архивации виртуальных машин, развернутых с помощью Resource Manager
@@ -118,7 +118,7 @@ ms.lasthandoff: 07/20/2017
 
     ![Список хранилищ службы архивации](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
-     Если в качестве конечной точки основного хранилища службы архивации используется Azure, продолжайте использовать геоизбыточное хранилище. Если Azure используется в качестве конечной точки вторичного хранилища службы архивации, выберите локально избыточное хранилище. Дополнительные сведения о [геоизбыточном](../storage/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/storage-redundancy.md#locally-redundant-storage) хранилищах см. в [обзоре репликации службы хранилища Azure](../storage/storage-redundancy.md).
+     Если в качестве конечной точки основного хранилища службы архивации используется Azure, продолжайте использовать геоизбыточное хранилище. Если Azure используется в качестве конечной точки вторичного хранилища службы архивации, выберите локально избыточное хранилище. Дополнительные сведения о [геоизбыточном](../storage/common/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/common/storage-redundancy.md#locally-redundant-storage) хранилищах см. в [обзоре репликации службы хранилища Azure](../storage/common/storage-redundancy.md).
     Выбрав параметры хранилища, вы можете приступать к связыванию виртуальной машины с хранилищем. Перед началом связывания нужно обнаружить и зарегистрировать виртуальные машины Azure.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Выбор цели архивации, настройка политики и определение объектов для защиты

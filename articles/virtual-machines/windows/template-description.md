@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 61e9cab7ba0b1b86a54b5282662bef3bdfba6e7d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d9b9121bc5e38396ba4def6c17f9b373c2b48056
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -288,7 +288,7 @@ Resource Manager параллельно развертывает все ресу
 
 ## <a name="disks-and-images"></a>Диски и образы
    
-В Azure файлы VHD могут представлять [диски или образы](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Если операционная система в файле VHD предназначена для конкретной виртуальной машины, она называется диском. Если операционная система в файле VHD обобщена для создания нескольких виртуальных машин, она называется образом.   
+В Azure файлы VHD могут представлять [диски или образы](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Если операционная система в файле VHD предназначена для конкретной виртуальной машины, она называется диском. Если операционная система в файле VHD обобщена для создания нескольких виртуальных машин, она называется образом.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Создание новых виртуальных машин и новых дисков с помощью образа платформы
 

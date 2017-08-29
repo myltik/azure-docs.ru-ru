@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 864dc7697b66bbf0604cbe471b61f72bad98e327
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 589d2ea1ffed9f8ac82793132d9c91efcc60a5fe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -79,6 +78,6 @@ The AzureStack-Tools repository contains PowerShell modules that support the fol
 
 
 ## <a name="next-steps"></a>Next steps
-* [Configure powerShell for use with Azure Stack](azure-stack-powershell-configure.md)   
+* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)   
 * [Connect to Azure Stack Development Kit over a VPN](azure-stack-connect-azure-stack.md)  
 

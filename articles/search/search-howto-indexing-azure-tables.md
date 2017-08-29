@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 7679aa86aa24396d9cd7cf84a8cafe7950ad6d62
-ms.lasthandoff: 04/20/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -75,7 +76,7 @@ ms.lasthandoff: 04/20/2017
 - **Строка подключения с подписанным URL-адресом (SAS) учетной записи хранения**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` подписанный URL-адрес должен иметь разрешения "Список" и "Чтение" для контейнеров (в данном случае — таблиц) и объектов (строк таблицы).
 -  **Подписанный URL-адрес таблицы**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` подписанный URL-адрес должен иметь разрешения на запрос (чтение) для таблицы.
 
-Дополнительные сведения о подписанных URL-адресах хранения см. в разделе [Использование подписанных URL-адресов](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Дополнительные сведения о подписанных URL-адресах хранения см. в разделе [Использование подписанных URL-адресов](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Если используются учетные данные на основе подписанного URL-адреса, нужно периодически обновлять учетные данные источника данных с помощью продленных подписей, чтобы не истек их срок действия. Если срок действия учетных данных на основе подписанного URL-адреса истек, индексатор выдает сообщение об ошибке "Credentials provided in the connection string are invalid or have expired" (Учетные данные, указанные в строке подключения, недействительны или устарели).  

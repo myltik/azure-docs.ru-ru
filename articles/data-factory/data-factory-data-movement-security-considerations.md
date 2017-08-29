@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 33ccb820b786b9aa28f9e10c35ef1d2c00eaf7f1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4c39d71a2a2f9451531f0c0082c05fd6dc54fbd5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 07/11/2017
 В Azure Data Lake Store можно также включить шифрование данных, хранящихся в учетной записи. При включении Data Lake Store автоматически шифрует данные перед сохранением и расшифровывает их до извлечения. Таким образом данные полностью прозрачны для клиента, который получает к ним доступ. Дополнительные сведения см. в статье [Обеспечение безопасности в хранилище озера данных Azure](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Хранилище BLOB-объектов Azure и хранилище таблиц Azure
-Хранилище BLOB-объектов Azure и хранилище таблиц Azure поддерживают функцию шифрования службы хранилища, которая автоматически шифрует данные перед их сохранением в хранилище и расшифровывает их до извлечения. Дополнительные сведения см. в статье [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/storage-service-encryption.md).
+Хранилище BLOB-объектов Azure и хранилище таблиц Azure поддерживают функцию шифрования службы хранилища, которая автоматически шифрует данные перед их сохранением в хранилище и расшифровывает их до извлечения. Дополнительные сведения см. в статье [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
 Amazon S3 поддерживает шифрование неактивных данных для сервера и клиента. Дополнительные сведения см. в документации [Protecting Data Using Encryption](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html) (Защита данных с помощью шифрования). Сейчас фабрика данных не поддерживает Amazon S3 в виртуальном частном облаке.

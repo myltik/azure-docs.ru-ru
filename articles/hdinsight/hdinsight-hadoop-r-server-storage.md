@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 02bf921222917a50af8e28e62514e167901743b8
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aef9c15636ccaecce07d4fa218a40ed26ebad9df
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Решения службы хранилища Azure для R Server в HDInsight
@@ -37,9 +37,9 @@ Microsoft R Server в HDInsight включает в себя множество 
 - [Использование службы хранилища Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md)
 - [Использование Data Lake Store с кластерами Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md) 
 
-Дополнительные сведения о решениях службы хранилища Azure см. в статье [Общие сведения о службе хранилища Microsoft Azure](../storage/storage-introduction.md). 
+Дополнительные сведения о решениях службы хранилища Azure см. в статье [Общие сведения о службе хранилища Microsoft Azure](../storage/common/storage-introduction.md). 
 
-Рекомендации по выбору наиболее подходящего варианта хранилища для вашего сценария см. в статье [Выбор между большими двоичными объектами, службой файлов и дисками данных Azure](../storage/storage-decide-blobs-files-disks.md). 
+Рекомендации по выбору наиболее подходящего варианта хранилища для вашего сценария см. в статье [Выбор между большими двоичными объектами, службой файлов и дисками данных Azure](../storage/common/storage-decide-blobs-files-disks.md). 
 
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Использование учетных записей хранения BLOB-объектов Azure с R Server
@@ -188,8 +188,8 @@ Microsoft R Server в HDInsight включает в себя множество 
 
 Основное преимущество файлов Azure заключается в том, что общие папки можно подключить и использовать на любом устройстве с поддерживаемой операционной системой, например Windows или Linux. Например, их можно использовать в другом кластере HDInsight, принадлежащем вам или коллеге, в виртуальной машине Azure, или даже в локальной системе. Дополнительные сведения можно найти в разделе 
 
-- [Использование хранилища файлов Azure в Linux](../storage/storage-how-to-use-files-linux.md)
-- [Использование хранилища файлов Azure в Windows](../storage/storage-dotnet-how-to-use-files.md)
+- [Использование хранилища файлов Azure в Linux](../storage/files/storage-how-to-use-files-linux.md)
+- [Использование хранилища файлов Azure в Windows](../storage/files/storage-dotnet-how-to-use-files.md)
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

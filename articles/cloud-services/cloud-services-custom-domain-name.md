@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5834ad4e35894f9417d0319f120c8b74b69b3355
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9f872fd5119042945356225a80331da18f3a6d99
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Настройка пользовательского доменного имени для облачной службы Azure
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/27/2017
 <p/>
 
 > [!NOTE]
-> Процедуры в этом задании применяются для облачных служб Azure. Для получения сведений о службах приложений см. [эту статью](../app-service-web/web-sites-custom-domain-name.md). Для получения сведений об учетных записях хранения см. [эту статью](../storage/storage-custom-domain-name.md).
+> Процедуры в этом задании применяются для облачных служб Azure. Для получения сведений о службах приложений см. [эту статью](../app-service-web/web-sites-custom-domain-name.md). Для получения сведений об учетных записях хранения см. [эту статью](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

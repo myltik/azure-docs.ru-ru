@@ -16,15 +16,15 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c8f0da306c5adcf67e5e6dce10c180d08766f733
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6790db207fc7ec8a4b1546ef07c97ef30abe9513
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Использование хранилища Azure Premium Storage с SQL Server на виртуальных машинах
 ## <a name="overview"></a>Обзор
-[Хранилище Azure Premium Storage](../../../storage/storage-premium-storage.md) — это хранилище нового поколения, обеспечивающее малую задержку и высокую пропускную способность ввода-вывода. Данное хранилище лучше справляется с интенсивными нагрузками ввода-вывода, как, например, SQL Server на [виртуальных машинах](https://azure.microsoft.com/services/virtual-machines/)IaaS.
+[Хранилище Azure Premium Storage](../../../storage/common/storage-premium-storage.md) — это хранилище нового поколения, обеспечивающее малую задержку и высокую пропускную способность ввода-вывода. Данное хранилище лучше справляется с интенсивными нагрузками ввода-вывода, как, например, SQL Server на [виртуальных машинах](https://azure.microsoft.com/services/virtual-machines/)IaaS.
 
 > [!IMPORTANT]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
@@ -144,7 +144,7 @@ ms.lasthandoff: 08/12/2017
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Пропускная способность хранилища виртуальной машины и хранилища VHD
 Рабочие показатели хранилища зависят от указанного размера виртуальной машины DS* и размеров виртуального жесткого диска. Виртуальные машины имеют различные квоты по числу виртуальных жестких дисков, которые можно к ним подключать, и по максимальной поддерживаемой пропускной способности (МБ/с). Дополнительные сведения о пропускной способности см. в статье [Размеры виртуальных машин и облачных служб в Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Повышенная производительность диска достигается при увеличении размеров диска. Это следует учитывать при планировании миграции. Дополнительные сведения см. в [таблице производительности и типов дисков](../../../storage/storage-premium-storage.md#scalability-and-performance-targets).
+Повышенная производительность диска достигается при увеличении размеров диска. Это следует учитывать при планировании миграции. Дополнительные сведения см. в [таблице производительности и типов дисков](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets).
 
 Наконец, следует помнить, что виртуальные машины имеют различную максимальную пропускную способность, которую они будут поддерживать для всех подключенных дисков. При высокой нагрузке возможно достижение максимальной пропускной способности, доступной для виртуальной машины данного размера. Например, Standard_DS14 будет поддерживать до 512 МБ/с; таким образом, с тремя дисками P30 вы можете достичь максимальной пропускной способности диска виртуальной машины. Однако в данном примере лимит пропускной способности может быть превышен, в зависимости от состава операций чтения и записи ввода-вывода.
 
@@ -1097,7 +1097,7 @@ ms.lasthandoff: 08/12/2017
     ![Приложение15][25]
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-* [Хранилище Azure Premium](../../../storage/storage-premium-storage.md)
+* [Хранилище Azure Premium](../../../storage/common/storage-premium-storage.md)
 * [Виртуальные машины](https://azure.microsoft.com/services/virtual-machines/)
 * [SQL Server в виртуальных машинах Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

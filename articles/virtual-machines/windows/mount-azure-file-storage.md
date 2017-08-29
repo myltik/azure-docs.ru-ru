@@ -13,12 +13,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e5ebc1bf370b655d320f726a2792453218898006
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -76,5 +75,5 @@ ms.lasthandoff: 06/17/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Вы также можете создавать файловые ресурсы и управлять ими с помощью PowerShell. Дополнительные сведения см. в статье [Develop for Azure File storage with .NET](../../storage/storage-dotnet-how-to-use-files.md) (Разработка для хранилища файлов Azure с помощью .NET).
+Вы также можете создавать файловые ресурсы и управлять ими с помощью PowerShell. Дополнительные сведения см. в статье [Develop for Azure File storage with .NET](../../storage/files/storage-dotnet-how-to-use-files.md) (Разработка для хранилища файлов Azure с помощью .NET).
 

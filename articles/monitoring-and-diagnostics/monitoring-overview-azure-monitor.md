@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 72b0c11f8bea24fc8777e3e0d7712577fab8ef97
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 619a004b9aff99be68988e1f7be3ccad400a8a0e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -147,6 +146,6 @@ Azure Monitor предоставляет метрики инфраструкту
 - Сведения по работе с интерфейсом Azure Monitor см. в [этой статье](monitoring-get-started.md).
 - Настройте [расширения системы диагностики Azure](../azure-diagnostics.md), если вы пытаетесь диагностировать проблемы в работе облачной службы, виртуальной машины, масштабируемых наборов виртуальных машин или приложения Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , если вы пытаетесь диагностировать проблемы в работе веб-приложения службы приложений.
-- [Устранении неполадок службы хранилища Azure](../storage/storage-e2e-troubleshooting.md) , если вы используете большие двоичные объекты, таблицы или очереди этой службы.
+- [Устранении неполадок службы хранилища Azure](../storage/common/storage-e2e-troubleshooting.md) , если вы используете большие двоичные объекты, таблицы или очереди этой службы.
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) и пакет [Operations Management Suite](https://www.microsoft.com/oms/)
 

@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 6953166f21194f3cbcef3f260b3e7a50d5bf5460
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7e5da1c32484b0b94d2ad32ead6bb7c28f9744aa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="extended-events-in-sql-database"></a>Расширенные события в Базе данных SQL
@@ -54,7 +54,7 @@ ms.lasthandoff: 07/19/2017
 
 
 - PowerShell
-    - [Использование Azure PowerShell с хранилищем Azure](../storage/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
+    - [Использование Azure PowerShell с хранилищем Azure](../storage/common/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
 
 ## <a name="code-samples"></a>Примеры кода
 
@@ -195,10 +195,10 @@ API [трассировки событий для Windows (ETW)](http://msdn.mic
 
 ## <a name="related-links"></a>Связанные ссылки
 
-- [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md)
+- [Использование Azure PowerShell со службой хранилища Azure](../storage/common/storage-powershell-guide-full.md)
 - [Командлеты службы хранилища Azure](http://msdn.microsoft.com/library/dn806401.aspx)
-- [Использование Azure PowerShell с хранилищем Azure](../storage/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
-- [Использование хранилища BLOB-объектов из .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Использование Azure PowerShell с хранилищем Azure](../storage/common/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
+- [Использование хранилища BLOB-объектов из .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Публикации в блоге Джонтана Кехайаса (Jonathan Kehayias) о расширенных событий в Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)

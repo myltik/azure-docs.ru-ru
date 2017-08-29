@@ -14,12 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 89092e75d10ece044be61ceba0baf16c9e1599be
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 214fdcfe20f3fa4ebcbe41308404f8b7e7d15310
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>Как создать веб-роли и рабочие роли PHP
@@ -180,7 +179,7 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
 6. Опубликуйте приложение, как описано ниже в разделе [Публикация приложения](#publish-your-application).
 
 ## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Запуск приложения в эмуляторах вычисления и хранения
-Эмуляторы Azure представляют собой локальную среду, в которой можно тестировать приложения Azure перед их развертыванием в облаке. Существует несколько различий между эмуляторами и средой Azure. Чтобы разобраться в них, ознакомьтесь со статьей [Использование эмулятора хранения Azure для разработки и тестирования](storage/storage-use-emulator.md).
+Эмуляторы Azure представляют собой локальную среду, в которой можно тестировать приложения Azure перед их развертыванием в облаке. Существует несколько различий между эмуляторами и средой Azure. Чтобы разобраться в них, ознакомьтесь со статьей [Использование эмулятора хранения Azure для разработки и тестирования](storage/common/storage-use-emulator.md).
 
 Обратите внимание, что для использования эмулятора вычислений следует установить PHP локально. Эмулятор вычислений будет использовать локальную установку PHP для запуска приложения.
 

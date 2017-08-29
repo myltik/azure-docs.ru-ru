@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: e94a01c87886b59816c7ea1a4e78825836e6e6e7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -57,7 +56,7 @@ ms.lasthandoff: 07/08/2017
 Существует три типа учетных записей хранения, которые можно использовать на устройстве StorSimple.
 
 * **Автоматически созданные учетные записи хранения** — как ясно из названия, этот тип учетной записи хранения создается автоматически при создании службы. Дополнительные сведения о создании этой учетной записи хранения см. в разделе [Шаг 1. Создание новой службы](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) статьи [Развертывание локального устройства StorSimple](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Учетные записи хранения в подписке службы** — это учетные записи хранения Azure, которые связаны с той же подпиской, что и служба. Дополнительные сведения о том, как создаются эти учетные записи хранения, см. в разделе [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md). 
+* **Учетные записи хранения в подписке службы** — это учетные записи хранения Azure, которые связаны с той же подпиской, что и служба. Дополнительные сведения о том, как создаются эти учетные записи хранения, см. в разделе [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md). 
 * **Учетные записи хранения вне подписки на службу** — это учетные записи хранения Azure, которые не связаны со службой и скорее всего существовали до создания службы.
 
 ## <a name="add-a-storage-account"></a>добавление учетной записи хранения;

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: c77357b2cefc8081728cb20d08b00656ba60bea6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 43025adeaf954fedfbcee32e636fb30935f2126b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Использование социальных сетей с помощью Azure Cosmos DB
@@ -106,7 +106,7 @@ Azure Cosmos DB обеспечивает индексирование всех 
 
 Мы можем создать поток "Последние" с сообщениями, упорядоченными по дате создания, а также поток "Популярные" с записями, которые понравились наибольшему числу пользователей за последние 24 часа. Мы даже можем реализовать настраиваемый поток для каждого пользователя, например, основанный на логике, учитывающей число подписчиков и интересы, и все равно это будет список записей. Важно то, как создаются эти списки, а производительность чтения остается неизменной. Получив один из этих списков, мы выполним один запрос к Cosmos DB с помощью [оператора IN](documentdb-sql-query.md#WhereClause), чтобы получить сразу несколько страниц записей.
 
-Потоки веб-канала можно создать с использованием фоновых процессов [служб приложений Azure](https://azure.microsoft.com/services/app-service/) — [веб-заданий](../app-service-web/web-sites-create-web-jobs.md). После создания записи фоновую обработку можно активировать с помощью [очередей](https://azure.microsoft.com/services/storage/) [службы хранилища Azure](../storage/storage-dotnet-how-to-use-queues.md), а веб-задания можно активировать с помощью [пакета SDK веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk.md), реализовав распространение записей в потоках на основе собственной настраиваемой логики. 
+Потоки веб-канала можно создать с использованием фоновых процессов [служб приложений Azure](https://azure.microsoft.com/services/app-service/) — [веб-заданий](../app-service-web/web-sites-create-web-jobs.md). После создания записи фоновую обработку можно активировать с помощью [очередей](https://azure.microsoft.com/services/storage/) [службы хранилища Azure](../storage/queues/storage-dotnet-how-to-use-queues.md), а веб-задания можно активировать с помощью [пакета SDK веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk.md), реализовав распространение записей в потоках на основе собственной настраиваемой логики. 
 
 Очки и отметки "Нравится" записи могут обрабатываться с отсрочкой, этот же подход применяется для создания согласованной среды.
 

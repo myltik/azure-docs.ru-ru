@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: b4357150d0be21672d0b8e212c4ea1a7bec99412
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2cf765cb034725199127c547a9b8b997a4a6089c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>Создание и использование счетчиков производительности в приложении Azure
@@ -244,7 +243,7 @@ Azure кэширует данные счетчиков производител�
 Теперь данные пользовательских счетчиков производительности собирает монитор диагностики Azure.
 
 ## <a name="step-3-query-performance-counter-data"></a>Шаг 3. Запрос данных счетчика производительности
-После развертывания и запуска приложения монитор диагностики начнет собирать данные счетчиков производительности и сохранять их в хранилище Azure. Для просмотра данных счетчиков производительности в таблице WADPerformanceCountersTable используйте такие средства: обозреватель сервера в Visual Studio, [обозреватель хранилища Azure](http://azurestorageexplorer.codeplex.com/) или [диспетчер диагностики Azure](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) от Cerebrata. Вы можете также программно запросить службу таблиц с использованием запросов [C#](../storage/storage-dotnet-how-to-use-tables.md), [Java](../storage/storage-java-how-to-use-table-storage.md), [Node.js](../storage/storage-nodejs-how-to-use-table-storage.md), [Python](../storage/storage-python-how-to-use-table-storage.md), [Ruby](../storage/storage-ruby-how-to-use-table-storage.md) или [PHP](../storage/storage-php-how-to-use-table-storage.md).
+После развертывания и запуска приложения монитор диагностики начнет собирать данные счетчиков производительности и сохранять их в хранилище Azure. Для просмотра данных счетчиков производительности в таблице WADPerformanceCountersTable используйте такие средства: обозреватель сервера в Visual Studio, [обозреватель хранилища Azure](http://azurestorageexplorer.codeplex.com/) или [диспетчер диагностики Azure](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) от Cerebrata. Вы можете также программно запросить службу таблиц с использованием запросов [C#](../cosmos-db/table-storage-how-to-use-dotnet.md), [Java](../cosmos-db/table-storage-how-to-use-java.md), [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md), [Python](../cosmos-db/table-storage-how-to-use-python.md), [Ruby](../cosmos-db/table-storage-how-to-use-ruby.md) или [PHP](../cosmos-db/table-storage-how-to-use-php.md).
 
 В примере на C# показан базовый запрос таблицы WADPerformanceCountersTable с сохранением данных диагностики в CSV-файл. После сохранения данных счетчиков производительности в CSV-файл можно использовать возможности построения графиков в Microsoft Excel или любом другом средстве для визуализации данных. Не забудьте добавить ссылку на библиотеку Microsoft.WindowsAzure.Storage.dll, которая включена в пакет Azure SDK для .NET в версии с октября 2012 г. Эта сборка устанавливается в каталог %Program Files%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\.
 

@@ -16,16 +16,16 @@ ms.date: 07/13/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: f5da86a95623234d14b0a99ee64c7b98d7e920a1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d2485fecd92ede80b9ba57ea5cf36dab13c87dc8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-analytics-search-reference"></a>Справочник по поиску в Log Analytics
 
 >[!NOTE]
-> В этой статье описывается поиск по журналам с использованием текущего языка запросов в Log Analytics.  Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), ознакомьтесь со [справочником по новому языку](https://docs.loganalytics.io/queryLanguage/query_language.html).
+> В этой статье описывается поиск по журналам с использованием текущего языка запросов в Log Analytics.  Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), ознакомьтесь со [справочником по новому языку](https://docs.loganalytics.io/docs/Language-Reference).
 
 В следующем справочном разделе о языке поиска описываются общие варианты синтаксиса запросов, которые можно использовать при поиске данных и фильтрации выражений для сужения области поиска. В нем также описываются команды, которые можно использовать для выполнения действий с полученными данными.
 

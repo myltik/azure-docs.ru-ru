@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 3fe2a44d7e05538bdc3341110a517e7e9bdf3e7d
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Настройка хранилища для виртуальных машин SQL Server
@@ -32,7 +33,7 @@ ms.openlocfilehash: 3fe2a44d7e05538bdc3341110a517e7e9bdf3e7d
 
 * быть подготовлена с помощью [коллекции образов SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing);
 * использовать [модель развертывания с помощью Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md);
-* использовать [хранилище класса Premium](../../../storage/storage-premium-storage.md).
+* использовать [хранилище класса Premium](../../../storage/common/storage-premium-storage.md).
 
 ## <a name="new-vms"></a>Новые виртуальные машины
 В следующих разделах описаны действия по настройке хранилища для новых виртуальных машин SQL Server.
@@ -104,7 +105,7 @@ Azure создает диск на основе ваших параметров.
 
 * Если для виртуальной машины выбрано хранилище объемом менее 2 ТБ, Azure не создает пул носителей,
 * а если 2 ТБ или больше — пул носителей создается. В следующем разделе этой статьи приведены сведения о конфигурации пула носителей.
-* При автоматической настройке хранилища всегда используются диски данных P30 [хранилища класса Premium](../../../storage/storage-premium-storage.md) . Следовательно, между выбранным числом терабайт и количеством дисков, прикрепленных к виртуальной машине, существует полноценное сопоставление.
+* При автоматической настройке хранилища всегда используются диски данных P30 [хранилища класса Premium](../../../storage/common/storage-premium-storage.md) . Следовательно, между выбранным числом терабайт и количеством дисков, прикрепленных к виртуальной машине, существует полноценное сопоставление.
 
 Сведения о ценах см. на странице [Цены на хранилища Azure](https://azure.microsoft.com/pricing/details/storage) на вкладке **Хранилище дисков**.
 
@@ -143,9 +144,4 @@ Azure создает диск на основе ваших параметров.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

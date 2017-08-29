@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0d1c323155aae90e8a92d7a3b92b5ca1482e1ef5
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34a7e1d025c301ca056753d964bb3c5f4f1a62d8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>Использование PowerShell для резервного копирования и восстановления приложений службы приложений
@@ -34,7 +33,7 @@ ms.lasthandoff: 04/27/2017
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы использовать PowerShell для управления резервными копиями приложения, требуется следующее.
 
-* **URL-адрес SAS**, предоставляющий разрешения на чтение и запись в контейнер службы хранилища Azure. Описание URL-адресов SAS см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../storage/storage-dotnet-shared-access-signature-part-1.md). С примерами управления службой хранилища Azure с помощью PowerShell можно ознакомиться в статье [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md).
+* **URL-адрес SAS**, предоставляющий разрешения на чтение и запись в контейнер службы хранилища Azure. Описание URL-адресов SAS см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md). С примерами управления службой хранилища Azure с помощью PowerShell можно ознакомиться в статье [Использование Azure PowerShell со службой хранилища Azure](../storage/common/storage-powershell-guide-full.md).
 * **Строка подключения к базе данных** , если вместе с веб-приложением вы хотите создать резервную копию базы данных.
 
 ### <a name="how-to-generate-a-sas-url-to-use-with-the-web-app-backup-cmdlets"></a>Как создать подписанный URL-адрес SAS для использования с командлетами архивации веб-приложений

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/29/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4bdef3c0a68b07ee2d6e0ab5344ff7cc41965f1e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 68b767c9c93f2daff476a21029b9813f347590b5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>Использование службы диспетчера StorSimple для управления учетной записью хранения
@@ -53,7 +52,7 @@ ms.lasthandoff: 07/06/2017
 Существует три типа учетных записей хранения, которые можно использовать на устройстве StorSimple.
 
 * **Автоматически созданные учетные записи хранения** — как ясно из названия, этот тип учетной записи хранения создается автоматически при создании службы. Дополнительные сведения о создании этой учетной записи хранения см. в разделе [Шаг 1. Создание новой службы](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) статьи [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md). 
-* **Учетные записи хранения в подписке службы** — это учетные записи хранения Azure, которые связаны с той же подпиской, что и служба. Дополнительные сведения о том, как создаются эти учетные записи хранения, см. в разделе [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md). 
+* **Учетные записи хранения в подписке службы** — это учетные записи хранения Azure, которые связаны с той же подпиской, что и служба. Дополнительные сведения о том, как создаются эти учетные записи хранения, см. в разделе [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md). 
 * **Учетные записи хранения вне подписки на службу** — это учетные записи хранения Azure, которые не связаны со службой и скорее всего существовали до создания службы.
 
 ## <a name="add-a-storage-account"></a>добавление учетной записи хранения;

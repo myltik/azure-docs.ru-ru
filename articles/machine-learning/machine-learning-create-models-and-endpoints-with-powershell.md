@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: garye;haining
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 069e662ce70f1ec78d796c29d8b5331fc8a5a3e7
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 21d8c1ee0877df8d317d5a14131dc574fa5303c4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Создание множества моделей машинного обучения и конечных точек веб-службы из одного эксперимента с помощью PowerShell
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/17/2016
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Обновление конечных точек для использования отдельных наборов данных для обучения с помощью PowerShell
 Следующим шагом является обновление конечных точек с использованием моделей, обученных по отдельным данным каждого из клиентов. Но сначала необходимо создать эти модели из веб-службы **Bike Rental Training** . Вернемся к веб-службе **Bike Rental Training** . Необходимо вызвать ее конечную точку BES 10 раз с 10 разными наборами данных для обучения, чтобы создать 10 разных моделей. Для этого мы используем командлет **InovkeAmlWebServiceBESEndpoint** PowerShell.
 
-Также необходимо указать учетные данные для учетной записи хранения BLOB-объектов в `$configContent`, то есть в полях `AccountName`, `AccountKey` и `RelativeLocation`. В поле `AccountName` можно указать одно из имен учетной записи, как показано на **классическом портале управления Azure** (вкладка *Хранилище*). Выберите учетную запись хранения. Чтобы найти ее `AccountKey`, нажмите кнопку **Управление ключами доступа** и скопируйте значение поля *Первичный ключ доступа*. `RelativeLocation` — это путь к хранилищу, в котором будет храниться новая модель. Например, путь `hai/retrain/bike_rental/` в сценарии ниже указывает на контейнер с именем `hai`, а `/retrain/bike_rental/` — это вложенные папки. Сейчас невозможно создать вложенные папки с помощью пользовательского интерфейса портала. Но это можно сделать с помощью [нескольких обозревателей службы хранилища Azure](../storage/storage-explorers.md). Рекомендуется создать контейнер в хранилище для хранения новых обученных моделей (ILEARNER-файлы) следующим образом. На странице хранилища нажмите кнопку **Добавить** внизу и назовите контейнер `retrain`. Таким образом, все необходимые изменения в сценарии ниже относятся к `AccountName`, `AccountKey` и `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+Также необходимо указать учетные данные для учетной записи хранения BLOB-объектов в `$configContent`, то есть в полях `AccountName`, `AccountKey` и `RelativeLocation`. В поле `AccountName` можно указать одно из имен учетной записи, как показано на **классическом портале управления Azure** (вкладка *Хранилище*). Выберите учетную запись хранения. Чтобы найти ее `AccountKey`, нажмите кнопку **Управление ключами доступа** и скопируйте значение поля *Первичный ключ доступа*. `RelativeLocation` — это путь к хранилищу, в котором будет храниться новая модель. Например, путь `hai/retrain/bike_rental/` в сценарии ниже указывает на контейнер с именем `hai`, а `/retrain/bike_rental/` — это вложенные папки. Сейчас невозможно создать вложенные папки с помощью пользовательского интерфейса портала. Но это можно сделать с помощью [нескольких обозревателей службы хранилища Azure](../storage/common/storage-explorers.md). Рекомендуется создать контейнер в хранилище для хранения новых обученных моделей (ILEARNER-файлы) следующим образом. На странице хранилища нажмите кнопку **Добавить** внизу и назовите контейнер `retrain`. Таким образом, все необходимые изменения в сценарии ниже относятся к `AccountName`, `AccountKey` и `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service

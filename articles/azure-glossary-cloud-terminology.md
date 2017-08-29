@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/16/2017
 ms.author: monicar
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 800eadb6cc558303553a204771b18cec525a2af9
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Словарь терминов Microsoft Azure: словарь терминов, связанных с облаком на платформе Azure
@@ -30,8 +30,8 @@ ms.lasthandoff: 07/14/2017
 * [Термины облачных вычислений](https://azure.microsoft.com/overview/cloud-computing-dictionary/) — общие термины облачной индустрии.
 
 ## <a name="account"></a>учетная запись
-Личная, рабочая или учебная учетная запись Майкрософт, которая используется для доступа к подписке Azure и управления ею.  
-См. статью [Связь между подписками Azure и службой Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
+Учетная запись, используемая для доступа к подписке Azure и управления ей. Зачастую она называется учетной записью Azure, хотя учетной записью может быть любая из следующих: существующая рабочая, учебная или личная учетная запись Майкрософт либо имя пользователя и пароль Office 365. Можно также создать учетную запись для управления подпиской Azure во время регистрации в [бесплатной пробной версии](https://azure.microsoft.com).  
+См. разделы [Регистрация для получения подписки Azure с помощью учетной записи Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) и [Учетные записи для входа](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>Приложение API
 Другое название [приложения службы приложений](#app-service-app).
@@ -119,11 +119,11 @@ JSON-файл, который декларативно определяет од
 См. статью [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/).
 
 ## <a name="sas"></a>подписанный URL-адрес (SAS)
-Подпись, которая позволяет предоставлять ограниченный доступ к ресурсу, не раскрывая ключ учетной записи. Например, [служба хранилища Azure использует подписанный URL-адрес](storage/storage-dotnet-shared-access-signature-part-1.md) для предоставления клиентского доступа к объектам, таким как BLOB-объекты. [Центр Интернета Вещей использует подписанный URL-адрес](iot-hub/iot-hub-devguide-security.md#security-tokens) для предоставления устройствам разрешения на отправку данных телеметрии.
+Подпись, которая позволяет предоставлять ограниченный доступ к ресурсу, не раскрывая ключ учетной записи. Например, [служба хранилища Azure использует подписанный URL-адрес](storage/common/storage-dotnet-shared-access-signature-part-1.md) для предоставления клиентского доступа к объектам, таким как BLOB-объекты. [Центр Интернета Вещей использует подписанный URL-адрес](iot-hub/iot-hub-devguide-security.md#security-tokens) для предоставления устройствам разрешения на отправку данных телеметрии.
 
 ## <a name="storage-account"></a>запись хранения Azure
 Учетная запись, которая предоставляет доступ к службам BLOB-объектов, очередей, таблиц и файлов в службе хранилища Azure. Имя учетной записи хранения определяет уникальное пространство имен для объектов данных в службе хранилища Azure.  
-См. статью [Об учетных записях хранения Azure](storage/storage-create-storage-account.md).
+См. статью [Об учетных записях хранения Azure](storage/common/storage-create-storage-account.md).
 
 ## <a name="subscription"></a>Подписка
 Соглашение клиента с корпорацией Майкрософт, которое позволяет им получать доступ к службам Azure. Цены на подписку и связанные условия регулируются предложением, выбранным для подписки.

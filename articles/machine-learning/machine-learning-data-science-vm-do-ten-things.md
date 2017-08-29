@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: gokuma;weig;bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: b154bd42c0f8bc6e185fa871b21249cad2869e72
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 45af1cd3a05b483429d2307659f1882ef28921f6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>10 задач, которые можно выполнить в виртуальной машине для обработки и анализа данных
@@ -262,7 +262,7 @@ DSVM уже поставляется с набором клиентских ин
 
 ![Create_Azure_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* Убедитесь, что предустановленное средство командной строки AzCopy находится по адресу ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Вы можете добавить каталог, содержащий файл Azcopy.exe, в переменную среды PATH, чтобы не вводить полный путь команды при запуске этого средства. Дополнительные сведения об инструменте AzCopy см. в [документации по AzCopy](../storage/storage-use-azcopy.md).
+* Убедитесь, что предустановленное средство командной строки AzCopy находится по адресу ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Вы можете добавить каталог, содержащий файл Azcopy.exe, в переменную среды PATH, чтобы не вводить полный путь команды при запуске этого средства. Дополнительные сведения об инструменте AzCopy см. в [документации по AzCopy](../storage/common/storage-use-azcopy.md).
 * Запустите инструмент Azure Storage Explorer. Его можно скачать с сайта [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
 ![AzureStorageExplorer_v4](./media/machine-learning-data-science-vm-do-ten-things/AzureStorageExplorer_v4.png)

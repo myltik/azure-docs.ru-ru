@@ -1,5 +1,4 @@
 ---
-
 title: "Загрузка данных в хранилище данных SQL Azure (фабрика данных) | Документация Майкрософт"
 description: "В этом руководстве вы загрузите данные в хранилище данных SQL Azure, используя фабрику данных Azure и базу данных SQL Server в качестве источника данных."
 services: sql-data-warehouse
@@ -16,13 +15,11 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6474104846eefa1aa7e137e7914b7a7f1ee8a83a
-ms.openlocfilehash: aad76a633b127d23d59dae995d7a503023c5eac7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/09/2017
-
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -38,7 +35,7 @@ ms.lasthandoff: 02/09/2017
 
 - **Хранилище данных SQL.** Если у вас еще нет хранилища данных, создайте его, как описано в статье [Создание хранилища данных SQL Azure](sql-data-warehouse-get-started-provision.md).
 
-- **Учетная запись хранения Azure.** Если у вас еще нет учетной записи хранения, узнайте, как [ее создать](../storage/storage-create-storage-account.md). Чтобы оптимизировать производительность, разместите учетную запись хранения и хранилище данных в одном регионе Azure.
+- **Учетная запись хранения Azure.** Если у вас еще нет учетной записи хранения, узнайте, как [ее создать](../storage/common/storage-create-storage-account.md). Чтобы оптимизировать производительность, разместите учетную запись хранения и хранилище данных в одном регионе Azure.
 
 ## <a name="configure-a-data-factory"></a>Настройка фабрики данных
 1. Войдите на [портал Azure][].
@@ -114,7 +111,7 @@ ms.lasthandoff: 02/09/2017
 
     ![Сопоставление схем](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-4. Нажмите кнопку **Далее**.
+4. Щелкните **Далее**.
 
 ## <a name="configure-the-performance-settings"></a>Настройка параметров производительности
 В параметрах производительности настройте учетную запись хранения Azure для промежуточного хранения данных перед их загрузкой в хранилище данных SQL, используя [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). После завершения копирования промежуточные данные в хранилище будут удалены автоматически.

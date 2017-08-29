@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: a5735d51230b8547ec9d2bb909927756be172a52
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2984daa3b99fa9c858d43c3dcfb930add2040e2e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -76,7 +76,7 @@ Azure работает в различных странах по всему ми
 
 ![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Служба вычислений Azure (PaaS)**. Вы должны подготовить дополнительные вычислительные ресурсы заранее, чтобы обеспечить доступность ресурсов в другом регионе во время аварии. Дополнительные сведения см. в [техническом руководстве по обеспечению устойчивости в Azure](resiliency/resiliency-technical-guidance.md).
 
-![Служба хранилища](./media/best-practices-availability-paired-regions/2Green.png) **Служба хранилища Azure**. При создании учетной записи службы хранилища Azure геоизбыточное хранилище (GRS) настраивается по умолчанию. При использовании GRS данные реплицируются трижды в основном регионе и трижды в дополнительном. Дополнительные сведения см. в статье [Репликация службы хранилища Azure](storage/storage-redundancy.md).
+![Служба хранилища](./media/best-practices-availability-paired-regions/2Green.png) **Служба хранилища Azure**. При создании учетной записи службы хранилища Azure геоизбыточное хранилище (GRS) настраивается по умолчанию. При использовании GRS данные реплицируются трижды в основном регионе и трижды в дополнительном. Дополнительные сведения см. в статье [Репликация службы хранилища Azure](storage/common/storage-redundancy.md).
 
 ![SQL Azure](./media/best-practices-availability-paired-regions/3Green.png) **Базы данных SQL Azure**. Используя георепликацию SQL Azure уровня "Стандартный", вы можете настроить асинхронную репликацию транзакций в дополнительный регион. Используя георепликацию уровня "Премиум", вы можете настроить репликацию в любой регион мира, но для наиболее эффективного аварийного восстановления мы рекомендуем развертывать эти ресурсы в дополнительном регионе. Дополнительные сведения см. в статье [Обзор: активная георепликация для базы данных SQL](sql-database/sql-database-geo-replication-overview.md).
 

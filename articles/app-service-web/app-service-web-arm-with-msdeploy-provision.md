@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 071be50ff7f72ecd711b2c3036f39b70df01a6ba
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a0e944d0d74ecb72a919538d54db330cbbdeef64
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>Развертывание веб-приложения с использованием MSDeploy, пользовательского имени узла и SSL-сертификата
@@ -123,7 +122,7 @@ ms.lasthandoff: 05/26/2017
 
     "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
-Свойство **packageUri** принимает универсальный код ресурса (URI) учетной записи хранения, который указывает на учетную запись хранения, куда будет загружен ZIP-пакет. При развертывании шаблона диспетчер ресурсов Azure задействует [подписанный URL-адрес](../storage/storage-dotnet-shared-access-signature-part-1.md) , чтобы загрузить пакет из учетной записи хранения локально. Это происходит автоматически благодаря скрипту PowerShell, который загружает пакет и вызывает API управления Azure, чтобы создать необходимые ключи и передать их в шаблон в качестве параметров (*_artifactsLocation* и *_artifactsLocationSasToken*). Потребуется определить параметры папки и имени файла, куда загружается пакет, внутри контейнера хранилища.
+Свойство **packageUri** принимает универсальный код ресурса (URI) учетной записи хранения, который указывает на учетную запись хранения, куда будет загружен ZIP-пакет. При развертывании шаблона диспетчер ресурсов Azure задействует [подписанный URL-адрес](../storage/common/storage-dotnet-shared-access-signature-part-1.md) , чтобы загрузить пакет из учетной записи хранения локально. Это происходит автоматически благодаря скрипту PowerShell, который загружает пакет и вызывает API управления Azure, чтобы создать необходимые ключи и передать их в шаблон в качестве параметров (*_artifactsLocation* и *_artifactsLocationSasToken*). Потребуется определить параметры папки и имени файла, куда загружается пакет, внутри контейнера хранилища.
 
 Затем нужно добавить еще один вложенный ресурс, чтобы настроить привязки имени узла для использования личного домена. Сначала вам нужно убедиться, что у вас есть собственное имя узла, и предоставить его Azure для подтверждения. Дополнительные сведения см. в статье [Настройка личного доменного имени для службы приложений Azure](app-service-web-tutorial-custom-domain.md). Когда это будет сделано, в раздел Microsoft.Web/sites шаблона можно добавить следующее:
 

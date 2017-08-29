@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7bc6fd9921ab0f2374ace33ea5c1ab93a78f860
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>События журнала для диагностики и мониторинга решений пакетной службы
@@ -33,7 +33,7 @@ ms.lasthandoff: 08/07/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Учетная запись пакетной службы Azure](batch-account-create-portal.md)
-* [Учетная запись хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
+* [Учетная запись хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
   Чтобы сохранять журналы диагностики пакетной службы, следует создать учетную запись хранения. В этом хранилище Azure будет хранить журналы. Эту учетную запись хранения вы укажете в процессе [включения ведения журналов диагностики](#enable-diagnostic-logging) для учетной записи пакетной службы. Учетная запись хранения, которую вы указываете при включении сбора журналов, не совпадает со связанной учетной записью хранения, которая упоминается в статьях о [пакетах приложений](batch-application-packages.md) и о [сохраняемости результатов выполнения задач](batch-task-output.md).
   

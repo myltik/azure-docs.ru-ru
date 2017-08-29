@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 18aa9837742082535a115efd47bdc4b8dfda8a6b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -54,8 +54,25 @@ ms.lasthandoff: 07/21/2017
 
 Наблюдатель за сетями использует [модель управления доступом на основе ролей Azure](../active-directory/role-based-access-control-what-is.md). Для Наблюдателя за сетями необходимы указанные ниже разрешения. Важно убедиться, что у роли, которая используется для вызова интерфейсов API Наблюдателя за сетями или для работы с Наблюдателем за сетями на портале, имеется необходимый уровень доступа.
 
-|Ресурс| Разрешение| | |---|---| | |Microsoft.
-|Microsoft.Storage/ |Чтение| | |Microsoft.Authorization/| Чтение| | |Microsoft.Resources/subscriptions/resourceGroups/| Чтение| | |Microsoft.Storage/storageAccounts/listServiceSas/ | Действие| | |Microsoft.Storage/storageAccounts/listAccountSas/ |Действие| | |Microsoft.Storage/storageAccounts/listKeys/ | Действие| | |Microsoft.Compute/virtualMachines/ |Чтение| | |Microsoft.Compute/virtualMachines/ |Запись| | |Microsoft.Compute/virtualMachineScaleSets/ |Чтение| | |Microsoft.Compute/virtualMachineScaleSets/ |Запись| | |Microsoft.Network/networkWatchers/packetCaptures/| Чтение| | |Microsoft.Network/networkWatchers/packetCaptures/| Запись| | |Microsoft.Network/networkWatchers/packetCaptures/| Удаление| | |Microsoft.Network/networkWatchers/ |Запись| | |Microsoft.Network/networkWatchers/| Чтение| | |Microsoft.Insights/alertRules/ |*| | |Microsoft.Support/| *| |
+|Ресурс| Разрешение|
+|---|---| 
+|Microsoft.Storage/ |чтение|
+|Microsoft.Authorization/| чтение| 
+|Microsoft.Resources/subscriptions/resourceGroups/| чтение|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | Действие|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |Действие|
+|Microsoft.Storage/storageAccounts/listKeys/ | Действие|
+|Microsoft.Compute/virtualMachines/ |чтение|
+|Microsoft.Compute/virtualMachines/ |запись|
+|Microsoft.Compute/virtualMachineScaleSets/ |чтение|
+|Microsoft.Compute/virtualMachineScaleSets/ |запись|
+|Microsoft.Network/networkWatchers/packetCaptures/ |чтение|
+|Microsoft.Network/networkWatchers/packetCaptures/| запись|
+|Microsoft.Network/networkWatchers/packetCaptures/| Удалить|
+|Microsoft.Network/networkWatchers/ |запись |
+|Microsoft.Network/networkWatchers/| чтение |
+|Microsoft.Insights/alertRules/ |*|
+|Microsoft.Support/ | *|
 
 ### <a name="network-subscription-limits"></a>Ограничения сетевых ресурсов подписки
 

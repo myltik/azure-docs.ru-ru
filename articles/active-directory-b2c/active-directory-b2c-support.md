@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 578e0384750e8993865b1749baaed460d3ebc2bb
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: ad02321c99c57d0f83f7eacb354e47d8c6d4d14f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: регистрация запросов в службу поддержки
 Вы можете регистрировать запросы в службу поддержки для Azure Active Directory (AD) B2C на портале Azure следующим образом.
 
 1. [Выполните эти действия, чтобы перейти к колонке функций B2C на портале Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Переключитесь с вашего клиента B2C на клиент, с которым связана подписка Azure. Это может быть клиент вашего сотрудника или клиент по умолчанию, созданный во время регистрации для получения подписки Azure. Дополнительные сведения см. в разделе [Как подписка Azure связана с Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad).
+2. Переключитесь с вашего клиента B2C на клиент, с которым связана подписка Azure. Это может быть клиент вашего сотрудника или клиент по умолчанию, созданный во время регистрации для получения подписки Azure. Дополнительные сведения см. в разделе [Как подписка Azure связана с Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
    
     ![Поддержка. Переключение клиентов](./media/active-directory-b2c-support/support-switch-dir.png)
 3. После переключения клиентов щелкните **Справка и поддержка**.

@@ -7,18 +7,18 @@ author: jluk
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/10/2017
 ms.author: juluk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 347984aae91a9fa99f88001effe2cba49f92deb9
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 75676eb0ab784e2adbfd27b170c1dee5599b74ac
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -29,8 +29,7 @@ ms.lasthandoff: 05/17/2017
 ## <a name="start-cloud-shell"></a>Запуск Cloud Shell
 1. Запустите **Cloud Shell** в верхней панели навигации портала Azure. <br>
 ![](media/shell-icon.png)
-2. Выберите подписку для создания учетной записи хранения и общей папки Azure. <br>
-![](media/storage-prompt.png)
+2. Выберите подписку для создания учетной записи хранения и общей папки Azure.
 3. Нажмите кнопку "Создать хранилище".
 
 > [!TIP]
@@ -43,14 +42,14 @@ ms.lasthandoff: 05/17/2017
 `az account set --subscription my-subscription-name`
 
 > [!TIP]
-> Подписка будет сохранена для последующих сеансов в файле `azureProfile.json`, размещенном в домашнем каталоге.
+> Подписка будет сохранена для последующих сеансов в файле `/home/<user>/.azure/azureProfile.json`.
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
-Создайте группу ресурсов в западной части США с именем MyRG: <br>
+Создайте группу ресурсов в WestUS с именем MyRG: <br>
 `az group create -l westus -n MyRG` <br>
 
 ### <a name="create-a-linux-vm"></a>Создание виртуальной машины Linux
-Создайте виртуальную машину Ubuntu в новой группе ресурсов. Azure CLI 2.0 создаст ключи SSH и настроит с их помощью виртуальную машину. <br>
+Создайте виртуальную машину Ubuntu в новой группе ресурсов. Azure CLI 2.0 создаст ключи SSH и настроит с их помощью виртуальную машину. <br>
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
@@ -72,5 +71,6 @@ ms.lasthandoff: 05/17/2017
 Запустите `az group delete -n MyRG`
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Сохранение файлов в Azure Cloud Shell](persisting-shell-storage.md) [Azure CLI 2.0: Command reference - az] (Справочник по командам az в Azure CLI 2.0) (https://docs.microsoft.com/cli/azure/) [Хранилище файлов] (https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
-
+[Сохранение файлов в Azure Cloud Shell](persisting-shell-storage.md) <br>
+[Справочник команд Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Знакомство с хранилищем файлов Azure](../storage/files/storage-files-introduction.md) <br>

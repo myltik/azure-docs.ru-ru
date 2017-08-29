@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 47a9736fd6498d15305fb2296446c61e709ad0b8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e55009c72b977ee4a30f6c71043bde483849f78f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Распространенные проблемы, вызывающие перезапуск ролей
@@ -52,7 +52,7 @@ Azure является 64-разрядной средой. Таким образ
 
 * Параметр `DiagnosticsConnectionString` указывает на действительную учетную запись хранения в Azure.  
   По умолчанию этот параметр указывает на эмулированную учетную запись хранения, поэтому необходимо явным образом изменить его перед развертыванием пакета приложения. Если этого не сделать, то при попытке экземпляра роли запустить монитор диагностики возникает исключение. Это может вызвать бесконечный перезапуск экземпляра роли.
-* Строку подключения следует указывать в определенном [формате](../storage/storage-configure-connection-string.md). (необходимо задать протокол HTTPS). Замените *MyAccountName* именем своей учетной записи хранения, а *MyAccountKey* — своим ключом доступа:    
+* Строку подключения следует указывать в определенном [формате](../storage/common/storage-configure-connection-string.md). (необходимо задать протокол HTTPS). Замените *MyAccountName* именем своей учетной записи хранения, а *MyAccountKey* — своим ключом доступа:    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 

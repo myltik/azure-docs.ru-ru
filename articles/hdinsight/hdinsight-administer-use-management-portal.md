@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d9cca5d529d96d505f304736547c23362796e16e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f69fa4f838b22ccbb25186c08cac9744bb31c6d1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop на платформе Windows в HDInsight с помощью портала Azure
@@ -39,7 +38,7 @@ ms.lasthandoff: 07/08/2017
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Учетная запись хранения Azure.** Кластер HDInsight использует контейнер хранилища больших двоичных объектов Azure в качестве файловой системы по умолчанию. Дополнительные сведения о том, каким образом хранилище больших двоичных объектов Azure обеспечивает удобную работу с кластерами HDInsight, см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md). Сведения о создании учетной записи хранения Azure см. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+* **Учетная запись хранения Azure.** Кластер HDInsight использует контейнер хранилища больших двоичных объектов Azure в качестве файловой системы по умолчанию. Дополнительные сведения о том, каким образом хранилище больших двоичных объектов Azure обеспечивает удобную работу с кластерами HDInsight, см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md). Сведения о создании учетной записи хранения Azure см. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>Запуск портала
 1. Войдите на портал [https://portal.azure.com](https://portal.azure.com).

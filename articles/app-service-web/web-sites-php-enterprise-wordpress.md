@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: b562e8cbc84fc3a1e7e6dab1845022dfcce692a3
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 21281955458a2632d96a91d884cab13803f4d296
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="enterprise-class-wordpress-on-azure"></a>WordPress корпоративного класса в Azure
@@ -164,7 +163,7 @@ ms.lasthandoff: 05/26/2017
 | **Установка режима плана службы приложений, размера и включение масштабирования** |[Увеличение масштаба приложения в Azure][websitescale] |
 | **Включение постоянных подключений базы данных** |По умолчанию WordPress не использует постоянные подключения базы данных, что может привести к регулированию подключения к базе данных после нескольких подключений. Чтобы включить постоянные подключения, установите [подключаемый модуль адаптера постоянных подключений](https://wordpress.org/plugins/persistent-database-connection-updater/installation/). |
 | **Повышение производительности** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Отключение ARR-файла cookie</a> может повысить производительность при запуске WordPress на нескольких экземплярах веб-приложений.</p></li><li><p>Включите кэширование. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Кэш Redis</a> (предварительная версия) можно использовать с <a href="https://wordpress.org/plugins/redis-object-cache/">подключаемым модулем WordPress кэша объектов Redis</a> или можно выбрать другое предложение кэширования в <a href="/gallery/store/">Магазине Azure</a>.</p></li><li><p>[Ускорение работы WordPress с помощью Wincache.](https://wordpress.org/plugins/w3-total-cache/) Wincache по умолчанию включен для веб-приложений. При совместном использовании WinCache и динамического кэша отключите кэш файлов WinCache, оставив включенным кэш пользователей и сеансов. Чтобы отключить кэш файлов в INI-файле на уровне системы, задайте следующее значение:<br/><code>wincache.fcenabled = 0</code></p></li><li><p>[Масштабируйте веб-приложение в службе приложений Azure][websitescale] и используйте <a href="http://www.cleardb.com/developers/cdbr/introduction">маршрутизацию высокой доступности ClearDB</a> или <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>.</p></li></ul> |
-| **Использование больших двоичных объектов для хранения данных** |<ol><li><p>[Создайте учетную запись хранения Azure](../storage/storage-create-storage-account.md).</p></li><li><p>Узнайте, как [использовать CDN](../cdn/cdn-create-new-endpoint.md) для геораспределения данных, хранящихся в больших двоичных объектах.</p></li><li><p>Установите и настройте <a href="https://wordpress.org/plugins/windows-azure-storage/">хранилище Azure для подключаемого модуля WordPress</a>.</p><p>Подробные сведения о настройке и конфигурации для подключаемого модуля см. в <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">руководстве пользователя</a>.</p> </li></ol> |
+| **Использование больших двоичных объектов для хранения данных** |<ol><li><p>[Создайте учетную запись хранения Azure](../storage/common/storage-create-storage-account.md).</p></li><li><p>Узнайте, как [использовать CDN](../cdn/cdn-create-new-endpoint.md) для геораспределения данных, хранящихся в больших двоичных объектах.</p></li><li><p>Установите и настройте <a href="https://wordpress.org/plugins/windows-azure-storage/">хранилище Azure для подключаемого модуля WordPress</a>.</p><p>Подробные сведения о настройке и конфигурации для подключаемого модуля см. в <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">руководстве пользователя</a>.</p> </li></ol> |
 | **Включение электронной почты** |Включите <a href="https://azure.microsoft.com/en-us/marketplace/partners/sendgrid/sendgrid-azure/">SendGrid</a> с помощью Магазина Azure. Установите <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">подключаемый модуль SendGrid</a> для WordPress. |
 | **Настройка пользовательского имени домена** |[Сопоставление имени личного домена с приложением Azure][customdomain]. |
 | **Включение HTTPS для личного доменного имени** |[Защита личного домена приложения с помощью протокола HTTPS][httpscustomdomain]. |

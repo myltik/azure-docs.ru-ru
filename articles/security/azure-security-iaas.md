@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 3123c8d780406c92f04592767e47c217c0a0ba73
-ms.lasthandoff: 03/28/2017
-
-
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b05ab20087c9bb391be7317b47d6dc2565206947
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -146,7 +144,7 @@ ms.lasthandoff: 03/28/2017
 
 Дополнительные сведения см. в статье [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](azure-security-disk-encryption.md).
 
-[Шифрование службы хранилища Azure](../storage/storage-service-encryption.md) обеспечивает защиту неактивных данных. Эта функция включена на уровне учетной записи хранения. Данные шифруются при записи в центры обработки данных и автоматически расшифровываются при получении доступа к ним. Оно поддерживает следующие сценарии:
+[Шифрование службы хранилища Azure](../storage/common/storage-service-encryption.md) обеспечивает защиту неактивных данных. Эта функция включена на уровне учетной записи хранения. Данные шифруются при записи в центры обработки данных и автоматически расшифровываются при получении доступа к ним. Оно поддерживает следующие сценарии:
 
 - шифрование блочных, страничных BLOB-объектов, а также добавочных больших двоичных объектов;
 - шифрование архивных виртуальных жестких дисков и шаблонов, переданных в Azure из локальной среды;

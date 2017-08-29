@@ -17,10 +17,10 @@ ms.date: 5/27/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e7853892af550ec66fbc48b669a6c9b8ff18df8c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f48c4bd27b1df1d02090ed51172f943e50c76c3e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 08/01/2017
 Подготовьте карту microSD для установки образа ОС Raspbian.
 
 1. Скачайте ОС Raspbian.
-   1. [Скачайте Raspbian Jessie with Pixel](https://www.raspberrypi.org/downloads/raspbian/) (ZIP-файл).
+   1. [Скачайте Raspbian Jessie with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (ZIP-файл).
    1. Извлеките образ ОС Raspbian в папку на компьютере.
 1. Установите ОС Raspbian на карту microSD.
    1. [Скачайте и установите служебную программу Etcher для записи данных на карты SD](https://etcher.io/).
@@ -120,8 +120,8 @@ ms.lasthandoff: 08/01/2017
 | -----------------------  | ---------------------- | ------------: |
 | VDD (вывод 5G)             | 3.3V PWR (вывод 1)       | Белый кабель   |
 | GND (вывод 7G)             | GND (вывод 6)            | Коричневый кабель   |
-| SCK (вывод 8G)             | I2C1 SDA (вывод 3)       | Оранжевый кабель  |
-| SDI (вывод 10G)            | I2C1 SCL (вывод 5)       | Красный кабель     |
+| SDI (вывод 10G)            | I2C1 SDA (вывод 3)       | Красный кабель     |
+| SCK (вывод 8G)             | I2C1 SCL (вывод 5)       | Оранжевый кабель  |
 | LED VDD (вывод 18F)        | GPIO 24 (вывод 18)       | Белый кабель   |
 | LED GND (вывод 17F)        | GND (вывод 20)           | Черный кабель   |
 
@@ -154,7 +154,7 @@ ms.lasthandoff: 08/01/2017
    
    **Пользователи MAC и Ubuntu**
    
-   Используйте встроенный SSH-клиент в Ubuntu или macOS. Попробуйте выполнить `ssh pi@<ip address of pi>`, чтобы подключить устройство Pi по протоколу SSH.
+   Используйте SSH-клиент, встроенный в Ubuntu или macOS. Возможно, для подключения устройства Pi по протоколу SSH потребуется выполнить `ssh pi@<ip address of pi>`.
    > [!NOTE] 
    Имя пользователя по умолчанию — `pi`, а пароль — `raspberry`.
 
@@ -222,7 +222,7 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей. Сведения о том, как просматривать сообщения, отправленные устройством Raspberry Pi в Центр Интернета вещей, а также отправлять сообщения на устройство Raspberry Pi в интерфейсе командной строки, см. в руководстве по [управлению обменом сообщений между облаком и устройством с помощью обозревателя Центра Интернета вещей](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей. Сведения о том, как просматривать сообщения, отправляемые устройством Raspberry Pi в Центр Интернета вещей, а также как отправлять сообщения на устройство Raspberry Pi в интерфейсе командной строки, см. в руководстве по [управлению обменом сообщениями между облаком и устройством с помощью обозревателя Центра Интернета вещей](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

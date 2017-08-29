@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1400fe83bec85a7ab1b4c96fb38abdaf6c944845
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8ef9ddc345fb553b93815022dc3e6a796cae8b3a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Функции безопасности для защиты гибридных резервных копий, использующих службу архивации Azure
@@ -75,12 +74,12 @@ ms.lasthandoff: 06/08/2017
 Для пользователей **Сервера службы архивации Azure**:
 
 1. Если сервер, на котором выполнялось резервное копирование, все еще доступен, выполните повторную защиту удаленных источников данных, а затем **восстановите данные** из любой старой точки восстановления.
-2. Если этот сервер недоступен, выполните [восстановление данных с другого Сервера резервного копирования Azure](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server), чтобы получить эти данные на другой экземпляр сервера резервного копирования Azure.
+2. Если этот сервер недоступен, выполните [восстановление данных с другого Сервера резервного копирования Azure](backup-azure-alternate-dpm-server.md), чтобы получить эти данные на другой экземпляр сервера резервного копирования Azure.
 
 Действия для пользователей **Data Protection Manager**.
 
 1. Если сервер, на котором выполнялось резервное копирование, все еще доступен, выполните повторную защиту удаленных источников данных, а затем **восстановите данные** из любой старой точки восстановления.
-2. Если этот компьютер недоступен, [добавьте внешний DPM](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server), чтобы получить эти данные на другой сервер DPM.
+2. Если этот компьютер недоступен, [добавьте внешний DPM](backup-azure-alternate-dpm-server.md), чтобы получить эти данные на другой сервер DPM.
 
 ## <a name="prevent-attacks"></a>Предотвращение атак
 Дополнительные проверки гарантируют выполнение некоторых операций только допустимыми пользователями. Сюда относится дополнительный этап аутентификации и минимальный период хранения для восстановления.

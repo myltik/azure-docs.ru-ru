@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 657c436cc45bb3818f89b922d74e03cae894778e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e68f1d72965d9516e0552c84d03d234c21739390
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Создание кластеров Hadoop в HDInsight по запросу с помощью фабрики данных Azure
@@ -175,7 +175,7 @@ write-host "Storage Account Key: $destStorageAccountKey"
 Write-host "`nScript completed" -ForegroundColor Green
 ```
 
-Если вам необходима помощь в работе со скриптом PowerShell, необходимые сведения см. в статье [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md). Если же вы хотите использовать Azure CLI, дополнительные сведения для скрипта Azure CLI см. в разделе [Приложение](#appendix).
+Если вам необходима помощь в работе со скриптом PowerShell, необходимые сведения см. в статье [Использование Azure PowerShell со службой хранилища Azure](../storage/common/storage-powershell-guide-full.md). Если же вы хотите использовать Azure CLI, дополнительные сведения для скрипта Azure CLI см. в разделе [Приложение](#appendix).
 
 **Проверка учетной записи хранения и содержимого**
 
@@ -595,5 +595,5 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 ```
 
-Имя контейнера — *adfgetstarted*. Не изменяйте его. В противном случае потребуется обновить шаблон Resource Manager. Дополнительные сведения об этом сценарии CLI см. в статье [Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure](../storage/storage-azure-cli.md).
+Имя контейнера — *adfgetstarted*. Не изменяйте его. В противном случае потребуется обновить шаблон Resource Manager. Дополнительные сведения об этом сценарии CLI см. в статье [Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure](../storage/common/storage-azure-cli.md).
 

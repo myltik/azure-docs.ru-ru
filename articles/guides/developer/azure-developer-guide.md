@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b53b044242f339d00dcc947c213dacb5dffdcce6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bfc69712a1ddcd4a225fd35cfcceb7fa0616887d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -123,7 +123,7 @@ Service Fabric поддерживает веб-API благодаря испол
 
     >**Когда следует использовать**. Если приложение хранит нереляционные данные, такие как пары "ключ-значение" (таблицы), большие двоичные объекты, файловые ресурсы или сообщения (очереди).
 
-    >**Приступая к работе**. Выберите один из этих типов: хранилище [BLOB-объектов](../../storage/storage-dotnet-how-to-use-blobs.md), [таблиц](../../storage/storage-dotnet-how-to-use-tables.md), [очередей](../../storage/storage-dotnet-how-to-use-queues.md) или [файлов](../../storage/storage-dotnet-how-to-use-files.md).
+    >**Приступая к работе**. Выберите один из этих типов: хранилище [BLOB-объектов](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [таблиц](../../cosmos-db/table-storage-how-to-use-dotnet.md), [очередей](../../storage/queues/storage-dotnet-how-to-use-queues.md) или [файлов](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   **Azure DocumentDB**. Полностью управляемая и масштабируемая служба базы данных NoSQL, поддерживающая SQL-запросы данных объектов. Для доступа к DocumentDB можно использовать имеющиеся драйверы MongoDB.
     >**Когда следует использовать**. Если приложению необходима возможность выполнять SQL-запросы к документам JSON или вы используете MongoDB.

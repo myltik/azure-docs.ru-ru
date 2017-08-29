@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0e1812bf867abff1ddd1b0534ceae692fad70484
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Основные сведения об R Server и возможностях открытого кода R в HDInsight
@@ -39,11 +38,11 @@ R Server в HDInsight предоставляет новейшие возможн
 Чтобы добавить R Server в кластер HDInsight, необходимо выбрать тип кластера R Server при создании кластера HDInsight на портале Azure. Тип кластера R Server включает в себя R Server на узлах данных кластера и R Server на граничном узле, который служит платформой для анализа данных на базе R Server. Пошаговые инструкции по созданию кластера см. в статье [Приступая к работе с R Server в HDInsight](hdinsight-hadoop-r-server-get-started.md).
 
 ## <a name="learn-about-data-storage-options"></a>Варианты хранилищ данных
-Объем хранилища по умолчанию для файловой системы HDFS в кластерах HDInsight можно связать с учетной записи хранения Azure или Azure Data Lake Store. Такая связь гарантирует сохранение данных независимо от того, какие данные передаются в хранилище кластера в ходе анализа. Существуют различные инструменты для обработки передачи данных в выбранное вами хранилище, включая средства передачи портала, доступные учетной записи хранения, и служебную программу [AzCopy](../storage/storage-use-azcopy.md).
+Объем хранилища по умолчанию для файловой системы HDFS в кластерах HDInsight можно связать с учетной записи хранения Azure или Azure Data Lake Store. Такая связь гарантирует сохранение данных независимо от того, какие данные передаются в хранилище кластера в ходе анализа. Существуют различные инструменты для обработки передачи данных в выбранное вами хранилище, включая средства передачи портала, доступные учетной записи хранения, и служебную программу [AzCopy](../storage/common/storage-use-azcopy.md).
 
 Независимо от выбранного основного хранилища вы можете настроить доступ к дополнительным хранилищам BLOB-объектов или Data Lake Store во время подготовки кластера. Сведения о настройке доступа к дополнительным учетным записям см. в статье [Приступая к работе с R Server в HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started). Сведения об использовании нескольких учетных записей хранения см. в дополнительной статье [Параметры службы хранилища Azure для R Server в HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage).
 
-На граничном узле для хранения данных можно также использовать [файлы Azure](../storage/storage-how-to-use-files-linux.md). Они позволяют подключить общую папку, созданную в службе хранения Azure, к файловой системе Linux. Дополнительные сведения об этих вариантах хранения данных для R Server в кластере HDInsight см. в статье [Параметры службы хранилища Azure для R Server в кластерах HDInsight](hdinsight-hadoop-r-server-storage.md).
+На граничном узле для хранения данных можно также использовать [файлы Azure](../storage/files/storage-how-to-use-files-linux.md). Они позволяют подключить общую папку, созданную в службе хранения Azure, к файловой системе Linux. Дополнительные сведения об этих вариантах хранения данных для R Server в кластере HDInsight см. в статье [Параметры службы хранилища Azure для R Server в кластерах HDInsight](hdinsight-hadoop-r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Доступ к R Server в кластере
 Вы можете подключиться к R Server на граничном узле с помощью браузера, если вы решили добавить сервер RStudio Server в процессе подготовки. Если вы не установили его при подготовке кластера, его можно добавить позднее. Сведения об установке сервера RStudio Server после создания кластера см. в статье [Установка RStudio с R Server в HDInsight](hdinsight-hadoop-r-server-install-r-studio.md). Для доступа к консоли R можно также подключиться к R Server с помощью SSH или PuTTY. 

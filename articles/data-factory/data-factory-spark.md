@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: c5eda443dcd41a481ad952d8472f7f67f4517abd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 57894bbdd9208f8c32eb65e29f04e2ae723780ca
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Вызов программ Spark из конвейеров фабрики данных Azure
@@ -52,7 +52,7 @@ ms.lasthandoff: 07/24/2017
 4. Создайте конвейер с действием Spark, который ссылается на связанную службу HDInsight, созданную на шаге 2. Конфигурация действия выполняется на основе набора данных, созданного на предыдущем шаге в качестве выходного набора данных. На основе этого набора настраивается расписание (ежечасно, ежедневно и т. д.). Исходя из сказанного выше, вы должны определить выходной набор данных, даже если действие не выдает выходные данные.
 
 ### <a name="prerequisites"></a>Предварительные требования
-1. Создайте **учетную запись хранения Azure общего назначения**, следуя указаниям в [этом разделе](../storage/storage-create-storage-account.md#create-a-storage-account).  
+1. Создайте **учетную запись хранения Azure общего назначения**, следуя указаниям в [этом разделе](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
 2. Создайте **кластер Apache Spark в Azure HDInsight**, следуя инструкциям в [этом руководстве](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Свяжите учетную запись хранения Azure, созданную на шаге 1, с этим кластером.  
 3. Скачайте и просмотрите файл скрипта Python **test.py**, который расположен по адресу: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Отправьте файл **test.py** в папку **pyFiles** контейнера **adfspark** в хранилище BLOB-объектов Azure. Создайте контейнер и папку, если их нет.
@@ -91,7 +91,7 @@ ms.lasthandoff: 07/24/2017
 3. В редакторе отобразится **скрипт JSON** для создания связанной службы хранилища Azure.
 
    ![Связанная служба хранения Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. Замените **имя учетной записи**  и **ключ учетной записи** значениями имени и ключа учетной записи хранения Azure. Сведения о получении, просмотре, копировании и повторном создании ключей доступа к хранилищу см. в разделе [Управление учетной записью хранения](../storage/storage-create-storage-account.md#manage-your-storage-account).
+4. Замените **имя учетной записи**  и **ключ учетной записи** значениями имени и ключа учетной записи хранения Azure. Сведения о получении, просмотре, копировании и повторном создании ключей доступа к хранилищу см. в разделе [Управление учетной записью хранения](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 5. Чтобы развернуть связанную службу, нажмите кнопку **Развернуть** на панели команд. После развертывания связанной службы окно **Draft-1** должно исчезнуть, а в представлении в виде дерева слева отобразится служба **AzureStorageLinkedService**.
 
 #### <a name="create-hdinsight-linked-service"></a>Создание связанной службы HDInsight

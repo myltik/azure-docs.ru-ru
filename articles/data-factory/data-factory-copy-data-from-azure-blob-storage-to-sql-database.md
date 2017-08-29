@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 74301d651ae96588e5fd076900aada198c76deb0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 730140d15f4dec7ddc1280c2e4da1d247902fe4a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Руководство. Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных
@@ -47,7 +46,7 @@ ms.lasthandoff: 04/28/2017
 Для работы с этим учебником необходимо следующее:
 
 * **Подписка Azure**.  Если у вас нет подписки, вы можете создать бесплатную пробную версию учетной записи всего за несколько минут. Дополнительные сведения см. в статье [Бесплатная пробная версия](http://azure.microsoft.com/pricing/free-trial/).
-* **исходного**хранилища данных. В этом учебнике в качестве **источника** будет использоваться хранилище BLOB-объектов. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account) .
+* **исходного**хранилища данных. В этом учебнике в качестве **источника** будет использоваться хранилище BLOB-объектов. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) .
 * **База данных SQL Azure**. В этом учебнике используется база данных SQL Azure в качестве **конечного** хранилища данных. Если нет базы данных SQL Azure, которую можно использовать для изучения этого учебника, ознакомьтесь с разделом [Как создать и настроить базу данных SQL Azure](../sql-database/sql-database-get-started.md), чтобы создать такую базу данных.
 * **SQL Server 2012/2014 или Visual Studio 2013**. Для создания образца базы данных и просмотра итоговых данных в базе данных используется SQL Server Management Studio или Visual Studio .  
 

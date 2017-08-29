@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 2b277f1fb96f347cc60d1395fafb7e2707883a77
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7411fa6aba04ffd34f3f4bd03e706ca75afc9c8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-5-prepare-azure-resources-for-physical-server-replication-to-azure"></a>Шаг 5. Подготовка ресурсов Azure для репликации физического сервера в Azure
@@ -48,15 +47,15 @@ ms.lasthandoff: 06/29/2017
 - Служба Site Recovery на портале Azure может использовать сети, настроенные в режиме [Resource Manager](../resource-manager-deployment-model.md) или в классическом режиме.
 - Сеть должна располагаться в том же регионе, что и хранилище служб восстановления.
 - Ознакомьтесь со сведениями о [ценах на виртуальную сеть](https://azure.microsoft.com/pricing/details/virtual-network/).
-- Дополнительные сведения о [подключении к виртуальной машине Azure](physical-walkthrough-network.md) после отработки отказа.
+- Ознакомьтесь с дополнительными сведениями о [подключении к виртуальным машинам Azure](physical-walkthrough-network.md) после отработки отказа.
 
 
 ## <a name="set-up-an-azure-storage-account"></a>Настроить учетную запись хранения Azure
 
 - Служба Site Recovery реплицирует локальные сервера в службе хранилища Azure. Виртуальные машины Azure создаются из хранилища после отработки отказа.
-- Настройте [учетную запись хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account) для реплицированных данных.
-- Служба Site Recovery на портале Azure может использовать учетные записи хранения, настроенные в режиме Resource Manager или в классическом режиме.
-- Учетная запись хранения может быть уровня "Стандартный" или [Премиум](../storage/storage-premium-storage.md).
+- Настройте [учетную запись хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) для реплицированных данных.
+- Используя службу Site Recovery на портале Azure, можно настроить учетные записи хранения в Resource Manager или в классическом режиме.
+- Учетная запись хранения может быть уровня "Стандартный" или [Премиум](../storage/common/storage-premium-storage.md).
 - Если вы настроите учетную запись уровня "Премиум", вам также понадобится дополнительная учетная запись уровня "Стандартный" для данных журнала.
 
 

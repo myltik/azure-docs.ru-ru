@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a716de21e21148a082f49f0f416b14ca0eaa8192
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure
@@ -51,7 +51,7 @@ ms.lasthandoff: 08/11/2017
 
 Прежде чем читать данную статью, изучите фундаментальные понятия SQL Server и Azure. Дополнительные сведения см. в статьях [Microsoft SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) и [Приступая к работе с SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md), а также на веб-сайте [Azure.com](https://azure.microsoft.com/).
 
-В данной статье рассказывается о нескольких моделях приложений, которые можно использовать как для простых приложений, так и для очень сложных корпоративных приложений. Перед подробным изучением каждой модели мы рекомендуем ознакомиться с доступными службами хранилищ данных Azure, например со [службой хранилища Azure](../../../storage/storage-introduction.md), [Базой данных SQL Azure](../../../sql-database/sql-database-technical-overview.md) и [SQL Server на виртуальной машине Azure](virtual-machines-windows-sql-server-iaas-overview.md). Чтобы принять лучшее решение о выборе конструкции приложения, необходимо четко понимать, когда и какие службы хранилищ данных необходимо использовать.
+В данной статье рассказывается о нескольких моделях приложений, которые можно использовать как для простых приложений, так и для очень сложных корпоративных приложений. Перед подробным изучением каждой модели мы рекомендуем ознакомиться с доступными службами хранилищ данных Azure, например со [службой хранилища Azure](../../../storage/common/storage-introduction.md), [Базой данных SQL Azure](../../../sql-database/sql-database-technical-overview.md) и [SQL Server на виртуальной машине Azure](virtual-machines-windows-sql-server-iaas-overview.md). Чтобы принять лучшее решение о выборе конструкции приложения, необходимо четко понимать, когда и какие службы хранилищ данных необходимо использовать.
 
 ### <a name="choose-sql-server-in-an-azure-virtual-machine-when"></a>Выбирайте SQL Server на виртуальной машине Azure в указанных ниже случаях.
 * Вам необходим контроль над SQL Server и Windows. Например, вам может быть необходимо выбрать версию SQL Server, специальные исправления, конфигурацию производительности, и т. д.
@@ -192,7 +192,7 @@ ms.lasthandoff: 08/11/2017
 
 ![Модели приложений с использованием облачных служб](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-Другой подход к реализации этой модели приложения состоит в использовании консолидированной веб-роли, содержащей компоненты уровня представления и бизнес-уровня, как показано на схеме ниже. Эта модель приложения подходит для приложений, которым требуется конструкция с отслеживанием состояния. Так как для веб-ролей и рабочих ролей Azure предоставляет вычислительные узлы без отслеживания состояния, мы рекомендуем реализовать логику для хранения состояний сеансов с помощью одной из следующих технологий: [кэширование Azure](https://azure.microsoft.com/documentation/services/redis-cache/), [табличное хранилище Azure](../../../storage/storage-dotnet-how-to-use-tables.md) или [База данных SQL Azure](../../../sql-database/sql-database-technical-overview.md).
+Другой подход к реализации этой модели приложения состоит в использовании консолидированной веб-роли, содержащей компоненты уровня представления и бизнес-уровня, как показано на схеме ниже. Эта модель приложения подходит для приложений, которым требуется конструкция с отслеживанием состояния. Так как для веб-ролей и рабочих ролей Azure предоставляет вычислительные узлы без отслеживания состояния, мы рекомендуем реализовать логику для хранения состояний сеансов с помощью одной из следующих технологий: [кэширование Azure](https://azure.microsoft.com/documentation/services/redis-cache/), [табличное хранилище Azure](../../../cosmos-db/table-storage-how-to-use-dotnet.md) или [База данных SQL Azure](../../../sql-database/sql-database-technical-overview.md).
 
 ![Модели приложений с использованием облачных служб](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

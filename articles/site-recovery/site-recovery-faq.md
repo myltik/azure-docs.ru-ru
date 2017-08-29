@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/22/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 7ff58a488298573372b32f4daa495c9da1c0eaa2
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2bdec82891bbd61e3526bd4498f802a0de068f87
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: вопросы и ответы
@@ -133,7 +133,7 @@ Azure Site Recovery реплицирует данные в учетную зап
 * [Репликация виртуальных машин Hyper-V (без VMM) в Azure с помощью PowerShell (модель Resource Manager)](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Какая учетная запись хранения требуется при репликации в Azure?
-* **Классический портал Azure**. Если вы развертываете Site Recovery с помощью классического портала Azure, то вам потребуется [учетная запись хранения GRS уровня "Стандартный"](../storage/storage-redundancy.md#geo-redundant-storage). Хранилище класса Premium в настоящее время не поддерживается. Учетная запись должна находиться в том же регионе, что и хранилище Site Recovery.
+* **Классический портал Azure**. Если вы развертываете Site Recovery с помощью классического портала Azure, то вам потребуется [учетная запись хранения GRS уровня "Стандартный"](../storage/common/storage-redundancy.md#geo-redundant-storage). Хранилище класса Premium в настоящее время не поддерживается. Учетная запись должна находиться в том же регионе, что и хранилище Site Recovery.
 * **Портал Azure**. Если вы развертываете Site Recovery с помощью портала Azure, то вам потребуется учетная запись хранения LRS или GRS. Рекомендуется использовать учетную запись хранения GRS, чтобы обеспечить устойчивость данных в случае отключения электричества в регионе или при отсутствии возможности восстановления основного региона. Учетная запись должна находиться в том же регионе, что и хранилище служб восстановления. При развертывании Site Recovery на портале Azure хранилище класса Premium теперь поддерживается для репликации виртуальных машин VMware, Hyper-V и физических серверов.
 
 ### <a name="how-often-can-i-replicate-data"></a>Как часто можно реплицировать данные?

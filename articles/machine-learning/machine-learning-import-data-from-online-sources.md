@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: a102b5f5ea04169d1992cad6d53c0a45de69b645
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 16d4586d82ed256a90d8eb6be4aab927aed1200a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Импорт данных в Студию машинного обучения Azure из разных сетевых источников данных с помощью модуля "Импорт данных"
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/28/2017
 > Как правило, это не повлияет на учетные записи хранения Azure, созданные до появления данного уровня служб. 
 > Если необходимо создать учетную запись, выберите **классическую** модель развертывания или используйте Resource Manager и в качестве **типа учетной записи** выберите **Общее назначение**, а не **Хранилище BLOB-объектов**. 
 > 
-> Дополнительные сведения см. в разделе [Хранилище BLOB-объектов Azure: "горячий" и "холодный" уровни хранилища](../storage/storage-blob-storage-tiers.md).
+> Дополнительные сведения см. в разделе [Хранилище BLOB-объектов Azure: "горячий" и "холодный" уровни хранилища](../storage/blobs/storage-blob-storage-tiers.md).
 > 
 > 
 

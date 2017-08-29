@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 305f02bb120a1096c46de94d103a5700dabdc8ba
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 438f32ee3605e2dd0c46de7993a359cc269262fe
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-between-on-premises-hyper-v-virtual-machines-and-azure-without-vmm-with-azure-site-recovery"></a>Репликация между локальными виртуальными машинами Hyper-V и Azure (без VMM) с помощью службы Azure Site Recovery
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="azure-prerequisites"></a>Предварительные требования Azure
 * Вам потребуется учетная запись [Microsoft Azure](https://azure.microsoft.com/) . Начните с [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
-* Для хранения реплицируемых данных потребуется учетная запись хранения Azure. На учетной записи необходимо включить георепликацию. Она должна находиться в том же регионе, что и хранилище Azure Site Recovery, и быть связана с той же подпиской. См. [дополнительные сведения о службе хранилища Azure](../storage/storage-introduction.md). Учтите, что перемещение учетных записей хранения, созданных с помощью [нового портала Azure](../storage/storage-create-storage-account.md), между группами ресурсов не поддерживается.
+* Для хранения реплицируемых данных потребуется учетная запись хранения Azure. На учетной записи необходимо включить георепликацию. Она должна находиться в том же регионе, что и хранилище Azure Site Recovery, и быть связана с той же подпиской. См. [дополнительные сведения о службе хранилища Azure](../storage/common/storage-introduction.md). Учтите, что перемещение учетных записей хранения, созданных с помощью [нового портала Azure](../storage/common/storage-create-storage-account.md), между группами ресурсов не поддерживается.
 * Виртуальные машины Azure должны быть подключены к сети при отработке отказа с перемещением из основного сайта. Поэтому вам потребуется виртуальная сеть Azure.
 
 ## <a name="hyper-v-prerequisites"></a>Предварительные требования Hyper-V
@@ -167,7 +167,7 @@ ms.lasthandoff: 04/03/2017
     ![Создать учетную запись хранения](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
 > [!NOTE]
-> 1. Мы не поддерживаем перемещение учетных записей хранения, созданных с помощью [нового портала Azure](../storage/storage-create-storage-account.md) , между группами ресурсов.
+> 1. Мы не поддерживаем перемещение учетных записей хранения, созданных с помощью [нового портала Azure](../storage/common/storage-create-storage-account.md) , между группами ресурсов.
 > 2. [Перенос учетных записей хранения](../azure-resource-manager/resource-group-move-resources.md) между группами ресурсов в рамках одной или нескольких подписок не поддерживается для учетных записей хранения, используемых для развертывания Site Recovery.
 >
 

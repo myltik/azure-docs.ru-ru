@@ -12,12 +12,12 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: glenga, donnam
+ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: fab2b3042faf870fe4b9d09d5e96dadb7155c450
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1e0568bc58e8879cabe409cf8e9b5866f922e7c9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
@@ -36,24 +36,15 @@ ms.lasthandoff: 08/02/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Перед установкой инструментов Функций Azure необходимо установить [Visual Studio 2017 (предварительная версия 15.3)](https://www.visualstudio.com/vs/preview/), включая одну из следующих рабочих нагрузок:
+Инструменты Функций Azure включены в рабочую нагрузку "разработка Azure" в [Visual Studio 2017 версии 15.3](https://www.visualstudio.com/vs/) или более поздней. Не забудьте включить рабочую нагрузку **разработка Azure** в своем экземпляре Visual Studio 2017 версии 15.3:
 
-* разработка Azure;
-* ASP.NET и веб-разработка.
+![Установка Visual Studio 2017 с рабочей нагрузкой разработки в Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Для создания и развертывания функций необходимы также следующие компоненты:
 
 * Активная подписка Azure. Если у вас нет подписки Azure, воспользуйтесь [бесплатными учетными записями](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Учетная запись хранения Azure. Чтобы создать учетную запись хранения, см. раздел [Создайте учетную запись хранения](../storage/storage-create-storage-account.md#create-a-storage-account).  
-
-## <a name="install-the-azure-functions-tools"></a>Установка инструментов Функций Azure
-
-Вы можете [скачать и установить пакет расширений](https://marketplace.visualstudio.com/vsgallery/e3705d94-7cc3-4b79-ba7b-f43f30774d28) или выполнить следующие действия, чтобы установить его из Visual Studio.  
-
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)] 
-
-
+* Учетная запись хранения Azure. Чтобы создать учетную запись хранения, см. раздел [Создайте учетную запись хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
 ## <a name="create-an-azure-functions-project"></a>Создание проекта Функций Azure 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]

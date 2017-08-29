@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bc6f293db0d537990d7fb1238fe4a19c704f57a1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Подготовка виртуальной машины Linux для обработки и анализа данных
@@ -62,7 +62,7 @@ ms.lasthandoff: 07/22/2017
 Перед созданием виртуальной машины Linux для обработки и анализа данных необходимо убедиться в наличии следующих компонентов:
 
 * **Подписка Azure** — сведения о ее получении см. на странице [создания бесплатной учетной записи Azure](https://azure.microsoft.com/free/).
-* **Учетная запись хранения Azure**— ознакомьтесь с разделом [Создание учетной записи хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account)для получения информации о процессе ее создания. Если вы не хотите использовать существующую учетную запись хранения, то ее можно создать при создании виртуальной машины.
+* **Учетная запись хранения Azure**— ознакомьтесь с разделом [Создание учетной записи хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)для получения информации о процессе ее создания. Если вы не хотите использовать существующую учетную запись хранения, то ее можно создать при создании виртуальной машины.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Создание виртуальной машины Linux для обработки и анализа данных
 Ниже приведены шаги по созданию экземпляра виртуальной машины Linux для обработки и анализа данных.

@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 6/2/2017
 ms.author: shigu;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: a0452c4dedc218dff17404c4ecee70d788e49644
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -142,7 +142,7 @@ OPTION (MAXDOP 1);
 Объем доступной для выполнения пользовательских запросов памяти определяется размером DWU и классом ресурсов пользователя. Чтобы увеличить объем выделенной для запросов загрузки памяти, можно увеличить число DWU или повысить класс ресурсов.
 
 - Сведения об увеличении числа DWU см.в разделе [Масштабирование производительности](sql-data-warehouse-manage-compute-overview.md#scale-compute).
-- Сведения об изменении класса ресурсов для запросов см. в разделе [Пример изменения класса ресурсов пользователя](sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
+- Сведения об изменении класса ресурсов для запросов см. в разделе [Пример изменения класса ресурсов пользователя](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 Например, располагая DWU 100 и классом ресурсов smallrc, пользователь может использовать 100 МБ памяти для каждого распределения. Дополнительные сведения см. в статье [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL](sql-data-warehouse-develop-concurrency.md).
 

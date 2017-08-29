@@ -15,11 +15,10 @@ ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: f173111fb827a1f25fad857596fef13447bcca38
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2a2801e5c506dcc8aa9ca2ecd275b52c72d5fbbf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Использование хранилища озера данных Azure для потребностей больших данных
@@ -90,7 +89,7 @@ ms.lasthandoff: 07/11/2017
 Для отправки наборов данных размером в несколько терабайт использование описанных выше методов иногда может быть медленным и затратным процессом. В таких ситуациях будут уместны следующие варианты.
 
 * **Использование Azure ExpressRoute.** Azure ExpressRoute позволяет создавать закрытые соединения между ЦОД Azure и вашей локальной инфраструктурой. Это надежный вариант для передачи больших объемов данных. Дополнительные сведения см. в [техническом обзоре ExpressRoute](../expressroute/expressroute-introduction.md).
-* **Автономная передача данных**. Если по какой-то причине использовать Azure ExpressRoute нельзя, используйте [службу импорта и экспорта Azure](../storage/storage-import-export-service.md) для доставки жестких дисков с данными в центр обработки данных Azure. Данные сначала будут отправлены в хранилище BLOB-объектов Azure. Затем с помощью [фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md) или [инструмента AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) можно скопировать данные из больших двоичных объектов хранилища Azure в Data Lake Store.
+* **Автономная передача данных**. Если по какой-то причине использовать Azure ExpressRoute нельзя, используйте [службу импорта и экспорта Azure](../storage/common/storage-import-export-service.md) для доставки жестких дисков с данными в центр обработки данных Azure. Данные сначала будут отправлены в хранилище BLOB-объектов Azure. Затем с помощью [фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md) или [инструмента AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) можно скопировать данные из больших двоичных объектов хранилища Azure в Data Lake Store.
 
   > [!NOTE]
   > При использовании службы импорта и экспорта размеры файлов на дисках, отправляемых в центр обработки данных Azure, не должны превышать 195 ГБ.

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a91122759bea12631fb83d631b21728d5a8f7403
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aa90a1d017af5f477407ab33f0580904472f412b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-resource-manager"></a>Подготовка виртуальной машины SQL Server к работе с помощью Azure PowerShell (в Resource Manager)
@@ -69,7 +68,7 @@ ms.lasthandoff: 04/27/2017
 ### <a name="storage-properties"></a>Свойства хранилища
 Используйте следующие переменные, чтобы определить учетную запись хранения и тип хранилища в виртуальной машине.
 
-Измените их соответствующим образом, а затем выполните командлет ниже, чтобы инициализировать эти переменные. Обратите внимание, что в этом примере используется [хранилище уровня "Премиум"](../../../storage/storage-premium-storage.md), которое рекомендуется для рабочих нагрузок в рабочей среде. Дополнительные сведения об этом руководстве, а также другие рекомендации см. в статье [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-performance.md).
+Измените их соответствующим образом, а затем выполните командлет ниже, чтобы инициализировать эти переменные. Обратите внимание, что в этом примере используется [хранилище уровня "Премиум"](../../../storage/common/storage-premium-storage.md), которое рекомендуется для рабочих нагрузок в рабочей среде. Дополнительные сведения об этом руководстве, а также другие рекомендации см. в статье [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-performance.md).
 
     $StorageName = $ResourceGroupName + "storage"
     $StorageSku = "Premium_LRS"

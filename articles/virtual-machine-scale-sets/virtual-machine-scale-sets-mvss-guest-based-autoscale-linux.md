@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 5de81da3c6b77f1a80876d68def66792b6a21bb9
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/17/2017
 
 Шаблон минимального приемлемого масштабируемого набора доступен [здесь](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), а шаблон для развертывания масштабируемого набора Linux с помощью автомасштабирования на основе гостевой системы доступен [здесь](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Давайте рассмотрим DIFF-файл, с помощью которого можно постепенно создать этот шаблон (`git diff minimum-viable-scale-set existing-vnet`).
 
-Сначала добавим параметры для `storageAccountName` и `storageAccountSasToken`. Агент диагностики будет хранить данные метрик в [таблице](../storage/storage-dotnet-how-to-use-tables.md) в этой учетной записи хранения. Начиная с агента диагностики Linux версии 3.0 использование ключа доступа к хранилищу больше не поддерживается. Необходимо использовать [маркер SAS](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Сначала добавим параметры для `storageAccountName` и `storageAccountSasToken`. Агент диагностики будет хранить данные метрик в [таблице](../cosmos-db/table-storage-how-to-use-dotnet.md) в этой учетной записи хранения. Начиная с агента диагностики Linux версии 3.0 использование ключа доступа к хранилищу больше не поддерживается. Необходимо использовать [маркер SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },

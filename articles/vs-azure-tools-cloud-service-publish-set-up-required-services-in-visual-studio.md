@@ -3,8 +3,8 @@ title: "Подготовка к публикации или развертыва
 description: "Узнайте, как создавать облачные службы и учетные записи хранения, а также настраивать приложения Azure."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 5d747a7c34b340c6f98dabb2c3ff4d3340e74e4a
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 967501fa8ac4b2471a62afabc18a12a71776eaac
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>Подготовка к публикации или развертыванию приложения Azure из Visual Studio
@@ -116,16 +117,11 @@ ms.openlocfilehash: 5d747a7c34b340c6f98dabb2c3ff4d3340e74e4a
        * **Указать пользовательские конечные точки**. Вариант для каждой из трех служб. Выбрав его, нужно указать конечные точки в поле для конкретной службы.
 
          > [!NOTE]
-         > Пользовательские конечные точки позволяют создать более сложную строку подключения. Используя такой формат строки, вы можете указать конечные точки службы хранилища с именем личного домена, которое вы зарегистрировали для своей учетной записи хранения в службе BLOB-объектов. Кроме того, используя подписанный URL-адрес, вы сможете предоставить доступ только к ресурсам BLOB-объектов из одного контейнера. Дополнительные сведения о создании пользовательских конечных точек см. в статье [Настройка строк подключения службы хранилища Azure](storage/storage-configure-connection-string.md).
+         > Пользовательские конечные точки позволяют создать более сложную строку подключения. Используя такой формат строки, вы можете указать конечные точки службы хранилища с именем личного домена, которое вы зарегистрировали для своей учетной записи хранения в службе BLOB-объектов. Кроме того, используя подписанный URL-адрес, вы сможете предоставить доступ только к ресурсам BLOB-объектов из одного контейнера. Дополнительные сведения о создании пользовательских конечных точек см. в статье [Настройка строк подключения службы хранилища Azure](storage/common/storage-configure-connection-string.md).
          >
          >
 11. Чтобы сохранить изменения в строках подключения, нажмите кнопку **ОК**, а затем на панели инструментов нажмите кнопку **Сохранить**. Чтобы получить сохраненное значение строки подключения в коде, используйте метод [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Публикуя приложения в Azure, выберите для строки подключения ту конфигурацию службы, которая содержит учетную запись хранения Azure. После публикации приложения убедитесь, что оно работает со службами хранилища Azure так, как и ожидалось.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о публикации приложений в Azure из Visual Studio см. в статье [Публикация облачной службы с помощью инструментов Azure](vs-azure-tools-publishing-a-cloud-service.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

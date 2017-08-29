@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 88441cd85dd07d701805131f67eda20bbe857ae1
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 05fb31007e1e4c2243f93169129ec5b2c93099e2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Краткое руководство по установке одного экземпляра SAP HANA вручную на виртуальных машинах Azure
@@ -202,7 +201,7 @@ ms.lasthandoff: 06/20/2017
 
 Хранилище Azure класса Premium позволяет определять режимы кэширования диска. Для чередующегося набора, который содержит тома /hana/data и /hana/log, кэширование диска нужно отключить. Для других томов (дисков) для режима кэширования необходимо установить значение **Только для чтения**.
 
-Дополнительные сведения см. в статье [Хранилище класса "Премиум": высокопроизводительная служба хранилища для рабочих нагрузок виртуальных машин Azure](../../../storage/storage-premium-storage.md).
+Дополнительные сведения см. в статье [Хранилище класса "Премиум": высокопроизводительная служба хранилища для рабочих нагрузок виртуальных машин Azure](../../../storage/common/storage-premium-storage.md).
 
 Примеры шаблонов JSON для создания виртуальных машин см. на странице с [шаблонами быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates).
 Шаблон vm-simple-sles является базовым. Оно содержит раздел хранилища с дополнительным диском данных размером 100 ГБ. Этот шаблон можно использовать в качестве базы. Шаблон можно адаптировать для конкретной конфигурации.

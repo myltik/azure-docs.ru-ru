@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/31/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 08c4df6a4d7fd3d80f047192125afc9f5831999a
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="what-you-do"></a>В рамках этого руководства мы:
 
-* Создайте центр IoT.
+* Создайте Центр Интернета вещей.
 * Зарегистрируем устройство для Pi в Центре Интернета вещей.
 * Настроим Raspberry Pi.
 * Мы запустим пример приложения на Pi для отправки данных в Центр Интернета вещей.
@@ -108,7 +108,7 @@ ms.lasthandoff: 08/03/2017
 
 Подключите светодиодный индикатор и датчик BME280 к Pi с помощью монтажной платы и оптоволоконных кабелей, как показано ниже. Если у вас нет датчика, [пропустите этот раздел](#connect-pi-to-the-network).
 
-![Подключение Raspberry Pi и датчика](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+![Подключение Raspberry Pi и датчика](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
 Датчик BME280 может собирать данные о температуре и влажности. Светодиодный индикатор мигает при обмене данными между устройством и облаком. 
 
@@ -116,27 +116,27 @@ ms.lasthandoff: 08/03/2017
 
 | Начало (датчик и светодиодный индикатор)     | Конец (плата)            | Цвет кабеля   |
 | -----------------------  | ---------------------- | ------------: |
-| LED VDD (вывод 5G)         | GPIO 4 (вывод 7)         | Белый кабель   |
-| LED GND (вывод 6G)         | GND (вывод 6)            | Черный кабель   |
-| VDD (вывод 18F)            | 3.3V PWR (вывод 17)      | Белый кабель   |
-| GND (вывод 20F)            | GND (вывод 20)           | Черный кабель   |
-| SCK (вывод 21F)            | SPI0 SCLK (вывод 23)     | Оранжевый кабель  |
-| SDO (вывод 22F)            | SPI0 MISO (вывод 21)     | Желтый кабель  |
-| SDI (вывод 23F)            | SPI0 MOSI (вывод 19)     | Зеленый кабель   |
-| CS (вывод 24F)             | SPI0 CS (вывод 24)       | Синий кабель    |
+| VDD (вывод 5G)             | 3.3V PWR (вывод 1)       | Белый кабель   |
+| GND (вывод 7G)             | GND (вывод 6)            | Коричневый кабель   |
+| SDI (вывод 10G)            | I2C1 SDA (вывод 3)       | Красный кабель     |
+| SCK (вывод 8G)             | I2C1 SCL (вывод 5)       | Оранжевый кабель  |
+| LED VDD (вывод 18F)        | GPIO 24 (вывод 18)       | Белый кабель   |
+| LED GND (вывод 17F)        | GND (вывод 20)           | Черный кабель   |
 
 Щелкните, чтобы просмотреть [схему соответствия выводов Raspberry Pi 2 и 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) для справки.
 
 После успешного подключения датчика BME280 к Raspberry Pi схема должна выглядеть так, как на изображении ниже.
 
-![Подключенный компьютер Pi и датчик BME280](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
+![Подключенный компьютер Pi и датчик BME280](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>Подключение устройства Pi к сети
 
 Включите устройство Pi, используя кабель Micro USB и источник питания. Подключите Pi к проводной сети с помощью кабеля Ethernet или выполните [инструкции](https://www.raspberrypi.org/learning/software-guide/wifi/) от Raspberry Pi Foundation для подключения устройства Pi к беспроводной сети. После успешного подключения Pi к сети необходимо запомнить [IP-адрес устройства Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Подключение к проводной сети](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
+![Подключение к проводной сети](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Убедитесь, что плата Pi подключена к той же сети, что и компьютер. Например, если компьютер подключен к беспроводной сети, а плата Pi подключена к проводной сети, то IP-адрес может не отобразиться в выходных данных devdisco.
 
 ## <a name="run-a-sample-application-on-pi"></a>Запуск примера приложения на Pi
 

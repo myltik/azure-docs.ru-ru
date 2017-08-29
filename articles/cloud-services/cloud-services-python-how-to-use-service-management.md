@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: ee96a30d10f882da936f554152fab8a9c6897807
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-use-service-management-from-python"></a>Использование управления службами в Python
@@ -172,7 +171,7 @@ API управления службами обеспечивает програ�
     sms.delete_deployment('myhostedservice', 'v1')
 
 ## <a name="CreateStorageService"> </a>Практическое руководство. Создание службы хранилища
-Служба [хранилища](../storage/storage-create-storage-account.md) предоставляет доступ к [большим двоичным объектам](../storage/storage-python-how-to-use-blob-storage.md), [таблицам](../storage/storage-python-how-to-use-table-storage.md) и [запросам](../storage/storage-python-how-to-use-queue-storage.md) Azure. Для создания службы хранения требуется имя службы (от 3 до 24 символов нижнего регистра, уникальное имя в рамках Azure), описание, метка (до 100 символов, автоматически кодируется в base64) и расположение. В следующем примере показано, как создать службу хранилища путем указания расположения.
+Служба [хранилища](../storage/common/storage-create-storage-account.md) предоставляет доступ к [большим двоичным объектам](../storage/blobs/storage-python-how-to-use-blob-storage.md), [таблицам](../cosmos-db/table-storage-how-to-use-python.md) и [запросам](../storage/queues/storage-python-how-to-use-queue-storage.md) Azure. Для создания службы хранения требуется имя службы (от 3 до 24 символов нижнего регистра, уникальное имя в рамках Azure), описание, метка (до 100 символов, автоматически кодируется в base64) и расположение. В следующем примере показано, как создать службу хранилища путем указания расположения.
 
     from azure import *
     from azure.servicemanagement import *

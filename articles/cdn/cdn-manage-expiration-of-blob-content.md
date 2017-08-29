@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f44119d651767881cfd999808925b0066a5e502b
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Управление сроком действия больших двоичных объектов службы хранилища Azure в Azure CDN
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 > 
 > 
 
-[Служба BLOB-объектов](../storage/storage-introduction.md#blob-storage) в [службе хранилища Azure](../storage/storage-introduction.md) — это один из возможных источников на основе Azure, интегрированных с Azure CDN.  Любое общедоступное содержимое BLOB-объекта может кэшироваться в Azure CDN до истечения его срока жизни (TTL).  Срок жизни определяется [*Cache-Control* ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) , указанным в HTTP-ответе службы хранилища Azure.
+[Служба BLOB-объектов](../storage/common/storage-introduction.md#blob-storage) в [службе хранилища Azure](../storage/common/storage-introduction.md) — это один из возможных источников на основе Azure, интегрированных с Azure CDN.  Любое общедоступное содержимое BLOB-объекта может кэшироваться в Azure CDN до истечения его срока жизни (TTL).  Срок жизни определяется [*Cache-Control* ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) , указанным в HTTP-ответе службы хранилища Azure.
 
 > [!TIP]
 > Вы можете не указывать срок жизни для большого двоичного объекта.  Тогда Azure CDN по умолчанию применит срок жизни длительностью семь дней.
@@ -64,7 +64,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 
 ## <a name="azure-storage-client-library-for-net"></a>Клиентская библиотека хранилища Azure для .NET
-Чтобы задать TTL для большого двоичного объекта с помощью .NET, используйте [клиентскую библиотеку службы хранилища Azure для .NET](../storage/storage-dotnet-how-to-use-blobs.md), чтобы определить свойство [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
+Чтобы задать TTL для большого двоичного объекта с помощью .NET, используйте [клиентскую библиотеку службы хранилища Azure для .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md), чтобы определить свойство [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
 
 ```csharp
 class Program

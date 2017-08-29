@@ -12,12 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: b3a4e8f9c8580ad4c7899964dbfe99ad74e0c744
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2530b7c20347b9fb58aee4dfe693847cf3911741
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -54,7 +53,7 @@ await conainer.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Получение подписанного URL-адреса для контейнера
 
-После создания контейнера получите подписанный URL-адрес (SAS) с доступом к контейнеру с правом записи. SAS предоставляет делегированный доступ к контейнеру. SAS предоставляет доступ с заданным набором разрешений и в течение определенного интервала времени. Для записи выходных данных задачи в контейнер пакетной службе требуется SAS с разрешениями на запись. Дополнительные сведения о подписанных URL-адресах см. в разделе [Использование подписанных URL-адресов \(SAS\) в службе хранилища Azure](../storage/storage-dotnet-shared-access-signature-part-1.md).
+После создания контейнера получите подписанный URL-адрес (SAS) с доступом к контейнеру с правом записи. SAS предоставляет делегированный доступ к контейнеру. SAS предоставляет доступ с заданным набором разрешений и в течение определенного интервала времени. Для записи выходных данных задачи в контейнер пакетной службе требуется SAS с разрешениями на запись. Дополнительные сведения о подписанных URL-адресах см. в разделе [Использование подписанных URL-адресов \(SAS\) в службе хранилища Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 При получении SAS с помощью интерфейсов API службы хранилища Azure интерфейс API возвращает строку токена SAS. Эта строка содержит все параметры SAS, включая разрешения и интервал времени, в течение которого SAS является действительным. Чтобы использовать SAS для доступа к контейнеру в службе хранилища Azure, строку токена SAS необходимо добавить к коду URI ресурса. Код URI ресурса, вместе с добавленным маркером SAS, предоставляет доступ к службе хранилища Azure.
 
@@ -146,7 +145,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-Дополнительные сведения о виртуальных каталогах в службе хранилища Azure см. в разделе [Перечисление больших двоичных объектов в контейнере](../storage/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+Дополнительные сведения о виртуальных каталогах в службе хранилища Azure см. в разделе [Перечисление больших двоичных объектов в контейнере](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
 
 
 ## <a name="diagnose-file-upload-errors"></a>Диагностика ошибок при передаче файлов

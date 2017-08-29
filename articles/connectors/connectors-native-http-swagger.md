@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a881336bcb2384aaa57a75483c0e6fcd97096905
-ms.lasthandoff: 04/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Приступая к работе с действием "HTTP + Swagger"
@@ -56,7 +56,7 @@ ms.lasthandoff: 04/10/2017
 
 Выполните приведенные ниже шаги, чтобы создать, настроить и сохранить документы Swagger в службе хранилища Azure.
 
-1. [Создайте учетную запись Azure с хранилищем BLOB-объектов Azure](../storage/storage-create-storage-account.md). Чтобы выполнить этот шаг, установите для разрешений значение **Public Access** (Общий доступ).
+1. [Создайте учетную запись Azure с хранилищем BLOB-объектов Azure](../storage/common/storage-create-storage-account.md). Чтобы выполнить этот шаг, установите для разрешений значение **Public Access** (Общий доступ).
 
 2. Включите поддержку CORS для большого двоичного объекта. 
 

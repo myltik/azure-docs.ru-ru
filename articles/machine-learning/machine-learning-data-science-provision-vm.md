@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b1b29ba11bc489a6ad67c2d9043cdb8a2dca7ef8
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 76cd54cd234dfe43e8f0d61f0b66f0ed0c09e8b7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-the-microsoft-data-science-virtual-machine"></a>Подготовка виртуальной машины Майкрософт для обработки и анализа данных
@@ -60,7 +60,7 @@ ms.lasthandoff: 07/22/2017
 Прежде чем создавать виртуальную машину Майкрософт для обработки и анализа данных, необходимо убедиться в наличии следующих компонентов.
 
 * **Подписка Azure** — сведения о ее получении см. на странице [создания бесплатной учетной записи Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Учетная запись хранения Azure**— ознакомьтесь с разделом [Создание учетной записи хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account)для получения информации о процессе ее создания. Если вы не хотите использовать имеющуюся учетную запись хранения, то можно настроить новую учетную запись при создании виртуальной машины.
+* **Учетная запись хранения Azure**— ознакомьтесь с разделом [Создание учетной записи хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)для получения информации о процессе ее создания. Если вы не хотите использовать имеющуюся учетную запись хранения, то можно настроить новую учетную запись при создании виртуальной машины.
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Создание виртуальной машины Майкрософт для обработки и анализа данных
 Ниже приведены шаги по созданию экземпляра виртуальной машины Майкрософт для обработки и анализа данных.

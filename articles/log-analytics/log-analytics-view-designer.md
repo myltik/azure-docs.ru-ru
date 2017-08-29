@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 29ffb61715d803340abdb7e02aa64e9233676798
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 279bac30b47a6e7470018166887cdc2fc5b7e2ed
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Использование конструктора представлений для создания пользовательских представлений Log Analytics
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/28/2017
 * [Log Analytics View Designer visualization part reference](log-analytics-view-designer-parts.md) (Справка по элементам визуализации в конструкторе представлений Log Analytics). Справочник по параметрам всех плиток, которые можно использовать при создании пользовательских представлений.
 
 >[!NOTE]
-> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), запросы во всех представлениях должны создаваться на [новом языке запросов](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Все представления, созданные до обновления рабочей области, будут автоматически преобразованы.
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), запросы во всех представлениях должны создаваться на [новом языке запросов](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).  Все представления, созданные до обновления рабочей области, будут автоматически преобразованы.
 
 ## <a name="concepts"></a>Основные понятия
 В следующей таблице перечислены элементы, которые входят в представления, созданные с помощью конструктора представлений.

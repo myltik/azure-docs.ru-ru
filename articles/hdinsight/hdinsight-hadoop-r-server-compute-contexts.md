@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 09b65ccd77f6e0898f07c4262940e517a8f913fa
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47f4441612be4f363ba82cc22b09786a6f3bfdc3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Варианты контекста вычислений для R Server в HDInsight
@@ -30,7 +29,7 @@ Microsoft R Server в Azure HDInsight управляет выполнением 
 Для подключения к кластеру и выполнения скриптов на языке R удобно использовать граничный узел кластеров. На граничном узле вы можете выполнять распараллеленные распределенные функции ScaleR на ядрах сервера граничного узла. Кроме того, вы можете выполнять эти функции на узлах кластера с помощью контекста вычислений Hadoop Map Reduce или Spark ScaleR.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server в Azure HDInsight
-[Microsoft R Server в кластере Azure HDInsight](hdinsight-hadoop-r-server-overview.md) предоставляет новейшие возможности для анализа на основе R. Это решение может использовать данные, хранящиеся в контейнере HDFS, размещенном в учетной записи хранения [BLOB-объектов Azure](../storage/storage-introduction.md "хранилище BLOB-объектов Azure"), Data Lake Store или локальной файловой системе Linux. Так как R Server основывается на R с открытым кодом, вы сможете использовать в своих приложениях на основе R любые из более чем 8000 пакетов R с открытым исходным кодом. Также вы можете использовать подпрограммы [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), пакета аналитики больших данных от корпорации Майкрософт, который предоставляется вместе с R Server.  
+[Microsoft R Server в кластере Azure HDInsight](hdinsight-hadoop-r-server-overview.md) предоставляет новейшие возможности для анализа на основе R. Это решение может использовать данные, хранящиеся в контейнере HDFS, размещенном в учетной записи хранения [BLOB-объектов Azure](../storage/common/storage-introduction.md "хранилище BLOB-объектов Azure"), Data Lake Store или локальной файловой системе Linux. Так как R Server основывается на R с открытым кодом, вы сможете использовать в своих приложениях на основе R любые из более чем 8000 пакетов R с открытым исходным кодом. Также вы можете использовать подпрограммы [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), пакета аналитики больших данных от корпорации Майкрософт, который предоставляется вместе с R Server.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Контексты вычислений для граничного узла
 Как правило, сценарий R, выполняемый на R Server на граничном узле, выполняется в интерпретаторе R на этом узле. Исключением являются те действия, которые вызывают функцию ScaleR. Вызовы ScaleR будут осуществляться в среде вычислений с учетом настройки контекста вычислений ScaleR.  При выполнении скрипта R из граничного узла возможны следующие значения контекста вычислений:

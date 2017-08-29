@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 365dd9477f791432c1a92f1b81eb573dbbc6f874
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 63b005f37ab5e15e8a1b4645446d65f1529f1bbd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -50,10 +50,10 @@ ms.lasthandoff: 07/26/2017
 ## <a name="set-up-an-azure-storage-account"></a>Настроить учетную запись хранения Azure
 
 - Служба Site Recovery реплицирует локальные машины в службе хранилища Azure. Виртуальные машины Azure создаются из хранилища после отработки отказа.
-- Для хранения данных, реплицированных в Azure, понадобится настроить [учетную запись хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account) класса "Стандартный" или Premium.
-- [Хранилище класса Premium](../storage/storage-premium-storage.md) обычно используется для виртуальных машин, которым постоянно требуется высокая производительность ввода-вывода и малая задержка для размещения интенсивных рабочих нагрузок ввода-вывода.
+- Для хранения данных, реплицированных в Azure, понадобится настроить [учетную запись хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) класса "Стандартный" или Premium.
+- [Хранилище класса Premium](../storage/common/storage-premium-storage.md) обычно используется для виртуальных машин, которым постоянно требуется высокая производительность ввода-вывода и малая задержка для размещения интенсивных рабочих нагрузок ввода-вывода.
 - Если для хранения реплицированных данных вы будете использовать учетную запись хранения класса Premium, потребуется дополнительная учетная запись хранения класса Standard для хранения журналов репликации, в которые записываются текущие изменения локальных данных.
-- В зависимости от модели ресурсов, которую будут использовать виртуальные машины Azure после отработки отказа, для учетной записи необходимо настроить [режим Resource Manager](../storage/storage-create-storage-account.md) или [классический режим](../storage/storage-create-storage-account-classic-portal.md).
+- В зависимости от модели ресурсов, которую будут использовать виртуальные машины Azure после отработки отказа, для учетной записи необходимо настроить [режим Resource Manager](../storage/common/storage-create-storage-account.md) или [классический режим](../storage/common/storage-create-storage-account.md).
 - Рекомендуется настроить учетную запись хранения до начала работы. В противном случае это нужно будет сделать во время развертывания службы Site Recovery. Учетные записи должны находиться в том же регионе, что и хранилище служб восстановления.
 - Учетные записи хранения, используемые для Site Recovery, нельзя перемещать между группами в одной подписке или между разными подписками.
 

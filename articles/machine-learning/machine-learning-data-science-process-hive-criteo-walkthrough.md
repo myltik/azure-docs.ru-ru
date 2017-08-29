@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 8af9c566a267e6e9d332805c5b3e82503c092d22
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8e6143bca819c9a0484221f8b4feb319aaaa73f5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Процесс обработки и анализа данных группы на практике: использование кластера Azure HDInsight Hadoop с набором данных объемом 1 ТБ
@@ -64,7 +63,7 @@ ms.lasthandoff: 05/19/2017
 
 Настройте среду обработки и анализа данных Azure, чтобы создавать решения для прогнозной аналитики с помощью кластеров HDInsight, выполнив три шага:
 
-1. [Создание учетной записи хранения.](../storage/storage-create-storage-account.md) Эта учетная запись хранения используется для хранения данных в хранилище BLOB-объектов Azure. Здесь хранятся данные, используемые в кластерах HDInsight.
+1. [Создание учетной записи хранения.](../storage/common/storage-create-storage-account.md) Эта учетная запись хранения используется для хранения данных в хранилище BLOB-объектов Azure. Здесь хранятся данные, используемые в кластерах HDInsight.
 2. [Настройка кластеров Azure HDInsight Hadoop для обработки и анализа данных.](machine-learning-data-science-customize-hadoop-cluster.md) На этом шаге создается кластер Azure HDInsight Hadoop и на всех узлах устанавливается 64-разрядный дистрибутив Anaconda Python 2.7. При настройке кластера HDInsight следует выполнить два важных шага (описанных в этом разделе).
    
    * Во время создания кластера HDInsight необходимо связать учетную запись хранения, созданную на шаге 1, с этим кластером. Эта учетная запись хранения используется для доступа к данным, которые можно обработать в пределах кластера.
@@ -78,7 +77,7 @@ ms.lasthandoff: 05/19/2017
 
 Нажмите кнопку **Continue to Download** (Продолжить для скачивания), чтобы ознакомиться с дополнительными сведениями о наборе данных и его доступности.
 
-Данные находятся в расположении общедоступного [хранилище BLOB-объектов Azure](../storage/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. wasb относится к расположению хранилища больших двоичных объектов Azure. 
+Данные находятся в расположении общедоступного [хранилище BLOB-объектов Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. wasb относится к расположению хранилища больших двоичных объектов Azure. 
 
 1. Данные в этом общедоступном хранилище BLOB-объектов содержатся в трех вложенных папках с разархивированными данными.
    

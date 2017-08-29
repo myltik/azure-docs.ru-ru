@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a5bc3a72eccc48ec26ef5f029d780175d66080c0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Развертывание виртуального массива StorSimple. Подготовка портала Azure
@@ -144,7 +144,7 @@ ms.lasthandoff: 05/31/2017
 
 Это необязательный шаг. Выполните его, только если вы автоматически не создавали учетную запись хранения для службы.
 
-Если требуется создать учетную запись хранения Azure в другом регионе, то см. пошаговые инструкции в разделе [Создайте учетную запись хранения](../storage/storage-create-storage-account.md#create-a-storage-account).
+Если требуется создать учетную запись хранения Azure в другом регионе, то см. пошаговые инструкции в разделе [Создайте учетную запись хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 Чтобы добавить имеющуюся учетную запись хранения Microsoft Azure, на [портале Azure](https://ms.portal.azure.com/) на странице службы диспетчера устройств StorSimple выполните следующие действия.
 

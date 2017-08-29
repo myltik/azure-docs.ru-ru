@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 6bb75685a38e261a2a8c12aef1de6629e2bb9008
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aa0cbba6bdb4cfdfe6ceee50c94f706aa0974924
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Перемещение данных в SQL Server на виртуальной машине Azure
@@ -50,7 +49,7 @@ ms.lasthandoff: 06/07/2017
 
 * <seg>
   **Подписка Azure**.</seg> Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure storage account**. Учетная запись хранения Azure будет использоваться для хранения данных в этом учебнике. Если у вас ее нет, см. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. Ознакомьтесь с разделом [Управление ключами доступа к хранилищу](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
+* **Azure storage account**. Учетная запись хранения Azure будет использоваться для хранения данных в этом учебнике. Если у вас ее нет, см. раздел [Создание учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. Ознакомьтесь с разделом [Управление ключами доступа к хранилищу](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Подготовленный **SQL Server на виртуальной машине Azure**. Инструкции см. в статье [Настройка SQL Server на виртуальной машине Azure как сервера IPython Notebook для расширенной аналитики](machine-learning-data-science-setup-sql-server-virtual-machine.md).
 * Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azure/overview).
 
@@ -66,7 +65,7 @@ BCP — это служебная программа командной стро
 
 > [!NOTE]
 > **Где следует размещать данные для программы BCP?**  
-> Это не обязательно, но если файлы, содержащие источник данных, расположены на одном компьютере с целевым сервером SQL, это позволяет ускорить перемещение (скорость сети и скорость ввода-вывода на локальном диске). Перемещать неструктурированные файлы, содержащие данные, на компьютер с SQL Server можно с помощью различных инструментов копирования файлов, таких как [AZCopy](../storage/storage-use-azcopy.md), [обозреватель хранилищ Azure](http://storageexplorer.com/) или средства копирования и вставки по протоколу удаленного рабочего стола (RDP) ОС Windows.
+> Это не обязательно, но если файлы, содержащие источник данных, расположены на одном компьютере с целевым сервером SQL, это позволяет ускорить перемещение (скорость сети и скорость ввода-вывода на локальном диске). Перемещать неструктурированные файлы, содержащие данные, на компьютер с SQL Server можно с помощью различных инструментов копирования файлов, таких как [AZCopy](../storage/common/storage-use-azcopy.md), [обозреватель хранилищ Azure](http://storageexplorer.com/) или средства копирования и вставки по протоколу удаленного рабочего стола (RDP) ОС Windows.
 >
 >
 

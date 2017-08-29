@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 8df8cdfd0b265b11e6a11f0a5eb7ad8f0e669ca2
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ad2c6d585eef5450f7f0912ffa4753fe80d86b37
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Управление удостоверениями устройств Центра Интернета вещей в пакетном режиме
@@ -72,7 +71,7 @@ while(true)
 
 ## <a name="export-devices"></a>Экспорт устройств
 
-Используйте метод **ExportDevicesAsync** для экспорта всего реестра удостоверений Центра Интернета вещей в контейнер больших двоичных объектов [службы хранилища Azure](../storage/index.md) с помощью [подписанного URL-адреса](../storage/storage-security-guide.md#data-plane-security).
+Используйте метод **ExportDevicesAsync** для экспорта всего реестра удостоверений Центра Интернета вещей в контейнер больших двоичных объектов [службы хранилища Azure](../storage/index.md) с помощью [подписанного URL-адреса](../storage/common/storage-security-guide.md#data-plane-security).
 
 Этот метод позволяет создавать надежные резервные копии данных устройства в контейнере BLOB-объектов, которым вы управляете.
 
@@ -372,7 +371,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Получение URI SAS контейнера
 
-В следующем примере кода показано, как создать [URI SAS](../storage/storage-dotnet-shared-access-signature-part-2.md) с разрешениями на чтение, запись и удаление контейнера больших двоичных объектов.
+В следующем примере кода показано, как создать [URI SAS](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) с разрешениями на чтение, запись и удаление контейнера больших двоичных объектов.
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -404,7 +403,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 * [Метрики Центра Интернета вещей][lnk-metrics]
 * [Мониторинг операций][lnk-monitor]
 
-Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
 * [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
 * [Simulating a device with IoT Edge][lnk-iotedge] (Моделирование устройства с помощью Edge Интернета вещей)

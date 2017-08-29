@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: d3488b1e7857799d8ed7de796610e8d52034bd8f
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Устранение неполадок устройства серии 8000 с помощью средства диагностики StorSimple
@@ -389,7 +388,7 @@ Web proxy                               Not enabled         Web proxy is not...
 
     Если средство диагностики указало высокую задержку операций чтения и записи, сделайте следующее:
 
-    1. Настройте аналитику хранилища для служб BLOB-объектов и проанализируйте выходные данные, чтобы определить задержки для учетной записи хранения Azure. Подробные инструкции см. в статье [Включение метрик хранилища и просмотр данных метрик](../storage/storage-enable-and-view-metrics-classic-portal.md). Если эти значения задержки так же высоки, как и значения, полученные от средства диагностики StorSimple, необходимо отправить запрос на поддержку в службе хранилища Azure.
+    1. Настройте аналитику хранилища для служб BLOB-объектов и проанализируйте выходные данные, чтобы определить задержки для учетной записи хранения Azure. Подробные инструкции см. в статье [Включение метрик хранилища и просмотр данных метрик](../storage/common/storage-enable-and-view-metrics.md). Если эти значения задержки так же высоки, как и значения, полученные от средства диагностики StorSimple, необходимо отправить запрос на поддержку в службе хранилища Azure.
 
     2. Если значения задержки в учетной записи хранения низкие, обратитесь к администратору сети, чтобы изучить любые проблемы с задержкой в сети.
 

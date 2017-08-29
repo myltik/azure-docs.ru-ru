@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9a2796c66fa49c543e52b654e583ade7625a7f31
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Выполнение заданий STAR-CCM+ в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC
@@ -120,7 +119,7 @@ ms.lasthandoff: 04/27/2017
 ## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Настройка общей папки Azure для узлов Windows и Linux
 Службу файлов Azure можно использовать для хранения сценариев, пакетов приложений и файлов данных. Служба файлов Azure предоставляет возможности CIFS на базе хранилища BLOB-объектов Azure как постоянного хранилища. Это не самое масштабируемое решение, но оно самое простое и не требует выделенных виртуальных машин.
 
-Создайте общую папку Azure, следуя инструкциям в статье [Приступая к работе с хранилищем файлов Azure в Windows](../../../storage/storage-dotnet-how-to-use-files.md).
+Создайте общую папку Azure, следуя инструкциям в статье [Приступая к работе с хранилищем файлов Azure в Windows](../../../storage/files/storage-dotnet-how-to-use-files.md).
 
 Оставьте **saname** в качестве имени учетной записи хранения, **sharename** — в качестве имени общей папки и **sakey** — в качестве ключа учетной записи хранения.
 

@@ -16,10 +16,10 @@ ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Настройка отчетов службы Azure Backup
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/25/2017
 4. В Power BI частота запланированного обновления для отчетов составляет 24 часа. Также можно выполнить ad-hoc-обновление отчетов в Power BI. В этом случае для подготовки отчетов используются последние данные в пользовательской учетной записи хранения. 
 
 ## <a name="prerequisites"></a>Предварительные требования
-1. Создайте [учетную запись хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account), чтобы настроить ее для отчетов. Эта учетная запись используется для хранения данных, связанных с отчетами.
+1. Создайте [учетную запись хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account), чтобы настроить ее для отчетов. Эта учетная запись используется для хранения данных, связанных с отчетами.
 2. [Создайте учетную запись Power BI](https://powerbi.microsoft.com/landing/signin/) для просмотра, настройки и создания собственных отчетов с помощью портала Power BI.
 3. Зарегистрируйте поставщик ресурсов **Microsoft.Insights**, если вы еще этого не сделали, с помощью подписки учетной записи хранения и подписки хранилища служб восстановления, чтобы передавать данные отчетов в учетную запись хранения. Чтобы сделать то же самое, перейдите на портал Azure, выберите "Подписки > Поставщики ресурсов " и проверьте наличие этого поставщика, чтобы зарегистрировать его. 
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 07/25/2017
 4. Введите имя учетной записи хранения, настроенной на шаге 5 выше, и нажмите кнопку **Далее**.
 
     ![Ввод имени учетной записи хранения](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Введите ключ для этой учетной записи хранения. [Ключи учетных записей хранения можно просматривать и копировать](../storage/storage-create-storage-account.md#manage-your-storage-account), перейдя к своей учетной записи хранения на портале Azure. 
+5. Введите ключ для этой учетной записи хранения. [Ключи учетных записей хранения можно просматривать и копировать](../storage/common/storage-create-storage-account.md#manage-your-storage-account), перейдя к своей учетной записи хранения на портале Azure. 
 
      ![Ввод учетной записи хранения](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

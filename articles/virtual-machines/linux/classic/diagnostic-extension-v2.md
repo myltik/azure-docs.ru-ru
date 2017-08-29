@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5bc983ef1ffaac5d6de7bbc2cdf51838d8051aac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Использование диагностического расширения Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux
@@ -152,7 +152,7 @@ ms.lasthandoff: 05/25/2017
 
 ## <a name="review-your-data"></a>Просмотр данных
 
-Данные о состоянии и производительности хранятся в таблице хранилища Azure. Ознакомьтесь с руководством [Использование табличного хранилища Azure в Ruby](../../../storage/storage-ruby-how-to-use-table-storage.md) , чтобы узнать о способах доступа к данным в таблице хранилища с помощью сценариев интерфейса командной строки Azure.
+Данные о состоянии и производительности хранятся в таблице хранилища Azure. Ознакомьтесь с руководством [Использование табличного хранилища Azure в Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) , чтобы узнать о способах доступа к данным в таблице хранилища с помощью сценариев интерфейса командной строки Azure.
 
 Для доступа к данным также можно использовать следующие инструменты.
 

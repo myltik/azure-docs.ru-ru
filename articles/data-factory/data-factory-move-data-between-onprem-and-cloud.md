@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 475c878e34a83d06cffca5e114ccd920c7956256
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 565091e24a8c0009793e2e2365fb95013cad5028
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/10/2017
 Для работы с этим пошаговым руководством необходимо следующее:
 
 * **Подписка Azure**.  Если у вас нет подписки, вы можете создать бесплатную пробную версию учетной записи всего за несколько минут. Дополнительные сведения см. в статье [Бесплатная пробная версия](http://azure.microsoft.com/pricing/free-trial/).
-* **исходного**хранилища данных. В этом руководстве в качестве **назначения и приемника** будет использоваться хранилище BLOB-объектов. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account) .
+* **исходного**хранилища данных. В этом руководстве в качестве **назначения и приемника** будет использоваться хранилище BLOB-объектов. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) .
 * **SQL Server.** В этом руководстве используйте локальную базу данных SQL Server в качестве **исходного** хранилища данных. 
 
 ## <a name="create-data-factory"></a>Создание фабрики данных

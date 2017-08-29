@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/31/2017
 ms.author: sergkanz
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 0c4ddfe4533dc232047f0b1a0af270e7f9372c84
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b31d38fe2f7060597956a1ee9c66f43ce39d7240
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -203,7 +203,7 @@ public async Task Process(BrokeredMessage message)
 ```
 
 ### <a name="azure-storage-queue"></a>Очередь службы хранилища Azure
-В следующем примере показано, как отслеживать операции [очереди службы хранилища Azure](../storage/storage-dotnet-how-to-use-queues.md) и сопоставлять данные телеметрии производителя, потребителя и службы хранилища Azure. 
+В следующем примере показано, как отслеживать операции [очереди службы хранилища Azure](../storage/queues/storage-dotnet-how-to-use-queues.md) и сопоставлять данные телеметрии производителя, потребителя и службы хранилища Azure. 
 
 Очередь службы хранилища использует API HTTP. Все вызовы, отправляемые к очереди, отслеживаются сборщиком зависимостей Application Insights на наличие HTTP-запросов.
 Убедитесь, что в `applicationInsights.config` есть `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer`. В противном случае добавьте его программно, как описано в разделе [Фильтрация и предварительная обработка данных телеметрии в пакете SDK для Application Insights](app-insights-api-filtering-sampling.md).
@@ -221,7 +221,7 @@ module.Initialize(TelemetryConfiguration.Active);
 // Do not forget to dispose of the module during application shutdown.
 ```
 
-Кроме того, может потребоваться сопоставить идентификатор операции Application Insights с идентификатором запроса службы хранилища. Сведения о том, как настроить и получить идентификатор клиента для запроса службы хранилища и идентификатор запроса сервера, см. в разделе [Мониторинг, диагностика и устранение неполадок с хранилищем Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
+Кроме того, может потребоваться сопоставить идентификатор операции Application Insights с идентификатором запроса службы хранилища. Сведения о том, как настроить и получить идентификатор клиента для запроса службы хранилища и идентификатор запроса сервера, см. в разделе [Мониторинг, диагностика и устранение неполадок с хранилищем Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### <a name="enqueue"></a>Постановка в очередь
 Так как очереди службы хранилища Azure поддерживают API HTTP, все операции с очередью автоматически отслеживаются Application Insights. Во многих случаях этого инструментария должно быть достаточно. Однако для сопоставления трассировок на стороне потребителя с трассировками производителя необходимо передать некоторый контекст корреляции, точно так же, как мы сделали это для протокола HTTP для корреляции. 
