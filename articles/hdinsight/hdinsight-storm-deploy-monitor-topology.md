@@ -95,7 +95,7 @@ ms.lasthandoff: 07/13/2017
 
   * **Rebalance**(Повторная балансировка) — корректировка параллелизма топологии. После изменения числа узлов в кластере необходимо выполнить повторную балансировку топологий. Это позволяет топологии скорректировать параллелизм для компенсации увеличения или уменьшения количества узлов в кластере.
 
-      Дополнительные сведения см. в разделе [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (Основные сведения о параллелизме в топологии Storm): http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html.
+      Дополнительные сведения см. в разделе [Основные сведения о параллелизме в топологии Storm (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
   * **Kill**(Удалить) — останавливает выполнение топологии Storm по истечении заданного времени ожидания.
 
