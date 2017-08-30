@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 3a8a5d25123905e6c5cf91c4bc0c04258e442b5c
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: eff4add1cb16fe25022787668dc1d2277845dd95
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Автоматическое масштабирование машин Linux в наборе масштабирования виртуальных машин
@@ -591,6 +591,6 @@ azure group delete vmsstestrg1
 * Просмотрите примеры функций мониторинга Azure Monitor в статье [Шаблоны для быстрого начала работы с межплатформенным интерфейсом командной строки Azure Monitor](../monitoring-and-diagnostics/insights-cli-samples.md).
 * Узнайте о возможностях уведомлений в статье [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
 * Узнайте, как [использовать журналы аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
-* Ознакомьтесь с шаблоном [автоматического масштабирования набора масштабирования виртуальных машин, на которых работают приложения Ubuntu, Apache и PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) , который настраивает стек LAMP для автоматического масштабирования наборов масштабирования виртуальных машин.
+* Просмотрите пример [автоматического масштабирования приложения на Ubuntu 16.04](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale). В этом примере приложение Python/Bottle использует функцию автоматического масштабирования, которую предлагают масштабируемые наборы виртуальных машин.
 
 

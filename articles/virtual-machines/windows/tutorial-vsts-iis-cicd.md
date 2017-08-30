@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: b4074c67c7a8214f8e103385d5aea75f019d2da6
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -29,10 +29,10 @@ ms.lasthandoff: 05/12/2017
 
 > [!div class="checklist"]
 > * Публикация веб-приложения ASP.NET в проекте Team Services.
-> * Создание определения сборки, которое активируется фиксациями кода.
-> * Установка и настройка IIS на виртуальной машине в Azure.
-> * Добавление экземпляра IIS в группу развертывания в Team Services.
-> * Создание определения выпуска для публикации новых пакетов веб-развертывания в IIS.
+> * создавать определение сборки, которое активируется фиксациями кода;
+> * устанавливать и настраивать IIS на виртуальной машине в Azure;
+> * добавлять экземпляр IIS в группу развертывания в Team Services;
+> * создавать определение выпуска для публикации новых пакетов веб-развертывания в IIS;
 > * Тестирование конвейера CI/CD
 
 Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -232,7 +232,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 > * создавать определение выпуска для публикации новых пакетов веб-развертывания в IIS;
 > * Тестирование конвейера CI/CD
 
-Чтобы увидеть предварительно созданные примеры скриптов виртуальной машины, перейдите по ссылке ниже.
+Перейдите к следующему руководству, чтобы узнать, как защитить веб-сервер с помощью SSL-сертификата.
 
 > [!div class="nextstepaction"]
-> [Примеры скриптов для виртуальной машины Windows](./powershell-samples.md)
+> [Secure a web server with SSL certificates on a Linux virtual machine in Azure](tutorial-secure-web-server.md) (Защита веб-сервера на виртуальной машине Linux в облаке Azure с помощью SSL-сертификата)

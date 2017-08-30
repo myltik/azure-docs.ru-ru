@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ddec69e57e84f33c37831a0da2c21955d78fff98
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/03/2017
 
 1. В параллельном режиме:
     - все открытые прослушиватели закрываются (для каждого прослушивателя вызывается `CommunicationListener.closeAsync()`);
-    - маркер отмены, переданный `runAsync()`, отменяется (в результате проверки свойства `isCancelled` маркера отмены возвращается значение true, а при вызове метода `throwIfCancellationRequested` маркера возвращается `CancellationException`).
+    - маркер отмены, переданный в `runAsync()`, отменяется (в результате проверки свойства `isCancelled` маркера отмены возвращается значение true, а при вызове метода `throwIfCancellationRequested` маркера возвращается `CancellationException`).
 2. После выполнения метода `closeAsync()` для каждого прослушивателя и завершения выполнения `runAsync()` при наличии вызывается метод `StatelessService.onCloseAsync()` службы (это редкое переопределение).
 3. После выполнения метода `StatelessService.onCloseAsync()` объект службы уничтожается.
 

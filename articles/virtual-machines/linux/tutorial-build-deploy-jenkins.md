@@ -15,10 +15,10 @@ ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a40e26a8681df31fad664e4d1df4c1513311900d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -255,7 +255,7 @@ ms.lasthandoff: 08/09/2017
 > * Создание группы развертывания для виртуальных машин Azure.
 > * Создание определения выпуска, которое настраивает виртуальные машины и развертывает приложение.
 
-Чтобы увидеть предварительно созданные примеры скриптов виртуальной машины, перейдите по ссылке ниже.
+Перейдите к следующему руководству, чтобы узнать, как развернуть стек LAMP (Linux, Apache, MySQL и PHP).
 
 > [!div class="nextstepaction"]
-> [Примеры сценариев для виртуальной машины Linux](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)
+> [Развертывание стека LAMP](tutorial-lamp-stack.md)

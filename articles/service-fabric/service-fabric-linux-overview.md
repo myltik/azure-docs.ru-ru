@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: SubramaR
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: ad20216374306d8b5035140f3d8e107c595b623e
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: dddc9f698d9776999d406117b46285a0f90d9620
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="service-fabric-on-linux"></a>Service Fabric в Azure
@@ -40,13 +40,14 @@ ms.lasthandoff: 06/30/2017
 
 
 ## <a name="supported-tooling"></a>Поддерживаемые средства
-Предварительная версия поддерживает взаимодействие с кластером через интерфейс командной строки Azure. Для разработчиков Java интеграция с Eclipse и Yeoman доступна при помощи среды Eclipse, поддерживаемой в Linux и OS X. В интеграции с OS X используется виртуальная машина под управлением Linux (через Vagrant). Разработчики C# могут использовать интеграцию с Yeoman для создания шаблонов приложений.
+В предварительной версии взаимодействие с кластером осуществляется через интерфейс командной строки Service Fabric. Для разработчиков Java интеграция с Eclipse и Yeoman доступна при помощи среды Eclipse, поддерживаемой в Linux и OS X. В интеграции с OS X используется виртуальная машина под управлением Linux (через Vagrant). Разработчики C# могут использовать интеграцию с Yeoman для создания шаблонов приложений.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-1. Ознакомьтесь с платформами программирования [Reliable Actors](service-fabric-reliable-actors-introduction.md) и [Reliable Services](service-fabric-reliable-services-introduction.md).
-2. [Подготовка среды разработки в Linux](service-fabric-get-started-linux.md)
-3. [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md)
-4. [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-java.md)
-5. [Настройка непрерывных интеграции и развертывания с помощью Jenkins и GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
-6. [Различия между Service Fabric для Linux (предварительная версия) и Windows (общедоступная версия)](service-fabric-linux-windows-differences.md)
+
+* Ознакомьтесь с платформами программирования [Reliable Actors](service-fabric-reliable-actors-introduction.md) и [Reliable Services](service-fabric-reliable-services-introduction.md).
+* [Подготовка среды разработки в Linux](service-fabric-get-started-linux.md)
+* [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md)
+* [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-java.md)
+* [Настройка непрерывных интеграции и развертывания с помощью Jenkins и GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* [Различия между Service Fabric для Linux (предварительная версия) и Windows (общедоступная версия)](service-fabric-linux-windows-differences.md)
 

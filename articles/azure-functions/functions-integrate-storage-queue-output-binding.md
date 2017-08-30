@@ -4,23 +4,23 @@ description: "Создавайте независимые от сервера ф
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/17/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 57c59273a9da55f3e357764c522b444ae2d73cb5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Добавление сообщений в очередь службы хранилища Azure с помощью Функций
@@ -39,7 +39,7 @@ ms.lasthandoff: 08/02/2017
  
 1. Разверните ваше приложение-функцию и функцию.
 
-2. Щелкните **Интегрировать** и **+Новые выходные данные**, а затем щелкните **Хранилище очередей Azure** и **Выбрать**.
+2. Выберите **Интегрировать** и **+Новые выходные данные**, а затем выберите **Хранилище очередей Azure** и **Выбрать**.
     
     ![Добавление выходной привязки хранилища очередей к функции на портале Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 08/02/2017
     | ------------ |  ------- | -------------------------------------------------- |
     | **Имя очереди**   | myqueue-items    | Имя очереди для подключения к вашей учетной записи хранения. |
     | **Подключение к учетной записи хранения** | AzureWebJobStorage | Вы можете использовать подключение к учетной записи хранения, которое уже используется вашим приложением-функцией, или создать его.  |
-    | **Имя параметра сообщения** | outQueueItem | Имя параметра выходной привязки. | 
+    | **Имя параметра сообщения** | outputQueueItem | Имя параметра выходной привязки. | 
 
 4. Щелкните **Сохранить**, чтобы добавить привязку.
  
@@ -61,11 +61,11 @@ ms.lasthandoff: 08/02/2017
 
 1. Щелкните функцию для отображения ее кода в редакторе. 
 
-2. Обновите определение функции C# как показано ниже, чтобы добавить параметр привязки хранилища **outQueueItem**. Пропустите этот шаг для функции JavaScript.
+2. Обновите определение функции C#, как показано ниже, чтобы добавить параметр привязки хранилища **outputQueueItem**. Пропустите этот шаг для функции JavaScript.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-        ICollector<string> outQueueItem, TraceWriter log)
+        ICollector<string> outputQueueItem, TraceWriter log)
     {
         ....
     }
@@ -74,12 +74,12 @@ ms.lasthandoff: 08/02/2017
 3. Добавьте следующий код к функции непосредственно перед возвращением метода. Используйте соответствующий фрагмент для языка функции.
 
     ```javascript
-    context.bindings.outQueueItem = "Name passed to the function: " + 
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
                 (req.query.name || req.body.name);
     ```
 
     ```cs
-    outQueueItem.Add("Name passed to the function: " + name);     
+    outputQueueItem.Add("Name passed to the function: " + name);     
     ```
 
 4. Щелкните **Сохранить**, чтобы сохранить изменения.
@@ -100,7 +100,7 @@ ms.lasthandoff: 08/02/2017
 
 Пропустите первые три шага, если вы уже установили обозреватель хранилищ и подключили его к своей учетной записи хранения.    
 
-1. Щелкните **Интегрировать** в функции, затем — новую выходную привязку **Хранилище очередей Azure**, после чего разверните узел **Документация**. Скопируйте **имя учетной записи** и **ключ учетной записи**. Эти учетные данные используются для подключения к учетной записи хранения.
+1. Выберите **Интегрировать** в своей функции, затем новую выходную привязку **Хранилище очередей Azure**, после чего разверните узел **Документация**. Скопируйте **имя учетной записи** и **ключ учетной записи**. Эти учетные данные используются для подключения к учетной записи хранения.
  
     ![Получение учетных данных для подключения к учетной записи хранения.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 08/02/2017
   
     ![Укажите учетные данные хранилища и подключитесь.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Разверните подключенную учетную запись хранения, щелкните правой кнопкой мыши **Очереди** и убедитесь, что очередь с именем **myqueue-items** существует. Также вы увидите сообщение, которое уже находится в очереди.  
+4. Разверните подключенную учетную запись хранения, разверните элемент **Очереди** и убедитесь, что очередь с именем **myqueue-items** существует. Также вы увидите сообщение, которое уже находится в очереди.  
  
     ![Создание очереди службы хранилища](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  

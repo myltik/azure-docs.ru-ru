@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/16/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 312cb366924767cd0ad645dc4a435dd549494188
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 72f66081a6409f980ec6bca5188f585489245a36
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB. Приступая к работе с API DocumentDB
@@ -58,7 +58,7 @@ ms.lasthandoff: 07/25/2017
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
     * Кроме того, в этом руководстве можно использовать [эмулятор Azure Cosmos DB](local-emulator.md).
-* [Visual Studio 2013 или 2015](http://www.visualstudio.com/).
+* [Visual Studio Community 2017](http://www.visualstudio.com/).
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Шаг 1. Создание учетной записи Azure Cosmos DB
 Давайте создадим учетную запись Azure Cosmos DB. Если у вас уже есть учетная запись, которую вы собираетесь использовать, можно перейти к шагу [Настройка решения Visual Studio](#SetupVS). Если вы используете эмулятор Azure Cosmos DB, выполните действия, описанные в статье об [эмуляторе Azure Cosmos DB](local-emulator.md), чтобы его настроить и сразу перейти к [настройке решения Visual Studio](#SetupVS).
@@ -66,7 +66,7 @@ ms.lasthandoff: 07/25/2017
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a> Шаг 2. Настройка решения Visual Studio
-1. Откройте **Visual Studio 2015** у себя на компьютере.
+1. Откройте **Visual Studio 2017** у себя на компьютере.
 2. В меню **Файл** выберите пункт **Создать**, а затем — **Проект**.
 3. В диалоговом окне **Новый проект** выберите **Шаблоны** / **Visual C#** / **Консольное приложение**, а затем укажите имя проекта и нажмите кнопку **ОК**.
    ![Снимок экрана: диалоговое окно «Новый проект»](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
@@ -131,7 +131,7 @@ ms.lasthandoff: 07/25/2017
         this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
     }
 
-Добавьте указанный далее код, чтобы запустить асинхронную задачу из метода **Main** . Метод **Main** будет перехватывать исключения и записывать их в консоли.
+Добавьте указанный далее код, чтобы запустить асинхронную задачу из метода **Main**. Метод **Main** будет перехватывать исключения и записывать их в консоли.
 
     static void Main(string[] args)
     {
@@ -157,7 +157,7 @@ ms.lasthandoff: 07/25/2017
                     Console.ReadKey();
             }
 
-Нажмите клавишу **F5** , чтобы запустить приложение. Результаты в окне консоли отображают сообщение `End of demo, press any key to exit.`. Это означает, что подключение выполнено.  Теперь можно закрыть окно консоли. 
+Нажмите клавишу **F5**, чтобы запустить приложение. Результаты в окне консоли отображают сообщение `End of demo, press any key to exit.`. Это означает, что подключение выполнено.  Теперь можно закрыть окно консоли. 
 
 Поздравляем! Вы успешно подключились к учетной записи Azure Cosmos DB. Давайте теперь рассмотрим принципы работы с ресурсами Azure Cosmos DB.  
 
@@ -185,7 +185,7 @@ ms.lasthandoff: 07/25/2017
         // ADD THIS PART TO YOUR CODE
         await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
 
-Нажмите клавишу **F5** , чтобы запустить приложение.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Вы успешно создали базу данных Azure Cosmos DB.  
 
@@ -206,7 +206,7 @@ ms.lasthandoff: 07/25/2017
         // ADD THIS PART TO YOUR CODE
          await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
 
-Нажмите клавишу **F5** , чтобы запустить приложение.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Вы успешно создали коллекцию документов Azure Cosmos DB.  
 
@@ -366,7 +366,7 @@ ms.lasthandoff: 07/25/2017
 
     await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
-Нажмите клавишу **F5** , чтобы запустить приложение.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Вы успешно создали два документа Azure Cosmos DB.  
 
@@ -418,7 +418,7 @@ Azure Cosmos DB поддерживает [полнофункциональные
     // ADD THIS PART TO YOUR CODE
     this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-Нажмите клавишу **F5** , чтобы запустить приложение.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Вы успешно выполнили запрос коллекции Azure Cosmos DB.
 
@@ -454,7 +454,7 @@ Azure Cosmos DB поддерживает замену документов JSON.
 
     this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-Нажмите клавишу **F5** , чтобы запустить приложение.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Вы успешно заменили документ Azure Cosmos DB.
 
@@ -479,7 +479,7 @@ Azure Cosmos DB поддерживает удаление документов J
     // ADD THIS PART TO CODE
     await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
 
-Нажмите клавишу **F5** , чтобы запустить приложение.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Вы успешно удалили документ Azure Cosmos DB.
 
@@ -496,14 +496,14 @@ Azure Cosmos DB поддерживает удаление документов J
     // Clean up/delete the database
     await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
 
-Нажмите клавишу **F5** , чтобы запустить приложение.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Вы успешно удалили базу данных Azure Cosmos DB.
 
 ## <a id="Run"></a>Шаг 11. Запуск консольного приложения C#
 Чтобы создать приложение в режиме отладки, откройте Visual Studio и нажмите клавишу F5.
 
-Должны отобразиться выходные данные вашего приложения. Они должны содержать результаты обработки добавленных запросов. При этом выглядеть они должны примерно так, как показано в примере ниже.
+В окне консоли должны отобразиться выходные данные вашего приложения. Они должны содержать результаты обработки добавленных запросов. При этом выглядеть они должны примерно так, как показано в примере ниже.
 
     Created FamilyDB
     Press any key to continue ...
@@ -534,8 +534,8 @@ Azure Cosmos DB поддерживает удаление документов J
 Чтобы создать решение GetStarted, требуются следующие компоненты.
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/).
-* [Учетная запись Azure Cosmos DB][cosmos-db-create-account].
-* решение [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) , доступное в GitHub.
+* [Учетная запись Azure Cosmos DB][cosmos-db-create-account]
+* решение [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started), доступное в GitHub.
 
 Чтобы в Visual Studio восстановить ссылки на пакет SDK .NET для Azure Cosmos DB, в обозревателе решений щелкните правой кнопкой мыши решение **GetStarted**, а затем выберите пункт **Enable NuGet Package Restore** (Включить восстановление пакета NuGet). Затем в файле App.config обновите значения EndpointUrl и AuthorizationKey согласно инструкциям, описанным в разделе о [подключении к учетной записи Azure Cosmos DB](#Connect).
 
@@ -543,11 +543,11 @@ Azure Cosmos DB поддерживает удаление документов J
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Требуется более подробное руководство по ASP.NET MVC? Дополнительные сведения см. в статье о [разработке веб-приложения ASP.NET MVC с использованием Azure Cosmos DB](documentdb-dotnet-application.md).
-* Хотите выполнять проверку масштабирования и производительности с помощью Azure Cosmos DB? Дополнительные сведения см. в статье о [проверке производительности и масштабирования с помощью Azure Cosmos DB](performance-testing.md).
-* Узнайте, как выполнять [мониторинг учетной записи Azure Cosmos DB](monitor-accounts.md).
+* Требуется более подробное руководство по ASP.NET MVC? См. [Руководство по ASP.NET MVC. Разработка веб-приложений в Azure Cosmos DB](documentdb-dotnet-application.md).
+* Хотите выполнять проверку масштабирования и производительности с помощью Azure Cosmos DB? См. [Проверка производительности и масштабирования с помощью Azure Cosmos DB](performance-testing.md)
+* Узнайте, как организовать [мониторинг запросов, использования и хранилища Azure Cosmos DB](monitor-accounts.md).
 * Отправьте запросы образцу набора данных в [Площадке для запросов](https://www.documentdb.com/sql/demo).
-* Дополнительные сведения о модели программирования см. в разделе "Разработка" [на странице документации Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Дополнительные сведения об Azure Cosmos DB см. в статье [Добро пожаловать в базу данных Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 [cosmos-db-create-account]: create-documentdb-dotnet.md#create-account

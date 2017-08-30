@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: b606d2c3070f8020cdd9aad3f12f8f1e43125138
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d9849b5e061dd7f2ae0744a3522dc2eb1fb37035
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="create-jenkins-instance"></a>Создание экземпляра Jenkins
 В предыдущем руководстве [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md) вы узнали, как автоматизировать настройку виртуальной машины с помощью cloud-init. В этом учебнике используется файл cloud-init для установки Jenkins и Docker на виртуальной машине. 
 
-Создайте файл cloud-init с именем *cloud-init-jenkins.txt* и вставьте в него следующее содержимое.
+В текущей оболочке создайте файл *cloud-init.txt* и вставьте в него следующую конфигурацию. Например, создайте файл в Cloud Shell, не на локальном компьютере. Введите `sensible-editor cloud-init-jenkins.txt`, чтобы создать файл и просмотреть список доступных редакторов. Убедитесь, что весь файл cloud-init скопирован правильно, особенно первая строка:
 
 ```yaml
 #cloud-config
@@ -115,6 +115,8 @@ ssh azureuser@<publicIps>
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
+Если файл еще не доступен, подождите несколько минут, пока файл cloud-init не завершит установку Jenkins и Docker.
+
 Теперь откройте браузер и перейдите к `http://<publicIps>:8080`. Выполните начальную настройку Jenkins следующим образом:
 
 - Введите пароль *initialAdminPassword*, полученный из виртуальной машины на предыдущем шаге.
@@ -157,7 +159,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 Вернитесь к веб-интерфейсу пользователя GitHub, выберите разветвление репозитория и щелкните файл **index.js**. Щелкните значок карандаша и измените этот файл так, чтобы строка 6 выглядела следующим образом:
 
 ```nodejs
-response.end("Hello World!");`.
+response.end("Hello World!");
 ```
 
 Чтобы зафиксировать изменения, нажмите кнопку **Commit changes** (Фиксация изменений) внизу.
@@ -174,7 +176,7 @@ response.end("Hello World!");`.
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Создайте файл с именем `Dockerfile` в этом каталоге рабочей области и вставьте следующее содержимое:
+Создайте файл в этом каталоге рабочей области с `sudo sensible-editor Dockerfile` и вставьте следующее содержимое. Убедитесь, что весь файл Dockerfile скопирован правильно, особенно первая строка:
 
 ```yaml
 FROM node:alpine
@@ -197,7 +199,7 @@ COPY index.js /var/www/
 
 - Удалите существующий шаг сборки `echo "Test"`. Щелкните красный крест в верхнем правом углу поля существующего шага сборки.
 - Щелкните **Add build step** (Добавить шаг сборки), а затем выберите **Execute shell** (Выполнение оболочки).
-- В поле **Command** (Команда) введите следующие команды Docker:
+- В поле **Command** (Команда) введите следующие команды Docker. Затем нажмите кнопку **Save** (Сохранить):
 
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
@@ -237,7 +239,7 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 > * Создание образа Docker для приложения
 > * Проверка создания фиксацией GitHub образа Docker и изменения выполняющегося приложения
 
-Чтобы увидеть предварительно созданные примеры скриптов виртуальной машины, перейдите по ссылке ниже.
+Перейдите к следующему руководству, чтобы узнать, как интегрировать Jenkins в Visual Studio Team Services.
 
 > [!div class="nextstepaction"]
-> [Примеры сценариев для виртуальной машины Linux](./cli-samples.md)
+> [Развертывание приложения на виртуальных машинах Linux с помощью Jenkins и Team Services](tutorial-build-deploy-jenkins.md)

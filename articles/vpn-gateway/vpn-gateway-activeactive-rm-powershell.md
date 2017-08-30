@@ -1,6 +1,6 @@
 ---
-title: "Настройка VPN-подключений типа &quot;сеть — сеть&quot; в режиме &quot;активный — активный&quot; для VPN-шлюзов: Azure Resource Manager и PowerShell | Документы Майкрософт"
-description: "В этой статье описана поэтапная настройка подключений в режиме &quot;активный — активный&quot; для VPN-шлюзов Azure с помощью Azure Resource Manager и PowerShell."
+title: "Настройка VPN-подключений типа \"сеть — сеть\" в режиме \"активный — активный\" для VPN-шлюзов: Azure Resource Manager и PowerShell | Документы Майкрософт"
+description: "В этой статье описана поэтапная настройка подключений в режиме \"активный — активный\" для VPN-шлюзов Azure с помощью Azure Resource Manager и PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 08/16/2017
 ms.author: yushwang
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ea5546a636bd567853438ae2620ae24ce2d7da23
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 93873a530ba7190de964b9f5b2e0e63371d95fcc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Настройка VPN-подключений типа "сеть — сеть" в режиме "активный — активный" для VPN-шлюзов Azure
@@ -39,7 +39,9 @@ ms.lasthandoff: 04/27/2017
 Вы можете комбинировать эти блоки для создания более сложной, высокодоступной топологии сети в соответствии со своими задачами.
 
 > [!IMPORTANT]
-> Обратите внимание, что режим "активный — активный" работает только для категории SKU HighPerformance.
+> Обратите внимание, что режим "активный — активный" использует только следующие номера SKU: 
+  * VpnGw1, VpnGw2, VpnGw3
+  * HighPerformance (для устаревших номеров SKU)
 > 
 > 
 
@@ -48,7 +50,7 @@ ms.lasthandoff: 04/27/2017
 
 * Необходимо создать две конфигурации IP-адресов шлюза с двумя общедоступными IP-адресами.
 * Требуется задать параметр EnableActiveActiveFeature.
-* Номер SKU шлюза должен принадлежать к категории HighPerformance.
+* Номер SKU шлюза должен быть VpnGw1, VpnGw2, VpnGw3 или HighPerformance (устаревший SKU).
 
 Другие свойства такие же, как у шлюзов не в режиме "активный — активный". 
 
@@ -122,10 +124,10 @@ $gw1ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2) Создание VPN-шлюза с конфигурацией "активный — активный"
-Создайте шлюз для виртуальной сети TestVNet1. Обратите внимание, что есть две записи GatewayIpConfig и задан параметр EnableActiveActiveFeature. Для режима "активный — активный" требуется VPN-шлюз на основе маршрутов категории SKU HighPerformance. Создание шлюза может занять некоторое время (30 минут или более).
+Создайте шлюз для виртуальной сети TestVNet1. Обратите внимание, что есть две записи GatewayIpConfig и задан параметр EnableActiveActiveFeature. Создание шлюза может занять некоторое время (45 минут или более).
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
+New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
 ```
 
 #### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3. Получение общедоступных IP-адресов шлюза и IP-адреса узла BGP
@@ -253,15 +255,17 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupNa
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Параметры VPN и BGP для второго локального VPN-устройства
 Аналогичным образом ниже перечислены параметры, которые нужно ввести на втором VPN-устройстве.
 
-      - Site5 ASN            : 65050
-      - Site5 BGP IP         : 10.52.255.254
-      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
-      - Azure VNet ASN       : 65010
-      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
-                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
-      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
+- Site5 ASN            : 65050
+- Site5 BGP IP         : 10.52.255.254
+- Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+- Azure VNet ASN       : 65010
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
 
 После того, как подключение (туннели) установится, VPN-устройства с двойной избыточностью и туннели подключатся к локальной сети и Azure.
 
@@ -331,7 +335,7 @@ $gw2ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf2 -Subnet
 Создайте VPN-шлюз с номером AS и включенным параметром EnableActiveActiveFeature. Обратите внимание, что нужно переназначить номер ASN по умолчанию для ваших VPN-шлюзов Azure. Номера ASN для подключенных виртуальных сетей должны быть разными, чтобы работал протокол BGP и транзитная маршрутизация.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet2ASN -EnableActiveActiveFeature
+New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN -EnableActiveActiveFeature
 ```
 
 ### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>Шаг 2. Подключение шлюзов TestVNet1 и TestVNet2
@@ -366,8 +370,8 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 ## <a name ="aaupdate"></a>Часть 4. Обновление имеющегося шлюза между режимами "активный — активный" и "активный — резервный"
 В последнем разделе описано, как перевести имеющийся VPN-шлюз Azure из режима "активный — резервный" в режим "активный — активный" и наоборот.
 
-> [!IMPORTANT]
-> Обратите внимание, что режим "активный — активный" работает только для категории SKU HighPerformance.
+> [!NOTE]
+> Этот раздел содержит инструкции по изменению размера устаревшего SKU (старого SKU) уже созданного шлюза VPN со Standard на HighPerformance. С помощью этих действий нельзя обновить устаревший SKU на один из новых SKU.
 > 
 > 
 
@@ -396,7 +400,7 @@ Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPc
 ```
 
 #### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. Включение режима "активный — активный" и обновление шлюза
-Необходимо задать объект шлюза в PowerShell, чтобы активировать фактическое обновление. Также необходимо изменить SKU объекта шлюза на HighPerformance, так как ранее он был создан со SKU Standard.
+Необходимо задать объект шлюза в PowerShell, чтобы активировать фактическое обновление. Также необходимо изменить SKU шлюза виртуальной сети на HighPerformance (или изменить его размер), так как ранее он был создан со SKU Standard.
 
 ```powershell
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
@@ -428,5 +432,3 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -DisableActiveActive
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Инструкции см. в статье о [создании виртуальной машины](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

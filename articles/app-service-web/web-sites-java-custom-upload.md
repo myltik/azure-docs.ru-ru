@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: df6443bb27285e8ba719c229dd1b12114acc48c7
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9c8f9ee7780859f7640ac82d6ebce85082170ad7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-a-custom-java-web-app-to-azure"></a>Отправка пользовательского веб-приложения Java в Azure
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/17/2016
 
 **arguments** (значение по умолчанию — ""). Аргументы для исполняемого файла или скрипта, указанного в параметре **processPath** .
 
-Примеры (показаны с включенным **processPath** ):
+Примеры (показаны с включенным **processPath**):
 
     processPath="%HOME%\site\wwwroot\bin\tomcat\bin\catalina.bat"
     arguments="start"
@@ -201,7 +201,7 @@ Liferay поддерживается в веб-приложениях служб
 **Server.xml**
 
 * Измените порт завершения работы на -1.
-* Измените соединитель HTTP на       `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
+* Измените соединитель HTTP на такой: `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 * Закомментируйте соединитель AJP.
 
 В папке **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** создайте файл **portal-ext.properties**. Этот файл должен содержать одну строку, как показано ниже:
@@ -241,7 +241,7 @@ Liferay поддерживается в веб-приложениях служб
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о Liferay см. на сайте [http://www.liferay.com](http://www.liferay.com).
 
-Дополнительные сведения о Java см. в [центре по разработке для Java](/develop/java/).
+Дополнительные сведения о Java см. в разделе [Azure for Java developers](/java/azure) (Azure для разработчиков Java).
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

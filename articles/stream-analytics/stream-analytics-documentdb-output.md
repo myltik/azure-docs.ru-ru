@@ -15,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cb85dff7f8bf8a8715aaa9ecd02da59b9108915c
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Направление Azure Cosmos DB из Stream Analytics в формат JSON
 Stream Analytics позволяет направлять данные из [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) в формат JSON, позволяя архивировать данные и уменьшать задержки запросов в отношении неструктурированных данных JSON. В этом документе представлены некоторые рекомендации по реализации данной конфигурации.
 
-Тем, кто не знаком с Cosmos DB, мы рекомендуем просмотреть [схему обучения работе с Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
+Тем, кто не знаком с Cosmos DB, мы рекомендуем просмотреть [схему обучения работе с Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/). 
+
+Примечание. Коллекции Cosmos DB, использующие API-интерфейсы Mongo DB, пока не поддерживаются. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Основные сведения о Cosmos DB как объекте вывода данных
 Использование выходных данных Azure Cosmos DB в Stream Analytics позволяет записывать результаты обработки потока данных в коллекцию Cosmos DB в формате JSON. Stream Analytics не создает коллекции в базе данных. Их требуется создавать заранее. Благодаря этому выставление счетов за использование коллекций Cosmos DB является прозрачным для вас. Кроме того, вы можете регулировать производительность, согласованность и емкость своих коллекций напрямую с помощью [API-интерфейсов Cosmos DB](https://msdn.microsoft.com/library/azure/dn781481.aspx). Мы рекомендуем использовать одну базу данных Cosmos DB для одного потокового задания, чтобы обеспечить логическое разделение ваших коллекций для потокового задания.

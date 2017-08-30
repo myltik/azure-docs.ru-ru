@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/02/2017
+ms.date: 08/23/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b1a4ca17a53a6d337d704bc4eef6d441de1f32d8
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: f4e42ca177ac6c11111d4ffc0d772cafc13f8657
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Порты, используемые службами Hadoop в HDInsight
@@ -75,13 +75,19 @@ ms.lasthandoff: 07/14/2017
 > [!NOTE]
 > Некоторые службы доступны только в кластерах определенных типов. Например, служба HBase доступна только на кластерах типа HBase.
 
+> [!IMPORTANT]
+> Некоторые службы могут работать только на одном головном узле одновременно. Если вы пытаетесь подключиться к службе на основном головном узле и получаете сообщение об ошибке 404, повторите попытку, используя вторичный головной узел.
+
 ### <a name="ambari"></a>Ambari
 
-| служба | Nodes | Порт | Путь | Протокол | 
+| служба | Nodes | Порт | URL-адрес | Протокол | 
 | --- | --- | --- | --- | --- |
 | Веб-интерфейс Ambari | Головные узлы | 8080 | / | HTTP |
 | Ambari REST API | Головные узлы | 8080 | /api/v1 | HTTP |
 
+Примеры:
+
+* Ambari REST API: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>Порты HDFS
 
@@ -161,6 +167,11 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="spark-ports"></a>Порты Spark
 
-| служба | Nodes | Порт | Протокол | Описание |
-| --- | --- | --- | --- | --- |
-| Серверы Thrift Spark |Головные узлы |10002 |Thrift |Служба для подключения к Spark SQL (с помощью протокола Thrift или JDBC) |
+| служба | Nodes | Порт | Протокол | URL-адрес | Описание |
+| --- | --- | --- | --- | --- | --- |
+| Серверы Thrift Spark |Головные узлы |10002 |Thrift | &nbsp; | Служба для подключения к Spark SQL (с помощью протокола Thrift или JDBC) |
+| Сервер Livy | Головные узлы | 8998 | HTTP | /пакеты | Служба для запуска инструкций, заданий и приложений |
+
+Примеры:
+
+* Livy: `curl "http://10.0.0.11:8998/batches"`. В этом примере `10.0.0.11` — IP-адрес головного узла, на котором размещена служба Livy.

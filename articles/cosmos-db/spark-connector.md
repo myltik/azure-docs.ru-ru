@@ -13,20 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 08/17/2017
 ms.author: denlee
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 74b33f82e2f5315b8d3bd90a39854000f298bb80
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 8ecbb478c81cde25bbd0d1c9ee07ae02b07f8cc7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Ускорение аналитики больших данных в реальном времени с помощью соединителя Spark для Cosmos DB
 
-Соединитель Spark для Cosmos DB позволяет использовать Azure Cosmos DB в качестве источника входных данных или приемника выходных данных для заданий Apache Spark. Подключение [Spark](http://spark.apache.org/) к [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ускоряет решение проблем анализа данных, используя Cosmos DB для быстрого сохранения и запроса данных. Соединитель Spark для Azure Cosmos DB эффективно использует собственные управляемые индексы Cosmos DB. Эти индексы позволяют использовать обновляемые столбцы при выполнении анализа, применять фильтры предиката к быстро меняющимся глобально распределенным данным, начиная от Интернета вещей, обработки и анализа данных и до сценариев аналитики.
+Соединитель Spark для Azure Cosmos DB дает возможность использовать Azure Cosmos DB в качестве источника входных данных или приемника выходных данных для заданий Apache Spark. Подключение [Spark](http://spark.apache.org/) к [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ускоряет решение проблем анализа данных, используя Azure Cosmos DB для быстрого сохранения и запроса данных. Соединитель Spark для Azure Cosmos DB эффективно использует собственные управляемые индексы Azure Cosmos DB. Эти индексы позволяют использовать обновляемые столбцы при выполнении анализа, применять фильтры предиката к быстро меняющимся глобально распределенным данным, начиная от Интернета вещей, обработки и анализа данных и до сценариев аналитики.
 
 Дополнительные сведения о работе с API Spark GraphX и графами Gremlin в Azure Cosmos DB см.в статье [Azure Cosmos DB. Аналитика графов с помощью Spark и Apache TinkerPop Gremlin](spark-connector-graph.md).
 
@@ -43,8 +42,7 @@ ms.lasthandoff: 06/15/2017
    * Гарантия задержки, измеряемой единицами, на уровне 99-го процентиля.
    * [Множество точно определенных моделей согласованности](consistency-levels.md).
    * Гарантии высокой доступности с возможностями множественной адресации.
-
-   Все возможности прописаны в ведущих в отрасли универсальных [соглашениях об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db) (SLA).
+   * Все возможности прописаны в ведущих в отрасли универсальных [соглашениях об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db) (SLA).
 
 * [Apache Spark](http://spark.apache.org/) — высокопроизводительная подсистема обработки с открытым исходным кодом, призванная ускорить разработку, повысить удобство использования и реализовать сложную аналитику.
 
@@ -62,23 +60,23 @@ ms.lasthandoff: 06/15/2017
 
 Существует два способа подключения Apache Spark и Azure Cosmos DB:
 - с помощью pyDocumentDB через [пакет SDK для Java в Azure DocumentDB](https://github.com/Azure/azure-documentdb-python);
-- с помощью соединителя Spark для Cosmos DB на основе Java, использующего [пакет SDK для Java в Azure DocumentDB](https://github.com/Azure/azure-documentdb-java).
+- с помощью соединителя Spark для Azure Cosmos DB на основе Java, использующего [пакет SDK для Java в Azure DocumentDB](https://github.com/Azure/azure-documentdb-java).
 
 ## <a name="pydocumentdb-implementation"></a>Реализация pyDocumentDB
-Текущий [пакет SDK для pyDocumentDB](https://github.com/Azure/azure-documentdb-python) позволяет подключить Spark к Cosmos DB, как показано на следующей схеме:
+Текущий [пакет SDK для pyDocumentDB](https://github.com/Azure/azure-documentdb-python) дает возможность подключить Spark к Azure Cosmos DB, как показано на следующей схеме:
 
-![Поток данных из Spark в Cosmos DB через pyDocument DB:](./media/spark-connector/spark-pydocumentdb.png)
+![Поток данных из Spark в Azure Cosmos DB через pyDocument DB](./media/spark-connector/spark-pydocumentdb.png)
 
 
 ### <a name="data-flow-of-the-pydocumentdb-implementation"></a>Путь потока данных в pyDocumentDB
 
 Путь потока данных выглядит следующим образом:
 
-1. Главный узел Spark подключается к узлу шлюза Cosmos DB через pyDocumentDB. Пользователь указывает только подключения Spark и Cosmos DB. Соединения в соответствующих главном узле и узле шлюза прозрачны для пользователя.
-2. Узел шлюза делает запрос к Cosmos DB, вследствие он далее отправляется к разделам коллекции в узлах данных. Ответ на эти запросы возвращается в узел шлюза, а результирующий набор — в главный узел Spark.
+1. Главный узел Spark подключается к узлу шлюза Azure Cosmos DB через pyDocumentDB. Пользователь указывает только подключения Spark и Azure Cosmos DB. Соединения в соответствующих главном узле и узле шлюза прозрачны для пользователя.
+2. Узел шлюза делает запрос к Azure Cosmos DB. Далее запрос отправляется к разделам коллекции в узлах данных. Ответ на эти запросы возвращается в узел шлюза, а результирующий набор — в главный узел Spark.
 3. Последующие запросы (например, к таблице данных Spark) отправляются в рабочие узлы Spark для обработки.
 
-Взаимодействие между Spark и Cosmos DB происходит в пределах главного узла Spark и узла шлюза Cosmos DB.  Скорость запросов зависит от транспортного уровня между двумя этими узлами.
+Взаимодействие между Spark и Azure Cosmos DB происходит в пределах главного узла Spark и узлов шлюза Azure Cosmos DB.  Скорость запросов зависит от транспортного уровня между двумя этими узлами.
 
 ### <a name="install-pydocumentdb"></a>Установка pyDocumentDB
 pyDocumentDB можно установить на узел драйвера с помощью **pip** следующим образом:
@@ -88,8 +86,8 @@ pip install pyDocumentDB
 ```
 
 
-### <a name="connect-spark-to-cosmos-db-via-pydocumentdb"></a>Подключение Spark к Cosmos DB через pyDocumentDB
-Благодаря простоте обмена данными выполнение запроса из Spark в Cosmos DB с помощью pyCosmos DB относительно простое.
+### <a name="connect-spark-to-azure-cosmos-db-via-pydocumentdb"></a>Подключение Spark к Azure Cosmos DB через pyDocumentDB
+Благодаря простоте обмена данными выполнение запроса из Spark в Azure Cosmos DB с помощью pyDocumentDB относительно простое.
 
 В приведенном ниже фрагменте кода показано, как использовать pyDocumentDB в контексте Spark.
 
@@ -106,7 +104,7 @@ connectionPolicy.EnableEndpointDiscovery
 connectionPolicy.PreferredLocations = ["Central US", "East US 2", "Southeast Asia", "Western Europe","Canada Central"]
 
 
-# Set keys to connect to Cosmos DB
+# Set keys to connect to Azure Cosmos DB
 masterKey = 'le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA=='
 host = 'https://doctorwho.documents.azure.com:443/'
 client = document_client.DocumentClient(host, {'masterKey': masterKey}, connectionPolicy)
@@ -114,19 +112,19 @@ client = document_client.DocumentClient(host, {'masterKey': masterKey}, connecti
 
 Во фрагменте кода указано:
 
-* Пакет средств разработки Python для Cosmos DB (`pyDocumentDB`) содержит все необходимые параметры подключения. Например, параметр предпочтительных расположений выбирает реплику чтения и приоритет.
-*  Импортируйте необходимые библиотеки, а затем настройте **главный ключ** и **узел** для создания *клиента* Cosmos DB (**pydocumentdb.document_client**).
+* Пакет SDK Python для Azure Cosmos DB (`pyDocumentDB`) содержит все необходимые параметры подключения. Например, параметр предпочтительных расположений выбирает реплику чтения и приоритет.
+*  Импортируйте необходимые библиотеки, а затем настройте **главный ключ** и **узел** для создания *клиента* Azure Cosmos DB (**pydocumentdb.document_client**).
 
 
 ### <a name="execute-spark-queries-via-pydocumentdb"></a>Выполнение запросов Spark с помощью pyDocumentDB
-В следующих примерах используется экземпляр Cosmos DB, созданный в предыдущем фрагменте с использованием указанных ключей, доступных только для чтения. Следующий фрагмент кода подключается к коллекции **airports.codes** (в учетной записи DoctorWho, как указано ранее) и выполняет запрос для извлечения городов с аэропортами в штате Вашингтон.
+В следующих примерах используется экземпляр Azure Cosmos DB, созданный в предыдущем фрагменте с использованием указанных ключей, доступных только для чтения. Следующий фрагмент кода подключается к коллекции **airports.codes** (в учетной записи DoctorWho, как указано ранее) и выполняет запрос для извлечения городов с аэропортами в штате Вашингтон.
 
 ```
 # Configure Database and Collections
 databaseId = 'airports'
 collectionId = 'codes'
 
-# Configurations the Cosmos DB client will use to connect to the database and collection
+# Configurations the Azure Cosmos DB client will use to connect to the database and collection
 dbLink = 'dbs/' + databaseId
 collLink = dbLink + '/colls/' + collectionId
 
@@ -150,28 +148,28 @@ elements = list(query)
 df = spark.createDataFrame(elements)
 ```
 
-### <a name="why-use-the-pydocumentdb-to-connect-spark-to-cosmos-db"></a>Зачем использовать pyDocumentDB для подключения Spark к Cosmos DB?
-Подключение Spark к Cosmos DB с помощью pyDocumentDB в основном предназначено для следующих сценариев:
+### <a name="why-use-the-pydocumentdb-to-connect-spark-to-azure-cosmos-db"></a>Зачем использовать pyDocumentDB для подключения Spark к Azure Cosmos DB?
+Подключение Spark к Azure Cosmos DB с помощью pyDocumentDB в основном предназначено для следующих сценариев:
 
 * Необходимо использовать Python.
-* В Spark возвращается относительно небольшой результирующий набор из Cosmos DB. Обратите внимание, что базовый набор данных в Cosmos DB может быть достаточно большим. В этом случае к источнику DocumentDB можно применить фильтры предиката.  
+* Необходимо вернуть относительно небольшой набор результатов из Azure Cosmos DB в Spark. Обратите внимание, что базовый набор данных в Azure Cosmos DB может быть достаточно большим. К источнику Azure Cosmos DB можно применить фильтры предиката.  
 
-## <a name="spark-to-cosmos-db-connector"></a>Соединитель Spark для Cosmos DB
+## <a name="spark-to-azure-cosmos-db-connector"></a>Соединитель Spark для Azure Cosmos DB
 
-Соединитель Spark для Cosmos DB использует [пакет SDK для Java в Azure Cosmos DB](https://github.com/Azure/azure-documentdb-java) и перемещает данные между рабочими узлами Spark и Cosmos DB, как показано на следующей схеме:
+Соединитель Spark для Azure Cosmos DB использует [пакет SDK для Java в Azure DocumentDB](https://github.com/Azure/azure-documentdb-java) и перемещает данные между рабочими узлами Spark и Azure Cosmos DB, как показано на следующей схеме:
 
-![Поток данных в соединителе Spark для DocumentDB](./media/spark-connector/spark-connector.png)
+![Поток данных в соединителе Spark для Azure Cosmos DB](./media/spark-connector/spark-connector.png)
 
 Путь потока данных выглядит следующим образом:
 
-1. Главный узел Spark подключается к узлу шлюза Cosmos DB и устанавливается соединение, чтобы получить схему секционирования Пользователь указывает только подключения Spark и Cosmos DB. Соединения в соответствующих главном узле и узле шлюза прозрачны для пользователя.
-2. Эта информация возвращается в главный узел Spark.  На этом этапе вы можете проанализировать запрос, чтобы определить разделы (и их расположение) в Cosmos DB, к которым требуется получить доступ.
+1. Главный узел Spark подключается к узлу шлюза Azure Cosmos DB, чтобы получить схему секционирования. Пользователь указывает только подключения Spark и Azure Cosmos DB. Соединения в соответствующих главном узле и узле шлюза прозрачны для пользователя.
+2. Эта информация возвращается в главный узел Spark.  На этом этапе вы можете проанализировать запрос, чтобы определить разделы (и их расположения) в Azure Cosmos DB, к которым требуется получить доступ.
 3. Эта информация передается в рабочие узлы Spark.
-4. Таким образом, рабочие узлы Spark подключаются к разделам Cosmos DB для извлечения необходимых данных и их возвращения в разделы рабочих узлов Spark.
+4. Таким образом, рабочие узлы Spark подключаются к разделам Azure Cosmos DB, чтобы извлечь необходимые данные и вернуть их в разделы рабочих узлов Spark.
 
-Взаимодействие между Spark и Cosmos DB происходит значительно быстрее, так как данные перемещаются между рабочими узлами Spark и узлами данных Cosmos DB (разделами).
+Взаимодействие между Spark и Azure Cosmos DB происходит значительно быстрее, так как данные перемещаются между рабочими узлами Spark и узлами данных Azure Cosmos DB (разделами).
 
-### <a name="build-the-spark-to-cosmos-db-connector"></a>Создание соединителя Spark для DocumentDB
+### <a name="build-the-spark-to-azure-cosmos-db-connector"></a>Создание соединителя Spark для Azure Cosmos DB
 Сейчас в проекте соединителя используется maven. Чтобы создать соединитель без зависимостей, выполните следующую команду:
 ```
 mvn clean package
@@ -204,8 +202,8 @@ spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$
 
 Команда **jars** позволяет включить два JAR-файла, необходимые для **azure-cosmosdb-spark**(и пакета SDK для Java в Azure DocumentDB), и исключает **scala-reflect** для предотвращения конфликта с вызовами Livy (Jupyter Notebook > Livy > Spark).
 
-### <a name="connect-spark-to-cosmos-db-using-the-connector"></a>Подключение Spark и Cosmos DB с помощью соединителя
-Несмотря на то, что обмен данными происходит сложнее, запрос из Spark в Cosmos DB с помощью соединителя выполняется значительно быстрее.
+### <a name="connect-spark-to-azure-cosmos-db-using-the-connector"></a>Подключение Spark и Azure Cosmos DB с помощью соединителя
+Несмотря на то что обмен данными происходит сложнее, запрос из Spark в Azure Cosmos DB с помощью соединителя выполняется значительно быстрее.
 
 В следующем фрагменте кода показано, как использовать соединитель в контексте Spark.
 
@@ -233,11 +231,11 @@ coll.createOrReplaceTempView("c")
 Во фрагменте кода указано:
 
 - **azure-cosmosdb-spark** содержит все необходимые параметры подключения, включая предпочтительное расположения. Например, можно выбрать реплику чтения и приоритет.
-- Импортируйте необходимые библиотеки и настройте главный ключ и узел для создания клиента Cosmos DB.
+- Импортируйте необходимые библиотеки и настройте главный ключ и узел для создания клиента Azure Cosmos DB.
 
 ### <a name="execute-spark-queries-via-the-connector"></a>Выполнение запросов Spark с помощью соединителя
 
-В следующем примере используется экземпляр Cosmos DB, созданный в предыдущем фрагменте с использованием указанных ключей, доступных только для чтения. Следующий фрагмент кода подключается к коллекции DepartureDelays.flights_pcoll (в учетной записи DoctorWho, как указано ранее) и выполняет запрос для извлечения сведений о задержке рейсов, вылетающих из Сиэтла.
+В следующем примере используется экземпляр Azure Cosmos DB, созданный в предыдущем фрагменте с использованием указанных ключей, доступных только для чтения. Следующий фрагмент кода подключается к коллекции DepartureDelays.flights_pcoll (в учетной записи DoctorWho, как указано ранее) и выполняет запрос для извлечения сведений о задержке рейсов, вылетающих из Сиэтла.
 
 ```
 // Queries
@@ -251,30 +249,30 @@ df.count()
 df.show()
 ```
 
-### <a name="why-use-the-spark-to-cosmos-db-connector-implementation"></a>Зачем использовать соединитель Spark для Cosmos DB?
+### <a name="why-use-the-spark-to-azure-cosmos-db-connector-implementation"></a>Зачем использовать соединитель Spark для Azure Cosmos DB?
 
-Подключение к Cosmos DB с помощью соединителя Spark в основном предназначено для следующих сценариев:
+Подключение Spark к Azure Cosmos DB с помощью соединителя в основном предназначено для следующих сценариев:
 
 * Необходимо использовать Scala (и обновить его для включения оболочки Python, как указано на странице [Issue 3: Add Python wrapper and examples](https://github.com/Azure/azure-cosmosdb-spark/issues/3) (Проблема 3. Добавление оболочки Python с примерами)).
-* Необходимо передать большой объем данных между Apache Spark и Cosmos DB.
+* Необходимо передать большой объем данных между Apache Spark и Azure Cosmos DB.
 
 Чтобы получить представление о разнице в производительности запросов, см. сведения в статье [Query Test Runs](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs) (Тестовые выполнения запросов).
 
 ## <a name="distributed-aggregation-example"></a>Пример распределенного агрегирования
 В этом разделе приведены некоторые примеры того, как можно выполнить распределенное агрегирование и аналитику с помощью Apache Spark и Azure Cosmos DB. В Azure Cosmos DB уже реализована поддержка агрегирования,как описано в записи блога [Planet scale aggregates with Azure Cosmos DB](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/) (Глобальное агрегирование с помощью Azure Cosmos DB). Вот как с помощью Apache Spark этот процесс можно выполнить на новом уровне.
 
-Обратите внимание, что эти агрегирования относятся к [соединителю Spark для Cosmos DB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark-to-DocumentDB_Connector.ipynb).
+Обратите внимание, что эти агрегирования относятся к [соединителю Spark для Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark-to-CosmosDB_Connector.ipynb).
 
 ### <a name="connect-to-flights-sample-data"></a>Подключение к примеру данных о полетах
-Эти примеры агрегаций получают доступ к данным об выполнении рейсов, которые хранятся в базе данных Cosmos DB **DoctorWho**. Чтобы подключиться к ней, используйте следующий фрагмент кода:
+Эти примеры агрегаций получают доступ к данным о выполнении рейсов, которые хранятся в базе данных Azure Cosmos DB **DoctorWho**. Чтобы подключиться к ней, используйте следующий фрагмент кода:
 
 ```
-// Import Spark to Cosmos DB connector
+// Import Spark to Azure Cosmos DB connector
 import com.microsoft.azure.cosmosdb.spark.schema._
 import com.microsoft.azure.cosmosdb.spark._
 import com.microsoft.azure.cosmosdb.spark.config.Config
 
-// Connect to Cosmos DB Database
+// Connect to Azure Cosmos DB Database
 val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
 "Masterkey" -> "le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==",
 "Database" -> "DepartureDelays",
@@ -287,7 +285,7 @@ val coll = spark.sqlContext.read.cosmosDB(readConfig2)
 coll.createOrReplaceTempView("c")
 ```
 
-С помощью этого фрагмента кода мы также выполним базовый запрос, который передаст отфильтрованный набор данных из Cosmos DB в Spark (где впоследствии можно выполнить распределенные агрегирования). В этом случае мы запрашиваем сведения об авиарейсах, вылетающих из Сиэтла (SEA).
+С помощью этого фрагмента кода мы также выполним базовый запрос, передающий отфильтрованный набор данных из Azure Cosmos DB в Spark (где впоследствии можно выполнить распределенные агрегирования). В этом случае мы запрашиваем сведения об авиарейсах, вылетающих из Сиэтла (SEA).
 
 ```
 // Run, get row count, and time query
@@ -307,7 +305,7 @@ originSEA.createOrReplaceTempView("originSEA")
 ![Запрос Spark COUNT](./media/spark-connector/spark-count-query.png)
 
 ### <a name="group-by-query"></a>Запрос GROUP BY
-В этом наборе можно легко выполнять запросы **GROUP BY** к базе данных Cosmos DB:
+В следующем наборе можно легко выполнять запросы **GROUP BY** к базе данных Azure Cosmos DB:
 
 ```
 select destination, sum(delay) as TotalDelays
@@ -350,7 +348,7 @@ order by percentile_approx(delay, 0.5)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Скачайте соединитель Cosmos DB для Spark из репозитория [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) на сайте GitHub и изучите дополнительные ресурсы в этом репозитории:
+Скачайте соединитель Azure Cosmos DB для Spark из репозитория [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) на сайте GitHub и изучите дополнительные ресурсы в этом репозитории:
 
 * [Aggregations Examples](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples) (Примеры агрегирований)
 * [Sample Scripts and Notebooks](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples) (Примеры скриптов и записных книжек)

@@ -1,26 +1,26 @@
 ---
 title: "Создание функции, активируемой объектом webhook GitHub, в Azure | Документация Майкрософт"
 description: "Создавайте независимые от сервера функции, активируемые объектом webhook GitHub, с помощью Функций Azure."
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 038bb4cf0a9278416261c05ddaa0ee97d83b63c5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Создание функции, активируемой объектом webhook GitHub
@@ -52,7 +52,7 @@ ms.lasthandoff: 07/11/2017
 
     ![Страница быстрого начала работы с функциями на портале Azure](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Выберите шаблон **GitHubWebHook** для нужного языка. **Присвойте функции имя** и щелкните **Создать**.
+2. Выберите шаблон **Веб-перехватчик GitHub** для нужного языка. **Присвойте функции имя** и щелкните **Создать**.
 
      ![Создание функции, активируемой веб-перехватчиком GitHub, на портале Azure](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 

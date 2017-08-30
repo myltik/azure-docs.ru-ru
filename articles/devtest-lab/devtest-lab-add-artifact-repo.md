@@ -1,5 +1,5 @@
 ---
-title: "Добавление репозитория артефактов Git в лабораторию в Azure DevTest Labs | Документация Майкрософт"
+title: "Добавление репозитория Git в лабораторию в Azure DevTest Labs | Документы Майкрософт"
 description: "Добавление репозитория Git GitHub или Visual Studio Team Services, предназначенного для источника пользовательских артефактов, в Azure DevTest Labs"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 55b8b97a8cabedf86e2b92d9490be74c72a5fb09
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 053f92a65f9ae29154d471fd22ee842620b4f273
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="add-a-git-repository-to-store-custom-artifacts-and-azure-resource-manager-templates-for-use-in-azure-devtest-labs"></a>Добавление репозитория Git для хранения пользовательских артефактов и шаблонов Azure Resource Manager в Azure DevTest Labs
+# <a name="add-a-git-repository-to-store-custom-artifacts-and-azure-resource-manager-templates"></a>Добавление репозитория Git для хранения пользовательских артефактов и шаблонов Azure Resource Manager
 
 Если вы хотите [создать пользовательские артефакты](devtest-lab-artifact-author.md) для виртуальных машин в лаборатории или [использовать шаблоны Azure Resource Manager для создания настраиваемой тестовой среды](devtest-lab-create-environment-from-arm.md), нужно также добавить частный репозиторий Git для артефактов или шаблонов Azure Resource Manager, создаваемых вашей группой. Репозиторий артефактов может находиться в [GitHub](https://github.com) или [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
@@ -77,12 +76,12 @@ ms.lasthandoff: 04/27/2017
 1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**.
 3. Из списка лабораторий выберите нужную лабораторию.   
-4. В колонке лаборатории выберите **Конфигурация и политики**.
-5. В колонке **Конфигурация и политики** лаборатории выберите **Репозитории**.
-6. В колонке **Репозитории** выберите **+ Добавить**.
+4. На панели слева выберите **Конфигурация и политики**.
+5. В области **Конфигурация и политики** лаборатории выберите **Репозитории**.
+6. В области **Репозитории** выберите **+ Добавить**.
 
     ![Кнопка добавления репозитория](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-7. Во второй колонке **Репозитории** укажите следующие сведения:
+7. На второй странице **Репозитории** укажите следующие сведения:
 
    * **Имя** — введите имя репозитория.
    * **URL-адрес клона Git** — введите URL-адрес клона HTTPS Git, скопированный ранее из GitHub или Visual Studio Team Services.
@@ -90,7 +89,7 @@ ms.lasthandoff: 04/27/2017
    * **Личный маркер доступа** — укажите личный маркер доступа, полученный ранее из GitHub или Visual Studio Team Services.
    * **Путь к папке** — введите по меньшей мере один путь к папке относительно URL-адреса клона, содержащего определения артефактов или шаблонов Azure Resource Manager. При указании подкаталога обязательно включите косую черту в путь к папке.
 
-     ![Колонка репозиториев](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+     ![Область "Репозитории"](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 8. Щелкните **Сохранить**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -98,11 +97,11 @@ ms.lasthandoff: 04/27/2017
 * Сохраните [пользовательские артефакты](devtest-lab-artifact-author.md), которые можно использовать позднее для создания виртуальных машин.
 * [Создайте среды с множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Azure Resource Manager](devtest-lab-create-environment-from-arm.md), а затем сохраните шаблоны в частном репозитории.
 
-При создании виртуальной машины вы убедитесь, что артефакты или шаблоны добавляются в ваш репозиторий Git. Они сразу же появятся в списке артефактов или шаблонов, при этом в столбце источника отображается имя частного репозитория. 
+При создании виртуальной машины вы можете убедиться, что артефакты или шаблоны добавляются в ваш репозиторий Git. Они сразу же появляются в списке артефактов или шаблонов, при этом в столбце источника отображается имя частного репозитория. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="related-blog-posts"></a>Связанные записи в блогах
-* [How to troubleshoot failing Artifacts in AzureDevTestLabs (Способы устранения сбоя артефактов в лабораториях для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
-* [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Присоединение виртуальной машины к существующему домену AD с помощью шаблона ARM в лаборатории для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Diagnose artifact failures in the lab](devtest-lab-troubleshoot-artifact-failure.md) (Диагностика сбоев артефактов в лаборатории)
+* [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Присоединение виртуальной машины к существующему домену AD с помощью шаблона ARM в Azure DevTest Labs)
 
