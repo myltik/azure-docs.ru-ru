@@ -53,7 +53,7 @@ Microsoft Authenticator также можно использовать со ст
 
 Чтобы добавить личную учетную запись Майкрософт (используемую для входа в Outlook.com, Xbox, Skype и т. д.), нужно просто войти в нее в приложении Microsoft Authenticator.
 
-### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>Добавление рабочей или учебой учетной записи в приложение с использованием сканера QR-кода
+### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>Добавление рабочей или учебной учетной записи в приложение с использованием сканера QR-кода
 1. Перейдите на страницу параметров проверки безопасности.  Инструкции по переходу на эту страницу см. в статье [Управление параметрами двухфакторной проверки подлинности](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
 2. Установите флажок **Приложение Authenticator** и нажмите кнопку **Настроить**.
 
