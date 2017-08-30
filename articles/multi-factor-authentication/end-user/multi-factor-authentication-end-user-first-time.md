@@ -4,7 +4,7 @@ description: "Когда ваша компания настроит Многоф
 services: multi-factor-authentication
 keywords: "как использовать каталог Azure, Active Directory в облаке, руководство по Active Directory"
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: pblachar
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: HT
 ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/16/2017
 
 Щелкните **Set it up now** (Настроить сейчас).
 
-Если такой экран не отображается, когда вы входите в систему, следуйте инструкциям в статье [Управление параметрами двухфакторной проверки подлинности](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page), чтобы найти страницу параметров, на которой можно управлять параметрами проверки. 
+Если такой экран не отображается, когда вы входите в систему, следуйте инструкциям в статье [Управление параметрами двухфакторной проверки подлинности](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page), чтобы найти страницу параметров, на которой можно управлять параметрами проверки.
 
 ## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Выбор способа проверки при входе
 

@@ -3,7 +3,7 @@ title: "Приступая к работе с двухфакторной про�
 description: "Приведенные на этой странице сведения о многофакторной проверке подлинности в службе Azure помогут пользователям начать работу с Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
 ms.translationtype: Human Translation
@@ -48,5 +48,4 @@ ms.lasthandoff: 06/22/2017
 | [Изменение параметров](multi-factor-authentication-end-user-manage-settings.md) |Описание способа изменения параметров, включая номер телефона или предпочтительный метод регистрации. |
 | [Справка о паролях приложений](multi-factor-authentication-end-user-app-passwords.md) |Информация о создании и использовании паролей приложений. |
 | [Использование мобильного приложения](microsoft-authenticator-app-how-to.md) |Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-
 

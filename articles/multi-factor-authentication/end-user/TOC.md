@@ -13,6 +13,3 @@
 ### [Начало работы с приложением](microsoft-authenticator-app-how-to.md)
 ### [Вход с помощью телефона](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Часто задаваемые вопросы](microsoft-authenticator-app-faq.md)
-# Ресурсы
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
