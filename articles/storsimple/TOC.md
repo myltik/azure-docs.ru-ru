@@ -162,7 +162,6 @@
 ##### [Создание пакета поддержки](storsimple-8000-create-manage-support-package.md)
 
 ### Миграция
-#### [С серий 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [С других запоминающих устройств](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Блокировка изменений
@@ -301,16 +300,17 @@
 ##### [Создание пакета поддержки](storsimple-create-manage-support-package.md)
 
 ### Миграция
-#### [С серий 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [С других запоминающих устройств](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Блокировка изменений
+#### [Установка обновления 5 (текущая версия)](storsimple-install-update-5.md)
 #### [Установка обновления 4](storsimple-install-update-4.md)
 #### [Установка обновления 3](storsimple-install-update-3.md)
 #### [Обновление устройства](storsimple-update-device.md)
 
 ## Заметки о выпуске
-### [Обновление 4 (текущая версия)](storsimple-update4-release-notes.md)
+### [Обновление 5 (текущая версия)](storsimple-update5-release-notes.md)
+### [Обновление 4](storsimple-update4-release-notes.md)
 ### [Обновление 3](storsimple-update3-release-notes.md)
 ### [Обновление 2.2](storsimple-update21-release-notes.md)
 

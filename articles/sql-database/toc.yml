@@ -65,6 +65,10 @@
           href: sql-database-servers-databases.md
         - name: Уровни службы
           href: sql-database-service-tiers.md
+        - name: Ограничения ресурсов
+          href: sql-database-resource-limits.md
+        - name: Отдельные базы данных
+          href: sql-database-single-database-resources.md
         - name: Пулы эластичных БД
           href: sql-database-elastic-pool.md
         - name: Архитектура подключения
@@ -75,8 +79,6 @@
           href: sql-database-what-is-a-dtu.md
         - name: Тест производительности DTU
           href: sql-database-benchmark-overview.md
-        - name: Ограничения
-          href: sql-database-resource-limits.md
         - name: PaaS или IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
         - name: Аудит
