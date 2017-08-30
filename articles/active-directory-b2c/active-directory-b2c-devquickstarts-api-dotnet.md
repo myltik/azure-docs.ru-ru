@@ -20,7 +20,6 @@ ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: создание веб-API .NET
 

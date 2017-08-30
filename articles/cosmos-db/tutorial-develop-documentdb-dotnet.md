@@ -115,7 +115,7 @@ private DocumentClient client;
 Теперь создайте экземпляр **DocumentClient**.
 
 ```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 ```
 
 ## <a id="create-database"></a>Создание базы данных

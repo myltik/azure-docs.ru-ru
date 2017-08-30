@@ -3,7 +3,7 @@ title: "Общие сведения об Azure Advisor | Документаци�
 description: "Использование Azure Advisor для оптимизации развернутых служб Azure."
 services: advisor
 documentationcenter: NA
-author: kumudd
+author: KumudD
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 35678142550f9f887562f311a5e7d9516495cf53
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/31/2017
 
 ---

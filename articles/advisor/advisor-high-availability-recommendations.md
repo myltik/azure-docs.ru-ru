@@ -3,7 +3,7 @@ title: "Рекомендации Azure Advisor по высокой доступ�
 description: "Использование Azure Advisor для повышения уровня доступности развернутых служб Azure."
 services: advisor
 documentationcenter: NA
-author: kumudd
+author: KumudD
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 23c159471a6e5a7ad9cb545840e8afd3ac72ecba
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/31/2017
 
 ---
