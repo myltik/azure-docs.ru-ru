@@ -8,9 +8,27 @@
 ## [Резервное копирование серверов VMware](backup-azure-backup-server-vmware.md)
 
 # Практическое руководство
+
+## Сервер службы архивации Azure
+### [Матрица защиты сервера резервного копирования Azure](backup-mabs-protection-matrix.md)
+### Установка и обновление
+#### [Подготовка рабочих нагрузок сервера резервного копирования Azure на портале Azure](backup-azure-microsoft-azure-backup.md)
+#### [Подготовка рабочих нагрузок сервера резервного копирования Azure на классическом портале](backup-azure-microsoft-azure-backup-classic.md)
+#### [Добавление хранилища на сервер резервного копирования Azure](backup-mabs-add-storage.md)
+#### [Обновление сервера резервного копирования Azure до версии 2](backup-mabs-upgrade-to-v2.md)
+#### [Автоматическая установка сервера резервного копирования Azure](backup-mabs-unattended-install.md)
+### Защита рабочих нагрузок
+#### [Резервное копирование сервера VMware с помощью сервера резервного копирования Azure](backup-azure-backup-server-vmware.md)
+#### [Резервное копирование Exchange Server с помощью сервера резервного копирования Azure](backup-azure-exchange-mabs.md)
+#### [Резервное копирование фермы SharePoint с помощью сервера резервного копирования Azure](backup-azure-backup-sharepoint-mabs.md)
+#### [Резервное копирование баз данных SQL Server с помощью сервера резервного копирования Azure](backup-azure-sql-mabs.md)
+#### [Защита состояния системы и восстановление исходного состояния системы](backup-mabs-system-state-and-bmr.md)
+### [Восстановление данных с сервера Azure Backup Server](backup-azure-alternate-dpm-server.md)
+
 ## Виртуальные машины Azure
 ### Подготовка виртуальной машины
 #### [Подготовка виртуальных машин, развернутых с помощью Resource Manager](backup-azure-arm-vms-prepare.md)
+#### [Согласованное с приложениями резервное копирование виртуальных машин Linux](backup-azure-linux-app-consistent.md)
 #### [Подготовка виртуальных машин Azure](backup-azure-vms-prepare.md)
 ### Планирование среды
 #### [Планирование инфраструктуры резервного копирования виртуальных машин](backup-azure-vms-introduction.md)
@@ -29,6 +47,32 @@
 #### [Восстановление виртуальных машин в Azure](backup-azure-restore-vms.md)
 #### [Восстановление ключа и секрета в хранилище ключей для зашифрованных виртуальных машин](backup-azure-restore-key-secret.md)
 
+## Настройка отчетов службы Azure Backup
+### [Настройка отчетов службы архивации Azure](backup-azure-configure-reports.md)
+### [Модель данных для отчетов службы архивации Azure](backup-azure-reports-data-model.md)
+### [Модель данных Log Analytics для Azure Backup](backup-azure-log-analytics-data-model.md)
+
+## Data Protection Manager
+### [Подготовка рабочих нагрузок DPM на портале Azure](backup-azure-dpm-introduction.md)
+### [Подготовка рабочих нагрузок DPM на классическом портале](backup-azure-dpm-introduction-classic.md)
+### [Резервное копирование Exchange Server с помощью System Center DPM](backup-azure-backup-exchange-server.md)
+### [Восстановление данных на альтернативный сервер DPM](backup-azure-alternate-dpm-server.md)
+### [Резервное копирование рабочих нагрузок SQL Server с помощью DPM](backup-azure-backup-sql.md)
+### [Резервное копирование фермы SharePoint с помощью DPM](backup-azure-backup-sharepoint.md)
+
+## Использование PowerShell
+### [Виртуальные машины Azure на портале Azure](backup-azure-vms-automation.md)
+### [Виртуальные машины Azure на классическом портале](backup-azure-vms-classic-automation.md)
+### [DPM на портале Azure](backup-dpm-automation.md)
+### [DPM на классическом портале](backup-dpm-automation-classic.md)
+### [Windows Server на портале Azure](backup-client-automation.md)
+### [Windows Server на классическом портале](backup-client-automation-classic.md)
+
+## База данных SQL Azure
+### [Настройка долгосрочного хранения резервных копий](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Просмотр резервных копий в хранилище служб восстановления](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Восстановление после долгосрочного хранения резервных копий](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Удаление резервных копий Azure SQL после долгосрочного хранения](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
 
 ## Windows Server
 ### [Резервное копирование файлов и папок Windows Server](backup-configure-vault.md)
@@ -41,48 +85,10 @@
 #### [Управление хранилищами службы архивации с помощью классической модели развертывания](backup-azure-manage-windows-server-classic.md)
 #### [Восстановление файлов на Windows Server с использованием классической модели развертывания](backup-azure-restore-windows-server-classic.md)
 
-## Сервер службы архивации Azure
-### [Матрица защиты сервера резервного копирования Azure](backup-mabs-protection-matrix.md)
-### Установка и обновление
-#### [Подготовка рабочих нагрузок сервера резервного копирования Azure на портале Azure](backup-azure-microsoft-azure-backup.md)
-#### [Подготовка рабочих нагрузок сервера резервного копирования Azure на классическом портале](backup-azure-microsoft-azure-backup-classic.md)
-#### [Добавление хранилища на сервер резервного копирования Azure](backup-mabs-add-storage.md)
-#### [Обновление сервера резервного копирования Azure до версии 2](backup-mabs-upgrade-to-v2.md)
-#### [Автоматическая установка сервера резервного копирования Azure](backup-mabs-unattended-install.md)
-### Защита рабочих нагрузок
-#### [Резервное копирование сервера VMware с помощью сервера резервного копирования Azure](backup-azure-backup-server-vmware.md)
-#### [Резервное копирование Exchange Server с помощью сервера резервного копирования Azure](backup-azure-exchange-mabs.md)
-#### [Резервное копирование фермы SharePoint с помощью сервера резервного копирования Azure](backup-azure-backup-sharepoint-mabs.md)
-#### [Резервное копирование баз данных SQL Server с помощью сервера резервного копирования Azure](backup-azure-sql-mabs.md)
-#### [Защита состояния системы и восстановление исходного состояния системы](backup-mabs-system-state-and-bmr.md)
-### [Восстановление данных с сервера Azure Backup Server](backup-azure-alternate-dpm-server.md)
-
-## Data Protection Manager
-### [Подготовка рабочих нагрузок DPM на портале Azure](backup-azure-dpm-introduction.md)
-### [Подготовка рабочих нагрузок DPM на классическом портале](backup-azure-dpm-introduction-classic.md)
-### [Резервное копирование Exchange Server с помощью System Center DPM](backup-azure-backup-exchange-server.md)
-### [Восстановление данных на альтернативный сервер DPM](backup-azure-alternate-dpm-server.md)
-### [Резервное копирование рабочих нагрузок SQL Server с помощью DPM](backup-azure-backup-sql.md)
-### [Резервное копирование фермы SharePoint с помощью DPM](backup-azure-backup-sharepoint.md)
-
-## База данных SQL Azure
-### [Настройка долгосрочного хранения резервных копий](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Просмотр резервных копий в хранилище служб восстановления](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Восстановление после долгосрочного хранения резервных копий](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Удаление резервных копий Azure SQL после долгосрочного хранения](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
-
-## Использование PowerShell
-### [Виртуальные машины Azure на портале Azure](backup-azure-vms-automation.md)
-### [Виртуальные машины Azure на классическом портале](backup-azure-vms-classic-automation.md)
-### [DPM на портале Azure](backup-dpm-automation.md)
-### [DPM на классическом портале](backup-dpm-automation-classic.md)
-### [Windows Server на портале Azure](backup-client-automation.md)
-### [Windows Server на классическом портале](backup-client-automation-classic.md)
-
-## Часто задаваемые вопросы
-### [Часто задаваемые вопросы о хранилище служб восстановления](backup-azure-backup-faq.md)
-### [Часто задаваемые вопросы о резервном копировании виртуальных машин Azure](backup-azure-vm-backup-faq.md)
-### [Часто задаваемые вопросы о резервном копировании файлов и папок с помощью агента Azure Backup](backup-azure-file-folder-backup-faq.md)
+## Хранилище служб восстановления
+### [Обзор хранилищ служб восстановления](backup-azure-recovery-services-vault-overview.md)
+### [Обновление резервного хранилища до хранилища служб восстановления](backup-azure-upgrade-backup-to-recovery-services.md)
+### [Удаление хранилища служб восстановления](backup-azure-delete-vault.md)
 
 ## Устранение неполадок
 ### [Неполадки с резервным копированием виртуальных машин Azure на портале Azure](backup-azure-vms-troubleshoot.md)
@@ -92,17 +98,17 @@
 ### [Устранение неполадок Сервера резервного копирования Azure](backup-azure-mabs-troubleshoot.md)
 
 # Основные понятия
-## [Обзор хранилищ служб восстановления](backup-azure-recovery-services-vault-overview.md)
-## [Обновление резервного хранилища до хранилища служб восстановления](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Удаление хранилища служб восстановления](backup-azure-delete-vault.md)
+
+## Часто задаваемые вопросы
+### [Часто задаваемые вопросы о хранилище служб восстановления](backup-azure-backup-faq.md)
+### [Часто задаваемые вопросы о резервном копировании виртуальных машин Azure](backup-azure-vm-backup-faq.md)
+### [Часто задаваемые вопросы о резервном копировании файлов и папок с помощью агента Azure Backup](backup-azure-file-folder-backup-faq.md)
+
 ## [Контроль доступа на основе ролей](backup-rbac-rs-vault.md)
 ## [Безопасность гибридных резервных копий](backup-azure-security-feature.md)
-## [Настройка отчетов службы архивации Azure](backup-azure-configure-reports.md)
-## [Модель данных для отчетов службы архивации Azure](backup-azure-reports-data-model.md)
-## [Модель данных Log Analytics для Azure Backup](backup-azure-log-analytics-data-model.md)
 ## [Настройка автономного резервного копирования](backup-azure-backup-import-export.md)
 ## [Замена ленточным библиотекам](backup-azure-backup-cloud-as-tape.md)
-## [Согласованное с приложениями резервное копирование виртуальных машин Linux](backup-azure-linux-app-consistent.md)
+
 
 # Справочные материалы
 ## [PowerShell](/powershell/module/azurerm.recoveryservices.backup)

@@ -3,8 +3,8 @@
 ## [Что такое машинное обучение?](machine-learning-what-is-machine-learning.md)
 
 ## Процесс обработки и анализа данных группы
-### [Обзор](http://aka.ms/datascienceprocess)
-### [Жизненный цикл](data-science-process-overview.md)
+### [Обзор](data-science-process-overview.md)
+### [Жизненный цикл](data-science-process-lifecycle.md)
 ### [Пошаговые руководства](data-science-process-walkthroughs.md)
 ####[Spark с PySpark и Scala](data-science-process-walkthroughs-spark.md)
 ##### [Изучение данных](machine-learning-data-science-spark-data-exploration-modeling.md)
@@ -14,6 +14,7 @@
 ####[U-SQL с Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
 ####[R, Python и T-SQL с SQL Server](data-science-process-walkthroughs-sql-server.md)
 ####[T-SQL и Python с хранилищем данных SQL](data-science-process-walkthroughs-sql-data-warehouse.md)
+### [Машинное обучение Azure](http://aka.ms/datascienceprocess)
 
 ## Студия машинного обучения
 ### [Что такое студия?](machine-learning-what-is-ml-studio.md)
