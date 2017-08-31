@@ -3,7 +3,7 @@ title: "Политики кэширования в службе управлен
 description: "Сведения о политиках кэширования, доступных для использования в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-caching-policies"></a>Политики кэширования в службе управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-namecachingpoliciesa-caching-policies"></a><a name="CachingPolicies"></a> Политики кэширования  
+##  <a name="CachingPolicies"></a> Политики кэширования  
   
 -   Политики кэширования ответов  
   
@@ -38,7 +40,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
     -   [Удалить значение из кэша](#RemoveCacheByKey) — удаление элемента в кэше по ключу.  
   
-##  <a name="a-namegetfromcachea-get-from-cache"></a><a name="GetFromCache"></a> Получение из кэша  
+##  <a name="GetFromCache"></a> Получение из кэша  
  Политика `cache-lookup` используется для поиска в кэше и возврата допустимого кэшированного ответа при его наличии. Эту политику можно применять в тех случаях, когда содержимое ответа остается неизменным в течение определенного интервала времени. Кэширование ответов уменьшает требования к пропускной способности и вычислительной мощности, накладываемые на внутренний веб-сервер, а также снижает время задержки для потребителей API.  
   
 > [!NOTE]
@@ -128,7 +130,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **Области политики:** API, operation, product.  
   
-##  <a name="a-namestoretocachea-store-to-cache"></a><a name="StoreToCache"></a> Сохранение в кэше  
+##  <a name="StoreToCache"></a> Сохранение в кэше  
  Политика `cache-store` помещает в кэш ответы в соответствии с заданными настройками кэша. Эту политику можно применять в тех случаях, когда содержимое ответа остается неизменным в течение определенного интервала времени. Кэширование ответов уменьшает требования к пропускной способности и вычислительной мощности, накладываемые на внутренний веб-сервер, а также снижает время задержки для потребителей API.  
   
 > [!NOTE]
@@ -201,7 +203,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **Области политики:** API, operation, product.  
   
-##  <a name="a-namegetfromcachebykeya-get-value-from-cache"></a><a name="GetFromCacheByKey"></a> Получение значения из кэша  
+##  <a name="GetFromCacheByKey"></a> Получение значения из кэша  
  Используйте политику `cache-lookup-value`, чтобы выполнять поиск в кэше по ключу и возвращать кэшированное значение. Ключ может содержать произвольное строковое значение и обычно указывается с помощью выражения политики.  
   
 > [!NOTE]
@@ -246,7 +248,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **Области политики:** global, API, operation, product.  
   
-##  <a name="a-namestoretocachebykeya-store-value-in-cache"></a><a name="StoreToCacheByKey"></a> Сохранение значения в кэш  
+##  <a name="StoreToCacheByKey"></a> Сохранение значения в кэш  
  Политика `cache-store-value` выполняет сохранение в кэш по ключу. Ключ может содержать произвольное строковое значение и обычно указывается с помощью выражения политики.  
   
 > [!NOTE]
@@ -289,7 +291,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **Области политики:** global, API, operation, product.  
   
-###  <a name="a-nameremovecachebykeya-remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Удаление значения из кэша  
+###  <a name="RemoveCacheByKey"></a> Удаление значения из кэша  
  Политика `cache-remove-value` удаляет кэшированный элемент, определяемый по соответствующему ключу. Ключ может содержать произвольное строковое значение и обычно указывается с помощью выражения политики.  
   
 #### <a name="policy-statement"></a>Правило политики  
@@ -330,8 +332,3 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -3,7 +3,7 @@ title: "Шаблоны проблем в службе управления API A
 description: "Сведения о настройке содержимого страниц проблем на портале разработчика в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 6a14bd0cb95f8965ae53ff60fe1e638199a0b5b5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Шаблоны проблем в службе управления API Azure
@@ -29,7 +31,7 @@ ms.openlocfilehash: 6a14bd0cb95f8965ae53ff60fe1e638199a0b5b5
 > [!NOTE]
 >  Примеры шаблонов по умолчанию включены в следующую документацию, но могут в любой момент измениться, так как ведется постоянная работа по их улучшению. Динамические шаблоны по умолчанию можно просмотреть на портале разработчика, перейдя к требуемому отдельному шаблону. Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).  
   
-##  <a name="a-nameissuelista-issue-list"></a><a name="IssueList"></a> Список проблем  
+##  <a name="IssueList"></a> Список проблем  
  Шаблон **списка проблем** позволяет настроить текст страницы со списком проблем на портале разработчика.  
   
  ![Список проблем на портале разработчика](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "список проблем на портале разработчика APIM")  
@@ -134,8 +136,3 @@ ms.openlocfilehash: 6a14bd0cb95f8965ae53ff60fe1e638199a0b5b5
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-
