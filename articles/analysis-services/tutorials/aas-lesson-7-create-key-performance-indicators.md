@@ -1,9 +1,9 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 7 &quot;Создание ключевых показателей эффективности&quot; | Документы Майкрософт"
+title: "Учебник по службам Azure Analysis Services: занятие 7 \"Создание ключевых показателей эффективности\" | Документы Майкрософт"
 description: "Описывает создание ключевых показателей эффективности в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

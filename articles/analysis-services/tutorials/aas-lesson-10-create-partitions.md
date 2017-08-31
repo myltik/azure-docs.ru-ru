@@ -1,9 +1,9 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 10 &quot;Создание секций&quot; | Документы Майкрософт"
+title: "Учебник по службам Azure Analysis Services: занятие 10 \"Создание секций\" | Документы Майкрософт"
 description: "Описывает создание секций в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

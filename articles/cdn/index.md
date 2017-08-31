@@ -2,7 +2,7 @@
 title: "Документация по Azure CDN. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как использовать сеть доставки содержимого (CDN) для доставки содержимого из глобальных центров обработки данных на любое устройство. Руководства, справочники по API и другие документы."
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

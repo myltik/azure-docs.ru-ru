@@ -1,9 +1,9 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 8 &quot;Создание перспектив&quot; | Документы Майкрософт"
+title: "Учебник по службам Azure Analysis Services: занятие 8 \"Создание перспектив\" | Документы Майкрософт"
 description: "Описывает создание перспектив в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

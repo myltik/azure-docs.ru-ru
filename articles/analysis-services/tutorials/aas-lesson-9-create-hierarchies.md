@@ -1,9 +1,9 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 9 &quot;Создание иерархий&quot; | Документы Майкрософт"
+title: "Учебник по службам Azure Analysis Services: занятие 9 \"Создание иерархий\" | Документы Майкрософт"
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

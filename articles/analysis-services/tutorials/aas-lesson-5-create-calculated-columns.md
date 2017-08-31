@@ -1,9 +1,9 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 5 &quot;Создание вычисляемых столбцов&quot; | Документы Майкрософт"
+title: "Учебник по службам Azure Analysis Services: занятие 5 \"Создание вычисляемых столбцов\" | Документы Майкрософт"
 description: "Описывает создание вычисляемых столбцов в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 
