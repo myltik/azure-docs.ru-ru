@@ -389,7 +389,7 @@ structure:
 | **NoSQL** |[Cassandra](#cassandra) |
 | &nbsp; |[MongoDB](#mongodb) |
 | **File** |[Amazon S3](#amazon-s3) |
-| &nbsp; |[Перемещение данных в локальную файловую систему или из нее с помощью фабрики данных Azure](#file-system) |
+| &nbsp; |[Файловая система](#file-system) |
 | &nbsp; |[FTP](#ftp) |
 | &nbsp; |[HDFS](#hdfs) |
 | &nbsp; |[SFTP](#sftp) |
