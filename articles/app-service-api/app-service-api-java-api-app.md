@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e38c540071cb49b0177e79178566d72ecb5f8886
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Сборка и развертывание приложения API Java в службе приложений Azure
@@ -229,10 +228,10 @@ ms.lasthandoff: 06/17/2017
 10. Наконец, создайте WAR-файл Java (веб-архив), выполнив следующую команду Maven в консоли. 
     
          mvn package war:war
-11. После создания WAR-файл будет помещен в папку **target** . Перейдите в **целевую** папку и переименуйте WAR-файл на **ROOT.war**. (Обязательно учитывайте регистр.)
+11. После создания WAR-файл будет помещен в папку **target**. Перейдите в **целевую** папку и переименуйте WAR-файл на **ROOT.war**. (Обязательно учитывайте регистр.)
     
           rename swagger-jaxrs-server-1.0.0.war ROOT.war
-12. Наконец, выполните следующие команды из корневой папки приложения, чтобы создать папку **deploy** , предназначенную для развертывания WAR-файла в Azure. 
+12. Наконец, выполните следующие команды из корневой папки приложения, чтобы создать папку **deploy**, предназначенную для развертывания WAR-файла в Azure. 
     
           mkdir deploy
           mkdir deploy\webapps
@@ -257,7 +256,7 @@ ms.lasthandoff: 06/17/2017
 5. Скопируйте URL-адрес нового репозитория Git в буфер обмена. Сохраните его, потому что он понадобится чуть позже. 
    
     ![Настройка нового репозитория Git для приложения][copy-git-repo-url]
-6. Отправьте WAR-файл в онлайн-репозиторий при помощи Git. Для этого перейдите в созданную ранее папку **deploy** , из которой можно с легкостью зафиксировать код в репозитории, работающем в службе приложений. Открыв окно консоли и перейдя в папку, в которой находится папка с веб-приложениями, запустите следующие команды Git, чтобы запустить процесс и начать развертывание. 
+6. Отправьте WAR-файл в онлайн-репозиторий при помощи Git. Для этого перейдите в созданную ранее папку **deploy**, из которой можно с легкостью зафиксировать код в репозитории, работающем в службе приложений. Открыв окно консоли и перейдя в папку, в которой находится папка с веб-приложениями, запустите следующие команды Git, чтобы запустить процесс и начать развертывание. 
    
          git init
          git add .
@@ -278,7 +277,7 @@ ms.lasthandoff: 06/17/2017
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>См. также
-Дополнительные сведения об использовании Azure с Java можно найти в [Центре разработчиков Java для Azure].
+Дополнительные сведения об использовании Azure с Java можно найти на [странице Azure для разработчиков Java](/java/azure).
 
 <!-- URL List -->
 
@@ -287,14 +286,14 @@ ms.lasthandoff: 06/17/2017
 [пакет SDK для Java для Document DB]: ../documentdb/documentdb-java-application.md
 [бесплатная пробная версия]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Центре разработчиков Java для Azure]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Java Developer Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
 [онлайн-редактор Swagger]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[пакете SDK для Java для службы хранилища]: ../storage/storage-java-how-to-use-blob-storage.md
+[пакете SDK для Java для службы хранилища]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [редактора Swagger]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com

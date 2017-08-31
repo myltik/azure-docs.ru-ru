@@ -3,7 +3,7 @@ title: "Учебник по Adventure Works для служб Azure Analysis Ser
 description: "Здесь представлен учебник по Adventure Works для служб Analysis Services Azure"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

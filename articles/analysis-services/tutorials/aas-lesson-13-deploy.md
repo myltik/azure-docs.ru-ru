@@ -3,7 +3,7 @@ title: "Учебник по службам Azure Analysis Services: заняти
 description: "Описывает развертывание учебного проекта в службах Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

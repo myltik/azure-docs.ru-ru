@@ -15,20 +15,18 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Начало работы с хранилищем данных SQL
 
 Из этого руководства вы узнаете, как подготовить и загрузить данные в хранилище данных SQL Azure, а также получите основные сведения о масштабировании, приостановке и настройке. После завершения работы с документом вы будете уметь использовать запросы и просматривать хранилища данных.
 
-<seg>
-  **Предполагаемое время выполнения**. Работа с этим комплексным руководством и примером кода занимает около 30 минут при условии, что все предварительные требования выполнены.</seg> 
+**Предполагаемое время выполнения**. Работа с этим комплексным руководством и примером кода занимает около 30 минут при условии, что все предварительные требования выполнены. 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -64,8 +62,7 @@ ms.lasthandoff: 06/14/2017
 1. Войдите на [портал Azure](https://portal.azure.com).
 2. Последовательно выберите **Создать** > **Базы данных** > **Хранилище данных SQL**.
 
-    ![Колонка "Создать"](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-    ![Выбор хранилища данных](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![Новая колонка](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![Выбор хранилища данных](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Укажите сведения о развертывании.
 
@@ -85,8 +82,7 @@ ms.lasthandoff: 06/14/2017
 
     **Выбор уровня производительности**: рекомендуем начать со стандартного значения 400DWU.
 
-4. Установите флажок **Закрепить на панели мониторинга**
-    ![Закрепить на панели мониторинга](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png).
+4. Установите флажок **Закрепить на панели мониторинга** ![Pin To Dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. Подождите, пока завершится развертывание хранилища данных. Обычно этот процесс занимает несколько минут. Портал уведомит вас, когда хранилище данных будет готово к использованию. 
 
@@ -658,7 +654,7 @@ ms.lasthandoff: 06/14/2017
 
 [Migrating data to Azure SQL Data Warehouse in practice][] (Перенос данных в хранилище данных SQL Azure на практике)
 
-[Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Рекомендации по использованию хранилища данных SQL Azure]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Мониторинг рабочей нагрузки с помощью динамических административных представлений]: sql-data-warehouse-manage-monitor.md
 [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/ (10 лучших рекомендаций по созданию реляционного хранилища данных большого объема)

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: c1f5c5014f0aa157d1734cbcc5f9aafcce886b43
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 2e072ada13b8c742fe7f2e14737c9376f7677906
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-powershell"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с помощью проверки подлинности на основе сертификата, используя PowerShell
@@ -33,7 +33,9 @@ ms.lasthandoff: 08/16/2017
 >
 >
 
-Конфигурация типа "точка — сеть" позволяет создать безопасное подключение к виртуальной сети с отдельного клиентского компьютера. Это эффективное решение для подключений типа "точка — сеть" к виртуальной сети из удаленного расположения, например, если вы находитесь дома или на конференции, или если подключение к виртуальной сети требуется всего нескольким клиентам. VPN-подключение типа "точка — сеть" инициируется клиентским компьютером с помощью собственного VPN-клиента Windows. Для проверки подлинности подключений клиентов используются сертификаты. 
+VPN-шлюз типа "точка — сеть" (P2S) позволяет создать безопасное подключение к виртуальной сети с отдельного клиентского компьютера. VPN-подключения типа "точка — сеть" (P2S) эффективны для подключения к виртуальной сети из удаленного расположения, например, если вы дома или на конференции. Такая конфигурация также эффективна для использования вместо VPN-подключения типа "сеть — сеть" при наличии небольшого количества клиентов, которым требуется подключение к виртуальной сети.
+
+Подключение типа "точка — сеть" (P2S) использует протокол Secure Socket Tunneling Protocol (SSTP), то есть VPN-протокол на основе SSL. VPN-подключение типа P2S сначала устанавливается с клиентского компьютера.
 
 ![Схема соединения компьютера с виртуальной сетью Azure через подключение типа "точка — сеть"](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
 
@@ -241,6 +243,8 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddre
 3. Теперь подключение установлено.
 
   ![Подключение установлено](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
+
+#### <a name="troubleshooting-p2s-connections"></a>Устранение неполадок подключения P2S
 
 [!INCLUDE [client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 

@@ -14,10 +14,10 @@ ms.topic: hero-article
 ms.date: 07/27/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 1749c4233e2b90f0a207033276b31093f7bf667f
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB. Создание, запрос и просмотр в консоли Gremlin
@@ -28,7 +28,7 @@ Azure Cosmos DB — это глобально распределенная мн�
 
 ![Azure DB Cosmos в консоли Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
-Консоль Gremlin создана на базе Groovy и Java и работает на компьютерах Linux, Mac и Windows. Ее можно скачать с [сайта Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.4/apache-tinkerpop-gremlin-console-3.2.4-bin.zip).
+Консоль Gremlin создана на базе Groovy и Java и работает на компьютерах Linux, Mac и Windows. Ее можно скачать с [сайта Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -36,7 +36,7 @@ Azure Cosmos DB — это глобально распределенная мн�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Вам также нужно установить [консоль Gremlin](http://tinkerpop.apache.org/). Используйте версию 3.2.4 или более позднюю.
+Вам также нужно установить [консоль Gremlin](http://tinkerpop.apache.org/). Используйте версию 3.2.5 или более позднюю.
 
 ## <a name="create-a-database-account"></a>Создание учетной записи базы данных
 
@@ -47,7 +47,7 @@ Azure Cosmos DB — это глобально распределенная мн�
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Подключение к службе приложений
-1. Перед запуском консоли Gremlin создайте или измените файл конфигурации remote-secure.yaml в каталоге apache-tinkerpop-gremlin-console-3.2.4/conf.
+1. Перед запуском консоли Gremlin создайте или измените файл конфигурации remote-secure.yaml в каталоге apache-tinkerpop-gremlin-console-3.2.5/conf.
 2. Укажите *узел*, *порт*, *пользователя*, *пароль*, *пул подключений* и *сериализатор*:
 
     Настройка|Рекомендуемое значение|Описание
@@ -64,7 +64,7 @@ Azure Cosmos DB — это глобально распределенная мн�
     Для значений пароля скопируйте **первичный ключ** со страницы **Ключи**: ![Просмотр и копирование первичного ключа на портале Azure из страницы "Ключи"](./media/create-graph-gremlin-console/keys.png)
 
 
-3. В окне терминала запустите файл `bin/gremlin.bat` или `bin/gremlin.sh`, чтобы запустить [консоль Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
+3. В окне терминала запустите файл `bin/gremlin.bat` или `bin/gremlin.sh`, чтобы запустить [консоль Gremlin](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. Чтобы подключиться к службе приложений, в окне терминала запустите файл `:remote connect tinkerpop.server conf/remote-secure.yaml`.
 
     > [!TIP]

@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 8/21/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 4baf144cc28eeff0ab8f8b60e837f8a2bad903af
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Создание первого приложения Azure Service Fabric
@@ -34,10 +34,29 @@ Service Fabric предоставляет пакеты SDK для создани
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы [настройте среду разработки Linux](service-fabric-get-started-linux.md). Если вы используете Mac OS X, вы можете [настроить универсальную среду Linux на виртуальной машине с помощью Vagrant](service-fabric-get-started-mac.md).
 
-Необходимо также настроить [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (рекомендуется) или [XPlat CLI](service-fabric-azure-cli.md) для развертывания приложения.
+Также необходимо установить [интерфейс командной строки Service Fabric](service-fabric-cli.md)
+
+### <a name="install-and-set-up-the-generators-for-csharp"></a>Установка и настройка генераторов для CSharp
+Service Fabric предоставляет средства формирования шаблонов, которые позволяют создавать приложения CSharp в Service Fabric из терминала с помощью генератора шаблонов Yeoman. Чтобы установить генератор шаблонов Yeoman Service Fabric для CSharp на компьютере, выполните инструкции ниже.
+1. Установите Node.js и NPM на компьютере.
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Установите на компьютере генератор шаблонов [Yeoman](http://yeoman.io/) из NPM.
+
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Установите генератор Java-приложений Service Fabric Yeoman из NPM.
+
+  ```bash
+  sudo npm install -g generator-azuresfcsharp
+  ```
 
 ## <a name="create-the-application"></a>Создание приложения
-Приложение Service Fabric может содержать одну или несколько служб, каждая из которых выполняет определенную роль в работе приложения. Пакет Service Fabric SDK для Linux включает генератор [Yeoman](http://yeoman.io/) , который упрощает создание первой службы и добавление последующих. Итак, с помощью Yeoman мы создадим приложение с одной службой.
+Приложение Service Fabric может содержать одну или несколько служб, каждая из которых выполняет определенную роль в работе приложения. Генератор [Yeoman](http://yeoman.io/) Service Fabric для CSharp, который вы установили на предыдущем шаге, упрощает создание первой службы и добавление последующих. Итак, с помощью Yeoman мы создадим приложение с одной службой.
 
 1. В терминале введите следующую команду для формирования шаблонов: `yo azuresfcsharp`
 2. Присвойте имя приложению.
@@ -62,12 +81,10 @@ Service Fabric предоставляет пакеты SDK для создани
 
 Созданное приложение можно развернуть в локальном кластере.
 
-### <a name="using-xplat-cli"></a>Использование кроссплатформенного интерфейса командной строки
-
 1. Подключитесь к удаленному кластеру Service Fabric.
 
     ```bash
-    azure servicefabric cluster connect
+    sfctl cluster select --endpoint http://localhost:19080
     ```
 
 2. С помощью скрипта установки (включен в шаблон) скопируйте пакет приложения в хранилище образов кластера, зарегистрируйте тип приложения и создайте экземпляр приложения.
@@ -76,14 +93,11 @@ Service Fabric предоставляет пакеты SDK для создани
     ./install.sh
     ```
 
-### <a name="using-azure-cli-20"></a>Использование Azure CLI 2.0
-
-Созданное приложение развертывается так же, как и любое другое приложение Service Fabric. Дополнительные сведения см. в документации по [управлению приложениями Service Fabric с помощью Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md).
+Созданное приложение развертывается так же, как и любое другое приложение Service Fabric. Дополнительные сведения см. в документации по [управлению приложениями Service Fabric с помощью интерфейса командной строки Service Fabric](service-fabric-application-lifecycle-sfctl.md).
 
 Параметры для этих команд можно найти в созданном манифесте в пакете приложения.
 
-Когда приложение будет развернуто, откройте браузер и перейдите к [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) по адресу [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
-Затем разверните узел **Приложения**. Вы увидите одну запись для типа приложения и еще одну — для первого экземпляра этого типа.
+Когда приложение будет развернуто, откройте браузер и перейдите к [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) по адресу [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Затем разверните узел **Приложения**. Вы увидите одну запись для типа приложения и еще одну — для первого экземпляра этого типа.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Запуск тестового клиента и отработка отказа
 Проекты субъекта предполагают использование дополнительных средств. Например, для отправки сообщений им требуется другая служба или клиент. Шаблон субъекта включает простой тестовый скрипт, обеспечивающий взаимодействие со службой субъекта.
@@ -97,11 +111,11 @@ Service Fabric предоставляет пакеты SDK для создани
 2. В Service Fabric Explorer найдите узел, в котором размещена первичная реплика службы субъекта. В нашем примере это узел 3.
 
     ![Поиск первичной реплики в Service Fabric Explorer][sfx-primary]
-3. Щелкните найденный узел, а затем щелкните в меню "Действия" пункт **Отключить (перезапустить)** . Будет перезапущен один узел в локальном кластере и выполнена принудительная отработка отказа с переходом на вторичную реплику, запущенную на другом узле. После этого обратите внимание на выходные данные тестового клиента: счетчик будет увеличиваться несмотря на отработку отказа.
+3. Щелкните найденный узел, а затем щелкните в меню "Действия" пункт **Отключить (перезапустить)**. Будет перезапущен один узел в локальном кластере и выполнена принудительная отработка отказа с переходом на вторичную реплику, запущенную на другом узле. После этого обратите внимание на выходные данные тестового клиента: счетчик будет увеличиваться несмотря на отработку отказа.
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Добавление дополнительных служб в существующее приложение
 
-Чтобы добавить службу в приложение, созданное с использованием `yo`, сделайте следующее: 
+Чтобы добавить службу в приложение, созданное с использованием `yo`, сделайте следующее:
 1. Перейдите в корневой каталог существующего приложения.  Например, `cd ~/YeomanSamples/MyApplication`, если `MyApplication` является приложением, созданным с помощью Yeoman.
 2. Запустите `yo azuresfcsharp:AddService`
 
@@ -111,14 +125,11 @@ Service Fabric предоставляет пакеты SDK для создани
 3. Обновите имена файлов проекта в соответствии с CSPROJ-файлами в build.sh.
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 * [Общие сведения о надежных субъектах Service Fabric](service-fabric-reliable-actors-introduction.md)
-* [Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric](service-fabric-azure-cli.md)
+* [Azure Service Fabric command line](service-fabric-cli.md) (Интерфейс командной строки Azure Service Fabric)
 * [Сведения о вариантах поддержки Service Fabric](service-fabric-support.md)
-
-## <a name="related-articles"></a>Связанные статьи
-
-* [Начало работы с Service Fabric и Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Начало работы с Service Fabric и XPlat CLI](service-fabric-azure-cli.md)
+* [Azure Service Fabric command line](service-fabric-cli.md) (Интерфейс командной строки Azure Service Fabric)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png

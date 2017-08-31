@@ -53,7 +53,7 @@ VPN-шлюзы Azure теперь поддерживают настраивае�
 
 ## <a name="ipsecike-policy-faq"></a>Часто задаваемые вопросы о политике IPsec/IKE
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
