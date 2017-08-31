@@ -3,7 +3,7 @@ title: "Ресурсы шаблонов управления API Azure | Док�
 description: "Сведения о типах ресурсов, доступных для использования в шаблонах портала разработчика в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 3c633d54e6b81576a2fbd1adfc69775ca1bdd09d
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/07/2017
 
 ---

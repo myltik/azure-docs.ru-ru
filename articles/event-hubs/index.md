@@ -2,7 +2,7 @@
 title: "Документация по концентраторам событий Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как использовать концентраторы событий для приема миллионов событий в секунду от подключенных устройств IoT и приложений на разных платформах."
 services: event-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

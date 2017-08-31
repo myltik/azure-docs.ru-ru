@@ -1,9 +1,9 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 4 &quot;Создание связей&quot; | Документы Майкрософт"
+title: "Учебник по службам Azure Analysis Services: занятие 4 \"Создание связей\" | Документы Майкрософт"
 description: "Описывает создание связей в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

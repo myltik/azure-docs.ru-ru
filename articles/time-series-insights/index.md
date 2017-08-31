@@ -2,7 +2,7 @@
 title: "Документация по Azure Time Series Insights. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как выполнять в облаке аналитику IoT с помощью полностью управляемого модуля обработки событий. Анализируйте в реальном времени данные, поступающие от приложений, датчиков, устройств и из других источников."
 services: time-series-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

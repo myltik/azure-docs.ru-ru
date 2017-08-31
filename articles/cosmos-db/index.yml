@@ -6,7 +6,7 @@ metadata:
   title: Документация по базе данных Azure Cosmos. Руководства и справочник по API
   description: 'Сведения об использовании базы данных Azure Cosmos для создания глобально распределенных многомодельных баз данных. В руководствах описывается, как создавать запросы и документы, пары "ключ-значение" и диаграммы графов.'
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

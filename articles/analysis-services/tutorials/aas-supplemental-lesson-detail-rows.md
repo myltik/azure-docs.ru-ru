@@ -1,9 +1,9 @@
 ---
-title: "Дополнительное занятие для учебника по службам Azure Analysis Services: &quot;Строки детализации&quot; | Документы Майкрософт"
+title: "Дополнительное занятие для учебника по службам Azure Analysis Services: \"Строки детализации\" | Документы Майкрософт"
 description: "Описывает, как создать выражение строк детализации в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

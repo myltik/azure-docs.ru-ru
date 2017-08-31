@@ -2,7 +2,7 @@
 title: "Документация по Azure Data Lake Store. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как настраивать, администрировать и обращаться к гипермасштабируемому совместимому с Hadoop репозиторию Data Lake для анализа данных любого объема и типа с любой скоростью приема."
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

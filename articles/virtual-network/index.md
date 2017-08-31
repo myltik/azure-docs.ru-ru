@@ -2,7 +2,7 @@
 title: "Документация по виртуальным сетям Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как использовать виртуальную сеть в облаке. Документация, в которой показано, как развертывать виртуальную сеть, а также использовать ее для запуска ресурсов и интеграции с локальной сетью."
 services: virtual-network
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: d65301d1ca71f62b52c97f1de772a61c33933b8a
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/18/2017
 
 ---

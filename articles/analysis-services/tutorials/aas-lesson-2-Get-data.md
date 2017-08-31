@@ -1,9 +1,9 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 2 &quot;Получение данных&quot; | Документы Майкрософт"
+title: "Учебник по службам Azure Analysis Services: занятие 2 \"Получение данных\" | Документы Майкрософт"
 description: "Описывает получение и импорт данных в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

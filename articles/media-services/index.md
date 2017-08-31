@@ -2,7 +2,7 @@
 title: "Документация по службам мультимедиа Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Сведения о безопасной потоковой передаче по запросу и прямой трансляции видео высокого качества в службах мультимедиа, представляющих собой расширяемую облачную платформу. Руководства, справочники по API и другие документы."
 services: media-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ac58c5e8f43a1e6bab1023826818cc3641cad54a
 ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -210,10 +212,5 @@ ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
         </div>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

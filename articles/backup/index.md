@@ -2,7 +2,7 @@
 title: "Документация по службе архивации Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Чтобы узнать, как выполнить резервное копирование в облако, см. документацию о службе архивации. Сведения о резервном копировании приложений, сервера Windows Server и виртуальных машин Azure см. в руководствах и видеороликах."
 services: backup
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

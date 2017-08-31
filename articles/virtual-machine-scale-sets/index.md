@@ -2,7 +2,7 @@
 title: "Документация по масштабируемым наборам виртуальных машин Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как использовать масштабируемые наборы виртуальных машин для создания автомасштабируемых ВМ Windows или Linux для больших вычислений, а также обработки больших данных и контейнерных решений."
 services: virtual-machine-scale-sets
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/12/2017
 
 ---

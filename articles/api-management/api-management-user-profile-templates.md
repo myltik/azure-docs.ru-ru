@@ -3,7 +3,7 @@ title: "Шаблоны профилей пользователей в служб
 description: "Узнайте, как настроить содержимое страниц профилей пользователей на портале разработчика в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2e3b73ef-d223-44fe-9280-c3af3fd4a030
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: cd6cfe3fde93624faec844f91ea9193527495df4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Шаблоны профилей пользователей в службе управления API Azure
@@ -35,7 +37,7 @@ ms.openlocfilehash: cd6cfe3fde93624faec844f91ea9193527495df4
 > [!NOTE]
 >  Примеры стандартных шаблонов включены в следующую документацию, но могут в любой момент измениться, так как ведется постоянная работа по их улучшению. Актуальные шаблоны по умолчанию можно просмотреть на портале разработчика, перейдя к требуемому отдельному шаблону. Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="a-nameprofilea-profile"></a><a name="Profile"></a> Профиль  
+##  <a name="Profile"></a> Профиль  
  Шаблон **профиля** позволяет настроить раздел профиля пользователя на странице профиля пользователя на портале разработчика.  
   
  ![Страница профиля пользователя](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Страница профиля пользователя APIM")  
@@ -180,7 +182,7 @@ ms.openlocfilehash: cd6cfe3fde93624faec844f91ea9193527495df4
 }  
 ```  
   
-##  <a name="a-namesubscriptionsa-subscriptions"></a><a name="Subscriptions"></a>Подписки  
+##  <a name="Subscriptions"></a>Подписки  
  Шаблон **подписок** позволяет настроить раздел подписок на странице профиля пользователя на портале разработчика.  
   
  ![Страница подписки пользователя](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Страница подписки пользователя APIM ")  
@@ -401,7 +403,7 @@ ms.openlocfilehash: cd6cfe3fde93624faec844f91ea9193527495df4
 }  
 ```  
   
-##  <a name="a-nameapplicationsa-applications"></a><a name="Applications"></a> Приложения  
+##  <a name="Applications"></a> Приложения  
  Шаблон **приложений** позволяет настроить раздел приложений на странице профиля пользователя на портале разработчика.  
   
  ![Страница приложений учетной записи пользователя](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Страница приложений учетной записи пользователя APIM")  
@@ -564,7 +566,7 @@ ms.openlocfilehash: cd6cfe3fde93624faec844f91ea9193527495df4
 }  
 ```  
   
-##  <a name="a-nameupdateaccountinfoa-update-account-info"></a><a name="UpdateAccountInfo"></a> Обновление сведений об учетной записи  
+##  <a name="UpdateAccountInfo"></a> Обновление сведений об учетной записи  
  Шаблон **обновления сведений об учетной записи** позволяет настраивать страницу **обновления сведений об учетной записи** на портале разработчика.  
   
  ![Шаблоны информации об учетной записи на портале разработчика](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Шаблоны информации об учетной записи на портале разработчика APIM")  
@@ -623,8 +625,3 @@ ms.openlocfilehash: cd6cfe3fde93624faec844f91ea9193527495df4
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

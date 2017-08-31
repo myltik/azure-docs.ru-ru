@@ -2,8 +2,8 @@
 title: "Документация по Azure Data Lake Analytics. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как выполнять анализ больших данных с помощью Data Lake Analytics. Руководства, в которых показано, как выполнять пакетный, оперативный и интерактивный анализ и как создавать запросы U-SQL."
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

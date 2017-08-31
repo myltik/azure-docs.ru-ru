@@ -8,7 +8,7 @@ author: venkatgct
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -23,15 +23,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-<a id="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# Создание эталонного набора данных для среды Time Series Insights с помощью портала Ibiza
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Создание эталонного набора данных для среды Time Series Insights с помощью портала Ibiza
 
 Эталонный набор данных — это коллекция элементов, дополненных событиями из вашего источника события. Обработчик входящего трафика Time Series Insights соединяет событие из источника события с элементом в эталонном наборе данных. Это дополненное событие становится доступным для запроса. Это соединение основано на ключах, определенных в эталонном наборе данных.
 
-<a id="steps-to-add-a-reference-data-set-to-your-environment" class="xliff"></a>
-
-## Действия для добавления эталонного набора данных в среду
+## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Действия для добавления эталонного набора данных в среду
 
 1. Войдите на [портал Ibiza](https://portal.azure.com).
 2. В меню слева на портале Ibiza щелкните "Все ресурсы".
@@ -50,9 +46,7 @@ ms.lasthandoff: 07/04/2017
 
 7. Щелкните "Создать".
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Управление эталонными данными](time-series-insights-manage-reference-data-csharp.md) программными средствами.
 * Полный справочник по API см. [здесь](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

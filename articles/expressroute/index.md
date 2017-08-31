@@ -2,7 +2,7 @@
 title: "Документация по Azure ExpressRoute. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как настроить и администрировать частное подключение ExpressRoute к облачным службам Майкрософт из локальной инфраструктуры или из среды для совместной работы."
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -1,9 +1,9 @@
 ---
-title: "Дополнительное занятие для учебника по службам Azure Analysis Services: &quot;Неоднородные иерархии&quot; | Документы Майкрософт"
+title: "Дополнительное занятие для учебника по службам Azure Analysis Services: \"Неоднородные иерархии\" | Документы Майкрософт"
 description: "Описывает исправление неоднородных иерархий в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Документация по Azure StorSimple. Руководства | Документация Майкрософт"
 description: "Узнайте, как использовать Azure StorSimple — решение интегрированного хранилища, которое управляет задачами хранилища на локальных устройствах и в облачном хранилище Azure."
 services: storsimple
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

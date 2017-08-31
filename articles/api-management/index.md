@@ -2,7 +2,7 @@
 title: "Документация по управлению API Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как использовать управление API для безопасной и масштабируемой публикации API-интерфейсов. Документация, в которой показано, как создавать современные шлюзы API для существующих серверных служб."
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
 ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="api-management-documentation"></a>Документация по службе управления API
@@ -143,10 +145,5 @@ ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

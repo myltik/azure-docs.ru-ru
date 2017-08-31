@@ -2,7 +2,7 @@
 title: "Документация по Azure Monitor. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как использовать службы мониторинга и диагностики для отслеживания производительности, обеспечения безопасности и выявления тенденций. Справочники по API, рекомендации и другие документы."
 services: monitoring-and-diagnostics
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

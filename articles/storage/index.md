@@ -2,7 +2,7 @@
 title: "Документация по службе хранилища Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Сведения об использовании службы хранилища Azure — хранилища BLOB-объектов, таблиц, очередей, файлов и дисков виртуальных машин в облаке. Руководства, справочники по API и другие документы."
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

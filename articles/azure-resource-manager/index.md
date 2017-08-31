@@ -2,7 +2,7 @@
 title: "Документация по Azure Resource Manager. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как использовать диспетчер ресурсов для развертывания и администрирования ресурсов решений в качестве группы, а также как создавать шаблоны для согласованного и воспроизводимого развертывания ресурсов."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -3,7 +3,7 @@ title: "Политики в службе управления API Azure | Док
 description: "Сведения о политиках, доступных для использования в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 1cc460cb-8e67-41aa-bc76-bbafc1892798
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: eea563ccbceab0833fb5e5eaf75e3a4347ef1ea4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-policies"></a>Политики управления API
@@ -26,7 +28,7 @@ ms.openlocfilehash: eea563ccbceab0833fb5e5eaf75e3a4347ef1ea4
   
  Выражения политики можно использовать в качестве значений атрибутов или текстовых значений в любой политике управления API, если в ней не указано иное. Некоторые политики (включая [управление последовательностью](api-management-advanced-policies.md#choose) и [настройку переменной](api-management-advanced-policies.md#set-variable)) основаны на выражениях политики. Дополнительную информацию см. в документации по [расширенным политикам](api-management-advanced-policies.md#AdvancedPolicies) и [выражениям политики](api-management-policy-expressions.md).  
   
-##  <a name="a-nameproxypoliciesa-policies"></a><a name="ProxyPolicies"></a> Политики  
+##  <a name="ProxyPolicies"></a> Политики  
   
 -   [Политики ограничения доступа](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
   
@@ -120,9 +122,4 @@ ms.openlocfilehash: eea563ccbceab0833fb5e5eaf75e3a4347ef1ea4
   
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с политиками см. в статье [Политики в Azure API Management](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

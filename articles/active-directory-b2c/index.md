@@ -2,7 +2,7 @@
 title: "Документация по Azure Active Directory B2C. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как развернуть комплексную систему управления удостоверениями пользователей в облаке. В справочной документации показано, как защитить веб-приложения и мобильные приложения, предназначенные для прямого взаимодействия с пользователями."
 services: active-directory-b2c
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 2bb7fe165fc88df62a2b12ccf666da0a7965d43b
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/27/2017
 
 ---

@@ -2,7 +2,7 @@
 title: "Документация по Azure Site Recovery. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как настроить аварийное восстановление и обеспечить непрерывность бизнес-процессов для виртуальных машин и физических серверов с помощью развертывания и управления репликацией в облаке."
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

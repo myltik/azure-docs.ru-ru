@@ -8,7 +8,7 @@ author: op-ravi
 manager: santoshb
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -23,15 +23,11 @@ ms.lasthandoff: 07/01/2017
 
 ---
 
-<a id="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# Создание источника событий для среды Time Series Insights с помощью портала Ibiza
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Создание источника событий для среды Time Series Insights с помощью портала Ibiza
 
 Источник событий Time Series Insights является производным от брокеров событий, таких как концентраторы событий Azure. Time Series Insights подключаются напрямую к источникам событий, принимая поток данных, при этом у пользователей нет необходимости писать код. Сейчас Time Series Insights поддерживает концентраторы событий Azure и Центр Интернета вещей. В дальнейшем будут добавлены дополнительные источники событий.
 
-<a id="steps-to-add-an-event-source-to-your-environment" class="xliff"></a>
-
-## Процедура добавления источника событий в среду
+## <a name="steps-to-add-an-event-source-to-your-environment"></a>Процедура добавления источника событий в среду
 
 1.  Войдите на [портал Ibiza](https://portal.azure.com).
 2.  В меню слева на портале Ibiza щелкните "Все ресурсы".
@@ -55,9 +51,7 @@ ms.lasthandoff: 07/01/2017
 
 После создания источника событий Time Series Insights автоматически запустит передачу данных в среду.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Отправьте события](time-series-insights-send-events.md) в источник событий.
 * Просмотрите свою среду на [портале Time Series Insights](https://insights.timeseries.azure.com).

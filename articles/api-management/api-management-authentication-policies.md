@@ -3,7 +3,7 @@ title: "Политики аутентификации в службе управ
 description: "Сведения о политиках аутентификации, доступных для использования в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
@@ -14,21 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: f447e43799e56114d52b0dc0f5c36265f2870c8e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-authentication-policies"></a>Политики аутентификации в службе управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameauthenticationpoliciesa-authentication-policies"></a><a name="AuthenticationPolicies"></a> Политики аутентификации  
+##  <a name="AuthenticationPolicies"></a> Политики аутентификации  
   
 -   [Обычная проверка подлинности](api-management-authentication-policies.md#Basic) – обычная проверка подлинности внутренней службы.  
   
 -   [Аутентификация с помощью сертификата клиента](api-management-authentication-policies.md#ClientCertificate) – аутентификация внутренней службы с помощью сертификатов клиентов.  
   
-##  <a name="a-namebasica-authenticate-with-basic"></a><a name="Basic"></a> Обычная проверка подлинности  
+##  <a name="Basic"></a> Обычная проверка подлинности  
  Используйте политику `authentication-basic` для обычной проверки подлинности внутренней службы. Эта политика задает для заголовка авторизации HTTP значение, соответствующее учетным данным, предоставленным в политике.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -63,7 +65,7 @@ ms.openlocfilehash: f447e43799e56114d52b0dc0f5c36265f2870c8e
   
 -   **Области политики:** API.  
   
-##  <a name="a-nameclientcertificatea-authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Аутентификация с помощью сертификата клиента  
+##  <a name="ClientCertificate"></a> Аутентификация с помощью сертификата клиента  
  Используйте политику `authentication-certificate` для аутентификации внутренней службы с помощью сертификата клиента. Сертификат сначала должен быть [установлен в службу управления API](http://go.microsoft.com/fwlink/?LinkID=511599) и идентифицирован по его отпечатку.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -100,8 +102,3 @@ ms.openlocfilehash: f447e43799e56114d52b0dc0f5c36265f2870c8e
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с политиками см. в статье [Политики в Azure API Management](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

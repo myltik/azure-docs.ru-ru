@@ -1,9 +1,9 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 6 &quot;Создание мер&quot; | Документы Майкрософт"
+title: "Учебник по службам Azure Analysis Services: занятие 6 \"Создание мер\" | Документы Майкрософт"
 description: "Описывает создание мер в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

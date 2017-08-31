@@ -2,7 +2,7 @@
 title: "Документация по выставлению счетов Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как расшифровывать счета Azure, а также как отслеживать и контролировать использование и расходы. Руководства, часто задаваемые вопросы, справочники по API и другие документы."
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

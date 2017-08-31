@@ -2,7 +2,7 @@
 title: "Документация по Azure Logic Apps. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как разрабатывать приложения логики для автоматизации и упрощения бизнес-процессов в локальной среде и в облаке. Руководства, шаблоны и справочники по API."
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

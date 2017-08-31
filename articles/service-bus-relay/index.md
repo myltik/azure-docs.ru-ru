@@ -1,13 +1,24 @@
 ---
-layout: LandingPage
 title: "Документация по ретранслятору служебной шины"
 description: "Сведения о работе ретранслятора Azure в локальной среде и гибридном облаке, а также руководства, видео, справочники по API и другие документы."
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
 ms.contentlocale: ru-ru
 ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Документация по ретранслятору служебной шины
 Сведения о том, как ретранслятор Azure упрощает работу с гибридными приложениями в локальных и облачных средах, используемых в корпоративной сети предприятия и общедоступном облаке, без необходимости открывать подключения брандмауэра или вносить значительные изменения в инфраструктуру корпоративной сети.

@@ -2,7 +2,7 @@
 title: "Документация по облачным службам Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "В руководствах, справочниках по API и другой документации показано, как использовать облачные службы для размещения и выполнения облачных приложений и API-интерфейсов с высоким уровнем доступности и масштабируемости."
 services: cloud-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c8e0cec964b7c72e45564ff776c55be1b06bfbc1
 ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="cloud-services-documentation"></a>Документация по облачным службам
@@ -127,10 +129,5 @@ ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

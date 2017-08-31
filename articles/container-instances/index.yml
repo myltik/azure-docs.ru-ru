@@ -5,7 +5,7 @@ metadata:
   title: Документация по службе "Экземпляры контейнеров Azure". Руководства | Документация Майкрософт
   description: Служба "Экземпляры контейнеров Azure" предоставляет быстрый и простой способ запуска контейнера в Azure без подготовки виртуальных машин и применения службы более высокого уровня.
   services: container-instances
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: container-instances
   ms.tgt_pltfrm: na

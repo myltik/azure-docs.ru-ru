@@ -2,7 +2,7 @@
 title: "Документация по DNS Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как управлять записями DNS с помощью службы доменных имен (DNS) Azure. В документации показано, как настроить и администрировать зоны и записи DNS для доменных имен."
 services: dns
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 659e0989e3a1f7114796c2211606e5d629cf68fd
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/22/2017
 
 ---

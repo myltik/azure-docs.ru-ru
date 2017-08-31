@@ -1,9 +1,9 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 12 &quot;Анализ в Excel&quot; | Документы Майкрософт"
+title: "Учебник по службам Azure Analysis Services: занятие 12 \"Анализ в Excel\" | Документы Майкрософт"
 description: "Описывает анализ данных в Excel в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

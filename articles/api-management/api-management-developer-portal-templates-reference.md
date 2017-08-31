@@ -3,7 +3,7 @@ title: "Шаблоны портала разработчика в службе �
 description: "Сведения о настройке содержимого страниц портала разработчика с использованием набора шаблонов в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 5189f3d8-2a4c-4dc8-ab19-11c7df0114d4
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 090f724c3ea569d226622c7d57fec74549260f4e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="azure-api-management-developer-portal-templates"></a>Шаблоны портала разработчика в службе управления API Azure
@@ -27,7 +29,7 @@ ms.openlocfilehash: 090f724c3ea569d226622c7d57fec74549260f4e
 
 
   
-##  <a name="a-namedeveloperportaltemplatesa-developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a>Шаблоны портала разработчика  
+##  <a name="DeveloperPortalTemplates"></a>Шаблоны портала разработчика  
   
 -   [Интерфейсы API](api-management-api-templates.md)  
     -   [Список API](api-management-api-templates.md#APIList)  
@@ -65,8 +67,3 @@ ms.openlocfilehash: 090f724c3ea569d226622c7d57fec74549260f4e
 -   [Справочник по моделям данных](api-management-template-data-model-reference.md)  
 -   [Элементы управления страницы](api-management-page-controls.md)  
 -   [Ресурсы шаблонов](api-management-template-resources.md)
-
-
-<!--HONumber=Jan17_HO2-->
-
-

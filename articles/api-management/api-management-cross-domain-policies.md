@@ -3,7 +3,7 @@ title: "Политики междоменного доступа в службе
 description: "Сведения о политиках междоменного доступа, доступных для использования в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management cross domain policies (Междоменные политики службы управления API).
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-namecrossdomainpoliciesa-cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Политики междоменного доступа  
+##  <a name="CrossDomainPolicies"></a> Политики междоменного доступа  
   
 -   [Разрешение кросс-доменных вызовов](api-management-cross-domain-policies.md#AllowCrossDomainCalls) – делает API доступным из клиентов на основе браузеров Adobe Flash и Microsoft Silverlight.  
   
@@ -30,7 +32,7 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) – добавляет поддержку JSON с заполнением (JSONP) для операции или API, чтобы разрешить кросс-доменные вызовы из браузерных клиентов JavaScript.  
   
-##  <a name="a-nameallowcrossdomaincallsa-allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> Разрешение междоменных вызовов  
+##  <a name="AllowCrossDomainCalls"></a> Разрешение междоменных вызовов  
  Используйте политику `cross-domain`, чтобы разрешить доступ к API из браузерных клиентов на базе Adobe Flash и Microsoft Silverlight.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -65,7 +67,7 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 -   **Области политики:** global.  
   
-##  <a name="a-namecorsa-cors"></a><a name="CORS"></a> CORS  
+##  <a name="CORS"></a> CORS  
  Политика `cors` добавляет поддержку общего доступа к ресурсам независимо от источника (CORS) для операции или API, чтобы разрешить междоменные вызовы из браузерных клиентов.  
   
  CORS позволяет браузеру и серверу взаимодействовать друг с другом и определять, разрешать конкретные запросы независимо от источника или нет (то есть, вызовы XMLHttpRequests, отправляемые из кода JavaScript на веб-странице в другие домены). Это обеспечивает большую гибкость, чем просто разрешение запросов из одного источника, и более высокую защищенность, чем разрешение всех запросов независимо от источника.  
@@ -149,7 +151,7 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 -   **Области политики:** API, operation.  
   
-##  <a name="a-namejsonpa-jsonp"></a><a name="JSONP"></a> JSONP  
+##  <a name="JSONP"></a> JSONP  
  Политика `jsonp` добавляет поддержку JSON с заполнением (JSONP) для операции или API, чтобы разрешить междоменные вызовы из браузерных клиентов на основе JavaScript. JSONP — это метод, который используется в программах JavaScript для запроса данных из сервера в другом домене. JSONP обходит ограничение, принудительно устанавливаемое большинством веб-браузеров, когда доступ к веб-страницам должен выполняться в том же домене.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -189,8 +191,3 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

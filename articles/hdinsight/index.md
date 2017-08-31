@@ -2,7 +2,7 @@
 title: "Документация по Azure HDInsight. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте о Hadoop в HDInsight. Документация, в которой показано, как использовать Hadoop, Spark, HBase, R-Server и другие службы для обработки и анализа больших данных."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

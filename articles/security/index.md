@@ -2,7 +2,7 @@
 title: "Документация по системе безопасности Azure. Руководства | Документация Майкрософт"
 description: "Узнайте, как настроить параметры безопасности в службах Azure так, чтобы выполнить требования развертываний служб и данных в облаке."
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
