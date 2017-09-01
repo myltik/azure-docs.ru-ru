@@ -1,8 +1,8 @@
 ---
 title: "Документация по базе данных SQL Server Stretch. Руководства и справочник по API | Документация Майкрософт"
-description: "Узнайте, как использовать базу данных SQL Server Stretch для безопасного переноса &quot;холодных&quot; данных в Azure без изменения запросов и приложений. Руководства и другие документы."
+description: "Узнайте, как использовать базу данных SQL Server Stretch для безопасного переноса \"холодных\" данных в Azure без изменения запросов и приложений. Руководства и другие документы."
 services: sql-server-stretch-database
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 91c1cb9713d087982dc68f2511b72ef86a050616
 ms.openlocfilehash: bb5e0fa9981133a77c235a42be369b3bbacb4ac0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/17/2017
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Документация по базе данных SQL Server Stretch
@@ -99,10 +101,5 @@ ms.openlocfilehash: bb5e0fa9981133a77c235a42be369b3bbacb4ac0
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -2,7 +2,7 @@
 title: "Документация по виртуальным машинам Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как создавать, развертывать и администрировать виртуальные машины Windows и Linux. Руководства, справочники по API и другие документы."
 services: virtual-machines
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ff1cc256ff9ba84504a9df16c33888a920f62cd6
 ms.openlocfilehash: da4f6ab3c7f0c4f96440b3008e6ac62d94ea2406
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="virtual-machines-documentation"></a>Документация по виртуальным машинам
@@ -60,10 +62,5 @@ ms.openlocfilehash: da4f6ab3c7f0c4f96440b3008e6ac62d94ea2406
     </li>    
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

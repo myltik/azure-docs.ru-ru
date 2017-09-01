@@ -2,7 +2,7 @@
 title: "Документация по Службам мобильного взаимодействия Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как получить ценную информацию об использовании мобильного приложения и пользовательской сегментации в режиме реального времени, а также включить зависящие от контекста push-уведомления и обмен сообщениями в приложении."
 services: mobile-engagement
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3de3024e93aee7ace0e243eef0beb4008dc50db5
 ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -207,10 +209,5 @@ ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
