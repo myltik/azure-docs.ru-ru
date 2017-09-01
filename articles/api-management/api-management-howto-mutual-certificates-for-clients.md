@@ -3,7 +3,7 @@ title: "Защита API-интерфейсов с помощью аутенти
 description: "Узнайте, как обеспечить безопасный доступ к API-интерфейсам с помощью сертификатов клиентов"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.service: api-management
