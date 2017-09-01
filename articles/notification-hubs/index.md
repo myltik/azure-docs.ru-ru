@@ -2,7 +2,7 @@
 title: "Документация по Центрам уведомлений Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как отправлять push-уведомления из любого серверного компонента на любое мобильное устройство с помощью центров уведомлений. Руководства, справочники по API и другие документы."
 services: notification-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

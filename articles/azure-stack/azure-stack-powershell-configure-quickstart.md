@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: d0fc07f20937d4867c59930b13f6aed4aa37f98d
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 87e0560dc052de174fd3d8d86f09e28ad46d8240
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -31,7 +31,7 @@ This article is a condensed version of the steps described in the [Install Power
 
 ## <a name="set-up-powershell-for-aad-based-deployments"></a>Set up PowerShell for AAD based deployments
 
-Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script:
+Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script (make sure to update the TenantName variable as per your environment configuration):
 
 ```powershell
 # Specify Azure Active Directory tenant name
@@ -80,7 +80,7 @@ cd AzureStack-Tools-master
 Import-Module `
   .\Connect\AzureStack.Connect.psm1
 
-# Configure the cloud administrator’s PowerShell environment.
+# Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackAdmin" `
   -ArmEndpoint "https://adminmanagement.local.azurestack.external"
@@ -93,7 +93,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -AADTenantName $TenantName `
   -EnvironmentName AzureStackAdmin
 
-# Sign-in to the administrative portal.
+# Sign-in to the operator's portal.
 Login-AzureRmAccount `
   -EnvironmentName "AzureStackAdmin" `
   -TenantId $TenantID 
@@ -163,7 +163,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -ADFS `
   -EnvironmentName "AzureStackAdmin"
 
-# Sign-in to the administrative portal.
+# Sign-in to the operator's portal.
 Login-AzureRmAccount `
   -EnvironmentName "AzureStackAdmin" `
   -TenantId $TenantID 
