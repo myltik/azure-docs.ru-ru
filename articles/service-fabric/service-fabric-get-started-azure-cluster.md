@@ -1,5 +1,5 @@
 ---
-title: "Настройка кластера Azure Service Fabric | Документация Майкрософт"
+title: "Настройка кластера Azure Service Fabric | Документация Майкрософт"
 description: "Краткое руководство о создании кластера Service Fabric для Windows или Linux в Azure."
 services: service-fabric
 documentationcenter: .net
@@ -14,19 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/05/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ad473a2c9006e2593a84364f03e3954a569adcab
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 98c5bacd0a040d3a2d83bfe088b11d0f15449ed9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Создание первого кластера Service Fabric в Azure
 [Кластер Service Fabric](service-fabric-deploy-anywhere.md) — это подключенный к сети набор виртуальных машин или физических компьютеров, в котором вы развертываете микрослужбы и управляете ими. Используя это краткое руководство, вы сможете за несколько минут создать кластер с пятью узлами под управлением Windows или Linux на [портале Azure](http://portal.azure.com) или с помощью [Azure PowerShell](https://msdn.microsoft.com/library/dn135248).  
 
-Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 
 ## <a name="use-the-azure-portal"></a>Использование портала Azure
@@ -162,10 +161,10 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc
 5) Скопируйте все выходные данные и сохраните их в текстовый файл, так как позднее вам понадобится сослаться на него. Запишите следующие сведения из выходных данных.
  
 
-- **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-- **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-- **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
-- **ClientConnectionEndpointPort** : 19000
+- **CertificateSavedLocalPath**: c:\mycertificates\mycluster20170504141137.pfx
+- **CertificateThumbprint**: C4C1E541AD512B8065280292A8BA6079C3F26F10
+- **ManagementEndpoint**: https://mycluster.southcentralus.cloudapp.azure.com:19080
+- **ClientConnectionEndpointPort**: 19000
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>Установка сертификата на локальном компьютере
   
