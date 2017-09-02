@@ -1,4 +1,3 @@
-
 ---
 title: "Защита веб-сервера с помощью SSL-сертификатов в Azure | Документация Майкрософт"
 description: "Узнайте, как защитить веб-сервер NGINX с помощью SSL-сертификатов на виртуальной машине Linux в Azure."
@@ -11,7 +10,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017
