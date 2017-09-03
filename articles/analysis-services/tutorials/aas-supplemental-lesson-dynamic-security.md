@@ -3,7 +3,7 @@ title: "Дополнительное занятие для учебника по
 description: "Описывает использование динамической безопасности с помощью фильтров строк в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 
