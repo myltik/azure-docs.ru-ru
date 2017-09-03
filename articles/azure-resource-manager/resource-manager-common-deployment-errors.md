@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 08/17/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: aa204efcdc1a3fce5093abd7c9e94566ba6dd259
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 30adc10d01290f14a3e116813b19916fa36ab0bc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager | Microsoft Azure
@@ -63,7 +63,25 @@ Message: The requested tier for resource '<resource>' is currently not available
 for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
 ```
 
-Эта ошибка возникает, когда выбранный номер SKU ресурса (например, размер виртуальной машины) недоступен для указанного расположения. Чтобы устранить эту проблему, необходимо определить номера SKU, доступные в регионе. Для поиска доступных SKU можно использовать портал или операцию REST.
+Эта ошибка возникает, когда выбранный номер SKU ресурса (например, размер виртуальной машины) недоступен для указанного расположения. Чтобы устранить эту проблему, необходимо определить номера SKU, доступные в регионе. Для поиска доступных номеров SKU можно использовать PowerShell, портал или операцию REST.
+
+- Для PowerShell используйте [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) и фильтрацию по расположению. Эта команда поддерживается только в Azure PowerShell последней версии.
+
+  ```powershell
+  Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("southcentralus")}
+  ```
+
+  Результаты включают список номеров SKU для расположения и имеющиеся ограничения для этого номера SKU.
+
+  ```powershell
+  ResourceType                Name      Locations Restriction                      Capability Value
+  ------------                ----      --------- -----------                      ---------- -----
+  availabilitySets         Classic southcentralus             MaximumPlatformFaultDomainCount     3
+  availabilitySets         Aligned southcentralus             MaximumPlatformFaultDomainCount     3
+  virtualMachines      Standard_A0 southcentralus
+  virtualMachines      Standard_A1 southcentralus
+  virtualMachines      Standard_A2 southcentralus
+  ```
 
 - Чтобы сделать это с помощью [портала](https://portal.azure.com), войдите на него и добавьте ресурс с помощью пользовательского интерфейса. При настройке значений вы увидите доступные SKU для этого ресурса. Не нужно завершать развертывание.
 

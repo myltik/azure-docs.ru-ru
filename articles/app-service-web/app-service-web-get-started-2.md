@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 05/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf07c4142d025517637e31b27f1f34b6d402d6fe
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Добавление функциональных возможностей в первое веб-приложение
@@ -58,7 +58,7 @@ ms.lasthandoff: 04/06/2017
     Поэтому, если сейчас открыть сеанс без проверки подлинности в другом браузере, можно увидеть экран входа при переходе на тот же URL-адрес.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
     Если вы никогда не работали с Azure Active Directory, ваш каталог по умолчанию может не содержать всех пользователей Azure AD. Вероятно, там будет только ваша учетная запись Майкрософт с подпиской Azure. Именно поэтому вы смогли автоматически войти в приложение в том же браузере ранее.
-   Ту же учетную запись Майкрософт можно использовать для входа и на этой странице.
+    Ту же учетную запись Майкрософт можно использовать для входа и на этой странице.
 
 Поздравляем, теперь в вашем веб-приложении проверяется подлинность всего трафика.
 
@@ -150,8 +150,8 @@ ms.lasthandoff: 04/06/2017
 * [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure.](web-sites-hybrid-connection-get-started.md) Обращайтесь к существующей локальной базе данных или системе CRM.
 * [Резервное копирование веб-приложений в службе приложений Azure.](web-sites-backup.md) Настройте резервное копирование и восстановление веб-приложения. Подготовьтесь к неожиданным сбоям и восстановлению после них.
 * [Включение ведения журнала диагностики для веб-приложений в службе приложений Azure.](web-sites-enable-diagnostic-log.md) Читайте журналы IIS из трассировки Azure или приложения. Читайте журналы в потоке, загружайте их или передавайте в [Application Insights](../application-insights/app-insights-overview.md) для анализа "под ключ".
-* [Web Vulnerability Scanning for Azure App Service powered by Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) (Сканирование веб-уязвимостей службы приложений Azure с помощью Tinfoil Security). -
-   Просканируйте свое веб-приложение на уязвимость перед современными угрозами с помощью службы [Tinfoil Security](https://www.tinfoilsecurity.com/).
+* [Web Vulnerability Scanning for Azure App Service powered by Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)-
+   (Сканирование веб-уязвимостей службы приложений Azure с помощью Tinfoil Security). Просканируйте свое веб-приложение на уязвимость перед современными угрозами с помощью службы [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Обзор функций Azure.](../azure-functions/functions-overview.md) Выполнение заданий по обработке данных, созданию отчетов и т. д.
 * [Принцип работы службы приложений](../app-service/app-service-how-works-readme.md)
 

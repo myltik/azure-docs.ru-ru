@@ -14,20 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 08/15/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: c3eac45065bad80fd7b1fd29ac77a162eef3fa28
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 7b1a5f7ea3b2bda438727dc75a85557ea7930280
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Выполнение запросов Hive с помощью пакета SDK HDInsight для .NET
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Узнайте, как отправлять запросы Hive с помощью пакета SDK HDInsight для .NET.
+Узнайте, как отправлять запросы Hive с помощью пакета SDK HDInsight для .NET. Напишите программу на языке C#, чтобы отправить запрос Hive для перечисления таблиц Hive и отобразить результаты.
 
 > [!NOTE]
 > Действия, описанные в этой статье, необходимо выполнять из клиента Windows. Чтобы получить сведения об использовании клиента Linux, OS X или Unix для работы с Hive, воспользуйтесь выбором вкладок в верхней части статьи.
@@ -37,7 +36,7 @@ ms.lasthandoff: 06/10/2017
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-* **Кластер Hadoop в HDInsight**. См. статью [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* **Кластер Hadoop в HDInsight**. См. статью [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](./hdinsight-hadoop-linux-tutorial-get-started.md).
 * **Visual Studio 2013, Visual Studio 2015, Visual Studio 2017**.
 
 ## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>Отправка запросов Hive с помощью пакета SDK HDInsight для .NET

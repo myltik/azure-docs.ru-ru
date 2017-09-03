@@ -12,19 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 9c7c10031c068eeb02b4468ec48bf60aece2f12e
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 9b01ff86da6a1fd4a439a6ba59ea15ed6480cdad
 ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Начало работы с защитой идентификации Azure Active Directory и Microsoft Graph
-Microsoft Graph — это конечная точка единого Microsoft API и источник API-интерфейсов для [защиты идентификации Azure Active Directory](active-directory-identityprotection.md) . Наш первый API, **identityRiskEvents**, позволяет запрашивать у Microsoft Graph список [рисковых событий](active-directory-identityprotection-risk-events-types.md) и связанных с ними сведений. В статье описывается, как выполнять запросы к этому API. Дополнительные сведения, полная документация и доступ к Graph Explorer представлены на [веб-сайте Microsoft Graph](https://graph.microsoft.io/).
+Microsoft Graph — это конечная точка Unified API (Майкрософт) и источник интерфейсов API [защиты идентификации Azure Active Directory](active-directory-identityprotection.md). Первый API, **identityRiskEvents**, позволяет запрашивать у Microsoft Graph список [событий риска](active-directory-identityprotection-risk-events-types.md) и связанные с ними сведения. В статье описывается, как выполнять запросы к этому API. Дополнительные сведения, полную документацию и доступ к Graph Explorer можно получить на [сайте Microsoft Graph](https://graph.microsoft.io/).
 
+> [!IMPORTANT]
+> Для управления службой Azure AD мы рекомендуем использовать [Центр администрирования Azure AD](https://aad.portal.azure.com) на портале Azure, а не классический портал Azure, который упоминается в этой статье.
 
 Получить доступ к данным защиты идентификации с помощью Microsoft Graph можно в три этапа.
 
@@ -60,7 +62,7 @@ Microsoft Graph — это конечная точка единого Microsoft 
    
     b. В качестве **типа** выберите **Веб-приложение и/или веб-API**.
    
-    В. Нажмите кнопку **Далее**.
+    В. Щелкните **Далее**.
 8. В диалоговом окне **Свойства приложения** выполните следующие действия:
    
     ![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_06.png)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: bd1b931681331d4de06e227983dfce98b4cc84f2
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Устранение неполадок синхронизации паролей с помощью службы синхронизации Azure AD Connect
@@ -269,6 +269,10 @@ ms.lasthandoff: 06/28/2017
 | SourceConnectorNotPresent |Объект не найден в локальном пространстве соединителя Active Directory. |
 | TargetNotExportedToDirectory |Объект в пространстве соединителя Azure AD еще не экспортирован. |
 | MigratedCheckDetailsForMoreInfo |Запись журнала создана до выхода версии 1.0.9125.0 и отображается в исходном состоянии. |
+| Ошибка |Служба вернула неизвестную ошибку. |
+| Unknown |Произошла ошибка при попытке обработать пакет хэшей паролей.  |
+| MissingAttribute |Недоступны определенные атрибуты (например, хэш Kerberos), необходимые доменным службам Azure AD. |
+| RetryRequestedByTarget |Ранее были недоступны определенные атрибуты (например, хэш Kerberos), необходимые доменным службам Azure AD. Предпринята попытка повторно синхронизировать хэш пароля пользователя. |
 
 ## <a name="scripts-to-help-troubleshooting"></a>Сценарии, помогающие при устранении неполадок
 

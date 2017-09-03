@@ -1,7 +1,7 @@
 ---
-title: "Создание приложения Ruby с помощью веб-приложения службы приложений Azure на платформе Linux | Документация Майкрософт"
-description: "Узнайте, как создавать приложения Ruby с помощью веб-приложения службы приложений Azure на платформе Linux."
-keywords: "служба приложений azure, linux, oss"
+title: "Создание приложения Ruby с помощью веб-приложений на платформе Linux | Документация Майкрософт"
+description: "Узнайте, как создать приложения Ruby с помощью веб-приложений на платформе Linux."
+keywords: "служба приложений azure, linux, oss, ruby"
 services: app-service
 documentationcenter: 
 author: wesmc7777
@@ -13,177 +13,155 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
-ms.author: wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c63bf790a50b894ea1732ae3142e6c1ff9ccbd4c
+ms.date: 08/15/2017
+ms.author: wesmc;rachelap
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 17f3f1a2122c508501134a0c43ab6abce412fb44
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="create-a-ruby-app-with-azure-web-app-on-linux---preview"></a>Создание приложения Ruby с помощью веб-приложения на платформе Linux (предварительная версия)
+# <a name="create-a-ruby-app-with-web-apps-on-linux"></a>Создание приложения Ruby с помощью веб-приложений на платформе Linux 
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-## <a name="overview"></a>Обзор
+[Веб-приложения Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом кратком руководстве показано, как создать базовое приложение Ruby on Rails и развернуть его в Azure в качестве веб-приложения на платформе Linux.
 
-В этом руководстве показано, как создать базовое приложение Ruby on Rails в локальной среде и развернуть его в веб-приложении Azure на платформе Linux.
+![Приложение Hello World](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* На компьютере разработки должна быть установлена среда [Ruby 2.3.3 или более поздней версии](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller).
-* На компьютере разработки должен быть установлен компонент [Git](https://git-scm.com/downloads).
+* [Ruby 2.4.1 или более поздней версии](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller).
+* [Git](https://git-scm.com/downloads).
 * [Активная подписка Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Это руководство написано в контексте среды Ubuntu. Все системные команды относятся к bash.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-new-local-rails-application"></a>Создание локального приложения Rails
+## <a name="download-the-sample"></a>Скачивание примера приложения
 
-1. Создайте каталог для нового приложения и перейдите в этот каталог.
+В окне терминала выполните следующую команду, чтобы клонировать репозиторий с примером приложения на локальный компьютер.
 
-        mkdir ~/workspace
-        cd ~/workspace
+```bash
+git clone https://github.com/Azure-Samples/ruby-docs-hello-world
+```
 
-2. Инициализируйте Ruby и проверьте версию, выполнив команду `ruby -v`.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-    ![Инициализация Ruby](./media/app-service-linux-ruby-get-started/ruby-version.png)
+## <a name="run-the-application-locally"></a>Локальный запуск приложения
 
-3. Установите Rails с помощью команды `gem install rails`.
+Запустите сервер Rails для работы приложения. Перейдите в каталог *hello-world* и запустите сервер, выполнив команду `rails server`.
 
-    ![Установка Rails](./media/app-service-linux-ruby-get-started/install-rails.png)
-
-4. Создайте приложение Rails **hello-world** с помощью следующей команды.
-
-    Если вы используете Rails 5.1.0 или более поздней версии, добавьте параметр `--skip-yarn`, как показано в следующей команде.
-
-        rails new hello-world --skip-yarn
-
-    Для версий Rails, предшествующих версии 5.1.0, используйте приведенную ниже команду.
-
-        rails new hello-world 
-
-    ![Новое приложение Hello World](./media/app-service-linux-ruby-get-started/rails-new-hello-world.png)
-
-    ![Новое приложение Hello World](./media/app-service-linux-ruby-get-started/rails-new-hello-world-2.png)
-
-    При использовании Rails 5.1 или более поздней версии создается файл package.json, если параметр `--skip-yarn` не используется. Нам не нужно добавлять его развертывание. В качестве альтернативы можно удалить файл package.json или добавить его в файл *.git-ignore* в каталоге следующим образом. 
-
-        # Ignore package.json
-        /package.json
-
-5. Перейдите в каталог *hello-world* и запустите сервер.
-
-        cd hello-world
-        rails server
-
-    ![Запуск приложения Hello World](./media/app-service-linux-ruby-get-started/start-hello-world-server.png)
+```bash
+cd hello-world\bin
+rails server
+```
     
-6. С помощью веб-браузера перейдите к `http://localhost:3000`, чтобы протестировать приложение локально.    
+С помощью веб-браузера перейдите к `http://localhost:3000`, чтобы протестировать приложение локально.    
 
-    ![Приложение Hello World](./media/app-service-linux-ruby-get-started/hello-world.png)
+![Приложение Hello World](./media/app-service-linux-ruby-get-started/hello-world.png)
 
-## <a name="prepare-the-app-for-azure"></a>Подготовка приложения для Azure
+## <a name="modify-app-to-display-welcome-message"></a>Изменение приложения для отображения приветственного сообщения
 
-По умолчанию образ Ruby запускает сервер с флагом `-e production`. Эта среда требует определенной настройки для веб-приложения Azure на платформе Linux. Контейнер берет на себя часть этой настройки (например, параметр `SECRET_KEY_BASE`). Необходимо настроить маршрут по умолчанию. В противном случае при переходе на сайт появится сообщение об ошибке 404.
+Измените приложение, чтобы оно отображало приветственное сообщение. Затем измените контроллер приложения, чтобы он возвращал сообщение в формате HTML браузеру. 
 
-Вот как можно настроить маршрут по умолчанию.
+Откройте файл *~/workspace/hello-world/app/controllers/application_controller.rb* для редактирования. Измените класс `ApplicationController`, как показано в следующем примере кода:
 
-1. Откройте файл *~/workspace/hello-world/config/routes.rb* для редактирования. Добавьте в него приведенную строку, как показано на снимке экрана. 
+  ```ruby
+  class ApplicationController > ActionController :: base
+    protect_from_forgery with: :exception 
+    def hello
+      render html: "Hello, world from Azure Web App on Linux!"
+    end
+  end
+  ```
 
-        root 'application#hello'
+Теперь приложение настроено. С помощью веб-браузера перейдите к `http://localhost:3000`, чтобы проверить корневую целевую страницу.
 
-    ![Файл routes.rb](./media/app-service-linux-ruby-get-started/routes-rb.png)
+![Приложение Hello World настроено](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
 
+[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
-2. Откройте файл *~/workspace/hello-world/app/controllers/application_controller.rb* для редактирования. Добавьте в него приведенные ниже строки, как показано на снимке экрана.
+## <a name="create-a-ruby-web-app-on-azure"></a>Создание веб-приложения Ruby в Azure
 
-        def hello
-            render html: "Hello, world from Azure Web App on Linux!"
-        end
+Выполните команду [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create), чтобы создать план службы приложений для веб-приложения. 
+ 
+```azurecli-interactive
+  az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
+```
 
-    ![Файл routes.rb](./media/app-service-linux-ruby-get-started/application-controller-rb.png)
+Далее выполните команду [az webapp create](https://docs.microsoft.com/cli/azure/webapp), чтобы создать веб-приложение, использующее созданный план службы. Обратите внимание, что для среды выполнения установлено значение `ruby|2.3`. Не забудьте указать уникальное имя приложения вместо `<app name>`.
 
+```azurecli-interactive
+  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "ruby|2.3" --deployment-local-git
+```
 
-3. Теперь приложение настроено. С помощью веб-браузера перейдите к `http://localhost:3000`, чтобы проверить корневую целевую страницу.
+После создания веб-приложения страница **обзора** будет доступна для просмотра. Перейдите на эту страницу. Отобразится следующая страница заставки:
 
-    ![Приложение Hello World настроено](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
-
-## <a name="create-a-ruby-website-on-azure"></a>Создание веб-сайта Ruby в Azure
-
-1. Войдите на [портал Azure](http://portal.azure.com) с использованием своей подписки. Добавьте **веб-приложение на платформе Linux**, как показано на снимке экрана ниже.
-
-    ![Создание веб-приложения на платформе Linux](./media/app-service-linux-ruby-get-started/top-level-create.png)
-
-2. Откроется колонка **Создание**, как показано на следующем снимке экрана.
-
-    ![Колонка "Создание"](./media/app-service-linux-ruby-get-started/create-blade.png)
-
-
-    1. Присвойте веб-приложению имя.
-    2. Выберите имеющуюся группу ресурсов или создайте новую. (Доступные регионы см. в [разделе с ограничениями](app-service-linux-intro.md).)
-    3. Выберите имеющийся план службы приложений Azure или создайте новый. (Заметки о плане службы приложений см. в [разделе с ограничениями](app-service-linux-intro.md).)
-    4. Выберите встроенный стек времени выполнения **Ruby 2.3** для конфигурации контейнера.
-    5. Щелкните **Закрепить на панели мониторинга** для веб-приложения.
-    6. Щелкните **Создать**.
-
-3. После создания веб-приложения отобразится колонка **Обзор**. Скопируйте **URL-адрес** нового веб-приложения и откройте его в браузере. Отобразится следующая страница заставки.
-
-    ![Страница заставки](./media/app-service-linux-ruby-get-started/splash-page.png)
+![Страница заставки](./media/app-service-linux-ruby-get-started/splash-page.png)
 
 
 ## <a name="deploy-your-application"></a>Развертывание приложения
 
-В этом руководстве мы используем Git для развертывания локального приложения Ruby в Azure.
+Используйте Git для развертывания приложения Ruby в Azure. Для веб-приложения уже настроено развертывание Git. Выполните команду [az webapp deployment](https://docs.microsoft.com/cli/azure/webapp/deployment), чтобы извлечь URL-адрес развертывания.  
 
-1. Для нового веб-сайта Azure уже настроено развертывание Git. URL-адрес развертывания Git можно найти, перейдя по приведенному ниже URL-адресу после вставки имение своего веб-приложения.
+```bash
+az webapp deployment source show --name <app name> --resource-group myResourceGroup
+```
 
-        https://{your web app name}.scm.azurewebsites.net/api/scm/info
+Обратите внимание, что URL-адрес Git имеет следующий вид в соответствии с именем вашего веб-приложения:
 
-    URL-адрес Git имеет следующий вид в соответствии с именем вашего веб-приложения.
+```bash
+https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
+```
 
-        https://{your web app name}.scm.azurewebsites.net/{your web app name}.git
+[!INCLUDE [Clean-up section](../../includes/configure-deployment-user-no-h.md)]
 
-2. Выполните следующие команды, чтобы развернуть локальное приложение на веб-сайте Azure.
+Выполните следующие команды, чтобы развернуть локальное приложение на веб-сайте Azure.
 
-        cd ~/workspace/hello-world
-        git init
-        git remote add azure <Git deployment URL from above>
-        git add -A
-        git commit -m "Initial deployment commit"
-        git push master
+```bash
+git remote add azure <Git deployment URL from above>
+git add -A
+git commit -m "Initial deployment commit"
+git push azure master
+```
 
-    Убедитесь, что операции удаленного развертывания успешно выполнены.
+Убедитесь, что операции удаленного развертывания успешно выполнены. Выходные данные команд будут выглядеть следующим образом:
 
-    ![Развертывание веб-приложения](./media/app-service-linux-ruby-get-started/deployment-success.png)
+```bash
+remote: Using sass-rails 5.0.6
+remote: Updating files in vendor/cache
+remote: Bundle gems are installed into ./vendor/bundle
+remote: Updating files in vendor/cache
+remote: ~site/repository
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
+  579ccb....2ca5f31  master -> master
+myuser@ubuntu1234:~workspace/<app name>$
+```
 
-    Если отображается сообщение о том, что удаленное развертывание перестало отвечать на запросы, вероятнее всего развертывание все еще выполняется. В этом случае перейдите по приведенному ниже URL-адресу в браузере.
+После завершения развертывания перезапустите веб-приложение, чтобы изменения вступили в силу, выполнив команду [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#restart), как показано ниже.
 
-        https://{your web app name}.scm.azurewebsites.net/api/deployments
+```azurecli-interactive 
+az webapp restart --name <app name> --resource-group myResourceGroup
+```
 
-3. После завершения развертывания перезапустите веб-приложение, чтобы задействовать развернутую службу. На [портале Azure](http://portal.azure.com) перейдите к колонке **Обзор** веб-приложения.
+Перейдите на свой сайт и проверьте результаты.
 
-    Щелкните **Перезапустить** на панели инструментов.
+```bash
+http://<your web app name>.azurewebsites.net
+```
+![Обновленное веб-приложение](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
 
-    ![Перезапуск веб-приложения](./media/app-service-linux-ruby-get-started/restart-web-app.png)
+> [!NOTE]
+> Во время перезапуска приложения попытка просмотреть сайт приведет к ошибке с кодом состояния HTTP `Error 503 Server unavailable`. На полный перезапуск может потребоваться несколько минут.
+>
 
-4. Перейдите на сайт и убедитесь, что изменения вступили в силу. 
+[!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
-    Во время перезапуска приложения попытка просмотреть сайта приведет к ошибке для кода состояния HTTP 503 (сервер недоступен). На полный перезапуск может потребоваться несколько минут.
-
-        http://{your web app name}.azurewebsites.net
-
-    ![Обновленное веб-приложение](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
-    
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о веб-приложении службы приложений Azure на платформе Linux можно получить, воспользовавшись приведенными ниже ссылками. Если у вас возникли вопросы, опубликуйте их на [нашем форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-web-app.md) (Создание веб-приложений в службе приложений на платформе Linux)
-* [Как применять пользовательские образы Docker в службе приложений на платформе Linux](app-service-linux-using-custom-docker-image.md)
-* [Использование конфигурации PM2 для Node.js в веб-приложениях на платформе Linux](app-service-linux-using-nodejs-pm2.md)
-* [Использование .NET Core в веб-приложениях службы приложений Azure на платформе Linux](app-service-linux-using-dotnetcore.md)
-* [Вопросы и ответы о веб-приложениях службы приложений Azure на платформе Linux](app-service-linux-faq.md)
-
-
+[Вопросы и ответы о веб-приложении службы приложений Azure на платформе Linux](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)

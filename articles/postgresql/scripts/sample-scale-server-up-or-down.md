@@ -6,16 +6,16 @@ author: salonisonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 75efaa7dd6165fe0a3d3e35928107cae71e23d5a
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: b847abb336cce5dd5516469dca58002d3ba265f0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Мониторинг и масштабирование отдельного сервера PostgreSQL с помощью Azure CLI
@@ -26,8 +26,7 @@ ms.lasthandoff: 06/20/2017
 Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Пример скрипта
-В этом примере скрипта измените выделенные строки, чтобы настроить имя и пароль администратора. Замените идентификатор подписки, используемый в командах мониторинга az, собственным.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "Создание и масштабирование базы данных Azure для PostgreSQL.")]
+В этом примере скрипта измените выделенные строки, чтобы настроить имя и пароль администратора. Замените идентификатор подписки, используемый в командах мониторинга az, собственным идентификатором. [!code-azurecli-interactive[Начальная страница](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "Создать и масштабировать базу данных для PostgreSQL.")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 После выполнения примера сценария можно удалить группу ресурсов и все связанные с ней ресурсы, выполнив следующую команду.

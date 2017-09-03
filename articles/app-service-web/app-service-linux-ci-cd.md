@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 6b6c173c6c4bb3f670c54208c80e6d966a1f396e
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 026c4491818c8719c68a759ee9595ad9c765d526
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-on-linux"></a>Непрерывное развертывание для веб-приложения Azure на платформе Linux
@@ -32,7 +32,13 @@ ms.lasthandoff: 07/19/2017
 
 Войдите на портал Azure по адресу http://portal.azure.com.
 
-## <a name="step-2---enable-docker-hub-continuous-deployment"></a>Шаг 2. Включение непрерывного развертывания Docker Hub
+## <a name="step-2---enable-container-continuous-deployment-feature"></a>Шаг 2. Включение функции непрерывного развертывания контейнера
+
+Включить функцию непрерывного развертывания можно с помощью [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) и выполнив следующую команду:
+
+```azurecli-interactive
+az webapp deployment container config -n sname -g rgname -e true
+``` 
 
 На **[портале Azure](https://portal.azure.com/)** щелкните **Служба приложений** в левой части страницы.
 
@@ -43,6 +49,12 @@ ms.lasthandoff: 07/19/2017
 ![Изображение добавления параметра приложения](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
 ## <a name="step-3---prepare-webhook-url"></a>Шаг 3 . Подготовка URL-адреса Webhook
+
+Получить URL-адрес можно с помощью [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) и выполнив следующую команду:
+
+```azurecli-interactive
+az webapp deployment container -n sname1 -g rgname -e true --show-cd-url
+``` 
 
 Для URL-адреса webhook необходима следующая конечная точка: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
@@ -83,6 +95,7 @@ ms.lasthandoff: 07/19/2017
 * [Использование Ruby в веб-приложении Azure на платформе Linux](app-service-linux-ruby-get-started.md)
 * [Как применить пользовательский образ Docker для веб-приложения Azure на платформе Linux](./app-service-linux-using-custom-docker-image.md)
 * [Вопросы и ответы о веб-приложении службы приложений Azure на платформе Linux](./app-service-linux-faq.md) 
+* [Управление веб-приложением на платформе Linux с помощью Azure CLI](./app-service-linux-cli.md)
 
 
 

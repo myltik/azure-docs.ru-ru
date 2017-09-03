@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e86af029422340bdfa38ba233f0ed61f6f1d8ca2
-ms.lasthandoff: 03/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 2412033daa1d97860dd9f380178622b1ddc590c0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-vm"></a>Создание пользовательских артефактов для виртуальной машины DevTest Labs
@@ -30,10 +30,10 @@ ms.lasthandoff: 03/17/2017
 **Артефакты** используются для развертывания и настройки приложения после подготовки виртуальной машины. Артефакт состоит из файла определения артефакта и других файлов скриптов, которые хранятся в папке в репозитории Git. Файлы определения артефактов состоят из JSON и выражений, позволяющих указать, какие компоненты должны быть установлены на виртуальной машине. Например, можно определить имя артефакта, выполняемую команду и параметры, которые станут доступны после запуска команды. В файле определения артефакта можно ссылаться на другие файлы скриптов, используя их имена.
 
 ## <a name="artifact-definition-file-format"></a>Формат файла определения артефакта
-В следующем примере показаны разделы, составляющие базовую структуру файла определения.
+В следующем примере показаны разделы, составляющие базовую структуру файла определения:
 
     {
-      "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2015-01-01/dtlArtifacts.json",
+      "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
       "title": "",
       "description": "",
       "iconUri": "",
@@ -56,14 +56,14 @@ ms.lasthandoff: 03/17/2017
 | title |Да |Имя артефакта отображается в лаборатории. |
 | Описание |Да |Описание артефакта отображается в лаборатории. |
 | iconUri |Нет |URI значка отображается в лаборатории. |
-| targetOsType |Да |Операционная система виртуальной машины, на которую будет установлен артефакт. Поддерживаемые параметры: Windows и Linux. |
+| targetOsType |Да |Операционная система виртуальной машины, на которую устанавливается артефакт. Поддерживаемые параметры: Windows и Linux. |
 | parameters |Нет |Значения, предоставляемые, когда на компьютере выполняется команда установки артефакта. Помогает при настройке артефакта. |
 | runCommand |Да |Команда установки артефакта, выполняемая на виртуальной машине. |
 
 ### <a name="artifact-parameters"></a>Параметры артефакта
 В разделе параметров файла определения указываются значения, которые пользователь может вводить при установке артефакта. Это значения можно использовать в команде установки артефакта.
 
-Параметры определяются с помощью следующей структуры:
+Параметры определяются с помощью следующей структуры.
 
     "parameters": {
         "<parameterName>": {
@@ -91,27 +91,27 @@ ms.lasthandoff: 03/17/2017
 Выражения заключаются в квадратные скобки ([ и ]) и вычисляются при установке артефакта. Выражения могут встречаться в любом месте строкового значения JSON и всегда возвращают другое значение JSON. Если нужно использовать строковый литерал, который начинается с квадратной скобки ([), необходимо указать две квадратные скобки ([[).
 Как правило, для составления значения используются выражения с функциями. Как и в языке JavaScript, вызовы функций форматируются в виде functionName(arg1,arg2,arg3).
 
-Вот список распространенных функции.
+Ниже приведен список распространенных функций.
 
 * parameters(parameterName) — возвращает значение параметра, предоставляемого при выполнении команды артефакта.
 * concat(arg1,arg2,arg3, …..) — объединяет несколько строковых значений. Эта функция может принимать любое количество аргументов.
 
-В следующем примере показано, как составить значение, используя выражение и функции.
+В следующем примере показано, как составить значение, используя выражение и функции:
 
     runCommand": {
-         "commandToExecute": "[concat('powershell.exe -File startChocolatey.ps1'
+         "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
     , ' -RawPackagesList ', parameters('packages')
     , ' -Username ', parameters('installUsername')
     , ' -Password ', parameters('installPassword'))]"
     }
 
 ## <a name="create-a-custom-artifact"></a>Создание пользовательского артефакта
-Для создания пользовательского артефакта выполните описанные ниже действия.
+Для создания пользовательского артефакта выполните следующие действия:
 
-1. Установите редактор JSON — он потребуется для работы с файлами определения артефакта. Рекомендуем использовать [код Visual Studio](https://code.visualstudio.com/), доступный для Windows, Linux и OS X.
-2. Получите пример файла artifactfile.json — изучите артефакты, созданные командой Azure DevTest Labs, в [репозитории GitHub](https://github.com/Azure/azure-devtestlab). Он содержит богатую библиотеку артефактов, которая поможет вам создавать собственные артефакты. Загрузите файл определения артефакта и внесите в него изменения, чтобы создать свои собственные артефакты.
+1. Установите редактор JSON — он требуется для работы с файлами определения артефакта. Рекомендуем использовать [код Visual Studio](https://code.visualstudio.com/), доступный для Windows, Linux и OS X.
+2. Получите пример файла artifactfile.json — изучите артефакты, созданные командой Azure DevTest Labs, в [репозитории GitHub](https://github.com/Azure/azure-devtestlab). Он содержит богатую библиотеку артефактов, которая поможет вам создавать собственные артефакты. Загрузите файл определения артефакта и внесите в него изменения, чтобы создать свои собственные артефакты.
 3. Используйте IntelliSense — он позволяет просматривать элементы, которые можно использовать для создания файла определения артефакта. Здесь же можно увидеть различные варианты значений каждого элемента. Например, при редактировании элемента **targetOsType** IntelliSense предлагает два варианта — Windows и Linux.
-4. Сохраните артефакт в репозитории Git:
+4. Сохраните артефакт в [репозитории Git](devtest-lab-add-artifact-repo.md).
    
    1. Создайте для каждого артефакта отдельный каталог, имя которого совпадает с именем артефакта.
    2. Сохраните файл определения артефакта (artifactfile.json) в созданный каталог.
@@ -120,13 +120,13 @@ ms.lasthandoff: 03/17/2017
       Вот как может выглядеть папка артефакта:
       
       ![Пример репозитория артефактов Git](./media/devtest-lab-artifact-author/git-repo.png)
-5. Добавьте репозиторий артефактов в лабораторию. (Cм. статью [Добавление репозитория артефактов Git в лабораторию в Azure DevTest Labs](devtest-lab-add-artifact-repo.md).)
+5. Добавьте репозиторий артефактов в лабораторию. Ознакомьтесь со статьей [Добавление репозитория Git для хранения пользовательских артефактов и шаблонов Azure Resource Manager в Azure DevTest Labs](devtest-lab-add-artifact-repo.md).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Связанные записи в блогах
-* [How to troubleshoot failing Artifacts in AzureDevTestLabs (Способы устранения сбоя артефактов в лабораториях для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
-* [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Присоединение виртуальной машины к существующему домену AD с помощью шаблона ARM в лаборатории для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+## <a name="related-articles"></a>Связанные статьи
+* [Диагностика сбоев артефактов на виртуальной машине Azure DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
+* [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Присоединение виртуальной машины к существующему домену AD с помощью шаблона ARM в Azure DevTest Labs)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [добавить репозиторий артефактов Git в лабораторию](devtest-lab-add-artifact-repo.md).

@@ -1,3 +1,24 @@
+---
+title: "Приступая к работе с Azure AD версии 2 для iOS. Введение | Документация Майкрософт"
+description: "В этой статье описано, как приложения iOS (Swift) могут вызывать API, которому необходимы маркеры доступа, с помощью конечной точки Azure Active Directory версии 2."
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: e1a28c70edddca878c18d860b3029324955fff15
+ms.contentlocale: ru-ru
+
+---
 
 # <a name="call-the-microsoft-graph-api-from-an-ios-app"></a>Вызов API Microsoft Graph из приложения iOS
 
@@ -32,4 +53,5 @@ MSAL управляет кэшированием и обновлением ма�
 |Библиотека|Описание|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|Предварительная версия библиотеки проверки подлинности Microsoft для iOS|
+
 

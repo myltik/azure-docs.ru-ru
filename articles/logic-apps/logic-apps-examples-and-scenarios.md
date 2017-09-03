@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 08/9/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 2d45090b09d83a98cc0811dca8d6f2384d1b11ad
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50df1e3db239a6aa34ac91bfbd582625c5b0041b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="examples-and-common-scenarios-for-azure-logic-apps"></a>Примеры и распространенные сценарии для Azure Logic Apps
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/10/2017
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>Реагирование на триггеры и расширение действий
 
-Каждое приложение логики начинается с триггера. Например, рабочий процесс можно начать с запланированного события, вызова вручную или события из внешней системы, например триггера "при добавлении файла на FTP-сервер". Служба Azure Logic Apps в настоящее время поддерживает более 100 готовых соединителей для различных решений, от локальной системы SAP до Azure Cognitive Services. Для систем и служб, для которых соединители не опубликованы, можно также расширить приложения логики.
+Каждое приложение логики начинается с триггера. Например, рабочий процесс можно начать с запланированного события, вызова вручную или события из внешней системы, например триггера "при добавлении файла на FTP-сервер". Служба Azure Logic Apps в настоящее время поддерживает более 100 готовых соединителей для различных решений, от локальной системы SAP до Microsoft Cognitive Services. Для систем и служб, для которых соединители не опубликованы, можно также расширить приложения логики.
 
 * [Создание настраиваемых триггеров или действий](../logic-apps/logic-apps-create-api-app.md)
 * [Настройка длительных действий для запусков рабочего процесса](../logic-apps/logic-apps-create-api-app.md)
@@ -75,6 +75,10 @@ ms.lasthandoff: 08/10/2017
 * [Вызов Функций Azure из приложений логики](../logic-apps/logic-apps-azure-functions.md)
 * [Сценарий. Активация приложений логики с помощью Функций Azure](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Блог. Вызов конечных точек SOAP из приложения логики](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+
+## <a name="end-to-end-scenarios"></a>Комплексные сценарии
+
+* [End-to-end case management integration in the utilities industry with Azure services](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps) (Интеграция комплексного управления случаями в отрасли служебных программ с помощью служб Azure)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

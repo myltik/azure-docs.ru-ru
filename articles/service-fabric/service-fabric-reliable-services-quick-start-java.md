@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 35d7f6d655f53891c00ca6c736c8c12b99fdc5ef
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-reliable-services"></a>Приступая к работе с надежными службами
@@ -166,22 +165,17 @@ public static void main(String[] args) throws Exception {
 $ gradle
 ```
 
-Этот сценарий создает пакет приложения Service Fabric, который можно развернуть с помощью интерфейса командной строки Azure Service Fabric.
+Этот сценарий создает пакет приложения Service Fabric, который можно развернуть с помощью интерфейса командной строки Service Fabric.
 
-### <a name="deploy-with-xplat-cli"></a>Развертывание с помощью XPlat CLI
+### <a name="deploy-with-service-fabric-cli"></a>Развертывание с помощью интерфейса командной строки Service Fabric
 
-При использовании XPlat сценарий install.sh содержит необходимые команды Azure CLI, используемые для развертывания пакета приложения. Чтобы развернуть приложение, выполните сценарий install.sh.
+Сценарий install.sh содержит необходимые команды интерфейса командной строки Service Fabric, используемые для развертывания пакета приложения. Чтобы развернуть приложение, выполните сценарий install.sh.
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>Развертывание с помощью Azure CLI 2.0
+## <a name="next-steps"></a>Дальнейшие действия
 
-В случае использования Azure CLI 2.0 ознакомьтесь со справочной документацией по управлению [жизненным циклом приложения с помощью Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## <a name="related-articles"></a>Связанные статьи
-
-* [Service Fabric и Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Приступая к работе с Service Fabric и XPlat CLI](service-fabric-azure-cli.md)
+* [Azure Service Fabric command line](service-fabric-cli.md) (Интерфейс командной строки Azure Service Fabric)
 

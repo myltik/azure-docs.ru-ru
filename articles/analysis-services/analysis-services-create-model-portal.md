@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/21/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 6c76bcb919b08cbd67e93f54dac216ab2aec06b0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bd58f1845dabf6afb47ce27236d14479677a8808
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-model-in-azure-portal"></a>Создание модели на портале Azure
 
-Функция конструктора веб-приложений (предварительная версия) Azure Analysis Services на портале Azure позволяет легко и быстро создавать табличные модели и запрашивать данные модели прямо в браузере. 
+Функция веб-конструктора Azure Analysis Services (предварительная версия) на портале Azure позволяет легко и быстро создавать табличные модели и запрашивать данные модели прямо в браузере. 
 
-Помните, что конструктор веб-приложений находится на этапе **предварительной версии**. В него постоянно добавляются новые функции, но на этапе предварительной версии функциональные возможности ограничены. Для разработки и тестирования более сложных моделей лучше использовать Visual Studio (SSDT) и SQL Server Management Studio (SSMS).
+Помните, что веб-конструктор находится на этапе **предварительной версии**. В него постоянно добавляются новые функции, но на этапе предварительной версии функциональные возможности ограничены. Для разработки и тестирования более сложных моделей лучше использовать Visual Studio (SSDT) и SQL Server Management Studio (SSMS).
 
 ## <a name="prerequisites"></a>Предварительные требования
 

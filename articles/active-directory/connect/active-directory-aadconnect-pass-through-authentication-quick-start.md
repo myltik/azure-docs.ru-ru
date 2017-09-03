@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: e5fb323090d8c3a533199b396047a1c63b5ae9f4
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -125,6 +125,9 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 ![Центр администрирования Azure Active Directory — кнопка "Download Authentication Agent" (Скачать агент аутентификации)](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Центр администрирования Azure Active Directory — колонка "Скачивание агента"](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
+
+>[!NOTE]
+>Можно также скачать агент аутентификации [отсюда](https://aka.ms/getauthagent). Обязательно прочитайте и примите [условия использования](https://aka.ms/authagenteula) агента аутентификации, _прежде_ чем установить его.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - [**Текущие ограничения**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) — эта функция в настоящее время находится на стадии предварительной версии. Узнайте, какие сценарии поддерживаются, а какие нет.

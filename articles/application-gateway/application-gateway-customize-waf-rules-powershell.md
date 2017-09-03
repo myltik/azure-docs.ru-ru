@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 7ed79af5654939c86ca9449be2a59aa0be1136dc
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 681625e40035b05c593c6161236cb80b7db576b9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -29,19 +29,21 @@ ms.lasthandoff: 08/04/2017
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 
-Брандмауэр веб-приложения шлюза приложений обеспечивает защиту веб-приложений с помощью наборов правил OWASP CRS. Некоторые правила могут приводить к ложным срабатываниям и блокировке реального трафика.  Поэтому в шлюзе приложений можно настраивать правила и группы правил в шлюзе приложений с включенным брандмауэром веб-приложений. Дополнительные сведения о конкретных правилах и группах правил см. в статье [List of web application firewall CRS rule groups and rules offered](application-gateway-crs-rulegroups-rules.md) (Список правил и групп правил CRS для брандмауэра веб-приложения).
+Брандмауэр веб-приложения (WAF) шлюза приложений Azure обеспечивает защиту веб-приложений с помощью основного набора правил (CRS) открытого проекта безопасности веб-приложений (OWASP). Некоторые правила могут приводить к ложным срабатываниям и блокировке реального трафика. Поэтому шлюз приложений предоставляет возможность настроить правила и группы правил. Дополнительные сведения о конкретных правилах и группах правил см. в статье [Список групп правил и правил CRS брандмауэра веб-приложения](application-gateway-crs-rulegroups-rules.md).
 
 ## <a name="view-rule-groups-and-rules"></a>Просмотр правил и групп правил
 
-Ниже приведены примеры просмотра правил и групп правил, которые можно настроить в шлюзе приложений с включенным WAF.
+Ниже приведены примеры кода для просмотра правил и групп правил, которые можно настроить в шлюзе приложений с включенным WAF.
 
 ### <a name="view-rule-groups"></a>Просмотр групп правил
+
+В следующем примере показано, как просмотреть группы правил:
 
 ```powershell
 Get-AzureRmApplicationGatewayAvailableWafRuleSets
 ```
 
-Далее представлен сокращенный ответ из предыдущего примера.
+В результатах далее представлен сокращенный ответ из предыдущего примера.
 
 ```
 OWASP (Ver. 3.0):
@@ -89,9 +91,10 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки с отключением правил узнайте, как просматривать журналы WAF, ознакомившись с разделом [Ведение журнала диагностики](application-gateway-diagnostics.md#diagnostic-logging).
+После настройки с отключением правил вы можете узнать, как просматривать журналы WAF. Дополнительные сведения см. в разделе [Журналы диагностики](application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
+

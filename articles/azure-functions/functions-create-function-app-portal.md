@@ -4,23 +4,23 @@ description: "Создание приложения-функции в служб
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 
 ms.service: functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: f9f1b95ade5f397fa1a3bcdc4165c81c1c9628c0
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 85a88c537415cd6f2b6bc005cc18e3baaa29e9a4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Создание приложения-функции на портале Azure
@@ -52,7 +52,7 @@ ms.lasthandoff: 05/12/2017
 >[!NOTE]
 >При использовании плана потребления файлы кода и конфигурации привязок приложения-функции хранятся в хранилище файлов Azure в основной учетной записи хранения. При удалении основной учетной записи хранения это содержимое удаляется без возможности восстановления.
 
-Чтобы узнать больше о типах учетных записей хранения, ознакомьтесь с разделом [Введение в службы хранилища Azure] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
+Дополнительные сведения о типах учетных записей хранения см. в разделе [Введение в службы хранилища Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -1,25 +1,24 @@
 ---
-title: "Azure Active Directory B2C: вход в веб-приложения с помощью OpenID Connect | Документы Майкрософт"
+title: "Azure AD B2C: вход в веб-приложения с помощью OpenID Connect | Документация Майкрософт"
 description: "Создание веб-приложений с помощью реализации протокола проверки подлинности OpenID Connect в Azure Active Directory"
 services: active-directory-b2c
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
-editor: 
+author: saeedakhter-msft
+manager: krassk
+editor: parakhj
 ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 8457865d21bbf4d1c0cc91167a1e75cd82ad8306
+ms.date: 08/16/2017
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b0c33a47dd0cae79eab32ac578448fae8bf59be5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: вход в веб-приложения с помощью OpenID Connect
@@ -152,7 +151,7 @@ Azure AD B2C содержит конечную точку метаданных O
 
 * Обеспечение регистрации пользователя или организации в приложении.
 * Предоставление пользователю необходимого уровня авторизации и привилегий.
-* Обеспечение определенного уровня проверки подлинности, например многофакторной проверки подлинности.
+* Обеспечение определенного уровня проверки подлинности, например Многофакторной идентификации.
 
 Дополнительные сведения об утверждениях в маркере идентификации можно найти в [Справочнике по маркерам Azure AD B2C](active-directory-b2c-reference-tokens.md).
 

@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/18/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: fa30f7b9aebf3b9a3fb1e037983e8460aa76442e
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 49a74648bd3953647d581c4e7c548985c5000f17
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -27,22 +27,13 @@ ms.lasthandoff: 06/15/2017
 Каждая виртуальная машина в Azure создается из образа, определяющего дистрибутив Linux и версию операционной системы. Образы могут содержать предварительно установленные приложения и конфигурации. Azure Marketplace предоставляет большое количество образов Майкрософт и сторонних разработчиков для наиболее распространенных операционных систем и приложений. Кроме того, вы можете создать собственные настраиваемые образы, отвечающие конкретным потребностям. В этой статье описывается определение и создание пользовательских образов в Azure с использованием средства с открытым кодом [Packer](https://www.packer.io/).
 
 
-## <a name="create-supporting-azure-resources"></a>Создание вспомогательных ресурсов Azure
-В процессе сборки исходной виртуальной машины Packer создает временные ресурсы Azure. Чтобы сохранить эту исходную виртуальную машину для использования в качестве образа, необходимо определить группу ресурсов и учетную запись хранения. Выходные данные процесса сборки Packer хранятся в этой группе ресурсов и учетной записи хранения.
+## <a name="create-azure-resource-group"></a>Создание группы ресурсов Azure
+В процессе сборки исходной виртуальной машины Packer создает временные ресурсы Azure. Чтобы сохранить эту исходную виртуальную машину для использования в качестве образа, необходимо определить группу ресурсов. Выходные данные процесса сборки Packer хранятся в этой группе ресурсов.
 
-Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
+Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
-```
-
-Создайте учетную запись хранения с помощью команды [az storage account create](/cli/azure/storage/account#create). Имя учетной записи хранения должно быть уникальным, содержать от 3 до 24 символов и состоять только из цифр и строчных букв. В следующем примере создается учетная запись хранения с именем *mystorageaccount*:
-
-```azurecli
-az storage account create \
-    --resource-group myResourceGroup \
-    --name mystorageaccount \
-    --sku Standard_LRS
 ```
 
 
@@ -63,7 +54,7 @@ az ad sp create-for-rbac --query [appId,password,tenant]
 "72f988bf-86f1-41af-91ab-2d7cd011db47"
 ```
 
-Для проверки подлинности в Azure получите идентификатор подписки Azure с помощью команды [az account show](/cli/azure/account#show) следующим образом:
+Для проверки подлинности в Azure также необходимо получить идентификатор подписки Azure с помощью команды [az account show](/cli/azure/account#show):
 
 ```azurecli
 az account show --query [id] --output tsv
@@ -77,13 +68,14 @@ az account show --query [id] --output tsv
 
 Создайте файл с именем *ubuntu.json* и вставьте следующее содержимое. Введите свои значения следующим образом:
 
-| Параметр       | Где можно получить |
-|-----------------|----------------------------------------------------|
-| *client_id*      | Первая строка выходных данных из `az ad sp` создает команду *appId* |
-| *client_secret*  | Вторая строка выходных данных из `az ad sp` создает команду *password* |
-| *tenant_id*      | Третья строка выходных данных из `az ad sp` создает команду *tenant* |
-| *subscription_id* | Выходные данные команды `az account show` |
-| *storage_account* | Имя, указанное в `az storage account create` |
+| Параметр                           | Где можно получить |
+|-------------------------------------|----------------------------------------------------|
+| *client_id*                         | Первая строка выходных данных из `az ad sp` создает команду *appId* |
+| *client_secret*                     | Вторая строка выходных данных из `az ad sp` создает команду *password* |
+| *tenant_id*                         | Третья строка выходных данных из `az ad sp` создает команду *tenant* |
+| *subscription_id*                   | Выходные данные команды `az account show` |
+| *managed_image_resource_group_name* | Имя группы ресурсов, созданной на первом шаге |
+| *managed_image_name*                | Имя создаваемого образа управляемого диска |
 
 
 ```json
@@ -96,16 +88,13 @@ az account show --query [id] --output tsv
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
 
-    "resource_group_name": "myResourceGroup",
-    "storage_account": "mystorageaccount",
-
-    "capture_container_name": "images",
-    "capture_name_prefix": "packer",
+    "managed_image_resource_group_name": "myResourceGroup",
+    "managed_image_name": "myPackerImage",
 
     "os_type": "Linux",
     "image_publisher": "Canonical",
     "image_offer": "UbuntuServer",
-    "image_sku": "16.04.0-LTS",
+    "image_sku": "16.04-LTS",
 
     "azure_tags": {
         "dept": "Engineering",
@@ -146,7 +135,7 @@ az account show --query [id] --output tsv
 ./packer build ubuntu.json
 ```
 
-Ниже приведен пример выходных данных предыдущей команды:
+Ниже приведен пример выходных данных предыдущей команды.
 
 ```bash
 azure-arm output will be in this color.
@@ -154,87 +143,68 @@ azure-arm output will be in this color.
 ==> azure-arm: Running builder ...
     azure-arm: Creating Azure Resource Manager (ARM) client ...
 ==> azure-arm: Creating resource group ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> Location          : 'East US'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> Location          : ‘East US’
 ==> azure-arm:  -> Tags              :
-==> azure-arm:  ->> dept : engineering
-==> azure-arm:  ->> task : image deployment
+==> azure-arm:  ->> dept : Engineering
+==> azure-arm:  ->> task : Image deployment
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> DeploymentName    : 'pkrdphlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> DeploymentName    : ‘pkrdpswtxmqm7ly’
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> DeploymentName    : 'pkrdphlz1xtcy8n'
-==> azure-arm: Getting the VM's IP address ...
-==> azure-arm:  -> ResourceGroupName   : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> PublicIPAddressName : 'packerPublicIP'
-==> azure-arm:  -> NicName             : 'packerNic'
-==> azure-arm:  -> Network Connection  : 'PublicEndpoint'
-==> azure-arm:  -> IP Address          : '13.90.250.248'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> DeploymentName    : ‘pkrdpswtxmqm7ly’
+==> azure-arm: Getting the VM’s IP address ...
+==> azure-arm:  -> ResourceGroupName   : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> PublicIPAddressName : ‘packerPublicIP’
+==> azure-arm:  -> NicName             : ‘packerNic’
+==> azure-arm:  -> Network Connection  : ‘PublicEndpoint’
+==> azure-arm:  -> IP Address          : ‘40.76.218.147’
 ==> azure-arm: Waiting for SSH to become available...
 ==> azure-arm: Connected to SSH!
-==> azure-arm: Provisioning with shell script: /tmp/packer-shell529418469
-    azure-arm: Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
-    azure-arm: Hit:2 http://azure.archive.ubuntu.com/ubuntu xenial InRelease
-    azure-arm: Get:3 http://azure.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
-    azure-arm: Get:4 http://azure.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
-    [snip]
+==> azure-arm: Provisioning with shell script: /var/folders/h1/ymh5bdx15wgdn5hvgj1wc0zh0000gn/T/packer-shell868574263
     azure-arm: WARNING! The waagent service will be stopped.
     azure-arm: WARNING! Cached DHCP leases will be deleted.
     azure-arm: WARNING! root password will be disabled. You will not be able to login as root.
     azure-arm: WARNING! /etc/resolvconf/resolv.conf.d/tail and /etc/resolvconf/resolv.conf.d/original will be deleted.
     azure-arm: WARNING! packer account and entire home directory will be deleted.
-==> azure-arm: Querying the machine's properties ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
-==> azure-arm:  -> OS Disk           : 'https://mystorageaccount.blob.core.windows.net/images/pkroshlz1xtcy8n.vhd'
+==> azure-arm: Querying the machine’s properties ...
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> ComputeName       : ‘pkrvmswtxmqm7ly’
+==> azure-arm:  -> Managed OS Disk   : ‘/subscriptions/guid/resourceGroups/packer-Resource-Group-swtxmqm7ly/providers/Microsoft.Compute/disks/osdisk’
 ==> azure-arm: Powering off machine ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> ComputeName       : ‘pkrvmswtxmqm7ly’
 ==> azure-arm: Capturing image ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
+==> azure-arm:  -> Compute ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> Compute Name              : ‘pkrvmswtxmqm7ly’
+==> azure-arm:  -> Compute Location          : ‘East US’
+==> azure-arm:  -> Image ResourceGroupName   : ‘myResourceGroup’
+==> azure-arm:  -> Image Name                : ‘myPackerImage’
+==> azure-arm:  -> Image Location            : ‘eastus’
 ==> azure-arm: Deleting resource group ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
 ==> azure-arm: Deleting the temporary OS disk ...
-==> azure-arm:  -> OS Disk : 'https://mystorageaccount.blob.core.windows.net/images/pkroshlz1xtcy8n.vhd'
-Build 'azure-arm' finished.
+==> azure-arm:  -> OS Disk : skipping, managed disk was used...
+Build ‘azure-arm’ finished.
 
 ==> Builds finished. The artifacts of successful builds are:
 --> azure-arm: Azure.ResourceManagement.VMImage:
 
-StorageAccountLocation: eastus
-OSDiskUri: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd
-OSDiskUriReadOnlySas: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd?se=2017-07-08T20%3A57%3A53Z&sig=yl1yl3I2gKnO0I%2B7paw%2FQzKT5dawf5i%2B
-LPmATMt5ot4%3D&sp=r&sr=b&sv=2015-02-21
-TemplateUri: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-vmTemplate.643f37d7-5a5d-43bf-96ed-2d598ada6e65.json
-TemplateUriReadOnlySas: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-vmTemplate.643f37d7-5a5d-43bf-96ed-2d598ada6e65.json?se=2017-07-08T20%3A57%3A53Z&sig=GB1iSl0hhw1ZYG4nl%2BCfR9WEaquCF
-OEhNtKlvp%2B5TdE%3D&sp=r&sr=b&sv=2015-02-21
+ManagedImageResourceGroupName: myResourceGroup
+ManagedImageName: myPackerImage
+ManagedImageLocation: eastus
 ```
-
-
-## <a name="create-azure-image"></a>Создание образа Azure
-Выходными данными процесса сборки Packer является виртуальный жесткий диск (VHD) в указанной учетной записи хранения. Создайте образ Azure из этого виртуального жесткого диска с помощью команды [az image create](/cli/azure/image#create) и укажите путь `OSDiskUri`, определенный в конце выходных данных сборки Packer. В следующем примере создается образ с именем `myImage`:
-
-```azurecli
-az image create \
-    --resource-group myResourceGroup \
-    --name myImage \
-    --os-type linux \
-    --source https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd
-```
-
-Этот образ можно использовать для создания виртуальных машин в своей подписке Azure. Вы можете создавать виртуальные машины не только в той же группе ресурсов, где расположен исходный образ.
 
 
 ## <a name="create-vm-from-azure-image"></a>Создание виртуальной машины на основе образа Azure
-Теперь можно создать виртуальную машину из образа с помощью команды [az vm create](/cli/azure/vm#create). Укажите образ, созданный с помощью параметра `--image`. В следующем примере создаются виртуальная машина с именем *myVM* из *myImage* и ключи SSH, если они не существуют.
+Теперь можно создать виртуальную машину из образа с помощью команды [az vm create](/cli/azure/vm#create). Укажите образ, созданный с помощью параметра `--image`. В следующем примере создаются виртуальная машина с именем *myVM* из образа *myPackerImage* и ключи SSH, если они еще не существуют.
 
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image myImage \
+    --image myPackerImage \
     --admin-username azureuser \
     --generate-ssh-keys
 ```

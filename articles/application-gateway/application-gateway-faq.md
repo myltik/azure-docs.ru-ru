@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: bb3cf81c9b179e520e58a6fe5e455a136b9bb349
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 4e6244d92f41e0aa5c8a70db0db2881036984247
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -132,7 +132,11 @@ ms.lasthandoff: 08/04/2017
 
 **В. Поддерживают ли пользовательские пробы подстановочные знаки или регулярные выражения в данных ответа?**
 
-Нет, не поддерживают.
+Нет, не поддерживают. 
+
+**В. Как обрабатываются правила?**
+
+Правила обрабатываются в том порядке, в котором они были настроены. Многосайтовые правила рекомендуется настраивать до основных правил, чтобы снизить вероятность маршрутизации трафика в неправильную внутреннюю службу, так как основное правило будет сопоставляться с трафиком в соответствии с портом до оценки многосайтового правила.
 
 **В. Как обрабатываются правила?**
 
@@ -186,33 +190,34 @@ ms.lasthandoff: 08/04/2017
 
 **В. Какие текущие комплекты шифров поддерживает шлюз приложений?**
 
-Ниже в порядке приоритета представлены текущие наборы шифрования, поддерживаемые шлюзом приложений.
+Ниже представлены текущие комплекты шифров, поддерживаемые шлюзом приложений. Дополнительные сведения о настройке параметров SSL см. в статье [Настройка версий политики SSL и комплектов шифров на шлюзе приложений](application-gateway-configure-ssl-policy-powershell.md).
 
-TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
-
-TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256
-
-TLS_RSA_WITH_AES_256_GCM_SHA384
-
-TLS_RSA_WITH_AES_128_GCM_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA256
-
-TLS_RSA_WITH_AES_128_CBC_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA
-
-TLS_RSA_WITH_AES_128_CBC_SHA
-
-TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_AES_256_GCM_SHA384
+- TLS_RSA_WITH_AES_128_GCM_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA256
+- TLS_RSA_WITH_AES_128_CBC_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA
+- TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 **В. Поддерживает ли также шлюз приложений повторное шифрование трафика к внутренней службе?**
 
@@ -222,9 +227,16 @@ TLS_RSA_WITH_3DES_EDE_CBC_SHA
 
 Да, вы можете настроить шлюз приложений, чтобы запретить версии TLS 1.0, TLS 1.1 и TLS 1.2. Протоколы SSL версий 2.0 и 3.0 уже отключены по умолчанию, и их настройки нельзя изменить.
 
-**В. Можно ли настроить политику SSL для контроля комплектов шифров?**
+**В. Можно ли настроить комплекты шифров и порядок политик?**
 
-В настоящее время это невозможно.
+Да, имеется возможность [настроить комплекты шифров](application-gateway-ssl-policy-overview.md). При определении пользовательской политики необходимо включить хотя бы один из следующих комплектов шифров. Шлюз приложений использует SHA256 для управления серверной частью.
+
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_256_CBC_SHA256
+* TLS_RSA_WITH_AES_128_CBC_SHA256
 
 **В. Какое количество SSL-сертификатов поддерживается?**
 

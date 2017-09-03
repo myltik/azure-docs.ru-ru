@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/11/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="application-upgrade-parameters"></a>Параметры обновления приложений
@@ -65,7 +65,7 @@ ms.lasthandoff: 03/11/2017
 
 [Обновление приложения с помощью PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) поможет вам выполнить обновление приложения с помощью PowerShell.
 
-[Руководство по обновлению приложения с помощью Azure CLI в Linux](service-fabric-azure-cli.md#upgrading-your-application) поможет вам выполнить обновление приложения с помощью Azure CLI.
+Статья [Управление приложением Azure Service Fabric с помощью интерфейса командной строки Azure Service Fabric](service-fabric-application-lifecycle-sfctl.md#upgrade-application) поможет вам выполнить обновление приложения с интерфейса командной строки Service Fabric.
 
 [Обновление приложения с помощью подключаемого модуля Eclipse Service Fabric](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 

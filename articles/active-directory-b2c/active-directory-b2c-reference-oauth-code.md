@@ -1,25 +1,24 @@
 ---
-title: "Поток кода авторизации Azure Active Directory B2C | Документация Майкрософт"
-description: "Сведения о создании веб-приложений с помощью реализации протокола проверки подлинности OpenID Connect в Azure Active Directory."
+title: "Azure AD B2C: поток кода авторизации | Документация Майкрософт"
+description: "Узнайте, как создавать веб-приложения с использованием протокола аутентификации Azure AD B2C и OpenID Connect."
 services: active-directory-b2c
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
-editor: 
+author: saeedakhter-msft
+manager: krassk
+editor: parakhj
 ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 50ac9a0d95a581e696817364e94134abc089bfdf
+ms.date: 08/16/2017
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: dfc4f2e84704307ccbea6141c0dbc8d089733b22
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: поток кода авторизации OAuth 2.0
@@ -103,7 +102,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 
 | Параметр | Описание |
 | --- | --- |
-| Код |Запрашиваемый приложением код авторизации. Приложение может использовать код авторизации для запроса маркера доступа для целевого ресурса. Срок действия кодов авторизации крайне мал и обычно истекает по прошествии порядка 10 минут. |
+| Код |Запрашиваемый приложением код авторизации. Приложение может использовать код авторизации для запроса маркера доступа для целевого ресурса. Срок действия кодов авторизации крайне мал. и обычно истекает по прошествии порядка 10 минут. |
 | state |Полное описание см. в таблице выше. Если запрос содержит параметр `state`, то в ответе должно отображаться то же значение. Приложение должно проверить, совпадают ли значения параметра `state` в запросе и ответе. |
 
 Сообщения об ошибках также можно отправлять на универсальный код ресурса (URI) перенаправления, чтобы приложение могло их правильно обработать:

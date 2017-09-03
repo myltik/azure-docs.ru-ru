@@ -13,37 +13,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 08/23/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
-ms.openlocfilehash: 90a0cfb7c7cd7d3364ff42559dd7fdc7b2951abf
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 530f3b5c9e90cb45ffb6e12d0d08a35f8d687471
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="create-an-office-data-connection-odc-file"></a>Создание файла подключения к данным Office (ODC-файла)
+# <a name="create-an-office-data-connection-file"></a>Создание файла подключения к данным Office
 
-В этой статье описывается создание ODC-файла для подключения к серверу Azure Analysis Services из Excel 2016 (с номером версии 16.0.7369.2117 или ниже) либо Excel 2013. Обновленный [поставщик MSOLAP.7](analysis-services-data-providers.md) также является обязательным.
+В этой статье описывается создание файла подключения к данным Office для подключения к серверу Azure Analysis Services из Excel 2016 (с номером версии 16.0.7369.2117 или ниже) либо Excel 2013. Обновленный [поставщик MSOLAP.7](analysis-services-data-providers.md) также является обязательным.
 
 
-1. Скопируйте пример ODC-файла подключения ниже и вставьте в текстовый редактор. 
+1. Скопируйте пример файла подключения ниже и вставьте в текстовый редактор. 
 
-2. В **odc:ConnectionString** измените следующие свойства.
+2. В `odc:ConnectionString` измените следующие свойства:
 
-    *   В **Data Source=asazure://*регион*.asazure.windows.net/*имя_сервера*;** вместо *регион* укажите регион своего сервера Analysis Services, а вместо *имя_севера* — имя своего сервера.
+    *   В `Data Source=asazure://<region>.asazure.windows.net/<servername>;` измените `<region>` на регион своего сервера Analysis Services, а `<servername>` на имя своего сервера.
 
-    *   В **Initial Catalog=*база_данных*;** замените *база_данных* именем своей базы данных.
+    *   В `Initial Catalog=<database>;` измените `<database>` на имя своей базы данных.
 
-3. В **&lt;odc:CommandText>*модель*&lt;/odc:CommandText>** замените *модель* именем своей модели или перспективы. 
+3. В `<odc:CommandText>Model</odc:CommandText>` измените `Model` на имя своей модели или перспективы. 
 
-4. Сохраните файл с расширением **ODC** в папку C:\Users\\*имя_пользователя*\Documents\My Data Sources.
+4. Сохраните файл с расширением `.odc` в папку C:\Users\\*имя_пользователя*\Documents\My Data Sources.
 
 5. Щелкните этот файл правой кнопкой мыши и выберите **Открыть в Excel**. Или в Excel на ленте **Данные** щелкните **Существующие подключения**, выберите файл и нажмите кнопку **Открыть**.
 
 
 
-**Пример ODC-файла подключения**
+**Образец файла подключения**
 ```
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns="http://www.w3.org/TR/REC-html40">

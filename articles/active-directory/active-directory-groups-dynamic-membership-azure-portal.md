@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/18/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 0b861bea8948c7022d2ce95a2a7975a5ad7ad8a7
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: f4d9a08551d616ff98bc8734cbeec01d6e0d04ca
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Создание правил на основе атрибутов для динамического членства в группах в Azure Active Directory
@@ -37,14 +38,12 @@ ms.lasthandoff: 07/25/2017
 > - Сейчас невозможно создать группу устройств на основе атрибутов пользователей, которым принадлежат эти устройства. Правила членства для устройств могут ссылаться только на непосредственные атрибуты объектов устройств в каталоге.
 
 ## <a name="to-create-an-advanced-rule"></a>Создание расширенного правила
-1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора или администратора учетных записей пользователей.
-2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
-
-   ![Открытие страницы "Управление пользователями"](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
-3. В колонке **Пользователи и группы** выберите **Все группы**.
+1. Войдите в [центр администрирования Azure AD](https://aad.portal.azure.com) с помощью учетной записи глобального администратора или администратора учетных записей пользователей.
+2. Выберите **Пользователи и группы**.
+3. Выберите **Все группы**.
 
    ![Открытие колонки группы](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. В колонке **Пользователи и группы — Все группы** щелкните **Добавить**.
+4. В разделе **Все группы** выберите **Новая группа**.
 
    ![Добавление новой группы](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 5. В колонке **Группа** введите имя и описание новой группы. Для параметра **Тип членства** выберите значение **Динамический пользователь** или **Динамическое устройство** в зависимости от того, требуется создать правило для пользователей либо устройств, а затем щелкните **Добавить динамический запрос**. Атрибуты, используемые для правил устройств, описаны в разделе [Создание правил для объектов устройств с помощью атрибутов](#using-attributes-to-create-rules-for-device-objects).
@@ -72,10 +71,8 @@ ms.lasthandoff: 07/25/2017
 Общая длина текста расширенного правила не должна превышать 2048 символов.
 
 > [!NOTE]
-> В операциях со строками и регулярными выражениями учитывается регистр. Можно также выполнить проверку наличия значений Null, используя $null как константу, например: user.department - eq $null.
+> В операциях со строками и регулярными выражениями не учитывается регистр знаков. Можно также выполнить проверку наличия значений Null, используя $null как константу, например: user.department - eq $null.
 > Строки, содержащие кавычки ("), следует экранировать с помощью знака '. Например: user.department -eq \`"Sales".
->
->
 
 ## <a name="supported-expression-rule-operators"></a>Поддерживаемые операторы выражений правил
 В следующей таблице перечислены все поддерживаемые операторы выражений правил и их синтаксис, используемый в тексте расширенного правила:
@@ -95,11 +92,15 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="operator-precedence"></a>Приоритет операторов
 
-Все операторы перечислены ниже в порядке повышения приоритета. Операторы в одной строке имеют равный приоритет: -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn.
-
-Все операторы можно использовать с дефисом в качестве префикса и без него.
-
-Обратите внимание, что скобки нужны не всегда. Добавляйте их, только если порядок приоритета не удовлетворяет требованиям.
+Ниже перечислены все операторы в порядке возрастания приоритета. Операторы в одной строке имеют одинаковый приоритет.
+````
+-any -all
+-or
+-and
+-not
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+````
+Все операторы можно использовать с дефисом в качестве префикса и без него. Скобки требуются только в том случае, если приоритет не соответствует вашим требованиям.
 Например:
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
@@ -271,25 +272,25 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 3. Когда вы сохраните это правило, в группу будут добавлены все пользователи с выбранным значением идентификатора руководителя.
 
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Создание правил для объектов устройств с помощью атрибутов
-Можно также создать правило, которое выбирает объекты устройств для членства в группе. Можно использовать следующие атрибуты устройства:
+Можно также создать правило, которое выбирает объекты устройств для членства в группе. Можно использовать следующие атрибуты устройства.
 
-| Свойства              | Допустимые значения                  | Использование                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| AccountEnabled          | true, false                      | (device.accountEnabled -eq true)                            |
-| displayName             | Любое строковое значение                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | Любое строковое значение                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | Любое строковое значение                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | Любое строковое значение.                | (device.deviceCategory -eq "")                              |
-| deviceManufacturer      | Любое строковое значение.                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | Любое строковое значение.                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Любое строковое значение.                | (device.deviceOwnership -eq "")                             |
-| domainName              | Любое строковое значение.                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | Любое строковое значение.                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true, false                      | (device.deviceOSType -eq true)                              |
-| managementType          | Любое строковое значение.                | (device.managementType -eq "")                              |
-| organizationalUnit      | Любое строковое значение.                | (device.organizationalUnit -eq "")                          |
-| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | Допустимый идентификатор objectId в AAD            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+ Атрибут устройства  | Значения | Пример
+ ----- | ----- | ----------------
+ AccountEnabled | true, false | (device.accountEnabled -eq true)
+ displayName | Любое строковое значение |(device.displayName -eq "Rob Iphone”)
+ deviceOSType | Любое строковое значение | (device.deviceOSType -eq "IOS")
+ deviceOSVersion | Любое строковое значение | (device.OSVersion -eq "9.1")
+ deviceCategory | Допустимое имя категории устройств. | (device.deviceCategory -eq "BYOD")
+ deviceManufacturer | Любое строковое значение. | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | Любое строковое значение. | (device.deviceModel -eq "iPad Air")
+ deviceOwnership | Personal или Company. | (device.deviceOwnership -eq "Company")
+ domainName | Любое строковое значение. | (device.domainName -eq "contoso.com")
+ enrollmentProfileName | Имя профиля регистрации устройства Apple. | (device.enrollmentProfileName -eq "DEP iPhones")
+ isRooted | true, false | (device.isRooted -eq true)
+ managementType | MDM (для мобильных устройств).<br>PC (для компьютеров, управляемых агентом Intune PC). | (device.managementType -eq "MDM")
+ organizationalUnit | Любое строковое значение, соответствующее имени подразделения, заданному в локальном каталоге Active Directory. | (device.organizationalUnit -eq "US PCs")
+ deviceId | Допустимый идентификатор устройства Azure AD. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ objectId | Допустимый идентификатор объекта Azure AD. |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
 
 

@@ -14,20 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 7b5df25f46a2824acb361401ab90c960b8e5978f
-ms.openlocfilehash: 5b580183002ae5c42cc08343cea7f659c635d590
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Включение шифрования данных для учетной записи хранения Azure в центре безопасности Azure
 Центр безопасности Azure может рекомендовать включить шифрование службы хранилища Azure для неактивных данных.
 
-Шифрование службы хранилища осуществляется следующим образом. Шифрование данных происходит в процессе их записи в службу хранилища Azure, а расшифровка данных происходит непосредственно перед их извлечением.  В настоящее время шифрование службы хранилища доступно только для службы BLOB-объектов Azure и может использоваться для блочных BLOB-объектов, страничных BLOB-объектов и добавочных больших двоичных объектов.  Дополнительные сведения см. в статье [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/storage-service-encryption.md).
+Шифрование службы хранилища осуществляется следующим образом. Шифрование данных происходит в процессе их записи в службу хранилища Azure, а расшифровка данных происходит непосредственно перед их извлечением.  В настоящее время шифрование службы хранилища доступно только для службы BLOB-объектов Azure и может использоваться для блочных BLOB-объектов, страничных BLOB-объектов и добавочных больших двоичных объектов.  Дополнительные сведения см. в статье [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/common/storage-service-encryption.md).
 
 
 > [!Note]
-> После включения шифрования зашифровываются только новые данные. Остальные существующие большие двоичные объекты в учетной записи хранения остаются незашифрованными. Сведения о шифровании существующих больших двоичных объектов см. в разделе [Часто задаваемые вопросы о шифровании службы хранилища](../storage/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> После включения шифрования зашифровываются только новые данные. Остальные существующие большие двоичные объекты в учетной записи хранения остаются незашифрованными. Сведения о шифровании существующих больших двоичных объектов см. в разделе [Часто задаваемые вопросы о шифровании службы хранилища](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
 >
 >
 
@@ -53,7 +54,7 @@ ms.openlocfilehash: 5b580183002ae5c42cc08343cea7f659c635d590
 ## <a name="see-also"></a>Дополнительные материалы
 В этом документе объясняется, как выполнить рекомендации центра безопасности Azure по включению шифрования для учетной записи хранения Azure. Дополнительные сведения о шифровании службы хранилища Azure см. в статье:
 
-* [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/storage-service-encryption.md)
+* [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/common/storage-service-encryption.md)
 
 Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
@@ -68,9 +69,4 @@ ms.openlocfilehash: 5b580183002ae5c42cc08343cea7f659c635d590
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png
 [2]: ./media/security-center-enable-encryption-for-storage-account/enable-storage-encryption.png
 [3]: ./media/security-center-enable-encryption-for-storage-account/encryption-blade.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

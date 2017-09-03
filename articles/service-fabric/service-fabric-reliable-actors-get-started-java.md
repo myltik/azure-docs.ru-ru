@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 450c60abeaaf96c7d82152d425265a6b6714f689
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 288f1ed1016f50031065e66444d2562427194dc7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="getting-started-with-reliable-actors"></a>Приступая к работе с Reliable Actors
@@ -188,20 +187,16 @@ $ gradle
 
 Этот сценарий создаст пакет приложения Service Fabric, который можно развернуть с помощью инструментов интерфейса командной строки Service Fabric.
 
-### <a name="deploy-with-xplat-cli"></a>Развертывание с помощью XPlat CLI
+### <a name="deploy-service-fabric-cli"></a>Развертывание интерфейса командной строки Service Fabric
 
-При использовании XPlat сценарий install.sh содержит необходимые команды Azure CLI, используемые для развертывания пакета приложения. Чтобы развернуть приложение, выполните сценарий install.sh.
+Сценарий install.sh содержит необходимые команды интерфейса командной строки Service Fabric (sfctl), используемые для развертывания пакета приложения.
+Чтобы развернуть приложение, выполните сценарий install.sh.
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>Развертывание с помощью Azure CLI 2.0
+## <a name="next-steps"></a>Дальнейшие действия
 
-В случае использования Azure CLI 2.0 ознакомьтесь со справочной документацией по управлению [жизненным циклом приложения с помощью Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## <a name="related-articles"></a>Связанные статьи
-
-* [Service Fabric и Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Приступая к работе с Service Fabric и XPlat CLI](service-fabric-azure-cli.md)
+* [Azure Service Fabric command line](service-fabric-cli.md) (Интерфейс командной строки Azure Service Fabric)
 

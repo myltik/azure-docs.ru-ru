@@ -3,7 +3,7 @@ title: "История выпусков версий соединителей | 
 description: "В этой статье перечислены все соединители для Forefront Identity Manager (FIM) и Microsoft Identity Manager (MIM)."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: fimguy
 manager: femila
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
+ms.date: 08/18/2017
+ms.author: fimguy
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 426f58a24798fd43f5079dd153b9e84d324da622
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="connector-version-release-history"></a>История выпусков версий соединителей
 Соединители для Forefront Identity Manager (FIM) и Microsoft Identity Manager (MIM) часто обновляются.
 
 > [!NOTE]
-> Эта статья касается только FIM и MIM. Эти соединители не поддерживаются в Azure AD Connect.
+> Эта статья касается только FIM и MIM. Установка этих соединителей не поддерживается в Azure AD Connect. Выпущенные соединители предварительно устанавливаются в AADConnect при обновлении до указанной сборки.
 
 В этой статье перечисляются все выпущенные соединители.
 
@@ -38,23 +38,36 @@ ms.lasthandoff: 06/30/2017
 * [соединителю PowerShell](active-directory-aadconnectsync-connector-powershell.md) .
 * [соединителю Lotus Domino](active-directory-aadconnectsync-connector-domino.md) .
 
+
+## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0 (AADConnect 1.1.XXX.0)
+
+
+### <a name="fixed-issues"></a>Исправленные проблемы:
+
+* Универсальный соединитель веб-служб:
+  * Устранена проблема, не позволявшая создать проект SOAP при наличии двух или более конечных точек.
+* Универсальный соединитель SQL:
+  * Во время выполнения импорта соединитель GSQL неправильно преобразовывал время при сохранении данных в пространстве соединителя. Формат даты и времени по умолчанию для пространства соединителя GSQL был изменен с "гггг-ММ-дд чч:мм:ссZ" на "гггг-ММ-дд ЧЧ:мм:ссZ".
+
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 
 ### <a name="fixed-issues"></a>Исправленные проблемы:
 
 * Универсальный соединитель веб-служб:
-  * Средство Wsconfig не правильно преобразовало массив JSON из примера запроса для метода службы REST. По этой причине возникла проблема с сериализацией массива JSON для запроса REST.
-  * Средство настройки соединителя Web Service не поддерживает использование пробелов в именах атрибута JSON. Шаблон подстановки можно добавить в файл WSConfigTool.exe.config вручную, например ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```.
+  * Средство Wsconfig не правильно преобразовало массив JSON из примера запроса для метода службы REST. По этой причине возникали проблемы с сериализацией данного массива JSON для запроса REST.
+  * Инструмент настройки соединителя веб-служб не поддерживает использование символов пробела в именах атрибутов JSON. 
+    * Можно вручную добавить шаблон замены в файл WSConfigTool.exe.config, например ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```.
 
 * Lotus Notes:
-  * Если параметр **Allow custom certifiers for Organization/Organizational Units** (Разрешить настраиваемые заверители для организаций и подразделений) отключен, то во время экспорта (обновления) происходит сбой соединителя. Затем все атрибуты будут экспортированы в Domino, однако во время экспорта для синхронизации возвращается исключение KeyNotFoundException. Это связано с тем, что операция переименования завершается сбоем при попытке изменения DN (атрибута имени пользователя), изменив один из атрибутов ниже:  
-    - LastName
-    - FirstName
-    - MiddleInitial;
-    - AltFullName;
-    - AltFullNameLanguage;
-    - ou;
-    - altcommonname.
+  * Если параметр **Allow custom certifiers for Organization/Organizational Units** (Разрешить настраиваемые заверители для организаций и подразделений) отключен, то во время экспорта (обновления) происходит сбой соединителя. Затем все атрибуты будут экспортированы в Domino, однако во время экспорта для синхронизации возвращается исключение KeyNotFoundException. 
+    * Это связано с тем, что операция переименования завершается сбоем при попытке изменения DN (атрибута имени пользователя), изменив один из атрибутов ниже:  
+      - LastName
+      - FirstName
+      - MiddleInitial;
+      - AltFullName;
+      - AltFullNameLanguage;
+      - ou;
+      - altcommonname.
 
   * Если параметр **Allow custom certifiers for Organization/Organizational Units** (Разрешить настраиваемые заверители для организации и подразделений) включен, но необходимые заверители все еще пусты, возникает исключение KeyNotFoundException.
 

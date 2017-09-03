@@ -8,13 +8,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 08/21/2017
 ms.author: bruceper
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: b5ce7d5e0e353002803991f58dde78ab5c4627b9
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1775902aa7ec820c3b6c34eda60961eecd27f014
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Как использовать обратимое удаление в Key Vault с помощью PowerShell
@@ -27,6 +27,12 @@ ms.lasthandoff: 08/05/2017
 ## <a name="prerequisites"></a>Предварительные требования
 
 - Azure PowerShell 4.0.0 или более поздней версии. Если этот инструмент у вас не установлен, чтобы установить его и связать с подпиской Azure, прочитайте статью [Общие сведения об Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+
+>[!NOTE]
+> Эта устаревшая версия хранилища ключей выходных данных файла форматирования PowerShell может быть загружена в вашу среду вместо правильной версии. Используйте одно из этих решений:
+> 
+> - Обновление до [версии 4.4.0 или более поздней версии среды Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.2.0) для устранения этой проблемы.
+> - Если вы не видите, что свойство обратимого удаления (описанное в этом разделе) включено, используйте следующий запрос: `$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
 
 Дополнительные сведения о Key Vault для PowerShell см. в [справочнике по PowerShell для Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 

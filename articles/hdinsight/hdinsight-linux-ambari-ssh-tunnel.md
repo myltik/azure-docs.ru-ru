@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/30/2017
+ms.date: 08/21/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 9f13e6300f77e2d9e84b0f7ce7f3cf289c327157
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Использование туннелирования SSH для доступа к пользовательскому веб-интерфейсу Ambari, JobHistory, NameNode, Oozie и другим пользовательским веб-интерфейсам
@@ -40,6 +39,9 @@ ms.lasthandoff: 05/31/2017
 * веб-интерфейс главного узла и журналов HBase
 
 При использовании действий сценариев для настройки кластера туннель SSH будет необходим для всех служб и программ, которые вы установили для доступа к веб-интерфейсу. Например, если вы установили Hue с помощью действия сценария, для доступа к веб-интерфейсу Hue потребуется туннель SSH.
+
+> [!IMPORTANT]
+> Если у вас есть прямой доступ к HDInsight через виртуальную сеть, то вам не нужно использовать туннели SSH. Пример прямого доступа к HDInsight через виртуальную сеть см. в статье о [подключении HDInsight к локальной сети](connect-on-premises-network.md).
 
 ## <a name="what-is-an-ssh-tunnel"></a>Что такое туннель SSH?
 
@@ -114,7 +116,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    > [!NOTE]
    > Если выбрать параметр **Remote DNS** (Удаленная служба DNS), то запросы службы доменных имен (DNS) будут разрешаться с помощью кластера HDInsight. Этот параметр разрешает запросы DNS с помощью головного узла кластера.
 
-2. Чтобы проверить, работает ли туннель, зайдите на сайт [http://www.whatismyip.com/](http://www.whatismyip.com/). Если прокси-сервер настроен правильно, возвращенный IP-адрес относится к компьютеру в центре данных Microsoft Azure.
+2. Чтобы проверить, работает ли туннель, зайдите на сайт [http://www.whatismyip.com/](http://www.whatismyip.com/). Возвращаемый IP-адрес должен быть адресом, который используется центром обработки данных Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Проверка для веб-интерфейса Ambari
 

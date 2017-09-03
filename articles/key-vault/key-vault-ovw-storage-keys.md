@@ -10,10 +10,10 @@ ms.author: bruceper
 manager: mbaldwin
 ms.date: 07/25/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: c7b20c83b356dd698e66919483c9ff6f0e8a36ef
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3148088c88236c64e089fd25c98eb8ac7cdcbfea
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Ключи учетной записи хранения Azure Key Vault
@@ -28,13 +28,14 @@ ms.lasthandoff: 08/03/2017
 
 Функция ключей учетной записи хранения Azure изначально доступна через интерфейсы REST, .NET, C# и PowerShell. Дополнительные сведения см. в разделе [Документация по хранилищу ключей](https://docs.microsoft.com/azure/key-vault/).
 
+
 ## <a name="storage-account-keys-behavior"></a>Поведение ключей учетной записи хранения
 
 ### <a name="what-key-vault-manages"></a>Чем управляет Key Vault
 
 Служба Key Vault выполняет несколько внутренних функций управления от вашего имени, если вы используете ключи учетной записи хранения.
 
-1. Служба Azure Key Vault управляет ключами учетной запись хранения Azure (SAS). 
+1. Служба хранилища Azure Key Vault управляет ключами учетной записи хранения Azure (ASA). 
     - На внутреннем уровне Azure Key Vault может выводить список (синхронизировать) ключи с помощью учетной записи хранения Azure.  
     - Azure Key Vault периодически повторно создает (сменяет) ключи. 
     - Значения ключей никогда не возвращаются в ответе вызывающему объекту. 
@@ -65,6 +66,9 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 ### <a name="after-azure-key-vault-storage-keys"></a>После появления ключей Azure Key Vault 
 
 ```
+//Please make sure to set storage permissions appropriately on your key vault
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
+
 //Use PowerShell command to get Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
@@ -124,7 +128,7 @@ Key Vault необходимо убедиться, что идентификат
 - Key Vault выводит список разрешений RBAC в ресурсе учетной записи хранения.
 - Key Vault проверяет ответ через сопоставление регулярных выражений для определения действий и их отсутствия. 
 
-Некоторые примеры вы можете найти в [этом разделе](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167) на GitHub, посвященном работе c ключами для управляемых учетных записей хранения.
+Некоторые поддерживаемые примеры вы можете найти в разделе [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167) (Key Vault — управляемая система хранения ключей учетных записей).
 
 Если удостоверение не имеет разрешение на *повторное создание* или основное удостоверение Key Vault не имеет разрешение на *перечисление* или *повторное создание*, тогда запрос на подключение завершается ошибкой с соответствующим кодом и сообщением. 
 

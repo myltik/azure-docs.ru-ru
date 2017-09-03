@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory B2C: получение токена с помощью приложения iOS | Документация Майкрософт"
+title: "Azure AD B2C: получение токена с помощью приложения iOS | Документация Майкрософт"
 description: "В этой статье описано, как создать приложение iOS, которое использует AppAuth для управления удостоверениями пользователей и проверки подлинности пользователей в Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: ios
-author: saeeda
+author: saeedakhter-msft
 manager: krassk
-editor: 
+editor: parakhj
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 9756e9019d1f79c1fb17cf142daaaaca442722c7
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ebec5d910b8987dcc8155cd4ead00f87d219941c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C. Вход с помощью приложения iOS

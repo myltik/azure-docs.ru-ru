@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2017
+ms.date: 08/17/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 55227c7302285c721381886c63b7cbfdc114b0bb
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 44fc8226480cafc130720fbe78aa85ee95caec6c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Руководство по интеграции Azure Active Directory с Merchlogix
@@ -109,9 +109,12 @@ ms.lasthandoff: 08/05/2017
 
     ![Сведения о домене и URL-адресах единого входа для приложения Merchlogix](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<domain>/login.php?saml=true`
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<DOMAIN>/login.php?saml=true`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<domain>/simplesaml/module.php/saml/sp/metadata.php/login-windows-net`
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>`
+    
+    > [!NOTE]
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь к [группе поддержки MaxxPoint](http://www.merchlogix.com/contact/).
 
 4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 
@@ -121,7 +124,7 @@ ms.lasthandoff: 08/05/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-merchlogix-tutorial/tutorial_general_400.png)
 
-6. В разделе **Конфигурация Merchlogix** щелкните **Настроить Merchlogix**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+6. В разделе **Конфигурация Merchlogix** щелкните **Настроить Merchlogix**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML** и **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
     ![Конфигурация Merchlogix](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_configure.png) 
 

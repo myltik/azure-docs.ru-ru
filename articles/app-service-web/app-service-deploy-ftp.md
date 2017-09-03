@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 816113f7635a003e22a5172113e5039dbcc1ceac
-ms.openlocfilehash: 5dc546849bd02ccf4d02f3e6363a3e2fc3898259
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 9078abbc4ed7eff6975201443992f7bbb84bf57c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
+
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Развертывание приложения в службе приложений Azure с помощью FTP или FTPS
+
 В этой статье показано, как с помощью FTP или FTPS развернуть веб-приложение, серверную частью мобильного приложения или приложение API в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Конечная точка FTP или FTPS для приложения уже активна. Чтобы обеспечить развертывание через FTP или FTPS, не требуется никаких настроек. 
+Конечная точка FTP или FTPS для приложения уже активна. Чтобы обеспечить развертывание через FTP или FTPS, не требуется никаких настроек.
+
+> [!IMPORTANT]
+> Мы постоянно работаем над улучшением безопасности платформы Microsoft Azure. В ходе этой работы планируется обновление веб-приложений в регионе "Центральная Германия" и "Северо-восточная Германия". В это время веб-приложения не смогут использовать протокол FTP обычного текста для развертываний. Рекомендуем своим клиентам использовать для развертывания FTPS. Во время обновления, которое запланировано на 5 сентября, никаких нарушений в работе вашей службы не предвидится. Благодарим за вашу помощь!
 
 <a name="step1"></a>
 ## <a name="step-1-set-deployment-credentials"></a>Шаг 1. Настройка учетных данных развертывания

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Как работает индексирование данных в Azure Cosmos DB?
@@ -59,6 +59,10 @@ ms.lasthandoff: 07/25/2017
 > По умолчанию Azure Cosmos DB согласованно индексирует все свойства строк в документах с помощью хэш-индекса, а числовые свойства — с помощью диапазонного индекса.  
 > 
 > 
+
+### <a name="customizing-the-indexing-policy-using-the-portal"></a>Настройка политики индексирования с помощью портала
+
+Политики индексирования коллекции можно изменить с помощью портала Azure. Для этого необходимо открыть учетную запись Azure Cosmos DB на портале Azure, выбрать коллекцию, в левой области навигации выбрать пункт **Параметры**, а затем нажать кнопку **Политики индексирования**. В колонке **Политики индексирования** измените политику индексации и нажмите кнопку **ОК**, чтобы сохранить изменения. 
 
 ### <a id="indexing-modes"></a>Режимы индексирования базы данных
 Azure Cosmos DB поддерживает три режима индексирования, которые могут быть настроены с помощью политики индексирования для коллекции Azure Cosmos DB — Consistent, Lazy и None.

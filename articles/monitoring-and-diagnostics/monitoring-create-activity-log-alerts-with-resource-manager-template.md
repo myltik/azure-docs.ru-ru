@@ -15,22 +15,23 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 26b140fef46a176b21bddbd7588543e71c251ed6
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 92076c7fe1f867919b7e02abf79cf0fb74fb7eb4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Создание оповещения журнала действий с помощью шаблона Resource Manager
-В этой статье показано, как можно использовать [шаблон Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) для настройки оповещений журнала действий. Это позволяет автоматически настраивать оповещения для ресурсов при их создании в ходе автоматизированного развертывания.
+В этой статье показано, как можно использовать [шаблон Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) для настройки оповещений журнала действий. С помощью шаблонов можно легко настроить большое количество предупреждений, которые активируются по определенным условиям события журнала действий в рамках автоматического развертывания.
 
-Основные этапы:
+Основными шагами являются:
 
-1.  Создайте шаблон в виде JSON-файла, который описывает создание оповещения журнала действий.
-2.  [Разверните шаблон с помощью любого метода развертывания](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+1. Создайте шаблон в виде JSON-файла, который описывает создание оповещения журнала действий.
+
+2. Разверните шаблон, используя [любой метод развертывания](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ## <a name="resource-manager-template-for-an-activity-log-alert"></a>Шаблон Resource Manager для оповещения журнала действий
-Чтобы создать оповещение журнала действий с помощью шаблона Resource Manager, создайте ресурс типа `microsoft.insights/activityLogAlerts` и заполните все связанные свойства. Ниже приведен шаблон, который создает оповещение журнала действий.
+Чтобы создать оповещение журнала действий с помощью шаблона Resource Manager, создайте ресурс типа `microsoft.insights/activityLogAlerts`. Затем следует заполнить все связанные свойства. Вот шаблон, создающий оповещение журнала действий.
 
 ```json
 {
@@ -98,11 +99,11 @@ ms.lasthandoff: 07/18/2017
 }
 ```
 
-Также рекомендуем просмотреть нашу [коллекцию шаблонов для быстрого начала работы с Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights). Там вы найдете некоторые примеры шаблонов для оповещений журнала действий.
+Примеры шаблонов для оповещений журнала действий см. в [коллекции шаблонов для быстрого начала работы с Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Узнайте больше об [оповещениях](monitoring-overview-alerts.md).  
+- Узнайте больше об [оповещениях](monitoring-overview-alerts.md).
 - Узнайте, как добавить [группы действий с помощью шаблона Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
-- [Создайте оповещение журнала действий, чтобы отслеживать все операции системы автомасштабирования в своей подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
-- [Создайте оповещение журнала действий, чтобы отслеживать все ошибки автомасштабирования в своей подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+- Узнайте, как [создать оповещение журнала действий, чтобы отслеживать все операции системы автомасштабирования в своей подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- Узнайте, как [создать оповещение журнала действий, чтобы отслеживать все ошибки автомасштабирования в своей подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
+ms.date: 08/22/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 8e21861de95308a99beab3ff5ed5bd95c4f04e33
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: a0f6a845a345ebd4ef0a58abf4934ce400103109
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Использование эмулятора Azure Cosmos DB для разработки и тестирования в локальной среде
@@ -146,7 +146,7 @@ powershell .\importcert.ps1
 > Данные, созданные в одной версии эмулятора Azure Cosmos DB, могут оказаться недоступными при использовании другой версии. Если нужно сохранить данные на длительный срок, мы рекомендуем хранить их в учетной записи хранения Azure Cosmos DB, а не эмуляторе Azure Cosmos DB. 
 
 ## <a name="authenticating-requests"></a>Выполнение проверки подлинности запросов
-Как и в настоящей облачной службе Azure, в эмуляторе Azure Cosmos DB для каждого полученного запроса должна выполняться аутентификация. Эмулятор Azure Cosmos DB поддерживает аутентификацию с помощью главного ключа, используя одну предопределенную учетную запись и известный ключ аутентификации. В качестве учетных данных для эмулятора Azure Cosmos DB можно использовать только эту учетную запись и только этот ключ. К ним относятся:
+Как и в настоящей облачной службе Azure, в эмуляторе Azure Cosmos DB для каждого полученного запроса должна выполняться аутентификация. Эмулятор Azure Cosmos DB поддерживает аутентификацию с помощью главного ключа, используя одну предопределенную учетную запись и известный ключ аутентификации. В качестве учетных данных для эмулятора Azure Cosmos DB можно использовать только эту учетную запись и только этот ключ. К ним относятся:
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
@@ -362,6 +362,8 @@ powershell .\importcert.ps1
 
 Ниже перечислены способы устранения неполадок с эмулятором Azure Cosmos DB.
 
+- Если установлена новая версия эмулятора и возникли ошибки, убедитесь, что вы сбросили данные. Вы можете сбросить данные, щелкнув правой кнопкой мыши значок эмулятора Azure Cosmos DB в области уведомлений и выбрав "Сбросить данные". Если ошибки не устранены, можно удалить и переустановить приложение. Инструкции см. в разделе [Удаление локального эмулятора](#uninstall).
+
 - В случае аварийного завершения эмулятора Azure Cosmos DB соберите файлы дампа из папки c:\Users\user_name\AppData\Local\CrashDumps, сожмите их, вложите в электронное сообщение и отправьте по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 - При возникновении сбоев в CosmosDB.StartupEntryPoint.exe выполните следующую команду из командной строки администратора: `lodctr /R` 
@@ -382,6 +384,13 @@ powershell .\importcert.ps1
 5. `CosmosDB.Emulator.exe /stoptraces`
 6. Перейдите к `%ProgramFiles%\Azure Cosmos DB Emulator` и найдите файл docdbemulator_000001.etl.
 7. Отправьте ETL-файл и описание действий, которые привели к ошибке, на электронный адрес [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) для отладки.
+
+### <a id="uninstall"></a>Удаление локального эмулятора
+
+1. Выйдите из всех открытых экземпляров локального эмулятора, щелкнув правой кнопкой мыши значок эмулятора Azure Cosmos DB в области уведомлений и выбрав "Выход". Выход из всех экземпляров может занять около минуты.
+2. Введите в поле поиска Windows **Приложения и возможности** и выберите команду **Apps & features (System settings)** (Приложения и возможности (системные параметры)).
+3. В списке приложений перейдите к **эмулятору Azure Cosmos DB**, выберите его, щелкните **Удалить**, подтвердите и щелкните **Удалить** еще раз.
+4. Удалив приложение, перейдите к папке C:\Users\<пользователя>\AppData\Local\CosmosDBEmulator и удалите ее. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

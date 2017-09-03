@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: lenalepa
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e8cc9b790224891a0770b18fe2edb8e1bbfd5b72
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3be341bcb897a1481f145825429a1a94dfaae3b0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Интеграция приложений с Azure Active Directory
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/31/2017
 
 Платформа согласия основана на OAuth 2.0 и различных его процедурах, таких как предоставление кода авторизации и учетных данных пользователя, с помощью общедоступных или конфиденциальных клиентов. Благодаря OAuth 2.0 среда Azure AD позволяет создавать множество различных клиентских приложений, например на телефоне, планшете, сервере или в Интернете, и получить доступ к необходимым ресурсам.
 
-Более подробные сведения о платформе согласия см. в статьях [Авторизация доступа к веб-приложениям с помощью OAuth 2.0 и Azure Active Directory](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md), а сведения о получении авторизованного доступа к Office 365 с помощью Microsoft Graph см. в статье [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview) (Проверка подлинности приложения с помощью Microsoft Graph).
+Дополнительные сведения о платформе согласия см. в статьях [Авторизация доступа к веб-приложениям с помощью OAuth 2.0 и Azure Active Directory](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md), а сведения о получении авторизованного доступа к Office 365 с помощью Microsoft Graph см. в статье [Получение маркеров доступа для вызова Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Пример процедуры согласия
 Ниже показаны особенности работы процедуры согласия для разработчика приложений и пользователя.

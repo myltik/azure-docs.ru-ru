@@ -16,11 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/05/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 3dc48f5dcb50db81d9f461c41570640839fcce26
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Как шифровать виртуальные диски на виртуальной машине Linux
@@ -274,15 +273,13 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 
 
 ## <a name="add-additional-data-disks"></a>Добавление дополнительных дисков данных
-После того как вы зашифруете диски данных, позже вы сможете добавить дополнительные виртуальные диски в виртуальную машину, а также зашифровать их. При выполнении команды `az vm encryption enable` увеличьте версию последовательности с помощью параметра `--sequence-version`. Этот параметр версии последовательности позволяет выполнять последовательные операции на одной и той же виртуальной машине.
-
-Например, добавим второй виртуальный диск к виртуальной машине следующим образом:
+После того как вы зашифруете диски данных, позже вы сможете добавить дополнительные виртуальные диски в виртуальную машину, а также зашифровать их. Например, добавим второй виртуальный диск к виртуальной машине следующим образом:
 
 ```azurecli
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-Повторно выполните команду для шифрования виртуальных дисков, в этот раз добавив параметр `--sequence-version` и увеличив значение, применяемое при первом выполнении, следующим образом:
+Повторно выполните команду для шифрования виртуальных дисков следующим образом:
 
 ```azurecli
 az vm encryption enable \
@@ -292,8 +289,7 @@ az vm encryption enable \
     --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all \
-    --sequence-version 2
+    --volume-type all
 ```
 
 

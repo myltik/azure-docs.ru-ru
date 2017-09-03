@@ -1,3 +1,4 @@
+
 ---
 title: "Создание первой функции в Azure с помощью Visual Studio | Документация Майкрософт"
 description: "Создание и публикация в Azure простой функции, активируемой HTTP, с помощью инструментов функций Azure для Visual Studio."
@@ -11,23 +12,24 @@ keywords: "функции azure, функции, обработка событи
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: f3aa6740751db9aa979a88f9600f68cf4353643c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7e1fcecbf77da402b8c223caf6a2e81c704c3219
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Создание первой функции с помощью Visual Studio
 
 Функции Azure позволяют вам выполнять свой код в бессерверной среде без необходимости создавать виртуальную машину или публиковать веб-приложение.
 
-Изучив эту статью, вы научитесь использовать инструменты функций Azure для Visual Studio 2017 и локально тестировать функцию hello world. Затем вы опубликуете код функции в Azure. Эти средства доступны как часть рабочей нагрузки Azure для разработки в Visual Studio 2017 версии 15.3 или более поздней.
+Изучив эту статью, вы научитесь использовать инструменты Visual Studio 2017 для Функций Azure и локально тестировать функцию hello world. Затем вы опубликуете код функции в Azure. Эти средства доступны как часть рабочей нагрузки Azure для разработки в Visual Studio 2017 версии 15.3 или более поздней.
 
 ![Код функций Azure в проекте Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -38,6 +40,9 @@ ms.lasthandoff: 08/15/2017
 * [Visual Studio 2017 версия 15.3](https://www.visualstudio.com/vs/preview/), включая рабочую нагрузку**разработки в Azure**.
 
     ![Установка Visual Studio 2017 с рабочей нагрузкой разработки в Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+    
+    >[!NOTE]  
+    После установки Visual Studio 2017 версии 15.3 или обновления до этой версии вам также может потребоваться вручную обновить инструменты Visual Studio 2017 для Функций Azure. Для обновления инструментов можно воспользоваться меню **Инструменты** в разделе **Расширения и обновления...** > **Обновления** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** (Инструменты для функций и веб-заданий Azure)  > **Обновление**. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

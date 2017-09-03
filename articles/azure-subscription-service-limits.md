@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/21/2017
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: a54d38948ee5a752297167c7f4435e52b5dbb27f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a76acd67e9ba7822f2837b3c08e2ede389047f11
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Подписка Azure, границы, квоты и ограничения службы
@@ -52,6 +52,8 @@ ms.lasthandoff: 07/26/2017
 * [Шлюз приложений](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Автоматизация](#automation-limits)
+* [База данных Azure Cosmos](#azure-cosmos-db-limits)
+* [Сетка событий Azure](#azure-event-grid-limits)
 * [кэш Azure Redis](#azure-redis-cache-limits)
 * [Azure RemoteApp](#azure-remoteapp-limits)
 * [Архивация](#backup-limits)
@@ -64,7 +66,6 @@ ms.lasthandoff: 07/26/2017
 * [Аналитика озера данных](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
-* [DocumentDB](#documentdb-limits)
 * [Концентраторы событий](#event-hubs-limits)
 * [Центр Интернета вещей](#iot-hub-limits)
 * [хранилище ключей;](#key-vault-limits)
@@ -139,7 +140,7 @@ ms.lasthandoff: 07/26/2017
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### <a name="storage-limits"></a>Ограничения хранилища
-Дополнительные сведения об ограничениях учетных записей хранения см. в статье [Целевые показатели по производительности и масштабируемости для хранилища Azure](storage/storage-scalability-targets.md).
+Дополнительные сведения об ограничениях учетных записей хранения см. в статье [Целевые показатели по производительности и масштабируемости для хранилища Azure](storage/common/storage-scalability-targets.md).
 <!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>Ограничения службы хранения
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
@@ -182,8 +183,8 @@ ms.lasthandoff: 07/26/2017
 
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
-### <a name="documentdb-limits"></a>Ограничения DocumentDB
-DocumentDB — это масштабная база данных, пропускную способность и хранилище которой можно масштабировать в соответствии с требованиями приложения. Если у вас возникнут вопросы по масштабированию DocumentDB, отправьте электронное сообщение по адресу askdocdb@microsoft.com.
+### <a name="azure-cosmos-db-limits"></a>Ограничения Azure Cosmos DB
+Azure Cosmos DB — это глобальная база данных, пропускную способность и хранилище которой можно масштабировать в соответствии с требованиями приложения. Если у вас возникнут вопросы по масштабированию Azure Cosmos DB, отправьте электронное сообщение по адресу askcosmosdb@microsoft.com.
 
 ### <a name="mobile-engagement-limits"></a>Ограничения Служб мобильного взаимодействия
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -243,6 +244,9 @@ DocumentDB — это масштабная база данных, пропуск
 
 ### <a name="active-directory-limits"></a>Ограничения Active Directory
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
+
+### <a name="azure-event-grid-limits"></a>Ограничения сетки событий Azure
+[!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
 ### <a name="azure-remoteapp-limits"></a>Ограничения Azure RemoteApp
 [!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]

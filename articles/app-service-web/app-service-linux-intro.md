@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 69156ec555b34d066a65bdc202267cfc53de47a0
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 67dee77dd4e46d097358d86626a859b7dc7982e7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Введение в веб-приложение Azure на платформе Linux
@@ -39,6 +39,9 @@ ms.lasthandoff: 08/17/2017
     * 6.6
     * 6.9
     * 6.10
+    * 6.11
+    * 8.0
+    * 8.1
 * PHP
     * 5.6
     * 7.0
@@ -96,6 +99,17 @@ ms.lasthandoff: 08/17/2017
 
 Веб-приложения Linux необходимо создавать в группе ресурсов, в которой отсутствуют веб-приложения под управлением других платформ в том же регионе.
 
+## <a name="troubleshooting"></a>Устранение неполадок ##
+
+Если не удается запустить приложение или необходимо проверить ведение журнала приложения, просмотрите журналы Docker в каталоге LogFiles. Доступ к этому каталогу можно получить либо на сайте SCM, либо через FTP.
+Чтобы записать `stdout` и `stderr` из контейнера, необходимо включить **ведение журнала контейнера Docker** в разделе **Журналы диагностики**.
+
+![Включение ведения журнала][2]
+
+![Просмотр журналов Docker с помощью Kudu][1]
+
+Получить доступ к сайту SCM можно, щелкнув **Дополнительные средства** в меню **Средства разработки**.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Просмотрите следующие материалы, чтобы приступить к работе со службой приложений в Linux. Если у вас возникли вопросы, опубликуйте их на [нашем форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
@@ -109,4 +123,6 @@ ms.lasthandoff: 08/17/2017
 * [Настройка промежуточных сред в службе приложений Azure](./web-sites-staged-publishing.md)
 * [Непрерывное развертывание Docker Hub для веб-приложения Azure на платформе Linux](./app-service-linux-ci-cd.md)
 
-
+<!--Image references-->
+[1]: ./media/app-service-linux-intro/kudu-docker-logs.png
+[2]: ./media/app-service-linux-intro/logging.png

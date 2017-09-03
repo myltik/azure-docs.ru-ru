@@ -9,16 +9,17 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 530749275b720caefd7e7e57291b4bc0d313faf0
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: d11b9af982112db8ba94b62110c18be843f1abb1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -139,7 +140,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ![Клиентская часть приложения](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Масштабирование приложений и служб в кластере
-Службы Service Fabric могут легко масштабироваться в кластере с учетом изменения нагрузки на службы. Масштабирование службы осуществляется путем изменения числа экземпляров, запущенных в кластере. Существует несколько способов масштабирования служб — вы можете использовать сценарии PowerShell или команды интерфейса командной строки Azure 2.0. В этом примере мы используем Service Fabric Explorer.
+Службы Service Fabric могут легко масштабироваться в кластере с учетом изменения нагрузки на службы. Масштабирование службы осуществляется путем изменения числа экземпляров, запущенных в кластере. Существует несколько способов масштабирования служб — вы можете использовать сценарии PowerShell или команды интерфейса командной строки Service Fabric (sfctl). В этом примере мы используем Service Fabric Explorer.
 
 Service Fabric Explorer выполняется во всех кластерах Service Fabric. Чтобы его открыть, укажите адрес кластера и порт управления кластерами HTTP (19080) в адресной строке, например `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
 

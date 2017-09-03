@@ -1,6 +1,6 @@
 ---
 title: "Создание групп действий с помощью шаблонов Resource Manager | Документация Майкрософт"
-description: "Группы действий позволяют отправлять уведомления по электронной почте, SMS или вызывать объекты webhook при определенных событиях."
+description: "Узнайте, как создать группу действий с помощью шаблона Azure Resource Manager."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -15,26 +15,27 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 88e7b2e7781b80ea360531f4c3a45256de83b594
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 76bf353cac13f1c2169380f8dd3c1e163d4f3f41
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Создание группы действий с помощью шаблона Resource Manager
-В этой статье показано, как можно использовать [шаблон Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) для создания групп действий. Шаблоны позволяют автоматически настраивать группы действий для ресурсов при их создании, чтобы обеспечить уведомление соответствующих участников при активации оповещения.
+В этой статье показано, как можно использовать [шаблон Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) для настройки групп действий. С помощью шаблонов можно автоматически настроить группы действий, которые можно использовать повторно в определенных типах оповещений. С помощью этих групп действий обеспечивается уведомление соответствующих участников при активации оповещения.
 
-Основные этапы:
+Основными шагами являются:
 
-1.  Создайте шаблон в виде JSON-файла, который описывает создание группы действий.
-2.  [Разверните шаблон с помощью любого метода развертывания](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+1. Создайте шаблон в виде JSON-файла, который описывает создание группы действий.
 
-Ниже описано, как сначала создать шаблон Resource Manager для группы действий, в котором жестко запрограммированы определения действия, а затем создать шаблон, принимающий сведения конфигурации веб-перехватчика в качестве входных параметров при развертывании.
+2. Разверните шаблон, используя [любой метод развертывания](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-## <a name="resource-manager-template-for-an-action-group"></a>Шаблон Resource Manager для группы действий
+Ниже описано, как создать шаблон Resource Manager для группы действий, в котором определения действий жестко запрограммированы, а также представлены способы создания шаблона, принимающего данные конфигурации веб-перехватчика в качестве входных параметров при развертывании шаблона.
 
-Чтобы создать группу действий с помощью шаблона Resource Manager, создайте ресурс типа `Microsoft.Insights/actionGroups` и заполните все связанные свойства. Ниже приведено несколько примеров шаблонов для создания группы действий.
+## <a name="resource-manager-templates-for-an-action-group"></a>Шаблоны Resource Manager для группы действий
+
+Чтобы создать группу действий с помощью шаблона Resource Manager, создайте ресурс типа `Microsoft.Insights/actionGroups`. Затем следует заполнить все связанные свойства. Ниже представлено два примера шаблонов для создания группы действий.
 
 ```json
 {
@@ -170,7 +171,7 @@ ms.lasthandoff: 07/18/2017
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Узнайте больше о [группах действий](monitoring-action-groups.md).  
-Узнайте больше об [оповещениях](monitoring-overview-alerts.md).  
-Узнайте, как добавить [оповещения с помощью шаблона Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* Дополнительные сведения о группах действий см. в статье [Создание групп действий и управление ими на портале Azure](monitoring-action-groups.md).
+* Узнайте больше об [оповещениях](monitoring-overview-alerts.md).
+* Узнайте, как добавить [оповещения с помощью шаблона Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
 

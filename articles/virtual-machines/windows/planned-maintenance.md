@@ -1,38 +1,36 @@
 ---
-title: "Плановое обслуживание виртуальных машин Windows в Azure | Документация Майкрософт"
-description: "Сведения о том, что такое плановое обслуживание Azure и как оно влияет на виртуальные машины Windows, работающие в Azure."
+title: "Обслуживание и обновления для виртуальных машин Windows в Azure | Документация Майкрософт"
+description: "Общие сведения об обслуживании и обновлении виртуальных машин Windows, работающих в Azure."
 services: virtual-machines-windows
 documentationcenter: 
-author: zivr
+author: cynthn
 manager: timlt
 editor: 
-tags: azure-service-management,azure-resource-manager
+tags: azure-resource-manager
 ms.assetid: eb4b92d8-be0f-44f6-a6c3-f8f7efab09fe
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
-ms.author: zivr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 198c1804b342b8faf406a08eff7bc42994b9dd0d
+ms.date: 08/14/2017
+ms.author: cynthn
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 7f293a102412960686ca5f0619ca88e9a3704127
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
-# <a name="planned-maintenance-for-windows-virtual-machines"></a>Плановое обслуживание виртуальных машин Windows 
+# <a name="planned-maintenance-for-windows-virtual-machines-in-azure"></a>Плановое обслуживание виртуальных машин Windows в Azure
 
-Microsoft Azure периодически выполняет обновления своих систем по всему миру, чтобы повысить надежность, производительность и безопасность инфраструктуры узлов, в которой работают виртуальные машины. Обновления бывают разные: от установки исправлений программных компонентов в среде размещения (операционной системы, гипервизора и различных агентов, развернутых на узле), обновления сетевых компонентов до вывода оборудования из эксплуатации.
+[!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
-Большинство таких обновлений выполняется без какого-либо воздействия на размещенные виртуальные машины или облачные службы.
+## <a name="next-steps"></a>Дальнейшие действия
 
-Однако в определенных случаях обновления влияют на работу размещенных виртуальных машин.
+[Служба метаданных Azure](instance-metadata-service.md) дает возможность получать сведения о виртуальной машине, размещенной в Azure. 
 
--   Обслуживание с сохранением виртуальной машины посредством миграции на месте описывает класс обновлений, при котором виртуальные машины не перезагружается во время обслуживания.
 
--   Обслуживание с перезапуском виртуальных машин требует перезагрузки или повторного развертывания размещенных виртуальных машин.
 
-Обратите внимание, что на этой странице описывается, как выполняется плановое обслуживание Microsoft Azure. Дополнительные сведения о внеплановых событиях (простоях) см. в статье [Управление доступностью виртуальных машин](manage-availability.md).
+
+
