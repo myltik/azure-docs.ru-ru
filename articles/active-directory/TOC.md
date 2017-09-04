@@ -44,7 +44,6 @@
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 #### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 ### [Добавление пользователей из других каталогов (классический портал)](active-directory-create-users-external.md)
-### [Удаление пользователей](active-directory-users-delete-user-azure-portal.md)
 ### [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
 ### [Сброс пароля](active-directory-users-reset-password-azure-portal.md)
 ### [Управление сведениями о работе пользователей](active-directory-users-work-info-azure-portal.md)
@@ -132,6 +131,7 @@
 
 ## Управление устройствами
 ### [Введение](device-management-introduction.md)
+### [Использование портала Azure](device-management-azure-portal.md)
 ### [Часто задаваемые вопросы](device-management-faq.md)
 ### Задачи
 #### [Настройка устройств, присоединенных к гибридному облаку Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 

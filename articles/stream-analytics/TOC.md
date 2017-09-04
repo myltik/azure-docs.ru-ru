@@ -66,7 +66,7 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Блог](http://blogs.msdn.com/b/streamanalytics/)
 ## [Форум отзывов и предложений](http://feedback.azure.com/forums/270577-azure-stream-analytics)
-## [Форум](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+## [Форум](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 ## [Цены](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Заметки о выпуске](stream-analytics-release-notes.md)
