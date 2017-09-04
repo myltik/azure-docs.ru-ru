@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9d45f5cb1a7d15a69516faf2ffaa5f1ec25c3a43
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 27ab2084cdb6506cbb807fc9c35b0e67630ad85f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Навигация и панели мониторинга на портале Application Insights
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/17/2017
 * диапазон времени более 24 часов: (диапазон времени)/60.
 
 ### <a name="pin-any-query-in-analytics"></a>Закрепление любого запроса в аналитике
-Вы также можете [закрепить диаграммы аналитики](app-insights-analytics-using.md#pin-to-dashboard) на [общей](#share-dashboards-with-your-team) панели мониторинга. Это позволяет добавлять диаграммы из любого произвольного запроса вместе со стандартными метриками. Эта функция не бесплатна.
+Вы также можете [закрепить диаграммы аналитики](app-insights-analytics-using.md#pin-to-dashboard) на [общей](#share-dashboards-with-your-team) панели мониторинга. Это позволяет добавлять диаграммы из любого произвольного запроса вместе со стандартными метриками. 
 
 Результаты пересчитываются автоматически каждый час. Чтобы пересчитать результаты немедленно, щелкните значок "Обновить" на диаграмме. (При обновлении окна браузера результаты не пересчитываются.)
 

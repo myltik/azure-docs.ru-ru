@@ -3,8 +3,8 @@ title: "Приступая к работе с хранилищем BLOB-объе
 description: "Как приступить к работе, используя хранилище больших двоичных объектов в проекте веб-задания после подключения к хранилищу Azure с использованием подключенных служб Visual Studio."
 services: storage
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.service: storage
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ef7bff5dcf58cfb26e3d3fa39204ae61e69e400
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: a50a265feff8c0aec28825eb0bc4e33585ea5a02
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Начало работы с подключенными службами хранилища больших двоичных объектов Azure и Visual Studio (проекты веб-заданий)
@@ -219,10 +220,5 @@ ms.openlocfilehash: 6ef7bff5dcf58cfb26e3d3fa39204ae61e69e400
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье приведены примеры кода обработки обычных сценариев для работы с большими двоичными объектами Azure. Дополнительная информация об использовании веб-заданий Azure и пакета SDK для веб-заданий доступна в [ресурсах с документацией по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

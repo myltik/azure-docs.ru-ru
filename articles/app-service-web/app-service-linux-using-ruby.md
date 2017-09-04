@@ -4,7 +4,7 @@ description: "Использование Ruby в веб-приложении с�
 keywords: "Служба приложений Azure, веб-приложение, вопросы и ответы, Linux, OSS, Ruby"
 services: app-service
 documentationCenter: 
-authors: aelnably
+author: ahmedelnably
 manager: erikre
 editor: 
 ms.assetid: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: ad724b99426c1873c173da905c89b471ee64ffa6
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 56105d1bc153e552e12c0c408c8f6075e4eff9d0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -49,7 +48,6 @@ ms.lasthandoff: 06/09/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Что такое веб-приложение на платформе Linux?](app-service-linux-intro.md)
-* [Создание веб-приложений в веб-приложении на платформе Linux](app-service-linux-how-to-create-web-app.md)
 * [Развертывание локального репозитория Git в службе приложений Azure](app-service-deploy-local-git.md)
 * [Вопросы и ответы о веб-приложении службы приложений Azure на платформе Linux](app-service-linux-faq.md)
 * [Создание приложения Ruby с помощью веб-приложения на платформе Linux (предварительная версия)](app-service-linux-ruby-get-started.md)

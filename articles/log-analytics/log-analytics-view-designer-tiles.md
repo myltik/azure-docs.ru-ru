@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 26768aba560e13a92431c4e40c3ae354b6b55acf
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Справочник по элементам конструктора представлений Log Analytics
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/21/2017
 * [Log Analytics View Designer visualization part reference](log-analytics-view-designer-parts.md) (Справка по элементам визуализации в конструкторе представлений Log Analytics). Справочник по параметрам всех плиток, которые можно использовать при создании пользовательских представлений.
 
 >[!NOTE]
-> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), запросы во всех представлениях должны создаваться на [новом языке запросов](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).  Все представления, созданные до обновления рабочей области, будут автоматически преобразованы.
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), запросы во всех представлениях должны создаваться на [новом языке запросов](https://go.microsoft.com/fwlink/?linkid=856078).  Все представления, созданные до обновления рабочей области, будут автоматически преобразованы.
 
 В приведенной ниже таблице перечислены различные типы плиток, доступных в конструкторе представлений.  В следующих разделах подробно описаны все типы плиток и их свойства.
 

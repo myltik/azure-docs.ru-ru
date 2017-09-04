@@ -3,7 +3,7 @@ title: "Шаблоны продуктов в службе управления A
 description: "Сведения о настройке содержимого страниц продуктов на портале разработчика в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 49f9254c-4c5f-4ed4-9c8d-798f44e805ee
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: dae757231d8f2ff7fcd8e032d941c0fa9f192796
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="product-templates-in-azure-api-management"></a>Шаблоны продуктов в службе управления API Azure
@@ -31,7 +33,7 @@ ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
 > [!NOTE]
 >  Примеры стандартных шаблонов включены в следующую документацию, но могут в любой момент измениться, так как ведется постоянная работа по их улучшению. Актуальные шаблоны по умолчанию можно просмотреть на портале разработчика, перейдя к требуемому отдельному шаблону. Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="a-nameproductlista-product-list"></a><a name="ProductList"></a> Список продуктов  
+##  <a name="ProductList"></a> Список продуктов  
  Шаблон **списка продуктов** позволяет настроить текст страницы со списком продуктов на портале разработчика.  
   
  ![Список продуктов](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -73,7 +75,7 @@ ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
   
 ### <a name="data-model"></a>Модель данных  
   
-|Свойство|При появлении запроса на подтверждение нажмите клавишу |Описание|  
+|Свойство|Тип|Описание|  
 |--------------|----------|-----------------|  
 |Разбиение по страницам|Сущность [разбиения по страницам](api-management-template-data-model-reference.md#Paging).|Сведения о разбиении по страницам для коллекции продуктов.|  
 |Фильтрация|Сущность [фильтрации](api-management-template-data-model-reference.md#Filtering).|Сведения о фильтрации для страницы со списком продуктов.|  
@@ -117,7 +119,7 @@ ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
 }  
 ```  
   
-##  <a name="a-nameproducta-product"></a><a name="Product"></a> Продукт  
+##  <a name="Product"></a> Продукт  
  Шаблон **продукта** позволяет настроить текст страницы со информацией о продукте на портале разработчика.  
   
  ![Страница продукта на портале разработчика](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -198,11 +200,11 @@ ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
   
 ### <a name="data-model"></a>Модель данных  
   
-|Свойство|При появлении запроса на подтверждение нажмите клавишу |Описание|  
+|Свойство|Тип|Описание|  
 |--------------|----------|-----------------|  
 |Продукт|[Продукт](api-management-template-data-model-reference.md#Product)|Выбранный продукт.|  
 |IsDeveloperSubscribed|Логическое|Указывает, подписан ли текущий пользователь на этот продукт.|  
-|SubscriptionState|number|Состояние подписки. Возможны следующие состояния.<br /><br /> -   `0 - suspended`: подписка заблокирована, и подписчик не может вызвать ни один API продукта.<br />-   `1 - active`: подписка активна.<br />-   `2 - expired`: срок действия подписки истек, и она деактивирована.<br />-   `3 - submitted`: запрос разработчика на подписку принят, но еще не утвержден или отклонен.<br />-   `4 - rejected`: администратор отклонил запрос на подписку.<br />-   `5 - cancelled`: подписка отменена разработчиком или администратором.|  
+|SubscriptionState|number|Состояние подписки. Возможны следующие состояния.<br /><br /> —-    `0 - suspended`: подписка заблокирована, и подписчик не может вызвать ни один API продукта.<br />— -   `1 - active`: подписка активна.<br />— -   `2 - expired`: срок действия подписки истек, и она была деактивирована.<br />— -   `3 - submitted`: запрос разработчика на подписку выполнен, но еще не был утвержден или отклонен.<br />—-    `4 - rejected`: администратор отклонил запрос на подписку.<br />-   `5 - cancelled`: подписка отменена разработчиком или администратором.|  
 |Ограничения|array|Это свойство является устаревшим и не должно использоваться.|  
 |DelegatedSubscriptionEnabled|Логическое|Указывает, включено ли [делегирование](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) для этой подписки.|  
 |DelegatedSubscriptionUrl|строка|Если делегирование включено, содержит URL-адрес делегированной подписки.|  
@@ -258,8 +260,3 @@ ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

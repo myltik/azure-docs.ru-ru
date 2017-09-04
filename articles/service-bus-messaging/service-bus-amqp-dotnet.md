@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 08/28/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: e089a7d772b51194d8300beb99797bf40a8611b1
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 58a37c0dd24d54996f517961f3a7f1ec36639cfe
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="using-service-bus-from-net-with-amqp-10"></a>Использование служебной шины на платформе .NET с протоколом AMQP 1.0
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/20/2017
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-Где `[namespace]` и `SharedAccessKey` предоставляются на [портале Azure][Azure portal] при создании пространства имен служебной шины. Дополнительные сведения см. в статье [Создание пространства имен служебной шины с помощью портала Azure][Create a Service Bus namespace using the Azure portal].
+Где `namespace` и `SAS key` предоставляются на [портале Azure][Azure portal] при создании пространства имен служебной шины. Дополнительные сведения см. в статье [Создание пространства имен служебной шины с помощью портала Azure][Create a Service Bus namespace using the Azure portal].
 
 Если вы используете AMQP, добавьте строку подключения с `;TransportType=Amqp`. Эта запись сообщает клиентской библиотеке о подключении к служебной шине по протоколу AMQP 1.0.
 
@@ -124,7 +124,7 @@ ms.lasthandoff: 04/20/2017
 Хотите узнать больше? Перейдите по следующим ссылкам:
 
 * [Протокол AMQP служебной шины — обзор]
-* [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]
+* [Руководство по использованию протокола AMQP 1.0]
 * [Протокол AMQP служебной шины для Windows Server]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
@@ -135,6 +135,6 @@ ms.lasthandoff: 04/20/2017
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
-[Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[Руководство по использованию протокола AMQP 1.0]: service-bus-amqp-protocol-guide.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 

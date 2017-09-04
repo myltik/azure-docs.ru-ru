@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e864e832b4c50644bf4062dee29d34ff9fe2774e
-
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Использование концентраторов уведомлений для передачи локализованных экстренных новостей
@@ -182,38 +183,33 @@ ms.openlocfilehash: e864e832b4c50644bf4062dee29d34ff9fe2774e
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
 <!-- Anchors. -->
-[Основные сведения о шаблонах]: #concepts
-[Пользовательский интерфейс приложения]: #ui
-[Разработка клиентского приложения Магазина Windows]: #building-client
-[Отправка уведомлений из серверной части]: #send
+[Template concepts]: #concepts
+[The app user interface]: #ui
+[Building the Windows Store client app]: #building-client
+[Send notifications from your back-end]: #send
 [Next Steps]:#next-steps
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Мобильная служба]: /develop/mobile/tutorials/get-started
-[Уведомление пользователей с помощью центров уведомлений: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Уведомление пользователей с помощью центров уведомлений: мобильные службы]: /manage/services/notification-hubs/notify-users
-[Использование Центров уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-dotnet
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
+[Использование Центров уведомлений для передачи экстренных новостей]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
 
-[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Пакет Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started/#create-new-service
-[Приступая к работе с данными]: /develop/mobile/tutorials/get-started-with-data-dotnet
-[Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-dotnet
-[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-dotnet
-[Push-уведомления для пользователей приложений]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[Авторизация пользователей с помощью скриптов]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript и HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Инструкции по использованию концентраторов уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Инструкции по использованию Центров уведомлений для Магазина Windows]: http://msdn.microsoft.com/library/jj927172.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 

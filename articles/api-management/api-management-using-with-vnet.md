@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 69fd656ee9ae440d5769aca82ff8d49fb59d7780
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: c733c61132a79381d5e025819ff944507fc3fb9b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Как использовать управление API Azure с виртуальными сетями
@@ -108,7 +108,7 @@ ms.lasthandoff: 08/16/2017
 | * / 11000 - 11999 |Исходящие |TCP |Зависимость от SQL Azure V12 |VIRTUAL_NETWORK — INTERNET |Внешний и внутренний |
 | * / 14000 - 14999 |Исходящие |TCP |Зависимость от SQL Azure V12 |VIRTUAL_NETWORK — INTERNET |Внешний и внутренний |
 | * / 5671 |Исходящие |AMQP |Зависимость для политики ведения журнала концентратора событий и агента мониторинга |VIRTUAL_NETWORK — INTERNET |Внешний и внутренний |
-| 6381–6383 / 6381–6383 |Входящий и исходящий |UDP |Зависимость для кэша Redis |VIRTUAL_NETWORK — VIRTUAL_NETWORK |Внешний и внутренний |-
+| 6381–6383 / 6381–6383 |Входящий и исходящий |TCP |Зависимость для кэша Redis |VIRTUAL_NETWORK — VIRTUAL_NETWORK |Внешний и внутренний |-
 | * / 445 |Исходящие |TCP |Зависимость для общей папки Azure для GIT |VIRTUAL_NETWORK — INTERNET |Внешний и внутренний |
 | * / * | Входящий трафик |TCP |Подсистема балансировки нагрузки инфраструктуры Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Внешний и внутренний |
 

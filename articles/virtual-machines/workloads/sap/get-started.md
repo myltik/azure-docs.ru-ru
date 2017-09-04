@@ -18,10 +18,10 @@ ms.date: 03/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c35892421c3d3019204c9e763980e813930d19a8
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: e69d96e5f18b4334a63445b08979c457d241e818
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -349,7 +349,7 @@ Azure для SAP HANA — это уникальное предложение, к
 
 Сводка: в данном руководстве содержатся сведения, полезные для организации мониторинга среды SAP HANA в Azure, а также дополнительные сведения об устранении неполадок. 
 
-Последнее обновление: декабрь 2016 г.
+Дата обновления: август 2017 г.
 
 [Этот документ можно найти здесь](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

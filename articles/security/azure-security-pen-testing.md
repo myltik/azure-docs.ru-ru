@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 08/24/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: bc8ca9bb349f41a6ae7371b4fc33cc09fb179c11
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="pen-testing"></a>Тестирование на проникновение
@@ -43,5 +43,5 @@ ms.lasthandoff: 07/28/2017
 
 К тестам, которые запрещено выполнять, относятся атаки типа ["отказ в обслуживании" (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . В эту категорию включены как запуск DoS-атаки, так и все сопутствующие тесты, которые могут определять, демонстрировать или имитировать DoS-атаку любого типа.
 
-Готовы начать тестирование приложений, размещенных в Microsoft Azure, на проникновение? Если да, перейдите на страницу [Penetration testing overview](https://security-forms.azure.com/penetration-testing/terms) (Обзор тестирования на проникновение). В нижней части страницы нажмите кнопку "Create a Testing Request" (Создать запрос на тестирование). Кроме того, вы найдете дополнительные сведения об условиях тестировании на проникновение, а также полезные ссылки, с помощью которых можно сообщать об уязвимостях, связанных с платформой Azure или другими службами Microsoft.
+Готовы начать тестирование приложений, размещенных в Microsoft Azure, на проникновение? Если да, перейдите на страницу [Penetration testing overview](https://technet.microsoft.com/library/mt784683.aspx) (Обзор тестирования на проникновение). В нижней части страницы нажмите кнопку "Create a Testing Request" (Создать запрос на тестирование). Кроме того, вы найдете дополнительные сведения об условиях тестировании на проникновение, а также полезные ссылки, с помощью которых можно сообщать об уязвимостях, связанных с платформой Azure или другими службами Microsoft.
 

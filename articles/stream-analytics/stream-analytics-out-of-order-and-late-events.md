@@ -4,7 +4,7 @@ description: "Узнайте об обработке неупорядоченн�
 keywords: "не по порядку, поздний, события"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: d7a5620aef1f28ea065ec10ce095f7f3904a8060
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 5089dda48ea829902663ef9d09fe83177df6f220
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-stream-analytics-event-order-handling"></a>Обработка порядка событий Azure Stream Analytics
@@ -65,7 +64,7 @@ Stream Analytics допускает такие типы сценариев. В �
 Побочный эффект буферизации заключается в том, что выходные данные **задерживаются на то же количество времени**. Значения можно настроить таким образом, чтобы сократить число неупорядоченных событий и обеспечить низкую задержку задания.
 
 ## <a name="get-help"></a>Получение справки
-Дополнительную помощь вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+Дополнительную помощь вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Что такое Stream Analytics?](stream-analytics-introduction.md)

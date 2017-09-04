@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+ms.date: 08/24/2017
 ms.author: elioda
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 6ae1dad67b34127aadcb5d093a5adeaa3394879c
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 3f5f83671054c30afde3d7f18ff0edcdb8f78a01
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Отправка сообщений из облака на устройство с помощью Центра Интернета вещей (.NET)

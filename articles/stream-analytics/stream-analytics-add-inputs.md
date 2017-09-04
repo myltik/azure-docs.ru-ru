@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: ea8f28183f2621e25a53ea7a73ab9f6c5c2b8d07
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Подключение потоковой передачи входных или ссылочных данных к заданию Stream Analytics
 Узнайте, как подключить источник данных к заданию Stream Analytics в качестве источника потоковых входных данных из концентраторов событий или источника потоковых ссылочных данных из хранилища BLOB-объектов.
 
-Задания службы Azure Stream Analytics можно подключать к одному или нескольким источникам данных, каждый из которых определяет подключение к существующему источнику данных. Данные, отправляемые в этот источник данных, принимаются заданием Stream Analytics как потоковые данные и обрабатываются в режиме реального времен. Служба Stream Analytics обеспечивает первоклассную интеграцию с [концентраторами событий Azure](https://azure.microsoft.com/services/event-hubs/) и [хранилищем BLOB-объектов](../storage/storage-dotnet-how-to-use-blobs.md) независимо от того, входят ли они в подписку.
+Задания службы Azure Stream Analytics можно подключать к одному или нескольким источникам данных, каждый из которых определяет подключение к существующему источнику данных. Данные, отправляемые в этот источник данных, принимаются заданием Stream Analytics как потоковые данные и обрабатываются в режиме реального времен. Служба Stream Analytics обеспечивает первоклассную интеграцию с [концентраторами событий Azure](https://azure.microsoft.com/services/event-hubs/) и [хранилищем BLOB-объектов](../storage/blobs/storage-dotnet-how-to-use-blobs.md) независимо от того, входят ли они в подписку.
 
 Эта статья представляет собой шаг [схемы обучения Stream Analytics](/documentation/learning-paths/stream-analytics/).
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 07/04/2017
     ![Проверка подключения входных потоковых данных](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## <a name="get-help-with-streaming-data-inputs"></a>Получение справки по потоковой передаче входных данных
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

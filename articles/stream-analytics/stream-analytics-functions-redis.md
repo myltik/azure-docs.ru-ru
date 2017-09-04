@@ -3,7 +3,7 @@ title: "Stream Analytics: обработка в реальном времени 
 description: "Узнайте, как использовать функцию Azure, подключенную к очереди служебной шины, для заполнения кэша Redis для Azure выходными данными задания Stream Analytics."
 keywords: "Поток данных, кэш Redis, очередь служебной шины"
 services: stream-analytics
-author: ryancrawcour
+author: samacha
 manager: jhubbard
 documentationcenter: 
 ms.assetid: d428bb33-4244-4001-b93d-c77bed816527
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
-ms.author: ryancraw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 70471749ef2b0ccaa4662cbf8a1dfa7ef4b21cfa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="how-to-store-data-from-azure-stream-analytics-in-an-azure-redis-cache-using-azure-functions"></a>Как сохранять данные из Azure Stream Analytics в кэш Redis для Azure с помощью функций Azure
@@ -189,7 +188,7 @@ Azure Stream Analytics обеспечивает быстрое разверты�
 
 Если вы еще не работали с Microsoft Azure, то мы предлагаем вам ознакомиться с этой средой, зарегистрировавшись для получения [бесплатной пробной учетной записи Azure](https://azure.microsoft.com/pricing/free-trial/). Если вы не работали со Stream Analytics, то мы предлагаем вам [создать свое первое задание Stream Analytics](stream-analytics-create-a-job.md).
 
-Если вам нужна помощь или ответы на вопросы, напишите об этом на форуме [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) или [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
+Если вам нужна помощь или ответы на вопросы, напишите об этом на форуме [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) или [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
 
 Кроме того, вы можете ознакомиться со следующими материалами.
 

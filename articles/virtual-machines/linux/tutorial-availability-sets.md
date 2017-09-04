@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 486405aca760922ebed5f413495d3a0e1e339229
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 63fe3f165864f06228604cac56d06cc061ab25f5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -71,6 +71,32 @@ az vm availability-set create \
 
 Группы доступности позволяют изолировать ресурсы в доменах сбоя и обновления. **Домен сбоя** представляет собой изолированную коллекцию ресурсов сервера, службы хранилища и сетевых ресурсов. В приведенном выше примере указано, что группу доступности необходимо распределить по крайней мере между двумя доменами сбоя во время развертывания виртуальных машин. Кроме того, группу доступности необходимо распределить между двумя **доменами обновления**.  Два домена обновления гарантируют, что когда Azure выполняет обновление программного обеспечения, ресурсы виртуальной машины изолированы. Так все базовое программное обеспечение виртуальной машины не будет обновляться одновременно.
 
+## <a name="configure-virtual-network"></a>Настройка виртуальной сети
+Прежде чем развертывать виртуальные машины и тестировать балансировщик нагрузки, создайте вспомогательные ресурсы виртуальной сети. Дополнительные сведения о виртуальных сетях см. в руководстве [Управление виртуальными сетями Azure](tutorial-virtual-network.md).
+
+### <a name="create-network-resources"></a>Создание сетевых ресурсов
+Создайте виртуальную сеть с помощью команды [az network vnet create](/cli/azure/network/vnet#create). В следующем примере создается виртуальная сеть *myVnet* с подсетью *mySubnet*.
+
+```azurecli-interactive 
+az network vnet create \
+    --resource-group myResourceGroupAvailability \
+    --name myVnet \
+    --subnet-name mySubnet
+```
+Для создания виртуальных сетевых карт используется команда [az network nic create](/cli/azure/network/nic#create). В следующем примере создаются три виртуальных сетевых адаптера (по одной виртуальной сетевой карте для каждой виртуальной машины, используемой приложением). Вы можете в любое время создать дополнительные виртуальные сетевые карты и виртуальные машины и добавить их в балансировщик нагрузки:
+
+```bash
+for i in `seq 1 3`; do
+    az network nic create \
+        --resource-group myResourceGroupAvailability \
+        --name myNic$i \
+        --vnet-name myVnet \
+        --subnet mySubnet \
+        --lb-name myLoadBalancer \
+        --lb-address-pools myBackEndPool
+done
+```
+
 ## <a name="create-vms-inside-an-availability-set"></a>Создание виртуальных машин в группе доступности
 
 Чтобы виртуальные машины правильно распределялись по оборудованию, их нужно создать внутри группы доступности. Существующую виртуальную машину невозможно добавить в группу доступности после создания. 
@@ -83,6 +109,7 @@ for i in `seq 1 2`; do
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
+     --nics myNic$i \
      --size Standard_DS1_v2  \
      --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \

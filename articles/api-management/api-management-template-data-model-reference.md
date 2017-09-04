@@ -3,7 +3,7 @@ title: "Справочник по модели данных шаблона в с
 description: "Сведения о представлениях сущностей и типов для распространенных элементов, используемых в моделях данных для шаблонов портала разработчика в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 080ac72246e62948c3defe329028f27751e8c78d
-ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Справочник по модели данных шаблона в службе управления API Azure
@@ -49,7 +51,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 -   [Вход пользователя](#UseSignIn)  
 -   [Регистрация пользователя](#UserSignUp)  
   
-##  <a name="a-nameapia-api"></a><a name="API"></a> API  
+##  <a name="API"></a> API  
  Сущность `API` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -63,7 +65,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |authenticationSettings|[Параметры проверки подлинности сервера авторизации](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Коллекция параметров проверки подлинности, входящих в этот API.|  
 |subscriptionKeyParameterNames|object|Необязательное свойство, которое может использоваться для указания пользовательских имен для параметров запроса и (или) заголовка, содержащих ключ подписки. Это свойство должно содержать хотя бы одно из двух следующих свойств.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="a-nameapisummarya-api-summary"></a><a name="APISummary"></a> Сводные данные API  
+##  <a name="APISummary"></a> Сводные данные API  
  Сущность `API summary` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -72,7 +74,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |name|строка|Имя API. Не может быть пустым. Максимальная длина составляет 100 символов.|  
 |description|строка|Описание API. Не может быть пустым. Может содержать теги форматирования HTML. Максимальная длина составляет 1000 символов.|  
   
-##  <a name="a-nameapplicationa-application"></a><a name="Application"></a> Приложение  
+##  <a name="Application"></a> Приложение  
  Сущность `application` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -90,7 +92,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |Вложения|коллекция сущностей [Вложение](#Attachment)|Вложения для приложения, например снимки экрана или значки.|  
 |Значок|[Вложение](#Attachment)|Значок для приложения.|  
   
-##  <a name="a-nameattachmenta-attachment"></a><a name="Attachment"></a> Вложение  
+##  <a name="Attachment"></a> Вложение  
  Сущность `attachment` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -100,7 +102,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |При появлении запроса на подтверждение нажмите клавишу |строка|Тип вложения.|  
 |ContentType|строка|Тип носителя вложения.|  
   
-##  <a name="a-namesamplea-code-sample"></a><a name="Sample"></a> Пример кода  
+##  <a name="Sample"></a> Пример кода  
   
 |Свойство|Тип|Описание|  
 |--------------|----------|-----------------|  
@@ -117,7 +119,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |Заголовки|коллекция сущностей [Заголовок](#Header)|Заголовки для этой операции.|  
 |parameters|коллекция сущностей [Параметр](#Parameter)|Параметры, определенные для этой операции.|  
   
-##  <a name="a-namecommenta-comment"></a><a name="Comment"></a> Комментарий  
+##  <a name="Comment"></a> Комментарий  
  Сущность `API` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -127,7 +129,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |DeveloperCompany|строка|Название компании, где работает разработчик.|  
 |PostedOn|DateTime|Дата и время, когда был оставлен комментарий.|  
   
-##  <a name="a-nameissuea-issue"></a><a name="Issue"></a> Проблема  
+##  <a name="Issue"></a> Проблема  
  Сущность `issue` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -143,7 +145,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |Вложения|коллекция сущностей [Вложение](api-management-template-data-model-reference.md#Attachment)|Все вложения, добавленные к проблеме.|  
 |Службы|коллекция сущностей [API](#API)|API, на которые подписан пользователь, отправивший проблему.|  
   
-##  <a name="a-namefilteringa-filtering"></a><a name="Filtering"></a> Фильтрация  
+##  <a name="Filtering"></a> Фильтрация  
  Сущность `filtering` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -151,7 +153,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |Модель|строка|Текущий поисковый запрос или `null` при его отсутствии.|  
 |Placeholder|строка|Текст, отображаемый в поле поиска, если не указан поисковый запрос.|  
   
-##  <a name="a-nameheadera-header"></a><a name="Header"></a> Заголовок  
+##  <a name="Header"></a> Заголовок  
  В этом разделе описывается представление `parameter`.  
   
 |Свойство|Описание|При появлении запроса на подтверждение нажмите клавишу |  
@@ -164,7 +166,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |обязательно|Логическое|Указывает, требуется ли заголовок.|  
 |readOnly|Логическое|Указывает, доступен ли заголовок только для чтения.|  
   
-##  <a name="a-namehttprequesta-http-request"></a><a name="HTTPRequest"></a> HTTP-запрос  
+##  <a name="HTTPRequest"></a> HTTP-запрос  
  В этом разделе описывается представление `request`.  
   
 |Свойство|Тип|Описание|  
@@ -174,7 +176,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |parameters|массив [параметров](#Parameter)|коллекция параметров запросов операций|  
 |representations|массив [представлений](#Representation)|коллекция представлений запросов операций|  
   
-##  <a name="a-namehttpresponsea-http-response"></a><a name="HTTPResponse"></a> Ответ HTTP  
+##  <a name="HTTPResponse"></a> Ответ HTTP  
  В этом разделе описывается представление `response`.  
   
 |Свойство|Тип|Описание|  
@@ -183,7 +185,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |description|строка|Описание ответа операции.|  
 |representations|массив [представлений](#Representation)|коллекция представлений ответов операций|  
   
-##  <a name="a-nameoperationa-operation"></a><a name="Operation"></a> Операция  
+##  <a name="Operation"></a> Операция  
  Сущность `operation` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -198,7 +200,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |запрос|[HTTP-запрос](#HTTPRequest)|Сущность, содержащая сведения о запросе.|  
 |responses|массив [ответов HTTP](#HTTPResponse)|массив сущностей [ответов HTTP](#HTTPResponse) операции|  
   
-##  <a name="a-namemenua-operation-menu"></a><a name="Menu"></a> Меню операций  
+##  <a name="Menu"></a> Меню операций  
  Сущность `operation menu` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -208,7 +210,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |Действие|строка|Тип меню.|  
 |MenuItems|коллекция сущностей [Элемент меню операций](#MenuItem)|Операции для текущего API.|  
   
-##  <a name="a-namemenuitema-operation-menu-item"></a><a name="MenuItem"></a> Элемент меню операций  
+##  <a name="MenuItem"></a> Элемент меню операций  
  Сущность `operation menu item` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -217,7 +219,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |Название|строка|Описание операции.|  
 |HttpMethod|строка|Метод HTTP, используемый для операции.|  
   
-##  <a name="a-namepaginga-paging"></a><a name="Paging"></a> Разбиение по страницам  
+##  <a name="Paging"></a> Разбиение по страницам  
  Сущность `paging` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -228,7 +230,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |ShowAll|Логическое|Указывает, следует ли показывать все результаты на одной странице.|  
 |PageCount|number|Число страниц с результатами.|  
   
-##  <a name="a-nameparametera-parameter"></a><a name="Parameter"></a> Параметр  
+##  <a name="Parameter"></a> Параметр  
  В этом разделе описывается представление `parameter`.  
   
 |Свойство|Описание|При появлении запроса на подтверждение нажмите клавишу |  
@@ -241,7 +243,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |kind|number|Указывает, является ли этот параметр параметром пути (1) или параметром строки запроса (2).|  
 |typeName|строка|Тип параметра.|  
   
-##  <a name="a-nameproducta-product"></a><a name="Product"></a> Продукт  
+##  <a name="Product"></a> Продукт  
  Сущность `product` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -254,7 +256,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |AllowMultipleSubscriptions|Логическое|Указывает, может ли пользователь одновременно иметь несколько подписок на этот продукт.|  
 |MultipleSubscriptionsCount|number|Число подписок на этот продукт для текущего пользователя.|  
   
-##  <a name="a-nameprovidera-provider"></a><a name="Provider"></a> Поставщик  
+##  <a name="Provider"></a> Поставщик  
  Сущность `provider` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -263,7 +265,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |authenticationType|строка|Тип поставщика (Azure Active Directory, Facebook, учетная запись Google, учетная запись Майкрософт, Twitter).|  
 |Caption|строка|Отображаемое имя поставщика.|  
   
-##  <a name="a-namerepresentationa-representation"></a><a name="Representation"></a> Представление  
+##  <a name="Representation"></a> Представление  
  В этом разделе описывается `representation`.  
   
 |Свойство|Тип|Описание|  
@@ -271,7 +273,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |сontentType|строка|Указывает зарегистрированный или пользовательский тип содержимого для этого представления, например `application/xml`.|  
 |sample|строка|Пример представления.|  
   
-##  <a name="a-namesubscriptiona-subscription"></a><a name="Subscription"></a> Подписка  
+##  <a name="Subscription"></a> Подписка  
  Сущность `subscription` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -281,7 +283,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |ProductTitle|строка|Имя продукта. Не может быть пустым. Максимальная длина составляет 100 символов.|  
 |ProductDescription|строка|Описание продукта. Не может быть пустым. Может содержать теги форматирования HTML. Максимальная длина составляет 1000 символов.|  
 |ProductDetailsUrl|строка|Относительный URL-адрес страницы сведений о продукте.|  
-|state|строка|Состояние подписки. Возможны следующие состояния.<br /><br />— -  `0 - suspended`: подписка заблокирована, и подписчик не может вызвать ни один API продукта.<br /><br />—  - `1 - active`: подписка активна.<br /><br />—  - `2 - expired`: срок действия подписки истек, и она была деактивирована.<br /><br />—  - `3 - submitted`: запрос разработчика на подписку выполнен, но еще не был утвержден или отклонен.<br /><br />— -  `4 - rejected`: администратор отклонил запрос на подписку.<br /><br />—  - `5 - cancelled`: подписка была отменена разработчиком или администратором.|  
+|state|строка|Состояние подписки. Возможны следующие состояния.<br /><br /> —-  `0 - suspended`: подписка заблокирована, и подписчик не может вызвать ни один API продукта.<br /><br /> — - `1 - active`: подписка активна.<br /><br /> — - `2 - expired`: срок действия подписки истек, и она была деактивирована.<br /><br /> — - `3 - submitted`: запрос разработчика на подписку выполнен, но еще не был утвержден или отклонен.<br /><br /> —-  `4 - rejected`: администратор отклонил запрос на подписку.<br /><br /> — - `5 - cancelled`: подписка была отменена разработчиком или администратором.|  
 |DisplayName|строка|Отображаемое имя подписки.|  
 |CreatedDate|dateTime|Дата создания подписки в формате ISO 8601: `2014-06-24T16:25:00Z`.|  
 |CanBeCancelled|Логическое|Указывает, может ли отменить подписку текущий пользователь.|  
@@ -297,7 +299,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |CancelUrl|строка|Относительный URL-адрес для отмены подписки.|  
 |RenewUrl|строка|Относительный URL-адрес для возобновления подписки.|  
   
-##  <a name="a-namesubscriptionsummarya-subscription-summary"></a><a name="SubscriptionSummary"></a> Сводка по подписке  
+##  <a name="SubscriptionSummary"></a> Сводка по подписке  
  Сущность `subscription summary` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -305,7 +307,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |Идентификатор|строка|Идентификатор ресурса. Однозначно идентифицирует подписку в текущем экземпляре службы управления API. Значение является допустимым относительным URL-адресом в формате `subscriptions/{sid}`, где `{sid}` — идентификатор подписки. Это свойство доступно только для чтения.|  
 |DisplayName|строка|Отображаемое имя подписки|  
   
-##  <a name="a-nameuseraccountinfoa-user-account-info"></a><a name="UserAccountInfo"></a> Сведения об учетной записи пользователя  
+##  <a name="UserAccountInfo"></a> Сведения об учетной записи пользователя  
  Сущность `user account info` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -318,7 +320,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |ProviderName|строка|Имя поставщика проверки подлинности.|  
 |IsBasicAccount|Логическое|Значение true, если эта учетная запись зарегистрирована с использованием электронной почты и пароля. Значение false, если учетная запись зарегистрирована с помощью поставщика.|  
   
-##  <a name="a-nameusesignina-user-sign-in"></a><a name="UseSignIn"></a> Вход пользователя  
+##  <a name="UseSignIn"></a> Вход пользователя  
  Сущность `user sign in` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -336,7 +338,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |UserRegistrationTerms|строка|Условия, которые пользователь должен принять перед входом.|  
 |UserRegistrationTermsEnabled|Логическое|Указывает, включены ли условия использования.|  
   
-##  <a name="a-nameusersignupa-user-sign-up"></a><a name="UserSignUp"></a> Регистрация пользователя  
+##  <a name="UserSignUp"></a> Регистрация пользователя  
  Сущность `user sign up` имеет следующие свойства.  
   
 |Свойство|Тип|Описание|  
@@ -356,9 +358,4 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d878dae95d449bd4da58e8dad4daccaf07f98f66
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 29dfa31d38f85574f84ed351bc5c26224b1a7e16
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Порталы для создания и изменения запросов к журналу в службе Azure Log Analytics
@@ -50,6 +50,6 @@ ms.lasthandoff: 08/21/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Изучите пошаговые руководства по использованию [портала поиска по журналам](log-analytics-log-search-log-search-portal.md) или [портала расширенной аналитики](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal), которые помогут вам в создать запросы.
-- Изучите [руководство по написанию запросов](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) на новом языке.
+- Изучите пошаговые руководства по использованию [портала поиска по журналам](log-analytics-log-search-log-search-portal.md) или [портала расширенной аналитики](https://go.microsoft.com/fwlink/?linkid=856587), которые помогут вам в создать запросы.
+- Изучите [руководство по написанию запросов](https://go.microsoft.com/fwlink/?linkid=856078) на новом языке.
 

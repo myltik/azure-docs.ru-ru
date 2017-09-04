@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -60,32 +60,12 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 В этом руководстве будет использоваться имя `<acrname>` как заполнитель выбранного имени реестра контейнеров.
 
-## <a name="get-azure-container-registry-information"></a>Получение сведений о реестре контейнеров Azure
+## <a name="container-registry-login"></a>Вход в реестр контейнеров
 
-Создав реестр контейнеров, можно запросить его сервер входа и пароль. Следующий код возвращает эти значения. Обратите внимание на значения сервера входа и пароль, так как они используются в этом руководстве.
-
-Сервер для входа в реестр контейнеров (введите используемое имя реестра):
+Войдите в свой экземпляр ACR, прежде чем отправлять в него образы. Используйте команду [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login), чтобы выполнить операцию. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer
-```
-
-В этом руководстве будет использоваться имя `<acrLoginServer>` как заполнитель значения сервера входа в реестр контейнеров.
-
-Пароль для реестра контейнеров:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
-В этом руководстве будет использоваться имя `<acrPassword>` как заполнитель значения пароля для реестра контейнеров.
-
-## <a name="login-to-the-container-registry"></a>Вход в реестр контейнеров
-
-Войдите в экземпляр реестра контейнеров, прежде чем передавать в него образы. Используйте команду [docker login](https://docs.docker.com/engine/reference/commandline/login/), чтобы выполнить операцию. При выполнении команды docker login необходимо указать имя сервера входа в реестр и учетные данные.
-
-```bash
-docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
+az acr login --name <acrName>
 ```
 
 После выполнения эта команда возвращает сообщение Login Succeeded (Вход выполнен).
@@ -105,6 +85,12 @@ docker images
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
+```
+
+Чтобы получить имя loginServer, выполните следующую команду.
+
+```azurecli
+az acr show --name <acrName> --query loginServer --output table
 ```
 
 Добавьте к образу *aci-tutorial-app* тег loginServer реестра контейнеров. Кроме того, добавьте `:v1` в конец имени образа. Этот тег указывает номер версии образа.
@@ -142,7 +128,7 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 Чтобы получить список образов, отправленных в реестр контейнеров Azure, выполните команду [az acr repository list](/cli/azure/acr/repository#list). Обновите команду, используя имя реестра контейнеров.
 
 ```azurecli
-az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
+az acr repository list --name <acrName> --output table
 ```
 
 Выходные данные:
@@ -156,7 +142,7 @@ aci-tutorial-app
 Чтобы увидеть теги для конкретного образа, используйте команду [az acr repository show-tags](/cli/azure/acr/repository#show-tags).
 
 ```azurecli
-az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository aci-tutorial-app --output table
+az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
 Выходные данные:

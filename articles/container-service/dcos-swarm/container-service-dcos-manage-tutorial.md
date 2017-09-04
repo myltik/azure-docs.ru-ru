@@ -18,10 +18,10 @@ ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 2b4ebe3d026b38916dd127312ad684b7c973ac0d
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e93f782c26c32f97749e817ec59ee3c2ecb7e119
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -45,10 +45,10 @@ DC/OS предоставляет распределенную платформу
 
 Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. 
 
-В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
+В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *westeurope*.
 
 ```azurecli
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
 Затем создайте кластер DC/OS с помощью команды [az acs create](/cli/azure/acs#create).

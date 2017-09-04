@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: caac079989f5f1616fdbed880ec51ae6e0946b8e
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: de2b70a6a6bc557902fbe1fe1391696ec9998d70
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="securing-your-sql-database"></a>Защита Базы данных SQL
@@ -30,7 +29,7 @@ ms.lasthandoff: 07/06/2017
 Полный обзор функций безопасности, доступных для всех видов SQL, см. в статье [Центр обеспечения безопасности для базы данных SQL Azure и ядра СУБД SQL Server](https://msdn.microsoft.com/library/bb510589). Дополнительные сведения также см. в [технической документации по безопасности и базе данных SQL Azure](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF-файл).
 
 ## <a name="protect-data"></a>Защита данных
-База данных SQL обеспечивает защиту данных, шифруя передаваемые данные с использованием протокола [TLS](https://support.microsoft.com/kb/3135244), неактивные данные с использованием [прозрачного шифрования данных](http://go.microsoft.com/fwlink/?LinkId=526242) и используемые данные с помощью функции [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
+База данных SQL обеспечивает защиту данных, шифруя передаваемые данные с использованием протокола [TLS](https://support.microsoft.com/kb/3135244), неактивные данные с использованием [прозрачного шифрования данных](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) и используемые данные с помощью функции [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >Во время каждого сеанса передачи данных в Базу данных SQL Azure и из нее все подключения к базе должны быть зашифрованы (SSL/TLS). В строке подключения приложения необходимо настроить параметры шифрования подключения, а также указать *отсутствие* доверия сертификату сервера (это происходит автоматически при копировании строки подключения из классического портала Azure), в противном случае подключение не будет проверять подлинность сервера и будет уязвимо для атак типа "злоумышленник в середине". Например, для драйвера ADO.NET это параметры **Encrypt=True** и **TrustServerCertificate=False**. 

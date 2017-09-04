@@ -4,7 +4,7 @@ description: "Приступая к работе с пакетом SDK для .N
 keywords: "SDK .net, API аналитики"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e93de87-0c6f-4f4b-be98-08d63f832897
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 5f1f66f4eb574b9052855070a3c3a73b07c3b63e
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: f17225d92fc35a6da9f6aa3cb0397569665e95e7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Управление SDK для .NET: настройка и запуск заданий аналитики с помощью API Azure Stream Analytics для .NET.
@@ -280,7 +279,7 @@ Azure Stream Analytics является полностью управляемо�
    ```
 
 ## <a name="get-support"></a>Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы изучили основы использования пакета SDK для .NET для создания и выполнения заданий аналитики. См. также:

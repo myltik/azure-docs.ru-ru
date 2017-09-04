@@ -3,7 +3,7 @@ title: "Многоуровневая защита паролей в Azure AD |
 description: "В этой статье объясняется, как Azure AD применяет надежные пароли и защищает пароли пользователей от киберпреступников."
 services: active-directory
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: barlanmsft
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: joflore
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 32464307ccb082b25538eaa522c1cdedef1ca555
+ms.date: 08/28/2017
+ms.author: barlan
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: de9d41cfb157c71f324f5662c1c037ff515e7108
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Многоуровневый подход к безопасности паролей Azure AD
@@ -26,9 +25,9 @@ ms.lasthandoff: 05/11/2017
 В этой статье приведены рекомендации для пользователей и администраторов по защите учетных записей Azure Active Directory (Azure AD) и Майкрософт.
 
  > [!NOTE]
- > Администраторы Azure AD могут сбрасывать пароли пользователей, используя руководство в статье [Сброс пароля пользователя в общедоступной предварительной версии Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ > **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
  >
- > Пользователи могут сбросить пароль, следуя инструкциям в статье [Я не помню свой пароль Azure AD](active-directory-passwords-update-your-own-password.md).
+ > Администраторы Azure AD могут сбрасывать пароли пользователей, используя руководство в статье [Сброс пароля пользователя в общедоступной предварительной версии Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
  >
 
 ## <a name="password-requirements"></a>Требования к паролю
@@ -87,6 +86,4 @@ Azure AD и учетные записи Майкрософт обеспечив�
 * [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md)
 * [Основы управления удостоверениями Azure](fundamentals-identity.md)
 * [Приступая к работе с Azure](active-directory-passwords-reporting.md)
-
-
 

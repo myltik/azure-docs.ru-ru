@@ -3,7 +3,7 @@ title: "Политики ограничения доступа в службе �
 description: "Сведения о политиках ограничения, доступных для использования в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 4c9991baf3fbcf3b8ea01f8dd573e2336db88b68
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 70cccd5ac7fbea36f02150e3da319a043c22c677
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Политики ограничения доступа в службе управления API

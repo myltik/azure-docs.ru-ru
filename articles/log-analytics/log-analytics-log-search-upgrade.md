@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9fc2380dd5db816144995fcb61cd1ac356540b36
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>Обновление рабочей области Azure Log Analytics до нового поиска по журналам
 
 > [!NOTE]
-> Сейчас, [чтобы освоить новый язык](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries), необязательно выполнять обновление до нового языка запросов Log Analytics.  
+> Сейчас, [чтобы освоить новый язык](https://go.microsoft.com/fwlink/?linkid=856078), необязательно выполнять обновление до нового языка запросов Log Analytics.  
 
 Новый язык запросов Log Analytics уже доступен, и вам необходимо обновить рабочую область, чтобы воспользоваться его преимуществами.  В этой статье описаны преимущества нового языка и процедура преобразования рабочей области.  Если вы решили не выполнять обновление сейчас, рабочая область будет работать так, как прежде, но позже она автоматически преобразуется.  У вас будет достаточно времени и вы получите уведомление о предстоящем преобразовании.
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 08/21/2017
 Если возникла проблема, которая приводит к сбою обновления, можно перейти на [форум для обсуждений](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) и опубликовать свой вопрос или [создать запрос в службу поддержки](../azure-supportability/how-to-create-azure-support-request.md) на портале Azure.
 
 ## <a name="how-do-i-learn-the-new-language"></a>Где найти дополнительные сведения о новом языке?
-Так как он используется несколькими службами, мы создали [внешний сайт для размещения документации](https://docs.loganalytics.io/) по новому языку.  Сюда входят руководства, примеры и полный справочник. Вы можете изучить руководство по новому языку [Getting Started with Queries](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) (Приступая к работе с запросами) и получить доступ к справочнику по языку [запросов Log Analytics](https://docs.loganalytics.io/docs/Language-Reference).  
+Так как он используется несколькими службами, мы создали [внешний сайт для размещения документации](https://docs.loganalytics.io/) по новому языку.  Сюда входят руководства, примеры и полный справочник. Вы можете изучить руководство по новому языку [Getting Started with Queries](https://go.microsoft.com/fwlink/?linkid=856078) (Приступая к работе с запросами) и получить доступ к справочнику по языку [запросов Log Analytics](https://go.microsoft.com/fwlink/?linkid=856079).  
 
 Если вы уже знакомы с прежней версией языка запросов Log Analytics, можно использовать преобразователь языка, который добавляется в рабочую область при обновлении.
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 08/21/2017
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Ознакомьтесь с [руководством по новому языку](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).
+- Ознакомьтесь с [руководством по новому языку](https://go.microsoft.com/fwlink/?linkid=856078).
 - Изучите [руководство по использованию портала поиска по журналам](log-analytics-log-search-log-search-portal.md) с новым языком запросов.
-- Ознакомьтесь с новым [порталом расширенной аналитики](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal).
+- Ознакомьтесь с новым [порталом расширенной аналитики](https://go.microsoft.com/fwlink/?linkid=856587).
 

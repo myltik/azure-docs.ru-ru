@@ -2,7 +2,7 @@
 title: "Схема выходных метаданных служб мультимедиа Azure | Документация Майкрософт"
 description: "Эта статья содержит обзор схемы выходных метаданных служб мультимедиа Azure."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c3c5a3ee123fe021444370583c7f37737a03edce
-ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="output-metadata"></a>Выходные метаданные

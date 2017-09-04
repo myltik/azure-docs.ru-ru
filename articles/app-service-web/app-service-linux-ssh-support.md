@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 964b39053cf91285202f3af165f4313a15e9f9ee
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: feee7a5c91d213a6b0bfdaf264a4da4d9e79cbe7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Поддержка SSH для веб-приложения Azure на платформе Linux
@@ -111,7 +111,6 @@ ms.lasthandoff: 08/07/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о веб-приложении Azure на платформе Linux можно получить, воспользовавшись приведенными ниже ссылками. Если у вас возникли вопросы, опубликуйте их на [нашем форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Создание приложений в веб-приложении Azure на платформе Linux](app-service-linux-how-to-create-web-app.md)
 * [Как применить пользовательский образ Docker для веб-приложения Azure на платформе Linux](app-service-linux-using-custom-docker-image.md)
 * [Использование конфигурации PM2 для Node.js в веб-приложении Azure на платформе Linux](app-service-linux-using-nodejs-pm2.md)
 * [Использование .NET Core в веб-приложении Azure на платформе Linux](app-service-linux-using-dotnetcore.md)

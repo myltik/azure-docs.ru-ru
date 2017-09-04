@@ -2,7 +2,7 @@
 title: "Управление активами и связанными сущностями с помощью пакета SDK служб мультимедиа для .NET"
 description: "Описание способов управления активами и связанными сущностями с помощью пакета SDK служб мультимедиа для .NET."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: e3de7c26af5cbc930defe542727a1250825fb1f8
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Управление активами и связанными сущностями с помощью пакета SDK служб мультимедиа для .NET
@@ -38,8 +38,7 @@ ms.lasthandoff: 07/18/2017
 Настройте среду разработки и укажите в файле app.config сведения о подключении, как описано в статье [Разработка служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Получение ссылки на актив
-Распространенной задачей является получение ссылки на существующий актив в службах мультимедиа. В следующем примере кода показано, как можно получить ссылку на актив (Assets) из коллекции активов в объекте контекста сервера, указав идентификатор (Id) актива.
-В следующем примере кода используется запрос Linq для получения ссылки на существующий объект IAsset.
+Распространенной задачей является получение ссылки на существующий актив в службах мультимедиа. В следующем примере кода показано, как можно получить ссылку на актив (Assets) из коллекции активов в объекте контекста сервера, указав идентификатор (Id) актива. В следующем примере кода используется запрос Linq для получения ссылки на существующий объект IAsset.
 
     static IAsset GetAsset(string assetId)
     {
