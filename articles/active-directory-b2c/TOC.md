@@ -46,6 +46,7 @@
 ## [Настройка маркеров](active-directory-b2c-token-session-sso.md)
 ## [Включение MFA](active-directory-b2c-reference-mfa.md)
 ## [Использование настраиваемых атрибутов](active-directory-b2c-reference-custom-attr.md)
+## [Настройка пароля](active-directory-b2c-reference-password-complexity.md)
 ## [Настройка пользовательского интерфейса](active-directory-b2c-reference-ui-customization.md)
 ### [Вспомогательный инструмент для настройки](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Настройка языка](active-directory-b2c-reference-language-customization.md)
@@ -71,6 +72,7 @@
 #### [Настраиваемые атрибуты](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Настройка пользовательского интерфейса](active-directory-b2c-ui-customization-custom.md)
 #### [Настройка токенов](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Настройка пароля](active-directory-b2c-reference-password-complexity-custom.md)
 ### Устранение неполадок
 #### [Сбор журналов с помощью Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Справочные материалы

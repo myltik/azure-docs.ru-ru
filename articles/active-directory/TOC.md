@@ -134,8 +134,11 @@
 ### [Использование портала Azure](device-management-azure-portal.md)
 ### [Часто задаваемые вопросы](device-management-faq.md)
 ### Задачи
+#### [Настройка устройств с Windows 10, зарегистрированных в Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Настройка устройств, присоединенных к Azure AD](device-management-azuread-joined-devices-setup.md)
 #### [Настройка устройств, присоединенных к гибридному облаку Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Локальное развертывание](active-directory-device-registration-on-premises-setup.md)
+#### [Присоединение к Azure AD во время первого запуска Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Устранение неполадок
 #### [Устройства под управлением Windows 10 и Windows Server 2016, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Устройства под управлением прежних версий Windows, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
@@ -297,7 +300,6 @@
 #### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Технический справочник: условный доступ к приложениям Azure AD](active-directory-conditional-access-technical-reference.md)
-#### [Поддерживаемые приложения](active-directory-conditional-access-supported-apps.md)
 #### [Общие сведения о политиках устройств](active-directory-conditional-access-device-policies.md)
 #### [Настройка доступа к подключенным приложениям](active-directory-conditional-access-policy-connected-applications.md)
 #### [Исправление](active-directory-conditional-access-device-remediation.md)

@@ -13,6 +13,7 @@
 ### [Социальные сети](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Оценка в реальном времени с помощью машинного обучения](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Обработка событий в режиме реального времени](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Руководство по обнаружению аномалий в Azure (предварительная версия)](stream-analytics-machine-learning-anomaly-detection.md)
 
 ## Создание заданий
 ### [Формирование входных данных](stream-analytics-define-inputs.md)

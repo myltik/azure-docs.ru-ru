@@ -57,14 +57,11 @@
 ### [Использование DataFu с Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Кластеры по запросу](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Отправка заданий Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Использование R Server
-### [Варианты хранилищ](hdinsight-hadoop-r-server-storage.md)
-### [Установка RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [Контексты вычислений](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR и SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Использование Spark для обработки в памяти
+### Начало работы (разработчики Spark)
+#### [Создание автономного приложения](hdinsight-apache-spark-create-standalone-application.md)
+#### [Работа с удаленными заданиями с помощью Livy](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [С помощью Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Создание автономного приложения](hdinsight-apache-spark-create-standalone-application.md)
 ### [Создание приложений с помощью Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Создание приложений с помощью IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Обработка событий потоковой передачи](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +75,13 @@
 ### [Использование внешних пакетов с записными книжками Jupyter с помощью волшебных команд](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Использование внешних пакетов с записными книжками Jupyter с помощью действий скрипта](hdinsight-apache-spark-python-package-installation.md)
 ### [Использование локальной записной книжки Jupyter](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Работа с удаленными заданиями с помощью Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Удаленная отладка заданий с помощью IntelliJ через VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Известные проблемы](hdinsight-apache-spark-known-issues.md)
+## Использование R Server
+### [Варианты хранилищ](hdinsight-hadoop-r-server-storage.md)
+### [Установка RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
+### [Контексты вычислений](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR и SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Использование HBase
 ### [Использование Phoenix и SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Анализ твитов в реальном времени](hdinsight-hbase-analyze-twitter-sentiment.md)

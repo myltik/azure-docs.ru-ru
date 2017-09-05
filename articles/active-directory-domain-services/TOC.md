@@ -7,17 +7,17 @@
 ## [Совместимое стороннее программное обеспечение](active-directory-ds-compatible-software.md)
 
 # Начало работы
-## Классический портал Azure
-### [Задача 1. Создание группы администраторов](active-directory-ds-getting-started-create-group.md)
-### [Задача 2. Создание или выбор виртуальной сети](active-directory-ds-getting-started-vnet.md)
-### [Задача 3. Включение доменных служб Azure AD](active-directory-ds-getting-started-enableaadds.md)
-### [Задача 4. Обновление параметров DNS для виртуальной сети](active-directory-ds-getting-started-update-dns.md)
-### [Задача 5. Включение синхронизации паролей](active-directory-ds-getting-started-password-sync.md)
 ## Портал Azure (предварительная версия)
 ### [Задача 1. Настройка основных параметров](active-directory-ds-getting-started.md)
 ### [Задача 2. Настройка сетевых параметров](active-directory-ds-getting-started-network.md)
 ### [Задача 3. Настройка группы администраторов и включение доменных служб Azure AD](active-directory-ds-getting-started-admingroup.md)
 ### [Задача 4. Обновление параметров DNS для виртуальной сети](active-directory-ds-getting-started-dns.md)
+### [Задача 5. Включение синхронизации паролей](active-directory-ds-getting-started-password-sync.md)
+## Классический портал Azure (не рекомендуется)
+### [Задача 1. Создание группы администраторов](active-directory-ds-getting-started-create-group.md)
+### [Задача 2. Создание или выбор виртуальной сети](active-directory-ds-getting-started-vnet.md)
+### [Задача 3. Включение доменных служб Azure AD](active-directory-ds-getting-started-enableaadds.md)
+### [Задача 4. Обновление параметров DNS для виртуальной сети](active-directory-ds-getting-started-update-dns.md)
 ### [Задача 5. Включение синхронизации паролей](active-directory-ds-getting-started-password-sync.md)
 
 # Практическое руководство

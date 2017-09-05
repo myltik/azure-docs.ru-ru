@@ -140,6 +140,8 @@
 ## Мониторинг и устранение неполадок
 ### [Проблемы с репликацией: Azure — Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Проблемы репликации из локальной среды в Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Проблемы с установкой службы Mobility Service](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Проблемы с отработкой отказа в Azure](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Сбор журналов и устранение неполадок в локальной среде](site-recovery-monitoring-and-troubleshooting.md)
 
 # Справочные материалы

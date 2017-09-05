@@ -19,8 +19,6 @@
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Интерфейс командной строки Service Fabric](samples-cli.md)
-### [Развертывание образца](scripts/cli-deploy-application.md)
-### [Удаление образца](scripts/cli-remove-application.md)
 # Основные понятия
 ## [Основные сведения о микрослужбах](service-fabric-overview-microservices.md)
 ## [Общая картина](service-fabric-content-roadmap.md)
@@ -115,11 +113,14 @@
 #### [Регулирование](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Перемещение служб](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [Интеграция со службой управления API](service-fabric-api-management-overview.md)
+
 ## Мониторинг и диагностика
 ### [Обзор](service-fabric-diagnostics-overview.md)
 ### [Модель обеспечения работоспособности](service-fabric-health-introduction.md)
 ### [Диагностика в Reliable Services с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
 ### [Диагностика в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Счетчики производительности для отслеживания Reliable Services](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # Практические руководства
 ## Настройка среды разработки
@@ -128,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Создание приложения
+### [Создание первого приложения C# в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Создание гостевой исполняемой службы
 #### [Размещение приложения Node.js в Windows](quickstart-guest-app.md)
 #### [Развертывание гостевого исполняемого файла](service-fabric-deploy-existing-app.md)
@@ -208,9 +210,7 @@
 ### [Отладка службы на Java в Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Локальный мониторинг и диагностика](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Интеграция со службой управления API
-### [Обзор](service-fabric-api-management-overview.md)
-### [Краткое руководство](service-fabric-api-management-quick-start.md)
+## [Развертывание службы управления API и Service Fabric в Azure](service-fabric-api-management-quick-start.md)
 
 ## Миграция из облачных служб
 ### [Сравнение облачных служб и Service Fabric](service-fabric-cloud-services-migration-differences.md)

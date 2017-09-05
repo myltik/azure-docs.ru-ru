@@ -39,12 +39,14 @@
 ### [Рекомендации по настройке производительности для Storm в HDInsight и Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
 
 ## Интеграция со службами Azure
+### Использование HDInsight
+#### [Использование портала](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Использование PowerShell (хранилище по умолчанию)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Использование PowerShell (дополнительное хранилище)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Использование шаблона Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Доступ с виртуальных машин в виртуальной сети Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Использование с Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Использование HDInsight с Data Lake Store — портал](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Использование HDInsight с Data Lake Store как хранилищем по умолчанию — PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-### [Использование HDInsight с Data Lake Store как дополнительным хранилищем — PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Использование HDInsight с Data Lake Store — шаблон Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Использование концентраторов событий Azure](data-lake-store-archive-eventhub-capture.md)
 ### [Использование с фабрикой данных](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Использование со Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Использование с Power BI](data-lake-store-power-bi.md)

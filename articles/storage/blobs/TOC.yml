@@ -38,6 +38,8 @@
           href: storage-blob-storage-tiers.md
         - name: Разработка высокодоступных приложений c помощью RA-GRS
           href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Реагирование на события
+          href: storage-blob-event-overview.md
         - name: Целевые показатели масштабируемости и производительности хранилища
           href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Контрольный список производительности и масштабируемости
@@ -74,6 +76,8 @@
           href: storage-properties-metadata.md
         - name: Использование эмулятора хранилища
           href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Маршрутизация событий в пользовательскую конечную точку
+          href: storage-blob-event-quickstart.md
         - name: Личные домены
           href: storage-custom-domain-name.md
         - name: Поиск в хранилище BLOB-объектов с помощью поиска Azure

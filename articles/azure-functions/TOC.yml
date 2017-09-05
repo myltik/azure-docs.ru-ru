@@ -39,6 +39,8 @@
       href: functions-twitter-email.md
     - name: "2.\_Создание бессерверного API"
       href: functions-create-serverless-api.md
+    - name: "3.\_Создание определения OpenAPI"
+      href: functions-openapi-definition.md
 - name: Примеры
   items:
     - name: Примеры кода
@@ -99,6 +101,8 @@
           href: functions-api-definition-getting-started.md
         - name: Экспорт в PowerApps и Microsoft Flow
           href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Вызов функции из PowerApps
+          href: functions-powerapps-scenario.md
 - name: Справочные материалы
   items:
     - name: Привязки
