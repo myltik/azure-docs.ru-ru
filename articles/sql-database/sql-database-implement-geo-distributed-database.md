@@ -386,7 +386,8 @@ sudo apt-get install maven
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## <a name="next-steps"></a>Дальнейшие действия 
+
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md).
 

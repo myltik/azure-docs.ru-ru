@@ -3,7 +3,7 @@ title: "Элемент пользовательского интерфейса S
 description: "Сведения об элементе пользовательского интерфейса Microsoft.Storage.StorageAccountSelector для управляемых приложений Azure"
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,13 +12,12 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 15e69c0deb4bce64b7413b557eb69db5165bde73
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Storage.StorageAccountSelector

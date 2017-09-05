@@ -86,7 +86,7 @@ ms.lasthandoff: 08/21/2017
 - Перед началом посмотрите краткий видеообзор:
 
 
-     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 
 
 Теперь давайте запустим отработку отказа:

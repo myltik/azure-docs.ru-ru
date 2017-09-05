@@ -3,7 +3,7 @@ title: "Общие сведения о создании определения �
 description: "Сведения о создании определений пользовательского интерфейса для управляемых приложений Azure"
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,13 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 176b891538f85c5638a2321561c3d8bd377d245b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/11/2017
-
 
 ---
 # <a name="getting-started-with-createuidefinition"></a>Начало работы с CreateUiDefinition
