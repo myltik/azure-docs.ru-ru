@@ -350,7 +350,7 @@ HDInsight поддерживает интеграцию R Server в класт�
         You are welcome to redistribute it under certain conditions.
         Type 'license()' or 'licence()' for distribution details.
 
-    Natural language support but running in an English locale
+    Поддерживается ествестенный язык, но устанавливается на английском языке
 
         R is a collaborative project with many contributors.
         Type 'contributors()' for more information and
