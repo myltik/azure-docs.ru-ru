@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: f31482a8b37858b93391afc561223a1b1110a1a9
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Отчет о событиях входа, представляющих риск, на портале Azure Active Directory
@@ -52,7 +52,7 @@ Azure AD обнаруживает подозрительные действия
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Выпуски "Бесплатный" и "Базовый" Azure Active Directory
 
-В выпусках "Бесплатный" и "Базовый" Azure Active Directory вы можете просмотреть информацию об обнаруженных входах, представляющих риск, которые связаны с вашими пользователями. Отчет о событиях риска содержит следующие сведения.
+В выпусках "Бесплатный" и "Базовый" Azure Active Directory вы можете просмотреть информацию об обнаруженных входах, представляющих риск, которые связаны с вашими пользователями. В этом отчете указаны:
 
 - **Пользователь** — имя пользователя, которое использовалось во время операции входа.
 - **IP-адрес** — IP-адрес устройства, которое использовалось для подключения к Azure Active Directory.
@@ -60,7 +60,6 @@ Azure AD обнаруживает подозрительные действия
 - **Время входа** — время выполнения входа.
 - **Состояние** — состояние входа.
 
-Данные из этого отчета можно скачать.
 
 ![События входа, представляющие риск](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -74,6 +73,15 @@ Azure AD обнаруживает подозрительные действия
 ![События входа, представляющие риск](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 Дополнительные сведения см. в разделе [Закрытие событий риска вручную](active-directory-identityprotection.md#closing-risk-events-manually).
+
+Этот отчет предоставляет следующие возможности:
+
+- поиск ресурсов;
+- загрузка данных отчета.
+
+
+![События входа, представляющие риск](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Выпуски Azure Active Directory Premium
 

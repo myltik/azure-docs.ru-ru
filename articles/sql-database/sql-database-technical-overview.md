@@ -9,18 +9,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview
+ms.custom: overview, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 28aa6d79f999fe9b247d9bb2c61a149a21e72a4a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Функции службы базы данных SQL Azure 
@@ -146,6 +146,14 @@ ms.lasthandoff: 07/28/2017
 - **[Visual Studio Code](https://code.visualstudio.com/docs)**: бесплатный, доступный для скачивания редактор кода с открытым исходным кодом для Windows, macOS и Linux, поддерживающий расширения, включая [расширение mssql](https://aka.ms/mssql-marketplace) для выполнения запросов к Microsoft SQL Server, базе данных SQL Azure и хранилищу данных SQL.
 
 База данных SQL поддерживает создание приложений на языках Python, Java, Node.js, PHP, Ruby и .NET для операционных систем MacOS, Windows и Linux. База данных SQL поддерживает те же [библиотеки подключений](sql-database-libraries.md), что и SQL Server.
+
+## <a name="engage-with-the-sql-server-engineering-team"></a>Связаться с командой разработчиков SQL Server
+
+- [StackExchange для администраторов баз данных:](https://dba.stackexchange.com/questions/tagged/sql-server) вопросы по администрированию баз данных
+- [Переполнение стека:](http://stackoverflow.com/questions/tagged/sql-server) вопросы по разработке
+- [Форумы MSDN:](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver) технические вопросы
+- [Microsoft Connect:](https://connect.microsoft.com/SQLServer/Feedback) информирование об ошибках и подача заявок на функции
+- [Reddit:](https://www.reddit.com/r/SQLServer/) обсуждение SQL Server
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

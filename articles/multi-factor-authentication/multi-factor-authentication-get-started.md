@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2017
+ms.date: 08/25/2017
 ms.author: kgremban
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 6f8ee3449244b12d2c8b5714e6ad893e2f0b10ee
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Выберите для себя решение "Многофакторная идентификация Microsoft Azure".
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/16/2017
 | Локальная служба Active Directory | |● |
 
 ## <a name="what-features-do-i-need"></a>Какие функции мне нужны?
-В приведенной ниже таблице сравниваются возможности службы "Многофакторная идентификация Microsoft Azure" в облаке и на сервере.
+В таблице ниже сравниваются возможности службы "Многофакторная идентификация" в облаке и на сервере.
 
 | Функция | MFA в облаке | Сервер MFA |
 | --- |:---:|:---:|
@@ -78,12 +78,9 @@ ms.lasthandoff: 08/16/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Определившись с вариантом (облачная многофакторная проверка подлинности или локальный сервер службы MFA), можно начинать настройку и использование службы "Многофакторная идентификация Microsoft Azure". **Выберите значок, соответствующий вашему сценарию.**
+Теперь, когда вы имеете представление о различиях в возможностях службы "Многофакторная идентификация Microsoft Azure" в облаке и на локальном сервере, можно приступать к настройке и использованию службы. **Выберите значок, соответствующий вашему сценарию.**
 
 <center>
 
-
-
-
-[![Облако](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Сервер](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
+[![MFA в облаке](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Сервер MFA](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
 

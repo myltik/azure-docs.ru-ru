@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/29/2017
+ms.date: 08/28/2017
 ms.author: nisoneji
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Планировщик ресурсов Azure Site Recovery
@@ -67,7 +67,7 @@ ms.lasthandoff: 07/22/2017
 
 | Требование к серверу | Описание|
 |---|---|
-|Профилирование и измерение пропускной способности| <ul><li>Операционная система: Microsoft Windows Server 2012 R2<br>(в идеале соответствует [рекомендациям по размеру сервера конфигурации](https://aka.ms/asr-v2a-on-prem-components)).</li><li>Конфигурация виртуальной машины: 8 виртуальных ЦП, 16 ГБ ОЗУ, жесткий диск емкостью 300 ГБ.</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli).</li><li>[Распространяемый компонент Microsoft Visual C++ для Visual Studio 2012](https://aka.ms/vcplusplus-redistributable).</li><li>Интернет-доступ к Azure с этого сервера.</li><li>Учетная запись хранения Azure.</li><li>Права администратора на доступ к серверу.</li><li>Минимальное свободное место на диске: 100 ГБ (предполагается, что профилирование 1000 виртуальных машин в среднем с 3 дисками на каждую выполняется 30 дней).</li><li>Параметрам уровня статистики vCenter VMware необходимо присвоить значение 2 или выше.</li></ul>|
+|Профилирование и измерение пропускной способности| <ul><li>Операционная система: Microsoft Windows Server 2012 R2<br>(в идеале соответствует [рекомендациям по размеру сервера конфигурации](https://aka.ms/asr-v2a-on-prem-components)).</li><li>Конфигурация виртуальной машины: 8 виртуальных ЦП, 16 ГБ ОЗУ, жесткий диск емкостью 300 ГБ.</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli).</li><li>[Распространяемый компонент Microsoft Visual C++ для Visual Studio 2012](https://aka.ms/vcplusplus-redistributable).</li><li>Интернет-доступ к Azure с этого сервера.</li><li>Учетная запись хранения Azure.</li><li>Права администратора на доступ к серверу.</li><li>Минимальное свободное место на диске: 100 ГБ (предполагается, что профилирование 1000 виртуальных машин в среднем с 3 дисками на каждую выполняется 30 дней).</li><li>Параметрам уровня статистики vCenter VMware необходимо присвоить значение 2 или выше.</li><li>Разрешение порта 443: планировщик развертывания ASR использует этот порт для подключения к серверу vCenter или узлу ESXi</ul></ul>|
 | Создание отчетов. | Любой компьютер с Windows или Windows Server с Microsoft Excel 2013 или более поздней версии. |
 | Разрешения пользователя | Разрешение только на чтение для учетной записи пользователя, используемой для доступа к серверу VMware vCenter Server или узлу VMware vSphere ESXi во время профилирования. |
 
@@ -118,14 +118,18 @@ ms.lasthandoff: 07/22/2017
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Чтобы получить список всех имен виртуальных машин на сервере vCenter Server или узле vSphere ESXi и сохранить их в TXT-файле, выполните приведенные ниже команды.
+4. Если Connect-VIServer не распознается как имя командлета, вам может потребоваться выполнить следующую команду:
+ 
+            Add-PSSnapin VMware.VimAutomation.Core 
+
+5. Чтобы получить список всех имен виртуальных машин на сервере vCenter Server или узле vSphere ESXi и сохранить их в TXT-файле, выполните приведенные ниже команды.
 Замените значения &lsaquo;имени сервера&rsaquo;, &lsaquo;имени пользователя&rsaquo;, &lsaquo;пароля&rsaquo; и &lsaquo;выходного TXT-файла&rsaquo; собственными.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-5. Откройте выходной файл в Блокноте. Скопируйте имена виртуальных машин, профилирование которых необходимо выполнить, в другой файл (например, в файл ProfileVMList.txt) по одному на строку. Этот файл используется в качестве входного значения параметра *-VMListFile* в программе командной строки.
+6. Откройте выходной файл в Блокноте. Скопируйте имена виртуальных машин, профилирование которых необходимо выполнить, в другой файл (например, в файл ProfileVMList.txt) по одному на строку. Этот файл используется в качестве входного значения параметра *-VMListFile* в программе командной строки.
 
     ![Список имен виртуальных машин в планировщике ресурсов](./media/site-recovery-deployment-planner/profile-vm-list.png)
 

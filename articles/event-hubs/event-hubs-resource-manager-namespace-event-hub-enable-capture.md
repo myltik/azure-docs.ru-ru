@@ -12,54 +12,59 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/28/2017
-ms.author: shvija;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f19a3d9b323d75ae23480d0699d55b79bb7d2e84
+ms.date: 08/28/2017
+ms.author: sethm
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 19bbb51868e767aa1d15f4574628b7fd36607207
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
-<a id="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template" class="xliff"></a>
 
-# Создание пространства имен концентраторов событий с концентратором событий и включение записи с помощью шаблона Azure Resource Manager
-Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен концентраторов событий с одним экземпляром концентратора событий и включить для него функцию записи. Здесь вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Создание пространства имен концентраторов событий с концентратором событий и включение записи с помощью шаблона Azure Resource Manager
+
+Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен концентраторов событий с одним экземпляром концентратора событий и включить для него [функцию записи](event-hubs-capture-overview.md). Здесь вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
+
+В этой статье также показано, как настроить запись событий в хранилище BLOB-объектов Azure или Azure Data Lake Store в зависимости от выбранного назначения.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Дополнительные сведения о практиках и шаблонах соглашений об именовании ресурсов Azure см. в разделе [Recommended naming conventions for Azure resources][Azure Resources Naming Conventions] (Рекомендуемые соглашения об именовании ресурсов Azure).
+Дополнительные сведения о шаблонах и рекомендациях по соглашениям об именовании ресурсов Azure см. в статье [Naming conventions][Azure Resources naming conventions] (Соглашения об именовании).
 
-Полный шаблон для создания концентратора событий и включения записи доступен [на сайте GitHub][Event Hub and enable Capture template].
+Полные шаблоны доступны на сайте GitHub по следующим ссылкам:
+
+- [шаблон для развертывания концентратора событий и включения записи в службу хранилища][Event Hub and enable Capture to Storage template]; 
+- [шаблон для развертывания концентратора событий и включения записи в Azure Data Lake Store][Event Hub and enable Capture to Azure Data Lake Store template].
 
 > [!NOTE]
 > Чтобы узнать о новых шаблонах, изучите коллекцию [Шаблоны быстрого запуска Azure][Azure Quickstart Templates] и выполните в ней поиск по запросу "концентраторы событий".
 > 
 > 
 
-<a id="what-will-you-deploy" class="xliff"></a>
+## <a name="what-will-you-deploy"></a>Что вы развернете?
 
-## Что вы развернете?
 С помощью этого шаблона вы развернете пространство имен концентраторов событий с концентратором событий и включите [запись концентраторов событий](event-hubs-capture-overview.md).
 
-[Концентраторы событий](event-hubs-what-is-event-hubs.md) — это служба обработки событий, используемая для крупномасштабной передачи данных событий и телеметрии в Azure. Работа службы характеризуется низкой задержкой и высокой надежностью. Функция записи концентраторов событий позволяет автоматически доставлять потоковые данные из концентраторов событий в выбранное хранилище BLOB-объектов Azure с указанным интервалом времени или размера.
+[Концентраторы событий](event-hubs-what-is-event-hubs.md) — это служба обработки событий, используемая для крупномасштабной передачи данных событий и телеметрии в Azure. Работа службы характеризуется низкой задержкой и высокой надежностью. Функция записи концентраторов событий позволяет автоматически доставлять потоковые данные из концентраторов событий в хранилище BLOB-объектов Azure или Azure Data Lake Store с указанным интервалом времени или размера.
 
-Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
+Чтобы включить запись данных из концентраторов событий в службу хранилища Azure, нажмите эту кнопку:
 
 [![Развертывание в Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
-<a id="parameters" class="xliff"></a>
+Чтобы включить запись данных из концентраторов событий в Azure Data Lake Store, нажмите эту кнопку:
 
-## Параметры
+[![Развертывание в Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
+
+## <a name="parameters"></a>Параметры
+
 С помощью диспетчера ресурсов Azure можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел `Parameters` , содержащий все значения параметров. Для этих значений необходимо определить параметры, которые будут зависеть от развертываемого проекта либо от среды, в которой выполняется развертывание. Не определяйте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
 
 Ниже описаны параметры, которые определяет шаблон.
 
-<a id="eventhubnamespacename" class="xliff"></a>
+### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-### eventHubNamespaceName
-Имя создаваемого пространства имен концентраторов событий.
+Имя создаваемого [пространства имен концентраторов событий](event-hubs-create.md).
 
 ```json
 "eventHubNamespaceName":{  
@@ -70,10 +75,9 @@ ms.lasthandoff: 06/28/2017
 }
 ```
 
-<a id="eventhubname" class="xliff"></a>
+### <a name="eventhubname"></a>eventHubName
 
-### eventHubName
-Имя концентратора событий, создаваемого в пространстве имен концентраторов событий.
+Имя концентратора событий, создаваемого в [пространстве имен концентраторов событий](event-hubs-create.md).
 
 ```json
 "eventHubName":{  
@@ -84,9 +88,8 @@ ms.lasthandoff: 06/28/2017
 }
 ```
 
-<a id="messageretentionindays" class="xliff"></a>
+### <a name="messageretentionindays"></a>messageRetentionInDays
 
-### messageRetentionInDays
 Число дней для хранения сообщений в концентраторе событий. 
 
 ```json
@@ -101,9 +104,8 @@ ms.lasthandoff: 06/28/2017
  }
 ```
 
-<a id="partitioncount" class="xliff"></a>
+### <a name="partitioncount"></a>partitionCount
 
-### partitionCount
 Число секций, создаваемых в концентраторе событий.
 
 ```json
@@ -118,9 +120,8 @@ ms.lasthandoff: 06/28/2017
  }
 ```
 
-<a id="captureenabled" class="xliff"></a>
+### <a name="captureenabled"></a>captureEnabled
 
-### captureEnabled
 Позволяет включить запись для концентратора событий.
 
 ```json
@@ -135,9 +136,8 @@ ms.lasthandoff: 06/28/2017
     }
  }
 ```
-<a id="captureencodingformat" class="xliff"></a>
+### <a name="captureencodingformat"></a>captureEncodingFormat
 
-### captureEncodingFormat
 Формат кодировки, указываемый для сериализации данных событий.
 
 ```json
@@ -152,10 +152,9 @@ ms.lasthandoff: 06/28/2017
 }
 ```
 
-<a id="capturetime" class="xliff"></a>
+### <a name="capturetime"></a>captureTime
 
-### captureTime
-Интервал времени, согласно которому функция записи концентратора событий начинает запись данных в хранилище BLOB-объектов Azure.
+Интервал времени, согласно которому функция записи концентраторов событий начинает запись данных.
 
 ```json
 "captureTime":{
@@ -169,10 +168,8 @@ ms.lasthandoff: 06/28/2017
 }
 ```
 
-<a id="capturesize" class="xliff"></a>
-
-### captureSize
-Интервал размера, согласно которому функция записи начинает запись данных в хранилище BLOB-объектов Azure.
+### <a name="capturesize"></a>captureSize
+Интервал размера, согласно которому функция записи начинает запись данных.
 
 ```json
 "captureSize":{
@@ -186,38 +183,23 @@ ms.lasthandoff: 06/28/2017
 }
 ```
 
-<a id="destinationstorageaccountresourceid" class="xliff"></a>
+###<a name="capturenameformat"></a>captureNameFormat
 
-### destinationStorageAccountResourceId
-Функции записи требуется идентификатор ресурса учетной записи хранения Azure для включения записи в нужной учетной записи хранения.
-
+Формат имени, используемый функцией записи концентраторов событий, для записи файлов Avro. Обратите внимание, что в формате имени для функции записи должны быть поля `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}`, и `{Second}`. Они могут быть размещены в любом порядке, с разделителями или без них.
+ 
 ```json
- "destinationStorageAccountResourceId":{
-    "type":"string",
-    "metadata":{
-        "description":"Your existing Storage account resource id where you want the blobs be captured"
+"captureNameFormat": {
+      "type": "string",
+      "defaultValue": "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+      "metadata": {
+        "description": "A Capture Name Format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters. E.g.  Prod_{EventHub}/{Namespace}\\{PartitionId}_{Year}_{Month}/{Day}/{Hour}/{Minute}/{Second}"
+      }
     }
- }
+  }
 ```
 
-<a id="blobcontainername" class="xliff"></a>
+### <a name="apiversion"></a>версия_API
 
-### blobContainerName
-Контейнер больших двоичных объектов, в который необходимо записывать данные события.
-
-```json
- "blobContainerName":{
-    "type":"string",
-    "metadata":{
-        "description":"Your existing storage container in which you want the blobs captured"
-    }
-}
-```
-
-
-<a id="apiversion" class="xliff"></a>
-
-### версия_API
 Версия API шаблона.
 
 ```json
@@ -230,10 +212,78 @@ ms.lasthandoff: 06/28/2017
  }
 ```
 
-<a id="resources-to-deploy" class="xliff"></a>
+Если в качестве места назначения вы выбрали службу хранилища Azure, используйте следующие параметры.
 
-## Развертываемые ресурсы
-Создает пространство имен типа **EventHubs** с одним концентратором событий и включает запись.
+### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
+
+Функции записи требуется идентификатор ресурса учетной записи хранения Azure для включения записи в нужной учетной записи хранения.
+
+```json
+ "destinationStorageAccountResourceId":{
+    "type":"string",
+    "metadata":{
+        "description":"Your existing Storage account resource ID where you want the blobs be captured"
+    }
+ }
+```
+
+### <a name="blobcontainername"></a>blobContainerName
+
+Контейнер больших двоичных объектов, в который необходимо записывать данные события.
+
+```json
+ "blobContainerName":{
+    "type":"string",
+    "metadata":{
+        "description":"Your existing storage container in which you want the blobs captured"
+    }
+}
+```
+
+Если в качестве места назначения вы выбрали Azure Data Lake Store, используйте указанные ниже параметры. Необходимо назначить разрешения для пути к хранилищу Data Lake Store, в которое необходимо записывать события. Сведения о назначении разрешений см. в [этой статье](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
+
+###<a name="subscriptionid"></a>subscriptionId
+
+Идентификатор подписки для пространства имен концентраторов событий и Azure Data Lake Store. Оба ресурса должны использовать один и тот же идентификатор подписки.
+
+```json
+"subscriptionId": {
+    "type": "string",
+    "metadata": {
+        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
+     }
+ }
+```
+
+###<a name="datalakeaccountname"></a>dataLakeAccountName
+
+Имя Azure Data Lake Store для записываемых событий.
+
+```json
+"dataLakeAccountName": {
+    "type": "string",
+    "metadata": {
+        "description": "Azure Data Lake Store name"
+    }
+}
+```
+
+###<a name="datalakefolderpath"></a>dataLakeFolderPath
+
+Путь к целевой папке для записываемых событий.
+
+```json
+"dataLakeFolderPath": {
+    "type": "string",
+    "metadata": {
+        "description": "Destination archive folder path"
+    }
+}
+```
+
+## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Развертываемые ресурсы для службы хранилища Azure как места назначения для записи событий
+
+Здесь создается пространство имен типа **EventHubs** с одним концентратором событий и включается запись в хранилище BLOB-объектов Azure.
 
 ```json
 "resources":[  
@@ -280,29 +330,90 @@ ms.lasthandoff: 06/28/2017
    ]
 ```
 
-<a id="commands-to-run-deployment" class="xliff"></a>
+## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Развертываемые ресурсы для Azure Data Lake Store как места назначения
 
-## Команды для выполнения развертывания
+Здесь создается пространство имен типа **EventHubs** с одним концентратором событий и включается запись в Azure Data Lake Store.
+
+```json
+ "resources": [
+        {
+            "apiVersion": "2015-08-01",
+            "name": "[parameters('namespaceName')]",
+            "type": "Microsoft.EventHub/Namespaces",
+            "location": "[variables('location')]",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard"
+            },
+            "resources": [
+                {
+                    "apiVersion": "2015-08-01",
+                    "name": "[parameters('eventHubName')]",
+                    "type": "EventHubs",
+                    "dependsOn": [
+                        "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+                    ],
+                    "properties": {
+                        "path": "[parameters('eventHubName')]",
+                        "ArchiveDescription": {
+                            "enabled": "true",
+                            "encoding": "[parameters('archiveEncodingFormat')]",
+                            "intervalInSeconds": "[parameters('archiveTime')]",
+                            "sizeLimitInBytes": "[parameters('archiveSize')]",
+                            "destination": {
+                                "name": "EventHubArchive.AzureDataLake",
+                                "properties": {
+                                    "DataLakeSubscriptionId": "[parameters('subscriptionId')]",
+                                    "DataLakeAccountName": "[parameters('dataLakeAccountName')]",
+                                    "DataLakeFolderPath": "[parameters('dataLakeFolderPath')]",
+                                    "ArchiveNameFormat": "[parameters('archiveNameFormat')]"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+```
+
+## <a name="commands-to-run-deployment"></a>Команды для выполнения развертывания
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-<a id="powershell" class="xliff"></a>
+## <a name="powershell"></a>PowerShell
 
-## PowerShell
+Разверните шаблон, чтобы включить запись данных из концентраторов событий в службу хранилища Azure.
+ 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
-<a id="azure-cli" class="xliff"></a>
+Разверните шаблон, чтобы включить запись данных из концентраторов событий в Azure Data Lake Store.
 
-## Инфраструктура CLI Azure
-```cli
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json
+```
+
+## <a name="azure-cli"></a>Инфраструктура CLI Azure
+
+Выбор хранилища BLOB-объектов Azure в качестве места назначения:
+
+```azurecli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
-<a id="next-steps" class="xliff"></a>
 
-## Дальнейшие действия
+Выбор Azure Data Lake Store в качестве места назначения:
+
+```azurecli
+azure config mode arm
+
+azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
+```
+
+## <a name="next-steps"></a>Дальнейшие действия
 
 Функцию записи концентраторов событий можно включить с помощью [портала Azure](https://portal.azure.com). Дополнительные сведения см. в статье [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md) (Включение функции записи концентраторов событий с помощью портала Azure).
 
@@ -314,8 +425,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
-[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Azure Resources Naming Conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
-[Event hub and enable Capture template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
-
+[Azure Resources naming conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
+[Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
+[Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls

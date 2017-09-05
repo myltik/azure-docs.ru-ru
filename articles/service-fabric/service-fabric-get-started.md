@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/10/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: f0c6957217c21bdfd76498944e248fc808f2d271
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 10a5871d64524ff8adeb6ee3041b348ef2b1b32e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="prepare-your-development-environment"></a>Подготовка среды разработки
@@ -66,8 +66,8 @@ ms.lasthandoff: 08/11/2017
 * Пакет SDK для Service Fabric 2.7.198
 * Среда выполнения Service Fabric 5.7.198
 * Средства Service Fabric для Visual Studio 2015 1.7.50721
-* Visual Studio 2017 с обновлением 2 включает средства Service Fabric для Visual Studio 1.6.20170504
-* Visual Studio 2017 с обновлением 3 (предварительная версия 7) (15.3.0, предварительная версия 7.0) включает средства Service Fabric для Visual Studio 1.7.20170721
+* Visual Studio 2017 с обновлением 3 включает средства Service Fabric для Visual Studio 1.7.20170817
+* Visual Studio 2017 с обновлением 4 (предварительная версия 1) (15.4.0, предварительная версия 1.0) включает средства Service Fabric для Visual Studio 1.7.20170721
 
 Список поддерживаемых версий см. в статье [Azure Service Fabric support options](service-fabric-support.md) (Варианты поддержки Azure Service Fabric).
 

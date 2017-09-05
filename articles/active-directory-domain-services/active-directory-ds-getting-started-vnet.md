@@ -12,27 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 457519b00b65b0157effe2d4aba033a1c99852e8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: c0d3f90c0f15fbb7aad00fe24c2946738e24ffd8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
-<a id="create-or-select-a-virtual-network-for-azure-active-directory-domain-services" class="xliff"></a>
+# <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Создание или выбор виртуальной сети для доменных служб Azure Active Directory
 
-# Создание или выбор виртуальной сети для доменных служб Azure Active Directory
-<a id="before-you-begin" class="xliff"></a>
+> [!IMPORTANT]
+> Классический интерфейс портала для включения служб домена Azure AD, описанный в этой статье, скоро будет удален. Для новых развертываний [**используйте вместо него новый интерфейс портала Azure (предварительная версия)**](active-directory-ds-getting-started.md).
+>
 
-## Перед началом работы
+## <a name="before-you-begin"></a>Перед началом работы
 См. статью [Рекомендации по сетям для доменных служб Azure AD](active-directory-ds-networking.md).
 
-<a id="task-2-create-an-azure-virtual-network" class="xliff"></a>
-
-## Задача 2. Создание виртуальной сети Azure
+## <a name="task-2-create-an-azure-virtual-network"></a>Задача 2. Создание виртуальной сети Azure
 Следующая задача по настройке — создать виртуальную сеть Azure c подсетью. Вам потребуется включить доменные службы Azure Active Directory в этой подсети. Если вы хотите использовать существующую виртуальную сеть, этот шаг можно пропустить.
 
 > [!NOTE]
@@ -74,8 +72,6 @@ ms.lasthandoff: 06/30/2017
 11. Чтобы создать подсеть, щелкните **Сохранить**.
 
 
-<a id="next-step" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-step"></a>Дальнейшие действия
 [Задача 3. Включение доменных служб Azure Active Directory](active-directory-ds-getting-started-enableaadds.md)
 
