@@ -13,7 +13,7 @@
 ## [Просмотр введения](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Начало работы
-## [Репликация виртуальных машин Azure (предварительная версия)](site-recovery-azure-to-azure.md)
+## [Репликация виртуальных машин Azure в Azure (предварительная версия)](site-recovery-azure-to-azure.md)
 ## [Репликация виртуальных машин VMware в Azure](vmware-walkthrough-overview.md)
 ### [Шаг 1. Общие сведения об архитектуре](vmware-walkthrough-architecture.md)
 ### [Шаг 2. Просмотр предварительных условий и ограничений](vmware-walkthrough-prerequisites.md)

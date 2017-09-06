@@ -120,6 +120,8 @@
           href: connect-logon.md
         - name: Использование лицензирования AHUB
           href: hybrid-use-benefit-licensing.md
+        - name: "Использование прав на мультитенантное размещение для Windows\_10"
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Защита виртуальных машин
       items:
         - name: шифрование;

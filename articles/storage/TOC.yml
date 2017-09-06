@@ -2,7 +2,7 @@
   items:
     - name: Введение
       href: ./common/storage-introduction.md
-    - name: 'Выбор больших двоичных объектов, файлов или дисков данных'
+    - name: 'Выбор больших двоичных объектов, файлов или дисков'
       href: ./common/storage-decide-blobs-files-disks.md
 - name: BLOB-объекты
   href: ./blobs/storage-blobs-introduction.md

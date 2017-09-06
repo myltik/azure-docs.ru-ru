@@ -13,14 +13,14 @@ ms.date: 06/20/2017
 ms.author: carolz
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: aad1e4839154b552b39258f65e6ed97bf1de90fb
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e2f5caf8c4d3eab600bb015db5a4403314a4f6e3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 <div class="content">
-    <h1>Jenkins в Azure</h1>
+    <h1>Jenkins® в Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
        <div class="intro" style="min-width: 200px">
             <img src="media/Jenkins.png" align="right" alt="Jenkins Logo"> Jenkins — это популярный сервер автоматизации с открытым исходным кодом, который легко интегрируется с Azure для обеспечения непрерывной интеграции и непрерывной поставки (CI/CD).  Узнайте, как устанавливать, настраивать и использовать Jenkins со средствами и службами Azure с помощью наших материалов, кратких руководств и примеров.
@@ -43,5 +43,7 @@ ms.lasthandoff: 08/04/2017
 <a href="https://plugins.jenkins.io/azure-vm-agents">Подключаемый модуль агентов виртуальных машин Azure</a><br/>
 <a href="https://plugins.jenkins.io/windows-azure-storage">Подключаемый модуль для службы хранилища Azure</a><br/>
 <a href="https://jenkins.io">Дополнительные сведения о Jenkins</a><br/>
+<h4>      
+Jenkins® — это зарегистрированная торговая марка корпорации Software in the Public Interest. [Логотип Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) используется по лицензии [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) для [проекта Jenkins](https://jenkins.io).</h4>
 </div>
 

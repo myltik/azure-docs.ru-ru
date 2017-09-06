@@ -49,7 +49,7 @@
       href: functions-cli-samples.md
 - name: Основные понятия
   items:
-    - name: Планы потребления и планы службы приложений
+    - name: Сравнение планов размещения
       href: functions-scale.md
     - name: Триггеры и привязки
       href: functions-triggers-bindings.md

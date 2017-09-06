@@ -132,6 +132,7 @@
 ## Управление устройствами
 ### [Введение](device-management-introduction.md)
 ### [Использование портала Azure](device-management-azure-portal.md)
+### [Планирование присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Часто задаваемые вопросы](device-management-faq.md)
 ### Задачи
 #### [Настройка устройств с Windows 10, зарегистрированных в Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
@@ -142,15 +143,6 @@
 ### Устранение неполадок
 #### [Устройства под управлением Windows 10 и Windows Server 2016, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Устройства под управлением прежних версий Windows, присоединенные к гибридному облаку Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-### [Присоединение к Azure AD](active-directory-azureadjoin-overview.md)
-#### [План](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Настройка регистрации устройств](active-directory-azureadjoin-setup.md)
-#### [Регистрация новых устройств](active-directory-azureadjoin-user-frx.md)
-#### [Развертывание](active-directory-azureadjoin-devices-group-policy.md)
-#### [Общие сведения об интеграции Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Использование устройств Windows 10](active-directory-azureadjoin-windows10-devices.md)
-#### [Присоединение устройства](active-directory-azureadjoin-personal-device.md)
-#### [Присоединение устройства Windows 10](active-directory-azureadjoin-user-upgrade.md)
 
 ## Управление приложениями
 ### [Обзор](active-directory-enable-sso-scenario.md)
@@ -299,6 +291,8 @@
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
+#### [VPN-подключение](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [Управление мобильными приложениями](active-directory-conditional-access-mam.md)
 #### [Технический справочник: условный доступ к приложениям Azure AD](active-directory-conditional-access-technical-reference.md)
 #### [Общие сведения о политиках устройств](active-directory-conditional-access-device-policies.md)
 #### [Настройка доступа к подключенным приложениям](active-directory-conditional-access-policy-connected-applications.md)
@@ -306,7 +300,6 @@
 #### [Часто задаваемые вопросы](active-directory-conditional-faqs.md)
 #### [Классический портал.](active-directory-conditional-access.md)
 ##### [Начало работы](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [Проверка подлинности без использования паролей](active-directory-azureadjoin-passport.md)

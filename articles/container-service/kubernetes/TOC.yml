@@ -33,6 +33,8 @@
   items:
     - name: Безопасные контейнеры
       href: container-service-security.md
+    - name: "Субъект-служба\_— Kubernetes"
+      href: container-service-kubernetes-service-principal.md
 - name: Практические руководства
   items:
     - name: Использование Kubernetes с Windows
@@ -49,8 +51,12 @@
       href: container-service-connect.md
     - name: Масштабирование кластера ACS
       href: container-service-scale.md
+    - name: Распределение нагрузки кластера ACS Kubernetes
+      href: container-service-kubernetes-load-balancing.md
     - name: Монитор
       items:
+        - name: Мониторинг с помощью OMS
+          href: container-service-kubernetes-oms.md
         - name: Мониторинг с помощью Datadog
           href: container-service-kubernetes-datadog.md
         - name: Мониторинг с помощью Sysdig

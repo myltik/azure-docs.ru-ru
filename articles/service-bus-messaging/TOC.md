@@ -53,6 +53,12 @@
 ## Управление
 ### [Библиотеки управления служебной шиной](service-bus-management-libraries.md)
 ### [Использование шаблонов Azure Resource Manager](service-bus-resource-manager-overview.md)
+#### [Создание пространства имен](service-bus-resource-manager-namespace.md)
+#### [Создание пространства имен и очереди](service-bus-resource-manager-namespace-queue.md)
+#### [Создание пространства имен с разделом и подпиской](service-bus-resource-manager-namespace-topic.md)
+#### [Создание правила авторизации для пространства имен и очереди](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Создание пространства имен с разделом, подпиской и правилом](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Подготовка сущностей с помощью PowerShell](service-bus-manage-with-ps.md)
 
 # Справочные материалы

@@ -16,7 +16,7 @@
 ### [Настраиваемые параметры](active-directory-aadconnect-get-started-custom.md)
 ### [Обновление из DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Установка новой версии](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [Установка с помощью существующей базы данных ADSync](active-directory-aadconnect-existing-database.md)
 
 # Практическое руководство
 ## планирование и разработка

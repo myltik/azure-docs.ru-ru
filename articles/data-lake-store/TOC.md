@@ -57,7 +57,7 @@
 
 ## Управление
 ### [Доступ к журналам диагностики](data-lake-store-diagnostic-logs.md)
-### [Планирование высокой доступности](data-lake-store-troubleshooting-guidance.md)
+### [Планирование высокой доступности](data-lake-store-disaster-recovery-guidance.md)
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
