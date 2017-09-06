@@ -3,7 +3,7 @@ title: "Как использовать управление API Azure с вну
 description: "Узнайте, как установить и настроить управление API Azure во внутренней виртуальной сети."
 services: api-management
 documentationcenter: 
-author: solankisamir
+author: vladvino
 manager: kjoshi
 editor: 
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b9df2c3e7f49a47bfd714f28c5ab53590ca9a719
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: a4c2bda1226ca05c775d011fba7bc59d4dab8998
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="using-azure-api-management-service-with-internal-virtual-network"></a>Использование службы управления API Azure совместно с внутренней виртуальной сетью
@@ -63,23 +62,23 @@ ms.lasthandoff: 04/27/2017
 ### <a name="access-on-default-host-names"></a>По умолчанию используются такие имена узлов:
 Например, при создании службы управления API в общедоступном облаке Azure с именем contoso будут по умолчанию настроены следующие конечные точки службы:
 
->    шлюз или прокси — contoso.azure api.net;
+>   шлюз или прокси — contoso.azure api.net;
 
 > портал издателя и портал для разработчиков — contoso.portal.azure api.net;
 
 > конечная точка прямого управления — contoso.management.azure api.net;
 
->    Git — contoso.scm.azure-api.net.
+>   Git — contoso.scm.azure-api.net.
 
 Для получения доступа к этим конечным точкам службы управления API, можно создать виртуальную машину в подсети, подключенной к виртуальной сети, в которой развернута служба управления API. Если для службы используется внутренний виртуальный IP-адрес 10.0.0.5, в файле hosts (расположен по адресу %системный_диск%\drivers\etc\hosts) можно задать следующие сопоставления:
 
-> 10.0.0.5      contoso.azure-api.net
+> 10.0.0.5    contoso.azure-api.net
 
-> 10.0.0.5      contoso.portal.azure-api.net
+> 10.0.0.5    contoso.portal.azure-api.net
 
-> 10.0.0.5      contoso.management.azure-api.net
+> 10.0.0.5    contoso.management.azure-api.net
 
-> 10.0.0.5      contoso.scm.azure-api.net
+> 10.0.0.5    contoso.scm.azure-api.net
 
 Теперь с созданной виртуальной машины вы сможете обращаться к любой из конечных точек службы. Если вы используете пользовательский DNS-сервер в виртуальной сети, можно создать соответствующие записи DNS типа A. Тогда доступ к конечным точкам будет возможен из любого расположения в пределах виртуальной сети. 
 

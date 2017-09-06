@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 350576cd7290fdfbfacd526de50c14e5f20b81dc
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: af9d0c7ba9c1a3026cc042872e1ab773eb3c4c8e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Аутентификация на основе сертификата в Azure Active Directory на устройстве iOS
@@ -41,14 +41,16 @@ ms.lasthandoff: 08/04/2017
 
 | Приложения | Поддержка |
 | --- | --- |
-| Word/Excel/PowerPoint |![Проверка][1] |
+| Приложение Azure Information Protection |![Проверка][1] |
+| Microsoft Teams |![Проверка][1] |
 | OneNote |![Проверка][1] |
 | OneDrive |![Проверка][1] |
 | Outlook |![Проверка][1] |
-| Yammer |![Проверка][1] |
+| Power BI |![Проверка][1] |
 | Skype для бизнеса |![Проверка][1] |
-| Приложение Azure Information Protection |![Проверка][1] |
-| Microsoft Teams |![Проверка][1] |
+| Word/Excel/PowerPoint |![Проверка][1] |
+| Yammer |![Проверка][1] |
+
 
 ## <a name="requirements"></a>Требования 
 
