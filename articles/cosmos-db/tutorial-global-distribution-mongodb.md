@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: artitutorialcle
+ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
@@ -107,3 +107,4 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 
 > [!div class="nextstepaction"]
 > [Разработка в локальной среде с помощью эмулятора](local-emulator.md)
+
