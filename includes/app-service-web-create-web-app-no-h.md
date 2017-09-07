@@ -5,7 +5,7 @@
 В следующей команде замените *\<имя_приложения>* уникальным именем (допустимые символы: `a-z`, `0-9` и `-`). Если `<app_name>` не является уникальным, отобразится следующее сообщение об ошибке: "Веб-сайт с указанным именем <имя_приложения> уже существует". URL-адрес приложения по умолчанию: `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
 ```
 
 После создания веб-приложения в Azure CLI отображаются следующие сведения:
