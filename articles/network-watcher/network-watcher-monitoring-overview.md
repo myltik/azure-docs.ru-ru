@@ -3,7 +3,7 @@ title: "Общие сведения о Наблюдателе за сетями 
 description: "На этой странице представлен обзор службы Наблюдателя за сетями, предназначенной для мониторинга и визуализации сетевых ресурсов в Azure."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 18aa9837742082535a115efd47bdc4b8dfda8a6b

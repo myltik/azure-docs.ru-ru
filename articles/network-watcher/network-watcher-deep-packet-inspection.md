@@ -3,7 +3,7 @@ title: "Наблюдатель за сетями Azure: проверка пак�
 description: "В этой статье описывается использование службы наблюдения за сетями для подробной проверки пакетов, собранных от виртуальной машины"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 62fa6a6d0cccc5545b94d4ae167f2fcc7e4cd0de
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/21/2017
 
 ---

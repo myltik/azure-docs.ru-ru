@@ -74,7 +74,7 @@
     - name: "Azure CLI\_2.0"
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

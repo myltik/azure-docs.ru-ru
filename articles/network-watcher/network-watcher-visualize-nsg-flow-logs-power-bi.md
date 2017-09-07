@@ -3,7 +3,7 @@ title: "Визуализация журналов потоков для груп
 description: "В этой статье описывается визуализация журналов потоков для групп безопасности сети с помощью Power BI."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 7cac733717b4af048e58cf3d574c5743889100c1
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/22/2017
 
 ---
@@ -64,7 +65,7 @@ ms.lasthandoff: 03/22/2017
 
     ![Ключи доступа (2)][4]
 
-4.    Теперь начнется загрузка и анализ журналов, а затем вы сможете использовать заранее настроенные визуальные элементы.
+4.  Теперь начнется загрузка и анализ журналов, а затем вы сможете использовать заранее настроенные визуальные элементы.
 
 ## <a name="understanding-the-visuals"></a>Основные сведения о визуальных элементах
 

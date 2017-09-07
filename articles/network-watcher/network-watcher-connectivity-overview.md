@@ -3,7 +3,7 @@ title: "Наблюдатель за сетями Azure: общие сведен�
 description: "Эта страница содержит общие сведения о возможности проверки подключения в Наблюдателе за сетями."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: c29f5afe59f57112fe1f115df6bc53645f3c0d34
