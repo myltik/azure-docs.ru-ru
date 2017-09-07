@@ -88,7 +88,7 @@ ms.lasthandoff: 07/19/2017
 
 ![Динамический рабочий процесс](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
 
-Дополнительные сведения можно найти в разделе [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Дополнительные сведения можно найти в разделе [Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Описание канала и связанных с ним компонентов
 ### <a name="channel"></a>Канал
