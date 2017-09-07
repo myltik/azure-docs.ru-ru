@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/16/2017
+ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0753fb3a4b08b3bda9da1f5a31c577b354197588
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/22/2017
-
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="service-fabric-networking-patterns"></a>Схемы сетевых подключений Service Fabric
@@ -75,7 +74,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Шаблон Service Fabric
 
-В примерах в этой статье мы используем шаблон Service Fabric template.json. Этот шаблон можно скачать с портала перед созданием кластера с помощью стандартного мастера портала. Можно также использовать один из шаблонов из [коллекции шаблонов](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), например шаблон [кластера Service Fabric с пятью узлами](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/).
+В примерах в этой статье мы используем шаблон Service Fabric template.json. Этот шаблон можно скачать с портала перед созданием кластера с помощью стандартного мастера портала. Можно также использовать один из шаблонов из [коллекции шаблонов](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), например шаблон [кластера Service Fabric с пятью узлами](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Существующая виртуальная сеть или подсеть

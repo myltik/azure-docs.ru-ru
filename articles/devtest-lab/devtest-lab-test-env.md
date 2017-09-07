@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: a556cee9d7b665cd7df23c97e7e2c8c2afabbe58
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 6926fe1be44c078482dd5073788e36d7ae77efef
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Использование Azure DevTest Labs для виртуальных машин и тестовых сред PaaS
@@ -113,7 +113,7 @@ Azure DevTest Labs можно использовать для реализаци
    | Задача | Что вы узнаете |
    | --- | --- |
    | [Определение политик лаборатории](devtest-lab-set-lab-policy.md) |Как обеспечить контроль расходов с помощью политик в лаборатории. |
-   | [Удаление всех виртуальных машин лаборатории с помощью сценария PowerShell](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |После завершения тестирования удалите все лаборатории в составе одной операции.|
+   | [Удаление всех виртуальных машин лаборатории с помощью сценария PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |После завершения тестирования удалите все лаборатории в составе одной операции.|
 
 1. **Добавление виртуальной сети в лабораторию** 
    
@@ -147,7 +147,7 @@ Azure DevTest Labs можно использовать для реализаци
    
    | Задача | Что вы узнаете |
    | --- | --- |
-   | [Создание лаборатории с помощью шаблона Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Как создать лабораторию в Azure DevTest Labs с помощью шаблона Resource Manager. |
+   | [Создание лаборатории с помощью шаблона Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Как создать лабораторию в Azure DevTest Labs с помощью шаблона Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

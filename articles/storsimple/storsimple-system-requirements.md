@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 9fb4d440fad8e4c5af8030c91e6871c6418ab9be
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 55e1cd90df0e4413ce027361c636257d823a50d6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="storsimple-software-high-availability-and-networking-requirements"></a>Программное обеспечение StorSimple, высокий уровень доступности и требования к сети
@@ -93,7 +92,7 @@ ms.lasthandoff: 06/08/2017
 #### <a name="url-patterns-for-azure-portal"></a>Шаблоны URL-адресов для портала Azure
 | Шаблон URL-адреса | Компонент или функция | IP-адреса устройств |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |Служба диспетчера StorSimple<br>Служба контроля доступа<br>Azure Service Bus |Сетевые интерфейсы с поддержкой облака |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Служба диспетчера устройств StorSimple<br>Служба контроля доступа<br>Azure Service Bus<br>Служба проверки подлинности |Сетевые интерфейсы с поддержкой облака |
 | `https://*.backup.windowsazure.com` |Регистрация устройства |Только DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Отзыв сертификатов |Сетевые интерфейсы с поддержкой облака |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Учетные записи хранения Azure и мониторинг |Сетевые интерфейсы с поддержкой облака |
@@ -104,7 +103,7 @@ ms.lasthandoff: 06/08/2017
 #### <a name="url-patterns-for-azure-government-portal"></a>Шаблоны URL-адресов для портала Azure для государственных организаций
 | Шаблон URL-адреса | Компонент или функция | IP-адреса устройств |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` |Служба диспетчера StorSimple<br>Служба контроля доступа<br>Azure Service Bus |Сетевые интерфейсы с поддержкой облака |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` <br>`https://login-us.microsoftonline.com` |Служба диспетчера устройств StorSimple<br>Служба контроля доступа<br>Azure Service Bus<br>Служба проверки подлинности |Сетевые интерфейсы с поддержкой облака |
 | `https://*.backup.windowsazure.us` |Регистрация устройства |Только DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Отзыв сертификатов |Сетевые интерфейсы с поддержкой облака |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Учетные записи хранения Azure и мониторинг |Сетевые интерфейсы с поддержкой облака |
