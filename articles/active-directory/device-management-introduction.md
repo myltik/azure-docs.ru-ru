@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: c8b8408f76534a808fd60e331282f8191905df58
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Общие сведения об управлении устройствами в Azure Active Directory
@@ -31,7 +31,9 @@ ms.lasthandoff: 08/23/2017
 
 С помощью устройств пользователи получают доступ к корпоративным ресурсам. В целях защиты корпоративных ресурсов ИТ-администраторам требуются возможности управления этими устройствами. Это позволит предоставлять пользователям доступ к ресурсам с устройств, которые соответствуют стандартам безопасности и нормативным требованиям. 
 
-В этой статье содержатся сведения о том, как этого добиться с помощью управления устройствами в Azure AD.
+Управление устройствами также лежит в основе [условного доступа с устройств](active-directory-conditional-access-policy-connected-applications.md). Используя условный доступ с устройств, можно разрешать доступ к ресурсам в своей среде только доверенным устройствам.   
+
+В этом разделе описывается, как работает управление устройствами в Azure Active Directory.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Ввод устройств под контроль Azure AD
 
@@ -145,9 +147,14 @@ ms.lasthandoff: 08/23/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
+- Чтобы получить общие сведения о том, как управлять устройствами на портале Azure, см. раздел [Управление устройствами с помощью портала Azure (предварительная версия)](device-management-azure-portal.md)
+
 - Дополнительные сведения об условном доступе на основе устройств см. в статье [Настройка политики условного доступа на основе устройств для подключенных к Azure Active Directory приложений](active-directory-conditional-access-policy-connected-applications.md).
 
-- Сведения о настройке гибридных устройств, присоединенных к Azure AD, см. в статье [о том, как настроить гибридные устройства, присоединенные к Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
+- Чтобы настроить:
+    - устройства Windows 10, зарегистрированные в Azure Active Directory, ознакомьтесь с разделом [Как настроить устройства Windows 10, зарегистрированные в Azure Active Directory](device-management-azuread-registered-devices-windows10-setup.md);
+    - устройства, присоединенные к Azure Active Directory, ознакомьтесь с разделом [Как настроить устройства, присоединенные к Azure Active Directory](device-management-azuread-joined-devices-setup.md);
+    - гибридные устройства, присоединенные к Azure AD, ознакомьтесь с разделом [Настройка гибридных устройств, присоединенных к Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
 
 
 

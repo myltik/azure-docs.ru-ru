@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 08/25/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: fe6a28afbee573351186e361126ddca7db764311
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e138f80e808968ab4bf5c11cfd5fd46fe4a1bcce
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Перемещение ресурсов в новую группу ресурсов или подписку
@@ -110,7 +110,7 @@ ms.lasthandoff: 07/17/2017
 * Service Fabric
 * Хранилище
 * Служба хранилища (классическая) — см. раздел [Ограничения классического развертывания](#classic-deployment-limitations).
-* Stream Analytics
+* Stream Analytics — задание Stream Analytics в состоянии выполнения нельзя переместить.
 * Сервер базы данных SQL — база данных и сервер должны находиться в одной группе ресурсов. При перемещении сервера SQL Server все его базы данных также перемещаются.
 * Диспетчер трафика
 * Виртуальные машины

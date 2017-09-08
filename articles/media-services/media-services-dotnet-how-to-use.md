@@ -4,7 +4,7 @@ description: "Сведения о требованиях для разработ
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/16/2017
+ms.date: 08/23/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: ca5e537bd4347e17190ff4f66cc4d42a36870936
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 15828bc74937a036871b26493498232ec7cf6f06
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="media-services-development-with-net"></a>Разработка служб мультимедиа с помощью .NET
@@ -66,7 +66,7 @@ ms.lasthandoff: 07/17/2017
     Если вы используете [аутентификацию пользователей](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication), в файле конфигурации у вас, скорее всего, уже есть значения для домена клиента Azure AD и конечной точки API-интерфейса REST AMS.
     
     >[!Important]
-    >Примеры, представленные в пакете документации по службам мультимедиа Azure, используют для подключения к API AMS интерактивную (с запросом к пользователю) аутентификацию. Такой метод аутентификации неплохо работает для приложений управления или мониторинга на устройствах: мобильные приложения, приложения Windows и консольные приложения. Но он совершенно не пригоден для аутентификации приложений, работающих на серверах, в веб-службах или API-интерфейсах.  Дополнительные сведения см. в статье [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+    >Большинство примеров кода, представленных в пакете документации по службам мультимедиа Azure, используют для подключения к API AMS интерактивную (с запросом к пользователю) аутентификацию. Такой метод аутентификации неплохо работает для приложений управления или мониторинга на устройствах: мобильные приложения, приложения Windows и консольные приложения. Но он совершенно не пригоден для аутентификации приложений, работающих на серверах, в веб-службах или API-интерфейсах.  Дополнительные сведения см. в статье [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...

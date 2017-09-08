@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 08/23/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 281b6afc6aeaf65e87e1bd2820c35a14f7714aa1
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 10b7f3ad23d9c5451bc7ff82b8927c260230f6da
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -37,15 +37,16 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="cheat-sheet"></a>Краткий справочник
 
-В следующей таблице на примере нескольких стандартных запросов приводится сравнение эквивалентных команд старого и нового языков запросов Azure Log Analytics. 
+В следующей таблице на примере нескольких стандартных запросов приводится сравнение эквивалентных команд старого и нового языков запросов Azure Log Analytics.
 
 | Описание | Прежняя версия | new |
 |:--|:--|:--|
+| Поиск по всем таблицам      | error | Поиск по слову "ошибка" (без учета регистра) |
 | Выбор данных из таблицы | Type=Event |  Событие |
 |                        | Type=Event &#124; select Source, EventLog, EventID | Event &#124; project Source, EventLog, EventID |
 |                        | Type=Event &#124; top 100 | Event &#124; take 100 |
 | Сравнение строк      | Type=Event Computer=srv01.contoso.com   | Event &#124; where Computer == "srv01.contoso.com" |
-|                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" |
+|                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (без учета регистра)<br>Event &#124; where Computer contains "Contoso" (с учетом регистра) |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Сравнение данных        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
@@ -62,6 +63,6 @@ ms.lasthandoff: 07/28/2017
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Изучите [руководство по написанию запросов](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) на новом языке.
-- Обратитесь к [справочнику по языку запросов](https://docs.loganalytics.io/queryLanguage/query_language.html), чтобы подробно изучить все команды, операторы и функции нового языка запросов.  
+- Изучите [руководство по написанию запросов](https://go.microsoft.com/fwlink/?linkid=856078) на новом языке.
+- Обратитесь к [справочнику по языку запросов](https://go.microsoft.com/fwlink/?linkid=856079), чтобы подробно изучить все команды, операторы и функции нового языка запросов.  
 

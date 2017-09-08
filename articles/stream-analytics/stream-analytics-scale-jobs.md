@@ -4,7 +4,7 @@ description: "Узнайте, как масштабировать задания
 keywords: "потоковая передача данных, обработка потоковой передачи данных, настройка аналитики"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 9a2b16fc6dff687e2a1fa03c9194d50711f53476
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: f1e5e11e82d344508aa4375c42d509f96aaa1d00
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput"></a>Масштабирование заданий Azure Stream Analytics для повышения пропускной способности базы данных
@@ -32,7 +31,7 @@ ms.lasthandoff: 07/04/2017
 Задание требует по крайней мере один источник входных данных для потока данных. Входной источник потока данных может храниться в концентраторе событий Azure или в хранилище BLOB-объектов Azure. Дополнительные сведения см. в статьях [Что такое Stream Analytics?](stream-analytics-introduction.md) и [Приступая к работе с Azure Stream Analytics: выявление мошенничества в режиме реального времени](stream-analytics-real-time-fraud-detection.md).
 
 ## <a name="partitions-in-event-hubs-and-azure-storage"></a>Секции в концентраторах событий и в хранилище Azure
-Масштабирование задания Stream Analytics реализует преимущества использования секций во входных или выходных данных. Секционирование позволяет разделить данные на подмножества на основе ключа секции. Процесс, который использует данные (например, задание Streaming Analytics), может получать и записывать различные секции параллельно, тем самым повышая пропускную способность. При работе со Streaming Analytics можно воспользоваться преимуществами секционирования в концентраторах событий и в хранилище BLOB-объектов. 
+Масштабирование задания Stream Analytics реализует преимущества использования секций во входных или выходных данных. Секционирование позволяет разделить данные на подмножества на основе ключа секции. Процесс, который использует данные (например, задание Streaming Analytics), может получать и записывать различные секции параллельно, тем самым повышая пропускную способность. При работе со Stream Analytics можно воспользоваться преимуществами секционирования в концентраторах событий и в хранилище BLOB-объектов. 
 
 Дополнительные сведения об этих секциях см. в следующих статьях:
 
@@ -339,7 +338,7 @@ ms.lasthandoff: 07/04/2017
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Получение справки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

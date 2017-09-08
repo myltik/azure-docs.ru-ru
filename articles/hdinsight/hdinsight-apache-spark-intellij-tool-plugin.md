@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/24/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 97414ee55663662fb40a91b930d61634c83e30fa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 19cb8f436fa4d86f323013a5d4b3b50bf6c80a1a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для IntelliJ
@@ -172,15 +172,6 @@ ms.lasthandoff: 08/21/2017
 ## <a name="run-or-debug-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Запуск или отладка приложения Spark Scala в кластере HDInsight Spark
 Мы также рекомендуем еще один способ отправки приложения Spark в кластер. Он заключается в задании параметров **конфигураций запуска и отладки** в интегрированной среде разработки. Дополнительные сведения см. в статье [Удаленная отладка приложений Spark в кластере HDInsight с помощью набора средств Azure для IntelliJ через SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
-## <a name="choose-azure-data-lake-store-as-spark-scala-application-storage"></a>Выбор Azure Data Lake Store в качестве хранилища приложения Spark Scala
-Чтобы отправить приложение в Azure Data Lake Store, выберите **интерактивный** режим во время входа в Azure. 
-
-![Параметр "Интерактивный" при входе](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-interactive.png)
-
-Если выбрать **автоматический** режим, появится следующая ошибка:
-
-![Ошибка входа](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-error.png)
-
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Доступ к кластерам HDInsight Spark и управление ими с помощью набора средств Azure для IntelliJ
 При помощи набора средств Azure для IntelliJ можно выполнять разные операции.
 
@@ -306,6 +297,13 @@ ms.lasthandoff: 08/21/2017
     -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea
 
 ![Добавление параметров в поле VM options (Параметры виртуальной машины) в IntelliJ](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
+
+## <a name="faq"></a>Часто задаваемые вопросы
+Чтобы отправить приложение в Azure Data Lake Store, выберите **интерактивный** режим во время входа в Azure. Если выбрать **автоматический** режим, может произойти ошибка.
+
+![Интерактивный вход](./media/hdinsight-apache-spark-intellij-tool-plugin/interative-signin.png)
+
+Теперь мы устранили ее. Можно выбрать кластер Azure Data Lake для отправки приложения с помощью любого метода входа.
 
 ## <a name="feedback-and-known-issues"></a>Отзывы и известные проблемы
 Сейчас просмотр выходных данных Spark напрямую не поддерживается.

@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 08/21/2017
 ms.author: bruceper
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 1775902aa7ec820c3b6c34eda60961eecd27f014
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8cf0674f7eb139e50da4a3c22a8d8376a86b0dcc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Как использовать обратимое удаление в Key Vault с помощью PowerShell
@@ -29,10 +29,9 @@ ms.lasthandoff: 08/23/2017
 - Azure PowerShell 4.0.0 или более поздней версии. Если этот инструмент у вас не установлен, чтобы установить его и связать с подпиской Azure, прочитайте статью [Общие сведения об Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
 >[!NOTE]
-> Эта устаревшая версия хранилища ключей выходных данных файла форматирования PowerShell может быть загружена в вашу среду вместо правильной версии. Используйте одно из этих решений:
-> 
-> - Обновление до [версии 4.4.0 или более поздней версии среды Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.2.0) для устранения этой проблемы.
+> В вашу среду вместо правильной версии **может** загрузиться устаревшая версия хранилища ключей выходных данных файла форматирования PowerShell. Мы планируем обновить версию PowerShell і добавить в нее нужные исправления выходных данных файла форматирования. После этого мы обновим эту статью. Чтобы устранить эту проблему сейчас, сделайте следующее:
 > - Если вы не видите, что свойство обратимого удаления (описанное в этом разделе) включено, используйте следующий запрос: `$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+
 
 Дополнительные сведения о Key Vault для PowerShell см. в [справочнике по PowerShell для Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 

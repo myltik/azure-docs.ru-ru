@@ -4,7 +4,7 @@ description: "Обзор поддержки OpenAPI в Функциях Azure"
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions
@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: c144e22654629f600b8f630363239efc82ac79d7
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e9499d036c8c5ef5a56a70f7e7ecf9afbff4e6b0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Поддержка метаданных OpenAPI 2.0 в Функциях Azure (предварительная версия)
@@ -33,9 +32,9 @@ ms.lasthandoff: 06/01/2017
 >Мы рекомендуем начать с [учебника по началу работы](./functions-api-definition-getting-started.md), а затем вернуться к этому документу, чтобы узнать больше о конкретных функциях.
 
 ## <a name="enable"></a>Включение поддержки определения OpenAPI
-Все параметры OpenAPI можно настроить на странице **API Definition (preview)** (Определение API (предварительная версия)) в параметрах приложения-функции.
+Все параметры OpenAPI можно настроить на странице **Определение API** в приложении-функции **Функции платформы**.
 
-Чтобы включить создание размещенного определения OpenAPI и кратких определений, задайте для параметра **API definition source** (Источник определения API) значение **Функция**. **Внешний URL-адрес** позволяет функции применять определение OpenAPI, размещенное в другом месте.
+Чтобы включить создание размещенного определения OpenAPI и кратких определений, задайте для параметра **Источник определения API** значение **Функция (предварительная версия)**. **Внешний URL-адрес** позволяет функции применять определение OpenAPI, размещенное в другом месте.
 
 ## <a name="generate-definition"></a>Создание схемы Swagger на основе метаданных функции
 Шаблон поможет вам приступить к написанию первого определения OpenAPI. Функция шаблона определения создает разреженное определение OpenAPI, используя все метаданные в файле function.json для каждой функции "Триггер HTTP". Вам необходимо будет указать дополнительные сведения об API из [спецификации OpenAPI](http://swagger.io/specification/), например шаблоны запросов и ответов.

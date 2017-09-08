@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
-ms.reviewer: rodejo
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ae2a2e477137bc117111b147e1f088d528a55de5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -188,7 +189,8 @@ user.mail –ne null.
 | Свойства | Допустимые значения | Использование |
 | --- | --- | --- |
 | otherMails |Любое строковое значение. |(user.otherMails -contains "alias@domain") |
-| proxyAddresses |SMTP: alias@domain, smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+
+| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Многозначные свойства
 Допустимые операторы
@@ -237,7 +239,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-Имя настраиваемого атрибута можно найти в каталоге, отправив запрос на атрибут пользователя с помощью обозревателя графов и выполнив поиск по имени атрибута.
+Имя настраиваемого атрибута можно найти в каталоге, отправив запрос на атрибут пользователя с помощью обозревателя графов и выполнив поиск по имени атрибута. Использование нескольких значений атрибутов, синхронизированных из локального экземпляра Active Directory, сейчас не поддерживается. 
 
 ## <a name="direct-reports-rule"></a>Правило "Непосредственные подчиненные"
 Вы можете создать группу, в которую войдут все непосредственные подчиненные определенного руководителя. Если в будущем состав подчиненных этого руководителя изменится, членство в группе будет скорректировано автоматически.

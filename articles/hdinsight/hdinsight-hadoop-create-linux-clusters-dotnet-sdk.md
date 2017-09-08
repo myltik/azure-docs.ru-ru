@@ -14,23 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/16/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 823508c0bd9e379361dd26f70b3960259a8d4292
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из приложения .NET Framework. В этой статье показано, как создать кластер HDInsight под управлением Linux с помощью пакета SDK для .NET.
+
+Узнайте, как создать кластер Hadoop в кластере Azure HDInsight с помощью пакета SDK для .NET.
 
 > [!IMPORTANT]
-> Действия, описанные в этом документе, позволяют создать кластер с одним узлом рабочей роли. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
+> Действия, описанные в этом документе, позволяют создать кластер с одним узлом рабочей роли. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), то для головного узла необходимо выбрать как минимум 8 ядер и 14 ГБ ОЗУ.
 >
 > Дополнительные сведения о размерах узлов и их стоимости см. на странице с [ценами на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -39,14 +40,14 @@ ms.lasthandoff: 06/13/2017
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Учетная запись хранения Azure.** Ознакомьтесь со статьей [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account).
+* **Учетная запись хранения Azure.** Ознакомьтесь со статьей [Создание учетной записи хранения](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * **Visual Studio 2013, Visual Studio 2015 или Visual Studio 2017**.
 
 ## <a name="create-clusters"></a>Создание кластеров
 
 1. Откройте Visual Studio 2017.
 2. Создайте консольное приложение Visual C#.
-3. В меню **Средства** щелкните **Диспетчер пакетов Nuget**, а затем щелкните **Консоль диспетчера пакетов**.
+3. В меню **Средства** щелкните **Диспетчер пакетов NuGet**, а затем щелкните **Консоль диспетчера пакетов**.
 4. Чтобы установить пакеты, выполните в консоли следующую команду:
 
     ```powershell
@@ -192,7 +193,7 @@ ms.lasthandoff: 06/13/2017
     ```
 
 6. Замените значения членов класса.
-7. Нажмите клавишу **F5** для запуска приложения. Должно открыться окно консоли, в котором отображается состояние приложения. Появится запрос на ввод учетных данных учетной записи Azure. На подготовку кластера HDInsight может уйти несколько минут (обычно около 15).
+7. Нажмите клавишу **F5** для запуска приложения. Должно открыться окно консоли, в котором отображается состояние приложения. Появится запрос на ввод данных учетной записи Azure. На подготовку кластера HDInsight может уйти несколько минут (обычно около 15).
 
 ## <a name="use-bootstrap"></a>Использование начальной загрузки
 

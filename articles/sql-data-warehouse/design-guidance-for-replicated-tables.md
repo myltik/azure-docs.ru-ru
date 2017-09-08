@@ -15,10 +15,10 @@ ms.custom: tables
 ms.date: 07/14/2017
 ms.author: rortloff;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: efb5361496a2199a960564f6213f509b693e3cfa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 437a4f628a343312984d1fa2981df7fa01459e26
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -130,11 +130,11 @@ WHERE d.FiscalYear = 2004
 ```
 Мы повторно создали таблицы `DimDate` и `DimSalesTerritory` как циклические таблицы. В результате запрос показал следующий план запроса, в котором имеется несколько операций широковещательного переноса: 
  
-![План запроса с циклическим перебором](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "План запроса с циклическим перебором") 
+![План запроса с циклическим перебором](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 Мы повторно создали таблицы `DimDate` и `DimSalesTerritory` как в реплицированные таблицы, а затем снова выполнили запрос. Результирующий план запроса намного короче, а также в нем нет широковещательного переноса.
 
-![План запроса с репликацией](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "План запроса с репликацией") 
+![План запроса с репликацией](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Рекомендации по повышению производительности для изменения реплицированных таблиц

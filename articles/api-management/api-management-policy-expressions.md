@@ -3,7 +3,7 @@ title: "Выражения политики в службе управления
 description: "Сведения о выражениях политики в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d96dde8c74141d000c1f7c5fd9ef624ff5e46953
-ms.lasthandoff: 04/07/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>Выражения политики в службе управления API
@@ -172,7 +173,7 @@ ms.lasthandoff: 04/07/2017
   
 |Переменная контекста|Допустимые методы, свойства и значения параметров|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Развертывание<br /><br /> LastError<br /><br /> Операция<br /><br /> Продукт<br /><br /> Запрос<br /><br /> RequestId: строка<br /><br /> Ответ<br /><br /> Подписка<br /><br /> Tracing: логическое значение<br /><br /> Пользователь<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: строка)|  
+|context|Api: IApi<br /><br /> Развертывание<br /><br /> LastError<br /><br /> Операция<br /><br /> Продукт<br /><br /> Запрос<br /><br /> RequestId: Guid<br /><br /> Ответ<br /><br /> Подписка<br /><br /> Tracing: логическое значение<br /><br /> Пользователь<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: строка)|  
 |context.Api|Id: строка<br /><br /> Name: строка<br /><br /> Path: строка<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: строка<br /><br /> ServiceName: строка|  
 |context.LastError|Source: строка<br /><br /> Reason: строка<br /><br /> Message: строка<br /><br /> Scope: строка<br /><br /> Section: строка<br /><br /> Path: строка<br /><br /> PolicyId: строка<br /><br /> Дополнительные сведения о переменной context.LastError см. в разделе [Error handling](api-management-error-handling-policies.md) (Обработка ошибок).|  

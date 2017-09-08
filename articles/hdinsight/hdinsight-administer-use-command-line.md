@@ -14,23 +14,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 5102d44ebd447b638ab6e26fa1826bad224ed6c3
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: cc1b78e430ab46f367fafcc16e1240aa76a9ba64
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Узнайте, как использовать [интерфейс командной строки Azure](../cli-install-nodejs.md) для управления кластерами Hadoop в Azure HDInsight. Интерфейс командной строки (CLI) Azure реализован в Node.js. Его можно использовать на любой платформе, которая поддерживает Node.js, включая Windows, Mac и Linux.
+Узнайте, как использовать [интерфейс командной строки Azure](../cli-install-nodejs.md) для управления кластерами Hadoop в Azure HDInsight. Интерфейс командной строки (CLI) Azure реализован в Node.js. Его можно использовать на любой платформе, которая поддерживает Node.js, включая Windows, Mac и Linux. В настоящее время HDInsight не поддерживает [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview).
 
 В этой статье описывается только использование CLI Azure с HDInsight. Общее руководство по использованию Azure CLI см. в статье [Установка и настройка Azure CLI][azure-command-line-tools].
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этой статьей необходимо иметь следующее:
@@ -38,17 +36,23 @@ ms.lasthandoff: 06/09/2017
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Интерфейс командной строки Azure CLI** — сведения об установке и настройке CLI Azure см. в статье [Установка Azure CLI](../cli-install-nodejs.md).
 * **Подключитесь к Azure**, выполнив следующую команду.
-  
-        azure login
+
+    ```cli
+    azure login
+    ```
   
     Дополнительные сведения об аутентификации с помощью рабочей или учебной учетной записи см. в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
 * **Переключитесь в режим диспетчера ресурсов Azure**с помощью следующей команды.
   
-        azure config mode arm
+    ```cli
+    azure config mode arm
+    ```
 
 Чтобы получить справку, используйте параметр **-h** .  Например:
 
-    azure hdinsight cluster create -h
+```cli
+azure hdinsight cluster create -h
+```
 
 ## <a name="create-clusters-with-the-cli"></a>Создание кластеров с помощью интерфейса командной строки
 Дополнительные сведения см. в статье [Создание кластеров HDInsight с помощью интерфейса командной строки Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
@@ -56,34 +60,47 @@ ms.lasthandoff: 06/09/2017
 ## <a name="list-and-show-cluster-details"></a>Отображение сведений о кластере
 Используйте следующие команды для отображения сведений о кластере:
 
-    azure hdinsight cluster list
-    azure hdinsight cluster show <Cluster Name>
+```cli
+azure hdinsight cluster list
+azure hdinsight cluster show <Cluster Name>
+```
 
 ![Представление командной строки списка кластеров][image-cli-clusterlisting]
 
 ## <a name="delete-clusters"></a>Удаление кластеров
 Используйте следующую команду для удаления кластера:
 
-    azure hdinsight cluster delete <Cluster Name>
+```cli
+azure hdinsight cluster delete <Cluster Name>
+```
 
 Можно также удалить кластер, удалив группу ресурсов, которая содержит этот кластер. Обратите внимание, это приведет к удалению всех ресурсов в группе, включая учетную запись хранения по умолчанию.
 
-    azure group delete <Resource Group Name>
+```cli
+azure group delete <Resource Group Name>
+```
 
 ## <a name="scale-clusters"></a>Масштабирование кластеров
 Изменение размера кластера Hadoop
 
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
+```cli
+azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
+```
 
 
 ## <a name="enabledisable-http-access-for-a-cluster"></a>Включение или отключение доступа по протоколу HTTP для кластера
-    azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
-    azure hdinsight cluster disable-http-access [options] <Cluster Name>
+
+```cli
+azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
+azure hdinsight cluster disable-http-access [options] <Cluster Name>
+```
 
 ## <a name="enabledisable-rdp-access-for-a-cluster"></a>Включение или отключение доступа по протоколу RDP для кластера
-      azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-      azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 
+```cli
+azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы узнали, как выполнять различные административные задачи в кластере HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:

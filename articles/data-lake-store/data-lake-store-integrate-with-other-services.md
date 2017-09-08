@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 750540d0866e69ce043133e9c668c8a2e09b9d1c
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 0230ec0e4fc4ff7fe98a7c3e82f252bd8dd66d16
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Интеграция хранилища озера данных с другими службами Azure
@@ -64,6 +63,9 @@ Power BI можно использовать, чтобы импортирова�
 
 ## <a name="use-data-lake-store-with-sql-data-warehouse"></a>Использование Data Lake Store с хранилищем данных SQL
 С помощью PolyBase вы можете загружать данные из Azure Data Lake Store в хранилище данных SQL. См. дополнительные сведения об [использовании Data Lake Store с хранилищем данных SQL](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+
+## <a name="use-data-lake-store-with-azure-event-hubs"></a>Использование Data Lake Store с концентраторами событий Azure
+Azure Data Lake Store можно использовать для архивации и записи данных, полученных концентраторами событий Azure. Дополнительные сведения см. в статье [Use Azure Data Lake Store to capture data from Event Hubs](data-lake-store-archive-eventhub-capture.md) (Запись данных из концентраторов событий с помощью Azure Data Lake Store).
 
 ## <a name="see-also"></a>См. также
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)

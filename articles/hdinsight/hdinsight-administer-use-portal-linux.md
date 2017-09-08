@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/25/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 72c02eac9d627ad642d3e66492c314a2276e9c0a
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 736e1a52f55560dfded7a21eaeb1cbac7602f8d6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop в HDInsight с помощью портала Azure
@@ -156,11 +156,14 @@ HDInsight работает со множеством компонентов Hado
 
     Вы можете с легкостью добавлять и удалять узлы данных в работающем кластере HBase. Балансировка региональных серверов выполняется автоматически в течение нескольких минут после завершения операции масштабирования. Но их также можно сбалансировать вручную, выполнив вход в головной узел кластера и выполнив следующие команды в окне командной строки:
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
 
-    Дополнительные сведения об использовании оболочки HBase см. []
+    Дополнительные сведения об использовании оболочки HBase см. в статье [Начало работы с примером Apache HBase в HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+
 * Storm
 
     Вы можете с легкостью добавлять и удалять узлы данных в работающем кластере Storm. Но после успешного завершения операции масштабирования потребуется повторная балансировка топологии.
@@ -178,10 +181,12 @@ HDInsight работает со множеством компонентов Hado
 
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 **Масштабирование кластеров**
 
@@ -207,6 +212,14 @@ HDInsight работает со множеством компонентов Hado
 
 Сведения о ценах см. на странице [цен на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Удаление кластера на портале описано в разделе [Удаление кластеров](#delete-clusters).
 
+## <a name="move-cluster"></a>Перемещение кластера
+
+Кластер HDInsight можно переместить в другую группу ресурсов Azure или в другую подписку.  См. раздел [Отображение кластеров](#list-and-show-clusters).
+
+## <a name="upgrade-clusters"></a>Установка новых версий кластеров
+
+Ознакомьтесь с разделом [Обновление кластера HDInsight до более новой версии](./hdinsight-upgrade-cluster.md).
+
 ## <a name="change-passwords"></a>Изменение паролей
 Кластер HDInsight может иметь две учетные записи пользователя. Учетная запись пользователя кластера HDInsight (то есть учетная запись пользователя HTTP) и учетная запись пользователя SSH создаются во время создания кластера. С помощью пользовательского веб-интерфейса Ambari можно изменить имя пользователя кластера и пароль учетной записи, а также действия сценария для изменения учетной записи SSH.
 
@@ -229,16 +242,16 @@ Ambari изменит пароль на всех узлах в кластере.
 ### <a name="change-the-ssh-user-password"></a>Изменение пароля пользователя SSH
 1. С помощью текстового редактора сохраните указанный ниже текст в файл с именем **changepassword.sh**.
 
-   > [!IMPORTANT]
-   > Необходимо использовать редактор, который использует LF в качестве конца строки. Если редактор использует CRLF, сценарий не будет работать.
-   >
-   >
+    > [!IMPORTANT]
+    > Необходимо использовать редактор, который использует LF в качестве конца строки. Если редактор использует CRLF, сценарий не будет работать.
 
-        #! /bin/bash
-        USER=$1
-        PASS=$2
+    ```bash
+    #! /bin/bash
+    USER=$1
+    PASS=$2
+    usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+    ```
 
-        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 2. Передайте файл в расположение хранилища, которое будет использоваться из HDInsight с помощью адреса HTTP или HTTPS. Например, в такое общедоступное хранилище файлов, как OneDrive или хранилище BLOB-объектов Azure. Сохраните универсальный код ресурса (URI) для файла (адрес HTTP или HTTPS), так как он понадобится на следующем шаге.
 3. На портале Azure щелкните **Кластеры HDInsight**.
 4. Щелкните свой кластер HDInsight.
@@ -282,8 +295,15 @@ Ambari изменит пароль на всех узлах в кластере.
 
 См. раздел [Отображение кластеров](#list-and-show-clusters).
 
-## <a name="find-the-default-storage-account"></a>Поиск учетной записи хранения по умолчанию
-Каждый кластер HDInsight имеет учетную запись хранения, используемую по умолчанию. Учетную запись хранения по умолчанию и ее ключи можно просмотреть в разделе **Учетные записи хранения**. См. раздел [Отображение кластеров](#list-and-show-clusters).
+## <a name="find-the-storage-accounts"></a>Поиск учетных записей хранения
+
+Для хранения данных кластеров HDInsight используется учетная запись хранения Azure или Azure Data Lake Store. Каждый кластер HDInsight может иметь одну учетную запись хранения по умолчанию и несколько связанных учетных записей хранения. Чтобы получить список учетных записей хранения, сначала откройте кластер на портале, а затем щелкните **Учетные записи хранения**.
+
+![Учетные записи хранения кластера HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
+
+На предыдущем снимке экрана показан столбец __По умолчанию__, в котором указано, является ли учетная запись используемой по умолчанию.
+
+Чтобы вывести список учетных записей Data Lake Store, щелкните **Доступ к Data Lake Store** (см. предыдущий снимок экрана).
 
 ## <a name="run-hive-queries"></a>Выполнение запросов Hive
 Задание Hive нельзя выполнить непосредственно из портала Azure. Для этого можно использовать представление Hive в веб-интерфейсе Ambari.
@@ -294,6 +314,7 @@ Ambari изменит пароль на всех узлах в кластере.
 2. Откройте представление Hive, как показано на снимке экрана ниже:  
 
     ![Представление Hive в HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
+
 3. В верхнем меню щелкните **Query** (Запрос).
 4. Введите запрос Hive в **редактор запросов**, а затем нажмите кнопку **Execute** (Выполнить).
 
@@ -316,8 +337,6 @@ Ambari изменит пароль на всех узлах в кластере.
 
 > [!IMPORTANT]
 > Для мониторинга служб, предоставляемых кластером HDInsight, необходимо использовать интерфейс Ambari Web или API REST Ambari. Дополнительные сведения об использовании Ambari см. в статье [Управление кластерами HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md).
->
->
 
 ## <a name="connect-to-a-cluster"></a>Подключение к кластеру
 

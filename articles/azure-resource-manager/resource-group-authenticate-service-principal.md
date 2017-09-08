@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 08/28/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 36b4cd0674e0f9cec6fb2b00e809c71ee38a80c0
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 9d4ab890c35eebb2e59a9f4fa96843c854636272
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Пример бездействует 20 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
+Пример бездействует 20 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Субъект {ИД} не существует в каталоге".
 
 Следующий сценарий позволяет указать область, отличную от подписки по умолчанию, и повторяет назначение роли при возникновении ошибки.
 
@@ -117,7 +117,7 @@ Param (
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
 ```
@@ -127,7 +127,7 @@ Param (
 * Чтобы предоставить удостоверению доступ к подписке по умолчанию, вам не нужно указывать параметры ResourceGroup и SubscriptionId.
 * Укажите параметр ResourceGroup только в том случае, если требуется ограничить область назначения роли определенной группой ресурсов.
 *  В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
-* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
+* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Субъект {ИД} не существует в каталоге".
 * Чтобы предоставить субъекту-службе доступ к другим подпискам или группам ресурсов, выполните командлет `New-AzureRMRoleAssignment` повторно, указав другие области.
 
 
@@ -136,7 +136,7 @@ Param (
 
 ```powershell   
 $creds = Get-Credential
-Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-id}
+Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-ID}
 ```
 
 Идентификатор клиента не является конфиденциальным, поэтому его можно внедрить непосредственно в сценарий. Чтобы получить идентификатор клиента, используйте следующий командлет:
@@ -159,7 +159,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Пример бездействует 20 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
+Пример бездействует 20 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Субъект {ИД} не существует в каталоге".
 
 Следующий сценарий позволяет указать область, отличную от подписки по умолчанию, и повторяет назначение роли при возникновении ошибки. Необходимо наличие Azure PowerShell 2.0 в Windows 10 или Windows Server 2016.
 
@@ -212,7 +212,7 @@ Param (
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
 ```
@@ -222,7 +222,7 @@ Param (
 * Чтобы предоставить удостоверению доступ к подписке по умолчанию, вам не нужно указывать параметры ResourceGroup и SubscriptionId.
 * Укажите параметр ResourceGroup только в том случае, если требуется ограничить область назначения роли определенной группой ресурсов.
 * В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
-* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
+* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Субъект {ИД} не существует в каталоге".
 * Чтобы предоставить субъекту-службе доступ к другим подпискам или группам ресурсов, выполните командлет `New-AzureRMRoleAssignment` повторно, указав другие области.
 
 Если вы **не используете Windows 10 или Windows Server 2016 Technical Preview**, скачайте сценарий [генератора самозаверяющих сертификатов](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) из центра сценариев Microsoft. Извлеките содержимое сценария и импортируйте требуемый командлет.
@@ -292,20 +292,14 @@ Param (
  Login-AzureRmAccount
  Import-Module AzureRM.Resources
  Set-AzureRmContext -SubscriptionId $SubscriptionId
-
- $KeyId = (New-Guid).Guid
+ 
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
 
  $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
  $KeyValue = [System.Convert]::ToBase64String($PFXCert.GetRawCertData())
 
- $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
- $KeyCredential.StartDate = $PFXCert.NotBefore
- $KeyCredential.EndDate= $PFXCert.NotAfter
- $KeyCredential.KeyId = $KeyId
- $KeyCredential.CertValue = $KeyValue
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -KeyCredentials $keyCredential
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName
+ New-AzureRmADSpCredential -ObjectId $ServicePrincipal.Id -CertValue $KeyValue -StartDate $PFXCert.NotBefore -EndDate $PFXCert.NotAfter
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -315,7 +309,7 @@ Param (
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
  
@@ -326,7 +320,7 @@ Param (
 
 * Доступ предоставляется в пределах подписки.
 * В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
-* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
+* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Субъект {ИД} не существует в каталоге".
 * Чтобы предоставить субъекту-службе доступ к другим подпискам или группам ресурсов, выполните командлет `New-AzureRMRoleAssignment` повторно, указав другие области.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Предоставление сертификата с помощью автоматизированного сценария PowerShell
@@ -398,7 +392,7 @@ New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -
 Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ```
    
-Откройте профиль и изучите его содержимое. Обратите внимание, что он содержит маркер доступа. Вместо выполнения входа вручную просто загрузите профиль.
+Откройте профиль и изучите его содержимое. Обратите внимание, что он содержит маркер доступа. Вместо выполнения входа вручную загрузите профиль.
    
 ```powershell
 Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json

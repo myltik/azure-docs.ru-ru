@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 24e0372f024e574d049c63f444b5e8f6b0dfd065
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: beafd2c65b0506844ff9ea152037ed6f2866e650
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -30,15 +29,15 @@ ms.lasthandoff: 05/18/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Учетная запись Azure Data Lake Store. Следуйте инструкциям в разделе [Приступая к работе с хранилищем озера данных Azure на портале Azure](../data-lake-store/data-lake-store-get-started-portal.md).
+* Учетная запись Azure Data Lake Store. Следуйте инструкциям в разделе [Начало работы с Azure Data Lake Store с помощью портала Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Кластер Azure HDInsight Spark с Data Lake Store в качестве хранилища. Следуйте инструкциям в статье [Создание кластера HDInsight с Data Lake Store с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Кластер Azure HDInsight Spark с Data Lake Store в качестве хранилища. Следуйте инструкциям в статье [Создание кластеров HDInsight, использующих Data Lake Store, с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
     
 ## <a name="prepare-the-data"></a>Подготовка данных
 
 > [!NOTE]
-> Этот шаг не нужно выполнять, если вы создали кластер HDInsight, использующий Data Lake Store в качестве хранилища по умолчанию. Процессы создания кластера добавляют демонстрационные данные в учетную запись Data Lake Store, указанную при создании кластера. Перейдите к разделу [Использование кластера HDInsight Spark с Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> Этот шаг не нужно выполнять, если вы создали кластер HDInsight, использующий Data Lake Store в качестве хранилища по умолчанию. Процесс создания кластера добавляет демонстрационные данные в учетную запись Data Lake Store, указанную при создании кластера. Перейдите к разделу [Использование кластера HDInsight Spark с Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
 >
 >
 
@@ -58,7 +57,7 @@ ms.lasthandoff: 05/18/2017
    > Убедитесь, что имена файлов и пути указаны в правильном регистре.
    >
    >
-3. Вам будет предложено ввести учетные данные для подписки Azure, в которой расположена учетная запись Data Lake Store. Вы увидите результат, аналогичный приведенному ниже:
+3. Вам будет предложено ввести учетные данные для подписки Azure, в которой расположена учетная запись Data Lake Store. Должен отобразиться результат, аналогичный приведенному ниже фрагменту кода.
 
         Initializing Copy.
         Copy Started.

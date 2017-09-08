@@ -14,17 +14,17 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: efd0ec90a1c0775661069faa323e56914dd4e032
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Создание пространства имен служебной шины с помощью шаблона диспетчера ресурсов Azure
 
-В этой статье показывается, как использовать шаблон Azure Resource Manager, создающий пространство имен служебной шины типа **Messaging** с SKU уровня "Стандартный" или "Базовый". В этой статье также определяются параметры, которые задаются во время развертывания. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
+В этой статье показывается, как использовать шаблон Azure Resource Manager, создающий пространство имен служебной шины типа **Messaging** с номером SKU уровня "Стандартный". В этой статье также определяются параметры, которые задаются во время развертывания. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/13/2017
 > 
 
 ## <a name="what-will-you-deploy"></a>Что вы развернете?
-С помощью этого шаблона вы развернете пространство имен служебной шины с SKU уровня ["Базовый", "Стандартный" или "Премиум"](https://azure.microsoft.com/pricing/details/service-bus/).
+С помощью этого шаблона вы развернете пространство имен служебной шины с номером SKU уровня ["Стандартный" или "Премиум"](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
 
@@ -73,7 +73,6 @@ ms.lasthandoff: 04/13/2017
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
-        "Basic", 
         "Standard",
         "Premium" 
     ], 
@@ -84,7 +83,7 @@ ms.lasthandoff: 04/13/2017
 
 ```
 
-В шаблоне определены допустимые значения этого параметра (Basic, Standard и Premium). Если значение не указано, параметру назначается значение по умолчанию (Standard).
+В шаблоне определены допустимые значения этого параметра ("Стандартный" или "Премиум"). Если значение не указано, параметру назначается значение по умолчанию ("Стандартный").
 
 Дополнительные сведения о ценах на использование служебной шины приведены в статье [Service Bus pricing and billing][Service Bus pricing and billing] (Сведения о расценках и выставлении счетов служебной шины).
 

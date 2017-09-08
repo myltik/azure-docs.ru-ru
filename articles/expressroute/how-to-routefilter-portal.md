@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: def88b869b82d2d675ef7e071ee58b08278321d7
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: f17bf3e475a33cfc617e8a026e9606b3792101f3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="configure-route-filters-for-microsoft-peering"></a>Настройка фильтров маршрутов для пиринга Майкрософт
@@ -133,17 +133,17 @@ ms.lasthandoff: 08/24/2017
 
 ## <a name="detach"></a>Отсоединение фильтра маршрутов от канала ExpressRoute
 
-**Эту операцию можно выполнить только в PowerShell.**
+Чтобы отсоединить канал от фильтра маршрутов, щелкните канал правой кнопкой мыши и выберите "Отменить связь".
 
-Как только фильтр маршрутов отсоединяется от канала ExpressRoute, префиксы перестают объявляться через сеанс BGP. Фильтр маршрутов можно отсоединить от канала ExpressRoute с помощью следующей команды:
-  
-```powershell
-$ckt.Peerings[0].RouteFilter = $null
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
+![Создание фильтра маршрута](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+
 
 ## <a name="delete"></a>Удаление фильтра маршрутов
 
 Фильтр маршрута можно удалить, нажав кнопку "Удалить". 
 
 ![Создание фильтра маршрута](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).

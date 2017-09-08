@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 927ec9251b5231a5d9a0e8278f5dc46e9abdde0e
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Предоставление общего доступа к панелям мониторинга Azure с помощью управления доступом на основе ролей
@@ -32,11 +32,11 @@ ms.lasthandoff: 08/24/2017
 > 
 
 ## <a name="understanding-access-control-for-dashboards"></a>Общие сведения о контроле доступа для панелей мониторинга
-С помощью управления доступом на основе ролей пользователям можно назначать роли на трех разных уровнях области:
+С помощью управления доступом на основе ролей пользователям можно назначать роли на трех разных уровнях:
 
-* подписку
-* resource group
-* resource
+* подписка;
+* группа ресурсов;
+* ресурс.
 
 Разрешения, которые вы назначаете, наследуются от подписки до ресурса. Опубликованная панель мониторинга — это ресурс. Значит, пользователям уже могут быть назначены роли для подписки, которая также относится к опубликованной панели мониторинга. 
 

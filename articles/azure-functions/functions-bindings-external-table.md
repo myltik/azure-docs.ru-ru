@@ -4,7 +4,7 @@ description: "Использование привязок внешних таб�
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions
@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 716438e5ea490f6716999813112305499dbe61a8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Привязка внешних таблиц в Функциях Azure (предварительная версия)
@@ -117,7 +116,7 @@ See the language-specific sample that copies the input file to the output file.
 -->
 <a name="incsharp"></a>
 
-### <a name="usage-in-c"></a>Использование в языке C# #
+### <a name="usage-in-c"></a>Использование в языке C# #
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"

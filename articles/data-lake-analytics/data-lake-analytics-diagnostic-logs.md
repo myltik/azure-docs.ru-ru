@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f5fe6db423f1f2faeaf51e25be9b8f5b551e2a16
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Доступ к журналам диагностики для Azure Data Lake Analytics
@@ -78,9 +78,9 @@ ms.lasthandoff: 08/01/2017
 
 3. Щелкните ссылку **Скачать** для записи журнала, чтобы скачать соответствующий журнал.
 
-### <a name="use-the-azure-data-lake-storage-account-that-contains-log-data"></a>Использование учетной записи хранения Azure Data Lake, в которой хранятся данные
+### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Использование учетной записи службы хранилища Azure, в которой хранятся данные
 
-1. Откройте колонку учетной записи хранения Azure Data Lake, связанную с Data Lake Analytics для ведения журнала, и щелкните __BLOB-объекты__. В колонке **Служба BLOB-объектов** отображается два контейнера.
+1. Откройте колонку учетной записи службы хранилища Azure, связанную с Data Lake Analytics для ведения журнала, и щелкните __BLOB-объекты__. В колонке **Служба BLOB-объектов** отображается два контейнера.
 
     ![Просмотр ведения журнала диагностики](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Просмотр журналов диагностики")
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 08/01/2017
 | SubmitTime |Строковый |Время отправки задания (в формате UTC). |
 | StartTime |Строка |Время начала выполнения задания после отправки (в формате UTC). |
 | EndTime |Строка |Время завершения задания. |
-| Parallelism |Строка |Количество единиц Data Lake Analytics, запрошенных для этого задания во время отправки.The number of Data Lake Analytics units requested for this job during submission |
+| Parallelism |Строка |Количество единиц Data Lake Analytics, запрошенных для этого задания во время отправки. |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** и **Parallelism** предоставляют сведения об операции. У этих записей есть значение только в том случае, если операция уже началась или завершилась. Например, у свойства **SubmitTime** значение появляется только после того, как свойство **operationName** получает значение **JobSubmitted**.

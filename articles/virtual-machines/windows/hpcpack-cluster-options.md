@@ -1,5 +1,5 @@
 ---
-title: "Варианты кластера пакета HPC на основе Windows в облаке | Документация Майкрософт"
+title: "Варианты создания кластера пакета HPC на основе Windows в Azure | Документация Майкрософт"
 description: "Узнайте о вариантах создания кластера высокопроизводительных вычислительных систем (HPC) на основе Windows и управления им в облаке Azure с помощью пакета Microsoft HPC."
 services: virtual-machines-windows,cloud-services,batch
 documentationcenter: 
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/06/2017
+ms.date: 08/25/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 96a5520d8440af7d8a880c2675a5d4eb4121e9ab
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b82cb6cc3724af9306bc3b23125cf7cfa03df8ea
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/29/2017
 
 ---
-# <a name="options-with-hpc-pack-to-create-and-manage-a-windows-hpc-cluster-in-azure"></a>Варианты создания в Azure кластера HPC под управлением Windows и управления им с помощью пакета HPC
+# <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-windows-hpc-workloads-in-azure"></a>Варианты создания и администрирования кластера HPC для рабочих нагрузок Windows с помощью пакета HPC в Azure
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
 Эта статья посвящена вариантам создания кластеров HPC для обработки рабочих нагрузок Windows. Кластеры пакетов HPC дают возможность обрабатывать также [рабочие нагрузки HPC для Linux](../linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="run-an-hpc-pack-cluster-in-azure-vms"></a>Запуск кластера пакета HPC на виртуальных машинах Azure
+## <a name="hpc-pack-cluster-in-azure-vms"></a>Кластер пакета HPC на виртуальных машинах Azure
 ### <a name="azure-templates"></a>Шаблоны Azure
 * (GitHub) [Шаблоны кластера пакета HPC 2016](https://github.com/MsHpcPack/HPCPack2016)
 * (Marketplace) [Кластер пакета HPC для рабочих нагрузок Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/03/2017
 * [Вычислительный узел пакета HPC 2012 R2 на Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
 * [Вычислительный узел пакета HPC с Excel на Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
-### <a name="powershell-deployment-script"></a>Сценарий развертывания PowerShell
+### <a name="powershell-deployment-script-for-hpc-pack-2012-r2"></a>Скрипт развертывания PowerShell для пакета HPC 2012 R2
 * [Создание кластера для высокопроизводительных вычислений (HPC) Windows с помощью сценария развертывания пакета HPC в IaaS](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ### <a name="tutorials"></a>Руководства
@@ -60,17 +60,17 @@ ms.lasthandoff: 04/03/2017
 * [Автоматическое изменение размера ресурсов кластера пакета HPC в Azure в соответствии с рабочей нагрузкой кластера](classic/hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Отправка заданий в кластер пакета HPC в Azure](hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Управление заданиями в пакете HPC](https://technet.microsoft.com/library/jj899585.aspx)
-* [Управление кластером пакета HPC в Azure с помощью Azure Active Directory](hpcpack-cluster-active-directory.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Управление кластером пакета HPC 2016 в Azure с помощью Azure Active Directory](hpcpack-cluster-active-directory.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a name="add-worker-role-nodes-to-an-hpc-pack-cluster"></a>Добавление узлов рабочей роли в кластер пакета HPC
+## <a name="burst-with-worker-role-nodes"></a>Ускорение с помощью узлов рабочих ролей 
 * [Ускорение в рабочие экземпляры Azure с помощью пакета HPC](https://technet.microsoft.com/library/gg481749.aspx)
 * [Учебник: настройка гибридного кластера с пакетом HPC в Azure](../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 * [Добавление "расширительных" узлов по запросу в кластер пакета HPC в Azure](classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a name="integrate-with-azure-batch"></a>Интеграция с пакетной службой Azure
+## <a name="burst-with-azure-batch"></a>Ускорение с помощью пакетной службы Azure
 * [Ускорение в пакетную службу Azure с помощью пакета HPC](https://technet.microsoft.com/library/mt612877.aspx)
 
-## <a name="create-rdma-clusters-for-mpi-workloads"></a>Создание кластеров RDMA для рабочих нагрузок MPI
+## <a name="rdma-clusters-for-mpi-workloads"></a>Кластеры RDMA для рабочих нагрузок MPI
 * [Настройка кластера RDMA в Windows с помощью пакета HPC для запуска приложений MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 

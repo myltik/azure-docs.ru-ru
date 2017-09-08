@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9b8033a9dfc8063f96e168a154696e7fe6fef8ff
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 960e5e311571d1054a2ef5c15c33291de27b0878
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Обзор установки заданий обработки эластичных баз данных
@@ -95,7 +94,7 @@ ms.lasthandoff: 04/27/2017
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Указывает цель уровня обслуживания для стандартного выпуска. Значение по умолчанию: S0. Допускаются значения S0/S1/S2/S3, которые указывают Базе данных SQL Azure использовать соответствующую цель уровня обслуживания (SLO). Чтобы узнать больше о размерах рабочей роли, ознакомьтесь с [компонентами службы заданий эластичных баз данных и ценами](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Указывает цель уровня обслуживания для стандартного выпуска. Значение по умолчанию: S0. Допускаются значения S0/S1/S2/S3/S4/S6/S9/S12, которые указывают базе данных SQL Azure использовать соответствующую цель уровня обслуживания (SLO). Чтобы узнать больше о размерах рабочей роли, ознакомьтесь с [компонентами службы заданий эластичных баз данных и ценами](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>

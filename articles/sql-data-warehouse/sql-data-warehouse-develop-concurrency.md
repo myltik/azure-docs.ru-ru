@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1ab2a8253684c62be650eed2ea5f69c62188a22
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL
@@ -152,7 +152,7 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 ## <a name="concurrency-slot-consumption"></a>Использование слотов выдачи  
 Хранилище данных SQL предоставляет больше памяти запросам, выполняемым при более высоких классах ресурсов. Память — фиксированный ресурс.  Таким образом чем больше памяти выделяется на один запрос, тем меньше параллельных запросов можно выполнять. В следующей таблице все вышесказанное сведено в одно представление. В нем приведено количество слотов выдачи, доступное для определенного значения DWU, а также показатель их использования по классам ресурсов.  
 
-### <a name="allocation-and-consumption-of-concurrency-slots"></a>Выделение и использование слотов выдачи  
+### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>Выделение и использование слотов параллельности для классов динамических ресурсов  
 | DWU | Максимальное число одновременных запросов | Число выделенных слотов выдачи | Слоты, используемые smallrc | Слоты, используемые mediumrc | Слоты, используемые largerc | Слоты, используемые xlargerc |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4. |4. |1 |1 |2 |4. |
@@ -168,10 +168,10 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
-### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>Выделение и использование слотов выдачи для классов статических ресурсов
+### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>Выделение и использование слотов выдачи для классов статических ресурсов  
 | DWU | Максимальное число одновременных запросов | Число выделенных слотов выдачи |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| DW100 |4. |4. |1 |2 |4. |4 |4. |4. |4. |4. |
+| DW100 |4. |4. |1 |2 |4. |4. |4. |4. |4. |4. |
 | DW200 |8 |8 |1 |2 |4. |8 |8 |8 |8 |8 |
 | DW300 |12 |12 |1 |2 |4. |8 |8 |8 |8 |8 |
 | DW400 |16 |16 |1 |2 |4. |8 |16 |16 |16 |16 |

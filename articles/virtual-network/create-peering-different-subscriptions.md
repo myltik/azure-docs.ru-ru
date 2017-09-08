@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: jdial;narayan;annahar
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 84bbf90257f038fb5f3e964b7b35419acd77fc6d
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 0f49c875ff5592b3f21e9caf343554172b209935
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Создание пиринга виртуальных сетей, развернутых с помощью Resource Manager в разных подписках 
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/26/2017
 
 Невозможно создать пиринг между двумя виртуальными сетями, созданными с помощью классической модели развертывания. Пиринг виртуальных сетей можно создать только между двумя виртуальными сетями, размещенными в одном регионе Azure. При создании пиринга между виртуальными сетями, которые существуют в разных подписках, эти подписки должны быть связаны с одним клиентом Azure Active Directory. Если у вас еще нет клиента Azure Active Directory, можно быстро [создать его](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Если вам необходимо подключить виртуальные сети, созданные с помощью классической модели развертывания, расположенные в разных регионах Azure или находящиеся в подписках, связанных с разными клиентами Azure Active Directory, можно использовать [VPN-шлюз](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure. 
 
-Для создания пиринга виртуальных сетей можно использовать [портал Azure](#portal), [интерфейс командной строки](#cli) Azure (Azure CLI) или Azure [PowerShell](#powershell). Щелкните любую из предыдущих ссылок на инструмент, чтобы перейти непосредственно к инструкциям по созданию пиринга виртуальных сетей с помощью выбранного инструмента.
+Для создания пиринга виртуальных сетей можно использовать [портал Azure](#portal), [интерфейс командной строки](#cli) Azure (Azure CLI), Azure [PowerShell](#powershell) или [шаблон Azure Resource Manager](#template). Щелкните любую из предыдущих ссылок на инструмент, чтобы перейти непосредственно к инструкциям по созданию пиринга виртуальных сетей с помощью выбранного инструмента.
 
 ## <a name="portal"></a>Создание пиринга с помощью портала Azure
 
@@ -239,6 +239,47 @@ ms.lasthandoff: 07/26/2017
 
 13. **Необязательно**. Хотя в этом руководстве не рассматривается создание виртуальных машин, можно создать по виртуальной машине в каждой виртуальной сети и подключить их между собой, чтобы проверить связь.
 14. **Необязательно**. Чтобы удалить ресурсы, созданные в этом руководстве, выполните инструкции, описанные в разделе [Удаление ресурсов](#delete-powershell) этой статьи.
+
+## <a name="template"></a>Создание пиринга с помощью шаблона Resource Manager
+
+1. Выполните действия в разделе для [портала](#portal), [Azure CLI](#cli) или [PowerShell](#powershell) этой статьи, чтобы создать виртуальную сеть и назначить соответствующие [ разрешения](#permissions) учетной записи в каждой подписке.
+2. Сохраните текст после файла на локальном компьютере. Замените `<subscription ID>` идентификатором подписки пользователя A. Файл можно сохранить как vnetpeeringA.json, например.
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+        },
+        "variables": {
+        },
+    "resources": [
+            {
+            "apiVersion": "2016-06-01",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "myVnetA/myVnetAToMyVnetB",
+            "location": "[resourceGroup().location]",
+            "properties": {
+            "allowVirtualNetworkAccess": true,
+            "allowForwardedTraffic": false,
+            "allowGatewayTransit": false,
+            "useRemoteGateways": false,
+                "remoteVirtualNetwork": {
+                "id": "/subscriptions/<subscription ID>/resourceGroups/PeeringTest/providers/Microsoft.Network/virtualNetworks/myVnetB"
+                }
+            }
+            }
+        ]
+    }
+    ```
+
+3. Войдите в Azure в качестве пользователя A и разверните шаблон с помощью [портала](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine) или [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Укажите имя файла, в котором вы сохранили текст JSON на шаге 2.
+4. Скопируйте пример JSON-файла, полученный на шаге 2, в файл на компьютере и внесите изменения в строки, начинающиеся с:
+    - **name**: измените *myVnetA/myVnetAToMyVnetB* на *myVnetB/myVnetBToMyVnetA*.
+    - **id**: замените `<subscription ID>` идентификатором подписки пользователя B и измените *myVnetB* на *myVnetA*.
+5. Выполните шаг 3, войдя в Azure как пользователь B.
+6. **Необязательно**. Хотя в этом руководстве не рассматривается создание виртуальных машин, можно создать по виртуальной машине в каждой виртуальной сети и подключить их между собой, чтобы проверить связь.
+7. **Необязательно**. Чтобы удалить ресурсы, созданные в этом руководстве, выполните инструкции в разделе [Удаление ресурсов](#delete) этой статьи. Для этого можно использовать портал Azure, PowerShell или Azure CLI.
 
 ## <a name="permissions"></a>Разрешения
 

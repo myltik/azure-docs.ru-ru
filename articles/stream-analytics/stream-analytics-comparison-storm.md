@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4c0c7c185943eb292d816e2047de930245a3e1e1
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Выбор платформы потоковой аналитики: сравнение Apache Storm и Azure Stream Analytics
@@ -231,29 +231,12 @@ Azure предоставляет несколько решений для ана
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Поддержка определяемых пользователем функций</strong>
-                </p>
-            </td>
-            <td width="204" valign="top">
-                <p>
-Запросы поддерживают определяемые пользователем функции JavaScript. Дополнительные сведения см. в статье <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">Определяемые пользователем функции JavaScript в Azure Stream Analytics</a>.
-                </p>
-            </td>
-            <td width="246" valign="top">
-                <p>
-Определяемые пользователем функции могут быть написаны на C#, Java или любом другом языке.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="174" valign="top">
-                <p>
                     <strong>Расширяемый пользовательский код</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-Нет. Расширяемый код не поддерживается в Stream Analytics.
+Частичная поддержка с помощью определяемых пользователем функций JavaScript. Дополнительные сведения см. в статье <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">Определяемые пользователем функции JavaScript в Azure Stream Analytics</a>.
                 </p>
             </td>
             <td width="246" valign="top">

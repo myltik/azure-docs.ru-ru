@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 851ce819b9a1a0d917981223cc54e959b3306709
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -62,10 +62,10 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 
 С помощью [Docker Compose](https://docs.docker.com/compose/) можно автоматизировать создание дополнительных образов контейнеров и развертывание многоконтейнерных приложений.
 
-Выполните файл docker-compose.yaml, чтобы создать образ контейнера, скачать образ Redis и запустить приложение.
+Выполните файл docker-compose.yml, чтобы создать образ контейнера, скачать образ Redis и запустить приложение.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml up -d
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
 ```
 
 После завершения выполните команду [docker images](https://docs.docker.com/engine/reference/commandline/images/), чтобы увидеть созданные образы.
@@ -110,13 +110,13 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 Чтобы остановить запущенные контейнеры, выполните следующую команду:
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml stop
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
 ```
 
 Чтобы удалить остановленные контейнеры, выполните следующую команду:
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml rm
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
 ```
 
 По завершении у вас будет образ контейнера, содержащий приложение Azure Vote.

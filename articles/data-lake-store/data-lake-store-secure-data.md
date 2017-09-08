@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 337c6142c27314150a21f1c80a17aae17cd0d67f
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Защита данных, хранимых в хранилище озера данных Azure
 Для защиты данных, хранимых в хранилище озера данных Azure, необходимо выполнить три шага.
 
-1. Начните с создания групп безопасности в Azure Active Directory (AAD). Эти группы безопасности используются для реализации контроля доступа на основе ролей (RBAC) на портале Azure. Дополнительные сведения см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
+1. Начните с создания групп безопасности в Azure Active Directory (AAD). Эти группы безопасности используются для реализации управления доступом на основе ролей (RBAC) на портале Azure. Дополнительные сведения см. в статье [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
 2. Назначьте группы безопасности AAD учетной записи хранения озера данных Azure. Это позволит контролировать доступ к учетной записи хранения озера данных с портала и операции управления с портала или через API-интерфейсы.
 3. Назначьте группы безопасности AAD как списки контроля доступа (ACL) в файловой системе хранилища озера данных.
 4. Кроме того, вы также можете задать диапазон IP-адресов для клиентов с доступом к данным в хранилище озера данных.

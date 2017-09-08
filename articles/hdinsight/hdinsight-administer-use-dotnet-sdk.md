@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: c10471425fa1202ddb7fe35d0adf4ef33509f268
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e3e67ab865a68867a3f76fe4cce51685f9ea98dd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Управление кластерами Hadoop в HDInsight с помощью пакета SDK для .NET
@@ -37,78 +36,82 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="connect-to-azure-hdinsight"></a>Подключение к Azure HDInsight
 
-Необходимо установить следующие пакеты Nuget:
+Необходимо установить следующие пакеты NuGet:
 
-    Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager -Pre
-    Install-Package Microsoft.Azure.Management.HDInsight
+```
+Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
+Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+Install-Package Microsoft.Azure.Management.HDInsight
+```
 
 В следующем примере кода показано, как подключиться к Azure, прежде чем администрировать кластеры HDInsight в подписке Azure.
 
-    using System;
-    using Microsoft.Azure;
-    using Microsoft.Azure.Management.HDInsight;
-    using Microsoft.Azure.Management.HDInsight.Models;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Rest;
-    using Microsoft.Rest.Azure.Authentication;
+```csharp
+using System;
+using Microsoft.Azure;
+using Microsoft.Azure.Management.HDInsight;
+using Microsoft.Azure.Management.HDInsight.Models;
+using Microsoft.Azure.Management.ResourceManager;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Rest;
+using Microsoft.Rest.Azure.Authentication;
 
-    namespace HDInsightManagement
+namespace HDInsightManagement
+{
+    class Program
     {
-        class Program
+        private static HDInsightManagementClient _hdiManagementClient;
+        // Replace with your AAD tenant ID if necessary
+        private const string TenantId = UserTokenProvider.CommonTenantId; 
+        private const string SubscriptionId = "<Your Azure Subscription ID>";
+        // This is the GUID for the PowerShell client. Used for interactive logins in this example.
+        private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
+
+        static void Main(string[] args)
         {
-            private static HDInsightManagementClient _hdiManagementClient;
-            // Replace with your AAD tenant ID if necessary
-            private const string TenantId = UserTokenProvider.CommonTenantId; 
-            private const string SubscriptionId = "<Your Azure Subscription ID>";
-            // This is the GUID for the PowerShell client. Used for interactive logins in this example.
-            private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
+            // Authenticate and get a token
+            var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
+            // Flag subscription for HDInsight, if it isn't already.
+            EnableHDInsight(authToken);
+            // Get an HDInsight management client
+            _hdiManagementClient = new HDInsightManagementClient(authToken);
 
-            static void Main(string[] args)
-            {
-                // Authenticate and get a token
-                var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
-                // Flag subscription for HDInsight, if it isn't already.
-                EnableHDInsight(authToken);
-                // Get an HDInsight management client
-                _hdiManagementClient = new HDInsightManagementClient(authToken);
+            // insert code here
 
-                // insert code here
+            System.Console.WriteLine("Press ENTER to continue");
+            System.Console.ReadLine();
+        }
 
-                System.Console.WriteLine("Press ENTER to continue");
-                System.Console.ReadLine();
-            }
-
-            /// <summary>
-            /// Authenticate to an Azure subscription and retrieve an authentication token
-            /// </summary>
-            static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
-            {
-                var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
-                var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
-                    ClientId, 
-                    new Uri("urn:ietf:wg:oauth:2.0:oob"), 
-                    PromptBehavior.Always, 
-                    UserIdentifier.AnyUser);
-                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
-            }
-            /// <summary>
-            /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
-            /// </summary>
-            /// <remarks>This is essentially a one-time action; if you have already done something with HDInsight
-            /// on your subscription, then this isn't needed at all and will do nothing.</remarks>
-            /// <param name="authToken">An authentication token for your Azure subscription</param>
-            static void EnableHDInsight(TokenCloudCredentials authToken)
-            {
-                // Create a client for the Resource manager and set the subscription ID
-                var resourceManagementClient = new ResourceManagementClient(new TokenCredentials(authToken.Token));
-                resourceManagementClient.SubscriptionId = SubscriptionId;
-                // Register the HDInsight provider
-                var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
-            }
+        /// <summary>
+        /// Authenticate to an Azure subscription and retrieve an authentication token
+        /// </summary>
+        static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
+        {
+            var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
+            var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
+                ClientId, 
+                new Uri("urn:ietf:wg:oauth:2.0:oob"), 
+                PromptBehavior.Always, 
+                UserIdentifier.AnyUser);
+            return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
+        }
+        /// <summary>
+        /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
+        /// </summary>
+        /// <remarks>This is essentially a one-time action; if you have already done something with HDInsight
+        /// on your subscription, then this isn't needed at all and will do nothing.</remarks>
+        /// <param name="authToken">An authentication token for your Azure subscription</param>
+        static void EnableHDInsight(TokenCloudCredentials authToken)
+        {
+            // Create a client for the Resource manager and set the subscription ID
+            var resourceManagementClient = new ResourceManagementClient(new TokenCredentials(authToken.Token));
+            resourceManagementClient.SubscriptionId = SubscriptionId;
+            // Register the HDInsight provider
+            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
     }
+}
+```
 
 При запуске этой программы появится запрос.  Если запрос не появится, обратитесь к статье [Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
@@ -118,19 +121,23 @@ ms.lasthandoff: 05/26/2017
 ## <a name="list-clusters"></a>Получение списка кластеров
 В следующем фрагменте кода перечислены кластеры и некоторые свойства:
 
-    var results = _hdiManagementClient.Clusters.List();
-    foreach (var name in results.Clusters) {
-        Console.WriteLine("Cluster Name: " + name.Name);
-        Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
-        Console.WriteLine("\t Cluster location: " + name.Location);
-        Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
-    }
+```csharp
+var results = _hdiManagementClient.Clusters.List();
+foreach (var name in results.Clusters) {
+    Console.WriteLine("Cluster Name: " + name.Name);
+    Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
+    Console.WriteLine("\t Cluster location: " + name.Location);
+    Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
+}
+```
 
 ## <a name="delete-clusters"></a>Удаление кластеров
 Для синхронного или асинхронного удаления кластера используйте следующий фрагмент кода: 
 
-    _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
-    _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
+```csharp
+_hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
+_hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
+```
 
 ## <a name="scale-clusters"></a>Масштабирование кластеров
 Масштабирование кластера позволяет изменить количество рабочих узлов в кластере, который работает под управлением Azure HDInsight. При этом не требуется повторно создавать кластер.
@@ -151,9 +158,11 @@ ms.lasthandoff: 05/26/2017
   
     Вы можете с легкостью добавлять и удалять узлы данных в работающем кластере HBase. Балансировка региональных серверов выполняется автоматически в течение нескольких минут после завершения операции масштабирования. Но их также можно сбалансировать вручную, выполнив вход в головной узел кластера и выполнив следующие команды в окне командной строки:
   
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
 * Storm
   
     Вы можете с легкостью добавлять и удалять узлы данных в работающем кластере Storm. Но после успешного завершения операции масштабирования потребуется повторная балансировка топологии.
@@ -171,16 +180,19 @@ ms.lasthandoff: 05/26/2017
     
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
     
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 В следующем фрагменте кода показано синхронное или асинхронное изменение размера кластера:
 
-    _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
-    _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
-
+```csharp
+_hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+_hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+```
 
 ## <a name="grantrevoke-access"></a>Предоставление и отмена доступа
 В кластерах HDInsight имеются следующие веб-службы HTTP (все эти службы имеют конечные точки RESTful):
@@ -193,24 +205,27 @@ ms.lasthandoff: 05/26/2017
 
 По умолчанию эти службы предоставляются для доступа. Вы можете отменить или предоставить доступ. Для отмены:
 
-    var httpParams = new HttpSettingsParameters
-    {
-        HttpUserEnabled = false,
-        HttpUsername = "admin",
-        HttpPassword = "*******",
-    };
-    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```csharp
+var httpParams = new HttpSettingsParameters
+{
+    HttpUserEnabled = false,
+    HttpUsername = "admin",
+    HttpPassword = "*******",
+};
+_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```
 
 Для предоставления:
 
-    var httpParams = new HttpSettingsParameters
-    {
-        HttpUserEnabled = enable,
-        HttpUsername = "admin",
-        HttpPassword = "*******",
-    };
-    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
-
+```csharp
+var httpParams = new HttpSettingsParameters
+{
+    HttpUserEnabled = enable,
+    HttpUsername = "admin",
+    HttpPassword = "*******",
+};
+_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```
 
 > [!NOTE]
 > Предоставляя или отменяя доступ, вы сбрасываете имя пользователя и пароль кластера.
@@ -225,12 +240,13 @@ ms.lasthandoff: 05/26/2017
 ## <a name="find-the-default-storage-account"></a>Поиск учетной записи хранения по умолчанию
 В следующем фрагменте кода показано получение имени учетной записи хранения по умолчанию и ключа учетной записи хранения по умолчанию для кластера.
 
-    var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
-    foreach (var key in results.Configuration.Keys)
-    {
-        Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
-    }
-
+```csharp
+var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
+foreach (var key in results.Configuration.Keys)
+{
+    Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
+}
+```
 
 ## <a name="submit-jobs"></a>Отправка заданий
 **Отправка заданий MapReduce**

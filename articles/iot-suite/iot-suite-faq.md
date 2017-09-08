@@ -15,21 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: corywink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 9f850175be843b29432c4803a150ddb2ec79780d
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 85867fb8d18377637b3aa848555831a8d9b53512
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Часто задаваемые вопросы об IoT Suite
+
+Дополнительные сведения см. также в статье [Часто задаваемые вопросы о предварительно настроенном решении для подключенной фабрики IoT Suite](iot-suite-faq-cf.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Где можно найти исходный код для предварительно настроенных решений?
 
 Исходный код хранится в следующих репозиториях GitHub:
 * [Предварительно настроенное решение для удаленного мониторинга][lnk-remote-monitoring-github]
 * [Предварительно настроенное решение по диагностическому обслуживанию][lnk-predictive-maintenance-github]
+* [Предварительно настроенное решение для подключенной фабрики](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Как обновить до последней версии предварительно настроенное решение удаленного мониторинга, которое использует функции управления устройствами Центра Интернета вещей?
 
@@ -95,22 +97,14 @@ ms.lasthandoff: 05/26/2017
 
 Ознакомьтесь с записью блога Эрика Голпа (Eric Golpe) [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Пошаговое руководство по удалению клиента Azure AD).
 
-### <a name="what-is-opc-ua"></a>Что такое OPC UA?
-
-Унифицированная архитектура OPC (OPC UA, выпущена в 2008 г.) — это независящий от платформы, сервисориентированный стандарт взаимодействия, который используется для различных производственных систем и устройств, например производственных компьютеров, контроллеров ПЛК и датчиков. В OPC UA интегрированы все функции отдельных спецификаций классической технологии OPC с одной расширяемой платформой со встроенными средствами обеспечения безопасности. Этим стандартом управляет OPC Foundation. [OPC Foundation][lnk-opc-foundation] — некоммерческая организация, в которую входит более 440 членов, объединенных общей целью: предоставить инфраструктуру, спецификации, технологии и процессы, которые упростят обеспечение безопасного и надежного взаимодействия нескольких поставщиков, нескольких платформ с использованием спецификаций OPC.
-
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Почему корпорация Майкрософт выбрала OPC UA для предварительно настроенного решения для подключенной фабрики?
-
-Корпорация Майкрософт выбрала OPC UA, потому что это открытый, незапатентованный и общепризнанный отраслевой стандарт, независящий от платформы. Это требование для решений эталонной архитектуры Industrie 4.0 (RAMI 4.0), чтобы обеспечить взаимодействие между разнообразными производственными процессами и оборудованием. Корпорация Майкрософт знает о том, что сборка решений Industrie 4.0 пользуется спросом у клиентов. Поддержка OPC UA позволяет клиентам избавиться от препятствий на пути к своим целям и обеспечивает непосредственную ценность для бизнеса клиентов.
-
 ### <a name="next-steps"></a>Дальнейшие действия
 
 Вы также можете ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
 
 * [Обзор предварительно настроенного решения прогнозируемого обслуживания][lnk-predictive-overview]
+* [Начало работы с предварительно настроенным решением для подключенной фабрики](iot-suite-connected-factory-overview.md)
 * [Все аспекты безопасности Интернета вещей][lnk-security-groundup]
 
-[lnk-opc-foundation]: http://opcfoundation.org/
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 

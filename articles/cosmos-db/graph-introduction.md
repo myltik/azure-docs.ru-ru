@@ -10,21 +10,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/21/2017
+ms.date: 08/29/2017
 ms.author: denlee
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 4ee52c2665d5856cb0022365edf0485458b629fe
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: af4c67accf43c2f4f1498e3cafad6e9087a923af
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Знакомство с базой данных Azure Cosmos DB. API Graph
 
-[Azure Cosmos DB](introduction.md) — это глобально распределенная, многомодельная служба базы данных Майкрософт, необходимая для работы с критически важными приложениями. Эта служба базы данных обеспечивает [готовое к использованию глобальное распределение](distribute-data-globally.md), [гибкое масштабирование пропускной способности и хранилища](partition-data.md) по всему миру, задержки менее 10 миллисекунд на уровне 99-го процентиля, [пять четко определенных уровней согласованности](consistency-levels.md), а также гарантированную высокую доступность — все это согласно [ведущим в отрасли соглашениям об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [автоматически индексирует данные](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) без необходимости управлять схемой и индексом. Так как эта база данных является многомодельной, она поддерживает модели данных документа, "ключ — значение", графа и столбчатые модели данных.
+[Azure Cosmos DB](introduction.md) — это глобально распределенная, многомодельная служба базы данных Майкрософт, необходимая для работы с критически важными приложениями. Эта служба базы данных обеспечивает [готовое к использованию глобальное распределение](distribute-data-globally.md), [гибкое масштабирование пропускной способности и хранилища](partition-data.md) по всему миру, задержки менее 10 миллисекунд на уровне 99-го процентиля, [пять четко определенных уровней согласованности](consistency-levels.md), а также гарантированную высокую доступность — все это согласно [ведущим в отрасли соглашениям об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [автоматически индексирует данные](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) без необходимости управлять схемой и индексом. Так как эта база данных является многомодельной, она поддерживает модели данных документа, пары "ключ — значение", графа и столбчатые модели данных.
 
-![База данных Azure Cosmos DB, граф и Gremlin](./media/graph-introduction/graph-gremlin.png)
+Мы рекомендуем просмотреть следующий видеоролик, в котором Кирилл Гаврилюк объясняет, как начать работу с графами Azure Cosmos DB.
 
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
+> 
+> 
 API Graph для базы данных Azure Cosmos DB предоставляет:
 
 - Моделирование графов.

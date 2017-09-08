@@ -14,20 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: c47dabd7c4aa4ba0be08c419989e536711f03677
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 3522cae228e92b47023cfca217e09c2e2104190b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. В этой статье вы узнаете, как управлять кластерами Hadoop в Azure HDInsight с помощью локальной консоли Azure PowerShell, используя Windows PowerShell. Список командлетов HDInsight PowerShell см. в [справочнике по командлетам HDInsight][hdinsight-powershell-reference].
+Azure PowerShell можно использовать для контроля и автоматизации развертывания рабочих нагрузок, а также управления ими в Azure. В этой статье вы узнаете, как управлять кластерами Hadoop в Azure HDInsight с помощью Azure PowerShell. Список командлетов HDInsight PowerShell см. в [справочнике по командлетам HDInsight][hdinsight-powershell-reference].
 
 **Предварительные требования**
 
@@ -42,7 +41,9 @@ Azure PowerShell — это полнофункциональная среда с
 
 Проверка версии установленной оболочки PowerShell:
 
-    Get-Module *azure*
+```powershell
+Get-Module *azure*
+```
 
 Для удаления старой версии запустите "Программы и компоненты" в панели управления.
 
@@ -52,21 +53,29 @@ Azure PowerShell — это полнофункциональная среда с
 ## <a name="list-clusters"></a>Получение списка кластеров
 Чтобы получить список всех кластеров в текущей подписке, используйте следующую команду:
 
-    Get-AzureRmHDInsightCluster
+```powershell
+Get-AzureRmHDInsightCluster
+```
 
 ## <a name="show-cluster"></a>Отображение кластеров
 Чтобы отобразить сведения о конкретном кластере в текущей подписке, используйте следующую команду:
 
-    Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```powershell
+Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```
 
 ## <a name="delete-clusters"></a>Удаление кластеров
 Используйте следующую команду для удаления кластера:
 
-    Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```powershell
+Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```
 
-Можно также удалить кластер, удалив группу ресурсов, которая содержит этот кластер. Обратите внимание, это приведет к удалению всех ресурсов в группе, включая учетную запись хранения по умолчанию.
+Можно также удалить кластер, удалив группу ресурсов, которая содержит этот кластер. Удаление группы ресурсов приведет к удалению всех ресурсов в группе, включая учетную запись хранения по умолчанию.
 
-    Remove-AzureRmResourceGroup -Name <Resource Group Name>
+```powershell
+Remove-AzureRmResourceGroup -Name <Resource Group Name>
+```
 
 ## <a name="scale-clusters"></a>Масштабирование кластеров
 Масштабирование кластера позволяет изменить количество рабочих узлов в кластере, который работает под управлением Azure HDInsight. При этом не требуется повторно создавать кластер.
@@ -82,14 +91,17 @@ Azure PowerShell — это полнофункциональная среда с
 
     Вы можете легко увеличить количество рабочих узлов в работающем кластере Hadoop. Это не помешает обработке заданий в состоянии ожидания и выполнения. В ходе выполнения операции можно также отправлять новые задания. Сбои операции масштабирования обрабатываются корректно, поэтому кластер всегда пребывает в функциональном состоянии.
 
-    Если уменьшить масштаб кластера Hadoop, сократив количество узлов данных, некоторые службы в нем будут перезапущены. Это приведет к сбою всех выполняющихся и ожидающих заданий при завершении операции масштабирования. Однако после завершения операции вы можете повторно отправить задания.
+    Если уменьшить масштаб кластера Hadoop, сократив количество узлов данных, некоторые службы в нем будут перезапущены. Перезапуск служб приведет к сбою всех выполняющихся и ожидающих заданий при завершении операции масштабирования. Однако после завершения операции вы можете повторно отправить задания.
 * HBase
 
-    Вы можете с легкостью добавлять и удалять узлы данных в работающем кластере HBase. Балансировка региональных серверов выполняется автоматически в течение нескольких минут после завершения операции масштабирования. Но их также можно сбалансировать вручную, выполнив вход в головной узел кластера и выполнив следующие команды в окне командной строки:
+    Вы можете с легкостью добавлять и удалять узлы данных в работающем кластере HBase. Балансировка региональных серверов выполняется автоматически в течение нескольких минут после завершения операции масштабирования. Но их также можно сбалансировать вручную, выполнив вход на головной узел кластера и выполнив приведенные ниже команды в окне командной строки.
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
+
 * Storm
 
     Вы можете с легкостью добавлять и удалять узлы данных в работающем кластере Storm. Но после успешного завершения операции масштабирования потребуется повторная балансировка топологии.
@@ -99,7 +111,7 @@ Azure PowerShell — это полнофункциональная среда с
   * с помощью веб-интерфейса Storm;
   * с помощью программы командной строки.
 
-    Дополнительные сведения см. в [документации по Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Дополнительные сведения см. в [документации по Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     В кластере HDInsight доступен веб-интерфейс Storm.
 
@@ -107,14 +119,18 @@ Azure PowerShell — это полнофункциональная среда с
 
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 Чтобы изменить размер кластера Hadoop с помощью Azure PowerShell, выполните следующую команду с клиентского компьютера:
 
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+```powershell
+Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+```
 
 
 ## <a name="grantrevoke-access"></a>Предоставление и отмена доступа
@@ -128,52 +144,73 @@ Azure PowerShell — это полнофункциональная среда с
 
 По умолчанию эти службы предоставляются для доступа. Вы можете отменить или предоставить доступ. Для отмены:
 
-    Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+```powershell
+Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+```
 
 Для предоставления:
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+$clusterName = "<HDInsight Cluster Name>"
 
-    # Credential option 1
-    $hadoopUserName = "admin"
-    $hadoopUserPassword = "<Enter the Password>"
-    $hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
+# Credential option 1
+$hadoopUserName = "admin"
+$hadoopUserPassword = "<Enter the Password>"
+$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
 
-    # Credential option 2
-    #$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+# Credential option 2
+#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
 
-    Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+```
 
 > [!NOTE]
-> Предоставляя или отменяя доступ, вы сбрасываете имя пользователя и пароль кластера.
+> Предоставляя или отменяя доступ, вы сбрасываете имя пользователя кластера и его пароль.
 >
 >
 
-Это также можно сделать через портал. Ознакомьтесь с разделом [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal].
+Предоставить и отменить доступ можно также на портале. Ознакомьтесь с разделом [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>Обновление учетных данных пользователя HTTP
-Эта процедура аналогична [предоставлению или запрету доступа HTTP](#grant/revoke-access). Если кластеру был предоставлен доступ по протоколу HTTP, необходимо сначала отменить его.  После этого предоставьте доступ с новыми учетными данными пользователя HTTP.
+Процедура та же, что и при [предоставлении или отмене доступа по протоколу HTTP](#grant/revoke-access). Если кластеру был предоставлен доступ по протоколу HTTP, то сначала его необходимо отменить.  После этого предоставьте доступ с новыми учетными данными пользователя HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Поиск учетной записи хранения по умолчанию
-В следующем сценарии Powershell показано получение имени учетной записи хранения по умолчанию и ключа учетной записи хранения по умолчанию для кластера.
+В следующем сценарии PowerShell показано получение имени учетной записи хранения по умолчанию и связанной информации.
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+#Login-AzureRmAccount
+$clusterName = "<HDInsight Cluster Name>"
 
-    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroupName = $cluster.ResourceGroup
-    $defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
+$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
+$defaultStoreageType = $storageInfo[1]
+$defaultStorageName = $storageInfo[0]
+
+echo "Default Storage account name: $defaultStorageName"
+echo "Default Storage account type: $defaultStoreageType"
+
+if ($defaultStoreageType -eq "blob")
+{
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
     $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
+    echo "Default Blob container name: $defaultBlobContainerName"
+    echo "Default Storage account key: $defaultStorageAccountKey"
+}
+```
+
+
 ## <a name="find-the-resource-group"></a>Поиск группы ресурсов
 В режиме Resource Manager каждый кластер HDInsight относится к группе ресурсов Azure.  Поиск группы ресурсов:
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+$clusterName = "<HDInsight Cluster Name>"
 
-    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroupName = $cluster.ResourceGroup
+$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$resourceGroupName = $cluster.ResourceGroup
+```
 
 
 ## <a name="submit-jobs"></a>Отправка заданий

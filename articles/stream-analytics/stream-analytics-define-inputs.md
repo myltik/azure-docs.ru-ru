@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 09066927641054acb8c53a3585e111df87893e50
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Подключение данных: узнайте о потоках входных данных из событий в Stream Analytics
@@ -126,7 +126,7 @@ FROM Input
 Входным данным в формате CSV *необходимо*, чтобы строка заголовка определяла поля для набора данных. Кроме того, все поля заголовка строки должны быть уникальными.
 
 > [!NOTE]
-> Stream Analytics не поддерживает добавление содержимого в существующий большой двоичный объект. Stream Analytics просматривает большой двоичный объект только один раз, и любые изменения, которые произойдут в нем после того, как задание прочитает данные, не обрабатываются. Мы рекомендуем отправлять все данные за один раз, а затем не добавлять события в хранилище больших двоичных объектов.
+> Stream Analytics не поддерживает добавление содержимого в существующий файл большого двоичного объекта. Stream Analytics просматривает каждый файл только один раз, и любые изменения, которые произойдут в нем после того, как задание прочитает данные, не обрабатываются. Мы рекомендуем отправлять все данные для файла большого двоичного объекта за один раз, а затем добавлять более новые события в другой новый файл большого двоичного объекта.
 > 
 
 ### <a name="configure-blob-storage-as-a-data-stream-input"></a>Настройка хранилища BLOB-объектов в качестве потока входных данных
@@ -165,7 +165,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Получение справки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы ознакомились с параметрами подключения данных для заданий Stream Analytics в Azure. Дополнительные сведения о службе Stream Analytics см. в следующих статьях:

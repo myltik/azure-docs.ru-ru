@@ -6,16 +6,16 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
-ms.topic: article
+ms.topic: sample
 ms.custom: mvc
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 53ec86dc9e9f9011b754b798e57d8caa40a0706a
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 99915e40bc0c2cc94cf1fdd3115eba02ae57ab7f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Примеры Azure CLI для базы данных Azure для MySQL 
@@ -27,5 +27,7 @@ ms.lasthandoff: 05/26/2017
 | [Создание сервера MySQL и настройка правила брандмауэра с помощью Azure CLI](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Скрипт Azure CLI, который создает отдельный сервер базы данных Azure для MySQL и настраивает правило брандмауэра на уровне сервера. |
 |**Масштабирование сервера**||
 | [Мониторинг и масштабирование сервера базы данных Azure для MySQL с помощью Azure CLI](./scripts/sample-scale-server.md?toc=%2fcli%2fazure%2ftoc.json) | Скрипт Azure CLI, который масштабирует отдельный сервер базы данных Azure для MySQL с учетом меняющихся требований к производительности. |
+|**Изменение конфигурации сервера**||
+| [Изменение конфигурации сервера](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Скрипт Azure CLI, который изменяет конфигурацию отдельной базы данных Azure для сервера MySQL. |
 |||
 

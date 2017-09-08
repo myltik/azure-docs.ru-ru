@@ -4,7 +4,7 @@ description: "В этом разделе показано, как вставля
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972
 ms.service: media-services
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: aaa0e2757875d8f9ac6a19f218bfb19bf9870b0d
-ms.openlocfilehash: 54cf700463ff0a08f5f28a3d2b66c8814ab0a764
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Вставка рекламы на стороне клиента
@@ -30,7 +31,7 @@ ms.openlocfilehash: 54cf700463ff0a08f5f28a3d2b66c8814ab0a764
 > 
 > 
 
-## <a name="a-idinsertadsintomediaainserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>Вставка рекламы в мультимедиа
+## <a id="insert_ads_into_media"></a>Вставка рекламы в мультимедиа
 Службы мультимедиа Azure поддерживают вставку рекламы с помощью платформ проигрывателя Windows Media. Платформы проигрывателя с поддержкой рекламы доступны для устройств Windows 8, Silverlight, Windows Phone 8 и iOS. Каждая платформа проигрывателя содержит образец кода, демонстрирующий реализацию приложения проигрывателя. Существует три вида рекламы, которые можно вставить в media:list.
 
 * **Линейная** — реклама на весь кадр, которая приостанавливает основное видео.
@@ -154,7 +155,7 @@ VAST-файл определяет, какие рекламные ролики �
     </Creative>
 
 
-В элементе <**NonLinearAds**> могут содержаться один или несколько элементов <**NonLinear**>, каждый из которых описывает нелинейное рекламное объявление. Элемент <**NonLinear**> определяет ресурс для нелинейной рекламы. Ресурсом может быть <**StaticResouce**>, <**IFrameResource**> или <**HTMLResouce**>. <**StaticResource**> описывает отличающийся от HTML ресурс и определяет атрибут creativeType, который указывает способ отображения ресурса:
+В элементе <**NonLinearAds**> могут содержаться один или несколько элементов <**NonLinear**>, каждый из которых описывает нелинейное рекламное объявление. Элемент <**NonLinear**> определяет ресурс для нелинейной рекламы. Ресурсом может быть <**StaticResouce**>, <**IFrameResource**> или <**HTMLResouce**>. <**StaticResource** описывает отличающийся от HTML ресурс и определяет атрибут creativeType, который указывает способ отображения ресурса:
 
 Image/gif, image/jpeg, image/png — ресурс отображается в HTML-теге <**img**>.
 
@@ -605,9 +606,7 @@ VPAID — это интерфейс API для включения исполн�
     }
 
    Следующий пример демонстрирует планирование рекламы VAST с ранней привязкой.
-//Пример:4 Планирование рекламы VAST с ранней привязкой
-//Загрузка файла VAST
-if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) { [self logFrameworkError]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
+//Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) { [self logFrameworkError]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
 
         // Create AdInfo instance
         AdInfo *vastAdInfo2 = [[[AdInfo alloc] init] autorelease];
@@ -793,10 +792,5 @@ if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithStri
 
 ## <a name="see-also"></a>См. также
 [Разработка приложений видеопроигрывателя](media-services-develop-video-players.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

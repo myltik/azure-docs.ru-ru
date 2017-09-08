@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/30/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d987aa22379ede44da1b791f034d713a49ad486a
-ms.openlocfilehash: 84e125dffcac3f3a54250587c5238b50d3a6cb95
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Сведения о реализации и финансовых затратах для сопряженных пространств имен
@@ -97,7 +96,7 @@ ms.lasthandoff: 02/16/2017
 4. Получение из основной очереди.
 
 ## <a name="closefault-behavior"></a>Поведение при закрытии или сбое
-В приложении, в котором размещен процесс выкачивания, он продолжает работать при закрытии или сбое основного или дополнительного экземпляра [MessagingFactory][MessagingFactory], если его партнер также не был закрыт или в нем также не произошел сбой и процесс выкачивания это не обнаружил. Если другой экземпляр [MessagingFactory][MessagingFactory] не закрывается в течение 5 секунд, то процесс выкачивания завершит открытый экземпляр [MessagingFactory][MessagingFactory] со сбоем.
+Размещенный в приложении процесс выкачивания продолжает работать при закрытии или сбое основного или дополнительного экземпляра [MessagingFactory][MessagingFactory], если его партнер также не был закрыт или в нем также не произошел сбой и процесс выкачивания это не обнаружил. Если другой экземпляр [MessagingFactory][MessagingFactory] не закрывается в течение 5 секунд, процесс выкачивания завершит работу открытого экземпляра [MessagingFactory][MessagingFactory] со сбоем.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Подробное описание асинхронного обмена сообщениями в служебной шине см. в статье [Шаблоны асинхронного обмена сообщениями и высокий уровень доступности][Asynchronous messaging patterns and high availability]. 
