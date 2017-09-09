@@ -143,6 +143,8 @@
 #### [Портал](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
+### [Воспроизведение потока HLS, зашифрованного с помощью AES, в Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
+### [Передача токенов проверки подлинности](http://mingfeiy.com/how-client-pass-tokens-to-azure-media-services-key-delivery-services)
 
 ## [Анализ](media-services-analytics-overview.md)
 ### [Анализ мультимедиа с помощью портала](media-services-portal-analyze.md)
@@ -190,7 +192,6 @@
 #### [Проигрыватели Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Вставка рекламы на стороне клиента](media-services-inserting-ads-on-client-side.md)
 ### [Лицензирование пакета для переноса клиента потоковой передачи Microsoft Smooth Streaming](media-services-sspk.md)
-### [Воспроизведение HLS, зашифрованного с помощью AES, в Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Интеграция
 ### [Использование функций Azure и служб мультимедиа](media-services-dotnet-how-to-use-azure-functions.md)
