@@ -6,8 +6,8 @@
 ## [Обзор управляемых приложений Azure](managed-application-overview.md)
 
 # Начало работы
-## [Экспорт шаблона](resource-manager-export-template.md)
 ## [Создание и развертывание шаблона](resource-manager-create-first-template.md)
+## [Расширение VS Code для шаблонов](resource-manager-vscode-extension.md)
 ## [Использование Visual Studio с Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Примеры
@@ -20,8 +20,8 @@
 
 # Практическое руководство
 ## Создание шаблонов
-### [Рекомендации по работе с шаблонами](resource-manager-template-best-practices.md)
 ### [Разделы шаблона](resource-group-authoring-templates.md)
+### [Рекомендации по работе с шаблонами](resource-manager-template-best-practices.md)
 ### [Использование ссылок на другие шаблоны](resource-group-linked-templates.md)
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
 ### [Развертывание нескольких экземпляров ресурсов в шаблонах Azure Resource Manager](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Обмен данными о состоянии между связанными шаблонами](best-practices-resource-manager-state.md)
 ### [Схемы проектирования шаблонов](best-practices-resource-manager-design-templates.md)
 
+
 ## Развернуть
 ### PowerShell
 #### [Развертывание шаблона](resource-group-template-deploy.md)
@@ -42,8 +43,10 @@
 #### [Развертывание шаблона](resource-group-template-deploy-cli.md)
 #### [Развертывание частного шаблона с помощью маркера SAS](resource-manager-cli-sas-token.md)
 #### [Экспорт шаблона и повторное развертывание](resource-manager-export-template-cli.md)
-### [Портал](resource-group-template-deploy-portal.md)
-### [REST API](resource-group-template-deploy-rest.md)
+### Microsoft Azure
+#### [Развертывание ресурсов](resource-group-template-deploy-portal.md)
+#### [Экспорт шаблона](resource-manager-export-template.md)
+### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
 ### [Развертывание в нескольких группах ресурсов](resource-manager-cross-resource-group-deployment.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)

@@ -43,11 +43,7 @@
       href: sql-database-migrate-your-sql-server-database.md
     - name: "3.\_Защита базы данных SQL"
       href: sql-database-security-tutorial.md
-    - name: "4\_— повышение производительности базы данных SQL"
-      href: sql-database-performance-tutorial.md
-    - name: "5.\_Реализация мультитенантного приложения"
-      href: sql-database-multi-tenant-application.md
-    - name: 6. Реализация географически распределенной базы данных
+    - name: "4.\_Реализация географически распределенной базы данных"
       href: sql-database-implement-geo-distributed-database.md
 - name: Примеры
   items:

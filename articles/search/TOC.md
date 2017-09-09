@@ -59,7 +59,8 @@
 #### [Синтаксис запросов Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Примеры запросов с использованием синтаксиса Lucene](search-query-lucene-examples.md)
 #### [Синтаксис выражений фильтра](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Пользовательский поиск
+### Анализаторы в службе поиска Azure
+#### [Обзор](search-analyzers.md)
 #### [Языковые анализаторы](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Пользовательские анализаторы](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Разбиение результатов по страницам](search-pagination-page-layout.md)

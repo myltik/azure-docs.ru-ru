@@ -129,6 +129,8 @@
               href: app-service-linux-ssh-support.md
             - name: Непрерывное развертывание
               href: app-service-linux-ci-cd.md
+            - name: "Тип развертывания\_— пользовательский образ или встроенное развертывание?"
+              href: app-service-linux-choose-deployment-type.md
             - name: Вопросы и ответы о веб-приложениях на платформе Linux
               href: app-service-linux-faq.md
     - name: Развернуть в Azure

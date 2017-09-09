@@ -4,6 +4,8 @@
   items:
     - name: О базе данных Azure Cosmos
       href: introduction.md
+    - name: "Получение подсказок в течение 20\_дней"
+      href: 20-days-of-tips.md
 - name: Быстрое начало работы
   expanded: true
   items:
@@ -49,8 +51,12 @@
       items:
         - name: DocumentDB
           href: tutorial-develop-documentdb-dotnet.md
-        - name: MongoDB
+        - name: MongoDB c .NET
           href: tutorial-develop-mongodb.md
+        - name: MongoDB c Angular
+          href: tutorial-develop-mongodb-nodejs.md
+        - name: MongoDB c React
+          href: tutorial-develop-mongodb-react.md
         - name: Таблица
           href: tutorial-develop-table-dotnet.md
         - name: График
@@ -208,7 +214,19 @@
               href: mongodb-mongochef.md
             - name: Использование Robomongo
               href: mongodb-robomongo.md
-            - name: Учебники
+            - name: Серия руководств по Angular
+              items:
+                - name: "Часть\_2. Создание приложения Node"
+                  href: tutorial-develop-mongodb-nodejs-part2.md
+                - name: "Часть\_3. Добавление пользовательского интерфейса Angular"
+                  href: tutorial-develop-mongodb-nodejs-part3.md
+                - name: "Часть\_4. Создание базы данных Cosmos\_DB"
+                  href: tutorial-develop-mongodb-nodejs-part4.md
+                - name: "Часть\_5. Подключение к базе данных Cosmos\_DB"
+                  href: tutorial-develop-mongodb-nodejs-part5.md
+                - name: "Часть\_6. Запись данных в приложение"
+                  href: tutorial-develop-mongodb-nodejs-part6.md
+            - name: Дополнительные руководства
               items:
                 - name: Консольное приложение Node.js
                   href: mongodb-samples.md
