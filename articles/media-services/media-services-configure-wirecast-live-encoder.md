@@ -30,7 +30,7 @@ ms.lasthandoff: 01/11/2017
 >
 >
 
-В этой статье показано, как настроить динамический кодировщик [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени.  Дополнительные сведения можно найти в разделе [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+В этой статье показано, как настроить динамический кодировщик [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени.  Дополнительные сведения можно найти в разделе [Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 В этом учебнике показано, как управлять службами мультимедиа Azure (AMS) с помощью Обозревателя служб мультимедиа Azure. Это средство запускается только на компьютерах с ОС Windows. Если вы используете Mac или Linux, воспользуйтесь классическим порталом Azure для создания [каналов](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) и [программ](media-services-portal-creating-live-encoder-enabled-channel.md).
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/11/2017
 * При использовании программных кодировщиков закройте все ненужные программы.
 
 ## <a name="create-a-channel"></a>Создание канала
-1. В средстве AMSE перейдите на вкладку **Поток** и щелкните правой кнопкой мыши в области канала. Выберите **Создать канал...** в меню.
+1. В средстве AMSE перейдите на вкладку **Поток** и щелкните правой кнопкой мыши в области канала. Выберите **Создать канал...**  в меню.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
