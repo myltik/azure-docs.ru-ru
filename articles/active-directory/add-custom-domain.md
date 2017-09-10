@@ -10,15 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/29/2017
 ms.author: jeffgilb
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 4848130601ffa18ed1565e79cb0f0db3274e950f
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 3acdc406b5e753d407c7c6fb32fe0ad5ed6dd68c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Краткое руководство. Добавление личного домена в Azure Active Directory
@@ -46,10 +46,8 @@ ms.lasthandoff: 08/11/2017
 > [!TIP]
 > Если вы планируете создать федерацию локальной среды Windows Server AD с Azure AD, при запуске средства Azure AD Connect для синхронизации каталогов необходимо установить флажок **Я планирую настроить этот домен для единого входа с использованием локального каталога Active Directory**. Необходимо также зарегистрировать то же имя домена, выбранное для федерации с локальным каталогом на шаге **Домен Azure AD** мастера. Узнать, как выглядит этот шаг в мастере, можно [здесь](./connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). Если у вас нет средства Azure AD Connect, вы можете [скачать его здесь](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-После того, как вы добавили доменное имя, Azure AD необходимо убедиться, что оно принадлежит вашей организации. Прежде чем Azure AD выполнит эту проверку, в файл зоны DNS необходимо добавить DNS-запись для доменного имени. Эту задачу можно выполнить на веб-сайте регистратора доменных имен, где вы регистрировали доменное имя.
-
 ## <a name="add-the-dns-entry-at-the-domain-name-registrar-for-the-domain"></a>Добавление DNS-записи домена в регистратор доменных имен
-Далее, чтобы использовать имя личного домена в Azure AD, нужно обновить файл зоны DNS для домена. Затем Azure AD сможет проверить, что организации принадлежит имя личного домена.
+Далее, чтобы использовать имя личного домена в Azure AD, нужно обновить файл зоны DNS для домена. Затем Azure AD сможет проверить, что организации принадлежит имя личного домена. Вы можете использовать [Azure DNS на портале Azure](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) в качестве единой точки управления записями DNS Azure, Office 365 и внешними записями DNS в Azure.
 
 1. Войдите в соответствующий регистратор доменных имен. Если у вас нет права на обновление DNS-записи, попросите пользователя или группу с таким правом выполнить шаг 2 и сообщить вам о его завершении.
 2. Обновите файл зоны DNS соответствующего домена путем добавления DNS-записи, предоставленной службой Azure AD. С помощью этой DNS-записи Azure AD сможет проверить, кому принадлежит право владения доменом. DNS-запись не влияет на поведение работающих систем, например на маршрутизацию почты или веб-хостинг.

@@ -4,7 +4,7 @@ description: "Службы мультимедиа Microsoft Azure позволя
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/25/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 4996df4623a706e51ab00538c17590ebf2d71fc4
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: ae1b36c26e688e74eb8fcc1a4cdbd3be0c014c08
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Использование динамического шифрования AES-128 и службы доставки ключей
@@ -177,7 +177,11 @@ ms.lasthandoff: 07/19/2017
     Fragments(video=0,format=m3u8-aapl)
     #EXT-X-ENDLIST
 
+>[!NOTE] 
+>Если вы планируете воспроизводить HLS с шифрованием AES в Safari, см. [этот блог](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+
 ### <a name="request-the-key-from-the-key-delivery-service"></a>Запрос ключа в службе доставки ключей
+
 В следующем коде показано, как отправить запрос в службу доставки ключей служб мультимедиа, используя код URI доставки ключа (извлеченный из манифеста) и маркер (получение простых веб-маркеров из службы маркеров безопасности в этой статье не рассматривается).
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
@@ -220,7 +224,9 @@ ms.lasthandoff: 07/19/2017
         return key;
     }
 
-## <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
+## <a name="protect-your-content-with-aes-128-using-net"></a>Защита содержимого с помощью AES-128 и .NET
+
+### <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
 
 1. Настройте среду разработки и укажите в файле app.config сведения о подключении, как описано в статье [Разработка служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md). 
 2. Добавьте следующие элементы в **appSettings**, определенные в файле app.config:
@@ -228,7 +234,7 @@ ms.lasthandoff: 07/19/2017
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
 
-## <a id="example"></a>Пример
+### <a id="example"></a>Пример
 
 Замените код в файле Program.cs кодом, приведенным в этом разделе.
  

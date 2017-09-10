@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7f3212350b1158cd51a34ee1b20a456a73d41672
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 193e59c610d5c5b553469cf2ea2ecc150236ac27
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Доменные службы Azure Active Directory: часто задаваемые вопросы
@@ -32,19 +32,22 @@ ms.lasthandoff: 03/21/2017
 Нет. Для одного каталога Azure AD можно создать только один домен, поддерживаемый доменными службами Azure AD.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Можно ли включить доменные службы Azure AD в виртуальной сети Azure Resource Manager?
-Нет. Доменные службы Azure AD можно включить только в классической виртуальной сети Azure. Классическую виртуальную сеть можно подключить к виртуальной сети Resource Manager с помощью пиринговой связи между виртуальными сетями. Это позволит использовать управляемый домен в виртуальной сети Resource Manager.
+Да. Доменные службы Azure AD можно включить в виртуальной сети Azure Resource Manager. Сейчас эта функциональность доступна в режиме предварительной версии.
 
-#### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Можно ли включить доменные службы Azure AD в федеративном каталоге Azure AD? Я использую ADFS для аутентификации пользователей при доступе к Office 365. Можно включить доменные службы Azure AD для этого каталога?
+#### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Можно ли перенести мой существующий управляемый домен из классической виртуальной сети в виртуальную сеть Azure Resource Manager?
+В настоящее время нет. В будущем мы предоставим механизм переноса существующего управляемого домена из классической виртуальной сети в виртуальную сеть Azure Resource Manager. Следите за новостями.
+
+#### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Можно ли включить доменные службы Azure AD в федеративном каталоге Azure AD? Я использую AD FS при проверке подлинности пользователей для доступа к Office 365 и не выполняю синхронизацию хэшей паролей в Azure AD. Можно включить доменные службы Azure AD для этого каталога?
 Нет. Доменным службам Azure AD необходим доступ к хэшам паролей учетных записей пользователей для аутентификации пользователей с помощью NTLM или Kerberos. При использовании федеративного каталога хэши паролей не хранятся в каталоге Azure AD. Поэтому доменные службы Azure AD не работает с такими каталогами Azure AD.
 
 #### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Можно ли сделать доменные службы AD Azure доступными в нескольких виртуальных сетях в рамках подписки?
-Сама служба напрямую не поддерживает этот сценарий. Доменные службы AD Azure доступны в только одной виртуальной сети одновременно. Однако можно настроить подключение между несколькими виртуальными сетями, чтобы предоставить доступ к доменным службам Azure AD другим виртуальным сетям. В этой статье описывается, как можно [подключить виртуальные сети в Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Сама служба напрямую не поддерживает этот сценарий. В определенный момент времени управляемый домен доступен только в одной виртуальной сети. Однако можно настроить подключение между несколькими виртуальными сетями, чтобы предоставить доступ к доменным службам Azure AD другим виртуальным сетям. См. дополнительные сведения о [подключении виртуальных сетей в Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Можно ли включить доменные службы Azure AD с помощью PowerShell?
 Автоматическое развертывание доменных служб AD Azure или развертывание с помощью PowerShell в настоящее время недоступны.
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Доступны ли доменные службы Azure AD на новом портале Azure?
-Нет. Доменные службы Azure AD можно настроить только на [классическом портале Azure](https://manage.windowsazure.com). В будущем мы планируем расширить поддержку [портала Azure](https://portal.azure.com) .
+Да. Доменные службы Azure AD можно настроить на [портале Azure](https://portal.azure.com). В будущем поддержка [классического портала Azure](https://manage.windowsazure.com) будет прекращена.
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Могу ли я добавить контроллеры домена в управляемый домен доменных служб Azure AD?
 Нет. Домен, предоставленный доменными службами Azure AD — это управляемый домен. Вам не нужно подготавливать, настраивать или иным образом обрабатывать контроллеры домена для этого домена. Корпорация Майкрософт предоставляет эти операции управления как услугу. Поэтому вы не можете добавить дополнительные контроллеры домена (ни контроллеры чтения и записи, ни контроллеры только для чтения) для управляемого домена.

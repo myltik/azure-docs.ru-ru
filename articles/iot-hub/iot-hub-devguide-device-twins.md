@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 9c1d1ba1ad70fee3db6dc6c2170b171e06f804d9
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Общие сведения о двойниках устройств и их использование в Центре Интернета вещей
@@ -174,7 +173,7 @@ ms.lasthandoff: 05/31/2017
     $content-encoding | utf-8 |
     deviceId | Идентификатор устройства |
     hubName | Имя Центра Интернета вещей |
-    operationTimestamp | Отметка времени операции по стандарту ISO8601 |
+    operationTimestamp | Метка времени операции по стандарту [ISO8601] |
     iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" или "updateTwin" |
 

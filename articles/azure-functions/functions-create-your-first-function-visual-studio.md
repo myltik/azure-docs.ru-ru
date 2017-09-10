@@ -1,11 +1,10 @@
-
 ---
 title: "Создание первой функции в Azure с помощью Visual Studio | Документация Майкрософт"
 description: "Создание и публикация в Azure простой функции, активируемой HTTP, с помощью инструментов функций Azure для Visual Studio."
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "функции azure, функции, обработка событий, вычисления, независимая архитектура"
@@ -19,10 +18,10 @@ ms.date: 07/05/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7e1fcecbf77da402b8c223caf6a2e81c704c3219
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 8291986b123ed98b9c2bd4ec915e1a18b6e0cbb7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Создание первой функции с помощью Visual Studio
@@ -60,6 +59,10 @@ ms.lasthandoff: 08/21/2017
 
     ![Создание функции Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
+    Файл кода добавляется в проект, который содержит класс, реализующий код функции. Этот код основан на шаблоне, который получает значение имени и выводит сведения о нем. Атрибут **FunctionName** задает имя функции. Атрибут **HttpTrigger** указывает сообщение, которое активирует функцию. 
+
+    ![Файл кода функции](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+
 Созданную функцию, активируемую HTTP, можно протестировать на локальном компьютере.
 
 ## <a name="test-the-function-locally"></a>Локальное тестирование функции
@@ -72,7 +75,7 @@ ms.lasthandoff: 08/21/2017
 
     ![Локальная среда выполнения Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. Вставьте URL-адрес запроса в адресную строку браузера. Добавьте строку запроса `&name=<yourname>` в этот URL-адрес и выполните запрос. Ниже показан ответ в браузере на локальный запрос GET, возвращаемый функцией: 
+3. Вставьте URL-адрес запроса в адресную строку браузера. Добавьте строку запроса `?name=<yourname>` в этот URL-адрес и выполните запрос. Ниже показан ответ в браузере на локальный запрос GET, возвращаемый функцией: 
 
     ![Ответ функции localhost в браузере](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
@@ -88,7 +91,7 @@ ms.lasthandoff: 08/21/2017
 
 ## <a name="test-your-function-in-azure"></a>Тестирование функции в Azure
 
-1. Скопируйте базовый URL-адрес приложения-функции на странице профиля публикации. Замените часть `localhost:port` URL-адреса, который использовался при локальной проверке функции новым базовым URL-адресом. Как и ранее, добавьте строку запроса `&name=<yourname>` в этот URL-адрес и выполните запрос.
+1. Скопируйте базовый URL-адрес приложения-функции на странице профиля публикации. Замените часть `localhost:port` URL-адреса, который использовался при локальной проверке функции новым базовым URL-адресом. Как и ранее, добавьте строку запроса `?name=<yourname>` в этот URL-адрес и выполните запрос.
 
     URL-адрес, который вызывает функцию, активируемую HTTP, выглядит так:
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ef61aa610957024d85f4231d957869858fd545c5
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 8a44f10eda396aec72e05e87e406ff80834294d8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -31,8 +31,8 @@ ms.lasthandoff: 07/28/2017
 
 База данных SQL Azure может:
 
-- представлять собой отдельную базу данных с [собственным набором ресурсов](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU);
-- входить в состав [эластичного пула SQL](sql-database-elastic-pool.md), в котором [набор ресурсов используется совместно](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU);
+- представлять собой отдельную базу данных с [собственным набором ресурсов](sql-database-single-database-resources.md);
+- входить в состав [эластичного пула](sql-database-elastic-pool.md), в котором набор ресурсов используется совместно;
 - входить в состав [масштабируемого набора сегментированных баз данных](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), которые могут быть отдельными базами данных или частью пула;
 - входить в состав набора баз данных, использующихся в [шаблоне разработки для мультитенантных приложений SaaS](sql-database-design-patterns-multi-tenancy-saas-applications.md), которые могут быть отдельными базами данных или частью пула (или этот набор может иметь смешанную конфигурацию). 
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Что такое логический сервер SQL Azure?
 
-Логический сервер выступает в качестве центра администрирования нескольких баз данных, включая [эластичные пулы SQL](sql-database-elastic-pool.md), [имена для входа](sql-database-manage-logins.md), [правила брандмауэра](sql-database-firewall-configure.md), [правила аудита](sql-database-auditing.md), [политики обнаружения угроз](sql-database-threat-detection.md) и [группы отработки отказа](sql-database-geo-replication-overview.md). Логический сервер может находиться в регионе, отличном от региона своей группы ресурсов. Логический сервер должен существовать еще до создания базы данных SQL Azure. Все базы данных на сервере создаются в том же регионе, что логический сервер. 
+Логический сервер выступает в качестве центра администрирования нескольких баз данных, включая [эластичные пулы](sql-database-elastic-pool.md), [имена для входа](sql-database-manage-logins.md), [правила брандмауэра](sql-database-firewall-configure.md), [правила аудита](sql-database-auditing.md), [политики обнаружения угроз](sql-database-threat-detection.md) и [группы отработки отказа](sql-database-geo-replication-overview.md). Логический сервер может находиться в регионе, отличном от региона своей группы ресурсов. Логический сервер должен существовать еще до создания базы данных SQL Azure. Все базы данных на сервере создаются в том же регионе, что логический сервер. 
 
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Базы данных SQL Azure, защищенные брандмауэром базы данных SQL
 
-Чтобы защитить данные, [брандмауэр базы данных SQL](sql-database-firewall-configure.md) предотвращает доступ к серверу базы данных и всем его базам данных, осуществляемый вне подключения к серверу, установленного непосредственно через подписку Azure. Чтобы обеспечить дополнительные возможности подключения, необходимо [создать одно или несколько правил брандмауэра](sql-database-firewall-configure.md#creating-and-managing-firewall-rules). Изучите дополнительные сведения о создании [эластичных пулов SQL](sql-database-elastic-pool.md) и управлении ими.
+Чтобы защитить данные, [брандмауэр базы данных SQL](sql-database-firewall-configure.md) предотвращает доступ к серверу базы данных и всем его базам данных, осуществляемый вне подключения к серверу, установленного непосредственно через подписку Azure. Чтобы обеспечить дополнительные возможности подключения, необходимо [создать одно или несколько правил брандмауэра](sql-database-firewall-configure.md#creating-and-managing-firewall-rules). Изучите дополнительные сведения о создании [эластичных пулов](sql-database-elastic-pool.md) и управлении ими.
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Управление серверами SQL Azure, базами данных и брандмауэрами с помощью портала Azure
 
@@ -99,7 +99,8 @@ ms.lasthandoff: 07/28/2017
 
   ![Создание базы данных — 1](./media/sql-database-get-started-portal/create-database-1.png)
 
-> [ВАЖНО]. Сведения о выборе ценовой категории для базы данных см. в разделе [Доступные параметры производительности базы данных SQL Azure](sql-database-service-tiers.md).
+> [!IMPORTANT]
+> Сведения о выборе ценовой категории для базы данных см. в разделе [Доступные параметры производительности базы данных SQL Azure](sql-database-service-tiers.md).
 >
 
 ### <a name="manage-an-existing-sql-server"></a>Управление существующим сервером SQL Server
@@ -122,7 +123,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Управление серверами SQL Azure, базами данных и брандмауэрами с помощью PowerShell
 
-Для создания сервера Azure SQL, баз данных и брандмауэров и управления ими с помощью Azure PowerShell используйте приведенные ниже командлеты PowerShell. Если вам нужно выполнить установку или обновление PowerShell, прочитайте статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Изучите дополнительные сведения о создании [эластичных пулов SQL](sql-database-elastic-pool.md) и управлении ими.
+Для создания сервера Azure SQL, баз данных и брандмауэров и управления ими с помощью Azure PowerShell используйте приведенные ниже командлеты PowerShell. Если вам нужно выполнить установку или обновление PowerShell, прочитайте статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Изучите дополнительные сведения о создании [эластичных пулов](sql-database-elastic-pool.md) и управлении ими.
 
 | Командлет | Описание |
 | --- | --- |
@@ -146,7 +147,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Управление серверами SQL Azure, базами данных и брандмауэрами с помощью Azure CLI
 
-Для создания сервера Azure SQL, баз данных и брандмауэров и управления ими с помощью [Azure CLI](/cli/azure/overview) используйте приведенные ниже команды [Azure CLI для Базы данных SQL](/cli/azure/sql/db). Запускайте интерфейс командной строки в браузере с помощью [Cloud Shell](/azure/cloud-shell/overview) либо [установите](/cli/azure/install-azure-cli) его на платформе macOS, Linux или Windows. Изучите дополнительные сведения о создании [эластичных пулов SQL](sql-database-elastic-pool.md) и управлении ими.
+Для создания сервера Azure SQL, баз данных и брандмауэров и управления ими с помощью [Azure CLI](/cli/azure/overview) используйте приведенные ниже команды [Azure CLI для Базы данных SQL](/cli/azure/sql/db). Запускайте интерфейс командной строки в браузере с помощью [Cloud Shell](/azure/cloud-shell/overview) либо [установите](/cli/azure/install-azure-cli) его на платформе macOS, Linux или Windows. Изучите дополнительные сведения о создании [эластичных пулов](sql-database-elastic-pool.md) и управлении ими.
 
 | Командлет | Описание |
 | --- | --- |
@@ -206,11 +207,33 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Управление серверами SQL Azure, базами данных и брандмауэрами с помощью REST API
 
-Создание сервера Azure SQL, баз данных и брандмауэров и управление ими с помощью REST API описано в разделе [Azure SQL Database REST API](/rest/api/sql/) (REST API базы данных SQL Azure).
+Для создания сервера Azure SQL Server, баз данных и брандмауэров и управления используются приведенные ниже запросы REST API.
+
+| Команда | Описание |
+| --- | --- |
+|[Серверы: создание или обновление](/rest/api/sql/servers/createorupdate)|Создает или обновляет сервер.|
+|[Серверы: удаление](/rest/api/sql/servers/delete)|Удаляет сервер SQL Server.|
+|[Серверы: получение](/rest/api/sql/servers/get)|Получает сервер.|
+|[Серверы: вывод списка](/rest/api/sql/servers/list)|Возвращает список серверов.|
+|[Серверы: вывод списка по группе ресурсов](/rest/api/sql/servers/listbyresourcegroup)|Возвращает список серверов в группе ресурсов.|
+|[Серверы: обновление](/rest/api/sql/servers/update)|Обновляет существующий сервер.|
+|[Серверы: SQL](/rest/api/sql/servers%20-%20sql)|Определяет, может ли быть создан ресурс с указанным именем.|
+|[Базы данных: создание или обновление](/rest/api/sql/databases/createorupdate)|Создает новую базу данных или обновляет имеющуюся.|
+|[Базы данных: получение](/rest/api/sql/databases/get)|Получает базу данных.|
+|[Базы данных: получение по эластичному пулу](/rest/api/sql/databases/getbyelasticpool)|Получает базу данных в эластичном пуле.|
+|[Базы данных: получение по рекомендуемому эластичному пулу](/rest/api/sql/databases/getbyrecommendedelasticpool)|Получает базу данных в рекомендуемом эластичном пуле.|
+|[Базы данных: вывод списка по эластичному пулу](/rest/api/sql/databases/listbyelasticpool)|Возвращает список баз данных в пуле эластичных баз данных.|
+|[Базы данных: вывод списка по рекомендуемому эластичному пулу](/rest/api/sql/databases/listbyrecommendedelasticpool)|Возвращает список баз данных в рекомендуемом эластичном пуле.|
+|[Базы данных: вывод списка по серверу](/rest/api/sql/databases/listbyserver)|Возвращает список баз данных на сервере.|
+|[Базы данных: обновление](/api/sql/databases/update)|Обновляет имеющуюся базу данных.|
+|[Правила брандмауэра: создание и изменение](/rest/api/sql/firewallrules/createorupdate)|Создает или обновляет правило брандмауэра.|
+|[Правила брандмауэра: удаление](/rest/api/sql/firewallrules/delete)|Удаляет правило брандмауэра.|
+|[Правила брандмауэра: получение](/rest/api/sql/firewallrules/get)|Получает правило брандмауэра.|
+|[Правила брандмауэра: вывод списка по серверу](/rest/api/sql/firewallrules/listbyserver)|Возвращает список правил брандмауэра.|
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Чтобы узнать больше об объединении баз данных в эластичные пулы SQL, ознакомьтесь с разделом [Эластичные пулы помогают управлять несколькими базами данных SQL и масштабировать их](sql-database-elastic-pool.md).
+- Чтобы узнать больше об объединении баз данных в эластичные пулы, ознакомьтесь с разделом [Эластичные пулы помогают управлять несколькими базами данных SQL и масштабировать их](sql-database-elastic-pool.md).
 - Сведения о службе базы данных SQL Azure см. в статье [Функции службы базы данных SQL Azure](sql-database-technical-overview.md).
 - Чтобы узнать о переносе базы данных SQL Server в Azure, ознакомьтесь с разделом [Миграция базы данных SQL Server в базу данных SQL в облаке](sql-database-cloud-migrate.md).
 - Дополнительные сведения о поддерживаемых функциях см. [здесь](sql-database-features.md).

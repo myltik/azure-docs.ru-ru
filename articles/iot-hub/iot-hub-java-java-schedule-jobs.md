@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 25ad960e456d20a3695d4245ddddc9772cbf47a0
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 003a548ef2da2921a699df1aa9f7aee366d341ab
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Планирование и трансляция заданий (Java)
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/31/2017
 
 **simulated-device** подключается к Центру Интернета вещей, выполняет прямой метод **lockDoor** и обрабатывает изменения требуемых свойств.
 
-**schedule-jobs использует задания для вызова прямого метода **lockDoor** и для обновления на нескольких устройствах требуемых свойств, установленных на двойнике устройства.
+**schedule-jobs** использует задания для вызова прямого метода **lockDoor** и обновления на нескольких устройствах требуемых свойств, установленных на двойнике устройства.
 
 > [!NOTE]
 > Статья [Общие сведения о пакетах SDK для Azure IoT и их использование](iot-hub-devguide-sdks.md) содержит сведения о разных пакетах SDK для Интернета вещей Azure, с помощью которых можно создать приложения для устройств и внутренние приложения.
