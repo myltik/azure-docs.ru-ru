@@ -58,4 +58,4 @@ sections:
           - title: Командная строка
             html: <p><a href="/cli/azure/acs">Интерфейс командной строки Azure</a></p>
           - title: REST
-            html: <p><a href="/rest/api/compute/containerservices">ИНТЕРФЕЙС REST API</a></p>
+            html: <p><a href="/rest/api/container-services">ИНТЕРФЕЙС REST API</a></p>

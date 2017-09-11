@@ -34,7 +34,6 @@
 ### [Проверка подлинности и авторизация в мобильных приложениях Azure](app-service-mobile-auth.md)
 ### [Автономная синхронизация данных в мобильных приложениях Azure](app-service-mobile-offline-data-sync.md)
 ### [Рекомендации по использованию службы приложений Azure](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Служба приложений Azure и существующие службы Azure](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Подробный обзор планов службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Размещение с высокой плотностью](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Использование веб-заданий в службе приложений Azure](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -127,7 +126,6 @@
 #### [Личные домены с диспетчером трафика](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [Клонирование существующего приложения](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Локальные подключения](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Виртуальная сеть Azure](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Расширенная конфигурация](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Группы ресурсов](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -149,7 +147,6 @@
 #### [Сервер Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## [Безопасность](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Защита приложения в службе приложений Azure](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Аутентификация и авторизация](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Аутентификация с помощью поставщиков удостоверений
 #### [Проверка подлинности Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
@@ -172,7 +169,6 @@
 ## Резервное копирование
 ### [Архивация приложения в Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Восстановление приложения в Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Использование REST для резервного копирования и восстановления приложений службы приложений](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Мониторинг](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Включение ведения журналов диагностики](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -181,18 +177,12 @@
 ## Автоматизация
 ### [Гибкая разработка](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Развертывание Azure Resource Manager](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Развертывание веб-приложения, связанного с репозиторием GitHub](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Подготовка веб-приложения к работе с базой данных SQL](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Развертывание с помощью MSDeploy, пользовательского имени узла и SSL-сертификата](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### PowerShell
 #### [Автоматическое резервное копирование и восстановление](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Клонирование приложения](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Привязка SSL-сертификата](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Использование Azure Resource Manager с PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Управление приложениями с помощью службы автоматизации Azure](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Интеграция
-### [Доступ к локальным ресурсам с помощью гибридных подключений](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Как отправлять электронную почту с помощью SendGrid и Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Экспорт в PowerApps и Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -214,7 +204,6 @@
 
 # Сопутствующие материалы
 ## [Репозитории GitHub](https://github.com/Azure/azure-mobile-apps)
-## [Портал Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Ресурсы
 ## [Рекомендации по работе со службой приложений](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

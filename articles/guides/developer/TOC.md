@@ -5,10 +5,10 @@
 ## [Пакеты SDK и средства](../../index.md#pivot=sdkstools)
 
 # Быстрый запуск
-## [Веб-приложения](../../app-service-web/web-sites-dotnet-get-started.md)
+## [Веб-приложения](../../app-service-web/app-service-web-get-started-html.md)
 ## Виртуальные машины
-### [Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md)
-### [Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+### [Linux](../../virtual-machines/linux/quick-create-portal.md)
+### [Windows](../../virtual-machines/windows/quick-create-portal.md)
 ## [Не связанные с сервером решения](../../azure-functions/functions-create-first-azure-function.md)
 ## Микрослужбы
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
@@ -16,16 +16,16 @@
 
 # Учебники
 ## Создание и развертывание веб-приложений
-### [ASP.NET](../../app-service-web/web-sites-dotnet-get-started.md)
-### [Java](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
-### [Node.js](../../app-service-web/app-service-web-nodejs-get-started.md)
-### [PHP](../../app-service-web/app-service-web-php-get-started.md)
-### [Python](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
+### [ASP.NET](../../app-service-web/app-service-web-get-started-dotnet.md)
+### [Java](../../app-service-web/app-service-web-get-started-java.md)
+### [Node.js](../../app-service-web/app-service-web-get-started-nodejs.md)
+### [PHP](../../app-service-web/app-service-web-get-started-php.md)
+### [Python](../../app-service-web/app-service-web-get-started-python.md)
 ## Развертывание сложных шаблонов виртуальных машин
 ### [Linux](../../virtual-machines/virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows](../../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Создание функции, исполняемой в Azure](../../azure-functions/functions-create-an-azure-connected-function.md)
-## [Развертывание веб-приложений Docker в Linux](../../app-service-web/app-service-linux-using-custom-docker-image.md) 
+## [Развертывание веб-приложений Docker в Linux](../../app-service/containers/quickstart-custom-docker-image.md) 
 
 # Примеры
 ## Инфраструктура CLI Azure
@@ -48,12 +48,11 @@
 
 # Практические руководства
 ## План
-### [Архитектуры веб-приложений](../../guidance/guidance-ra-app-service.md)
-### [Варианты архитектуры виртуальных машин](../../guidance/guidance-ra-compute.md)
-### [Подключение к локальным сетям](../../guidance/guidance-ra-hybrid-networking.md)
+### [Архитектуры веб-приложений](/azure/architecture/reference-architectures/managed-web-app/)
+### [Варианты архитектуры виртуальных машин](/azure/architecture/reference-architectures/virtual-machines-windows/)
+### [Подключение к локальным сетям](/azure/architecture/reference-architectures/hybrid-networking/)
 ### [Шаблоны и сценарии микрослужб](../../service-fabric/service-fabric-patterns-and-scenarios.md)
 ## Разработка
-### [Приложения WordPress](../../app-service-web/web-sites-php-web-site-gallery.md)
 ### [Виртуальные машины Linux](../../virtual-machines/virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Виртуальные машины Windows](../../virtual-machines/virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Не связанные с сервером приложения](../../azure-functions/functions-reference.md)
@@ -67,8 +66,8 @@
 ### [BLOB-объекты](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 ### [Файловые ресурсы](../../storage/files/storage-dotnet-how-to-use-files.md)
 ### [Пары "ключ-значение"](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-### [Документы JSON](../../documentdb/documentdb-get-started.md)
-### [Реляционные таблицы](../../sql-database/sql-database-get-started.md)
+### [Документы JSON](../../cosmos-db/documentdb-get-started.md)
+### [Реляционные таблицы](../../sql-database/sql-database-get-started-portal.md)
 ### [Очереди сообщений](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Масштаб
@@ -77,7 +76,7 @@
 ### [Приложения микрослужб](../../service-fabric/service-fabric-concepts-scalability.md)
 
 ## Безопасность
-### [Мобильные приложения и веб-приложения](../../app-service-web/web-sites-security.md)
+### [Мобильные приложения и веб-приложения](../../app-service-web/app-service-web-tutorial-custom-ssl.md)
 
 ## Архивация
 ### [Мобильные приложения и веб-приложения](../../app-service-web/web-sites-backup.md)
@@ -85,7 +84,7 @@
 
 ## Монитор
 ### [Мобильные приложения и веб-приложения](../../app-service-web/web-sites-enable-diagnostic-log.md)
-### [Виртуальные машины Linux](../../virtual-machines/virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json.md)
+### [Виртуальные машины Linux](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Виртуальные машины Windows](../../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Микрослужбы](../../service-fabric/service-fabric-diagnostics-overview.md)
 ### [Платежные оповещения](../../billing/billing-set-up-alerts.md)

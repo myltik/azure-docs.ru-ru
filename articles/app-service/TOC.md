@@ -32,10 +32,9 @@
 
 ## планирование и разработка
 ### [Рекомендации по использованию службы приложений Azure](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Служба приложений Azure и существующие службы Azure](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Подробный обзор планов службы приложений](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 ### [Размещение с высокой плотностью](app-service-high-density-hosting.md)
-### [Служба приложений под управлением Linux](app-service-linux-readme.md)
+### [Служба приложений под управлением Linux](containers/app-service-linux-intro.md)
 ### [Использование веб-заданий в службе приложений Azure](app-service-webjobs-readme.md)
 ### [Среда службы приложений](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Документация по среде службы приложений](app-service-app-service-environments-readme.md)
@@ -78,7 +77,6 @@
 #### [Личные домены с диспетчером трафика](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Клонирование существующего приложения](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Гибридные подключения](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Гибридные подключения версии 2](app-service-hybrid-connections.md)
 ### [Виртуальная сеть Azure](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Расширенная конфигурация](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -94,7 +92,6 @@
 #### [Сведения о настройке сети для работы с ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Безопасность](app-service-security-readme.md)
-### [Защита приложения в службе приложений Azure](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Аутентификация и авторизация](app-service-authentication-overview.md)
 ### Аутентификация с помощью поставщиков удостоверений
 #### [Проверка подлинности Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -117,7 +114,6 @@
 ## Резервное копирование
 ### [Архивация приложения в Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Восстановление приложения в Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Использование REST для резервного копирования и восстановления приложений службы приложений](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Мониторинг](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Включение ведения журналов диагностики](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -126,18 +122,12 @@
 ## Автоматизация
 ### [Гибкая разработка](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Развертывание Azure Resource Manager](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Развертывание веб-приложения, связанного с репозиторием GitHub](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Подготовка веб-приложения к работе с базой данных SQL](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Развертывание с помощью MSDeploy, пользовательского имени узла и SSL-сертификата](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### PowerShell
 #### [Автоматическое резервное копирование и восстановление](app-service-powershell-backup.md)
 #### [Клонирование приложения](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Привязка SSL-сертификата](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Использование Azure Resource Manager с PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Управление приложениями с помощью службы автоматизации Azure](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## Интеграция
-### [Доступ к локальным ресурсам с помощью гибридных подключений](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Как отправлять электронную почту с помощью SendGrid и Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Экспорт в PowerApps и Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
@@ -150,8 +140,6 @@
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
 
 # Ресурсы
-## [Справочник службы приложений](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [Портал Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Рекомендации по использованию хранилища данных SQL Azure](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
