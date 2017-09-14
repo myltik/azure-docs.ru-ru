@@ -1,5 +1,5 @@
 ---
-title: "Преимущества гибридного использования Azure для сервера Windows Server и клиента Windows | Документация Майкрософт"
+title: "Преимущества гибридного использования Azure для Windows Server | Документация Майкрософт"
 description: "Узнайте, как воспользоваться преимуществами программы Software Assurance для Windows, чтобы перенести свои локальные лицензии в Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,26 +14,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/26/2017
 ms.author: xujing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 46b0895dc33fc13a1296301ed096fd3871b38952
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: a986ddf22f059dc55bb9bff5c6eaf27324b716cd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
-# <a name="azure-hybrid-use-benefit-for-windows-server-and-windows-client"></a>Преимущества гибридного использования Azure для сервера Windows Server и клиента Windows.
-Благодаря преимуществам гибридного использования Azure, клиенты, участвующие в программе Software Assurance, могут использовать локальные лицензии Windows Server и лицензии клиента Windows для запуска виртуальных машин Windows в Azure с меньшими затратами. Преимущество гибридного использования Azure для Windows Server распространяется на Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 и Windows Server 2016. Преимущество гибридного использования Azure для клиента Windows распространяется на Windows 10. Дополнительные сведения см. на странице [Льгота гибридного использования Microsoft Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+# <a name="azure-hybrid-use-benefit-for-windows-server"></a>Льгота на гибридное использование Azure для Windows Server
+Благодаря преимуществам гибридного использования Azure, клиенты, участвующие в программе Software Assurance, могут использовать локальные лицензии Windows Server и лицензии клиента Windows для запуска виртуальных машин Windows в Azure с меньшими затратами. Преимущество гибридного использования Azure для Windows Server распространяется на Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 и Windows Server 2016. Дополнительные сведения см. на странице [Льгота гибридного использования Microsoft Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
->[!IMPORTANT]
->Преимущества гибридного использования Azure для клиентов Windows представлены в предварительной версии в рамках образа Windows 10 в Azure Marketplace. Они доступны только клиентам уровня "Корпоративный", использующим Windows 10 Корпоративная E3 или Windows 10 Корпоративная E5 для каждого пользователя либо Windows VDA для каждого пользователя (лицензии на подписку пользователя или дополнительные лицензии на подписку пользователя) ("соответствующие лицензии").
->
+> [!NOTE]
+> В этой статье показано, как реализовать преимущество лицензирования для образов рабочего стола Windows Server. Вы также можете выполнить эти шаги для [образов Windows 10 Desktop](#windows-desktop-multitenant-hosting-deployment).
 >
 
 ## <a name="ways-to-use-azure-hybrid-use-benefit"></a>Применение преимуществ гибридного использования Azure
 Существует несколько различных способов развертывания виртуальных машин Windows с преимуществами использования гибридного Azure.
 
-1. Можно развернуть виртуальные машины на основе [определенных образов из Marketplace](#deploy-a-vm-using-the-azure-marketplace), для которых предварительно настроены преимущества гибридного использования Azure: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 и Windows Server 2008 с пакетом обновления 1 (SP1).
+1. Вы можете развернуть виртуальные машины из [определенных образов Marketplace](
 2. Вы можете [передать настраиваемую виртуальную машину](#upload-a-windows-vhd) и [развернуть ее с помощью шаблона Resource Manager](#deploy-a-vm-via-resource-manager) или [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
 ## <a name="deploy-a-vm-using-the-azure-marketplace"></a>Развертывание виртуальной машины с помощью Azure Marketplace

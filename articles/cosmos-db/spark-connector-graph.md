@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Cosmos DB. Аналитика графов с помощью Spark и Apache TinkerPop Gremlin | Документация Майкрософт"
 description: "Эта статья содержит инструкции по настройке и выполнению аналитики графов и параллельного вычисления в Azure Cosmos DB с помощью Spark и TinkerPop SparkGraphComputer."
 services: cosmosdb
@@ -14,14 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: gremlin
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 09/08/2017
 ms.author: khdang
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 4f35ed6399df777edd90d1944f22dce91e76952f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/13/2017
-
 
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB. Аналитика графов с помощью Spark и Apache TinkerPop Gremlin
@@ -46,11 +44,11 @@ ms.lasthandoff: 06/13/2017
 
 Сначала создайте учетную запись базы данных с помощью API Graph. Для этого сделайте следующее:
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-collection"></a>Добавление коллекции
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="get-apache-tinkerpop"></a>Получение Apache TinkerPop
 

@@ -14,27 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
+ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e3975d65fca54f9c1b58175f5f48f91a7cb67987
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Обновление с бесплатной пробной версии или подписки Azure Microsoft Imagine до подписки с оплатой по мере использования
-Обновите свою [бесплатную пробную версию](https://azure.microsoft.com/free/) или подписку [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) до [подписки с оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/) на портале учетных записей Azure. Само обновление ничего не стоит, плата будет взиматься только за используемые службы.
 
-1. Войдите на [портал учетных записей Azure](https://account.windowsazure.com/subscriptions) и перейдите на вкладку **Подписки**.
-2. В разделе состояния подписки выберите баннер **Обновить**.
+Обновите свою [бесплатную пробную версию](https://azure.microsoft.com/free/) или подписку [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) до [подписки с оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/) в Центре управления учетной записью Azure
+
+1. Войдите на [портал управления учетными записями Azure](https://account.windowsazure.com/subscriptions).
+1. В разделе состояния подписки выберите баннер **Обновить**.
    
     ![Снимок экрана, на котором показано, как обновить подписку с бесплатной пробной версии до версии с оплатой по мере использования](./media/billing-upgrade-azure-subscription/billpage.png)
-3. Подтвердите обновление.
+1. Подтвердите обновление.
    
     ![Снимок экрана, на котором показано, что нужно выбрать для подтверждения обновления подписки](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-Используйте все преимущества, которыми вы не успели воспользоваться в бесплатной пробной версии, включая 30-дневный период ее предоставления или кредит. Когда будут использованы все эти преимущества, произойдет обновление подписки.
-
-
+Само обновление ничего не стоит; плата будет взиматься только за используемые службы. Когда вы подтвердите обновление, вы сможете пользоваться своим кредитом на бесплатную пробную версию до окончания соответствующего периода.

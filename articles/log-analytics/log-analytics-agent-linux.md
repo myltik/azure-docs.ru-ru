@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 09/05/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1c05f68235aafd0fa098a3b0edaba1258df09380
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
@@ -265,7 +265,7 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Проблема. Сразу после подключения в файле журнала появляется ошибка 500 и 404.
 Это известная проблема, которая возникает при первой передаче данных Linux в рабочую область OMS. Это не влияет на отправляемые данные и не мешает работе службы.
 
-### <a name="issue--you-are-not-seeing-any-data-in-the-oms-portal"></a>Проблема. На портале OMS не отображаются данные.
+### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>Проблема. На портале OMS не отображаются данные.
 
 #### <a name="probable-causes"></a>Возможные причины
 
@@ -281,4 +281,5 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 
     >[!NOTE]
     >Эта проблема исправлена в агенте версии 1.1.0-28 и выше.
-> 
+
+

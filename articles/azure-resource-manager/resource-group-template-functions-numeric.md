@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: ae0261134b8d4a934048f58d6c679a48a904950b
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 316bb96f06140c651f410411e3ce2e9eebf1d64d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Числовые функции для шаблонов Azure Resource Manager
@@ -30,8 +30,8 @@ ms.lasthandoff: 07/21/2017
 * [div](#div)
 * [float](#float)
 * [int](#int)
-* [min](#min)
 * [max](#max)
+* [min](#min)
 * [mod (модуль)](#mod)
 * [mul](#mul)
 * [sub](#sub)
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>Пример
 
-В следующем примере суммируются два параметра.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) суммируются два параметра.
 
 ```json
 {
@@ -94,6 +94,18 @@ ms.lasthandoff: 07/21/2017
 | Имя | Тип | Значение |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json 
+```
 
 <a id="copyindex" />
 
@@ -159,7 +171,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>Пример
 
-В следующем примере один параметр делится на другой.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) один параметр делится на другой.
 
 ```json
 {
@@ -197,6 +209,18 @@ ms.lasthandoff: 07/21/2017
 | Имя | Тип | Значение |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json 
+```
 
 <a id="float" />
 
@@ -251,7 +275,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>Пример
 
-В следующем примере указанное пользователем значение параметра преобразуется в целое число.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) указанное пользователем значение параметра преобразуется в целое число.
 
 ```json
 {
@@ -280,58 +304,17 @@ ms.lasthandoff: 07/21/2017
 | ---- | ---- | ----- |
 | intResult | int | 4. |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
-<a id="min" />
-
-## <a name="min"></a>Min
-`min (arg1)`
-
-Возвращает минимальное значение из массива целых чисел или разделенный запятыми список целых чисел.
-
-### <a name="parameters"></a>Параметры
-
-| Параметр | Обязательно | Тип | Описание |
-|:--- |:--- |:--- |:--- |
-| arg1 |Да |массив целых чисел или разделенный запятыми список целых чисел |Коллекция, для которой необходимо получить минимальное значение. |
-
-### <a name="return-value"></a>Возвращаемое значение
-
-Целое число, представляющее минимальное значение из коллекции.
-
-### <a name="example"></a>Пример
-
-В следующем примере показано, как использовать функцию min с массивом и списком целых чисел:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
-    }
-}
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
 ```
 
-Выходные данные из предыдущего примера со значениями по умолчанию:
+Развернуть этот пример шаблона с помощью PowerShell можно так:
 
-| Имя | Тип | Значение |
-| ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
+```
 
 <a id="max" />
 
@@ -352,7 +335,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию max с массивом и списком целых чисел:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) показано, как использовать функцию max с массивом и списком целых чисел.
 
 ```json
 {
@@ -385,6 +368,82 @@ ms.lasthandoff: 07/21/2017
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+<a id="min" />
+
+## <a name="min"></a>Min
+`min (arg1)`
+
+Возвращает минимальное значение из массива целых чисел или разделенный запятыми список целых чисел.
+
+### <a name="parameters"></a>Параметры
+
+| Параметр | Обязательно | Тип | Описание |
+|:--- |:--- |:--- |:--- |
+| arg1 |Да |массив целых чисел или разделенный запятыми список целых чисел |Коллекция, для которой необходимо получить минимальное значение. |
+
+### <a name="return-value"></a>Возвращаемое значение
+
+Целое число, представляющее минимальное значение из коллекции.
+
+### <a name="example"></a>Пример
+
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) показано, как использовать функцию min с массивом и списком целых чисел.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": [0,3,2,5,4]
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "int",
+            "value": "[min(parameters('arrayToTest'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[min(0,3,2,5,4)]"
+        }
+    }
+}
+```
+
+Выходные данные из предыдущего примера со значениями по умолчанию:
+
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
 <a id="mod" />
 
 ## <a name="mod"></a>mod (модуль)
@@ -404,7 +463,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>Пример
 
-В следующем примере возвращается остаток от деления одного параметра на другой.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) возвращается остаток от деления одного параметра на другой.
 
 ```json
 {
@@ -443,6 +502,18 @@ ms.lasthandoff: 07/21/2017
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+```
+
 <a id="mul" />
 
 ## <a name="mul"></a>mul
@@ -463,7 +534,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>Пример
 
-В следующем примере один параметр умножается на другой.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) один параметр умножается на другой.
 
 ```json
 {
@@ -502,6 +573,18 @@ ms.lasthandoff: 07/21/2017
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+```
+
 <a id="sub" />
 
 ## <a name="sub"></a>sub
@@ -521,7 +604,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>Пример
 
-В следующем примере один параметр вычитается из другого.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) один параметр вычитается из другого.
 
 ```json
 {
@@ -558,7 +641,19 @@ ms.lasthandoff: 07/21/2017
 
 | Имя | Тип | Значение |
 | ---- | ---- | ----- |
-| subResult | int | 4 |
+| subResult | int | 4. |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Описание разделов в шаблоне Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).

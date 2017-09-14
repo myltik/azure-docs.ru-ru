@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 01/25/2017
+ms.date: 09/06/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 6f8d220a64e04b7dfa021aacf68dadf0d55393bf
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: c58aec1ea9bc79b335a115007500d77f8e752850
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Загрузка данных из Azure Data Lake Store в хранилище данных SQL
 В этой статье описываются все шаги, которые необходимо выполнить для загрузки данных из Azure Data Lake Store (ADLS) в хранилище данных SQL с использованием PolyBase.
 Вы можете выполнять специализированные запросы к данным, которые хранятся в ADLS, с помощью внешних таблиц, но мы рекомендуем импортировать данные в хранилище данных SQL.
-Оценка времени: 10 минут, если уже выполнены все предварительные условия.
+
 Из этого учебного курса вы узнаете следующее:
 
 1. Создание объектов внешней базы данных для загрузки данных из Azure Data Lake Store.
@@ -89,8 +89,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>Создание внешнего источника данных
-Используйте команду [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE], чтобы сохранить расположение и тип данных.
-URI для ADL можно найти на портале Azure или по адресу www.portal.azure.com.
+Используйте команду [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE], чтобы сохранить расположение и тип данных. Чтобы найти URI ADL на портале Azure, перейдите в Azure Data Lake Store к панели "Основные компоненты".
 
 ```sql
 -- C: Create an external data source
@@ -214,7 +213,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="achievement-unlocked"></a>Победа!
 Данные успешно загружены в хранилище данных SQL Azure. Отличная работа!
 
-##<a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Загрузка данных является первым шагом к разработке решения для хранения данных на основе хранилища данных SQL. Ознакомьтесь с документацией для разработчиков, посвященной [таблицам](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) и [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 

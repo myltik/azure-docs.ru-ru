@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7fd0ace35cfe0286c874e4a75b733053aa945d39
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 54a4a37d581f023610cd61835bdc76814fbd46e0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -69,7 +69,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 ## <a name="create-front-end-vm"></a>Создание интерфейсной виртуальной машины
 
-Для взаимодействия в виртуальной сети виртуальной машине требуется виртуальная сетевая карта. Доступ к *myFrontendVM* осуществляется через Интернет, поэтому также необходим общедоступный IP-адрес. 
+Для взаимодействия в виртуальной сети виртуальной машине требуется виртуальная сетевая карта. Так как доступ к *myFrontendVM* осуществляется через Интернет, требуется общедоступный IP-адрес. 
 
 Создайте общедоступный IP-адрес с помощью командлета [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
@@ -93,7 +93,7 @@ $frontendNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Настройте на виртуальной машине имя пользователя и пароль для учетной записи администратора с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Настройте на виртуальной машине имя пользователя и пароль для учетной записи администратора с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential): Эти учетные данные используются для подключения к виртуальной машине на дополнительных шагах:
 
 ```powershell
 $cred = Get-Credential
@@ -153,7 +153,7 @@ Get-AzureRmPublicIPAddress `
 mstsc /v:<publicIpAddress>
 ``` 
 
-После входа на *myFrontendVM* вы можете установить IIS и включить локальное правило брандмауэра, разрешающее веб-трафик, с помощью одной строки кода PowerShell. Откройте командную строку PowerShell и выполните следующую команду:
+После входа на *myFrontendVM* вы можете установить IIS и включить локальное правило брандмауэра, разрешающее веб-трафик, с помощью одной строки кода PowerShell. Откройте командную строку PowerShell на виртуальной машине из сеанса RDP и выполните следующую команду:
 
 Используйте командлет [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) для запуска расширения настраиваемых сценариев, которое устанавливает веб-сервер IIS:
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 0bd9ec41761c9ce575f3bcf4d1f8e8578b83e01c
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 96840d72b86d0b9487d9a3a6039c7582a2718e7a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Функции массивов и объектов для шаблонов Azure Resource Manager 
@@ -36,8 +36,8 @@ Resource Manager предоставляет ряд функций для раб�
 * [json](#json)
 * [last](#last)
 * [длина](#length)
-* [min](#min)
 * [max](#max)
+* [min](#min)
 * [range](#range)
 * [skip](#skip)
 * [take](#take)
@@ -64,7 +64,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию array с различными типами:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) показано, как использовать функцию array с различными типами.
 
 ```json
 {
@@ -111,6 +111,18 @@ Resource Manager предоставляет ряд функций для раб�
 | stringOutput | Массив, | ["a"] |
 | objectOutput | Массив, | [{"a": "b", "c": "d"}] |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+```
+
 <a id="coalesce" />
 
 ## <a name="coalesce"></a>coalesce
@@ -131,7 +143,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показаны выходные данные для разных случаев использования coalesce.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) показаны выходные данные для разных случаев использования coalesce.
 
 ```json
 {
@@ -187,6 +199,18 @@ Resource Manager предоставляет ряд функций для раб�
 | arrayOutput | Массив, | [1] |
 | emptyOutput | Bool | Да |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+```
+
 <a id="concat" />
 
 ## <a name="concat"></a>concat
@@ -208,7 +232,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как объединить два массива.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) показано, как объединить два массива.
 
 ```json
 {
@@ -249,7 +273,19 @@ Resource Manager предоставляет ряд функций для раб�
 | ---- | ---- | ----- |
 | return | Массив, | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-В следующем примере показано, как объединить два строковых значения и получить объединенную строку.
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
+
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) показано, как объединить два строковых значения и получить сцепленную строку.
 
 ```json
 {
@@ -277,6 +313,18 @@ Resource Manager предоставляет ряд функций для раб�
 | ---- | ---- | ----- |
 | concatOutput | Строка | prefix-5yj4yjf5mbg72 |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
+
 <a id="contains" />
 
 ## <a name="contains"></a>contains
@@ -297,7 +345,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию contains с различными типами:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) показано, как использовать функцию contains с различными типами.
 
 ```json
 {
@@ -359,6 +407,18 @@ Resource Manager предоставляет ряд функций для раб�
 | arrayTrue | Bool | Да |
 | arrayFalse | Bool | Ложь |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
+
 <a id="createarray" />
 
 ## <a name="createarray"></a>createarray
@@ -379,7 +439,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию createArray с различными типами:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) показано, как использовать функцию createArray с различными типами.
 
 ```json
 {
@@ -427,6 +487,18 @@ Resource Manager предоставляет ряд функций для раб�
 | objectArray | Массив, | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Массив, | [["one", "two", "three"]] |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+```
+
 <a id="empty" />
 
 ## <a name="empty"></a>empty
@@ -447,7 +519,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере проверяется, являются ли пустыми массив, объект и строка.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) проверяется, являются ли пустыми массив, объект и строка.
 
 ```json
 {
@@ -494,6 +566,18 @@ Resource Manager предоставляет ряд функций для раб�
 | objectEmpty | Bool | Да |
 | stringEmpty | Bool | Да |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
+
 <a id="first" />
 
 ## <a name="first"></a>first
@@ -513,7 +597,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию first с массивом и строкой:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) показано, как использовать функцию first с массивом и строкой.
 
 ```json
 {
@@ -547,6 +631,18 @@ Resource Manager предоставляет ряд функций для раб�
 | arrayOutput | Строка | one |
 | stringOutput | Строка | O |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
 <a id="intersection" />
 
 ## <a name="intersection"></a>пересечению
@@ -568,7 +664,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию intersection с массивами и объектами:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) показано, как использовать пересечение с массивами и объектами.
 
 ```json
 {
@@ -614,6 +710,17 @@ Resource Manager предоставляет ряд функций для раб�
 | objectOutput | Объект | {"one": "a", "three": "c"} |
 | arrayOutput | Массив, | ["two", "three"] |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+```
 
 ## <a name="json"></a>json
 `json(arg1)`
@@ -633,7 +740,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию intersection с массивами и объектами:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) показано, как использовать функцию json с массивами и объектами.
 
 ```json
 {
@@ -661,6 +768,18 @@ Resource Manager предоставляет ряд функций для раб�
 | jsonOutput | Объект | {"a": "b"} |
 | nullOutput | Логический | Да |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+```
+
 <a id="last" />
 
 ## <a name="last"></a>last
@@ -680,7 +799,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию last с массивом и строкой:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) показано, как использовать функцию last с массивом и строкой.
 
 ```json
 {
@@ -714,6 +833,18 @@ Resource Manager предоставляет ряд функций для раб�
 | arrayOutput | Строка | three |
 | stringOutput | Строка | e |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
+
 <a id="length" />
 
 ## <a name="length"></a>длина
@@ -733,7 +864,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию length с массивом и строкой:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) показано, как использовать функцию length с массивом и строкой.
 
 ```json
 {
@@ -774,6 +905,18 @@ Resource Manager предоставляет ряд функций для раб�
 | arrayLength | int | 3 |
 | stringLength | int | 13. |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
+
 Эту функцию можно использовать с массивом для указания числа итераций при создании ресурсов. В следующем примере параметр **siteNames** ссылается на массив имен для использования при создании веб-сайтов.
 
 ```json
@@ -784,58 +927,6 @@ Resource Manager предоставляет ряд функций для раб�
 ```
 
 Дополнительные сведения об использовании этой функции с массивом см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).
-
-<a id="min" />
-
-## <a name="min"></a>Min
-`min(arg1)`
-
-Возвращает минимальное значение из массива целых чисел или разделенный запятыми список целых чисел.
-
-### <a name="parameters"></a>Параметры
-
-| Параметр | Обязательно | Тип | Описание |
-|:--- |:--- |:--- |:--- |
-| arg1 |Да |массив целых чисел или разделенный запятыми список целых чисел |Коллекция, для которой необходимо получить минимальное значение. |
-
-### <a name="return-value"></a>Возвращаемое значение
-
-Целое число, представляющее минимальное значение.
-
-### <a name="example"></a>Пример
-
-В следующем примере показано, как использовать функцию min с массивом и списком целых чисел:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
-    }
-}
-```
-
-Выходные данные из предыдущего примера со значениями по умолчанию:
-
-| Имя | Тип | Значение |
-| ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -856,7 +947,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию max с массивом и списком целых чисел:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) показано, как использовать функцию max с массивом и списком целых чисел.
 
 ```json
 {
@@ -889,6 +980,82 @@ Resource Manager предоставляет ряд функций для раб�
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+<a id="min" />
+
+## <a name="min"></a>Min
+`min(arg1)`
+
+Возвращает минимальное значение из массива целых чисел или разделенный запятыми список целых чисел.
+
+### <a name="parameters"></a>Параметры
+
+| Параметр | Обязательно | Тип | Описание |
+|:--- |:--- |:--- |:--- |
+| arg1 |Да |массив целых чисел или разделенный запятыми список целых чисел |Коллекция, для которой необходимо получить минимальное значение. |
+
+### <a name="return-value"></a>Возвращаемое значение
+
+Целое число, представляющее минимальное значение.
+
+### <a name="example"></a>Пример
+
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) показано, как использовать функцию min с массивом и списком целых чисел.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": [0,3,2,5,4]
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "int",
+            "value": "[min(parameters('arrayToTest'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[min(0,3,2,5,4)]"
+        }
+    }
+}
+```
+
+Выходные данные из предыдущего примера со значениями по умолчанию:
+
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
 <a id="range" />
 
 ## <a name="range"></a>range
@@ -909,7 +1076,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию range:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) показано, как использовать функцию range.
 
 ```json
 {
@@ -941,6 +1108,18 @@ Resource Manager предоставляет ряд функций для раб�
 | ---- | ---- | ----- |
 | rangeOutput | Массив, | [5, 6, 7] |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+```
+
 <a id="skip" />
 
 ## <a name="skip"></a>skip
@@ -961,7 +1140,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере пропускается заданное число элементов в массиве и заданное число знаков в строке.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) пропускается заданное число элементов в массиве и заданное число знаков в строке.
 
 ```json
 {
@@ -1010,6 +1189,18 @@ Resource Manager предоставляет ряд функций для раб�
 | arrayOutput | Массив, | ["three"] |
 | stringOutput | Строка | two three |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
+
 <a id="take" />
 
 ## <a name="take"></a>take
@@ -1030,7 +1221,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере из массива извлекается заданное число элементов, а из строки — заданное число знаков.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) из массива извлекается заданное число элементов, а из строки — заданное число знаков.
 
 ```json
 {
@@ -1079,6 +1270,18 @@ Resource Manager предоставляет ряд функций для раб�
 | arrayOutput | Массив, | ["one", "two"] |
 | stringOutput | Строка | on |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
+
 <a id="union" />
 
 ## <a name="union"></a>union
@@ -1100,7 +1303,7 @@ Resource Manager предоставляет ряд функций для раб�
 
 ### <a name="example"></a>Пример
 
-В следующем примере показано, как использовать функцию union с массивами и объектами:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) показано, как использовать функцию union с массивами и объектами.
 
 ```json
 {
@@ -1145,6 +1348,18 @@ Resource Manager предоставляет ряд функций для раб�
 | ---- | ---- | ----- |
 | objectOutput | Объект | {"one": "a", "two": "b", "three": "c", "four": "d", "five": "e"} |
 | arrayOutput | Массив, | ["one", "two", "three", "four"] |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Описание разделов в шаблоне Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).

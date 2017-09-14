@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 14bfdd8554b075b0c19a75bb572f1214a45ff471
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 9667cc728d9700e9ca985969f3566cd8ea47e80e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Выполнение запроса Hive с помощью драйвера JDBC в HDInsight
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="jdbc-connection-string"></a>Строка подключения JDBC
 
-Подключения JDBC к кластеру HDInsight в Azure осуществляются через порт 443, а защита трафика обеспечивается с помощью протокола SSL. Открытый шлюз, за которым находятся кластеры, перенаправляет трафик к порту, который фактически прослушивается HiveServer2. Ниже приведен пример строки подключения:
+Подключения JDBC к кластеру HDInsight в Azure осуществляются через порт 443, а защита трафика обеспечивается с помощью протокола SSL. Открытый шлюз, за которым находятся кластеры, перенаправляет трафик к порту, который фактически прослушивается HiveServer2. В следующей строке подключения показан формат для HDInsight:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -68,16 +68,23 @@ SQuirreL SQL — клиент JDBC, который можно использов
 
 1. Скопируйте драйверы JDBC Hive из кластера HDInsight.
 
-    * Чтобы скачать необходимые JAR-файлы, для **HDInsight под управлением Linux** сделайте следующее.
+    * Чтобы скачать необходимые JAR-файлы, для кластера **HDInsight 3.5 или 3.6 под управлением Linux** сделайте следующее.
 
         1. Создайте каталог, содержащий файлы. Например, `mkdir hivedriver`.
 
         2. В командной строке выполните следующие команды, чтобы копировать файлы из кластера HDInsight.
 
             ```bash
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
             ```
 
             Замените `USERNAME` именем учетной записи пользователя SSH для кластера. Замените `CLUSTERNAME` именем кластера HDInsight.
@@ -88,9 +95,9 @@ SQuirreL SQL — клиент JDBC, который можно использов
 
             ![Значок удаленного рабочего стола](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 
-        2. В колонке "Удаленный рабочий стол" нажмите кнопку **Подключить** для подключения к кластеру. Если значок "Удаленный рабочий стол" не включен, укажите имя пользователя и пароль в форме, а затем выберите **Включить**, чтобы включить значок "Удаленный рабочий стол" для кластера.
+        2. В разделе "Удаленный рабочий стол" нажмите кнопку **Подключить** для подключения к кластеру. Если значок "Удаленный рабочий стол" не включен, укажите имя пользователя и пароль в форме, а затем выберите **Включить**, чтобы включить значок "Удаленный рабочий стол" для кластера.
 
-            ![Колонка удаленного рабочего стола](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
+            ![Раздел "Удаленный рабочий стол"](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
 
             После нажатия кнопки **Подключить** будет скачан RDP-файл. Используйте этот файл для запуска клиента удаленного рабочего стола. При появлении запроса укажите имя пользователя и пароль для доступа к удаленному рабочему столу.
 
@@ -134,7 +141,7 @@ SQuirreL SQL — клиент JDBC, который можно использов
 
     * **Драйвер.** Выберите драйвер **Hive** в раскрывающемся списке.
 
-    * **URL-адрес**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
+    * **URL-адрес:** `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         Замените **CLUSTERNAME** именем кластера HDInsight.
 
@@ -144,7 +151,7 @@ SQuirreL SQL — клиент JDBC, который можно использов
 
  ![диалоговое окно "Добавить псевдоним"](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
-    Нажмите кнопку **Проверить**, чтобы убедиться, что подключение работает. При появлении диалогового окна **Connect to: Hive on HDInsight** (Подключение: Hive в HDInsight) выберите **Подключиться**, чтобы выполнить проверку. Если проверка пройдет успешно, вы увидите диалоговое окно **Connection successful** (Подключение выполнено успешно).
+    Нажмите кнопку **Проверить**, чтобы убедиться, что подключение работает. При появлении диалогового окна **Connect to: Hive on HDInsight** (Подключение: Hive в HDInsight) выберите **Подключиться**, чтобы выполнить проверку. Если проверка пройдет успешно, вы увидите диалоговое окно **Connection successful** (Подключение выполнено успешно). При возникновении ошибки см. раздел [Устранение неполадок](#troubleshooting).
 
     Чтобы сохранить псевдоним подключения, в нижней части диалогового окна **Add Alias** (Добавить псевдоним) нажмите кнопку **ОК**.
 
@@ -166,7 +173,7 @@ SQuirreL SQL — клиент JDBC, который можно использов
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Непредвиденная ошибка при попытке открыть подключение к SQL
 
-**Признаки.** При подключении к кластеру HDInsight версии 3.3 или 3.4 может появиться сообщение о возникновении непредвиденной ошибки. Трассировка стека для этой ошибки начинается со следующих строк:
+**Признаки.** При подключении к кластеру HDInsight версии 3.3 или более поздней может появиться сообщение о возникновении непредвиденной ошибки. Трассировка стека для этой ошибки начинается со следующих строк:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -174,7 +181,7 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**Причина.** Эта ошибка возникает при несоответствии версии файла commons-codec.jar, используемого SQuirreL, и файла, требуемого для компонентов Hive JDBC.
+**Причина.** Эту ошибку вызывают прежние версии файла commons-codec.jar в составе SQuirreL.
 
 **Решение.** Чтобы устранить эту ошибку, выполните приведенные далее действия.
 

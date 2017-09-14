@@ -1,4 +1,4 @@
-Cu--- title: Защита неактивных персональных данных с помощью шифрования в Azure | Документация Майкрософт description: Этот материал входит в цикл статей, которые помогают защитить персональные данные с помощью Azure. services: security documentationcenter: na author: Barclayn manager: MBaldwin editor: TomSh
+title: Защита неактивных персональных данных с помощью шифрования в Azure | Документация Майкрософт description: Этот материал входит в цикл статей, которые помогают защитить персональные данные с помощью Azure. services: security documentationcenter: na author: Barclayn manager: MBaldwin editor: TomSh
 
 ms.assetid: ms.service: security ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
 

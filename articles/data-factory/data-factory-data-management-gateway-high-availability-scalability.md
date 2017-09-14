@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: fe78e2ef31695d443123664a83e9f753ccfc0be8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Шлюз управления данными: высокий уровень доступности и масштабируемость (предварительная версия)
@@ -101,7 +101,7 @@ ms.lasthandoff: 08/10/2017
         ![Шлюз управления данными: успешная установка](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
-        > При подготовке шлюза в виртуальной машине Azure можно воспользоваться [этим шаблоном Azure Resource Manager на GitHub](https://github.com/xiaoyingLJ/vms-with-multiple-data-management-gateway). Этот сценарий создает логический шлюз, настраивает виртуальные машины с установленным программным обеспечением шлюза управления данными и регистрирует их в логическом шлюзе. 
+        > При подготовке шлюза в виртуальной машине Azure можно воспользоваться [этим шаблоном Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). Этот сценарий создает логический шлюз, настраивает виртуальные машины с установленным программным обеспечением шлюза управления данными и регистрирует их в логическом шлюзе. 
 6. На портале Azure откройте страницу **Шлюз**: 
     1. На домашней странице фабрики данных на портале щелкните **Связанные службы**.
     

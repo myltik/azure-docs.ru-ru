@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 587d73bc91aa10b79c1d1488f98f05b73801d8c8
+ms.translationtype: HT
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: a2487aac712542d86cb3a7f34c45e21c8d035496
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="application-insights-telemetry-data-model"></a>Модель данных телеметрии Application Insights
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/18/2017
 
 * [**Запрос.**](application-insights-data-model-request-telemetry.md) Используется для регистрации запроса, полученного приложением. Например, веб-пакет SDK для Application Insights автоматически создает элемент телеметрии запроса для каждого HTTP-запроса, полученного веб-приложением. 
 
-    **Операция** — это поток выполнений, которые обрабатывают запрос. Вы также можете [написать код](app-insights-api-custom-events-metrics.md#trackrequest) для мониторинга других типов операций, таких как "пробуждение" в веб-заданиях, или функций, которые периодически обрабатывают данные.  Каждая операция имеет идентификатор. Его можно использовать, чтобы группировать (application-insights-correlation.md) все данные телеметрии, созданные во время обработки запроса приложением. Каждая операция выполняется в течение определенного периода времени, после чего может завершиться успешно или сбоем.
+    **Операция** — это поток выполнений, которые обрабатывают запрос. Вы также можете [написать код](app-insights-api-custom-events-metrics.md#trackrequest) для мониторинга других типов операций, таких как "пробуждение" в веб-заданиях, или функций, которые периодически обрабатывают данные.  Каждая операция имеет идентификатор. Этот идентификатор можно использовать, чтобы [группировать](application-insights-correlation.md) все данные телеметрии, созданные во время обработки запроса приложением. Каждая операция выполняется в течение определенного периода времени, после чего может завершиться успешно или сбоем.
 * [**Исключение.**](application-insights-data-model-exception-telemetry.md) Обычно представляет исключение, вызывающее сбой операции.
 * [**Зависимость.**](application-insights-data-model-dependency-telemetry.md) Представляет собой вызов из приложения к внешней службе или хранилищу, например REST API или SQL. В ASP.NET вызовы зависимостей SQL определяются `System.Data`. Вызовы конечных точек HTTP определяются `System.Net`. 
 

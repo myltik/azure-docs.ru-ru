@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8a2931e462079c101c91497d459d7d3126234244
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: ff3e3121102eedaa1f439e517570d0a97cf07c22
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Как создать виртуальную машину Linux в Azure с несколькими сетевыми картами
@@ -118,6 +117,7 @@ az network nic create \
 
 Чтобы добавить сетевую карту к существующей виртуальной машине, сначала отмените распределение виртуальной машины с помощью команды [az vm deallocate](/cli/azure/vm#deallocate). В следующем примере отменяется распределение виртуальной машины *myVM*.
 
+
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
@@ -180,5 +180,75 @@ az vm start --resource-group myResourceGroup --name myVM
 
 Вы можете ознакомиться с полным примером [создания нескольких сетевых карт с помощью шаблонов Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+## <a name="configure-guest-os-for-multiple-nics"></a>Настройка гостевой ОС для нескольких сетевых карт
+
+При создании нескольких сетевых карт для виртуальной машины на основе гостевой ОС Linux необходимо создать дополнительные правила маршрутизации, которые позволяют отправлять и получать трафик, принадлежащий только определенной сетевой карте. В противном случае трафик, принадлежащий eth1, не может быть правильно обработан из-за определенного маршрута по умолчанию.  
+
+
+### <a name="solution"></a>Решение
+
+Сначала добавьте две таблицы маршрутизации в файл /etc/iproute2/rt_tables.
+
+```bash
+echo "200 eth0-rt" >> /etc/iproute2/rt_tables
+echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+```
+
+Чтобы изменения вступили в силу и применялись во время активации сетевого стека, необходимо изменить файл */etc/sysconfig/network-scipts/ifcfg-eth0* и */etc/sysconfig/network-scipts/ifcfg-eth1*.
+Измените строку *NM_CONTROLLED=yes* на *NM_CONTROLLED=no*.
+Если не выполнить это действие, дополнительная маршрутизация и дополнительные правила, которые мы хотим добавить, не вступят в силу.
+ 
+Теперь необходимо расширить таблицы маршрутизации. Чтобы сделать следующие действия более видимыми, предположим, что у нас установлена следующая конфигурация.
+
+*Маршрутизация*
+
+```bash
+default via 10.0.1.1 dev eth0 proto static metric 100
+10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
+10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
+168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
+169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+```
+    
+*Интерфейсы*
+
+```bash
+lo: inet 127.0.0.1/8 scope host lo
+eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
+eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```
+    
+    
+Используя указанную выше информацию, мы можем создать следующие дополнительные файлы в качестве корневых элементов.
+
+*   /etc/sysconfig/network-scripts/rule-eth0
+*   /etc/sysconfig/network-scripts/route-eth0
+*   /etc/sysconfig/network-scripts/rule-eth1
+*   /etc/sysconfig/network-scripts/route-eth1
+
+Каждый файл содержит следующую информацию.
+```bash
+cat /etc/sysconfig/network-scripts/rule-eth0
+from 10.0.1.4/32 table eth0-rt
+to 10.0.1.4/32 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/route-eth0
+10.0.1.0/24 dev eth0 table eth0-rt
+default via 10.0.1.1 dev eth0 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/rule-eth1
+from 10.0.1.5/32 table eth1-rt
+to 10.0.1.5/32 table eth1-rt
+
+cat /etc/sysconfig/network-scripts/route-eth1
+10.0.1.0/24 dev eth1 table eth1-rt
+default via 10.0.1.1 dev eth1 table eth1-rt
+```
+
+После создания и заполнения файлов необходимо перезапустить сетевую службу `systemctl restart network`.
+
+Теперь вы можете выполнить внешнее подключение для eth0 или eth1.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Ознакомьтесь с [размерами виртуальных машин Linux](sizes.md), когда будете создавать виртуальную машину с несколькими сетевыми картами. Обратите внимание на максимальное число сетевых карт, поддерживаемых каждым из размеров виртуальной машины. 
+

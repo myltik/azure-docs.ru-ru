@@ -12,19 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/06/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: e3079b55036a514b31249e5930f40ab4346f437a
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 2e7b6a7c33e1f86133383f116df2fc2256133012
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Перемещение данных из Amazon Redshift с помощью фабрики данных Azure
 В этой статье описывается, как с помощью действия копирования в фабрике данных Azure перемещать данные из Amazon Redshift. Эта статья является продолжением статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования. 
 
 Данные из Amazon Redshift можно скопировать в любое хранилище данных, поддерживаемое в качестве приемника. Список хранилищ данных, которые поддерживаются в качестве приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Сейчас фабрика данных поддерживает перемещение данных из Amazon Redshift в другие хранилища данных, но не наоборот.
+
+> [!TIP]
+> Чтобы обеспечить наилучшую производительность при копировании больших объемов данных из Redshift, рекомендуется использовать встроенный механизм Redshift UNLOAD через Amazon S3. Дополнительные сведения см. в разделе [Копирование данных из Amazon Redshift с помощью UNLOAD](#use-unload-to-copy-data-from-amazon-redshift).
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Для перемещения данных в локальное хранилище установите [шлюз управления данными](data-factory-data-management-gateway.md) на локальный компьютер. Затем предоставьте шлюзу управления данными доступ к кластеру Amazon Redshift (используйте IP-адрес компьютера). Инструкции см. в статье об [авторизации доступа к кластеру](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
@@ -48,6 +51,7 @@ ms.lasthandoff: 06/07/2017
 Следующие разделы содержат сведения о свойствах JSON, которые используются для определения сущностей фабрики данных, относящихся к Amazon Redshift. 
 
 ## <a name="linked-service-properties"></a>Свойства связанной службы
+
 В таблице ниже приведено описание элементов JSON, которые относятся к связанной службе Amazon Redshift.
 
 | Свойство | Описание | Обязательно |
@@ -60,6 +64,7 @@ ms.lasthandoff: 06/07/2017
 | пароль |Пароль для учетной записи пользователя. |Да |
 
 ## <a name="dataset-properties"></a>Свойства набора данных
+
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Разделы structure, availability и policy одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
 
 Разделы **typeProperties** для каждого типа набора данных отличаются. В этом разделе указываются такие сведения, как расположение данных в хранилище данных. Раздел typeProperties набора данных типа **RelationalTable** (который включает в себя набор данных Amazon Redshift) содержит следующие свойства.
@@ -69,15 +74,63 @@ ms.lasthandoff: 06/07/2017
 | tableName |Имя таблицы в базе данных Amazon Redshift, на которое ссылается связанная служба. |Нет (если для свойства **RelationalSource** задано значение **query**). |
 
 ## <a name="copy-activity-properties"></a>Свойства действия копирования
+
 Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Свойства (такие как имя, описание, входные и выходные таблицы, политики и т. д.) доступны для всех типов действий.
 
 В свою очередь свойства, доступные в разделе **typeProperties** действия, зависят от конкретного типа действия. Для действия копирования они различаются в зависимости от типов источников и приемников.
 
-Когда источник действия копирования относится к типу **RelationalSource** (который включает Amazon Redshift), в разделе typeProperties доступны следующие свойства.
+Когда источник действия копирования относится к типу **AmazonRedshiftSource**, в разделе typeProperties доступны указанные ниже свойства.
 
-| Свойство | Описание | Допустимые значения | Обязательно |
-| --- | --- | --- | --- |
-| query |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Например, select * from MyTable. |Нет (если для свойства **tableName** задано значение **dataset**). |
+| Свойство | Описание | Обязательно |
+| --- | --- | --- |
+| query | Используйте пользовательский запрос для чтения данных. |Нет (если для свойства **tableName** задано значение **dataset**). |
+| redshiftUnloadSettings | Группа свойств при использовании Amazon Redshift UNLOAD. | Нет |
+| s3LinkedServiceName | Относится к службе Amazon S3, которую необходимо использовать в качестве промежуточного хранилища, указав имя связанной службы ADF типа AwsAccessKey. | Требуется в redshiftUnloadSettings |
+| bucketName | Укажите контейнер S3 для хранения промежуточных данных. Если он не указан, действие копирования автоматически создаст контейнер. | Требуется в redshiftUnloadSettings |
+
+Кроме того, можно использовать тип **RelationalSource** (включающий Amazon Redshift) со следующим свойством в разделе typeProperties. Обратите внимание, что этот тип источника не поддерживает Redshift UNLOAD.
+
+| Свойство | Описание | Обязательно |
+| --- | --- | --- |
+| query |Используйте пользовательский запрос для чтения данных. | Нет (если для свойства **tableName** задано значение **dataset**). |
+
+## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Копирование данных из Amazon Redshift с помощью UNLOAD
+
+[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) — это механизм, предоставляемый Amazon Redshift, позволяющий выгрузить результаты запроса в один или несколько файлов в Amazon Simple Storage Service (Amazon S3). Компания Amazon рекомендует использовать этот способ для копирования большого набора данных из Redshift.
+
+**Пример. Копирование данных из Amazon Redshift в хранилище данных SQL Azure с помощью UNLOAD, промежуточного копирования и PolyBase**
+
+В этом варианте использования действие копирования сначала выгружает данные из Amazon Redshift в Amazon S3, как задано в redshiftUnloadSettings, затем копирует данные из Amazon S3 в большой двоичный объект Azure, заданный в stagingSettings, и наконец, использует PolyBase для загрузки данных в хранилище данных SQL. Формат промежуточного хранения обрабатывается действием копирования должным образом.
+
+![Рабочий процесс копирования из Redshift в хранилище данных SQL](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
+
+```json
+{
+    "name": "CopyFromRedshiftToSQLDW",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "AmazonRedshiftSource",
+            "query": "select * from MyTable",
+            "redshiftUnloadSettings": {
+                "s3LinkedServiceName":"MyAmazonS3StorageLinkedService",
+                "bucketName": "bucketForUnload"
+            }
+        },
+        "sink": {
+            "type": "SqlDWSink",
+            "allowPolyBase": true
+        },
+        "enableStaging": true,
+        "stagingSettings": {
+            "linkedServiceName": "MyAzureStorageLinkedService",
+            "path": "adfstagingcopydata"
+        },
+        "cloudDataMovementUnits": 32
+        .....
+    }
+}
+```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob"></a>Пример JSON. Копирование данных из Amazon Redshift в большой двоичный объект Azure
 В этом примере показано, как скопировать данные из базы данных Amazon Redshift в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать **непосредственно** в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемников. Это делается с помощью действия копирования в фабрике данных Azure.  
@@ -221,14 +274,19 @@ ms.lasthandoff: 06/07/2017
                 "type": "Copy",
                 "typeProperties": {
                     "source": {
-                        "type": "RelationalSource",
-                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+                        "type": "AmazonRedshiftSource",
+                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)",
+                        "redshiftUnloadSettings": {
+                            "s3LinkedServiceName":"myS3Storage",
+                            "bucketName": "bucketForUnload"
+                        }
                     },
                     "sink": {
                         "type": "BlobSink",
                         "writeBatchSize": 0,
                         "writeBatchTimeout": "00:00:00"
-                    }
+                    },
+                    "cloudDataMovementUnits": 32
                 },
                 "inputs": [
                     {

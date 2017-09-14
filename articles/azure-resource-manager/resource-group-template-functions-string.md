@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3e5c9ca546629f782a3d722b49f5fbaf5147e823
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: 9d007e2ce7cc4291eeebe26b887874085c6438b3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Строковые функции для шаблонов Azure Resource Manager
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функцию base64.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) показано, как использовать функцию base64.
 
 ```json
 {
@@ -120,6 +120,18 @@ ms.lasthandoff: 08/02/2017
 | base64Output | Строка | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Строка | one, two, three |
 | toJsonOutput | Объект | {"one": "a", "two": "b"} |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
 
 <a id="base64tojson" />
 
@@ -140,7 +152,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере функция base64ToJson используется для преобразования значения в кодировке base64:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) функция base64ToJson используется для преобразования значения в кодировке base64.
 
 ```json
 {
@@ -186,6 +198,18 @@ ms.lasthandoff: 08/02/2017
 | base64Output | Строка | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Строка | one, two, three |
 | toJsonOutput | Объект | {"one": "a", "two": "b"} |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
 
 <a id="base64tostring" />
 
@@ -206,7 +230,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере функция base64ToString используется для преобразования значения в кодировке base64:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) функция base64ToString используется для преобразования значения в кодировке base64.
 
 ```json
 {
@@ -253,7 +277,17 @@ ms.lasthandoff: 08/02/2017
 | toStringOutput | Строка | one, two, three |
 | toJsonOutput | Объект | {"one": "a", "two": "b"} |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
 
 <a id="concat" />
 
@@ -274,7 +308,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как объединить два строковых значения и получить объединенную строку.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) показано, как объединить два строковых значения и получить сцепленную строку.
 
 ```json
 {
@@ -302,7 +336,19 @@ ms.lasthandoff: 08/02/2017
 | ---- | ---- | ----- |
 | concatOutput | Строка | prefix-5yj4yjf5mbg72 |
 
-В следующем примере показано, как объединить два массива.
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
+
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) показано, как объединить два массива.
 
 ```json
 {
@@ -343,6 +389,18 @@ ms.lasthandoff: 08/02/2017
 | ---- | ---- | ----- |
 | return | Массив, | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
+
 <a id="contains" />
 
 ## <a name="contains"></a>contains
@@ -363,7 +421,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функцию contains с различными типами:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) показано, как использовать функцию contains с различными типами.
 
 ```json
 {
@@ -425,6 +483,18 @@ ms.lasthandoff: 08/02/2017
 | arrayTrue | Bool | Да |
 | arrayFalse | Bool | Ложь |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
+
 <a id="datauri" />
 
 ## <a name="datauri"></a>dataUri
@@ -444,7 +514,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере значение преобразуется в URI данных, а URI данных преобразуется в строку:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) значение преобразуется в универсальный код ресурса (URI) данных, а URI данных преобразуется в строку.
 
 ```json
 {
@@ -480,6 +550,18 @@ ms.lasthandoff: 08/02/2017
 | ---- | ---- | ----- |
 | dataUriOutput | Строка | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | Строка | Привет, мир! |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
 
 <a id="datauritostring" />
 
@@ -500,7 +582,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере значение преобразуется в URI данных, а URI данных преобразуется в строку:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) значение преобразуется в универсальный код ресурса (URI) данных, а URI данных преобразуется в строку.
 
 ```json
 {
@@ -537,6 +619,18 @@ ms.lasthandoff: 08/02/2017
 | dataUriOutput | Строка | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | Строка | Привет, мир! |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
+
 <a id="empty" /> 
 
 ## <a name="empty"></a>empty
@@ -556,7 +650,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере проверяется, являются ли пустыми массив, объект и строка.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) проверяется, являются ли пустыми массив, объект и строка.
 
 ```json
 {
@@ -603,6 +697,18 @@ ms.lasthandoff: 08/02/2017
 | objectEmpty | Bool | Да |
 | stringEmpty | Bool | Да |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
+
 <a id="endswith" />
 
 ## <a name="endswith"></a>endsWith
@@ -623,7 +729,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функции startsWith и endsWith:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) показано, как использовать функции startsWith и endsWith.
 
 ```json
 {
@@ -670,6 +776,18 @@ ms.lasthandoff: 08/02/2017
 | endsCapTrue | Bool | Да |
 | endsFalse | Bool | Ложь |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
 <a id="first" />
 
 ## <a name="first"></a>first
@@ -689,7 +807,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функцию first с массивом и строкой:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) показано, как использовать функцию first с массивом и строкой.
 
 ```json
 {
@@ -723,6 +841,18 @@ ms.lasthandoff: 08/02/2017
 | arrayOutput | Строка | one |
 | stringOutput | Строка | O |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
 <a id="indexof" />
 
 ## <a name="indexof"></a>indexOf
@@ -743,7 +873,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функции indexOf и lastIndexOf:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) показано, как использовать функции indexOf и lastIndexOf.
 
 ```json
 {
@@ -785,6 +915,18 @@ ms.lasthandoff: 08/02/2017
 | lastString | int | 0 |
 | notFound | int | -1 |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
 <a id="last" />
 
 ## <a name="last"></a>last
@@ -804,7 +946,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функцию last с массивом и строкой:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) показано, как использовать функцию last с массивом и строкой.
 
 ```json
 {
@@ -838,6 +980,18 @@ ms.lasthandoff: 08/02/2017
 | arrayOutput | Строка | three |
 | stringOutput | Строка | e |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
+
 <a id="lastindexof" />
 
 ## <a name="lastindexof"></a>lastIndexOf
@@ -858,7 +1012,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функции indexOf и lastIndexOf:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) показано, как использовать функции indexOf и lastIndexOf.
 
 ```json
 {
@@ -900,6 +1054,18 @@ ms.lasthandoff: 08/02/2017
 | lastString | int | 0 |
 | notFound | int | -1 |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
 <a id="length" />
 
 ## <a name="length"></a>длина
@@ -919,7 +1085,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функцию length с массивом и строкой:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) показано, как использовать функцию length с массивом и строкой.
 
 ```json
 {
@@ -960,6 +1126,18 @@ ms.lasthandoff: 08/02/2017
 | arrayLength | int | 3 |
 | stringLength | int | 13. |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
+
 <a id="padleft" />
 
 ## <a name="padleft"></a>padLeft
@@ -983,7 +1161,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как заполнить указанное пользователем значение параметра, добавляя знак нуля до достижения общего числа знаков. 
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) показано, как заполнить указанное пользователем значение параметра, добавляя знак нуля до достижения общего числа знаков. 
 
 ```json
 {
@@ -1011,6 +1189,18 @@ ms.lasthandoff: 08/02/2017
 | ---- | ---- | ----- |
 | stringOutput | Строка | 0000000123 |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
+```
+
 <a id="replace" />
 
 ## <a name="replace"></a>replace
@@ -1032,7 +1222,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В приведенном ниже примере показано, как удалить все тире из предоставленной пользователем строки и как заменить часть строки другой строкой.
+В приведенном ниже [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) показано, как удалить все тире из предоставленной пользователем строки и как заменить часть строки другой строкой.
 
 ```json
 {
@@ -1065,6 +1255,18 @@ ms.lasthandoff: 08/02/2017
 | firstOutput | Строка | 1231231234 |
 | secodeOutput | Строка | 123-123-xxxx |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
+```
+
 <a id="skip" />
 
 ## <a name="skip"></a>skip
@@ -1085,7 +1287,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере пропускается заданное число элементов в массиве и заданное число знаков в строке.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) пропускается заданное число элементов в массиве и заданное число знаков в строке.
 
 ```json
 {
@@ -1134,6 +1336,18 @@ ms.lasthandoff: 08/02/2017
 | arrayOutput | Массив, | ["three"] |
 | stringOutput | Строка | two three |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
+
 <a id="split" />
 
 ## <a name="split"></a>split
@@ -1154,7 +1368,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере входная строка разбивается с помощью запятой или точки с запятой.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) входная строка разбивается с помощью запятой или точки с запятой.
 
 ```json
 {
@@ -1194,6 +1408,18 @@ ms.lasthandoff: 08/02/2017
 | firstOutput | Массив, | ["one", "two", "three"] |
 | secondOutput | Массив, | ["one", "two", "three"] |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
+```
+
 <a id="startswith" />
 
 ## <a name="startswith"></a>startsWith
@@ -1214,7 +1440,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функции startsWith и endsWith:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) показано, как использовать функции startsWith и endsWith.
 
 ```json
 {
@@ -1261,6 +1487,18 @@ ms.lasthandoff: 08/02/2017
 | endsCapTrue | Bool | Да |
 | endsFalse | Bool | Ложь |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
 <a id="string" />
 
 ## <a name="string"></a>string
@@ -1280,7 +1518,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как преобразовать различные типы значений в строки:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) показано, как преобразовать различные типы значений в строки.
 
 ```json
 {
@@ -1333,6 +1571,18 @@ ms.lasthandoff: 08/02/2017
 | arrayOutput | Строка | ["a","b","c"] |
 | intOutput | Строка | 5 |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
+```
+
 <a id="substring" />
 
 ## <a name="substring"></a>substring
@@ -1367,7 +1617,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере из параметра извлекается подстрока.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) из параметра извлекается подстрока.
 
 ```json
 {
@@ -1395,6 +1645,17 @@ ms.lasthandoff: 08/02/2017
 | ---- | ---- | ----- |
 | substringOutput | Строка | two |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
+```
 
 <a id="take" />
 
@@ -1416,7 +1677,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере из массива извлекается заданное число элементов, а из строки — заданное число знаков.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) из массива извлекается заданное число элементов, а из строки — заданное число знаков.
 
 ```json
 {
@@ -1465,6 +1726,18 @@ ms.lasthandoff: 08/02/2017
 | arrayOutput | Массив, | ["one", "two"] |
 | stringOutput | Строка | on |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
+
 <a id="tolower" />
 
 ## <a name="tolower"></a>toLower
@@ -1484,7 +1757,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере значение параметра преобразуется в нижний регистр и в верхний регистр.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) значение параметра преобразуется в нижний и в верхний регистр.
 
 ```json
 {
@@ -1516,6 +1789,18 @@ ms.lasthandoff: 08/02/2017
 | ---- | ---- | ----- |
 | toLowerOutput | Строка | one two three |
 | toUpperOutput | Строка | ONE TWO THREE |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
 
 <a id="toupper" />
 
@@ -1536,7 +1821,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере значение параметра преобразуется в нижний регистр и в верхний регистр.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) значение параметра преобразуется в нижний и в верхний регистр.
 
 ```json
 {
@@ -1569,6 +1854,18 @@ ms.lasthandoff: 08/02/2017
 | toLowerOutput | Строка | one two three |
 | toUpperOutput | Строка | ONE TWO THREE |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
+
 <a id="trim" />
 
 ## <a name="trim"></a>trim
@@ -1588,7 +1885,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере из параметра удаляются пробелы.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) из параметра удаляются пробелы.
 
 ```json
 {
@@ -1615,6 +1912,18 @@ ms.lasthandoff: 08/02/2017
 | Имя | Тип | Значение |
 | ---- | ---- | ----- |
 | return | Строка | one two three |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
+```
 
 <a id="uniquestring" />
 
@@ -1673,7 +1982,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере возвращаются результаты выполнения uniquestring.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) возвращаются результаты выполнения uniquestring.
 
 ```json
 {
@@ -1691,6 +2000,18 @@ ms.lasthandoff: 08/02/2017
         }
     }
 }
+```
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
 ```
 
 <a id="uri" />
@@ -1721,7 +2042,7 @@ ms.lasthandoff: 08/02/2017
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-В следующем примере показано, как использовать функции uri, uriComponent и uriComponentToString:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) показано, как использовать функции uri, uriComponent и uriComponentToString.
 
 ```json
 {
@@ -1757,6 +2078,18 @@ ms.lasthandoff: 08/02/2017
 | uriOutput | Строка | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Строка | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | Строка | http://contoso.com/resources/nested/azuredeploy.json |
+
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
 
 <a id="uricomponent" />
 
@@ -1777,7 +2110,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функции uri, uriComponent и uriComponentToString:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) показано, как использовать функции uri, uriComponent и uriComponentToString.
 
 ```json
 {
@@ -1814,6 +2147,17 @@ ms.lasthandoff: 08/02/2017
 | componentOutput | Строка | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | Строка | http://contoso.com/resources/nested/azuredeploy.json |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
 
 <a id="uricomponenttostring" />
 
@@ -1834,7 +2178,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как использовать функции uri, uriComponent и uriComponentToString:
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) показано, как использовать функции uri, uriComponent и uriComponentToString.
 
 ```json
 {
@@ -1871,6 +2215,17 @@ ms.lasthandoff: 08/02/2017
 | componentOutput | Строка | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | Строка | http://contoso.com/resources/nested/azuredeploy.json |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Описание разделов в шаблоне Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).

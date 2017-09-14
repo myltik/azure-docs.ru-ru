@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/25/2017
+ms.date: 09/06/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7a9d994e10ec79437d6ccf60531cb12b86f34151
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 81713fae3f856cad6251e43eecfd7b1e82858aed
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Подробное руководство по устранению неполадок с подключением к удаленному рабочему столу на виртуальной машине Windows в Azure
@@ -50,6 +50,8 @@ ms.lasthandoff: 07/28/2017
 
 * Проверьте состояние виртуальной машины на портале Azure на наличие очевидных проблем.
 * Выполните [процедуры быстрого устранения ошибок протокола удаленного рабочего стола, описанные в руководстве по устранению неполадок](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
+* Для пользовательских образов виртуальный диск VHD следует правильно подготовить перед отправкой. Дополнительные сведения см. в руководстве по [подготовке диска VHD или VHDX для Windows к отправке в Azure](prepare-for-upload-vhd-image.md).
+
 
 Выполнив эти действия, попробуйте заново подключиться к виртуальной машине через удаленный рабочий стол.
 
@@ -111,7 +113,7 @@ ms.lasthandoff: 07/28/2017
 ## <a name="source-4-network-security-groups"></a>Источник 4: группы безопасности сети
 Группы безопасности сети позволяют точнее настраивать параметры разрешенного входящего и исходящего трафика. Можно создавать правила, которые распространяются на подсети и облачные службы в виртуальной сети Azure.
 
-Используйте [проверку потока для IP-адреса](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md), чтобы определить, блокирует ли правило в группе безопасности сети входящий или исходящий трафик виртуальной машины. Вы также можете просмотреть действующие правила группы безопасности и убедиться, что для порта RDP (3389 по умолчанию) существует и является приоритетным правило NSG, разрешающее входящий трафик. См. дополнительные сведения об [использовании действующих правил безопасности для устранения проблем с потоком трафика в виртуальной машине](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Используйте [проверку потока для IP-адреса](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md), чтобы определить, блокирует ли правило в группе безопасности сети входящий или исходящий трафик виртуальной машины. Вы можете также просмотреть действующие правила группы безопасности и убедиться, что для порта RDP (3389 по умолчанию) существует и является приоритетным правило NSG, разрешающее входящий трафик. См. дополнительные сведения об [использовании действующих правил безопасности для устранения проблем с потоком трафика в виртуальной машине](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Источник 5: виртуальная машина Azure под управлением Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

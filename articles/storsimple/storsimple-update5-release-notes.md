@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/23/2017
+ms.date: 08/28/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: e68dce72d648171faab930bbb4af9fd61816b19b
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Заметки о выпуске, посвященные обновлению 5 для устройств серии StorSimple 8000
@@ -43,7 +43,7 @@ ms.lasthandoff: 08/24/2017
 
     Если URL-адрес аутентификации не включен в правила брандмауэра, то пользователи увидят критическое оповещение том, что устройству StorSimple не удалось выполнить аутентификацию в службе. Если пользователи видят это оповещение, они должны добавить новый URL-адрес аутентификации. Дополнительные сведения см. в разделе [Оповещения сети](storsimple-8000-manage-alerts.md#networking-alerts).
 
-* **Новая версия StorSimple Snapshot Manager**. В обновлении 5 выпущена новая версия StorSimple Snapshot Manager. Рекомендуется выполнить обновление до этой версии. Эта версия совместима со всеми устройствами StorSimple, работающими под управлением ПО с обновлением 3 или более поздним. Дополнительные сведения см. в статье [Развертывание оснастки консоли управления диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-deployment.md).
+* **Новая версия StorSimple Snapshot Manager** выпущена с обновлением 5. Она совместима со всеми устройствами StorSimple, работающих под управлением версии с обновлением 4 или более поздней версии. Рекомендуется выполнить обновление до этой версии. Предыдущая версия Snapshot Manager используется для устройств StorSimple под управлением версии с обновлением 3 или более ранней версии. [Скачайте соответствующую версию StorSimple Snapshot Manager](https://www.microsoft.com/en-us/download/details.aspx?id=44220) и см. инструкции по [развертыванию диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-deployment.md).
 
 
 ## <a name="issues-fixed-in-update-5"></a>Проблемы, устраненные в обновлении 5

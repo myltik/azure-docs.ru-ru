@@ -16,14 +16,17 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 2bf75dc55d190522597eb8958d378aa1469027b7
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Расшифровка счета за использование Microsoft Azure
 Чтобы расшифровать счет Azure, сравните счет и файл с подробными данными о ежедневном использовании, а также отчеты об управлении затратами на портале Azure.
+
+>[!NOTE]
+>Эта статья не относится к клиентам с соглашением Enterprise (EA). Если вы являетесь клиентом EA, [документацию по счетам можно найти на корпоративном портале.](https://ea.azure.com/helpdocs/understandingYourInvoice)  
 
 Чтобы получить PDF-файл счета и скачать CSV-файл с подробными данными о ежедневном использовании, см. статью [Получение счета на оплату и данных о ежедневном использовании в Azure](billing-download-azure-invoice-daily-usage-date.md). 
 

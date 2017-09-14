@@ -3,7 +3,7 @@ title: "Добавление новых пользователей в Azure Acti
 description: "Инструкции по добавлению новых пользователей в Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: jeffgilb
+author: curtand
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: jeffgilb
-ms.reviewer: jsnow
+ms.author: curtand
+ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 13a7d2d3b991206c45e66872b590bc27a224eead
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Краткое руководство по добавлению новых пользователей в Azure Active Directory
@@ -32,8 +32,8 @@ ms.lasthandoff: 08/24/2017
    ![Выбор команды "Добавить"](./media/add-users-azure-active-directory/add-user.png)
 4. Введите сведения о пользователе в соответствующих полях, например **Имя** и **Имя пользователя**. Частью имени пользователя, представляющей собой доменное имя, должно быть доменное имя по умолчанию, [domain name].onmicrosoft.com, или проверенное доменное имя, не являющееся федеративным, например [настроить доменное имя](add-custom-domain.md) contoso.com.
 5. Скопируйте или иным способом запишите созданный пароль пользователя, чтобы после завершения этого процесса его можно было предоставить пользователю.
-6. При необходимости можно заполнить сведения, открыв колонку **Профиль**, **Группы** или **Роль каталога** для пользователя. Дополнительные сведения о ролях пользователей и администраторов см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
-7. В колонке **Пользователь** щелкните **Создать**.
+6. При необходимости можно указать сведения, открыв колонку **Профиль**, **Группы** или **Роль каталога** для пользователя. Дополнительные сведения о ролях пользователей и администраторов см. в статье [Назначение ролей администратора в Azure AD](active-directory-assign-admin-roles.md).
+7. В разделе **Пользователь** выберите **Создать**.
 8. Безопасным способом передайте созданный пароль новому пользователю, чтобы он мог войти в систему.
 
 > [!TIP]

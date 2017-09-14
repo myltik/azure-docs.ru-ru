@@ -16,15 +16,26 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 647509ea36e487aca5db661adb3268e845988f78
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: af8a7bbc4bf007dfa5bef7ceb9cf940ad752239a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Устранение неполадок при регистрации в Azure
 Если не удается зарегистрироваться для работы с Azure, то воспользуетесь подсказками в этой статье для устранения распространенных неполадок. При возникновении проблем с кредитной картой во время регистрации см. статью [Банковская или кредитная карта отклонена при регистрации в Azure](billing-credit-card-fails-during-azure-sign-up.md). Если у вас есть учетная запись Azure, но не удается выполнить вход, то см. статью [Не удается выполнить вход в подписку Azure](billing-cannot-login-subscription.md).
+
+## <a name="error-we-cannot-proceed-with-signup-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Ошибка "Невозможно продолжить регистрацию из-за проблемы с вашей учетной записью. Обратитесь в службу поддержки по вопросам выставления счетов" 
+
+Устранить проблему можно так:
+
+1. Войдите в [центр учетных записей Azure](https://account.azure.com) в качестве администратора учетной записи. 
+2. Щелкните **Профиль**, а затем выберите **Изменить сведения**.
+3. Убедитесь, что все поля адресов заполнены допустимыми значениями. 
+4. При регистрации подписки Azure убедитесь, что адрес для выставления счетов, введенный во время регистрации кредитной карты, соответствует записям в вашем банке.
+
+Если ошибка продолжает возникать, попробуйте зарегистрироваться в другом браузере.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>Индикатор выполнения зависает в разделе "Проверка личности с помощью карты"
 

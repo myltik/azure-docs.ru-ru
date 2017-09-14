@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: d7bd0d780c265cc15ad09a73ede8c5a886005e37
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 08/28/2017
 ## <a name="log-search-api"></a>API поиска по журналам
 
 ### <a name="question-does-the-log-search-api-get-updated-after-i-upgrade"></a>Вопрос. Обновляется ли API поиска по журналам после обновления рабочей области?
-В [API поиска по журналам](log-analytics-log-search-api.md) еще не реализована поддержка нового языка поиска.  Продолжайте использовать прежний язык запросов с этим API даже после обновления рабочей области.  После обновления API поиска по журналам мы обновим соответствующую документацию.
+Прежние версии [API поиска п журналам](log-analytics-log-search-api.md) не будут работать после обновления рабочей области.  Сведения о новых API. см. в руководстве по [API REST Log Analytics Azure](https://dev.loganalytics.io/).
 
 
 ## <a name="portals"></a>Порталы

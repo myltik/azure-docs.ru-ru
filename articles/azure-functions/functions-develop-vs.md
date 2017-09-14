@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/06/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1e0568bc58e8879cabe409cf8e9b5866f922e7c9
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: b69bbd00b85fdf093ac1ccf021515d9b44ea7f55
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
@@ -39,6 +39,9 @@ ms.lasthandoff: 08/21/2017
 Инструменты Функций Azure включены в рабочую нагрузку "разработка Azure" в [Visual Studio 2017 версии 15.3](https://www.visualstudio.com/vs/) или более поздней. Не забудьте включить рабочую нагрузку **разработка Azure** в своем экземпляре Visual Studio 2017 версии 15.3:
 
 ![Установка Visual Studio 2017 с рабочей нагрузкой разработки в Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+>[!NOTE]  
+>Установив Visual Studio 2017 версии 15.3 или обновившись до этой версии, вы должны вручную обновить инструменты Visual Studio 2017 для решения "Функции Azure". Для обновления инструментов можно воспользоваться меню **Инструменты** в разделе **Расширения и обновления...** > **Обновления** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** (Инструменты для функций и веб-заданий Azure)  > **Обновление**. 
 
 Для создания и развертывания функций необходимы также следующие компоненты:
 

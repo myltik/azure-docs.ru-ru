@@ -17,21 +17,23 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ae3f3343cf10a6b2f3aa49dccae6d0ac906dba5c
+ms.translationtype: HT
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: f6fc297790b8a8b3ae8edea2e37bb7daf40ed3bb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/26/2017
-
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Скачивание или просмотр счета на оплату и данных о ежедневном использовании в Azure
 Счет можно скачать на [портале Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) или получить по электронной почте. Чтобы скачать данные о ежедневном использовании, перейдите в [Центр управления учетной записью Azure](https://account.windowsazure.com). Получать сведения о выставлении счетов и использовании разрешено только определенным ролям, например администратору учетной записи. Дополнительные сведения о доступе к сведениям о выставлении счетов см. в статье [Управление доступом для выставления счетов Azure с помощью ролей](billing-manage-access.md).
 
+>[!NOTE]
+>Эта статья не относится к клиентам с соглашением Enterprise (EA). Если вы являетесь клиентом EA, ваши счета отправляются непосредственно администраторам регистрации.
+
 ## <a name="get-your-invoice-in-email-pdf"></a>Получение счета по электронной почте (в формате PDF)
 Вы можете согласиться и настроить дополнительных получателей Azure для получения счета по электронной почте. Эта функция может быть недоступна для определенных подписок, например для предложений о планах поддержки, соглашений Enterprise или Azure с открытой лицензией.
 
-1. Выберите свою подписку в [колонке подписок](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Необходимо выбрать все свои подписки. Щелкните **Invoices** (Счета), а затем — **Email my invoice** (Отправить счет по электронной почте). 
+1. Выберите свою подписку на [странице подписок](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Необходимо выбрать все свои подписки. Щелкните **Invoices** (Счета), а затем — **Email my invoice** (Отправить счет по электронной почте). 
 
     ![Снимок экрана, на котором отображается процесс предоставления согласия](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
@@ -47,7 +49,7 @@ ms.lasthandoff: 04/26/2017
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Скачивание счета с портала Azure (в формате PDF)
 
-1. Выберите свою подписку в [колонке подписок](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) на портале Azure ([у этого пользователя должен быть доступ к счетам](billing-manage-access.md)).
+1. Выберите свою подписку на [странице подписок](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) на портале Azure ([у этого пользователя должен быть доступ к счетам](billing-manage-access.md)).
 
 2. Выберите **Счета**. 
 

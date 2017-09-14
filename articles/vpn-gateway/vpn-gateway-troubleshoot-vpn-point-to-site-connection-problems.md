@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/23/2017
+ms.date: 08/23/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: de37c8ffd47a2b8e201d18e3a20b5325d528ad59
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: f6e068e60e8c7b3b095e10cb7e109eb68a483de4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Устранение неполадок подключения типа "точка — сеть" Azure
@@ -39,9 +39,17 @@ ms.lasthandoff: 07/12/2017
 
 ### <a name="solution"></a>Решение
 
-Убедитесь, что сертификат клиента установлен в следующем расположении в хранилище сертификатов (Certmgr.msc):
- 
-**Certificates - Current User\Personal\Certificates**
+Устранить проблему можно так:
+
+1. Убедитесь, что перечисленные ниже сертификаты находятся в правильном расположении.
+
+    | Сертификат | Расположение |
+    | ------------- | ------------- |
+    | AzureClient.pfx  | Current User\Personal\Certificates |
+    | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+
+2. Перейдите в каталог Users\<имя_пользователя>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, вручную установите сертификат (файл *.cer) в пользовательское хранилище и хранилище на компьютере.
 
 Дополнительные сведения о том, как установить сертификат клиента, см. в статье [Создание и экспорт сертификатов для подключений типа "точка — сеть" с помощью PowerShell в Windows 10](vpn-gateway-certificates-point-to-site.md).
 

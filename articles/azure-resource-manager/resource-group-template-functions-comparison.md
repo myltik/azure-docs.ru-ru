@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 521e5ed06c138bcd374913588f06a2e6c1e99963
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 3291d545bc7a66ffa9b4845acd890a714cf84ef8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Функции сравнения для шаблонов Azure Resource Manager
@@ -68,7 +68,7 @@ Resource Manager предоставляет ряд функций для вып�
 
 ### <a name="example"></a>Пример
 
-Пример шаблона проверяет различные типы значений на равенство. Все значения по умолчанию возвращают результат True.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) проверяются разные типы значений на равенство. Все значения по умолчанию возвращают результат True.
 
 ```json
 {
@@ -140,8 +140,19 @@ Resource Manager предоставляет ряд функций для вып�
 | checkArrays | Bool | Да |
 | checkObjects | Bool | Да |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
-В следующем примере используется функция [not](resource-group-template-functions-logical.md#not) (не) с **equals** (равно).
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
+```
+
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) используется [not](resource-group-template-functions-logical.md#not) и **equals**.
 
 ```json
 {
@@ -155,6 +166,7 @@ Resource Manager предоставляет ряд функций для вып�
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 Выходные данные из предыдущего примера:
@@ -163,6 +175,17 @@ Resource Manager предоставляет ряд функций для вып�
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | Да |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
+```
 
 ## <a name="greater"></a>greater
 `greater(arg1, arg2)`
@@ -182,7 +205,7 @@ Resource Manager предоставляет ряд функций для вып�
 
 ### <a name="example"></a>Пример
 
-Пример шаблона проверяет, является ли первое значение большим, чем второе.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) проверяется, является ли первое значение большим, чем второе.
 
 ```json
 {
@@ -228,6 +251,17 @@ Resource Manager предоставляет ряд функций для вып�
 | checkInts | Bool | Ложь |
 | checkStrings | Bool | Да |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
+```
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
@@ -247,7 +281,7 @@ Resource Manager предоставляет ряд функций для вып�
 
 ### <a name="example"></a>Пример
 
-Пример шаблона проверяет, является ли первое значение большим, чем второе, или равным ему.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) проверяется, является ли первое значение большим, чем второе, или равным ему.
 
 ```json
 {
@@ -293,7 +327,17 @@ Resource Manager предоставляет ряд функций для вып�
 | checkInts | Bool | Ложь |
 | checkStrings | Bool | Да |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
+```
 
 ## <a name="less"></a>less
 `less(arg1, arg2)`
@@ -313,7 +357,7 @@ Resource Manager предоставляет ряд функций для вып�
 
 ### <a name="example"></a>Пример
 
-Пример шаблона проверяет, является ли первое значение меньшим, чем второе.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) проверяется, является ли первое значение меньшим, чем второе.
 
 ```json
 {
@@ -359,6 +403,17 @@ Resource Manager предоставляет ряд функций для вып�
 | checkInts | Bool | Да |
 | checkStrings | Bool | Ложь |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
+```
 
 ## <a name="lessorequals"></a>lessOrEquals
 `lessOrEquals(arg1, arg2)`
@@ -378,7 +433,7 @@ Resource Manager предоставляет ряд функций для вып�
 
 ### <a name="example"></a>Пример
 
-Пример шаблона проверяет, является ли первое значение меньшим, чем второе, или равным ему.
+В следующем [примере шаблона](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) проверяется, является ли первое значение меньшим, чем второе, или равным ему.
 
 ```json
 {
@@ -424,7 +479,17 @@ Resource Manager предоставляет ряд функций для вып�
 | checkInts | Bool | Да |
 | checkStrings | Bool | Ложь |
 
+Развернуть этот пример шаблона с помощью Azure CLI можно так:
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
+```
+
+Развернуть этот пример шаблона с помощью PowerShell можно так:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Описание разделов в шаблоне Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).

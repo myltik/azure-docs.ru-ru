@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 08/31/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 207c53924863eb51ee369fe46d5ad12fb1905c53
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: cc8a3e7f2a907b1eea4ecf39df2b291b0fb8b207
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Настройка принудительного туннелирования с помощью модели развертывания Azure Resource Manager
@@ -65,15 +65,26 @@ ms.lasthandoff: 08/03/2017
 
 Выполнив указанные ниже действия, можно настроить подключение DefaultSiteHQ в качестве подключения к сайту по умолчанию для принудительного туннелирования, а также настроить принудительное туннелирование для подсетей Midtier и Backend.
 
-## <a name="before-you-begin"></a>Перед началом работы
+## <a name="before"></a>Перед началом работы
 
 Установите последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](/powershell/azure/overview).
+
+> [!IMPORTANT]
+> Необходимо установить последнюю версию командлетов Azure PowerShell. В противном случае при выполнении некоторых командлетов могут возникать ошибки проверки.
+>
+>
 
 ### <a name="to-log-in"></a>Вход
 
 [!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
 
 ## <a name="configure-forced-tunneling"></a>Настройка принудительного туннелирования
+
+> [!NOTE]
+> Вы можете увидеть предупреждение "Тип выходного объекта этого командлета будет изменен в будущих версиях". Это ожидаемое поведение, и такие предупреждения можно смело игнорировать.
+>
+>
+
 
 1. Создайте группу ресурсов.
 
@@ -113,7 +124,7 @@ ms.lasthandoff: 08/03/2017
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Создайте шлюза с узлом по умолчанию. Выполнение этого шага занимает некоторое время (иногда 45 минут или более), так как выполняется создание и настройка шлюза.<br> **-GatewayDefaultSite** — это параметр командлета, благодаря которому работает конфигурация принудительной маршрутизации. Поэтому настройте этот параметр должным образом. Он доступен только в PowerShell 1.0 или более поздней версии.
+6. Создайте шлюза с узлом по умолчанию. Выполнение этого шага занимает некоторое время (иногда 45 минут или более), так как выполняется создание и настройка шлюза.<br> **-GatewayDefaultSite** — это параметр командлета, благодаря которому работает конфигурация принудительной маршрутизации. Поэтому настройте этот параметр должным образом. Если вы получаете сообщение об ошибке ValidateSet в значении GatewaySKU, убедитесь, что установлена [последняя версия командлетов PowerShell](#before). Последняя версия командлетов PowerShell содержит новые проверенные значения для последних номеров SKU шлюза.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
@@ -137,3 +148,4 @@ ms.lasthandoff: 08/03/2017
     
   Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
   ```
+

@@ -1,146 +1,258 @@
 ---
 title: "Руководство по интеграции Azure Active Directory с Benefitsolver | Документация Майкрософт"
-description: "Узнайте, как использовать Benefitsolver вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Benefitsolver."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
-ms.assetid: cf4529b1-3fb6-4475-82b7-2ceedcb70b3c
+ms.reviewer: joflore
+ms.assetid: 333394c1-b5a7-489c-8f7b-d1a5b4e782ea
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 08/30/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
-ms.openlocfilehash: 8a13dd5ebd872f86247158379b28bc291a9c9d83
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: f8cf8ceabcb3fea7c22f08ec86155f60527297eb
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Руководство. Интеграция Azure Active Directory с Benefitsolver
-Цель данного учебника — показать интеграцию Azure и Benefitsolver.  
 
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+В этом руководстве описано, как интегрировать Benefitsolver с Azure Active Directory (Azure AD).
 
-* действующая подписка Azure;
-* подписка на Benefitsolver с поддержкой единого входа.
+Интеграция Benefitsolver с Azure AD обеспечивает следующие преимущества:
 
-После завершения этого руководства пользователи Azure AD, назначенные Benefitsolver, будут иметь возможность единого входа в приложение с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+- С помощью Azure AD вы можете контролировать доступ к Benefitsolver.
+- Вы можете включить автоматический вход пользователей в Benefitsolver (единый вход) с использованием учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-1. Включение интеграции приложений для Benefitsolver
-2. Настройка единого входа.
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+## <a name="prerequisites"></a>Предварительные требования
 
-![Сценарий](./media/active-directory-saas-benefitsolver-tutorial/IC804820.png "Сценарий")
+Чтобы настроить интеграцию Azure AD с Benefitsolver, вам потребуется:
 
-## <a name="enabling-the-application-integration-for-benefitsolver"></a>Включение интеграции приложений для Benefitsolver
-В этом разделе показано, как включить интеграцию приложений для Benefitsolver.
+- подписка Azure AD;
+- Подписка с поддержкой единого входа Benefitsolver
 
-### <a name="to-enable-the-application-integration-for-benefitsolver-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Benefitsolver, выполните следующие действия.
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-benefitsolver-tutorial/IC700993.png "Active Directory")
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-   ![Приложения](./media/active-directory-saas-benefitsolver-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-   ![Добавление приложения](./media/active-directory-saas-benefitsolver-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-   ![Добавление приложения из коллекции](./media/active-directory-saas-benefitsolver-tutorial/IC749322.png "Добавление приложения из коллекции")
-6. В **поле поиска** введите **Benefitsolver**.
-   
-   ![Коллекция приложений](./media/active-directory-saas-benefitsolver-tutorial/IC804821.png "Коллекция приложений")
-7. В области результатов выберите **Benefitsolver** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-   ![Benefitssolver](./media/active-directory-saas-benefitsolver-tutorial/IC804822.png "Benefitssolver")
-   
-## <a name="configure-single-sign-on"></a>Настройка единого входа
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Benefitsolver со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-Приложение Benefitsolver ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию **атрибутов токена SAML** . 
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
-На следующем снимке экрана приведен пример.
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Атрибуты")
+1. Добавление Benefitsolver из коллекции.
+2. Настройка и проверка единого входа в Azure AD
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+## <a name="adding-benefitsolver-from-the-gallery"></a>Добавление Benefitsolver из коллекции
+Чтобы настроить интеграцию Benefitsolver с Azure AD, необходимо добавить Benefitsolver из коллекции в список управляемых приложений SaaS.
 
-1. На классическом портале Azure на странице интеграции с приложением **Benefitsolver** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Настройка единого входа")
-2. На странице **Как пользователи должны входить в Benefitsolver?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804825.png "Настройка единого входа")
-3. На странице **Настройка параметров приложения** выполните следующие действия.
-   
-   ![Настройка параметров приложения](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Настройка параметров приложения")
-   
-   1. В текстовом поле **URL-адрес для входа** введите **http://azure.benefitsolver.com**.
-   2. В текстовом поле **URL-адрес ответа** введите **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.  
-   3. Нажмите кнопку **Далее**.
-4. На странице **Настройка единого входа в Benefitsolver** щелкните **Скачать метаданные**, чтобы скачать метаданные, а затем сохраните файл метаданных на локальный компьютер.
-   
-   ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Настройка единого входа")
-5. Отправьте загруженный файл метаданных в службу поддержки Benefitsolver.
-   
-   >[!NOTE]
-   >Настройка единого входа должна выполняться службой поддержки Benefitsolver. Как только единый вход для вашей подписки будет включен, вы получите уведомление.
-   >
+**Чтобы добавить Benefitsolver из коллекции, сделайте следующее:**
 
-6. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Настройка единого входа")
-7. В меню в верхней части экрана выберите пункт **Атрибуты** to open the **SAML Token Атрибуты** .
-   
-   ![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Атрибуты")
-8. Чтобы добавить обязательные сопоставления атрибутов, выполните следующие действия.
-   
-   ![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Атрибуты")
-   
-   | Имя атрибута | Значение атрибута |
-   | --- | --- |
-   | ClientID |Это значение необходимо получить у службы поддержки Benefitsolver. |
-   | ClientKey |Это значение необходимо получить у службы поддержки Benefitsolver. |
-   | LogoutURL |Это значение необходимо получить у службы поддержки Benefitsolver. |
-   | EmployeeID |Это значение необходимо получить у службы поддержки Benefitsolver. |
-   
-   1. Для каждой строки данных в приведенной выше таблице нажмите кнопку **добавить атрибут пользователя**.
-   2. В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
-   3. В текстовом поле **Значение атрибута** выберите значение атрибута, отображаемое для этой строки.
-   4. Нажмите **Завершено**.
-9. Нажмите кнопку **Применить изменения**.
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-## <a name="configure-user-provisioning"></a>Настройка подготовки пользователей
-Чтобы пользователи Azure AD могли выполнять вход в Benefitsolver, они должны быть подготовлены для Benefitsolver.  
+    ![Кнопка "Azure Active Directory"][1]
 
-При использовании Benefitsolver данные о сотрудниках находятся в приложении, которое заполняется с помощью файла переписи из вашей информационной системы персонала (обычно каждую ночь).  
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
->[!NOTE]
->Вы можете использовать любые другие средства создания учетной записи пользователя Benefitsolver или API, предоставляемые Benefitsolver для подготовки учетных записей пользователя AAD. 
+    ![Колонка "Корпоративные приложения"][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Кнопка "Новое приложение"][3]
+
+4. В поле поиска введите **Benefitsolver**, выберите **Benefitsolver** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+
+    ![Benefitsolver в списке результатов](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+
+В этом разделе описана настройка и проверка единого входа Azure AD в Benefitsolver с использованием тестового пользователя Britta Simon.
+
+Чтобы единый вход работал, Azure AD необходимо знать, какой пользователь в Benefitsolver соответствует пользователю Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем Benefitsolver.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Benefitsolver.
+
+Чтобы настроить и проверить единый вход Azure AD в Benefitsolver, вам потребуется выполнить действия в следующих стандартных блоках:
+
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Benefitsolver](#create-a-benefitsolver-test-user)** требуется для того, чтобы в Benefitsolver существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Benefitsolver.
+
+**Чтобы настроить единый вход Azure AD в Benefitsolver, выполните следующие действия:**
+
+1. На портале Azure на странице интеграции с приложением **Benefitsolver** щелкните **Единый вход**.
+
+    ![Ссылка "Настройка единого входа"][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Benefitsolver** выполните следующие действия:
+
+    ![Сведения о домене и URL-адресах единого входа для приложения Benefitsolver](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `http://<companyname>.benefitsolver.com`
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<companyname>.benefitsolver.com/saml20`
+
+    c. В текстовом поле **URL-адрес ответа** введите URL-адрес `https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`.
+
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Укажите вместо них фактические значения URL-адреса для входа, идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Benefitsolver](https://www.businessolver.com/contact).
+
+4. Приложение Benefitsolver ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию **атрибутов токена SAML** .
+
+    ![Раздел атрибутов Benefitsolver](./media/active-directory-saas-benefitsolver-tutorial/tutorial_attribute.png)
+
+5. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** настройте атрибут токена SAML, как показано на рисунке, и выполните следующие действия.
+    
+    | Имя атрибута| Значение атрибута|
+    |---------------|----------------|
+    | ClientID | Это значение необходимо получить в [службе поддержки Benefitsolver](https://www.businessolver.com/contact).|
+    | ClientKey | Это значение необходимо получить в [службе поддержки Benefitsolver](https://www.businessolver.com/contact).|
+    | LogoutURL | Это значение необходимо получить в [службе поддержки Benefitsolver](https://www.businessolver.com/contact).|
+    | EmployeeID | Это значение необходимо получить в [службе поддержки Benefitsolver](https://www.businessolver.com/contact).|
+
+    а. Щелкните "Добавить атрибут", чтобы открыть диалоговое окно "Добавление атрибута".
+
+    ![Раздел атрибутов Benefitsolver](./media/active-directory-saas-benefitsolver-tutorial/tutorial_attribute_04.png)
+    
+    ![Раздел атрибутов Benefitsolver](./media/active-directory-saas-benefitsolver-tutorial/tutorial_attribute_05.png)
+
+    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+    
+    c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
+    
+    г) Нажмите кнопку **ОК**.
+
+6. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните файл метаданных на компьютере.
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
+
+7. Нажмите кнопку **Сохранить** .
+
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
+
+8. Чтобы настроить единый вход на стороне **Benefitsolver**, отправьте скачанный **XML-файл метаданных** в [службу поддержки Benefitsolver](https://www.businessolver.com/contact).
+
+    > [!NOTE]
+    > Настройка единого входа должна выполняться службой поддержки Benefitsolver. Как только единый вход для вашей подписки будет включен, вы получите уведомление.
+
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
-## <a name="assigning-users"></a>Назначение пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
-### <a name="to-assign-users-to-benefitsolver-perform-the-following-steps"></a>Чтобы назначить пользователей Benefitsolver, выполните следующие действия.
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Benefitsolver** щелкните **Назначить пользователей**.
-   
-   ![Назначение пользователей](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Назначение пользователей")
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-   ![Да](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Да")
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+   ![Создание тестового пользователя Azure AD][100]
+
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
+
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-benefitsolver-tutorial/create_aaduser_01.png)
+
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-benefitsolver-tutorial/create_aaduser_02.png)
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
+
+    ![Кнопка "Добавить"](./media/active-directory-saas-benefitsolver-tutorial/create_aaduser_03.png)
+
+4. В диалоговом окне **Пользователь** сделайте следующее.
+
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-benefitsolver-tutorial/create_aaduser_04.png)
+
+    а. В поле **Имя** введите **BrittaSimon**.
+
+    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
+
+    г) Щелкните **Создать**.
+ 
+### <a name="create-a-benefitsolver-test-user"></a>Создание тестового пользователя Benefitsolver
+
+Чтобы пользователи Azure AD могли выполнять вход в Benefitsolver, они должны быть подготовлены для Benefitsolver. При использовании Benefitsolver данные о сотрудниках находятся в приложении, которое заполняется с помощью файла переписи из вашей информационной системы персонала (обычно каждую ночь).
+
+> [!NOTE]
+> Вы можете использовать любые другие средства создания учетной записи пользователя Benefitsolver или API, предоставляемые Benefitsolver для подготовки учетных записей пользователя AAD.
+
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+
+В этом разделе описано, как предоставить пользователю Britta Simon доступ к Benefitsolver, чтобы он мог использовать единый вход Azure.
+
+![Назначение роли пользователя][200] 
+
+**Чтобы назначить пользователя Britta Simon в Benefitsolver, сделайте следующее:**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Benefitsolver**.
+
+    ![Ссылка на Benefitsolver в списке "Приложения"](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_app.png)  
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Ссылка "Пользователи и группы"][202]
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Область "Добавление назначения"][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="test-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув плитку Benefitsolver на панели доступа, вы автоматически войдете в приложение Benefitsolver.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_203.png
 
 

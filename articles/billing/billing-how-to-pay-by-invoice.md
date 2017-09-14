@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: edbeba95898a41e645b61aeaaec1fd897afadd61
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 9742187d2739b2d2d3b2073646dd6d7002898009
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Отправка запроса на оплату подписки Azure по счету
@@ -35,8 +35,11 @@ ms.lasthandoff: 07/18/2017
 1. Войдите на [портал Azure](https://portal.azure.com/). Выберите **Справка и поддержка** > **Новый запрос на получение поддержки**.
 
     ![Кнопка "Справка и поддержка"](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
+
 1. Укажите в качестве проблемы **Выставление счетов**, выберите подписку, для которой требуется оплата по счету, выберите план поддержки и нажмите кнопку **Далее**.
-1. В поле **Тип проблемы** колонки **Проблема** выберите элемент **Pay by Invoice** (Оплата по счету).
+
+1. Выберите в поле **Тип проблемы** пункт **Оплата счета**.
+
 1. Укажите следующие сведения в поле **Сведения** и нажмите кнопку **Далее**.
 
     * название компании;

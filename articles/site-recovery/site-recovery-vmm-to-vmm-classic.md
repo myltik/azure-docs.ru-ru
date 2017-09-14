@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 89a54a83e6708da8e7fd91923c3ef71d8371f8f3
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 768c2598beccba885dd5e43a59ec4684818ccca3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/23/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>Репликация виртуальных машин Hyper-V из облачных сред VMM в дополнительный ЦОД VMM
@@ -284,7 +283,7 @@ ms.lasthandoff: 02/23/2017
 
 
 ## <a name="privacy-information-for-site-recovery"></a>Сведения о конфиденциальности для Site Recovery
-В этом разделе содержатся дополнительные сведения о конфиденциальности для службы Microsoft Azure Site Recovery (далее — служба). Заявление о конфиденциальности для служб Microsoft Azure см. на [этой странице](http://go.microsoft.com/fwlink/?LinkId=324899).
+В этом разделе содержатся дополнительные сведения об обеспечении конфиденциальности для службы Microsoft Azure Site Recovery. 
 
 **Функция: регистрация**
 

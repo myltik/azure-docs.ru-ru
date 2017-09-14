@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 7783d0fc30b4b7d098a89595771993b33fb0aa97
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e460e734973622fb0d5745adfc4c1aa0178dd22e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="password-writeback-overview"></a>Обзор обратной записи паролей
 
-Компонент обратной записи паролей позволяет настроить Azure AD для записи паролей обратно в локальную службу Active Directory. Это устраняет необходимость в настройке и управлении комплексным локальным решением по сбросу паролей в режиме самообслуживания, а также предоставляет пользователям удобный облачный способ сброса локальных паролей из любого места. Компонент обратной записи паролей  — это компонент [Azure Active Directory Connect](./connect/active-directory-aadconnect.md), который могут включить и использовать текущие подписчики [Azure Active Directory](active-directory-editions.md) Premium.
+Компонент обратной записи паролей позволяет настроить в Azure AD запись паролей в локальный экземпляр Active Directory. Это устраняет необходимость в настройке и управлении комплексным локальным решением по сбросу паролей в режиме самообслуживания, а также предоставляет пользователям удобный облачный способ сброса локальных паролей из любого места. Компонент обратной записи паролей  — это компонент [Azure Active Directory Connect](./connect/active-directory-aadconnect.md), который могут включить и использовать текущие подписчики [Azure Active Directory](active-directory-editions.md) Premium.
 
 Компонент обратной записи паролей предоставляет следующие возможности:
 

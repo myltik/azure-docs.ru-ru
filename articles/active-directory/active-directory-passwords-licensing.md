@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 08/30/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 3ed13c819f8e32cab44013cdcbf1b3a921ba98b8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 5445a479fd6893048eb8ff356fa829a3dcd5f7d3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Требования к лицензированию самостоятельного сброса пароля в Azure AD
@@ -38,8 +38,8 @@ ms.lasthandoff: 05/03/2017
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Secure Productive Enterprise E3
-* Secure Productive Enterprise E5
+* Microsoft 365 E3
+* Microsoft 365 E5
 
 > [!NOTE]
 > Автономные планы лицензирования Office 365 **не поддерживают компонент обратной записи паролей**. Для работы этой функции необходим один из указанных выше планов.
@@ -47,8 +47,9 @@ ms.lasthandoff: 05/03/2017
 Дополнительные сведения о лицензировании, включая расходы, можно найти на следующих страницах:
 
 * [Сайт с ценами на Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+* [Функции и возможности Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security).
-* [Secure Productive Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx).
+* [Microsoft 365](https://www.microsoft.com/microsoft-365/enterprise)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Включение группового и пользовательского лицензирования
 
@@ -62,11 +63,10 @@ ms.lasthandoff: 05/03/2017
 
 * [**Приступая к работе с компонентами управления паролями**](active-directory-passwords-getting-started.md). Запуск и выполнение службы самостоятельного управления паролями Azure AD. 
 * [**Deploy password reset without requiring end-user registration**](active-directory-passwords-data.md) (Развертывание сброса пароля без регистрации пользователя). Сведения о необходимых данных и их использовании для управления паролями.
-* [**Развертывание функции сброса паролей для пользователей**](active-directory-passwords-best-practices.md). Рекомендации по планированию и развертыванию SSPR для пользователей.
+* [**Развертывание компонентов управления паролями и обучение пользователей их использованию**](active-directory-passwords-best-practices.md). Рекомендации по планированию и развертыванию SSPR для пользователей.
 * [**Настройка компонентов управления паролями в соответствии с требованиями организации**](active-directory-passwords-customize.md). Сведения о настройке интерфейса и параметров использования SSPR для организации.
 * [**Параметры отчетов для управления паролями Azure AD**](active-directory-passwords-reporting.md). Определяйте, кто и когда использовал функцию SSPR.
 * [**Как работает управление паролями в Azure Active Directory**](active-directory-passwords-how-it-works.md). Сведения о принципе работы управления паролями.
 * [**Вопросы и ответы об управлении паролями**](active-directory-passwords-faq.md). Как? Почему? Что? Где? Кто? Когда? Здесь приведены ответы на интересующие вас вопросы.
 * [**Устранение неполадок, связанных с управлением паролями**](active-directory-passwords-troubleshoot.md). Сведения об устранении распространенных проблем с SSPR.
-
 

@@ -34,7 +34,8 @@ Azure Cosmos DB — это глобально распределенная мн�
     * [Node.js](https://nodejs.org/en/) версии 0.10.29 или более поздней.
     * [Git.](http://git-scm.com/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Создание учетной записи базы данных
 

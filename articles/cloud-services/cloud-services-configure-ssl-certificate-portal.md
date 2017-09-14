@@ -20,7 +20,6 @@ ms.openlocfilehash: e5c8c3b098772c0586712305a577b24a6f0d924c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Настройка SSL для приложения в Azure
 > [!div class="op_single_selector"]
@@ -37,8 +36,6 @@ SSL-шифрование — это наиболее распространен
 В этой задаче используется рабочее развертывание. Сведения об использовании промежуточного развертывания приведены в конце данного раздела.
 
 Если вы еще не создали облачную службу, сначала прочтите [эту статью](cloud-services-how-to-create-deploy-portal.md) .
-
-[!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## <a name="step-1-get-an-ssl-certificate"></a>Шаг 1. Получение SSL-сертификата
 Чтобы настроить протокол SSL для приложения, сначала необходимо получить SSL-сертификат, подписанный центром сертификации, то есть доверенным сторонним поставщиком, который выдает сертификаты для этой цели. Если у вас еще нет сертификата, нужно получить его в компании, продающей SSL-сертификаты.

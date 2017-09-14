@@ -3,7 +3,7 @@ title: "Диагностика локального подключения че�
 description: "В этой статье описывается диагностика локальных подключений через VPN-шлюз при помощи устранения неполадок ресурса Наблюдателя за сетями Azure."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 8f5534c83adf2ee4a696131afb45a658c89dd298
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 94658dfcf93e821e24cabb1f010f8dce0c014700
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -34,7 +34,7 @@ VPN-шлюз Azure позволяет создать гибридное реше
 
 1. Шлюз виртуальной сети — VPN-шлюз в Azure.
 1. Шлюз локальной сети — представление [локального VPN-шлюза (FortiGate)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) в облаке Azure.
-1. Подключение типа "сеть — сеть" (на основе политики) — [подключение между VPN-шлюзом и локальным маршрутизатором](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection).
+1. Подключение типа "сеть — сеть" (на основе маршрута) — [подключение между VPN-шлюзом и локальным маршрутизатором](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection).
 1. [Configuring FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md) (Настройка FortiGate)
 
 Подробное пошаговое руководство по настройке конфигурации "сеть — сеть" можно найти в статье [Создание виртуальной сети с подключением типа "сеть — сеть" с помощью портала Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

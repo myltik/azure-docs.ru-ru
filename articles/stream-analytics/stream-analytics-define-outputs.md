@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 91ee74f01b2e84244245dbe43408589f04af6338
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 52d131384c61b57d31873530304c644d6e9c11f1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Выходные данные Stream Analytics: возможности хранения и анализа
@@ -302,7 +302,7 @@ DateTime | Строка | Строка |  DateTime | Строка
 | Разделитель |Применяется только для сериализации CSV-файлов. Служба Stream Analytics позволяет использовать ряд распространенных разделителей для сериализации данных в формате CSV. Поддерживаются такие разделители: запятая, точка с запятой, пробел, табуляция и вертикальная черта. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) — это полностью управляемая служба баз данных документов NoSQL, которая обеспечивает запросы и операции с данными без схемы, надежную производительность и быструю разработку.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) — это глобально распределенная многомодельная служба базы данных. Она предоставляет функции неограниченного гибкого масштабирования по всему миру, расширенные возможности выполнения запросов и автоматического индексирования с помощью моделей данных без использования схем, гарантированную низкую задержку, а также ведущие в отрасли полные соглашения об уровне обслуживания.
 
 Ниже приведены имена и описание свойств для создания выходных данных Azure Cosmos DB.
 

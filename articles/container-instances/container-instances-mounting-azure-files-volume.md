@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 4248a3769ba8a0fb067b3904d55d487fe67e5778
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: c68f0239bcb95aa5e9d8194f7b358f30588ea600
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/12/2017
 
 ## <a name="create-an-azure-file-share"></a>Создание файлового ресурса Azure
 
-Перед использованием файлового ресурса Azure с Экземплярами контейнеров Azure необходимо создать его. Выполните следующий сценарий, чтобы создать учетную запись хранения для размещения файлового ресурса и общего ресурса. Обратите внимание, что имя учетной записи хранения должно быть глобально уникальным, поэтому сценарий добавляет случайное значение к базовой строке.
+Перед использованием файлового ресурса Azure с Экземплярами контейнеров Azure необходимо создать его. Выполните следующий сценарий, чтобы создать учетную запись хранения для размещения файлового ресурса и общего ресурса. Имя учетной записи хранения должно быть глобально уникальным, поэтому скрипт добавляет случайное значение к базовой строке.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -52,7 +52,7 @@ az storage share create -n $ACI_PERS_SHARE_NAME
 
 ## <a name="acquire-storage-account-access-details"></a>Получение данных для доступа к учетной записи хранения
 
-Для подключения файлового ресурса Azure в качестве тома в Экземплярах контейнеров Azure требуется три значения: имя учетной записи хранения, имя общего ресурса и ключ доступа к хранилищу. 
+Для подключения файлового ресурса Azure в качестве тома в Экземплярах контейнеров Azure требуется три значения: имя учетной записи хранения, имя общего ресурса и ключ доступа к хранилищу.
 
 Если вы использовали сценарий выше, имя учетной записи хранения создано со случайным значением в конце. Для выполнения запроса к последней строке (включая часть со случайным значением) используйте следующие команды:
 
@@ -64,13 +64,13 @@ echo $STORAGE_ACCOUNT
 Имя общего ресурса уже известно (это *acishare* в сценарии выше), так что остается только ключ учетной записи хранения, который можно найти с помощью следующей команды:
 
 ```azurecli-interactive
-$STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
 ## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Сохранение сведений о доступе к учетной записи хранения с помощью хранилища ключей Azure
 
-Ключи учетной записи хранения обеспечивают защиту при доступе к данным, поэтому мы рекомендуем хранить их в хранилище ключей Azure. 
+Ключи учетной записи хранения обеспечивают защиту при доступе к данным, поэтому мы рекомендуем хранить их в хранилище ключей Azure.
 
 Создайте хранилище ключей с помощью Azure CLI:
 
@@ -129,7 +129,7 @@ az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME 
             "name": "myvolume",
             "mountPath": "/aci/logs/"
           }]
-        }  
+        }
       }],
       "osType": "Linux",
       "ipAddress": {
@@ -152,7 +152,7 @@ az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME 
 }
 ```
 
-Шаблон включает имя учетной записи хранения и ключ как параметры, которые можно указать в отдельном файле параметров. Чтобы заполнить файл параметров, необходимо три значения: имя учетной записи хранения, идентификатор ресурса хранилища ключей Azure и имя секрета хранилища ключей, использованного для хранения ключа к хранилищу данных. Если предыдущие шаги выполнены, узнать эти значения можно с помощью следующего сценария:
+Шаблон включает имя учетной записи хранения и ключ как параметры, которые можно указать в отдельном файле параметров. Чтобы заполнить файл параметров, необходимо три значения: имя учетной записи хранения, идентификатор ресурса хранилища ключей Azure и имя секрета хранилища ключей, использованного для хранения ключа к хранилищу данных. Если предыдущие шаги выполнены, узнать эти значения можно с помощью следующего скрипта:
 
 ```azurecli-interactive
 echo $STORAGE_ACCOUNT
@@ -169,7 +169,7 @@ az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
   "parameters": {
     "storageaccountname": {
       "value": "<my_storage_account_name>"
-    },    
+    },
    "storageaccountkey": {
       "reference": {
         "keyVault": {
@@ -196,7 +196,7 @@ az group deployment create --name hellofilesdeployment --template-file azuredepl
 az container show --resource-group myResourceGroup --name hellofiles -o table
 ```
 
-С помощью такого инструмента, как [Microsoft Azure Storage Explorer](http://storageexplorer.com), можно извлечь и проверить файл, записанный в файловый ресурс.
+С помощью такого средства, как [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com), можно извлечь и проверить файл, записанный в файловый ресурс.
 
 >[!NOTE]
 > Дополнительные сведения об использовании шаблонов Azure Resource Manager, файлов параметров и развертывании с помощью Azure CLI см. в разделе [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).

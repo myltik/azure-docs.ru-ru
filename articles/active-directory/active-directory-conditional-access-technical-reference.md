@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 09/01/2017
 ms.author: markvi
-ms.reviewer: calebb
+ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f3d8bdbfc29ca1008006837512c0e6ae8cb8f6fe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Техническая информация об условном доступе в Azure Active Directory.
@@ -26,9 +26,13 @@ ms.lasthandoff: 08/29/2017
 Благодаря [условному доступу Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) можно настроить доступ авторизованных пользователей к вашим ресурсам.  
 Этот раздел содержит информацию о поддержке для следующих элементов политики условного доступа: 
 
-- назначения облачных приложений;
+- Назначения облачных приложений
 
-- условия клиентских приложений.
+- условие платформы устройства; 
+
+- условие клиентских приложений;
+
+- требование утвержденного клиентского приложения. 
 
 
 
@@ -75,7 +79,27 @@ ms.lasthandoff: 08/29/2017
 - приложения, использующие прокси приложения Azure AD. 
 
 
-## <a name="client-apps-conditions"></a>Условия клиентских приложений 
+## <a name="device-platforms-condition"></a>Условие платформы устройства
+
+В политике условного доступа можно настроить условие платформы устройства для привязки политики к клиентской операционной системе.
+
+![Контроль](./media/active-directory-conditional-access-technical-reference/41.png)
+
+Условный доступ Azure AD поддерживает следующие платформы устройств:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+- Windows
+
+- macOS (предварительная версия).
+
+
+
+## <a name="client-apps-condition"></a>Условие клиентских приложений 
 
 При настройке политики условного доступа можно задать [условие клиентских приложений](active-directory-conditional-access-azure-portal.md#client-apps). Условие клиентских приложений дает возможность предоставить или заблокировать доступ, если была предпринята попытка доступа из этих типов клиентских приложений:
 
@@ -83,7 +107,6 @@ ms.lasthandoff: 08/29/2017
 - мобильные и классические приложения.
 
 ![Контроль](./media/active-directory-conditional-access-technical-reference/03.png)
-
 
 ### <a name="supported-browsers"></a>Поддерживаемые браузеры 
 
@@ -124,11 +147,11 @@ ms.lasthandoff: 08/29/2017
 
 
 | Клиентские приложения| Целевая служба| Платформа |
-| :-- | --- | --- |
+| --- | --- | --- |
 | MFA и политика расположения для приложений Политики на основе устройств не поддерживаются.| Все службы приложения "Мои приложения"| Android и iOS|
 | Azure RemoteApp| Удаленная служба приложений Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android и Mac OS X|
 | Приложение Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS и Android|
-| Microsoft Teams Services — контролируют все службы, которые поддерживают Microsoft Teams, и все их клиентские приложения: для Windows Desktop, MAC OS X, iOS, Android, WP, а также веб-клиент.| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android и Mac OS X|
+| Microsoft Teams Services — контролируют все службы, которые поддерживают Microsoft Teams, и все их клиентские приложения: для Windows Desktop, iOS, Android, WP, а также веб-клиент.| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS и Android|
 | Приложения "Почта", "Календарь" и "Люди", Outlook 2016, Outlook 2013 (с современной проверкой подлинности), Skype для бизнеса (с современной проверкой подлинности)| Office 365 Exchange Online| Windows 10|
 | Outlook 2016, Outlook 2013 (с современной проверкой подлинности), Skype для бизнеса (с современной проверкой подлинности)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | Приложение Outlook Mobile| Office 365 Exchange Online| iOS|
@@ -143,15 +166,46 @@ ms.lasthandoff: 08/29/2017
 
 
 
+## <a name="approved-client-app-requirement"></a>Требование утвержденного клиентского приложения 
+
+При настройке политики условного доступа можно выбрать требование для предоставления доступа только в том случае, если была предпринята попытка подключения с помощью утвержденного клиентского приложения. 
+
+![Контроль](./media/active-directory-conditional-access-technical-reference/21.png)
+
+Утвержденные клиентские приложения для этого параметра:
+
+- Microsoft Excel;
+
+- Microsoft OneDrive;
+
+- Microsoft Outlook;
+
+- Microsoft OneNote;
+
+- Microsoft PowerPoint;
+
+- Microsoft SharePoint
+
+- Microsoft Skype для бизнеса;
+
+- Microsoft Teams
+
+- Microsoft Visio;
+
+- Microsoft Word.
 
 
+**Примечания:**
 
+- Эти приложения поддерживают управление мобильными приложениями Microsoft Intune (MAM).
 
+- Требования:
 
+    - поддерживает только IOS и Android как выбранное [условие платформы устройств](#device-platforms-condition); 
 
-
-
-
+    - не поддерживает **браузер** как выбранное [условие клиентского приложения](#supported-browsers); 
+    
+    - заменяет собой [условие клиентского приложения](#supported-mobile-apps-and-desktop-clients) **Мобильные приложения и настольные клиенты**, если оно выбрано.  
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
