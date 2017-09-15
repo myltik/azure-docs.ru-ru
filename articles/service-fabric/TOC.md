@@ -4,6 +4,8 @@
 
 # Быстрое начало работы
 ## [Создание приложения .NET](service-fabric-quickstart-dotnet.md)
+## [Развертывание приложения-контейнера Windows](service-fabric-quickstart-containers.md)
+## [Развертывание приложения-контейнера Linux](service-fabric-quickstart-containers-linux.md)
 
 # Учебники
 ## Развертывание приложения .NET
@@ -278,7 +280,7 @@
 ### [Визуализация кластера](service-fabric-visualizing-your-cluster.md)
 ### [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md)
 
-### [Управлять кластером с помощью интерфейса командной строки Service Fabric](service-fabric-cli.md)
+### [Командная строка Azure Service Fabric](service-fabric-cli.md)
 ### [Установка исправлений для узлов кластера](service-fabric-patch-orchestration-application.md)
 
 ### Ресурсы кластера: управление и оркестрация

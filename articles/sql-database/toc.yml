@@ -261,10 +261,6 @@
           href: sql-database-long-term-backup-retention-configure.md
         - name: Георепликация (портал)
           href: sql-database-geo-replication-portal.md
-        - name: "Георепликация\_— настройка (T-SQL)"
-          href: sql-database-geo-replication-transact-sql.md
-        - name: "Георепликация\_— отработка отказа (T-SQL)"
-          href: sql-database-geo-replication-failover-transact-sql.md
         - name: Восстановление отдельной таблицы
           href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
     - name: Загрузка и перемещение данных
@@ -299,8 +295,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Служба автоматизации Azure
           href: sql-database-manage-automation.md
-        - name: Azure RemoteApp
-          href: sql-database-ssms-remoteapp.md
     - name: Масштабирование
       items:
         - name: Создание сегментированного приложения
