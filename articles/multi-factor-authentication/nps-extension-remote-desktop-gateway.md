@@ -4,7 +4,7 @@ description: "В этой статье рассматривается интег
 services: active-directory
 keywords: "Azure MFA, интеграция шлюза удаленных рабочих столов, Azure Active Directory, расширение сервера политики сети"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT

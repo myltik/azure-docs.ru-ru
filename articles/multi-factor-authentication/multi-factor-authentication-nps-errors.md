@@ -3,7 +3,7 @@ title: "Устранение ошибок, связанных с расшире�
 description: "Узнайте, как решить проблемы, связанные с расширением NPS для Многофакторной идентификации Azure, с помощью способов устранения, актуальных для распространенных сообщений об ошибках."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT

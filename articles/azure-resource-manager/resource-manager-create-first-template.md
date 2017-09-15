@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/27/2017
+ms.date: 09/03/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Создание и развертывание первого шаблона Azure Resource Manager
 В этой статье рассматриваются действия по созданию первого шаблона Azure Resource Manager. Шаблоны Resource Manager — это JSON-файлы, которые определяют ресурсы, необходимые для развертывания решения. Основные понятия, связанные с развертыванием и управлением решений Azure, см. в [обзоре Azure Resource Manager](resource-group-overview.md). Если вы уже развернули ресурсы и хотите получить для них шаблон, см. статью [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
 
-Для создания и изменения шаблонов нужен редактор JSON, например [Visual Studio Code](https://code.visualstudio.com/). Это упрощенный кроссплатформенный редактор с открытым исходным кодом. Для создания шаблонов Resource Manager мы настоятельно рекомендуем использовать Visual Studio Code. В этой статье предполагается, что вы используете VS Code. Но вы можете использовать и другой редактор JSON (например, Visual Studio).
+Для создания и изменения шаблонов нужен редактор JSON, например [Visual Studio Code](https://code.visualstudio.com/). Это упрощенный кроссплатформенный редактор с открытым исходным кодом. Для создания шаблонов Resource Manager мы настоятельно рекомендуем использовать Visual Studio Code. В этом документе предполагается, что вы используете VS Code. Но вы можете использовать и другой редактор JSON (например, Visual Studio).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -216,7 +216,7 @@ ms.lasthandoff: 07/31/2017
 
 Сохраните файл. 
 
-После завершения действий, описанных в этой статье, шаблон будет выглядеть так:
+Ваш шаблон теперь выглядит так:
 
 ```json
 {
@@ -289,6 +289,141 @@ az group deployment create --resource-group examplegroup --template-file azurede
 az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
+## <a name="use-autocomplete"></a>Использование автозаполнения
+
+До недавнего времени работа с шаблоном заключалась только в копировании и вставке кода JSON из этой статьи. Но при разработке собственных шаблонов необходимо найти и указать свойства и значения, доступные для типа ресурса. VS Code считывает схему для типа ресурса и предлагает свойства и значения. Чтобы увидеть, как работает функция автозаполнения, перейдите к элементу properties шаблона и добавьте новую строку. Введите кавычки. Вы увидите, что VS Code сразу же предложит имена, доступные в элементе properties.
+
+![Отображение доступных свойств](./media/resource-manager-create-first-template/show-properties.png)
+
+Выберите **encryption**. Введите двоеточие (:), и VS Code предложит добавить новый объект.
+
+![Добавление объекта](./media/resource-manager-create-first-template/add-object.png)
+
+Нажмите клавишу TAB или ВВОД, чтобы добавить объект.
+
+Снова введите кавычки. Теперь VS Code предложит свойства, доступные для encryption.
+
+![Отображение свойств для encryption](./media/resource-manager-create-first-template/show-encryption-properties.png)
+
+Выберите **services** и продолжайте добавлять значения, предлагаемые расширениями VS Code, пока не получится следующее:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        }
+    }
+}
+```
+
+Вы включили шифрование больших двоичных объектов для учетной записи хранения. Но программа VS Code обнаружила проблему. Обратите внимание, что для encryption получено предупреждение.
+
+![Предупреждение для encryption](./media/resource-manager-create-first-template/encryption-warning.png)
+
+Чтобы просмотреть предупреждение, наведите указатель мыши на зеленую линию.
+
+![Отсутствует свойство](./media/resource-manager-create-first-template/missing-property.png)
+
+Вы увидите, что для элемента encryption требуется свойство keySource. Введите запятую после объекта services и добавьте свойство keySource. VS Code предлагает **Microsoft.Storage** в качестве допустимого значения. По завершении элемент properties будет выглядеть следующим образом:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        },
+        "keySource":"Microsoft.Storage"
+    }
+}
+```
+
+Окончательная версия шаблона выглядит так:
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ],
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of replication to use for the storage account."
+      }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
+    }
+  },
+  "variables": {
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('storageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "encryption":{
+          "services":{
+            "blob":{
+              "enabled":true
+            }
+          },
+          "keySource":"Microsoft.Storage"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+## <a name="deploy-encrypted-storage"></a>Развертывание зашифрованного хранилища
+
+Снова разверните шаблон и укажите имя новой учетной записи хранения.
+
+Для PowerShell используйте команду:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix storesecure
+```
+
+Для интерфейса командной строки Azure:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
+Для Cloud Shell отправьте измененный шаблон в общий файловый ресурс. Перезапишите существующий файл. Затем используйте следующую команду:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
 Если развернутые ресурсы вам больше не нужны, вы можете их удалить. Для этого удалите группу ресурсов.
@@ -306,6 +441,7 @@ az group delete --name examplegroup
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
+* Чтобы упростить разработку шаблонов, вы можете установить расширение VS Code. Дополнительные сведения см. в статье [Создание шаблона Azure Resource Manager c помощью расширения Visual Studio Code](resource-manager-vscode-extension.md).
 * Дополнительные сведения о структуре шаблона см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 * Дополнительные сведения о свойствах учетной записи хранения см. в статье [Microsoft.Storage/storageAccounts template reference](/azure/templates/microsoft.storage/storageaccounts) (Справочник по шаблону Microsoft.Storage/storageAccounts).
 * Полные шаблоны для различных типов решений доступны на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/).

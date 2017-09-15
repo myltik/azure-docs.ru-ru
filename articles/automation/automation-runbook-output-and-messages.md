@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 505834d7354fb920e7ebd931e3bb31d837a79077
 ms.openlocfilehash: 6f01f97e38aa271034741c8a5e2f8057ab61fcd7
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Выходные данные и сообщения Runbook в службе автоматизации Azure
@@ -187,6 +188,11 @@ Windows PowerShell использует [привилегированные пе
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+    
+    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+    
 
 ### <a name="graphical-authoring"></a>Графическая разработка
 Для графических модулей Runbook дополнительное ведение журнала доступно в виде трассировки на уровне действий.  Существует два уровня трассировки: базовая и подробная.  Базовая трассировка включает время начала и окончания каждого действия в модуле Runbook, а также сведения обо всех повторных действиях, включая число попыток и время начала.  Подробная трассировка включает те же данные, что и базовая, плюс входные и выходные данные каждого действия.  В настоящее время записи трассировки ведутся с использованием подробного потока, поэтому при включении трассировки необходимо также включать подробное ведение журнала.  Для графических модулей Runbook с включенной трассировкой ведение записей о ходе выполнения не требуется, поскольку базовая трассировка не только решает эту задачу, но и является более информативной.
@@ -220,10 +226,5 @@ Windows PowerShell использует [привилегированные пе
 ## <a name="next-steps"></a>Дальнейшие действия
 * Чтобы узнать больше о выполнении модулей Runbook, отслеживании заданий Runbook и других технических деталях, ознакомьтесь с [отслеживанием задания Runbook](automation-runbook-execution.md)
 * Дополнительные сведения о создании и использовании дочерних модулей Runbook см. в статье [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

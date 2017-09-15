@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Масштабируемые наборы виртуальных машин Azure и управляемые диски
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/21/2017
 
 * вы можете подключать управляемые диски данных к масштабируемому набору;
 
-* благодаря управляемым дискам емкость масштабируемого набора может достигать 1000 виртуальных машин (на базе образа платформы) или 100 виртуальных машин (на базе пользовательского образа).
+* благодаря управляемым дискам емкость масштабируемого набора может достигать 1000 виртуальных машин (на базе образа платформы) или 300 виртуальных машин (на базе пользовательского образа).
 
 ## <a name="get-started"></a>Начало работы
 

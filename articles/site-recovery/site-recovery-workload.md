@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Какие рабочие нагрузки можно защитить с помощью службы Azure Site Recovery?
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/08/2017
 
 Site Recovery — это служба Azure, которая помогает реализовать стратегию BCDR. Она позволяет выполнять репликацию в облако или на дополнительный сайт с учетом особенностей приложения. Независимо от того, как работает приложение — под управлением Windows или Linux, на физических серверах либо в среде VMware или Hyper-V, — с помощью Site Recovery можно координировать репликацию, выполнять тестирование аварийного восстановления и запускать отработку отказа и восстановление размещения.
 
-Site Recovery интегрируется с приложениями Майкрософт, в том числе SharePoint, Exchange, Dynamics, SQL Server и Active Directory. Кроме того, корпорация Майкрософт тесно сотрудничает с такими ведущими поставщиками, как Oracle, SAP, IBM и Red Hat. Решения репликации можно настроить для нескольких приложений.
+Site Recovery интегрируется с приложениями Майкрософт, в том числе SharePoint, Exchange, Dynamics, SQL Server и Active Directory. Кроме того, корпорация Майкрософт тесно сотрудничает с такими ведущими поставщиками, как Oracle, SAP и Red Hat. Решения репликации можно настроить для нескольких приложений.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Причины использования Site Recovery для репликации приложений
 Site Recovery помогает реализовать защиту и восстановление на уровне приложения следующим образом:

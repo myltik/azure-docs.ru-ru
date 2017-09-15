@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 3d4fe2fa10d848c8b29e4d22d284c0d378f07ae0
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: регистрация приложения
@@ -31,6 +31,8 @@ ms.lasthandoff: 08/08/2017
 
 Управление приложениями, созданными в колонке Azure AD B2C на портале Azure, должно осуществляться в том же расположении. Если вы измените приложения B2C с помощью PowerShell или другого портала, их поддержка прекратится и они не будут работать с Azure AD B2C. Дополнительные сведения см. в разделе [Неисправные приложения](#faulted-apps). 
 
+Эта статья поможет вам приступить к работе с нашими примерами. Дополнительные сведения об этих примерах вы можете узнать из последующих статей.
+
 ## <a name="navigate-to-b2c-settings"></a>Переход к параметрам B2C
 
 Войдите на [портал Azure](https://portal.azure.com/) как глобальный администратор клиента B2C. 
@@ -39,13 +41,13 @@ ms.lasthandoff: 08/08/2017
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Выберите следующие действия в зависимости от типа приложения, которое регистрируется:
+## <a name="choose-next-steps-based-on-your-application-type"></a>Выбор следующего действия в зависимости от типа приложения
 
 * [регистрация веб-приложения;](#register-a-web-app)
 * [регистрация веб-API;](#register-a-web-api)
 * [регистрация мобильного или собственного приложения.](#register-a-mobile-or-native-app)
  
-## <a name="register-a-web-app"></a>Регистрация веб-приложения
+### <a name="register-a-web-app"></a>Регистрация веб-приложения
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -59,7 +61,7 @@ ms.lasthandoff: 08/08/2017
 
 [Перейдите к **дальнейшим действиям**](#next-steps).
 
-## <a name="register-a-web-api"></a>Регистрация веб-API
+### <a name="register-a-web-api"></a>Регистрация веб-API
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -67,7 +69,7 @@ ms.lasthandoff: 08/08/2017
 
 [Перейдите к **дальнейшим действиям**](#next-steps).
 
-## <a name="register-a-mobile-or-native-app"></a>Регистрация мобильного или собственного приложения
+### <a name="register-a-mobile-or-native-app"></a>Регистрация мобильного или собственного приложения
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 

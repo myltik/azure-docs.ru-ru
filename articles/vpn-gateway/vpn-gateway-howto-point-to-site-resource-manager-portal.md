@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5c8e99f3ba52ef5d6f9f99ac24891c38e8970fff
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: cc9018d95ffce3b5b4a5ee20d5c78a2122e0223e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с помощью проверки подлинности на основе сертификата, используя портал Azure
@@ -134,7 +134,7 @@ VPN-шлюз типа "точка — сеть" (P2S) позволяет соз
 
 На каждом клиентском компьютере можно использовать один и тот же пакет конфигурации VPN-клиента при условии, что его версия соответствует архитектуре клиента. Список поддерживаемых клиентских операционных систем см. в разделе [Часто задаваемые вопросы о подключениях типа "точка — сеть"](#faq) в конце этой статьи.
 
-### <a name="step-1---generate-and-download-the-client-configuration-package"></a>Шаг 1. Создание и скачивание пакета конфигурации клиента
+### <a name="1-generate-and-download-the-client-configuration-package"></a>1. Создание и скачивание пакета конфигурации клиента
 
 1. На странице **Point-to-site configuration** (Конфигурация "точка — сеть") щелкните **Download VPN client** (Скачать VPN-клиент), чтобы открыть страницу **Download VPN client** (Скачивание VPN-клиента). Создание пакета занимает пару минут.
 
@@ -143,7 +143,7 @@ VPN-шлюз типа "точка — сеть" (P2S) позволяет соз
 
   ![Скачивание VPN-клиента, ч. 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-### <a name="step-2---install-the-client-configuration-package"></a>Шаг 2. Установка пакета конфигурации клиента
+### <a name="2-install-the-client-configuration-package"></a>2) Установка пакета конфигурации клиента
 
 1. Скопируйте файл конфигурации на локальный компьютер, который необходимо подключить к виртуальной сети. 
 2. Дважды щелкните EXE-файл, чтобы установить пакет на клиентском компьютере. Так как пакет конфигурации создали вы, он не подписан, и может появиться предупреждение. При появлении всплывающего окна Windows SmartScreen щелкните **Дополнительно** (в левой части окна), а затем выберите **Выполнить в любом случае**, чтобы установить пакет.
@@ -227,7 +227,7 @@ VPN-шлюз типа "точка — сеть" (P2S) позволяет соз
 
 ## <a name="faq"></a>Часто задаваемые вопросы о подключениях типа "точка — сеть"
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительные сведения о виртуальных машинах см. [здесь](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Дополнительные сведения о сетях и виртуальных машинах см. в статье [Azure и Linux: обзор сетей виртуальных машин](../virtual-machines/linux/azure-vm-network-overview.md).
