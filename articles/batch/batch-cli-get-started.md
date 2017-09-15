@@ -16,10 +16,10 @@ ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Управление ресурсами пакетной службы с помощью Azure CLI
@@ -67,8 +67,8 @@ Azure CLI 2.0 — это новый интерфейс командной ст
 
 В Azure можно войти разными способами, описанными в статье [Вход с помощью Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
-1. [Интерактивный вход.](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in) Используйте этот способ, если вы самостоятельно выполняете команды Azure CLI из командной строки.
-2. [Вход с использованием субъекта-службы.](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal) Используйте этот способ, если вы выполняете команды Azure CLI из скрипта или приложения.
+1. [Интерактивный вход.](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in) Используйте этот способ, если вы самостоятельно выполняете команды Azure CLI из командной строки.
+2. [Вход с использованием субъекта-службы.](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal) Используйте этот способ, если вы выполняете команды Azure CLI из скрипта или приложения.
 
 В рамках этого руководства мы покажем, как войти в Azure в интерактивном режиме. В окне командной строки введите [az login](https://docs.microsoft.com/cli/azure/#login):
 
@@ -85,7 +85,7 @@ az login
 
 ### <a name="log-in-to-your-batch-account"></a>Вход в учетную запись пакетной службы
 
-Чтобы управлять ресурсами пакетной службы, такими как пулы, задания и задачи, с помощью Azure CLI, сначала необходимо войти в учетную запись пакетной службы и пройти проверку подлинности. Для этого используйте команду [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login). 
+Чтобы управлять ресурсами пакетной службы, такими как пулы, задания и задачи, с помощью Azure CLI, сначала необходимо войти в учетную запись пакетной службы и пройти проверку подлинности. Для этого используйте команду [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login). 
 
 Проверку подлинности в учетной записи пакетной службы можно пройти двумя способами:
 
@@ -99,7 +99,7 @@ az login
 
     Проверка подлинности Azure AD требуется при создании учетной записи пакетной службы с режимом выделения пула "Пользовательская подписка". 
 
-    Чтобы войти в учетную запись пакетной службы с помощью Azure AD, вызовите команду [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login): 
+    Чтобы войти в учетную запись пакетной службы с помощью Azure AD, вызовите команду [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

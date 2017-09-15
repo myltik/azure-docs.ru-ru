@@ -6,7 +6,7 @@
 ![Параметры кэша Redis](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Получение имени узла, портов и ключей доступа с помощью Azure CLI
-Для получения имени узла и портов с помощью Azure CLI 2.0 вы можете вызвать [az redis show](https://docs.microsoft.com/cli/azure/redis#show), а для получения ключей — [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys). Следующий скрипт вызывает эти две команды и выводит сведения об имени узла, портах и ключах в консоль.
+Для получения имени узла и портов с помощью Azure CLI 2.0 вы можете вызвать [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show), а для получения ключей — [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). Следующий скрипт вызывает эти две команды и выводит сведения об имени узла, портах и ключах в консоль.
 
 ```azurecli
 #/bin/bash

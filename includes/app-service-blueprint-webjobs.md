@@ -10,7 +10,7 @@
 * [Развертывание веб-заданий Azure с помощью Visual Studio](../articles/app-service-web/websites-dotnet-deploy-webjobs.md)
 * [Как развернуть веб-задания с использованием портала управления Azure](../articles/app-service-web/web-sites-create-web-jobs.md)
 * [Диалоговое окно "Добавление веб-заданий Azure"](../articles/app-service-web/websites-dotnet-deploy-webjobs.md#configure)
-* [Создание запланированного веб-задания на портале управления Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduled)
+* [Создание запланированного веб-задания на портале управления Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Планирование веб-заданий Azure с помощью выражений cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Просмотр панели мониторинга веб-заданий](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
 * [Запись журналов с использованием пакета SDK веб-заданий и просмотр журналов на панели мониторинга](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)

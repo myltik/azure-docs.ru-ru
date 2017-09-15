@@ -79,7 +79,7 @@
 Дополнительные сведения о создании моментальных снимков компонента "Управляемые диски" см. в следующих статьях:
 
 * [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Linux](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 ## <a name="images"></a>Образы

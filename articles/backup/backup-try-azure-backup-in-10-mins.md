@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b21edb70eca3ec9552dc157ee3bb658d243b8fcd
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Первое знакомство. Резервное копирование файлов и папок с использованием модели развертывания с помощью Resource Manager

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Настройка подключения VPN-шлюза между виртуальными сетями с помощью Azure CLI
@@ -124,7 +124,7 @@ ms.lasthandoff: 08/16/2017
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Создайте дополнительное адресное пространство для внутренней подсети. Обратите внимание, что на этом шаге мы указываем созданное ранее адресное пространство, а также дополнительное адресное пространство, которое нужно добавить. Это связано с тем, что команда [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#update) перезаписывает предыдущие параметры. При использовании этой команды обязательно укажите все префиксы адресов.
+3. Создайте дополнительное адресное пространство для внутренней подсети. Обратите внимание, что на этом шаге мы указываем созданное ранее адресное пространство, а также дополнительное адресное пространство, которое нужно добавить. Это связано с тем, что команда [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) перезаписывает предыдущие параметры. При использовании этой команды обязательно укажите все префиксы адресов.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1

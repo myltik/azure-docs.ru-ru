@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a773e43b28b144dd8341b276eee3fa504d4f1080
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 94869072a38be61819213fbf4f919764fe1849c0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="what-is-azure-app-service"></a>Что такое служба приложений Azure?
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/21/2017
 Ниже приведены некоторые основные функции и возможности службы приложений.
 
 * **Поддержка нескольких языков и платформ.** Служба приложений превосходно поддерживает ASP.NET, Node.js, Java, PHP и Python. Кроме того, на виртуальных машинах службы приложений можно запустить [Windows PowerShell и другие сценарии или исполняемые файлы](../app-service-web/web-sites-create-web-jobs.md).
-* **Оптимизация DevOps.** Настраивайте [непрерывную интеграцию и развертывание](../app-service-web/app-service-continuous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](../app-service-web/web-sites-staged-publishing.md). Выполняйте [тестирование A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [кроссплатформенного интерфейса командной строки (CLI)](../cli-install-nodejs.md).
+* **Оптимизация DevOps.** Настраивайте [непрерывную интеграцию и развертывание](../app-service-web/app-service-continuous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](../app-service-web/web-sites-staged-publishing.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [кроссплатформенного интерфейса командной строки (CLI)](../cli-install-nodejs.md).
 * **Высокодоступное глобальное масштабирование.** [Увеличивайте](../app-service-web/web-sites-scale.md) либо [уменьшайте](../monitoring-and-diagnostics/insights-how-to-scale.md) размер вручную или автоматически. Храните приложения в любом месте глобальной инфраструктуры центра обработки данных. При этом [соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/app-service/) гарантирует высокую доступность.
 * **Подключение к платформам SaaS и локальным данным.** На выбор доступно более 50 [соединителей](../connectors/apis-list.md) для корпоративных систем (например, SAP, Siebel и Oracle), служб SaaS (например, Salesforce и Office 365) и популярных интернет-служб (например, Facebook и Twitter). Получайте доступ к локальным данным с помощью [гибридных подключений](../biztalk-services/integration-hybrid-connection-overview.md) и [виртуальных сетей Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 * **Безопасность и соответствие требованиям.** Служба приложений совместима со стандартами [ISO, SOC и PCI](https://www.microsoft.com/TrustCenter/).
