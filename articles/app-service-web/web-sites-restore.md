@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 61396e8a3521c25eaf49c66a4948e520377d342a
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6bbbe61469363bc3a44adce8ceb632a7eb620a3e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="restore-an-app-in-azure"></a>Восстановление приложения в Azure
@@ -80,8 +80,8 @@ ms.lasthandoff: 06/09/2017
 
 В колонке сведений отобразится вся доступная информация о выбранной операции восстановления.
 
-## <a name="next-steps"></a>Дальнейшие действия
-Для архивации и восстановления приложений службы приложений можно использовать REST API (ознакомьтесь со статьей [Использование REST для резервного копирования и восстановления приложений службы приложений](websites-csm-backup.md)).
+<!-- ## Next Steps
+You can backup and restore App Service apps using REST API. -->
 
 
 <!-- IMAGES -->

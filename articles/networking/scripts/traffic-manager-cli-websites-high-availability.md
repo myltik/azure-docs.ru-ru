@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 07/07/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0593d063a4935d02aae124d83b62b11e37aa3c33
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 5c3754c3c3c96e1d2f0b5b52d8108ecc3903f788
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -51,11 +51,11 @@ az group delete --name myResourceGroup2 --yes
 
 | Команда | Примечания |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Создает план службы приложений. Это как ферма сервера для веб-приложения Azure. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Создает веб-приложение Azure в плане службы приложений. |
-| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#create) | Создает профиль диспетчера трафика Azure. |
-| [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) | Добавляет конечную точку в профиль диспетчера трафика Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Создает план службы приложений. Это как ферма сервера для веб-приложения Azure. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_create) | Создает веб-приложение Azure в плане службы приложений. |
+| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_create) | Создает профиль диспетчера трафика Azure. |
+| [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create) | Добавляет конечную точку в профиль диспетчера трафика Azure. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

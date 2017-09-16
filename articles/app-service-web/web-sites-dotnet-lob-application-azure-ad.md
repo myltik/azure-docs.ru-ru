@@ -15,11 +15,10 @@ ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 209766e4ebc902d78cf0c83fa8fe0f57c4da73e4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>Создание бизнес-приложения Azure с проверкой подлинности Azure Active Directory
@@ -337,7 +336,8 @@ If you need role-based access control (RBAC) for your line-of-business app in Az
 ## <a name="next-step"></a>Дальнейшее действие
 Чтобы создать бизнес-приложение Azure с поддержкой управления доступом на основе ролей (RBAC), воспользуйтесь [образцом WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) , предоставленным рабочей группой Azure Active Directory. В нем показано, как включить роли для приложения Azure Active Directory, а затем авторизовать пользователей с оформлением `[Authorize]` .
 
-Чтобы предоставить бизнес-приложению доступ к локальным данным, изучите статью [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](web-sites-hybrid-connection-get-started.md).
+<!-- If your line-of-business app needs access to on-premises data, see 
+[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md). -->
 
 <a name="bkmk_resources"></a>
 

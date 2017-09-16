@@ -4,7 +4,7 @@ description: "Информация о клиенте многофакторно�
 keywords: 
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: c47ca818bd77291338de6e90e5dd27465475e868
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 525ca7733d509b6831e6c5ab7a6f3a5ce5250156
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Как получить службу Azure Multi-Factor Authentication
@@ -66,7 +66,6 @@ ms.lasthandoff: 08/29/2017
 | Запоминание данных MFA для доверенных устройств |● |● |● |
 | Пакет SDK службы Multi-Factor Authentication | | |● (Требуется поставщик многофакторной идентификации и полная подписка Azure) |
 | MFA для локальных приложений | | |● |
-| Политики условного доступа | | | ● |
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Как получить службу Azure Multi-Factor Authentication
 Если требуется полная функциональность, предоставляемая многофакторной идентификацией Azure, существует несколько вариантов.

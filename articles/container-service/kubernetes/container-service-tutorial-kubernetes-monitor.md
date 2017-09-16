@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1e1b93c29dc28569e897c57d9b68622c1edbd636
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 65556049d33c84848f015a095acf9c1f69348c6d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -40,9 +40,9 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В предыдущих руководствах приложение было упаковано в образы контейнеров, образы были отправлены в реестр контейнеров Azure и был создан кластер Kubernetes. Если вы не выполнили эти действия, вы можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./container-service-tutorial-kubernetes-prepare-app.md). 
+В предыдущих руководствах приложение было упаковано в образы контейнеров, образы были отправлены в реестр контейнеров Azure и был создан кластер Kubernetes. 
 
-Для этого руководства требуется по крайней мере кластер Kubernetes с узлами агентов Linux и учетная запись OMS. При необходимости зарегистрируйтесь для получения [бесплатной пробной версии OMS](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial).
+Если вы не выполнили эти действия, вы можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="get-workspace-settings"></a>Получение параметров рабочей области
 

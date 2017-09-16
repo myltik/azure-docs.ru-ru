@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 06/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 9388bce04e37d049301521f808cd8494c327e335
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 5f5c57a9c5a20e6e6a514b5b4c9d2e040d504983
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -50,15 +50,15 @@ az group delete --name myResourceGroup
 
 | Команда | Примечания |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) | Создает Azure Key Vault для хранения защищенных данных, таких как ключи шифрования. |
-| [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key#create) | Создает ключ шифрования в Key Vault. |
-| [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp#create-for-rbac) | Создает субъект-службу Azure Active Directory для безопасной аутентификации и контроля доступа к ключам шифрования. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | Задает разрешения для Key Vault, предоставляя субъекту-службе доступ к ключам шифрования. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Создает виртуальную машину и подключает ее к сетевой карте, виртуальной сети, подсети и группе безопасности сети. Эта команда также указывает образ виртуальной машины, который будет использоваться, и учетные данные администратора.  |
-| [az vm encryption enable](https://docs.microsoft.com/cli/azure/vm/encryption#enable) | Включает шифрование на виртуальной машине с помощью учетных данных субъекта-службы и ключа шифрования. |
-| [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption#show) | Отображает состояние шифрования виртуальной машины. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Создает Azure Key Vault для хранения защищенных данных, таких как ключи шифрования. |
+| [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key#az_keyvault_key_create) | Создает ключ шифрования в Key Vault. |
+| [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp#az_ad_sp_create_for_rbac) | Создает субъект-службу Azure Active Directory для безопасной аутентификации и контроля доступа к ключам шифрования. |
+| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Задает разрешения для Key Vault, предоставляя субъекту-службе доступ к ключам шифрования. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Создает виртуальную машину и подключает ее к сетевой карте, виртуальной сети, подсети и группе безопасности сети. Эта команда также указывает образ виртуальной машины, который будет использоваться, и учетные данные администратора.  |
+| [az vm encryption enable](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_enable) | Включает шифрование на виртуальной машине с помощью учетных данных субъекта-службы и ключа шифрования. |
+| [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_show) | Отображает состояние шифрования виртуальной машины. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

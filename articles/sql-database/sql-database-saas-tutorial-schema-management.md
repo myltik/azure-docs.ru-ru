@@ -5,7 +5,7 @@ keywords: "руководство по базе данных sql"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 78d76efb88bf11fa18a416b59e6f881539141232
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 461da2528d515072bf04a82bb8ba64a853443f98
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Управление схемой для нескольких клиентов в приложении SaaS Wingtip
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Управление схемой для нескольких клиентов в мультитенантном приложении, использующем базу данных SQL Azure
 
 В [первом руководстве по приложению SaaS Wingtip](sql-database-saas-tutorial.md) показано, как подготовить базу данных клиента и зарегистрировать ее в каталоге. Как и любое приложение, приложение SaaS Wingtip будет развиваться со временем и иногда будет требовать изменений в базе данных, таких как новые или измененные схемы, справочные данные и стандартные задачи обслуживания баз данных для обеспечения оптимальной производительности приложения. С приложением SaaS эти изменения необходимо развертывать скоординировано в потенциально большом количестве баз данных клиентов. Чтобы эти изменения были внесены в будущие базы данных клиентов, их нужно включить в процесс подготовки.
 

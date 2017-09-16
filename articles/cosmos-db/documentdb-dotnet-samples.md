@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 5f0a7f59c114ab65a19617a62d39dcfa93a25c00
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 33f0e41a8dfce9480e01de2a2ffa083c1537f67f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB. Примеры .NET для API DocumentDB
@@ -38,10 +38,13 @@ ms.lasthandoff: 08/17/2017
 
 **Предварительные требования**
 
-1. Для использования этих примеров требуется учетная запись Azure.
-   * Вы можете [открыть учетную запись Azure бесплатно](https://azure.microsoft.com/pricing/free-trial/)— вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после использования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты не будет взиматься плата, если вы явно не измените параметры и не попросите снимать плату.
-     * Вы можете [активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)— каждый месяц ваша подписка Visual Studio предоставляет вам кредиты, которые можно использовать для оплаты служб Azure.
-2. Вам также понадобится [пакет NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+  
+- Вы можете [активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)— каждый месяц ваша подписка Visual Studio предоставляет вам кредиты, которые можно использовать для оплаты служб Azure.
+
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+Вам также понадобится [пакет NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
 > [!NOTE]
 > Каждый пример является самодостаточным, он устанавливается самостоятельно и выполняет необходимую очистку после удаления. Поэтому примеры выполняют несколько вызовов метода CreateDocumentCollectionAsync(). Каждый раз, когда это происходит, вам выставляется счет за 1 час использования каждого уровня производительности создаваемой коллекции. 

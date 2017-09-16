@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Настройка учетных данных развертывания службы приложений Azure
@@ -47,7 +46,7 @@ ms.lasthandoff: 06/23/2017
 1. На [портале Azure](https://portal.azure.com) щелкните "Служба приложений" > **&lt;любое_приложение>** > **Учетные данные развертывания**.
 
     > [!NOTE]
-    > Чтобы можно было открыть колонку учетных данных развертывания, на портале должно существовать хотя бы одно приложение. Настроить учетные данные на уровне пользователя без приложения можно с помощью [интерфейса командной строки Azure](app-service-web-app-azure-resource-manager-xplat-cli.md).
+    > Чтобы можно было открыть колонку учетных данных развертывания, на портале должно существовать хотя бы одно приложение. Настроить учетные данные на уровне пользователя без приложения можно с помощью [интерфейса командной строки Azure](/cli/azure/webapp/deployment/user#set).
 
 2. Укажите имя пользователя и пароль, а затем нажмите кнопку **Сохранить**.
 

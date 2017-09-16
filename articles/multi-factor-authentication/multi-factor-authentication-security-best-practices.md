@@ -3,7 +3,7 @@ title: "Рекомендации по обеспечению безопасно�
 description: "Этот документ содержит рекомендации по использованию Azure MFA с учетными записями Azure"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 3be7d968-96bb-4320-8701-869fd04a2595
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f43f6e33976325920da9cf0f6aef6decae5bde26
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 6166e20a4652379dc9eeffe522feb651f5e57ea2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 

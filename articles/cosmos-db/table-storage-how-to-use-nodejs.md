@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 539212c6abe7738c022d67245f8992516f0899ff
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 8cc23d5c284123c7c04dda4b71fdb6275d32bf8d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Использование табличного хранилища Azure из Node.js
@@ -66,8 +66,6 @@ var azure = require('azure-storage');
 
 ## <a name="set-up-an-azure-storage-connection"></a>Настройка подключения к службе хранилища Azure
 Модуль Azure считывает переменные среды AZURE\_STORAGE\_ACCOUNT и AZURE\_STORAGE\_ACCESS\_KEY или AZURE\_STORAGE\_CONNECTION\_STRING, чтобы получить информацию, необходимую для подключения к учетной записи хранения Azure. Если эти переменные среды не заданы, при вызове **TableService**необходимо указать сведения об учетной записи.
-
-Пример настройки переменных среды для веб-сайта Azure на [портале Azure](https://portal.azure.com) см. в статье [Веб-приложение Node.js, использующее службу таблиц Azure](../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## <a name="create-a-table"></a>Создание таблицы
 Следующий код создает объект **TableService** и использует его для создания новой таблицы. Добавьте в начало **server.js**следующий код.

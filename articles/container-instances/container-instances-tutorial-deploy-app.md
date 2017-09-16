@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: d8c2056734bc1fdea71543157debd089a9ca743d
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 08/08/2017
 Эта последняя часть руководства, состоящего из трех частей. В предыдущих частях мы [создали образ контейнера](container-instances-tutorial-prepare-app.md), который затем [передали в реестр контейнеров Azure](container-instances-tutorial-prepare-acr.md). Эта часть завершает руководство. Мы развернем контейнер в службе "Экземпляры контейнеров Azure". В частности, рассматриваются такие шаги:
 
 > [!div class="checklist"]
-> * Определение группы контейнеров с использованием шаблона Azure Resource Manager
-> * Развертывание группы контейнеров с помощью Azure CLI
+> * Развертывание контейнера из реестра контейнеров Azure с помощью Azure CLI
+> * Просмотр приложения в браузере
 > * Просмотр журналов контейнера
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Развертывание контейнера с помощью Azure CLI

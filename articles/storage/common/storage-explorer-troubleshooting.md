@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 9b3a8b964ec2f75c53c03b5099dc1e1eb7d77c65
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Руководство по устранению неполадок в обозревателе хранилищ Azure
-
-## <a name="introduction"></a>Введение
 
 Microsoft Azure Storage Explorer (предварительная версия) — это автономное приложение, позволяющее легко работать с данными из службы хранилища Azure на платформе Windows, macOS и Linux. Приложение может подключаться к учетным записям хранения, размещенным в Azure, Sovereign Clouds и Azure Stack.
 
@@ -32,7 +30,7 @@ Microsoft Azure Storage Explorer (предварительная версия) 
 
 ## <a name="sign-in-issues"></a>Проблемы входа
 
-Поддерживаются только учетные записи Azure Active Directory (AAD). При использовании учетной записи ADFS предполагается, что вход в обозреватель хранилища не будет работать. Прежде всего, попытайтесь перезапустить приложение: возможно, это поможет решить проблему.
+Прежде всего, попытайтесь перезапустить приложение: возможно, это поможет решить проблему.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Ошибка "Самозаверяющий сертификат в цепочке сертификатов"
 

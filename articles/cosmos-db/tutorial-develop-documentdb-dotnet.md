@@ -17,10 +17,10 @@ ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 2eed74ae9bd173b0944ec190dfe5d9a4bdc54c37
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 871731adc849c575d97ed6735b87457811668ed5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -46,8 +46,10 @@ Azure Cosmos DB — это глобально распределенная мн
 Убедитесь, что у вас есть указанные ниже компоненты.
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
-    * Кроме того, в этом руководстве можно применить [эмулятор Azure Cosmos DB](local-emulator.md), если вы хотите использовать локальную среду, эмулирующую службу Azure DocumentDB в целях разработки.
-* [Visual Studio](http://www.visualstudio.com/)
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* Если вы еще не установили Visual Studio 2017, вы можете скачать и использовать **бесплатный** [выпуск Community для Visual Studio 2017](https://www.visualstudio.com/downloads/). При установке Visual Studio необходимо включить возможность **разработки для Azure**.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>создание учетной записи Azure Cosmos DB;
 

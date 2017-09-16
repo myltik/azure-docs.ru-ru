@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 731c32970941c6a3963dcb48bf03ee0f53e0c7af
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: b5a852619300c0acad1ea21738921eaf1d2f59b4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Начало работы с доставкой содержимого по запросу с помощью REST
@@ -54,7 +54,7 @@ ms.lasthandoff: 08/12/2017
 >[!NOTE]
 >Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
 
-Дополнительные сведения о сущностях AMS REST, используемых в этом разделе, см. в статье [Справочник по интерфейсу API REST служб мультимедиа Azure](/rest/api/media/services/azure-media-services-rest-api-reference). См. также статью [Основные понятия служб мультимедиа Azure](media-services-concepts.md).
+Дополнительные сведения о сущностях AMS REST, используемых в этом разделе, см. в статье [Справочник по интерфейсу API REST служб мультимедиа Azure](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). См. также статью [Основные понятия служб мультимедиа Azure](media-services-concepts.md).
 
 >[!NOTE]
 >При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).

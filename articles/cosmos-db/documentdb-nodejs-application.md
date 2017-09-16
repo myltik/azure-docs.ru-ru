@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 1a98509a98bcd2a5de593eb006f905766fe72966
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: bfd970a78becfe3f29518b71c4ece24ada2861b2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="_Toc395783175"></a>Создание веб-приложения Node.js с использованием Azure Cosmos DB
@@ -45,11 +45,10 @@ ms.lasthandoff: 08/15/2017
 
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу. 
 
-   ИЛИ
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-   Локальная установка [эмулятора Azure Cosmos DB](local-emulator.md) (только для Windows).
 * [Node.js][Node.js] версии 0.10.29 или более поздней.
 * [Генератор Express](http://www.expressjs.com/starter/generator.html) (его можно установить через `npm install express-generator -g`).
 * [Git][Git].

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: liwong
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 42b0448c1bcdfa909715abd5075353d63cab8389
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a3af12ba0598d60b55b3714ae1690fe3e5b54a42
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/20/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Создание виртуальных машин и управление ими с DevTest Labs с использованием Azure CLI
@@ -39,7 +38,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 > Укажите имя **группы ресурсов лаборатории** в качестве значения параметра --resource-group.
 >
 
-Если необходимо создать виртуальную машину с помощью формулы, воспользуйтесь параметром --formula команды [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#create).
+Если необходимо создать виртуальную машину с помощью формулы, воспользуйтесь параметром --formula команды [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
 
 
 Убедитесь, что виртуальная машина доступна.

@@ -9,11 +9,11 @@ ms.date: 04/27/2017
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: d67e85f91c80efe464fceb1105243bedfba83a0f
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 39e26ba6c3ae0927fbf6c62af0bd3b48d16657ad
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Создание приложения-функции и развертывание кода функции из GitHub
@@ -40,10 +40,10 @@ ms.lasthandoff: 06/20/2017
 
 | Команда | Примечания |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Создает план службы приложений. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Создает приложение-функцию Azure. |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Связывает приложение-функцию с репозиторием Git или Mercurial. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Создает план службы приложений. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) | Создает приложение-функцию Azure. |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Связывает приложение-функцию с репозиторием Git или Mercurial. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

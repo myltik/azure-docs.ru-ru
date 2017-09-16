@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.translationtype: HT
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Пошаговое руководство скрытия лиц с помощью аналитики мультимедиа Azure
@@ -30,8 +30,6 @@ ms.lasthandoff: 04/03/2017
 Подробные сведения о **Azure Media Redactor** см. в разделе [Скрытие лиц с помощью медиа-аналитики Azure](media-services-face-redaction.md).
 
 В этом разделе приведены пошаговые инструкции по выполнению полного рабочего процесса скрытия с помощью Azure Media Services Explorer (AMSE) и Azure Media Redactor Visualizer (инструмент с открытым кодом).
-
-Сейчас **редактор мультимедиа Azure Media** доступен в предварительной версии. Он доступен во всех общедоступных регионах Azure, а также в центрах обработки данных для государственных организаций США и для Китая. В настоящее время эта предварительная версия предоставляется бесплатно. В текущем выпуске продолжительность обработки видео ограничена 10 минутами.
 
 Дополнительную информацию см. в [этом](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) блоге.
 

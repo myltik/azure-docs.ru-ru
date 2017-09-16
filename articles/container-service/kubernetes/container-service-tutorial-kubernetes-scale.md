@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c851e40cd03e98e04f10973321c10525c2d8d8e9
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: bb528c424bc71f0309439e741c30e16d0d13c7d7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -40,9 +40,9 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В предыдущих руководствах приложение было упаковано в образ контейнера, этот образ был передан в реестр контейнеров Azure и был создан кластер Kubernetes. Затем приложение было запущено в кластере Kubernetes. Если вы не выполнили эти действия, то можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./container-service-tutorial-kubernetes-prepare-app.md). 
+В предыдущих руководствах приложение было упаковано в образ контейнера, этот образ был передан в реестр контейнеров Azure и был создан кластер Kubernetes. Затем приложение было запущено в кластере Kubernetes. 
 
-Для этого руководства как минимум необходим кластер Kubernetes с выполняющимся приложением.
+Если вы не выполнили эти действия, то можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="manually-scale-pods"></a>Масштабирование pod вручную
 

@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 06/19/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 657aab37e41b81d8994fc333a2f582c8c23e27b7
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 1b97faa1216b5dc0e80a743d69bdf94fa6a9c58d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>Создание веб-приложения с развертыванием из GitHub
@@ -45,11 +45,11 @@ ms.lasthandoff: 06/20/2017
 
 | Команда | Примечания |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Создает план службы приложений. |
-| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | Создает веб-приложение Azure. |
-| [az webapp deployment source config](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config) | Связывает веб-приложение Azure с репозиторием Git или Mercurial. |
-| [az webapp browse](https://docs.microsoft.com/cli/azure/webapp#browse) | Открывает веб-приложение Azure в браузере. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Создает план службы приложений. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Создает веб-приложение Azure. |
+| [az webapp deployment source config](https://docs.microsoft.com/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) | Связывает веб-приложение Azure с репозиторием Git или Mercurial. |
+| [az webapp browse](https://docs.microsoft.com/cli/azure/webapp#az_webapp_browse) | Открывает веб-приложение Azure в браузере. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -16,10 +16,10 @@ ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
-ms.openlocfilehash: 3db15e9dcdd510481f4982198da5ac950f2c7e4f
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: e183890eafc2fe52713d2922644e525f14db8bee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="web-apps-overview"></a>Обзор веб-приложений
@@ -48,7 +48,7 @@ ms.lasthandoff: 08/14/2017
 Ниже представлены некоторые ключевые функции службы приложений, которые применяются к веб-приложениям.
 
 * **Поддержка нескольких языков и платформ.** Служба приложений превосходно поддерживает ASP.NET, Node.js, Java, PHP и Python. Кроме того, вы можете запустить [PowerShell и другие скрипты или исполняемые файлы](web-sites-create-web-jobs.md) в виртуальных машинах службы приложений.
-* **Оптимизация DevOps.** Настраивайте [непрерывную интеграцию и развертывание](app-service-continuous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](web-sites-staged-publishing.md). Выполняйте [тестирование A/B](app-service-web-test-in-production-get-start.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [кроссплатформенного интерфейса командной строки (CLI)](../cli-install-nodejs.md).
+* **Оптимизация DevOps.** Настраивайте [непрерывную интеграцию и развертывание](app-service-continuous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](web-sites-staged-publishing.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [кроссплатформенного интерфейса командной строки (CLI)](../cli-install-nodejs.md).
 * **Высокодоступное глобальное масштабирование.** [Увеличивайте](web-sites-scale.md) либо [уменьшайте](../monitoring-and-diagnostics/insights-how-to-scale.md) размер вручную или автоматически. Храните приложения в любом месте глобальной инфраструктуры центра обработки данных. При этом [соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/app-service/) гарантирует высокую доступность.
 * **Подключение к платформам SaaS и локальным данным.** На выбор доступно более 50 [соединителей](../connectors/apis-list.md) для корпоративных систем (например, SAP, Siebel и Oracle), служб SaaS (например, Salesforce и Office 365) и популярных интернет-служб (например, Facebook и Twitter). Получайте доступ к локальным данным с помощью [гибридных подключений](../biztalk-services/integration-hybrid-connection-overview.md) и [виртуальных сетей Azure](web-sites-integrate-with-vnet.md).
 * **Безопасность и соответствие требованиям.** Служба приложений совместима со стандартами [ISO, SOC и PCI](https://www.microsoft.com/TrustCenter/).

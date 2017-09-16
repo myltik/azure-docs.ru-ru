@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 5ed888cbb422766cf2094f5980dfd1c599bd431c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ff71194d701fd5de6ffe616c03f7214275f3bc62
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Гибкая разработка программного обеспечения с помощью службы приложений Azure.
@@ -264,7 +264,9 @@ ms.lasthandoff: 08/15/2017
     Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## <a name="summary"></a>Сводка
-Гибкая разработка программного обеспечения является обязательной для многих компаний, которые хотят использовать Azure в качестве платформы для приложений. Из этого учебника вы узнали, как без усилий создавать и удалять точные или приблизительные реплики рабочей среды, в том числе для сложных приложений. Вы также узнали, как использовать эту возможность для создания процесса разработки, который умеет добавлять в сборку и тестировать каждую фиксацию в Azure. Надеюсь, вы узнали из этого учебника, как лучше всего использовать службы приложений Azure и диспетчер ресурсов Azure для создания решения DevOps, предназначенного для гибкой методологии. Теперь можно выполнить построение этого сценария, выполнив дополнительные методы DevOps, такие как [тестирование в производственной среде](app-service-web-test-in-production-get-start.md). Распространенный сценарий тестирования в производственной среде см. в статье [Развертывание в режиме фокус-тестирования (бета-тестирование) в службе приложений Azure](app-service-web-test-in-production-controlled-test-flight.md).
+Гибкая разработка программного обеспечения является обязательной для многих компаний, которые хотят использовать Azure в качестве платформы для приложений. Из этого учебника вы узнали, как без усилий создавать и удалять точные или приблизительные реплики рабочей среды, в том числе для сложных приложений. Вы также узнали, как использовать эту возможность для создания процесса разработки, который умеет добавлять в сборку и тестировать каждую фиксацию в Azure. Надеюсь, вы узнали из этого учебника, как лучше всего использовать службы приложений Azure и диспетчер ресурсов Azure для создания решения DevOps, предназначенного для гибкой методологии. 
+
+<!-- Next, you can build on this scenario by performing advanced DevOps techniques such as testing in production. For a common testing-in-production scenario, see [Flighting deployment (beta testing) in Azure App Service](app-service-web-test-in-production-controlled-test-flight.md). -->
 
 ## <a name="more-resources"></a>Дополнительные ресурсы
 * [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)

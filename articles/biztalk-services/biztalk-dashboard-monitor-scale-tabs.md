@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Просмотр вкладок «Панель мониторинга», «Монитор», «Масштаб», «Настройка» и «Гибридное подключение»
@@ -332,8 +331,6 @@ ms.lasthandoff: 03/15/2017
 
 ## <a name="HybridConnections"></a>Гибридные подключения
 Гибридные подключения связывают приложения Azure (например, веб-приложения или мобильные приложения в службе приложений Azure), с локальным ресурсом, который использует статический порт TCP (например, SQL Server, MySQL, веб-API для HTTP и большинство настраиваемых веб-служб). Управление гибридными подключениями в службах BizTalk осуществляется на классическом портале Azure.
-
-Сведения о создании гибридных подключений в службе приложений Azure см. в статье [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 Сведения о создании гибридных подключений и управлении ими в службах Azure BizTalk см. в разделе [Гибридные подключения](integration-hybrid-connection-overview.md).
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 960a44e0df2c46cea464d9277f22f449b62e7d06
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: be282f79445c505ece7c6115df7a29c20a6a5f02
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -50,9 +50,9 @@ az group delete --name myResourceGroup
 
 | Команда | Примечания |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Возвращает моментальный снимок на основе имени моментального снимка и группы ресурсов. Для создания управляемого диска используется свойство идентификатора возвращаемого объекта.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Создает управляемые диски из моментального снимка на основе идентификатора моментального снимка, имени диска, типа хранилища и размера.  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Создает виртуальную машину с помощью управляемого диска ОС. |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Возвращает моментальный снимок на основе имени моментального снимка и группы ресурсов. Для создания управляемого диска используется свойство идентификатора возвращаемого объекта.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Создает управляемые диски из моментального снимка на основе идентификатора моментального снимка, имени диска, типа хранилища и размера.  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Создает виртуальную машину с помощью управляемого диска ОС. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/22/2017
 ms.author: eugenesh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 023c343122f872943fb3ab3eed7b4caedfae9ac4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -28,21 +28,7 @@ ms.lasthandoff: 08/21/2017
 ## <a name="supported-document-formats"></a>Поддерживаемые форматы документов
 Индексатор больших двоичных объектов может извлечь текст из документов следующих форматов:
 
-* PDF;
-* форматы Microsoft Office: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (сообщения электронной почты Outlook);  
-* HTML
-* XML
-* ZIP;
-* EML
-* RTF
-* обычные текстовые файлы (см. также [индексирование обычного текста](#IndexingPlainText));
-* JSON (см. [индексирование BLOB-объектов JSON](search-howto-index-json-blobs.md));
-* CSV (сведения о предварительной версии функции см. в статье [Индексирование больших двоичных объектов CSV с помощью индексатора больших двоичных объектов службы поиска Azure](search-howto-index-csv-blobs.md)).
-
-> [!IMPORTANT]
-> Массивы CSV и JSON сейчас поддерживаются только в предварительной версии. Эти форматы доступны только при использовании версии **2016-09-01-Preview** REST API или версии 2.x-preview пакета SDK для .NET. Помните, что предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде.
->
->
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="setting-up-blob-indexing"></a>Настройка индексирования больших двоичных объектов
 Можно настроить индексатор хранилище BLOB-объектов Azure с помощью следующих инструментов:

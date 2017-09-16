@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 40c3fa6fa6c07d59e4bf55531e116ba50aa92b91
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c7868dda1e00882a944ac61d838c8b8987d5e740
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Создание приложения-функции в плане службы приложений
@@ -47,10 +47,10 @@ ms.lasthandoff: 06/20/2017
 
 | Команда | Примечания |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Создает учетную запись хранения Azure. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Создает план службы приложений. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#delete) | Создает приложение-функцию Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Создает учетную запись хранения Azure. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | Создает план службы приложений. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Создает приложение-функцию Azure. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

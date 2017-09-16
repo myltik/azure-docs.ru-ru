@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a6ea65aba91641ece415db4df6ae9c17b42a0954
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 61d5895df46829fa773bab61d1c944fcba1c8875
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,8 +44,8 @@ ms.lasthandoff: 08/21/2017
 
 | Команда | Примечания |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#grant-access) | Создает SAS только для чтения, который используется для копирования базового VHD-файла в учетную запись хранения или загрузки в локальную среду.  |
-| [az storage blob copy start](https://docs.microsoft.com/en-us/cli/azure/storage/blob/copy#start) | Асинхронно копирует большой двоичный объект из одной учетной записи хранения в другую. |
+| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_grant_access) | Создает SAS только для чтения, который используется для копирования базового VHD-файла в учетную запись хранения или загрузки в локальную среду.  |
+| [az storage blob copy start](https://docs.microsoft.com/en-us/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | Асинхронно копирует большой двоичный объект из одной учетной записи хранения в другую. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

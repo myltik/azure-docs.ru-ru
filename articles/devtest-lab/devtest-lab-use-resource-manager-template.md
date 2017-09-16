@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 12cdb61667f77215c894800d5c439235e767a26b
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 0807ab367b91be5acd261f2b58ca2112b2c9e380
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -66,7 +65,7 @@ ms.lasthandoff: 07/06/2017
 После сохранения и настройки шаблона Resource Manager в соответствии с вашими потребностями его можно использовать для автоматизации создания виртуальной машины. Сведения об использовании Azure PowerShell с шаблонами Resource Manager для развертывания ресурсов в Azure см. в [этой статье](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Сведения об использовании Azure CLI с шаблонами Resource Manager для развертывания ресурсов в Azure см. в [этой статье](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli).
 
 > [!NOTE]
-> Только пользователь с правами владельца лаборатории может создать виртуальные машины из шаблона Resource Manager с помощью Azure PowerShell. Если необходимо автоматизировать создание виртуальной машины с помощью шаблона Resource Manager и у вас есть только разрешения пользователя, воспользуйтесь [командой CLI](https://docs.microsoft.com/cli/azure/lab/vm#create)**az lab vm create**.
+> Только пользователь с правами владельца лаборатории может создать виртуальные машины из шаблона Resource Manager с помощью Azure PowerShell. Если необходимо автоматизировать создание виртуальной машины с помощью шаблона Resource Manager и у вас есть только разрешения пользователя, воспользуйтесь [командой CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create)**az lab vm create**.
 
 ### <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения см. в статье [Создание сред со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Azure Resource Manager](devtest-lab-create-environment-from-arm.md).

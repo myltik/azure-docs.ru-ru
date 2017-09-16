@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9e62713be30a07ae00dac07de21009d2c379d609
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 6234473d9f7f0eb18ea85e52273eb82a9ce04da5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -55,17 +55,17 @@ az group delete -n az-cli-vhd
 
 | Команда | Примечания |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#list) | Выводит список учетных записей хранения. |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#check-name) | Проверяет допустимость имени учетной записи хранения и что она еще не существует. |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) | Выводит список ключей для учетных записей хранения. |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#exists) | Проверяет, существует ли BLOB-объект. |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#create) | Создает контейнер в учетной записи хранения. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#upload) | Создает BLOB-объект в контейнере путем отправки виртуального жесткого диска. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#list) | Используется с `--query`, чтобы проверить, используется ли имя виртуальной машины. | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Создает виртуальные машины. |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#set-linux-user) | Сбрасывает ключ SSH для предоставления текущему пользователю прав доступа к виртуальной машине. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | Возвращает IP-адрес созданной виртуальной машины. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Выводит список учетных записей хранения. |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Проверяет допустимость имени учетной записи хранения и что она еще не существует. |
+| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#az_storage_account_keys_list) | Выводит список ключей для учетных записей хранения. |
+| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Проверяет, существует ли BLOB-объект. |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Создает контейнер в учетной записи хранения. |
+| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Создает BLOB-объект в контейнере путем отправки виртуального жесткого диска. |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Используется с `--query`, чтобы проверить, используется ли имя виртуальной машины. | 
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Создает виртуальные машины. |
+| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | Сбрасывает ключ SSH для предоставления текущему пользователю прав доступа к виртуальной машине. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Возвращает IP-адрес созданной виртуальной машины. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

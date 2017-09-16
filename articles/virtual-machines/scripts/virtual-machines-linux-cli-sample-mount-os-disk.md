@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: fca1844657821a8ce20deefe0056321c365ce689
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c32ea5e6cade34a9c8dac0eab523ebcaa10ef039
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -42,11 +42,11 @@ ms.lasthandoff: 05/15/2017
 
 | Команда | Примечания |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm#show) | Возвращает список виртуальных машин. В этом случае параметр запроса используется для возвращения диска операционной системы виртуальной машины. Это значение добавляется к имени переменной uri. |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm#delete) | Удаляет виртуальную машину. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Создает виртуальную машину.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) | Подключает диск к виртуальной машине. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | Возвращает IP-адреса виртуальной машины. |
+| [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | Возвращает список виртуальных машин. В этом случае параметр запроса используется для возвращения диска операционной системы виртуальной машины. Это значение добавляется к имени переменной uri. |
+| [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | Удаляет виртуальную машину. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Создает виртуальную машину.  |
+| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) | Подключает диск к виртуальной машине. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | Возвращает IP-адреса виртуальной машины. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 292115b5603c6f05a5eab3492d4b3e2096b58ed2
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: ddfb10a9688842e4a23b72b4362d75b20d320262
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Создание веб-приложения Java с использованием Azure Cosmos DB и API DocumentDB
@@ -48,11 +48,10 @@ ms.lasthandoff: 08/24/2017
 ## <a id="Prerequisites"></a>Необходимые условия для изучения этого учебника по разработке веб-приложения Java
 Для работы с этим учебником необходимы:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. на странице [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/pricing/free-trial/).
+*  Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу. 
 
-    ИЛИ
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-    Локальная установка [эмулятора Azure Cosmos DB](local-emulator.md).
 * [Комплект разработчика Java (JDK 7 +)](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Интегрированная среда разработки Eclipse для разработчиков Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Открытый веб-сайт Azure со средой выполнения Java (например, Tomcat или Jetty).](../app-service-web/web-sites-java-get-started.md)

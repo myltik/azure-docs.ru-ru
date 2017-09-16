@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: c940f490908a3b934c108b214b5ef2af44698059
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4aaa4d2b739ef39754d7286bef3721a1b814d2a3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="connect-to-on-premises-sql-server-from-a-web-app-in-azure-app-service-using-hybrid-connections"></a>Подключение к локальному SQL Server из веб-приложения, размещенного в службе приложений Azure с помощью гибридных подключений
@@ -94,7 +94,7 @@ ms.lasthandoff: 01/20/2017
 ### <a name="create-a-sql-server-database-on-premises"></a>Создание локальной базы данных SQL Server
 Для веб-приложения Visual Studio требуется база данных участников, к которой может получить доступ Azure. Для этого необходим SQL Server или база данных SQL Server Express (а не база данных LocalDB, которую шаблон MVC использует по умолчанию), поэтому далее следует создать базу данных.
 
-1. В SQL Server Management Studio подключитесь к установленному SQL Server. (Если диалоговое окно **Подключение к серверу** не откроется автоматически, перейдите к **обозревателю объектов** на левой панели, щелкните **Подключение**, а затем — **Ядро СУБД**.)  ![Подключение к серверу][SSMSConnectToServer]
+1. В SQL Server Management Studio подключитесь к установленному SQL Server. (Если диалоговое окно **Подключение к серверу** не откроется автоматически, перейдите к **обозревателю объектов** на левой панели, щелкните **Подключение**, а затем — **Ядро СУБД**.) ![Подключение к серверу][SSMSConnectToServer]
    
     Для параметра **Тип сервера** выберите значение **Ядро СУБД**. В качестве **имени сервера** можно использовать значение **localhost** или имя используемого компьютера. Выберите **Проверка подлинности SQL Server**, а затем войдите с именем пользователя и паролем, созданным ранее.
 2. Чтобы создать новую базу данных, используя SQL Server Management Studio, в обозревателе объектов щелкните правой кнопкой мыши элемент **Базы данных** и выберите команду **Создать базу данных**.
@@ -276,7 +276,7 @@ ms.lasthandoff: 01/20/2017
 
 [Создание реального облака с гибридным подключением с помощью простой переносимости приложений (видео Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](web-sites-hybrid-connection-get-started.md)
+<!-- [Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md) -->
 
 [Общие сведения об удостоверениях ASP.NET](http://www.asp.net/identity)
 

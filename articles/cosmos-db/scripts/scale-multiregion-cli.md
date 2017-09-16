@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: ab716c28b88412438d0cea80377f9f0f40dc8bd6
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 08b8415eb5033bd12d24128a3ca68defea8e0d2d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -51,8 +51,8 @@ az group delete --name myResourceGroup
 | Команда | Примечания |
 |---|---|
 | [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Обновляет учетную запись базы данных Azure Cosmos DB. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | Обновляет учетную запись базы данных Azure Cosmos DB. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

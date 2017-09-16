@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: cacbcf879555907f81d824dc1069b05579dca010
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 443f49c720b47734f330db9bd6790e6a55ac5f9b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Настройка веб-приложений в службе приложений Azure
@@ -49,7 +48,7 @@ ms.lasthandoff: 06/21/2017
 <a name="platform"></a>
 **Платформа**. Выберите разрядность среды выполнения приложения – 32 или 64 бита. Для 64-битной среды требуется режим "Базовый" или "Стандартный". В 32-разрядной среде режим свободного и общего доступа выполняются всегда.
 
-**Веб-сокеты**. Установите значение **Включено**, чтобы разрешить использование протокола WebSocket (например, если ваше веб-приложение использует [ASP.NET SignalR] или [socket.io]).
+**Веб-сокеты**. Установите значение **Включено**, чтобы разрешить использование протокола WebSocket (например, если ваше веб-приложение использует [ASP.NET SignalR] или [socket.io](https://socket.io/)).
 
 <a name="alwayson"></a>
 **Всегда включено**. По умолчанию в случае простоя в течение определенного периода времени веб-приложения будут выгружены. Это позволяет сэкономить системные ресурсы. В режиме Basic и Standard вы можете включить функцию **Всегда включено** , чтобы приложение постоянно оставалось загруженным. Если приложение выполняет непрерывные веб-задания или веб-задания, активированные с помощью выражения CRON, следует включить функцию **Всегда включено**, иначе веб-задания не будут выполняться правильно.
@@ -171,7 +170,6 @@ ms.lasthandoff: 06/21/2017
 [Основы мониторинга для веб-приложений в службе приложений Azure]: ./web-sites-monitor.md
 [режим конвейера]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Масштабирование веб-приложения в службе приложений Azure]: ./web-sites-scale.md
-[socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Пробное использование службы приложений]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->

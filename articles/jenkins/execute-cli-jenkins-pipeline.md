@@ -16,10 +16,10 @@ ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 5ca8338d4bf343f08fe70081cff755fa76a126a9
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -184,7 +184,7 @@ withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 
 Для развертывания в веб-приложении в Linux поддерживается другой способ, который заключается в использовании Docker. Чтобы выполнить развертывание, необходимо предоставить файл Dockerfile, который упаковывает веб-приложение со службой среды выполнения в образ Docker. Затем подключаемый модуль создаст образ, отправит его в реестр Docker и развернет в веб-приложении.
 
-* Выполните описанные [здесь](/azure/app-service-web/app-service-linux-how-to-create-web-app) действия по созданию веб-приложения Azure на платформе Linux.
+* Выполните описанные [здесь](../app-service/containers/quickstart-nodejs.md) действия по созданию веб-приложения Azure на платформе Linux.
 * Установите Docker в экземпляре Jenkins, следуя инструкциям в этой [статье](https://docs.docker.com/engine/installation/linux/ubuntu/).
 * Создайте реестр контейнеров на портале Azure, выполнив описанные [здесь](/azure/container-registry/container-registry-get-started-azure-cli) действия.
 * В том же разветвленном репозитории [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) (Простое веб-приложение Java для Azure) измените файл **Jenkinsfile2**:

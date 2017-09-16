@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 05062d7396bdbb3e589d2ab5f0443d1dca54342a
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 5050b442540632086eda80bd7fecaf2beb8ddb50
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Документация по веб-заданиям Azure
@@ -69,7 +69,7 @@ ms.lasthandoff: 08/21/2017
 
 ## <a name="schedule"></a>Планирование веб-заданий
 * [Диалоговое окно "Добавление веб-заданий Azure"](websites-dotnet-deploy-webjobs.md#configure)
-* [Создание запланированного веб-задания на портале Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Создание запланированного веб-задания на портале Azure](web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Подключение задания планировщика к веб-заданию](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Планирование веб-заданий Azure с помощью выражений cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Планирование отдельных функций веб-задания с помощью TimerTrigger из пакета SDK веб-заданий](websites-dotnet-webjobs-sdk.md#schedule)

@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 68e17ae9e5d82da7f9be9d36e3e2324a2aeadbc4
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 26bddc69c7ff4854c84832ec924ab46ea342f1f4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,8 +44,8 @@ ms.lasthandoff: 08/21/2017
 
 | Команда | Примечания |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Получает все свойства моментального снимка, используя имя и свойства группы ресурсов моментального снимка. Свойство идентификатора используется для создания управляемого диска.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Создает управляемый диск с помощью идентификатора управляемого моментального снимка. |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Получает все свойства моментального снимка, используя имя и свойства группы ресурсов моментального снимка. Свойство идентификатора используется для создания управляемого диска.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Создает управляемый диск с помощью идентификатора управляемого моментального снимка. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

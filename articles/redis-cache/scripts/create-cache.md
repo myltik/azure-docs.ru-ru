@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 75b0602a6c6a0e252ae0bb5eab41ef5cc5636dc5
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 19b582a0cecd72b9f30283ccf822b74cf400a155
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -41,8 +41,8 @@ ms.lasthandoff: 04/07/2017
 
 | Команда | Примечания |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#create) | Создает экземпляр кэша Redis. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Создает экземпляр кэша Redis. |
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

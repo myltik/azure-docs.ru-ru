@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: cd6c75fb12182c1c38c9717f7fe51c6e36922540
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="article-top"></a>Перенос существующей мобильной службы Azure в службу приложений Azure
@@ -33,7 +33,6 @@ ms.lasthandoff: 07/19/2017
 Корпорация Майкрософт рекомендует перенести мобильную службу Azure, чтобы воспользоваться следующими преимуществами компонентов службы приложений Azure:
 
 * Новые компоненты узла, включая [Веб-задания] и [пользовательские доменные имена].
-* Возможность подключения к локальным ресурсам с помощью [виртуальной сети] и [гибридных подключений].
 * Мониторинг и устранение неполадок с помощью New Relic или [Application Insights].
 * Встроенные средства DevOps, включая [промежуточных слотов], откат и тестирование в рабочей среде.
 * [Автоматическое масштабирование], балансировка нагрузки и [мониторинг производительности].
@@ -389,7 +388,7 @@ ms.lasthandoff: 07/19/2017
 [пользовательские доменные имена]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
 [общей доступности службы приложений Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
-[гибридных подключений]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [ведению журналов]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [пакет SDK Node.js для мобильных приложений]: https://github.com/azure/azure-mobile-apps-node
 [сравнению мобильных служб и службы приложений]: app-service-mobile-value-prop-migration-from-mobile-services.md
@@ -397,7 +396,7 @@ ms.lasthandoff: 07/19/2017
 [мониторинг производительности]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [промежуточных слотов]: ../app-service-web/web-sites-staged-publishing.md
-[виртуальной сети]: ../app-service-web/web-sites-integrate-with-vnet.md
+[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Веб-задания]: ../app-service-web/websites-webjobs-resources.md
 [примерами преобразования XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [функции]: ../azure-functions/functions-overview.md

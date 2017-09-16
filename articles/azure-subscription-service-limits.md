@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 09/01/2017
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a76acd67e9ba7822f2837b3c08e2ede389047f11
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f9f7449fbfc6a1f2fe96e19dd2b13845e602946d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Подписка Azure, границы, квоты и ограничения службы
@@ -55,7 +55,6 @@ ms.lasthandoff: 08/21/2017
 * [База данных Azure Cosmos](#azure-cosmos-db-limits)
 * [Сетка событий Azure](#azure-event-grid-limits)
 * [кэш Azure Redis](#azure-redis-cache-limits)
-* [Azure RemoteApp](#azure-remoteapp-limits)
 * [Архивация](#backup-limits)
 * [Пакетная служба](#batch-limits)
 * [Службы BizTalk](#biztalk-services-limits)
@@ -68,6 +67,7 @@ ms.lasthandoff: 08/21/2017
 * [DNS](#dns-limits)
 * [Концентраторы событий](#event-hubs-limits)
 * [Центр Интернета вещей](#iot-hub-limits)
+* [Служба подготовки устройств для Центра Интернета вещей](#iot-hub-device-provisioning-service-limits)
 * [хранилище ключей;](#key-vault-limits)
 * [Log Analytics или Operational Insights](#log-analytics-limits)
 * [Службы мультимедиа](#media-services-limits)
@@ -230,6 +230,9 @@ Azure Cosmos DB — это глобальная база данных, проп�
 ### <a name="iot-hub-limits"></a>Пределы для Центра Интернета вещей
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
+### <a name="iot-hub-device-provisioning-service-limits"></a>Ограничения службы подготовки устройств для Центра Интернета вещей
+[!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
+
 ### <a name="data-factory-limits"></a>Ограничения фабрики данных
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
@@ -247,9 +250,6 @@ Azure Cosmos DB — это глобальная база данных, проп�
 
 ### <a name="azure-event-grid-limits"></a>Ограничения сетки событий Azure
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
-
-### <a name="azure-remoteapp-limits"></a>Ограничения Azure RemoteApp
-[!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>Ограничения системы StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

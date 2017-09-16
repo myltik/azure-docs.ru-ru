@@ -17,10 +17,10 @@ ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 892d3481b4ec70fb8434cb25013c5cfd8ab85051
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 08/21/2017
 > [!div class="checklist"]
 > * Создание виртуальной машины Linux
 > * Установка Node.js
-> * Установка MongoDB и настройка сервера
-> * Установка Express и настройка маршрутов на сервер
-> * Получение доступа к маршрутам с помощью AngularJS
+> * установка MongoDB и настройка сервера;
+> * установка Express и настройка маршрутов на сервер;
+> * получение доступа к маршрутам с помощью AngularJS;
 > * Выполнение приложения
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -43,7 +43,7 @@ ms.lasthandoff: 08/21/2017
 
 ## <a name="create-a-linux-vm"></a>Создание виртуальной машины Linux
 
-Создайте группу ресурсов с помощью команды [az group create](https://docs.microsoft.com/cli/azure/group#create) и создайте виртуальную машину Linux с помощью команды [az vm create](https://docs.microsoft.com/cli/azure/vm#create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими.
+Создайте группу ресурсов с помощью команды [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) и создайте виртуальную машину Linux с помощью команды [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими.
 
 В следующем примере с помощью интерфейса командной строки Azure создается группа ресурсов с именем *myResourceGroupMEAN* в расположении *eastus*. Создается виртуальная машина с именем *myVM* с ключами SSH, если они не существуют в расположении ключей по умолчанию. Чтобы использовать определенный набор ключей, используйте параметр --ssh-key-value.
 

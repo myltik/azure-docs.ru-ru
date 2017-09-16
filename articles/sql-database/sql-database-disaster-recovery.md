@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: e33f69bf04b32a31aae3c311c41aa44e4da5016a
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: e5242b5f76866ca382b31005deca07cd722af423
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Восстановление базы данных SQL Azure или переход на базу данных-получатель при отказе
@@ -65,7 +64,7 @@ ms.lasthandoff: 07/06/2017
 
 * [Настройка активной георепликации для базы данных SQL Azure с помощью портала Azure и запуск отработки отказа](sql-database-geo-replication-portal.md)
 * [Настройка активной георепликации для отдельной базы данных SQL Azure с помощью PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [Настройка активной георепликации базы данных SQL Azure с помощью Transact-SQL](sql-database-geo-replication-transact-sql.md)
+* [Настройка активной георепликации базы данных SQL Azure с помощью Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database.md)
 
 ## <a name="recover-using-geo-restore"></a>Восстановление с использованием геовосстановления
 Если простой в работе приложения не скажется на вашем бизнесе, в качестве метода восстановления баз данных приложения можно использовать [геовосстановление](sql-database-recovery-using-backups.md). Эта функция создает копию базы данных из последней геоизбыточной резервной копии.

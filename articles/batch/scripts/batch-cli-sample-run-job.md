@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 5fe1e3595d9459e60b2fd54d6f17f6822731f453
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -51,13 +51,13 @@ az batch job delete --job-id myjob
 
 | Команда | Примечания |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Выполняет аутентификацию учетной записи пакетной службы.  |
-| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#create) | Создает задание пакетной службы.  |
-| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#set) | Обновляет свойства задания пакетной службы.  |
-| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#show) | Получает сведения об указанном задании пакетной службы.  |
-| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#create) | Добавляет задачу в указанное задание пакетной службы.  |
-| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#show) | Получает сведения о задаче из указанного задания пакетной службы.  |
-| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#list) | Выводит список задач, связанных с определенным заданием.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Выполняет аутентификацию учетной записи пакетной службы.  |
+| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Создает задание пакетной службы.  |
+| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Обновляет свойства задания пакетной службы.  |
+| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Получает сведения об указанном задании пакетной службы.  |
+| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Добавляет задачу в указанное задание пакетной службы.  |
+| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Получает сведения о задаче из указанного задания пакетной службы.  |
+| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_list) | Выводит список задач, связанных с определенным заданием.  |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -15,19 +15,18 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 66f4b7a5f8eb3f6f125c9420b40caffca3d43dd6
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 017e08b7e1e37c0bcb95ae0d9d702471bb8bc6bc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Создание базы данных MySQL и подключение к ней в Azure
 В этом учебнике объясняется, как создать базу данных MySQL на [портале Azure](https://portal.azure.com) (поставщик — [ClearDB](http://www.cleardb.com/)) и подключиться к ней из веб-приложения PHP, запущенного в [службе приложений Azure](app-service/app-service-value-prop-what-is.md).
 
 > [!NOTE]
-> Кроме того, вы можете создать базу данных MySQL как часть [шаблона приложения Marketplace](app-service-web/app-service-web-create-web-app-from-marketplace.md).
+> Кроме того, вы можете создать базу данных MySQL как часть <a href="https://portal.azure.com/#create/WordPress.WordPress" target="_blank">шаблона приложения Marketplace</a>.
 >
 >
 

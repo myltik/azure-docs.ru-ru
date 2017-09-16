@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 2611698d70a1a5963abaa55c8e9510469c7aa097
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 2141ea4fd25dfc69ada02c54c4f6b6b717b8e7db
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -53,8 +53,8 @@ az group delete --name myResourceGroup
 
 | Команда | Примечания |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#show) | Получает свойства управляемого диска, используя имя диска и имя группы ресурсов. Свойство идентификатора используется для подключения управляемого диска к новой виртуальной машине. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Создает виртуальную машину с помощью управляемого диска ОС. |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Получает свойства управляемого диска, используя имя диска и имя группы ресурсов. Свойство идентификатора используется для подключения управляемого диска к новой виртуальной машине. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Создает виртуальную машину с помощью управляемого диска ОС. |
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).

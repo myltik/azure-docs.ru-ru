@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e0302c4e4e63383a2b19bd6f02f3be8d83f5ff98
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: e57e4b55555b04f6109e16322aa05ff0e41bb16c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-app-service-ssl-certificate-binding-using-powershell"></a>Привязка SSL-сертификатов службы приложений Azure с помощью PowerShell
 В выпуске Microsoft Azure PowerShell версии 1.1.0 был добавлен новый командлет, позволяющий привязывать существующие или новые SSL-сертификаты к существующему веб-приложению.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-Дополнительные сведения об использовании командлетов Azure PowerShell на основе Azure Resource Manager для управления веб-приложениями см. [здесь](app-service-web-app-azure-resource-manager-powershell.md).
 
 ## <a name="uploading-and-binding-a-new-ssl-certificate"></a>Передача и привязка нового SSL-сертификата
 Сценарий: пользователь хочет привязать SSL-сертификат к одному из своих веб-приложений.
@@ -68,13 +67,7 @@ ms.openlocfilehash: e0302c4e4e63383a2b19bd6f02f3be8d83f5ff98
     Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com -DeleteCertificate $false
 
 ### <a name="references"></a>Ссылки
-* [Команды Azure PowerShell на основе Azure Resource Manager для веб-приложений Azure](app-service-web-app-azure-resource-manager-powershell.md)
 * [Введение в среду службы приложения](app-service-app-service-environment-intro.md)
-* [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Использование Azure PowerShell с диспетчером ресурсов Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: fceb6b0671e0f77c1f8f92bbb49c986fda3660ea
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: b1f22104d530315318685fa4896b710b003ac3cc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Создание гибридных подключений и управление ими
@@ -52,7 +51,7 @@ ms.lasthandoff: 06/03/2017
 ## <a name="CreateHybridConnection"></a>Создание гибридного подключения
 Гибридное подключение можно создать на портале Azure с помощью веб-приложений **или** служб BizTalk. 
 
-**Сведения о создании гибридных подключений с помощью веб-приложений** см. в статье [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](../app-service-web/web-sites-hybrid-connection-get-started.md). Кроме того, диспетчер гибридных подключений можно установить из веб-приложения. Этот метод является предпочтительным. 
+<!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 **Создание гибридных подключений в службах BizTalk**
 
@@ -76,7 +75,8 @@ ms.lasthandoff: 06/03/2017
 * Каждое гибридное подключение создается с помощью пары строк подключения: ключи приложений, которые ОТПРАВЛЯЮТ и локальные ключи, которые ПРОСЛУШИВАЮТ. В каждой паре есть первичный и вторичный ключи. 
 
 ## <a name="LinkWebSite"></a>Связывание веб-приложения службы приложений Azure или мобильного приложения
-Чтобы связать веб-приложение или мобильное приложение с существующим гибридным подключением, в колонке "Гибридные подключения" выберите элемент **Использовать существующее гибридное подключение**. См. статью [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](../app-service-web/web-sites-hybrid-connection-get-started.md).
+Чтобы связать веб-приложение или мобильное приложение с существующим гибридным подключением, в колонке "Гибридные подключения" выберите элемент **Использовать существующее гибридное подключение**. 
+<!-- See [Access on-premises resources using hybrid connections in Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md). -->
 
 ## <a name="InstallHCM"></a>Локальная установка диспетчера гибридных подключений
 После создания гибридного подключения необходимо установить диспетчер гибридных подключений на локальном ресурсе. Его можно скачать из веб-приложения Azure или из службы BizTalk. Действия, выполняемые в службе BizTalk: 
@@ -145,8 +145,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 После копирования файлов можно изменить политику с помощью редактора групповой политики.
 
 ## <a name="next"></a>Далее
-[Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](../app-service-web/web-sites-hybrid-connection-get-started.md)  
-[Подключение к локальному SQL Server из веб-приложения, размещенного в службе приложений Azure с помощью гибридных подключений](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)   
+<!-- [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)  
+[Connect to on-premises SQL Server from Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)    -->
 [Обзор гибридных подключений](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>См. также

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 3b82f352f89a7857bfb42be6cee136f245fbd5fa
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Клонирование приложений службы приложений Azure с помощью PowerShell
@@ -27,8 +27,6 @@ ms.lasthandoff: 11/17/2016
 В настоящее время клонирование приложений поддерживается только в планах службы приложений уровня Premium. В новой функции действуют те же ограничения, что и в функции архивации веб-приложений (см. статью [Резервное копирование веб-приложений в службе приложений Azure](web-sites-backup.md)).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-Дополнительные сведения об использовании командлетов Azure PowerShell на основе Azure Resource Manager для управления веб-приложениями см. [здесь](app-service-web-app-azure-resource-manager-powershell.md).
 
 ## <a name="cloning-an-existing-app"></a>Клонирование существующего приложения
 Сценарий: существует веб-приложение в южно-центральном регионе США; пользователь хотел бы клонировать его содержимое в новое веб-приложение в северо-центральном регионе США. Эту задачу можно решить с помощью командлета PowerShell на основе Azure Resource Manager для создания веб-приложения с параметром SourceWebApp.
@@ -107,11 +105,10 @@ ms.lasthandoff: 11/17/2016
 * Содержимое базы данных не клонируется.
 
 ### <a name="references"></a>Ссылки
-* [Команды Azure PowerShell на основе Azure Resource Manager для веб-приложений Azure](app-service-web-app-azure-resource-manager-powershell.md)
 * [Клонирование веб-приложения с помощью портала Azure](app-service-web-app-cloning-portal.md)
 * [Резервное копирование веб-приложений в службе приложений Azure](web-sites-backup.md)
 * [Предварительная поддержка диспетчера трафика Azure в диспетчере ресурсов Azure](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Введение в среду службы приложения](app-service-app-service-environment-intro.md)
-* [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
+* [Использование Azure PowerShell с диспетчером ресурсов Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
 
 

@@ -17,10 +17,10 @@ ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 9eb32e545bdefb8cc0a8ae05bd58d750afeb469e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 882446ba32252490e27056c7c5c9a8f755e26ee6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 09/02/2017
 
 ### <a name="attach-disk-at-vm-creation"></a>Подключение диска при создании виртуальной машины
 
-Создайте группу ресурсов с помощью команды [az group create](https://docs.microsoft.com/cli/azure/group#create). 
+Создайте группу ресурсов с помощью команды [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupDisk --location eastus
@@ -235,7 +235,7 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 ### <a name="create-snapshot"></a>Создание моментального снимка
 
-Перед созданием моментального снимка диска виртуальной машины нужно получить идентификатор или имя этого диска. Для этого выполните команду [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show). В этом примере идентификатор диска сохраняется в переменной и может использоваться в дальнейшем.
+Перед созданием моментального снимка диска виртуальной машины нужно получить идентификатор или имя этого диска. Для этого выполните команду [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show). В этом примере идентификатор диска сохраняется в переменной и может использоваться в дальнейшем.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -273,13 +273,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 Все диски данных нужно повторно подключить к виртуальной машине.
 
-Сначала найдите имя диска данных, выполнив команду [az disk list](https://docs.microsoft.com/cli/azure/disk#list). В этом примере имя диска помещается в переменную *datadisk*, которая будет использоваться на следующем шаге.
+Сначала найдите имя диска данных, выполнив команду [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list). В этом примере имя диска помещается в переменную *datadisk*, которая будет использоваться на следующем шаге.
 
 ```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Подключите диск, выполнив команду [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach).
+Подключите диск, выполнив команду [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach).
 
 ```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk

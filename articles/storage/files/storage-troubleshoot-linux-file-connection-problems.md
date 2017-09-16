@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0cab2e3540afdbdc64cb77fca4b9219c77258166
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: dc32a57bf49d20faa2e0c241f99b1af7d02b586f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>Устранение неполадок в работе хранилища файлов Azure в Linux
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/21/2017
 -   Если определенные требования к минимальному размеру операций ввода-вывода отсутствуют, для оптимальной производительности мы рекомендуем использовать 1 МБ.
 -   Если окончательный размер файла, в который выполняются операции записи, известен, а у программного обеспечения нет проблем совместимости, и если еще не записанный заключительный фрагмент файла содержит нули, укажите размер файла заранее вместо того, чтобы расширять его для каждой операции записи.
 -   Используйте правильный метод копирования:
-    -   Используйте [AZCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#file-copy) для передачи данных между двумя файловыми ресурсами.
+    -   Используйте [AZCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) для передачи данных между двумя файловыми ресурсами.
     -   Используйте [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) для передачи данных между файловыми ресурсами и локальным компьютером.
 
 <a id="error112"></a>

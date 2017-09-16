@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 07/13/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 2e8ebbdab2be7bed224a67facec798820615bb22
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: db278f2ecd025257a969e3a9f05f5269a659999d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)
@@ -68,7 +68,7 @@ ms.lasthandoff: 07/14/2017
 
 #### <a name="event-hub-components"></a>Компоненты концентратора событий
 
-Компонент, который считывает и записывает в концентраторы событий Azure, находится в [репозитории HDInsight](https://github.com/hdinsight/mvn-rep). Следующие разделы в файле `POM.xml` загружают компоненты из этого репозитория.
+Компонент, который считывает и записывает в концентраторы событий Azure, находится в [репозитории HDInsight](https://github.com/hdinsight/mvn-repo). Следующие разделы в файле `POM.xml` загружают компоненты из этого репозитория.
 
 ```xml
 <repositories>

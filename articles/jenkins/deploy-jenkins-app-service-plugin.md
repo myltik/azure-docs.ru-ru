@@ -16,10 +16,10 @@ ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: dfb1abd4eefdb2baea8cdbd497bc8fcc95d200e6
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: b2035d6bc0d323f2497a1db9b88d3ed015235b16
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -142,7 +142,7 @@ withCredentials([azureServicePrincipal('<mySp>')]) {
 
 Перед настройкой задания в Jenkins вам понадобится служба приложений Azure в Linux, а также реестр контейнеров для хранения частных образов контейнера Docker и управления ими. Вы можете использовать DockerHub. В этом примере используется реестр контейнеров Azure.
 
-* Выполните действия, указанные [здесь](/azure/app-service-web/app-service-linux-how-to-create-web-app), для создания веб-приложения в Linux. 
+* Выполните действия, указанные [здесь](../app-service/containers/quickstart-nodejs.md), для создания веб-приложения в Linux. 
 * Реестр контейнеров Azure — это управляемая служба [реестра Docker] (https://docs.docker.com/registry/) на базе реестра Docker версии 2.0 с открытым кодом. Дополнительные сведения об этом см. [здесь] (/azure/container-registry/container-registry-get-started-azure-cli). Кроме того, можно использовать DockerHub.
 
 ### <a name="to-deploy-using-docker"></a>Развертывание с помощью Docker

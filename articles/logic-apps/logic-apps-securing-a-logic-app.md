@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -269,10 +269,6 @@ POST
 #### <a name="azure-api-management"></a>Cлужба управления Azure API 
 
 [Служба управления API Azure](https://azure.microsoft.com/services/api-management/) имеет возможности локального подключения, включая VPN типа "сеть — сеть" и интеграцию ExpressRoute, для защищенного прокси-сервера и подключения к локальным системам. В конструкторе приложений логики можно быстро выбрать API, предоставляемый службой управления API в рамках рабочего процесса, который обеспечивает быстрый доступ к локальным системам.
-
-#### <a name="hybrid-connections-from-azure-app-service"></a>Гибридные подключения из службы приложений Azure
-
-Вы можете использовать локальное гибридное подключение для локальных подключений для Azure API и веб-приложений.  Дополнительные сведения о гибридных подключениях и их настройке см. [в этой статье](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание шаблона развертывания приложения логики](logic-apps-create-deploy-template.md)  

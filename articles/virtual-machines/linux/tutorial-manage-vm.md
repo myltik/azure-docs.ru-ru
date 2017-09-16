@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: c163c715eb1438a0d6b0ab53cbb43816ca8dbbb4
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 07/20/2017
 
 ## <a name="create-resource-group"></a>Создать группу ресурсов
 
-Создайте группу ресурсов с помощью команды [az group create](https://docs.microsoft.com/cli/azure/group#create). 
+Создайте группу ресурсов с помощью команды [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
 Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Группу ресурсов следует создавать до виртуальной машины. В этом примере создается группа ресурсов с именем *myResourceGroupVM* в регионе *eastus*. 
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroupVM --location eastus
 
 ## <a name="create-virtual-machine"></a>Создание виртуальной машины
 
-Создайте виртуальную машину, выполнив команду [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
+Создайте виртуальную машину, выполнив команду [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
 При создании виртуальной машины доступно несколько вариантов, таких как образ операционной системы, определение размера диска и учетные данные администратора. В этом примере создается виртуальная машина *myVM* под управлением Ubuntu Server. 
 
@@ -62,7 +62,7 @@ az group create --name myResourceGroupVM --location eastus
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-После создания виртуальной машины Azure CLI выводит информацию о ней. Запишите `publicIpAddress`. Этот адрес может использоваться для доступа к виртуальной машине. 
+Создание виртуальной машины может занять несколько минут. После создания виртуальной машины Azure CLI выводит информацию о ней. Запишите `publicIpAddress`. Этот адрес может использоваться для доступа к виртуальной машине. 
 
 ```azurecli-interactive 
 {
@@ -79,13 +79,13 @@ az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --
 
 ## <a name="connect-to-vm"></a>Подключение к виртуальной машине
 
-Теперь к виртуальной машине можно подключиться по протоколу SSH. Замените IP-адрес в примере адресом `publicIpAddress`, записанным на предыдущем шаге.
+Теперь вы можете подключиться к виртуальной машине с помощью SSH из Azure Cloud Shell или с локального компьютера. Замените IP-адрес в примере адресом `publicIpAddress`, записанным на предыдущем шаге.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-Завершив работу с виртуальной машиной, закройте сеанс SSH. 
+После входа на виртуальную машину можно установить и настроить приложения. По окончании работы закройте сеанс SSH, как обычно:
 
 ```bash
 exit
@@ -208,7 +208,11 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Изменение размера виртуальной машины
 
-После развертывания виртуальной машины ее размер можно изменить, чтобы увеличить или уменьшить выделенные ей ресурсы.
+После развертывания виртуальной машины ее размер можно изменить, чтобы увеличить или уменьшить выделенные ей ресурсы. Текущий размер виртуальной машины можно просмотреть с помощью команды [az vm show](/cli/azure/vm#show):
+
+```azurecli-interactive
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
 
 Перед изменением размера виртуальной машины проверьте, доступен ли желаемый размер в текущем кластере Azure. Команда [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) отображает список всех размеров. 
 
@@ -300,7 +304,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>Удалить группу ресурсов
 
-При удалении группы ресурсов будут также удалены все ресурсы, содержащиеся в ней.
+При удалении группы ресурсов будут также удалены все ресурсы, содержащиеся в ней: виртуальная машина, виртуальная сеть и диск. При использовании параметра `--no-wait` управление возвращается в командную строку без ожидания завершения операции. Параметр `--yes` подтверждает, что вы хотите удалить ресурсы без дополнительного запроса.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes
