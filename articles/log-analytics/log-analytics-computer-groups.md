@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/15/2017
 ms.author: bwren
 ms.translationtype: HT
 ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
@@ -57,7 +57,7 @@ ms.lasthandoff: 07/28/2017
 >[!NOTE]
 > Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), в процедуре создания новой группы компьютеров выполняются следующие изменения.
 >  
-> - Запрос на создание группы компьютеров должен содержать параметр `distinct Computer`.  Ниже приведен пример запроса на создание группы компьютеров.<br>`Heartbeat | where Computer contains "srv" `
+> - Запрос на создание группы компьютеров должен содержать параметр `distinct Computer`.  Ниже приведен пример запроса на создание группы компьютеров.<br>`Heartbeat | where Computer contains "srv" | distinct Computer `
 > - При создании новой группы компьютеров необходимо кроме имени указать псевдоним.  Псевдоним применяется при использовании группы компьютеров в запросе, как описано ниже.  
 
 ### <a name="log-search-api"></a>API поиска по журналам
@@ -104,7 +104,7 @@ Log Analytics для импорта групп безопасности Active D
 >[!NOTE]
 > Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), группа компьютеров используется в запросе с интерпретацией ее псевдонима в качестве функции, как в следующем примере:
 > 
->  `UpdateSummary | where Computer IN (MyComputerGroup)`
+>  `UpdateSummary | where Computer in (mycomputergroup)`
 
 ## <a name="computer-group-records"></a>Записи группы компьютеров
 Запись создается в репозитории OMS для каждого членства в группе компьютеров, создаваемого в Active Directory или WSUS.  Записи о производительности имеют тип **ComputerGroup**. Их свойства описаны в таблице ниже.  Для групп компьютеров, созданных с помощью операции поиска по журналам, записи не создаются.
