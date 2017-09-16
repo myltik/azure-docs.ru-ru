@@ -37,6 +37,7 @@
 ### [Приложения, использующие очереди](service-bus-create-queues.md)
 ### [Приложения, использующие разделы и подписки](service-bus-create-topics-subscriptions.md)
 ### [Аутентификация и авторизация](service-bus-authentication-and-authorization.md)
+#### [Миграция из ACS в SAS](service-bus-migrate-acs-sas.md)
 #### [Проверка подлинности с помощью подписанных URL-адресов](service-bus-sas.md)
 ### [Секционированные очереди и разделы](service-bus-partitioning.md)
 ### [Очереди недоставленных сообщений](service-bus-dead-letter-queues.md)

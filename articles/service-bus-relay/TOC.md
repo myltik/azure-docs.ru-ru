@@ -13,6 +13,7 @@
 # Практическое руководство
 ## Планирование и проектирование
 ### [Проверка подлинности и безопасность](relay-authentication-and-authorization.md)
+#### [Миграция из ACS в SAS](relay-migrate-acs-sas.md)
 ### [Протокол гибридных подключений](relay-hybrid-connections-protocol.md)
 ## Разработка
 ### [Доступные интерфейсы API](relay-api-overview.md)

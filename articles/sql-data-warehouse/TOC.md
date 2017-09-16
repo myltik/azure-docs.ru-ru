@@ -10,7 +10,7 @@
 ## [Руководство для начинающих](sql-data-warehouse-get-started-tutorial.md)
 ## [Рекомендации по использованию хранилища данных SQL Azure](sql-data-warehouse-best-practices.md)
 ## [Управление](sql-data-warehouse-overview-manage.md)
-## [Получение поддержки](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 
 # Практическое руководство
@@ -139,18 +139,22 @@
 # Справочные материалы
 
 ## [Ограничения емкости](sql-data-warehouse-service-capacity-limits.md)
-## [Элементы языка T-SQL](sql-data-warehouse-reference-tsql-language-elements.md)
-## [Инструкции T-SQL](sql-data-warehouse-reference-tsql-statements.md)
-## [Системные представления T-SQL](sql-data-warehouse-reference-tsql-system-views.md)
+## T-SQL
+### [Полный справочник](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [Элементы языка для хранилища данных SQL](sql-data-warehouse-reference-tsql-language-elements.md)
+### [Инструкции для хранилища данных SQL](sql-data-warehouse-reference-tsql-statements.md)
+## [Системные представления](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Командлеты PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=databases)
-## [Форум](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Форум](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Цены](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
+## [Запросы функций](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Поддержка](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Партнеры

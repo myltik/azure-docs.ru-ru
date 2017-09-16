@@ -34,6 +34,9 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
       items:
+        - name: Веб-приложения для контейнеров
+          tocHref: /azure/app-service/containers/
+          topicHref: /azure/app-service/containers/
         - name: Веб-приложения
           tocHref: /azure/app-service-web/
           topicHref: /azure/app-service-web/
@@ -125,6 +128,9 @@
         - name: Служба Language Understanding Intelligent Service (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
+        - name: Текстовая аналитика
+          tocHref: /azure/cognitive-services/text-analytics/
+          topicHref: /azure/cognitive-services/text-analytics/overview
         - name: Индексатор видео
           tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
           topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
