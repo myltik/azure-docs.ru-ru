@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Профилирование динамических веб-приложений Azure с помощью Application Insights
@@ -25,7 +25,7 @@ ms.lasthandoff: 06/29/2017
 
 Узнайте, сколько времени выполняется каждый метод в динамическом веб-приложении с помощью средства профилирования [Azure Application Insights](app-insights-overview.md). Оно отображает подробные данные профилей динамических запросов, обработанные приложением, а также выделяет "критический путь", на использование которого уходит большая часть времени. Это средство автоматически выбирает примеры с разным временем ответа. Профилировщик использует различные методы для минимизации затрат.
 
-Сейчас он работает для веб-приложений ASP.NET, запущенных в службах приложений Azure, по крайней мере с ценовой категорией "Базовый". 
+Сейчас он работает для веб-приложений ASP.NET, запущенных в службах приложений Azure, по крайней мере с ценовой категорией "Базовый".
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Включение профилировщика
@@ -60,7 +60,7 @@ ms.lasthandoff: 06/29/2017
 
 ### <a name="using-profiler-with-azure-vms-and-compute-resources-preview"></a>Использование профилировщика с виртуальными машинами и вычислительных ресурсами Azure (предварительная версия)
 
-После [включения Application Insights для служб приложений Azure во время выполнения](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights) профилировщик автоматически становится доступным. (Если вы уже включили Application Insights для ресурса, может потребоваться выполнить обновление до последней версии с помощью мастера **настройки**.)
+После [включения Application Insights для служб приложений Azure во время выполнения](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights) профилировщик автоматически становится доступным. (Если вы уже включили Application Insights для ресурса, возможно, вам следует выполнить обновление до последней версии с помощью мастера **настройки**.)
 
 Существует [предварительная версия профилировщика для вычислительных ресурсов Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 

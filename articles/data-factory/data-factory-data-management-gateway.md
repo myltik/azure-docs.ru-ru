@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9e40eba285aeb1cce6b77311d1b69a6b96967a0b
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: f1f57404734ad6dc77250b180a9c334de60f0af3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="data-management-gateway"></a>Шлюз управления данными
-Шлюз управления данными — это агент клиента, который необходимо установить в локальной среде, чтобы обеспечить копирование данных между облачными и локальными хранилищами данных. Перечень локальных хранилищ данных, поддерживаемых фабрикой данных, приведен в разделе [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+Шлюз управления данными — это агент клиента, который необходимо установить в локальной среде, чтобы обеспечить копирование данных между облачными и локальными хранилищами данных. Перечень локальных хранилищ данных, поддерживаемых фабрикой данных, приведен в разделе [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
-Эта статья дополняет пошаговое руководство, приведенное в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md). В руководстве создается конвейер, который использует шлюз для перемещения данных из локальной базы данных SQL Server в большой двоичный объект Azure. В этой статье содержатся подробные сведения об использовании шлюза управления данными. 
+Эта статья дополняет пошаговое руководство, приведенное в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) . В руководстве создается конвейер, который использует шлюз для перемещения данных из локальной базы данных SQL Server в большой двоичный объект Azure. В этой статье содержатся подробные сведения об использовании шлюза управления данными. 
 
 Шлюз управления данными можно развернуть, сопоставив с ним несколько локальных компьютеров. Чтобы увеличить масштаб, увеличьте число заданий перемещения данных, которые могут выполняться одновременно на узле. Эта функция также доступна для логического шлюза с одним узлом. Дополнительные сведения см. в статье [Шлюз управления данными: высокий уровень доступности и масштабируемость (предварительная версия)](data-factory-data-management-gateway-high-availability-scalability.md).
 
@@ -66,10 +66,10 @@ ms.lasthandoff: 08/21/2017
 
 ## <a name="installation"></a>Установка
 ### <a name="prerequisites"></a>Предварительные требования
-* Поддерживаемые **операционные системы**: Windows 7, Windows 8, Windows 8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. В настоящее время установка шлюза управления данными на контроллере домена не поддерживается.
+* Поддерживаемые **операционные системы** : Windows 7, Windows 8, Windows 8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. В настоящее время установка шлюза управления данными на контроллере домена не поддерживается.
 * Требуется .NET Framework 4.5.1 или более поздней версии. При установке шлюза на компьютере под управлением Windows 7 установите .NET Framework 4.5 или более поздней версии. Дополнительные сведения см. в разделе [Требования к системе для .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx).
 * Рекомендуемая **конфигурация** для компьютера шлюза: четырехъядерный процессор с тактовой частотой не менее 2 ГГц, не менее 8 ГБ ОЗУ и 80 ГБ дискового пространства.
-* Когда хост-компьютер переходит в спящий режим, шлюз не может отвечать на запросы данных. Поэтому перед установкой шлюза на компьютере следует настроить соответствующую **схему управления питанием**. Если компьютер настроен на использование режима гибернации, во время установки шлюза отобразится соответствующее сообщение.
+* Когда хост-компьютер переходит в спящий режим, шлюз не может отвечать на запросы данных. Поэтому перед установкой шлюза на компьютере следует настроить соответствующую **схему управления питанием** . Если компьютер настроен на использование режима гибернации, во время установки шлюза отобразится соответствующее сообщение.
 * Для успешной установки шлюза управления данными и его настройки вы должны обладать правами администратора на компьютере. В локальную группу Windows **Пользователи шлюза управления данными** можно добавить дополнительных пользователей. Участники этой группы могут использовать **диспетчер конфигурации шлюза управления данными** для настройки шлюза.
 
 Так как циклы копирования выполняются с определенной частотой, ресурсы компьютера (ЦП, память) используются нерегулярно: есть пиковые нагрузки и есть время простоя. Использование ресурсов также зависит от объема перемещаемых данных. Когда выполняется несколько заданий копирования, в пиковые периоды уровень использования ресурсов системы повышается.
@@ -96,7 +96,7 @@ ms.lasthandoff: 08/21/2017
 9. Получите ключ на портале Azure. Пошаговые инструкции представлены в следующем разделе.
 10. Запустите на компьютере **диспетчер конфигурации шлюза управления данными**, затем на странице **Регистрация шлюза** выполните следующие действия.
     1. Вставьте ключ в текст.
-    2. При необходимости щелкните **Показать ключ шлюза**, чтобы просмотреть текст ключа.
+    2. При необходимости щелкните **Показать ключ шлюза** , чтобы просмотреть текст ключа.
     3. Щелкните **Зарегистрировать**.
 
 ### <a name="register-gateway-using-key"></a>Регистрация шлюза с помощью ключа
@@ -184,7 +184,7 @@ ms.lasthandoff: 08/21/2017
 После успешной регистрации шлюза, если требуется просмотреть или обновить параметры прокси-сервера, используйте диспетчер конфигурации шлюза управления данными.
 
 1. Запустите **диспетчер конфигурации шлюза управления данными**.
-2. Переключитесь на вкладку **Параметры**.
+2. Переключитесь на вкладку **Параметры** .
 3. Щелкните ссылку **Изменить** в разделе **HTTP-прокси**, чтобы открыть диалоговое окно **Указание HTTP-прокси**.  
 4. После нажатия кнопки **Далее** появится диалоговое окно предупреждения, запрашивающее разрешение на сохранение настроек прокси-сервера и перезапуск службы узла шлюза.
 
@@ -281,7 +281,7 @@ ms.lasthandoff: 08/21/2017
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on  
     ```
-([Для высокодоступного и масштабируемого шлюза с несколькими узлами (предварительная версия)](data-factory-data-management-gateway-high-availability-scalability.md))
+[Для предварительной версии высокодоступного и масштабируемого шлюза с несколькими узлами](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Запустите Windows PowerShell на компьютере шлюза.
 2. Перейдите в папку C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
 3. Выполните следующую команду, чтобы отключить функцию автоматического обновления.   
@@ -294,154 +294,154 @@ ms.lasthandoff: 08/21/2017
 
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+    ```
 
+## <a name="configuration-manager"></a>Менеджер конфигураций
+После установки шлюза вы можете запустить диспетчер конфигурации шлюза управления данными одним из приведенных ниже способов.
 
-## Configuration Manager
-Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:
+1. Для этого введите текст **шлюз управления данными** в окне **Поиск**.
+2. Выполните исполняемый файл **ConfigManager.exe** в папке **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
 
-1. In the **Search** window, type **Data Management Gateway** to access this utility.
-2. Run the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+### <a name="home-page"></a>главная страница
+Главная страница позволяет выполнить следующие действия:
 
-### Home page
-The Home page allows you to do the following actions:
+* Просмотреть состояние шлюза (подключенного к облачной службе и т.д.).
+* **Зарегистрировать** с помощью ключа с портала;
+* **остановить** и запустить **службу узла шлюза управления данными** на компьютере шлюза;
+* **запланировать обновления** на определенное время дня;
+* просмотреть дату **последнего обновления**шлюза.
 
-* View status of the gateway (connected to the cloud service etc.).
-* **Register** using a key from the portal.
-* **Stop** and start the **Data Management Gateway Host service** on the gateway machine.
-* **Schedule updates** at a specific time of the days.
-* View the date when the gateway was **last updated**.
+### <a name="settings-page"></a>Страница «Параметры»
+Страница "Параметры" позволяет выполнить следующие действия:
 
-### Settings page
-The Settings page allows you to do the following actions:
+* Просмотреть, изменить и экспортировать **сертификат** , который используется шлюзом. Этот сертификат используется для шифрования учетных данных источника данных.
+* Изменить **HTTPS-порт** для конечной точки. шлюз открывает порт для настройки учетных данных источника данных;
+* **состояние** конечной точки.
+* Представление **SSL-сертификат** используется для обмена данными по протоколу SSL между порталом и шлюзом, чтобы задать учетные данные для источников данных.  
 
-* View, change, and export **certificate** used by the gateway. This certificate is used to encrypt data source credentials.
-* Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials.
-* **Status** of the endpoint
-* View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.  
+### <a name="diagnostics-page"></a>Страница "Диагностика"
+Страница "Диагностика" позволяет выполнить следующие действия:
 
-### Diagnostics page
-The Diagnostics page allows you to do the following actions:
+* Включить подробное **ведение журнала**, просмотреть журналы в средстве просмотра событий и отправить журналы в корпорацию Майкрософт в случае сбоя.
+* **Проверить подключение** к источнику данных.  
 
-* Enable verbose **logging**, view logs in event viewer, and send logs to Microsoft if there was a failure.
-* **Test connection** to a data source.  
+### <a name="help-page"></a>Страница справки
+На странице "Справка" отображается следующая информация:  
 
-### Help page
-The Help page displays the following information:  
+* краткое описание шлюза;
+* номер версии;
+* ссылки на справку в Интернете, заявление о конфиденциальности и лицензионное соглашение.  
 
-* Brief description of the gateway
-* Version number
-* Links to online help, privacy statement, and license agreement.  
+## <a name="monitor-gateway-in-the-portal"></a>Мониторинг шлюза на портале
+На портале Azure можно просмотреть моментальный снимок использования ресурсов (ЦП, память, входящий и исходящий трафик сети и т. д.) на компьютере шлюза.  
 
-## Monitor gateway in the portal
-In the Azure portal, you can view near-real time snapshot of resource utilization (CPU, memory, network(in/out), etc.) on a gateway machine.  
+1. На портале Azure перейдите к домашней странице фабрики данных и щелкните плитку **Связанные службы**. 
 
-1. In Azure portal, navigate to the home page for your data factory, and click **Linked services** tile. 
+    ![Домашняя страница фабрики данных](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
+2. Выберите **шлюз** на странице **Связанные службы**.
 
-    ![Data factory home page](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
-2. Select the **gateway** in the **Linked services** page.
+    ![Страница "Связанные службы"](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
+3. На странице **шлюза** можно увидеть использование памяти и ЦП шлюза.
 
-    ![Linked services page](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
-3. In the **Gateway** page, you can see the memory and CPU usage of the gateway.
-
-    ![CPU and memory usage of gateway](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
-4. Enable **Advanced settings** to see more details such as network usage.
+    ![Использование ЦП и памяти шлюза](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
+4. Включите **дополнительные параметры** для получения дополнительных сведений, таких как использование сети.
     
-    ![Advanced monitoring of gateway](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
+    ![Расширенный мониторинг шлюза](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
 
-The following table provides descriptions of columns in the **Gateway Nodes** list:  
+В следующей таблице приводится описание столбцов в списке **Узлы шлюза**.  
 
-Monitoring Property | Description
+Свойство мониторинга | Описание
 :------------------ | :---------- 
-Name | Name of the logical gateway and nodes associated with the gateway. Node is an on-premises Windows machine that has the gateway installed on it. For information on having more than one node (up to four nodes) in a single logical gateway, see [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md).    
-Status | Status of the logical gateway and the gateway nodes. Example: Online/Offline/Limited/etc. For information about these statuses, See [Gateway status](#gateway-status) section. 
-Version | Shows the version of the logical gateway and each gateway node. The version of the logical gateway is determined based on version of majority of nodes in the group. If there are nodes with different versions in the logical gateway setup, only the nodes with the same version number as the logical gateway function properly. Others are in the limited mode and need to be manually updated (only in case auto-update fails). 
-Available memory | Available memory on a gateway node. This value is a near real-time snapshot. 
-CPU utilization | CPU utilization of a gateway node. This value is a near real-time snapshot. 
-Networking (In/Out) | Network utilization of a gateway node. This value is a near real-time snapshot. 
-Concurrent Jobs (Running/ Limit) | Number of jobs or tasks running on each node. This value is a near real-time snapshot. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, where CPU/memory/network is under-utilized, but activities are timing out. This capability is also available with a single-node gateway (even when the scalability and availability feature is not enabled).  
-Role | There are two types of roles in a multi-node gateway – Dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes (including itself).
+Имя | Имя логического шлюза и узлов, связанных со шлюзом. Узел — это локальный компьютер с Windows, на котором установлен шлюз. Сведения о настройке нескольких узлов (до четырех) в одном логическом шлюзе см. в статье [Шлюз управления данными: высокий уровень доступности и масштабируемость](data-factory-data-management-gateway-high-availability-scalability.md).    
+Состояние | Состояние логического шлюза и узлов шлюза, например, "В сети", "Автономно", "Ограничено" и т. д. Сведения об этих состояниях см. в разделе [Состояние шлюза](#gateway-status). 
+Version (версия) | Указывает версию логического шлюза и каждого узла шлюза. Версия логического шлюза определяется на основе версии большинства узлов в группе. Если в логическом шлюзе настроены узлы с разными версиями, должным образом будут работать только те из них, версия которых совпадает с версией логического шлюза. Другие узлы находятся в ограниченном режиме и их необходимо обновлять вручную (только при сбое автоматического обновления). 
+Объем доступной памяти | Объем доступной памяти на узле шлюза. Это значение соответствует моментальному снимку в режиме, близком к реальному времени. 
+загрузка ЦП; | Использование ЦП на узле шлюза. Это значение соответствует моментальному снимку в режиме, близком к реальному времени. 
+Networking (In/Out) (Сеть (входящий и исходящий трафик)) | Использование сети на узле шлюза. Это значение соответствует моментальному снимку в режиме, близком к реальному времени. 
+Concurrent Jobs (Running/Limit) (Одновременные задания (выполняемые и ограниченные)) | Число заданий или задач, выполняющихся на каждом узле. Это значение соответствует моментальному снимку в режиме, близком к реальному времени. Ограничение означает максимальное количество одновременно выполняемых заданий для каждого узла. Это значение определяется на основе размера компьютера. Ограничение можно увеличить, чтобы увеличить масштаб параллельных заданий в сложных сценариях, где ЦП, память или сеть мало используется, но время ожидание действий истекает. Эта возможность также доступна для шлюза с одним узлом (даже если не включена функция масштабируемости и доступности).  
+Роль | В многоузловом шлюзе существует два типа ролей — рабочая роль и диспетчер. Все узлы являются рабочими, то есть их можно использовать для выполнения заданий. Только один узел выполняет роль диспетчера, который используется для извлечения задачи или задания из облачных служб и отправки в разные рабочие узлы (включая сам узел-диспетчер).
 
-In this page, you see some settings that make more sense when there are two or more nodes (scale out scenario) in the gateway. See [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md) for details about setting up a multi-node gateway.
+На этой странице отображаются некоторые параметры, которые больше подходят для шлюзов с двумя и более узлами (сценарий развертывания). Подробные сведения о настройке шлюза с несколькими узлами см. в статье [Шлюз управления данными: высокий уровень доступности и масштабируемость](data-factory-data-management-gateway-high-availability-scalability.md).
 
-### Gateway status
-The following table provides possible statuses of a **gateway node**: 
+### <a name="gateway-status"></a>Состояние шлюза
+В следующей таблице представлены сведения о возможных состояниях **узла шлюза**: 
 
-Status  | Comments/Scenarios
+Состояние  | Комментарии и сценарии
 :------- | :------------------
-Online | Node connected to Data Factory service.
-Offline | Node is offline.
-Upgrading | The node is being auto-updated.
-Limited | Due to Connectivity issue. May be due to HTTP port 8050 issue, service bus connectivity issue, or credential sync issue. 
-Inactive | Node is in a configuration different from the configuration of other majority nodes.<br/><br/> A node can be inactive when it cannot connect to other nodes. 
+В сети | Узел подключен к службе фабрики данных.
+Автономно | Узел находится в автономном режиме.
+Обновление | Узел автоматически обновляется.
+Ограничено | Это состояние появляется при проблемах с подключением. Возможно, из-за проблем с портом 8050 HTTP, подключением к служебной шине или синхронизацией учетных данных. 
+Неактивно | Конфигурация узла отличается от конфигурации большинства других узлов.<br/><br/> Узел может быть неактивным, если он не может подключиться к другим узлам. 
 
 
-The following table provides possible statuses of a **logical gateway**. The gateway status depends on statuses of the gateway nodes. 
+В следующей таблице представлены сведения о возможных состояниях **логического шлюза**: Состояние шлюза зависит от состояния его узлов. 
 
-Status | Comments
+Состояние | Комментарии
 :----- | :-------
-Needs Registration | No node is yet registered to this logical gateway
-Online | Gateway Nodes are online
-Offline | No node in online status.
-Limited | Not all nodes in this gateway are in healthy state. This status is a warning that some node might be down! <br/><br/>Could be due to credential sync issue on dispatcher/worker node. 
+Needs Registration (Требуется регистрация) | В логическом шлюзе не зарегистрированы узлы.
+В сети | Узлы шлюза подключены к сети.
+Автономно | Узлы не подключены к сети.
+Ограничено | Не все узлы в этом шлюзе находятся в работоспособном состоянии. Это состояние является предупреждением, что определенный узел не работает. <br/><br/>Возможно, это произошло из-за проблемы с синхронизацией учетных данных на узле-диспетчера или на рабочем узле. 
 
-## Scale up gateway
-You can configure the number of **concurrent data movement jobs** that can run on a node to scale up the capability of moving data between on-premises and cloud data stores. 
+## <a name="scale-up-gateway"></a>Увеличение масштаба шлюза
+Вы можете настроить количество **одновременных заданий перемещения данных**, которые можно запустить на узле, чтобы расширить возможность перемещения данных между локальными и облачными хранилищами данных. 
 
-When the available memory and CPU are not utilized well, but the idle capacity is 0, you should scale up by increasing the number of concurrent jobs that can run on a node. You may also want to scale up when activities are timing out because the gateway is overloaded. In the advanced settings of a gateway node, you can increase the maximum capacity for a node. 
+Если доступная память и ЦП используются неэффективно, но время простоя равно 0, следует увеличить масштаб, увеличив количество одновременных заданий, которые могут выполняться на узле. Кроме того, масштаб можно увеличить, если время ожидания действия истекает из-за перегрузки шлюза. В дополнительных параметрах узла шлюза можно увеличить максимальную емкость узла. 
   
 
-## Troubleshooting gateway issues
-See [Troubleshooting gateway issues](data-factory-troubleshoot-gateway-issues.md) article for information/tips for troubleshooting issues with using the data management gateway.  
+## <a name="troubleshooting-gateway-issues"></a>Устранение неполадок со шлюзом
+Сведения и советы по устранению неполадок с помощью шлюза управления данными см. в статье [Устранение неполадок в работе шлюза управления данными](data-factory-troubleshoot-gateway-issues.md).  
 
-## Move gateway from one machine to another
-This section provides steps for moving gateway client from one machine to another machine.
+## <a name="move-gateway-from-one-machine-to-another"></a>Перемещение шлюза с одного компьютера на другой
+Этот раздел содержит процедуру перемещения клиента шлюза с одного компьютера на другой.
 
-1. In the portal, navigate to the **Data Factory home page**, and click the **Linked Services** tile.
+1. На портале перейдите на **главную страницу фабрики данных**, а затем щелкните элемент **Связанные службы**.
 
-    ![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
-2. Select your gateway in the **DATA GATEWAYS** section of the **Linked Services** page.
+    ![Ссылка на шлюзы данных](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+2. Выберите нужный шлюз в разделе **Шлюзы данных** на странице **Связанные службы**.
 
-    ![Linked Services page with gateway selected](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
-3. In the **Data gateway** page, click **Download and install data gateway**.
+    ![Страница "Связанные службы" с выбранным шлюзом](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
+3. На странице **Шлюз данных** щелкните **Скачивание и установка шлюза данных**.
 
-    ![Download gateway link](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
-4. In the **Configure** page, click **Download and install data gateway**, and follow instructions to install the data gateway on the machine.
+    ![Ссылка на шлюз загрузки](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
+4. На странице **Настройка** щелкните **Скачивание и установка шлюза данных**, а затем следуйте инструкциям по установке шлюза данных на компьютере.
 
-    ![Configure page](./media/data-factory-data-management-gateway/ConfigureBlade.png)
-5. Keep the **Microsoft Data Management Gateway Configuration Manager** open.
+    ![Страница "Настройка"](./media/data-factory-data-management-gateway/ConfigureBlade.png)
+5. Не закрывайте **диспетчер конфигурации шлюза управления данными** .
 
-    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
-6. In the **Configure** page in the portal, click **Recreate key** on the command bar, and click **Yes** for the warning message. Click **copy button** next to key text that copies the key to the clipboard. The gateway on the old machine stops functioning as soon you recreate the key.  
+    ![Менеджер конфигураций](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
+6. На странице **Настройка** на портале щелкните **Повторное создание ключа** на панели команд и щелкните **Да** в окне с предупреждением. Скопируйте ключ в буфер обмена с помощью **кнопки копирования** рядом с текстом ключа. Шлюз на старом компьютере прекращает работу сразу же, как только будет повторно создан ключ.  
 
-    ![Recreate key](./media/data-factory-data-management-gateway/RecreateKey.png)
-7. Paste the **key** into text box in the **Register Gateway** page of the **Data Management Gateway Configuration Manager** on your machine. (optional) Click **Show gateway key** check box to see the key text.
+    ![Повторное создание ключа](./media/data-factory-data-management-gateway/RecreateKey.png)
+7. Вставьте **ключ** в соответствующее текстовое поле на странице **Регистрация шлюза** **диспетчера конфигурации шлюза управления данными** на своем компьютере. (Необязательно) Чтобы увидеть текст ключа, установите флажок **Показать ключ шлюза** .
 
-    ![Copy key and Register](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
-8. Click **Register** to register the gateway with the cloud service.
-9. On the **Settings** tab, click **Change** to select the same certificate that was used with the old gateway, enter the **password**, and click **Finish**.
+    ![Копирование и регистрация ключа](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
+8. Щелкните **Зарегистрировать** , чтобы зарегистрировать шлюз в облачной службе.
+9. На вкладке **Параметры** щелкните **Изменить**, чтобы выбрать сертификат, который использовался на старом шлюзе, затем введите **пароль** и щелкните **Готово**.
 
-   ![Specify Certificate](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
+   ![Выбор сертификата](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
-   You can export a certificate from the old gateway by doing the following steps: launch Data Management Gateway Configuration Manager on the old machine, switch to the **Certificate** tab, click **Export** button and follow the instructions.
-10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager.
+   Вы можете экспортировать сертификат из старого шлюза следующим образом. Запустите диспетчер конфигурации шлюза управления данными на старом компьютере, перейдите на вкладку **Сертификат**, нажмите кнопку **Экспорт** и следуйте инструкциям на экране.
+10. После успешной регистрации шлюза вы увидите, что на главной странице диспетчера конфигурации шлюза значение параметра **Регистрация** изменилось на **Зарегистрировано**, а параметр **Состояние** получил значение **Запущено**.
 
-## Encrypting credentials
-To encrypt credentials in the Data Factory Editor, do the following steps:
+## <a name="encrypting-credentials"></a>Шифрование учетных данных
+Для шифрования учетных данных в редакторе фабрики данных выполните следующие действия.
 
-1. Launch web browser on the **gateway machine**, navigate to [Azure portal](http://portal.azure.com). Search for your data factory if needed, open data factory in the **DATA FACTORY** page and then click **Author & Deploy** to launch Data Factory Editor.   
-2. Click an existing **linked service** in the tree view to see its JSON definition or create a linked service that requires a data management gateway (for example: SQL Server or Oracle).
-3. In the JSON editor, for the **gatewayName** property, enter the name of the gateway.
-4. Enter server name for the **Data Source** property in the **connectionString**.
-5. Enter database name for the **Initial Catalog** property in the **connectionString**.    
-6. Click **Encrypt** button on the command bar that launches the click-once **Credential Manager** application. You should see the **Setting Credentials** dialog box.
+1. Запустите веб-браузер на **компьютере шлюза**и перейдите на [портал Azure](http://portal.azure.com). Найдите нужную фабрику данных и откройте ее на странице**Фабрика данных**, а затем выберите **Author & Deploy** (Создать и развернуть), чтобы запустить редактор фабрики данных.   
+2. Щелкните имеющуюся **связанную службу** в представлении в виде дерева, чтобы просмотреть определение JSON для этой службы, или создайте связанную службу, которой требуется шлюз управления данными (например, SQL Server или Oracle).
+3. В редакторе JSON для свойства **gatewayName** укажите имя шлюза.
+4. Введите имя сервера в качестве значения для свойства **Data Source** в строке **connectionString**.
+5. Введите имя базы данных в качестве значения для свойства **Initial Catalog** в строке **connectionString**.    
+6. Нажмите кнопку **Зашифровать** на панели команд, чтобы запустить ClickOnce-приложение **Диспетчер учетных данных**. Откроется диалоговое окно **Setting Credentials** (Настройка учетных данных).
 
-    ![Setting credentials dialog](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
-7. In the **Setting Credentials** dialog box, do the following steps:
-   1. Select **authentication** that you want the Data Factory service to use to connect to the database.
-   2. Enter name of the user who has access to the database for the **USERNAME** setting.
-   3. Enter password for the user for the **PASSWORD** setting.  
-   4. Click **OK** to encrypt credentials and close the dialog box.
-8. You should see a **encryptedCredential** property in the **connectionString** now.
+    ![Диалоговое окно "Настройка учетных данных"](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
+7. В диалоговом окне **Настройка учетных данных** выполните следующие действия.
+   1. Выберите тип **проверки подлинности** , который служба фабрики данных будет использовать для подключения к базе данных.
+   2. В поле **ИМЯ ПОЛЬЗОВАТЕЛЯ** укажите имя пользователя с доступом к базе данных.
+   3. В поле **ПАРОЛЬ** укажите пароль этого пользователя.  
+   4. Нажмите кнопку **ОК** , чтобы зашифровать учетные данные и закрыть диалоговое окно.
+8. Теперь в **connectionString** должно появиться свойство **encryptedCredential**.
 
     ```JSON
     {
@@ -460,7 +460,7 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
 
 Когда вы используете приложение **настройки учетных данных**, портал шифрует учетные данные с помощью сертификата, который указан на вкладке **Сертификат** в **диспетчере конфигурации шлюза** на компьютере шлюза.
 
-Если вам нужен способ шифрования учетных данных на основе API, используйте командлет PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Командлет шифрует учетные данные с помощью сертификата, который настроен в шлюзе. Зашифрованные учетные данные добавляются в элемент **EncryptedCredential** в **connectionString** в JSON. JSON используется в командлете [New AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) или редакторе фабрики данных.
+Если вам нужен способ шифрования учетных данных на основе API, используйте командлет PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) . Командлет шифрует учетные данные с помощью сертификата, который настроен в шлюзе. Зашифрованные учетные данные добавляются в элемент **EncryptedCredential** в **connectionString** в JSON. JSON используется в командлете [New AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) или редакторе фабрики данных.
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -513,7 +513,7 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
     ```PowerShell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
-2. Вы можете использовать командлет **Get-AzureRmDataFactoryGateway**, чтобы получить список шлюзов своей фабрики данных. Если в поле **Состояние** указано значение **Подключено**, то шлюз готов к использованию.
+2. Вы можете использовать командлет **Get-AzureRmDataFactoryGateway** , чтобы получить список шлюзов своей фабрики данных. Если в поле **Состояние** указано значение **Подключено**, то шлюз готов к использованию.
 
     ```PowerShell        
     Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
@@ -534,5 +534,5 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* В разделе [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md). В руководстве создается конвейер, который использует шлюз для перемещения данных из локальной базы данных SQL Server в большой двоичный объект Azure.  
+* В разделе [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) . В руководстве создается конвейер, который использует шлюз для перемещения данных из локальной базы данных SQL Server в большой двоичный объект Azure.  
 

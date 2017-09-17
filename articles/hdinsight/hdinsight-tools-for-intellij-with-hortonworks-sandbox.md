@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c49f185db5a035f70a711bf309b973182d94a2b0
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 5c42b3e519781fa25fe92b286fa65898a7aac173
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Использование инструментов HDInsight для IntelliJ с песочницей Hortonworks
@@ -36,13 +36,13 @@ ms.lasthandoff: 08/21/2017
 
 - Платформа данных Hortonworks Data Platform 2.4 (HDP) в песочнице Hortonworks, выполняемая в локальной среде. Сведения о настройке см. в статье [Начало работы с песочницей Hadoop, эмулятором на виртуальной машине](hdinsight-hadoop-emulator-get-started.md). 
     >[!NOTE]
-    >Средства HDInsight для IntelliJ были протестированы только с HDP 2.4. Чтобы получить HDP 2.4, разверните **архив песочницы Hortonworks** на [сайте скачивания песочницы Hortonworks](http://hortonworks.com/downloads/#sandbox).
+    >Средства HDInsight для IntelliJ протестированы только с выпуском HDP 2.4. Чтобы получить HDP 2.4, разверните **архив песочницы Hortonworks** на [сайте скачивания песочницы Hortonworks](http://hortonworks.com/downloads/#sandbox).
 
 - [Java Developer Kit (JDK) версии 1.8 или более поздней версии](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). JDK необходим для набора средств Azure для IntelliJ.
 
-- [Выпуск IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download) с подключаемым модулем [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) и подключаемым модулем [Набор средств Azure для IntelliJ](../azure-toolkit-for-intellij.md). Средства HDInsight для IntelliJ доступны в составе набора средств Azure для IntelliJ. 
+- [Выпуск IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download) с подключаемым модулем [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) и подключаемым модулем [Набор средств Azure для IntelliJ](../azure-toolkit-for-intellij.md). Инструменты HDInsight для IntelliJ доступны в составе набора средств Azure для IntelliJ. 
 
-  Чтобы установить подключаемые модули, выполните такие действия:
+  Чтобы установить подключаемые модули, сделайте следующее:
 
   1. Откройте IntelliJ IDEA.
   2. На экране **Welcome** (Добро пожаловать) выберите **Configure** (Настройка), а затем **Plugins** (Подключаемые модули).
@@ -68,7 +68,7 @@ ms.lasthandoff: 08/21/2017
 
 2. Щелкните **Далее**.
 
-3. В диалоговом окне **New Project** (Новый проект) сделайте следующее:
+3. В диалоговом окне **Новый проект** сделайте следующее:
 
     ![Создание свойств проекта IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 08/21/2017
 
 Прежде чем устанавливать связь с песочницей Hortonworks (эмулятором), необходимо иметь приложение IntelliJ.
 
-Чтобы установить связь с эмулятором, выполните следующее:
+Чтобы установить связь с эмулятором, сделайте следующее:
 
 1. Откройте проект в IntelliJ.
 

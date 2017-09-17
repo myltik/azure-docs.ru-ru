@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e83ad647f6b7c70f34ef0c69b5bf322da5b6d60d
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 1a706b8c17cc493532ac3f63e9f0e897bed90fdb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Использование хранилища больших двоичных объектов из Node.js
@@ -415,15 +415,19 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ## <a name="next-steps"></a>Дальнейшие действия
 Для получения дополнительных сведений см. следующие ресурсы.
 
-* [Справочник по пакету SDK службы хранилища Azure для API Node] [Azure Storage SDK for Node API Reference]
-* [Блог рабочей группы службы хранилища Azure] [Azure Storage Team Blog]
-* Репозиторий [пакета SDK хранилища Azure для Node][Azure Storage SDK for Node] на веб-сайте GitHub.
-* [Центр разработчиков Node.js.](https://azure.microsoft.com/develop/nodejs/)
-* [Приступая к работе со служебной программой командной строки AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Справочник по пакету SDK службы хранилища Azure для API Node] [Azure Storage SDK for Node API Reference]  
+* [Блог рабочей группы службы хранилища Azure] [Azure Storage Team Blog]  
+* Репозиторий [пакета SDK хранилища Azure для Node][Azure Storage SDK for Node] на веб-сайте GitHub.  
+* [Центр разработчиков Node.js.](https://azure.microsoft.com/develop/nodejs/)  
+* [Приступая к работе со служебной программой командной строки AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
 
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
 
 [Веб-приложение Node.js, использующее службу таблиц Azure](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
 [Сборка и развертывание веб-приложения Node.js в Azure с помощью Web Matrix]: https://www.microsoft.com/web/webmatrix/  
-[С помощью REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx [портал Azure]: https://portal.azure.com [Сборка и развертывание приложения Node.js в облачной службе Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/ [Справочник по пакету SDK службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
+[Использование REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
+[Портал Azure]: https://portal.azure.com  
+[Построение и развертывание приложения Node.js в облачной службе Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Блог группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
+[Справочник по пакету SDK для службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  
 

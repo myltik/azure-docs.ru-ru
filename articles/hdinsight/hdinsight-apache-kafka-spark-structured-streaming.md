@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/09/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 02b49e13e8f54c3d55310f4d2b21c7e09c91fe81
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 34c8e18e918221f0287b1078df750d8016e2529a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -61,7 +61,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
     > [!IMPORTANT]
     > Записная книжка структурированной потоковой передачи, используемая в этом примере, требует Spark в HDInsight 3.6. Если используется более ранняя версия Spark в HDInsight, возникнут ошибки при использовании этой записной книжки.
 
-2. Используйте следующие сведения, чтобы заполнить колонку **Настраиваемое развертывание**.
+2. Используйте следующие сведения, чтобы заполнить раздел **Настраиваемое развертывание**:
    
     ![Настраиваемое развертывание в HDInsight](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
@@ -83,16 +83,16 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 
 4. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Приобрести**. Процесс создания кластеров занимает около 20 минут.
 
-После создания ресурсов вы будете перенаправлены в колонку группы ресурсов.
+Когда ресурсы будут созданы, отобразится страница со сводными сведениями.
 
-![Колонка группы ресурсов для виртуальной сети и кластеров](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Сведения о группе ресурсов для виртуальной сети и кластеров](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Обратите внимание, что кластерам HDInsight присвоены имена **spark-BASENAME** и **kafka-BASENAME**, где BASENAME — имя, указанное в шаблоне. Эти имена будут использоваться позже при подключении к кластерам.
 
 ## <a name="get-the-kafka-brokers"></a>Получение брокеров Kafka
 
-Код в этом примере подключается к узлам брокера Kafka в кластере Kafka. Чтобы найти узлы брокера Kafka, используйте следующий пример PowerShell или Bash.
+Код в этом примере подключается к узлам брокера Kafka в кластере Kafka. Чтобы найти адрес двух узлов брокера Kafka, используйте следующий пример PowerShell или Bash:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -100,22 +100,24 @@ $clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
-$brokerHosts = $respObj.host_components.HostRoles.host_name
+$brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
 ```bash
-curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 
+При появлении запроса введите пароль для учетной записи администратора, чтобы войти в кластер.
+
 > [!NOTE]
-> В этом примере предполагается, что `$PASSWORD` содержит пароль для входа в кластер, а `$CLUSTERNAME` содержит имя кластера Kafka.
+> В этом примере в `$CLUSTERNAME` должно содержаться имя кластера Kafka.
 >
 > В этом примере используется служебная программа [jq](https://stedolan.github.io/jq/) для анализа данных из документа JSON.
 
 Результат будет аналогичен приведенному ниже:
 
-`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn2-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn3-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
+`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
 
 Сохраните эти сведения, так как они вам понадобятся в следующих разделах этого документа.
 
@@ -141,7 +143,7 @@ curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clust
 
 3. Найдите запись __Stream-Tweets-To_Kafka.ipynb__ в списке записных книжек, а затем нажмите расположенную рядом кнопку __Отправка__.
 
-    ![Использование кнопки "Отправка" рядом с записью KafkaStreaming.ipynb для отправки на сервер Jupyter Notebook](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
+    ![Чтобы отправить записную книжку, нажмите кнопку отправки рядом с записью KafkaStreaming.ipynb.](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
 
 4. Повторите шаги 1–3 для загрузки записной книжки __Spark-Structured-Streaming-From-Kafka.ipynb__.
 

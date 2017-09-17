@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Защита базы данных SQL Azure
@@ -240,7 +240,7 @@ ms.lasthandoff: 07/31/2017
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Выполнив всего несколько простых действий, можно значительно повысить уровень защиты базы данных от пользователей-злоумышленников или несанкционированного доступа. Из этого руководства вы узнаете, как выполнять такие задачи. 
+Из этого руководства вы узнаете, как быстро усилить защиту базы данных от действий пользователей-злоумышленников и несанкционированного доступа.  Вы научились выполнять следующие задачи: 
 
 > [!div class="checklist"]
 > * Настройка правил брандмауэра для сервера и базы данных.
@@ -250,7 +250,9 @@ ms.lasthandoff: 07/31/2017
 > * Включение аудита базы данных SQL
 > * Включение обнаружения угроз базы данных SQL
 
+Перейдите к следующему руководству, чтобы узнать, как реализовать географически распределенную базу данных.
+
 > [!div class="nextstepaction"]
->[Troubleshoot performance issues and optimize your database](sql-database-performance-tutorial.md) (Устранение проблем с производительностью и оптимизация базы данных)
+>[Реализация географически распределенной базы данных](sql-database-implement-geo-distributed-database.md)
 
 
