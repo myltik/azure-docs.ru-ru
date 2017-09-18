@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 3b89ff2c47e0a06587f92e23e6b32bf7bb750a1d
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 66fa69b746ce2404e3083a9c3872300a9efee874
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sql-database-resource-limits"></a>Ограничения ресурсов базы данных SQL Azure
@@ -146,5 +146,6 @@ ms.lasthandoff: 08/31/2017
 - Сведения об уровнях служб см. в разделе [Доступные параметры производительности базы данных SQL Azure](sql-database-service-tiers.md).
 - Сведения об отдельных базах данных см. в разделе [Ограничения ресурсов базы данных SQL Azure](sql-database-resource-limits.md).
 - Сведения об эластичных пулах см. в разделе [Эластичные пулы помогают управлять несколькими базами данных SQL и масштабировать их](sql-database-elastic-pool.md).
-- Сведения об общих ограничениях Azure см. в разделе [Подписка Azure, границы, квоты и ограничения службы](/azure/azure-subscription-service-limits.md).
+- Сведения об общих ограничениях Azure см. в разделе [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 - Сведения о DTU и eDTU см. в разделе [Общие сведения об обычных единицах передачи данных (DTU) и единицах передачи данных в эластичной базе данных (eDTU)](sql-database-what-is-a-dtu.md).
+

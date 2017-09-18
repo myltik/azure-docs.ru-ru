@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 9f4eb32227bd8a68837eabd58b9d058bc4995d17
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 0927508117bda67b62a188f89a2d2e151fe02a5a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/15/2017
 
 | Команда | Примечания |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#show) | Извлекает сведения об экземпляре кэша Redis для Azure. |
+| [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Извлекает сведения об экземпляре кэша Redis для Azure. |
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

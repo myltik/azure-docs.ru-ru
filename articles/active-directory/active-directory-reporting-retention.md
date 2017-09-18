@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: aa7a69c933abfda3bf4d1ac1a298c4ba684efd7e
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 047f18acf192c75ac5904d7cfe10f19ad18e2888
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Политики хранения отчетов Azure Active Directory
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/06/2017
 | Отчет                 | Azure AD уровня "Бесплатный" | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | Аудит каталога        | 7 дней        | 30 дней             | 30 дней             |
-| Действия при входе       | 7 дней        | 30 дней             | 30 дней             |
+| Действия при входе       | Недоступно           | 30 дней             | 30 дней             |
 
 **Сигналы системы безопасности**
 
@@ -70,3 +70,4 @@ ms.lasthandoff: 04/06/2017
 | Вход, представляющий риск | 7 дней        | 30 дней             | 90 дней             |
 
 ---
+

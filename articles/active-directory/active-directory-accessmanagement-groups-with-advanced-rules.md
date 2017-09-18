@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: ae2a2e477137bc117111b147e1f088d528a55de5
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: b136d3841243ad7aa88786f76b2d31e5dfae9079
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -271,10 +271,10 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 | displayName             | Любое строковое значение                | (device.displayName -eq "Rob Iphone”)                       |
 | deviceOSType            | Любое строковое значение                | (device.deviceOSType -eq "IOS")                             |
 | deviceOSVersion         | Любое строковое значение                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | Любое строковое значение.                | (device.deviceCategory -eq "")                              |
+| deviceCategory          | Допустимое имя категории устройств.    | (device.deviceCategory -eq "BYOD")                          |
 | deviceManufacturer      | Любое строковое значение.                | (device.deviceManufacturer -eq "Microsoft")                 |
 | deviceModel             | Любое строковое значение.                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Любое строковое значение.                | (device.deviceOwnership -eq "")                             |
+| deviceOwnership         | Personal или Company.               | (device.deviceOwnership -eq "Company")                      |
 | domainName              | Любое строковое значение.                | (device.domainName -eq "contoso.com")                       |
 | enrollmentProfileName   | Любое строковое значение.                | (device.enrollmentProfileName -eq "")                       |
 | isRooted                | true, false                      | (device.deviceOSType -eq true)                              |

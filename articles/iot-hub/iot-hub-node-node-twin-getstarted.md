@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: elioda
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 633c9fd4f8a1d017d93148f8c2e860ccba14238c
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: d7c257553d25694005bced745f793951cc9f8951
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="get-started-with-device-twins-node"></a>Начало работы с двойниками устройств (Node)
@@ -129,10 +129,6 @@ ms.lasthandoff: 08/28/2017
 ## <a name="create-the-device-app"></a>Создание приложения устройства
 В этом разделе вы создадите консольное приложение Node.js, которое подключается к центру как **myDeviceId** и обновляет сообщаемые свойства двойника устройства, добавив в них сведения о подключении по сети мобильной связи.
 
-> [!NOTE]
-> На данный момент доступ к двойникам устройств можно получить только на устройствах, подключающихся к Центру Интернета вещей по протоколу MQTT. Инструкции по преобразованию существующего приложения устройства для использования MQTT см. в статье [Поддержка MQTT в Центре Интернета вещей][lnk-devguide-mqtt].
-> 
-> 
 
 1. Создайте пустую папку с именем **reportconnectivity**. В папке **reportconnectivity** создайте файл package.json, используя следующую команду в командной строке. Примите значения по умолчанию:
    

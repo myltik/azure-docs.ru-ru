@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1549eb40b0ca79522cc5475057c3af7ff4c7fd1c
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 52c04b234d460a62daf4b067a5d322af144f15f6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Предоставление разрешения на доступ к хранилищу ключей нескольким приложениям
@@ -29,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 Политика контроля доступа хранилища ключей поддерживает не более 16 приложений. Однако вы можете создать группу безопасности Azure Active Directory. Добавьте все связанные субъекты-службы в эту группу безопасности, а затем предоставьте доступ данной группе безопасности к хранилищу ключей.
 
 Необходимые компоненты для установки:
-* [Установка модуля PowerShell V2 для Azure Active Directory](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
+* [Установка модуля PowerShell V2 для Azure Active Directory](https://www.powershellgallery.com/packages/AzureAD).
 * [Установка Azure PowerShell](/powershell/azure/overview).
 * Чтобы выполнить следующие команды, необходимо получить разрешение на создание и изменение групп в клиенте Azure Active Directory. Если у вас нет разрешений, обратитесь к администратору Azure Active Directory.
 
