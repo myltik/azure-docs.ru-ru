@@ -28,6 +28,10 @@
           href: storage-ios-how-to-use-blob-storage.md
         - name: Xamarin
           href: storage-xamarin-blob-storage.md
+        - name: PowerShell
+          href: storage-how-to-use-blobs-powershell.md
+        - name: "Azure CLI\_2.0"
+          href: storage-how-to-use-blobs-cli.md
 - name: Практическое руководство
   items:
     - name: планирование и разработка

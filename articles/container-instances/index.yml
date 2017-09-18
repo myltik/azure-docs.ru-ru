@@ -43,5 +43,7 @@ sections:
         style: cards
         className: cardsD
         items:
-          - title: Инфраструктура CLI Azure
+          - title: Командная строка
             html: "<p><a href=\"/cli/azure/container\">Azure CLI\_2.0</a></p>"
+          - title: REST
+            html: <p><a href="/rest/api/container-instances">справочник по API REST</a></p>

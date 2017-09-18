@@ -41,6 +41,8 @@
   items:
     - name: "Azure CLI\_2.0"
       href: /cli/azure/container
+    - name: REST
+      href: /rest/api/container-instances
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure
