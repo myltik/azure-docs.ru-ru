@@ -5,6 +5,7 @@
 ## Руководство по модулям Runbook
 ### [Создание графического модуля Runbook](automation-first-runbook-graphical.md)
 ### [Создание модуля Runbook PowerShell](automation-first-runbook-textual-powershell.md)
+### [Первый модуль Runbook Python](automation-first-runbook-textual-python2.md)
 ### [Создание модуля Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
 # Практическое руководство
 ## Проверка подлинности и безопасность
@@ -37,7 +38,10 @@
 ### [Передача объекта JSON в модуль runbook службы автоматизации Azure](automation-pass-json-string.md)
 ## гибридный компонент Runbook Worker
 ### [Развертывание гибридной рабочей роли Runbook](automation-hybrid-runbook-worker.md)
+### [Гибридные рабочие роли Runbook службы автоматизации Azure для Windows](automation-windows-hrw-install.md)
+### [Гибридные рабочие роли Runbook службы автоматизации Azure для Linux](automation-linux-hrw-install.md)
 ### [Запуск модулей Runbook в рабочей роли](automation-hrw-run-runbooks.md)
+### [Удаление гибридных рабочих ролей Runbook в службе автоматизации Azure](automation-remove-hrw.md)
 ## Развертывание управления конфигурацией (DSC)
 ### [Общие сведения о настройке требуемого состояния (DSC)](automation-dsc-overview.md)
 ### [Приступая к работе](automation-dsc-getting-started.md)

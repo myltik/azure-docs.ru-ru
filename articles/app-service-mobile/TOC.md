@@ -185,6 +185,7 @@
 ## Интеграция
 ### [Как отправлять электронную почту с помощью SendGrid и Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Экспорт в PowerApps и Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Использование удостоверения управляемой службы](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Устранение неполадок
 ### Общие действия по устранению неполадок в мобильных приложениях

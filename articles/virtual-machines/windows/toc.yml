@@ -49,56 +49,33 @@
       href: cli-samples.md
 - name: Основные понятия
   items:
+    - name: Диспетчер ресурсов Azure
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Регионы и доступность
       href: regions-and-availability.md
+    - name: Типы и размеры виртуальных машин
+      href: sizes.md
+    - name: Обслуживание и обновления
+      href: maintenance-and-updates.md
     - name: Хранилище
       href: about-disks-and-vhds.md
     - name: Сеть
       href: network-overview.md
-    - name: наборы масштабирования виртуальных машин;
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Контейнеры
-      href: containers.md
-    - name: Диспетчер ресурсов
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-        - name: Модели развертывания
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Шаблоны для виртуальных машин
-          href: template-description.md
-    - name: Агент Azure для Windows
-      href: agent-user-guide.md
-    - name: Центр безопасности Azure
-      href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Аварийное восстановление
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Плановое техническое обслуживание
-      href: planned-maintenance.md
-    - name: Размеры виртуальной машины
-      href: sizes.md
-      items:
-        - name: Универсальные
-          href: sizes-general.md
-        - name: Оптимизированные для вычислений
-          href: sizes-compute.md
-        - name: Оптимизированные для памяти
-          href: sizes-memory.md
-        - name: Оптимизированные для хранилища
-          href: sizes-storage.md
-        - name: Оптимизированные для GPU
-          href: sizes-gpu.md
-          items:
-            - name: Драйверы для GPU
-              href: n-series-driver-setup.md
-        - name: Для высокопроизводительных вычислений
-          href: sizes-hpc.md
-        - name: Единицы вычислений Azure (ACU)
-          href: acu.md
-        - name: Вычисление результатов теста производительности
-          href: compute-benchmark-scores.md
+    - name: Автоматическое масштабирование приложений
+      href: autoscale.md
+    - name: Автоматизация инфраструктуры
+      href: infrastructure-automation.md
+    - name: Безопасность и политика
+      href: security-policy.md
+    - name: Мониторинг
+      href: monitor.md
+    - name: Архивация и восстановление
+      href: backup-recovery.md
+    - name: Высокопроизводительные вычисления
+      href: high-performance-computing.md
     - name: Рекомендации по развертыванию
       items:
-        - name: Пример базового развертывания
+        - name: Рекомендации по инфраструктуре
           href: infrastructure-example.md
 - name: Практические руководства
   items:

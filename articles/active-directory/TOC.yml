@@ -1,0 +1,74 @@
+- name: Доступ к ресурсам в Azure
+  href: active-directory-understanding-resource-access.md
+- name: Управление доступом на основе ролей
+  href: role-based-access-control-what-is.md
+  items:
+    - name: Управление назначениями доступа
+      items:
+        - name: В зависимости от пользователя
+          href: role-based-access-control-manage-assignments.md
+        - name: В зависимости от ресурса
+          href: role-based-access-control-configure.md
+    - name: Встроенные роли
+      href: role-based-access-built-in-roles.md
+    - name: Пользовательские роли
+      href: role-based-access-control-custom-roles.md
+    - name: Назначение настраиваемых ролей для внутренних и внешних пользователей
+      href: role-based-access-control-create-custom-roles-for-internal-external-users.md
+    - name: Отчеты
+      href: role-based-access-control-access-change-history-report.md
+    - name: Дополнительные способы управления ролями
+      items:
+        - name: С помощью Azure CLI
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: С помощью PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: С помощью REST
+          href: role-based-access-control-manage-access-rest.md
+    - name: Повышение прав доступа администратора клиента
+      href: role-based-access-control-tenant-admin-access.md
+    - name: Устранение неполадок
+      href: role-based-access-control-troubleshooting.md
+    - name: Операции с поставщиками ресурсов
+      href: role-based-access-control-resource-provider-operations.md
+- name: Удостоверение управляемой службы
+  href: msi-overview.md
+  items:
+    - name: Настройка MSI для виртуальной машины Windows
+      items:
+        - name: С помощью портала Azure
+          href: msi-qs-configure-portal-windows-vm.md
+        - name: С помощью PowerShell
+          href: msi-qs-configure-powershell-windows-vm.md
+        - name: С помощью Azure CLI
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: С помощью шаблона Azure Resource Manager
+          href: msi-qs-configure-template-windows-vm.md
+    - name: Доступ к Azure Resource Manager с помощью MSI
+      items:
+        - name: С помощью виртуальной машины Windows
+          href: msi-tutorial-windows-vm-access-arm.md
+        - name: С помощью виртуальной машины Linux
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Доступ к хранилищу Azure с помощью MSI
+      items:
+        - name: С помощью виртуальной машины Windows
+          href: msi-tutorial-windows-vm-access-storage.md
+        - name: С помощью виртуальной машины Linux
+          href: msi-tutorial-linux-vm-access-storage.md
+    - name: Доступ к ресурсам за пределами Azure AD с помощью MSI
+      items:
+        - name: С помощью виртуальной машины Windows
+          href: msi-tutorial-windows-vm-access-nonaad.md
+        - name: С помощью виртуальной машины Linux
+          href: msi-tutorial-linux-vm-access-nonaad.md
+    - name: Назначение прав доступа к ресурсу Azure с помощью MSI
+      items:
+        - name: С помощью портала Azure
+          href: msi-howto-assign-access-portal.md
+        - name: С помощью PowerShell
+          href: msi-howto-assign-access-powershell.md
+        - name: С помощью Azure CLI
+          href: msi-howto-assign-access-cli.md
+    - name: Известные проблемы
+      href: msi-known-issues.md

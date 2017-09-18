@@ -1,98 +1,98 @@
 # Обзор
 ## [Руководство для разработчиков](azure-developer-guide.md) 
-## [Общие сведения о службах Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Общие сведения о портале Azure](../../azure-portal-overview.md?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Пакеты SDK и средства](../../index.md#pivot=sdkstools)
+
+## [Общие сведения о службах Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
+## [Общие сведения о портале Azure](https://docs.microsoft.com/azure/azure-portal-overview)
+## [Пакеты SDK и средства](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Быстрый запуск
-## [Веб-приложения](../../app-service-web/app-service-web-get-started-html.md)
+## [Веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html)
 ## Виртуальные машины
-### [Linux](../../virtual-machines/linux/quick-create-portal.md)
-### [Windows](../../virtual-machines/windows/quick-create-portal.md)
-## [Не связанные с сервером решения](../../azure-functions/functions-create-first-azure-function.md)
+### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
+### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+## [Не связанные с сервером решения](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function)
 ## Микрослужбы
-### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
-### [Служба контейнеров](../../container-service/dcos-swarm/container-service-deployment.md) 
+### [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio)
+### [Служба контейнеров](https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-deployment) 
 
 # Учебники
 ## Создание и развертывание веб-приложений
-### [ASP.NET](../../app-service-web/app-service-web-get-started-dotnet.md)
-### [Java](../../app-service-web/app-service-web-get-started-java.md)
-### [Node.js](../../app-service-web/app-service-web-get-started-nodejs.md)
-### [PHP](../../app-service-web/app-service-web-get-started-php.md)
-### [Python](../../app-service-web/app-service-web-get-started-python.md)
+### [.NET с базой данных SQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase)
+### [Node.js с Mongo DB](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
+### [Использование PHP и MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-php-mysql)
+### [Java с MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-java-mysql)
 ## Развертывание сложных шаблонов виртуальных машин
-### [Linux](../../virtual-machines/virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Windows](../../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Создание функции, исполняемой в Azure](../../azure-functions/functions-create-an-azure-connected-function.md)
-## [Развертывание веб-приложений Docker в Linux](../../app-service/containers/quickstart-custom-docker-image.md) 
+### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+## [Создание функции, исполняемой в Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
+## [Развертывание веб-приложений Docker в Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
 
 # Примеры
 ## Инфраструктура CLI Azure
-### [Веб-приложения](../../app-service-web/app-service-cli-samples.md)
-### [Виртуальные машины Linux](../../virtual-machines/linux/cli-samples.md)
-### [Виртуальные машины Windows](../../virtual-machines/windows/cli-samples.md)
+### [Веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-cli-samples)
+### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
+### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## PowerShell
-### [Веб-приложения](../../app-service-web/app-service-powershell-samples.md)
-### [Виртуальные машины Linux](../../virtual-machines/linux/powershell-samples.md)
-### [Виртуальные машины Windows](../../virtual-machines/windows/powershell-samples.md)
+### [Веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples)
+### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
+### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Основные понятия
-## [Выставление счетов и подписки](../../billing/billing-getting-started.md)
-## [Сравнение услуг размещения](../../app-service-web/choose-web-site-cloud-service-vm.md)
-## [Что такое служба приложений?](../../app-service/app-service-value-prop-what-is.md)
+## [Выставление счетов и подписки](https://docs.microsoft.com/azure/billing/billing-getting-started)
+## [Сравнение услуг размещения](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm)
+## [Что такое служба приложений?](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
 ## Виртуальные машины
-### [Виртуальные машины Linux](../../virtual-machines/virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Виртуальные машины Windows](../../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Общие сведения о Service Fabric](../../service-fabric/service-fabric-overview.md)
+### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
+### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
+## [Общие сведения о Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # Практические руководства
-## План
-### [Архитектуры веб-приложений](/azure/architecture/reference-architectures/managed-web-app/)
-### [Варианты архитектуры виртуальных машин](/azure/architecture/reference-architectures/virtual-machines-windows/)
-### [Подключение к локальным сетям](/azure/architecture/reference-architectures/hybrid-networking/)
-### [Шаблоны и сценарии микрослужб](../../service-fabric/service-fabric-patterns-and-scenarios.md)
+## [План](https://docs.microsoft.com/azure/architecture/guide/)
+### [Архитектуры веб-приложений](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
+### [Варианты архитектуры виртуальных машин](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
+### [Подключение к локальным сетям](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+### [Шаблоны и сценарии микрослужб](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-and-scenarios)
 ## Разработка
-### [Виртуальные машины Linux](../../virtual-machines/virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Виртуальные машины Windows](../../virtual-machines/virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Не связанные с сервером приложения](../../azure-functions/functions-reference.md)
-### [Кластеры микрослужб](../../service-fabric/service-fabric-cluster-creation-via-portal.md)
+### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-secured-vm-from-template)
+### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+### [Не связанные с сервером приложения](https://docs.microsoft.com/azure/azure-functions/functions-reference)
+### [Кластеры микрослужб](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Развернуть
-### [Веб-приложения и мобильные приложения: система управления версиями](../../app-service-web/app-service-continuous-deployment.md)
-### [Использование микрослужб локально](../../service-fabric/service-fabric-get-started-with-a-local-cluster.md)
-### [Создание виртуальных машин Linux из шаблона](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Создание виртуальных машин Windows из шаблона](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Веб-приложения и мобильные приложения: система управления версиями](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)
+### [Использование микрослужб локально](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
+### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## Хранение данных
-### [BLOB-объекты](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-### [Файловые ресурсы](../../storage/files/storage-dotnet-how-to-use-files.md)
-### [Пары "ключ-значение"](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-### [Документы JSON](../../cosmos-db/documentdb-get-started.md)
-### [Реляционные таблицы](../../sql-database/sql-database-get-started-portal.md)
-### [Очереди сообщений](../../storage/queues/storage-dotnet-how-to-use-queues.md)
+### [BLOB-объекты](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
+### [Файловые ресурсы](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
+### [Пары "ключ-значение"](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
+### [Документы JSON](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Реляционные таблицы](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
+### [Очереди сообщений](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
 ## Масштаб
-### [Мобильные приложения и веб-приложения](../../app-service-web/web-sites-scale.md)
-### [Виртуальные машины](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
-### [Приложения микрослужб](../../service-fabric/service-fabric-concepts-scalability.md)
+### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service-web/web-sites-scale)
+### [Виртуальные машины](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
+### [Приложения микрослужб](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## Безопасность
-### [Мобильные приложения и веб-приложения](../../app-service-web/app-service-web-tutorial-custom-ssl.md)
+### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-custom-ssl)
 
 ## Архивация
-### [Мобильные приложения и веб-приложения](../../app-service-web/web-sites-backup.md)
-### [Виртуальные машины](../../backup/backup-azure-vms-introduction.md)
+### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service-web/web-sites-backup)
+### [Виртуальные машины](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Монитор
-### [Мобильные приложения и веб-приложения](../../app-service-web/web-sites-enable-diagnostic-log.md)
-### [Виртуальные машины Linux](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Виртуальные машины Windows](../../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Микрослужбы](../../service-fabric/service-fabric-diagnostics-overview.md)
-### [Платежные оповещения](../../billing/billing-set-up-alerts.md)
+### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)
+### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
+### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
+### [Микрослужбы](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
+### [Платежные оповещения](https://docs.microsoft.com/azure/billing/billing-set-up-alerts)
 
 ## Автоматизация
-### [Гибкая разработка веб-приложений](../../app-service-web/app-service-agile-software-development.md)
-### [Масштабирование виртуальных машин Linux](../../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Создание виртуальных машин Windows с помощью Chef](../../virtual-machines/virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Гибкая разработка веб-приложений](https://docs.microsoft.com/azure/app-service-web/app-service-agile-software-development)
+### [Масштабирование виртуальных машин Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
+### [Масштабирование виртуальных машин Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 
 # Справочные материалы
 ## [REST](https://docs.microsoft.com/rest/api/)
@@ -100,13 +100,13 @@
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
 ### [Node.js](http://azure.github.io/azure-sdk-for-node/)
-### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
+### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
-### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
+### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Интерфейсы командной строки
 ### [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/)
 ### [PowerShell](https://docs.microsoft.com/powershell/)
-## [Выставление счетов](../../billing/billing-usage-rate-card-overview.md)
+## [Выставление счетов](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Ресурсы
 ## [Регионы Azure](https://azure.microsoft.com/regions/)

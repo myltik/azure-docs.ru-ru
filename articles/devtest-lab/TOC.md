@@ -28,6 +28,7 @@
 ### [Определение политик и расписаний](devtest-lab-set-lab-policy.md)
 ### [Настройка управления затратами](devtest-lab-configure-cost-management.md)
 ### [Настройка образов Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Добавление тегов к лаборатории](devtest-lab-add-tag.md)
 
 ## [Выбор пользовательского образа или формулы](devtest-lab-comparing-vm-base-image-types.md)
 

@@ -13,35 +13,27 @@
 ## [Планирование и эксплуатация](security-center-planning-and-operations-guide.md)
 ## [Разрешения](security-center-permissions.md)
 ## [Поддерживаемые платформы](security-center-os-coverage.md)
-## [Интеграция партнеров](security-center-partner-integration.md)
 ## [Часто задаваемые вопросы](security-center-faq.md)
 
 # Практическое руководство
 
-## Предотвращение
+## Политика безопасности
+### [Сбор данных](security-center-enable-data-collection.md)
 ### [Установка политик безопасности](security-center-policies.md)
-### [JIT-доступ](security-center-just-in-time.md)
-### [Реализация рекомендаций по безопасности](security-center-recommendations.md)
 
-### [Рекомендации по приложениям](security-center-application-recommendations.md)
-#### [Добавление брандмауэра веб-приложения](security-center-add-web-application-firewall.md)
-#### [Завершение подготовки защиты приложений](security-center-add-web-application-firewall.md#finalize-application-protection)
+## [Переход](security-center-onboarding.md)
+## [События](security-center-events-dashboard.md)
+## [Поиск](security-center-search.md)
 
-### [Рекомендации по сети](security-center-network-recommendations.md)
-#### [Добавление брандмауэра следующего поколения](security-center-add-next-generation-firewall.md)
-#### [Включение групп безопасности сети](security-center-enable-network-security-groups.md)
-#### [Ограничение доступа через конечные веб-точки](security-center-restrict-access-through-internet-facing-endpoints.md)
-#### [Route traffic through NGFW only (Маршрутизировать трафик только через NGFW)](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
+## Предотвращение
+### [Мониторинг состояния системы безопасности](security-center-monitoring.md)
+### [Использование рекомендаций](security-center-recommendations.md)
+### [Интеграция партнерских решений](security-center-partner-integration.md)
+### [Мониторинг партнерских решений](security-center-partner-solutions.md)
 
-### [Рекомендации по службе SQL](security-center-sql-service-recommendations.md)
-#### [Включение аудита и обнаружения угроз для баз данных SQL](security-center-enable-auditing-on-sql-databases.md)
-#### [Включение аудита и обнаружения угроз на серверах SQL Server](security-center-enable-auditing-on-sql-servers.md)
-#### [Включение прозрачного шифрования данных](security-center-enable-transparent-data-encryption.md)
-
-### [Рекомендации по виртуальным машинам](security-center-virtual-machine-recommendations.md)
+### [Среда выполнения приложений](security-center-virtual-machine-recommendations.md)
 #### [Применение шифрования дисков](security-center-apply-disk-encryption.md)
 #### [Применение обновлений системы](security-center-apply-system-updates.md)
-#### [Включение сбора данных](security-center-enable-data-collection.md)
 #### [Включение шифрования для учетной записи хранения](security-center-enable-encryption-for-storage-account.md)
 #### [Включение агента виртуальной машины](security-center-enable-vm-agent.md)
 #### [Установка Endpoint Protection](security-center-install-endpoint-protection.md)
@@ -52,8 +44,22 @@
 #### [Обновление версии ОС](security-center-update-os-version.md)
 #### [Оценка уязвимостей не установлена](security-center-vulnerability-assessment-recommendations.md)
 
-### [Мониторинг состояния системы безопасности](security-center-monitoring.md)
-### [Мониторинг партнерских решений](security-center-partner-solutions.md)
+### [Сеть](security-center-network-recommendations.md)
+#### [Добавление брандмауэра следующего поколения](security-center-add-next-generation-firewall.md)
+#### [Включение групп безопасности сети](security-center-enable-network-security-groups.md)
+#### [Ограничение доступа через конечные веб-точки](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Route traffic through NGFW only (Маршрутизировать трафик только через NGFW)](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
+
+### [Хранилище и данные](security-center-sql-service-recommendations.md)
+#### [Включение аудита и обнаружения угроз для баз данных SQL](security-center-enable-auditing-on-sql-databases.md)
+#### [Включение аудита и обнаружения угроз на серверах SQL Server](security-center-enable-auditing-on-sql-servers.md)
+#### [Включение прозрачного шифрования данных](security-center-enable-transparent-data-encryption.md)
+
+### [Приложения](security-center-application-recommendations.md)
+#### [Добавление брандмауэра веб-приложения](security-center-add-web-application-firewall.md)
+#### [Завершение подготовки защиты приложений](security-center-add-web-application-firewall.md#finalize-application-protection)
+
+### [Идентификация и доступ](security-center-identity-access.md)
 
 ## Выявление и реагирование
 ### [Возможности обнаружения](security-center-detection-capabilities.md)
@@ -62,7 +68,12 @@
 ### [Проверка оповещений](security-center-alert-validation.md)
 ### [Управление инцидентами безопасности](security-center-incident.md)
 ### [Интеграция журналов Azure](security-center-integrating-alerts-with-log-integration.md)
+### [Карта анализа угроз](security-center-threat-intel.md)
 ### [Отчет об исследовании угроз](security-center-threat-report.md)
+
+## Средства защиты в облаке
+### [JIT-доступ](security-center-just-in-time.md)
+### [Адаптивные элементы управления приложением](security-center-adaptive-application.md)
 
 ## Устранение неполадок
 ### [Руководство по устранению неполадок](security-center-troubleshooting-guide.md)

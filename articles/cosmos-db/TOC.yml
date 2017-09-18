@@ -358,6 +358,8 @@
   items:
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Бесплатная пробная версия Azure Cosmos DB
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Цены
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Часто задаваемые вопросы

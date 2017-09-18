@@ -64,11 +64,10 @@
 # Сопутствующие материалы
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Обработка данных с помощью пакетной службы и фабрики данных](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Решения для пакетной службы и высокопроизводительных вычислений в облаке Azure](batch-hpc-solutions.md)
+## [Решения для пакетной службы, HPC и больших вычислений в Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
-## [Вычислительные ресурсы для больших данных](big-compute-resources.md)
 ## [Блог](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Примеры кода C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)

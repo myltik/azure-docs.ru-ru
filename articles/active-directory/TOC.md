@@ -135,9 +135,9 @@
 ### [Планирование присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Часто задаваемые вопросы](device-management-faq.md)
 ### Задачи
-#### [Настройка устройств с Windows 10, зарегистрированных в Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Настройка устройств Windows 10, зарегистрированных в Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Настройка устройств, присоединенных к Azure AD](device-management-azuread-joined-devices-setup.md)
-#### [Настройка устройств, присоединенных к гибридному облаку Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Настройка гибридных устройств, присоединенных к Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Локальное развертывание](active-directory-device-registration-on-premises-setup.md)
 #### [Присоединение к Azure AD во время первого запуска Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Устранение неполадок
@@ -266,34 +266,21 @@
 
 ### [Интеграция локальных удостоверений с помощью Azure AD Connect](./connect/active-directory-aadconnect.md)
 
+## [Управление доступом к Azure](toc.yml)
+
 ## Делегирование доступа к ресурсам
 ### [Роли администратора](active-directory-assign-admin-roles.md)
 #### [Назначение ролей администратора](active-directory-users-assign-role-azure-portal.md)
 ### [Административные единицы](active-directory-administrative-units-management.md)
-### [Доступ к ресурсам в Azure](active-directory-understanding-resource-access.md)
-### [Контроль доступа на основе ролей](role-based-access-control-what-is.md)
-#### Управление назначениями доступа
-##### [В зависимости от пользователя](role-based-access-control-manage-assignments.md)
-##### [В зависимости от ресурса](role-based-access-control-configure.md)
-#### [Встроенные роли](role-based-access-built-in-roles.md)
-#### [Пользовательские роли](role-based-access-control-custom-roles.md)
-#### [Назначение настраиваемых ролей для внутренних и внешних пользователей](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [Отчеты](role-based-access-control-access-change-history-report.md)
-#### Дополнительные способы управления ролями
-##### [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
-#### [Повышение прав доступа администратора клиента](role-based-access-control-tenant-admin-access.md)
-#### [Устранение неполадок](role-based-access-control-troubleshooting.md)
-#### [Операции с поставщиками ресурсов](role-based-access-control-resource-provider-operations.md)
 ### [Настройка времени существования маркеров](active-directory-configurable-token-lifetimes.md)
 
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
+#### [Элементы управления](active-directory-conditional-access-controls.md)
 #### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
-#### [Задачи]
+#### Задачи
 ##### [Настройка условного доступа на основе устройств](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Настройка условного доступа на основе приложений](active-directory-conditional-access-mam.md)
 ##### [Настройка VPN-подключения](active-directory-conditional-access-vpn-connectivity-windows10.md)

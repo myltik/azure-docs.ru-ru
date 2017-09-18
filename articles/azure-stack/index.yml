@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по Azure Stack
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: Документация по Azure Stack. Руководства и справочники по API
+  description: 'Узнайте, как использовать предварительную версию Azure Stack для доставки служб Azure из центра обработки данных. Подробнее изучить и продемонстрировать доступные возможности можно в среде для подтверждения концепции.'
+  services: azure-stack
+  author: czeumault
+  manager: carolz
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/28/2017
+  ms.author: carolz
+abstract:
+  description: "Microsoft Azure Stack\_― это гибридная облачная платформа, позволяющая предоставлять службы Azure из центра обработки данных. Узнайте, как развернуть Azure Stack и предоставить службы, ознакомившись с нашими руководствами и шаблонами быстрого запуска."
+sections:
+  - title: Быстрый запуск
+    items:
+      - type: paragraph
+        text: 'Настройка оборудования и развертывание Azure Stack:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
+            text: Развертывание Azure Stack
+            href: azure-stack-deploy-overview.md
+  - title: Пошаговые руководства
+    items:
+      - type: paragraph
+        text: 'Сведения о добавлении служб в развертывание Azure Stack:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Make virtual machines available to your Azure Stack users</a> (Предоставление пользователям Azure Stack доступа к виртуальным машинам)
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Make SQL databases available to your Azure Stack users</a> (Предоставление пользователям Azure Stack доступа к базам данных SQL)
+          - html: '<a href="/azure/azure-stack/azure-stack-tutorial-app-service">Make web, mobile, and API apps available to your Azure Stack users</a> (Предоставление пользователям Azure Stack доступа к веб-приложениям, мобильным приложениям и приложениям API)'
+          - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy apps to Azure and Azure Stack</a> (Развертывание приложений в Azure и Azure Stack)
+  - title: Справочные материалы
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Командная строка
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>

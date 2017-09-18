@@ -1,0 +1,56 @@
+- name: Документация по текстовой аналитике
+  href: index.md
+- name: Обзор
+  items:
+    - name: Сведения о текстовой аналитике
+      href: overview.md
+- name: Быстрое начало работы
+  items:
+    - name: 'C#'
+      href: Quickstarts/CSharp.md
+    - name: Java
+      href: Quickstarts/Java.md
+    - name: Node.js
+      href: Quickstarts/NodeJS.md
+    - name: Python
+      href: Quickstarts/Python.md
+    - name: Ruby
+      href: Quickstarts/Ruby.md
+    - name: PHP
+      href: Quickstarts/PHP.md
+- name: Учебники
+  items:
+    - name: "Текстовая аналитика с использованием Power\_BI"
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+- name: Практические руководства
+  items:
+    - name: Регистрация
+      href: How-tos/text-analytics-how-to-signup.md
+    - name: Получение ключа доступа
+      href: How-tos/text-analytics-how-to-access-key.md
+    - name: Вызов API текстовой аналитики
+      href: How-tos/text-analytics-how-to-call-api.md
+    - name: Определение языка
+      href: How-tos/text-analytics-how-to-language-detection.md
+    - name: Анализ тональности
+      href: How-tos/text-analytics-how-to-sentiment-analysis.md
+    - name: Извлечение ключевых фраз
+      href: How-tos/text-analytics-how-to-keyword-extraction.md
+- name: Справочные материалы
+  items:
+    - name: Справочник по API
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
+    - name: Пакет SDK для .NET Standard
+      href: 'https://aka.ms/tasdkdotnet'
+- name: Ресурсы
+  items:
+    - name: Внешние материалы и материалы сообщества
+      href: text-analytics-resource-external-community.md
+    - name: Часто задаваемые вопросы
+      href: text-analytics-resource-faq.md
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: Переполнение стека
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: Мнение пользователей
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'
