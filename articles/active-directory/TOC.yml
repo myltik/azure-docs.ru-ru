@@ -44,6 +44,14 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: С помощью шаблона Azure Resource Manager
           href: msi-qs-configure-template-windows-vm.md
+    - name: Назначение прав доступа к ресурсу Azure с помощью MSI
+      items:
+        - name: С помощью портала Azure
+          href: msi-howto-assign-access-portal.md
+        - name: С помощью PowerShell
+          href: msi-howto-assign-access-powershell.md
+        - name: С помощью Azure CLI
+          href: msi-howto-assign-access-cli.md
     - name: Доступ к Azure Resource Manager с помощью MSI
       items:
         - name: С помощью виртуальной машины Windows
@@ -62,13 +70,5 @@
           href: msi-tutorial-windows-vm-access-nonaad.md
         - name: С помощью виртуальной машины Linux
           href: msi-tutorial-linux-vm-access-nonaad.md
-    - name: Назначение прав доступа к ресурсу Azure с помощью MSI
-      items:
-        - name: С помощью портала Azure
-          href: msi-howto-assign-access-portal.md
-        - name: С помощью PowerShell
-          href: msi-howto-assign-access-powershell.md
-        - name: С помощью Azure CLI
-          href: msi-howto-assign-access-cli.md
     - name: Известные проблемы
       href: msi-known-issues.md

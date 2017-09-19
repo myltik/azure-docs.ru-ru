@@ -3,7 +3,7 @@ title: "Общие сведения о шлюзе приложений Azure| Д
 description: "На этой странице представлены общие сведения о службе шлюза приложений для балансировки нагрузки уровня 7, включая размеры шлюза, балансировку нагрузки HTTP, сходство сеансов на основе файлов cookie и разгрузку SSL."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: c8f54c81481ebced16ed259f07736b0a4bc80567

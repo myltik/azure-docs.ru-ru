@@ -3,7 +3,7 @@ title: "Настройка правил брандмауэра веб-прило
 description: "Эта статья содержит сведения о том, как настроить правила брандмауэра веб-приложения в шлюзе приложений с помощью портала Azure."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.custom: 
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: cdcbadbc3765dfc583c26e1b1453863d421c9a72
