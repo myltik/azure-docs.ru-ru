@@ -16,6 +16,7 @@
 ## [Управление сервером](analysis-services-manage.md)
 ## [Управление пользователями баз данных](analysis-services-database-users.md)
 ## [Управление администраторами сервера](analysis-services-server-admins.md)
+## [Отслеживание метрик службы](analysis-services-monitor.md)
 ## [Установка и настройка локального шлюза данных](analysis-services-gateway-install.md)
 ## [Получение клиентских библиотек](analysis-services-data-providers.md)
 ## [Резервное копирование и восстановление](analysis-services-backup.md)
