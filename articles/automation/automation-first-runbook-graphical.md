@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/17/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 9d4b28416376482247127698bec7c99b83308885
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: d06052099acbb5544581ef3e8e2007dd751a7544
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="my-first-graphical-runbook"></a>Первый графический Runbook
@@ -29,17 +28,17 @@ ms.lasthandoff: 05/18/2017
 > * [Графический](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Рабочий процесс PowerShell](automation-first-runbook-textual.md)
-> 
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 
 В данном учебнике описана процедура создания [графического модуля Runbook](automation-runbook-types.md#graphical-runbooks) в службе автоматизации Azure.  Для начала мы протестируем и опубликуем простой модуль runbook и расскажем, как отслеживать состояние его заданий.  Затем мы изменим модуль runbook, настроив его на фактическое управление ресурсами Azure (в нашем примере это запуск виртуальной машины Azure).  Затем мы завершим работу с руководством, повысив надежность браузера, а также добавив параметры Runbook и условные ссылки.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Для работы с этим учебником необходимо следующее.
+Для работы с этим учебником требуется:
 
-* Подписка Azure.  Если у вас ее нет, [активируйте преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или <a href="/pricing/free-account/" target="_blank">[зарегистрируйте бесплатную учетную запись](https://azure.microsoft.com/free/).
-* [Учетная запись службы автоматизации Azure](automation-sec-configure-azure-runas-account.md) для хранения модуля Runbook и выполнения проверки подлинности ресурсов Azure.  Эта учетная запись должна иметь разрешение на запуск и остановку виртуальной машины.
-* Виртуальная машина Azure.  Это не должна быть рабочая машина, поскольку в процессе изучения данного материала ее нужно будет остановить и запустить заново.
+* Подписка Azure. Если у вас ее нет, [активируйте преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрируйте бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Учетная запись службы автоматизации](automation-offering-get-started.md) , чтобы хранить модуль Runbook и выполнять проверку подлинности ресурсов Azure.  Эта учетная запись должна иметь разрешение на запуск и остановку виртуальной машины.
+* Виртуальная машина Azure. Это не должна быть рабочая виртуальная машина, так как в процессе изучения этого руководства ее нужно будет остановить и запустить заново.
 
 ## <a name="step-1---create-runbook"></a>Шаг 1. Создание нового модуля Runbook
 Для начала мы создадим простой модуль Runbook, выводящий на экран текст *Hello World*.

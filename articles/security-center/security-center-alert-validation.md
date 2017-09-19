@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 09/07/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d7aa8544f50b42bacfa1e1f16fdce468d8fc81ef
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Проверка оповещений в центре безопасности Azure
@@ -35,12 +35,15 @@ ms.lasthandoff: 08/12/2017
 3. Откройте командную строку и выполните этот файл с аргументом (фиктивное имя аргумента), таким как *ASC_AlertTest_662jfi039N.exe -foo*.
 4. Подождите 5–10 минут и откройте оповещения центра безопасности. Там можно найти оповещение, аналогичное следующему:
 
-    ![Проверка оповещений](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
+    ![Проверка оповещений](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
 
 При просмотре этого оповещения убедитесь, что в поле Arguments Auditing Enabled (Включен аудит аргументов) задано значение true. Если оно содержит значение false, необходимо включить аудит аргументов командной строки. Этот параметр можно включить с помощью командной строки:
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
+
+> [!NOTE]
+> См. видео с демонстрацией функции [проверки оповещений в центре безопасности Azure](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center). 
 
 ## <a name="see-also"></a>См. также
 В этой статье представлен процесс проверки оповещений. Теперь, когда вы знакомы с проверкой, ознакомьтесь с такими статьями:

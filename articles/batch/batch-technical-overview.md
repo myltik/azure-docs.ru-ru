@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 8a850f8b1cccda631786f89f2c88647604fba9ed
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>Выполнение реальных параллельных рабочих нагрузок с использованием пакетной службы
@@ -48,7 +47,7 @@ ms.lasthandoff: 03/15/2017
 
 Пакетная служба также может выполнять параллельные вычисления с уменьшением шага в конце и более сложные рабочие нагрузки HPC, такие как приложения, использующие [интерфейс передачи сообщений](batch-mpi.md) .
 
-Сравнение пакетной службы с другими решениями HPC в Azure см. в статье [Пакетные решения и решения HPC в облаке Azure](batch-hpc-solutions.md).
+Сравнение решений пакетной службы с другими решениями HPC в Azure см. в руководстве по [решениям HPC, пакетной службы и больших вычислений](../virtual-machines/linux/high-performance-computing.md).
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 

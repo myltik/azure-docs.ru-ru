@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Создание учетной записи служб мультимедиа Azure с помощью портала Azure
@@ -36,6 +36,9 @@ ms.lasthandoff: 08/21/2017
 
 В этой статье объясняются некоторые общие понятия и демонстрируется, как создать учетную запись служб мультимедиа с помощью портала Azure.
 
+> [!NOTE]
+> Дополнительные сведения о доступности функций служб мультимедиа Azure в различных регионах см. в [этой статье](scenarios-and-availability.md#availability).
+
 ## <a name="concepts"></a>Основные понятия
 Для доступа к службам мультимедиа требуется две связанные учетные записи:
 
@@ -43,8 +46,8 @@ ms.lasthandoff: 08/21/2017
   
 * Учетная запись хранения Azure. Учетная запись хранения должна находиться в том же географическом регионе, что и учетная запись служб мультимедиа. При создании учетной записи служб мультимедиа можно выбрать существующую учетную запись хранения в той же области или создать новую учетную запись хранения в той же области. При удалении учетной записи служб мультимедиа, BLOB-объекты в связанной учетной записи хранения не удаляются.
 
-> [!NOTE]
-> Дополнительные сведения о доступности функций служб мультимедиа Azure в различных регионах см. в [этой статье](scenarios-and-availability.md#availability).
+  > [!NOTE]
+  > Службы мультимедиа ограничивают использование учетной записи основного хранилища в качестве учетной записи **хранилища общего назначения** с таблицами и очередями. Дополнительные сведения о типах хранилища см. в статье [Об учетных записях хранения Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## <a name="create-an-ams-account"></a>Создание учетной записи AMS
 В этом разделе показано, как создать учетную запись AMS.

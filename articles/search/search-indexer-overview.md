@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -58,8 +58,8 @@ ms.lasthandoff: 05/10/2017
 Индексатор извлекает данные из **источника данных** , который содержит такие сведения, как строка подключения. Сейчас поддерживаются следующие источники данных:
 
 * [база данных Azure SQL (или SQL Server на виртуальных машинах Azure);](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Хранилище BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md), которое используется для извлечения текста из документов в формате PDF, Office, HTML и XML
+* [База данных Azure Cosmos](search-howto-index-documentdb.md)
+* [Хранилище больших двоичных объектов Azure](search-howto-indexing-azure-blob-storage.md) для выбранных типов содержимого
 * [Хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
 
 Источники данных настраиваются и управляются независимо от индексаторов, которые их используют. Это означает, что источник данных может использоваться несколькими индексаторами для одновременной загрузки нескольких индексов.
@@ -71,8 +71,8 @@ ms.lasthandoff: 05/10/2017
 Теперь, когда вы ознакомились с основной идеей, можно переходить к изучению требований и задач, связанных с каждым типом источника данных.
 
 * [база данных Azure SQL (или SQL Server на виртуальных машинах Azure);](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Хранилище BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md), которое используется для извлечения текста из документов в формате PDF, Office, HTML и XML
+* [База данных Azure Cosmos](search-howto-index-documentdb.md)
+* [Хранилище BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
 * [Хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
 * [Индексирование BLOB-объектов в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-csv-blobs.md)
 * [Индексирование BLOB-объектов JSON с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-json-blobs.md)

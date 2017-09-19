@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5420c1cdefa99ff30320dd757e04aa0cafc792bc
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,24 +44,8 @@ ms.lasthandoff: 08/29/2017
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Создание учетной записи и папок Azure Data Lake Store
 
-1. Создайте учетную запись Data Lake Store, следуя инструкциям в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](../data-lake-store/data-lake-store-get-started-portal.md). 
-2. Создайте папку в этой учетной записи, следуя инструкциям в разделе [Создание папок в учетной записи хранения озера данных Azure](../data-lake-store/data-lake-store-get-started-portal.md#createfolder).
-3. На странице учетной записи Data Lake Store щелкните **Обозреватель данных**.
-4. Щелкните **Доступ**.
-5. Щелкните **Добавить**.
-6. В поле **Поиск по имени или электронной почте** введите **Microsoft.EventHubs** и выберите этот вариант. 
-7. Появится вкладка **Разрешения**. Задайте разрешения, как показано на следующем снимке экрана:
-
-    ![][6]
-
-8. Нажмите кнопку **ОК**.
-9. Теперь создайте папку в корневой папке, выбрав целевую папку и щелкнув ее имя.
-10. Щелкните **Доступ**.
-11. Щелкните **Добавить**.
-12. В поле **Поиск по имени или электронной почте** введите **Microsoft.EventHubs** и выберите этот вариант.
-13. Снова появится вкладка **Разрешения**. Задайте разрешения, как показано на следующем снимке экрана:
-
-    ![][5]
+1. Создайте учетную запись Data Lake Store, следуя инструкциям в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](../data-lake-store/data-lake-store-get-started-portal.md).
+2. Следуйте инструкциям по [назначению разрешений для концентраторов событий](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs), чтобы создать папку в рамках учетной записи Data Lake Store, в которой нужно собирать данные из концентраторов событий. Затем назначьте разрешения для концентраторов событий, чтобы разрешить запись данных в вашу учетную запись Data Lake Store.  
 
 ### <a name="create-an-event-hub"></a>Создание концентратора событий
 
@@ -87,12 +71,11 @@ ms.lasthandoff: 08/29/2017
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
-[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
-[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о записи концентраторов событий см. в статье [Запись концентраторов событий Azure][capture-overview].
 - Запись концентраторов событий можно также настроить с помощью шаблонов Azure Resource Manager. См. дополнительные сведения [о включении записи с помощью шаблона Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+- [Начало работы с Azure Data Lake Store с помощью портала Azure](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

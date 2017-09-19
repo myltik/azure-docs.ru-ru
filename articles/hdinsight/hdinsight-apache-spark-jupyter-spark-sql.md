@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 78051b9df15c62d4caf56d800c9a5f4421ea2254
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Создание кластера Apache Spark в Azure HDInsight
 
-Из этой статьи вы узнаете, как создать кластер Apache Spark в Azure HDInsight. Сведения о Spark в HDInsight см. в [этой статье](hdinsight-apache-spark-overview.md).
+Из этой статьи вы узнаете, как создать кластер Apache Spark в Azure HDInsight и отправить запросы Spark SQL к таблице Hive. Сведения о Spark в HDInsight см. в [этой статье](hdinsight-apache-spark-overview.md).
 
    ![Схема быстрого руководства, описывающая шаги по созданию кластера Apache Spark в Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Краткое руководство по Spark с использованием Apache Spark в HDInsight. Описанные действия: создание кластера; выполнение интерактивного запроса Spark")
 
@@ -65,9 +65,15 @@ ms.lasthandoff: 07/24/2017
 >
 >
 
-## <a name="run-a-hive-query-using-spark-sql"></a>Выполнение запросов Hive с помощью Spark SQL
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>Выполнение инструкций Spark SQL в таблице Hive
 
-При использовании записной книжки Jupyter, настроенной для кластера HDInsight Spark, вы получаете предустановку `sqlContext`, которую можно применять для выполнения запросов Hive с помощью Spark SQL. Из этого раздела вы узнаете, как запустить записную книжку Jupyter и выполнить простой запрос Hive.
+SQL — это наиболее распространенный и широко используемый язык для создания запросов и определения данных. Основатели Spark в полной мере использовали эти знания, чтобы сделать широко известный язык запросов доступным для более широкого круга аналитиков, которые хотят работать с данными, хранящимися в распределенной файловой системе Hadoop (HDFS). Со Spark SQL это стало возможным. Spark SQL работает как расширение Apache Spark для обработки структурированных данных с использованием знакомого синтаксиса SQL.
+
+Это расширение поддерживает такие языки запросов, как SQL и HiveQL. Его возможности включают привязки в Python, Scala и Java. Это позволяет запрашивать данные, хранящиеся в различных расположениях, таких как внешние базы данных, структурированные файлы данных (например, JSON) и таблицы Hive.
+
+### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>Выполнение запросов Spark SQL в кластере HDInsight
+
+При использовании записной книжки Jupyter, настроенной для кластера HDInsight Spark, вы получаете предустановку `sqlContext`, которую можно применять для выполнения запросов Hive с помощью Spark SQL. Из этого раздела вы узнаете, как запустить записную книжку Jupyter и выполнить простой запрос Spark SQL к существующей таблице Hive (**hivesampletable**), доступной на всех кластерах HDInsight.
 
 1. Откройте [портал Azure](https://portal.azure.com/).
 
@@ -87,13 +93,13 @@ ms.lasthandoff: 07/24/2017
    >
 3. Создайте записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
 
-   ![Создание записной книжки Jupyter для выполнения интерактивного запроса Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Создание записной книжки Jupyter для выполнения интерактивного запроса Spark SQL")
+   ![Создание записной книжки Jupyter для выполнения интерактивного запроса Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Создание записной книжки Jupyter для выполнения интерактивного запроса Spark SQL")
 
    Будет создана и открыта записная книжка с именем Untitled (Untitled.pynb).
 
 4. Щелкните имя записной книжки вверху и по желанию введите понятное имя.
 
-    ![Указание имени записной книжки Jupter, из которой будет выполняться интерактивный запрос Spark](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Указание имени записной книжки Jupter, из которой будет выполняться интерактивный запрос Spark")
+    ![Указание имени записной книжки Jupyter, из которой будет выполняться интерактивный запрос Spark](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Provide a name for the Jupyter notebook to run interactive Spark query from")
 
 5.  Вставьте указанный ниже код в пустую ячейку и нажмите сочетание клавиш **SHIFT + ВВОД**, чтобы выполнить код. В примере кода ниже `%%sql` (sql magic) указывает записной книжке Jupyter использовать предустановку `sqlContext` для выполнения запроса Hive. Запрос извлекает первые 10 строк из таблицы Hive (**hivesampletable**), которая по умолчанию доступна для всех кластеров HDInsight.
 
@@ -117,7 +123,7 @@ ms.lasthandoff: 07/24/2017
 
 8. Если вы планируете выполнить следующие действия позже, обязательно удалите кластер HDInsight, созданный во время работы с этой статьей. 
 
-    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-step"></a>Дальнейшие действия 
 

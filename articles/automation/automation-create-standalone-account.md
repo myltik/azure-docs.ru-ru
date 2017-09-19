@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 6eadfb0c3f91c1f2c7783d70604b45d5dc9912a3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 85ae54f76fff47b16d7a365ccee87866d0424f82
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -47,7 +47,8 @@ ms.lasthandoff: 08/19/2017
 2. Нажмите кнопку **Создать**.<br><br> ![Выбор пункта "Создать" на портале Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Выполните поиск по запросу **Автоматизация** и в поле результатов поиска выберите **Автоматизация и управление***.<br><br> ![Поиск и выбор элемента "Служба автоматизации" в Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 3. В колонке "Учетные записи службы автоматизации" щелкните **Добавить**.<br><br>![Добавление учетной записи службы автоматизации](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
-   
+
+
    > [!NOTE]
    > Если вы видите в колонке **Добавление учетной записи службы автоматизации** следующее предупреждение, это означает, что ваша учетная запись не является участником роли администраторов подписки и не предоставляет прав соадминистратора подписки.<br><br>![Предупреждение в колонке "Добавление учетной записи службы автоматизации"](media/automation-create-standalone-account/create-account-without-perms.png)
    > 
@@ -72,6 +73,7 @@ ms.lasthandoff: 08/19/2017
 | --- | --- |
 | Модуль Runbook AzureAutomationTutorial |Пример графического модуля Runbook, который демонстрирует, как выполнить аутентификацию с помощью учетной записи запуска от имени, и получает доступ ко всем ресурсам Resource Manager. |
 | Модуль Runbook AzureAutomationTutorialScript |Пример модуля Runbook PowerShell, который демонстрирует, как выполнить проверку подлинности с помощью учетной записи запуска от имени, и получает доступ ко всем ресурсам Resource Manager. |
+| AzureAutomationTutorialPython2 Runbook |Пример модуля runbook Python, в котором показано, как выполнить аутентификацию с помощью учетной записи запуска от имени и отобразить список групп ресурсов для указанной подписки. |
 | AzureRunAsCertificate |Ресурс-контейнер сертификатов, который автоматически создается во время создания учетной записи службы автоматизации или с помощью приведенного ниже сценария PowerShell для существующей учетной записи.  Он позволяет пройти проверку подлинности в Azure, что дает возможность управлять ресурсами Azure Resource Manager с помощью модулей Runbook.  Срок действия этого сертификата — один год. |
 | AzureRunAsConnection |Ресурс-контейнер подключений, который автоматически создается во время создания учетной записи службы автоматизации или с помощью приведенного ниже сценария PowerShell для существующей учетной записи. |
 
@@ -89,3 +91,5 @@ ms.lasthandoff: 08/19/2017
 * Дополнительные сведения о графической разработке в службе автоматизации Azure см. в [этой статье](automation-graphical-authoring-intro.md).
 * Сведения о том, как начать работу с модулями Runbook, см. в статье [Мой первый модуль Runbook PowerShell](automation-first-runbook-textual-powershell.md).
 * Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
+* См. дополнительные сведения о начале работы с [модулями runbook Python2](automation-first-runbook-textual-python2.md).
+

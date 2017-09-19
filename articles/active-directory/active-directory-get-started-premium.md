@@ -1,5 +1,5 @@
 ---
-title: "Регистрация для работы с Azure Active Directory Premium"
+title: "Регистрация для работы с Azure Active Directory Premium | Документация Майкрософт"
 description: "Из этой статьи вы узнаете, как зарегистрироваться для работы с выпуском Azure Active Directory Premium."
 services: active-directory
 documentationcenter: 
@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Краткое руководство: регистрация для работы с Azure Active Directory Premium
-Чтобы начать работу с Azure Active Directory (Azure AD) Premium, необходимо приобрести лицензии и связать их с подпиской Azure. Если вы создаете новую подписку Azure, нужно также активировать план лицензирования и доступ к службе Azure AD в соответствии с инструкциями в следующих разделах. 
+Чтобы начать работу с Azure Active Directory (Azure AD) Premium, вы можете приобрести лицензии и связать их с подпиской Azure. Если вы создаете новую подписку Azure, нужно также активировать план лицензирования и доступ к службе Azure AD в соответствии с инструкциями в следующих разделах. 
 
 ## <a name="sign-up-for-active-directory-premium"></a>Регистрация для работы с Active Directory Premium
 Есть несколько способов регистрации в Active Directory Premium: 
+* используя подписку Azure или Office 365;
+* используя план лицензирования Enterprise Mobility + Security;
+* используя план корпоративного лицензирования Microsoft.
 
 ### <a name="azure-or-office-365"></a>Azure или Office 365 
 Каждый подписчик Azure или Office 365 может приобрести Azure Active Directory Premium через Интернет. 
@@ -48,10 +52,8 @@ Enterprise Mobility + Security (EMS) — это эффективное сре
 
 > [!NOTE]
 > Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих доступный по всему миру экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
 
-Если ранее вы приобрели и активировали лицензии Azure AD для подписки Azure, которая использовалась в предыдущих шагах, лицензии автоматически активируются в том же каталоге. В этом случае выполнять шаги, описанные в оставшейся части этой статьи, не требуется.
+Если ранее вы приобрели и активировали лицензии Azure AD для подписки Azure, которая использовалась в предыдущих шагах, лицензии автоматически активируются в том же каталоге. В противном случае выполнять описанные ниже шаги не нужно.
 
 ## <a name="activate-your-license-plan"></a>Активация плана лицензирования
 Это первый план лицензирования Azure AD, который вы приобрели в Майкрософт? В таком случае после покупки вы получите сообщение электронной почты. Это нужно для активации первого плана лицензирования.
@@ -62,7 +64,7 @@ Enterprise Mobility + Security (EMS) — это эффективное сре
    
     ![входа][1]
 
-    - Если у вас есть существующий клиент, щелкните **Вход** и выполните вход с существующей учетной записью администратора. Войдите в систему с учетными данными глобального администратора из каталога, в котором должны быть активированы лицензии.
+    - Если у вас есть существующий клиент, щелкните **Вход** и выполните вход с существующей учетной записью администратора. Войдите в систему с учетными данными глобального администратора клиента, для которого нужно активировать лицензии.
 
     - Если вы хотите создать новый клиент Azure AD для использования с планом лицензирования, щелкните **Регистрация**. Откроется диалоговое окно **Создание профиля учетной записи**.
 
