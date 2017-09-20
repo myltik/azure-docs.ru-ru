@@ -3,7 +3,7 @@ title: "Пакет средств разработки программного 
 description: "В этой статье описывается, как скачать и использовать пакет SDK для Azure MFA, чтобы включить двухфакторную проверку подлинности для пользовательских приложений."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 editor: yossib
 ms.assetid: 1c152f67-be02-42a5-a0c7-246fb6b34377
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: joflore
+ms.author: kgremban
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 281f9c61a30a20027f69808600373aa272255ef6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Построение Multi-Factor Authentication в пользовательских приложениях (SDK)

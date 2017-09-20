@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/31/2017
 
 1. На панели мониторинга **центра безопасности Azure** нажмите кнопку **Power BI**.
 
-    ![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig13.png)
+    ![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-1-newUI-2017.png)
 2. Справа откроется колонка **Power BI**, как показано на следующем снимке экрана:
 
     ![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)

@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
@@ -71,7 +71,7 @@ ms.lasthandoff: 09/14/2017
 
 В разделе **Подключенные решения** отображаются все решения по обеспечению безопасности, которые сейчас подключены к центру безопасности. 
 
-![Подключенные решения](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+![Подключенные решения](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 Сведения, которое будет отображаться для каждого из них, зависят от решения. На плитках могут отображаться:
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 09/14/2017
 
 Для интеграции с центром безопасности вы можете добавить как компьютеры Azure, так и сторонние компьютеры.  Это означает, что можно добавить локальный компьютер или устройство, которое поддерживает CEF. 
 
-![Источники данных](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+![Источники данных](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
 ## <a name="see-also"></a>См. также

@@ -145,8 +145,6 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 После копирования файлов можно изменить политику с помощью редактора групповой политики.
 
 ## <a name="next"></a>Далее
-<!-- [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)  
-[Connect to on-premises SQL Server from Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)    -->
 [Обзор гибридных подключений](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>См. также

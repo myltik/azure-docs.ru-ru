@@ -183,7 +183,7 @@
 ### [Доставка путем скачивания](media-services-deliver-asset-download.md)
 ### [Сценарий потоковой передачи отработки отказа](media-services-implement-failover.md)
 
-## Воспроизведение
+## Использование
 ### [Воспроизведение мультимедиа с помощью существующих проигрывателей](media-services-playback-content-with-existing-players.md)
 ### [Воспроизведение мультимедиа с помощью Проигрывателя мультимедиа](media-services-develop-video-players.md)
 ### Другие параметры воспроизведения

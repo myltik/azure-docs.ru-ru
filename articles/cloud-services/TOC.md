@@ -59,8 +59,7 @@
 ### [Управление облачной службой с помощью службы автоматизации Azure](automation-manage-cloud-services.md)
 ### Настройка автоматического масштабирования
 #### [Портал](cloud-services-how-to-scale-portal.md)
-#### [Классический портал.](cloud-services-how-to-scale.md)
-#### [PowerShell](cloud-services-how-to-scale-powershell.md)
+#### [Классический портал](cloud-services-how-to-scale.md)
 ### [Использование языка Python для управления ресурсами Azure](cloud-services-python-how-to-use-service-management.md)
 
 ### [Исправления гостевой ОС](cloud-services-guestos-msrc-releases.md)

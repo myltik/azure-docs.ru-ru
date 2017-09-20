@@ -3,7 +3,7 @@ title: "Проверка подлинности по протоколу LDAP и 
 description: "Приведенные на этой странице сведения о Azure Multi-Factor Authentication помогут развернуть проверку подлинности LDAP и сервер Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 editor: yossib
 ms.assetid: e1a68568-53d1-4365-9e41-50925ad00869
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: joflore
+ms.author: kgremban
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 740624a048e97217767956f3994b6566acce4786

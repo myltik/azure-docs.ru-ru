@@ -33,8 +33,6 @@
   items:
     - name: Управление регистрацией устройств
       href: how-to-manage-enrollments.md
-    - name: Использование HSM с пакетом SDK
-      href: use-hsm-with-sdk.md
 - name: Справочные материалы
   items:
     - name: REST

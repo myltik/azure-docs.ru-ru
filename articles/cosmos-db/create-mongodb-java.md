@@ -30,12 +30,12 @@ Azure Cosmos DB — это глобально распределенная мн�
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Для выполнения этого примера вам потребуется:
-   * JDK 1.7+ (если у вас нет JDK, выполните `apt-get install default-jdk`);
-   * Maven (если у вас нет Maven, выполните `apt-get install maven`).
+Для выполнения этого примера вам потребуется:
+* JDK 1.7+ (если у вас нет JDK, выполните `apt-get install default-jdk`);
+* Maven (если у вас нет Maven, выполните `apt-get install maven`).
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>Создание учетной записи базы данных
 

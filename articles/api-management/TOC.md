@@ -11,8 +11,6 @@
 ### [Добавление операций](api-management-howto-add-operations.md)
 ### [Создание API](api-management-howto-create-apis.md)
 ### [Импорт определения API](api-management-howto-import-api.md)
-### [Начало работы с редакциями](api-management-get-started-revise-api.md)
-### [Начало работы с версиями](api-management-get-started-publish-versions.md)
 ## Защита серверной части
 ### [Защита серверной части веб-API с помощью AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Подключение к виртуальной сети](api-management-using-with-vnet.md)

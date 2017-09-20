@@ -3,7 +3,7 @@ title: "Часто задаваемые вопросы о службе мног�
 description: "Часто задаваемые вопросы и ответы о Многофакторной идентификации Azure. Multi-factor Authentication — это метод проверки личности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Данный метод обеспечивает дополнительный уровень защиты входа пользователей в систему и транзакций."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 editor: yossib
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: joflore
+ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 023dee623ca6ec35ab77578c97e5bf197b4bfe75
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Часто задаваемые вопросы о Многофакторной идентификации Azure
