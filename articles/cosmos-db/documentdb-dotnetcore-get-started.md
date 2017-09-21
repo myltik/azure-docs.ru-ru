@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 7536978bbb1e41b6484b66fd1b51c900fc3e545d
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f39d732325d171b30de3b86e0c96be0ce77c66a9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB. Приступая к работе с API DocumentDB и .NET Core
@@ -59,8 +59,10 @@ ms.lasthandoff: 08/16/2017
 Убедитесь, что у вас есть указанные ниже компоненты.
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
-    * Кроме того, в этом руководстве можно использовать [эмулятор Azure Cosmos DB](local-emulator.md).
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
     * Если вы работаете в MacOS или Linux, вы можете разрабатывать приложения .NET Core с помощью командной строки, установив для этого пакет [SDK для .NET Core ](https://www.microsoft.com/net/core#macos) с учетом платформы. 
     * Если вы работаете в Windows, приложения .NET Core можно разрабатывать с помощью командной строки, установив для этого пакет [SDK для .NET Core](https://www.microsoft.com/net/core#windows). 
     * Можно использовать свой редактор или скачать бесплатный [Visual Studio Code](https://code.visualstudio.com/), который работает в Windows, Linux и MacOS. 
@@ -116,7 +118,7 @@ class Program
     private DocumentClient client;
 ```
 
-Затем войдите на [портал Azure](https://portal.azure.com) , чтобы получить URI и первичный ключ. URI и первичный ключ Azure Cosmos DB позволяют приложению предоставлять данные о расположении, в котором будет устанавливаться подключение, делая подключение вашего приложения доверенным для Azure Cosmos DB.
+Затем войдите на [портал Azure](https://portal.azure.com), чтобы получить URI и первичный ключ. URI и первичный ключ Azure Cosmos DB позволяют приложению предоставлять данные о расположении, в котором будет устанавливаться подключение, делая подключение вашего приложения доверенным для Azure Cosmos DB.
 
 На портале Azure перейдите к учетной записи Azure Cosmos DB, а затем щелкните **Ключи**.
 

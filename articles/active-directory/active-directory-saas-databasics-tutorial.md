@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/08/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 26943282701302b61252e17850b71381afb1629b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 3a9776e6d11a54220a3b055d59e89d2eb4161a1a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Руководство. Интеграция Azure Active Directory с DATABASICS
@@ -124,11 +124,14 @@ ms.lasthandoff: 08/29/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-databasics-tutorial/tutorial_general_400.png)
 
-6. Чтобы настроить единый вход на стороне **DATABASICS**, отправьте в [службу поддержки DATABASICS](https://www.data-basics.com/support/) скачанный **XML-файл метаданных**. Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
+6. Чтобы настроить единый вход на стороне DATABASICS, заполните форму с помощью URL-адреса, приведенного ниже. После отправки формы [группа поддержки клиентов DATABASICS](https://www.data-basics.com/support/) свяжется с вами.
+    
+    [https://www.data-basics.com/support/submit-sso-onboarding-request/](https://www.data-basics.com/support/submit-sso-onboarding-request/)
+
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 

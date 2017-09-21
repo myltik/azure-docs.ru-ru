@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2017
+ms.date: 09/11/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: f17bf3e475a33cfc617e8a026e9606b3792101f3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: c813dbc0e703c20c869a8f6fc2bb70c2b0e7a807
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="configure-route-filters-for-microsoft-peering"></a>Настройка фильтров маршрутов для пиринга Майкрософт
@@ -113,6 +113,10 @@ ms.lasthandoff: 08/25/2017
 Фильтр маршрутов можно вложить в схему, нажав кнопку "Добавить схемы" и выбрав схему ExpressRoute из раскрывающегося списка.
 
 ![Создание фильтра маршрута](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
+
+Если поставщик услуг подключения настраивает пиринг для канала ExpressRoute, обновите канал из колонки канала ExpressRoute, прежде чем нажать кнопку Add circuit (Добавить канал).
+
+![Создание фильтра маршрута](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
 
 ## <a name="getproperties"></a>Получение свойств фильтра маршрута
 

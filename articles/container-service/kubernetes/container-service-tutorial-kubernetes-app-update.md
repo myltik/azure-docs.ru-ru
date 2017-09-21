@@ -14,20 +14,20 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 72cdbfe2fe65e5152ca748cbb3989e3ef980ee50
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 081f36c975c4a2d137fa20e346d6b6739b6997fe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
 # <a name="update-an-application-in-kubernetes"></a>Обновление приложения в Kubernetes
 
-После развертывания приложения в Kubernetes его можно обновить, указав новый образ контейнера или версию образа. При обновлении приложения выпуск обновления выполняется поэтапно, поэтому одновременно обновляется только часть развертывания. Поэтапное обновление позволяет приложению продолжать работать во время обновления и предоставляет механизм отката при возникновении сбоя развертывания. 
+После развертывания приложения в Kubernetes его можно обновить, указав новый образ контейнера или версию образа. При этом обновление выполняется поэтапно, поэтому одновременно обновляется только часть развертывания. Такое поэтапное обновление позволяет приложению продолжать работать во время обновления. Оно также обеспечивает механизм отката на случай, если произойдет сбой развертывания. 
 
 В этом руководстве (часть 7 из 8) обновляется пример приложения Vote Azure. Здесь будут выполнены следующие задачи:
 
@@ -43,20 +43,18 @@ ms.lasthandoff: 07/25/2017
 
 В предыдущих руководствах приложение было упаковано в образ контейнера, образ был передан в реестр контейнеров Azure и был создан кластер Kubernetes. Затем приложение было запущено в кластере Kubernetes. 
 
+Также был клонирован репозиторий приложения, включая исходный код приложения и предварительно созданный файл Docker Compose, используемый в этом руководстве. Проверьте, создали ли вы клон репозитория и изменили ли каталоги на клонированный каталог. Внутри репозитория находится каталог `azure-vote` и файл `docker-compose.yml`.
+
 Если вы не выполнили эти действия и хотите продолжить изучение материала, вернитесь к разделу [Создание образов контейнеров для использования со службой контейнеров Azure](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="update-application"></a>Обновление приложения
 
-Для выполнения действий, описанных в этом руководстве, необходимо клонировать копию приложения Azure для голосования. При необходимости создайте клонированную копию с помощью следующей команды:
+Для задач этого руководства в приложение внесены изменения, и обновленное приложение развернуто в кластере Kubernetes. 
+
+Исходный код приложения можно найти в каталоге `azure-vote`. Откройте файл `config_file.cfg` в любом редакторе кода или текста. В этом примере используется `vi` .
 
 ```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
-```
-
-Откройте файл `config_file.cfg` в любом редакторе кода или текста. Этот файл можно найти в следующем каталоге клонированного репозитория.
-
-```bash
- /azure-voting-app-redis/azure-vote/azure-vote/config_file.cfg
+vi azure-vote/azure-vote/config_file.cfg
 ```
 
 Измените значения для `VOTE1VALUE` и `VOTE2VALUE`, а затем сохраните файл.
@@ -69,35 +67,39 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Используйте команду [docker-compose](https://docs.docker.com/compose/) для повторного создания образа внешнего приложения и запуска обновленного приложения.
+Сохраните и закройте файл.
+
+## <a name="update-container-image"></a>Обновление образа контейнера
+
+Используйте команду [docker-compose](https://docs.docker.com/compose/) для повторного создания образа внешнего приложения и запуска обновленного приложения. Аргумент `--build` указывает Docker Compose, что требуется повторно создать образ приложения.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up --build -d
+docker-compose up --build -d
 ```
 
 ## <a name="test-application-locally"></a>Локальное тестирование приложения
 
-Перейдите к `http://localhost:8080`, чтобы увидеть обновленное приложение.
+Перейдите по адресу http://localhost:8080, чтобы просмотреть обновленное приложение.
 
 ![Схема кластера Kubernetes в Аzure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
 ## <a name="tag-and-push-images"></a>Пометка и отправка образов
 
-Пометьте образ *azure-vote-front* с помощью тега loginServer реестра контейнеров.
+Добавьте к образу `azure-vote-front` тег loginServer реестра контейнеров. 
 
-При использовании реестра контейнеров Azure получите имя сервера входа с помощью команды [az acr list](/cli/azure/acr#list).
+Получите имя сервера входа, выполнив команду [az acr list](/cli/azure/acr#list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Используйте команду [docker tag](https://docs.docker.com/engine/reference/commandline/tag/), чтобы добавить тег для образа. Замените `<acrLoginServer>` именем сервера входа реестра контейнеров Azure или именем узла общедоступного реестра.
+Используйте команду [docker tag](https://docs.docker.com/engine/reference/commandline/tag/), чтобы добавить тег для образа. Замените `<acrLoginServer>` именем сервера входа реестра контейнеров Azure или именем узла общедоступного реестра. Также обратите внимание на то, что образ обновлен до версии `redis-v2`.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Используйте команду [docker push](https://docs.docker.com/engine/reference/commandline/push/), чтобы передать образ в реестр. Замените `<acrLoginServer>` именем сервера входа реестра контейнеров Azure или именем узла общедоступного реестра.
+Используйте команду [docker push](https://docs.docker.com/engine/reference/commandline/push/), чтобы передать образ в реестр. Замените `<acrLoginServer>` именем сервера входа реестра контейнеров Azure.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -121,7 +123,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-Если у вас нет нескольких групп контейнеров, выполняющих образ azure-vote-front, измените масштаб развертывания *azure-vote-front*.
+Если у вас нет нескольких pod, выполняющих образ azure-vote-front, измените масштаб развертывания `azure-vote-front`.
 
 
 ```azurecli-interactive
@@ -152,7 +154,7 @@ azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 
 ## <a name="test-updated-application"></a>Тестирование обновленного приложения
 
-Получите внешний IP-адрес службы *azure-vote-front*.
+Получите внешний IP-адрес службы `azure-vote-front`.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front

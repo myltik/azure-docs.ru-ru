@@ -11,17 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 1ab6a2b949101f60d6eef1ba7603d1c2cf81f90a
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Часто задаваемые вопросы об управлении устройствами в Azure Active Directory
+
+
+
+**Вопрос. Как можно зарегистрировать устройство macOS?**
+
+**Ответ.** Для регистрации устройства macOS сделайте следующее:
+
+1.  [Создайте политику соответствия](https://docs.microsoft.com/intune/compliance-policy-create-mac-os).
+2.  [Определите политику условного доступа для устройств macOS](active-directory-conditional-access-azure-portal.md). 
+
+**Примечания:**
+
+- Для доступа к ресурсам пользователям, включенным в политику условного доступа, нужна [поддерживаемая версия Microsoft Office для macOS](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients). 
+
+- Во время первой попытки доступа пользователям предлагается зарегистрировать устройство с помощью корпоративного портала.
+
+---
 
 **Вопрос. Мной недавно было зарегистрировано устройство. Почему оно отсутствует в моих сведениях о пользователе на портале Azure?**
 
@@ -136,20 +153,10 @@ ms.lasthandoff: 09/05/2017
 
 ---
 
-**Вопрос. Где можно найти инструкции для настройки автоматической регистрации устройств?**
+**Вопрос. Где можно найти инструкции по настройке гибридных устройств, присоединенных к Azure AD?**
 
-**Ответ.** Подробные инструкции см. в статье [Настройка автоматической регистрации присоединенных к домену устройств Windows в Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+**Ответ.** Дополнительные инструкции см. в статье [Настройка гибридных устройств, присоединенных к Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
 
----
-
-**Вопрос. Где можно найти сведения об устранении неполадок автоматической регистрации устройств?**
-
-**Ответ.** Сведения об устранении неполадок можно найти в этих разделах:
-
-- [Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров для Windows 10 и Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
-
-- [Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров для клиентов Windows нижнего уровня](device-management-troubleshoot-hybrid-join-windows-legacy.md)
- 
 ---
 
 

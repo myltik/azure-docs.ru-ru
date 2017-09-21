@@ -14,19 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 6486f3963b18edee8490446cad1f6f2697db699b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="runbook-input-parameters"></a>Входные параметры Runbook
+
 Возможность настройки входных параметров увеличивает гибкость модулей Runbook, позволяя передавать данные в уже запущенный модуль. За счет настройки параметров можно оптимизировать действия Runbook согласно определенным сценариям и средам. В этой статье подробно описаны различные сценарии использования входных параметров в модулях Runbook.
 
 ## <a name="configure-input-parameters"></a>Настройка входных параметров
-Входные параметры настраиваются в модулях Runbook PowerShell рабочих процессов PowerShell и в графических модулях Runbook. Runbook может использовать несколько параметров с разными типами данных или вообще не использовать параметры. Входные параметры могут быть обязательными или необязательными. Необязательным параметрам можно назначать значения по умолчанию. Назначение значений входным параметрам для модуля Runbook выполняется при его запуске с помощью одного из доступных методов. Эти методы включают в себя запуск модуля Runbook с помощью портала или веб-службы. Модуль можно также запустить как дочерний модуль Runbook, который вызывается с помощью встроенного вызова в другом Runbook.
+
+Входные параметры настраиваются в модулях Runbook PowerShell, рабочих процессов PowerShell, Python и графических модулях Runbook. Runbook может использовать несколько параметров с разными типами данных или вообще не использовать параметры. Входные параметры могут быть обязательными или необязательными. Необязательным параметрам можно назначать значения по умолчанию. Назначение значений входным параметрам для модуля Runbook выполняется при его запуске с помощью одного из доступных методов. Эти методы включают в себя запуск модуля Runbook с помощью портала или веб-службы. Модуль можно также запустить как дочерний модуль Runbook, который вызывается с помощью встроенного вызова в другом Runbook.
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>Настройка входных параметров в модулях Runbook PowerShell и рабочих процессов PowerShell
+
 [Модули Runbook рабочих процессов PowerShell](automation-first-runbook-textual.md) и Runbook PowerShell в службе автоматизации Azure поддерживают входные параметры, для определения которых используются следующие атрибуты.  
 
 | **Свойство** | **Описание** |
@@ -40,7 +44,7 @@ ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
 
 Для определения параметров модулей Runbook рабочих процессов PowerShell используется следующий общий формат, где несколько параметров разделяются запятыми.
 
-   ```
+   ```powershell
      Param
      (
          [Parameter (Mandatory= $true/$false)]
@@ -73,6 +77,7 @@ ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Настройка входных параметров в графических модулях Runbook
+
 Чтобы показать, как [настроить графический модуль Runbook](automation-first-runbook-graphical.md), мы создадим графический модуль Runbook, который выводит сведения об одной или всех виртуальных машинах в группе ресурсов. Настройка модуля состоит из двух основных операций, как описано ниже.
 
 [**Аутентификация модулей Runbook в Azure с помощью учетной записи запуска от имени Azure**](automation-sec-configure-azure-runas-account.md).
@@ -112,14 +117,26 @@ ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
      * Настраиваемое значение по умолчанию — \<имя группы ресурсов, содержащей виртуальные машины>.
 5. После добавления параметров нажмите кнопку **ОК**.  Теперь вы можете просмотреть их в колонке **Входные и выходные данные**. Нажмите кнопку **ОК** еще раз, а затем — **Сохранить** и **Опубликовать**, чтобы сохранить параметры и опубликовать модуль Runbook.
 
+## <a name="configure-input-parameters-in-python-runbooks"></a>Настройка входных параметров в модулях Runbook Python
+
+В отличие от модулей Runbook PowerShell, рабочих процессов PowerShell и графических модулей Runbook, модули Runbook Python не принимают именованные параметры.
+Все входные параметры анализируются как массив значений аргументов.
+Для доступа к массиву импортируйте модуль `sys` в свой сценарий Python, а затем используйте массив `sys.argv`.
+Обратите внимание, что первый элемент массива (`sys.argv[0]`) является именем сценария, поэтому первый фактический входной параметр — `sys.argv[1]`.
+
+Пример использования входных параметров в модуле Runbook Python см. в статье [Мой первый модуль Runbook Python в службе автоматизации Azure](automation-first-runbook-textual-python2.md).
+
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>Назначение значений входным параметрам в модулях Runbook
+
 Передавать значения для входных параметров в модули Runbook можно в сценариях, описанных ниже.
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>Запуск Runbook и назначение параметров
+
 Существует много способов для запуска модуля Runbook — с помощью пользовательского интерфейса портала Azure, объекта webhook, командлетов PowerShell, REST API или пакета SDK. Ниже рассмотрены различные методы запуска модуля Runbook и назначения параметров.
 
 #### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>Запуск опубликованного модуля Runbook на портале Azure и назначение параметров
-При [запуске модуля Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)открывается колонка **Запустить Runbook** , где можно настроить значения недавно созданных параметров.
+
+При [запуске модуля Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) открывается колонка **Запуск Runbook**, где можно ввести значения недавно созданных параметров.
 
 ![Начало работы с порталом](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
@@ -133,6 +150,7 @@ ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
 > 
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>Запуск опубликованного модуля Runbook с помощью командлетов PowerShell и назначение параметров
+
 * **Командлеты Azure Resource Manager**. Модуль Runbook службы автоматизации, созданный в группе ресурсов, можно запустить с помощью командлета [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
   
   **Пример**
@@ -158,6 +176,7 @@ ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
 > 
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>Запуск Runbook с использованием пакета SDK и назначение параметров
+
 * **Метод, предусматривающий использование Azure Resource Manager.** Для запуска модуля Runbook можно использовать пакет SDK для языка программирования. Ниже приведен фрагмент кода C# для запуска модуля Runbook в вашей учетной записи службы автоматизации. Весь код можно просмотреть в нашем [репозитории GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
   ```
@@ -267,10 +286,5 @@ ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
 * Дополнительные сведения о различных способах запуска модуля Runbook см. в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).
 * Сведения об изменении текстового модуля Runbook см. в статье [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md).
 * Сведения об изменении графического модуля Runbook см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

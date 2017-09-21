@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 25fbbe97d26491fc421f4821315761c18e523ec8
+ms.translationtype: HT
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Анализ журналов веб-сайта с помощью Azure Data Lake Analytics
@@ -36,9 +35,7 @@ ms.lasthandoff: 06/20/2017
 
   * [Разработка сценария U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * **Учетная запись Data Lake Analytics**.  Ознакомьтесь с разделом [Создание учетной записи Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
-* **Передача примера данных в учетную запись Data Lake Analytics.** Ознакомьтесь с разделом о [копировании файлов с примерами данных](data-lake-analytics-get-started-portal.md).
-
-    Чтобы выполнить задание аналитики озера данных, потребуются некоторые данные. Несмотря на то, что средства озера данных поддерживают передачу данных, чтобы упростить работу с этим руководством, для передачи примера данных мы используем портал.
+* **Установка образца данных.** На портале Azure откройте учетную запись Data Lake Analytics и в левом меню щелкните **Примеры сценариев**, а затем — **Копировать демонстрационные данные**. 
 
 ## <a name="connect-to-azure"></a>Подключение к Azure
 Прежде чем можно будет скомпилировать и протестировать любой сценарий U-SQL, необходимо сначала подключиться к Azure.

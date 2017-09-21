@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 72f66081a6409f980ec6bca5188f585489245a36
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: e5e6a2e5b7ec4bc9c3c81ff37640c98cae36392d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB. Приступая к работе с API DocumentDB
@@ -57,8 +57,10 @@ ms.lasthandoff: 08/17/2017
 Убедитесь, что у вас есть указанные ниже компоненты.
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
-    * Кроме того, в этом руководстве можно использовать [эмулятор Azure Cosmos DB](local-emulator.md).
-* [Visual Studio Community 2017](http://www.visualstudio.com/).
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)].
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Шаг 1. Создание учетной записи Azure Cosmos DB
 Давайте создадим учетную запись Azure Cosmos DB. Если у вас уже есть учетная запись, которую вы собираетесь использовать, можно перейти к шагу [Настройка решения Visual Studio](#SetupVS). Если вы используете эмулятор Azure Cosmos DB, выполните действия, описанные в статье об [эмуляторе Azure Cosmos DB](local-emulator.md), чтобы его настроить и сразу перейти к [настройке решения Visual Studio](#SetupVS).
@@ -131,7 +133,7 @@ ms.lasthandoff: 08/17/2017
         this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
     }
 
-Добавьте указанный далее код, чтобы запустить асинхронную задачу из метода **Main**. Метод **Main** будет перехватывать исключения и записывать их в консоли.
+Добавьте указанный далее код, чтобы запустить асинхронную задачу из метода **Main** . Метод **Main** будет перехватывать исключения и записывать их в консоли.
 
     static void Main(string[] args)
     {
@@ -157,7 +159,7 @@ ms.lasthandoff: 08/17/2017
                     Console.ReadKey();
             }
 
-Нажмите клавишу **F5**, чтобы запустить приложение. Результаты в окне консоли отображают сообщение `End of demo, press any key to exit.`. Это означает, что подключение выполнено.  Теперь можно закрыть окно консоли. 
+Нажмите клавишу **F5** , чтобы запустить приложение. Результаты в окне консоли отображают сообщение `End of demo, press any key to exit.`. Это означает, что подключение выполнено.  Теперь можно закрыть окно консоли. 
 
 Поздравляем! Вы успешно подключились к учетной записи Azure Cosmos DB. Давайте теперь рассмотрим принципы работы с ресурсами Azure Cosmos DB.  
 
@@ -185,7 +187,7 @@ ms.lasthandoff: 08/17/2017
         // ADD THIS PART TO YOUR CODE
         await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
 
-Нажмите клавишу **F5**, чтобы запустить приложение.
+Нажмите клавишу **F5** , чтобы запустить приложение.
 
 Поздравляем! Вы успешно создали базу данных Azure Cosmos DB.  
 
@@ -206,7 +208,7 @@ ms.lasthandoff: 08/17/2017
         // ADD THIS PART TO YOUR CODE
          await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
 
-Нажмите клавишу **F5**, чтобы запустить приложение.
+Нажмите клавишу **F5** , чтобы запустить приложение.
 
 Поздравляем! Вы успешно создали коллекцию документов Azure Cosmos DB.  
 
@@ -366,7 +368,7 @@ ms.lasthandoff: 08/17/2017
 
     await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
-Нажмите клавишу **F5**, чтобы запустить приложение.
+Нажмите клавишу **F5** , чтобы запустить приложение.
 
 Поздравляем! Вы успешно создали два документа Azure Cosmos DB.  
 
@@ -418,7 +420,7 @@ Azure Cosmos DB поддерживает [полнофункциональные
     // ADD THIS PART TO YOUR CODE
     this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-Нажмите клавишу **F5**, чтобы запустить приложение.
+Нажмите клавишу **F5** , чтобы запустить приложение.
 
 Поздравляем! Вы успешно выполнили запрос коллекции Azure Cosmos DB.
 
@@ -454,7 +456,7 @@ Azure Cosmos DB поддерживает замену документов JSON.
 
     this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-Нажмите клавишу **F5**, чтобы запустить приложение.
+Нажмите клавишу **F5** , чтобы запустить приложение.
 
 Поздравляем! Вы успешно заменили документ Azure Cosmos DB.
 
@@ -479,7 +481,7 @@ Azure Cosmos DB поддерживает удаление документов J
     // ADD THIS PART TO CODE
     await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
 
-Нажмите клавишу **F5**, чтобы запустить приложение.
+Нажмите клавишу **F5** , чтобы запустить приложение.
 
 Поздравляем! Вы успешно удалили документ Azure Cosmos DB.
 
@@ -496,7 +498,7 @@ Azure Cosmos DB поддерживает удаление документов J
     // Clean up/delete the database
     await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
 
-Нажмите клавишу **F5**, чтобы запустить приложение.
+Нажмите клавишу **F5** , чтобы запустить приложение.
 
 Поздравляем! Вы успешно удалили базу данных Azure Cosmos DB.
 
@@ -535,7 +537,7 @@ Azure Cosmos DB поддерживает удаление документов J
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/).
 * [Учетная запись Azure Cosmos DB][cosmos-db-create-account]
-* решение [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started), доступное в GitHub.
+* решение [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) , доступное в GitHub.
 
 Чтобы в Visual Studio восстановить ссылки на пакет SDK .NET для Azure Cosmos DB, в обозревателе решений щелкните правой кнопкой мыши решение **GetStarted**, а затем выберите пункт **Enable NuGet Package Restore** (Включить восстановление пакета NuGet). Затем в файле App.config обновите значения EndpointUrl и AuthorizationKey согласно инструкциям, описанным в разделе о [подключении к учетной записи Azure Cosmos DB](#Connect).
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/15/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 3c68c3ac7d6be593476d419f8c015931b206eead
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f5f20fee648cf26b4db49b9a8f5f5e5bcecd453e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Руководство. Интеграция Azure Active Directory с Absorb LMS
@@ -124,7 +124,7 @@ ms.lasthandoff: 08/05/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
-7. В разделе **Настройка Absorb LMS** щелкните **Настроить Absorb LMS**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+7. В разделе **Настройка Absorb LMS** щелкните **Настроить Absorb LMS**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода** из раздела **Краткий справочник**.
 
     ![Конфигурация Absorb LMS](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_configure.png) 
 
@@ -146,15 +146,15 @@ ms.lasthandoff: 08/05/2017
 
     ![Настройка единого входа](./media/active-directory-saas-absorblms-tutorial/4.png)
 
-    а. Выберите необходимый **Режим**.
+    а. Выберите **Identity Provider Initiated** (Инициируемый поставщиком удостоверений).
 
-    b. Откройте сертификат, скачанный с портала Azure, в Блокноте. Удалите тег **---BEGIN CERTIFICATE---** и **---END CERTIFICATE---**, а затем вставьте остальное содержимое в текстовое поле **Ключ**.
+    b. Откройте сертификат, скачанный с портала Azure, в Блокноте. Удалите теги **---BEGIN CERTIFICATE---** и **---END CERTIFICATE---**, а затем вставьте остальное содержимое в текстовое поле **Key** (Ключ).
     
     c. В поле **Id Property** (Свойство идентификатора) выберите подходящий атрибут, настроенный в качестве идентификатора пользователя в Azure AD (например, если в Azure AD выбран userprinciplename, здесь будет выбрано имя пользователя).
 
-    d. В поле **URL-адрес для входа** вставьте значение **URL-адреса службы единого входа SAML**, скопированное из окна **Настройка единого входа** портала Azure.
+    d. В поле **Login URL** (URL-адрес входа) вставьте значение **URL-адрес пользовательского доступа** со страницы **Свойства** приложения на портале Azure.
 
-    д. В поле **URL-адрес выхода** вставьте значение **URL-адреса выхода**, скопированное из окна **Настройка единого входа** портала Azure.
+    д. В поле **Logout URL** (URL-адрес выхода) вставьте значение **URL-адреса выхода**, скопированное из окна **Настройка единого входа** портала Azure.
 
 13. Включите параметр **Only Allow SSO Login** (Разрешить только единый вход).
 
@@ -276,6 +276,7 @@ ms.lasthandoff: 08/05/2017
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
 
 
 <!--Image references-->

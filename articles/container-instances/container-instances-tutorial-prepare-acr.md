@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Для этого руководства требуется Azure CLI 2.0.12 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Развертывание реестра контейнеров Azure
 
@@ -62,7 +62,7 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 ## <a name="container-registry-login"></a>Вход в реестр контейнеров
 
-Войдите в свой экземпляр ACR, прежде чем отправлять в него образы. Используйте команду [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login), чтобы выполнить операцию. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
+Войдите в свой экземпляр ACR, прежде чем отправлять в него образы. Используйте команду [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login), чтобы выполнить операцию. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
 
 ```azurecli
 az acr login --name <acrName>

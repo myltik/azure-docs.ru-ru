@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 3e1f7617bf2fc52ee4c15598f51a46276f4dc57d
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 951e4fe32e8074817ad20972925f2f0e9f91b4c8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -34,11 +34,11 @@ ms.lasthandoff: 08/24/2017
 > * добавление тегов к образу контейнера для ACR;
 > * отправка образа в ACR.
 
-В последующих руководствах данный экземпляр ACR интегрируется с кластером Kubernetes службы контейнеров Azure для безопасного выполнения образов контейнеров. 
+В последующих руководствах данный экземпляр ACR интегрируется с кластером Kubernetes службы контейнеров Azure. 
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В [предыдущей части руководства](./container-service-tutorial-kubernetes-prepare-app.md) мы создали образ контейнера для простого приложения Azure для голосования. Теперь мы поместим этот образ в реестр контейнеров Azure. Если вы еще не создали образ приложения Azure для голосования, выполните инструкции из статьи [Create container images to be used with Azure Container Service](./container-service-tutorial-kubernetes-prepare-app.md) (Создание образов контейнеров с помощью службы контейнеров Azure). Описанные здесь шаги подходят для любого образа контейнера.
+В [предыдущей части руководства](./container-service-tutorial-kubernetes-prepare-app.md) мы создали образ контейнера для простого приложения Azure для голосования. Если вы еще не создали образ приложения Azure для голосования, выполните инструкции из статьи [Create container images to be used with Azure Container Service](./container-service-tutorial-kubernetes-prepare-app.md) (Создание образов контейнеров с помощью службы контейнеров Azure).
 
 Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/24/2017
 
 При развертывании реестра контейнеров Azure сначала необходимо создать группу ресурсов. Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими.
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В этом примере создается группа ресурсов с именем *myResourceGroup* в регионе *westeurope*.
+Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В этом примере создается группа ресурсов `myResourceGroup` в регионе `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -58,11 +58,11 @@ az group create --name myResourceGroup --location westeurope
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
-В остальной части этого руководства acrname будет заменять в примерах имя контейнера реестра.
+В дальнейшем в этом руководстве будет использоваться `<acrname>` как заполнитель имени реестра контейнеров.
 
 ## <a name="container-registry-login"></a>Вход в реестр контейнеров
 
-Войдите в свой экземпляр ACR, прежде чем отправлять в него образы. Используйте команду [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login), чтобы выполнить операцию. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
+Выполните команду [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login), чтобы войти в экземпляр ACR. Укажите уникальное имя реестра контейнеров, заданное для него при создании.
 
 ```azurecli
 az acr login --name <acrName>
@@ -71,8 +71,6 @@ az acr login --name <acrName>
 После выполнения эта команда возвращает сообщение Login Succeeded (Вход выполнен).
 
 ## <a name="tag-container-images"></a>Присвоение тегов образам контейнеров
-
-Каждый образ контейнера должен иметь тег с именем сервера входа (loginServer), указанным для реестра. Данный тег используется для маршрутизации при отправке образов контейнеров в реестр образов.
 
 Чтобы просмотреть список сохраненных образов, используйте команду [docker images](https://docs.docker.com/engine/reference/commandline/images/).
 
@@ -89,13 +87,15 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
+Каждый образ контейнера должен иметь тег с именем сервера входа (loginServer), указанным для реестра. Данный тег используется для маршрутизации при отправке образов контейнеров в реестр образов.
+
 Чтобы получить имя loginServer, выполните следующую команду.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer --output table
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Теперь пометьте образ *azure-vote-front* с помощью тега loginServer реестра контейнеров. Кроме того, добавьте `:redis-v1` в конец имени образа. Этот тег обозначает номер версии образа.
+Теперь добавьте к образу `azure-vote-front` тег loginServer реестра контейнеров. Кроме того, добавьте `:redis-v1` в конец имени образа. Этот тег обозначает номер версии образа.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
@@ -119,7 +119,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Отправка образов в реестр
 
-Отправьте образ *azure-vote-front* в реестр. 
+Отправьте образ `azure-vote-front` в реестр. 
 
 Используйте следующий пример, заменив в нем имя loginServer ACR именем loginServer своей среды.
 

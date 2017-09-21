@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a19ab310212b93a53495a6fc6c25c77dfb82e79
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f2184f426c0e60ea2b6ce029b80d3d63821794d1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Руководство по интеграции Azure Active Directory с NetSuite
@@ -115,7 +114,7 @@ ms.lasthandoff: 07/08/2017
     В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`.
 
     > [!NOTE] 
-    > Это значение приведено для примера. Вместо него нужно указать фактический URL-адрес ответа. Чтобы получить это значение, обратитесь к [группе поддержки Netsuite](http://www.netsuite.com/portal/services/support.shtml).
+    > Значения, указанные выше, приведены в качестве примера. Измените эти значения, указав фактический URL-адрес ответа. Чтобы получить эти значения, обратитесь к [группе поддержки Netsuite](http://www.netsuite.com/portal/services/support.shtml).
  
 4. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
 
@@ -161,7 +160,7 @@ ms.lasthandoff: 07/08/2017
 
     ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
 
-13. В поле **Имя атрибута** введите `account`. В поле **Attribute Value** (Значение атрибута) введите идентификатор учетной записи Netsuite. Это значение является константой, которая изменяется вместе с учетной записью. Инструкции по поиску идентификатора учетной записи приведены ниже.
+13. В поле **Имя атрибута** введите `account`. В поле **Значение атрибута** введите идентификатор учетной записи NetSuite. Это значение является константой и изменяется вместе с учетной записью. Инструкции по поиску идентификатора учетной записи приведены ниже.
 
       ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
 
@@ -298,7 +297,7 @@ ms.lasthandoff: 07/08/2017
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Руководство по настройке Netsuite для автоматической подготовки пользователей](active-directory-saas-netsuite-provisioning-tutorial.md)
+* [Руководство по настройке Google Apps для автоматической подготовки пользователей](active-directory-saas-netsuite-provisioning-tutorial.md)
 
 <!--Image references-->
 

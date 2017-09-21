@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 81a6a3d5364642b2da75faf875d64d2f4a1939d4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: b8f747b15bf491b7221a71b5beaa595aa7f1b49b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/25/2017
 В этом руководстве (часть 4 из 7) выполняется развертывание примера приложения в кластер Kubernetes. В частности, рассматриваются такие шаги:
 
 > [!div class="checklist"]
-> * скачивание файлов манифестов Kubernetes;
+> * обновление файлов манифестов Kubernetes;
 > * выполнение приложения в Kubernetes;
 > * Тестирование приложения
 
@@ -40,29 +40,15 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В предыдущих руководствах приложение упаковывалось в образ контейнера, далее этот образ отправлялся в реестр контейнеров Azure, после чего создавался кластер Kubernetes. Если вы не выполнили эти действия, вы можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./container-service-tutorial-kubernetes-prepare-app.md). 
+В предыдущих руководствах приложение упаковывалось в образ контейнера, далее этот образ отправлялся в реестр контейнеров Azure, после чего создавался кластер Kubernetes. 
 
-Для изучения данного руководства как минимум необходим кластер Kubernetes.
+Для работы с этим руководством необходимо предварительно создать файл манифеста Kubernetes `azure-vote-all-in-one-redis.yml`. Этот файл был скачан вместе с исходным кодом приложения в предыдущем руководстве. Проверьте, клонировали ли вы репозиторий и изменили ли каталоги на клонированный репозиторий.
 
-## <a name="get-manifest-file"></a>Получение файла манифеста
-
-В этом руководстве [объекты Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) развертываются с помощью манифеста Kubernetes. Манифест Kubernetes — это файл формата YAML или JSON, содержащий инструкции по развертыванию и настройке объектов Kubernetes.
-
-Файл манифеста приложения для этого руководства доступен в репозитории приложения Azure Vote, который был клонирован в предыдущем руководстве. Если вы этого еще не сделали, клонируйте репозиторий с помощью приведенной ниже команды. 
-
-```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
-```
-
-Файл манифеста находится в указанном ниже каталоге клонированного репозитория.
-
-```bash
-/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
-```
+Если вы не выполнили эти действия, вы можете ознакомиться со статьей [Создание образов контейнеров для использования со службой контейнеров Azure](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="update-manifest-file"></a>Обновление файла манифеста
 
-Если образы контейнеров хранятся в реестре контейнеров Azure, в манифест нужно добавить имя ACR loginServer.
+В этом руководстве для хранения образа контейнера использовался реестр контейнеров Azure (ACR). Перед запуском приложения необходимо обновить имя сервера входа ACR в файле манифеста Kubernetes.
 
 Получите имя сервера входа ACR, выполнив команду [az acr list](/cli/azure/acr#list).
 
@@ -70,7 +56,13 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Образец манифеста уже создан с именем репозитория *microsoft*. Откройте файл в любом текстовом редакторе и замените значение *microsoft* именем сервера для входа из соответствующего экземпляра ACR.
+Предварительно созданный файл манифеста содержит имя сервера входа `microsoft`. Откройте этот файл в любом текстовом редакторе. В этом примере файл открыт в `vi`.
+
+```bash
+vi azure-vote-all-in-one-redis.yml
+```
+
+Замените `microsoft` именем сервера входа ACR. Это значение можно найти в строке **47** файла манифеста.
 
 ```yaml
 containers:
@@ -78,12 +70,14 @@ containers:
   image: microsoft/azure-vote-front:redis-v1
 ```
 
+Сохраните и закройте файл.
+
 ## <a name="deploy-application"></a>Развертывание приложения
 
 Используйте команду [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create), чтобы запустить приложение. Эта команда анализирует файл манифеста и создает заданные объекты Kubernetes.
 
 ```azurecli-interactive
-kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
 Выходные данные:
@@ -105,7 +99,7 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-Изначально для параметра **EXTERNAL-IP** службы *azure-vote-front* отображается значение *pending* (ожидание). Как только для параметра "ВНЕШНИЙ IP-АДРЕС" состояние *ожидания* изменится на *IP-адрес*, используйте команду `CTRL-C`, чтобы остановить процесс отслеживания kubectl.
+Изначально для параметра **EXTERNAL-IP** службы `azure-vote-front` отображается состояние `pending`. Как только для параметра "EXTERNAL-IP" состояние `pending` изменится на `IP address`, используйте команду `CTRL-C`, чтобы остановить процесс отслеживания kubectl.
 
 ```bash
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE

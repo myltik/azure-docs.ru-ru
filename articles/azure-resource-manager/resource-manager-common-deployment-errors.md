@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 08/17/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 30adc10d01290f14a3e116813b19916fa36ab0bc
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 54db95fd50e5d61d54d0c03a8589cfe8292c012c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager | Microsoft Azure
@@ -81,6 +81,22 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
   virtualMachines      Standard_A0 southcentralus
   virtualMachines      Standard_A1 southcentralus
   virtualMachines      Standard_A2 southcentralus
+  ```
+
+- Для Azure CLI используется команда `az vm list-skus`. Для фильтрации выходных данных можно использовать `grep` или другую подобную служебную программу.
+
+  ```
+  az vm list-skus --output table
+  ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
+  ----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
+  availabilitySets  eastus              Classic                 MaximumPlatformFaultDomainCount=3
+  avilabilitySets  eastus              Aligned                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  eastus2             Classic                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  eastus2             Aligned                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  westus              Classic                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  westus              Aligned                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  centralus           Classic                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
   ```
 
 - Чтобы сделать это с помощью [портала](https://portal.azure.com), войдите на него и добавьте ресурс с помощью пользовательского интерфейса. При настройке значений вы увидите доступные SKU для этого ресурса. Не нужно завершать развертывание.

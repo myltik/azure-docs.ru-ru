@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 16070499b7befca26d55259d845d1dbc14110f2a
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 05476e35488c104a483f52f88540d33c55e5bc3c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -42,27 +42,23 @@ Kubernetes предоставляет распределенную платфо�
 
 ## <a name="create-kubernetes-cluster"></a>Создание кластера Kubernetes
 
-В [предыдущем руководстве](./container-service-tutorial-kubernetes-prepare-acr.md) была создана группа ресурсов *myResourceGroup*. Если вы этого не сделали, создайте эту группу ресурсов сейчас.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
-```
-
 Создание кластера Kubernetes в Службе контейнеров Azure с помощью команды [az acs create](/cli/azure/acs#create). 
 
-В следующем примере создается кластер *myK8sCluster* при помощи одного главного узла Linux и трех узлов агентов Linux.
+В следующем примере создается кластер `myK8sCluster` в группе ресурсов `myResourceGroup`. Эта группа ресурсов была создана в [предыдущем руководстве](./container-service-tutorial-kubernetes-prepare-acr.md).
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-Через несколько минут выполнение команды завершается, и отображаются сведения о развертывании кластера ACS в формате JSON.
+В некоторых случаях, например при использовании ограниченной пробной версии, доступ подписки Azure к ресурсам Azure ограничен. Если происходит сбой развертывания из-за ограничения доступных ядер, уменьшите количество агентов по умолчанию, добавив `--agent-count 1` в команду [az acs create](/cli/azure/acs#create). 
+
+Через несколько минут развертывание завершится и отобразятся сведения о развертывании ACS в формате JSON.
 
 ## <a name="install-the-kubectl-cli"></a>Установка интерфейса командной строки kubectl
 
 Для подключения к кластеру Kubernetes с клиентского компьютера используйте [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), клиент командной строки Kubernetes. 
 
-Если вы используете Azure CloudShell, установка `kubectl` уже выполнена. Для локальной установки можно использовать команду [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
+Если вы используете Azure CloudShell, клиент kubectl уже установлен. Для локальной установки можно использовать команду [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
 
 Для работы в macOS или Linux может потребоваться запуск с помощью sudo. В Windows убедитесь, что оболочка запущена от имени администратора.
 
@@ -74,7 +70,7 @@ az acs kubernetes install-cli
 
 ## <a name="connect-with-kubectl"></a>Подключение с помощью kubectl
 
-Чтобы настроить `kubectl` для подключения к кластеру Kubernetes, запустите команду [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials).
+Чтобы настроить kubectl для подключения к кластеру Kubernetes, выполните команду [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials).
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster

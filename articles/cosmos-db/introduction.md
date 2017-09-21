@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5b6f016ce634fd244f1ea3b54361b9a5da9d5483
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 08/11/2017
 Azure Cosmos DB — это глобально распределенная многомодельная база данных Майкрософт. Azure Cosmos DB позволяет гибко и независимо масштабировать пропускную способность и ресурсы хранилища в любых регионах Azure, стоит лишь нажать кнопку. Она гарантирует пропускную способность, задержку, доступность и согласованность в соответствии с [соглашениями об уровне обслуживания](https://aka.ms/acdbsla) (SLA), которые зачастую не могут предложить другие службы баз данных.
 
 ![Cosmos DB — это глобально распределенная служба базы данных Майкрософт с гибкой масштабируемостью, гарантированно низкой задержкой, пятью моделями согласованности и универсальными соглашениями об уровне обслуживания.](./media/introduction/azure-cosmos-db.png)
+
+[Бесплатную пробную версию Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) можно использовать без подписки Azure, без оплаты и каких-либо обязательств.
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Преимущества использования Azure Cosmos DB с некоторыми решениями
 

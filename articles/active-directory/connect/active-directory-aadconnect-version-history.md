@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 08/30/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 6e2a7c5eafee78d342f735b543624d041b9b3fe5
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 895b538680230170cd29817997a7739b1ba89cfc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect. История выпусков версий
@@ -44,6 +44,7 @@ ms.lasthandoff: 09/06/2017
 * Есть известная проблема с обновлением Azure AD Connect, которая затрагивает клиентов, у которых включен [простой единый вход](active-directory-aadconnect-sso.md). После обновления Azure AD Connect компонент отображается как отключенный в мастере, несмотря на то что он остается включенным. Эта проблема будет решена в следующем выпуске. Клиенты, которые обеспокоены этой проблемой отображения, могут вручную исправить ее, включив простой единый вход в мастере.
 
 #### <a name="fixed-issues"></a>Исправленные проблемы
+* Устранена проблема, не позволявшая Azure AD Connect обновить правила утверждений в локальных службах AD FS при включении функции [msDS-ConsistencyGuid как привязка к источнику](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor). Эта проблема возникала при попытке включить эту функцию для существующего развертывания Azure AD Connect, для которого настроен вход с помощью AD FS. Эта проблема возникала потому, что мастер не запрашивал учетные данные AD FS перед попыткой обновить правила утверждений в AD FS.
 * Исправлена проблема, из-за которой установка в Azure AD Connect завершалась сбоем, если в локальном лесу AD отключен NTLM. Проблема заключалась в том, что мастер Azure AD Connect не предоставлял полные учетные данные при создании контекста безопасности, необходимого для проверки подлинности Kerberos. Это вызывало сбой проверки подлинности Kerberos, и мастер Azure AD Connect возвращался к использованию NTLM.
 
 ### <a name="azure-ad-connect-sync"></a>Синхронизация Azure AD Connect

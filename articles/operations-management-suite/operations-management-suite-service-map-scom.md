@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a7dbe54ffb4daa941c19b51ba263dd3d23b7a98b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/12/2017
 * Субъект-служба с доступом к подписке Azure, связанной с рабочей областью Operations Management Suite. Дополнительные сведения см. в руководстве по [созданию субъекта-службы](#creating-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Установка пакета управления схемы услуги
-Интеграция Operations Manager и схемы услуг обеспечивается путем импорта набора пакетов управления Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Этот набор содержит следующие пакеты управления:
+Интеграция Operations Manager и схемы услуг обеспечивается путем импорта набора пакетов управления Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Скачать пакет управления можно в [Центре загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=55763). Этот набор содержит следующие пакеты управления:
 * Microsoft.ServiceMap.Application.Views;
 * Microsoft.System.Center.ServiceMap.Internal;
 * Microsoft.System.Center.ServiceMap.Overrides;

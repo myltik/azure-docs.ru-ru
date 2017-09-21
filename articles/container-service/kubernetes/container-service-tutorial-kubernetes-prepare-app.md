@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 2c7c8e241010e86bf9ffe5b70921da71b8ace9da
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -56,16 +56,22 @@ ms.lasthandoff: 08/25/2017
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Внутри клонированного каталога содержится исходный код приложения, предварительно созданный файл Docker Compose, а также файл манифеста Kubernetes. Эти файлы используются для создания ресурсов в руководстве. 
+Измените каталоги, чтобы использовать клонированный каталог.
+
+```
+cd azure-voting-app-redis
+```
+
+Внутри каталога содержится исходный код приложения, предварительно созданный файл Docker Compose и файл манифеста Kubernetes. Эти файлы используются в руководстве. 
 
 ## <a name="create-container-images"></a>Создание образов контейнеров
 
 С помощью [Docker Compose](https://docs.docker.com/compose/) можно автоматизировать создание дополнительных образов контейнеров и развертывание многоконтейнерных приложений.
 
-Выполните файл docker-compose.yml, чтобы создать образ контейнера, скачать образ Redis и запустить приложение.
+Выполните файл `docker-compose.yml`, чтобы создать образ контейнера, скачать образ Redis и запустить приложение.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
+docker-compose up -d
 ```
 
 После завершения выполните команду [docker images](https://docs.docker.com/engine/reference/commandline/images/), чтобы увидеть созданные образы.
@@ -74,7 +80,7 @@ docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
 docker images
 ```
 
-Вы увидите, что были скачаны или созданы три образа. Образ *azure-vote-front* содержит приложение. Он был создан на основе образа *nginx-flask*. Образ Redis был скачан из Docker Hub.
+Вы увидите, что были скачаны или созданы три образа. Образ `azure-vote-front` содержит приложение и использует образ `nginx-flask` в качестве основы. Образ `redis` используется для запуска экземпляра Redis.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -105,18 +111,18 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Теперь, когда функциональные возможности приложения проверены, запущенные контейнеры можно остановить и удалить. Не удаляйте образы контейнеров. Образ *azure-vote-front* будет отправлен в экземпляр реестра контейнеров Azure в следующем руководстве.
+Теперь, когда функциональные возможности приложения проверены, запущенные контейнеры можно остановить и удалить. Не удаляйте образы контейнеров. Образ `azure-vote-front` передается в экземпляр реестра контейнеров Azure в следующем руководстве.
 
 Чтобы остановить запущенные контейнеры, выполните следующую команду:
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
+docker-compose stop
 ```
 
-Чтобы удалить остановленные контейнеры, выполните следующую команду:
+Чтобы удалить остановленные контейнеры и ресурсы, выполните следующую команду.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
+docker-compose down
 ```
 
 По завершении у вас будет образ контейнера, содержащий приложение Azure Vote.
@@ -134,3 +140,4 @@ docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
 
 > [!div class="nextstepaction"]
 > [Развертывание реестра контейнеров Azure и его использование](./container-service-tutorial-kubernetes-prepare-acr.md)
+

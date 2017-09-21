@@ -15,11 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: dc00e1e5fa8df5cb55e7e2672137d1df44133773
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 43a08898abecb220f3df892473dddfb2729f0561
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="variable-assets-in-azure-automation"></a>Средства переменных в службе автоматизации Azure
@@ -53,7 +52,7 @@ ms.lasthandoff: 07/11/2017
 * Логический
 * Null
 
-## <a name="cmdlets-and-workflow-activities"></a>Командлеты и рабочие процессы
+## <a name="scripting-the-creation-and-management-of-variables"></a>Написание скриптов для создания переменных и управления ими
 
 Командлеты, представленные в следующей таблице, используются для создания переменных и управления ими с помощью Windows PowerShell в службе автоматизации Azure. Они входят в состав [модуля Azure PowerShell](../powershell-install-configure.md) , доступного в модулях Runbook и конфигурации DSC службы автоматизации.
 
@@ -73,6 +72,16 @@ ms.lasthandoff: 07/11/2017
 
 > [!NOTE] 
 > Не следует использовать переменные в параметре –Name действия **Get-AutomationVariable** в модуле Runbook или конфигурации DSC, поскольку это усложняет определение зависимостей между модулями Runbook или конфигурацией DSC и переменными службы автоматизации во время разработки.
+
+Функции, приведенные в следующей таблице, используются для доступа к переменным и их извлечения в модуле Runbook Python2. 
+
+|Функции Python2|Описание|
+|:---|:---|
+|automationassets.get_automation_variable|Получает значение существующей переменной. |
+|automationassets.set_automation_variable|Получает значение существующей переменной. |
+
+> [!NOTE] 
+> Для доступа к функциям ресурсов, необходимо импортировать модуль automationassets в верхнюю часть модуля Runbook Python.
 
 ## <a name="creating-a-new-automation-variable"></a>Создание новой переменной автоматизации
 
@@ -108,7 +117,7 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>Использование переменной в модуле Runbook или конфигурации DSC
 
-Используйте действие **Set-AutomationVariable**, чтобы задать значение переменной службы автоматизации в модуле Runbook, и действие **Get-AutomationVariable**, чтобы получить его.  Не следует использовать командлеты **Set-AzureAutomationVariable** и **Get-AzureAutomationVariable** в модуле Runbook или конфигурации DSC, поскольку они менее эффективны, чем действия рабочего процесса.  Также с помощью **Get-AzureAutomationVariable**нельзя получить значение безопасных переменных.  Единственный способ создать переменную из модуля Runbook или конфигурации DSC — использовать командлет [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
+Используйте действие **Set-AutomationVariable**, чтобы задать значение переменной службы автоматизации в модуле Runbook PowerShell или конфигурации DSC, и действие **Get-AutomationVariable**, чтобы получить его.  Не следует использовать командлеты **Set-AzureAutomationVariable** и **Get-AzureAutomationVariable** в модуле Runbook или конфигурации DSC, поскольку они менее эффективны, чем действия рабочего процесса.  Также с помощью **Get-AzureAutomationVariable**нельзя получить значение безопасных переменных.  Единственный способ создать переменную из модуля Runbook или конфигурации DSC — использовать командлет [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
 
 
 ### <a name="textual-runbook-samples"></a>Текстовые примеры модуля Runbook
@@ -135,7 +144,6 @@ ms.lasthandoff: 07/11/2017
     $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
     Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
 
-
 В следующем коде значение возвращается из переменной и используется для запуска виртуальной машины.
 
     $vmObject = Get-AutomationVariable -Name "MyComplexVariable"
@@ -160,6 +168,27 @@ ms.lasthandoff: 07/11/2017
           Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
        }
     }
+    
+#### <a name="setting-and-retrieving-a-variable-in-python2"></a>Задание и получение переменной в Python2
+В следующем примере кода показано, как использовать и задать переменную, а также обрабатывать исключение для несуществующей переменной в модуле Runbook Python2.
+
+    import automationassets
+    from automationassets import AutomationAssetNotFound
+
+    # get a variable
+    value = automationassets.get_automation_variable("test-variable")
+    print value
+
+    # set a variable (value can be int/bool/string)
+    automationassets.set_automation_variable("test-variable", True)
+    automationassets.set_automation_variable("test-variable", 4)
+    automationassets.set_automation_variable("test-variable", "test-string")
+
+    # handle a non-existent variable exception
+    try:
+        value = automationassets.get_automation_variable("non-existing variable")
+    except AutomationAssetNotFound:
+        print "variable not found"
 
 
 ### <a name="graphical-runbook-samples"></a>Графические примеры для модуля Runbook

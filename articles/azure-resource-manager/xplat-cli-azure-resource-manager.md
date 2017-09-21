@@ -6,152 +6,216 @@ manager: timlt
 documentationcenter: 
 author: tfitzmac
 services: azure-resource-manager
-ms.assetid: bb0af466-4f65-4559-ac3a-43985fa096ff
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 09/14/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 3ad4e68b90979fd7f9d3ddf5278e65e19cb07152
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 2e3fdf06316bbf68abefe06024f63668bdf07b05
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure
-> [!div class="op_single_selector"]
-> * [Портал](resource-group-portal.md) 
-> * [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
-> 
-> 
 
-Интерфейс командной строки Azure (Azure CLI) — это одно из нескольких средств для развертывания ресурсов, а также управления ими с помощью Resource Manager. В этой статье описываются стандартные методы управления ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure в режиме Azure Resource Manager. Сведения о развертывании ресурсов с помощью интерфейса командной строки см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и интерфейса командной строки Azure](resource-group-template-deploy-cli.md). Общие сведения о ресурсах Azure и Resource Manager см. в статье [Общие сведения об Azure Resource Manager](resource-group-overview.md).
+В этой статье вы узнаете, как управлять решениями с помощью Azure CLI и Azure Resource Manager. Если вы не знакомы с Resource Manager, то см. статью [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md). Этот раздел посвящен задачам управления. Вы сможете выполнять следующие задачи:
 
-> [!NOTE]
-> Чтобы управлять ресурсами Azure с помощью интерфейса командной строки Azure, необходимо установить [интерфейс командной строки Azure](../cli-install-nodejs.md) и [войти в Azure](../xplat-cli-connect.md) с помощью команды `azure login`. Убедитесь, что интерфейс командной строки работает в режиме Resource Manager (выполните команду `azure config mode arm`). Если все это уже сделано, у вас все готово для работы.
-> 
-> 
+1. Создание группы ресурсов
+2. Добавление ресурса в группу ресурсов
+3. Добавление тега к ресурсу
+4. Запрос ресурсов на основе имен или значений тегов
+5. Применение и удаление блокировки ресурса
+6. Удаление группы ресурсов
 
-## <a name="get-resource-groups-and-resources"></a>Получение сведений о ресурсах и группах ресурсов
-### <a name="resource-groups"></a>Группы ресурсов
-Чтобы получить список всех групп ресурсов в подписке и их расположения, выполните следующую команду.
+В этой статье не показан процесс развертывания в подписке шаблона Resource Manager. Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI](resource-group-template-deploy-cli.md).
 
-    azure group list
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+Сведения об установке и локальном использовании Azure CLI см. в статье [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Установка Azure CLI 2.0).
 
-### <a name="resources"></a>Ресурсы
- Чтобы получить список всех ресурсов в группе, например в группе *testRG*, выполните следующую команду:
+## <a name="set-subscription"></a>Выбор подписки
 
-    azure resource list testRG
+При наличии нескольких подписок можно переключаться с одной подписки на другую. Для начала давайте просмотрим все подписки для учетной записи.
 
-Чтобы просмотреть отдельный ресурс в группе, например виртуальную машину *MyUbuntuVM*, выполните следующую команду:
+```azurecli-interactive
+az account list
+```
 
-    azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
+Отобразится список включенных и отключенных подписок.
 
-Обратите внимание на параметр **Microsoft.Compute/virtualMachines**. Он указывает тип ресурса, для которого запрашивается информация.
-
-> [!NOTE]
-> При использовании команд **azure resource**, отличных от команды **list**, необходимо указать версию API ресурса с помощью параметра **-o**. Если вы не уверены, какая именно версия API используется, обратитесь к файлу шаблона и найдите поле apiVersion для этого ресурса. Дополнительные сведения о версиях API в Resource Manager см. в статье о [поставщиках и типах ресурсов](resource-manager-supported-services.md).
-> 
-> 
-
-При просмотре сведений о ресурсе часто бывает полезно использовать параметр `--json`. Он делает выходные данные более удобными для чтения, так как некоторые значения — это вложенные структуры или коллекции. В следующем примере результаты команды **show** возвращаются в виде документа JSON.
-
-    azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
-
-> [!NOTE]
-> При желании сохраните данные JSON в файл, используя символ &gt; для перенаправления выходных данных в файл. Например:
-> 
-> `azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
-> 
-> 
-
-### <a name="tags"></a>Теги
-[!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
-
-## <a name="manage-resources"></a>Управление ресурсами
-Чтобы добавить ресурс, например учетную запись хранения, в группу ресурсов, выполните команду, аналогичную следующей.
-
-    azure resource create testRG MyStorageAccount "Microsoft.Storage/storageAccounts" "westus" -o "2015-06-15" -p "{\"accountType\": \"Standard_LRS\"}"
-
-Наряду с параметром **-o**, с помощью которого можно указать версию API, также можно использовать параметр **-p**, чтобы передать строку с любыми обязательными или дополнительными свойствами в формате JSON.
-
-Чтобы удалить имеющийся ресурс, например ресурс виртуальной машины, выполните следующую команду:
-
-    azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
-
-Чтобы переместить существующие ресурсы в другую группу или подписку, используйте команду **azure resource move** . В следующем примере показано, как переместить кэш Redis в новую группу ресурсов. В параметре **-i** укажите разделенный запятыми список идентификаторов ресурсов для перемещения.
-
-    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
-
-## <a name="control-access-to-resources"></a>Управление доступом к ресурсам
-Интерфейс командной строки Azure можно использовать, чтобы создавать политики управления доступом к ресурсам Azure, а также управлять ими. Общие сведения об определениях политик и назначении политик ресурсам см. в статье [Применение политик для управления ресурсами и контроля доступа](resource-manager-policy.md).
-
-Например, чтобы отклонять все запросы, полученные не из региона "Западная часть США" или "Северо-центральный регион США", определите следующую политику и сохраните ее в файл определения политики policy.json.
-
-    {
-    "if" : {
-        "not" : {
-        "field" : "location",
-        "in" : ["westus" ,  "northcentralus"]
-        }
-    },
-    "then" : {
-        "effect" : "deny"
+```json
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "<guid>",
+    "isDefault": true,
+    "name": "Example Subscription One",
+    "registeredProviders": [],
+    "state": "Enabled",
+    "tenantId": "<guid>",
+    "user": {
+      "name": "example@contoso.org",
+      "type": "user"
     }
-    }
+  },
+  ...
+]
+```
 
-Затем выполните команду **policy definition create**.
+Обратите внимание, что одна подписка отмечена как подписка по умолчанию. Эта подписка является вашим текущим контекстом для операций. Чтобы переключиться на другую подписку, укажите имя подписки с помощью команды **az account set**.
 
-    azure policy definition create MyPolicy -p c:\temp\policy.json
+```azurecli-interactive
+az account set -s "Example Subscription Two"
+```
 
-После выполнения команды должен появиться результат, аналогичный приведенному ниже.
+Чтобы отобразить текущий контекст подписки, используйте команду **az account show** без параметра:
 
-    + Creating policy definition MyPolicy data:    PolicyName:             MyPolicy data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
+```azurecli-interactive
+az account show
+```
 
-    data:    PolicyType:             Custom data:    DisplayName:            undefined data:    Description:            undefined data:    PolicyRule:             field=location, in=[westus, northcentralus], effect=deny
+## <a name="create-a-resource-group"></a>Создание группы ресурсов
+Прежде чем развертывать ресурсы в подписке, необходимо создать группу ресурсов, которая будет их содержать.
 
- Чтобы назначить политику в определенной области, используйте свойство **PolicyDefinitionId**, возвращенное в предыдущей команде. В следующем примере в качестве этой области выступает подписка, но политику также можно назначить группе ресурсов или отдельным ресурсам.
+Чтобы создать группу ресурсов, используйте команду **az group create**. В команде используются параметр **name** для указания имени группы ресурсов и параметр **location** для указания ее расположения.
 
-    azure policy assignment create MyPolicyAssignment -p /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy -s /subscriptions/########-####-####-####-############/
+```azurecli-interactive
+az group create --name TestRG1 --location "South Central US"
+```
 
-С помощью команд **policy definition show**, **policy definition set** и **policy definition delete** можно получить, изменить или удалить определения политики.
+Выходные данные имеют следующий формат:
 
-Аналогичным образом с помощью команд **policy assignment show**, **policy assignment set** и **policy assignment delete** можно получить, изменить или удалить назначения политики.
+```json
+{
+  "id": "/subscriptions/<subscription-id>/resourceGroups/TestRG1",
+  "location": "southcentralus",
+  "managedBy": null,
+  "name": "TestRG1",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
 
-## <a name="export-a-resource-group-as-a-template"></a>Экспорт группы ресурсов в виде шаблона
-Вы можете просмотреть шаблон Resource Manager для любой существующей группы ресурсов. Экспорт шаблона обеспечивает два преимущества:
+Чтобы получить сведения о группе ресурсов, используйте следующую команду:
 
-1. Последующие развертывания решения можно с легкостью автоматизировать, так как в шаблоне определены все компоненты инфраструктуры.
-2. Вы можете ознакомиться с синтаксисом шаблона, просмотрев представление JSON для своего решения.
+```azurecli-interactive
+az group show --name TestRG1
+```
 
-С помощью интерфейса командной строки Azure вы можете экспортировать шаблон, который представляет текущее состояние группы ресурсов, или скачать шаблон, который использовался для конкретного развертывания.
+Для получения всех групп ресурсов в подписке используйте следующую команду:
 
-* **Экспорт шаблона для группы ресурсов** удобно использовать, если вы изменили группу ресурсов и хотите получить представление JSON ее текущего состояния. Однако созданный шаблон содержит только минимальное число параметров, и в нем не указаны какие-либо переменные. Большая часть значений в шаблоне заданы жестко. Прежде чем развертывать созданный шаблон, можно преобразовать дополнительные значения в параметры, чтобы настроить развертывание для разных сред.
-  
-    Чтобы экспортировать шаблон для группы ресурсов в локальный каталог, выполните команду `azure group export`, как показано в следующем примере. (Замените указанный в примере локальный каталог каталогом, используемым в вашей операционной системе.)
-  
-        azure group export testRG ~/azure/templates/
-* **Экспорт шаблона для конкретного развертывания** удобно использовать, если нужно просмотреть шаблон, с помощью которого были развернуты ресурсы. Этот шаблон содержит все параметры и переменные, определенные для исходного развертывания. Тем не менее если кто-то в организации внес изменения в группу ресурсов, в частности в параметры вне шаблона, этот шаблон не будет представлять текущее состояние группы ресурсов.
-  
-    Чтобы скачать в локальный каталог шаблон для конкретного развертывания, выполните команду `azure group deployment template download`. Например:
-  
-        azure group deployment template download TestRG testRGDeploy ~/azure/templates/downloads/
+```azurecli-interactive
+az group list
+```
 
-> [!NOTE]
-> Так как функция экспорта шаблона пока доступна в предварительной версии, поддерживаются не все типы ресурсов. При попытке экспорта шаблона может появиться сообщение о том, что некоторые ресурсы не экспортированы. При необходимости эти ресурсы можно определить вручную после скачивания шаблона.
-> 
-> 
+## <a name="add-resources-to-a-resource-group"></a>Добавление ресурсов в группу ресурсов
+Чтобы добавить ресурс в группу ресурсов, можно использовать команду **az resource create** или команду для конкретного типа создаваемого ресурса (например **az storage account create**). Возможно, проще использовать команду для конкретного типа ресурса, так как она включает в себя параметры для свойств, которые необходимы для нового ресурса. Чтобы использовать команду **az resource create**, необходимо знать все свойства и ввести их без запроса.
+
+Однако добавление ресурса с помощью сценария может привести к путанице в будущем, потому что новый ресурс не существует в шаблоне Resource Manager. Шаблоны обеспечивают надежность развертывания и позволяют развернуть решение повторно.
+
+Следующая команда создает учетную запись хранения. Вместо имени, использованного в примере, укажите уникальное имя для учетной записи хранения. Это имя должно содержать от 3 до 24 знаков и состоять только из цифр и букв нижнего регистра. При использовании имени из примера возникнет ошибка, так как это имя уже используется.
+
+```azurecli-interactive
+az storage account create -n myuniquestorage -g TestRG1 -l westus --sku Standard_LRS
+```
+
+Чтобы получить сведения об этом ресурсе, используйте следующую команду:
+
+```azurecli-interactive
+az storage account show --name myuniquestorage --resource-group TestRG1
+```
+
+## <a name="add-a-tag"></a>Добавление тега
+
+Теги позволяют организовать ресурсы в соответствии с различными свойствами. Например, в разных группах ресурсов могут находиться ресурсы, относящиеся к одному отделу. Чтобы пометить ресурсы как относящиеся к одной категории, к ним можно применить тег отдела и значение. Также можно пометить, в какой среде используется ресурс — рабочей или тестовой. В этом примере теги применяются только к одному ресурсу, но в вашей среде, скорее всего, имеет смысл применить теги ко всем ресурсам.
+
+Следующая команда применяет к учетной записи хранения два тега:
+
+```azurecli-interactive
+az resource tag --tags Dept=IT Environment=Test -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts"
+```
+
+Теги обновляются как один объект. Для добавления тега к ресурсу, который уже содержит теги, сначала получите сведения о существующих тегах. Добавьте новый тег в объект, содержащий существующие теги, а затем повторно примените к ресурсу все теги.
+
+```azurecli-interactive
+jsonrtag=$(az resource show -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts" --query tags)
+rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
+az resource tag --tags $rt Project=Redesign -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts"
+```
+
+## <a name="search-for-resources"></a>Поиск ресурсов
+
+Используйте команду **az resource list**, чтобы получить сведения о ресурсах для разных условий поиска.
+
+* Чтобы найти ресурс по имени, укажите параметр **name**:
+
+  ```azurecli-interactive
+  az resource list -n myuniquestorage
+  ```
+
+* Чтобы получить сведения о всех ресурсах в группе ресурсов, укажите параметр **resource-group**:
+
+  ```azurecli-interactive
+  az resource list --resource-group TestRG1
+  ```
+
+* Для получения сведений о всех ресурсах с именем и значением тега укажите параметр **tag**:
+
+  ```azurecli-interactive
+  az resource list --tag Dept=IT
+  ```
+
+* Для всех ресурсов с определенным типом ресурса укажите параметр **resource-type**:
+
+  ```azurecli-interactive
+  az resource list --resource-type "Microsoft.Storage/storageAccounts"
+  ```
+
+## <a name="lock-a-resource"></a>Блокировка ресурса
+
+Чтобы гарантировать, что критически важный ресурс не будет случайно удален или изменен, примените к нему блокировку ресурса. Можно указать параметр **CanNotDelete** или **ReadOnly**.
+
+Для создания или удаления блокировок управления необходим доступ к действию `Microsoft.Authorization/*` или `Microsoft.Authorization/locks/*`. Из встроенных ролей эти действия предоставляются только владельцу и администратору доступа пользователей.
+
+Чтобы применить блокировку, используйте следующую команду:
+
+```azurecli-interactive
+az lock create --lock-type CanNotDelete --resource-name myuniquestorage --resource-group TestRG1 --resource-type Microsoft.Storage/storageAccounts --name storagelock
+```
+
+Заблокированный ресурс в предыдущем примере невозможно удалить, пока не будет снята блокировка. Для снятия блокировки используйте следующий командлет:
+
+```azurecli-interactive
+az lock delete --name storagelock --resource-group TestRG1 --resource-type Microsoft.Storage/storageAccounts --resource-name myuniquestorage
+```
+
+Дополнительные сведения об установке блокировок см. в статье [Блокировка ресурсов с помощью диспетчера ресурсов Azure](resource-group-lock-resources.md).
+
+## <a name="remove-resources-or-resource-group"></a>Удаление ресурсов или группы ресурсов
+Ресурс или группу ресурсов можно удалить. При удалении группы ресурсов также удаляются все ресурсы, входящие в эту группу.
+
+* Чтобы удалить ресурс из группы ресурсов, используйте команду удаления для удаляемого типа ресурса. Команда удаляет ресурс, но не удаляет группу ресурсов.
+
+  ```azurecli-interactive
+  az storage account delete -n myuniquestorage -g TestRG1
+  ```
+
+* Чтобы удалить группу ресурсов и все ее ресурсы, используйте команду **az group delete**.
+
+  ```azurecli-interactive
+  az group delete -n TestRG1
+  ```
+
+В обоих командах требуется подтвердить, что вы хотите удалить ресурс или группу ресурсов.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения об операциях развертывания и устранении неполадок, связанных с развертыванием, см. в статье [Просмотр операций развертывания с помощью Azure Resource Manager](resource-manager-deployment-operations.md).
-* Сведения о настройке приложения или скрипта для доступа к ресурсам с помощью интерфейса командной строки см. в статье [Использование интерфейса командной строки Azure для создания субъекта-службы и доступа к ресурсам](resource-group-authenticate-service-principal-cli.md).
+* Сведения о создании шаблонов Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
+* Сведения о развертывании шаблонов см. в статье [Развертывание приложения с использованием шаблона Azure Resource Manager](resource-group-template-deploy-cli.md).
+* Существующие ресурсы можно переместить в новую группу ресурсов. Примеры см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](resource-group-move-resources.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-
-

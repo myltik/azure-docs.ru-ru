@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 80142d9f27abed181bca6f5f536b950198e66e20
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 12876bff2de5738068f033ecc4ef14b81a68f0f6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/17/2017
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>Добавление идентификатора пользователя и сеанса к телеметрии
 Для долговременного отслеживания пользователей Application Insights требуется способ их идентификации. Инструмент "События" — это единственный инструмент использования, не требующий идентификатор пользователя или сеанса.
 
-Приступите к отправке этих идентификаторов [сюда](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Начните отправку идентификаторов пользователей и сеансов с помощью [этого процесса](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Изучение демографических данных об использовании и статистики
 Узнайте, когда люди используют ваше приложение, какие страницы им наиболее интересны, где находятся ваши пользователи, какие браузеры и операционные системы они используют. 

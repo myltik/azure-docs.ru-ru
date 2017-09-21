@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 6510e0270bb2efa252a2b2ad40014c5d26b74a81
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 02e98aadc6a001c7275266d89a196a57bb366b3c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Руководство по Node.js: использование API DocumentDB в Azure Cosmos DB для создания консольного приложения Node.js
@@ -56,8 +56,10 @@ ms.lasthandoff: 08/16/2017
 ## <a name="prerequisites-for-the-nodejs-tutorial"></a>Предварительные требования для работы с руководством по Node.js
 Убедитесь, что у вас есть указанные ниже компоненты.
 
-* Активная учетная запись Azure. Если у вас нет такой учетной записи, вы можете зарегистрироваться для использования [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
-    * Кроме того, в этом руководстве можно использовать [эмулятор Azure Cosmos DB](local-emulator.md).
+* Активная учетная запись Azure. Если у вас нет такой учетной записи, вы можете зарегистрироваться для использования [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/). 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
 * [Node.js](https://nodejs.org/) версии v0.10.29 или выше.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Шаг 1. Создание учетной записи Azure Cosmos DB
@@ -93,7 +95,7 @@ ms.lasthandoff: 08/16/2017
     config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
-Скопируйте ```database id```, ```collection id``` и ```JSON documents```, а затем вставьте их в объект ```config``` ниже, где задавались значения свойств ```config.endpoint``` и ```config.authKey```. Если у вас уже есть данные, которые необходимо хранить в базе данных, вместо добавления определений документа можно использовать [средство переноса данных](import-data.md) в Azure Cosmos DB.
+Скопируйте ```database id```, ```collection id``` и ```JSON documents```, а затем вставьте их в объект ```config``` ниже, где задавались значения свойств ```config.endpoint``` и ```config.primaryKey```. Если у вас уже есть данные, которые необходимо хранить в базе данных, вместо добавления определений документа можно использовать [средство переноса данных](import-data.md) в Azure Cosmos DB.
 
     config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
@@ -263,7 +265,7 @@ ms.lasthandoff: 08/16/2017
 
 ## <a id="CreateColl"></a>Шаг 6. Создание коллекции
 > [!WARNING]
-> Элемент **CreateDocumentCollectionAsync** создаст коллекцию, с которой связаны ценовые требования. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/cosmos-db/).
+> Элемент **CreateCollection** создаст коллекцию, с которой связаны ценовые требования. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
@@ -615,7 +617,7 @@ Azure Cosmos DB поддерживает удаление документов J
 
 * ```npm install documentdb --save```
 
-Затем в файле ```config.js``` обновите значения config.endpoint и config.authKey, как описано в разделе [Шаг 3. Настройка конфигурации приложения](#Config). 
+Затем в файле ```config.js``` обновите значения config.endpoint и config.primaryKey, как описано в разделе [Шаг 3. Настройка конфигурации приложения](#Config). 
 
 Затем в окне терминала перейдите к файлу ```app.js``` и выполните команду ```node app.js```.
 

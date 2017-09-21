@@ -1,6 +1,6 @@
 ---
 title: "Устранение сбоя службы Azure Backup: состояние гостевого агента \"Недоступно\" | Документация Майкрософт"
-description: "Симптомы, причины и способы устранения проблем в работе службы Azure Backup, связанных с ошибкой: Could not communicate with the VM agent (Не удалось связаться с агентом виртуальной машины)"
+description: "Симптомы, причины и способы устранения проблем в работе службы Azure Backup, связанных с агентом, расширением или дисками."
 services: backup
 documentationcenter: 
 author: genlin
@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 6ed651bb8caafd18cec93e68ac70e27f92133e5c
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: d2dda47bb3ba5a397ad9626ca4705214dd2560f8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -67,6 +67,10 @@ ms.lasthandoff: 08/17/2017
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Причина 3. [Устарел агент, установленный на виртуальной машине (для виртуальных машин Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Причина 4. [Не удалось получить состояние моментального снимка или создать моментальный снимок](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Причина 5. [Не удалось обновить или загрузить расширение резервного копирования](#the-backup-extension-fails-to-update-or-load)
+
+## <a name="the-specified-disk-configuration-is-not-supported"></a>Указанная конфигурация диска не поддерживается
+
+Сейчас служба Azure Backup не поддерживает размер диска больше 1023 ГБ. Убедитесь, что размер диска не превышает ограничение, разбив диски. Для этого необходимо скопировать данные на дисках размером больше 1023 ГБ на созданные диски размером до 1023 ГБ.
 
 
 ## <a name="causes-and-solutions"></a>Причины и решения

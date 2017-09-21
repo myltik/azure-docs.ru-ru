@@ -6,19 +6,18 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 09/08/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 5d24fb99e1095d53e5ea547e53b80178d9cb77c0
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 56b73ff30e7fdaa3c21bc1e5528e2f6118597ef1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала
@@ -30,133 +29,159 @@ ms.lasthandoff: 07/21/2017
 * Можно использовать сертификат, чтобы автоматизировать аутентификацию при выполнении автоматического сценария.
 
 В этой статье рассказывается, как это сделать с помощью портала. Здесь рассматривается однотенантное приложение — решение, используемое в пределах одной организации. Обычно однотенантная архитектура используется для создания бизнес-приложений в рамках организации.
- 
+
 ## <a name="required-permissions"></a>Необходимые разрешения
+
 Для работы с этой статьей у вас должны быть права на регистрацию приложения в клиенте Azure AD и назначение приложению роли в подписке Azure. Давайте убедимся, что у вас есть необходимые права на выполнение этих шагов.
 
 ### <a name="check-azure-active-directory-permissions"></a>Проверка разрешений в Azure Active Directory
+
 1. Войдите в учетную запись Azure на [портале Azure](https://portal.azure.com).
-2. Выберите **Azure Active Directory**.
 
-     ![Выбор Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
-3. В Azure Active Directory выберите **Параметры пользователя**.
+1. Выберите **Azure Active Directory**.
 
-     ![Выбор параметров пользователя](./media/resource-group-create-service-principal-portal/select-user-settings.png)
-4. Проверьте параметр **Регистрация приложений**. Если здесь указано значение **Да**, пользователи без прав администратора могут регистрировать приложения в Active Directory. Это означает, что приложение в клиенте Azure AD может зарегистрировать любой пользователь. В таком случае можно выполнить [проверку прав доступа к подпискам Azure](#check-azure-subscription-permissions).
+   ![Выбор Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-     ![Проверка регистрации приложений](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
-5. Если для параметра регистрации приложений указано значение **Нет**, это значит, что только пользователи с правами администратора могут регистрировать приложения. В таком случае вам нужно проверить, назначена ли вашей учетной записи роль администратора Azure AD. В разделе "Быстрые задачи" щелкните **Обзор**, а затем выберите **Найти пользователя**.
+1. В Azure Active Directory выберите **Параметры пользователя**.
 
-     ![Пункт "Найти пользователя"](./media/resource-group-create-service-principal-portal/find-user.png)
-6. Найдите свою учетную запись и выберите ее.
+   ![Выбор параметров пользователя](./media/resource-group-create-service-principal-portal/select-user-settings.png)
 
-     ![Поиск пользователя](./media/resource-group-create-service-principal-portal/show-user.png)
-7. В разделе со сведениями об учетной записи щелкните **Роль каталога**. 
+1. Проверьте параметр **Регистрация приложений**. Если здесь указано значение **Да**, пользователи без прав администратора могут регистрировать приложения в Active Directory. Это означает, что приложение в клиенте Azure AD может зарегистрировать любой пользователь. В таком случае можно выполнить [проверку прав доступа к подпискам Azure](#check-azure-subscription-permissions).
 
-     ![Пункт "Роль каталога"](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-8. Просмотрите назначенную роль каталога в Azure AD. Если вашей учетной записи назначена роль пользователя, а параметр регистрации приложений (который мы проверили на предыдущем этапе) разрешает регистрацию только администраторам, обратитесь к администратору с просьбой назначить вам роль администратора или включить для пользователей возможность регистрации приложений.
+   ![Проверка регистрации приложений](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-     ![Просмотр роли](./media/resource-group-create-service-principal-portal/view-role.png)
+1. Если для параметра регистрации приложений указано значение **Нет**, это значит, что только пользователи с правами администратора могут регистрировать приложения. Проверьте, назначена ли для вашей учетной записи роль администратора клиента Azure AD. В разделе "Быстрые задачи" щелкните **Обзор**, а затем выберите **Найти пользователя**.
+
+   ![Пункт "Найти пользователя"](./media/resource-group-create-service-principal-portal/find-user.png)
+
+1. Найдите свою учетную запись и выберите ее.
+
+   ![Поиск пользователя](./media/resource-group-create-service-principal-portal/show-user.png)
+
+1. В разделе со сведениями об учетной записи щелкните **Роль каталога**.
+
+   ![Пункт "Роль каталога"](./media/resource-group-create-service-principal-portal/select-directory-role.png)
+
+1. Просмотрите назначенную роль каталога в Azure AD. Если вашей учетной записи назначена роль пользователя, а параметр регистрации приложений (который мы проверили на предыдущем этапе) разрешает регистрацию только администраторам, обратитесь к администратору с просьбой назначить вам роль администратора или включить для пользователей возможность регистрации приложений.
+
+   ![Просмотр роли](./media/resource-group-create-service-principal-portal/view-role.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Проверка прав доступа к подпискам Azure
-Чтобы вы могли назначить роль приложению Active Directory, вашей учетной записи в подписке Azure должно быть предоставлено разрешение `Microsoft.Authorization/*/Write`. Это разрешение предоставляется ролью [владельца](../active-directory/role-based-access-built-in-roles.md#owner) или [администратора доступа пользователей](../active-directory/role-based-access-built-in-roles.md#user-access-administrator). Если вашей учетной записи назначена роль **участник**, значит у вас нет соответствующего разрешения. При попытке назначить роль субъекту-службе вы увидите ошибку. 
+
+Чтобы вы могли назначить роль приложению Active Directory, вашей учетной записи в подписке Azure должно быть предоставлено разрешение `Microsoft.Authorization/*/Write`. Это разрешение предоставляется ролью [владельца](../active-directory/role-based-access-built-in-roles.md#owner) или [администратора доступа пользователей](../active-directory/role-based-access-built-in-roles.md#user-access-administrator). Если вашей учетной записи назначена роль **участник**, значит у вас нет соответствующего разрешения. При попытке назначить роль субъекту-службе вы увидите ошибку.
 
 Чтобы проверить права доступа к подписке, выполните следующие действия.
 
 1. Если вы еще не открыли страницу своей учетной записи Azure AD, щелкните **Azure Active Directory** на панели слева.
 
-2. Найдите свою учетную запись Azure AD. В разделе "Быстрые задачи" щелкните **Обзор**, а затем выберите **Найти пользователя**.
+1. Найдите свою учетную запись Azure AD. В разделе "Быстрые задачи" щелкните **Обзор**, а затем выберите **Найти пользователя**.
 
-     ![Пункт "Найти пользователя"](./media/resource-group-create-service-principal-portal/find-user.png)
-2. Найдите свою учетную запись и выберите ее.
+   ![Пункт "Найти пользователя"](./media/resource-group-create-service-principal-portal/find-user.png)
 
-     ![Поиск пользователя](./media/resource-group-create-service-principal-portal/show-user.png) 
-     
-3. Щелкните **Ресурсы Azure**.
+1. Найдите свою учетную запись и выберите ее.
 
-     ![Выбор ресурсов](./media/resource-group-create-service-principal-portal/select-azure-resources.png) 
-3. Просмотрите назначенные вам роли и определите, есть ли у вас разрешение назначать роли приложению Active Directory. Если разрешения нет, обратитесь к администратору подписки с просьбой назначить вам роль администратора доступа пользователей. На следующем рисунке представлен пользователь, которому назначены роли владельца для двух подписок. Это значит, что такой пользователь имеет необходимые разрешения. 
+   ![Поиск пользователя](./media/resource-group-create-service-principal-portal/show-user.png)
 
-     ![Просмотр разрешений](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
+1. Щелкните **Ресурсы Azure**.
+
+   ![Выбор ресурсов](./media/resource-group-create-service-principal-portal/select-azure-resources.png)
+
+1. Просмотрите назначенные вам роли и определите, есть ли у вас разрешение назначать роли приложению Active Directory. Если разрешения нет, обратитесь к администратору подписки с просьбой назначить вам роль администратора доступа пользователей. На следующем рисунке представлен пользователь, которому назначены роли владельца для двух подписок. Это значит, что такой пользователь имеет необходимые разрешения.
+
+   ![Просмотр разрешений](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
 ## <a name="create-an-azure-active-directory-application"></a>Создание приложения Azure Active Directory
+
 1. Войдите в учетную запись Azure на [портале Azure](https://portal.azure.com).
-2. Выберите **Azure Active Directory**.
+1. Выберите **Azure Active Directory**.
 
-     ![Выбор Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+   ![Выбор Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-4. Щелкните **Регистрация приложений**.   
+1. Щелкните **Регистрация приложений**.
 
-     ![Пункт "Регистрация приложений"](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
-5. Выберите **Добавить**.
+   ![Пункт "Регистрация приложений"](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
 
-     ![Действие "Добавить приложение"](./media/resource-group-create-service-principal-portal/select-add-app.png)
+1. Выберите **Регистрация нового приложения**.
 
-6. Укажите имя и URL-адрес для приложения. Выберите тип создаваемого приложения: **веб-приложение или API** или **собственное приложение**. Выбрав нужные значения, нажмите кнопку **Создать**.
+   ![Действие "Добавить приложение"](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-     ![указание имени приложения](./media/resource-group-create-service-principal-portal/create-app.png)
+1. Укажите имя и URL-адрес для приложения. Выберите тип создаваемого приложения: **веб-приложение или API** или **собственное приложение**. Выбрав нужные значения, нажмите кнопку **Создать**.
+
+   ![указание имени приложения](./media/resource-group-create-service-principal-portal/create-app.png)
 
 Приложение создано.
 
 ## <a name="get-application-id-and-authentication-key"></a>Получение идентификатора приложения и ключа проверки подлинности
+
 При программном входе необходимо указывать идентификатор приложения и ключ проверки подлинности. Получить эти значения можно следующим образом.
 
 1. В Azure Active Directory в разделе **Регистрация приложений** выберите нужное приложение.
 
-     ![Выбор приложения](./media/resource-group-create-service-principal-portal/select-app.png)
-2. Скопируйте **идентификатор приложения** и сохраните его в коде приложения. Приложения в разделе [примеров приложений](#sample-applications) используют это значение как идентификатор клиента.
+   ![Выбор приложения](./media/resource-group-create-service-principal-portal/select-app.png)
 
-     ![Идентификатор клиента](./media/resource-group-create-service-principal-portal/copy-app-id.png)
-3. Чтобы создать ключ проверки подлинности, щелкните **Ключи**.
+1. Скопируйте **идентификатор приложения** и сохраните его в коде приложения. Приложения в разделе [примеров приложений](#sample-applications) используют это значение как идентификатор клиента.
 
-     ![Пункт "Ключи"](./media/resource-group-create-service-principal-portal/select-keys.png)
-4. Введите описание и срок действия ключа. Затем нажмите кнопку **Сохранить**.
+   ![Идентификатор клиента](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 
-     ![Сохранение ключа](./media/resource-group-create-service-principal-portal/save-key.png)
+1. Чтобы создать ключ проверки подлинности, щелкните **Ключи**.
 
-     После этого отобразится значение ключа. Это значение нельзя будет получить позже, поэтому скопируйте его сразу. Это значение необходимо предоставить вместе с идентификатором приложения для входа от имени приложения. Сохраните значение ключа, чтобы приложение могло получить к нему доступ.
+   ![Пункт "Ключи"](./media/resource-group-create-service-principal-portal/select-keys.png)
 
-     ![сохраненный ключ](./media/resource-group-create-service-principal-portal/copy-key.png)
+1. Введите описание и срок действия ключа. Затем нажмите кнопку **Сохранить**.
+
+   ![Сохранение ключа](./media/resource-group-create-service-principal-portal/save-key.png)
+
+   После этого отобразится значение ключа. Это значение нельзя будет получить позже, поэтому скопируйте его сразу. Это значение необходимо предоставить вместе с идентификатором приложения для входа от имени приложения. Сохраните значение ключа, чтобы приложение могло получить к нему доступ.
+
+   ![сохраненный ключ](./media/resource-group-create-service-principal-portal/copy-key.png)
 
 ## <a name="get-tenant-id"></a>Получение идентификатора клиента
-При программном входе необходимо передать идентификатор клиента в запросе на проверку подлинности. 
 
-1. Чтобы получить идентификатор клиента, щелкните **Свойства** для клиента Azure AD. 
+При программном входе необходимо передать идентификатор клиента в запросе на проверку подлинности.
 
-     ![Выбор свойств Azure AD](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
+1. Выберите **Azure Active Directory**.
 
-2. Скопируйте **идентификатор каталога**. Это и есть ваш идентификатор клиента.
+   ![Выбор Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-     ![Идентификатор клиента](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
+1. Чтобы получить идентификатор клиента, щелкните **Свойства** для клиента Azure AD.
+
+   ![Выбор свойств Azure AD](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
+
+1. Скопируйте **идентификатор каталога**. Это и есть ваш идентификатор клиента.
+
+   ![tenant ID](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
 ## <a name="assign-application-to-role"></a>Назначение роли приложению
+
 Чтобы обеспечить доступ к ресурсам в подписке, необходимо назначить приложению роль. Укажите, какая роль предоставит приложению необходимые разрешения. Дополнительные сведения о доступных ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
 
 Вы можете задать область действия на уровне подписки, группы ресурсов или ресурса. Разрешения наследуют более низкие уровни области действия. Например, добавление приложения в роль читателя для группы ресурсов означает, что оно может считывать группу ресурсов и все содержащиеся в ней ресурсы.
 
 1. Перейдите на уровень области действия, которому вы хотите назначить приложение. Например, чтобы назначить роль в области действия подписки выберите **Подписки**. Или же вы можете выбрать группу ресурсов либо отдельный ресурс.
 
-     ![выбрать подписку](./media/resource-group-create-service-principal-portal/select-subscription.png)
+   ![выбрать подписку](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
-2. Выберите определенную подписку, группу ресурсов или ресурс, которым будет назначено приложение.
+1. Выберите определенную подписку, группу ресурсов или ресурс, которым будет назначено приложение.
 
-     ![выбрать подписку для назначения](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+   ![выбрать подписку для назначения](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
-3. Выберите **Управление доступом (IAM)**.
+1. Выберите **Управление доступом (IAM)**.
 
-     ![выбрать доступ](./media/resource-group-create-service-principal-portal/select-access-control.png)
+   ![выбрать доступ](./media/resource-group-create-service-principal-portal/select-access-control.png)
 
-4. Выберите **Добавить**.
+1. Выберите **Добавить**.
 
-     ![выбрать "добавить"](./media/resource-group-create-service-principal-portal/select-add.png)
-6. Выберите роль, которая будет назначена приложению. На следующем изображении представлена роль **Читатель**.
+   ![выбрать "добавить"](./media/resource-group-create-service-principal-portal/select-add.png)
 
-     ![выбрать роль](./media/resource-group-create-service-principal-portal/select-role.png)
+1. Выберите роль, которая будет назначена приложению. На следующем изображении представлена роль **Читатель**.
 
-8. Найдите приложение и выберите его.
+   ![выбрать роль](./media/resource-group-create-service-principal-portal/select-role.png)
 
-     ![Поиск приложения](./media/resource-group-create-service-principal-portal/search-app.png)
-9. Нажмите кнопку **ОК**, чтобы завершить назначение роли. Вы увидите свое приложение в списке пользователей, назначенных выбранной роли для выбранной области действия.
+1. Найдите приложение и выберите его.
+
+   ![Поиск приложения](./media/resource-group-create-service-principal-portal/search-app.png)
+
+1. Выберите **Сохранить**, чтобы завершить назначение роли. Вы увидите свое приложение в списке пользователей, назначенных выбранной роли для выбранной области действия.
 
 ## <a name="log-in-as-the-application"></a>Вход с учетной записью приложения
 
@@ -170,7 +195,6 @@ ms.lasthandoff: 07/21/2017
 * [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
 * [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о настройке мультитенантного приложения см. в статье [Управление ресурсами клиента с помощью Azure Active Directory и Resource Manager](resource-manager-api-authentication.md).

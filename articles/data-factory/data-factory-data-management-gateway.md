@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: f1f57404734ad6dc77250b180a9c334de60f0af3
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d032dd38655ef5c7763602739773f9c589cd65a8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="data-management-gateway"></a>Шлюз управления данными
@@ -139,6 +139,7 @@ ms.lasthandoff: 09/06/2017
 | *.servicebus.windows.net |443, 80 |Используется для связи с серверной частью службы перемещения данных. |
 | *.core.windows.net |443 |Используется для промежуточного копирования с помощью большого двоичного объекта Azure (если оно настроено).|
 | *.frontend.clouddatahub.net |443 |Используется для связи с серверной частью службы перемещения данных. |
+| *.servicebus.windows.net |9350-9354, 5671 |Дополнительная ретрансляция служебной шины по протоколу TCP, используемая мастером копирования |
 
 
 Эти исходящие порты, как правило, включены на уровне брандмауэра Windows. В противном случае домены и порты можно соответствующим образом настроить на компьютере шлюза.

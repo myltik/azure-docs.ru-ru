@@ -1,6 +1,6 @@
 ---
-title: "Конфигурация VPN-устройств сторонних производителей для подключения к VPN-шлюзам Azure | Документация Майкрософт"
-description: "В этой статье содержится обзор конфигураций VPN-устройств сторонних производителей, позволяющих подключаться к VPN-шлюзам Azure."
+title: "Конфигурации партнерских VPN-устройств для подключения к VPN-шлюзам Azure | Документация Майкрософт"
+description: "В этой статье содержится обзор конфигураций партнерских VPN-устройств, позволяющих подключаться к VPN-шлюзам Azure."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,28 +16,27 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 72dab85bb882b05d72cef26bef70437695b70416
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: b3806d16d3b78347e183ecbd2ab5a463a2142110
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="overview-of-3rd-party-vpn-device-configurations"></a>Обзор конфигураций VPN-устройств сторонних производителей
-В этой статье содержится обзор конфигураций локальных VPN-устройств, позволяющих подключаться к VPN-шлюзам Azure. Для подключения к различным локальным VPN-устройствам с одинаковыми параметрами будут использованы примеры виртуальной сети Azure и настройки VPN-шлюза.
+# <a name="overview-of-partner-vpn-device-configurations"></a>Обзор конфигураций партнерских VPN-устройств
+В этой статье содержится обзор процесса настройки локальных VPN-устройств для подключения к VPN-шлюзам Azure. Для демонстрации подключения к различным конфигурациям локальных VPN-устройств с помощью одинаковых параметров используются примеры виртуальной сети Azure и настройки VPN-шлюза.
 
 ## <a name="device-requirements"></a>Требования к устройствам
-В VPN-шлюзах Azure используются стандартные наборы протоколов IPsec/IKE для VPN-туннелей S2S. Подробные параметры протокола IPsec/IKE и алгоритмы шифрования по умолчанию для VPN-шлюзов Azure см. в статье [VPN-устройства и параметры IPsec/IKE для подключений типа "сеть — сеть" через VPN-шлюз](vpn-gateway-about-vpn-devices.md). Дополнительно можно указать точную комбинацию алгоритмов шифрования и уровней стойкости ключа для определенного подключения, как описано в статье [Требования к шифрованию и VPN-шлюзы Azure](vpn-gateway-about-compliance-crypto.md).
+В VPN-шлюзах Azure используются стандартные наборы протоколов IPsec/IKE для VPN-туннелей типа "сайт — сайт" (S2S). Список параметров IPsec/IKE и алгоритмы шифрования для VPN-шлюзов Azure приведены в статье [VPN-устройства и параметры IPsec/IKE для подключений типа "сеть — сеть" через VPN-шлюз](vpn-gateway-about-vpn-devices.md). Также можно указать точные алгоритмы и уровни стойкости ключа для определенного подключения, как описано в статье [Требования к шифрованию и VPN-шлюзы Azure](vpn-gateway-about-compliance-crypto.md).
 
 ## <a name ="singletunnel"></a>Одиночный VPN-туннель
-Первая топология состоит из одного VPN-туннеля S2S между VPN-шлюзом Azure и локальным VPN-устройством. При необходимости можно также настроить BGP поверх VPN-туннеля.
+Первая конфигурация в примере состоит из одного VPN-туннеля S2S между VPN-шлюзом Azure и локальным устройством VPN. При необходимости можно также настроить [протокол BGP поверх VPN-туннеля](#bgp).
 
-![Одиночный туннель](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
+![Схема одиночного VPN-туннеля S2S](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Подробное пошаговое руководство см. в статье [Создание подключения типа "сеть — сеть" на портале Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md). В следующих разделах перечислены параметры и представлен пример скрипта PowerShell для начала работы.
+Пошаговые инструкции по настройке одиночного VPN-туннеля см. в статье [Создание подключения типа "сеть — сеть" на портале Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md). В следующих разделах указаны параметры подключения для примера конфигурации, а также приводится сценарий PowerShell для начала работы.
 
-### <a name="network-and-vpn-gateway-information"></a>Сведения о сети и VPN-шлюзе
-В этом разделе перечислены параметры, использующиеся в примерах, упомянутых выше.
+### <a name="connection-parameters"></a>Параметры подключения
+В этом разделе перечислены параметры для примеров, описанных в предыдущих разделах.
 
 | **Параметр**                | **Значение**                    |
 | ---                          | ---                          |
@@ -47,13 +46,13 @@ ms.lasthandoff: 07/10/2017
 | IP-адрес VPN-устройства в локальной среде    | IP-адрес VPN-устройства в локальной среде    |
 | *ASN для BGP виртуальной сети                | 65010                        |
 | *IP-адрес узла BGP Azure           | 10.12.255.30                 |
-| *ASN BGP в локальной среде         | 65050                        |
+| *ASN для BGP в локальной среде         | 65050                        |
 | *IP-адрес узла BGP в локальной среде     | 10.52.255.254                |
 
-* (*) Необязательные параметры только для BGP
+\* Необязательный параметр только для BGP.
 
 ### <a name="sample-powershell-script"></a>Пример скрипта PowerShell
-Подробные инструкции содержатся в статье [Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md). В этом разделе приведен пример скрипта для начала работы.
+В этом разделе приведен пример скрипта для начала работы. Подробные инструкции приводятся в статье [Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 ```powershell
 # Declare your variables
@@ -118,17 +117,18 @@ $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False
 ```
 
-### <a name ="policybased"></a> [Необязательно] Использование настраиваемой политики IPsec/IKE с параметром UsePolicyBasedTrafficSelectors
-Если ваши VPN-устройства не поддерживают селекторы трафика "любой к любому" (конфигурация на основе маршрутов или на основе VTI), вам потребуется создать настраиваемую политику IPsec/IKE и настроить параметр UsePolicyBasedTrafficSelectors, как описано в [этой статье](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+### <a name ="policybased"></a>(Необязательно) Использование настраиваемой политики IPsec/IKE с параметром UsePolicyBasedTrafficSelectors
+Если ваши VPN-устройства не поддерживают селекторы трафика "любой к любому", такие как конфигурация на основе маршрутов или на основе VTI, то создайте настраиваемую политику IPsec/IKE с параметром [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 > [!IMPORTANT]
-> Вам необходимо создать политику IPsec/IKE для включения параметра "UsePolicyBasedTrafficSelectors" для подключения.
+> Необходимо создать политику IPsec/IKE для включения параметра **UsePolicyBasedTrafficSelectors** для подключения.
 
-Пример сценария ниже создает политику IPsec/IKE со следующими параметрами и алгоритмами:
+
+Пример сценария создает политику IPsec/IKE со следующими параметрами и алгоритмами:
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA1, PFS24, время существования сопоставления безопасности 7200 секунд, размер 20480000 КБ (20 ГБ).
+* IPsec: AES256, SHA1, PFS24, время существования сопоставления безопасности 7200 секунд, размер 20 480 000 КБ (20 ГБ).
 
-Затем политика применяется, и для подключения включается параметр UsePolicyBasedTrafficSelectors.
+Сценарий применяет политику IPsec/IKE и включает параметр **UsePolicyBasedTrafficSelectors** для подключения.
 
 ```powershell
 $ipsecpolicy5 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA1 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 20480000
@@ -139,22 +139,22 @@ $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
 ```
 
-### <a name ="bgp"></a>[Необязательно] Использование BGP в VPN-подключении типа "сеть — сеть"
-В подключении можно при необходимости использовать BGP. См. статью [Настройка BGP на VPN-шлюзах Azure с помощью PowerShell](vpn-gateway-bgp-resource-manager-ps.md). Существует два отличия.
+### <a name ="bgp"></a>[Необязательно] Использование BGP в VPN-подключении типа "сеть — сеть"
+При создании VPN-подключения типа "сеть — сеть" (S2S) можно использовать [BGP для VPN-шлюза](vpn-gateway-bgp-resource-manager-ps.md). Такой подход имеет два отличия:
 
-Префиксы адресов в локальной среде могут быть адресом одиночного хоста, IP-адресом узла BGP в локальной среде:
+* Префиксы адресов в локальной среде могут быть адресом одиночного хоста. IP-адрес узла BGP в локальной среде указывается следующим образом:
 
-```powershell
-New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
-```
+    ```powershell
+    New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
+    ```
 
-При создании подключения необходимо задать для параметра -EnableBGP значение $True:
+* При создании подключения необходимо задать для параметра **-EnableBGP** значение $True:
 
-```powershell
-New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
-```
+    ```powershell
+    New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
+    ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Инструкции по настройке распределенных подключений (локальных и между виртуальными сетями) с конфигурацией "активный — активный" см. в статье [Настройка VPN-подключений типа "сеть — сеть" в режиме "активный — активный" для VPN-шлюзов Azure с помощью Azure Resource Manager и PowerShell](vpn-gateway-activeactive-rm-powershell.md).
+Пошаговые инструкции по настройке VPN-шлюзов в режиме "активный — активный" см. в статье [Настройка VPN-подключений типа "сеть — сеть" в режиме "активный — активный" для VPN-шлюзов Azure](vpn-gateway-activeactive-rm-powershell.md).
 
 

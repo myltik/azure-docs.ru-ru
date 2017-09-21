@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 23a4a82dbdb611f4da90562af936fca28da9b24d
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a60c47814da2660f17456f5e662f420adbb9158e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 09/09/2017
 
 ---
-# <a name="how-to-import-data-into-azure-cosmos-db-for-the-documentdb-api"></a>Как импортировать данные в Azure Cosmos DB для API DocumentDB
+# <a name="how-to-import-data-into-azure-cosmos-db-with-the-documentdb-api"></a>Как импортировать данные в Azure Cosmos DB для API DocumentDB
 
 В этом руководстве приведены инструкции по использованию Azure Cosmos DB: средства миграции данных API DocumentDB, которое может импортировать данные из разных источников, включая файлы JSON и CSV-файлы, SQL, MongoDB, Хранилище таблиц Azure, коллекции Amazon DynamoDB и API DocumentDB в Azure Cosmos DB для использования с Azure Cosmos DB и API DocumentDB. Средство миграции данных можно также использовать при миграции из односекционной коллекции в многосекционную для API DocumentDB.
 
