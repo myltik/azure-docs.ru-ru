@@ -7,16 +7,15 @@
 ## [Совместимое стороннее программное обеспечение](active-directory-ds-compatible-software.md)
 
 # Начало работы
-## Портал Azure (предварительная версия)
-### [Задача 1. Настройка основных параметров](active-directory-ds-getting-started.md)
-### [Задача 2. Настройка сетевых параметров](active-directory-ds-getting-started-network.md)
-### [Задача 3. Настройка группы администраторов и включение доменных служб Azure AD](active-directory-ds-getting-started-admingroup.md)
-### [Задача 4. Обновление параметров DNS для виртуальной сети](active-directory-ds-getting-started-dns.md)
-### [Задача 5. Включение синхронизации паролей](active-directory-ds-getting-started-password-sync.md)
+## [Задача 1. Настройка основных параметров](active-directory-ds-getting-started.md)
+## [Задача 2. Настройка сетевых параметров](active-directory-ds-getting-started-network.md)
+## [Задача 3. Настройка группы администраторов и включение доменных служб Azure AD](active-directory-ds-getting-started-admingroup.md)
+## [Задача 4. Обновление параметров DNS для виртуальной сети](active-directory-ds-getting-started-dns.md)
+## [Задача 5. Включение синхронизации паролей](active-directory-ds-getting-started-password-sync.md)
 
 # Практическое руководство
 ## Присоединение к управляемому домену
-### [Присоединение виртуальной машины Windows Server](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Присоединение виртуальной машины Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Присоединение виртуальной машины Windows с помощью PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Присоединение виртуальной машины Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Администрирование управляемого домена

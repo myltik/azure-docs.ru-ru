@@ -257,14 +257,6 @@
           href: sql-database-ssms-mfa-authentication-configure.md
     - name: Непрерывность бизнес-процессов
       items:
-        - name: Настройка хранилища (резервные копии)
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: Георепликация (портал)
-          href: sql-database-geo-replication-portal.md
-        - name: Восстановление отдельной таблицы
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: Загрузка и перемещение данных
-      items:
         - name: Загрузка данных с помощью BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Загрузка данных с помощью ADF

@@ -143,6 +143,8 @@
               href: agent-user-guide.md
             - name: Обновление агента
               href: update-agent.md
+        - name: Плановое техническое обслуживание
+          href: maintenance-notifications.md
         - name: Запланированные события
           href: scheduled-events.md
         - name: Монитор метаданных

@@ -131,6 +131,8 @@
           href: download-template.md
         - name: Агент виртуальной машины Azure
           href: agent-user-guide.md
+        - name: Плановое техническое обслуживание
+          href: maintenance-notifications.md
         - name: Запланированные события
           href: scheduled-events.md
         - name: Монитор метаданных

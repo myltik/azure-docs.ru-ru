@@ -6,7 +6,7 @@
 
 # Практическое руководство
 ## Интеграция
-### [Веб-приложения](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Веб-приложения](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Облачные службы](cdn-cloud-service-with-cdn.md)
 ### [Хранилище](cdn-create-a-storage-account-with-cdn.md)
 ### [Общий доступ к ресурсам независимо от источника](cdn-cors.md)
