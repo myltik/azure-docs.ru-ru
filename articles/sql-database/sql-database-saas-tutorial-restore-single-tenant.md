@@ -1,11 +1,11 @@
 ---
-title: "Восстановление базы данных SQL Azure в мультитенантном приложении | Документация Майкрософт"
+title: "Восстановление базы данных SQL Azure в мультитенантном приложении SaaS | Документация Майкрософт"
 description: "Сведения о восстановлении баз данных SQL отдельных клиентов после случайного удаления данных."
 keywords: "руководство по базе данных sql"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -16,15 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 792476849e796695dde3f2ec80b56431a17e8fc0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>Восстановление базы данных SQL клиентов SaaS Wingtip
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Восстановление базы данных SQL Azure с одним клиентом в приложении SaaS с несколькими клиентами
 
 Приложение SaaS Wingtip создано на основе модели, предусматривающей использование одной базы данных для каждого клиента. Одно из преимуществ этой модели заключается в простоте восстановления данных отдельного изолированного клиента, не влияя на другие клиенты.
 

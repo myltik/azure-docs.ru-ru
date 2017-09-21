@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/12/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: db5966c920eb29742b2ee0fbd9386319eaaf1c77
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 29fee079bd8b2775d7b45fa37cadb73635a2eb60
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Добавление или изменение ролей администратора Azure, управляющих подписками и службами
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/31/2017
 В качестве соадминистратора можно добавить только владельца. Пользователей с такими ролями, как "участник" и "читатель", невозможно добавить в качестве соадминистратора.
 
 1. Если владелец еще не назначен, сделайте это, следуя инструкциям выше.
-1. **Щелкните правой кнопкой мыши** только что добавленного владельца, а затем выберите **Добавить соадминистратора**. 
+2. **Щелкните правой кнопкой мыши** только что добавленного владельца, а затем выберите **Добавить соадминистратора**. Если вы не видите параметр **Добавить соадминистратора**, обновите страницу или попробуйте использовать другой браузер. 
 
      ![Снимок экрана, на котором показаны элементы для добавления соадминистратора](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 

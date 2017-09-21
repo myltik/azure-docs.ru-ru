@@ -13,19 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 09/13/2017
 ms.author: cjiang
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: ff1cc44c01061aa924917e082d582bdebfb40c21
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b7b3e4539110f68e1e6ef4a75110924a27b40c49
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="associate-an-office-365-tenant-to-an-azure-subscription"></a>Связывание клиента Office 365 с подпиской Azure
-Свяжите отдельные подписки Azure и Office 365, чтобы иметь доступ к клиенту Office 365 из подписки Azure. Чтобы связать подписки, войдите в Azure, используя учетную запись администратора служб Azure, добавьте каталог, а затем добавьте учетные записи организации Office 365 в клиент Azure Active Directory.
+# <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>Связывание клиента Office 365 с подпиской Azure
+Свяжите отдельные подписки Azure и Office 365, чтобы иметь доступ к клиенту Office 365 из подписки Azure. Чтобы связать подписки, войдите в Azure, используя учетную запись администратора служб Azure, добавьте каталог, а затем добавьте рабочие или учебные учетные записи Office 365 в клиент Azure Active Directory.
 
-Если вам необходима подписка Office 365 для пользователей в экземпляре Azure Active Directory, или у вас есть учетная запись Office 365, но нет учетной записи Azure, то см. статью [Регистрация в Azure с помощью учетной записи Office 365](billing-use-existing-office-365-account-azure-subscription.md). 
+**Нужно переместить существующую подписку Azure в рабочую или учебную учетную запись Office 365?** Если вы зарегистрировались в Azure, используя личную учетную запись Майкрософт, и хотите использовать ее или войти с помощью учетной записи Office 365, настоятельно рекомендуется переместить подписку. См. дополнительные сведения о [передаче прав владения подпиской Azure другой учетной записи](billing-subscription-transfer.md). 
+
+**Хотите зарегистрироваться в Azure с помощью Office 365?** См. дополнительные сведения о [регистрации в Azure с помощью учетной записи Office 365](billing-use-existing-office-365-account-azure-subscription.md). 
 
 ## <a name="before-you-begin"></a>Перед началом работы
 * Необходимо иметь учетные данные администратора служб подписки Azure. Учетная запись соадминистратора не позволяет выполнить некоторые действия, описанные в этой статье. Чтобы изменить администратора службы, см. статью [Добавление или изменение ролей администратора Azure](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription).
@@ -92,6 +94,5 @@ ms.lasthandoff: 08/31/2017
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 
 Если вам все еще нужна помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
-
 
 

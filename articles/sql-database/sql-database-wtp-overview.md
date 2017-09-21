@@ -1,10 +1,10 @@
 ---
-title: "Введение в SaaS Wingtip — мультитенантное приложение базы данных SQL Azure | Документация Майкрософт"
-description: "Обучайтесь на примере мультитенантного приложения, использующего базу данных SQL Azure, приложения SaaS Wingtip"
+title: "SaaS Wingtip: пример мультитенантного приложения базы данных SQL Azure | Документация Майкрософт"
+description: "Обучайтесь на примере мультитенантного приложения, использующего базу данных SQL Azure — SaaS Wingtip"
 keywords: "руководство по базе данных sql"
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 6d4a5df599137e95ca5458fae74b8daa565b0338
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 68a9d97a881f3a7628a08b66091c3feb4c4dbbfe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="introduction-to-the-wingtip-saas-application"></a>Общие сведения о приложении SaaS Wingtip
+# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Общие сведения о примере мультитенантного приложения SaaS для базы данных SQL
 
 Приложение *SaaS Wingtip* — это пример многопользовательского приложения, демонстрирующего уникальные преимущества базы данных SQL. Для обслуживания нескольких клиентов приложение использует шаблон приложения SaaS, в котором на один клиент используется одна база данных. Приложение разработано для демонстрации возможностей базы данных SQL Azure, которые позволяют работать со сценариями SaaS, включая несколько моделей проектирования и управления SaaS. Приложение SaaS Wingtip развертывается менее чем за пять минут, поэтому вы сможете быстро приступить к работе.
 

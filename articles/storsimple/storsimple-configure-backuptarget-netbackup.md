@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 613fd0c1164ac34d36d5f21d07dfdf00c8aad614
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 4d5acd0be4a237f46d79800a44124b8c4269c5b9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -505,48 +505,12 @@ NetBackup предлагает множество возможностей дл�
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Запуск или удаление моментального снимка облака
 
 1.  [Установите Azure PowerShell](/powershell/azure/overview).
-2.  [Скачайте и импортируйте параметры публикации и информацию о подписке.](https://msdn.microsoft.com/library/dn385850.aspx)
-3.  На классическом портале Azure получите имя ресурса и [ключ регистрации для службы диспетчера StorSimple](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4.  На сервере, на котором запускается скрипт, запустите PowerShell от имени администратора. Введите эту команду:
-
-    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    Запишите идентификатор политики архивации.
-5.  В Блокноте создайте скрипт PowerShell, используя следующий код.
-
-    Скопируйте и вставьте этот фрагмент кода:
-    ```powershell
-    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-    Disable-AzureDataCollection
-    $ApplianceName = <myStorSimpleApplianceName>
-    $RetentionInDays = 20
-    $RetentionInDays = -$RetentionInDays
-    $Today = Get-Date
-    $ExpirationDate = $Today.AddDays($RetentionInDays)
-    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-    $CompletedSnapshots =@()
-    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
-    Write-Host
-
-    ForEach ($SnapShot in $CompletedSnapshots)
-    {
-        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-        {
-            $SnapShotInstanceID = $SnapShot.InstanceId
-            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-            Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
-            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-        }
-    }
-    ```
-      Сохраните скрипт PowerShell в то же расположение, в котором были сохранены параметры публикации Azure. Например, сохраните его с таким путем C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-6.  Добавьте скрипт к заданию архивации в NetBackup. Для этого измените команды предварительной обработки и постобработки параметров задания NetBackup.
+2. Скачайте и установите скрипт [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell.
+3. На сервере, на котором запускается скрипт, запустите PowerShell от имени администратора. Запустите скрипт с параметром `-WhatIf $true`, чтобы просмотреть внесенные изменения. Когда проверка будет завершена, передайте параметр `-WhatIf $false`. Выполните следующую команду:
+```powershell
+.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+```
+4.  Добавьте скрипт к заданию архивации в NetBackup. Для этого измените команды предварительной обработки и постобработки параметров задания NetBackup.
 
 > [!NOTE]
 > Мы советуем запустить политику архивации облачных моментальных снимков StorSimple в качестве скрипта постобработки по завершении задания ежедневной архивации. Дополнительные сведения об архивации и восстановлении среды приложения архивации в соответствии с RPO и RTO можно получить у архитектора по архивации.

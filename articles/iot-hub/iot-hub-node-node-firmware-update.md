@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 09/07/2017
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
-ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6879f51527802591d45ee56aa47ab304623a4323
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Используйте управление устройствами, чтобы запустить обновление встроенного ПО устройства (Node/Node).
@@ -41,7 +40,7 @@ ms.lasthandoff: 02/06/2017
 
 Для работы с этим учебником требуется:
 
-* Node.js версии 0.12.x или более поздней. <br/>  В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Node.js для работы с этим учебником в ОС Windows или Linux.
+* Node.js 4.0.x или более поздней версии. <br/>  В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Node.js для работы с этим учебником в ОС Windows или Linux.
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
 Следуйте указаниям статьи [Руководство по началу работы с управлением устройствами](iot-hub-node-node-device-management-get-started.md), чтобы создать Центр Интернета вещей и получить строку подключения Центра Интернета вещей.
@@ -58,7 +57,7 @@ ms.lasthandoff: 02/06/2017
     ```
     npm init
     ```
-2. В командной строке в папке **triggerfwupdateondevice** выполните следующую команду, чтобы установить пакеты SDK для устройств **azure-iothub** и пакет **azure-iot-device-mqtt**.
+2. В командной строке в папке **triggerfwupdateondevice** выполните следующую команду, чтобы установить пакет **azure-iot-hub**.
    
     ```
     npm install azure-iothub --save

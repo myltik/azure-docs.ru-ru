@@ -1,6 +1,6 @@
 ---
-title: "Условный доступ с управлением мобильными приложениями в Azure Active Directory | Документация Майкрософт"
-description: "Узнайте о принципе работы условного доступа с управлением мобильными приложениями в Azure Active Directory."
+title: "Условный доступ на основе приложений Azure Active Directory | Документация Майкрософт"
+description: "Узнайте, как работает условный доступ на основе приложений Azure Active Directory."
 services: active-directory
 keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
 documentationcenter: 
@@ -13,66 +13,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: c6bc39dc151c80ffe1306464da60a029e54cc6b1
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 48c9f55e2296b88acc697ab818f13787695643a5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/08/2017
 
 ---
-# <a name="conditional-access-with-mobile-app-management-in-azure-active-directory"></a>Условный доступ с управлением мобильными приложениями в Azure Active Directory  
+# <a name="azure-active-directory-app-based-conditional-access"></a>Условный доступ на основе приложений Azure Active Directory  
 
-Условный доступ на основе приложения Azure Active Directory (Azure AD) на портале Azure вместе с политиками защиты приложений Intune помогают ограничить доступ к облачным приложениям для мобильных приложений, поддерживающих защиту приложений Intune (например, ограничение доступа к Exchange Online приложению Outlook). Эта поддержка позволяет устройствам, не зарегистрированным для управления с помощью Intune MDM, по-прежнему защищать данные компании.   
+Ваши сотрудники используют мобильные устройства как в личных целях, так и для выполнения рабочих задач. Помимо обеспечения эффективности работы сотрудников требуется предотвратить возможную потерю данных. С помощью условного доступа на основе приложений Azure Active Directory (Azure AD) можно ограничить доступ к облачным приложениям для клиентских приложений, что поможет защитить корпоративные данные.  
 
-Условный доступ управления мобильными приложениями можно объединить с другими политиками (например, политиками условного доступа на основе устройств) для обеспечения гибкости в защите данных личных и корпоративных устройств. 
+В этом разделе описывается, как настроить условный доступ на основе приложений Azure AD.
+
+## <a name="overview"></a>Обзор
+
+С помощью [условного доступа Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) можно точно настроить доступ авторизованных пользователей к ресурсам. Например, вы можете ограничить доступ к своим облачным приложениям, предоставив его только доверенным устройствам.
+
+Можно использовать [политики защиты приложений Intune](https://docs.microsoft.com/intune/app-protection-policy), чтобы обеспечить безопасность данных компании. Политики защиты приложений Intune не требуют решения по управлению мобильными устройствами (MDM). Это позволяет защитить данные компании, используя или не используя регистрацию устройств в решении по управлению устройствами.
+
+Условный доступ на основе приложений Azure Active Directory позволяет ограничить доступ к облачным приложениям для клиентских приложений, поддерживающих политики защиты приложений Intune. Например, можно ограничить доступ приложения Outlook к Exchange Online.
+
+Согласно терминологии условного доступа эти клиентские приложения называются **утвержденными клиентскими приложениями**.  
+
+
+![Условный доступ](./media/active-directory-conditional-access-mam/05.png)
+
+
+Список утвержденных клиентских приложений приведен в разделе [Требование утвержденного клиентского приложения](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
+Политики условного доступа на основе приложений можно совместить с другими политиками (например, [политиками условного доступа на основе устройств](active-directory-conditional-access-policy-connected-applications.md)), чтобы обеспечить гибкость в защите данных личных и корпоративных устройств.
+
+ 
+
 
 ##<a name="before-you-begin"></a>Перед началом работы
 
 В данной статье предполагается, что вы знакомы со следующими технологиями и процедурами:
 
+- Технический справочник по [требованию утвержденных клиентских приложений](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
 - Основные понятия [условного доступа в Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - [Настройка политики условного доступа](active-directory-conditional-access-azure-portal-get-started.md).
 
-
-Кроме того, может потребоваться ознакомиться с [рекомендациями по работе с условным доступом в Azure Active Directory](active-directory-conditional-access-best-practices.md).  
-
-
+- [Перенос политик условного доступа](active-directory-conditional-access-best-practices.md#policy-migration).
+ 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-1.  Прежде чем создавать политику условного доступа на основе приложения, у вас должна быть подписка Enterprise Mobility + Security или Azure Active Directory Premium, а у пользователей — лицензия на EMS или Azure AD. 
-2.  Перед созданием условного доступа с политикой управления мобильными приложениями необходимо просмотреть сценарии и рекомендации по переносу.
-
-## <a name="supported-platforms"></a>Поддерживаемые платформы
-
--   iOS
-
--   Android
-
-## <a name="approved-client-applications"></a>Утвержденные клиентские приложения 
-
-- Microsoft Outlook
-
-- Microsoft SharePoint
-
-- Microsoft OneDrive
-
-- Microsoft Teams
-
-- Microsoft Word
-
-- Microsoft Excel
-
-- Microsoft PowerPoint
+Для создания политики условного доступа на основе приложений у вас должна быть подписка Enterprise Mobility + Security или Azure Active Directory Premium, а у пользователей — лицензия на EMS или Azure AD. 
 
 
 ## <a name="exchange-online-policy"></a>Политика Exchange Online 
 
-В этом сценарии используется условный доступ с политикой управления мобильными приложениями для доступа к Exchange Online с помощью утвержденных приложений.
+В этом сценарии используется политика условного доступа на основе приложений для доступа к Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Обзор сценария
@@ -246,9 +246,9 @@ ms.lasthandoff: 09/05/2017
 Дополнительные сведения см. в статье [Защита приложений и данных с помощью Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
 
-## <a name="mobile-application-management-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Управление мобильными приложениями или политика соответствующего устройства для Exchange Online и SharePoint Online
+## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Политика на основе приложений или политика соответствующего устройства для Exchange Online и SharePoint Online
 
-В этом сценарии используется условный доступ с политикой управления мобильными приложениями или соответствующего устройства для доступа к Exchange Online с помощью утвержденных приложений.
+В этом сценарии используется политика условного доступа на основе приложений или соответствующего устройства для доступа к Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Обзор сценария
@@ -338,9 +338,10 @@ ms.lasthandoff: 09/05/2017
 
 
 
-## <a name="mobile-application-management-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Управление мобильными приложениями и политика соответствующего устройства для Exchange Online и SharePoint Online
+## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Политика на основе приложений и политика соответствующего устройства для Exchange Online и SharePoint Online
 
-В этом сценарии используется условный доступ с политикой управления мобильными приложениями и соответствующего устройства для доступа к Exchange Online с помощью утвержденных приложений.
+В этом сценарии используется политика условного доступа на основе приложений и соответствующего устройства для доступа к Exchange Online.
+
 
 ### <a name="scenario-playbook"></a>Обзор сценария
 
@@ -436,87 +437,6 @@ ms.lasthandoff: 09/05/2017
 Дополнительные сведения см. в статье [Защита приложений и данных с помощью Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
 
-
-## <a name="migration-considerations"></a>Рекомендации по переносу
-
-Если на классическом портале Azure настроены политики, их необходимо перенести на портал Azure, так как:
-
-
-- для пользователя с политикой классического портала и портала Azure требуется выполнение требований в обеих политиках; 
-
-- если имеющиеся политики не перенести, реализовать политики, предоставляющие доступ, будет невозможно.
-
-
-## <a name="migration-from-the-azure-classic-portal"></a>Перенос из классического портала Azure
-
-В этом сценарии: 
-
-- На [классическом портале Azure](https://manage.windowsazure.com) настроены:
-
-    - SharePoint Online
-
-    ![Условный доступ](./media/active-directory-conditional-access-mam/14.png)
-
-    - политика условного доступа на основе устройств.
-
-    ![Условный доступ](./media/active-directory-conditional-access-mam/15.png)
-
-- Необходимо настроить политику условного доступа с управлением мобильными приложениями на портале Azure. 
- 
-
-### <a name="configuration"></a>Конфигурация 
-
-- Просмотрите политики условного доступа на основе устройств.
-
-- Перенесите их на портал Azure. 
-
-- Добавьте политики условного доступа с управлением мобильными приложениями.
-
-
-## <a name="migrating-from-intune"></a>Перенос с Intune 
-
-В этом сценарии:
-
-- В [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ) настроена политика условного доступа с управлением мобильными приложениями для Exchange Online или SharePoint Online.
-
-    ![Условный доступ](./media/active-directory-conditional-access-mam/15.png)
-
-- Чтобы использовать условный доступ с управлением мобильными приложениями на портале Azure, необходимо выполнить перенос.
-
-
-### <a name="configuration"></a>Конфигурация 
- 
-- Просмотрите политики условного доступа на основе устройств.
-
-- Перенесите их на портал Azure. 
-
-- Просмотрите политики условного доступа с управлением мобильными приложениями, настроенные для Exchange Online или SharePoint Online, в Intune.
-
-- Добавьте элемент управления **Require approved applications** (Требовать утвержденные приложения) в дополнение к элементу управления на основе устройств. 
- 
-
-## <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Перенос из классического портала Azure в Intune
-
-В этом сценарии:
-
-- Настроено следующее:
-
-    - **классический портал Azure** — условный доступ на основе устройств; 
-
-    - **Intune** — политики условного доступа с управлением мобильными приложениями. 
-    
-- Чтобы использовать политики условного доступа с управлением мобильными приложениями на портале Azure, необходимо выполнить перенос обеих политик.
-
-
-### <a name="configuration"></a>Конфигурация
-
-- Просмотрите политики условного доступа на основе устройств.
-
-- Перенесите их на портал Azure. 
-
-- Просмотрите политику условного доступа с управлением мобильными приложениями, настроенную для Exchange Online или SharePoint Online, в Intune.
-
-- Добавьте элемент управления **Require approved applications** (Требовать утвержденные приложения) в дополнение к элементу управления на основе устройств. 
 
 
 

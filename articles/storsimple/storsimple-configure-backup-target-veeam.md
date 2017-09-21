@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d4a0dfbfab052e98e0dd641e8cab8fc143c2ff41
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 38cc3ae906f75e75c9e44ac7e4b7098935a56cf2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -467,47 +468,12 @@ StorSimple является решением, интегрированным с 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Запуск или удаление моментального снимка облака
 
 1. [Установите Azure PowerShell](/powershell/azure/overview).
-2. [Скачайте и импортируйте параметры публикации и информацию о подписке.](https://msdn.microsoft.com/library/dn385850.aspx)
-3. На классическом портале Azure получите имя ресурса и [ключ регистрации для службы диспетчера StorSimple](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4. На сервере, на котором запускается скрипт, запустите PowerShell от имени администратора. Введите эту команду:
-
-    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    Запишите идентификатор политики архивации.
-5. В Блокноте создайте скрипт PowerShell, используя следующий код.
-
-    Скопируйте и вставьте этот фрагмент кода:
-    ```powershell
-    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-    Disable-AzureDataCollection
-    $ApplianceName = <myStorSimpleApplianceName>
-    $RetentionInDays = 20
-    $RetentionInDays = -$RetentionInDays
-    $Today = Get-Date
-    $ExpirationDate = $Today.AddDays($RetentionInDays)
-    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-    $CompletedSnapshots =@()
-    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
-    Write-Host
-
-    ForEach ($SnapShot in $CompletedSnapshots)
-    {
-        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-        {
-            $SnapShotInstanceID = $SnapShot.InstanceId
-            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-            Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
-            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-        }
-    }
-    ```
-6. Чтобы добавить скрипт в задание архивации, измените дополнительные параметры своего задания Veeam.
+2. Скачайте и установите скрипт [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell.
+3. На сервере, на котором запускается скрипт, запустите PowerShell от имени администратора. Запустите скрипт с параметром `-WhatIf $true`, чтобы просмотреть внесенные изменения. Когда проверка будет завершена, передайте параметр `-WhatIf $false`. Выполните следующую команду:
+```powershell
+.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+```
+4. Чтобы добавить скрипт в задание архивации, измените дополнительные параметры своего задания Veeam.
 
     ![Вкладка Scripts (Скрипты) в окне дополнительных параметров архивации Veeam](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
 

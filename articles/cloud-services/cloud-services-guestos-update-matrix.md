@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 9/14/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: be0092e62033da249015b211db148da57bb82765
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Таблица совместимости выпусков гостевых ОС Azure и пакетов SDK
@@ -38,6 +38,8 @@ ms.lasthandoff: 08/28/2017
 Не уверены в том, что такое гостевая ОС и как устроены релизы гостевой ОС? Прочтите [этот](#how-it-works) раздел.
 
 ## <a name="news-updates"></a>Новости по обновлениям
+###### <a name="september-14-2017"></a>**14 сентября 2017 г.**
+Развертывание сентябрьской гостевой ОС начинается 14 сентября. Выпуск запланирован на 9 октября.
 
 ###### <a name="august-24-2017"></a>**24 августа 2017 г.**
 Выпущена августовская гостевая ОС.
@@ -65,12 +67,6 @@ ms.lasthandoff: 08/28/2017
 
 ###### <a name="april-18-2017"></a>**18 апреля 2017 г.**
 Развертывание апрельской гостевой ОС началось 18 апреля, а выпуск должен состояться 9 мая.
-
-###### <a name="april-10-2017"></a>**10 апреля 2017 г.**
-Развертывание мартовской гостевой ОС началось 14 марта 2017 г. Выпуск состоялся 10 апреля 2017 г.
-
-###### <a name="january-10-2017"></a>**10 января 2017 г.**
-Январский выпуск гостевой ОС содержит исправления, которые влияют только на операционную систему семейства 2 (Windows 2008 Server R2). Таким образом, в этом месяце выпущен только образ операционной системы из семейства 2 (WA-GUEST-OS-2.59_201701-01). Для всех других семейств операционных систем последним остается декабрьский выпуск ОС (201612-01).
 
 
 ## <a name="releases"></a>Выпуски
@@ -250,5 +246,5 @@ ms.lasthandoff: 08/28/2017
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[исправление]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[Исправление]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
 

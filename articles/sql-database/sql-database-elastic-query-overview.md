@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9b3151248a1d036117bbdc9af03a98dff71ca535
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 0130b1d4f3ee7b27786764a275ce4e3c0ee93b2d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Обзор эластичных запросов к базе данных SQL Azure (предварительная версия)
@@ -142,7 +142,7 @@ ms.lasthandoff: 08/17/2017
 * Статистика по столбцам для внешних таблиц в настоящее время не поддерживается. Статистика по таблицам поддерживается, но она создается вручную.
 
 ## <a name="feedback"></a>Отзыв
-Просим вас поделиться своим мнением об эластичных запросах в разделе Disqus, на форумах MSDN или на сайте Stackoverflow. Мы будем признательны за любые отзывы о нашем сервисе, в том числе за сообщения о недостатках, недоработках и недостающих функциях.
+Поделитесь своим мнением об эластичных запросах в разделе Livefyre на форумах MSDN или на сайте Stackoverflow. Мы будем признательны за любые отзывы о нашем сервисе, в том числе за сообщения о недостатках, недоработках и недостающих функциях.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

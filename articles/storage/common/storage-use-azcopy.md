@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9806697747b2409d4bd0ae19dc0b9fe01f500dc0
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 242b6e5f2f1a67f78f5dba4a5b5beb68abdd6111
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Перенос данных с помощью AzCopy для Windows
@@ -26,14 +26,14 @@ AzCopy — это служебная программа командной ст
 
 Существуют две версии AzCopy, которые можно скачать. Служебная программа AzCopy для Windows основана на платформе .NET Framework и использует параметры командной строки в формате Windows. Служебная программа [AzCopy для Linux](storage-use-azcopy-linux.md) основана на платформе .NET Core, которая нацелена на платформы Linux, использующие параметры командной строки в формате POSIX. В этой статье рассматривается AzCopy для Windows.
 
-## <a name="download-and-install-azcopy"></a>Скачивание и установка AzCopy
-### <a name="azcopy-on-windows"></a>AzCopy для Windows
+## <a name="download-and-install-azcopy-on-windows"></a>Скачивание и установка AzCopy для Windows
+
 Скачайте [последнюю версию AzCopy для Windows](http://aka.ms/downloadazcopy).
 
-#### <a name="installation-on-windows"></a>Установка в Windows
 После установки AzCopy для Windows с помощью установщика откройте командное окно и перейдите к каталогу установки AzCopy на компьютере, где располагается исполняемый файл `AzCopy.exe`. При необходимости можно добавить место установки AzCopy к системному пути. По умолчанию инструмент AzCopy установлен в `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` или `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 ## <a name="writing-your-first-azcopy-command"></a>Написание первой команды AzCopy
+
 В командах AzCopy используется следующий базовый синтаксис:
 
 ```azcopy
@@ -42,8 +42,11 @@ AzCopy /Source:<source> /Dest:<destination> [Options]
 
 В приведенных ниже примерах описаны разные сценарии копирования данных из хранилища больших двоичных объектов, файлов и таблиц Microsoft Azure (и обратно). Подробное объяснение параметров, используемых в каждом примере, см. в разделе [Общие сведения о параметрах](#azcopy-parameters).
 
-## <a name="blob-download"></a>Большой двоичный объект: скачивание
-### <a name="download-single-blob"></a>Скачивание одного большого двоичного объекта
+## <a name="download-blobs-from-blob-storage"></a>Скачивание больших двоичных объектов из хранилища BLOB-объектов
+
+Рассмотрим несколько способов скачивания больших двоичных объектов с помощью AzCopy.
+
+### <a name="download-a-single-blob"></a>Скачивание одного большого двоичного объекта
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
@@ -51,15 +54,15 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
 
 Обратите внимание: если папка `C:\myfolder` не существует, AzCopy создаст ее и скачает `abc.txt ` в эту новую папку.
 
-### <a name="download-single-blob-from-secondary-region"></a>Скачивание большого двоичного объекта из дополнительного региона
+### <a name="download-a-single-blob-from-the-secondary-region"></a>Скачивание одного большого двоичного объекта из дополнительного региона
 
 ```azcopy
 AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
 
-Обратите внимание: должно быть включено геоизбыточное хранилище с доступом только для чтения.
+Обратите внимание, что для доступа к дополнительному региону необходимо включить геоизбыточное хранилище с доступом только для чтения.
 
-### <a name="download-all-blobs"></a>Скачивание всех больших двоичных объектов
+### <a name="download-all-blobs-in-a-container"></a>Скачивание всех больших двоичных объектов в контейнере
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /S
@@ -83,7 +86,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
 
 Если не задать параметр `/S`, большие двоичные объекты не будут скачаны.
 
-### <a name="download-blobs-with-specified-prefix"></a>Скачивание больших двоичных объектов с указанным префиксом
+### <a name="download-blobs-with-a-specific-prefix"></a>Скачивание больших двоичных объектов с определенным префиксом
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
@@ -118,14 +121,17 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 ```
 
-А если нужно исключить большие двоичные объекты, измененные в то же время, что и конечный файл, или раньше, добавьте параметр `/XO`:
+Если нужно исключить большие двоичные объекты, измененные в то же время, что и конечный файл, или раньше, добавьте параметр `/XO`:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 ```
 
-## <a name="blob-upload"></a>Большой двоичный объект: отправка
-### <a name="upload-single-file"></a>Отправка одного файла
+## <a name="upload-blobs-to-blob-storage"></a>Отправка больших двоичных объектов в хранилище BLOB-объектов
+
+Рассмотрим несколько способов отправки больших двоичных объектов с помощью AzCopy.
+
+### <a name="upload-a-single-blob"></a>Отправка одного большого двоичного объекта
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
@@ -133,7 +139,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
 
 Если указанный контейнер назначения не существует, AzCopy создаст его и передаст в него файл.
 
-### <a name="upload-single-file-to-virtual-directory"></a>Отправка одного файла в виртуальный каталог
+### <a name="upload-a-single-blob-to-a-virtual-directory"></a>Отправка одного большого двоичного объекта в виртуальный каталог
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
@@ -141,7 +147,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
 
 Если указанный виртуальный каталог не существует, AzCopy скачает файл и включит имя виртуального каталога в его имя (*например*, `vd/abc.txt` в указанном выше примере).
 
-### <a name="upload-all-files"></a>Отправка всех файлов
+### <a name="upload-all-blobs-in-a-folder"></a>Отправка всех больших двоичных объектов в папке
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
@@ -169,7 +175,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
     abc1.txt
     abc2.txt
 
-### <a name="upload-files-matching-specified-pattern"></a>Отправка файлов, соответствующих указанному шаблону
+### <a name="upload-blobs-matching-a-specific-pattern"></a>Отправка больших двоичных объектов, соответствующих определенному шаблону
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
@@ -199,6 +205,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
     C:\myfolder\abc2.txt
 
 ### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>Задание типа содержимого MIME целевого большого двоичного объекта
+
 По умолчанию AzCopy задает для типа содержимого целевого большого двоичного объекта значение `application/octet-stream`. Начиная с версии 3.1.0 вы можете задать тип содержимого с помощью параметра `/SetContentType:[content-type]`. Этот синтаксис задает тип содержимого для всех больших двоичных объектов в операции отправки.
 
 ```azcopy
@@ -211,8 +218,11 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myCont
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
 ```
 
-## <a name="blob-copy"></a>Большой двоичный объект: копирование
-### <a name="copy-single-blob-within-storage-account"></a>Копирование большого двоичного объекта в пределах учетной записи хранения
+## <a name="copy-blobs-in-blob-storage"></a>Копирование больших двоичных объектов в хранилище BLOB-объектов
+
+Рассмотрим несколько способов копирования больших двоичных объектов из одного расположения в другое с помощью AzCopy.
+
+### <a name="copy-a-single-blob-from-one-container-to-another-within-the-same-storage-account"></a>Копирование одного большого двоичного объекта из одного контейнера в другой в одной учетной записи хранения 
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
@@ -220,7 +230,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https:
 
 При копировании большого двоичного объекта в пределах учетной записи хранения выполняется [операция копирования на стороне сервера](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) .
 
-### <a name="copy-single-blob-across-storage-accounts"></a>Копирование большого двоичного объекта между различными учетными записями хранения
+### <a name="copy-a-single-blob-from-one-storage-account-to-another"></a>Копирование одного большого двоичного объекта из одной учетной записи хранения в другую
 
 ```azcopy
 AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
@@ -228,18 +238,18 @@ AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:ht
 
 При копировании большого двоичного объекта между различными учетными записями хранения выполняется [операция копирования на стороне сервера](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) .
 
-### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Копирование одного большого двоичного объекта из дополнительного региона в основной регион
+### <a name="copy-a-single-blob-from-the-secondary-region-to-the-primary-region"></a>Копирование одного большого двоичного объекта из дополнительного региона в основной
 
 ```azcopy
 AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 ```
 
-Обратите внимание: должно быть включено геоизбыточное хранилище с доступом только для чтения.
+Обратите внимание, что для доступа к дополнительному хранилищу необходимо включить геоизбыточное хранилище с доступом только для чтения.
 
-### <a name="copy-single-blob-and-its-snapshots-across-storage-accounts"></a>Копирование большого двоичного объекта и его моментальных снимков между различными учетными записями хранения
+### <a name="copy-a-single-blob-and-its-snapshots-from-one-storage-account-to-another"></a>Копирование одного большого двоичного объекта и его моментальных снимков из одной учетной записи хранения в другую
 
 ```azcopy
-    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
+AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
 ```
 
 После выполнения копирования целевой контейнер будет содержать большой двоичный объект и его моментальные снимки. Предположим, что большой двоичный объект в приведенном выше примере имеет два моментальных снимка, тогда контейнер будет содержать следующий большой двоичный объект и моментальные снимки:
@@ -248,7 +258,17 @@ AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer
     abc (2013-02-25 080757).txt
     abc (2014-02-21 150331).txt
 
-### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Синхронное копирование больших двоичных объектов между учетными записями хранения
+### <a name="copy-all-blobs-in-a-container-to-another-storage-account"></a>Копирование всех больших двоичных объектов в контейнере в другую учетную запись хранения 
+
+```azcopy
+AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 
+/Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /S
+```
+
+Если задать параметр /S, содержимое указанного контейнера отправится рекурсивно. Дополнительные сведения и пример см. в разделе [Отправка всех больших двоичных объектов в папке](#upload-all-blobs-in-a-folder).
+
+### <a name="synchronously-copy-blobs-from-one-storage-account-to-another"></a>Синхронное копирование больших двоичных объектов из одной учетной записи хранения в другую
+
 По умолчанию AzCopy выполняет асинхронное копирование данных между двумя конечными точками хранилища. Таким образом, операция копирования выполняется в фоновом режиме, используя свободную пропускную способность, для которой не предусмотрено соглашение об уровне обслуживания касательно скорости копирования большого двоичного объекта, и AzCopy будет периодически проверять состояние операции копирования до ее завершения или сбоя.
 
 Параметр `/SyncCopy` обеспечивает постоянную скорость операции копирования. AzCopy выполняет синхронное копирование, при котором большие двоичные объекты копируются из указанного источника в локальную память путем скачивания, а затем загружаются в целевое хранилище больших двоичных объектов.
@@ -259,16 +279,19 @@ AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https
 
 Использование параметра `/SyncCopy` может повлечь дополнительные затраты на исходящие данные по сравнению с асинхронным копированием. Во избежание таких затрат мы советуем использовать этот параметр в виртуальных машинах Azure, которые находятся в одном регионе с вашей учетной записью хранения.
 
-## <a name="file-download"></a>Файл: скачивание
-### <a name="download-single-file"></a>Скачивание одного файла
+## <a name="download-files-from-file-storage"></a>Скачивание файлов из хранилища файлов
+
+Рассмотрим несколько способов скачивания файлов с помощью AzCopy.
+
+### <a name="download-a-single-file"></a>Скачивание одного файла
 
 ```azcopy
 AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
 
-Если исходный файл для копирования находится в общей папке Azure, необходимо указать либо точное имя файла (*например*, `abc.txt`) для копирования одного файла, либо параметр `/S` для рекурсивного копирования всех файлов в общей папке. Попытка одновременно задать шаблон файла и параметр `/S` приводит к ошибке.
+Если исходный файл для копирования находится в общей папке Azure, необходимо указать либо точное имя файла (*например*, `abc.txt`) для скачивания одного файла, либо параметр `/S` для рекурсивного скачивания всех файлов в общей папке. Попытка одновременно задать шаблон файла и параметр `/S` приводит к ошибке.
 
-### <a name="download-all-files"></a>Скачивание всех файлов
+### <a name="download-all-files-in-a-directory"></a>Скачивание всех файлов в каталоге
 
 ```azcopy
 AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S
@@ -276,63 +299,72 @@ AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myf
 
 Обратите внимание на то, что пустые папки не скачиваются.
 
-## <a name="file-upload"></a>Файл: отправка
-### <a name="upload-single-file"></a>Отправка одного файла
+## <a name="upload-files-to-file-storage"></a>Отправка файлов в хранилище файлов
+
+Рассмотрим несколько способов отправки файлов с помощью AzCopy.
+
+### <a name="upload-a-single-file"></a>Отправка одного файла
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:abc.txt
 ```
 
-### <a name="upload-all-files"></a>Отправка всех файлов
+### <a name="upload-all-files-in-a-folder"></a>Отправка всех файлов в папке
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /S
 ```
 
-Обратите внимание на то, что пустые папки не передаются.
+Обратите внимание на то, что пустые папки не отправляются.
 
-### <a name="upload-files-matching-specified-pattern"></a>Отправка файлов, соответствующих указанному шаблону
+### <a name="upload-files-matching-a-specific-pattern"></a>Отправка файлов, соответствующих определенному шаблону
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 ```
 
-## <a name="file-copy"></a>Файл: копирование
-### <a name="copy-across-file-shares"></a>Копирование общих файловых ресурсов
+## <a name="copy-files-in-file-storage"></a>Копирование файлов в хранилище файлов
+
+Рассмотрим несколько способов копирования файлов в общую папку Azure с помощью AzCopy.
+
+### <a name="copy-from-one-file-share-to-another"></a>Копирование из одной общей папки в другую
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
 ```
 При копировании файла между файловыми ресурсами выполняется [операция копирования на стороне сервера](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
 
-### <a name="copy-from-file-share-to-blob"></a>Копирование из общего файлового ресурса в BLOB-объект
+### <a name="copy-from-an-azure-file-share-to-blob-storage"></a>Копирование из общей папки Azure в хранилище BLOB-объектов
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
 При копировании файла из файлового ресурса в большой двоичный объект выполняется [операция копирования на стороне сервера](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
 
-
-### <a name="copy-from-blob-to-file-share"></a>Копирование из большого двоичного объекта в общий файловый ресурс
+### <a name="copy-a-blob-from-blob-storage-to-an-azure-file-share"></a>Копирование большого двоичного объекта из хранилища BLOB-объектов в общую папку Azure
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
 ```
-При копировании файла из большого двоичного объекта в файловый ресурс выполняется [операция копирования на стороне сервера](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
+При копировании файла из большого двоичного объекта в общую папку выполняется операция [копирования на стороне сервера](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
 
 ### <a name="synchronously-copy-files"></a>Синхронное копирование файлов
+
 Пользователь также может указать параметр `/SyncCopy` для синхронного копирования данных из хранилища файлов в хранилище файлов, из хранилища файлов в хранилище BLOB-объектов, а также из хранилища BLOB-объектов в хранилище файлов. AzCopy сделает это, скачивая данные источника в локальную память и отправляя их в место назначения. Взимается стандартная плата за исходящий трафик.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 ```
 
-При копировании из хранилища файлов в хранилище BLOB-объектов пользователь может указать параметр `/BlobType:page` для изменения типа большого двоичного объекта назначения.
+При копировании из хранилища файлов в хранилище BLOB-объектов пользователь может указать параметр `/BlobType:page` для изменения типа большого двоичного объекта назначения. По умолчанию используется блочный BLOB-объект.
 
-Обратите внимание, что использование параметра `/SyncCopy` может повлечь дополнительные затраты на исходящие данные по сравнению с асинхронным копированием. Во избежание таких затрат мы советуем использовать этот параметр в виртуальных машинах Azure, которые находятся в одном регионе с вашей учетной записью хранения.
+Обратите внимание на то, что параметр `/SyncCopy` может повлечь дополнительные затраты на исходящий трафик по сравнению с асинхронным копированием. Во избежание таких затрат мы советуем использовать этот режим на виртуальных машинах Azure, которые находятся в одном регионе с исходной учетной записью хранения.
 
-## <a name="table-export"></a>Таблица: экспорт
-### <a name="export-table"></a>Экспорт таблицы
+## <a name="export-data-from-table-storage"></a>Экспорт данных из хранилища таблиц
+
+Рассмотрим пример экспорта данных из хранилища таблиц Azure с помощью AzCopy.
+
+### <a name="export-a-table"></a>Экспорт таблицы
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
@@ -348,7 +380,7 @@ AzCopy создает файл манифеста в заданной целев
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
 ```
 
-### <a name="split-export-into-multiple-files"></a>Разбивка экспорта на несколько файлов
+### <a name="split-an-export-from-table-storage-into-multiple-files"></a>Разделение на несколько файлов для экспорта из хранилища таблиц
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
@@ -365,7 +397,8 @@ AzCopy использует *индекс тома* в именах раздел
 
 Обратите внимание, что минимальное возможное значение для `/SplitSize` составляет 32 МБ. Если в качестве назначения задано хранилище BLOB-объектов, AzCopy разделит файл данных, как только размер файла достигнет предельного значения (200 ГБ), вне зависимости от того, задал ли пользователь параметр `/SplitSize`.
 
-### <a name="export-table-to-json-or-csv-data-file-format"></a>Экспорт таблицы в файл данных формата JSON или CSV
+### <a name="export-a-table-to-json-or-csv-data-file-format"></a>Экспорт таблицы в файл данных формата JSON или CSV
+
 По умолчанию AzCopy экспортирует таблицы в файлы данных в формате JSON. Чтобы экспортировать таблицы в формате JSON или CSV, вы можете задать параметр `/PayloadFormat:JSON|CSV`.
 
 ```azcopy
@@ -384,7 +417,7 @@ AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfold
 
 Обратите внимание на то, что количество одновременных операций можно контролировать с помощью параметра `/NC`. При копировании сущностей таблиц AzCopy использует информацию о количестве основных процессоров в качестве значения `/NC` по умолчанию для параметра `/NC`, даже если параметр не задан. Если пользователь задал параметр `/PKRS`, AzCopy использует меньшее из двух значений (индекса диапазонов ключей разделов и явно или неявно заданный параметр количества одновременных операций), чтобы определить количество одновременных операций, которые можно запустить. Для получения более подробной информации введите в командной строке `AzCopy /?:NC` .
 
-### <a name="export-table-to-blob"></a>Экспорт таблицы в большой двоичный объект
+### <a name="export-a-table-to-blob-storage"></a>Экспорт таблицы в хранилище BLOB-объектов
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
@@ -398,8 +431,11 @@ AzCopy создает файл данных в формате JSON в конте
 
 Обратите внимание: при экспорте таблиц в большие двоичные объекты программа AzCopy скачивает объекты таблицы в локальные временные файлы данных и отправляет эти объекты в большой двоичный объект. Эти временные файлы данных помещаются в папку с файлами журнала с путем по умолчанию "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>". Вы можете указать параметр /Z:[journal-file-folder], чтобы изменить расположение папки файлов журнала и таким образом изменить расположение временных файлов данных. Размер временных файлов данных определяется по размеру сущностей таблицы и размеру, указанному в параметре /SplitSize. Хотя временный файл данных на локальном диске будет немедленно удален после передачи в большой двоичный объект, убедитесь, что на диске достаточно места для хранения этих временных файлов данных до удаления.
 
-## <a name="table-import"></a>Таблица: импорт
-### <a name="import-table"></a>Импорт таблиц
+## <a name="import-data-into-table-storage"></a>Импорт данных в хранилище таблиц
+
+Рассмотрим пример импорта данных в хранилище таблиц Azure с помощью AzCopy.
+
+### <a name="import-a-table"></a>Импорт таблицы
 
 ```azcopy
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
@@ -415,7 +451,8 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytab
 
 Обратите внимание, что программа AzCopy поддерживает импорт только для формата JSON, но не для формата CSV. AzCopy не поддерживает импорт таблиц из созданных пользователями JSON-файла и файла манифеста. Оба файла должны поступить в результате экспорта таблицы AzCopy. Чтобы избежать ошибок, не изменяйте экспортированный JSON-файл и файл манифеста.
 
-### <a name="import-entities-to-table-using-blobs"></a>Импорт объектов в таблицу с помощью больших двоичных объектов
+### <a name="import-entities-into-a-table-from-blob-storage"></a>Импорт сущностей в таблицу из хранилища BLOB-объектов
+
 Предположим, контейнер больших двоичных объектов содержит следующее: JSON-файл, представляющий таблицу Azure, и сопутствующий файл манифеста.
 
     myaccount_mytable_20140103T112020.manifest
@@ -428,7 +465,11 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https:/
 ```
 
 ## <a name="other-azcopy-features"></a>Другие функции AzCopy
+
+Давайте рассмотрим некоторые другие функции AzCopy.
+
 ### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Копирование только тех данных, которых нет в целевой папке
+
 Предотвратить копирование старого или нового ресурса позволяют параметры `/XO` и `/XN` соответственно. Если нужно скопировать только те исходные ресурсы, которых нет в целевой папке, в команде AzCopy вы можете указать оба параметра:
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
@@ -469,6 +510,7 @@ AzCopy /@:"C:\responsefiles\copyoperation.txt"
     /Y
 
 ### <a name="use-multiple-response-files-to-specify-command-line-parameters"></a>Использование нескольких файлов ответа для выбора параметров командной строки
+
 Предположим, что у нас имеется файл ответа с именем `source.txt`, который указывает исходный контейнер:
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer
@@ -506,6 +548,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASTo
 ```
 
 ### <a name="journal-file-folder"></a>Папка файлов журнала
+
 При каждом вводе команды для AzCopy выполняется проверка на наличие файла журнала в папке по умолчанию или в папке, которая была задана с помощью данного параметра. Если в обоих местах файл журнала отсутствует, AzCopy воспринимает операцию как новую и создает новый файл журнала.
 
 Если файл журнала существует, AzCopy проверяет, соответствует ли введенная командная строка командной строке в файле журнала. Если две командные строки совпадают, AzCopy возобновляет незавершенную операцию. Если они не совпадают, вам будет предложено либо перезаписать файл журнала, чтобы начать новую операцию, либо отменить текущую операцию.
@@ -551,22 +594,25 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
 Обратите внимание, что если задать относительный путь после параметра `/V`, например `/V:test/azcopy1.log`, то журнал с подробными данными создается в текущем рабочем каталоге в подпапке с именем `test`.
 
 ### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Задание количества одновременных операций для запуска
+
 Параметр `/NC` задает количество одновременных операций копирования. По умолчанию AzCopy запускает несколько одновременных операций для увеличения скорости передачи данных. При работе с таблицами количество одновременных операций равно количеству процессоров. При работе с большими двоичными объектами и файлами количество одновременных операций в восемь раз превышает количество процессоров. При выполнении AzCopy в сети с низкой пропускной способностью можно задать меньшее количество для этого параметра (/NC), чтобы избежать сбоев, вызванных конкуренцией за ресурсы.
 
-### <a name="run-azcopy-against-azure-storage-emulator"></a>Запуск AzCopy с использованием эмулятора службы хранилища Azure
+### <a name="run-azcopy-against-the-azure-storage-emulator"></a>Запуск AzCopy с использованием эмулятора хранения Azure
+
 Вы можете запустить программу AzCopy с использованием [эмулятора хранения Azure](storage-use-emulator.md) для больших двоичных объектов.
 
 ```azcopy
 AzCopy /Source:https://127.0.0.1:10000/myaccount/mycontainer/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
 ```
 
-и таблиц:
+Вы также можете запустить ее для таблиц.
 
 ```azcopy
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
 
 ## <a name="azcopy-parameters"></a>Параметры AzCopy
+
 Параметры для AzCopy описаны ниже. Вы можете использовать одну из следующих команд для получения справки во время работы с AzCopy:
 
 * Подробная справка по командной строке AzCopy: `AzCopy /?`
@@ -574,16 +620,19 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 * Примеры командной строки: `AzCopy /?:Samples`
 
 ### <a name="sourcesource"></a>/Source:"source"
+
 Параметр определяет исходные данные для копирования. Источником может быть каталог файловой системы, контейнер BLOB-объектов, виртуальный каталог BLOB-объектов, общая папка файлового хранилища, каталог файлового хранилища или таблица Azure.
 
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="destdestination"></a>/Dest:"destination"
+
 Параметр определяет целевую директорию копирования. Целевой директорией может быть каталог файловой системы, контейнер BLOB-объектов, виртуальный каталог BLOB-объектов, общая папка файлового хранилища, каталог файлового хранилища и таблица Azure.
 
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="patternfile-pattern"></a>/Pattern:"file-pattern"
+
 Параметр определяет шаблон файла, который указывает, какие именно файлы нужно копировать. Поведение дополнительного параметра "/Pattern" определяется местоположением исходных данных, а также наличием параметра "рекурсивный режим". Рекурсивный режим задается с помощью параметра "/S.".
 
 Если определенный источник представляет собой каталог в файловой системе, то используются стандартные подстановочные знаки, и предоставленный шаблон файла сравнивается с файлами в каталоге. При задании параметра "/S." AzCopy также выполняет сравнение определенного шаблона со всеми файлами в любых подпапках каталога.
@@ -599,11 +648,13 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="destkeystorage-key"></a>/DestKey:"storage-key"
+
 Задает ключ учетной записи хранения для ресурса в месте назначения.
 
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="destsassas-token"></a>/DestSAS:"sas-token"
+
 Задает подпись общего доступа (SAS) с правами ЧТЕНИЯ и ЗАПИСИ для контейнера назначения (если применяется). Поместите SAS в двойные кавычки, так как подпись может содержать специальные символы командной строки.
 
 Если ресурс места назначения представляет собой контейнер BLOB-объекта, общую папку или таблицу, можно либо указать эту опцию перед маркером SAS, либо указать SAS как часть пути контейнера BLOB-объекта места назначения, общей папки или URI таблицы, не указывая этой опции.
@@ -613,11 +664,13 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="sourcekeystorage-key"></a>/SourceKey:"storage-key"
+
 Задает ключ учетной записи хранения для исходного ресурса.
 
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
+
 Задает подпись общего доступа (SAS) с правами ЧТЕНИЯ и СОЗДАНИЯ СПИСКА для исходного ресурса (если применяется). Поместите SAS в двойные кавычки, так как подпись может содержать специальные символы командной строки.
 
 Если исходный ресурс для копирования является большим двоичным объектом и не предоставляется ни ключ, ни SAS, то контейнер считывается через анонимный доступ.
@@ -627,16 +680,19 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="s"></a>/S
+
 Задает рекурсивный режим для операций копирования. В рекурсивном режиме AzCopy копирует все большие двоичные объекты или файлы, соответствующие определенному шаблону файла, в том числе файлы из подпапок.
 
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
+
 Определяет, является ли большой двоичный объект места назначения блочным, страничным или расширенным. Этот параметр применяется только при передаче большого двоичного объекта. В противном случае возникает ошибка. Если в качестве места назначения выступает большой двоичный объект и этот параметр не указан, то по умолчанию AzCopy создает блочный BLOB-объект.
 
 **Применимо к** большим двоичным объектам.
 
 ### <a name="checkmd5"></a>/CheckMD5
+
 Вычисляет хэш MD5 для загруженных данных и проверяет соответствие хэша MD5, сохраненного в BLOB-объекте, или свойства Content-MD5 файла вычисленному хэшу. Проверка MD5 выключена по умолчанию. Чтобы выполнить проверку MD5 при загрузке данных, необходимо задать этот параметр.
 
 Обратите внимание, что хранилище Azure не гарантирует актуальность хэша MD5, сохраненного для BLOB-объекта или файла. Клиент несет ответственность за обновление MD5 при каждом изменении BLOB-объекта или файла.
@@ -646,6 +702,7 @@ AzCopy всегда задает свойство Content-MD5 для BLOB-объ
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="snapshot"></a>/Snapshot
+
 Указывает, передаются ли моментальные снимки. Это параметр действителен только, если в качестве источника используется BLOB-объект.
 
 Передаваемые моментальные снимки BLOB-объекта переименовываются в следующем формате: имя BLOB-объекта (время моментального снимка).расширение.
@@ -655,6 +712,7 @@ AzCopy всегда задает свойство Content-MD5 для BLOB-объ
 **Применимо к** большим двоичным объектам.
 
 ### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
+
 Выводит сообщения с подробным состоянием в файл журнала.
 
 По умолчанию файлу журнала с подробными данными в каталоге `%LocalAppData%\Microsoft\Azure\AzCopy` присваивается имя AzCopyVerbose.log. При указании имеющегося местоположения файла для этого параметра подробный журнал добавляется к этому файлу.  
@@ -662,6 +720,7 @@ AzCopy всегда задает свойство Content-MD5 для BLOB-объ
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
+
 Задает папку файла журнала для возобновления операции.
 
 AzCopy всегда поддерживает возобновление, если операция была прервана.
@@ -679,6 +738,7 @@ AzCopy всегда поддерживает возобновление, есл�
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="parameter-file"></a>/@:"parameter-file"
+
 Задает файл, который содержит параметры. AzCopy обрабатывает параметры в файле, как если бы они были заданы в командной строке.
 
 В файле ответа можно либо задать несколько параметров в одной строке, либо задать каждый параметр в отдельной строке. Обратите внимание, что отдельный параметр не может занимать несколько строк.
@@ -690,11 +750,13 @@ AzCopy всегда поддерживает возобновление, есл�
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="y"></a>/Y
+
 Скрывает все запросы на подтверждение AzCopy.
 
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="l"></a>/L
+
 Задает только операцию перечисления, данные не копируются.
 
 AzCopy интерпретирует использование этого параметра как моделирование запуска команды без параметра /L и подсчитает количество копируемых объектов. Одновременно можно указать параметр /V для вывода подробной информации о копируемых объектах.
@@ -706,11 +768,13 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="mt"></a>/MT
+
 Задает такое же время последнего изменения загруженного файла, как в исходном BLOB-объекте или файле.
 
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="xn"></a>/XN
+
 Исключает более новый исходный ресурс. Ресурс не будет копироваться, если исходный файл был изменен в то же время, что и конечный файл, или позднее.
 
 **Применимо к** большим двоичным объектам и файлам.
@@ -721,11 +785,13 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="a"></a>/A
+
 Отправляет только файлы с установленным атрибутом "Архивный".
 
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
+
 Передает файлы, содержащие любой из следующих заданных атрибутов.
 
 Доступные атрибуты:
@@ -744,6 +810,7 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
+
 Исключает файлы с любым из следующих установленных атрибутов.
 
 Доступные атрибуты:
@@ -762,6 +829,7 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
+
 Указывает разделитель, используемый для разделения виртуальных каталогов в имени большого двоичного объекта.
 
 По умолчанию AzCopy использует / как разделитель. Однако, AzCopy поддерживает любой общий символ (например, @, # или %) в качестве разделителя. Если необходимо ввести любой из этих специальных символов в командную строку следует заключить имя файла в двойные кавычки.
@@ -771,6 +839,7 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** большим двоичным объектам.
 
 ### <a name="ncnumber-of-concurrent-operations"></a>/NC:"number-of-concurrent-operations"
+
 Задает количество одновременных операций.
 
 По умолчанию AzCopy запускает несколько одновременных операций для увеличения скорости передачи данных. Обратите внимание, что большое количество одновременных операций в среде с низкой пропускной способностью может переполнить сетевое подключение и помешать полному завершению операций. Регулируйте количество одновременных операций в зависимости от фактической доступной пропускной способности сети.
@@ -780,16 +849,19 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** большим двоичным объектам, файлам, таблицам.
 
 ### <a name="sourcetypeblob--table"></a>/SourceType:"Blob" | "Table"
+
 Указывает, что ресурс `source` — это большой двоичный объект, доступный в локальной среде разработки, которая запущена в эмуляторе хранения.
 
 **Применимо к** большим двоичным объектам и таблицам.
 
 ### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
+
 Указывает, что ресурс `destination` — это большой двоичный объект, доступный в локальной среде разработки, которая запущена в эмуляторе хранения.
 
 **Применимо к** большим двоичным объектам и таблицам.
 
 ### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
+
 Разбивает диапазоны ключей секций для обеспечения параллельной передачи данных с целью увеличения скорости экспорта данных.
 
 Если параметр не задан, то AzCopy будет использовать одиночный поток для экспорта данных таблицы. Например, если пользователем задан параметр /PKRS:"aa#bb", то AzCopy начинает три одновременных операции передачи.
@@ -805,6 +877,7 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** таблицам.
 
 ### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
+
 Указывает размер разбитого экспортированного файла в МБ, минимальное допустимое значение — 32.
 
 Если этот параметр не задан, то AzCopy поместит экспортированные данные таблицы в один файл.
@@ -814,6 +887,7 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** таблицам.
 
 ### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
+
 Задает поведение импортированных данных таблиц.
 
 * InsertOrSkip — Пропускает существующий объект или вставляет новый, если объект не существует в таблице.
@@ -823,6 +897,7 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** таблицам.
 
 ### <a name="manifestmanifest-file"></a>/Manifest:"manifest-file"
+
 Задает файл описания для операций экспорта и импорта таблицы.
 
 Во время операции экспорта этот параметр является необязательным. Если он не указан, AzCopy создаст файл манифеста с предварительно определенным именем.
@@ -832,6 +907,7 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** таблицам.
 
 ### <a name="synccopy"></a>/SyncCopy
+
 Указывает, копируются ли большие двоичные объекты или файлы синхронно между двумя конечными точками службы хранилища Azure.
 
 По умолчанию AzCopy использует серверное асинхронное копирование. Задайте этот параметр, чтобы выполнить синхронное копирование, при котором большие двоичные объекты или файлы скачиваются в локальную память, а затем передаются в службу хранилища Azure.
@@ -841,6 +917,7 @@ AzCopy интерпретирует использование этого пар
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
+
 Задает тип содержимого MIME для целевых больших двоичных объектов или файлов.
 
 AzCopy по умолчанию задает тип содержимого для большого двоичного объекта или файла application/octet-stream. Вы можете задать тип содержимого для всех больших двоичных объектов или файлов, указав значение для этого параметра.
@@ -850,6 +927,7 @@ AzCopy по умолчанию задает тип содержимого для
 **Применимо к** большим двоичным объектам и файлам.
 
 ### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
+
 Указывает формат файла экспортируемых данных таблицы.
 
 Если этот параметр не указан, по умолчанию AzCopy экспортирует файл данных таблицы в формате JSON.
@@ -857,15 +935,21 @@ AzCopy по умолчанию задает тип содержимого для
 **Применимо к** таблицам.
 
 ## <a name="known-issues-and-best-practices"></a>Известные проблемы и рекомендации
+
+Давайте рассмотрим некоторые известные проблемы и рекомендации.
+
 ### <a name="limit-concurrent-writes-while-copying-data"></a>Ограничение одновременных операций записи при копировании данных
+
 При копировании BLOB-объектов или файлов с помощью AzCopy следует иметь в виду, что другое приложение может изменять данные в то время, когда они копируются. Если это возможно, обеспечьте, чтобы во время операции копирования не происходило изменение копируемых данных. Например, при копировании VHD, связанного с виртуальной машиной Azure, убедитесь в том, что никакое другое приложение в это время не записывает данные на VHD. Для этого рекомендуется сдать ресурс, который нужно скопировать, в аренду. В качестве альтернативы можно сначала создать моментальный снимок VHD, а затем скопировать его.
 
 Если не удается предотвратить запись в BLOB-объекты или файлы во время их копирования со стороны других приложений, следует иметь в виду, что к моменту завершения задания скопированные ресурсы могут больше не иметь полного соответствия с исходными ресурсами.
 
 ### <a name="run-one-azcopy-instance-on-one-machine"></a>Запускайте один экземпляр AzCopy на одном компьютере.
+
 AzCopy предназначен для максимального использования ресурсов компьютера для ускорения передачи данных. Рекомендуется запускать только один экземпляр AzCopy на одном компьютере и указать параметр `/NC`, если требуется несколько параллельных операций. Для получения более подробной информации введите в командной строке `AzCopy /?:NC` .
 
 ### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>Включайте FIPS-совместимые алгоритмы MD5 для AzCopy при использовании FIPS-совместимых алгоритмов для шифрования, хэширования и подписывания.
+
 По умолчанию в AzCopy используется реализация .NET MD5 для вычисления MD5 при копировании объектов, но существует ряд требований безопасности, при которых в AzCopy необходимо включать FIPS-совместимую реализацию MD5.
 
 Для этого можно создать файл app.config `AzCopy.exe.config` со свойством `AzureStorageUseV1MD5` и поместить его в папку с файлом AzCopy.exe.
@@ -877,12 +961,15 @@ AzCopy предназначен для максимального использ
       </appSettings>
     </configuration>
 
-Для свойства AzureStorageUseV1MD5: • True — значение по умолчанию, AzCopy использует реализацию .NET MD5.
-• False — AzCopy использует FIPS-совместимый алгоритм MD5.
+Для свойства AzureStorageUseV1MD5 задайте одно из следующих значений:
 
-Обратите внимание, что по умолчанию на компьютере Windows FIPS-совместимые алгоритмы отключены. Эту настройку можно изменить, набрав в окне запуска команд "secpol.msc" и выбрав "Настройки безопасности -> Локальные политики -> Параметры безопасности -> Системная криптография: Использовать FIPS-совместимые алгоритмы для шифрования, хеширования и подписывания".
+* True — значение по умолчанию, AzCopy использует реализацию .NET MD5.
+* False — AzCopy использует FIPS-совместимый алгоритм MD5.
+
+По умолчанию FIPS-совместимые алгоритмы отключены для Windows. Вы можете изменить этот параметр политики на своем компьютере. В окне запуска команд (Windows+R) введите secpol.msc, чтобы открыть окно **Локальная политика безопасности**. В окне **настроек безопасности** выберите **Параметры безопасности** > **Локальные политики** > **Параметры безопасности**. Найдите политику **Системная криптография: использовать FIPS-совместимые алгоритмы для шифрования, хэширования и подписывания**. Дважды щелкните ее, чтобы в столбце **Параметр безопасности** отобразилось значение.
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Для получения дополнительной информации о службе хранилища Azure и AzCopy ознакомьтесь со следующими ресурсами.
 
 ### <a name="azure-storage-documentation"></a>Документация по хранилищу Azure:
@@ -899,8 +986,6 @@ AzCopy предназначен для максимального использ
 * [AzCopy: выпуск общедоступной версии AzCopy 3.0 и предварительной версии AzCopy 4.0 с поддержкой таблиц и файлов](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: оптимизированные сценарии для крупномасштабного копирования](http://go.microsoft.com/fwlink/?LinkId=507682)
 * [AzCopy: поддержка геоизбыточного хранилища для доступа с правом чтения](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: передача данных с использованием перезапускаемого режима и маркера SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy – Transfer data with re-startable mode and SAS Token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx) (AzCopy: передача данных с использованием перезапускаемого режима и маркера SAS)
 * [AzCopy: использование копирования больших двоичных объектов между разными учетными записями](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: отправка и скачивание файлов для больших двоичных объектов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
-

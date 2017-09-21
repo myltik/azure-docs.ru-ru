@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 096f54b23a8223da89785b2e7f00c9b8a10c2906
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Разработка Функций Azure с помощью служб мультимедиа
@@ -32,10 +32,6 @@ ms.lasthandoff: 09/06/2017
 - Чтобы создавать функции, вам нужна активная учетная запись Azure. Если у вас ее нет, воспользуйтесь [бесплатной учетной записью Azure](https://azure.microsoft.com/free/).
 - Если вы хотите создать Функции Azure, которые выполняют определенные действия в учетной записи служб мультимедиа Azure (AMS) или прослушивают события, отправляемые службами мультимедиа, вам необходимо создать учетную запись AMS, следуя приведенным [здесь](media-services-portal-create-account.md) инструкциям.
     
-## <a name="considerations"></a>Рекомендации
-
--  Функции Azure, стоимость которых рассчитывается, исходя из плана потребления, имеют ограничение времени ожидания 5 минут.
-
 ## <a name="create-a-function-app"></a>Создание приложения-функции
 
 1. Перейдите на [портал Azure](http://portal.azure.com) и войдите, используя свою учетную запись Azure.
@@ -47,10 +43,6 @@ ms.lasthandoff: 09/06/2017
 ## <a name="configure-function-app-settings"></a>Настройка параметров приложения-функции
 
 При разработке функций служб мультимедиа удобно добавить переменные среды, которые будут использоваться в функциях. Чтобы настроить параметры приложения, щелкните ссылку "Настроить параметры приложения". Дополнительную информацию см. в разделе [Настройка параметров приложения-функции Azure](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
-
-Например:
-
-![Параметры](./media/media-services-azure-functions/media-services-azure-functions001.png)
 
 В функции, определенной в этой статье, предполагается, что в параметрах приложения настроены следующие переменные среды.
 
@@ -344,6 +336,9 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 2. Щелкните **Большие двоичные объекты**.
 3. Щелкните **+ Container** (+ Контейнер). Введите имя для **входных данных** контейнера.
 4. Щелкните **Отправить** и найдите MP4-файл, который требуется отправить.
+
+>[!NOTE]
+> Если используется триггер BLOB-объекта в плане потребления, то после того как приложение-функция стало неактивным, обработка новых BLOB-объектов может осуществляться с задержкой до 10 минут. После запуска приложения-функции большие двоичные объекты обрабатываются немедленно. Дополнительные сведения см. в статье о [привязках и триггерах хранилища BLOB-объектов](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

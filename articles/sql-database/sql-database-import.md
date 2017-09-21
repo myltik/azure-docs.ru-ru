@@ -15,12 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d42df0cbfa20741d4848dbefabb9028128b42ae1
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 79f7ccabb3900acfba7216823cecc7fc7bddd4b3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Импорт BACPAC-файла в новую базу данных SQL Azure
@@ -38,7 +37,7 @@ ms.lasthandoff: 07/08/2017
 
 Эта статья содержит указания по созданию базы данных SQL Azure из BACPAC-файла, расположенного в хранилище BLOB-объектов Azure, с помощью [портала Azure](https://portal.azure.com). С помощью портала Azure можно импортировать только BACPAC-файл из хранилища BLOB-объектов Azure.
 
-Чтобы импортировать базу данных с помощью портала Azure, откройте страницу для базы данных и щелкните **Импорт** на панели инструментов. Укажите учетную запись хранения и контейнер и выберите BACPAC-файл, который нужно импортировать. Выберите размер новой базы данных (обычно он такой же, как и у источника) и укажите учетные данные для целевого SQL Server.  
+Чтобы импортировать базу данных с помощью портала Azure, откройте страницу сервера, который нужно связать с базой данных, и щелкните **Импорт** на панели инструментов. Укажите учетную запись хранения и контейнер и выберите BACPAC-файл, который нужно импортировать. Выберите размер новой базы данных (обычно он такой же, как и у источника) и укажите учетные данные для целевого SQL Server.  
 
    ![Импорт базы данных](./media/sql-database-import/import.png)
 
@@ -63,8 +62,6 @@ ms.lasthandoff: 07/08/2017
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
-
-   ![Импорт с помощью SqlPackage](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
 
 > [!IMPORTANT]
 > Логический сервер базы данных SQL Azure прослушивает порт 1433. Чтобы подключиться к логическому серверу базы данных SQL Azure из среды, ограничиваемой корпоративным брандмауэром, этот порт должен быть открыт в брандмауэре.

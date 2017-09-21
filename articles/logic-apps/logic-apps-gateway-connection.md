@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 4744405b2c294be564dedee308b4cba95cfcc3c6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Доступ к локальным источникам данных из приложений логики с помощью локального шлюза данных
@@ -141,7 +141,7 @@ ms.lasthandoff: 07/14/2017
 
      ![Переход к приложению логики, выбор "Подключения API"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * Выберите в главном меню Azure слева элементы **Больше служб** > **Веб-службы и мобильные службы** > **Подключения API** для всех подключений API, в том числе подключений, связанных с вашей подпиской Azure. 
+   * Выберите в главном меню Azure слева элементы **Больше служб** > **Интернет+мобильные устройства** > **Подключения API** для всех подключений API, в том числе подключений шлюза, связанных с вашей подпиской Azure. 
 
    * А можно в главном меню Azure слева перейти к разделу **Все ресурсы** для всех подключений API, включая подключения шлюза, связанные с вашей подпиской Azure.
 

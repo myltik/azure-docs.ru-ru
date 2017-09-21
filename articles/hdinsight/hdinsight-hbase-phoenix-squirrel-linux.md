@@ -1,6 +1,6 @@
 ---
-title: "Использование Apache Phoenix и SQuirreL c HBase в Azure HDInsight | Документы Майкрософт"
-description: "Узнайте о том, как использовать Apache Phoenix в HDInsight, а также как установить и настроить SQuirreL на рабочей станции для подключения к кластеру HBase в HDInsight."
+title: "Использование Apache Phoenix и SQLLine c HBase в Azure HDInsight | Документация Майкрософт"
+description: "Из этой статьи вы узнаете, как использовать Apache Phoenix в HDInsight. Также здесь объясняется, как установить и настроить SQLLine на компьютере для подключения к кластеру HBase в HDInsight."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -16,17 +16,17 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 342e29b009f51f7d1e9c3134a69cab6e30726bcd
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 2c7431723906c912eb2a38fb0600dd13d5bc46a5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Использование Apache Phoenix с кластерами HBase под управлением Linux в HDInsight
-Узнайте, как использовать [Apache Phoenix](http://phoenix.apache.org/) в HDInsight, а также как использовать SQLLine. Дополнительные сведения о Phoenix см. в статье [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html) (Phoenix за 15 минут или меньше). Информацию по грамматике Phoenix см. в разделе [Phoenix Grammar](http://phoenix.apache.org/language/index.html) (Грамматика Phoenix).
+Из этой статьи вы узнаете, как использовать [Apache Phoenix](http://phoenix.apache.org/) в Azure HDInsight, а также как использовать SQLLine. Дополнительные сведения о Phoenix см. в статье [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html) (Phoenix за 15 минут или меньше). Сведения о грамматике Phoenix см. [здесь](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
-> Сведения о версии Phoenix в HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md).
+> Сведения о версии Phoenix в HDInsight см. в статье [Что представляют собой компоненты и версии Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md)
 >
 >
 
@@ -36,27 +36,27 @@ ms.lasthandoff: 09/07/2017
 ### <a name="prerequisites"></a>Предварительные требования
 Для использования SQLLine требуются следующие компоненты:
 
-* **Кластер HBase в HDInsight.** Сведения о подготовке кластера HBase см. в статье [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Windows в HDInsight][hdinsight-hbase-get-started].
-* **Подключение к кластеру с помощью протокола удаленного рабочего стола.** Инструкции см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-manage-portal].
+* **Кластер HBase в HDInsight.** Сведения о подготовке кластера HBase см. в статье [Начало работы с примером Apache HBase в HDInsight][hdinsight-hbase-get-started].
+* **Подключение к кластеру с помощью протокола удаленного рабочего стола.** Инструкции см. в статье [Управление кластерами Hadoop на платформе Windows в HDInsight с помощью портала Azure][hdinsight-manage-portal].
 
-При подключении к кластеру HBase необходимо подключиться к одному из Zookeeper. Каждый кластер HDInsight содержит три узла Zookeeper.
+При подключении к кластеру HBase необходимо подключиться к одной из виртуальных машин Zookeeper. Каждый кластер HDInsight содержит три виртуальных машины Zookeeper.
 
-**Определение имени узла Zookeeper**
+**Получение имени узла Zookeeper**
 
-1. Откройте Ambari, перейдя по адресу **https://<ClusterName>.azurehdinsight.net**.
-2. Введите имя пользователя (кластера) HTTP и пароль для входа.
-3. В меню слева щелкните **Zookeeper** . В списке будет три сервера **ZooKeeper Server**.
-4. Выберите один из серверов **ZooKeeper Server** . На панели сводки найдите **Имя узла**. Оно аналогично *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
+1. Откройте Ambari, перейдя по адресу **https://\<имя кластера\>.azurehdinsight.net**.
+2. Чтобы войти в систему, введите имя пользователя (кластера) HTTP и пароль.
+3. В меню слева выберите **ZooKeeper**. В списке отобразятся три экземпляра **ZooKeeper Server**.
+4. Выберите один из экземпляров **ZooKeeper Server**. На панели **Сводка** найдите **имя узла**. Оно аналогично *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
 **Использование SQLLine**
 
 1. Подключитесь к кластеру с помощью SSH. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Из SSH выполните следующие команды для запуска SQLLine.
+2. В SSH используйте следующие команды для запуска SQLLine:
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
         ./sqlline.py <ClusterName>:2181:/hbase-unsecure
-3. Выполните следующие команды, чтобы создать таблицу HBase и вставить некоторые данные.
+3. Чтобы создать таблицу HBase и вставить данные, выполните следующие команды:
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
 
@@ -68,15 +68,18 @@ ms.lasthandoff: 09/07/2017
 
         !quit
 
-Дополнительные сведения см. в разделе [SQLLine manual](http://sqlline.sourceforge.net/#manual) (Руководство по SQLLine) и [Phoenix Grammar](http://phoenix.apache.org/language/index.html) (Грамматика Phoenix).
+Дополнительные сведения см. в [руководстве по SQLLine](http://sqlline.sourceforge.net/#manual) и статье о [грамматике Phoenix](http://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этой статье вы изучили использование Apache Phoenix в HDInsight.  Дополнительные сведения см. на следующих ресурсах:
+В этой статье вы изучили использование Apache Phoenix в HDInsight. Дополнительные сведения см. в статьях ниже:
 
-* [Что такое HBase в HDInsight][hdinsight-hbase-overview]. HBase — это база данных NoSQL с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и частично структурированных данных.
-* [Создание кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]. Благодаря интеграции виртуальной сети кластеры HBase можно развернуть в той же виртуальной сети, что и приложения, поэтому эти приложения могут напрямую обмениваться данными с HBase.
-* [Настройка репликации HBase в HDInsight](hdinsight-hbase-replication.md): узнайте, как настроить репликацию HBase между двумя центрами обработки данных Azure.
-* [Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight][hbase-twitter-sentiment]. Узнайте, как выполнять [анализ тональности](http://en.wikipedia.org/wiki/Sentiment_analysis) в режиме реального времени на основе больших данных, используя HBase в кластере Hadoop в HDInsight.
+* [Что такое HBase в HDInsight: база данных NoSQL, которая предоставляет возможности, схожие BigTable, для Hadoop][hdinsight-hbase-overview].
+  HBase — это разработанная Apache база данных NoSQL с открытым исходным кодом, созданная на основе Hadoop. HBase обеспечивает произвольный доступ и строгую согласованность для больших объемов неструктурированных и слабоструктурированных данных.
+* [Подготовка кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet].
+  Благодаря интеграции виртуальной сети кластеры HBase могут быть развернуты в той же виртуальной сети, что и приложения. Это позволяет приложениям обмениваться данными с HBase напрямую.
+* [Настройка репликации HBase в HDInsight](hdinsight-hbase-replication.md). Узнайте, как настроить репликацию HBase между двумя центрами обработки данных Azure.
+* [Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight][hbase-twitter-sentiment].
+  Узнайте, как в режиме реального времени проводить [анализ мнений](http://en.wikipedia.org/wiki/Sentiment_analysis) на основе больших данных с помощью HBase в кластере Hadoop в HDInsight.
 
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT

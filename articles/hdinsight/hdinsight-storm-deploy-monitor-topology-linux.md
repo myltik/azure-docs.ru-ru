@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: b9e82463030807d2674594e73f762fe93515d423
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 218e818f48adee0b4e7ecb0b184098a9e3273afd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Развертывание топологий Apache Storm в HDInsight и управление ими
@@ -54,7 +53,7 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="submit-a-topology-visual-studio"></a>Отправка топологии: Visual Studio
 
-Средства HDInsight можно использовать для отправки топологии C# или гибридной топологии в кластер Storm. Далее используется пример приложения. Информацию о создании собственных топологий с помощью средств HDInsight см. в разделе [Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+Средства HDInsight можно использовать для отправки топологии C# или гибридной топологии в кластер Storm. Далее используется пример приложения. См. дополнительные сведения о [разработке топологий C# с помощью средств HDInsight для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 1. Если вы еще не установили последнюю версию средств Data Lake для Visual Studio, прочитайте статью [Приступая к работе с инструментами Azure Data Lake (в HDInsight) для Visual Studio для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
@@ -88,7 +87,7 @@ ms.lasthandoff: 07/08/2017
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    Эта команда запускает пример топологии WordCount в кластере. Эта топология случайным образом формирует предложения и подсчитывает количество вхождений каждого слова в предложениях.
+    Эта команда запускает пример топологии WordCount в кластере. Эта топология произвольно создает предложения, а затем подсчитывает число вхождений каждого слова в предложениях.
 
    > [!NOTE]
    > При отправке топологии в кластер необходимо сначала скопировать jar-файл, содержащий кластер, а затем воспользоваться командой `storm`. Чтобы скопировать файл в кластер, можно использовать команду `scp`. Например, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -97,11 +96,11 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="submit-a-topology-programmatically"></a>Отправка топологии: программный метод
 
-Вы можете программно развернуть топологию в Storm в HDInsight, обмениваясь данными со службой Nimbus, размещенной в кластере. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) приведен пример приложения Java, в котором показано, как развернуть и запустить топологию с помощью службы Nimbus.
+Топологию можно развернуть программными средствами с помощью службы Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) приведен пример приложения Java, в котором показано, как развернуть и запустить топологию с помощью службы Nimbus.
 
 ## <a name="monitor-and-manage-visual-studio"></a>Мониторинг и управление: Visual Studio
 
-После успешной отправки топологии с помощью Visual Studio отображается представление **Storm Topologies** (Топологии Storm) для кластера. Выберите топологию в списке, чтобы просмотреть информацию о выполняемой топологии.
+После отправки топологии с помощью Visual Studio отображается представление **Топологии Storm**. Выберите топологию в списке, чтобы просмотреть информацию о выполняемой топологии.
 
 ![мониторинг Visual Studio](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
@@ -207,9 +206,9 @@ ms.lasthandoff: 07/08/2017
 * **Component summary**(Сводка по компоненту) — основная информация о воронке или сите.
 * **Spout/Bolt stats**(Статистика по воронке или ситу) — статистика по воронке или ситу. С помощью ссылок в столбце **Window** (Окно) можно установить интервал времени для оставшихся записей на странице.
 * **Input stats** (Статистика по входным данным, только сита) — информация о входных потоках, проходящих через сито.
-* **Output stats**(Статистика по выходным данным) — информация о потоках, создаваемых этой воронкой или ситом.
+* **Выходная статистика** — информация о потоках, создаваемых компонентами spout и bolt.
 * **Executors**(Исполнители) — информация об экземплярах воронки или сита. Выберите запись **Port** (Порт) для конкретного исполнителя, чтобы просмотреть журнал диагностической информации, созданный для этого экземпляра.
-* **Errors**(Ошибки) — информация об ошибках для данной воронки или сита.
+* **Ошибки** — информация об ошибках для компонентов spout и bolt.
 
 ## <a name="monitor-and-manage-rest-api"></a>Мониторинг и управление: REST API
 
@@ -227,7 +226,7 @@ ms.lasthandoff: 07/08/2017
 Полное доменное имя (FQDN) головного узла кластера можно получить несколькими способами.
 
 * **Из сеанса SSH.** Из сеанса SSH в кластер примените команду `headnode -f`.
-* **Из веб-интерфейса Ambari.** В верхней части страницы выберите **Services** (Службы), а затем — **Storm**. На вкладке **Summary** (Сводка) выберите **Storm UI Server** (Сервер пользовательского интерфейса Storm). Полное доменное имя узла, на котором запущены пользовательский интерфейс Storm и REST API, указано в верхней части страницы.
+* **Из веб-интерфейса Ambari.** В верхней части страницы выберите **Services** (Службы), а затем — **Storm**. На вкладке **Summary** (Сводка) выберите **Storm UI Server** (Сервер пользовательского интерфейса Storm). Полное доменное имя узла, на котором размещены пользовательский интерфейс Storm и REST API, отображено в верхней части страницы.
 * **Из интерфейса REST API Ambari.** Используйте команду `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"`, чтобы получить сведения об узле с выполняемыми пользовательскими интерфейсами Storm и REST API. Замените **PASSWORD** паролем администратора кластера. Замените **CLUSTERNAME** именем кластера. Запись host_name в ответе будет содержать полное доменное имя узла.
 
 ### <a name="authentication"></a>Аутентификация
@@ -239,11 +238,11 @@ ms.lasthandoff: 07/08/2017
 
 ### <a name="return-values"></a>Возвращаемые значения
 
-Информацию, возвращаемую REST API, можно использовать только в пределах кластера или виртуальной машины в одной виртуальной сети Azure, выполняющей функцию кластера. Например, полное доменное имя (FQDN), возвращаемое для серверов Zookeeper, недоступно из Интернета.
+Сведения, возвращаемые из REST API, могут использоваться только в пределах кластера. Например, полное доменное имя, возвращаемое для серверов Zookeeper, недоступно из Интернета.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Теперь, когда вы узнали, как развертывать и отслеживать топологии с помощью панели мониторинга Storm, можно переходить к [разработке топологий на основе Java с помощью Maven](hdinsight-storm-develop-java-topology.md).
+См. дополнительные сведения о [разработке топологий на основе Java с помощью Maven](hdinsight-storm-develop-java-topology.md).
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
 

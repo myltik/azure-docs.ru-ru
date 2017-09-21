@@ -1,6 +1,6 @@
 ---
 title: "Отправка заданий Hadoop в HDInsight | Документация Майкрософт"
-description: "Вы узнаете, как отправлять задания Hadoop в HDInsight для платформы Azure."
+description: "Сведения об отправке заданий Hadoop в Azure HDInsight."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -16,39 +16,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: acce9907fca6e411d8028e87eff7b50ffa04d575
-ms.openlocfilehash: 4098680a7941ec4732ec0a408c3bf02d6a9906f8
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a824e6af903e006e6bb4899430741f7f2a9edaca
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>Отправка заданий Hadoop в HDInsight
 
-Задания Hadoop можно отправлять с помощью пакета SDK для .NET, Curl и Azure PowerShell:
+Вы можете отправлять задания Hadoop в Azure HDInsight с помощью пакета Microsoft SDK для .NET для HDInsight, curl или Azure PowerShell.
 
-- Использование пакета SDK для .NET
+## <a name="resources"></a>Ресурсы
+
+- **Пакет SDK для .NET**:
 
   - [Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [Выполнение запросов Hive с помощью пакета SDK HDInsight для .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md)
   - [Выполнение заданий Pig с помощью пакета SDK для .NET для Hadoop в HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
   - [Выполнение заданий Sqoop с помощью пакета SDK для .NET для Hadoop в HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
-  - [Выполнение заданий MapReduce с использованием пакета SDK для HDInsight .NET](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
+  - [Выполнение заданий MapReduce с помощью пакета SDK для HDInsight .NET](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- CURL
+- **curl**:
 
-  - [Выполнение запросов Hive с Hadoop в HDInsight с помощью Curl](hdinsight-hadoop-use-hive-curl.md)
-  - [Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-pig-curl.md)
-  - [Выполнение заданий Sqoop с Hadoop в HDInsight с помощью Curl](hdinsight-hadoop-use-sqoop-curl.md)
-  - [Выполнение заданий MapReduce с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-mapreduce-curl.md)
+  - [Выполнение запросов Hive с использованием Hadoop в HDInsight и curl](hdinsight-hadoop-use-hive-curl.md)
+  - [Выполнение заданий Pig с использованием Hadoop в HDInsight и curl](hdinsight-hadoop-use-pig-curl.md)
+  - [Выполнение заданий Sqoop с использованием Hadoop в HDInsight и curl](hdinsight-hadoop-use-sqoop-curl.md)
+  - [Выполнение заданий MapReduce с использованием Hadoop в HDInsight и curl](hdinsight-hadoop-use-mapreduce-curl.md)
 
-- PowerShell
+- **PowerShell**:
 
   - [Выполнение запросов Hive с помощью PowerShell](hdinsight-hadoop-use-hive-powershell.md)
   - [Выполнение заданий Pig с помощью PowerShell](hdinsight-hadoop-use-pig-powershell.md)
   - [Выполнение заданий Sqoop с помощью Azure PowerShell для Hadoop в HDInsight](hdinsight-hadoop-use-sqoop-powershell.md)
-  - [Выполнение заданий MapReduce с помощью PowerShell с использованием Hadoop в HDInsight](hdinsight-hadoop-use-mapreduce-powershell.md)
+  - [Выполнение заданий MapReduce с использованием Hadoop в HDInsight и PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 
 - [Документация по Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)

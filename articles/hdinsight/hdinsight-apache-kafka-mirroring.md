@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/13/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: e418cb01e1a9168e3662e8d6242903e052b6047b
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 7628f0120deb3cc5b179c00ec50d967f7b1c1dbf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>Репликация разделов Apache Kafka с помощью Kafka в HDInsight (предварительная версия) и MirrorMaker
@@ -97,12 +97,8 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 
 4. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Приобрести**. Процесс создания кластеров занимает около 20 минут.
 
-Когда указанные ресурсы будут созданы, отобразится колонка группы ресурсов, которая содержит кластеры и веб-панель мониторинга.
-
-![Колонка группы ресурсов для виртуальной сети и кластеров](./media/hdinsight-apache-kafka-mirroring/groupblade.png)
-
 > [!IMPORTANT]
-> Обратите внимание, что кластерам HDInsight присвоены имена **source-BASENAME** и **dest-BASENAME**, где BASENAME — имя, указанное в шаблоне. Эти имена будут использоваться позже при подключении к кластерам.
+> Кластерам HDInsight присвоены имена **source-BASENAME** и **dest-BASENAME**, где BASENAME — имя, указанное в шаблоне. Эти имена будут использоваться позже при подключении к кластерам.
 
 ## <a name="create-topics"></a>Создание разделов
 
@@ -122,13 +118,12 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
     # Install jq if it is not installed
     sudo apt -y install jq
     # get the zookeeper hosts for the source cluster
-    export SOURCE_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    
-    Replace `$PASSWORD` with the password for the cluster.
+    export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
 
-    Replace `$CLUSTERNAME` with the name of the source cluster.
+    Замените `$CLUSTERNAME` именем исходного кластера. При появлении запроса введите пароль для учетной записи администратора, чтобы войти на кластер.
 
-3. To create a topic named `testtopic`, use the following command:
+3. Создайте раздел с именем `testtopic` с помощью следующей команды:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
@@ -166,7 +161,7 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 
     См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Выполните следующую команду, чтобы создать файл `consumer.properties`, который настраивает обмен данными с **исходным** кластером:
+2. Файл `consumer.properties` используется для настройки обмена данными с **исходным** кластером. Чтобы создать файл, используйте следующую команду:
 
     ```bash
     nano consumer.properties
@@ -189,19 +184,17 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 
     ```bash
     sudo apt -y install jq
-    DEST_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    DEST_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     echo $DEST_BROKERHOSTS
     ```
 
-    Замените `$PASSWORD` паролем учетной записи (администратора) для входа в кластер.
+    Замените `$CLUSTERNAME` именем целевого кластера. При появлении запроса введите пароль для учетной записи администратора, чтобы войти на кластер.
 
-    Замените `$CLUSTERNAME` именем целевого кластера.
-
-    Эта команда возвращает следующую информацию:
+    Команда `echo` возвращает примерно такие сведения:
 
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
 
-4. Выполните следующую команду, чтобы создать файл `producer.properties`, который настраивает обмен данными с **целевым** кластером:
+4. Файл `producer.properties` используется для обмена данными с __целевым__ кластером. Чтобы создать файл, используйте следующую команду:
 
     ```bash
     nano producer.properties
@@ -247,27 +240,23 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 2. Чтобы запустить производитель и отправить сообщения в раздел, выполните следующую команду из SSH-подключения к **исходному** кластеру:
 
     ```bash
-    SOURCE_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    SOURCE_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Замените `$PASSWORD` паролем учетной записи (администратора) для входа в исходный кластер.
+    Замените `$CLUSTERNAME` именем исходного кластера. При появлении запроса введите пароль для учетной записи администратора, чтобы войти на кластер.
 
-    Замените `$CLUSTERNAME` именем исходного кластера.
+     При переходе в пустую строку с курсором введите несколько текстовых сообщений. Сообщения отправляются в раздел в **исходном** кластере. По завершении нажмите клавиши **Ctrl+C**, чтобы завершить процесс производителя.
 
-     При переходе в пустую строку с курсором введите несколько текстовых сообщений. Они отправляются в раздел в **исходном** кластере. По завершении нажмите клавиши **Ctrl+C**, чтобы завершить процесс производителя.
-
-3. Чтобы завершить процесс MirrorMaker, нажмите клавиши **Ctrl+C** в рамках SSH-подключения к **целевому** кластеру. Затем используйте следующие команды, чтобы убедиться, что раздел `testtopic` создан и данные в нем реплицированы в это зеркало:
+3. Чтобы завершить процесс MirrorMaker, нажмите клавиши **Ctrl+C** в рамках SSH-подключения к **целевому** кластеру. Чтобы проверить состояние репликации разделов и сообщений в целевое назначение, используйте следующие команды:
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Замените `$PASSWORD` паролем учетной записи (администратора) для входа в целевой кластер.
-
-    Замените `$CLUSTERNAME` именем целевого кластера.
+    Замените `$CLUSTERNAME` именем целевого кластера. При появлении запроса введите пароль для учетной записи администратора, чтобы войти на кластер.
 
     Теперь в списке разделов есть раздел `testtopic`, который создается, когда MirrorMaster зеркально отражает раздел из исходного кластера в место назначения. Сообщения, полученные из раздела, совпадают с введенными в исходном кластере.
 

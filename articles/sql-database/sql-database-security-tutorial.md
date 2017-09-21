@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Защита базы данных SQL Azure
@@ -188,7 +188,7 @@ ms.lasthandoff: 09/05/2017
 5. Щелкните **Сохранить**.
 
 > [!IMPORTANT]
-> Если вы хотите настроить события аудита, это можно сделать с помощью PowerShell или REST API. Дополнительные сведения см. в разделе [Автоматизация (PowerShell или REST API)](sql-database-auditing.md#subheading-7).
+> Если вы хотите настроить события аудита, это можно сделать с помощью PowerShell или REST API. Дополнительные сведения см. в статье [Приступая к работе с аудитом базы данных SQL](sql-database-auditing.md).
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Включение обнаружения угроз базы данных SQL

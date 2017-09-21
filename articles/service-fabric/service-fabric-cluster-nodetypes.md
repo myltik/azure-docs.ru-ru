@@ -1,6 +1,6 @@
 ---
-title: "Типы узлов и масштабируемые наборы виртуальных машин в Service Fabric | Документация Майкрософт"
-description: "Описание связи типов узлов с масштабируемыми наборами ВМ в Service Fabric и сведения о процедуре удаленного подключения к экземпляру масштабируемого набора ВМ или узлу кластера."
+title: "Типы узлов Azure Service Fabric и масштабируемые наборы виртуальных машин | Документация Майкрософт"
+description: "Узнайте, как типы узлов Azure Service Fabric связаны с масштабируемыми наборами виртуальных машин и как удаленно подключаться к экземплярам масштабируемых наборов или узлам кластеров."
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -15,51 +15,50 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 8c9e91d122591a19d34d944e2d9aaeb327cdafe4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 6cc3be57ed283cafa686d46d4b376c69f06301ea
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="the-relationship-between-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Связь между типами узлов Service Fabric и масштабируемыми наборами виртуальных машин
-Масштабируемые наборы виртуальных машин являются вычислительными ресурсами Azure. Их можно использовать для развертывания коллекции виртуальных машин и управления ею как набором. Каждый тип узла, определенный в кластере Service Fabric, настроен как отдельный набор масштабирования виртуальных машин. Каждый тип узла поддерживает возможность независимого масштабирования, имеет разные наборы открытых портов и собственные метрики емкости.
+# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Типы узлов Azure Service Fabric и масштабируемые наборы виртуальных машин
+Масштабируемые наборы виртуальных машин являются вычислительными ресурсами Azure. Их можно использовать для развертывания коллекций виртуальных машин и управления ими в качестве набора. Настройте отдельный масштабируемый набор для каждого типа узла, определенного в кластере Azure Service Fabric. Все типы узлов можно масштабировать независимо друг от друга, открывать разные наборы портов и использовать различные метрики производительности.
 
-На следующем снимке экрана показан кластер с двумя типами узлов: FrontEnd и BackEnd.  Каждый тип узла имеет пять узлов.
+На следующем рисунке показан кластер с двумя типами узлов, которые называются FrontEnd и BackEnd. Каждый тип узла имеет пять узлов.
 
-![Снимок экрана с двумя типами узлов][NodeTypes]
+![Кластер с двумя типами узлов][NodeTypes]
 
-## <a name="mapping-virtual-machine-scale-set-instances-to-nodes"></a>Сопоставление экземпляров масштабируемых наборов виртуальных машин с узлами
-Как можно заметить на снимке выше, нумерация экземпляров масштабируемых наборов виртуальных машин начинается с нуля и увеличивается. Нумерация отражается в именах. Например, BackEnd_0 является нулевым экземпляром масштабируемого набора виртуальных машин BackEnd. Этот конкретный масштабируемый набор виртуальных машин имеет пять экземпляров с именами BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 и BackEnd_4.
+## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>Сопоставление экземпляров масштабируемых наборов виртуальных машин с узлами
+Как показано на предыдущем рисунке, экземпляры масштабируемого набора начинаются с экземпляра 0, а затем увеличиваются на 1. Нумерация узлов отражается в именах. Например, узел BackEnd_0 является нулевым экземпляром масштабируемого набора BackEnd. Этот конкретный масштабируемый набор имеет пять экземпляров с именами BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 и BackEnd_4.
 
-При увеличении масштаба масштабируемого набора виртуальных машин создается новый экземпляр. Имя нового экземпляра масштабируемого набора виртуальных машин обычно имеет следующий формат: имя масштабируемого набора виртуальных машин + номер следующего экземпляра. В нашем примере это BackEnd_5.
+При увеличении масштаба масштабируемого набора создается экземпляр. Имя нового экземпляра масштабируемого набора, как правило, состоит из имени масштабируемого набора и номера следующего экземпляра. В нашем примере это BackEnd_5.
 
-## <a name="mapping-virtual-machine-scale-set-load-balancers-to-each-node-typevm-scale-set"></a>Сопоставление балансировщиков нагрузки масштабируемых наборов виртуальных машин с каждым типом узла или масштабируемым набором виртуальных машин
-Если вы развернули кластер из портала или использовали образец шаблона Resource Manager, в колонке группы ресурсов будет содержаться список всех ресурсов. Вы увидите балансировщики нагрузки для каждого набора масштабирования виртуальных машин или типа узла.
-
-Имя будет выглядеть следующим образом: **LB-&lt;имя типа узла&gt;**. Например, LB-sfcluster4doc-0, как показано на следующем снимке экрана:
+## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Сопоставление балансировщиков нагрузки масштабируемых наборов с типами узлов и масштабируемыми наборами
+При развертывании кластера на портале Azure или использовании примера шаблона Azure Resource Manager перечисляются все ресурсы в группе ресурсов. Отображаются балансировщики нагрузки для каждого масштабируемого набора или типа узла. Имя балансировщика нагрузки имеет следующий формат: **LB-&lt;имя типа узла&gt;**, например LB-sfcluster4doc-0, как показано на следующем рисунке:
 
 ![Ресурсы][Resources]
-
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Удаленное подключение к экземпляру масштабируемого набора виртуальных машин или узлу кластера
-Каждый тип узла, определенный в кластере, настроен как отдельный масштабируемый набор виртуальных машин.  Это означает, что типы узлов поддерживают независимое масштабирование. Они могут состоять из различных номеров SKU виртуальной машины. В отличие от виртуальных машин, состоящих из одного экземпляра, экземпляры масштабируемых наборов виртуальных машин не получают собственные виртуальные IP-адреса. Поэтому поиск IP-адреса и порта, которые можно использовать для удаленного подключения к определенному экземпляру, может оказаться непростой задачей.
+Настройте отдельный масштабируемый набор для каждого типа узла, определенного в кластере. Типы узлов можно масштабировать независимо друг от друга. Кроме того, можно использовать разные номера SKU виртуальных машин. В отличие от одноэкземплярных виртуальных машин, экземпляры масштабируемых наборов не имеют собственных виртуальных IP-адресов. Поэтому поиск IP-адреса и порта, которые можно использовать для удаленного подключения к определенному экземпляру, может оказаться непростой задачей.
 
-Ниже приведены действия по их обнаружению.
+Чтобы найти IP-адрес и порт, которые можно использовать для удаленного подключения к определенному экземпляру, выполните следующие действия.
 
-### <a name="step-1-find-out-the-virtual-ip-address-for-the-node-type-and-then-inbound-nat-rules-for-rdp"></a>Шаг 1. Определение виртуального IP-адреса для типа узла и правил NAT для входящего трафика для RDP
-Для этого необходимо получить значения правил NAT для входящего трафика, которые были определены в рамках определения ресурсов для **Microsoft.Network/loadBalancers**.
+**Шаг 1.** Найдите виртуальные IP-адреса для каждого типа узла, получив правила преобразования сетевых адресов для входящих подключений для протокола удаленного рабочего стола (RDP).
 
-На портале перейдите к колонке балансировщика нагрузки и выберите **Параметры**.
+Сначала необходимо получить значения правил преобразования сетевых адресов для входящих подключений, определенные при определении ресурса для `Microsoft.Network/loadBalancers`.
 
-![LBBlade][LBBlade]
+На портале Azure на странице балансировщика нагрузки выберите **Параметры** > **Правила NAT для входящего трафика**. Вы увидите IP-адрес и порт, которые можно использовать для удаленного подключения к первому экземпляру масштабируемого набора. 
 
-В разделе **Параметры** щелкните **Правила NAT для входящего трафика**. Вы увидите IP-адрес и порт, которые можно использовать для удаленного подключения к первому экземпляру масштабируемого набора виртуальных машин. На приведенном ниже снимке экрана это **104.42.106.156** и **3389**.
+![Подсистема балансировки нагрузки][LBBlade]
 
-![NATRules][NATRules]
+На следующем рисунке показан IP-адрес **104.42.106.156** и порт **3389**.
 
-### <a name="step-2-find-out-the-port-that-you-can-use-to-remote-connect-to-the-specific-virtual-machine-scale-set-instancenode"></a>Шаг 2. Определение порта, который можно использовать для удаленного подключения к конкретному экземпляру масштабируемого набора виртуальных машин или узлу
-Ранее в этом документе говорилось о сопоставлении экземпляров масштабируемого набора виртуальных машин с узлами. Мы используем эти данные для определения точного номера порта.
+![Правила преобразования сетевых адресов][NATRules]
 
-Порты выделяются по возрастанию номера экземпляра в масштабируемом наборе виртуальных машин. Поэтому в примере с типом узла FrontEnd для каждого из пяти экземпляров будут использоваться указанные далее порты. Вам потребуется выполнить такое же сопоставление для своего экземпляра в масштабируемом наборе виртуальных машин.
+**Шаг 2.** Найдите порт, который можно использовать для удаленного подключения к конкретному экземпляру или узлу масштабируемого набора.
+
+Экземпляры масштабируемых наборов сопоставляются с узлами. Информация о масштабируемом наборе позволяет точно определить порт, который нужно использовать.
+
+Порты выделяются в возрастающем порядке в соответствии с экземпляром масштабируемого набора. Для приведенного выше типа узла FrontEnd в следующей таблице указаны порты для каждого из пяти экземпляров узла. Применяйте к экземпляру масштабируемого набора одно то же сопоставление.
 
 | **Экземпляр масштабируемого набора виртуальных машин** | **Порт** |
 | --- | --- |
@@ -70,74 +69,79 @@ ms.lasthandoff: 09/05/2017
 | FrontEnd_4 |3393 |
 | FrontEnd_5 |3394 |
 
-### <a name="step-3-remote-connect-to-the-specific-virtual-machine-scale-set-instance"></a>Шаг 3. Удаленное подключение к определенному экземпляру масштабируемого набора виртуальных машин
-На приведенном ниже снимке экрана использовалось подключение к удаленному рабочему столу для подключения к FrontEnd_1.
+**Шаг 3.** Выполните удаленное подключение к определенному экземпляру масштабируемого набора.
 
-![RDP][RDP]
+На следующем рисунке показано подключение к экземпляру масштабируемого набора FrontEnd_1 с использованием подключения к удаленному рабочему столу:
 
-## <a name="how-to-change-the-rdp-port-range-values"></a>Изменение значений диапазона портов RDP
+![Подключение к удаленному рабочему столу][RDP]
+
+## <a name="change-the-rdp-port-range-values"></a>Изменение значений диапазона портов RDP
+
 ### <a name="before-cluster-deployment"></a>Перед развертыванием кластера
-При настройке кластера с помощью шаблона Resource Manager можно указать диапазон в **inboundNatPools**.
+При настройке кластера с помощью шаблона Resource Manager укажите диапазон в `inboundNatPools`.
 
-Перейдите к определению ресурса для **Microsoft.Network/loadBalancers**. В нем вы найдете описание **inboundNatPools**.  Замените значения *frontendPortRangeStart* и *frontendPortRangeEnd*.
+Перейдите к определению ресурса для `Microsoft.Network/loadBalancers`. Найдите описание `inboundNatPools`.  Замените значения `frontendPortRangeStart` и `frontendPortRangeEnd`.
 
-![inboundNatPools][InboundNatPools]
+![Значения inboundNatPools][InboundNatPools]
 
 ### <a name="after-cluster-deployment"></a>После развертывания кластера
-Это довольно сложный процесс, который может привести к перезапуску виртуальных машин. Задайте новые значения с помощью Azure PowerShell. Убедитесь, что на компьютере установлена среда Azure PowerShell 1.0 или более поздней версии. Если вы не используете Azure Powershell 1.0 или более позднюю версию, настоятельно рекомендуем выполнить инструкции в статье [Общие сведения об Azure PowerShell](/powershell/azure/overview).
+Изменить значения диапазона портов RDP после развертывания кластера гораздо сложнее. Чтобы убедиться, что виртуальные машины не перезапускаются, задайте новые значения с помощью Azure PowerShell. 
 
-Войдите в учетную запись Azure. Если команды PowerShell по какой-то причине завершаются неудачно, проверьте, правильно ли установлен Azure PowerShell.
+> [!NOTE]
+> Убедитесь, что на компьютере установлена среда Azure PowerShell версии 1.0 или более поздней. Если у вас нет Azure PowerShell версии 1.0 или более поздней, мы советуем выполнить действия, описанные в статье [Общие сведения об Azure PowerShell](/powershell/azure/overview).
 
-```
-Login-AzureRmAccount
-```
+1. Войдите в учетную запись Azure. Если следующая команда PowerShell завершится ошибкой, убедитесь, что среда PowerShell установлена правильно.
 
-Выполните приведенную ниже команду для получения сведений о балансировщике нагрузки, и вы увидите значения и описание **inboundNatPools**.
+    ```
+    Login-AzureRmAccount
+    ```
 
-```
-Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
-```
+2. Чтобы получить подробные сведения о балансировщике нагрузки и просмотреть значения в описании `inboundNatPools`, выполните следующий код:
 
-Задайте для *frontendPortRangeEnd* и *frontendPortRangeStart* требуемые значения.
+    ```
+    Get-AzureRmResource -ResourceGroupName <resource group name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
+    ```
 
-```
-$PropertiesObject = @{
-    #Property = value;
-}
-Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load Balancer name> -ApiVersion <use the API version that get returned> -Force
-```
+3. Задайте для `frontendPortRangeEnd` и `frontendPortRangeStart` необходимые значения.
 
-## <a name="how-to-change-the-rdp-username--password-for-nodes"></a>Как изменить имя пользователя и пароль для входа по протоколу удаленного рабочего стола (RDP) для узлов
+    ```
+    $PropertiesObject = @{
+        #Property = value;
+    }
+    Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <resource group name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name> -ApiVersion <use the API version that is returned> -Force
+    ```
 
-Ниже описывается, как изменить пароль для всех узлов определенного типа. Эти изменения будут применены ко всем имеющимся и будущим узлам в масштабируемом наборе виртуальных машин.
+## <a name="change-the-rdp-user-name-and-password-for-nodes"></a>Изменение имени пользователя и пароля удаленного рабочего стола для узлов
 
-### <a name="step-1-open-powershell-with-elevated-privileges-administrator-mode"></a>Шаг 1. Откройте PowerShell с более высоким уровнем привилегий (режим администратора). 
-### <a name="step-2-run-the-following-commands-to-log-in-and-select-your-subscription-for-the-session-change-the-subscriptionid-parameter-to-your-subscription-id"></a>Шаг 2. Выполните следующие команды, чтобы войти в систему, и выберите подписку для сеанса. Замените параметр `SUBSCRIPTIONID` своим идентификатором подписки. 
+Чтобы изменить пароль для всех узлов определенного типа, сделайте следующее. Эти изменения будут применены ко всем имеющимся и будущим узлам в масштабируемом наборе.
 
-```powershell
-Login-AzureRmAccount
-Get-AzureRmSubscription -SubscriptionId 'SUBSCRIPTIONID' | Select-AzureRmSubscription
-```
+1. Откройте PowerShell от имени администратора. 
+2. Чтобы войти в систему и выбрать подписку для сеанса, выполните следующие команды. Замените параметр `SUBSCRIPTIONID` своим идентификатором подписки. 
 
-### <a name="step-3-run-the-following-script-with-the-appropriate-nodetypename-resourcegroup-username-and-password-values-the-username-and-password-values-will-be-the-new-credentials-that-should-be-used-in-future-rdp-sessions"></a>Шаг 3. Запустите следующий скрипт, используя соответствующие значения `NODETYPENAME`, `RESOURCEGROUP`, `USERNAME` и `PASSWORD`. Значения `USERNAME` и `PASSWORD` будут использоваться как новые учетные данные в будущих сеансах RDP. 
+    ```powershell
+    Login-AzureRmAccount
+    Get-AzureRmSubscription -SubscriptionId 'SUBSCRIPTIONID' | Select-AzureRmSubscription
+    ```
 
-```powershell
-$nodeTypeName = 'NODETYPENAME'
-$resourceGroup = 'RESOURCEGROUP'
-$publicConfig = @{'UserName' = 'USERNAME'}
-$privateConfig = @{'Password' = 'PASSWORD'}
-$extName = 'VMAccessAgent'
-$publisher = 'Microsoft.Compute'
-$node = Get-AzureRmVmss -ResourceGroupName $resourceGroup -VMScaleSetName $nodeTypeName
-$node = Add-AzureRmVmssExtension -VirtualMachineScaleSet $node -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion '2.0' -AutoUpgradeMinorVersion $true
+3. Выполните следующий сценарий. Используйте соответствующие значения `NODETYPENAME`, `RESOURCEGROUP`, `USERNAME` и `PASSWORD`. `USERNAME` и `PASSWORD` — это новые учетные данные, используемые в будущих сеансах удаленного рабочего стола. 
 
-Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
-```
+    ```powershell
+    $nodeTypeName = 'NODETYPENAME'
+    $resourceGroup = 'RESOURCEGROUP'
+    $publicConfig = @{'UserName' = 'USERNAME'}
+    $privateConfig = @{'Password' = 'PASSWORD'}
+    $extName = 'VMAccessAgent'
+    $publisher = 'Microsoft.Compute'
+    $node = Get-AzureRmVmss -ResourceGroupName $resourceGroup -VMScaleSetName $nodeTypeName
+    $node = Add-AzureRmVmssExtension -VirtualMachineScaleSet $node -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion '2.0' -AutoUpgradeMinorVersion $true
+
+    Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
+    ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Общие сведения о функции "Развертывание в любом месте" и сравнение кластеров под управлением Azure](service-fabric-deploy-anywhere.md)
-* [Безопасность кластера](service-fabric-cluster-security.md)
-* [ Пакет SDK для Service Fabric и начало работы](service-fabric-get-started.md)
+* Дополнительные сведения о возможности развертывания в любом месте и сравнении с кластерами под управлением Azure см. в статье [Создание кластеров Service Fabric в Windows Server или Linux](service-fabric-deploy-anywhere.md).
+* Дополнительные сведения о безопасности кластеров см. в статье [Сценарии защиты кластера Service Fabric](service-fabric-cluster-security.md).
+* Дополнительные сведения пакете SDK Service Fabric см. в статье [Подготовка среды разработки](service-fabric-get-started.md).
 
 <!--Image references-->
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png

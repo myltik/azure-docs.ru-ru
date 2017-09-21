@@ -17,10 +17,10 @@ ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: d0bd690edcf7dba85cbc316e254d4617bf0ebcb4
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f333354311b16c00a0d43a691f139f5f80383d1a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Анализ данных о задержке рейсов с помощью Hive в HDInsight на платформе Linux
@@ -267,7 +267,7 @@ ms.lasthandoff: 09/01/2017
 
     Эта команда выводит список баз данных, включая базу данных, в которой вы ранее создали таблицу delays.
 
-2. Для экспорта данных из hivesampletable в таблицу mobiledata используйте следующую команду:
+2. Для экспорта данных из таблицы hivesampletable в таблицу mobiledata используйте следующую команду:
 
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
@@ -275,13 +275,13 @@ ms.lasthandoff: 09/01/2017
 
     Sqoop подключается к базе данных, которая содержит таблицу delays, и экспортирует данные из каталога `/tutorials/flightdelays/output` в эту таблицу.
 
-3. После выполнения команды выполните следующую команду для подключения к базе данных с помощью служебной программы tsql:
+3. Когда команда sqoop будет выполнена, используйте служебную программу tsql для подключения к базе данных:
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    Используйте следующие инструкции для проверки экспорта данных в таблицу mobiledata:
+    Используйте следующие инструкции, чтобы проверить состояние экспорта данных в таблицу delays:
 
     ```
     SELECT * FROM delays
@@ -290,7 +290,7 @@ ms.lasthandoff: 09/01/2017
 
     Вы увидите список данных в таблице. Введите `exit` для выхода из служебной программы tsql.
 
-## <a id="nextsteps"></a> Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Чтобы узнать дополнительные возможности работы с данными в HDInsight, ознакомьтесь со следующими статьями:
 

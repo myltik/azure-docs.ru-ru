@@ -18,17 +18,17 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 5c352fd29c32b381d754b491ec46b3b250bd66ae
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5c862dbf46a30dd6811faeea447d559dca493991
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Отправка данных для заданий Hadoop в HDInsight
 
 Служба Azure HDInsight — это полнофункциональная распределенная файловая система Hadoop (HDFS), в основе которой лежит служба хранилища Azure и Azure Data Lake Store. Служба хранилища Azure и Azure Data Lake Store разработаны в качестве дополнения для HDFS. Они обеспечивают клиентам высочайшее удобство работы. Благодаря им все компоненты экосистемы Hadoop работают непосредственно с данными, управляемыми службой. Служба хранилища Azure и Azure Data Lake — это разные файловые системы, оптимизированные для хранения и обработки данных. Сведения о преимуществах использования службы хранилища Azure см. в статьях [Использование службы хранилища Azure с кластерами Azure HDInsight][hdinsight-storage] и [Использование Data Lake Store с кластерами Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-##<a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 
 Перед началом работы необходимо ознакомиться со следующими требованиями:
 
@@ -159,7 +159,7 @@ AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
 Чтобы использовать команду Hadoop, необходимо сначала подключиться к головному узлу с помощью одного из следующих методов:
 
 * **HDInsight под управлением Windows**: [подключение с помощью удаленного рабочего стола](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight под управлением Linux:** подключение с использованием SSH ([команды SSH](hdinsight-hadoop-linux-use-ssh-unix.md) или [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md)).
+* **HDInsight под управлением Linux:** подключение с использованием [SSH или PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 После подключения можно использовать следующий синтаксис для отправки файла в хранилище.
 

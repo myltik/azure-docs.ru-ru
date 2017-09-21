@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: adhurwit
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: d095bcfe37baefa90cf79bb48bff3f703ce1dad7
+ms.translationtype: HT
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: f306784adcb807b399fbfbedf08bffdd2998ed02
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Использование хранилища ключей Azure из веб-приложения
@@ -38,7 +37,8 @@ ms.lasthandoff: 06/15/2017
 * Веб-приложение. Мы покажем действия для приложения ASP.NET MVC, развернутого в Azure в качестве веб-приложения.
 
 > [!NOTE]
-> Необходимо выполнить действия, описанные в разделе [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md) , чтобы получить URI секрета, идентификатор клиента и секрет клиента для веб-приложения.
+>* В этом примере показан старый способ подготовки удостоверений AAD вручную. Сейчас доступна предварительная версия новой возможности "Удостоверение управляемой службы" (MSI), которая автоматически подготавливает удостоверения AAD. Дополнительные сведения см. в статье [Managed Service Identity (MSI) for Azure resources](https://docs.microsoft.com/azure/active-directory/msi-overview) (Удостоверение управляемой службы (MSI) для ресурсов Azure). 
+>* Необходимо выполнить действия, описанные в разделе [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md) , чтобы получить URI секрета, идентификатор клиента и секрет клиента для веб-приложения.
 > 
 > 
 

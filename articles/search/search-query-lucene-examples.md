@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/21/2017
 ms.author: liamca
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: bfd044f333087d8e3e9526820196be6eaec2f18f
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/22/2017
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>Способы вызова полного синтаксического анализа Lucene
 
-Во всех примерах в этой статье задается параметр поиска **queryType=full**, указывающий, что полный синтаксис выполняется средством синтаксического анализа запросов Lucene. 
+Во всех примерах в этой статье задается параметр поиска **queryType=full**, указывающий, что полный синтаксис обрабатывается средством синтаксического анализа запросов Lucene. 
 
 **Пример 1.** Щелкните правой кнопкой мыши приведенный ниже фрагмент запроса, чтобы открыть его в новой странице браузера, где загружается JSFiddle и выполняется запрос.
 

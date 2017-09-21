@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Профилирование динамических веб-приложений Azure с помощью Application Insights
@@ -65,11 +65,17 @@ ms.lasthandoff: 09/05/2017
 Существует [предварительная версия профилировщика для вычислительных ресурсов Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
-## <a name="limits"></a>Ограничения
+## <a name="limitations"></a>Ограничения
 
 Срок хранения данных по умолчанию — 5 дней. В день может быть принято до 10 ГБ.
 
 За использование службы профилировщика плата не взимается. Веб-приложение должно быть размещено по крайней мере на уровне "Базовый" служб приложений.
+
+## <a name="overhead-and-sampling-algorithm"></a>Дополнительная нагрузка и алгоритм выборки
+
+Раз в час Profiler запускается случайным образом на 2 минуты на каждой виртуальной машине, на которой размещено приложение, для сбора трассировок которого настроен Profiler. При запуске Profiler увеличивает нагрузку на ресурсы ЦП сервера на 5–15 %.
+Чем больше серверов доступно для размещения приложения, тем меньше Profiler влияет на общую производительность приложения. Причина этого состоит в том, что алгоритм выборки запускает Profiler только на 5 % серверов в любой момент времени, и для обслуживания веб-запросов будет доступно больше серверов, которые возьмут на себя нагрузку серверов, выполняющих дополнительную рабочую нагрузку Profiler.
+
 
 ## <a name="viewing-profiler-data"></a>Просмотр данных профилировщика
 
@@ -191,6 +197,21 @@ ms.lasthandoff: 09/05/2017
 ### <a name="error-report-in-the-profiling-viewer"></a>Отчет об ошибках в средстве просмотра профилирования
 
 Отправьте запрос в службу поддержки с портала. Укажите идентификатор корреляции из сообщения об ошибке.
+
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Ошибка развертывания: каталог не пустой "D:\\домашний\\сайт\\wwwroot\\App_Data\\jobs"
+
+При повторном развертывании веб-приложения в ресурсе служб приложений с включенным Profiler может возникнуть ошибка примерно следующего вида: "Каталог не пустой "D:\\домашний\\сайт\\wwwroot\\App_Data\\jobs"". Эта ошибка происходит при запуске веб-развертывания с помощью сценариев или в конвейере развертывания VSTS.
+Чтобы устранить эту проблему, нужно добавить приведенные ниже параметры развертывания в задачу веб-развертывания.
+
+```
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+```
+
+Это позволит удалить папку, используемую Application Insights Profiler, и разблокировать процесс повторного развертывания. Текущий запущенный экземпляр Profiler не будет затронут.
+
 
 ## <a name="manual-installation"></a>Ручная установка
 

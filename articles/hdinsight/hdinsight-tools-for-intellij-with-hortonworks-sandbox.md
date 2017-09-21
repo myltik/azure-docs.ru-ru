@@ -18,79 +18,71 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 5c42b3e519781fa25fe92b286fa65898a7aac173
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 5b038f73cadc43207d86995a5323db6b5fe9b65d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Использование инструментов HDInsight для IntelliJ с песочницей Hortonworks
 
-Узнайте, как использовать инструменты HDInsight для IntelliJ при разработке приложений Apache Scala и их тестировании в [песочнице Hortonworks](http://hortonworks.com/products/sandbox/), запущенной на рабочей станции. 
+Узнайте, как использовать средства HDInsight для IntelliJ при разработке приложений Apache Scala и их тестировании в [песочнице Hortonworks](http://hortonworks.com/products/sandbox/), запущенной на компьютере. 
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/) — это интегрированная среда разработки (IDE) Java для разработки программного обеспечения для компьютеров. После разработки и тестирования приложений в песочнице Hortonworks их можно переместить в [Azure HDInsight](hdinsight-hadoop-introduction.md).
+[IntelliJ IDEA](https://www.jetbrains.com/idea/) — это интегрированная среда разработки (IDE) Java для создания программного обеспечения для компьютеров. После разработки и тестирования приложений в песочнице Hortonworks их можно переместить в [Azure HDInsight](hdinsight-hadoop-introduction.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Для работы с этим руководством вам потребуется:
+Перед началом работы с этим руководством необходимо иметь следующее:
 
-- Платформа данных Hortonworks Data Platform 2.4 (HDP) в песочнице Hortonworks, выполняемая в локальной среде. Сведения о настройке см. в статье [Начало работы с песочницей Hadoop, эмулятором на виртуальной машине](hdinsight-hadoop-emulator-get-started.md). 
-    >[!NOTE]
-    >Средства HDInsight для IntelliJ протестированы только с выпуском HDP 2.4. Чтобы получить HDP 2.4, разверните **архив песочницы Hortonworks** на [сайте скачивания песочницы Hortonworks](http://hortonworks.com/downloads/#sandbox).
+- Платформа данных Hortonworks Data Platform 2.4 (HDP) в песочнице Hortonworks, выполняемая на локальном компьютере. Сведения о настройке HDP см. в статье [Начало работы с песочницей Hadoop, эмулятором на виртуальной машине](hdinsight-hadoop-emulator-get-started.md). 
+    > [!NOTE]
+    > Средства HDInsight для IntelliJ были протестированы только с HDP 2.4. Чтобы получить HDP 2.4, разверните **архив песочницы Hortonworks** на [сайте скачивания песочницы Hortonworks](http://hortonworks.com/downloads/#sandbox).
 
-- [Java Developer Kit (JDK) версии 1.8 или более поздней версии](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). JDK необходим для набора средств Azure для IntelliJ.
+- [Java Developer Kit (JDK) версии 1.8 или более поздней версии](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Для набора средств Azure для IntelliJ требуется пакет JDK.
 
-- [Выпуск IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download) с подключаемым модулем [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) и подключаемым модулем [Набор средств Azure для IntelliJ](../azure-toolkit-for-intellij.md). Инструменты HDInsight для IntelliJ доступны в составе набора средств Azure для IntelliJ. 
+- [Выпуск IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download) с подключаемым модулем [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) и подключаемым модулем [Набор средств Azure для IntelliJ](../azure-toolkit-for-intellij.md). Средства HDInsight для IntelliJ доступны в составе набора средств Azure для IntelliJ. 
 
-  Чтобы установить подключаемые модули, сделайте следующее:
+Чтобы установить подключаемые модули, сделайте следующее:
 
   1. Откройте IntelliJ IDEA.
-  2. На экране **Welcome** (Добро пожаловать) выберите **Configure** (Настройка), а затем **Plugins** (Подключаемые модули).
-  3. Выберите **Install JetBrains plugin** (Установить подключаемый модуль JetBrains) в левом нижнем углу.
+  2. На **странице приветствия** выберите **Configure** (Настройка), а затем **Plugins** (Подключаемые модули).
+  3. В левом нижнем углу выберите **Install JetBrains plugin** (Установить подключаемый модуль JetBrains).
   4. Используйте функцию поиска, чтобы найти **Scala**, а затем выберите **Install** (Установить).
-  5. Чтобы завершить установку, щелкните **Restart IntelliJ IDEA** (Перезапустить IntelliJ IDEA).
+  5. Щелкните **Restart IntelliJ IDEA** (Перезапустить IntelliJ IDEA), чтобы завершить установку.
   6. Чтобы установить **набор средств Azure для IntelliJ**, повторите шаги 4 и 5. Дополнительные сведения см. в статье [Установка набора средств Azure для IntelliJ](../azure-toolkit-for-intellij-installation.md).
 
 ## <a name="create-a-spark-scala-application"></a>Создание приложения Spark Scala
 
 В этом разделе с помощью IntelliJ IDEA создается пример проекта Scala. В следующем разделе IntelliJ IDEA связывается с песочницей Hortonworks (эмулятором) до отправки проекта.
 
-1. Откройте IntelliJ IDEA со своей рабочей станции. В диалоговом окне **Новый проект** сделайте следующее:
+1. Откройте IntelliJ IDEA на компьютере. В диалоговом окне **New Project** (Новый проект) сделайте следующее:
 
-   а. Выберите **HDInsight** > **Spark on HDInsight (Scala)** (Spark в HDInsight (Scala)).
-
-   b. В списке **средств сборки** выберите один из следующих вариантов:
+   1. Выберите **HDInsight** > **Spark on HDInsight (Scala)** (Spark в HDInsight (Scala)).
+   2. В списке **средств сборки** выберите один из следующих вариантов в зависимости от сценария:
 
     * **Maven.** Для поддержки мастера создания проекта Scala.
-    * **SBT.** Для управления зависимостями и создания проекта Scala.
+    * **SBT.** Для управления зависимостями и сборки проекта Scala.
 
    ![Диалоговое окно нового проекта](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Щелкните **Далее**.
+3. В диалоговом окне **New Project** (Новый проект) выполните следующие шаги:
 
-3. В диалоговом окне **Новый проект** сделайте следующее:
-
+    1. В поле **Project name** (Имя проекта) введите имя проекта.
+    2. В поле **Project location** (Расположение проекта) введите расположение проекта.
+    3. Рядом с раскрывающимся списком **Project SDK** (Пакет SDK проекта) выберите **New** (Создать), а затем **JDK** и укажите папку пакета Java JDK версии 1.7 или более поздней. Выберите **Java 1.8** для кластера Spark 2.x. Для кластера Spark 1.x выберите **Java 1.7**. Расположение по умолчанию: C:\Program Files\Java\jdk1.8.x_xxx.
+    4. В раскрывающемся списке **Spark version** (Версия Spark) мастер создания проекта Scala интегрирует правильную версию пакета SDK для Spark и пакета SDK для Scala. Если версия кластера Spark ниже 2.0, выберите **Spark 1.x**. В противном случае выберите **Spark 2.x**. В этом примере используется Spark 1.6.2 (Scala 2.10.5). Убедитесь, что используется репозиторий, помеченный как **Scala 2.10.x**. Не используйте репозиторий, помеченный Scala 2.11.x.
+    
     ![Создание свойств проекта IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
-    а. В поле **Project name** (Имя проекта) введите имя проекта.
-
-    b. В поле **Project location** (Расположение проекта) введите расположение проекта.
-
-    c. Рядом с раскрывающимся списком **Project SDK** (Пакет SDK проекта) выберите **New** (Создать), а затем **JDK** и укажите папку пакета Java JDK версии 1.7 или более поздней. Выберите **Java 1.8** для кластера Spark 2.x или **Java 1.7** для кластера Spark 1.x. Расположение по умолчанию: C:\Program Files\Java\jdk1.8.x_xxx.
-
-    d. В раскрывающемся списке для параметра **Spark version** (Версия Spark) мастер создания проекта Scala интегрирует правильную версию пакета SDK для Spark и пакета SDK для Scala. Если версия кластера Spark ниже 2.0, выберите **Spark 1.x**. В противном случае выберите **Spark 2.x**. В этом примере используется Spark 1.6.2 (Scala 2.10.5). Убедитесь, что используется репозиторий, помеченный Scala 2.10.x. Не используйте репозиторий, помеченный Scala 2.11.x.
 
 4. Выберите **Готово**.
-
 5. Если представление **Project** (Проект) еще не открыто, нажмите клавиши **ALT+1**, чтобы открыть его.
-
 6. В **обозревателе проектов** разверните проект и выберите **src**.
-
 7. Щелкните правой кнопкой мыши **src**, наведите указатель мыши на пункт **New** (Создать), а затем щелкните **Scala Class** (Класс Scala).
+8. В поле **Name** (Имя) введите имя. В поле **Kind** (Тип) выберите **Object** (Объект). Нажмите кнопку **ОК**.
 
-8. В поле **Name** (Имя) введите имя, а в поле **Kind** (Тип) выберите **Object** (Объект), а затем нажмите кнопку **ОК**.
-
-    ![Окно создания нового класса Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-new-scala-class.png)
+    ![Диалоговое окно создания класса Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-new-scala-class.png)
 
 9. Скопируйте приведенный ниже код и вставьте его в файл с расширением SCALA.
 
@@ -121,7 +113,7 @@ ms.lasthandoff: 09/07/2017
                 }
                 arr1
                 }.cache
-                // Enforce that everything has been calculated and in cache
+                // Enforce that everything has been calculated and in cache.
                 pairs1.count
 
                 println(pairs1.groupByKey(numReducers).count)
@@ -138,46 +130,41 @@ ms.lasthandoff: 09/07/2017
 Чтобы установить связь с эмулятором, сделайте следующее:
 
 1. Откройте проект в IntelliJ.
-
 2. В меню **View** (Вид) выберите **Tool Windows** (Окна инструментов) и выберите **Azure Explorer**.
-
 3. Разверните **Azure**, щелкните правой кнопкой мыши **HDInsight**, а затем выберите **Link an Emulator** (Установить связь с эмулятором).
+4. В диалоговом окне **Link A New Emulator** (Установка связи с новым эмулятором) введите пароль, настроенный для учетной записи привилегированного пользователя песочницы Hortonworks. Затем введите значения, аналогичные приведенным на следующем снимке экрана. Нажмите кнопку **ОК**. 
 
-4. В окне **Link A New Emulator** (Установить связь с новым эмулятором) введите пароль, который был настроен для учетной записи привилегированного пользователя песочницы Hortonworks, введите значения, аналогичные приведенным на следующем снимке экрана, а затем нажмите кнопку **OK**. 
-
-   ![Окно Link a New Emulator (Установить связь с новым эмулятором)](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
+   ![Диалоговое окно установки связи с новым эмулятором](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
 
 5. Чтобы настроить эмулятор, выберите **Yes** (Да).
 
-При успешном подключении эмулятор (песочница Hortonworks) будет внесен в узел HDInsight.
+При успешном подключении эмулятор (песочница Hortonworks) будет отображаться в списке узла HDInsight.
 
 ## <a name="submit-the-spark-scala-application-to-the-hortonworks-sandbox"></a>Отправка приложения Spark Scala в песочницу Hortonworks
 
 Когда среда IntelliJ IDEA связана с эмулятором, можно отправить проект.
 
-Чтобы отправить проект на эмулятор, выполните следующее:
+Чтобы отправить проект в эмулятор, выполните следующие действия:
 
 1. В **обозревателе проектов** щелкните проект правой кнопкой мыши и выберите **Submit Spark Application to HDInsight** (Отправить приложение Spark в HDInsight).
+2. Затем сделайте следующее:
 
-2. Выполните следующее:
-
-    а. В раскрывающемся списке **Spark cluster (Linux only)** (Кластер Spark (только для Linux)) выберите локальную песочницу Hortonworks.
-
-    b. В поле **Main class name** (Имя класса Main) введите имя класса Main. В этом руководстве имя — **GroupByTest**.
+    1. В раскрывающемся списке **Spark cluster (Linux only)** (Кластер Spark (только для Linux)) выберите локальную песочницу Hortonworks.
+    2. В поле **Main class name** (Имя класса Main) выберите или введите имя класса Main. В этом руководстве имя — **GroupByTest**.
 
 3. Нажмите кнопку **Submit** (Отправить). Журналы отправки заданий отображаются в окне инструмента отправки Spark.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Сведения о создании приложений Spark для HDInsight с помощью инструментов HDInsight для IntelliJ см. в статье [Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md).
+- Узнайте, как [создавать приложения Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md).
 
-- Просмотрите видеоролик [Introduce HDInsight Tools for IntelliJ for Spark Development](https://www.youtube.com/watch?v=YTZzYVgut6c) (Вводные сведения об инструментах HDInsight для IntelliJ для разработки Spark).
+- Просмотрите видео с [вводными сведениями о средствах HDInsight для IntelliJ для разработки приложений Spark](https://www.youtube.com/watch?v=YTZzYVgut6c).
 
-- Сведения об удаленной отладке приложений Spark в HDInsight по протоколу SSH см. в статье [Удаленная отладка приложений Spark в кластере HDInsight с помощью набора средств Azure для IntelliJ через SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md).
+- Узнайте, как [выполнить удаленную отладку приложений Spark в кластере HDInsight с помощью набора средств Azure для IntelliJ через SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md).
 
-- Сведения об удаленной отладке приложений Spark через VPN с помощью набора средств в HDInsight см. в статье [Удаленная отладка приложений в HDInsight Spark через VPN с помощью набора средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
+- Узнайте, как [выполнить удаленную отладку приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 
-- Сведения об использовании средств HDInsight для Eclipse для создания приложений Spark см. в статье [Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md).
+- Узнайте, как [с помощью средств HDInsight в наборе средств Azure для Eclipse создавать приложения Spark](hdinsight-apache-spark-eclipse-tool-plugin.md).
 
-- Просмотрите видеоролик [Use HDInsight Tool for Eclipse to create Spark applications](https://mix.office.com/watch/1rau2mopb6fha) (Использование средств HDInsight для Eclipse для создания приложений Spark).
+- Просмотрите видео о [создании приложений Spark с помощью средств HDInsight для Eclipse ](https://mix.office.com/watch/1rau2mopb6fha).
 

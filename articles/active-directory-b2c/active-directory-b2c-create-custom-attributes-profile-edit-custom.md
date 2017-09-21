@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 67c9f6eca18e2dd77e00b8bc8c7bcc546ea3936e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f3e4eb6fedf850dbb827fd2a10593249d2f17ef1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C. Создание и использование настраиваемых атрибутов в пользовательской политике изменения профиля
@@ -52,7 +52,7 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="creating-a-new-application-to-store-the-extension-properties"></a>Создание приложения для хранения свойств расширения
 
-1. Откройте сеанс браузера, перейдите к [порталу Azure](https://portal.azure.com) и выполните вход с использованием учетных данных администратора каталога B2C, который требуется настроить.
+1. Откройте сеанс браузера, перейдите на [портал Azure](https://portal.azure.com) и выполните вход с использованием учетных данных администратора каталога B2C, который требуется настроить.
 1. В области навигации слева щелкните **Active Directory**. Чтобы найти эту службу, щелкните > More Services (> Больше служб).
 1. Щелкните **Регистрация приложений** и выберите пункт **Регистрация нового приложения**.
 1. Укажите следующие рекомендуемые записи:
@@ -62,7 +62,7 @@ ms.lasthandoff: 08/28/2017
 1. Выберите "Создать". В области **уведомлений** появится уведомление об успешном выполнении.
 1. Выберите созданное только что веб-приложение: **WebApp-GraphAPI-DirectoryExtensions**
 1. Выберите параметры: **Необходимые разрешения**
-1. Выберите API: **Windows Active Directory**
+1. Выберите API: **Microsoft Azure Active Directory**.
 1. Установите флажки в разделе "Разрешения приложения": **Чтение и запись данных каталога** и **Сохранение**
 1. Выберите команду **Предоставить разрешения** и нажмите кнопку **Да**.
 1. Скопируйте в буфер обмена и сохраните следующие идентификаторы из раздела "WebApp-GraphAPI-DirectoryExtensions > Параметры > Свойства".
@@ -235,7 +235,7 @@ ms.lasthandoff: 08/28/2017
 
 Идентификатор токена, отправляемый в приложение, содержит новое свойство расширения в виде пользовательского утверждения, перед которым будет указано extension_loyaltyId. Ознакомьтесь с примером ниже.
 
-```
+```json
 {
   "exp": 1493585187,
   "nbf": 1493581587,
@@ -254,8 +254,8 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Добавьте новое утверждение в рабочий процесс входа с использованием учетных записей социальных сетей, изменив технические профили, указанные ниже. Эти два технических профиля используются при входе с использованием учетной записи социальной сети или федеративной учетной записи для записи и чтения данных пользователя с применением alternativeSecurityId в качестве указателя объекта пользователя.
-```
+### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>Добавьте новое утверждение в рабочий процесс входа с использованием учетных записей социальных сетей, изменив технические профили, указанные ниже. Эти два технических профиля используются при входе с использованием учетной записи социальной сети или федеративной учетной записи для записи и чтения данных пользователя с применением alternativeSecurityId в качестве указателя объекта пользователя.
+```xml
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

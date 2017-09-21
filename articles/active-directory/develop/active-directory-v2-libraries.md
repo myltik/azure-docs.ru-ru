@@ -12,24 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2017
+ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: c8dc0fab1a4da2bf9ae1463cb5e17fc2c2b12e5c
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Библиотеки проверки подлинности Azure Active Directory версии 2.0
-Конечная точка Azure Active Directory (Azure AD) версии 2.0 поддерживает стандартные отраслевые протоколы OAuth 2.0 и OpenID Connect 1.0. С конечной точкой версии 2.0 можно использовать различные библиотеки от корпорации Майкрософт и других организаций.
+[Конечная точка Azure Active Directory (Azure AD) версии 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) поддерживает стандартные отраслевые протоколы OAuth 2.0 и OpenID Connect 1.0. С конечной точкой версии 2.0 можно использовать различные библиотеки от корпорации Майкрософт и других организаций.
 
 При создании приложения, использующего конечную точку версии 2.0, рекомендуется использовать библиотеки, написанные специалистами в области протоколов, сторонниками методов жизненного цикла разработки защищенных приложений (SDL), [таких, каким следуют в корпорации Майкрософт][Microsoft-SDL]. Если вы приняли решение написать код поддержки для протоколов, рекомендуется следовать методам SDL и внимательно просмотреть рекомендации по безопасности в спецификациях стандартов для каждого из протоколов.
 
+> [!NOTE]
+> Ищете библиотеки Azure AD версии 1.0 (ADAL)? Ознакомьтесь с [руководством по библиотекам ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> 
+> 
+
 ## <a name="types-of-libraries"></a>Типы библиотек
-Azure AD версии 2.0 поддерживает два типа библиотек.
+Конечная точка Azure AD версии 2.0 поддерживает два типа библиотек.
 
 * **Клиентские библиотеки.** Собственные клиенты и серверы используют клиентские библиотеки, чтобы получить маркер доступа для вызова ресурса, например Microsoft Graph.
 * **Серверные библиотеки ПО промежуточного слоя.** Веб-приложения используют серверные библиотеки ПО промежуточного слоя для входа пользователей. Веб-API используют серверные библиотеки ПО промежуточного слоя для проверки маркеров, отправляемых собственными клиентами или другими серверами.

@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 718bb3f890a246fb1688481efdaa9109b49ccad3
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: eabe7f667aab866b8513661110fa416a61988824
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению
@@ -980,7 +980,7 @@ Microsoft Azure предусматривает несколько способо
 * Войдите в подписку с помощью команды *az login*.
 * Выберите подписку с помощью команды *az account set --subscription `<subscription name or id`>*.
 * Передайте виртуальный жесткий диск с помощью команды *aaz storage blob upload*. Дополнительные сведения см. в статье [Использование Azure CLI 2.0 со службой хранилища Azure][storage-azure-cli].
-* (Необязательно.) Создайте управляемый диск на основе виртуального жесткого диска с помощью командлета *az disk create*. Дополнительные сведения см. по адресу: https://docs.microsoft.com/cli/azure/disk#create.
+* (Необязательно.) Создайте управляемый диск на основе виртуального жесткого диска с помощью командлета *az disk create*. Дополнительные сведения см. по адресу: https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Создайте новую виртуальную машину, указав загруженный виртуальный жесткий диск или управляемый диск в качестве диска операционной системы с помощью команды *az vm create* c параметром *--attach-os-disk*.
 * Добавьте диск данных в новую виртуальную машину с помощью команды *az vm disk attach* с параметром *--new*.
 
@@ -1009,7 +1009,7 @@ Microsoft Azure предусматривает несколько способо
 * Войдите в подписку с помощью команды *az login*.
 * Выберите подписку с помощью команды *az account set --subscription `<subscription name or id`>*.
 * Передайте виртуальный жесткий диск с помощью команды *aaz storage blob upload*. Дополнительные сведения см. в статье [Использование Azure CLI 2.0 со службой хранилища Azure][storage-azure-cli].
-* (Необязательно.) Создайте образ управляемого диска на основе виртуального жесткого диска с помощью командлета *az image create*. Дополнительные сведения см. по адресу: https://docs.microsoft.com/cli/azure/image#create.
+* (Необязательно.) Создайте образ управляемого диска на основе виртуального жесткого диска с помощью командлета *az image create*. Дополнительные сведения см. по адресу: https://docs.microsoft.com/cli/azure/image#az_image_create
 * Создайте новую виртуальную машину, указав загруженный виртуальный жесткий диск или образ управляемого диска в качестве диска операционной системы с помощью команды *az vm create* c параметром *--image*.
 
 **Шаблон**

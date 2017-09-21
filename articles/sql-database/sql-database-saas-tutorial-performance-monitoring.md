@@ -1,6 +1,6 @@
 ---
 title: "Мониторинг производительности многих баз данных SQL Azure в мультитенантном приложении SaaS | Документация Майкрософт"
-description: "Мониторинг и контроль производительности баз данных и пулов в приложении SaaS Wingtip базы данных SQL Azure"
+description: "Мониторинг производительности баз данных и пулов SQL Azure в мультитенантном приложении SaaS и управление ею"
 keywords: "руководство по базе данных sql"
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 42f727aa40e744916b1a8adf634c10d55880bef0
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="monitor-performance-of-the-wingtip-saas-application"></a>Мониторинг производительности примера приложения SaaS Wingtip
+# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Мониторинг производительности баз данных и пулов SQL Azure в мультитенантном приложении SaaS и управление ею
 
 В этом руководстве рассматриваются несколько ключевых сценариев управления производительностью, используемых в приложениях SaaS. Демонстрируются использование генератора нагрузки для моделирования действий во всех базах данных клиента, встроенные функции мониторинга и оповещений базы данных SQL и эластичных пулов.
 

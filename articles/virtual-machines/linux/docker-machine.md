@@ -14,16 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a69951ed60edab8ae20374ab3869b468979c4907
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 7772381e9796ddc2e0db215bab4f230473eaa462
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Создание узлов в Azure с помощью компьютера Docker | Документация Майкрософт
-В этой статье представлены сведения о том, как создать узел в Azure с использованием [компьютера Docker](https://docs.docker.com/machine/). Команда `docker-machine` создает виртуальную машину Linux в Azure, после чего устанавливает Docker. Затем можно управлять узлами Docker в Azure с помощью аналогичных локальных средств и рабочих процессов.
+В этой статье представлены сведения о том, как создать узел в Azure с использованием [компьютера Docker](https://docs.docker.com/machine/). Команда `docker-machine` создает виртуальную машину Linux в Azure, после чего устанавливает Docker. Затем можно управлять узлами Docker в Azure с помощью аналогичных локальных средств и рабочих процессов. Для работы с docker-machine в Windows 10 необходимо использовать Linux bash.
 
 ## <a name="create-vms-with-docker-machine"></a>Создание виртуальных машин с помощью машины Docker
 Сначала получите идентификатор подписки Azure с помощью команды [az account show](/cli/azure/account#show) следующим образом:
@@ -34,13 +33,14 @@ sub=$(az account show --query "id" -o tsv)
 
 Создайте виртуальные машины узла Docker в Azure с помощью команды `docker-machine create`, используя драйвер *azure*. Кроме того, можно ознакомиться с [документацией по драйверу Docker Azure](https://docs.docker.com/machine/drivers/azure/).
 
-В следующем примере создается виртуальная машина с именем *myVM*, учетная запись пользователя с именем *azureuser* и открывается порт *80* на узле виртуальной машины. Выполните вход в учетную запись Azure и предоставьте компьютеру Docker разрешения на создание и управление ресурсами.
+В следующем примере создается виртуальная машина с именем *myVM* на основе плана Standard D2 v2, учетная запись пользователя с именем *azureuser* и открывается порт *80* на узле виртуальной машины. Выполните вход в учетную запись Azure и предоставьте компьютеру Docker разрешения на создание и управление ресурсами.
 
 ```bash
 docker-machine create -d azure \
     --azure-subscription-id $sub \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
+    --azure-size "Standard_D2_v2 \
     myvm
 ```
 

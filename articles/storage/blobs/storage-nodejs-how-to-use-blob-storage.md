@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 1a706b8c17cc493532ac3f63e9f0e897bed90fdb
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2858d916e935de618e1b0d5078218aa725275aeb
 ms.contentlocale: ru-ru
 ms.lasthandoff: 09/07/2017
 
@@ -64,8 +64,6 @@ var azure = require('azure-storage');
 
 ## <a name="set-up-an-azure-storage-connection"></a>Настройка подключения к службе хранилища Azure
 Модуль Azure считает переменные среды `AZURE_STORAGE_ACCOUNT` и `AZURE_STORAGE_ACCESS_KEY` или `AZURE_STORAGE_CONNECTION_STRING` для получения сведений, необходимых для подключения к учетной записи хранения Azure. Если эти переменные среды не заданы, при вызове **createBlobService**необходимо указать данные учетной записи.
-
-Пример настройки переменных среды для веб-приложения Azure на [портале Azure](https://portal.azure.com) см. в статье [Веб-приложение Node.js, использующее службу таблиц Azure](../../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## <a name="create-a-container"></a>Создание контейнера
 Объект **BlobService** позволяет работать с контейнерами и большими двоичными объектами. Указанный ниже код создает объект **BlobService** . Добавьте следующий код в начало файла **server.js**:
@@ -423,10 +421,9 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
 
-[Веб-приложение Node.js, использующее службу таблиц Azure](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
-[Сборка и развертывание веб-приложения Node.js в Azure с помощью Web Matrix]: https://www.microsoft.com/web/webmatrix/  
-[Использование REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
-[Портал Azure]: https://portal.azure.com  
+[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
+[Azure portal]: https://portal.azure.com  
 [Построение и развертывание приложения Node.js в облачной службе Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Блог группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
 [Справочник по пакету SDK для службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  

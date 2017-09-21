@@ -5,7 +5,7 @@ keywords: "брандмауэр базы данных"
 services: sql-database
 documentationcenter: 
 author: BYHAM
-manager: jhubbard
+manager: craigg
 editor: cgronlun
 tags: 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 04/10/2017
+ms.date: 09/12/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 71c7eaf2272245bd681387947812f7d5c0f58094
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 6ba04cd62aff587e56308bb332e31b2da75398cb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Правила брандмауэра уровня сервера и уровня базы данных SQL Azure 
@@ -67,7 +67,7 @@ ms.lasthandoff: 08/30/2017
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Создание правил брандмауэра и управление ими
-Первый параметр брандмауэра уровня сервера можно создать на [портале Azure](https://portal.azure.com/) или программным путем с помощью [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx), [Azure CLI](/cli/azure/sql/server/firewall-rule#create) или [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Последующие правила брандмауэра уровня сервера можно создавать и контролировать с помощью этих методов и Transact-SQL. 
+Первый параметр брандмауэра уровня сервера можно создать на [портале Azure](https://portal.azure.com/) или программным путем с помощью [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#create) или [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules). Последующие правила брандмауэра уровня сервера можно создавать и контролировать с помощью этих методов и Transact-SQL. 
 
 > [!IMPORTANT]
 > Правила брандмауэра уровня базы данных можно создавать только с помощью Transact-SQL. То же самое касается и управления ими. 
@@ -79,7 +79,7 @@ ms.lasthandoff: 08/30/2017
 > Чтобы провести аудит изменений брандмауэра уровня сервера и уровня базы данных, можно использовать [аудит базы данных SQL](sql-database-auditing.md).
 >
 
-### <a name="azure-portal"></a>Портал Azure
+## <a name="manage-firewall-rules-using-the-azure-portal"></a>Управление правилами брандмауэра с помощью портала Azure
 
 Чтобы задать правило брандмауэра уровня сервера на портале Azure, перейдите на страницу обзора базы данных SQL Azure или логического сервера базы данных SQL Azure.
 
@@ -101,15 +101,11 @@ ms.lasthandoff: 08/30/2017
 
 После этого откроется страница обзора сервера, где будет указано полное имя сервера (например, **mynewserver20170403.database.windows.net**) и предоставлены параметры для дальнейшей настройки.
 
-1. Чтобы настроить правило уровня сервера на странице обзора, в меню слева в разделе "Параметры" щелкните **Брандмауэр**, как показано на следующем рисунке: 
-
-     ![Общие сведения о логическом сервере](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
+1. Чтобы настроить правило серверного уровня на странице обзора, в меню слева в разделе "Параметры" щелкните **Брандмауэр**: 
 
 2. Щелкните **Добавить IP-адрес клиента** на панели инструментов, чтобы добавить IP-адрес используемого компьютера, а затем щелкните **Сохранить**. Для текущего IP-адреса будет создано правило брандмауэра уровня сервера.
 
-     ![Настройка правила брандмауэра для сервера](./media/sql-database-migrate-your-sql-server-database/server-firewall-rule-set.png)
-
-### <a name="transact-sql"></a>Transact-SQL
+## <a name="manage-firewall-rules-using-transact-sql"></a>Управление правилами брандмауэра с помощью Transact-SQL
 | Представление каталога или хранимая процедура | Уровень | Описание |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |сервер; |Отображает текущие правила брандмауэра уровня сервера |
@@ -139,13 +135,13 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```   
 
-### <a name="azure-powershell"></a>Azure PowerShell
+## <a name="manage-firewall-rules-using-azure-powershell"></a>Управление правилами брандмауэра с помощью Azure PowerShell
 | Командлет | Уровень | Описание |
 | --- | --- | --- |
-| [Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx) |сервер; |Возвращает текущие правила брандмауэра уровня сервера |
-| [New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx) |сервер; |Создает новое правило брандмауэра уровня сервера |
-| [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx) |сервер; |Обновляет свойства существующего правила брандмауэра уровня сервера |
-| [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx) |сервер; |Удаляет правила брандмауэра уровня сервера |
+| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |сервер; |Возвращает текущие правила брандмауэра уровня сервера |
+| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |сервер; |Создает новое правило брандмауэра уровня сервера |
+| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |сервер; |Обновляет свойства существующего правила брандмауэра уровня сервера |
+| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |сервер; |Удаляет правила брандмауэра уровня сервера |
 
 
 Приведенный ниже пример настраивает правило брандмауэра уровня сервера с помощью PowerShell.
@@ -160,7 +156,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 > Примеры быстрого запуска PowerShell см. в статье [Создание отдельной базы данных SQL Azure с помощью PowerShell](sql-database-get-started-powershell.md) и [Создание отдельной базы данных SQL и настройка правила брандмауэра с помощью PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
 >
 
-### <a name="azure-cli"></a>Интерфейс командной строки Azure
+## <a name="manage-firewall-rules-using-azure-cli"></a>Управление правилами брандмауэра с помощью Azure CLI
 | Командлет | Уровень | Описание |
 | --- | --- | --- |
 | [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Создает правило брандмауэра, чтобы разрешить доступ ко всем базам данных SQL на сервере по введенному диапазону IP-адресов.|
@@ -180,13 +176,12 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 > Примеры быстрого запуска Azure CLI см. в статье [Создание отдельной базы данных SQL Azure с помощью Azure CLI](sql-database-get-started-cli.md) и [Создание отдельной базы данных SQL и настройка правила брандмауэра с помощью Azure CLI](scripts/sql-database-create-and-configure-database-cli.md).
 >
 
-### <a name="rest-api"></a>Интерфейс REST API
+## <a name="manage-firewall-rules-using-rest-api"></a>Управление правилами брандмауэра с помощью REST API
 | API | Уровень | Описание |
 | --- | --- | --- |
-| [Вывод списка правил брандмауэра](https://msdn.microsoft.com/library/azure/dn505715.aspx) |сервер; |Отображает текущие правила брандмауэра уровня сервера |
-| [Создание правила брандмауэра](https://msdn.microsoft.com/library/azure/dn505712.aspx) |сервер; |Создает или обновляет правила брандмауэра уровня сервера |
-| [Задание правила брандмауэра](https://msdn.microsoft.com/library/azure/dn505707.aspx) |сервер; |Обновляет свойства существующего правила брандмауэра уровня сервера |
-| [Удаление правила брандмауэра](https://msdn.microsoft.com/library/azure/dn505706.aspx) |сервер; |Удаляет правила брандмауэра уровня сервера |
+| [Вывод списка правил брандмауэра](https://docs.microsoft.com/rest/api/sql/FirewallRules/ListByServer) |сервер; |Отображает текущие правила брандмауэра уровня сервера |
+| [Создание и изменение правила брандмауэра](https://docs.microsoft.com/rest/api/sql/FirewallRules/CreateOrUpdate) |сервер; |Создает или обновляет правила брандмауэра уровня сервера |
+| [Удаление правила брандмауэра](https://docs.microsoft.com/rest/api/sql/FirewallRules/Delete) |сервер; |Удаляет правила брандмауэра уровня сервера |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>Сравнение правила брандмауэра уровня сервера и правила брандмауэра уровня базы данных
 В. Необходимо ли полностью изолировать пользователей одной базы данных от пользователей другой базы данных ?   
