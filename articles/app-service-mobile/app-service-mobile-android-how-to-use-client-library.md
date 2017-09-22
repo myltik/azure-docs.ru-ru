@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 4ede35cf96e88a6f0c4f6622f6319f26a47d64fc
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 443893ed038e293b27f7781818ffcee9dcc5fc38
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Как использовать пакет SDK для мобильных приложений Azure в клиенте Android
@@ -1312,7 +1312,7 @@ client.setGsonBuilder(
 [19]: http://www.odata.org/documentation/odata-version-3-0/
 [20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
 

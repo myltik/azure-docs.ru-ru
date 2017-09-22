@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: e79ca131bddc9e65dd24da109b9e8a08606f7bc6
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 264bd9ecb413d2685dca351d7f4090efcadf4988
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/20/2017
 
 --- 
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Средство оценки решений Cortana Intelligence
@@ -99,7 +99,7 @@ ms.lasthandoff: 07/08/2017
 | AAD с базой данных SQL Azure и хранилищем данных SQL | [Использование аутентификации Azure Active Directory для аутентификации с помощью базы данных SQL или хранилища данных SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
 | Настройка и управление AAD | [Настройка аутентификации Azure Active Directory и управление ею с использованием базы данных SQL или хранилища данных SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
 | Проверки подлинности веб-приложений Azure | [Проверка подлинности и авторизация в службе приложений Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| Настройка веб-приложений с помощью AAD | [Настройка приложения службы приложений для использования службы входа Azure Active Directory](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication)|
+| Настройка веб-приложений с помощью AAD | [Настройка приложения службы приложений для использования службы входа Azure Active Directory](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>Наборы данных, доступные пользователям, должны поддерживать управление доступом на основе ролей
 Во время выполнения средства оценки вам будет предложено указать ресурсы отчетности и публикации. Предполагается, что эти ресурсы предназначены для использования пользователями, а не разработчиками. Чтобы убедиться, что пользователи имеют доступ только к авторизованным данным, этим ресурсам следует предоставить возможность управления доступом на основе ролей (RBAC).

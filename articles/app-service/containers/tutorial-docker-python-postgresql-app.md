@@ -16,15 +16,15 @@ ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7757ecf442314d294432266750502e384e39bde0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 36cf3c0bb4a28a4ccfd5fc94b72fba023516a9ce
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Создание в Azure веб-приложения Docker Python с подключением к базе данных PostgreSQL
 
-Веб-приложения Azure — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом руководстве показано, как создать базовое веб-приложение Docker Python в Azure. Вы также подключите это приложение к базе данных PostgreSQL. После выполнения всех действий у вас будет приложение Python Flask, работающее в контейнере Docker в [веб-приложениях службы приложений Azure](../../app-service-web/app-service-web-overview.md).
+Веб-приложения Azure — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом руководстве показано, как создать базовое веб-приложение Docker Python в Azure. Вы также подключите это приложение к базе данных PostgreSQL. После выполнения всех действий у вас будет приложение Python Flask, работающее в контейнере Docker в [веб-приложениях службы приложений Azure](../app-service-web-overview.md).
 
 ![Приложение Docker Python Flask в службе приложений Azure](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -111,7 +111,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Перейдите по адресу http://127.0.0.1:5000 в браузере. Щелкните **Зарегистрировать** и создайте тестового пользователя.
+Откройте браузер и перейдите по адресу `http://127.0.0.1:5000`. Щелкните **Зарегистрировать** и создайте тестового пользователя.
 
 ![Приложение Python Flask, выполняемое в локальной среде](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -554,5 +554,5 @@ http://<app_name>.azurewebsites.net
 Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена с веб-приложением.
 
 > [!div class="nextstepaction"] 
-> [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](../app-service-web-tutorial-custom-domain.md)
 

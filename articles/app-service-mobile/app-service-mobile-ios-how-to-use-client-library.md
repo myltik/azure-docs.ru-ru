@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 65817208e1b26fb5f9eb56d164f48b44d57dce56
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bd5e2fce31ae597f8ce48fb8f5492e280cbbf28f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Использование клиентской библиотеки iOS для мобильных приложений Azure
@@ -688,7 +688,7 @@ if (error.code == MSErrorPreconditionFailed) {
 ## <a name="twitter-fabric"></a>Практическое руководство: проверка подлинности пользователей с помощью структуры Twitter для iOS
 Структуру для iOS можно использовать для входа пользователей в приложение с помощью Twitter. Использование клиентского потока аутентификации является более предпочтительным, чем использование метода `loginWithProvider:completion:` , так как он обеспечивает более удобный пользовательский интерфейс входа и позволяет выполнять дополнительную настройку.
 
-1. Настройте серверную часть мобильного приложения для входа с помощью Twitter, следуя указаниям в учебнике [Как настроить приложение службы приложений для использования имени для входа Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) .
+1. Настройте серверную часть мобильного приложения для входа с помощью Twitter, следуя указаниям в учебнике [Как настроить приложение службы приложений для использования имени для входа Twitter](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) .
 2. Добавьте структуру в проект, как описано в документе [Fabric for iOS - Getting Started] (Структура для iOS. Приступая к работе), а также установите TwitterKit.
 
    > [!NOTE]
@@ -762,7 +762,7 @@ if (error.code == MSErrorPreconditionFailed) {
 ## <a name="google-sdk"></a>Практическое руководство: проверка подлинности пользователей с помощью пакета SDK Google Sign-In для iOS
 Пакет SDK Google Sign-In для iOS можно использовать для входа пользователей в приложение с помощью учетной записи Google.  Недавно компания Google объявила о внесении изменений в свои политики безопасности OAuth.  Эти изменения политик в дальнейшем потребуют использовать пакет SDK для Google.
 
-1. Настройте серверную часть мобильного приложения для входа с помощью Google Sign-In, следуя указаниям в руководстве [Как настроить приложение службы приложений для использования имени для входа Google](app-service-mobile-how-to-configure-google-authentication.md) .
+1. Настройте серверную часть мобильного приложения для входа с помощью Google Sign-In, следуя указаниям в руководстве [Как настроить приложение службы приложений для использования имени для входа Google](../app-service/app-service-mobile-how-to-configure-google-authentication.md) .
 2. Установите пакет SDK Google для iOS, следуя инструкциям в статье [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) (Google Sign-In для iOS — начало интеграции). Раздел "Authenticate with a Backend Server" (Аутентификация на внутреннем сервере) можно пропустить.
 3. Добавьте в метод `signIn:didSignInForUser:withError:` делегата код, приведенный ниже (в соответствии с используемым языком).
 
@@ -869,15 +869,15 @@ if (error.code == MSErrorPreconditionFailed) {
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [панели мониторинга структуры]: https://www.fabric.io/home
-[Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
+[Структура для iOS. Приступая к работе]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
 [2]: http://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]: ../active-directory/active-directory-devquickstarts-ios.md
-[9]: app-service-mobile-how-to-configure-facebook-authentication.md
+[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f7f1ad3f1933b39a0030a784cae40521254037d6
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 795857b0670628b105a59ce5a802620881d30425
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Распределенные транзакции по облачным базам данных
@@ -96,7 +95,7 @@ ms.lasthandoff: 07/06/2017
 
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Установка .NET для облачных служб Azure
-Azure включает несколько предложений для размещения приложений .NET. Сравнение различных предложений приведено в статье [Сравнение службы приложений, облачных служб и виртуальных машин Azure](../app-service-web/choose-web-site-cloud-service-vm.md). Если версия гостевой операционной системы предложения меньше .NET 4.6.1 (версия, необходимая для эластичных транзакций), необходимо обновить гостевую ОС до версии 4.6.1. 
+Azure включает несколько предложений для размещения приложений .NET. Сравнение различных предложений приведено в статье [Сравнение службы приложений, облачных служб и виртуальных машин Azure](../app-service/choose-web-site-cloud-service-vm.md). Если версия гостевой операционной системы предложения меньше .NET 4.6.1 (версия, необходимая для эластичных транзакций), необходимо обновить гостевую ОС до версии 4.6.1. 
 
 Для службы приложений Azure обновления гостевой ОС в настоящее время не поддерживаются. В виртуальных машинах Azure необходимо просто выполнить вход и запустить установщик для последней версии .NET Framework. Для облачных служб Azure необходимо включить установку более новой версии .NET в задачи запуска данного развертывания. Основные понятия и рекомендованные шаги см. в статье [Установка .NET для роли облачной службы](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 

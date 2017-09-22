@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db677614c23a3447e3e40ae867711a754b06d0d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -290,7 +290,7 @@ Microsoft Azure предлагает встроенные функции рас�
 
 ### <a name="application-gateway-web-application-firewall"></a>Брандмауэр веб-приложения шлюза приложений
 
-[Брандмауэр веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) — это функция [шлюза приложений Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview), которая обеспечивает защиту веб-приложений, использующих шлюз приложений для стандартных функций [управления доставкой приложений](https://kemptechnologies.com/in/application-delivery-controllers). Принцип работы брандмауэра веб-приложения заключается в защите приложений от [большинства из основных 10 уязвимостей OWASP](https://www.owasp.org/index.php/Top_10_2010-Main).
+[Брандмауэр веб-приложения](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) — это функция [шлюза приложений Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview), которая обеспечивает защиту веб-приложений, использующих шлюз приложений для стандартных функций [управления доставкой приложений](https://kemptechnologies.com/in/application-delivery-controllers). Принцип работы брандмауэра веб-приложения заключается в защите приложений от [большинства из основных 10 уязвимостей OWASP](https://www.owasp.org/index.php/Top_10_2010-Main).
 
 ![Брандмауэр веб-приложения шлюза приложений](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 

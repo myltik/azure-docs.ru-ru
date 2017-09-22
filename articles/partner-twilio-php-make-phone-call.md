@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: eeecec0d879b60e90d1a3bf2043e68a41d7145a8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 9866a196b3be10548d7a431430e570b41c190fc0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Как в Azure выполнить телефонный звонок с помощью Twilio в PHP-приложении
@@ -107,7 +107,7 @@ echo "URI resource: " . $call->uri . "<br />";
 ![Ответ на звонок Azure с использованием службы Twilio и PHP][twilio_php_response]
 
 ## <a name="run-the-application"></a>Выполнение приложения
-Следующим шагом является [развертывание приложения в веб-приложениях Azure с Git](app-service-web/app-service-web-get-started-php.md) (хотя не все сведения в статье по ссылке применимы). 
+Следующим шагом является [развертывание приложения в веб-приложениях Azure с Git](app-service/app-service-web-get-started-php.md) (хотя не все сведения в статье по ссылке применимы). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Данный код демонстрирует базовую функциональность, доступную через PHP-библиотеку Twillio в Azure. Возможно, перед развертыванием в рабочей среде Azure потребуется добавить в него дополнительные обработчики ошибок и другие функции. Например:

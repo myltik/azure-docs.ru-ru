@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8776142d5452bf5057990702c89aa1a541382ffc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -215,15 +215,15 @@ ms.lasthandoff: 08/10/2017
 [службе приложений Azure]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
-[портал Azure]: https://portal.azure.com/
-[Настройка веб-приложений в службе приложений Azure]: /azure/app-service-web/web-sites-configure
-[Развертывание приложения в службе приложений Azure с помощью FTP или FTPS]: https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp
-[бесплатной учетной записи Azure]: https://azure.microsoft.com/pricing/free-trial/
-[Git]: https://github.com/
+[Портал Azure]: https://portal.azure.com/
+[Настройка веб-приложений в службе приложений Azure]: /azure/app-service/web-sites-configure
+[Развертывание приложения в службе приложений Azure с помощью FTP или FTPS]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
+[Бесплатная учетная запись Azure]: https://azure.microsoft.com/pricing/free-trial/
+[Git.]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
-[инструментов Java для Visual Studio Team Services]: https://java.visualstudio.com/ (Инструменты Java для Visual Studio Team Services)
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/ (Инструменты Java для Visual Studio Team Services)
 [Maven]: http://maven.apache.org/
-[преимущества для подписчиков MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[Преимущества для подписчиков MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Boot Getting Started]: https://github.com/spring-guides/gs-spring-boot
 [Spring Framework]: https://spring.io/

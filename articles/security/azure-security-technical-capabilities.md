@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 268299d82ce79b10eb8061467f4bad61194457f8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a32693a274c2615a515838306d72dbe64a5d1763
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Технические возможности обеспечения безопасности Azure
@@ -318,12 +318,10 @@ PaaS версии 1
 
 Azure также предоставляет несколько простых функции защиты входящего и исходящего трафика вашего приложения. Кроме того, Azure помогаем клиентам защищать код приложений, используя внешние функциональные возможности для проверки приложений на наличие слабых мест.
 
-- [Использование Active Directory для проверки подлинности в службе приложений Azure](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization)
-
-    - [Setup Azure Active Directory authentication for your app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
+- [Setup Azure Active Directory authentication for your app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
 
-- [Включение протокола HTTPS для приложения в службе приложений Azure](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate)
+- [Включение протокола HTTPS для приложения в службе приложений Azure](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
     - [Принудительное использование HTTPS для всего входящего трафика](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -336,13 +334,13 @@ Azure также предоставляет несколько простых ф
 
 - [Scan your web app code for vulnerabilities using Tinfoil Security Scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 
-- [Настройка взаимной проверки подлинности TLS для веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)
+- [Настройка взаимной проверки подлинности TLS для веб-приложения](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth)
 
 - [Configure a client certificate for use from your app to securely connect to external resources](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
 
 - [Remove standard server headers to avoid tools from fingerprinting your app](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
-- [Интеграция приложения с виртуальной сетью Azure](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
+- [Интеграция приложения с виртуальной сетью Azure](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 
 - [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 

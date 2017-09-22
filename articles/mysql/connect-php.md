@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 07/12/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 59da1ab9e76685d7ed0c4415ef99578c982e956c
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 92c34e7ac074ded1702e0df96298d33c60227ab3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/14/2017
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Создание сервера базы данных Azure для MySQL с помощью Azure CLI)
 
 ## <a name="install-php"></a>Установка PHP
-Установите PHP на своем сервере или создайте [веб-приложение](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) Azure с PHP.
+Установите PHP на своем сервере или создайте [веб-приложение](../app-service/app-service-web-overview.md) Azure с PHP.
 
 ### <a name="macos"></a>MacOS
 - Скачайте [PHP версии 7.1.4](http://php.net/downloads.php).
@@ -233,5 +233,5 @@ mysqli_close($conn);
 
 ## <a name="next-steps"></a>Дальнейшие действия
 > [!div class="nextstepaction"]
-> [Создание веб-приложения PHP в Azure с подключением к базе данных MySQL](../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
+> [Создание веб-приложения PHP в Azure с подключением к базе данных MySQL](../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
 

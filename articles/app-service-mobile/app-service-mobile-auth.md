@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b676aee5353d0e5d85224950a537b3fe31f2f29
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 4105392f58eaf37e88c1d9ffb74f3f4133fa5482
 ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Проверка подлинности и авторизация в мобильных приложениях Azure
@@ -102,9 +102,9 @@ ms.lasthandoff: 11/17/2016
 [Добавление проверки подлинности в приложение Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
 [Добавление проверки подлинности в приложение Windows]: app-service-mobile-windows-store-dotnet-get-started-users.md
 
-[Настройка приложения для использования имени входа Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Настройка приложения для использования имени входа Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Настройка приложения для использования имени входа Google]: app-service-mobile-how-to-configure-google-authentication.md
-[Настройка приложения для использования входа по учетной записи Майкрософт]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Настройка приложения для использования имени входа Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+[Настройка приложения для использования имени входа Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Настройка приложения для использования имени входа Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[Настройка приложения для использования имени входа Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[Настройка приложения для использования входа по учетной записи Майкрософт]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Настройка приложения для использования имени входа Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
 

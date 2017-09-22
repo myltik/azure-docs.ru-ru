@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 017e08b7e1e37c0bcb95ae0d9d702471bb8bc6bc
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: c072cb3a7d376d1e3c2b9f741f5410106e701256
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Создание базы данных MySQL и подключение к ней в Azure
-В этом учебнике объясняется, как создать базу данных MySQL на [портале Azure](https://portal.azure.com) (поставщик — [ClearDB](http://www.cleardb.com/)) и подключиться к ней из веб-приложения PHP, запущенного в [службе приложений Azure](app-service/app-service-value-prop-what-is.md).
+В этом учебнике объясняется, как создать базу данных MySQL на [портале Azure](https://portal.azure.com) (поставщик — [ClearDB](http://www.cleardb.com/)) и подключиться к ней из веб-приложения PHP, запущенного в [службе приложений Azure](app-service/app-service-web-overview.md).
 
 > [!NOTE]
 > Кроме того, вы можете создать базу данных MySQL как часть <a href="https://portal.azure.com/#create/WordPress.WordPress" target="_blank">шаблона приложения Marketplace</a>.
@@ -68,75 +68,6 @@ ms.lasthandoff: 09/07/2017
 ![Создание базы данных MySQL на портале Azure — колонка базы данных MySQL](./media/store-php-create-mysql-database/create-db-5-finished-db-blade.png)
 
 Теперь эти сведения о подключении вы можете использовать в любом веб-приложении. [Здесь](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql)доступен пример того, как использовать сведения о подключении в простом приложении PHP.
-
-## <a name="connect-a-laravel-web-app-from-the-php-get-started-tutorial"></a>Подключение веб-приложения Laravel (из руководства по началу работы с PHP)
-Предположим, что вы уже изучили учебник [Создание, настройка и развертывание веб-приложения PHP в Azure](app-service-web/app-service-web-php-get-started.md), а в Azure запущено веб-приложение [Laravel](https://www.laravel.com/). Вы легко можете добавить возможности базы данных в это приложение. Просто сделайте следующее:
-
-> [!NOTE]
-> Чтобы выполнить приведенные ниже инструкции, следует предварительно изучить учебник [Создание, настройка и развертывание веб-приложения PHP в Azure](app-service-web/app-service-web-php-get-started.md).
->
->
-
-1. Настройте приложение Laravel в локальной среде разработки, чтобы указать на базу данных MySQL. Для этого откройте `.env` в корневом каталоге приложения Laravel и настройте параметры базы данных MySQL.
-
-        DB_CONNECTION=mysql
-        DB_HOST=<HOSTNAME_from_properties_blade>
-        DB_PORT=<PORT_from_properties_blade>
-        DB_DATABASE=<see_note_below>
-        DB_USERNAME=<USERNAME_from_properties_blade>
-        DB_PASSWORD=<PASSWORD_from_properties_blade>
-
-   > [!NOTE]
-   > В колонке **Свойства** имя базы данных MySQL может совпадать с именем, отображаемым в поле **Имя базы данных** (а может и не совпадать). Лучше проверить параметр "База данных" в поле **Строка подключения** .    
-   >
-   > ![Создание базы данных MySQL на портале Azure — выполнение](./media/store-php-create-mysql-database/connect-db-1-database-name.png)
-   >
-   >
-2. Быстро проверить, есть ли у вас доступ к MySQL, можно с помощью [стандартного формирования шаблонов проверки подлинности Laravel](https://laravel.com/docs/5.2/authentication#authentication-quickstart).
-   В терминале командной строки выполните из корневого каталога приложения Laravel такие команды:
-
-         php artisan migrate
-         php artisan make:auth
-
-    Первая команда создает таблицы в Azure на основании предварительно заданных переносов в каталог `database/migrations`. Вторая команда формирует шаблоны основных представлений и маршрутов для регистрации и проверки подлинности пользователя.
-3. Теперь запустите сервер разработки.
-
-        php artisan serve
-4. В браузере перейдите по адресу http://localhost:8000 и зарегистрируйте нового пользователя, как показано ниже.
-
-    ![Подключение к базе данных MySQL на портале Azure — регистрация пользователя](./media/store-php-create-mysql-database/connect-db-2-development-server.png)
-
-    Следуя подсказкам интерфейса, завершите регистрацию. После этого вы автоматически войдете.
-
-    ![Подключение к базе данных MySQL на портале Azure — регистрация пользователя](./media/store-php-create-mysql-database/connect-db-3-registered-user.png)
-
-    Вы в процессе разработки приложения на основе базы данных MySQL в Azure.
-5. Теперь вам осталось реплицировать параметры `.env` в веб-приложение Azure. Запустите такие команды интерфейса командной строки Azure:
-
-        azure site appsetting add DB_CONNECTION=mysql
-        azure site appsetting add DB_HOST=<HOSTNAME_from_properties_blade>
-        azure site appsetting add DB_PORT=<PORT_from_properties_blade>
-        azure site appsetting add DB_DATABASE=<Database_param_from_CONNECTION_INFO_from_properties_blade>
-        azure site appsetting add DB_USERNAME=<USERNAME_from_properties_blade>
-        azure site appsetting add DB_PASSWORD=<PASSWORD_from_properties_blade>
-
-6. Затем сохраните и примените в Azure изменения, сделанные раньше во время запуска `php artisan make:auth`.
-
-        git add .
-        git commit -m "scaffold auth views and routes"
-        git push azure master
-7. Найдите веб-приложение Azure.
-
-        azure site browse
-8. Войдите, используя созданные ранее учетные данные пользователя.
-
-    ![Подключение к базе данных MySQL на портале Azure — поиск веб-приложения Azure](./media/store-php-create-mysql-database/connect-db-4-browse-azure-webapp.png)
-
-    После входа должен отобразиться понятный экран, предназначенный для работы после входа.
-
-    ![Подключение к базе данных MySQL на портале Azure — выполнен вход](./media/store-php-create-mysql-database/connect-db-5-logged-in.png)
-
-    Теперь веб-приложение PHP в Azure имеет доступ к данным базы данных MySQL.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).

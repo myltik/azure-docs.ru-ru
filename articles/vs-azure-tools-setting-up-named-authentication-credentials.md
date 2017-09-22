@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: b75d190724da284324b0337e95a50a64902e19d8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-named-authentication-credentials"></a>Настройка именованных учетных данных для проверки подлинности
@@ -77,7 +77,7 @@ Visual Studio использует в качестве учетных данны
    d. Выберите подписку Azure, вставьте полный путь к только что созданному CER-файлу и выберите **Передать**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Документация по веб-приложениям](https://docs.microsoft.com/azure/app-service-web/)
-* [Развертывание приложения в службе приложений Azure](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy?toc=%2fazure%2fapp-service-api%2ftoc.json) 
-* [Развертывание веб-заданий с помощью Visual Studio](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-deploy-webjobs)
+* [Документация по веб-приложениям](https://docs.microsoft.com/azure/app-service/)
+* [Развертывание приложения в службе приложений Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
+* [Развертывание веб-заданий с помощью Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
 * [Создание и развертывание облачной службы](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: c5daf4622c8b6c4f572062d5db9b567413daaec0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: dd2dfe20f86b3fac28871b27a1c2b66c2b4a4cd6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -38,10 +38,7 @@ ms.lasthandoff: 09/14/2017
 
 
 ## <a name="sign-in-to-azure"></a>Вход в Azure
-<<<<<<< HEAD Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com). =======
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4
-
-Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com).
+Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Создание виртуальной машины Linux в новой группе ресурсов
 
@@ -50,9 +47,8 @@ ms.lasthandoff: 09/14/2017
 1. Щелкните **Создать** в верхнем левом углу портала Azure.
 2. Выберите **Вычисления**, а затем — **Сервер Ubuntu 16.04 LTS**.
 3. Введите сведения о виртуальной машине. Для параметра **Тип проверки подлинности** выберите значение **Открытый ключ SSH** или **Пароль**. Созданные учетные данные позволят вам выполнить вход на виртуальную машину.
-<<<<<<< HEAD =======
 
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4 ![Замещающий текст](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Замещающий текст](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. В раскрывающемся списке выберите **подписку** для виртуальной машины.
 5. Чтобы выбрать новую **группу ресурсов**, в которой вы хотите создать виртуальную машину, щелкните **Создать**. По завершении нажмите кнопку **ОК**.
@@ -111,7 +107,7 @@ MSI на виртуальной машине позволяет получить
     Запрос cURL маркера доступа приведен ниже.  
     
     ```bash
-    curl http://localhost:50432/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
+    curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
     ```
     Ответ включает маркер доступа, необходимый для доступа к Resource Manager. 
     

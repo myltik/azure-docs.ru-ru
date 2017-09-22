@@ -18,10 +18,10 @@ ms.date: 08/04/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fdc85e69403cec392328aad255352b2bee5afc20
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8070d224fe6281e61f67483d4f1dd905a2ab99eb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -58,12 +58,10 @@ az group create --name myResourceGroup --location eastus
 В следующем примере создается кластер DC/OS с именем *myDCOSCluster* и ключи SSH, если они еще не существуют. Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`.  
 
 ```azurecli
-az acs create \
-  --orchestrator-type dcos \
-  --resource-group myResourceGroup \
-  --name myDCOSCluster \
-  --generate-ssh-keys
+az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
+
+В некоторых случаях, например при использовании ограниченной пробной версии, доступ подписки Azure к ресурсам Azure ограничен. Если происходит сбой развертывания из-за ограничения доступных ядер, уменьшите количество агентов по умолчанию, добавив `--agent-count 1` в команду [az acs create](/cli/azure/acs#create). 
 
 Через несколько минут выполнение команды завершается, и отображаются сведения о развертывании.
 

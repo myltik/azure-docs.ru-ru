@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 0e9f0ef3c87b5c0da1cc4ad16d37178c8f5c9625
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 08/16/2017
      ![Просмотр действий и сведений о них для выполнения приложения логики](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
 
      На открывшейся странице Azure Log Analytics можно обновить запросы и просмотреть результаты из таблицы. 
-     В этом запросе используется [язык запросов Kusto](https://docs.loganalytics.io/learn/tutorials/getting_started_with_queries.html), который можно изменять, если требуется просмотреть другие результаты. 
+     В этом запросе используется [язык запросов Kusto](https://docs.loganalytics.io/docs/Language-Reference), который можно изменять, если требуется просмотреть другие результаты. 
 
      ![Представление запросов в Azure Log Analytics](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c8e2e688a7a8b99272c304df37ceff0f9ec52b19
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ed1d30be780e0882b8e75c01bc7822c3350f3fee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB. Создание веб-приложения с проверкой подлинности .NET, Xamarin и Facebook
@@ -108,7 +108,7 @@ Azure Cosmos DB — это глобально распределенная мн
 
 4. Откройте проект Xamarin, а затем файл TodoItemManager.cs. Присвойте необходимые значения параметрам accountURL, collectionId, databaseId, а также укажите resourceTokenBrokerURL как базовый URL-адрес HTTPS для веб-сайта брокера токена ресурса.
 
-5. Чтобы настроить проверку подлинности Facebook и веб-сайт ResourceTokenBroker, ознакомьтесь со статьей [Как настроить приложение службы приложений для использования имени для входа Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md).
+5. Чтобы настроить проверку подлинности Facebook и веб-сайт ResourceTokenBroker, ознакомьтесь со статьей [Как настроить приложение службы приложений для использования имени для входа Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md).
 
     Запустите приложение Xamarin.
 

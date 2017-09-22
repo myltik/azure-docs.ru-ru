@@ -9,11 +9,11 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: a7da42f4b84b77ad0a82004a56f7712c31567449
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: cb123107178f5e7c0207524c19331a6fa4658739
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 06/29/2017
 
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования Azure Cosmos DB.
 
-В этом кратком руководстве описывается, как использовать существующее приложение [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction), написанное на [Golang](https://golang.org/), а также как подключить его к базе данных Azure Cosmos DB, поддерживающей клиентские подключения MongoDB.
+В этом кратком руководстве описывается, как использовать существующее приложение [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction), написанное на [Golang](https://golang.org/), а также как подключить его к базе данных Azure Cosmos DB, поддерживающей клиентские подключения MongoDB.
 
 Другими словами, только приложение Golang "знает" о подключении к базе данных с помощью API-интерфейсов MongoDB. Приложению понятно, что данные хранятся в службе Azure Cosmos DB.
 

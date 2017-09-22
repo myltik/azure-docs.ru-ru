@@ -18,10 +18,10 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: b2f506a90c6b55624c8fe0392511b8098f058812
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 41ebbe944213373c028b7410baa86e6c55db0d8c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Сравнение планов размещения для решения "Функции Azure"
@@ -67,7 +67,7 @@ ms.lasthandoff: 09/13/2017
 
 При использовании виртуальной машины затраты не зависят от времени выполнения и размера памяти. В результате вы не будете платить больше, чем стоит выделенный экземпляр виртуальной машины. Дополнительную информацию о том, как действует план службы приложений, см. в статье [Подробный обзор планов службы приложений Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-С помощью плана службы приложений вы можете выполнить развертывание вручную, добавив дополнительные экземпляры виртуальных машин, или же включить автоматическое масштабирование. Дополнительные сведения см. в статье [Масштабирование числа экземпляров вручную или автоматически](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Вы можете также увеличивать масштаб, используя разные планы службы приложений. Дополнительные сведения см. в статье [Увеличение масштаба приложения в Azure](../app-service-web/web-sites-scale.md). Если вы планируете запускать функции JavaScript в плане службы приложений, вам следует выбрать план с меньшим количеством ядер. Дополнительные сведения см. в разделе [обзора функций для JavaScript](functions-reference-node.md#choose-single-core-app-service-plans).  
+С помощью плана службы приложений вы можете выполнить развертывание вручную, добавив дополнительные экземпляры виртуальных машин, или же включить автоматическое масштабирование. Дополнительные сведения см. в статье [Масштабирование числа экземпляров вручную или автоматически](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Вы можете также увеличивать масштаб, используя разные планы службы приложений. Дополнительные сведения см. в статье [Увеличение масштаба приложения в Azure](../app-service/web-sites-scale.md). Если вы планируете запускать функции JavaScript в плане службы приложений, вам следует выбрать план с меньшим количеством ядер. Дополнительные сведения см. в разделе [обзора функций для JavaScript](functions-reference-node.md#choose-single-core-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>

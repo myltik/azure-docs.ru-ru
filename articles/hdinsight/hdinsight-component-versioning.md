@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 26512049dba3d4dde575c5a67ba884fb56374236
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7f4981feb0b2f524bab095d76000e01aa88bc81f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Что представляют собой компоненты и версии Hadoop, доступные в HDInsight?
@@ -112,7 +112,7 @@ Microsoft Azure HDInsight версии 3.3 был последней верси
 Azure HDInsight версии 3.3 является последней версией HDInsight для Windows. Перед прекращением использования HDInsight под управлением Windows все кластеры HDInsight под управлением Windows версии 3.3 или более ранней должны быть перенесены в HDInsight в Linux версии 3.5 или более поздних. Перенос кластеров в HDInsight в Linux позволяет сохранить возможность создавать кластеры или изменять имеющиеся кластеры. 
 
 ### <a name="what-do-i-need-to-do"></a>Что нужно сделать?
-Переносите кластеры HDInsight под управлением Windows в поддерживаемые кластеры HDInsight под управлением Linux до 31 июля 2018 г. Дополнительные сведения о версиях Azure HDInsight см. в статье [Миграция из кластера HDInsight под управлением Windows на кластер под управлением Linux](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux). Дополнительные сведения о версиях Azure HDInsight см. в списке [поддерживаемых версий](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). 
+Переносите кластеры HDInsight под управлением Windows в поддерживаемые кластеры HDInsight под управлением Linux до 31 июля 2018 г. Дополнительные сведения о версиях Azure HDInsight см. в статье [Миграция из кластера HDInsight под управлением Windows на кластер под управлением Linux](hdinsight-migrate-from-windows-to-linux.md). Дополнительные сведения о версиях Azure HDInsight см. в списке [поддерживаемых версий](hdinsight-component-versioning.md#supported-hdinsight-versions). 
 
 ### <a name="where-do-i-find-the-cluster-os-type"></a>Где найти тип ОС кластера?
 На портале Azure перейдите на страницу обзора кластера HDInsight и в разделе **Основные компоненты** найдите **Тип кластера**. На этой странице перечислены типы ОС кластера. 
@@ -121,7 +121,7 @@ Azure HDInsight версии 3.3 является последней верси
 Кластер HDInsight под управлением Windows выполняется как есть, но вы не можете создать кластер HDInsight под управлением Windows или изменить имеющийся кластер HDInsight под управлением Windows. 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>Кластер имеет зависимость .NET. Как разрешить эту зависимость в Linux?
-Зависимость кластера Linux можно разрешить с помощью [проекта Mono](http://www.mono-project.com/). Эта реализация с открытым исходным кодом .NET доступна для кластеров HDInsight под управлением Linux. Дополнительные сведения о версиях Azure HDInsight см. в статье [Миграция из кластера HDInsight под управлением Windows на кластер под управлением Linux](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux). 
+Зависимость кластера Linux можно разрешить с помощью [проекта Mono](http://www.mono-project.com/). Эта реализация с открытым исходным кодом .NET доступна для кластеров HDInsight под управлением Linux. Дополнительные сведения о версиях Azure HDInsight см. в статье [Миграция из кластера HDInsight под управлением Windows на кластер под управлением Linux](hdinsight-migrate-from-windows-to-linux.md). 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>Я новый клиент HDInsight под управлением Windows. Как создать кластер HDInsight под управлением Windows?
 Начиная с 3 июля 2017 г. только имеющиеся клиенты HDInsight под управлением Windows могут создавать кластеры HDInsight. Новые клиенты не могут создавать кластер HDInsight под управлением Windows на портале Azure с помощью PowerShell или пакета SDK. Рекомендуется, чтобы новые клиенты создавали кластер HDInsight под управлением Linux. Имеющиеся клиенты могут создавать кластеры HDInsight под управлением Windows до наступления его даты вывода. 
@@ -138,7 +138,7 @@ Azure HDInsight версии 3.3 является последней верси
 Начиная с HDInsight версии 3.4 корпорация Майкрософт выпускает HDInsight только для ОС Linux. В результате некоторые компоненты в HDInsight доступны только для Linux. Сюда входят Apache Ranger, Kafka, Interactive Hive 2, Spark, приложения HDInsight и Azure Data Lake Store в качестве первичной файловой системы. 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Соглашение об уровне обслуживания (SLA) для версий кластера HDInsight
-Соглашение об уровне обслуживания определяется в терминах _окна поддержки_. Под окном поддержки понимается период времени, в течение которого определенная версия кластера HDInsight поддерживается службой поддержки клиентов корпорации Майкрософт. Если версия достигла _даты прекращения поддержки_, кластер HDInsight находится за пределами окна поддержки. Дополнительные сведения о поддерживаемых версиях см. в [этом списке](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux). Дата истечения срока действия технической поддержки для конкретной версии HDInsight (обозначается как версия X) рассчитывается как наиболее поздняя из следующих дат (после доступности более новой версии Х+1):  
+Соглашение об уровне обслуживания определяется в терминах _окна поддержки_. Под окном поддержки понимается период времени, в течение которого определенная версия кластера HDInsight поддерживается службой поддержки клиентов корпорации Майкрософт. Если версия достигла _даты прекращения поддержки_, кластер HDInsight находится за пределами окна поддержки. Дополнительные сведения о поддерживаемых версиях см. в [этом списке](hdinsight-migrate-from-windows-to-linux.md). Дата истечения срока действия технической поддержки для конкретной версии HDInsight (обозначается как версия X) рассчитывается как наиболее поздняя из следующих дат (после доступности более новой версии Х+1):  
 
 * Формула 1. Добавьте 180 дней к дате выхода версии X кластера HDInsight.
 * Формула 2. Добавьте 90 дней к дате, когда версия кластера HDInsight X + 1 стала доступной на портале Azure.

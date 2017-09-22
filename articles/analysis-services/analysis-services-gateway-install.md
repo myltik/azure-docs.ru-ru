@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 09/20/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 6ef296fb98478be9240f0231c8ad39cd2a0af995
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: d614352a62dc7aca012e9b144473604ae9829af9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Установка и настройка локального шлюза данных
@@ -57,11 +57,7 @@ ms.lasthandoff: 08/24/2017
 
    ![Расположение для установки и условия лицензии](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Установите флажок **On-premises data gateway (recommended)** (Локальный шлюз данных (рекомендуется)). Azure Analysis Services не поддерживает личный режим.
-
-   ![Выбор типа шлюза](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
-
-4. Введите данные учетной записи для входа в Azure. Учетная запись должна быть у вашего Azure Active Directory клиента. Эта учетная запись используется для администратора шлюза. 
+3. Введите данные учетной записи для входа в Azure. Учетная запись должна быть у вашего Azure Active Directory клиента. Эта учетная запись используется для администратора шлюза. 
 
    ![Введение данных учетной записи для входа в Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 

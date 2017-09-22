@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 000eaead1805ff06278b312a240aca07035e7289
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Часто задаваемые вопросы о базах данных ClearDB MySql в службе приложений Azure
@@ -81,7 +81,7 @@ Azure Marketplace недоступен для клиентов из Азерба
 Да, базы данных серии Basic (Basic 60 – Basic 500) можно обновить на месте. Вы можете обновить на месте базы данных серии Pro (Pro 125–1000), за исключением Pro 60. В настоящее время обновление базы данных Pro 60 не поддерживается. 
 
 ## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>Переносится ли база данных ClearDB MySQL при переносе ресурсов из одной подписки в другую?
-При переносе ресурсов из одной подписки в другую действуют некоторые [ограничения](app-service-web/app-service-move-resources.md) . База данных ClearDB MySQL — это сторонняя служба, в связи с чем она не перемещается при переносе подписки Azure. Перенос базы данных MySQL необходимо выполнить до переноса ресурсов Azure, иначе базы данных ClearDB MySQL могут быть отключены. Сначала вручную перенесите свои базы данных, а затем измените подписку веб-приложения. 
+При переносе ресурсов из одной подписки в другую действуют некоторые [ограничения](app-service/app-service-move-resources.md) . База данных ClearDB MySQL — это сторонняя служба, в связи с чем она не перемещается при переносе подписки Azure. Перенос базы данных MySQL необходимо выполнить до переноса ресурсов Azure, иначе базы данных ClearDB MySQL могут быть отключены. Сначала вручную перенесите свои базы данных, а затем измените подписку веб-приложения. 
 
 ## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>В моей подписке достигнута предельная сумма расходов. Предел был снят, и служба приложений работает, однако база данных недоступна. Как повторно включить базу данных ClearDB?
 Чтобы повторно включить базу данных, обратитесь в [службу поддержки ClearDB](https://www.cleardb.com/developers/help/support). Сообщите данные вашей подписки Azure и имя базы данных.

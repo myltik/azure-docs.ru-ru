@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e0e7144c38c36f1583e0bcb7dfffba26e9a8bdad
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -136,9 +136,9 @@ Azure DNS предоставляет DNS для личного домена лю
 
 ![Рисунок 1](./media/dns-custom-domain/finalnslookup.png)
 
-Дополнительные сведения о сопоставлении личного домена со службой приложений см. в статье [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+Дополнительные сведения о сопоставлении личного домена со службой приложений см. в статье [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-Если необходимо приобрести личный домен, ознакомьтесь со статьей [Приобретение и настройка имени личного домена для службы приложений Azure](../app-service-web/custom-dns-web-site-buydomains-web-app.md).
+Если необходимо приобрести личный домен, ознакомьтесь со статьей [Приобретение и настройка имени личного домена для службы приложений Azure](../app-service/custom-dns-web-site-buydomains-web-app.md).
 
 ## <a name="blob-storage"></a>Хранилище BLOB-объектов
 

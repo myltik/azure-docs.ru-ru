@@ -17,10 +17,10 @@ ms.date: 09/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: d8edabe1198f37513fc292e0bffc5c83e7e566e7
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1c39b2d9943532c8ccf0a11d3cf4bc8896669cfb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure
@@ -60,7 +60,7 @@ ms.lasthandoff: 09/08/2017
 ## <a name="functions-vs-webjobs"></a>Сравнение функций и Веб-задания
 Функции Azure и веб-задания службы приложений Azure рассматриваются вместе, так как они являются службами интеграции на основе модели *code-first* и предназначены для разработчиков. Они позволяют выполнять сценарии или фрагменты кода в ответ на разные события, например [создание больших двоичных объектов хранилища](functions-bindings-storage.md) или отправку [запроса webhook](functions-bindings-http-webhook.md). Сходства между функциями Azure и веб-заданиями службы приложений Azure: 
 
-* Созданы на основе [службы приложений Azure](../app-service/app-service-value-prop-what-is.md) и поддерживают одинаковые возможности, такие как [система управления версиями](../app-service-web/app-service-continuous-deployment.md), [аутентификация](../app-service/app-service-authentication-overview.md) и [мониторинг](../app-service-web/web-sites-monitor.md).
+* Созданы на основе [службы приложений Azure](../app-service/app-service-web-overview.md) и поддерживают одинаковые возможности, такие как [система управления версиями](../app-service/app-service-continuous-deployment.md), [аутентификация](../app-service/app-service-authentication-overview.md) и [мониторинг](../app-service/web-sites-monitor.md).
 * Предназначены для разработчиков.
 * Поддерживают стандартные языки программирования и скриптов.
 * Поддерживают NuGet и NPM.
@@ -81,7 +81,7 @@ ms.lasthandoff: 09/08/2017
 | Масштабирование |Масштабирование без настройки |Масштабирование в рамках плана службы приложений |
 | Цены |Оплата за использование или в рамках плана службы приложений |В рамках плана службы приложений |
 | Тип запуска |Активация, по расписанию (с помощью триггера таймера) |Активация, непрерывная работа, по расписанию |
-| События триггера |[Таймер](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [HTTP или Webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [мобильные приложения службы приложений Azure](functions-bindings-mobile-apps.md), [центры уведомлений Azure](functions-bindings-notification-hubs.md), [служебная шина Azure](functions-bindings-service-bus.md), [служба хранилища Azure](functions-bindings-storage.md) |[Служба хранилища Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [служебная шина Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| События триггера |[Таймер](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [HTTP или Webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [мобильные приложения службы приложений Azure](functions-bindings-mobile-apps.md), [центры уведомлений Azure](functions-bindings-notification-hubs.md), [служебная шина Azure](functions-bindings-service-bus.md), [служба хранилища Azure](functions-bindings-storage-blob.md) |[Служба хранилища Azure](functions-bindings-storage-blob.md), [служебная шина Azure](functions-bindings-service-bus.md) |
 | Разработка в браузере |Поддерживается | Не поддерживается |
 | Написание скриптов Windows (.cmd, .bat) |Экспериментальная возможность |Поддерживается |
 | PowerShell |Экспериментальная возможность |Поддерживается |
@@ -115,7 +115,7 @@ ms.lasthandoff: 09/08/2017
 * [Начало работы с Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Создание первой функции Azure](functions-create-first-azure-function.md)
-* [Развертывание веб-заданий с помощью Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
+* [Развертывание веб-заданий с помощью Visual Studio](../app-service/websites-dotnet-deploy-webjobs.md)
 
 Дополнительные сведения об этих службах интеграции см. в следующих источниках:
 
@@ -123,6 +123,5 @@ ms.lasthandoff: 09/08/2017
 * [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/) (Упрощенные возможности интеграции. Автор: Чарльз Ламанна (Charles Lamanna))
 * [Logic Apps Live Webcast](http://aka.ms/logicappslive)
 * [Часто задаваемые вопросы о Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-* [Документация по веб-заданиям Azure](../app-service-web/websites-webjobs-resources.md)
 
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e2d3a6725ee53dc6d6986b185fac143901ba6955
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="what-is-azure-diagnostics"></a>Что такое система диагностики Azure
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/31/2017
 Выберите службы, в которых вы хотите собирать данные диагностики, и выполните действия, описанные в перечисленных ниже статьях. Справку по отдельным задачам см. в общих статьях о диагностике Azure.
 
 ## <a name="web-apps"></a>Веб-приложения
-Обратите внимание на то, что в веб-приложениях диагностика Azure не используется. Ищите аналогичные данные в статье [Включение ведения журнала диагностики для веб-приложений в службе приложений Azure](../app-service-web/web-sites-enable-diagnostic-log.md).
+Обратите внимание на то, что в веб-приложениях диагностика Azure не используется. Ищите аналогичные данные в статье [Включение ведения журнала диагностики для веб-приложений в службе приложений Azure](../app-service/web-sites-enable-diagnostic-log.md).
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Облачные службы с использованием диагностики Azure
 * Если используется Visual Studio, см. статью [Отладка облачной службы или виртуальной машины Azure в Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md). В остальных случаях см. следующие статьи:

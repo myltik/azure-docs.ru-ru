@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: e9499d036c8c5ef5a56a70f7e7ecf9afbff4e6b0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Поддержка метаданных OpenAPI 2.0 в Функциях Azure (предварительная версия)
 Поддержка метаданных OpenAPI 2.0 (прежнее название — Swagger) в Функциях Azure — это предварительная версия функции, которая предназначена для записи определения OpenAPI 2.0 в приложении-функции. Затем можно разместить этот файл с помощью приложения-функции.
 
-[Метаданные OpenAPI](http://swagger.io/) позволяют использовать функцию, на которой размещен REST API во всевозможном программном обеспечении. Это программное обеспечение включает предложения Майкрософт, такие как PowerApps и [функцию "Приложения API" службы приложений Azure](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), средства сторонних разработчиков, например [Postman](https://www.getpostman.com/docs/importing_swagger), и [многие дополнительные пакеты](http://swagger.io/tools/).
+[Метаданные OpenAPI](http://swagger.io/) позволяют использовать функцию, на которой размещен REST API во всевозможном программном обеспечении. Это программное обеспечение включает предложения Майкрософт, такие как PowerApps и [функцию "Приложения API" службы приложений Azure](../app-service/app-service-web-overview.md), средства сторонних разработчиков, например [Postman](https://www.getpostman.com/docs/importing_swagger), и [многие дополнительные пакеты](http://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

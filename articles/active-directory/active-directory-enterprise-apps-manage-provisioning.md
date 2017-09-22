@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 6cb0269e87f7ecffe7030b86237fb88fd58ef77b
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Управление подготовкой учетных записей пользователей для корпоративных приложений на портале Azure
@@ -46,7 +46,7 @@ ms.lasthandoff: 05/08/2017
 При выборе параметра **Автоматически** отображается экран, разделенный на четыре раздела.
 
 ### <a name="admin-credentials"></a>Учетные данные администратора
-Сюда вводятся учетные данные, необходимые Azure AD для подключения к API управления пользователями приложения. Требуемые входные данные зависят от приложения. Дополнительные сведения о типах учетных данных и требованиях для конкретных приложений см. в [руководстве по конфигурации для конкретного приложения](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning).
+Сюда вводятся учетные данные, необходимые Azure AD для подключения к API управления пользователями приложения. Требуемые входные данные зависят от приложения. Дополнительные сведения о типах учетных данных и требованиях для конкретных приложений см. в [руководстве по конфигурации для конкретного приложения](active-directory-saas-app-provisioning.md).
 
 Если нажать кнопку **Проверить подключение**, то можно проверить определенные учетные данные. В ходе этой проверки осуществляется попытка подключения Azure AD к приложению для подготовки приложения.
 

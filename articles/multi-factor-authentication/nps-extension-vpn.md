@@ -17,10 +17,10 @@ ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 3dfcf25856ede50266336c2ebb057dd3f7b8897e
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -100,12 +100,12 @@ ms.lasthandoff: 09/20/2017
 
 ### <a name="libraries"></a>Библиотеки
 
-Необходимы следующие две библиотеки:
+Эти библиотеки устанавливаются автоматически вместе с расширением.
 
-* [Распространяемые пакеты Visual C++ для Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-* _модуль Microsoft Azure Active Directory для Windows PowerShell версии 1.1.166.0_ или более поздней версии. Последний выпуск и инструкции по установке см. в разделе [Microsoft Azure Active Directory PowerShell Module Version Release History](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx) (Журнал выпуска версий модуля Microsoft Azure Active Directory для PowerShell).
+-   [Распространяемые пакеты Visual C++ для Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [Модуль Microsoft Azure Active Directory для Windows PowerShell, версия 1.1.166](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-Эти библиотеки не укомплектованы файлами установки расширения NPS (версии 0.9.1.2), хотя в существующей документации указано обратное. Как минимум необходимо установить распространяемые пакеты Visual C++ для Visual Studio 2013. Если модуль Microsoft Azure Active Directory для Windows PowerShell отсутствует, то он устанавливается с помощью сценария настройки, который запускается в процессе установки. Нет необходимости устанавливать этот модуль заранее.
+Если модуль Microsoft Azure Active Directory для Windows PowerShell отсутствует, то он устанавливается с помощью сценария настройки, который запускается в процессе установки. Нет необходимости устанавливать этот модуль заранее.
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Синхронизация Azure Active Directory с локальной службой Active Directory 
 
@@ -237,7 +237,7 @@ ms.lasthandoff: 09/20/2017
 
  ![Добавление VPN-подключения](./media/nps-extension-vpn/image17.png)
  
-6. Откройте **Центр управления сетями и общим доступом**  на панели управления.
+6. Откройте **Центр управления сетями и общим доступом ** на панели управления.
 7. Щелкните **Изменение параметров адаптера**.
 
  ![Изменение параметров адаптера](./media/nps-extension-vpn/image18.png)

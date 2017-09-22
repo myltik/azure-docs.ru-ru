@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: oanapl
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 598a4d35faebb592f840b1bec7e77c7a091ea2de
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 330ef58d89ebabaa2af7fa8e98e693ddd64dcc4e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Общие сведения о наблюдении за работоспособностью системы в Service Fabric
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/08/2017
 
 Компоненты Service Fabric используют эту многофункциональную модель для отправки отчетов о своем текущем состоянии. Вы тоже можете использовать этот механизм для получения информации о работоспособности своих приложений. Приложив усилия к созданию качественного механизма, генерирующего отчеты о состоянии работоспособности компонентов среды, вы сможете более эффективно обнаруживать и исправлять проблемы в своих приложениях.
 
-В следующем видеоролике от Академии Microsoft Virtual Academy также описана модель работоспособности Service Fabric и принципы ее использования: <center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+В следующем видеоролике от Академии Microsoft Virtual Academy также описана модель работоспособности Service Fabric и принципы ее использования: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 

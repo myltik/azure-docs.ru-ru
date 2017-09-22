@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: ddfb10a9688842e4a23b72b4362d75b20d320262
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 78cf118dfb9759e1cdbdc023ccad65238853122e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Создание веб-приложения Java с использованием Azure Cosmos DB и API DocumentDB
@@ -725,7 +725,7 @@ ms.lasthandoff: 09/13/2017
    * В поле веб-проекта введите azure-documentdb-java-sample.
    * В поле Destination (Назначение) выберите место назначения для сохранения WAR-файла.
    * Нажмите кнопку **Готово**
-3. Теперь, когда вы создали WAR-файл, можно просто передать его на веб-сайт Azure в каталог **webapps**. Инструкции по передаче файла см. в статье [Добавление приложения Java в веб-приложения службы приложений Azure](../app-service-web/web-sites-java-add-app.md).
+3. Теперь, когда вы создали WAR-файл, можно просто передать его на веб-сайт Azure в каталог **webapps**. Инструкции по передаче файла см. в статье [Добавление приложения Java в веб-приложения службы приложений Azure](../app-service/web-sites-java-add-app.md).
    
     После загрузки WAR-файла в каталог веб-приложения среда выполнения обнаруживает, что вы добавили его и автоматически загрузит ее.
 4. Чтобы просмотреть готовый проект, перейдите по адресу http://ИМЯ\_САЙТА\_.azurewebsites.net/azure-java-sample/ и начните добавлять свои задачи.

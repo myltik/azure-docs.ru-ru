@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: e5c8c3b098772c0586712305a577b24a6f0d924c
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7b0e76f86ec6443fcb394f7be1e6b417de99d4b7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Настройка SSL для приложения в Azure
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/31/2017
 SSL-шифрование — это наиболее распространенный метод обеспечения безопасности данных, отправленных через Интернет. В этой теме, посвященной общим задачам, обсуждается, как определить конечную точку HTTPS для веб-роли и как передать SSL-сертификат, чтобы обеспечить безопасность приложения.
 
 > [!NOTE]
-> Процедуры в этом задании применяются для облачных служб Azure. Информацию о процедурах для служб приложений см. в [этом разделе](../app-service-web/web-sites-configure-ssl-certificate.md).
+> Процедуры в этом задании применяются для облачных служб Azure. Информацию о процедурах для служб приложений см. в [этом разделе](../app-service/app-service-web-tutorial-custom-ssl.md).
 >
 
 В этой задаче используется рабочее развертывание. Сведения об использовании промежуточного развертывания приведены в конце данного раздела.

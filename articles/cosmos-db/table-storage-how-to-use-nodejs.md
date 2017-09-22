@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8cc23d5c284123c7c04dda4b71fdb6275d32bf8d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e8b22dad84e89be6051041e60ca9d72ec4aa3c56
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Использование табличного хранилища Azure из Node.js
@@ -30,8 +30,7 @@ ms.lasthandoff: 09/07/2017
 
 В примерах кода в этом разделе предполагается, что приложение Node.js уже создано. Инструкции по созданию приложения Node.js в Azure см. в любой из следующих статей:
 
-* [Создание веб-приложения Node.js в службе приложений Azure](../app-service-web/app-service-web-get-started-nodejs.md)
-* [Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+* [Создание веб-приложения Node.js в службе приложений Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Создание и развертывание приложения Node.js в облачной службе Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (с помощью Windows PowerShell)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -451,4 +450,4 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 * [Обозреватель хранилищ Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) — это бесплатное автономное приложение от корпорации Майкрософт, позволяющее визуализировать данные из службы хранилища Azure на платформе Windows, macOS и Linux.
 * [Пакет SDK службы хранилища Azure для Node](https://github.com/Azure/azure-storage-node) на веб-сайте GitHub.
 * [центре разработчиков Node.js](/develop/nodejs/)
-* [Создание приложения Node.js и его развертывание на веб-сайт Azure](../app-service-web/app-service-web-get-started-nodejs.md)
+* [Создание приложения Node.js и его развертывание на веб-сайт Azure](../app-service/app-service-web-get-started-nodejs.md)

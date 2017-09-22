@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 671f2d386aca23bc5c02d0e0ab23e6d9d79a8693
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки
@@ -340,7 +340,7 @@ ms.lasthandoff: 08/16/2017
 | Шаг | Ресурсы |
 | --- | --- |
 | Удалите пользователя из группы, которой назначено приложение. | [Управление участниками групп в клиенте Azure Active Directory](active-directory-groups-members-azure-portal.md) |
-| Подождите несколько минут, пока отзыв закончится. | [Автоматическая подготовка пользователей для приложения SaaS в Azure AD: как работает автоматическая подготовка](active-directory-saas-app-provisioning.md#how-does-automated-provisioning-work) |
+| Подождите несколько минут, пока отзыв закончится. | [Автоматическая подготовка пользователей для приложения SaaS в Azure AD: как работает автоматическая подготовка](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | В отдельном сеансе браузера войдите в качестве информационного работника на портал "Мои приложения" и убедитесь, что элемент отсутствует. | http://myapps.microsoft.com |
 
 

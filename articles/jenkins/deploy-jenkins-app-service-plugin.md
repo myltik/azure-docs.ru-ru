@@ -16,10 +16,10 @@ ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: b2035d6bc0d323f2497a1db9b88d3ed015235b16
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bd4e629e522fb9acea5601be8eac7c70ae61d042
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -76,7 +76,7 @@ sudo apt-get install -y maven
 
 
 1. Создайте план службы приложений Azure с ценовой категорией **Бесплатный** с помощью команды CLI [az appservice plan create](/cli/azure/appservice/plan#create). От плана службы приложений зависят физические ресурсы, используемые для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют ресурсы, которые позволяют сэкономить при размещении нескольких приложений.
-2. Создайте веб-приложение. Воспользуйтесь [порталом Azure](/azure/app-service-web/web-sites-configure) или следующей командой az интерфейса командной строки:
+2. Создайте веб-приложение. Воспользуйтесь [порталом Azure](/azure/app-service/web-sites-configure) или следующей командой az интерфейса командной строки:
 ```azurecli-interactive 
 az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 ```
@@ -158,7 +158,7 @@ mvn clean package
 4. Укажите **mySp**, субъект-службу Azure, которую мы сохранили на предыдущем шаге в качестве учетных данных Azure.
 5. В разделе **Конфигурация приложения** выберите группу ресурсов и веб-приложение Linux в своей подписке.
 6. Выберите публикацию через Docker.
-7. Заполните путь **Dockerfile**. Вы можете сохранить значение по умолчанию /Dockerfile для **URL-адреса реестра Docker. При использовании реестра контейнеров Azure** укажите его в формате https://&lt;myRegistry >.azurecr.io. Не указывайте его при использовании DockerHub.
+7. Заполните путь **Dockerfile**. Вы можете сохранить значение по умолчанию /Dockerfile для **URL-адреса реестра Docker. При использовании реестра контейнеров Azure **укажите его в формате https://&lt;myRegistry >.azurecr.io. Не указывайте его при использовании DockerHub.
 8. Добавьте **учетные данные реестра** для реестра контейнеров Azure. Идентификатор пользователя и пароль можно получить, выполнив следующие команды в Azure CLI. Первая команда включает учетную запись администратора.    
 ```azurecli-interactive
 az acr update -n <yourRegistry> --admin-enabled true

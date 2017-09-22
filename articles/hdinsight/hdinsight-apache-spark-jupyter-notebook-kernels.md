@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6cfd1c1e7b22f5460b78687c815d149e6c6deac9
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: dd1c18e32f3d0386e522dba82ce494394abbf8ed
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Ядра для записной книжки Jupyter в кластерах Spark в Azure HDInsight 
@@ -69,12 +69,13 @@ ms.lasthandoff: 06/07/2017
    
    * **sc** для контекста Spark;
    * **sqlContext** для контекста Hive.
-
-    Это значит, что для настройки этих контекстов вам не придется выполнять операторы следующего вида:
-
-        sc = SparkContext('yarn-client')    sqlContext = HiveContext(sc)
-
-    Вместо этого вы сможете сразу использовать в своем приложении предустановленные контексты.
+   
+   Это значит, что для настройки этих контекстов вам не придется выполнять операторы следующего вида:
+   
+          sc = SparkContext('yarn-client')
+          sqlContext = HiveContext(sc)
+   
+   Вместо этого вы сможете сразу использовать в своем приложении предустановленные контексты.
 
 - **Волшебные команды.** Ядро PySpark предоставляет несколько "магических команд". Это специальные команды, которые можно вызывать с помощью `%%` (например, `%%MAGIC` <args>). Волшебная команда должна быть первым словом в ячейке кода и может состоять из нескольких строк содержимого. Волшебное слово должно быть первым словом в ячейке. Любые другие слова перед магической командой, даже комментарии, приведут к ошибке.     Дополнительные сведения о волшебных командах см. [здесь](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
    

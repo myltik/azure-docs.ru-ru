@@ -3,7 +3,7 @@ title: "Создание пользовательской пробы для шл
 description: "Узнайте, как создать пользовательскую пробу для шлюза приложений с помощью портала."
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 65e9bba4ce9ac41ae2a9a8c3fa7f661165fc1403
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Создание пользовательской пробы для шлюза приложений с помощью портала

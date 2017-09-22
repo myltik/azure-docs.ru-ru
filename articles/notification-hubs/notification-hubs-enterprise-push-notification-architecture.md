@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae7c1c9644ecfe7fe4ad6e332cc0683a3b5df22f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Руководство по архитектуре push-уведомлений
@@ -54,7 +55,7 @@ ms.openlocfilehash: ae7c1c9644ecfe7fe4ad6e332cc0683a3b5df22f
 Чтобы ознакомиться с основными понятиями и общими процедурами создания и настройки, необходимо пройти следующие учебники:
 
 1. [Как использовать разделы и подписки служебной шины] — здесь подробно описывается работа с разделами и подписками служебной шины, создание пространства имен для хранения разделов и подписок, отправка им сообщений и получение сообщений от них.
-2. [учебника по центрам уведомлений для Windows Universal] — в этом учебнике рассказывается о том, как настроить приложение Магазина Windows и использовать центры уведомлений для регистрации и последующего получения уведомлений.
+2. [Учебник по центрам уведомлений для Windows Universal] — в этом учебнике рассказывается о том, как настроить приложение Магазина Windows и использовать центры уведомлений для регистрации и последующего получения уведомлений.
 
 ### <a name="sample-code"></a>Пример кода
 Полный пример кода доступен в [коллекции примеров центра уведомлений]. Он состоит из трех компонентов:
@@ -212,7 +213,7 @@ ms.openlocfilehash: ae7c1c9644ecfe7fe4ad6e332cc0683a3b5df22f
    
     ![][3]
    
-    ж. Настройте "непрерывное выполнение" задания, чтобы при входе на [классическом портале Azure] отображалось примерно следующее:
+    ж. Настройте "непрерывное выполнение" задания, чтобы при входе на [классический портал Azure] отображалось примерно следующее:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -259,15 +260,10 @@ ms.openlocfilehash: ae7c1c9644ecfe7fe4ad6e332cc0683a3b5df22f
 
 <!-- Links -->
 [коллекции примеров центра уведомлений]: https://github.com/Azure/azure-notificationhubs-samples
-[мобильная служба Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
-[служебной шиной Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Как использовать разделы и подписки служебной шины]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[веб-задания Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
-[учебника по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[классическом портале Azure]: https://manage.windowsazure.com/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Мобильная служба Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
+[служебной шине Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Использование разделов и подписок Service Bus]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[веб-задания Azure]: ../app-service/web-sites-create-web-jobs.md
+[Учебник по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[классический портал Azure]: https://manage.windowsazure.com/
 

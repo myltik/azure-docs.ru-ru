@@ -16,10 +16,10 @@ ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 92c37c267afa27854f66b870f69b47195e388152
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8c59fa7e9315922af4fab5f8492194b50459ef8b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Технологии шифрования Azure. Защита неактивных персональных данных при передаче с помощью шифрования
@@ -118,7 +118,7 @@ VPN типа "сеть — сеть" подключает нескольких �
 
 1. Создайте виртуальную сеть.
 
-2. Укажите DNS-сервер.
+2. Укажите DNS-сервер
 
 3. Создайте подсеть шлюза.
 
@@ -194,5 +194,5 @@ VPN-подключение типа "точка — сеть" создает з�
 
 - [VPN-шлюз: вопросы и ответы](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq)
 
-- [Приобретение и настройка сертификата SSL для службы приложений Azure](https://docs.microsoft.com/azure/app-service-web/web-sites-purchase-ssl-web-site)
+- [Приобретение и настройка сертификата SSL для службы приложений Azure](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site)
 

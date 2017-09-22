@@ -16,11 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: e54c3bc484b0b3b81cc495e54c17e8ef448abe91
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: c4f7c829e6fe3890342bd973185e679dd3ea2df5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Использование ReportViewer для веб-сайта, размещенного в Azure
@@ -79,7 +78,7 @@ ms.lasthandoff: 07/11/2017
 В ReportViewer должны использоваться правильные учетные данные для проверки подлинности на сервере отчетов. Для доступа к желаемым отчетам учетные данные должны быть авторизованы сервером отчетов. Сведения о проверке подлинности приведены в техническом документе [Элемент управления средства просмотра отчетов Reporting Services и серверы отчетов на основе виртуальной машины Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Публикация веб-приложения ASP.NET в Azure
-Инструкции по публикации веб-приложения ASP.NET в Azure см. в статьях [Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) и [Начало работы с веб-приложениями и ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
+Инструкции по публикации веб-приложения ASP.NET в Azure см. в статьях [Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) и [Начало работы с веб-приложениями и ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Если в контекстном меню в обозревателе решений не появилась команда "Добавить проект развертывания Azure" или "Добавить проект облачной службы Azure", может потребоваться изменить целевую платформу для проекта на .NET Framework 4.

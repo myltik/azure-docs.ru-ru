@@ -15,10 +15,10 @@ ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 8eb0e7aa1a0fd55ece4adcfe4619c64845b7d271
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Часто задаваемые вопросы об управлении устройствами в Azure Active Directory
@@ -153,10 +153,20 @@ ms.lasthandoff: 09/14/2017
 
 ---
 
-**Вопрос. Где можно найти инструкции по настройке гибридных устройств, присоединенных к Azure AD?**
+**Вопрос. Где можно найти инструкции для настройки автоматической регистрации устройств?**
 
-**Ответ.** Дополнительные инструкции см. в статье [Настройка гибридных устройств, присоединенных к Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
+**Ответ.** Подробные инструкции см. в статье [Настройка автоматической регистрации присоединенных к домену устройств Windows в Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
+---
+
+**Вопрос. Где можно найти сведения об устранении неполадок автоматической регистрации устройств?**
+
+**Ответ.** Сведения об устранении неполадок можно найти в этих разделах:
+
+- [Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров для Windows 10 и Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
+
+- [Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров для клиентов Windows нижнего уровня](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+ 
 ---
 
 
