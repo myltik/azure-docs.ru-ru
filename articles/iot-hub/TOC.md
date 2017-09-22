@@ -32,6 +32,7 @@
 ##### [Настройка Intel NUC в качестве шлюза](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Подключение шлюза к Центру Интернета вещей](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Использование шлюза для преобразования данных](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Устранение неполадок](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Расширенные сценарии IoT
 ### [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,7 +83,9 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Передача файлов с устройства](iot-hub-csharp-csharp-file-upload.md)
+### [Передача файлов с устройств]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### Приступая к работе с двойниками устройств
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,11 +99,13 @@
 ### Начало работы с управлением устройствами
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java: серверный компонент и устройство](iot-hub-java-java-device-management-getstarted.md)
 ### Как использовать свойства двойников
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Java: серверный компонент и устройство](iot-hub-java-java-twin-how-to-configure.md)
 ### Использование заданий устройства для обновления встроенного ПО устройства
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-firmware-update.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-firmware-update.md)

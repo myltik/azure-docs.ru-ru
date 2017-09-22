@@ -42,6 +42,7 @@
 #### [Поиск и устранение проблем с лицензированием групп](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
+#### [Условия использования для пользователей и приложений](active-directory-tou.md)
 #### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 ### [Добавление пользователей из других каталогов (классический портал)](active-directory-create-users-external.md)
 ### [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
@@ -197,6 +198,7 @@
 #### [Просмотр всех приложений](active-directory-coreapps-view-azure-portal.md)
 #### [Управление подготовкой учетной записи пользователя](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Управление параметрами единого входа для корпоративных приложений](active-directory-enterprise-apps-manage-sso.md)
+#### [Расширенные параметры подписи сертификатов для приложений SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 
 ### [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)
 #### [Самостоятельный доступ к приложениям](active-directory-self-service-application-access.md)
@@ -273,6 +275,17 @@
 #### [Назначение ролей администратора](active-directory-users-assign-role-azure-portal.md)
 ### [Административные единицы](active-directory-administrative-units-management.md)
 ### [Настройка времени существования маркеров](active-directory-configurable-token-lifetimes.md)
+
+## Проверки доступа
+### [Обзор проверки доступа](active-directory-azure-ad-controls-access-reviews-overview.md)
+### [Выполнение проверки доступа](active-directory-azure-ad-controls-complete-access-review.md)
+### [Создание проверки доступа](active-directory-azure-ad-controls-create-access-review.md)
+### [Как выполнить проверку доступа](active-directory-azure-ad-controls-perform-access-review.md)
+### [Как проверить доступ](active-directory-azure-ad-controls-how-to-review-your-access.md)
+### [Гостевой доступ с использованием проверок доступа](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+### [Управление доступом пользователей с помощью проверок](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+### [Управление программами и элементами управления](active-directory-azure-ad-controls-manage-programs-controls.md)
+
 
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)

@@ -27,6 +27,7 @@
 ### [Если у вас уже есть клиент Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Управление Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Обновление сертификатов для Office 365 и Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Обновление SSL-сертификата для фермы служб федерации Active Directory (AD FS)](active-directory-aadconnectfed-ssl-update.md)
 ### [Включение обратной записи устройства](active-directory-aadconnect-feature-device-writeback.md)
 ### [Параметры единого входа пользователей](active-directory-aadconnect-user-signin.md)
 #### [Простой единый вход](active-directory-aadconnect-sso.md)

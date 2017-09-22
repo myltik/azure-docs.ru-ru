@@ -4,6 +4,30 @@
   items:
     - name: Сведения о Content Moderator
       href: overview.md
+- name: Быстрое начало работы
+  items:
+    - name: Средство проверки
+      href: quick-start.md
+    - name: API модерации
+      items:
+        - name: API модерации изображений
+          href: try-image-api.md
+        - name: API списка изображений
+          href: try-image-list-api.md
+        - name: API модерации текста
+          href: try-text-api.md
+        - name: API списка терминов
+          href: try-terms-list-api.md
+    - name: Просмотр API-интерфейсов
+      items:
+        - name: Задания
+          href: try-review-api-job.md
+        - name: Проверки
+          href: try-review-api-review.md
+        - name: Рабочие процессы
+          href: try-review-api-workflow.md
+- name: Основные понятия
+  items:
     - name: Модерация изображений
       href: image-moderation-api.md
     - name: Модерация текста
@@ -14,31 +38,9 @@
       href: video-moderation-api.md
     - name: Просмотр API-интерфейсов
       href: review-api.md
-- name: Начало работы
+- name: Практические руководства
   items:
     - name: Средство проверки
-      href: quick-start.md
-    - name: Пробная версия API модерирования
-      items:
-        - name: Образы
-          href: try-image-api.md
-        - name: Списки образов
-          href: try-image-list-api.md
-        - name: текст
-          href: try-text-api.md
-        - name: Списки терминов
-          href: try-terms-list-api.md
-    - name: Пробная версия API проверки
-      items:
-        - name: Задания
-          href: try-review-api-job.md
-        - name: Проверки
-          href: try-review-api-review.md
-        - name: Рабочие процессы
-          href: try-review-api-workflow.md
-- name: Практическое руководство
-  items:
-    - name: Использование средства проверки
       items:
         - name: Участие человека
           href: Review-Tool-User-Guide/human-in-the-loop.md

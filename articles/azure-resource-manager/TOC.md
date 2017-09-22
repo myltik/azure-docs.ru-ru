@@ -95,10 +95,24 @@
 ## Устранение неполадок
 ### [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md)
 ### [Сведения об ошибках развертывания](resource-manager-troubleshoot-tips.md)
-### [Ошибка RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Устранение ошибок
+#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md);
+#### [InvalidTemplate](resource-manager-invalid-template-errors.md);
+#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md);
+#### [NotFound](resource-manager-not-found-errors.md);
+#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md);
+#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md).
 ### Ошибки развертывания виртуальной машины
-#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+#### Linux
+##### [Проблемы с развертыванием](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+##### [Проблемы подготовки и распределения](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+##### [Распространенные сообщения об ошибках](../virtual-machines/linux/error-messages.md)
+#### Windows
+##### [Проблемы с развертыванием](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+##### [Проблемы подготовки и распределения](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+##### [Распространенные сообщения об ошибках](../virtual-machines/windows/error-messages.md)
 
 # Справочные материалы
 ## [Формат шаблона](/azure/templates/)

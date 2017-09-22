@@ -27,7 +27,7 @@
 ### [Формирование выходных данных](stream-analytics-define-outputs.md)
 ### [Вывод в функциях Azure](stream-analytics-functions-redis.md)
 ### [Вывод в Data Lake Store](stream-analytics-data-lake-output.md)
-### [Вывод в DocumentDB](stream-analytics-documentdb-output.md)
+### [Вывод в Cosmos DB](stream-analytics-documentdb-output.md)
 
 ## Мониторинг и оптимизация
 ### [Добавление оповещений](stream-analytics-set-up-alerts.md)

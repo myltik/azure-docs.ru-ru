@@ -12,8 +12,9 @@
 ### [1. Сборка приложения .NET](service-fabric-tutorial-create-dotnet-app.md)
 ### [2. Развертывание приложения](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3. Настройка непрерывной интеграции и доставки](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4. Мониторинг и диагностика](service-fabric-tutorial-monitoring-aspnet.md)
 
-## Репликация приложения по методике lift-and-shift
+## Контейнеризация существующего приложения .NET
 ### [1. Создание защищенного кластера в Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2. Развертывание приложения .NET с помощью Docker Compose](service-fabric-host-app-in-a-container.md)
 

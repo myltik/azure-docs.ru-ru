@@ -1,12 +1,17 @@
 # Обзор
 ## [Руководство для разработчиков](azure-developer-guide.md) 
+### [Что такое Azure?](azure-developer-guide.md#what-is-azure)
+### [С чего начать?](azure-developer-guide.md#where-do-i-start)
+### [Регионы Azure](azure-developer-guide.md#azure-regions)
+### [Как управлять приложениями и проектами?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
+### [Сведения об учетных записях, подписках и выставлении счетов](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
 
-## [Общие сведения о службах Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-## [Общие сведения о портале Azure](https://docs.microsoft.com/azure/azure-portal-overview)
+## [Общие сведения о службах Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Общие сведения о портале Azure](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Пакеты SDK и средства](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Быстрый запуск
-## [Веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html)
+## [Веб-приложения](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## Виртуальные машины
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -17,10 +22,10 @@
 
 # Учебники
 ## Создание и развертывание веб-приложений
-### [.NET с базой данных SQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase)
-### [Node.js с Mongo DB](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
-### [Использование PHP и MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-php-mysql)
-### [Java с MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-java-mysql)
+### [.NET с базой данных SQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+### [Node.js с Mongo DB](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+### [Использование PHP и MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql)
+### [Java с MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql)
 ## Развертывание сложных шаблонов виртуальных машин
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -29,25 +34,25 @@
 
 # Примеры
 ## Инфраструктура CLI Azure
-### [Веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-cli-samples)
+### [Веб-приложения](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## PowerShell
-### [Веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples)
+### [Веб-приложения](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Основные понятия
 ## [Выставление счетов и подписки](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Сравнение услуг размещения](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm)
-## [Что такое служба приложений?](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+## [Сравнение услуг размещения](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [Что такое служба приложений?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 ## Виртуальные машины
 ### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
 ## [Общие сведения о Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # Практические руководства
-## [План](https://docs.microsoft.com/azure/architecture/guide/)
+## План
 ### [Архитектуры веб-приложений](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [Варианты архитектуры виртуальных машин](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [Подключение к локальным сетям](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
@@ -58,7 +63,7 @@
 ### [Не связанные с сервером приложения](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Кластеры микрослужб](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Развернуть
-### [Веб-приложения и мобильные приложения: система управления версиями](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)
+### [Веб-приложения и мобильные приложения: система управления версиями](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
 ### [Использование микрослужб локально](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -71,26 +76,25 @@
 ### [Очереди сообщений](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
 ## Масштаб
-### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service-web/web-sites-scale)
+### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service/web-sites-scale)
 ### [Виртуальные машины](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 ### [Приложения микрослужб](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## Безопасность
-### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-custom-ssl)
+### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Архивация
-### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service-web/web-sites-backup)
+### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Виртуальные машины](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Монитор
-### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)
+### [Мобильные приложения и веб-приложения](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
 ### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Микрослужбы](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
 ### [Платежные оповещения](https://docs.microsoft.com/azure/billing/billing-set-up-alerts)
 
 ## Автоматизация
-### [Гибкая разработка веб-приложений](https://docs.microsoft.com/azure/app-service-web/app-service-agile-software-development)
 ### [Масштабирование виртуальных машин Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Масштабирование виртуальных машин Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 

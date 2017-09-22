@@ -70,5 +70,5 @@
           href: msi-tutorial-windows-vm-access-nonaad.md
         - name: С помощью виртуальной машины Linux
           href: msi-tutorial-linux-vm-access-nonaad.md
-    - name: Известные проблемы
+    - name: Часто задаваемые вопросы и известные проблемы
       href: msi-known-issues.md
