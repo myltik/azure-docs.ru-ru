@@ -21,7 +21,6 @@ ms.openlocfilehash: 4d7b7a17751cc476d0365cbcbff3fcf23dd0c6ff
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>Вы также можете создать настраиваемую виртуальную машину под управлением Windows с помощью классической модели развертывания.
 > [!IMPORTANT]

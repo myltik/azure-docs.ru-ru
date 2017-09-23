@@ -1,6 +1,6 @@
 ---
 title: "Моделирование сложных типов данных в службе поиска Azure | Документация Майкрософт"
-description: "Вложенные или иерархические структуры данных можно моделировать в индексе Поиска Azure с помощью плоских наборов строк и типа данных &quot;Коллекции&quot;."
+description: "Вложенные или иерархические структуры данных можно моделировать в индексе Поиска Azure с помощью плоских наборов строк и типа данных \"Коллекции\"."
 services: search
 documentationcenter: 
 author: LiamCa
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Моделирование сложных типов данных в службе поиска Azure

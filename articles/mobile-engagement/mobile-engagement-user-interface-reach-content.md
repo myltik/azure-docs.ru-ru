@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Управление уникальным контентом для различных типов кампаний push-уведомлений

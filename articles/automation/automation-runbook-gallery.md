@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e6033f089152c27713f98f12634c53012f5ff070
 ms.openlocfilehash: 04cfafc9e7a037d915f63723fd0b67a07954460b
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/16/2016
 
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Коллекции модулей Runbook и других модулей для службы автоматизации Azure
@@ -121,10 +122,5 @@ ms.openlocfilehash: 04cfafc9e7a037d915f63723fd0b67a07954460b
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о том, как начать работу с модулями Runbook, см. в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md).
 * Чтобы понять различия между PowerShell и рабочим процессом PowerShell с модулями Runbook, см. статью [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

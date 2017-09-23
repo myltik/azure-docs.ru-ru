@@ -19,7 +19,6 @@ ms.openlocfilehash: b6ac8acc244e9029be01ede5e0865c280171217d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/24/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Руководство. Интеграция Azure Active Directory с LearnUpon
 

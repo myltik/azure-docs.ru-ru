@@ -1,5 +1,4 @@
 ---
-
 title: "Использование виртуальной машины Linux для устранения неполадок с помощью Azure CLI 1.0 | Документация Майкрософт"
 description: "Узнайте, как устранять неполадки виртуальных машин Linux, подключив диск ОС к виртуальной машине восстановления с помощью Azure CLI 1.0."
 services: virtual-machines-linux
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: d817358211f123c96d899c5cff88cc47aeb5c9c1
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/03/2017
-
 
 ---
 

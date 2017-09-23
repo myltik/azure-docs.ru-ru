@@ -20,7 +20,6 @@ ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Публикация предложения и управление им в Azure Marketplace
 Эта статья поможет разработчикам создать и развернуть решения, а также управлять ими в Azure Marketplace, чтобы их могли приобрести и использовать другие клиенты и партнеры Azure.

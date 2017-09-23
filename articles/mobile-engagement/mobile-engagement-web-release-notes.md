@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="azure-mobile-engagement-web-sdk-release-notes"></a>Заметки о выпуске веб-пакета SDK для Azure Mobile Engagement
@@ -38,10 +39,5 @@ ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
 * API, который отвечает обмен сообщениями между устройствами (отправка и получение), удален.
 * Удалены обратные вызовы, связанные с нерекомендованным соединением XMPP.
 * Удалена поддержка рекламных кампаний.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

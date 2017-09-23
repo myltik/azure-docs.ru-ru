@@ -212,8 +212,3 @@
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="what-is-azure-scheduler"></a>Что такое планировщик Azure?
@@ -52,10 +53,5 @@ ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
  [Ограничения, значения по умолчанию и коды ошибок планировщика Azure](scheduler-limits-defaults-errors.md)
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

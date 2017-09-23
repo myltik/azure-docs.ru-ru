@@ -20,7 +20,6 @@ ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="what-is-log-analytics"></a>Что такое Log Analytics?
 Log Analytics — это служба в [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md), которая отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности.  Она собирает данные, формируемые ресурсами в облачных и локальных средах, а также другими средствами мониторинга, и на их основе предоставляет аналитические сведения для нескольких источников.  В этой статье кратко описано значение Log Analytics, представлены общие сведения о работе этой службы, а также содержатся ссылки на более подробные источники.

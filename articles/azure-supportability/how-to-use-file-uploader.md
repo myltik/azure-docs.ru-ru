@@ -21,7 +21,6 @@ ms.openlocfilehash: ba6dafd8d890d88478a5e3213dd023921908f4bf
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Инструкции по подаче новых запросов на техническую поддержку в утилите загрузки файлов Microsoft Azure
 При [создании запроса в службу поддержки](https://portal.azure.com/#create/Microsoft.Support) служебная программа передачи файлов поможет легко передать файлы диагностики и любые другие файлы, которые могут быть связаны с инцидентом.  

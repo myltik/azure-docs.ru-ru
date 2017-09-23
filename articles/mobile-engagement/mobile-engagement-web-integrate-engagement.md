@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Интегрирование Azure Mobile Engagement в веб-приложение
@@ -160,9 +161,4 @@ API Mobile Engagement позволяет использовать все рас�
         scheme: '//'
       }
     };
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

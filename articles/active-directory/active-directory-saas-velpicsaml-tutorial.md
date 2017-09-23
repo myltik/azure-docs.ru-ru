@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 5325f3cca00167e6b7b687509ce43435447ad2f4
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Руководство. Интеграция Azure Active Directory с Velpic SAML
@@ -217,7 +217,7 @@ ms.lasthandoff: 04/07/2017
 
     д. Все остальные данные являются необязательными, но вы можете внести их, если сочтете нужным.
     
-    f. Щелкните **СОХРАНИТЬ**.    
+    f. Щелкните **СОХРАНИТЬ**.  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 

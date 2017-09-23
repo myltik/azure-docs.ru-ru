@@ -20,7 +20,6 @@ ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/17/2017
 
-
 ---
 
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Руководство по началу работы с когнитивными возможностями U-SQL

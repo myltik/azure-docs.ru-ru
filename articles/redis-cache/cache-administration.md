@@ -20,7 +20,6 @@ ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Администрирование кэша Redis для Azure
 В этом разделе описывается выполнение задач администрирования, таких как [перезагрузка](#reboot) и [планирование обновлений](#schedule-updates) для экземпляров кэша Redis для Azure.

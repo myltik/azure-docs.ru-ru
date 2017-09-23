@@ -20,7 +20,6 @@ ms.openlocfilehash: a63b15ca5126b45451f0694c9ee75d7b67b1ceaf
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Сбор данных CollectD с помощью агентов Linux в Log Analytics
 [CollectD](https://collectd.org/) — управляющая программа Linux с открытым исходным кодом, которая периодически собирает метрики производительности приложений и системные данные. К примерам таких приложений относятся виртуальная машина Java (JVM), сервер MySQL и Nginx. В этой статье приводятся сведения о сборе данных производительности CollectD в Log Analytics.

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
 ms.openlocfilehash: c3bbef8fee018dc54e7d3edb86e3f9434999bdae
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Техническое руководство по шаблону решения Cortana Intelligence для прогнозирования спроса на энергию
@@ -239,9 +240,4 @@ ms.openlocfilehash: c3bbef8fee018dc54e7d3edb86e3f9434999bdae
 
 ## <a name="acknowledgements"></a>**Благодарности**
 Авторы этой статьи: специалист по обработке данных Ицзин Чен (Yijing Chen) и инженер по программному обеспечению Цю Мин (Qiu Min); оба автора работают в корпорации Майкрософт.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

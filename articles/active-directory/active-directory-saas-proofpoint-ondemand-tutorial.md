@@ -19,7 +19,6 @@ ms.openlocfilehash: b4c8d8c187fc865a905016f04a41843894249f5e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Руководство. Интеграция Azure Active Directory с Proofpoint on Demand
 

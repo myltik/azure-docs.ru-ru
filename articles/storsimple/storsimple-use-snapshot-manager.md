@@ -21,7 +21,6 @@ ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Управление заданиями архивации и каталогом архивов с помощью пользовательского интерфейса StorSimple Snapshot Manager
 

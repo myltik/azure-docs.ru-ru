@@ -20,7 +20,6 @@ ms.openlocfilehash: bf8cd0d645d8a5992864c8a3820ac2049a3ff630
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Аутентификация с помощью интерфейсов REST API Mobile Engagement
 ## <a name="overview"></a>Обзор

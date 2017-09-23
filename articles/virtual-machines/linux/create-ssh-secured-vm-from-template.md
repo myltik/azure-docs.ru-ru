@@ -22,7 +22,6 @@ ms.openlocfilehash: 908a8a0c82b2d21fb25c9b33dbd714570d1ac272
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Как создать виртуальную машину Linux с помощью шаблонов Azure Resource Manager
 В этой статье показано, как быстро развернуть виртуальную машину Linux с помощью шаблонов Azure Resource Manager и Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).

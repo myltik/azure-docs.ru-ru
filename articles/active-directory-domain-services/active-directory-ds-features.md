@@ -20,7 +20,6 @@ ms.openlocfilehash: 8005be7ded6ea005af086aeaf594963a5f2d4ac2
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="azure-ad-domain-services"></a>Доменные службы Azure AD
 ## <a name="features"></a>Функции

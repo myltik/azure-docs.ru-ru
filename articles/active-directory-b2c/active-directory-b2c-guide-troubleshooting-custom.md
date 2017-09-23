@@ -20,7 +20,6 @@ ms.openlocfilehash: 023390ba36a74217503ff8b3076ad17978fe3fb8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Устранение неполадок в пользовательских политиках Azure AD B2C и инфраструктуре процедур идентификации
 

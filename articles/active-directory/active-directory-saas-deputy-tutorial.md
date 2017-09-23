@@ -19,7 +19,6 @@ ms.openlocfilehash: 51aed908208b7a40ea2ab710dffe84370b573991
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Руководство. Интеграция Azure Active Directory с Deputy
 

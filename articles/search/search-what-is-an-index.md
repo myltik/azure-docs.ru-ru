@@ -18,7 +18,6 @@ ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
 ms.contentlocale: ru-ru
 ms.lasthandoff: 12/10/2016
 
-
 ---
 # <a name="create-an-azure-search-index"></a>Создание индекса Поиска Azure
 > [!div class="op_single_selector"]

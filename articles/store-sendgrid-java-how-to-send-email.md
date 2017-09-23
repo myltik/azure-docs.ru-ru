@@ -14,10 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Как отправлять электронную почту с помощью SendGrid из Java
@@ -194,9 +195,4 @@ SendGrid поддерживает различные веб-интерфейсы
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [облачная служба электронной почты]: https://sendgrid.com/email-solutions
 [доставку электронной почты]: https://sendgrid.com/transactional-email
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

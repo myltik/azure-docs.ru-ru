@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b28c5e93dc8f53597b1d2fa6f4ae154acf16068
 ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -104,9 +106,4 @@ ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
 
 - Если у вас есть дополнительные вопросы о StorSimple в CSP, перейдите к статье [StorSimple in CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple в CSP: часто задаваемые вопросы).
 - Если вы уже готовы развернуть StorSimple, перейдите к статье [Развертывание виртуального массива StorSimple для программы поставщика облачных решений](storsimple-partner-csp-deploy.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

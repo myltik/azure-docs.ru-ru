@@ -22,7 +22,6 @@ ms.openlocfilehash: b6fc2098027690eb76b69b1427f0e9541b8a7a69
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/10/2017
 
-
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API
 Узнайте, как отслеживать кластеры HDInsight с помощью интерфейсов Ambari API.

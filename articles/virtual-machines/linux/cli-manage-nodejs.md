@@ -21,7 +21,6 @@ ms.openlocfilehash: 67830e40065f8c09f2b04de431aa17ecf5a83d2e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="common-azure-cli-10-commands-on-linux-and-mac"></a>Основные команды Azure CLI 1.0 в Linux и Mac
 [!INCLUDE [virtual-machines-common-cli-manage-nodejs](../../../includes/virtual-machines-common-cli-manage-nodejs.md)]

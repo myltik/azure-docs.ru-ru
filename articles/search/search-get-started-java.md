@@ -20,7 +20,6 @@ ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
 ms.contentlocale: ru-ru
 ms.lasthandoff: 03/29/2017
 
-
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Начало работы с Поиском Azure в Java
 > [!div class="op_single_selector"]

@@ -21,7 +21,6 @@ ms.openlocfilehash: 964ea38569062a7127f60dd6309b328db263bf6f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Перенос связанных виртуальных сетей ExpressRoute из классической модели на модель Resource Manager
 

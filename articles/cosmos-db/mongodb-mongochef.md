@@ -21,7 +21,6 @@ ms.openlocfilehash: 54c9799bd646b827f602e2ea2f9a15a4fc853f00
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Использование MongoChef с учетной записью API для MongoDB в Azure Cosmos DB
 

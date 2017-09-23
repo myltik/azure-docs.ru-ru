@@ -21,7 +21,6 @@ ms.openlocfilehash: 6032263848c469ce2f416306e5c91c29f4cb30e4
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания.
 > [!IMPORTANT]

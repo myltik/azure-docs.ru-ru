@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI)

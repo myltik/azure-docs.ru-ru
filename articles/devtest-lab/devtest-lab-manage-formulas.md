@@ -21,7 +21,6 @@ ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Управление формулами Azure DevTest Labs
 

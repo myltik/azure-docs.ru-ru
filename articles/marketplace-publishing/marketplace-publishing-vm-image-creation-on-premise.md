@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Локальная разработка образа виртуальной машины для Azure Marketplace

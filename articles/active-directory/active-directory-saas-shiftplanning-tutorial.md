@@ -19,7 +19,6 @@ ms.openlocfilehash: 327cc1e3d0836e79376e0a3cd5a4422a967f5943
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Учебник. Интеграция Azure Active Directory с Humanity
 

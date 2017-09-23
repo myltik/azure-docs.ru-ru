@@ -1,6 +1,6 @@
 ---
 title: "Мониторинг и диагностика контейнеров Azure Service Fabric | Документация Майкрософт"
-description: "Узнайте, как помощью решения OMS &quot;Контейнеры&quot; отслеживать и диагностировать контейнеры, организованные в Microsoft Azure Service Fabric."
+description: "Узнайте, как помощью решения OMS \"Контейнеры\" отслеживать и диагностировать контейнеры, организованные в Microsoft Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 874c1a5c4b399ff2254072b7282f05d83a005cc3
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/11/2017
-
 
 ---
 

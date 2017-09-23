@@ -14,9 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/14/2017
 
 ---

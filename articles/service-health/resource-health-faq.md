@@ -20,7 +20,6 @@ ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 
 # <a name="azure-resource-health-faq"></a>Часто задаваемые вопросы о службе "Работоспособность ресурсов Azure"

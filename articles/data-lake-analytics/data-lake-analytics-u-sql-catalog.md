@@ -20,7 +20,6 @@ ms.openlocfilehash: 08364c6c7bea53807844e3b1cc327dc3742e0487
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="get-started-with-the-u-sql-catalog"></a>Начало работы с каталогом U-SQL
 

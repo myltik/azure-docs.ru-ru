@@ -19,7 +19,6 @@ ms.openlocfilehash: 42f35c53eec06a346281fd90c97aecfd2269307d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-10-enable-replication-for-physical-servers-to-azure"></a>Шаг 10. Включение репликации для физических серверов в Azure
 

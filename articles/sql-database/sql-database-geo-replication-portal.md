@@ -21,7 +21,6 @@ ms.openlocfilehash: db90fad2fe397f0c8466db6bdc1bd8c8d1cf8f15
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Настройка активной георепликации для базы данных SQL Azure с помощью портала Azure и запуск отработки отказа
 

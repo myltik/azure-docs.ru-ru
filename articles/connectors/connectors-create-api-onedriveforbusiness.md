@@ -21,7 +21,6 @@ ms.openlocfilehash: 783d6a640d9626508bcabc5f991dc5b6fc22eaf4
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Начало работы с соединителем OneDrive для бизнеса
 Подключитесь к OneDrive для бизнеса, чтобы управлять файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов.

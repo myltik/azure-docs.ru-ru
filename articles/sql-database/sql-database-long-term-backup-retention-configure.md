@@ -21,7 +21,6 @@ ms.openlocfilehash: a293c06f2e9bca8790832ecb851c89b04e76bb24
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Настройка долгосрочного хранения резервных копий для Базы данных SQL Azure и восстановление из резервной копии
 

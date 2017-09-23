@@ -21,7 +21,6 @@ ms.openlocfilehash: 9d59e7f0e8f326c40be86e199d7712f6c565cc13
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Типы приложений для конечной точки Azure Active Directory версии 2.0
 Конечная точка Azure Active Directory версии 2.0 поддерживает аутентификацию для различных современных архитектур приложений, которые основаны на стандартном отраслевом протоколе [OAuth 2.0 или OpenID Connect](active-directory-v2-protocols.md). В этой статье описываются типы приложений, которые можно создавать с помощью Azure AD версии 2.0 вне зависимости от выбранного языка и платформы. Сведения в этой статье помогут вам получить общее представление о возможных сценариях, прежде вы [приступите к работе с кодом](active-directory-appmodel-v2-overview.md#getting-started).

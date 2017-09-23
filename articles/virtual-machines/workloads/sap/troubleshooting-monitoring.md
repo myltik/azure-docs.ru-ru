@@ -1,6 +1,6 @@
 ---
-title: "Устранение неполадок и мониторинг архитектуры решения &quot;SAP HANA в Azure (крупные экземпляры)&quot; | Документация Майкрософт"
-description: "Сведения об устранении неполадок и мониторинге архитектуры решения &quot;SAP HANA в Azure (крупные экземпляры)&quot;."
+title: "Устранение неполадок и мониторинг архитектуры решения \"SAP HANA в Azure (крупные экземпляры)\" | Документация Майкрософт"
+description: "Сведения об устранении неполадок и мониторинге архитектуры решения \"SAP HANA в Azure (крупные экземпляры)\"."
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: ee5be707b443cbe42bf4a492d79390e534d4b91f
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Как устранять неполадки и отслеживать работу SAP HANA (крупные экземпляры) в Azure

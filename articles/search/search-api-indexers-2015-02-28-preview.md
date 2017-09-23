@@ -1,6 +1,6 @@
 ---
 title: "Операции с индексаторами (REST API службы поиска Azure: версия 2015-02-28-Preview) | Документация Майкрософт"
-description: "Операции с индексаторами (API REST службы &quot;Поиск Azure&quot;: версия 2015-02-28-Preview)"
+description: "Операции с индексаторами (API REST службы \"Поиск Azure\": версия 2015-02-28-Preview)"
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Операции с индексаторами (API REST службы "Поиск Azure": версия 2015-02-28-Preview)

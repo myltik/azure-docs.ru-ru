@@ -21,7 +21,6 @@ ms.openlocfilehash: 7977460f61bfdabd399e45e86d9bbf2e5083992b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="azure-cli-samples-for-networking"></a>Примеры Azure CLI для работы с сетью
 

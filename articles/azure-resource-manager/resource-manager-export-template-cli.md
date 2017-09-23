@@ -19,7 +19,6 @@ ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Экспорт шаблонов Azure Resource Manager с помощью Azure CLI
 

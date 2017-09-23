@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
 ms.openlocfilehash: 0df4fca59575bd8e18e91fea2066a9e694ed320d
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/05/2017
 
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Центр безопасности Azure и виртуальные машины Azure c ОС Linux
@@ -106,10 +107,5 @@ ms.openlocfilehash: 0df4fca59575bd8e18e91fea2066a9e694ed320d
 * [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
 * [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

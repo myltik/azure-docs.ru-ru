@@ -20,7 +20,6 @@ ms.openlocfilehash: 53bf33f6027f1f365bd92251490d5c851fb83f8b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>Копирование данных между хранилищем озера данных и базой данных SQL Azure с помощью Sqoop
 Узнайте, как использовать Apache Sqoop для импорта и экспорта данных между базой данных SQL Azure и хранилищем озера данных.

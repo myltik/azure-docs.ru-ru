@@ -20,7 +20,6 @@ ms.openlocfilehash: 29d19364b9a98e351c95f13e68a2e63b9f6439f8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Кодирование сообщений X12 для Azure Logic Apps с помощью пакета интеграции Enterprise
 

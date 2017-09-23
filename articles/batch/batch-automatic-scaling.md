@@ -21,7 +21,6 @@ ms.openlocfilehash: f0e49cd8a64a48c53f5b6104703164a597c797f0
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Создание формулы автоматического масштабирования для масштабирования вычислительных узлов в пуле пакетной службы
 

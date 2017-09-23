@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
 ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/05/2017
 
 ---
 
@@ -68,9 +70,4 @@ Azure Load Balancer с Resource Manager содержит следующие до
 [Создайте доступную из Интернета подсистему балансировки нагрузки](load-balancer-get-started-internet-arm-ps.md) и настройте тип [режима распределения](load-balancer-distribution-mode.md) для определенного поведения сетевого трафика балансировщика нагрузки.
 
 Узнайте, как управлять [временем ожидания простоя TCP для балансировщика нагрузки](load-balancer-tcp-idle-timeout.md). Это важно в тех случаях, когда приложению требуется проверять активность подключений к серверам, управляемым балансировщиком нагрузки.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

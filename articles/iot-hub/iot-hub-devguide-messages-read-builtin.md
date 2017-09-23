@@ -19,7 +19,6 @@ ms.openlocfilehash: fcc3743028e369fdc42b71887d49fb41fba2c0dc
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/03/2017
 
-
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Чтение сообщений, пересылаемых с устройства в облако, из встроенной конечной точки
 

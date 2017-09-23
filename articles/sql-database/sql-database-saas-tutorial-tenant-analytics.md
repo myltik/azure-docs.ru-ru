@@ -22,7 +22,6 @@ ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Извлечение данных из баз данных клиента в базу данных аналитики для автономного анализа.
 

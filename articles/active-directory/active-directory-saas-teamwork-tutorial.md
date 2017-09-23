@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 92ff0b4b7664ad2d33b54d02290c55a213d4e610
 ms.openlocfilehash: edd2f9446515531f1147a8abf99295b618b89b25
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/23/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamwork"></a>Руководство по интеграции Azure Active Directory с Teamwork
@@ -121,7 +121,7 @@ ms.lasthandoff: 02/23/2017
 
 4. В разделе **Сертификат подписи SAML** щелкните **Создание нового сертификата**.
 
-    ![Настройка единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)     
+    ![Настройка единого входа](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)   
 
 5. В диалоговом окне **Создание нового сертификата** щелкните значок календаря и выберите **дату окончания срока действия**. Затем нажмите кнопку **Сохранить**.
 

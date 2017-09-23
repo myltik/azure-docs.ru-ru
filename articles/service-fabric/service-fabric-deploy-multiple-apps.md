@@ -20,7 +20,6 @@ ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="deploy-multiple-guest-executables"></a>Развертывание нескольких пользовательских приложений
 В этой статье показано, как упаковать и развернуть несколько гостевых исполняемых файлов в Azure Service Fabric. Чтобы выполнить сборку и развертывание отдельного пакета Service Fabric вручную, ознакомьтесь с [развертыванием гостевого исполняемого файла в Service Fabric](service-fabric-deploy-existing-app.md).

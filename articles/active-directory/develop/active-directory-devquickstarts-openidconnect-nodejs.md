@@ -21,7 +21,6 @@ ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Вход в веб-приложение Node.js и выход из него с помощью Azure AD
 Мы выполним следующие действия с использованием Passport.

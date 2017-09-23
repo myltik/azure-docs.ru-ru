@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: fashah;garye;bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
 ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/24/2017
 
 ---
-# <a name="a-nameheadingaprocess-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Обработка данных в виртуальной машине SQL Server на платформе Azure
+# <a name="heading"></a>Обработка данных в виртуальной машине SQL Server на платформе Azure
 В этом документе описывается изучение данных и создание характеристик для данных, хранящихся в виртуальной машине SQL Server в Azure. Это можно сделать путем структурирования данных с помощью SQL или с использованием языка программирования, например Python.
 
 > [!NOTE]
@@ -28,13 +29,13 @@ ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
 > 
 > 
 
-## <a name="a-namesqlausing-sql"></a><a name="SQL"></a>Использование SQL
+## <a name="SQL"></a>Использование SQL
 В данном разделе с помощью SQL описываются следующие задачи по структурированию данных:
 
 1. [Просмотр данных](#sql-dataexploration)
 2. [Создание характеристик](#sql-featuregen)
 
-### <a name="a-namesql-dataexplorationadata-exploration"></a><a name="sql-dataexploration"></a>Просмотр данных
+### <a name="sql-dataexploration"></a>Просмотр данных
 Вот несколько примеров сценариев SQL, которые можно использовать для изучения хранилищ данных в SQL Server.
 
 > [!NOTE]
@@ -55,7 +56,7 @@ ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
-### <a name="a-namesql-featuregenafeature-generation"></a><a name="sql-featuregen"></a>Создание характеристик
+### <a name="sql-featuregen"></a>Создание характеристик
 В этом разделе мы опишем способы создания характеристик с помощью SQL:  
 
 1. [Создание характеристик на основе количества](#sql-countfeature)
@@ -67,7 +68,7 @@ ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
 > 
 > 
 
-### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Создание характеристик на основе количества
+### <a name="sql-countfeature"></a>Создание характеристик на основе количества
 В следующих примерах показаны два способа создания количественных характеристик. В первом способе используется условная сумма, а во втором — предложение where. Затем их можно объединить с исходной таблицей (с помощью столбцов первичных ключей), чтобы включить количественные характеристики вместе с исходными данными.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
@@ -75,13 +76,13 @@ ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Создание характеристик путем группирования данных
+### <a name="sql-binningfeature"></a>Создание характеристик путем группирования данных
 В следующем примере показано, как создать группированные характеристики, сгруппировав (с использованием пяти ячеек) числовой столбец, который взамен можно использовать как характеристику:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Развертывание характеристик из одного столбца
+### <a name="sql-featurerollout"></a>Развертывание характеристик из одного столбца
 В этом разделе мы покажем, как развернуть одиночный столбец в таблице для создания дополнительных характеристик. В примере предполагается, что в таблице, из которой вы намерены создать характеристики, содержится столбец широты или долготы.
 
 Вот краткое руководство по данным широты/долготы расположения (на основе ресурса stackoverflow): [Как измерить точность широты и долготы](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude). Перед присвоением характеристики полю расположения полезно понять следующее:
@@ -117,12 +118,12 @@ ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Подключение к службе машинного обучения Azure
+### <a name="sql-aml"></a>Подключение к службе машинного обучения Azure
 Новую созданную характеристику можно добавить в виде столбца в существующую таблицу или сохранить в новой таблице и объединить с существующей таблицей для машинного обучения. Вы можете создать характеристики и открыть доступ к ним, если они уже созданы, с помощью модуля [Импорт данных][import-data] в Машинном обучении Azure, как показано ниже.
 
 ![считыватели azureml][1] 
 
-## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Использование языка программирования, например Python
+## <a name="python"></a>Использование языка программирования, например Python
 Использование языка Python для просмотра данных и создания характеристик, когда данные находятся в SQL Server, подобно обработке данных в большом двоичном объекте Azure с использованием Python, как описано в статье [Обработка больших двоичных данных Azure с применением методов расширенного анализа](machine-learning-data-science-process-data-blob.md). Данные необходимо загрузить из базы данных во фрейм данных pandas для последующей обработки. В этом разделе документирован процесс подключения к базе данных и загрузки данных во фрейм данных.
 
 Для подключения к базе данных SQL Server из языка Python с использованием pyodbc можно применить следующий формат строки подключения (замените servername, dbname, username и password соответствующими значениями имени сервера, имени БД, имени пользователя и пароля):
@@ -146,10 +147,5 @@ ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

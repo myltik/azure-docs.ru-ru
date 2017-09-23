@@ -20,7 +20,6 @@ ms.openlocfilehash: 6505d9aa2c7ae003bd928e2fa82cd923a9615394
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Действие "Хранимая процедура SQL Server"
 > [!div class="op_single_selector" title1="Transformation Activities"]

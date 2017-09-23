@@ -19,7 +19,6 @@ ms.openlocfilehash: 6e1622cd55e3b0e8063604ac9dc0cb0673fa9753
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Учебник. Интеграция Azure Active Directory с Sprinklr
 

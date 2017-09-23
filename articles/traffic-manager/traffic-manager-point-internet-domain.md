@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
 ms.openlocfilehash: 0322b3510cfd4f94031d8c1db8f1cc032b997fa8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/30/2016
 
 ---
 
@@ -38,9 +40,4 @@ ms.openlocfilehash: 0322b3510cfd4f94031d8c1db8f1cc032b997fa8
 * [Методы маршрутизации диспетчера трафика](traffic-manager-routing-methods.md)
 * [Диспетчер трафика — включение, отключение или удаление профиля диспетчера трафика](disable-enable-or-delete-a-profile.md)
 * [Диспетчер трафика — отключение и включение конечной точки диспетчера трафика](disable-or-enable-an-endpoint.md)
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

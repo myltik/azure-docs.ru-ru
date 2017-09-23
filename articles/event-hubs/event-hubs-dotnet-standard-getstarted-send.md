@@ -20,7 +20,6 @@ ms.openlocfilehash: 8af9d70965c1c9ad8c49b7d2bb04244fc207058d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Приступая к отправке событий в концентраторы событий Azure на платформе .NET Standard

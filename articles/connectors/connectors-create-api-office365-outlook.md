@@ -21,7 +21,6 @@ ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Начало работы с соединителем Office 365 Outlook
 Соединитель Office 365 Outlook обеспечивает взаимодействие с Outlook в Office 365. С помощью этого соединителя можно создавать, изменять и обновлять контакты и элементы календаря, а также обмениваться сообщениями электронной почты.

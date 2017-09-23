@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fe9d4f6b232e9abcf1fe9fc5657044b6c72fedb8
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Заметки о выпуске обновления 0.3 для виртуального массива StorSimple
@@ -72,10 +73,5 @@ ms.openlocfilehash: fe9d4f6b232e9abcf1fe9fc5657044b6c72fedb8
 
 * [Заметки о выпуске обновлений 0.1 и 0.2 для виртуального массива StorSimple.](storsimple-ova-update-01-release-notes.md)
 * [Заметки о выпуске общедоступной версии виртуального массива StorSimple.](storsimple-ova-pp-release-notes.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

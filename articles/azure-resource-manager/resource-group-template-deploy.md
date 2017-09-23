@@ -20,7 +20,6 @@ ms.openlocfilehash: 48e2f606ff676ca1c3217ac4fcca75db0d283616
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell
 

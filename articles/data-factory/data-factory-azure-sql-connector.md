@@ -20,7 +20,6 @@ ms.openlocfilehash: a64d13fa7dc5f50c259b98774be80b603dce400a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Копирование данных в базу данных SQL Azure и из нее с помощью фабрики данных Azure
 В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure перемещать данные в базу данных SQL и обратно. Это продолжение статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования.  

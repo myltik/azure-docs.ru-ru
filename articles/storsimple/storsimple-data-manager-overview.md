@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 32fcca540c1db317c5f11e94b2ee3359cadcc806
 ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/28/2016
 
 ---
 
@@ -72,8 +74,3 @@ ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [Преобразуйте данные с помощью пользовательского интерфейса диспетчера данных StorSimple](storsimple-data-manager-ui.md).
-
-
-<!--HONumber=Nov16_HO4-->
-
-

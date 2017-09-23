@@ -20,7 +20,6 @@ ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Общее представление о схеме узлов для сопоставления существующей веб-службы с OData с помощью языка CSDL
 > [!IMPORTANT]

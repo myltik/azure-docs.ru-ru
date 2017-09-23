@@ -21,7 +21,6 @@ ms.openlocfilehash: 9ff0591741899d65b8274fb14ab3f3c8db9abe36
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-sendgrid-connector"></a>Начало работы с соединителем SendGrid
 Поставщик подключений SendGrid позволяет отправлять электронную почту и управлять списками получателей.

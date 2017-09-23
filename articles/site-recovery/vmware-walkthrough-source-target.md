@@ -20,7 +20,6 @@ ms.openlocfilehash: 94b629a62c3a54eee69ee397b2f27e3f20b753d5
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-8-set-up-the-source-and-target-for-vmware-replication-to-azure"></a>Шаг 8. Настройка исходной и целевой среды для репликации из VMware в Azure
 

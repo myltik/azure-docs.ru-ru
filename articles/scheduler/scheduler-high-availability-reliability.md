@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="scheduler-high-availability-and-reliability"></a>Высокая доступность и надежность планировщика
@@ -79,9 +80,4 @@ ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

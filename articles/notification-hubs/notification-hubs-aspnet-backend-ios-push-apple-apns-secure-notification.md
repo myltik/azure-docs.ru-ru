@@ -14,10 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Безопасные push-уведомления посредством центров уведомлений Azure
@@ -154,9 +155,4 @@ ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
 3. В пользовательском интерфейсе приложения iOS нажмите **Вход**. Затем нажмите **Отправить push-уведомление**. Вы должны увидеть конфиденциальное уведомление, которое будет отображено в центре уведомлений.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

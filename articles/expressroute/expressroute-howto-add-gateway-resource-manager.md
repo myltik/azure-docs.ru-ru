@@ -21,7 +21,6 @@ ms.openlocfilehash: 0fb6b5efc8ad4d40e1b0f41aad678eca6da9798d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Настройка шлюза виртуальной сети для ExpressRoute с помощью PowerShell
 > [!div class="op_single_selector"]

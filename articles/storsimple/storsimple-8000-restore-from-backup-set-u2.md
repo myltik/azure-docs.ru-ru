@@ -20,7 +20,6 @@ ms.openlocfilehash: aff0710ead4f76bb80c38e2d88fe9cd3ce6a7b48
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Восстановление тома StorSimple из резервного набора данных
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 98950d72e90b0e178bae2fffa7644fd824a25eea
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Добавление запрашиваемой виртуальной машины в лабораторию в Azure DevTest Labs
 Добавление запрашиваемой виртуальной машины в лабораторию аналогично [добавлению стандартной виртуальной машины](devtest-lab-add-vm.md). Оно выполняется *на базе* [пользовательского образа](devtest-lab-create-template.md), [формулы](devtest-lab-manage-formulas.md) или [образа Marketplace](devtest-lab-configure-marketplace-images.md). В этой статье описывается добавление запрашиваемой виртуальной машины в лабораторию в DevTest Labs с помощью портала Azure, а также действия, которые необходимо выполнить пользователю, чтобы запросить виртуальную машину.

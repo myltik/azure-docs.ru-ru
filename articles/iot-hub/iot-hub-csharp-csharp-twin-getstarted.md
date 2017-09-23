@@ -20,7 +20,6 @@ ms.openlocfilehash: 6073d594117e69676b753a1e3af25fffa3583a2b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Начало работы с двойниками устройств (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

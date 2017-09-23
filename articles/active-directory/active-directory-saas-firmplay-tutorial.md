@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c0bb99976277405cfd79c37ebd754311c3c6004e
 ms.openlocfilehash: 3cddd5b9508159089bf344dbb3882d462799747c
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/23/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Руководство. Интеграция Azure Active Directory с FirmPlay — Employee Advocacy for Recruiting
@@ -121,7 +121,7 @@ ms.lasthandoff: 02/23/2017
 
 4. В разделе **Сертификат подписи SAML** щелкните **Создание нового сертификата**.
 
-    ![Настройка единого входа](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)     
+    ![Настройка единого входа](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)   
 
 5. В диалоговом окне **Создание нового сертификата** щелкните значок календаря и выберите **дату окончания срока действия**. Затем нажмите кнопку **Сохранить**.
 

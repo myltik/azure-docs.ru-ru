@@ -22,7 +22,6 @@ ms.openlocfilehash: f36cd801a0572d671977e2e48a7f1e743e38e768
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Начало работы с соединителем Microsoft Translator
 Подключитесь к Microsoft Translator, чтобы переводить тексты, определять языки и выполнять многие другие действия. С помощью Microsoft Translator вы можете: 

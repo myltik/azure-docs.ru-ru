@@ -20,7 +20,6 @@ ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Создание узлов Docker в Azure с помощью машины Docker
 Для запуска контейнеров [Docker](https://www.docker.com/) требуется виртуальная машина узла с запущенной управляющей программой Docker.

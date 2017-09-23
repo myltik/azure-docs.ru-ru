@@ -20,7 +20,6 @@ ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Замена резервного аккумулятора на устройстве StorSimple
 

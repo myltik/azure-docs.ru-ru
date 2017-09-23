@@ -20,7 +20,6 @@ ms.openlocfilehash: 792a551ae3dae46c503e5f0dda74cd0ac3a69c3a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Перемещение данных в таблицу SQL Azure и из нее с помощью фабрики данных Azure
 В этой статье описывается, как с помощью действия копирования в фабрике данных Azure перемещать данные в хранилище таблиц Azure и из него. Это продолжение статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования. 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 125d4d4bc916883e3bb53b9b3b4bf46bbb4bf139
 ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="create-a-microsoft-developer-account"></a>Создание учетной записи разработчика Майкрософт
@@ -258,9 +259,4 @@ ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
 [link-devsvc]:marketplace-publishing-dev-service-creation.md
 [link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

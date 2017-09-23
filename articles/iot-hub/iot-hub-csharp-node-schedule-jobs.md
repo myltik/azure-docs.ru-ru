@@ -20,7 +20,6 @@ ms.openlocfilehash: a8f4f34aa99c4a9966957cac213ec9170de80a46
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Планирование и трансляция заданий (.NET или Node.js)
 

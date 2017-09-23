@@ -21,7 +21,6 @@ ms.openlocfilehash: 771b9456e66b8a1e41f72340b695b19e2adaf793
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Перенос решения в хранилище данных SQL Azure
 Узнайте, что происходит при переносе существующего решения для базы данных в хранилище данных SQL Azure. 

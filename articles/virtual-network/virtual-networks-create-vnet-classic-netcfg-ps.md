@@ -21,7 +21,6 @@ ms.openlocfilehash: a67c3f73d9e56ab0081836ba5db62f5a01c7b6bc
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>Создание виртуальной сети (классической) с помощью файла конфигурации сети и PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

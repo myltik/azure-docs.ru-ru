@@ -20,7 +20,6 @@ ms.openlocfilehash: a88f2d81ab43e38c9363a67aaefc178b47bfb259
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Обзор обработки транзакций в служебной шине
 Эта статья описывает возможности служебной шины Azure по работе с транзакциями. Основную часть излагаемого материала иллюстрирует [пример выполнения атомарных транзакций с помощью служебной шины](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). Эта статья рассматривает лишь обработку транзакций и функцию *отправить через* в служебной шине, но пример атомарных транзакций образец гораздо масштабнее и сложнее.

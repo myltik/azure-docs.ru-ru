@@ -20,7 +20,6 @@ ms.openlocfilehash: bb6af719fe6f1a30c5933ce4342a4c0c072f3ff4
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/10/2017
 
-
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Копирование данных в локальную базу данных Oracle и обратно с помощью фабрики данных Azure
 В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure перемещать данные в локальную базу данных Oracle и обратно. Это продолжение статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования.

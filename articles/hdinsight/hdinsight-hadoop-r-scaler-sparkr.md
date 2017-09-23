@@ -22,7 +22,6 @@ ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Совместное использование ScaleR и SparkR в HDInsight

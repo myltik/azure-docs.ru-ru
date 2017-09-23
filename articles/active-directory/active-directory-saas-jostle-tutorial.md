@@ -19,7 +19,6 @@ ms.openlocfilehash: 0ca8aca1446a38643ce9f6751b6fe9cae1eaa5b5
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Руководство. Интеграция Azure Active Directory с Jostle
 

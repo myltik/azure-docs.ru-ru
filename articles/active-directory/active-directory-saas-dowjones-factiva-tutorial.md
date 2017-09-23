@@ -19,7 +19,6 @@ ms.openlocfilehash: dab48c24ff25fd68df1ee540bb8f0929e7e81bcb
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Руководство по интеграции Azure Active Directory с Dow Jones Factiva
 

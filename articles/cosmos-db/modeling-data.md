@@ -21,7 +21,6 @@ ms.openlocfilehash: 16c387fe574243544cf54cf283c7713ddcaa1942
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Моделирование данных документов для базы данных NoSQL
 Хотя базы данных без схем, такие как Azure Cosmos DB, существенно упрощают внесение изменений в модель данных, вам все равно следует уделить время анализу ситуации с данными. 

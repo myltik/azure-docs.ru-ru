@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Процедуры обновления веб-пакета SDK для Azure Mobile Engagement
@@ -120,10 +121,5 @@ ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
 Глобальный объект JavaScript `window.capptain` был переименован в `window.azureEngagement`, но можно использовать псевдоним `window.engagement` для вызовов API. Этот псевдоним нельзя использовать для определения конфигурации пакета SDK.
 
 Например: `capptain.deviceId` становится `engagement.deviceId`, `capptain.agent.startActivity` становится `engagement.agent.startActivity` и т. д.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

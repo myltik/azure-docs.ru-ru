@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 692f00bf342e2cd6d3d76754d18751c773aeedc5
 ms.openlocfilehash: 53a8599df2c647613122cd791b680e2e658586b0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/28/2016
 
 ---
 
@@ -109,8 +111,3 @@ ms.openlocfilehash: 53a8599df2c647613122cd791b680e2e658586b0
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [Использование .NET SDK для запуска заданий диспетчера данных StorSimple](storsimple-data-manager-dotnet-jobs.md).
-
-
-<!--HONumber=Nov16_HO4-->
-
-

@@ -1,6 +1,4 @@
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 После включения интеграции хранилища ключей Azure вы сможете включить шифрование SQL Server на своей виртуальной машине с SQL. Во-первых, необходимо создать асимметричный ключ в вашем хранилище ключей и симметричный ключ в SQL Server на виртуальной машине. После этого вы сможете выполнять инструкции T-SQL для включения шифрования базы данных и резервных копий.
 
@@ -12,9 +10,7 @@
 
 Следующие сценарии Transact-SQL содержат примеры для каждого из этих вариантов.
 
-<a id="prerequisites-for-examples" class="xliff"></a>
-
-### Предварительные требования для примеров
+### <a name="prerequisites-for-examples"></a>Предварительные требования для примеров
 
 Каждый пример основан на двух компонентах: асимметричном ключе из хранилища ключей **CONTOSO_KEY** и учетных данных, созданных интеграцией AKV, с именем **Azure_EKM_TDE_cred**. Следующие команды Transact-SQL настраивают эти предварительные требования для запуска примеров.
 
@@ -55,9 +51,7 @@ WITH PROVIDER_KEY_NAME = 'keytestvault',  --key name
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-<a id="transparent-data-encryption-tde" class="xliff"></a>
-
-### Прозрачное шифрование данных (TDE)
+### <a name="transparent-data-encryption-tde"></a>Прозрачное шифрование данных (TDE)
 
 1. Создайте имя входа SQL Server для использования компонентом Database Engine для прозрачного шифрования данных, а затем добавьте учетные данные.
 
@@ -94,9 +88,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-<a id="encrypted-backups" class="xliff"></a>
-
-### Зашифрованные резервные копии
+### <a name="encrypted-backups"></a>Зашифрованные резервные копии
 
 1. Создайте имя входа SQL Server для использования компонентом Database Engine для шифрования резервных копий, а затем добавьте учетные данные.
 
@@ -126,9 +118,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-<a id="column-level-encryption-cle" class="xliff"></a>
-
-### Шифрование на уровне столбцов (CLE)
+### <a name="column-level-encryption-cle"></a>Шифрование на уровне столбцов (CLE)
 
 Этот скрипт создает симметричный ключ, защищенный асимметричным ключом в хранилище ключей, и затем использует симметричный ключ для шифрования данных в базе данных.
 
@@ -153,9 +143,7 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-<a id="additional-resources" class="xliff"></a>
-
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Дополнительные ресурсы
 
 Дополнительные сведения об использовании этих возможностей шифрования см. в статье [Использование расширенного управления ключами с функциями шифрования SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 

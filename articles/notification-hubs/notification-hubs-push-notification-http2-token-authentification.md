@@ -19,7 +19,6 @@ ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Проверка подлинности на основе токенов (HTTP/2) для APNS
 ## <a name="overview"></a>Обзор

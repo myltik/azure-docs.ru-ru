@@ -20,7 +20,6 @@ ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/15/2017
 
-
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Таблица поддержки для репликации на дополнительный сайт с помощью Azure Site Recovery
 

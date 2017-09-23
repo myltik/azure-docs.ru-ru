@@ -19,7 +19,6 @@ ms.openlocfilehash: 129d08c8a7b4228d4d5f1a3b7938ab649b2747a7
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Учебник. Интеграция Azure Active Directory со SmarterU
 

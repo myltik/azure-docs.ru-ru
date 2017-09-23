@@ -21,7 +21,6 @@ ms.openlocfilehash: b8abf1285318e491d51aadf90f921103d84ce1a4
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Устранение неполадок подключения к базе данных SQL Azure
 При сбоях подключения к базе данных SQL Azure отображаются [сообщения об ошибке](sql-database-develop-error-messages.md). Эта статья представляет собой объединенный раздел, который поможет в устранении неполадок подключения к базе данных SQL Azure. В ней описываются [распространенные причины](#cause) проблем подключения, рекомендуется [инструмент устранения неполадок](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues), который поможет выявить проблему, и приводятся пошаговые инструкции по устранению [временных ошибок](#troubleshoot-transient-errors) и [постоянных или повторяющихся ошибок](#troubleshoot-persistent-errors). 

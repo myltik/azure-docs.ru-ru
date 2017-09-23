@@ -1,9 +1,7 @@
 
 <a name="cs_0_csharpprogramexample_h2"/>
 
-<a id="c-program-example" class="xliff"></a>
-
-## Пример программы C#
+## <a name="c-program-example"></a>Пример программы C#
 
 В следующих разделах этой статьи представлена программа C#, в которой используется ADO.NET для отправки инструкций Transact-SQL в базу данных SQL. Программа C# выполняет следующие действия:
 
@@ -21,9 +19,7 @@
 - методы, которые возвращают исходный код T-SQL;
 - два способа отправки кода T-SQL в базу данных.
 
-<a id="to-compile-and-run" class="xliff"></a>
-
-#### Компиляция и запуск
+#### <a name="to-compile-and-run"></a>Компиляция и запуск
 
 Программа C# логически является одним CS-файлом. Но в нашем примере она физически разделена на несколько блоков кода для удобства просмотра и изучения каждого блока. Чтобы скомпилировать и запустить программу, выполните инструкции ниже.
 
@@ -47,9 +43,7 @@
 >
 
 <a name="cs_1_connect"/>
-<a id="c-block-1-connect-by-using-adonet" class="xliff"></a>
-
-### Блок C# 1: подключение с помощью ADO.NET
+### <a name="c-block-1-connect-by-using-adonet"></a>Блок C# 1: подключение с помощью ADO.NET
 
 - [Далее](#cs_2_createtables)
 
@@ -105,9 +99,7 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
-<a id="c-block-2-t-sql-to-create-tables" class="xliff"></a>
-
-### Блок C# 2: T-SQL для создания таблиц
+### <a name="c-block-2-t-sql-to-create-tables"></a>Блок C# 2: T-SQL для создания таблиц
 
 - [Назад](#cs_1_connect) &nbsp; / &nbsp; [Далее](#cs_3_insert)
 
@@ -139,9 +131,7 @@ CREATE TABLE tabEmployee
       }
 ```
 
-<a id="entity-relationship-diagram-erd" class="xliff"></a>
-
-#### Схема отношения элементов (ERD)
+#### <a name="entity-relationship-diagram-erd"></a>Схема отношения элементов (ERD)
 
 Предыдущие инструкции CREATE TABLE включают ключевое слово **REFERENCES** для создания отношения *внешнего ключа* (FK) между двумя таблицами.  При использовании tempdb закомментируйте ключевое слово `--REFERENCES` с помощью пары начальных тире.
 
@@ -151,9 +141,7 @@ CREATE TABLE tabEmployee
 
 
 <a name="cs_3_insert"/>
-<a id="c-block-3-t-sql-to-insert-data" class="xliff"></a>
-
-### Блок C# 3: T-SQL для вставки данных
+### <a name="c-block-3-t-sql-to-insert-data"></a>Блок C# 3: T-SQL для вставки данных
 
 - [Назад](#cs_2_createtables) &nbsp; / &nbsp; [Далее](#cs_4_updatejoin)
 
@@ -185,9 +173,7 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-<a id="c-block-4-t-sql-to-update-join" class="xliff"></a>
-
-### Блок C# 4: T-SQL для обновления соединения
+### <a name="c-block-4-t-sql-to-update-join"></a>Блок C# 4: T-SQL для обновления соединения
 
 - [Назад](#cs_3_insert) &nbsp; / &nbsp; [Далее](#cs_5_deletejoin)
 
@@ -215,9 +201,7 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-<a id="c-block-5-t-sql-to-delete-join" class="xliff"></a>
-
-### Блок C# 5: T-SQL для удаления соединения
+### <a name="c-block-5-t-sql-to-delete-join"></a>Блок C# 5: T-SQL для удаления соединения
 
 - [Назад](#cs_4_updatejoin) &nbsp; / &nbsp; [Далее](#cs_6_selectrows)
 
@@ -249,9 +233,7 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-<a id="c-block-6-t-sql-to-select-rows" class="xliff"></a>
-
-### Блок C# 6: T-SQL для выбора строк
+### <a name="c-block-6-t-sql-to-select-rows"></a>Блок C# 6: T-SQL для выбора строк
 
 - [Назад](#cs_5_deletejoin) &nbsp; / &nbsp; [Далее](#cs_6b_datareader)
 
@@ -279,9 +261,7 @@ SELECT
 
 
 <a name="cs_6b_datareader"/>
-<a id="c-block-6b-executereader" class="xliff"></a>
-
-### Блок C# 6b: ExecuteReader
+### <a name="c-block-6b-executereader"></a>Блок C# 6b: ExecuteReader
 
 - [Назад](#cs_6_selectrows) &nbsp; / &nbsp; [Далее](#cs_7_executenonquery)
 
@@ -317,9 +297,7 @@ SELECT
 
 
 <a name="cs_7_executenonquery"/>
-<a id="c-block-7-executenonquery" class="xliff"></a>
-
-### Блок C# 7: ExecuteNonQuery
+### <a name="c-block-7-executenonquery"></a>Блок C# 7: ExecuteNonQuery
 
 - [Назад](#cs_6b_datareader) &nbsp; / &nbsp; [Далее](#cs_8_output)
 
@@ -357,9 +335,7 @@ SELECT
 
 
 <a name="cs_8_output"/>
-<a id="c-block-8-actual-test-output-to-the-console" class="xliff"></a>
-
-### Блок C# 8: вывод фактических результатов тестирования на консоль
+### <a name="c-block-8-actual-test-output-to-the-console"></a>Блок C# 8: вывод фактических результатов тестирования на консоль
 
 - [Назад](#cs_7_executenonquery)
 

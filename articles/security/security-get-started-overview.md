@@ -20,7 +20,6 @@ ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="azure-security-overview"></a>Общие сведения о безопасности в Azure
 Сайт со сведениями о безопасности Microsoft Azure по адресу Azure.com содержит ответы на вопросы технического характера о безопасности Azure. Если вас интересует, как Azure обеспечивает соответствие требованиям и защищает собственную инфраструктуру, посетите [центр управления безопасностью Майкрософт](https://www.microsoft.com/TrustCenter/default.aspx).

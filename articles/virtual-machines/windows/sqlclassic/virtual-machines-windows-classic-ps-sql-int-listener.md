@@ -21,7 +21,6 @@ ms.openlocfilehash: fea70b389b1f1d6af963e3f14fdc48e8d857dd53
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Настройка прослушивателя внутреннего балансировщика нагрузки для групп доступности AlwaysOn в Azure
 > [!div class="op_single_selector"]

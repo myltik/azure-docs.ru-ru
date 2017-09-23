@@ -19,7 +19,6 @@ ms.openlocfilehash: 2212b7a81b66d1afd1aa78d1487b07b6d7b84129
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Руководство по интеграции Azure Active Directory с Canvas LMS
 

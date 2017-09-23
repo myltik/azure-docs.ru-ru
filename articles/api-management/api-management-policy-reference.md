@@ -20,7 +20,6 @@ ms.openlocfilehash: adc0c4415e10ddd0b4994cecef17f026546e91a1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="azure-api-management-policy-reference"></a>Справочник по политикам службы управления Azure API 
 Этот раздел содержит указатель политик, перечисленных в [справочнике по политикам службы управления API][API Management policy reference]. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в службе управления API][Policies in API Management].

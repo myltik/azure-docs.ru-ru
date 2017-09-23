@@ -20,7 +20,6 @@ ms.openlocfilehash: 207a6562965b4913416bd4dbf3eb132b42938dc9
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Использование клиента Windows в Azure для сценариев разработки и тестирования
 В сценариях разработки и тестирования Azure можно использовать Windows 7, Windows 8 или Windows 10 при условии, что у вас есть соответствующая подписка Visual Studio (прежнее название — MSDN). В этой статье описываются требования к доступности при запуске клиента Windows в Azure и использовании образов из коллекции Azure.

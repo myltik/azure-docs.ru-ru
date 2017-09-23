@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Все статьи о службе баз данных SQL Server Stretch в Azure
@@ -57,10 +58,5 @@ ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
 | ---:|:--- |:--- |
 | 14 |[Резервное копирование баз данных с поддержкой растяжения](sql-server-stretch-database-backup.md) |Узнайте, как создавать резервные копии баз данных, поддерживающих перенос. |
 | 15 |[Восстановление баз данных с поддержкой Stretch](sql-server-stretch-database-restore.md) |Узнайте, как восстанавливать базы данных с поддержкой переноса. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -23,7 +23,6 @@ ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/08/2017
 
-
 ---
 # <a name="controlling-and-granting-database-access"></a>Предоставление доступа к базе данных и управление им
 

@@ -21,7 +21,6 @@ ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Начало работы с соединителем FTP
 Соединитель FTP можно использовать для создания и мониторинга файлов на FTP-сервере, а также для управления ими. 

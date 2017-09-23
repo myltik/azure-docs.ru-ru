@@ -1,5 +1,4 @@
 ---
-
 title: "Сравнение службы совместной работы B2B и B2C в Azure Active Directory | Документация Майкрософт"
 description: "Какова разница между службой совместной работы B2B Azure Active Directory и Azure AD B2C?"
 services: active-directory
@@ -16,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/17/2017
-
 
 ---
 

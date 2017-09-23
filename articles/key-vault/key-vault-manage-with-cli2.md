@@ -20,7 +20,6 @@ ms.openlocfilehash: 5da9f5eceda71ac85259193e0f183c72813e1679
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Управление Key Vault с помощью интерфейса командной строки 2.0
 Хранилище ключей Azure доступно в большинстве регионов. Дополнительные сведения см. на странице [цен на хранилище ключей](https://azure.microsoft.com/pricing/details/key-vault/).

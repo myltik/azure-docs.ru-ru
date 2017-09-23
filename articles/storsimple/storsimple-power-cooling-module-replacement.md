@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2a956de58b279a013913631a077d7b03c6327f72
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Замена блока питания и охлаждения на устройстве StorSimple
@@ -146,10 +147,5 @@ ms.openlocfilehash: 2a956de58b279a013913631a077d7b03c6327f72
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

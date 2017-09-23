@@ -21,7 +21,6 @@ ms.openlocfilehash: 8983594776a1bbe413a6d7cf2cd518f0e327648a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Использование Robomongo с учетной записью API для MongoDB в Azure Cosmos DB
 Чтобы подключиться к учетной записи API для MongoDB в Azure Cosmos DB с помощью Robomongo, необходимо:

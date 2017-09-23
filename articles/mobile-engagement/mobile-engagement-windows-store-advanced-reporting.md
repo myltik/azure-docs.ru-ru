@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Создание расширенных отчетов с помощью пакета SDK службы Engagement для универсальных приложений для Windows
@@ -160,10 +161,5 @@ ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
 При желании можно также сообщать об определенных событиях, ошибках и заданиях приложения. Это можно сделать с помощью других методов в классе `EngagementAgent`. Engagement API позволяет использовать все дополнительные возможности Engagement.
 
 Дополнительные сведения см. в статье [Как использовать API Engagement для универсальных приложений для Windows](mobile-engagement-windows-store-use-engagement-api.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

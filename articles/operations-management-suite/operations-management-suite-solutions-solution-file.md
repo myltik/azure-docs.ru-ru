@@ -21,7 +21,6 @@ ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Создание файла решения по управлению в Operations Management Suite (OMS) (предварительная версия)
 > [!NOTE]

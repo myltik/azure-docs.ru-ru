@@ -20,7 +20,6 @@ ms.openlocfilehash: 90724099842eac513c39dccf113ad1c0a63983f2
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Использование службы диспетчера устройств StorSimple для мониторинга компонентов оборудования и их состояния
 ## <a name="overview"></a>Обзор

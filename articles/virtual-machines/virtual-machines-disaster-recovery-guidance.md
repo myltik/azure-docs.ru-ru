@@ -21,7 +21,6 @@ ms.openlocfilehash: fb986a41e33501ee71c93a48457ac4114e33c671
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure
 Корпорация Майкрософт прилагает все усилия для того, чтобы наши службы всегда были доступны. Иногда по независящим от нас обстоятельствам происходят незапланированные нарушения работы служб.

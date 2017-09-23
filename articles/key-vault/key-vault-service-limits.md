@@ -20,7 +20,6 @@ ms.openlocfilehash: b34c67ecc1bd50157ded790948ac7b88a5807ddb
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="azure-key-vault-service-limits"></a>Ограничения службы Azure Key Vault
 Ниже представлены ограничения службы для хранилища ключей Azure.

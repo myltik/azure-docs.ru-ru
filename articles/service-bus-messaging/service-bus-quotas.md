@@ -20,7 +20,6 @@ ms.openlocfilehash: 9a364adad3342b211a647eb743776a47812b75f4
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="service-bus-quotas"></a>Квоты на служебную шину
 В этом разделе перечислены основные квоты и пороговые значения регулирования при обмене сообщениями через служебную шину Microsoft Azure.

@@ -21,7 +21,6 @@ ms.openlocfilehash: 07ca2321852e276502187e768177e7e82bdfd080
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Перенос схем в хранилище данных SQL
 Рекомендации по переносу схем SQL в хранилище данных SQL. 

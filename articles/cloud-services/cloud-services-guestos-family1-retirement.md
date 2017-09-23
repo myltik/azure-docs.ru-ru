@@ -20,7 +20,6 @@ ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Уведомление о прекращении использования семейства версий 1 гостевой ОС
 О прекращении использования семейства версий 1 операционной системы было впервые объявлено 1 июня 2013 г.

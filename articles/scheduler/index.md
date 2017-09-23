@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ad88288056956ab29d446efbe105157f6b732d5f
 ms.openlocfilehash: 4883e5689a639259ec1c0bcd31e1016f85af5d66
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="scheduler-documentation"></a>Документация по планировщику
@@ -108,10 +110,5 @@ ms.openlocfilehash: 4883e5689a639259ec1c0bcd31e1016f85af5d66
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/23/2017
 
-
 ---
 
 # <a name="use-ip-filters"></a>Использование фильтрации IP-адресов

@@ -19,7 +19,6 @@ ms.openlocfilehash: 1d652d562f4c5caffded18d928e2395e537f59f4
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Руководство. Интеграция Azure Active Directory с Nomadesk
 

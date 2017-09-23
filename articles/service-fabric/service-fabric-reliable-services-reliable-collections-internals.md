@@ -20,7 +20,6 @@ ms.openlocfilehash: d607449a16e886337ab1bd96213fbb4231124353
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/04/2017
 
-
 ---
 
 # <a name="azure-service-fabric-reliable-state-manager-and-reliable-collection-internals"></a>Внутренние компоненты диспетчера надежных состояний и надежных коллекций Azure Service Fabric

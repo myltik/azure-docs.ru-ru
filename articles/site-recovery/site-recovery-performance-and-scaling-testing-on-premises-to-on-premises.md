@@ -20,7 +20,6 @@ ms.openlocfilehash: a9bec774b5482de87eefcd0c87844a2adbd98bbe
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Результаты теста репликации Hyper-V между локальными сайтами с помощью Site Recovery
 

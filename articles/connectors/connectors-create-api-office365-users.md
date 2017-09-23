@@ -21,7 +21,6 @@ ms.openlocfilehash: 330f733440932a769eb0fe6031cd0d947a820080
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Начало работы с соединителем Office 365 Пользователи
 Подключившись к Office 365 Пользователи, вы сможете получать профили, искать пользователей и выполнять многие другие действия. С помощью Office 365 Пользователи вы можете:

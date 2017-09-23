@@ -1,6 +1,6 @@
 ---
-title: "Как использовать приложение Fiddler для оценки и тестирования интерфейсов API REST &quot;Поиск Azure&quot; | Документация Майкрософт"
-description: "Приложение Fiddler позволяет проверить доступность службы &quot;Поиск Azure&quot; и опробовать интерфейсы API REST, не используя код."
+title: "Как использовать приложение Fiddler для оценки и тестирования интерфейсов API REST \"Поиск Azure\" | Документация Майкрософт"
+description: "Приложение Fiddler позволяет проверить доступность службы \"Поиск Azure\" и опробовать интерфейсы API REST, не используя код."
 services: search
 documentationcenter: 
 author: HeidiSteen

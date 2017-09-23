@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6c5fa51bdaad808d90cac6c8b8adeafe7d1cafc9
 ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Использование пользовательского веб-интерфейса для администрирования виртуального массива StorSimple
@@ -110,10 +111,5 @@ ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте, как [использовать службу диспетчера StorSimple для управления вашим устройством](storsimple-virtual-array-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

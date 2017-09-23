@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 52827723477677bc292c645e2390c435fbad3ee4
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="technical-pre-requisites-for-creating-a-data-service-offer-for-the-azure-marketplace"></a>Предварительные технические требования для создания предложения службы данных для Azure Marketplace
@@ -67,9 +68,4 @@ ms.openlocfilehash: 52827723477677bc292c645e2390c435fbad3ee4
 Сведения об общем процессе публикации и ссылки на соответствующие статьи по каждому этапу см. в статье [Как опубликовать предложение и управлять им в Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

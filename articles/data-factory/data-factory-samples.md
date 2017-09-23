@@ -20,7 +20,6 @@ ms.openlocfilehash: 3013607e62a3ac532cb0c035130fe35e503a345c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="azure-data-factory---samples"></a>Фабрика данных Azure — примеры
 ## <a name="samples-on-github"></a>Примеры на GitHub

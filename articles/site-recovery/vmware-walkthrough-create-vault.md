@@ -20,7 +20,6 @@ ms.openlocfilehash: dca95ad46b8de587140c3573ba6ed5702a122032
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-7-set-up-a-vault-for-vmware-replication-to-azure"></a>Шаг 7. Настройка хранилища для репликации из VMware в Azure
 

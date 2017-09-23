@@ -20,7 +20,6 @@ ms.openlocfilehash: dc064352b1841ff346b705dc63186b12d79350b3
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Репликация многоуровневого развертывания Citrix XenApp и XenApp с помощью Azure Site Recovery
 

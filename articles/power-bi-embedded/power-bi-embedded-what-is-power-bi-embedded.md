@@ -21,7 +21,6 @@ ms.openlocfilehash: 0b5f7a2c3fd16ac32b0bc382616ca6600d378bb8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 03/21/2017
 
-
 ---
 # <a name="what-is-microsoft-power-bi-embedded"></a>Что такое Microsoft Power BI Embedded?
 С помощью **Power BI Embedded**можно интегрировать отчеты Power BI прямо в веб- или мобильные приложения.

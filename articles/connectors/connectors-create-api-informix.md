@@ -21,7 +21,6 @@ ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-informix-connector"></a>Приступая к работе с соединителем Informix
 Соединитель Informix (Майкрософт) подключает приложения логики к ресурсам, хранящимся в базе данных IBM Informix. Этот соединитель включает в себя клиент Майкрософт для взаимодействия с удаленными серверами Informix по сети TCP/IP. Сюда входят облачные базы данных, например IBM Informix для Windows, работающие в среде виртуализации Azure, и локальные базы данных, использующие локальный шлюз данных. Ознакомьтесь со [списком поддерживаемых](connectors-create-api-informix.md#supported-informix-platforms-and-versions) платформ и версий IBM Informix (в этой статье).

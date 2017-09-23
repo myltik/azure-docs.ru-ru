@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ac8b5372aa06eac8c9a701f0621dbb675fbb565c
 ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="runbook-settings"></a>Параметры модуля Runbook
@@ -58,10 +59,5 @@ ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
 ## <a name="next-steps"></a>Дальнейшие действия
 * Чтобы узнать, как создавать и извлекать выходные данные и сообщения об ошибках из модулей Runbook, ознакомьтесь со статьей [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md) 
 * Сведения о добавлении модуля Runbook, который уже был разработан сообществом или взят из другого источника, а также сведения о создании собственного модуля Runbook см. в статье [Создание или импорт модуля Runbook](automation-creating-importing-runbook.md). 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

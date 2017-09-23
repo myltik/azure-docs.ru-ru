@@ -20,7 +20,6 @@ ms.openlocfilehash: a0eecbb50b001325c91d1d721bf8de7244f04674
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Перенос Data Lake Store между регионами
 

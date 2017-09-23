@@ -21,7 +21,6 @@ ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/12/2017
 
-
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Создание правил генерации оповещений и управление ими в Log Analytics с помощью REST API
 REST API оповещений в Log Analytics позволяет создавать оповещения и управлять ими в Operations Management Suite (OMS).  В этой статье приводятся сведения об интерфейсе API и примеры выполнения различных операций.

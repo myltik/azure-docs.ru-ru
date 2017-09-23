@@ -19,7 +19,6 @@ ms.openlocfilehash: 941832740689c583a8e857d706c35f3076fa754f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>Руководство. Интеграция Azure Active Directory с Learning at Work
 

@@ -21,7 +21,6 @@ ms.openlocfilehash: 4d0f085423d5bd60b24d88649ee1d77bcd1d009f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Удаление шлюза виртуальной сети с помощью PowerShell
 > [!div class="op_single_selector"]

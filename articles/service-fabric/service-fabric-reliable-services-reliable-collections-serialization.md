@@ -20,7 +20,6 @@ ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/23/2017
 
-
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Сериализация объектов надежной коллекции в Azure Service Fabric
 Надежные коллекции реплицируют и сохраняют свои элементы, чтобы обеспечить надежность их работы в случае сбоев машин и отключения электроэнергии.

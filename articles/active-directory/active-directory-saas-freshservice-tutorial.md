@@ -19,7 +19,6 @@ ms.openlocfilehash: d32775fa91d3a49da1ef55e57d1d38990fa09346
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Учебник. Интеграция Azure Active Directory с FreshService
 

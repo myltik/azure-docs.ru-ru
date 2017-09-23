@@ -20,7 +20,6 @@ ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Перенос VPN-шлюза из классической модели развертывания в модель Resource Manager
 VPN-шлюзы теперь можно переносить из классической модели развертывания в модель развертывания Resource Manager. Вы можете узнать больше о [возможностях и преимуществах Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). В этой статье подробно описан переход от классической модели развертывания к новой модели на основе Resource Manager. 

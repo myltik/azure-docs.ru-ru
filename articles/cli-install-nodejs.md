@@ -21,7 +21,6 @@ ms.openlocfilehash: f07b3116d062d5089446fb66d8683aae7024327f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="install-the-azure-cli-10"></a>Установка Azure CLI 1.0
 > [!div class="op_single_selector"]

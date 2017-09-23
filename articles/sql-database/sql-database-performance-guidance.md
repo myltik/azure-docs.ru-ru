@@ -21,7 +21,6 @@ ms.openlocfilehash: dc0244f0e0949b172c391825057f5c14893a5158
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Настройка производительности в Базе данных SQL Azure
 

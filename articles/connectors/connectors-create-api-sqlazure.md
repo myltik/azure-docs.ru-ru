@@ -21,7 +21,6 @@ ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Начало работы с соединителем базы данных SQL Azure
 С помощью соединителя базы данных SQL Azure можно создавать рабочие процессы для управления данными в таблицах в вашей организации. 

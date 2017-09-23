@@ -20,7 +20,6 @@ ms.openlocfilehash: c1c9217cf51cef450837bdd255f8c44c14a74ac0
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="event-hubs-quotas"></a>Квоты концентраторов событий
 В этом разделе перечислены основные квоты и ограничения для концентраторов событий Azure.

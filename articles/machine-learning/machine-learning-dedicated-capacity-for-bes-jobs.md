@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 3879eb3d0c6fa9d74fff01b07f5c07d3991dfbbd
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/21/2017
-
 
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Пакетные службы Azure для обработки заданий машинного обучения

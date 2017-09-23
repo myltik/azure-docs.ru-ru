@@ -19,7 +19,6 @@ ms.openlocfilehash: 18926dd88b19cd672f11ae05f18e354e79a6b397
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Руководство по интеграции Azure Active Directory с Fieldglass
 

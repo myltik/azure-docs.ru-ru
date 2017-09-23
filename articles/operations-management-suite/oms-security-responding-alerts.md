@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг и реагирование на оповещения безопасности в решении &quot;Безопасность и аудит&quot; Operations Management Suite | Документация Майкрософт"
-description: "В этом документе описывается функция &quot;Анализ угроз&quot;, доступная в решении OMS &quot;Безопасность и аудит&quot;, которая позволяет отслеживать оповещения системы безопасности и реагировать на них."
+title: "Мониторинг и реагирование на оповещения безопасности в решении \"Безопасность и аудит\" Operations Management Suite | Документация Майкрософт"
+description: "В этом документе описывается функция \"Анализ угроз\", доступная в решении OMS \"Безопасность и аудит\", которая позволяет отслеживать оповещения системы безопасности и реагировать на них."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -20,7 +20,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite

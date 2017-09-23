@@ -19,7 +19,6 @@ ms.openlocfilehash: 3420409b72ff032e64ac59365083dd141dfc3c1b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Руководство. Интеграция Azure Active Directory с Origami
 

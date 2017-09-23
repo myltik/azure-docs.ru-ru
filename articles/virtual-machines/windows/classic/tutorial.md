@@ -21,7 +21,6 @@ ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Создание виртуальной машины под управлением Windows на портале Azure
 > [!div class="op_single_selector"]

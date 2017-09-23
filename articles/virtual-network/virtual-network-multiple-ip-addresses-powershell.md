@@ -21,7 +21,6 @@ ms.openlocfilehash: 7c93a02f7a290aab3d451da72dabd431f9d40b0c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Назначение виртуальным машинам нескольких IP-адресов с помощью PowerShell
 
@@ -268,7 +267,7 @@ ms.lasthandoff: 04/27/2017
         -AllocationMethod Static
         ```
 
-         Чтобы создать новую IP-конфигурацию с частным статическим IP-адресом и связанным ресурсом общедоступного IP-адреса *myPublicIp3*, введите следующую команду:
+        Чтобы создать новую IP-конфигурацию с частным статическим IP-адресом и связанным ресурсом общедоступного IP-адреса *myPublicIp3*, введите следующую команду:
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -289,7 +288,7 @@ ms.lasthandoff: 04/27/2017
 
         Должен появиться результат, аналогичный приведенному ниже.
 
-        ```        
+        ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
         
         IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True

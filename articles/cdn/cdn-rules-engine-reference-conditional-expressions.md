@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/25/2017
 
 ---
 
@@ -43,9 +44,4 @@ ELSE IF| Выражение ELSE IF указывает альтернативн�
 * [Условия соответствия обработчика правил](cdn-rules-engine-reference-match-conditions.md)
 * [Функции обработчика правил](cdn-rules-engine-reference-features.md)
 * [Переопределение стандартного поведения через HTTP с помощью обработчика правил](cdn-rules-engine.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

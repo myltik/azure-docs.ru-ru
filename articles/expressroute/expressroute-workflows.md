@@ -20,7 +20,6 @@ ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Процедуры ExpressRoute для подготовки каналов и состояний каналов
 На этой странице описаны процедуры подготовки служб и настройки маршрутизации на высоком уровне.

@@ -19,7 +19,6 @@ ms.openlocfilehash: 6b35609d88fbbf649e15863901d521886db2a4d6
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Учебник. Интеграция Azure Active Directory с Tableau Server
 

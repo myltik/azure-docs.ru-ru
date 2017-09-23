@@ -20,7 +20,6 @@ ms.openlocfilehash: a1e7b95e6dcbf46d83ce3bf10a38d6a572f4497d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Сборник тренировочных заданий для шаблона решения Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических и других компаниях
 ## <a name="executive-summary"></a>Аннотация

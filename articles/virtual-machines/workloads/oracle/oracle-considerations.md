@@ -20,7 +20,6 @@ ms.openlocfilehash: 9174f7c8d16ff311312980fbe4d35996ec7ac832
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Решения Oracle в Microsoft Azure и их развертывание
 В этой статье представлены сведения о развертывании различных решений Oracle в Microsoft Azure. Эти решения созданы на основе образов виртуальных машин, опубликованных Oracle в Azure Marketplace. Чтобы получить список доступных образов, выполните следующую команду:

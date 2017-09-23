@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/26/2016
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 08cba012cca61eeb03187d2b4165e2a79b15bc3d
 ms.openlocfilehash: 12313f7f245d32c33882f1036f7d4b48bfb3ddc5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/03/2017
 
 ---
 
@@ -73,9 +75,4 @@ ms.openlocfilehash: 12313f7f245d32c33882f1036f7d4b48bfb3ddc5
 * Дополнительные сведения о ссылках и их типах в графических модулях Runbook см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Дополнительные сведения о выполнении модулей Runbook, отслеживании заданий модуля Runbook и других технических деталях см. в статье [Выполнение модуля Runbook в службе автоматизации Azure](automation-runbook-execution.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

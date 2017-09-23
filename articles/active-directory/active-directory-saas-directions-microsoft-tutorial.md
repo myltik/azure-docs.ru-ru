@@ -19,7 +19,6 @@ ms.openlocfilehash: f9c068c71eb00a4c779c91c8ee0f0dc9d6ba85ae
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/24/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Руководство. Интеграция Azure Active Directory с Directions on Microsoft
 

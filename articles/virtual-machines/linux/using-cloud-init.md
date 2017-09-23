@@ -21,7 +21,6 @@ ms.openlocfilehash: a7a6daad34525683579e25b9591ed28f2bf29c04
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/11/2017
 
-
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation"></a>Настройка виртуальной машины Linux во время создания с помощью cloud-init
 В этой статье демонстрируется создание сценария cloud-init для задания имени узла, обновления установленных пакетов и управления учетными записями пользователей с помощью Azure CLI 2.0. Скрипты cloud-init вызываются во время создания виртуальной машины с помощью Azure CLI. Дополнительные сведения по установке приложений, записи файлов конфигурации и включении ключей из хранилища Key Vault см. в [этом руководстве](tutorial-automate-vm-deployment.md). Эти действия можно также выполнить с помощью [Azure CLI 1.0](using-cloud-init-nodejs.md).

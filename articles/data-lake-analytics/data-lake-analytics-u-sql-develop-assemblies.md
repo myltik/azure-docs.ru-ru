@@ -19,7 +19,6 @@ ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/08/2017
 
-
 ---
 # <a name="develop-u-sql-assemblies-for-azure-data-lake-analytics-jobs"></a>Разработка сборок U-SQL для заданий Azure Data Lake Analytics
 Узнайте, как преобразовывать код программной части в сборки (с возможностью повторного использования) для заданий Data Lake Analytics. 

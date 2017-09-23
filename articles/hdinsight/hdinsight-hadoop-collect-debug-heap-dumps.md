@@ -22,7 +22,6 @@ ms.openlocfilehash: 6d1d4d47d279eb7a1f0bf1f587445683f0ace7a0
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Сбор дампов кучи в хранилище больших двоичных объектов для отладки и анализа служб Hadoop
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]

@@ -19,7 +19,6 @@ ms.openlocfilehash: 030a1fc9f36d6fcfa607552d85ce232e36eaa64b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobilexpense"></a>Руководство. Интеграция Azure Active Directory с MobileXpense
 

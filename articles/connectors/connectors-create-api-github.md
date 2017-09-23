@@ -21,7 +21,6 @@ ms.openlocfilehash: d4614b0ceff0ec0d36dbb1a136551f985f2fc1a1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-github-connector"></a>Начало работы с соединителем GitHub
 GitHub — это веб-служба размещения репозиториев Git. Она предоставляет все возможности распределенного управления редакциями и исходным кодом (SCM) Git, а также собственные функции.

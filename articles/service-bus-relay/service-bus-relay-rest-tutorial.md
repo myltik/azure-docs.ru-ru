@@ -20,7 +20,6 @@ ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Руководство по REST для ретранслятора WCF Azure
 

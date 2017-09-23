@@ -20,7 +20,6 @@ ms.openlocfilehash: ed8c97b642d406a05817ec6c67f31a1b4bce93b0
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/14/2017
 
-
 ---
 
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Как обновить модули Azure PowerShell в службе автоматизации Azure

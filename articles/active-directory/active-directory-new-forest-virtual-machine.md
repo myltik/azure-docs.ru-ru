@@ -21,7 +21,6 @@ ms.openlocfilehash: 516240ccc82a522a414d837ec334712196edf7dd
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Установка нового леса Active Directory в виртуальной сети Azure
 В этом разделе показано, как создать новую среду Windows Server Active Directory на виртуальной машине (ВМ) в [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md). В данном случае виртуальная сеть Azure не соединена с локальной сетью.

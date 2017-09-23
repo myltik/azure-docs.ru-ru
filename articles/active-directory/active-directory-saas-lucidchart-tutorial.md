@@ -19,7 +19,6 @@ ms.openlocfilehash: 2dea669f03c893632c08d30feeb3173efc2d8243
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/24/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>Руководство. Интеграция Azure Active Directory с Lucidchart
 

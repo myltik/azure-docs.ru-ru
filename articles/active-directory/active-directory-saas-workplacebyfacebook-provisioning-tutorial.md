@@ -19,7 +19,6 @@ ms.openlocfilehash: 9b22679c304248ed7ba7a6bd9eaf82b64f7143cf
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Руководство по настройке Workplace by Facebook для подготовки пользователей
 

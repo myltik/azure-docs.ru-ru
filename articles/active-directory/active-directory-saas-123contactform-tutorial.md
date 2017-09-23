@@ -19,7 +19,6 @@ ms.openlocfilehash: 3a99f0841c3e0d973168991f5dbee40e54c1d054
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/24/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Руководство по интеграции Azure Active Directory с 123ContactForm
 

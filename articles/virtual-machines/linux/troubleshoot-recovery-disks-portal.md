@@ -1,5 +1,4 @@
 ---
-
 title: "Использование виртуальной машины Linux для устранения неполадок с помощью портала Azure | Документация Майкрософт"
 description: "Узнайте, как устранять неполадки с виртуальными машинами Linux, подключив диск операционной системы к виртуальной машине восстановления с помощью портала Azure."
 services: virtual-machines-linux
@@ -19,7 +18,6 @@ ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/12/2017
-
 
 ---
 

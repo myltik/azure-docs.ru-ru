@@ -21,7 +21,6 @@ ms.openlocfilehash: d5785c81fb597e7d30eb7d3a880e7194d8358ed5
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Работа с геопространственными данными и данными расположений GeoJSON в Azure Cosmos DB
 Эта статья содержит вводную информацию о геопространственной функциональности [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). После прочтения этой статьи вы сможете ответить на следующие вопросы:

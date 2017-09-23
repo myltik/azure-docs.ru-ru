@@ -21,7 +21,6 @@ ms.openlocfilehash: 88541f6054df1476866d68fdc1c9690a73ada83c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="manage-virtual-machines-in-a-virtual-machine-scale-set"></a>Управление виртуальными машинами в масштабируемом наборе виртуальных машин
 Задачи, описанные в этой статье, можно использовать для управления виртуальными машинами в масштабируемом наборе виртуальных машин.

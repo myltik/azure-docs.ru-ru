@@ -20,7 +20,6 @@ ms.openlocfilehash: 92893edc4e02de148f6585e83c6861fd751401bb
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/03/2017
 
-
 ---
 # <a name="managing-azure-automation-data"></a>Управление данными службы автоматизации Azure
 Эта статья содержит несколько разделов об управлении средой службы автоматизации Azure.

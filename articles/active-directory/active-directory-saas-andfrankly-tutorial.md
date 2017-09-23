@@ -19,7 +19,6 @@ ms.openlocfilehash: ea18a9f9bff258337a3de6d7703b4c548efa37df
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Руководство. Интеграция Azure Active Directory с &frankly
 

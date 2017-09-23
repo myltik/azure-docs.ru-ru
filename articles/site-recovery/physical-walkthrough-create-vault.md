@@ -20,7 +20,6 @@ ms.openlocfilehash: deb5ad0495edc969b374795eeb2698326dd4ff4d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-6-set-up-a-vault-for-physical-server-replication-to-azure"></a>Шаг 6. Настройка хранилища для репликации физического сервера в Azure
 

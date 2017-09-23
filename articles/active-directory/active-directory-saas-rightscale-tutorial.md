@@ -19,7 +19,6 @@ ms.openlocfilehash: 222c4414a9f736a3589b4cdd0ed934696f6c31ef
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Руководство по интеграции Azure Active Directory с Rightscale
 

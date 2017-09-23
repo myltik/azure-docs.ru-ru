@@ -20,7 +20,6 @@ ms.openlocfilehash: 6df1b27ce76de7a781ecc40af8430114d80b20d6
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs-update-2"></a>Использование службы управления StorSimple для просмотра заданий StorSimple и управления ими (обновление 2)
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]

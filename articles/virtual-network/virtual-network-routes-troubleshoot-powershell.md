@@ -21,7 +21,6 @@ ms.openlocfilehash: 6efe6de6cc6d6d4c9788549048c5b50b03b3de42
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Устранение проблем с маршрутами с помощью Azure PowerShell
 > [!div class="op_single_selector"]

@@ -20,7 +20,6 @@ ms.openlocfilehash: 9472cb01eb713e297053727b1a314293574bb657
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="azure-active-directory-b2c-threat-management"></a>Предотвращение угроз в Azure Active Directory B2C
 

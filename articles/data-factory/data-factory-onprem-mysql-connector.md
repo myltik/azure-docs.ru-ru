@@ -20,7 +20,6 @@ ms.openlocfilehash: 05159bfd98977d0b57b43fbc02e4579439f7ce4c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Перемещение данных из MySQL с помощью фабрики данных Azure
 В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure перемещать данные из локальной базы данных MySQL. Это продолжение статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования.

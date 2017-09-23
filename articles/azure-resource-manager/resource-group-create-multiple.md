@@ -20,7 +20,6 @@ ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Развертывание нескольких экземпляров ресурса или свойства в шаблонах Azure Resource Manager
 В этом разделе показано, как выполнить итерацию в шаблоне Azure Resource Manager для создания нескольких экземпляров ресурса или нескольких экземпляров свойства ресурса.

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
 ms.author: hascipio; v-divte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Тестирование предложения шаблона решения в промежуточной среде
@@ -45,10 +46,5 @@ ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
 > 
 
 Руководство по всем задачам издателя см. в статье [Как опубликовать предложение и управлять им в Azure Marketplace](marketplace-publishing-getting-started.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

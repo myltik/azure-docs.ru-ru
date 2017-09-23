@@ -21,7 +21,6 @@ ms.openlocfilehash: 4d62bee573aba4c8b0445b1f4c44190496fb3a18
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-excel-connector"></a>Начало работы с соединителем Excel
 В Logic Apps нет соединителя Excel. 

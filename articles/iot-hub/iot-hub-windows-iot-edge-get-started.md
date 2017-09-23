@@ -21,7 +21,6 @@ ms.openlocfilehash: 5db39bab8e31a8e7026b34e72b4614b0f6f57772
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="explore-azure-iot-edge-architecture-on-windows"></a>Приступая к работе с архитектурой Edge Интернета вещей в Windows
 

@@ -19,7 +19,6 @@ ms.openlocfilehash: 36504a281756b980e3348e7f892ba08821873b52
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Руководство по интеграции Azure Active Directory с Keeper Password Manager & Digital Vault
 

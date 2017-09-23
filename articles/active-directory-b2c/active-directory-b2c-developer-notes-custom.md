@@ -20,7 +20,6 @@ ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Заметки о выпуске общедоступной предварительной версии настраиваемой политики Azure Active Directory B2C
 Набор функций настраиваемой политики теперь доступен для оценки в общедоступной предварительной версии для всех клиентов Azure Active Directory B2C (Azure AD B2C). Этот набор функций предназначен для опытных разработчиков удостоверений, создающих самые сложные решения удостоверений.  

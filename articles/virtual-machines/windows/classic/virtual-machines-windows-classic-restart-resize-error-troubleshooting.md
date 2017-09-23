@@ -21,7 +21,6 @@ ms.openlocfilehash: 7fe0636366c60d4679cfc69bd96cd532695b080e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/14/2017
 
-
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure
 > [!div class="op_single_selector"]

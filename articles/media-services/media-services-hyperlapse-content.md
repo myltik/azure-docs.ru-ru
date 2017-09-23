@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
 ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/03/2017
-
 
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Файлы мультимедиа Hyperlapse с Azure Media Hyperlapse
@@ -36,7 +36,7 @@ Azure Media Hyperlapse представляет собой обработчик 
 ## <a name="hyperlapse-an-asset"></a>Использование Hyperlapse для обработки ресурса-контейнера
 Сначала необходимо загрузить требуемый входной файл для служб мультимедиа Azure.  Дополнительные сведения об основных понятиях, связанных с загрузкой содержимого и управлением им, см. в статье [об управлении содержимым](media-services-portal-vod-get-started.md).
 
-### <a name="a-idconfigurationaconfiguration-preset-for-hyperlapse"></a><a id="configuration"></a>Предустановка конфигурации для Hyperlapse
+### <a id="configuration"></a>Предустановка конфигурации для Hyperlapse
 После помещения содержимого в учетную запись служб мультимедиа необходимо создать предустановку вашей конфигурации.  В следующей таблице описаны поля, задаваемые пользователем:
 
 | Поле | Описание |
@@ -75,7 +75,7 @@ Azure Media Hyperlapse представляет собой обработчик 
         }
     }
 
-### <a name="a-idsamplecodea-microsoft-hyperlapse-with-the-ams-net-sdk"></a><a id="sample_code"></a> Microsoft Hyperlapse с пакетом AMS .NET SDK
+### <a id="sample_code"></a> Microsoft Hyperlapse с пакетом AMS .NET SDK
 Следующий метод передает файл мультимедиа как ресурс и создает задание с помощью обработчика мультимедиа Azure Media Hyperlapse.
 
 > [!NOTE]
@@ -199,7 +199,7 @@ Azure Media Hyperlapse представляет собой обработчик 
         return processor;
     }
 
-### <a name="a-idfiletypesasupported-file-types"></a><a id="file_types"></a>Поддерживаемые типы файлов
+### <a id="file_types"></a>Поддерживаемые типы файлов
 * MP4
 * MOV
 * WMV

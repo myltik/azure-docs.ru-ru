@@ -20,7 +20,6 @@ ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Устранение неполадок в работе кластера локальной разработки
 Если у вас возникли проблемы при взаимодействии с кластером локальной разработки Azure Service Fabric, ознакомьтесь со следующими возможностями для решения.

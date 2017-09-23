@@ -19,7 +19,6 @@ ms.openlocfilehash: 6ee3316a8258ee27e4fa4ec22badbf4fe047a844
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>Руководство. Интеграция Azure Active Directory с Chromeriver
 

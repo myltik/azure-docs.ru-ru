@@ -21,7 +21,6 @@ ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="user-defined-routes-and-ip-forwarding"></a>Определяемые пользователем маршруты и IP-пересылка
 

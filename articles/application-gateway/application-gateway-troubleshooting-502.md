@@ -1,5 +1,5 @@
 ---
-title: "Устранение ошибок &quot;Недопустимый шлюз (502)&quot; шлюза приложений Azure | Документация Майкрософт"
+title: "Устранение ошибок \"Недопустимый шлюз (502)\" шлюза приложений Azure | Документация Майкрософт"
 description: "Из этой статьи вы узнаете, как устранять ошибки 502 шлюза приложений."
 services: application-gateway
 documentationcenter: na
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
-
 
 ---
 

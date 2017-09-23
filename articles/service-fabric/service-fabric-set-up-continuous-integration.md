@@ -20,7 +20,6 @@ ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="set-up-service-fabric-continuous-integration-and-deployment-with-visual-studio-team-services"></a>Настройка непрерывных интеграции и развертывания с помощью Visual Studio Team Services
 В этой статье описано, как настроить непрерывную интеграцию и развертывание для приложения Azure Service Fabric, используя Visual Studio Team Services (VSTS).

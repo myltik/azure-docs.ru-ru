@@ -20,7 +20,6 @@ ms.openlocfilehash: c33e132037d95fa92fd59a8243a9a8a351ae0224
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Поддерживаемые платформы в центре безопасности Azure
 Мониторинг состояния работоспособности системы безопасности и рекомендации доступны для виртуальных машин, созданных посредством классической модели развертывания и модели развертывания Resource Manager.

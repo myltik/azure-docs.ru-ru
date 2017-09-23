@@ -19,7 +19,6 @@ ms.openlocfilehash: 668c094d5330be1c5f71d51d2e76170dc69d1bce
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>Руководство по интеграции Azure Active Directory с Capriza Platform
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 2a35efb04d7fe22abc6894c149caf090666ce016
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/12/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Руководство по интеграции Azure Active Directory с Teamphoria
@@ -158,7 +158,7 @@ To enable single sign-on with Teamphoria, it must be configured to use Azure Act
 
     d. **Точка входа.** Вставьте **URL-адрес службы единого входа SAML**, скопированный ранней на портале Azure.
 
-    д. Установите переключатель в положение **Вкл.** и нажмите кнопку **Сохранить**.    
+    д. Установите переключатель в положение **Вкл.** и нажмите кнопку **Сохранить**.   
 
 <!--### Next steps
 
@@ -218,11 +218,11 @@ To ensure users can sign-in to Teamphoria after it has been configured to use Az
 
 3. Щелкните **MANUAL INVITE** (Пригласить вручную).
 
-    ![Приглашение пользователей](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)    
+    ![Приглашение пользователей](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)  
 
 4. На этой странице сделайте следующее. 
     
-    ![Приглашение пользователей](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)    
+    ![Приглашение пользователей](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)  
 
     а. В текстовом поле **Адрес электронной почты** находится **электронный адрес** пользователя Britta Simon.
 

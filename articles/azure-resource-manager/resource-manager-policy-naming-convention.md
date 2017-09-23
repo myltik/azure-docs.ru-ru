@@ -20,7 +20,6 @@ ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Применение политик ресурсов для имен и текста
 В этом разделе показано несколько [политик ресурсов](resource-manager-policy.md), которые можно применить для настройки соглашений об именовании и соглашений текста. Эти политики обеспечивают согласованность данных в именах ресурсов и в значениях тегов. 

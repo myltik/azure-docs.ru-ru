@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
 ms.openlocfilehash: a8835da0947ce2a365b57356960541cb997e73b3
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="microsoft-trust-center"></a>Центр управления безопасностью Майкрософт
@@ -39,9 +40,4 @@ ms.openlocfilehash: a8835da0947ce2a365b57356960541cb997e73b3
 * [Ресурсы](https://aka.ms/tcresources) — технические документы, видеоролики и примеры использования доверенного облака Майкрософт.
 
 [Центр управления безопасностью Майкрософт](https://www.microsoft.com/trustcenter) имеет все необходимо, чтобы помочь вам осознать, насколько безопасно облако Microsoft Cloud.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

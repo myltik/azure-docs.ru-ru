@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
 ms.openlocfilehash: 687da15bdaf854254321b59350f47549781676f5
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/21/2016
 
 ---
 # <a name="migrate-automation-account-and-resources"></a>Перенос учетной записи и ресурсов службы автоматизации
@@ -65,9 +66,4 @@ ms.openlocfilehash: 687da15bdaf854254321b59350f47549781676f5
 * Дополнительные сведения об управлении доступом на основе ролей в службе автоматизации Azure см. в [этой статье](automation-role-based-access-control.md).
 * Сведения о командлетах PowerShell для управления подпиской см. в статье [Использование Azure PowerShell с Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
 * Сведения о функциях портала для управления подпиской см. в статье [Управление ресурсами Azure через портал](../azure-resource-manager/resource-group-portal.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9a3a1e1b58dcb828e2d2d09c18f1aab6d46051aa
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Просмотр и изменение имен узлов
@@ -65,10 +66,5 @@ ms.openlocfilehash: 9a3a1e1b58dcb828e2d2d09c18f1aab6d46051aa
 [Схема настройки виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Укажите параметры DNS с помощью файлов конфигурации сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

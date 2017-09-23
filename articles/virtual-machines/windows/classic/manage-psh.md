@@ -21,7 +21,6 @@ ms.openlocfilehash: ba02fb8385afeefd0162ff79074352bb02275b55
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Управление виртуальными машинами с помощью Azure PowerShell
 > [!IMPORTANT] 

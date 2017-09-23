@@ -15,10 +15,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
 ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/19/2017
 
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Общие сведения об API экспорта Mobile Engagement
@@ -73,10 +74,5 @@ Mobile Engagement позволяет своим пользователям со�
 После того как задание будет создано, вы сможете проверить его состояние и узнать, выполняется оно или уже завершено.
 
 После УСПЕШНОГО выполнения задания полученный файл данных будет доступен в указанном контейнере хранилища.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

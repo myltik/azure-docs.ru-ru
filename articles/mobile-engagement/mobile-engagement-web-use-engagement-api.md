@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Использование API Azure Mobile Engagement в веб-приложении
@@ -215,9 +216,4 @@ API Mobile Engagement предоставляется в объекте `engageme
 В предыдущем примере длина JSON-файла, отправленного на сервер, составляет 44 знака.
 
     {"birthdate":"1983-12-07","gender":"female"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

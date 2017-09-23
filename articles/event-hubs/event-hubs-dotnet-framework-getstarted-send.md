@@ -20,7 +20,6 @@ ms.openlocfilehash: 4eb0e7bcc14722010121c2a5945509d6ed736f4f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/14/2017
 
-
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Отправка событий в концентраторы событий Azure с помощью платформы .NET Framework
 

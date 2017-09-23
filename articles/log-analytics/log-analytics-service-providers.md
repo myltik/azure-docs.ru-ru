@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d5e4a19ddb2b60a6796ba48c864d443164de86c1
 ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/23/2016
 
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Функции Log Analytics для поставщиков услуг
@@ -82,10 +83,5 @@ Log Analytics входит в число служб Azure, доступных в
 * Автоматизация создания рабочих областей с помощью [PowerShell](log-analytics-powershell-workspace-configuration.md). 
 * Использование [оповещений](log-analytics-alerts.md) для интеграции с существующими системами.
 * Создание сводных отчетов с помощью [Power BI](log-analytics-powerbi.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

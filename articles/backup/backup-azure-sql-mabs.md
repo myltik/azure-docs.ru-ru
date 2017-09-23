@@ -20,7 +20,6 @@ ms.openlocfilehash: 2af9ebaa8f52690ed63406cbd85b77544d2d900d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 03/27/2017
 
-
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Архивация баз данных SQL Server в Azure с помощью Сервера резервного копирования Azure
 В этой статье описывается настройка архивации баз данных SQL Server с помощью Сервера резервного копирования Microsoft Azure (MABS).

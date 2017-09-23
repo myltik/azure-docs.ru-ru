@@ -19,7 +19,6 @@ ms.openlocfilehash: 84ed2adcc2d49ddbb6bd2e9cc3b93b967ebed063
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Руководство. Интеграция Azure Active Directory с Lynda.com
 

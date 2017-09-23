@@ -21,7 +21,6 @@ ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="service-bus-diagnostic-logs"></a>Журналы диагностики служебной шины
 

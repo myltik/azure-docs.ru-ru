@@ -22,7 +22,6 @@ ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/28/2017
 
-
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Управление учетными записями и квотами пакетной службы с помощью клиентской библиотеки .NET для управления пакетной службой
 

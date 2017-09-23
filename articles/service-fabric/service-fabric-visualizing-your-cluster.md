@@ -20,7 +20,6 @@ ms.openlocfilehash: c58de22e29b6403e88bf22bdfe704a25757cdfca
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Визуализация кластера с помощью обозревателя Service Fabric
 Обозреватель Service Fabric — это веб-средство для изучения приложений и узлов в кластере Azure Service Fabric и управления ими. Обозреватель Service Fabric размещается непосредственно в кластере, поэтому он доступен всегда, независимо от того, где запущен кластер.

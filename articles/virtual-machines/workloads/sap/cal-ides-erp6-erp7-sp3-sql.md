@@ -22,7 +22,6 @@ ms.openlocfilehash: 91eed294077ff72d0760018b10c98f32db88f3be
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Azure
 В этой статье описывается, как развернуть SAP IDES с SQL Server и Windows в Azure с помощью SAP Cloud Appliance Library (SAP CAL) 3.0. На снимках экрана наглядно показан пошаговый процесс. Для развертывания другого решения выполните те же действия.

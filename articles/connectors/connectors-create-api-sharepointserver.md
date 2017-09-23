@@ -21,7 +21,6 @@ ms.openlocfilehash: 0f3274816e279a1aa57febaa2f8294914900799a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Приступая к работе с соединителем SharePoint
 Подключение SharePoint позволяет работать со списками в SharePoint.

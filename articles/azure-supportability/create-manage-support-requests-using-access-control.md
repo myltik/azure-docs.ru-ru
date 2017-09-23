@@ -7,10 +7,11 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d408dbd55fa667e150bb42ff0d1e4b3236c438e9
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/02/2017
 
 ---
 
@@ -108,9 +109,4 @@ ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
 Дмитрий не сможет просмотреть запросы на поддержку, щелкнув "Все запросы на поддержку".
 
 ![Представление сведений об обращении 2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

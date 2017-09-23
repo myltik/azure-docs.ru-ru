@@ -20,7 +20,6 @@ ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/30/2017
 
-
 ---
 
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Управление базовыми политиками лаборатории в Azure DevTest Labs

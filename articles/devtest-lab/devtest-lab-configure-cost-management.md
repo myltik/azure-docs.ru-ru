@@ -1,6 +1,6 @@
 ---
 title: "Просмотр помесячной тенденции изменения оценочной стоимости в Azure DevTest Labs | Документация Майкрософт"
-description: "Узнайте о диаграмме Azure DevTest Labs &quot;Помесячная тенденция изменения оценочной стоимости&quot;."
+description: "Узнайте о диаграмме Azure DevTest Labs \"Помесячная тенденция изменения оценочной стоимости\"."
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
 ms.openlocfilehash: b3ad1ead522908d4b41b7cca98d20ac91664998e
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/08/2017
-
 
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Просмотр помесячной тенденции изменения оценочной стоимости в Azure DevTest Labs

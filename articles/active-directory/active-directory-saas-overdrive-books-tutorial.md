@@ -19,7 +19,6 @@ ms.openlocfilehash: 515dd397c46df7c8c82afab9b50051e34db69d7a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Руководство по интеграции Azure Active Directory с Overdrive 
 

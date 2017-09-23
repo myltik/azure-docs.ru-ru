@@ -19,7 +19,6 @@ ms.openlocfilehash: e9a5e65c484dfb98d1a7bc63d55f6ef92039554b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Руководство по интеграции Azure Active Directory с ADP Globalview
 

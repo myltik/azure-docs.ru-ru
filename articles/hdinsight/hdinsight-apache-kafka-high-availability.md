@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
@@ -21,15 +21,11 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 06/29/2017
 
 ---
-<a id="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
-
-# Высокий уровень доступности данных с Apache Kafka (предварительная версия) в HDInsight
+# <a name="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight"></a>Высокий уровень доступности данных с Apache Kafka (предварительная версия) в HDInsight
 
 Узнайте, как настроить реплики секций для разделов Kafka, чтобы воспользоваться преимуществами конфигураций базовых аппаратных стоек. Эта конфигурация обеспечивает доступность данных, хранящихся в Apache Kafka в HDInsight.
 
-<a id="fault-and-update-domains-with-kafka" class="xliff"></a>
-
-## Домены сбоя и обновления с Kafka
+## <a name="fault-and-update-domains-with-kafka"></a>Домены сбоя и обновления с Kafka
 
 Домен сбоя — это логическое объединение базового оборудования в центре обработки данных Azure. Все домены сбоя используют общий источник питания и сетевой коммутатор. Виртуальные машины и управляемые диски, на которых реализуются узлы в кластере HDInsight, распределяются по этим доменам сбоя. Такая архитектура ограничивает потенциальное влияние сбоев физического оборудования.
 
@@ -38,9 +34,7 @@ ms.lasthandoff: 06/29/2017
 > [!IMPORTANT]
 > В Kafka нет сведений о доменах сбоя. При создании раздела в Kafka все реплики секций могут храниться в одном домене сбоя. Чтобы решить эту проблему, мы предоставляем [средство перераспределения секций Kafka](https://github.com/hdinsight/hdinsight-kafka-tools).
 
-<a id="when-to-rebalance-partition-replicas" class="xliff"></a>
-
-## Когда следует перераспределять реплики секций?
+## <a name="when-to-rebalance-partition-replicas"></a>Когда следует перераспределять реплики секций?
 
 Чтобы обеспечить максимально высокий уровень доступности данных Kafka, следует перераспределять реплики секций для раздела в следующих случаях:
 
@@ -48,9 +42,7 @@ ms.lasthandoff: 06/29/2017
 
 * при масштабировании кластера.
 
-<a id="replication-factor" class="xliff"></a>
-
-## Коэффициент репликации
+## <a name="replication-factor"></a>Коэффициент репликации
 
 > [!IMPORTANT]
 > Мы рекомендуем использовать регион Azure с тремя доменами сбоя и коэффициент репликации 3.
@@ -59,17 +51,13 @@ ms.lasthandoff: 06/29/2017
 
 Примеры создания разделов и настройки коэффициента репликации см. в статье [Приступая к работе с Apache Kafka (предварительная версия) в HDInsight](hdinsight-apache-kafka-get-started.md).
 
-<a id="how-to-rebalance-partition-replicas" class="xliff"></a>
-
-## Как перераспределять реплики секций?
+## <a name="how-to-rebalance-partition-replicas"></a>Как перераспределять реплики секций?
 
 Воспользуйтесь [средством перераспределения секций Kafka](https://github.com/hdinsight/hdinsight-kafka-tools), чтобы перераспределить выбранные разделы. Это средство следует запускать из сеанса SSH на главном узле кластера Kafka.
 
 Дополнительные сведения о подключении к HDInsight с помощью SSH см. в статье [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Масштабируемость Kafka в HDInsight](hdinsight-apache-kafka-scalability.md)
 * [Зеркальное отображение Kafka в HDInsight](hdinsight-apache-kafka-mirroring.md)

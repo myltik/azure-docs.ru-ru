@@ -20,7 +20,6 @@ ms.openlocfilehash: 9fc3b38b22c3a092dc2d932d2d7471872f5ba66d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-powershell"></a>Присоединение виртуальной машины Windows Server к управляемому домену с помощью PowerShell
 > [!div class="op_single_selector"]

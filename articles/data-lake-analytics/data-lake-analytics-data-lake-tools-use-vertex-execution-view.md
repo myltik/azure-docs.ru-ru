@@ -20,7 +20,6 @@ ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Использование представления выполнения вершин в инструментах Data Lake для Visual Studio
 Сведения об использовании представления выполнения вершин для изучения заданий Data Lake Analytics.

@@ -20,7 +20,6 @@ ms.openlocfilehash: 67dbb0c4066002256efbab6061157c641527e441
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Управление контроллерами устройства StorSimple
 ## <a name="overview"></a>Обзор

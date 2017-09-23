@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9691408bcd80afb6eba534f26749b76dd3bfe315
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/21/2017
 
 ---
@@ -29,12 +30,12 @@ ms.lasthandoff: 03/21/2017
 
 Перед началом работы убедитесь, что у вас есть следующие компоненты:
 
-*    Azure PowerShell установлен. [Скачать Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*    Параметры конфигурации для инициализации задания преобразования данных (инструкции для получения этих параметров приведены в этой статье).
-*    Определение задания, которое правильно настроено в гибридном ресурсе данных в группе ресурсов.
-*    Скачайте [ZIP-файл](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) `DataTransformationApp.zip` из репозитория GitHub.
-*    Скачайте [сценарий](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Get-ConfigurationParams.ps1) `Get-ConfigurationParams.ps1` из репозитория GitHub.
-*    Скачайте [сценарий](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) `Trigger-DataTransformation-Job.ps1` из репозитория GitHub.
+*   Azure PowerShell установлен. [Скачать Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*   Параметры конфигурации для инициализации задания преобразования данных (инструкции для получения этих параметров приведены в этой статье).
+*   Определение задания, которое правильно настроено в гибридном ресурсе данных в группе ресурсов.
+*   Скачайте [ZIP-файл](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) `DataTransformationApp.zip` из репозитория GitHub.
+*   Скачайте [сценарий](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Get-ConfigurationParams.ps1) `Get-ConfigurationParams.ps1` из репозитория GitHub.
+*   Скачайте [сценарий](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) `Trigger-DataTransformation-Job.ps1` из репозитория GitHub.
 
 ## <a name="step-by-step"></a>Пошаговое руководство
 

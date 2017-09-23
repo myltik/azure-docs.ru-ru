@@ -20,7 +20,6 @@ ms.openlocfilehash: 040d58a81a9b41fe660e4276d698bf884f90bb6c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="azure-resource-health-overview"></a>Обзор службы работоспособности ресурсов Azure
  

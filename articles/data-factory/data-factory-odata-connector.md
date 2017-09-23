@@ -20,7 +20,6 @@ ms.openlocfilehash: 624b6c8f317477d83539392c6c2f15c2dc69d401
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/05/2017
 
-
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Перемещение данных из источника OData с помощью фабрики данных Azure
 В этой статье описывается, как с помощью действия копирования в фабрике данных Azure перемещать данные из источника OData. Это продолжение статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования.

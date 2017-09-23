@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a2beec313c0dfcd9cf7f7c1ad716223dcaf453b7
 ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/11/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Руководство по интеграции Azure Active Directory с Inkling
@@ -124,7 +125,7 @@ ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
 
 4. В разделе **Сертификат подписи SAML** щелкните **Создание нового сертификата**.
 
-    ![Настройка единого входа](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)     
+    ![Настройка единого входа](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)    
 
 5. В диалоговом окне **Создание нового сертификата** щелкните значок календаря и выберите **дату окончания срока действия**. Затем нажмите кнопку **Сохранить**.
 
@@ -242,8 +243,3 @@ ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
 [201]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Feb17_HO2-->
-
-

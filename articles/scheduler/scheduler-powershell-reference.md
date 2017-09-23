@@ -20,7 +20,6 @@ ms.openlocfilehash: 419e489e4e99935dea49b2d3f9a405013b94048c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Справочник по командлетам PowerShell планировщика
 В следующей таблице приведено описание и ссылки на справочную страницу для каждого из основных командлетов в планировщике Azure.

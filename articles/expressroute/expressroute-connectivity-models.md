@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2017
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6401a2a29c5fd8dfa40bebd331621784da5958be
 ms.openlocfilehash: 00f97da2189491103c461b49ac82feb92d8f4b9b
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/10/2017
 
 ---
 # <a name="expressroute-connectivity-models"></a>Модели подключения ExpressRoute
@@ -26,13 +27,13 @@ ms.openlocfilehash: 00f97da2189491103c461b49ac82feb92d8f4b9b
 
 ![Схема моделей подключения ExpressRoute](./media/expressroute-connectivity-models/expressroute-connectivity-models-diagram.png)
 
-## <a name="a-namecloudexchangeaco-located-at-a-cloud-exchange"></a><a name="CloudExchange"></a>Совместное размещение в Cloud Exchange
+## <a name="CloudExchange"></a>Совместное размещение в Cloud Exchange
 При размещении на одном сервере с Cloud Exchange можно заказать виртуальное кросс-подключение к облаку Майкрософт через Ethernet Exchange поставщика совместного размещения. Поставщики услуг совместного размещения могут предлагать либо кросс-подключения второго уровня, либо управляемые кросс-подключения третьего уровня между вашей инфраструктурой на сервере совместного размещения и облаком Майкрософт.
 
-## <a name="a-nameethernetapoint-to-point-ethernet-connections"></a><a name="Ethernet"></a>Подключения Ethernet типа "точка — точка"
+## <a name="Ethernet"></a>Подключения Ethernet типа "точка — точка"
 Локальные центры обработки данных и офисы можно подключить к облаку Майкрософт через связи Ethernet типа "точка-точка". Поставщики подключений Ethernet типа "точка-точка" могут предлагать подключения второго уровня или управляемые подключения третьего уровня между вашей сетью и облаком Майкрософт.
 
-## <a name="a-nameipvpnaany-to-any-ipvpn-networks"></a><a name="IPVPN"></a>Сети типа "любой к любому" (IPVPN)
+## <a name="IPVPN"></a>Сети типа "любой к любому" (IPVPN)
 Глобальную вычислительную сеть можно интегрировать с облаком Майкрософт. Поставщики IP VPN (обычно это MPLS VPN) предлагают подключение между филиалами и центрами обработки данных типа "любой к любому". Облако Майкрософт можно связать с вашей глобальной вычислительной сетью, так чтобы оно выглядело как любой другой филиал. Обычно поставщики глобальных вычислительных сетей предлагают управляемые подключения третьего уровня. Возможности и функции ExpressRoute одинаковы для всех описанных выше моделей. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -45,8 +46,3 @@ ms.openlocfilehash: 00f97da2189491103c461b49ac82feb92d8f4b9b
   * [Создайте канал ExpressRoute.](expressroute-howto-circuit-portal-resource-manager.md)
   * [Настройка маршрутизации](expressroute-howto-routing-portal-resource-manager.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

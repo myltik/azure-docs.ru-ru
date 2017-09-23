@@ -21,7 +21,6 @@ ms.openlocfilehash: b2d702ecdd5e1fca342e7c84c6e75339097f0bcd
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Проверка подключения VPN-шлюза
 

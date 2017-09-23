@@ -21,7 +21,6 @@ ms.openlocfilehash: c581b1468630a9f28204592c936360b72f42f0d8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Изменение хэш-алгоритма подписи для отношения доверия с проверяющей стороной Office 365
 ## <a name="overview"></a>Обзор

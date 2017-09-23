@@ -20,7 +20,6 @@ ms.openlocfilehash: cd6db44f7776859d1e6a893543cf0666182ca41a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/29/2017
 
-
 ---
 # <a name="map-azure-cdn-content-to-a-custom-domain"></a>Сопоставление содержимого Azure CDN с пользовательским доменом
 Личный домен можно сопоставить с конечной точкой CDN, чтобы использовать имя своего домена в URL-адресах кэшированного содержимого вместо того, чтобы использовать поддомен azureedge.net.

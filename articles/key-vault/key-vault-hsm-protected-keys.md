@@ -20,7 +20,6 @@ ms.openlocfilehash: f481de9d7eb23531b4be82c3b61e4f3850bed72e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure
 ## <a name="introduction"></a>Введение

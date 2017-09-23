@@ -20,7 +20,6 @@ ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/17/2017
 
-
 ---
 
 # <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Создание веб-приложения Service Manager с помощью автоматизированного скрипта (предварительная версия)

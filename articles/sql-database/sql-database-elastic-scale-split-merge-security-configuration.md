@@ -21,7 +21,6 @@ ms.openlocfilehash: 7e6ccf51a4b75eef16a7df5c1a1018954af8e5dd
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="split-merge-security-configuration"></a>Настройка параметров безопасности для службы разделения и объединения
 Для использования службы разделения и объединения необходимо правильно настроить параметры безопасности. Эта служба является частью компонента эластичного масштабирования базы данных Microsoft Azure SQL. Дополнительные сведения см. в [руководстве по эластичному масштабированию службы разбиения и объединения](sql-database-elastic-scale-configure-deploy-split-and-merge.md).

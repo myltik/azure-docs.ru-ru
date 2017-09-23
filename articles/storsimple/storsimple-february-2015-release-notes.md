@@ -20,7 +20,6 @@ ms.openlocfilehash: c059fd74854813615754e67547497b7ededbe4dd
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="storsimple-8000-series-update-03-release-notes---february-2015"></a>Заметки о выпуске, посвященные обновлению 0.3 для устройств серии StorSimple 8000. Февраль 2015 г.
 ## <a name="overview"></a>Обзор

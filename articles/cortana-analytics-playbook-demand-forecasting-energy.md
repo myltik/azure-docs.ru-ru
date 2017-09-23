@@ -20,7 +20,6 @@ ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Сборник шаблонов решений Cortana Intelligence для прогнозирования энергопотребления
 ## <a name="executive-summary"></a>Аннотация

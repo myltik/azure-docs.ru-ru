@@ -19,7 +19,6 @@ ms.openlocfilehash: 3a1c9cc5d7a2ebe28e9fb7e0e6ed8e3d393873ae
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Руководство. Интеграция Azure Active Directory с AnswerHub
 

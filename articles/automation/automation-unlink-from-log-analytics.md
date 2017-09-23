@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 02/07/2017
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cd65cd34846122ff14f6d5df61e4f61a7c1ac4f
 ms.openlocfilehash: 56b09c2cfc14813b5efcb364c580787fec1bf639
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/08/2017
 
 ---
 
@@ -53,8 +55,3 @@ ms.openlocfilehash: 56b09c2cfc14813b5efcb364c580787fec1bf639
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Чтобы повторно настроить интеграцию учетной записи службы автоматизации с Log Analytics (OMS), см. инструкции в статье [Пересылка состояния задания и потоков заданий из службы автоматизации в Log Analytics (OMS](automation-manage-send-joblogs-log-analytics.md). 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

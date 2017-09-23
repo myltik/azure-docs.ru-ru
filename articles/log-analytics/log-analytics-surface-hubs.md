@@ -21,7 +21,6 @@ ms.openlocfilehash: b6ecd0d09589fec85c1633f528afc1165c346b7f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Мониторинг работоспособности устройств Surface Hub с помощью Log Analytics
 

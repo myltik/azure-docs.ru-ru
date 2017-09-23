@@ -20,7 +20,6 @@ ms.openlocfilehash: 073fcf0064f1d1482f4683d733f00cf918ff2f38
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Замена корпуса устройства StorSimple
 ## <a name="overview"></a>Обзор

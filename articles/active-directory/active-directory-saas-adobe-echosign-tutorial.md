@@ -19,7 +19,6 @@ ms.openlocfilehash: b413772de1af1fbb128d29b81e5831cfd6a39ab4
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Руководство по интеграции Azure Active Directory с Adobe Sign
 

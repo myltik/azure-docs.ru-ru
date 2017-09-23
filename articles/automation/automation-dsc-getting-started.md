@@ -20,7 +20,6 @@ ms.openlocfilehash: 2a6daccdc70ff285a6993da0b2fdcfbe85e635cf
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Приступая к работе с DSC службы автоматизации Azure
 В этом разделе объясняется, как выполнять самые распространенные задачи с помощью Desired State Configuration (DSC) службы автоматизации Azure, например создание, импорт и компилирование конфигураций, подключение компьютеров для управления, а также просмотр отчетов. Общие сведения о DSC службы автоматизации Azure см. в [этой статье](automation-dsc-overview.md). Документацию по DSC см. в статье [Общие сведения о службе настройки требуемого состояния Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).

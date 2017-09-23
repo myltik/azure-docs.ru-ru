@@ -22,7 +22,6 @@ ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>Начало работы с соединителем Поиска Bing
 Подключение к Поиску Bing позволяет искать новости, видео и многое другое. С Поиском Bing можно: 

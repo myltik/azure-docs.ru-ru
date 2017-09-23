@@ -21,7 +21,6 @@ ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Устранение проблем с группами безопасности сети на портале Azure
 > [!div class="op_single_selector"]

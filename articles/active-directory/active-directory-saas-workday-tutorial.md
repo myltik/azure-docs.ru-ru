@@ -19,7 +19,6 @@ ms.openlocfilehash: 164d5c644f120fa86e2b690649241892764b64b7
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Руководство. Интеграция Azure Active Directory с Workday
 

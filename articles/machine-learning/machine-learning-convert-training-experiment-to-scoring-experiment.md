@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 716a9a9b723df7ff6eb111fa40f2b5941d57d67a
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Как подготовить модель к развертыванию в студии машинного обучения Azure

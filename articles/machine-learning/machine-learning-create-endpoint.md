@@ -20,7 +20,6 @@ ms.openlocfilehash: 9f83ffc9cf7dbe37c1ce9980fd7f5b9133fe78f6
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="creating-endpoints"></a>Создание конечных точек
 > [!NOTE]

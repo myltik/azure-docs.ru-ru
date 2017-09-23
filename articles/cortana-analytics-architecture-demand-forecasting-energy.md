@@ -21,7 +21,6 @@ ms.openlocfilehash: 87a27dbe9042973dcfa7e9a5a438773d1bbab4d3
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>Архитектура шаблона решения Cortana Intelligence для прогнозирования энергопотребления
 Приведенная ниже схема демонстрирует архитектуру [шаблона решения Cortana Intelligence для прогнозирования энергопотребления](cortana-analytics-playbook-demand-forecasting-energy.md).

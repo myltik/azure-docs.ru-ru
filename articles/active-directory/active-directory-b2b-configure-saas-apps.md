@@ -21,7 +21,6 @@ ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/25/2017
 
-
 ---
 
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Настройка приложений SaaS для службы совместной работы B2B

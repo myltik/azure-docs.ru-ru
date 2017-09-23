@@ -21,7 +21,6 @@ ms.openlocfilehash: c7a213343b4fb2b5a89a5052a459061b404a431c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Начало работы с соединителем Yammer
 Вы можете подключаться к Yammer для доступа к беседам в корпоративной сети. С помощью Yammer вы можете:

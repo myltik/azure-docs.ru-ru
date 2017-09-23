@@ -19,7 +19,6 @@ ms.openlocfilehash: d5238a0471b6ae4b367ca5c1ed5e1f273a0c476b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>Учебник. Интеграция Azure Active Directory с Skilljar
 

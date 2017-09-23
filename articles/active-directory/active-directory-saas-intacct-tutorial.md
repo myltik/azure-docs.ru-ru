@@ -19,7 +19,6 @@ ms.openlocfilehash: c203b192b9da0d280cbd7f6c123219242ee4a3d1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Руководство. Интеграция Azure Active Directory с Intacct
 

@@ -21,7 +21,6 @@ ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/05/2017
 
-
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Руководство по определению типов данных для таблиц в хранилище данных SQL
 Используйте эти рекомендации для определения типов данных таблиц, совместимых с хранилищем данных SQL. Кроме обеспечения совместимости, уменьшение размера типов данных повышает производительность запросов.

@@ -22,7 +22,6 @@ ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Аутентификация в хранилище данных SQL Azure
 > [!div class="op_single_selector"]

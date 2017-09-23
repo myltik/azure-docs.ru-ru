@@ -14,9 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/14/2017
 
 ---
 
@@ -63,9 +65,4 @@ ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
 Пакет SDK для .NET: инструкции по переносу кода см. в статье об [обновлении пакета SDK для .NET](search-dotnet-sdk-migration.md).
 
 Общая доступность означает, что служба поиска Azure подчиняется соглашению об уровне обслуживания (SLA). Соглашение об уровне обслуживания для службы поиска Azure см. в [этой статье](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

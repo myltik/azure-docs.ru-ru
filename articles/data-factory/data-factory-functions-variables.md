@@ -20,7 +20,6 @@ ms.openlocfilehash: 72a966bdc271f86b9568d3310d2e22d83b447594
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Фабрика данных Azure — функции и системные переменные
 В этой статье содержатся сведения о функциях и переменных, поддерживаемых фабрикой данных Azure.

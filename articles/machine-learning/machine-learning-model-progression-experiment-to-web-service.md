@@ -20,7 +20,6 @@ ms.openlocfilehash: 008952b4fee6bffe1e20259dc86fd6d5122777ec
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Развитие модели машинного обучения от эксперимента до рабочей веб-службы
 Студия машинного обучения Azure обеспечивает интерактивный холст, на котором вы можете выполнять разработку, запуск, тестирование и интеграцию ***эксперимента*** модели прогнозной аналитики. Существует множество модулей для следующих задач:

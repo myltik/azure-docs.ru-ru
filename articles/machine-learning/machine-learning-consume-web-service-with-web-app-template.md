@@ -21,7 +21,6 @@ ms.openlocfilehash: 95aa1fa23d83ec0dcd00870179167e803bafbd16
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="consume-an-azure-machine-learning-web-service-with-a-web-app-template"></a>Использование веб-службы машинного обучения Azure с шаблоном веб-приложения
 

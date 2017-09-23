@@ -1,6 +1,6 @@
 ---
 title: "Добавление задержки в приложения логики | Документация Майкрософт"
-description: "В этой статье приведены общие сведения о действиях &quot;Задержка&quot; и &quot;Задержка до&quot;, а также об их использовании с приложением логики Azure."
+description: "В этой статье приведены общие сведения о действиях \"Задержка\" и \"Задержка до\", а также об их использовании с приложением логики Azure."
 services: 
 documentationcenter: 
 author: jeffhollan
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Начало работы с действиями "Задержка" и "Задержка до"

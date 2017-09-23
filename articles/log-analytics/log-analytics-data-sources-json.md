@@ -20,7 +20,6 @@ ms.openlocfilehash: 800ee1269556e7c2d56fbbf2b497c10509b5c78c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Сбор данных из пользовательских источников данных JSON с помощью агента OMS для Linux в Log Analytics
 С помощью агента OMS для Linux можно собрать данные из пользовательских источников данных JSON в Log Analytics.  В качестве такого пользовательского источника данных может использоваться простой сценарий, возвращающий результат в формате JSON, например [curl](https://curl.haxx.se/), или один из более чем [300 подключаемых модулей FluentD](http://www.fluentd.org/plugins/all). В этой статье описано, как настроить такой сбор данных.

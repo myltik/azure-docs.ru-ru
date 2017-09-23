@@ -22,7 +22,6 @@ ms.openlocfilehash: 5818c41610c8c5df89abcb0dcd058bcbe9579ce7
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Динамические группы и служба совместной работы Azure Active Directory B2B

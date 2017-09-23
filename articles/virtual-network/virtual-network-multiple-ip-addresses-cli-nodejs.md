@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
 ms.openlocfilehash: 9f085dfa1fe4db36d58cb976bb550a46bf241ac7
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli-10"></a>Назначение виртуальным машинам нескольких IP-адресов с помощью Azure CLI 1.0
@@ -122,7 +122,7 @@ ms.lasthandoff: 03/28/2017
 8. Введите следующую команду, чтобы просмотреть свойства сетевого адаптера и связанных с ним IP-конфигураций:
 
     ```azurecli
-    azure network nic show --resource-group $RgName    --name myNic1
+    azure network nic show --resource-group $RgName --name myNic1
     ```
 9. Добавьте в операционную систему виртуальной машины частные IP-адреса, выполнив действия, соответствующие вашей операционной системе, как описано в разделе [Добавление IP-адресов в операционную систему виртуальной машины](#os-config) этой статьи.
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 03/28/2017
         --domain-name-label mypublicdns3
         ```
 
-         Чтобы создать новую конфигурацию IP с частным статическим IP-адресом и связанным ресурсом общедоступного IP-адреса *myPublicIP3*, введите следующую команду:
+        Чтобы создать новую конфигурацию IP с частным статическим IP-адресом и связанным ресурсом общедоступного IP-адреса *myPublicIP3*, введите следующую команду:
 
         ```azurecli
         azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic --name IPConfig-4 \
@@ -178,7 +178,7 @@ ms.lasthandoff: 03/28/2017
 
         Найдите в возвращаемых данных строку, похожую на приведенную ниже для IPConfig-3.
 
-        ```            
+        ```         
         Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
         default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
         IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2

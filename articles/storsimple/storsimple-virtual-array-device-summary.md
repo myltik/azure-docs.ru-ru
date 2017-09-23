@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/26/2017
 
 ---

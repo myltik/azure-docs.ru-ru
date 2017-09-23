@@ -12,10 +12,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b3fd172d8dc468780d483821d7067c053e39968e
 ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/18/2017
 
 ---
 ## <a name="setting-up-powershell"></a>Настройка PowerShell
@@ -82,10 +83,5 @@ ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
 Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Шаг 3. Подключение](/powershell/azureps-cmdlets-docs#Connect).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

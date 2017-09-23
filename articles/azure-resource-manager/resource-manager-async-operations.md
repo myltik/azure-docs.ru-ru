@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5590ced0e7d2a68fd525178ee21590b0897b58d7
 ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/13/2017
 
 ---
 # <a name="track-asynchronous-azure-operations"></a>Отслеживание асинхронных операций Azure
@@ -196,8 +197,3 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 * Документацию по каждой операции REST см. в [справочнике по REST API](/rest/api/).
 * Сведения об управлении ресурсами с помощью REST API в Resource Manager см. [здесь](resource-manager-rest-api.md).
 * Сведения о развертывании шаблонов с помощью REST API в Resource Manager см. в статье [Развертывание ресурсов с использованием шаблонов и REST API Resource Manager](resource-group-template-deploy-rest.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

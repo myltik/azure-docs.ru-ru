@@ -3,7 +3,7 @@ title: "Настройка разгрузки SSL для шлюза прилож
 description: "В этой статье приводятся инструкции по созданию шлюза приложений с разгрузкой SSL с помощью портала Azure."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 23b5a529e7ee7db5615340352fb68b2e64e45972

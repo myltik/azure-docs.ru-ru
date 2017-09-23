@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 78936ac34cc582684e938efa74133426f1b53741
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Создание определяемых пользователем маршрутов с помощью шаблона
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/27/2017
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"    
+      "displayName": "UDR - FrontEnd"   
     },
     "properties": {
       "routes": [

@@ -20,7 +20,6 @@ ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Создание групп томов и управление ими с помощью диспетчера моментальных снимков StorSimple
 ## <a name="overview"></a>Обзор

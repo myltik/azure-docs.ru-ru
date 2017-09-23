@@ -20,7 +20,6 @@ ms.openlocfilehash: bca66bbdd9da9b3e4099d0d961f42c9368a17f5e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="apply-resource-policies-to-network-resources"></a>Применение политик ресурсов к сетевым ресурсам
 В этой статье приведен пример [политики ресурсов](resource-manager-policy.md), которую можно применить к шлюзам виртуальной сети Azure. Эта политика обеспечивает согласованность шлюзов, развертываемых в организации. 

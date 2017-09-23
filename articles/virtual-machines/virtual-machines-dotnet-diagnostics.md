@@ -20,7 +20,6 @@ ms.openlocfilehash: 8ff6b9825212359617b748aba1c78ed789b130dd
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="enabling-diagnostics-in-azure-virtual-machines"></a>Включение диагностики на виртуальных машинах Azure
 Основные сведения о системе диагностики Azure см. в [обзоре системы диагностики Azure](../monitoring-and-diagnostics/azure-diagnostics.md).

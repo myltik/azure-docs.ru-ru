@@ -20,7 +20,6 @@ ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
 ms.contentlocale: ru-ru
 ms.lasthandoff: 03/27/2017
 
-
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Архивация сервера Exchange Server в службу архивации Azure с помощью Сервера резервного копирования Azure
 В этой статье описывается, как настроить Сервер резервного копирования Microsoft Azure (MABS) для архивации сервера Microsoft Exchange Server в Azure.  

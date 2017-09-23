@@ -20,7 +20,6 @@ ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/22/2017
 
-
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Использование службы поиска Azure в приложении .NET
 В этой статье представлено пошаговое руководство, которое поможет вам приступить к работе с [SDK для Поиска Azure в .NET](https://aka.ms/search-sdk). Пакет SDK для .NET позволяет реализовать широкие возможности поиска в приложении с помощью службы поиска Azure.

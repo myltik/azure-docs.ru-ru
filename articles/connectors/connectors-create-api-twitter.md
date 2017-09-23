@@ -21,7 +21,6 @@ ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Приступая к работе с соединителем Twitter
 С помощью соединителя Twitter вы можете:

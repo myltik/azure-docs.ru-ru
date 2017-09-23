@@ -20,7 +20,6 @@ ms.openlocfilehash: f11ed42b474e4f208eac92689bfa33fb188d15a1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Масштабирование квот и ограничений в DevTest Labs
 При работе в DevTest Labs вы, вероятно, замечали, что для некоторых ресурсов Azure существуют определенные ограничения по умолчанию, которые могут влиять на работу службы DevTest Labs. Такие ограничения называют **квотами**.

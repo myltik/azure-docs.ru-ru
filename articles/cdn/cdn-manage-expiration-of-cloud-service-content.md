@@ -20,7 +20,6 @@ ms.openlocfilehash: c207d780857a61d4b1fc0f39e6185cae67abc955
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/29/2017
 
-
 ---
 # <a name="manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Управление сроком действия содержимого веб-приложений и облачных служб Azure, ASP.NET или IIS в Azure CDN
 > [!div class="op_single_selector"]

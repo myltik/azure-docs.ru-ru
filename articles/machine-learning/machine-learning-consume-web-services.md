@@ -20,7 +20,6 @@ ms.openlocfilehash: eec9f637b4b2306ab4a888dbd5ef5b9a021bcac5
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Как использовать веб-службу машинного обучения Azure
 

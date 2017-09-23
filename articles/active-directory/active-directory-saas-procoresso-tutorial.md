@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 042a41eaa6bb21670b4c12068f1b017222f64b99
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/12/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Руководство. Интеграция Azure Active Directory с Procore SSO
@@ -199,7 +199,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
 Выполните следующие действия, чтобы создать тестового пользователя на стороне Procore.
 
-1. Войдите на корпоративный сайт Procore с правами администратора.    
+1. Войдите на корпоративный сайт Procore с правами администратора.  
 
 2. В раскрывающемся списке инструментов щелкните **Directory** (Каталог), чтобы открыть страницу корпоративного каталога.
 

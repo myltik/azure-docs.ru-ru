@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: haining
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bce4c5bb16f505d2f2f0fc388bdfbeb214a2f8fe
 ms.openlocfilehash: 7dc337c5aa03a9a609b4ca5d811442c99c75878f
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/09/2016
 
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Управление жизненным циклом приложений в студии машинного обучения Azure
@@ -100,9 +101,4 @@ ms.openlocfilehash: 7dc337c5aa03a9a609b4ca5d811442c99c75878f
 * Скачайте модуль [PowerShell студии машинного обучения Azure](http://aka.ms/amlps) и приступайте к автоматизации задач управления жизненным циклом приложений.
 * Узнайте, как [создавать большое число моделей машинного обучения и управлять ими, используя только один эксперимент](machine-learning-create-models-and-endpoints-with-powershell.md), с помощью PowerShell и API переобучения.
 * См. дополнительные сведения о [развертывании веб-служб машинного обучения Azure](machine-learning-publish-a-machine-learning-web-service.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

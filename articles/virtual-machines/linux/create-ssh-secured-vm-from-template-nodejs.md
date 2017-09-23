@@ -22,7 +22,6 @@ ms.openlocfilehash: 33d4aaa78fcdf3bd9e2e236606f2d3049f464a8a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Как создать виртуальную машину Linux с помощью Azure CLI 1.0 и шаблона Azure Resource Manager
 В этой статье показано, как быстро развернуть виртуальную машину Linux с помощью Azure CLI 1.0 и шаблона Azure Resource Manager. Для работы с этой статьей потребуется:

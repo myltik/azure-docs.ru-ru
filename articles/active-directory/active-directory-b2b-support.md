@@ -1,5 +1,4 @@
 ---
-
 title: "Получение поддержки для службы совместной работы Azure Active Directory B2B | Документация Майкрософт"
 description: "Какая поддержка предоставляется для службы совместной работы Azure Active Directory B2B?"
 services: active-directory
@@ -21,7 +20,6 @@ ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: ce4731966baefa76b72e5a1a065c06379fac065d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
-
 
 ---
 

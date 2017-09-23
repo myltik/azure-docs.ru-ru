@@ -22,7 +22,6 @@ ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/26/2017
 
-
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Устранение распространенных проблем службы автоматизации Azure 
 Эта статья содержит сведения о распространенных ошибках, которые могут возникнуть в службе автоматизации Azure, и возможных решениях по их устранению.

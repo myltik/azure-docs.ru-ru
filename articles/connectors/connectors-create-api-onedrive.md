@@ -21,7 +21,6 @@ ms.openlocfilehash: 63bd33bf4e09b98aa53dcfec9fcc4a0109204952
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Начало работы с соединителем OneDrive
 Подключитесь к OneDrive для управления файлами, включая передачу, получение, удаление файлов и многое другое. 

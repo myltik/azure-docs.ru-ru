@@ -20,7 +20,6 @@ ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Пример 3 — защита сетей. Построение сети периметра с брандмауэром, определяемым пользователем маршрутом и группой безопасности сети
 [Вернуться на страницу с советами и рекомендациями по построению периметра безопасности][HOME]

@@ -20,7 +20,6 @@ ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/10/2017
 
-
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Создание внешнего интерфейса веб-службы для приложения с помощью ASP.NET Core
 По умолчанию службы Azure Service Fabric не предоставляют общедоступный интерфейс для веб-служб. Чтобы сделать свое приложение функциональным для клиентов HTTP, вам нужно создать веб-проект, который будет работать в качестве точки входа и обмениваться данными с отдельными службами.

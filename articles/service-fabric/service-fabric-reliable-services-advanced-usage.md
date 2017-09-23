@@ -20,7 +20,6 @@ ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Дополнительные возможности использования модели программирования надежных служб
 Приложение Azure Service Fabric упрощает написание надежных служб с отслеживанием или без отслеживания состояния и управление ими. В этом руководстве пойдет речь о расширенном использовании Reliable Services для получения большей управляемости и гибкости служб. Перед чтением этого руководства ознакомьтесь с [моделью программирования надежных служб](service-fabric-reliable-services-introduction.md).

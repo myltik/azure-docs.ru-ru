@@ -20,17 +20,12 @@ ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-service-bus-topics" class="xliff"></a>
-
-# Начало работы с разделами служебной шины
+# <a name="get-started-with-service-bus-topics"></a>Начало работы с разделами служебной шины
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Что будет выполнено
+## <a name="what-will-be-accomplished"></a>Что будет выполнено
 
 В этом руководстве рассматриваются следующие действия:
 
@@ -40,26 +35,20 @@ ms.lasthandoff: 07/01/2017
 4. Создание консольного приложения для отправки сообщения в раздел.
 5. Создание консольного приложения для получения этого сообщения из подписки.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 
 1. [Visual Studio 2015 или более поздней версии.](http://www.visualstudio.com) В описанных в этом руководстве примерах используется Visual Studio 2017.
 2. Подписка Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Создание пространства имен с помощью портала Azure
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Создание пространства имен с помощью портала Azure
 
 Если пространство имен для обмена сообщениями служебной шины уже создано, перейдите к разделу [Создание раздела с помощью портала Azure](#2-create-a-topic-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-topic-using-the-azure-portal" class="xliff"></a>
-
-## 2) Создание раздела с помощью портала Azure
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2) Создание раздела с помощью портала Azure
 
 1. Войдите на [портал Azure][azure-portal].
 2. В левой области навигации портала щелкните **Служебная шина**. Если элемент **Служебная шина** не отображается, щелкните **Больше служб**.
@@ -74,9 +63,7 @@ ms.lasthandoff: 07/01/2017
     ![Нажмите кнопку "Создать"][createtopic3]
 6. Щелкните кнопку **Создать**в нижней части колонки.
 
-<a id="3-create-a-subscription-to-the-topic" class="xliff"></a>
-
-## 3. Создание подписки на раздел
+## <a name="3-create-a-subscription-to-the-topic"></a>3. Создание подписки на раздел
 
 1. В области ресурсов на портале выберите пространство имен, созданное на этапе 1, и щелкните имя раздела, созданное на этапе 2.
 2. На панели обзора вверху щелкните знак плюса рядом с надписью **Подписка**, чтобы добавить подписку на этот раздел.
@@ -85,30 +72,22 @@ ms.lasthandoff: 07/01/2017
 
 3. Введите имя подписки. Для других параметров оставьте значения по умолчанию.
 
-<a id="4-send-messages-to-the-topic" class="xliff"></a>
-
-## 4. Отправка сообщений в раздел
+## <a name="4-send-messages-to-the-topic"></a>4. Отправка сообщений в раздел
 
 Для отправки сообщений в раздел мы создадим консольное приложение C# с помощью Visual Studio.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Создание консольного приложение
+### <a name="create-a-console-application"></a>Создание консольного приложение
 
 Откройте Visual Studio и создайте проект **Консольное приложение (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Получение пакета NuGet для служебной шины
+### <a name="add-the-service-bus-nuget-package"></a>Получение пакета NuGet для служебной шины
 
 1. Щелкните созданный проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
 2. Откройте вкладку **Обзор**, выполните поиск по фразе **служебная шина Microsoft Azure** и выберите элемент **WindowsAzure.ServiceBus**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
    
     ![Установка пакета NuGet][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-topic" class="xliff"></a>
-
-### Написание кода для отправки сообщения в раздел
+### <a name="write-some-code-to-send-a-message-to-the-topic"></a>Написание кода для отправки сообщения в раздел
 
 1. Добавьте следующую инструкцию `using` в начало файла Program.cs.
    
@@ -170,9 +149,7 @@ ms.lasthandoff: 07/01/2017
    
       ![Размер сообщения][topic-message]
 
-<a id="5-receive-messages-from-the-subscription" class="xliff"></a>
-
-## 5. Получение сообщений из подписки
+## <a name="5-receive-messages-from-the-subscription"></a>5. Получение сообщений из подписки
 
 1. Чтобы получить только что отправленные сообщения, создайте консольное приложение и добавьте ссылку на пакет NuGet служебной шины в соответствии с инструкциями для предыдущего приложения отправителя.
 2. Добавьте следующую инструкцию `using` в начало файла Program.cs.
@@ -233,9 +210,7 @@ ms.lasthandoff: 07/01/2017
 
 Поздравляем! Вы создали раздел и подписку, а также отправили и получили сообщение.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Ознакомьтесь с [примерами в репозитории GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples), демонстрирующими расширенные возможности обмена сообщениями служебной шины.
 

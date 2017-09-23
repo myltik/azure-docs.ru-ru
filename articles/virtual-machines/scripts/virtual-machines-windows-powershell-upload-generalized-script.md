@@ -1,5 +1,5 @@
 ---
-title: "Пример сценария PowerShell &quot;Отправка универсального VHD в Azure&quot; | Документы Майкрософт"
+title: "Пример сценария PowerShell \"Отправка универсального VHD в Azure\" | Документы Майкрософт"
 description: "Пример сценария PowerShell для отправки универсального виртуального жесткого диска (VHD) в Azure и создания виртуальной машины с помощью модели развертывания Azure Resource Manager и управляемых дисков."
 services: virtual-machines-windows
 documentationcenter: virtual-machines

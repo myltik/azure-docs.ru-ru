@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
 ms.openlocfilehash: 4f2f66288428aa0aa41abb40ce0e43c4848543ff
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/08/2017
 
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Настройка сред обработки и анализа данных для использования в процессе обработки и анализа данных группы
@@ -31,10 +32,5 @@ ms.openlocfilehash: 4f2f66288428aa0aa41abb40ce0e43c4848543ff
 [!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 **Виртуальная машина Майкрософт для обработки и анализа данных (DSVM)** также доступна как образ виртуальной машины Azure. В этой виртуальной машине Azure предварительно установлен и настроен ряд распространенных средств, которые обычно используются для анализа данных и машинного обучения. DSVM доступна в Windows и Linux. Дополнительные сведения см. в статье [Introduction to the Data Science Virtual Machine for Linux and Windows, a cloud environment and toolkit](machine-learning-data-science-virtual-machine-overview.md) (Введение в виртуальные машины для анализа и обработки данных для Linux и Windows, облачную инфраструктуру и набор средств).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

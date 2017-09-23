@@ -19,7 +19,6 @@ ms.openlocfilehash: 757429aa187e6536489b6636a0a11d122c7f9378
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Учебник. Интеграция Azure Active Directory с Trakstar
 

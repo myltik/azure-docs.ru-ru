@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 638e3e59f91202d55347c830542801ccead1b90f
 ms.openlocfilehash: a74a160eae88a2d03460a1346479c333d8f9d524
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/01/2016
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Администрирование виртуального массива StorSimple с помощью службы диспетчера устройств StorSimple
@@ -76,10 +78,5 @@ ms.openlocfilehash: a74a160eae88a2d03460a1346479c333d8f9d524
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Сведения о веб-интерфейсе и способах его использования см. в статье [Использование веб-интерфейса для администрирования виртуального массива StorSimple](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

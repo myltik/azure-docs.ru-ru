@@ -21,7 +21,6 @@ ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-facebook-connector"></a>Начало работы с соединителем Facebook
 Подключение к Facebook позволяет оставлять публикации в хронике, получать канал страниц и выполнять другие действия. С помощью Facebook можно:

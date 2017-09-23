@@ -1,5 +1,5 @@
 ---
-title: "Управление режимом кэширования Azure CDN с помощью строк запросов (ценовая категория &quot;Премиум&quot;) | Документация Майкрософт"
+title: "Управление режимом кэширования Azure CDN с помощью строк запросов (ценовая категория \"Премиум\") | Документация Майкрософт"
 description: "Функция кэширования строк запроса Azure CDN управляет способом кэширования файлов, содержащих строки запроса."
 services: cdn
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
 ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium"></a>Управление режимом кэширования Azure CDN с помощью строк запросов (ценовая категория "Премиум")
@@ -58,10 +59,5 @@ ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
 > Изменения параметров вступают в силу не сразу, так как распространение регистрационных сведений по сети CDN может занять некоторое время.  Для профилей <b>Azure CDN от Verizon</b> распространение обычно завершается в течение 90 минут, но в некоторых случаях может занимать больше времени.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fba5384acae53ac416d91ae30840c6cfa04e7c68
 ms.openlocfilehash: 0c479a58f4158bb1a72dc43432507160f65d2791
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/06/2017
 
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Управление политикой кэширования Azure CDN в службах мультимедиа Azure
@@ -45,10 +46,5 @@ ms.openlocfilehash: 0c479a58f4158bb1a72dc43432507160f65d2791
 1. Настроенные значения кэша служб мультимедиа Azure переопределяют значение по умолчанию.
 2. При отсутствии ручных настроек применяются значения по умолчанию.
 3. По умолчанию для манифеста динамической потоковой передачи (списка воспроизведения) используются 2-секундные заголовки кэша независимо от конфигурации мультимедиа Azure или службы хранилища Azure, и переопределить это значение невозможно.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

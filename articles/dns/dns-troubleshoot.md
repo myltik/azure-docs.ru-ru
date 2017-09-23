@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: jonatul
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bae6cf7f5025936deba301dc4fd05f6fd5fd8fa6
 ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/20/2017
 
 ---
 
@@ -104,10 +106,5 @@ Azure DNS управляет записями DNS как наборами зап
 * Ознакомьтесь со статьей [Зоны и записи DNS](dns-zones-records.md).
 * Чтобы начать работу с Azure DNS, узнайте, как [создать зону DNS](dns-getstarted-create-dnszone-portal.md) и [записи DNS](dns-getstarted-create-recordset-portal.md).
 * Чтобы перенести имеющуюся зону DNS, узнайте, как [импортировать и экспортировать файл зоны DNS](dns-import-export.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

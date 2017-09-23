@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/26/2017
 
 ---

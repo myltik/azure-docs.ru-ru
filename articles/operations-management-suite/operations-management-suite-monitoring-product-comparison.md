@@ -20,7 +20,6 @@ ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Сравнение продуктов Майкрософт для мониторинга
 Эта статья содержит сравнение System Center Operations Manager (SCOM) и службы Log Analytics в Operations Management Suite (OMS) с точки зрения архитектуры, логики отслеживания ресурсов и анализа собираемых данных.  Здесь приводятся основные сведения об их различиях и относительных сильных сторонах.  

@@ -20,7 +20,6 @@ ms.openlocfilehash: 337a7adfd93c76882a749685702bea6d1524c96a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Включение агента виртуальной машины в центре безопасности Azure
 Чтобы [включить сбор данных](security-center-enable-data-collection.md), нужно установить агент виртуальной машины на виртуальные машины.  Центр безопасности Azure позволяет узнать, для каких виртуальных машин требуется агент виртуальной машины, и рекомендует включить его на них.

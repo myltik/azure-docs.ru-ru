@@ -22,7 +22,6 @@ ms.openlocfilehash: 9b56ce6cc5bdd3b8d48d047751e978cad08598e1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="manage-domain-joined-hdinsight-clusters-preview"></a>Управление присоединенными к домену кластерами HDInsight (предварительная версия)
 Узнайте, что такое пользователи и роли в кластерах HDInsight, присоединенных к домену, и как управлять присоединенными к домену кластерами HDInsight.

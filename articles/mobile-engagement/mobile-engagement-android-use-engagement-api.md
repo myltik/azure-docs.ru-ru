@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Использование API службы Engagement в Android
@@ -281,9 +282,4 @@ API Engagement предоставляется в классе `EngagementAgent` 
 В предыдущем примере длина JSON-файла, отправленного на сервер, составляет 44 знака:
 
             {"expiration":"2016-12-07","status":"premium"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

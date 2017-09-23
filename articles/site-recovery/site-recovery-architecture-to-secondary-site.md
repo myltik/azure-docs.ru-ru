@@ -20,7 +20,6 @@ ms.openlocfilehash: fca95c63964b955db7ddfbe53250702cc8af122e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/15/2017
 
-
 ---
 # <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>Как выполняется репликация виртуальной машины из локальной среды на дополнительный сайт в Site Recovery?
 

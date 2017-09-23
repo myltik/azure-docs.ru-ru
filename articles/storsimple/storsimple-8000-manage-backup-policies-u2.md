@@ -20,7 +20,6 @@ ms.openlocfilehash: 569dbfdeb7dcd526cb5a54b487ea1bfb59b13cc6
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Использование службы диспетчера устройств StorSimple на портале Azure для управления политиками резервного копирования
 

@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: df754a3002750e6ba0b71b664c1df84d506808a4
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="windows-phone-silverlight-sdk-release-notes"></a>Заметки о выпуске пакета SDK для Windows Phone Silverlight
@@ -52,10 +53,5 @@ ms.openlocfilehash: df754a3002750e6ba0b71b664c1df84d506808a4
 * Первый выпуск Azure Mobile Engagement.
 * Конфигурация appId/sdkKey заменена конфигурацией строки подключения.
 * Улучшения безопасности.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

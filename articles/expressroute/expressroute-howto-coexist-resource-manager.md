@@ -1,6 +1,6 @@
 ---
-title: "Настройка сосуществующих подключений VPN типа ExpressRoute и &quot;сеть — сеть&quot; с помощью модели Azure Resource Manager | Документация Майкрософт"
-description: "В этой статье описывается настройка параллельных подключений ExpressRoute и VPN-подключений типа &quot;сеть — сеть&quot; для модели развертывания Resource Manager."
+title: "Настройка сосуществующих подключений VPN типа ExpressRoute и \"сеть — сеть\" с помощью модели Azure Resource Manager | Документация Майкрософт"
+description: "В этой статье описывается настройка параллельных подключений ExpressRoute и VPN-подключений типа \"сеть — сеть\" для модели развертывания Resource Manager."
 documentationcenter: na
 services: expressroute
 author: charwen
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: ffa791cf4c4be15645a67fef4e94bf6ebdc42a6a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
-
 
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Настройка параллельных подключений ExpressRoute и "сайт-сайт"

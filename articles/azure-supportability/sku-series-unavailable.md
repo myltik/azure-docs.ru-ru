@@ -20,7 +20,6 @@ ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="sku-series-unavailable"></a>Серия SKU недоступна
 В некоторых регионах определенные номера SKU недоступны автоматически для новых подписок.  Это может произойти, когда [в регионе вводятся в эксплуатацию более эффективные номера SKU](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) и популярность прежних версий SKU снижается.

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e9465afb560a73d74f853c19094b3ee75b8c470c
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="configure-a-docker-host-with-virtualbox"></a>Настройка узла Docker с помощью VirtualBox
@@ -65,9 +66,4 @@ ms.openlocfilehash: e9465afb560a73d74f853c19094b3ee75b8c470c
 
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

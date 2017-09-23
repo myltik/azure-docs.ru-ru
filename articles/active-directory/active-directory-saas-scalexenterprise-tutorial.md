@@ -19,7 +19,6 @@ ms.openlocfilehash: 0ebed0c2605862426384c0e219e52c9d626b6246
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Руководство по интеграции Azure Active Directory с ScaleX Enterprise
 
@@ -135,7 +134,7 @@ ms.lasthandoff: 05/23/2017
 
     b. Щелкните атрибут **emailaddress**, чтобы открыть окно "Изменить атрибут". Измените его значение с **user.mail** на **user.userprincipalname** и нажмите кнопку "ОК".
 
-    ![Настройка единого входа](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)    
+    ![Настройка единого входа](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
     
 5. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)**, а затем сохраните файл сертификата на компьютере.
 

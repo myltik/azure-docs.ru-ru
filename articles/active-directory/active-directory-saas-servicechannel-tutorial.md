@@ -19,7 +19,6 @@ ms.openlocfilehash: 7e1dad18ff0ae9a9102b789b2cb32e7b96ed3d38
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Руководство: интеграция Azure Active Directory с ServiceChannel
 
@@ -122,7 +121,7 @@ ms.lasthandoff: 05/09/2017
 4. Приложение ServiceChannel ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию атрибутов токена SAML. На следующем снимке экрана приведен пример. **NameIdentifier(идентификатор пользователя)** — это единственное обязательное утверждение, а значение по умолчанию — **user.userprincipalname**, однако ServiceChannel ожидает его сопоставления с **user.mail**. Если вы планируете включить JIT-подготовку пользователей, следует добавить следующие утверждения, как показано ниже. Утверждение **Роль** должно быть сопоставлено с **user.assignedroles**, содержащим роль пользователя.  
 
     Дополнительные инструкции по работе с утверждениями можно найти в руководстве по ServiceChannel [здесь](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example).
-      
+    
     ![Настройка единого входа](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 

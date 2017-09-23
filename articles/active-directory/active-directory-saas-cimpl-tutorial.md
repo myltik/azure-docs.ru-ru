@@ -19,7 +19,6 @@ ms.openlocfilehash: 24a0c89966c83e1b32367d4519ead98d76f5ac6f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>Руководство. Интеграция Azure Active Directory с Cimpl
 

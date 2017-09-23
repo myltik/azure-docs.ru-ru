@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 66ee6ce15e51b14366eac0512c899d1c425c6092
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Настройка веб-прокси для устройства StorSimple
@@ -139,10 +140,5 @@ ms.openlocfilehash: 66ee6ce15e51b14366eac0512c899d1c425c6092
 ## <a name="next-steps"></a>Дальнейшие действия
 * Если возникают проблемы при развертывании устройства или настройке параметров веб-прокси, см. статью [Устранение неполадок в развертывании устройства StorSimple](storsimple-troubleshoot-deployment.md).
 * Сведения об использовании службы диспетчера StorSimple см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

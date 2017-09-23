@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Предварительное утверждение с помощью программы сертификации Microsoft Azure
@@ -41,9 +42,4 @@ ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

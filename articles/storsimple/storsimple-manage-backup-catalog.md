@@ -20,7 +20,6 @@ ms.openlocfilehash: 5ee9855e1428c7a2d871d9c215d302c5c3b7101a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-backup-catalog"></a>Использование службы диспетчера StorSimple для управления каталогом резервного копирования
 ## <a name="overview"></a>Обзор

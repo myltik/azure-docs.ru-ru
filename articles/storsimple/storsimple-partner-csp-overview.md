@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d2b55f7be932161b086f0ec395faa16114d4a1f1
 ms.openlocfilehash: 3722fc1198549102bd4fd215b9ede04a3ca1fbf5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -43,9 +45,4 @@ StorSimple доступен по программе CSP в виде службы
 
 - Если у вас есть дополнительные вопросы о StorSimple в CSP, перейдите к статье [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple в CSP: часто задаваемые вопросы).
 - Если вы уже готовы развернуть StorSimple, перейдите к статье [Развертывание виртуального массива StorSimple для программы поставщика облачных решений](storsimple-partner-csp-deploy.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

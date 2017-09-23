@@ -19,7 +19,6 @@ ms.openlocfilehash: 934c0743464fd32398071aa3d07f7af76fdf7e3b
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Учебник. Интеграция Azure Active Directory с Panorama9
 

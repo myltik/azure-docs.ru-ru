@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
 ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/30/2017
 
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Видеоматериалы по безопасности в Azure на Channel 9
@@ -78,9 +79,4 @@ ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
 [Хранилище ключей Azure (Амит Бапат)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
 Амит Бапат (Amit Bapat) знакомит Скотта с хранилищем ключей Azure. С помощью хранилища ключей Azure можно хранить ключи в аппаратных модулях безопасности (HSM), а также шифровать ключи и небольшие секретные данные, например пароли. Это облачное и аппаратное управление секретами для Microsoft Azure.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

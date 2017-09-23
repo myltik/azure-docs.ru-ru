@@ -20,7 +20,6 @@ ms.openlocfilehash: 784d3ce9d8f926b00ac1c6fbf48a05c0b04f900a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Использование сводки по устройству в службе диспетчера устройств StorSimple
 

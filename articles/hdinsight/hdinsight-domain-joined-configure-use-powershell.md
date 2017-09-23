@@ -22,7 +22,6 @@ ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Настройка присоединенных к домену кластеров HDInsight (предварительная версия) с помощью Azure PowerShell
 Узнайте, как настроить кластер Azure HDInsight со службой Azure Active Directory (Azure AD) и платформой [Apache Ranger](http://hortonworks.com/apache/ranger/) с помощью Azure PowerShell. Предоставленный скрипт Azure PowerShell позволяет настроить конфигурацию быстро и без ошибок. Присоединенный к домену кластер HDInsight можно настроить только с помощью кластеров под управлением Linux. Дополнительные сведения см. в статье [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Введение в присоединенные к домену кластеры HDInsight).

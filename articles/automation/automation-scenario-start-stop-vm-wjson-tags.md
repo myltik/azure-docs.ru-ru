@@ -20,7 +20,6 @@ ms.openlocfilehash: af0bc6b24a403bd09092ac0a099c500d651d15b7
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Сценарий службы автоматизации Azure: создание расписания запуска и завершения работы виртуальной машины Azure с помощью тегов в формате JSON
 Часто клиентам необходимо планировать запуск и завершение работы виртуальных машин, чтобы уменьшить затраты на подписку или соблюсти деловые и технические требования.

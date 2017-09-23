@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 174546d59124296711731de6c8d8929bada56baf
 ms.openlocfilehash: 00b715507a7c3a4d784b800e7bf0c700f6ea6ff1
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/18/2016
 
 ---
 # <a name="protecting-your-network-in-azure-security-center"></a>Защита сети в центре безопасности Azure.
@@ -45,9 +46,4 @@ ms.openlocfilehash: 00b715507a7c3a4d784b800e7bf0c700f6ea6ff1
 * [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
 * [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

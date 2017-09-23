@@ -20,7 +20,6 @@ ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/11/2017
 
-
 ---
 
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Расширение дисков операционной системы на виртуальной машине Linux с помощью Azure CLI 1.0

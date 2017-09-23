@@ -21,7 +21,6 @@ ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Начало работы с соединителем Dropbox
 Подключитесь к Dropbox, чтобы управлять файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов в Dropbox.

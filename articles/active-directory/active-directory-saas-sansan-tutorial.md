@@ -19,7 +19,6 @@ ms.openlocfilehash: e1a9653d5feea910308cefabdbdfe3a6af44bbe4
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Руководство по интеграции Azure Active Directory с Sansan
 

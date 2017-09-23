@@ -1,5 +1,4 @@
 ---
-
 title: "Устранение лицензионных проблем группы в Azure Active Directory | Документация Майкрософт"
 description: "Узнайте, как с помощью группового лицензирования Azure Active Directory определить и устранить проблемы при назначении лицензий"
 services: active-directory
@@ -22,7 +21,6 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/08/2017
-
 
 ---
 

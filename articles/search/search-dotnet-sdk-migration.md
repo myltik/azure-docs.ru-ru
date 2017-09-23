@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3e2ad6b466ba4885ae14576b83d4c0f3010bab67
 ms.openlocfilehash: 9782454e3bfc697b63cde8aa28a14be0c393c36b
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/13/2017
-
 
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Обновление пакета SDK службы поиска Azure для .NET до версии 3

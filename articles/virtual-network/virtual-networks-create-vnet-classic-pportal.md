@@ -21,7 +21,6 @@ ms.openlocfilehash: 50d3ff63123a9de0b6c5758761e638dd2977df79
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-portal"></a>Создание (классической) виртуальной сети с помощью портала Azure
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

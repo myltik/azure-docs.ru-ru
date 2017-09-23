@@ -20,7 +20,6 @@ ms.openlocfilehash: a3e9b2d0a8c851939acd228d8086ddfc9f38a4c1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Преобразование данных с помощью действия Hive в фабрике данных Azure 
 > [!div class="op_single_selector" title1="Transformation Activities"]

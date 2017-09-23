@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
 ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Включение обмена данными между экземплярами роли в Azure
@@ -371,10 +372,5 @@ namespace WorkerRole1
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительная информация о [модели](cloud-services-model-and-package.md)облачной службы
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

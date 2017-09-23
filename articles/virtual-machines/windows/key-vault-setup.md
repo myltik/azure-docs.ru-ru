@@ -21,7 +21,6 @@ ms.openlocfilehash: a5083a5216efbfd76fd912ec48c2f0ec3b30c4a1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Настройка хранилища ключей для виртуальных машин в Azure Resource Manager
 

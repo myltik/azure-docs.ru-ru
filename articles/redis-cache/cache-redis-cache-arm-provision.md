@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
 ms.openlocfilehash: cce5d63e8bad2dd066cb4c28e2a8a9cb16c47953
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/27/2017
 
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Создание кэша Redis с помощью шаблона
@@ -131,10 +132,5 @@ ms.openlocfilehash: cce5d63e8bad2dd066cb4c28e2a8a9cb16c47953
 ### <a name="azure-cli"></a>Инфраструктура CLI Azure
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 045d5148cd3f12dac63c961ccf7c953d355ed725
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="assign-variables-in-sql-data-warehouse"></a>Назначение переменных в хранилище данных SQL
