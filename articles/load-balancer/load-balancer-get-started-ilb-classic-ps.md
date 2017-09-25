@@ -3,7 +3,7 @@ title: "Создание внутренней подсистемы баланс�
 description: "Узнайте, как создать внутренний балансировщик нагрузки в классической модели развертывания с помощью PowerShell."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management

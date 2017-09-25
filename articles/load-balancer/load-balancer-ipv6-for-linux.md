@@ -3,7 +3,7 @@ title: "Настройка DHCPv6 для виртуальных машин Linux
 description: "Узнайте, как настроить DHCPv6 для виртуальных машин Linux."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 keywords: "IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей"
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
@@ -24,6 +24,8 @@ ms.lasthandoff: 03/29/2017
 ---
 
 # <a name="configuring-dhcpv6-for-linux-vms"></a>Настройка DHCPv6 для виртуальных машин Linux
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 В некоторых образах виртуальных машин Linux в Azure Marketplace протокол DHCPv6 не настроен по умолчанию. Для поддержки IPv6 в используемом дистрибутиве ОС Linux необходимо настроить DHCPv6. В разных дистрибутивах Linux для настройки DHCPv6 применяются различные способы, так как они используют разные пакеты.
 

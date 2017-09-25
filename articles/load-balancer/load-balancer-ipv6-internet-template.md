@@ -3,7 +3,7 @@ title: "Развертывание подсистемы балансировки
 description: "Узнайте, как реализовать поддержку IPv6 для Azure Load Balancer и виртуальных машин с балансировкой нагрузки."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
@@ -30,6 +30,8 @@ ms.lasthandoff: 03/15/2017
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [Интерфейс командной строки Azure](load-balancer-ipv6-internet-cli.md)
 > * [Шаблон](load-balancer-ipv6-internet-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer является балансировщиком нагрузки 4-го уровня (TCP, UDP). Балансировщик нагрузки обеспечивает высокий уровень доступности, распределяя входящий трафик между работоспособными экземплярами службы в облачных службах или виртуальных машинах, определенных в наборе балансировщика нагрузки. Azure Load Balancer может также представить данные службы на нескольких портах, нескольких IP-адресах или обоими этими способами.
 

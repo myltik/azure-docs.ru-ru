@@ -3,7 +3,7 @@ title: "Общие сведения о поддержке IPv6 для Azure Load
 description: "Основные сведения о поддержке IPv6 для Azure Load Balancer и виртуальных машин с балансировкой нагрузки."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 keywords: "IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей"
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
 ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
@@ -24,6 +24,9 @@ ms.lasthandoff: 07/14/2017
 ---
 
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Общие сведения о поддержке IPv6 для Azure Load Balancer
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Балансировщики нагрузки для Интернета можно развертывать с использованием IPv6-адресов. Помимо подключения по протоколу IPv4 это дает следующие возможности:
 

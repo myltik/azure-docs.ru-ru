@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2016
+ms.date: 09/25/2017
 ms.author: chkuhtz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
@@ -23,6 +23,8 @@ ms.lasthandoff: 03/21/2017
 ---
 
 # <a name="multiple-vips-for-azure-load-balancer"></a>Несколько виртуальных IP-адресов для Azure Load Balancer
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer позволяет выполнять балансировку нагрузки между службами на нескольких портах, нескольких IP-адресах или обоими этими способами. Вы можете воспользоваться определениями общедоступного и внутреннего балансировщика нагрузки для выполнения балансировки потоков в наборе виртуальных машин.
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 5/31/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
 ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
@@ -23,6 +23,8 @@ ms.lasthandoff: 07/13/2017
 ---
 
 # <a name="understanding-outbound-connections-in-azure"></a>Общие сведения об исходящих подключениях в Azure
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Виртуальные машины в Azure могут взаимодействовать с конечными точками за пределами Azure в пространстве общедоступных IP-адресов. Когда виртуальная машина инициирует исходящий поток к месту назначения в пространстве общедоступных IP-адресов, Azure сопоставляет частный IP-адрес виртуальной машины с общедоступным IP-адресом и разрешает обратный трафик на виртуальную машину.
 

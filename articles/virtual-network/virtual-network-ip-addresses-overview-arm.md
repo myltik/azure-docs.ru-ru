@@ -147,4 +147,3 @@ ms.lasthandoff: 08/21/2017
 * [Развертывание виртуальной машины со статическим общедоступным IP-адресом с использованием портала Azure](virtual-network-deploy-static-pip-arm-portal.md)
 * [Развертывание виртуальной машины со статическим общедоступным IP-адресом с помощью шаблона](virtual-network-deploy-static-pip-arm-template.md)
 * [Развертывание виртуальной машины со статическим частным IP-адресом с помощью портала Azure](virtual-networks-static-private-ip-arm-pportal.md)
-
