@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8b3a538fc0fe34d0b7af8a99510cfb19abd32d55
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Службы Azure Analysis Services
@@ -39,7 +39,7 @@ ms.lasthandoff: 08/17/2017
 Табличные модели помогают выполнять быструю разработку и использовать широкие возможности настройки. В табличных моделях разработчики могут использовать для описания объектов моделей табличную модель объектов (TOM). TOM предоставляется в JSON с помощью [языка TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) и языка описания данных AMO в пространстве имен [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 
 ## <a name="better-with-azure"></a>Оптимизация с помощью Azure
-Службы Azure Analysis Services интегрируются с другими службами Azure, позволяя создавать сложные аналитические решения. Интеграция с [Azure Active Directory](../active-directory/active-directory-whatis.md) обеспечивает защищенный доступ на основе ролей к критически важным данным. Вы можете интегрировать службы с любым конвейером [фабрики данных Azure](../data-factory/data-factory-introduction.md), добавив действие, которое загружает данные в модель. Для упрощенной оркестрации моделей с применением пользовательского кода можно использовать [службу автоматизации Azure](../automation/automation-intro.md) и [Функции Azure](../azure-functions/functions-overview.md).
+Службы Azure Analysis Services интегрируются с другими службами Azure, позволяя создавать сложные аналитические решения. Интеграция с [Azure Active Directory](../active-directory/active-directory-whatis.md) обеспечивает защищенный доступ на основе ролей к критически важным данным. Вы можете интегрировать службы с любым конвейером [фабрики данных Azure](../data-factory/introduction.md), добавив действие, которое загружает данные в модель. Для упрощенной оркестрации моделей с применением пользовательского кода можно использовать [службу автоматизации Azure](../automation/automation-intro.md) и [Функции Azure](../azure-functions/functions-overview.md).
 
 ## <a name="get-up-and-running-quickly"></a>Быстрая настройка и подготовка к работе
 На портале Azure вы можете [создать сервер](analysis-services-create-server.md) за считанные минуты. А с помощью PowerShell и [шаблонов](../azure-resource-manager/resource-manager-create-first-template.md) Azure Resource Manager можно подготовить серверы, используя декларативный шаблон. Используя один шаблон, можно развернуть несколько служб, включая такие компоненты Azure, как учетные записи хранения и Функции Azure. 

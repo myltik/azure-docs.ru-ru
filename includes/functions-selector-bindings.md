@@ -3,6 +3,7 @@
 > * [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)  
 > * [Концентраторы событий](../articles/azure-functions/functions-bindings-event-hubs.md)  
 > * [HTTP или webhook](../articles/azure-functions/functions-bindings-http-webhook.md)  
+> * [Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)  
 > * [Мобильные приложения](../articles/azure-functions/functions-bindings-mobile-apps.md)  
 > * [Центры уведомлений](../articles/azure-functions/functions-bindings-notification-hubs.md)  
 > * [Служебная шина](../articles/azure-functions/functions-bindings-service-bus.md)  

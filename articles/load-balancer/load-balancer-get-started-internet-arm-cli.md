@@ -3,7 +3,7 @@ title: "Создание доступной в Интернете подсист
 description: "Узнайте, как создать балансировщик нагрузки для Интернета в диспетчере ресурсов с помощью интерфейса командной строки Azure."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3b1780033cbc8aa3e108a213a4d2bfd0332fd7d7
-ms.lasthandoff: 03/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ba36b7f6d2ae3cc4d63829ffb757ff7b311e467b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Создание балансировщика нагрузки для Интернета с помощью Azure CLI
@@ -28,6 +29,9 @@ ms.lasthandoff: 03/21/2017
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Интерфейс командной строки Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Шаблон](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -85,7 +89,7 @@ ms.lasthandoff: 03/21/2017
     ```
 
    > [!IMPORTANT]
-   > Балансировщик нагрузки будет использовать метку домена общедоступного IP-адреса в качестве своего полного доменного имени (FQDN). В этом заключается отличие от классического развертывания, при котором в качестве полного доменного имени балансировщика нагрузки используется облачная служба.
+   > Балансировщик нагрузки использует метку домена общедоступного IP-адреса в качестве своего полного доменного имени (FQDN). В этом заключается отличие от классического развертывания, при котором в качестве полного доменного имени балансировщика нагрузки используется облачная служба.
    > В этом примере используется полное доменное имя *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## <a name="create-a-load-balancer"></a>Создание балансировщика нагрузки
