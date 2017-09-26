@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9a33e83c7453d5b80043599acca3ac4310446562
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -79,7 +79,7 @@ Azure AD обеспечивает защиту от атак методом по
 1. Войдите в Graph Explorer как глобальный администратор клиента. При необходимости предоставьте доступ для запрошенных разрешений.
 2. Нажмите кнопку "Изменить разрешения" и выберите разрешение "Directory.ReadWrite.All".
 3. Настройте запрос к API Graph следующим образом: установите версию в "BETA", тип запроса — в "POST" и URL-адрес в `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Скопируйте и вставьте следующий запрос JSON в поле "Текст запроса". Измените параметры смарт-блокировки соответствующим образом и используйте случайный идентификатор GUID в качестве `templateId`.
+4. Скопируйте и вставьте следующий запрос JSON в поле "Текст запроса".
 5. Нажмите кнопку "Выполнить запрос" для просмотра параметров смарт-блокировки вашего клиента.
 
 ```

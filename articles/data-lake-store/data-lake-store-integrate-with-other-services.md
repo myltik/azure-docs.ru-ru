@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 0230ec0e4fc4ff7fe98a7c3e82f252bd8dd66d16
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Интеграция хранилища озера данных с другими службами Azure
@@ -41,7 +41,7 @@ ms.lasthandoff: 08/29/2017
 ## <a name="use-data-lake-store-with-azure-data-factory"></a>Использование хранилища озера данных с фабрикой данных Azure
 Можно использовать [фабрику данных Azure](https://azure.microsoft.com/services/data-factory/) для приема данных из таблиц Azure, Базы данных SQL Azure, хранилища данных SQL Azure, больших двоичных объектов хранилища Azure и локальных баз данных. Фабрика данных Azure является ведущим компонентом экосистемы Azure, ее можно использовать для координации приема данных из этих источников в хранилище озера данных Azure.
 
-Инструкции по использованию фабрики данных Azure c Data Lake Store см. в разделе [Перемещение данных из хранилища озера данных и обратно с использованием фабрики данных](../data-factory/data-factory-azure-datalake-connector.md).
+Инструкции по использованию фабрики данных Azure c Data Lake Store см. в разделе [Перемещение данных из хранилища озера данных и обратно с использованием фабрики данных](../data-factory/connector-azure-data-lake-store.md).
 
 ## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>Копирование данных из больших двоичных объектов хранилища Azure в хранилище озера данных
 Хранилище озера данных Azure предоставляет средство командной строки AdlCopy для копирования данных из хранилища больших двоичных объектов Azure в учетную запись хранилища озера данных. Дополнительные сведения см. в статье [Копирование данных из больших двоичных объектов службы хранилища Azure в Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md).

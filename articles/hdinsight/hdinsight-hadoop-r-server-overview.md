@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a9f61ec7c051ccdd867aec94121347db19b059b5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Основные сведения об R Server и возможностях открытого кода R в HDInsight
@@ -32,7 +32,7 @@ R Server в HDInsight предоставляет новейшие возможн
 
 Для подключения к кластеру и выполнения скриптов на языке R удобно использовать граничный узел кластеров. На граничном узле вы можете выполнять распараллеленные распределенные функции ScaleR на ядрах сервера граничного узла. Кроме того, вы можете выполнять эти функции на узлах кластера с помощью контекста вычислений Hadoop Map Reduce или Spark ScaleR.
 
-Модели или прогнозы, которые получаются в результате анализа, можно загрузить для локального использования. Их также можно использовать в любой службе Azure, в частности в [веб-службе](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md) [Студия машинного обучения Microsoft Azure](http://studio.azureml.net).
+Модели или прогнозы, которые получаются в результате анализа, можно загрузить для локального использования. Их также можно использовать в любой службе Azure, в частности в [веб-службе](../machine-learning/studio/publish-a-machine-learning-web-service.md) [Студия машинного обучения Microsoft Azure](http://studio.azureml.net).
 
 ## <a name="get-started-with-r-on-hdinsight"></a>Начало работы с R Server в HDInsight
 Чтобы добавить R Server в кластер HDInsight, необходимо выбрать тип кластера R Server при создании кластера HDInsight на портале Azure. Тип кластера R Server включает в себя R Server на узлах данных кластера и R Server на граничном узле, который служит платформой для анализа данных на базе R Server. Пошаговые инструкции по созданию кластера см. в статье [Приступая к работе с R Server в HDInsight](hdinsight-hadoop-r-server-get-started.md).

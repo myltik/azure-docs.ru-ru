@@ -16,16 +16,16 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Загрузка данных в хранилище данных SQL с помощью фабрики данных
 
-Фабрику данных Azure можно использовать для загрузки данных в хранилище данных SQL Azure из любых [поддерживаемых исходных хранилищ данных](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats). Например, с помощью фабрики данных можно загрузить данные из базы данных SQL Azure или базы данных Oracle в хранилище данных SQL. В руководстве в этой статье показано, как загрузить данные из локальной базы данных SQL Server в хранилище данных SQL.
+Фабрику данных Azure можно использовать для загрузки данных в хранилище данных SQL Azure из любых [поддерживаемых исходных хранилищ данных](../data-factory/copy-activity-overview.md). Например, с помощью фабрики данных можно загрузить данные из базы данных SQL Azure или базы данных Oracle в хранилище данных SQL. В руководстве в этой статье показано, как загрузить данные из локальной базы данных SQL Server в хранилище данных SQL.
 
 **Оценка времени**. Для работы с этим руководством потребуется около 10–15 минут (при условии, что предварительные требования уже выполнены).
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 08/21/2017
     > [!NOTE]
     > Если исходное хранилище данных расположено в локальной среде или в виртуальной машине IaaS Azure, то шлюз управления данными указывать необязательно. Шлюз связан с фабрикой данных по схеме "один к одному". Он не может использоваться другой фабрикой данных, но может использоваться несколькими задачами загрузки в одной фабрике данных. Шлюз можно использовать для подключения к нескольким хранилищам данных при выполнении задач загрузки данных.
     >
-    > Дополнительные сведения о шлюзе см. в статье [Шлюз управления данными](../data-factory/data-factory-data-management-gateway.md).
+    > Дополнительные сведения о шлюзе см. в статье [Шлюз управления данными](../data-factory/v1/data-factory-data-management-gateway.md).
 
 3. Откроется диалоговое окно **Создание шлюза**. В качестве имени введите **GatewayForDWLoading** и нажмите кнопку **Создать**.
 
@@ -154,9 +154,9 @@ ms.lasthandoff: 08/21/2017
 
 Чтобы узнать больше о фабрике данных Azure и ее возможностях по перемещению данных, ознакомьтесь со следующими статьями:
 
-- [Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке](../data-factory/data-factory-introduction.md)
-- [Перемещение данных с помощью действия копирования](../data-factory/data-factory-data-movement-activities.md)
-- [Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+- [Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке](../data-factory/introduction.md)
+- [Перемещение данных с помощью действия копирования](../data-factory/copy-activity-overview.md)
+- [Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure](../data-factory/connector-azure-sql-data-warehouse.md)
 
 Чтобы узнать, как просматривать данные в хранилище данных SQL, ознакомьтесь со следующими статьями:
 
@@ -164,5 +164,5 @@ ms.lasthandoff: 08/21/2017
 - [Визуализация данных с помощью Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 
 <!-- Azure references -->
-[портал Azure]: https://portal.azure.com
+[портале Azure]: https://portal.azure.com
 

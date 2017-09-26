@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 2efd8e9981ac5d8f2ff28df9ffe1e6b5c01ba953
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ea38d3b47ff4b50446f4ffdc3dc544fdcf938e7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Миграция из кластера HDInsight под управлением Windows на кластер под управлением Linux
@@ -256,8 +256,8 @@ Ambari имеет систему предупреждений, которые м
 
 Пользовательские действия .NET фабрики данных Azure в настоящее время не поддерживаются в кластерах HDInsight под управлением Linux. Вместо этого следует использовать один из следующих методов для реализации пользовательских действий в рамках конвейера ADF.
 
-* Выполните действия .NET в пуле пакетной службы Azure. Ознакомьтесь с разделом "Использование связанной пакетной службы Azure" статьи [Использование настраиваемых действий в конвейере фабрики данных Azure](../data-factory/data-factory-use-custom-activities.md).
-* Реализуйте действие как действие MapReduce. Дополнительные сведения см. в разделе [Вызов программы MapReduce из фабрики данных](../data-factory/data-factory-map-reduce.md).
+* Выполните действия .NET в пуле пакетной службы Azure. Ознакомьтесь с разделом "Использование связанной пакетной службы Azure" статьи [Использование настраиваемых действий в конвейере фабрики данных Azure](../data-factory/transform-data-using-dotnet-custom-activity.md).
+* Реализуйте действие как действие MapReduce. Дополнительные сведения см. в разделе [Вызов программы MapReduce из фабрики данных](../data-factory/transform-data-using-hadoop-map-reduce.md).
 
 ### <a name="line-endings"></a>Символы конца строки
 

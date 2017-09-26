@@ -16,17 +16,17 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 249a8bfb6cab66af19fbf15cb270c9377f49358f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1e1c3724462a4d2a67eab3ef42867d2aeb5d3fa1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Масштабирование заданий Stream Analytics с помощью функций машинного обучения Azure
 В большинстве случаев настроить задание Stream Analytics и запустить демонстрационные данные можно без особых усилий. А что делать, если необходимо выполнить то же задание с большим объемом данных? Мы должны разобраться, как настроить задание Stream Analytics таким образом, чтобы его можно было масштабировать. В этом документе основное внимание уделено специфическим аспектам масштабирования заданий Stream Analytics с помощью функций машинного обучения. Общие сведения о масштабировании заданий Stream Analytics см. в статье [Масштабирование заданий](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Что такое функция машинного обучения Azure в Stream Analytics?
-Функция машинного обучения в Stream Analytics может использоваться как обычный вызов функции в языке запросов Stream Analytics. На самом же деле вызовы функций являются запросами веб-службы машинного обучения Azure. Веб-службы машинного обучения поддерживают пакетную обработку нескольких строк (которые называются мини-пакетом) в одном вызове API веб-службы, что способствует повышению общей пропускной способности. Дополнительные сведения можно найти в следующих статьях: [Функции машинного обучения Azure в Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) и [Веб-службы машинного обучения Azure](../machine-learning/machine-learning-consume-web-services.md).
+Функция машинного обучения в Stream Analytics может использоваться как обычный вызов функции в языке запросов Stream Analytics. На самом же деле вызовы функций являются запросами веб-службы машинного обучения Azure. Веб-службы машинного обучения поддерживают пакетную обработку нескольких строк (которые называются мини-пакетом) в одном вызове API веб-службы, что способствует повышению общей пропускной способности. Дополнительные сведения можно найти в следующих статьях: [Функции машинного обучения Azure в Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) и [Веб-службы машинного обучения Azure](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Настройка задания Stream Analytics с помощью функций машинного обучения
 При настройке функции машинного обучения для задания Stream Analytics необходимо учитывать два параметра: размер пакета, содержащего вызов функции машинного обучения, и количество единиц потоковой передачи (SU), подготовленных для задания Stream Analytics. Чтобы определить соответствующие значения для этих параметров, сначала нужно решить, что для вас приоритетнее — задержка или пропускная способность (задержка задания Stream Analytics или пропускная способность каждой единицы потоковой передачи). К заданию всегда можно добавить SU для увеличения пропускной способности оптимально секционированного запроса Stream Analytics, хотя дополнительные единицы SU увеличивают стоимость выполнения задания.
@@ -45,7 +45,7 @@ ms.lasthandoff: 08/29/2017
 
 Дополнительный параметр, который следует учитывать, — максимальное количество одновременных вызовов на стороне веб-службы машинного обучения. Для него рекомендуется задать максимальное значение (в настоящее время 200).
 
-Дополнительные сведения об этом параметре см. в статье [Масштабирование веб-службы машинного обучения](../machine-learning/machine-learning-scaling-webservice.md).
+Дополнительные сведения об этом параметре см. в статье [Масштабирование веб-службы машинного обучения](../machine-learning/studio/scaling-webservice.md).
 
 ## <a name="example--sentiment-analysis"></a>Пример: анализ мнений
 В следующем примере показано задание Stream Analytics с функцией машинного обучения для анализа мнений, как описано в руководстве [Общие сведения о Stream Analytics и интеграции машинного обучения](stream-analytics-machine-learning-integration-tutorial.md).

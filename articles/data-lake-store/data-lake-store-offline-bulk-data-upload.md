@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b469c0ebe9838a1ea986cff3043e3008941e9aa9
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Использование службы импорта и экспорта Azure для автономного копирования данных в Data Lake Store
@@ -70,7 +70,7 @@ ms.lasthandoff: 08/21/2017
 ## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-store"></a>Копирование данных из больших двоичных объектов службы хранилища Azure в Azure Data Lake Store
 После того как задание импорта перейдет в состояние "Завершено", можно проверить, доступны ли данные в указанных больших двоичных объектах службы хранилища Azure. Затем можно переместить данные из больших двоичных объектов в Azure Data Lake Store, используя различные методы. Сведения о всех доступных вариантах передачи данных см. в разделе [Прием данных в Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store).
 
-В этом разделе указаны определения JSON, с помощью которых можно создать конвейер фабрики данных Azure для копирования данных. Эти определения JSON доступны на [портале Azure](../data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md), а также в [Visual Studio](../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](../data-factory/data-factory-copy-activity-tutorial-using-powershell.md).
+В этом разделе указаны определения JSON, с помощью которых можно создать конвейер фабрики данных Azure для копирования данных. Эти определения JSON доступны на [портале Azure](../data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md), а также в [Visual Studio](../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](../data-factory/v1/data-factory-copy-activity-tutorial-using-powershell.md).
 
 ### <a name="source-linked-service-azure-storage-blob"></a>Связанная служба источника (большой двоичный объект службы хранилища Azure)
 ````
@@ -188,7 +188,7 @@ ms.lasthandoff: 08/21/2017
     }
 }
 ````
-Дополнительные сведения см. в статье [Перемещение данных в Azure Data Lake Store и обратно с помощью фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md).
+Дополнительные сведения см. в статье [Перемещение данных в Azure Data Lake Store и обратно с помощью фабрики данных Azure](../data-factory/connector-azure-data-lake-store.md).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Воссоздание файлов данных в Azure Data Lake Store
 Мы начали работу с файлом размером 319 ГБ и разделили его на файлы меньшего размера для передачи с помощью службы импорта и экспорта Azure. Теперь после передачи данных в Azure Data Lake Store мы можем воссоздать исходный файл. Для этого вы также можете воспользоваться следующими командлетами Azure PowerShell.

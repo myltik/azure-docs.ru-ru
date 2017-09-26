@@ -12,22 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: f0bcbdb03fbb70ff91ac3a56974a88eb1b26c245
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 38b107513e72635fd034bb86d0d866bcb0fcb8e4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Подробное техническое руководство по простому единому входу Azure Active Directory
 
 В этой статье приводятся технические сведения о работе функции простого единого входа Azure Active Directory.
-
->[!IMPORTANT]
->Функция простого единого входа находится на этапе предварительной версии.
 
 ## <a name="how-does-seamless-sso-work"></a>Как работает простой единый вход?
 
@@ -38,15 +35,15 @@ ms.lasthandoff: 08/04/2017
 ### <a name="how-does-set-up-work"></a>Как выполняется настройка?
 
 Простой единый вход включается с помощью Azure AD Connect, как показано [здесь](active-directory-aadconnect-sso-quick-start.md). При включении функции выполняются следующие действия:
-- В локальной службе Active Directory (AD) создается учетная запись компьютера с именем `AZUREADSSOACCT` (представляет Azure AD).
+- В локальной службе Active Directory (AD) создается учетная запись компьютера с именем `AZUREADSSOACC` (представляет Azure AD).
 - С помощью Azure AD безопасным образом предоставляется ключ расшифровки Kerberos учетной записи компьютера.
 - Кроме того, создаются два имени субъектов-служб (SPN) Kerberos, представляющие URL-адреса, используемые при входе в Azure AD.
 
 >[!NOTE]
-> Учетная запись компьютера и имена участников-служб Kerberos создаются в каждом лесу AD, который синхронизируется с Azure AD (с помощью Azure AD Connect) и для пользователей которого должен иметься простой единый вход. Переместите учетную запись `AZUREADSSOACCT` компьютера в подразделение (OU), где хранятся другие учетные записи компьютеров, чтобы управлять им таким же образом и избежать удаления.
+> Учетная запись компьютера и имена участников-служб Kerberos создаются в каждом лесу AD, который синхронизируется с Azure AD (с помощью Azure AD Connect) и для пользователей которого должен иметься простой единый вход. Переместите учетную запись `AZUREADSSOACC` компьютера в подразделение (OU), где хранятся другие учетные записи компьютеров, чтобы управлять им таким же образом и избежать удаления.
 
 >[!IMPORTANT]
->Настоятельно рекомендуется, чтобы вы [меняли ключ расшифровки Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) для учетной записи компьютера `AZUREADSSOACCT` хотя бы раз в 30 дней.
+>Настоятельно рекомендуется, чтобы вы [меняли ключ расшифровки Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) для учетной записи компьютера `AZUREADSSOACC` хотя бы раз в 30 дней.
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>Как работает вход с функцией простого единого входа?
 
@@ -60,7 +57,7 @@ ms.lasthandoff: 08/04/2017
 
 3. Пользователь вводит свое имя на странице входа в Azure AD.
 4. С помощью JavaScript, выполняемого в фоновом режиме, Azure AD запрашивает у браузера билет Kerberos (возвращается ответ 401 — не авторизовано).
-5. В свою очередь браузер запрашивает в Active Directory билет для учетной записи компьютера `AZUREADSSOACCT` (которая представляет Azure AD).
+5. В свою очередь браузер запрашивает в Active Directory билет для учетной записи компьютера `AZUREADSSOACC` (которая представляет Azure AD).
 6. Active Directory находит учетную запись компьютера и возвращает браузеру билет Kerberos, зашифрованный с использованием секрета этой учетной записи компьютера.
 7. Браузер отправляет билет Kerberos, полученный из Active Directory, в Azure AD (по одному из [URL-адресов Azure AD, предварительно добавленных в настройки зоны интрасети браузера](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
 8. Azure AD расшифровывает билет Kerberos, который содержит удостоверение пользователя, выполнившего вход в корпоративное устройство, с помощью полученного ранее общего ключа.
