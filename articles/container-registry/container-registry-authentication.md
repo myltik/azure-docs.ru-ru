@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: aa2a6bf3d7d9ec22020036851fc0f2bca37e31bf
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 75c5f00255e1a55dd84ba0cf17dbef56b0253334
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Аутентификация с помощью частного реестра контейнеров Docker
@@ -53,7 +53,7 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 Для реестра можно назначить несколько субъектов-служб. Это позволяет определять доступ для разных пользователей и приложений. Субъекты-службы также позволяют выполнять автономное подключение к реестру в сценариях DevOps и разработки, как в приведенных ниже примерах.
 
-  * Развертывания контейнеров из реестра в системы управления, в том числе DC/OS, Docker Swarm и Kubernetes. Реестры контейнеров также можно отправлять в связанные службы Azure, например в [службу контейнеров](../container-service/index.yml), [службу приложений](../app-service/index.md), [пакетную службу](../batch/index.md), [Service Fabric](/azure/service-fabric/) и другие.
+  * Развертывания контейнеров из реестра в системы управления, в том числе DC/OS, Docker Swarm и Kubernetes. Реестры контейнеров также можно отправлять в связанные службы Azure, например в [службу контейнеров](../container-service/index.yml), [службу приложений](../app-service/index.yml), [пакетную службу](../batch/index.md), [Service Fabric](/azure/service-fabric/) и другие.
 
   * Решения непрерывной интеграции и развертывания (например, Visual Studio Team Services или Jenkins), создающие образы контейнеров и отправляющие их в реестр.
 
