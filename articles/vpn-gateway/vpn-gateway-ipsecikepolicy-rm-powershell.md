@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 798014b6e8d4495db99ef2e2d2ea487ae7d02fd0
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Настройка политики IPsec/IKE для VPN-подключений типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть"
@@ -74,9 +74,24 @@ ms.lasthandoff: 08/16/2017
 |  |  |
 
 > [!IMPORTANT]
-> 1. **Если для шифрования IPsec используется алгоритм GCMAES, необходимо указать одинаковую длину алгоритма и ключа для проверки целостности IPsec, например GCMAES128 в обоих случаях.**
-> 2. Время существования SA основного режима IKEv2 составляет 28 800 секунд на VPN-шлюзах Azure
-> 3. Если задать для параметра UsePolicyBasedTrafficSelectors значение $True для подключения, это позволит настроить VPN-шлюз Azure, чтобы локально подключаться к брандмауэру VPN на основе политик. Если вы включили параметр PolicyBasedTrafficSelectors, необходимо обеспечить соответствующие селекторы трафика для VPN-устройства, которые определены с помощью всех комбинаций префиксов локальной сети (шлюза локальной сети) с префиксами виртуальной сети Azure, а не разрешать совпадение любого префикса с любым. Например, если префиксы локальной сети — 10.1.0.0/16 и 10.2.0.0/16, а префиксы виртуальной сети — 192.168.0.0/16 и 172.16.0.0/16, необходимо указать следующие селекторы трафика:
+> 1. **Ваша конфигурация локальных VPN-устройств должна совпадать со следующими алгоритмами и параметрами, указанными в политике Azure IPsec/IKE, или содержать их:**
+>    * алгоритм шифрования IKE (основной режим или фаза 1);
+>    * алгоритм обеспечения целостности IKE (основной режим или фаза 1);
+>    * группа DH (основной режим или фаза 1);
+>    * алгоритм шифрования IKE (основной режим или фаза 2);
+>    * алгоритм обеспечения целостности IPsec (быстрый режим или фаза 2);
+>    * группа PFS (быстрый режим или фаза 2);
+>    * селектор трафика (если используется UsePolicyBasedTrafficSelectors).
+>    * Время существования SA указывается исключительно в локальных спецификациях, эти значения не обязательно должны совпадать.
+>
+> 2. **Если для шифрования IPsec используется алгоритм GCMAES, необходимо указать одинаковую длину алгоритма и ключа для проверки целостности IPsec, например GCMAES128 в обоих случаях.**
+> 3. В таблице выше:
+>    * IKEv2 соответствует основному режиму или фазе 1;
+>    * IPsec соответствует быстрому режиму или фазе 2;
+>    * группа DH определяет группу Диффи — Хеллмана, которая используется в основном режиме или фазе 1;
+>    * группа PFS определяет группу Диффи — Хеллмана, которая используется в быстром режиме или фазе 2.
+> 4. Время существования SA основного режима IKEv2 составляет 28 800 секунд на VPN-шлюзах Azure
+> 5. Если задать для параметра UsePolicyBasedTrafficSelectors значение $True для подключения, это позволит настроить VPN-шлюз Azure, чтобы локально подключаться к брандмауэру VPN на основе политик. Если вы включили параметр PolicyBasedTrafficSelectors, необходимо обеспечить соответствующие селекторы трафика для VPN-устройства, которые определены с помощью всех комбинаций префиксов локальной сети (шлюза локальной сети) с префиксами виртуальной сети Azure, а не разрешать совпадение любого префикса с любым. Например, если префиксы локальной сети — 10.1.0.0/16 и 10.2.0.0/16, а префиксы виртуальной сети — 192.168.0.0/16 и 172.16.0.0/16, необходимо указать следующие селекторы трафика:
 >    * 10.1.0.0/16 <====> 192.168.0.0/16;
 >    * 10.1.0.0/16 <====> 172.16.0.0/16;
 >    * 10.2.0.0/16 <====> 192.168.0.0/16;
@@ -169,7 +184,7 @@ $vnet1      = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
 $subnet1    = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
 $gw1ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
 
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance
+New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
 
 New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
@@ -181,19 +196,19 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 Следующий пример скрипта создает политику IPsec/IKE со следующими параметрами и алгоритмами:
 
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS24, SA Lifetime 7200 seconds & 2048KB
+* IPsec: AES256, SHA256, PFS None, SA Lifetime 7200 seconds & 102400000KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
 ```
 
 Если для IPsec используется алгоритм GCMAES, необходимо указать одинаковую длину ключа и алгоритма для шифрования и целостности данных IPsec, например:
 
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: **GCMAES256, GCMAES256**, PFS24, время существования SA (7200 секунд), 2048 КБ
+* IPsec: **GCMAES256, GCMAES256**, PFS None, SA Lifetime 7200 seconds & 102400000KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2) Создание подключения VPN типа "сеть — сеть" с помощью политики IPsec/IKE
