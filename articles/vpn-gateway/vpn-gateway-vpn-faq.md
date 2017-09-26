@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 6a66289ee52eca02a7ab416f5bcf55e6cff8b720
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>VPN-шлюз: вопросы и ответы
@@ -113,9 +113,9 @@ VPN Azure использует проверку подлинности с пом
 * Портал Azure: перейдите к классической виртуальной сети и последовательно выберите "VPN-подключения" > "VPN-подключения типа "сеть — сеть" > Local site name (Имя локального сайта) > "Локальный сайт" > Client address space (Адресное пространство клиента). 
 * Классический портал: на странице "Сети" в разделе локальных сетей добавьте все диапазоны, которые нужно отправить через шлюз виртуальной сети. 
 
-### <a name="can-i-configure-forced-tunneling"></a>Можно ли настроить принудительное туннелирование?
+### <a name="can-i-configure-force-tunneling"></a>Можно ли настроить принудительное туннелирование?
 
-Да. См. статью [Настройка принудительного туннелирования с помощью классической модели развертывания](vpn-gateway-about-forced-tunneling.md).
+Да. См. руководство по использованию [принудительного туннелирования](vpn-gateway-about-forced-tunneling.md).
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Можно ли настроить собственный VPN-сервер в Azure и использовать его для подключения к локальной сети?
 
@@ -159,9 +159,13 @@ VPN Azure использует проверку подлинности с пом
 
 Другие программные решения VPN должны работать с нашим шлюзом при условии, что они соответствуют реализации промышленного стандарта IPsec. Для получения инструкций по настройке и поддержке обратитесь к поставщику программного обеспечения.
 
-## <a name="P2S"></a>Подключения типа "точка — сеть"
+## <a name="P2S"></a>Собственная аутентификация Azure на основе сертификата при подключениях типа "точка — сеть"
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="point-to-site---radius-authentication"></a>Аутентификация RADIUS при подключениях типа "точка — сеть"
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>Подключения типа "виртуальная сеть — виртуальная сеть" и многосайтовые подключения
 
