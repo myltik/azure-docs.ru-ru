@@ -146,7 +146,8 @@ ext install usql-vscode-ext
                       D( DepID, DepName );
          
         OUTPUT @departments
-            TO “/Output/departments.csv”
+            TO "/Output/departments.csv"
+        USING Outputters.Csv();
 
     Этот скрипт создает в папке/output файл departments.csv с некоторыми данными.
 
