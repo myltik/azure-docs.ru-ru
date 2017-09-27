@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: f96b9b212b9322d0677e49ff95184d0feccca2df
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: be2e8fe12dee88ccf81faaa114056a29e03881bd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Создание и экспорт сертификатов для подключений типа "точка-сеть" с помощью PowerShell в Windows 10
@@ -130,11 +130,11 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 
 ## <a name="install"></a>Установка экспортированного сертификата клиента
 
-[!INCLUDE [Install client certificate](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
+См. инструкции по [установке сертификата клиента для подключений типа "точка — сеть"](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Продолжайте настраивать параметры конфигурации типа "точка-сеть". 
+Продолжайте настраивать параметры конфигурации типа "точка-сеть".
 
-* Инструкции для модели развертывания с помощью **Resource Manager** см. в статье [Настройка подключения типа "точка — сеть" к виртуальной сети с помощью портала Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
+* При использовании модели развертывания на основе **Resource Manager** см. инструкции по [настройке подключения типа "точка — сеть" с использованием собственной аутентификации Azure на основе сертификата](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * Инструкции для **классической** модели развертывания см. в статье [Настройка подключения типа "точка — сеть" к виртуальной сети с помощью портала Azure (классическая модель)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
