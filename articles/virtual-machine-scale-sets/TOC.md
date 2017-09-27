@@ -2,7 +2,7 @@
 ## [Что такое наборы масштабирования виртуальных машин?](virtual-machine-scale-sets-overview.md)
 
 # Начало работы
-## [Развертывание масштабируемого набора с помощью портала](virtual-machine-scale-sets-portal-create.md)
+## [Развертывание масштабируемого набора с помощью портала Azure](virtual-machine-scale-sets-portal-create.md)
 ## [Развертывание масштабируемого набора с помощью PowerShell или Azure CLI](virtual-machine-scale-sets-create.md)
 ## [Развертывание приложения автомасштабирования с помощью шаблона](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -17,9 +17,9 @@
 ### [Автоматическое масштабирование на основе метрик гостевой виртуальной машины с помощью шаблона масштабируемого набора Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Развернуть
-### [Создание с помощью портала](virtual-machine-scale-sets-portal-create.md)
+### [Создание с помощью портала Azure](virtual-machine-scale-sets-portal-create.md)
 ### [Создание с помощью Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Создание с помощью PowerShell или Azure CLI](virtual-machine-scale-sets-create.md)
+### [Создание с помощью Azure PowerShell или Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Масштабируемый набор с управляемыми дисками](virtual-machine-scale-sets-managed-disks.md)
 ### [Масштабируемый набор Linux с автомасштабированием](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Масштабируемый набор Windows с автомасштабированием](virtual-machine-scale-sets-windows-autoscale.md)
@@ -31,7 +31,7 @@
 
 
 ## Управление
-### [Масштабируемый набор Windows с помощью PowerShell](virtual-machine-scale-sets-windows-manage.md)
+### [Масштабируемый набор Windows с помощью Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Автомасштабирование и масштабируемые наборы](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Расширенное автомасштабирование](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Вертикальное масштабирование в масштабируемом наборе](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -47,7 +47,7 @@
 ### [Вопросы и ответы о масштабируемых наборах](virtual-machine-scale-sets-faq.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Интерфейс командной строки Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

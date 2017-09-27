@@ -16,7 +16,7 @@
 # Практическое руководство
 ## Присоединение к управляемому домену
 ### [Присоединение виртуальной машины Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Присоединение виртуальной машины Windows с помощью PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Присоединение виртуальной машины Windows Server с помощью Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Присоединение виртуальной машины Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Администрирование управляемого домена
 ### [Администрирование управляемого домена](active-directory-ds-admin-guide-administer-domain.md)

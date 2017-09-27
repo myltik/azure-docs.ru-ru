@@ -7,7 +7,7 @@
 ## [Контейнеры](../../virtual-machines-windows-containers.md)
 
 # Начало работы
-## [Создание виртуальной машины с помощью портала](tutorial.md)
+## [Создание виртуальной машины с помощью портала Azure](tutorial.md)
 ## [Вход на виртуальную машину](connect-logon.md)
 ## [Установка Azure PowerShell](/powershell/azure/overview)
 ## [Установка Azure CLI](../../../cli-install-nodejs.md)
@@ -85,7 +85,7 @@
 ### [Подключение виртуального жесткого диска для устранения неполадок виртуальной машины](troubleshoot-recovery-disks-portal.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Интерфейс командной строки Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

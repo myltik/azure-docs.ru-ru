@@ -25,9 +25,9 @@
 ### [Доступ за брандмауэрами](key-vault-access-behind-firewall.md)
 ### [Доступность и избыточность](key-vault-disaster-recovery-guidance.md)
 ### [Изменение идентификатора клиента](key-vault-subscription-move-fix.md)
-### [Создание и управление с помощью интерфейса командной строки версии 2.0](key-vault-manage-with-cli2.md)
+### [Создание и управление с помощью Azure CLI](key-vault-manage-with-cli2.md)
 ### [Как использовать обратимое удаление в Key Vault с помощью CLI](key-vault-soft-delete-cli.md)
-### [Как использовать обратимое удаление в Key Vault с помощью PowerShell](key-vault-soft-delete-powershell.md)
+### [Как использовать обратимое удаление в Key Vault с помощью Azure PowerShell](key-vault-soft-delete-powershell.md)
 ### [Использование групп для предоставления доступа](key-vault-group-permissions-for-apps.md)
 ### [Защита хранилища ключей](key-vault-secure-your-key-vault.md)
 
@@ -36,8 +36,8 @@
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
-## [PowerShell](/powershell/module/azurerm.keyvault)
-## [Azure CLI 2](/cli/azure/keyvault)
+## [Azure PowerShell](/powershell/module/azurerm.keyvault)
+## [Интерфейс командной строки Azure](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js

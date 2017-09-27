@@ -1,0 +1,52 @@
+- name: Документация по виртуальной машине для обработки и анализа данных
+  items: null
+- name: Обзор
+  items:
+    - name: Что такое виртуальная машина для обработки и анализа данных?
+      href: overview.md
+    - name: Что такое виртуальная машина для глубокого обучения?
+      href: deep-learning-dsvm-overview.md
+- name: Начало работы
+  items:
+    - name: Создание виртуальной машины Windows для обработки и анализа данных
+      href: provision-vm.md
+    - name: Создание виртуальной машины Ubuntu для обработки и анализа данных
+      href: dsvm-ubuntu-intro.md
+    - name: Создание виртуальной машины CentOS для обработки и анализа данных
+      href: linux-dsvm-intro.md
+    - name: Создание виртуальной машины для глубокого обучения
+      href: provision-deep-learning-dsvm.md
+- name: Практическое руководство
+  items:
+    - name: Использование виртуальной машины Windows для обработки и анализа данных
+      href: vm-do-ten-things.md
+    - name: Использование виртуальной машины Linux для обработки и анализа данных
+      href: linux-dsvm-walkthrough.md
+    - name: Использование виртуальной машины для глубокого обучения
+      href: use-deep-learning-dsvm.md
+- name: Справочные материалы
+  items:
+    - name: Платформы глубокого обучения и искусственного интеллекта
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: Машинное обучение и инструменты обработки и анализа данных
+      href: dsvm-ml-data-science-tools.md
+    - name: Языки
+      href: dsvm-languages.md
+    - name: Инструменты разработки
+      href: dsvm-tools-development.md
+    - name: Инструменты приема данных
+      href: dsvm-tools-ingestion.md
+    - name: Инструменты исследования и визуализации данных
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Платформы данных
+      href: dsvm-data-platforms.md
+    - name: Примеры и пошаговые руководства
+      href: dsvm-samples-and-walkthroughs.md
+- name: Ресурсы
+  items:
+    - name: Блог
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: Форум MSDN
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Переполнение стека
+      href: 'https://stackoverflow.com/search?q=dsvm'

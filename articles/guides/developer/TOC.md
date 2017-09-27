@@ -37,7 +37,7 @@
 ### [Веб-приложения](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-## PowerShell
+## Azure PowerShell
 ### [Веб-приложения](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Виртуальные машины Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Виртуальные машины Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
@@ -108,8 +108,8 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Интерфейсы командной строки
-### [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/)
-### [PowerShell](https://docs.microsoft.com/powershell/)
+### [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/)
+### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Выставление счетов](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Ресурсы

@@ -74,6 +74,7 @@
 
 ## Средства защиты в облаке
 ### [JIT-доступ](security-center-just-in-time.md)
+### [Адаптивные элементы управления приложением](security-center-adaptive-application.md)
 
 ## Автоматизация и оркестрация
 ### [Сборники тренировочных заданий](security-center-playbooks.md)

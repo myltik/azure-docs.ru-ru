@@ -1,0 +1,177 @@
+- name: Документация по Машинному обучению Azure (предварительная версия)
+  href: index.yml
+- name: Обзор
+  expanded: true
+  items:
+    - name: Что такое Машинное обучение Azure?
+      href: overview-what-is-azure-ml.md
+    - name: Обзор службы "Управление моделями"
+      href: model-management-overview.md
+- name: Быстрое начало работы
+  items:
+    - name: Установка и создание
+      href: quickstart-installation.md
+- name: Учебники
+  items:
+    - name: 1. Подготовка данных
+      href: tutorial-classifying-iris-part-1.md
+    - name: 2. Сборка модели
+      href: tutorial-classifying-iris-part-2.md
+    - name: 3. Развертывание модели
+      href: tutorial-classifying-iris-part-3.md
+    - name: 4. Расширенная подготовка данных
+      href: tutorial-bikeshare-dataprep.md
+- name: Основные понятия
+  items:
+    - name: Основные понятия
+      href: overview-general-concepts.md
+- name: Практические руководства
+  items:
+    - name: Использование Machine Learning Workbench
+      items:
+        - name: Работа с интегрированными средами разработки Python
+          href: how-to-configure-your-IDE.md
+        - name: Использование записных книжек Jupyter
+          href: how-to-use-jupyter-notebooks.md
+        - name: Интеграция с репозиторием Git
+          href: using-git-ml-project.md
+        - name: Структурирование проекта с TDSP
+          href: how-to-use-tdsp-in-azure-ml.md
+        - name: Как организовать роуминг и совместную работу
+          href: roaming-and-collaboration.md
+    - name: Использование инструментов Visual Studio
+      href: quickstart-visual-studio-tools.md
+    - name: Настройка вычислительной среды
+      items:
+        - name: Настройка целевых объектов выполнения
+          href: experiment-execution-configuration.md
+        - name: Обучение с помощью графических процессоров
+          href: how-to-use-gpu.md
+    - name: Получение и интерпретация данных
+      items:
+        - name: Доступ к данным с помощью мастера источников данных
+          href: data-source-wizard.md
+        - name: Начало работы с подготовкой данных
+          href: data-prep-getting-started.md
+        - name: Руководство по подготовке данных
+          href: data-prep-user-guide.md
+        - name: Преобразование подготовки данных
+          items:
+            - name: Объединение столбцов по образцу
+              href: data-prep-combine-columns-by-example.md
+            - name: Получение столбцов по образцу
+              href: data-prep-derive-column-by-example.md
+            - name: Разделение столбцов по образцу
+              href: data-prep-split-column-by-example.md
+            - name: Развертывание JSON
+              href: data-prep-expand-json.md
+    - name: Разработка моделей
+      items:
+        - name: Классификация Iris с помощью CLI
+          href: tutorial-iris-azure-cli.md
+        - name: Отслеживание журнала выполнения и метрик модели
+          href: how-to-use-run-history-model-metrics.md
+        - name: Чтение и запись файлов
+          href: how-to-read-write-files.md
+        - name: Библиотека MMLSpark
+          href: how-to-use-mmlspark.md
+    - name: Развертывание моделей
+      items:
+        - name: Настройка службы "Управление моделями"
+          href: deployment-setup-configuration.md
+        - name: Развертывание веб-службы
+          href: model-management-service-deploy.md
+        - name: Использование веб-службы
+          href: model-management-consumption.md
+        - name: Как использовать сбор данных модели
+          href: how-to-use-model-data-collection.md
+    - name: Реальные примеры
+      items:
+        - name: Анализ коллекции документов
+          href: scenario-document-collection-analysis.md
+        - name: Сопоставление вопросов и ответов
+          href: scenario-qna-matching.md
+        - name: Диагностическое обслуживание
+          href: scenario-predictive-maintenance.md
+        - name: Классификация изображений аэрофотосъемки
+          href: scenario-aerial-image-classification.md
+        - name: Прогнозирование рабочей нагрузки сервера на основе терабайтов данных
+          href: scenario-big-data.md
+        - name: Прогнозирование потребности в энергии по времени
+          href: scenario-time-series-forecasting.md
+        - name: Распределенная настройка гиперпараметров
+          href: scenario-distributed-tuning-of-hyperparameters.md
+        - name: Прогнозирование оттока клиентов
+          href: scenario-churn-prediction.md
+        - name: Анализ тональности с помощью глубокого обучения
+          href: scenario-sentiment-analysis-deep-learning.md
+        - name: Распознавание биомедицинских сущностей — проект TDSP
+          href: scenario-tdsp-biomedical-recognition.md
+        - name: Классификация доходов США — проект TDSP
+          href: scenario-tdsp-classifying-us-incomes.md
+- name: Справочные материалы
+  items:
+    - name: Подготовка данных
+      items:
+        - name: Расширения Python для подготовки данных
+          href: data-prep-python-extensibility-overview.md
+        - name: Поддерживаемые источники данных
+          href: data-prep-appendix2-supported-data-sources.md
+        - name: Поддерживаемые преобразования
+          href: data-prep-appendix3-supported-transforms.md
+        - name: Поддерживаемые инспекторы
+          href: data-prep-appendix4-supported-inspectors.md
+        - name: Поддерживаемые места назначения данных
+          href: data-prep-appendix5-supported-destinations.md
+        - name: Поддерживаемые сочетания среды выполнения и среды данных
+          href: data-prep-supported-runtime-data-environments.md
+        - name: Пример выражений фильтра в Python
+          href: data-prep-appendix6-sample-filter-expressions-python.md
+        - name: Пример пользовательских преобразований потока данных в Python
+          href: data-prep-appendix7-sample-transform-data-flow-python.md
+        - name: Пример подключений к источнику в Python
+          href: data-prep-appendix8-sample-source-connections-python.md
+        - name: Пример подключений к назначению в Python
+          href: data-prep-appendix9-sample-destination-connections-python.md
+        - name: Пример преобразований столбцов в Python
+          href: data-prep-appendix10-sample-custom-column-transforms-python.md
+        - name: API выполнения подготовки данных
+          href: data-prep-python-execution-api.md
+    - name: Экспериментирование
+      items:
+        - name: Конфигурация выполнения
+          href: experiment-execution-configuration-reference.md
+    - name: Управление моделями
+      items:
+        - name: API управления моделями
+          href: model-management-api-reference.md
+        - name: CLI управления моделями
+          href: model-management-cli-reference.md
+        - name: API сбора данных модели
+          href: model-data-collection-api-reference.md
+- name: Ресурсы
+  items:
+    - name: Часто задаваемые вопросы
+      href: frequently-asked-questions.md
+    - name: Руководство по устранению неполадок и описание известных проблем
+      href: known-issues-and-troubleshooting-guide.md
+    - name: Документация по процессу обработки и анализа данных группы
+      href: ../team-data-science-process/overview.md
+    - name: Документация по виртуальной машине для обработки и анализа данных
+      href: ../data-science-virtual-machine/overview.md
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning'
+    - name: Переполнение стека
+      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
+    - name: Форум отзывов и предложений
+      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+    - name: Регионы доступности
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Варианты поддержки
+      href: 'https://azure.microsoft.com/support/options/'

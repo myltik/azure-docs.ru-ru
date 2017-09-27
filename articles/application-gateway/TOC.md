@@ -15,53 +15,53 @@
 # Начало работы
 ## Создание шлюза приложений
 ### Для общего доступа
-#### [Портал](application-gateway-create-gateway-portal.md)
-#### [PowerShell](application-gateway-create-gateway-arm.md)
+#### [Портал Azure](application-gateway-create-gateway-portal.md)
+#### [Azure PowerShell](application-gateway-create-gateway-arm.md)
 #### [Шаблон Resource Manager](application-gateway-create-gateway-arm-template.md)
 #### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
-#### [PowerShell (классическая модель)](application-gateway-create-gateway.md)
+#### [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
+#### [Azure PowerShell (классическая модель)](application-gateway-create-gateway.md)
 ### Для Интернета
-#### [PowerShell](application-gateway-ilb-arm.md)
-#### [PowerShell (классическая модель)](application-gateway-ilb.md)
+#### [Azure PowerShell](application-gateway-ilb-arm.md)
+#### [Azure PowerShell (классическая модель)](application-gateway-ilb.md)
 # Практическое руководство
 ## Настройка брандмауэра веб-приложения
-### [Портал](application-gateway-web-application-firewall-portal.md)
-### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-### [Azure CLI 2.0](application-gateway-web-application-firewall-cli.md)
+### [Портал Azure](application-gateway-web-application-firewall-portal.md)
+### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Интерфейс командной строки Azure](application-gateway-web-application-firewall-cli.md)
 ## Настройка правил брандмауэра веб-приложения
-### [Портал](application-gateway-customize-waf-rules-portal.md)
-### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
+### [Портал Azure](application-gateway-customize-waf-rules-portal.md)
+### [Интерфейс командной строки Azure](application-gateway-customize-waf-rules-cli.md)
 ## Настройка SSL
-### [Портал](application-gateway-ssl-portal.md)
-### [PowerShell](application-gateway-ssl-arm.md)
-### [PowerShell (классическая модель)](application-gateway-ssl.md)
-### [Azure CLI 2.0](application-gateway-ssl.md)
+### [Портал Azure](application-gateway-ssl-portal.md)
+### [Azure PowerShell](application-gateway-ssl-arm.md)
+### [Azure PowerShell (классическая модель)](application-gateway-ssl.md)
+### [Интерфейс командной строки Azure](application-gateway-ssl.md)
 ### [Сквозное шифрование](application-gateway-end-to-end-ssl-powershell.md)
 ### [Политика SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Настройка маршрутизации на основе URL-путей
-### [Портал](application-gateway-create-url-route-portal.md)
-### [PowerShell](application-gateway-create-url-route-arm-ps.md)
-### [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+### [Портал Azure](application-gateway-create-url-route-portal.md)
+### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Интерфейс командной строки Azure](application-gateway-create-url-route-cli.md)
 ## Настройка размещения нескольких сайтов
-### [Портал](application-gateway-create-multisite-portal.md)
-### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+### [Портал Azure](application-gateway-create-multisite-portal.md)
+### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Настройка перенаправления
-### [PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Настройка веб-приложений в качестве элементов серверного пула
-### [PowerShell](application-gateway-web-app-powershell.md)
+### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Настройка проб работоспособности
-### [Портал](application-gateway-create-probe-portal.md)
-### [PowerShell](application-gateway-create-probe-ps.md)
-### [PowerShell (классическая модель)](application-gateway-create-probe-classic-ps.md)
+### [Портал Azure](application-gateway-create-probe-portal.md)
+### [Azure PowerShell](application-gateway-create-probe-ps.md)
+### [Azure PowerShell (классическая модель)](application-gateway-create-probe-classic-ps.md)
 ## [Интеграция центра безопасности Azure](application-gateway-integration-security-center.md)
 ## [Комбинирование служб балансировки нагрузки](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Устранение неполадок
 ### [Устранение ошибок в шлюзе приложений](application-gateway-troubleshooting-502.md)
 ### [Ведение журналов диагностики и метрики](application-gateway-diagnostics.md)
 # Справочные материалы
-## [PowerShell](/powershell/azure/overview)
-## [Azure CLI 2.0](/cli/azure/network/application-gateway)
+## [Azure PowerShell](/powershell/azure/overview)
+## [Интерфейс командной строки Azure](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)

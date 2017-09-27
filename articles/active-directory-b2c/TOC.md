@@ -56,7 +56,7 @@
 # Инфраструктура процедур идентификации
 ## [Пользовательские политики](active-directory-b2c-overview-custom.md)
 ## Руководства
-### [Начало работы](active-directory-b2c-get-started-custom.md)
+### [Приступая к работе](active-directory-b2c-get-started-custom.md)
 ### Настройка поставщиков OIDC/OAUTH2
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Учетная запись Майкрософт](active-directory-b2c-custom-setup-msa-idp.md)
@@ -67,12 +67,17 @@
 ### Интеграции API-интерфейсов RESTful
 #### [Проверка пользовательского ввода](active-directory-b2c-rest-api-validation-custom.md)
 #### [Получение дополнительных утверждений](active-directory-b2c-rest-api-step-custom.md)
-### Настройка процедуры входа
+### Маршруты пользователей
 #### [Настройка пользовательского ввода](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Настраиваемые атрибуты](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Настройка пользовательского интерфейса](active-directory-b2c-ui-customization-custom.md)
 #### [Настройка токенов](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [Настройка пароля](active-directory-b2c-reference-password-complexity-custom.md)
+#### [Сложность пароля](active-directory-b2c-reference-password-complexity-custom.md)
+
+#### [Изменение пароля](active-directory-b2c-reference-password-change-custom.md)
+
+#### [Включение возможности оставаться в системе](active-directory-b2c-reference-kmsi-custom.md)
+
 ### Устранение неполадок
 #### [Сбор журналов с помощью Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Справочные материалы

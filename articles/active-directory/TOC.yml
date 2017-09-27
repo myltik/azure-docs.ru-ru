@@ -1,6 +1,6 @@
 - name: Доступ к ресурсам в Azure
   href: active-directory-understanding-resource-access.md
-- name: Управление доступом на основе ролей
+- name: Управление доступа на основе ролей
   href: role-based-access-control-what-is.md
   items:
     - name: Управление назначениями доступа
@@ -31,10 +31,14 @@
       href: role-based-access-control-troubleshooting.md
     - name: Операции с поставщиками ресурсов
       href: role-based-access-control-resource-provider-operations.md
+- name: Управление привилегированными пользователями (PIM) для RBAC
+  href: pim-azure-resource.md
+- name: Условный доступ для управления Azure
+  href: conditional-access-azure-management.md
 - name: Удостоверение управляемой службы
   href: msi-overview.md
   items:
-    - name: Настройка MSI для виртуальной машины Windows
+    - name: Настройка MSI для виртуальной машины Azure
       items:
         - name: С помощью портала Azure
           href: msi-qs-configure-portal-windows-vm.md

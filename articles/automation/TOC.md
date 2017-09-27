@@ -45,6 +45,7 @@
 ## Развертывание управления конфигурацией (DSC)
 ### [Общие сведения о настройке требуемого состояния (DSC)](automation-dsc-overview.md)
 ### [Приступая к работе](automation-dsc-getting-started.md)
+### [Настройка требуемого состояния серверов и управление смещением с помощью службы автоматизации Azure](tutorial-configure-servers-desired-state.md)
 ### [Подключение виртуальных машин для управления](automation-dsc-onboarding.md)
 ### [Компиляция конфигураций DSC](automation-dsc-compile.md)
 ### [Непрерывное развертывание с помощью Chocolatey](automation-dsc-cd-chocolatey.md)
@@ -68,8 +69,12 @@
 ### [Вызов модуля Runbook службы автоматизации Azure из оповещения Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Развертывание шаблона Azure Resource Manager в модуле Runbook PowerShell в службе автоматизации Azure](automation-deploy-template-runbook.md)
 ## Решения
-### [Отслеживание изменений](../log-analytics/log-analytics-change-tracking.md)
 ### [Управление обновлениями](../operations-management-suite/oms-solution-update-management.md)
+#### [Управление обновлениями для нескольких виртуальных машин](manage-update-multi.md)
+#### [Интеграция SCCMr со службой управления обновлениями OMS](oms-solution-updatemgmt-sccmintegration.md)
+### [отслеживание изменений;](../log-analytics/log-analytics-change-tracking.md)
+### [Отслеживание изменений в виртуальных машинах](automation-vm-change-tracking.md)
+### [Управление виртуальной машиной с помощью сбора данных инвентаризации](automation-vm-inventory.md)
 ### [Запуск и остановка виртуальных машин в нерабочее время](automation-solution-vm-management.md)
 ## Монитор
 ### [Пересылка данных задания службы автоматизации Azure в Log Analytics](automation-manage-send-joblogs-log-analytics.md)
@@ -81,8 +86,8 @@
 ### [Устранение распространенных ошибок](automation-troubleshooting-automation-errors.md)
 ### [Устранение неполадок в гибридной рабочей роли Runbook](automation-troubleshooting-hybrid-runbook-worker.md)
 # Справочные материалы
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell (классическая модель)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell (классическая модель)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/azure/mt163781)

@@ -11,7 +11,7 @@
       href: sql-database-get-started-portal.md
     - name: Создание базы данных с помощью Azure CLI
       href: sql-database-get-started-cli.md
-    - name: Создание базы данных с помощью PowerShell
+    - name: Создание базы данных с помощью Azure PowerShell
       href: sql-database-get-started-powershell.md
     - name: Подключение и запросы
       items:
@@ -51,7 +51,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
     - name: Инфраструктура CLI Azure
       href: sql-database-cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: sql-database-powershell-samples.md
 - name: Основные понятия
   items:
@@ -71,6 +71,8 @@
           href: sql-database-connectivity-architecture.md
         - name: Правила файрволла
           href: sql-database-firewall-configure.md
+        - name: Правила брандмауэра для виртуальной сети
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTU и eDTU
           href: sql-database-what-is-a-dtu.md
         - name: Тест производительности DTU
@@ -95,6 +97,8 @@
           href: sql-database-elastic-transactions-overview.md
         - name: Задания обработки эластичных БД
           href: sql-database-elastic-jobs-overview.md
+        - name: Оценка уязвимостей SQL
+          href: sql-vulnerability-assessment.md
         - name: Общие компоненты SQL Server
           href: sql-database-features.md
     - name: Безопасность
@@ -155,6 +159,10 @@
           href: sql-database-advisor.md
         - name: Автоматическая настройка
           href: sql-database-automatic-tuning.md
+        - name: Intelligent Insights
+          href: sql-database-intelligent-insights.md
+        - name: Журнал диагностики Intelligent Insights
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: Настройка вручную
           href: sql-database-performance-guidance.md
         - name: Работа с хранилищем запросов
@@ -229,7 +237,7 @@
           href: sql-database-elastic-jobs-service-installation.md
         - name: 'Создание задания: портал'
           href: sql-database-elastic-jobs-create-and-manage.md
-        - name: 'Создание задания: PowerShell'
+        - name: Создание задания с помощью Azure PowerShell
           href: sql-database-elastic-jobs-powershell.md
         - name: 'Создание задания: пример приложения'
           href: sql-database-elastic-jobs-getting-started.md
@@ -255,12 +263,14 @@
           href: sql-database-dynamic-data-masking-get-started-portal.md
         - name: Настройка многофакторной проверки подлинности
           href: sql-database-ssms-mfa-authentication-configure.md
+        - name: Создание правил виртуальной сети с помощью PowerShell
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Непрерывность бизнес-процессов
       items:
         - name: Загрузка данных с помощью BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Загрузка данных с помощью ADF
-          href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
         - name: Синхронизация данных
           href: sql-database-get-started-sql-data-sync.md
     - name: Мониторинг и настройка
@@ -273,6 +283,8 @@
           href: sql-database-advisor-portal.md
         - name: Включение автоматической настройки
           href: sql-database-automatic-tuning-enable.md
+        - name: Устранение проблем производительности Intelligent Insights
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Использование динамических административных представлений для мониторинга производительности
           href: sql-database-monitoring-with-dmvs.md
         - name: Создание оповещений
@@ -335,7 +347,7 @@
           href: sql-database-connect-excel.md
 - name: Справочные материалы
   items:
-    - name: PowerShell
+    - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell (эластичная база данных)
       href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'

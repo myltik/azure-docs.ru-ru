@@ -4,8 +4,8 @@
 
 # Быстрое начало работы
 ## [Создание приложения .NET](service-fabric-quickstart-dotnet.md)
-## [Развертывание приложения-контейнера Windows](service-fabric-quickstart-containers.md)
 ## [Развертывание приложения-контейнера Linux](service-fabric-quickstart-containers-linux.md)
+## [Развертывание приложения-контейнера Windows](service-fabric-quickstart-containers.md)
 
 # Учебники
 ## Развертывание приложения .NET
@@ -17,11 +17,24 @@
 ## Контейнеризация существующего приложения .NET
 ### [1. Создание защищенного кластера в Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2. Развертывание приложения .NET с помощью Docker Compose](service-fabric-host-app-in-a-container.md)
+### [3. Отслеживание контейнера](service-fabric-tutorial-monitoring-wincontainers.md)
+
+## Создание приложения-контейнера Linux
+### [1. Создание образов контейнеров](service-fabric-tutorial-create-container-images.md)
+### [2. Упаковка и развертывание контейнеров](service-fabric-tutorial-package-containers.md)
+### [3. Отработка отказа и масштабирование](service-fabric-tutorial-containers-failover.md)
+
+## Создание кластера и управление им
+### 1. Создание кластера в Azure
+#### [1а. Создание защищенного кластера Windows в Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1б. Создание защищенного кластера Linux в Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2. Развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Примеры
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
-## [PowerShell](service-fabric-powershell-samples.md)
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=service-fabric)
+## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [Интерфейс командной строки Service Fabric](samples-cli.md)
+
 # Основные понятия
 ## [Основные сведения о микрослужбах](service-fabric-overview-microservices.md)
 ## [Общая картина](service-fabric-content-roadmap.md)
@@ -67,6 +80,8 @@
 #### [Состояние службы](service-fabric-concepts-state.md)
 #### [Секционирование службы](service-fabric-concepts-partitioning.md)
 #### [Доступность служб](service-fabric-availability-services.md)
+#### [Реплики и экземпляры](service-fabric-concepts-replica-lifecycle.md)
+#### [Перенастройка](service-fabric-concepts-reconfiguration.md)
 #### Взаимодействие служб
 ##### [Обзор](service-fabric-connect-and-communicate-with-services.md)
 ##### [Служба DNS](service-fabric-dnsservice.md)
@@ -91,7 +106,6 @@
 
 ## Создание кластеров и управление ими
 ### [Обзор](service-fabric-deploy-anywhere.md)
-### [Service Fabric в Linux](service-fabric-linux-overview.md)
 ### Планирование и подготовка
 #### [Планирование ресурсов](service-fabric-cluster-capacity.md)
 #### [Аварийное восстановление](service-fabric-disaster-recovery.md)
@@ -130,6 +144,8 @@
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
+
+## [Настройка интерфейса командной строки Service Fabric](service-fabric-cli.md)
 
 ## Создание приложения
 ### [Создание первого приложения C# в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -225,13 +241,13 @@
 
 ### Развертывание или удаление приложений
 #### [Развертывание приложений в локальном кластере](service-fabric-get-started-with-a-local-cluster.md)
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Интерфейс командной строки Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [API-интерфейсы FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Обновление приложений
-#### [Обновление с помощью PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [Обновление с помощью Использование Azure PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [Обновление с помощью Visual Studio](service-fabric-application-upgrade-tutorial.md)
 #### [Устранение неполадок при обновлениях приложений](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -280,8 +296,6 @@
 
 ### [Визуализация кластера](service-fabric-visualizing-your-cluster.md)
 ### [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md)
-
-### [Командная строка Azure Service Fabric](service-fabric-cli.md)
 ### [Установка исправлений для узлов кластера](service-fabric-patch-orchestration-application.md)
 
 ### Ресурсы кластера: управление и оркестрация
@@ -326,7 +340,7 @@
 ### [Устранение неполадок локального кластера](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Справочные материалы
-## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
+## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Интерфейс командной строки Azure](/cli/azure/sf)
 ## [API Java](/java/api/overview/azure/servicefabric)

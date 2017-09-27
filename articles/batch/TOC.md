@@ -42,7 +42,7 @@
 #### [Выполнение заданий и задач](./scripts/batch-cli-sample-run-job.md)
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [PowerShell](/powershell/module/azurerm.batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
 ## [Интерфейс командной строки Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
@@ -63,8 +63,8 @@
 
 # Сопутствующие материалы
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
-## [Обработка данных с помощью пакетной службы и фабрики данных](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Решения для пакетной службы, HPC и больших вычислений в Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Обработка данных с помощью пакетной службы и фабрики данных](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Решения для пакетной службы и высокопроизводительных вычислений в облаке Azure](batch-hpc-solutions.md)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)

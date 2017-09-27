@@ -36,6 +36,7 @@
 #### [Управление заданиями](storsimple-virtual-array-manage-jobs.md)
 #### [Изменение пароля устройства](storsimple-virtual-array-change-device-admin-password.md)
 #### [Настройка MPIO на узле Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Мониторинг с использованием оповещений](storsimple-virtual-array-manage-alerts.md)
 #### [Диагностирование и устранение неполадок](storsimple-virtual-array-diagnose-problems.md)
 #### [Регистрация запроса на техническую поддержку](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [Что из себя представляет это решение?](storsimple-overview.md)
 ### [Карта обучения StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Вопросы безопасности](storsimple-8000-security.md)
+### [Вопросы и ответы: переход на портал Azure](storsimple-8000-move-azure-portal-faq.md)
 
 ## Начало работы
 

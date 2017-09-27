@@ -38,7 +38,7 @@
 ## Управление
 ### Администрирование Поиска Azure
 #### [Портал Azure](search-manage.md)
-#### [PowerShell](search-manage-powershell.md)
+#### [Azure PowerShell](search-manage-powershell.md)
 ### [Мониторинг использования и статистики](search-monitor-usage.md)
 ### [Поиск в аналитике трафика](search-traffic-analytics.md)
 ### [Производительность и оптимизация](search-performance-optimization.md)

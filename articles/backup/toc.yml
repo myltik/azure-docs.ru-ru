@@ -1,0 +1,229 @@
+- name: Документация по Azure Backup
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что такое служба архивации Azure?
+      href: backup-introduction-to-azure-backup.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Резервное копирование виртуальной машины с помощью портала
+      href: quick-backup-vm-portal.md
+    - name: Резервное копирование виртуальной машины с помощью PowerShell
+      href: quick-backup-vm-powershell.md
+    - name: Резервное копирование виртуальной машины с помощью интерфейса командной строки
+      href: quick-backup-vm-cli.md
+- name: Учебники
+  items:
+    - name: Резервное копирование виртуальных машин Azure в нужном масштабе
+      href: tutorial-backup-vm-at-scale.md
+    - name: Восстановление диска
+      href: tutorial-restore-disk.md
+    - name: Восстановление отдельных файлов
+      href: tutorial-restore-files.md
+    - name: Резервное копирование сервера Windows Server
+      href: tutorial-backup-windows-server-to-azure.md
+    - name: Восстановление файлов на сервер Windows Server
+      href: tutorial-backup-restore-files-windows-server.md
+- name: Примеры
+  items:
+    - name: Azure PowerShell
+      href: powershell-backup-samples.md
+- name: Основные понятия
+  items:
+    - name: Часто задаваемые вопросы
+      items:
+        - name: Часто задаваемые вопросы о хранилище служб восстановления
+          href: backup-azure-backup-faq.md
+        - name: Часто задаваемые вопросы о резервном копировании виртуальных машин Azure
+          href: backup-azure-vm-backup-faq.md
+        - name: Часто задаваемые вопросы о резервном копировании файлов и папок с помощью агента Azure Backup
+          href: backup-azure-file-folder-backup-faq.md
+    - name: Управление доступом на основе ролей
+      href: backup-rbac-rs-vault.md
+    - name: Безопасность гибридных резервных копий
+      href: backup-azure-security-feature.md
+    - name: Настройка автономного резервного копирования
+      href: backup-azure-backup-import-export.md
+    - name: Замена ленточных библиотек
+      href: backup-azure-backup-cloud-as-tape.md
+- name: Практическое руководство
+  items:
+    - name: Сервер службы архивации Azure
+      items:
+        - name: Таблица защиты посредством Azure Backup Server
+          href: backup-mabs-protection-matrix.md
+        - name: Установка и обновление
+          items:
+            - name: Подготовка рабочих нагрузок Azure Backup Server на портале Azure
+              href: backup-azure-microsoft-azure-backup.md
+            - name: Подготовка рабочих нагрузок Azure Backup Server на классическом портале
+              href: backup-azure-microsoft-azure-backup-classic.md
+            - name: Добавление хранилища для Azure Backup Server
+              href: backup-mabs-add-storage.md
+            - name: "Обновление Azure Backup Server до версии\_2"
+              href: backup-mabs-upgrade-to-v2.md
+            - name: Автоматическая установка Azure Backup Server
+              href: backup-mabs-unattended-install.md
+        - name: Защита рабочих нагрузок
+          items:
+            - name: Резервное копирование сервера VMware с помощью Azure Backup Server
+              href: backup-azure-backup-server-vmware.md
+            - name: Резервное копирование Exchange Server с помощью Azure Backup Server
+              href: backup-azure-exchange-mabs.md
+            - name: Резервное копирование фермы SharePoint с помощью Azure Backup Server
+              href: backup-azure-backup-sharepoint-mabs.md
+            - name: Резервное копирование данных SQL с помощью Azure Backup Server
+              href: backup-azure-sql-mabs.md
+            - name: Защита состояния системы и восстановление исходного состояния системы
+              href: backup-mabs-system-state-and-bmr.md
+        - name: Восстановление данных с сервера Azure Backup Server
+          href: backup-azure-alternate-dpm-server.md
+    - name: Виртуальные машины Azure
+      items:
+        - name: Подготовка виртуальной машины
+          items:
+            - name: 'Подготовка виртуальных машин, развернутых с помощью Resource Manager'
+              href: backup-azure-arm-vms-prepare.md
+            - name: Согласованные с приложениями резервные копии виртуальных машин Linux
+              href: backup-azure-linux-app-consistent.md
+            - name: Подготовка виртуальных машин Azure
+              href: backup-azure-vms-prepare.md
+        - name: Планирование среды
+          items:
+            - name: Планирование инфраструктуры резервного копирования виртуальных машин
+              href: backup-azure-vms-introduction.md
+        - name: Резервное копирование виртуальных машин
+          items:
+            - name: Архивация виртуальных машин Azure в хранилище служб восстановления
+              href: backup-azure-arm-vms.md
+            - name: Резервное копирование зашифрованных виртуальных машин
+              href: backup-azure-vms-encryption.md
+            - name: Резервное копирование виртуальных машин Azure
+              href: backup-azure-vms.md
+        - name: Контроль и мониторинг виртуальных машин
+          items:
+            - name: Управление резервным копированием виртуальных машин Azure на портале Azure
+              href: backup-azure-manage-vms.md
+            - name: Мониторинг оповещений о резервных копиях виртуальных машин Azure на портале Azure
+              href: backup-azure-monitor-vms.md
+            - name: Управление резервным копированием виртуальных машин Azure и его мониторинг на классическом портале
+              href: backup-azure-manage-vms-classic.md
+        - name: Восстановление данных с виртуальных машин
+          items:
+            - name: Восстановление файлов из резервных копий виртуальных машин Azure
+              href: backup-azure-restore-files-from-vm.md
+            - name: 'Восстановление виртуальных машин, развернутых с помощью Azure Resource Manager, на портале Azure'
+              href: backup-azure-arm-restore-vms.md
+            - name: Восстановление зашифрованных виртуальных машин
+              href: backup-azure-vms-encryption.md
+            - name: Восстановление виртуальных машин в Azure
+              href: backup-azure-restore-vms.md
+            - name: Восстановление ключа и секрета в Key Vault для зашифрованных виртуальных машин
+              href: backup-azure-restore-key-secret.md
+    - name: Настройка отчетов службы Azure Backup
+      items:
+        - name: Настройка отчетов службы Azure Backup
+          href: backup-azure-configure-reports.md
+        - name: Модель данных для отчетов Azure Backup
+          href: backup-azure-reports-data-model.md
+        - name: Модель данных Log Analytics для Azure Backup
+          href: backup-azure-log-analytics-data-model.md
+    - name: Data Protection Manager
+      items:
+        - name: Подготовка рабочих нагрузок DPM на портале Azure
+          href: backup-azure-dpm-introduction.md
+        - name: Подготовка рабочих нагрузок DPM на классическом портале
+          href: backup-azure-dpm-introduction-classic.md
+        - name: Резервное копирование Exchange Server с помощью System Center DPM
+          href: backup-azure-backup-exchange-server.md
+        - name: Восстановление данных на альтернативный сервер DPM
+          href: backup-azure-alternate-dpm-server.md
+        - name: Резервное копирование рабочих нагрузок SQL Server с помощью DPM
+          href: backup-azure-backup-sql.md
+        - name: Резервное копирование фермы SharePoint с помощью DPM
+          href: backup-azure-backup-sharepoint.md
+    - name: Использование Azure PowerShell
+      items:
+        - name: Виртуальные машины Azure на портале Azure
+          href: backup-azure-vms-automation.md
+        - name: Виртуальные машины Azure на классическом портале
+          href: backup-azure-vms-classic-automation.md
+        - name: DPM на портале Azure
+          href: backup-dpm-automation.md
+        - name: DPM на классическом портале
+          href: backup-dpm-automation-classic.md
+        - name: Windows Server на портале Azure
+          href: backup-client-automation.md
+        - name: Windows Server на классическом портале
+          href: backup-client-automation-classic.md
+    - name: База данных SQL Azure
+      items:
+        - name: Настройка долгосрочного хранения резервных копий
+          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Просмотр резервных копий в хранилище служб восстановления
+          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Восстановление после долгосрочного хранения резервных копий
+          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Удаление резервных копий данных SQL Azure после долгосрочного хранения
+          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+    - name: Windows Server
+      items:
+        - name: Резервное копирование файлов и папок Windows Server
+          href: backup-configure-vault.md
+        - name: Резервное копирование состояния системы Windows Server
+          href: backup-azure-system-state.md
+        - name: Восстановление файлов из Azure в Windows Server
+          href: backup-azure-restore-windows-server.md
+        - name: Восстановление состояния системы Windows Server
+          href: backup-azure-restore-system-state.md
+        - name: Управление хранилищами служб восстановления и их мониторинг
+          href: backup-azure-manage-windows-server.md
+        - name: Резервное копирование и восстановление с помощью классического портала
+          items:
+            - name: 'Windows Server: использование классической модели развертывания'
+              href: backup-configure-vault-classic.md
+            - name: Управление хранилищами службы архивации с помощью классической модели развертывания
+              href: backup-azure-manage-windows-server-classic.md
+            - name: Восстановление файлов в Windows Server с использованием классической модели развертывания
+              href: backup-azure-restore-windows-server-classic.md
+    - name: Хранилище служб восстановления
+      items:
+        - name: Обзор хранилищ служб восстановления
+          href: backup-azure-recovery-services-vault-overview.md
+        - name: Повышение уровня хранилища резервного хранилища до хранилища служб восстановления
+          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Удаление хранилища служб восстановления
+          href: backup-azure-delete-vault.md
+    - name: Устранение неполадок
+      items:
+        - name: Неполадки резервного копирования виртуальных машин Azure на портале Azure
+          href: backup-azure-vms-troubleshoot.md
+        - name: Неполадки резервного копирования виртуальных машин Azure на классическом портале
+          href: backup-azure-vms-troubleshoot-classic.md
+        - name: 'Ошибка резервного копирования виртуальной машины Azure: "Не удалось запросить состояние моментального снимка в агенте ВМ. Истекло время ожидания для подзадачи моментального снимка ВМ"'
+          href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+        - name: Медленное резервное копирование файлов и папок в Azure Backup
+          href: backup-azure-troubleshoot-slow-backup-performance-issue.md
+        - name: Устранение неполадок на сервере резервного копирования Azure
+          href: backup-azure-mabs-troubleshoot.md
+- name: Справочные материалы
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/backup/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=backup'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'

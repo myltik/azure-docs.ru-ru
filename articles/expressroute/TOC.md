@@ -18,23 +18,23 @@
 # Практическое руководство
 ## Создание и изменение канала
 ### [Портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Интерфейс командной строки Azure](howto-circuit-cli.md)
 ## Создание и изменение конфигурации пиринга
 ### [Портал Azure](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Интерфейс командной строки Azure](howto-routing-cli.md)
 ## Связывание виртуальной сети с каналом ExpressRoute
 ### [Портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Интерфейс командной строки Azure](howto-linkvnet-cli.md)
 ## Настройка шлюза виртуальной сети для ExpressRoute
 ### [Портал Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Настройка параллельных подключений ExpressRoute и "сеть — сеть"](expressroute-howto-coexist-resource-manager.md)
 ## Настройка фильтров маршрутов для пиринга Майкрософт
 ### [Портал Azure](how-to-routefilter-portal.md)
-### [PowerShell](how-to-routefilter-powershell.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
 ## [Перемещение каналов из классического развертывания в развертывание с помощью Resource Manager](expressroute-howto-move-arm.md)
 ## [Перенос связанных виртуальных сетей из классической модели развертывания в модель развертывания Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Настройка маршрутизатора для ExpressRoute
@@ -53,7 +53,7 @@
 ### [Получение таблиц ARP (классическая модель)](expressroute-troubleshooting-arp-classic.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [Интерфейс командной строки Azure](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/azure/dn606310)

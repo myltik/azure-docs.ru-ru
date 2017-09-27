@@ -56,8 +56,8 @@
 ## [Масштабирование лаборатории](devtest-lab-scale-lab.md)
 
 # Справочные материалы
-## [CLI 2.0](/cli/azure/lab)
-## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [Интерфейс командной строки Azure](/cli/azure/lab)
+## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Автоматическое создание или изменение лабораторий](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [ИНТЕРФЕЙС REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Шаблоны Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

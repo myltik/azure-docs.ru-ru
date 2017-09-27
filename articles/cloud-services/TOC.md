@@ -34,14 +34,14 @@
 #### [Установка .NET в роли облачной службы с помощью задачи](cloud-services-dotnet-install-dotnet.md)
 
 ### Настройка удаленного рабочего стола
-#### [Портал](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Портал Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [Классический портал.](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
-## Развертывание
+## Развернуть
 ### Создание и развертывание облачной службы на портале
-#### [Портал](cloud-services-how-to-create-deploy-portal.md)
-#### [Классический портал](cloud-services-how-to-create-deploy.md)
+#### [Портал Azure](cloud-services-how-to-create-deploy-portal.md)
+#### [Классический портал.](cloud-services-how-to-create-deploy.md)
 ### [Создание пустого контейнера облачной службы в PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### Настройка пользовательского имени домена
 #### [Портал](cloud-services-custom-domain-name-portal.md)
@@ -51,15 +51,15 @@
 
 ## Управление службой
 ### Общие задачи управления
-#### [Портал](cloud-services-how-to-manage-portal.md)
-#### [Классический портал](cloud-services-how-to-manage.md)
+#### [Портал Azure](cloud-services-how-to-manage-portal.md)
+#### [Классический портал.](cloud-services-how-to-manage.md)
 ### Настройка облачной службы
-#### [Портал](cloud-services-how-to-configure-portal.md)
-#### [Классический портал](cloud-services-how-to-configure.md)
+#### [Портал Azure](cloud-services-how-to-configure-portal.md)
+#### [Классический портал.](cloud-services-how-to-configure.md)
 ### [Управление облачной службой с помощью службы автоматизации Azure](automation-manage-cloud-services.md)
 ### Настройка автоматического масштабирования
-#### [Портал](cloud-services-how-to-scale-portal.md)
-#### [Классический портал](cloud-services-how-to-scale.md)
+#### [Портал Azure](cloud-services-how-to-scale-portal.md)
+#### [Классический портал.](cloud-services-how-to-scale.md)
 ### [Использование языка Python для управления ресурсами Azure](cloud-services-python-how-to-use-service-management.md)
 
 ### [Исправления гостевой ОС](cloud-services-guestos-msrc-releases.md)
@@ -80,7 +80,7 @@
 ### [Тестирование производительности](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Тестирование с помощью профилировщика Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Включение диагностики
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Использование счетчиков производительности в системе диагностики Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -108,8 +108,14 @@
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [Схема XML в CSDEF-файле](https://msdn.microsoft.com/library/azure/ee758711)
-## [Схема XML в CSCFG-файле](https://msdn.microsoft.com/library/azure/ee758710)
+## [Схема XML (CSDEF-файл)](schema-csdef-file.md)
+### [Схема LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)
+### [Схема WebRole](schema-csdef-webrole.md)
+### [Схема WorkerRole](schema-csdef-workerrole.md)
+### [Схема NetworkTrafficRules](schema-csdef-networktrafficrules.md)
+## [Схема XML (CSCFG-файл)](schema-cscfg-file.md)
+### [Схема Role](schema-cscfg-role.md)
+### [Схема NetworkConfiguration](schema-cscfg-networkconfiguration.md)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Ресурсы

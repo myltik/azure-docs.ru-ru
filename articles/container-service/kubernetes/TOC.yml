@@ -69,6 +69,8 @@
           href: container-service-deploy-spring-boot-app-on-linux.md
         - name: Развертывание приложения Spring Boot в кластере Kubernetes в службе контейнеров Azure
           href: container-service-deploy-spring-boot-app-on-kubernetes.md
+        - name: Развертывание приложения Spring Boot с помощью подключаемого модуля Maven fabric8
+          href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Справочные материалы
   items:
     - name: "Azure CLI\_2.0"

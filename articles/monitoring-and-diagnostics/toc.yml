@@ -1,0 +1,188 @@
+- name: Документация по Azure Monitor
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Azure Monitor
+      href: monitoring-overview-azure-monitor.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Оповещение на основе метрики
+      href: monitor-quick-resource-metric-alert-portal.md
+    - name: Оповещение о действии подписки
+      href: monitor-quick-audit-notify-action-in-subscription.md
+- name: Учебники
+  items:
+    - name: Автомасштабирование в соответствии с производительностью и расписанием
+      href: monitor-tutorial-autoscale-performance-schedule.md
+    - name: Архивирование данных мониторинга
+      href: monitor-tutorial-archive-monitoring-data.md
+- name: Основные понятия
+  items:
+    - name: Источники данных мониторинга
+      href: monitoring-data-sources.md
+    - name: 'Роли, разрешения и безопасность'
+      href: monitoring-roles-permissions-security.md
+    - name: Интеграция с партнерскими решениями
+      href: monitoring-partners.md
+    - name: Дополнительные общие сведения
+      items:
+        - name: Инструменты мониторинга в Azure
+          href: monitoring-overview.md
+        - name: Метрики
+          href: monitoring-overview-metrics.md
+        - name: Оповещения
+          href: monitoring-overview-alerts.md
+        - name: Autoscale
+          href: monitoring-overview-autoscale.md
+        - name: Журнал действий
+          href: monitoring-overview-activity-logs.md
+        - name: Группы действий
+          href: monitoring-action-groups.md
+        - name: Журналы диагностики
+          href: monitoring-overview-of-diagnostic-logs.md
+        - name: Расширение системы диагностики Azure
+          href: azure-diagnostics.md
+    - name: Схемы
+      items:
+        - name: Схема расширения системы диагностики Azure
+          href: azure-diagnostics-schema.md
+          items:
+            - name: 1
+              href: azure-diagnostics-schema-1dot0.md
+            - name: 1.2
+              href: azure-diagnostics-schema-1dot2.md
+            - name: "Версия\_1.3 и более поздняя версия"
+              href: azure-diagnostics-schema-1dot3-and-later.md
+- name: Практические руководства
+  items:
+    - name: Пошаговые руководства
+      items:
+        - name: Пошаговое руководство по Azure Monitor
+          href: monitoring-get-started.md
+        - name: Пошаговое руководство по автомасштабированию
+          href: monitoring-autoscale-get-started.md
+        - name: Обозреватель многомерных метрик
+          href: monitoring-metric-charts.md
+        - name: "Примеры для Azure CLI\_1.0"
+          href: insights-cli-samples.md
+        - name: Примеры сценариев Azure PowerShell
+          href: insights-powershell-samples.md
+    - name: Использование оповещений
+      items:
+        - name: Настройка оповещений почти в реальном времени на портале Azure
+          href: monitoring-near-real-time-metric-alerts.md
+        - name: Настройка оповещений на портале Azure
+          href: insights-alerts-portal.md
+        - name: Настройка оповещений с помощью интерфейса командной строки
+          href: insights-alerts-command-line-interface.md
+        - name: Настройка оповещений с помощью Azure PowerShell
+          href: insights-alerts-powershell.md
+        - name: Вызов веб-перехватчика с помощью оповещения метрики
+          href: insights-webhooks-alerts.md
+        - name: Создание оповещения метрики с помощью шаблона Resource Manager
+          href: monitoring-enable-alerts-using-template.md
+    - name: Использование автомасштабирования
+      items:
+        - name: Рекомендации
+          href: insights-autoscale-best-practices.md
+        - name: Распространенные метрики
+          href: insights-autoscale-common-metrics.md
+        - name: Распространенные шаблоны
+          href: monitoring-autoscale-common-scale-patterns.md
+        - name: Автомасштабирование с помощью пользовательской метрики
+          href: monitoring-autoscale-scale-by-custom-metric.md
+        - name: Автомасштабирование масштабируемых наборов виртуальных машин с помощью шаблонов Resource Manager
+          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Автомасштабирование виртуальных машин в масштабируемых наборах виртуальных машин
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Настройка веб-перехватчиков и уведомлений по электронной почте для автомасштабирования
+          href: insights-autoscale-to-webhook-email.md
+    - name: Использование журнала действий
+      items:
+        - name: Просмотр событий в журнале действий
+          href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Настройка оповещений о событиях журнала действий
+          href: monitoring-activity-log-alerts.md
+        - name: Архивация журнала действий
+          href: monitoring-archive-activity-log.md
+        - name: Потоковая передача журналов действий в концентраторы событий
+          href: monitoring-stream-activity-logs-event-hubs.md
+        - name: Операции аудита с помощью диспетчера ресурсов
+          href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Создание оповещений о журнале действий с помощью Resource Manager
+          href: monitoring-create-activity-log-alerts-with-resource-manager-template.md
+        - name: Переход к использованию оповещений журнала действий
+          href: monitoring-migrate-management-alerts.md
+    - name: Использование уведомлений службы
+      items:
+        - name: Просмотр уведомлений службы
+          href: monitoring-service-notifications.md
+        - name: Настройка оповещений об уведомлениях службы
+          href: monitoring-activity-log-alerts-on-service-notifications.md
+    - name: Использование групп действий
+      items:
+        - name: Дополнительные сведения о схеме веб-перехватчика
+          href: monitoring-activity-log-alerts-webhook.md
+        - name: Поведение оповещений SMS
+          href: monitoring-sms-alert-behavior.md
+        - name: Ограничение частоты создания оповещений
+          href: monitoring-alerts-rate-limiting.md
+        - name: Создание групп действий с помощью Resource Manager
+          href: monitoring-create-action-group-with-resource-manager-template.md
+    - name: Использование журналов диагностики
+      items:
+        - name: Архив
+          href: monitoring-archive-diagnostic-logs.md
+        - name: Потоковая передача в концентраторы событий
+          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
+        - name: Включение параметров диагностики с помощью шаблонов Resource Manager
+          href: monitoring-enable-diagnostic-logs-using-template.md
+    - name: Использование REST API
+      items:
+        - name: "Пошаговое руководство по использованию REST\_API"
+          href: monitoring-rest-api-walkthrough.md
+    - name: Использование расширения системы диагностики Azure
+      items:
+        - name: Отправка в Application Insights
+          href: azure-diagnostics-configure-application-insights.md
+        - name: Отправка в концентраторы событий
+          href: azure-diagnostics-streaming-event-hubs.md
+        - name: Устранение неполадок
+          href: azure-diagnostics-troubleshooting.md
+    - name: Использование обозревателя метрик Azure Monitor
+      items:
+        - name: Создание диаграмм метрик
+          href: monitoring-metric-charts.md
+- name: Справочные материалы
+  items:
+    - name: Инфраструктура CLI Azure
+      href: /cli/azure/monitor?view=azure-cli-latest
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.insights
+    - name: REST
+      href: /rest/api/monitor/
+    - name: Поддерживаемые метрики
+      href: monitoring-supported-metrics.md
+    - name: 'Службы, категории и схемы для журналов диагностики'
+      href: monitoring-diagnostic-logs-schema.md
+    - name: Схема событий журнала действий
+      href: monitoring-activity-log-schema.md
+    - name: Схема расширения системы диагностики Azure
+      href: azure-diagnostics-schema.md
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Доступ по регионам
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
+    - name: Шаблоны быстрого запуска
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'
+    - name: Переполнение стека
+      href: 'https://stackoverflow.com/search?q=monitoring'
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/resources/samples/?service=monitor'

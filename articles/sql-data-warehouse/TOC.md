@@ -8,6 +8,7 @@
 # Начало работы
 
 ## [Руководство для начинающих](sql-data-warehouse-get-started-tutorial.md)
+## [Руководство по эластичным запросам](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Рекомендации по использованию хранилища данных SQL Azure](sql-data-warehouse-best-practices.md)
 ## [Управление](sql-data-warehouse-overview-manage.md)
 
@@ -20,7 +21,7 @@
 ### [Обзор службы архивации](sql-data-warehouse-backups.md)
 ### [Обзор восстановления](sql-data-warehouse-restore-database-overview.md)
 #### [Портал Azure](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Подключение
@@ -34,7 +35,7 @@
 
 ## Создание
 ### [Портал Azure](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Разработка
@@ -79,6 +80,8 @@
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Визуализация Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [Использование эластичных запросов с базой данных SQL и хранилищем данных SQL](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## загрузить
 

@@ -93,14 +93,20 @@
           href: local-emulator.md
         - name: Экспорт сертификатов
           href: local-emulator-export-ssl-certificates.md
+    - name: 6. Интеграция с функциями
+      items:
+        - name: Триггер HTTP
+          href: tutorial-functions-http-trigger.md
 - name: Примеры
   items:
-    - name: "Azure CLI\_2.0"
+    - name: Инфраструктура CLI Azure
       href: cli-samples.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: powershell-samples.md
 - name: Основные понятия
   items:
+    - name: Бессерверная база данных
+      href: serverless-computing-database.md
     - name: Глобальное распределение
       href: distribute-data-globally.md
     - name: Секционирование
@@ -268,6 +274,8 @@
           href: geospatial.md
         - name: Индексация
           href: indexing-policies.md
+        - name: Подключенная служба в Visual Studio
+          href: connected-service.md
     - name: Управление
       items:
         - name: Экономичные операции чтения и записи
@@ -282,8 +290,14 @@
           href: set-throughput.md
         - name: Мониторинг соглашений об уровне обслуживания
           href: monitor-accounts.md
+        - name: Использование метрик
+          href: use-metrics.md
+        - name: Ведения журнала диагностики
+          href: logging.md
         - name: Управление ключами и согласованность
           href: manage-account.md
+        - name: обозреватель хранилищ Azure
+          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
         - name: Безопасность
           items:
             - name: Шифрование при хранении
@@ -309,7 +323,7 @@
         - name: Интеграция с Поиском Azure
           href: ../search/search-howto-index-documentdb.md
         - name: Перенос данных с помощью фабрики данных Azure
-          href: ../data-factory/data-factory-azure-documentdb-connector.md
+          href: ../data-factory/connector-azure-cosmos-db.md
         - name: Анализ данных в реальном времени с помощью Azure Stream Analytics
           href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
         - name: Получение измененной записи HL7 FHIR с помощью Logic Apps

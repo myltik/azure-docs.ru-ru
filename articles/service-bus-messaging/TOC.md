@@ -60,13 +60,14 @@
 #### [Создание правила авторизации для пространства имен и очереди](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Создание пространства имен с разделом, подпиской и правилом](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [Подготовка сущностей с помощью PowerShell](service-bus-manage-with-ps.md)
+### [Подготовка сущностей с помощью Azure PowerShell](service-bus-manage-with-ps.md)
 
 # Справочные материалы
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Исключения](service-bus-messaging-exceptions.md)
 ## [Квоты](service-bus-quotas.md)

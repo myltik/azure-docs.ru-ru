@@ -1,19 +1,25 @@
 # [Обзор](overview.md)
 
-# [Краткое руководство](quickstart.md)
+# Быстрый запуск
+## [Краткое руководство по Bash](quickstart.md)
+## [Краткое руководство по PowerShell](quickstart-powershell.md)
 
 # Основные понятия
-## [Функции и средства](features.md)
+## [Функции и инструменты в Bash](features.md)
+## [Функции и инструменты в PowerShell](features-powershell.md)
 ## [Ограничения](limitations.md)
+## [Устранение неполадок](troubleshooting.md)
 
 # Инструкции
-## [Сохраняемое хранилище](persisting-shell-storage.md)
+## [Сохраняемое хранилище в Bash](persisting-shell-storage.md)
+## [Сохраняемое хранилище в PowerShell](persisting-shell-storage-powershell.md)
 ## [Использование окна](using-the-shell-window.md)
 
 # [Цены](pricing.md)
 
 # Справочные материалы
-## [Azure CLI 2.0](/cli/azure) 
+## [Интерфейс командной строки Azure](/cli/azure)
+## [Azure PowerShell](/powershell/azure)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)

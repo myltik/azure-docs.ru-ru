@@ -11,7 +11,7 @@
       href: quick-create-cli.md
     - name: Создание виртуальной машины с помощью портала
       href: quick-create-portal.md
-    - name: Создание виртуальной машины с помощью PowerShell
+    - name: Создание виртуальной машины с помощью Azure PowerShell
       href: quick-create-powershell.md
 - name: Учебники
   items:
@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9. Резервное копирование виртуальных машин
       href: tutorial-backup-vms.md
-    - name: 10. Мониторинг виртуальных машин
+    - name: 10. Мониторинг и обновление виртуальных машин
       href: tutorial-monitoring.md
     - name: "11\_— управление безопасностью виртуальных машин"
       href: tutorial-azure-security.md
@@ -53,7 +53,7 @@
   items:
     - name: Инфраструктура CLI Azure
       href: cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: Основные понятия
   items:
@@ -187,6 +187,8 @@
           href: manage-availability.md
         - name: Вертикальное масштабирование
           href: vertical-scaling-automation.md
+        - name: Создание виртуальной машины в зоне доступности
+          href: create-cli-availability-zone.md
     - name: Использование средств автоматизации
       items:
         - name: Ansible

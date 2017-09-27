@@ -32,9 +32,9 @@
 
 
 ### Быстрое создание виртуальных машин Windows
-#### [Использование Azure CLI](../../virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Использование портала](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Использование PowerShell](../../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Использование интерфейса командной строки Azure](../../virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Использование портала Azure](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Использование Azure PowerShell](../../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Руководства по работе с виртуальными машинами Windows
 #### [Создание и администрирование виртуальных машин](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Создание и администрирование дисков](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -50,9 +50,9 @@
 #### [Team Services: непрерывные интеграция и развертывание](../../virtual-machines/windows/tutorial-vsts-iis-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ### Быстрое создание виртуальных машин Linux
-#### [Использование Azure CLI](../../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Использование портала](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Использование PowerShell](../../virtual-machines/linux/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Использование интерфейса командной строки Azure](../../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Использование портала Azure](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Использование Azure PowerShell](../../virtual-machines/linux/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Руководства по работе с виртуальными машинами Linux
 #### [Создание и администрирование виртуальных машин](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Создание и администрирование дисков](../../virtual-machines/linux/tutorial-manage-disks.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -89,7 +89,7 @@
 
 ## [Виртуальные сети](azure-operations-guide.md#azure-virtual-network)
 ### [Создание виртуальной сети с помощью портала Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Создание виртуальных сетей с помощью PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Создание виртуальной сети с помощью Azure PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Создание виртуальных сетей с помощью Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Фильтрация сетевого трафика с помощью групп безопасности сети](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Руководства по работе с виртуальными сетями

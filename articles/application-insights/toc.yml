@@ -1,0 +1,315 @@
+- name: Документация по Application Insights
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что такое Azure Application Insights?
+      href: app-insights-overview.md
+    - name: Общие сведения о мониторинге производительности
+      href: app-insights-detect-triage-diagnose.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: .NET
+      href: quick-monitor-portal.md
+    - name: .NET Core
+      href: app-insights-dotnetcore-quick-start.md
+    - name: Node.js
+      href: app-insights-nodejs-quick-start.md
+    - name: Java
+      href: app-insights-java-quick-start.md
+- name: Учебники
+  items:
+    - name: Поиск исключений времени выполнения
+      href: app-insights-tutorial-runtime-exceptions.md
+    - name: Поиск проблем с производительностью
+      href: app-insights-tutorial-performance.md
+    - name: Оповещение о работоспособности приложения
+      href: app-insights-tutorial-alert.md
+    - name: Общие сведения о пользователях
+      href: app-insights-tutorial-users.md
+    - name: Создание настраиваемых панелей мониторинга
+      href: app-insights-tutorial-dashboards.md
+- name: Основные понятия
+  items:
+    - name: Мониторинг Azure
+      items:
+        - name: Веб-приложения Azure
+          href: app-insights-azure-web-apps.md
+        - name: Облачные службы Azure
+          href: app-insights-cloudservices.md
+    - name: Мониторинг приложений ASP.NET
+      items:
+        - name: 'веб-приложений:'
+          href: app-insights-asp-net.md
+        - name: Уже работающие веб-приложения
+          href: app-insights-monitor-performance-live-website-now.md
+        - name: Службы Windows
+          href: app-insights-windows-services.md
+        - name: Классические приложения Windows
+          href: app-insights-windows-desktop.md
+        - name: ASP.NET Core;
+          href: app-insights-asp-net-core.md
+    - name: Мониторинг приложений Java
+      items:
+        - name: 'веб-приложений:'
+          href: app-insights-java-get-started.md
+        - name: Веб-приложения — среда выполнения
+          href: app-insights-java-live.md
+        - name: Приложения Docker
+          href: app-insights-docker.md
+    - name: Мониторинг приложений Node.js
+      items:
+        - name: Node.js
+          href: app-insights-nodejs.md
+    - name: Мониторинг веб-страниц
+      items:
+        - name: JavaScript
+          href: app-insights-javascript.md
+    - name: Мониторинг других платформ
+      items:
+        - name: Сайты SharePoint
+          href: app-insights-sharepoint.md
+        - name: Другие платформы
+          href: app-insights-platforms.md
+- name: Практические руководства
+  items:
+    - name: планирование и разработка
+      items:
+        - name: Углубленная диагностика для веб-приложений и служб
+          href: app-insights-devops.md
+        - name: Отслеживание производительности в веб-приложениях
+          href: app-insights-web-monitor-performance.md
+        - name: 'Разделение среды разработки, тестирования и рабочей среды'
+          href: app-insights-separate-resources.md
+        - name: Отслеживание приложений с несколькими компонентами
+          href: app-insights-monitor-multi-role-apps.md
+        - name: Как работать с Application Insights
+          href: app-insights-how-do-i.md
+    - name: Настройка
+      items:
+        - name: Таблицы Azure
+          items:
+            - name: Профилировщик
+              href: app-insights-profiler.md
+            - name: Включение профилировщика
+              href: enable-profiler-cloud-services.md
+            - name: Диагностика
+              href: app-insights-azure-diagnostics.md
+            - name: Предварительный просмотр
+              href: app-insights-previews.md
+        - name: 'ASP.NET:'
+          items:
+            - name: Сбор дополнительных данных телеметрии
+              href: app-insights-asp-net-more.md
+            - name: Исключения
+              href: app-insights-asp-net-exceptions.md
+            - name: Трассировки журналов
+              href: app-insights-asp-net-trace-logs.md
+            - name: Счетчики производительности
+              href: app-insights-performance-counters.md
+            - name: Зависимости
+              href: app-insights-asp-net-dependencies.md
+            - name: Примечания к выпуску
+              href: app-insights-annotations.md
+            - name: ApplicationInsights.config
+              href: app-insights-configuration-with-applicationinsights-config.md
+            - name: Отладчик моментальных снимков
+              href: app-insights-snapshot-debugger.md
+        - name: J2EE
+          items:
+            - name: Трассировки журналов
+              href: app-insights-java-trace-logs.md
+            - name: Метрики Unix
+              href: app-insights-java-collectd.md
+            - name: Зависимости
+              href: app-insights-java-agent.md
+            - name: Фильтрация данных телеметрии
+              href: app-insights-java-filter-telemetry.md
+        - name: Оповещения
+          items:
+            - name: Доступность
+              href: app-insights-monitor-web-app-availability.md
+            - name: Оповещения о метриках
+              href: app-insights-alerts.md
+        - name: Интеллектуальное обнаружение
+          href: app-insights-proactive-diagnostics.md
+          items:
+            - name: Аномальные сбои
+              href: app-insights-proactive-failure-diagnostics.md
+            - name: Аномалии производительности
+              href: app-insights-proactive-performance-diagnostics.md
+        - name: Создание ресурса
+          href: app-insights-create-new-resource.md
+    - name: Анализ
+      items:
+        - name: Портал Application Insights
+          items:
+            - name: Панели мониторинга
+              href: app-insights-dashboards.md
+            - name: Поиск
+              href: app-insights-diagnostic-search.md
+            - name: Метрики
+              href: app-insights-metrics-explorer.md
+            - name: Live Stream
+              href: app-insights-live-stream.md
+            - name: Схема сопоставления приложений
+              href: app-insights-app-map.md
+            - name: Данные HockeyApp
+              href: app-insights-hockeyapp-bridge-app.md
+        - name: Visual Studio
+          items:
+            - name: Аналитика F5
+              href: app-insights-visual-studio.md
+            - name: Тренды
+              href: app-insights-visual-studio-trends.md
+            - name: CodeLens
+              href: app-insights-visual-studio-codelens.md
+        - name: Использование
+          items:
+            - name: Обзор
+              href: app-insights-usage-overview.md
+            - name: Отправка контекста пользователя
+              href: app-insights-usage-send-user-context.md
+            - name: 'Пользователи, сеансы, события'
+              href: app-insights-usage-segmentation.md
+            - name: Воронки
+              href: usage-funnels.md
+            - name: Сохранение
+              href: app-insights-usage-retention.md
+            - name: Маршруты пользователей
+              href: app-insights-usage-flows.md
+            - name: Workbooks
+              href: app-insights-usage-workbooks.md
+        - name: Аналитика
+          items:
+            - name: Обзор
+              href: app-insights-analytics.md
+            - name: Обзор
+              href: app-insights-analytics-tour.md
+            - name: Использование
+              href: app-insights-analytics-using.md
+            - name: Импорт
+              href: app-insights-analytics-import.md
+            - name: Диагностика
+              href: app-insights-analytics-diagnostics.md
+    - name: Автоматизация
+      items:
+        - name: Настройка Azure PowerShell
+          href: app-insights-powershell.md
+        - name: Создание ресурсов
+          href: app-insights-powershell-script-create-resource.md
+        - name: Задание предупреждений
+          href: app-insights-powershell-alerts.md
+        - name: Получение данных диагностики Azure
+          href: app-insights-powershell-azure-diagnostics.md
+        - name: Автоматизация с помощью Microsoft Flow
+          href: app-insights-automate-with-flow.md
+        - name: Автоматизация с помощью приложения логики Azure
+          href: automate-with-logic-apps.md
+    - name: Разработка
+      items:
+        - name: API для пользовательских событий и метрик
+          href: app-insights-api-custom-events-metrics.md
+        - name: Отслеживание пользовательских операций в пакете SDK для .NET
+          href: application-insights-custom-operations-tracking.md
+        - name: Фильтрация и предварительная обработка данных телеметрии
+          href: app-insights-api-filtering-sampling.md
+        - name: Выборка
+          href: app-insights-sampling.md
+    - name: Управление
+      items:
+        - name: Управление ценами и объемом данных
+          href: app-insights-pricing.md
+        - name: Мониторинг производительности приложений с помощью Application Insights для SCOM
+          href: app-insights-scom.md
+    - name: экспорт.
+      items:
+        - name: непрерывный экспорт.
+          href: app-insights-export-telemetry.md
+        - name: Экспорт модели данных
+          href: app-insights-export-data-model.md
+        - name: "Экспорт в Power\_BI"
+          href: app-insights-export-power-bi.md
+    - name: Безопасность
+      items:
+        - name: Сбор и хранение данных
+          href: app-insights-data-retention-privacy.md
+        - name: 'Ресурсы, роли и контроль доступа'
+          href: app-insights-resources-roles-access-control.md
+        - name: IP-адреса;
+          href: app-insights-ip-addresses.md
+    - name: Устранение неполадок
+      items:
+        - name: Отсутствие данных для .NET
+          href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: Аналитика
+          href: app-insights-analytics-troubleshooting.md
+        - name: Java
+          href: app-insights-java-troubleshoot.md
+- name: Справочные материалы
+  items:
+    - name: Аналитика
+      href: 'https://docs.loganalytics.io/'
+    - name: .NET
+      href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'
+    - name: Java
+      href: /java/api/com.microsoft.applicationinsights
+    - name: JavaScript
+      href: 'https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md'
+    - name: API доступа к данным
+      href: 'https://dev.applicationinsights.io/'
+    - name: Модель данных
+      href: application-insights-data-model.md
+      items:
+        - name: Запрос
+          href: application-insights-data-model-request-telemetry.md
+        - name: Dependency
+          href: application-insights-data-model-dependency-telemetry.md
+        - name: Исключение
+          href: application-insights-data-model-exception-telemetry.md
+        - name: Трассировка
+          href: application-insights-data-model-trace-telemetry.md
+        - name: Событие
+          href: application-insights-data-model-event-telemetry.md
+        - name: Метрика
+          href: application-insights-data-model-metric-telemetry.md
+        - name: Context
+          href: application-insights-data-model-context.md
+    - name: Корреляция данных телеметрии
+      href: application-insights-correlation.md
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=application-insights'
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Языки и платформы
+      href: app-insights-platforms.md
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/application-insights/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Новости
+      items:
+        - name: Блог
+          href: 'https://azure.microsoft.com/blog/tag/application-insights/'
+        - name: Обновления службы
+          href: 'https://azure.microsoft.com/updates/?product=application-insights'
+        - name: Заметки о выпуске пакета SDK
+          href: app-insights-release-notes.md
+        - name: Заметки о выпуске Developer Analytics Tools
+          href: app-insights-release-notes-vsix.md
+    - name: Часто задаваемые вопросы
+      href: app-insights-troubleshoot-faq.md
+    - name: Справка
+      items:
+        - name: Форум MSDN
+          href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights'
+        - name: Переполнение стека
+          href: 'http://stackoverflow.com/questions/tagged/az-application-insights'
+        - name: Мнение пользователей
+          href: 'https://visualstudio.uservoice.com/forums/357324-application-insights'
+        - name: Поддержка
+          href: 'https://azure.microsoft.com/support/'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=application-insights'

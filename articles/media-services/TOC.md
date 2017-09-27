@@ -11,16 +11,16 @@
 ### [Использование портала для управления аутентификацией AAD](media-services-portal-get-started-with-aad.md)
 ### [Доступ к API с помощью .NET](media-services-dotnet-get-started-with-aad.md)
 ### [Доступ к API с помощью REST](media-services-rest-connect-with-aad.md)
-### [Использование интерфейса командной строки для создания и настройки приложения AAD](media-services-cli-create-and-configure-aad-app.md)
-### [Использование PowerShell для создания и настройки приложения AAD](media-services-powershell-create-and-configure-aad-app.md)
+### [Использование интерфейса командной строки Azure для создания и настройки приложения AAD](media-services-cli-create-and-configure-aad-app.md)
+### [Использование Azure PowerShell для создания и настройки приложения AAD](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Предоставление видео по запросу
-### [Портал](media-services-portal-vod-get-started.md)
-### [Пакет SDK для .NET](media-services-dotnet-get-started.md)
+### [Портал Azure](media-services-portal-vod-get-started.md)
+### [ПАКЕТ SDK .NET](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Потоковая трансляция в реальном времени
-### [Портал](media-services-portal-live-passthrough-get-started.md)
+### [Портал Azure](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Практическое руководство
@@ -29,7 +29,7 @@
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### [Конечные точки потоковой передачи](media-services-streaming-endpoints-overview.md)
-#### [Портал](media-services-portal-manage-streaming-endpoints.md)
+#### [Портал Azure](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### Хранилище
 #### [Обновление служб мультимедиа после оборота ключей доступа к хранилищу](media-services-roll-storage-access-keys.md)
@@ -38,7 +38,7 @@
 
 ## Передача содержимого
 ### Отправка файлов в учетную запись
-#### [Портал](media-services-portal-upload-files.md)
+#### [Портал Azure](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Отправка больших файлов с помощью Aspera](media-services-upload-files-with-aspera.md)
@@ -52,7 +52,7 @@
 #### [Форматы и кодеки Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 #### [Автоматическое создание схемы скоростей с помощью MES](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Кодирование с помощью Media Encoder Standard
-##### [Портал](media-services-portal-encode.md)
+##### [Портал Azure](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Расширенное кодирование с помощью MES](media-services-advanced-encoding-with-mes.md)
@@ -94,7 +94,7 @@
 #### Кодирование с помощью рабочего процесса Media Encoder Premium
 ##### [Рабочий процесс Media Encoder Premium](media-services-encode-with-premium-workflow.md)
 ##### [Руководства по рабочему процессу Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
-##### [Создание рабочих процессов кодирования Advanced с помощью конструктора рабочих процессов](media-services-workflow-designer.md)
+##### [Создание рабочих процессов расширенной кодировки с помощью конструктора рабочих процессов](media-services-workflow-designer.md)
 ##### [Рабочий процесс Premium с несколькими элементами входных данных](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### [Создание задачи, формирующей блоки fMP4](media-services-generate-fmp4-chunks.md)
 ### Обработчики мультимедиа
@@ -109,7 +109,7 @@
 #### [Портал](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Потоковая трансляция с использованием облачного кодировщика](media-services-manage-live-encoder-enabled-channels.md)
-#### [Портал](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [Портал Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Настройка локальных кодировщиков для использования с облачными кодировщиками](media-services-live-encoders-overview.md)
 #### [Кодировщик Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -120,7 +120,7 @@
 ### [Спецификация Fragmented MP4 Live Ingest](media-services-fmp4-live-ingest-overview.md)
 
 ## [Защита](media-services-content-protection-overview.md)
-### [Настройка системы защиты содержимого на портале](media-services-portal-protect-content.md)
+### [Настройка системы защиты содержимого на портале Azure](media-services-portal-protect-content.md)
 ### [Настройка чистого ключа AES-128 для потока](media-services-protect-with-aes128.md)
 ### [Использование REST для шифрования содержимого с помощью функции шифрования хранилища](media-services-rest-storage-encryption.md)
 ### [Обзор шаблонов лицензий PlayReady служб мультимедиа](media-services-playready-license-template-overview.md)
@@ -140,14 +140,14 @@
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
 ### Настройка политики авторизации ключей содержимого
-#### [Портал](media-services-portal-configure-content-key-auth-policy.md)
+#### [Портал Azure](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [Воспроизведение потока HLS, зашифрованного с помощью AES, в Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 ### [Передача токенов проверки подлинности](http://mingfeiy.com/how-client-pass-tokens-to-azure-media-services-key-delivery-services)
 
 ## [Анализ](media-services-analytics-overview.md)
-### [Анализ мультимедиа с помощью портала](media-services-portal-analyze.md)
+### [Анализ мультимедиа с помощью портала Azure](media-services-portal-analyze.md)
 ### [Обработка с помощью индексатора 2](media-services-process-content-with-indexer2.md)
 ### [Обработка с помощью индексатора](media-services-index-content.md)
 #### [Предустановка задачи](indexer-task-preset.md)
@@ -165,10 +165,10 @@
 
 ## Масштаб
 ### [Обработка мультимедиа](media-services-scale-media-processing-overview.md)
-#### [Портал](media-services-portal-scale-media-processing.md)
+#### [Портал Azure](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 ### Конечные точки потоковой передачи
-#### [Портал](media-services-portal-scale-streaming-endpoints.md)
+#### [Портал Azure](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Доставка содержимого](media-services-deliver-content-overview.md)
 ### [Динамическая упаковка](media-services-dynamic-packaging-overview.md)
@@ -177,7 +177,7 @@
 #### [Создание фильтров с помощью REST](media-services-rest-dynamic-manifest.md)
 ### [Политика кэширования CDN в расширении служб мультимедиа](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Публикация контента
-#### [Портал](media-services-portal-publish.md)
+#### [Портал Azure](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Доставка путем скачивания](media-services-deliver-asset-download.md)
@@ -200,7 +200,7 @@
 ## Монитор
 ### Проверка хода выполнения задания
 #### [REST](media-services-rest-check-job-progress.md)
-#### [Портал](media-services-portal-check-job-progress.md)
+#### [Портал Azure](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
 ### [Мониторинг уведомлений о заданиях с помощью хранилища очередей](media-services-dotnet-check-job-progress-with-queues.md)
 ### [Мониторинг уведомлений о заданиях с помощью вызовов webhook](media-services-dotnet-check-job-progress-with-webhooks.md)
@@ -213,8 +213,8 @@
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
-## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [PowerShell (управление службами)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [Azure PowerShell (управление службами)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)  
 

@@ -62,6 +62,10 @@
           href: Review-Tool-User-Guide/Workflows.md
         - name: Просмотр панели мониторинга
           href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Учебники
+  items:
+    - name: Модерация записей на Facebook
+      href: facebook-post-moderation.md
 - name: Справочники по API
   items:
     - name: Все API
@@ -73,6 +77,6 @@
     - name: Пакет Windows SDK
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
     - name: Примеры
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
+      href: 'https://github.com/MicrosoftContentModerator'
     - name: Часто задаваемые вопросы
       href: FAQs.md

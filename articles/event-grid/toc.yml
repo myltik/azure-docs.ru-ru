@@ -12,6 +12,8 @@
   items:
     - name: Отслеживание изменений в виртуальных машинах с помощью приложений логики
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: Изменение размера переданных изображений
+      href: resize-images-on-storage-blob-upload-event.md
 - name: Основные понятия
   items:
     - name: Основные понятия службы "Сетка событий Azure"

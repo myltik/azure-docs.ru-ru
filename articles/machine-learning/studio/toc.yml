@@ -1,0 +1,239 @@
+- name: Документация по Студии машинного обучения
+  href: index.md
+- name: Обзор
+  expanded: true
+  items:
+    - name: Что такое машинное обучение?
+      href: what-is-machine-learning.md
+    - name: Студия машинного обучения
+      href: what-is-ml-studio.md
+    - name: Возможности студии машинного обучения
+      href: studio-overview-diagram.md
+    - name: Основные сведения о студии машинного обучения (инфографика)
+      href: basics-infographic-with-algorithm-examples.md
+    - name: Часто задаваемые вопросы
+      href: faq.md
+    - name: Новые возможности
+      href: whats-new.md
+- name: Начало работы
+  items:
+    - name: Создание первого эксперимента
+      href: create-experiment.md
+    - name: Пошаговое руководство по примеру
+      items:
+        - name: Создание прогнозного решения
+          href: walkthrough-develop-predictive-solution.md
+        - name: 1. Создание рабочей области
+          href: walkthrough-1-create-ml-workspace.md
+        - name: 2. Отправка данных
+          href: walkthrough-2-upload-data.md
+        - name: 3. Создание эксперимента
+          href: walkthrough-3-create-new-experiment.md
+        - name: 4. Обучение и анализ
+          href: walkthrough-4-train-and-evaluate-models.md
+        - name: 5. Развертывание веб-службы
+          href: walkthrough-5-publish-web-service.md
+        - name: 6. Доступ к веб-службе
+          href: walkthrough-6-access-web-service.md
+    - name: Обработка и анализ данных для начинающих
+      items:
+        - name: 1. Пять вопросов
+          href: data-science-for-beginners-the-5-questions-data-science-answers.md
+        - name: 2. Подготовили ли вы данные?
+          href: data-science-for-beginners-is-your-data-ready-for-data-science.md
+        - name: 3. Правильные вопросы
+          href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
+        - name: 4. Прогнозирование ответа
+          href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
+        - name: 5. Копирование работ других пользователей
+          href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+    - name: Быстрый запуск R
+      href: r-quickstart.md
+- name: Практическое руководство
+  items:
+    - name: Настройка инструментов и служебных программ
+      items:
+        - name: Управление рабочей областью
+          items:
+            - name: Создание
+              href: create-workspace.md
+            - name: Управление
+              href: manage-workspace.md
+            - name: Устранение неполадок
+              href: troubleshooting-creating-ml-workspace.md
+            - name: Развертывание с помощью ARM
+              href: deploy-with-resource-manager-template.md
+            - name: Создание в другом регионе
+              href: multi-geo.md
+    - name: Получение и интерпретация данных
+      items:
+        - name: Импорт данных для обучения
+          items:
+            - name: Обзор
+              href: import-data.md
+            - name: Из локального файла
+              href: import-data-from-local-file.md
+            - name: Из сетевых источников
+              href: import-data-from-online-sources.md
+            - name: Из эксперимента
+              href: import-data-from-an-experiment.md
+            - name: Использование локальной базы данных SQL
+              href: use-data-from-an-on-premises-sql-server.md
+    - name: Разработка моделей
+      items:
+        - name: Создание и обучение моделей
+          items:
+            - name: Управление жизненным циклом эксперимента
+              href: version-control.md
+            - name: Управление итерациями эксперимента
+              href: manage-experiment-iterations.md
+            - name: Создание моделей с помощью PowerShell
+              href: create-models-and-endpoints-with-powershell.md
+            - name: Выбор алгоритмов
+              items:
+                - name: Выбор алгоритмов
+                  href: algorithm-choice.md
+                - name: Памятка по алгоритмам
+                  href: algorithm-cheat-sheet.md
+                - name: Использование линейной регрессии
+                  href: linear-regression-in-azure.md
+                - name: Использование текстовой аналитики
+                  href: text-analytics-module-tutorial.md
+            - name: Оценка и интерпретация результатов
+              items:
+                - name: Оценка производительности
+                  href: evaluate-model-performance.md
+                - name: Оптимизация параметров
+                  href: algorithm-parameters-optimize.md
+                - name: Интерпретация результатов
+                  href: interpret-model-results.md
+                - name: Отладка
+                  href: debug-models.md
+            - name: Использование R и Python
+              items:
+                - name: Выполнение скриптов R
+                  href: extend-your-experiment-with-r.md
+                - name: Создание пользовательских модулей R
+                  href: custom-r-modules.md
+                - name: Выполнение скриптов Python
+                  href: execute-python-scripts.md
+    - name: Ввод модели в эксплуатацию
+      items:
+        - name: Обзор
+          href: deploy-consume-web-service-guide.md
+        - name: Развертывание моделей
+          items:
+            - name: Развертывание веб-службы
+              href: publish-a-machine-learning-web-service.md
+            - name: Принцип работы
+              href: model-progression-experiment-to-web-service.md
+            - name: Подготовка к развертыванию
+              href: convert-training-experiment-to-scoring-experiment.md
+            - name: Использование внешних данных
+              href: web-services-that-use-import-export-modules.md
+            - name: Развертывание в нескольких регионах
+              href: how-to-deploy-to-multiple-regions.md
+            - name: Использование параметров веб-службы
+              href: web-service-parameters.md
+            - name: Включение ведения журналов
+              href: web-services-logging.md
+        - name: Управление веб-службами
+          items:
+            - name: Использование портала веб-служб
+              href: manage-new-webservice.md
+            - name: Управление с помощью интерфейсов API
+              href: manage-web-service-endpoints-using-api-management.md
+            - name: Создание конечных точек
+              href: create-endpoint.md
+            - name: Масштабирование
+              href: scaling-webservice.md
+        - name: Повторное обучение моделей
+          items:
+            - name: Обзор
+              href: retrain-machine-learning-model.md
+            - name: Повторное обучение программным образом
+              href: retrain-models-programmatically.md
+            - name: Переобучение классической веб-службы
+              href: retrain-a-classic-web-service.md
+            - name: Повторное обучение с помощью PowerShell
+              href: retrain-new-web-service-using-powershell.md
+            - name: Повторное обучение существующей веб-службы
+              href: retrain-existing-resource-manager-based-web-service.md
+            - name: Устранение неполадок
+              href: troubleshooting-retraining-models.md
+        - name: Использование моделей
+          items:
+            - name: Обзор
+              href: consume-web-services.md
+            - name: Использование Excel
+              href: consuming-from-excel.md
+            - name: Использование надстройки Excel
+              href: excel-add-in-for-web-services.md
+            - name: Использование шаблона веб-приложений
+              href: consume-web-service-with-web-app-template.md
+            - name: Использование пула пакетной службы
+              href: dedicated-capacity-for-bes-jobs.md
+    - name: Примеры
+      items:
+        - name: Примеры экспериментов
+          href: sample-experiments.md
+        - name: Типовые наборы данных
+          href: use-sample-datasets.md
+        - name: Пример оттока клиентов
+          href: azure-ml-customer-churn-scenario.md
+- name: Справочные материалы
+  items:
+    - name: Модуль Azure PowerShell (новый)
+      href: /powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning
+    - name: Модуль Azure PowerShell (классический)
+      href: powershell-module.md
+    - name: Справочник по алгоритмам и модулям
+      href: 'https://msdn.microsoft.com/library/azure/dn905974.aspx'
+    - name: API управления REST
+      href: /rest/api/machinelearning
+    - name: Коды ошибок веб-службы
+      href: web-service-error-codes.md
+- name: Сопутствующие материалы
+  items:
+    - name: Коллекция Cortana Intelligence
+      items:
+        - name: Обзор
+          href: gallery-how-to-use-contribute-publish.md
+        - name: Отрасли
+          href: gallery-industries.md
+        - name: Решения
+          href: gallery-solutions.md
+        - name: Эксперименты
+          href: gallery-experiments.md
+        - name: Записные книжки Jupyter
+          href: gallery-jupyter-notebooks.md
+        - name: Соревнования
+          href: gallery-competitions.md
+        - name: Вопросы и ответы по соревнованиям
+          href: competition-faq.md
+        - name: Учебники
+          href: gallery-tutorials.md
+        - name: Коллекции
+          href: gallery-collections.md
+        - name: Пользовательские модули
+          href: gallery-custom-modules.md
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 'Язык нейронных сетей Net#'
+      href: azure-ml-netsharp-reference-guide.md
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=machine-learning'
+    - name: Блог
+      href: 'http://blogs.technet.com/b/machinelearning/'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
+    - name: Получение справки с помощью чата в реальном времени
+      href: live-chat.md

@@ -6,6 +6,10 @@
 ## [Добавление кэширования для повышения производительности](api-management-howto-cache.md)
 ## [Часто задаваемые вопросы](api-management-faq.md)
 # Практическое руководство
+## Установка службы APIM
+### [Создание экземпляра APIM](get-started-create-service-instance.md)
+### [Обновление и масштабирование](upgrade-and-scale.md)
+### [Настройка личного домена](configure-custom-domain.md)
 ## Разработка интерфейсов API
 ### [Добавление и публикация продукта, использующего API](api-management-howto-add-products.md)
 ### [Добавление операций](api-management-howto-add-operations.md)
@@ -51,7 +55,7 @@
 #### [Краткое руководство](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (оригинал)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Политики](api-management-policies.md)

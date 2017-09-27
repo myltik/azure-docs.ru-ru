@@ -4,7 +4,7 @@
   items:
     - name: О функциях
       href: functions-overview.md
-    - name: 'Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure'
+    - name: Сравнение с бессерверными службами
       href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Быстрое начало работы
   expanded: true
@@ -17,21 +17,23 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: триггеры;
       items:
+        - name: Хранилище BLOB-объектов
+          href: functions-create-storage-blob-triggered-function.md
+        - name: Azure Cosmos DB
+          href: functions-create-cosmos-db-triggered-function.md
         - name: Таймер
           href: functions-create-scheduled-function.md
         - name: Универсальный веб-перехватчик
           href: functions-create-generic-webhook-triggered-function.md
         - name: Объект webhook GitHub
           href: functions-create-github-webhook-triggered-function.md
-        - name: Хранилище BLOB-объектов
-          href: functions-create-storage-blob-triggered-function.md
         - name: Хранилище очередей
           href: functions-create-storage-queue-triggered-function.md
     - name: Интеграция
       items:
         - name: Хранилище
           href: functions-integrate-storage-queue-output-binding.md
-        - name: Cosmos DB
+        - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Учебники
   items:
@@ -41,6 +43,8 @@
       href: functions-create-serverless-api.md
     - name: "3.\_Создание определения OpenAPI"
       href: functions-openapi-definition.md
+    - name: 4. Изменение размера изображения с помощью службы "Сетка событий"
+      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Примеры
   items:
     - name: Примеры кода
@@ -103,6 +107,8 @@
           href: app-service-export-api-to-powerapps-and-flow.md
         - name: Вызов функции из PowerApps
           href: functions-powerapps-scenario.md
+        - name: Вызов функции из Microsoft Flow
+          href: functions-flow-scenario.md
         - name: Использование удостоверения управляемой службы
           href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Справочные материалы
@@ -111,7 +117,7 @@
       items:
         - name: Хранилище BLOB-объектов
           href: functions-bindings-storage-blob.md
-        - name: Cosmos DB
+        - name: Azure Cosmos DB
           href: functions-bindings-documentdb.md
         - name: Концентраторы событий
           href: functions-bindings-event-hubs.md
@@ -121,6 +127,8 @@
           href: functions-bindings-external-table.md
         - name: HTTP и вызовы webhook
           href: functions-bindings-http-webhook.md
+        - name: Microsoft Graph
+          href: functions-bindings-microsoft-graph.md
         - name: Мобильные приложения
           href: functions-bindings-mobile-apps.md
         - name: Центры уведомлений

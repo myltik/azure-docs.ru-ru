@@ -15,7 +15,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: 'Виртуальные машины Linux Azure предоставляют по запросу безопасную высокомасштабируемую виртуализированную инфраструктуру с использованием Red Hat, Ubuntu или дистрибутива Linux по вашему выбору. Узнайте, как создавать, настраивать, масштабировать виртуальные машины Linux и управлять ими, используя наши шаблоны быстрого запуска, примеры и руководства.'
+  description: 'Виртуальные машины Linux Azure предоставляют по запросу безопасную высокомасштабируемую виртуализированную инфраструктуру с использованием Red Hat, Ubuntu или дистрибутива Linux по вашему выбору. Узнайте, как создавать, настраивать, обновлять, масштабировать виртуальные машины Linux и управлять ими, изучив наши краткие руководства, руководства и примеры.'
   aside:
     image:
       alt: null
@@ -60,8 +60,8 @@ sections:
           - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a Virtual Machine Scale Set and deploy a highly available app on Linux</a> (Создание масштабируемого набора виртуальных машин и развертывание высокодоступного приложения в Linux)
           - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">How to load balance Linux virtual machines in Azure to create a highly available application</a> (Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения)
           - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Управление виртуальными сетями Azure и виртуальными машинами Linux с помощью Azure CLI</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Back up Linux virtual machines in Azure</a> (Резервное копирование виртуальных машин Linux в Azure)
-          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">How to monitor a Linux virtual machine in Azure</a> (Мониторинг виртуальной машины Linux в Azure)
+          - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Back up Windows virtual machines in Azure</a> (Резервное копирование виртуальных машин Windows в Azure)
+          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Мониторинг и обновление виртуальных машин</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Monitor VM security with the Azure Security Center</a> (Мониторинг безопасности виртуальных машин с помощью центра безопасности Azure)
           - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a> (Создание инфраструктуры непрерывной интеграции и доставки с помощью Jenkins, Docker и GitHub)'
           - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">Непрерывная интеграция и непрерывное развертывание с помощью Team Services</a>
@@ -71,19 +71,22 @@ sections:
     items:
       - type: list
         style: cards
-        className: cardsW
+        className: cardsFTitle
         items:
-          - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Управление инфраструктурой</a></p>'
+          - title: Управление инфраструктурой в Azure
+            href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Начало работы с виртуальными машинами</a></p>'
+          - title: Приступая к работе с виртуальными машинами Azure
+            href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Начало работы с мониторингом IaaS</a></p>'
+          - title: Приступая к работе с мониторингом IaaS
+            href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
   - title: Примеры
     items:

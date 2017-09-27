@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по Машинному обучению Azure (предварительная версия)
+metadata:
+  title: Документация по Машинному обучению Azure (предварительная версия)
+  meta.description: Learn how to use Azure Machine Learning public preview features.
+  services: machine-learning
+  author: czeumault
+  manager: carolz
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/06/2017
+  ms.author: carolz
+abstract:
+  description: 'Узнайте из наших руководств, как подготавливать данные, а также собирать и развертывать модели. Функции предварительной версии службы "Машинное обучение Azure" позволяют собирать и развертывать модели машинного обучения и искусственного интеллекта с помощью любых средства и библиотек Python и управлять ими. Для хранения и обработки данных можно использовать широкий набор служб данных и вычислений в Azure.'
+sections:
+  - title: 5-минутные руководства по началу работы
+    items:
+      - type: paragraph
+        text: Создание первого проекта машинного обучения
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+            text: Установка и создание
+            href: quickstart-installation
+  - title: Пошаговые руководства
+    items:
+      - type: paragraph
+        text: 'Узнайте, как подготовить данные, настроить эксперимент и ввести в эксплуатацию модели'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-classifying-iris-part-1">Пошаговый обзор основных сведений о службах Машинного обучения (предварительная версия)</a>
+          - html: <a href="tutorial-classifying-iris-part-2">Использование Machine Learning Workbench для построения модели с помощью Ирисов Фишера</a>
+          - html: <a href="tutorial-classifying-iris-part-3">Руководство по развертыванию модели машинного обучения</a>
+          - html: <a href="tutorial-bikeshare-dataprep">Расширенная подготовка данных с помощью Azure Machine Learning Workbench</a>
+  - title: Справочные материалы
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Языки
+            html: '<p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
+          - title: REST
+            html: <p><a href="model-management-api-reference">Интерфейс API REST для управления моделями</a></p>

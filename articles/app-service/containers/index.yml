@@ -56,7 +56,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-          - html: "<a href=\"/cli/azure/appservice\">Azure CLI\_2.0</a>"
+          - html: <a href="/cli/azure/appservice">Интерфейс командной строки Azure</a>
   - title: Справочные материалы
     items:
       - type: list
@@ -68,4 +68,4 @@ sections:
           - title: Языки
             html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
           - title: REST
-            html: "<p><a href=\"/en-us/powershell/azureps-cmdlets-docs\">Azure PowerShell</a></p><p><a href=\"/cli/azure/appservice\">Azure CLI\_2.0</a></p>"
+            html: <p><a href="/en-us/rest/api/appservice">справочник по API REST</a></p>

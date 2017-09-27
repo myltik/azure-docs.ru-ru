@@ -7,8 +7,12 @@
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Создание экземпляра контейнера
+    - name: Создание контейнера с помощью интерфейса командной строки
       href: container-instances-quickstart.md
+    - name: Создание контейнера с помощью портала
+      href: container-instances-quickstart-portal.md
+    - name: Создание контейнера с помощью PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: Учебники
   items:
     - name: Создание и развертывание контейнера
@@ -39,7 +43,7 @@
       href: container-instances-troubleshooting.md
 - name: Справочные материалы
   items:
-    - name: "Azure CLI\_2.0"
+    - name: Инфраструктура CLI Azure
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances

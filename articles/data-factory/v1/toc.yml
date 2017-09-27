@@ -1,0 +1,225 @@
+- name: Документация по фабрике данных версии 1
+  href: null
+- name: Обзор
+  items:
+    - name: Введение в фабрику данных Azure
+      href: data-factory-introduction.md
+    - name: Основные понятия
+      items:
+        - name: Конвейеры и действия
+          href: data-factory-create-pipelines.md
+        - name: НАБОРЫ ДАННЫХ
+          href: data-factory-create-datasets.md
+        - name: Планирование и исполнение с использованием фабрики данных
+          href: data-factory-scheduling-and-execution.md
+- name: Начало работы
+  expanded: true
+  items:
+    - name: Создание конвейера для копирования данных
+      href: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+      items:
+        - name: Мастер копирования
+          href: data-factory-copy-data-wizard-tutorial.md
+        - name: Портал Azure
+          href: data-factory-copy-activity-tutorial-using-azure-portal.md
+        - name: Visual Studio
+          href: data-factory-copy-activity-tutorial-using-visual-studio.md
+        - name: Azure PowerShell
+          href: data-factory-copy-activity-tutorial-using-powershell.md
+        - name: Интерфейс REST API
+          href: data-factory-copy-activity-tutorial-using-rest-api.md
+        - name: .NET API
+          href: data-factory-copy-activity-tutorial-using-dotnet-api.md
+    - name: Создание конвейера для преобразования данных
+      href: data-factory-build-your-first-pipeline.md
+      items:
+        - name: Портал Azure
+          href: data-factory-build-your-first-pipeline-using-editor.md
+        - name: Visual Studio
+          href: data-factory-build-your-first-pipeline-using-vs.md
+        - name: Azure PowerShell
+          href: data-factory-build-your-first-pipeline-using-powershell.md
+        - name: Шаблон диспетчера ресурсов Azure
+          href: data-factory-build-your-first-pipeline-using-arm.md
+        - name: Интерфейс REST API
+          href: data-factory-build-your-first-pipeline-using-rest-api.md
+    - name: Перемещение данных между локальной средой и облаком
+      href: data-factory-move-data-between-onprem-and-cloud.md
+    - name: Часто задаваемые вопросы
+      href: data-factory-faq.md
+- name: Практическое руководство
+  items:
+    - name: Перенос данных
+      items:
+        - name: Общие сведения о действии копирования
+          href: data-factory-data-movement-activities.md
+        - name: Мастер копирования фабрики данных
+          href: data-factory-azure-copy-wizard.md
+          items:
+            - name: "Загрузка 1\_ТБ за 15\_минут"
+              href: data-factory-load-sql-data-warehouse.md
+        - name: Руководство по производительности и настройке
+          href: data-factory-copy-activity-performance.md
+        - name: Отказоустойчивость
+          href: data-factory-copy-activity-fault-tolerance.md
+        - name: Вопросы безопасности
+          href: data-factory-data-movement-security-considerations.md
+        - name: Соединители
+          items:
+            - name: Amazon Redshift
+              href: data-factory-amazon-redshift-connector.md
+            - name: Amazon S3
+              href: data-factory-amazon-simple-storage-service-connector.md
+            - name: Хранилище больших двоичных объектов Azure
+              href: data-factory-azure-blob-connector.md
+            - name: Azure Cosmos DB
+              href: data-factory-azure-documentdb-connector.md
+            - name: Хранилище озера данных Azure
+              href: data-factory-azure-datalake-connector.md
+            - name: поиск Azure;
+              href: data-factory-azure-search-connector.md
+            - name: База данных SQL Azure
+              href: data-factory-azure-sql-connector.md
+            - name: "Хранилище данных SQL\_Azure"
+              href: data-factory-azure-sql-data-warehouse-connector.md
+            - name: Хранилище таблиц Azure
+              href: data-factory-azure-table-connector.md
+            - name: Cassandra
+              href: data-factory-onprem-cassandra-connector.md
+            - name: DB2
+              href: data-factory-onprem-db2-connector.md
+            - name: Файловая система
+              href: data-factory-onprem-file-system-connector.md
+            - name: FTP
+              href: data-factory-ftp-connector.md
+            - name: HDFS
+              href: data-factory-hdfs-connector.md
+            - name: HTTP
+              href: data-factory-http-connector.md
+            - name: MongoDB
+              href: data-factory-on-premises-mongodb-connector.md
+            - name: MySQL
+              href: data-factory-onprem-mysql-connector.md
+            - name: OData
+              href: data-factory-odata-connector.md
+            - name: ODBC
+              href: data-factory-odbc-connector.md
+            - name: Oracle
+              href: data-factory-onprem-oracle-connector.md
+            - name: PostgreSQL
+              href: data-factory-onprem-postgresql-connector.md
+            - name: Salesforce
+              href: data-factory-salesforce-connector.md
+            - name: SAP Business Warehouse
+              href: data-factory-sap-business-warehouse-connector.md
+            - name: SAP HANA
+              href: data-factory-sap-hana-connector.md
+            - name: SFTP
+              href: data-factory-sftp-connector.md
+            - name: SQL Server
+              href: data-factory-sqlserver-connector.md
+            - name: Sybase
+              href: data-factory-onprem-sybase-connector.md
+            - name: Teradata
+              href: data-factory-onprem-teradata-connector.md
+            - name: Веб-таблица
+              href: data-factory-web-table-connector.md
+        - name: Шлюз управления данными
+          href: data-factory-data-management-gateway.md
+    - name: Преобразование данных
+      href: data-factory-data-transformation-activities.md
+      items:
+        - name: Действие Hive HDInsight
+          href: data-factory-hive-activity.md
+        - name: Действие Pig HDInsight
+          href: data-factory-pig-activity.md
+        - name: Действие MapReduce HDInsight
+          href: data-factory-map-reduce.md
+        - name: Действие потоковой передачи HDInsight
+          href: data-factory-hadoop-streaming-activity.md
+        - name: Действие HDInsight Spark
+          href: data-factory-spark.md
+        - name: Действие выполнения пакета в службе машинного обучения
+          href: data-factory-azure-ml-batch-execution-activity.md
+        - name: Действие обновления ресурса в службе машинного обучения
+          href: data-factory-azure-ml-update-resource-activity.md
+        - name: Действие хранимой процедуры
+          href: data-factory-stored-proc-activity.md
+        - name: Действие U-SQL в аналитике озера данных
+          href: data-factory-usql-activity.md
+        - name: Настраиваемое действие .NET
+          href: data-factory-use-custom-activities.md
+        - name: Вызов сценариев R
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample'
+        - name: Повторная обработка моделей в службах Azure Analysis Services
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample'
+        - name: Связанные службы вычислений
+          href: data-factory-compute-linked-services.md
+    - name: Разработка
+      items:
+        - name: Шаблон диспетчера ресурсов Azure
+          href: data-factory-how-to-use-resource-manager-templates.md
+        - name: Примеры
+          href: data-factory-samples.md
+        - name: Функции и системные переменные
+          href: data-factory-functions-variables.md
+        - name: Правила именования
+          href: data-factory-naming-rules.md
+        - name: Журнал изменений API .NET
+          href: data-factory-api-change-log.md
+    - name: Отслеживание и управление
+      items:
+        - name: Приложение для мониторинга и управления
+          href: data-factory-monitor-manage-app.md
+        - name: Конвейеры фабрики данных Azure
+          href: data-factory-monitor-manage-pipelines.md
+        - name: Использование пакета .NET SDK
+          href: data-factory-create-data-factories-programmatically.md
+        - name: Устранение неполадок фабрики данных
+          href: data-factory-troubleshoot.md
+        - name: Устранение неполадок в работе шлюза управления данными
+          href: data-factory-troubleshoot-gateway-issues.md
+- name: Справочные материалы
+  items:
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.datafactories
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.datafactories.models
+    - name: REST
+      href: /rest/api/datafactory/
+    - name: JSON
+      href: data-factory-json-scripting-reference.md
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Примеры использования
+      href: data-factory-customer-case-studies.md
+    - name: Схема обучения
+      href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
+    - name: Форум MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Заметки о выпуске шлюза управления данными
+      href: data-factory-gateway-release-notes.md
+    - name: Запрос функции
+      href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=data-factory'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-data-factory'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=data-factory'
+    - name: Обработка больших наборов данных с помощью фабрики данных и пакетной службы
+      href: data-factory-data-processing-using-batch.md
+    - name: Примеры использования
+      items:
+        - name: Профилирование клиентов
+          href: data-factory-customer-profiling-usecase.md
+        - name: Рекомендации по продуктам
+          href: data-factory-product-reco-usecase.md

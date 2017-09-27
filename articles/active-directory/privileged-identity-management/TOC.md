@@ -2,11 +2,12 @@
 ## [Защита привилегированного доступа](active-directory-securing-privileged-access.md)
 ## [Что такое Azure AD PIM?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Роли](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Управление привилегированными пользователями в Azure](azure-pim-resource-rbac.md)
 ## [Утверждение управления привилегированными пользователями](azure-ad-pim-approval-workflow.md)
 
 # Начало работы
 ## [Требования к подписке](subscription-requirements.md)
-## [Приступая к работе с порталом](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Приступая к работе с порталом Azure](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Мастер защиты](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Предоставление доступа к PIM](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 

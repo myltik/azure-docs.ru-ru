@@ -19,7 +19,7 @@
 ####[Динамическое ускорение сайтов](cdn-dynamic-site-acceleration.md)
  
 ## Управление
-### [Управление с помощью PowerShell](cdn-manage-powershell.md)
+### [Управление с помощью Azure PowerShell](cdn-manage-powershell.md)
 ### Настройка срока жизни
 #### [Содержимое веб-приложений, облачных служб, ASP.NET или IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Содержимое службы BLOB-объектов в службе хранилища](cdn-manage-expiration-of-blob-content.md)
@@ -53,7 +53,7 @@
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

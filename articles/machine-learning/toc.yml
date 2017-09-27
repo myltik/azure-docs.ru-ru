@@ -1,0 +1,8 @@
+- name: Возможности предварительной версии службы "Машинное обучение"
+  href: preview/index.yml
+- name: Студия машинного обучения
+  href: studio/index.md
+- name: Виртуальная машина для обработки и анализа данных
+  href: data-science-virtual-machine/overview.md
+- name: Процесс обработки и анализа данных группы
+  href: team-data-science-process/overview.md

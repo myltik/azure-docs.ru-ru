@@ -24,7 +24,7 @@
 ###[Защита кэша с помощью виртуальной сети](cache-how-to-premium-vnet.md)
 ###[Распределение кэша с помощью кластеризации](cache-how-to-premium-clustering.md)
 ## Автоматизация
-###[Развертывание и управление с помощью PowerShell](cache-howto-manage-redis-cache-powershell.md)
+###[Развертывание и управление с помощью Azure PowerShell](cache-howto-manage-redis-cache-powershell.md)
 ###[Развертывание и управление с помощью интерфейса командной строки Azure](cli-samples.md)
 ###[Подготовка кэша Redis](cache-redis-cache-arm-provision.md)
 ###[Подготовка веб-приложения с использованием кэша Redis](cache-web-app-arm-with-redis-cache-provision.md)
@@ -32,13 +32,13 @@
 ###[Поставщик состояний сеансов](cache-aspnet-session-state-provider.md)
 ###[Поставщик кэша вывода](cache-aspnet-output-cache-provider.md)
 ## Управление
-###[Настройка на портале](cache-configure.md)
+###[Настройка на портале Azure](cache-configure.md)
 ###[Настройка георепликации](cache-how-to-geo-replication.md)
 ###[Импорт и экспорт данных](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[Планирование обновлений](cache-administration.md#schedule-updates)
 ## Мониторинг и устранение неполадок
-###[Мониторинг на портале](cache-how-to-monitor.md)
+###[Мониторинг на портале Azure](cache-how-to-monitor.md)
 ###[Устранение неполадок с кэшем](cache-how-to-troubleshoot.md)
 ###[Настройка оповещений для исключений](cache-how-to-monitor.md#operations-and-alerts)
 ## Масштаб
@@ -49,8 +49,8 @@
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=redis-cache)
-## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Предварительная версия Azure CLI 2.0](/cli/azure/redis)
+## [Azure PowerShell](/powershell/module/azurerm.rediscache)
+## [Предварительная версия Azure CLI](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Клиенты Redis](http://redis.io/clients)

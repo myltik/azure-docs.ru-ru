@@ -43,8 +43,7 @@
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 #### [Условия использования для пользователей и приложений](active-directory-tou.md)
-#### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
-### [Добавление пользователей из других каталогов (классический портал)](active-directory-create-users-external.md)
+#### [Примеры Azure PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 ### [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
 ### [Сброс пароля](active-directory-users-reset-password-azure-portal.md)
 ### [Управление сведениями о работе пользователей](active-directory-users-work-info-azure-portal.md)
@@ -56,7 +55,7 @@
 ### Управление группами
 #### [Портал Azure](active-directory-groups-create-azure-portal.md)
 #### [Классический портал.](active-directory-accessmanagement-manage-groups.md)
-#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Управление членами группы](active-directory-groups-members-azure-portal.md)
 ### [Управление владельцами групп](active-directory-accessmanagement-managing-group-owners.md)
 ### [Управление членством в группах](active-directory-groups-membership-azure-portal.md)
@@ -65,7 +64,7 @@
 #### [Поиск и устранение проблем с лицензированием групп](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
-#### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
+#### [Примеры Azure PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 ### [Настройка срока действия групп Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Просмотр всех групп](active-directory-groups-view-azure-portal.md)
 ### [Включение выделенных групп](active-directory-accessmanagement-dedicated-groups.md)
@@ -149,7 +148,12 @@
 ### [Обзор](active-directory-enable-sso-scenario.md)
 ### [Приступая к работе](active-directory-integrating-applications-getting-started.md)
 ### [Руководства по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
-### [Обнаружение облачных приложений](active-directory-cloudappdiscovery-whatis.md)
+### [Обнаружение облачных приложений](cloudappdiscovery-overview.md)
+#### [Что такое Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+#### [Этапы настройки](cloudappdiscovery-get-started.md)
+#### [Создание отчетов о моментальных снимках](cloudappdiscovery-set-up-snapshots.md)
+#### [Настройка непрерывного создания отчетов](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+#### [Использование настраиваемого средства синтаксического анализа журналов](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
 #### [Обновление параметров реестра](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Общие сведения о безопасности и конфиденциальности](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
@@ -244,7 +248,7 @@
 #### [Добавление пользователей B2B администраторами](active-directory-b2b-admin-add-users.md)
 #### [Добавление пользователей B2B информационными работниками](active-directory-b2b-iw-add-users.md)
 #### [API и настройка](active-directory-b2b-api.md)
-#### [Код и примеры PowerShell](active-directory-b2b-code-samples.md)
+#### [Примеры кода и сценариев Azure PowerShell](active-directory-b2b-code-samples.md)
 #### [Пример самостоятельной регистрации на портале](active-directory-b2b-self-service-portal.md)
 #### [Сообщение электронной почты с приглашением](active-directory-b2b-invitation-email.md)
 #### [Активация приглашения](active-directory-b2b-redemption-experience.md)
@@ -290,7 +294,7 @@
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
-#### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Приступая к работе](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
 #### Задачи
@@ -325,6 +329,9 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Управление привилегированными пользователями](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
+## [Интеграция других служб с Azure AD]()
+### [Включение интеграции с LinkedIn](linkedin-integration.md)
+
 ## [Развертывание служб AD DS на виртуальных машинах Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory на виртуальных машинах Azure](active-directory-deploying-ws-ad-guidelines.md)
 ### [Реплика контроллера домена в виртуальной сети Azure](active-directory-install-replica-active-directory-domain-controller.md)
@@ -348,7 +355,7 @@
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
-## [Командлеты PowerShell](/powershell/azure/overview)
+## [Командлеты Azure PowerShell](/powershell/azure/overview)
 ## [Справочник по API Java](/java/api)
 ## [API .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Ограничения службы](active-directory-service-limits-restrictions.md)

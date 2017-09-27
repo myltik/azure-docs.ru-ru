@@ -5,7 +5,7 @@
 ## [Часто задаваемые вопросы](faq.md)
 
 # Начало работы
-## [Создание виртуальной машины Linux с помощью портала](createportal.md)
+## [Создание виртуальной машины Linux с помощью портала Azure](createportal.md)
 ## [Установка Azure CLI](../../../cli-install-nodejs.md)
 ## [Создание ключей SSH](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [Сброс паролей или ключей Linux, исправление ошибок SSH и проверка дисков](reset-access.md)
 ### [Обслуживание](planned-maintenance-schedule.md)
 ### [Создание узла Docker с помощью интерфейса командной строки](cli-use-docker.md)
-### [Создание узла Docker с помощью портала](portal-use-docker.md)
+### [Создание узла Docker с помощью портала Azure](portal-use-docker.md)
 ### [Как использовать Docker со Swarm](../../virtual-machines-linux-docker-swarm.md)
 
 ## Использование хранилища
@@ -67,7 +67,7 @@
 ### [Подключение виртуального жесткого диска для устранения неполадок виртуальной машины](troubleshoot-recovery-disks-portal.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Интерфейс командной строки Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Создание шаблонов Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -75,6 +75,7 @@ sections:
           - html: "Запрос данных с помощью Cosmos\_DB&#58; <a href=\"/azure/cosmos-db/tutorial-query-documentdb\">DocumentDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-table\">Таблица</a> | <a href=\"/azure/cosmos-db/tutorial-query-graph\">Graph</a>"
           - html: "Репликация глобальных баз данных с помощью Cosmos\_DB&#58; <a href=\"/azure/cosmos-db/tutorial-global-distribution-documentdb\">DocumentDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-table\">Таблица</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-graph\">Graph</a>"
           - html: <a href="local-emulator">Разработка приложений локально с помощью эмулятора</a>
+          - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Создайте триггера HTTP с помощью входной привязки Azure Cosmos DB</a>
   - title: Примеры
     items:
       - type: list

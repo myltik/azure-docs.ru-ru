@@ -19,8 +19,19 @@
 ### [Пакетная обработка сообщений](logic-apps-batch-process-send-receive-messages.md)
 ### [Создание определений приложений логики](logic-apps-author-definitions.md)
 ### [Вызов, активация или вложение приложений логики](logic-apps-http-endpoint.md)
-### [Создание настраиваемых API для приложений логики](logic-apps-create-api-app.md)
-### [Вызов настраиваемых API для приложений логики](logic-apps-custom-hosted-api.md)
+### Разработка настраиваемых соединителей
+#### [Обзор настраиваемых соединителей](custom-connector-overview.md)
+#### [Создание соединителей с помощью интерфейсов веб-API](custom-connector-build-web-api-app-tutorial.md)
+#### [Защита соединителей с помощью Azure AD](custom-connector-azure-active-directory-authentication.md)
+#### [Описание интерфейсов API с помощью Postman](custom-connector-api-postman-collection.md)
+#### [Расширение OpenAPI для пользовательских соединителей](custom-connector-openapi-extensions.md)
+#### [Регистрация соединителя](logic-apps-custom-connector-register.md)
+#### [Сертификация соединителя](custom-connector-submit-certification.md)
+#### [Часто задаваемые вопросы о настраиваемых соединителях](custom-connector-faq.md)
+### Разработка настраиваемых интерфейсов API
+#### [Создание настраиваемых API для приложений логики](logic-apps-create-api-app.md)
+#### [Отправка безопасных вызовов к настраиваемым API](logic-apps-custom-api-authentication.md)
+#### [Развертывание и вызов настраиваемых API](logic-apps-custom-api-host-deploy-call.md)
 ### [Обработка ошибок и исключений](logic-apps-exception-handling.md)
 ### [Обработка типов содержимого](logic-apps-content-type.md)
 ### [Защита приложений логики](logic-apps-securing-a-logic-app.md)
@@ -73,8 +84,7 @@
 #### [Схема отслеживания X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Настраиваемая схема отслеживания](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Примеры, сценарии и пошаговые руководства
-### [Обзор](logic-apps-examples-and-scenarios.md)
+## [Примеры, сценарии и пошаговые руководства](logic-apps-examples-and-scenarios.md)
 ### [Создание панели мониторинга социальных сетей без сервера](logic-apps-scenario-social-serverless.md)
 ### [Вызов приложений логики с помощью Функций Azure](logic-apps-scenario-function-sb-trigger.md)
 ### [Добавление обработки ошибок и исключений](logic-apps-scenario-error-and-exception-handling.md)
@@ -97,8 +107,8 @@
 # Справочные материалы
 ## [Язык определения рабочего процесса](logic-apps-workflow-definition-language.md)
 ## [Действия и триггеры рабочего процесса](logic-apps-workflow-actions-triggers.md)
-## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [ИНТЕРФЕЙС REST API](/rest/api/logic/)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Соединители: подробные сведения
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Хранилище BLOB-объектов Azure](../connectors/connectors-create-api-azureblobstorage.md)

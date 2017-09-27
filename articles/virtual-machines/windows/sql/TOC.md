@@ -16,8 +16,8 @@
 #### [Автоматически — с помощью шаблона](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Вручную — предварительные требования](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Вручную — руководство](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Подсистема балансировки нагрузки — портал](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Подсистема балансировки нагрузки — PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Управление подсистемой балансировки нагрузки с помощью портала Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Управление подсистемой балансировки нагрузки с помощью Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Различные регионы](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Экземпляр отказоустойчивого кластера
 #### [Настройка](virtual-machines-windows-portal-sql-create-failover-cluster.md)
@@ -36,7 +36,7 @@
 ## [Шаблоны приложений](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Интерфейс командной строки Azure](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Драйверы SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)

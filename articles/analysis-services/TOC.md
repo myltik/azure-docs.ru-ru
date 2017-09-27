@@ -8,7 +8,7 @@
 
 # Приступая к работе
 ## [Создание сервера на портале Azure](analysis-services-create-server.md)
-## [Создание сервера с использованием PowerShell](analysis-services-create-powershell.md)
+## [Создание сервера с помощью Azure PowerShell](analysis-services-create-powershell.md)
 ## [Развертывание модели из Visual Studio](analysis-services-deploy.md)
 ## [Создание модели на портале Azure (предварительная версия)](analysis-services-create-model-portal.md)
 
@@ -43,7 +43,7 @@
 ### [Дополнительное занятие. Неоднородные иерархии](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Справочные материалы
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)

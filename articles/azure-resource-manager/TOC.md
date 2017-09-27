@@ -12,7 +12,7 @@
 
 # Примеры
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Развертывание шаблона](resource-manager-samples-powershell-deploy.md)
 
 ## Инфраструктура CLI Azure
@@ -35,7 +35,7 @@
 
 
 ## Развернуть
-### PowerShell
+### Azure PowerShell
 #### [Развертывание шаблона](resource-group-template-deploy.md)
 #### [Развертывание частного шаблона с помощью маркера SAS](resource-manager-powershell-sas-token.md)
 #### [Экспорт шаблона и повторное развертывание](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [Развертывание шаблона](resource-group-template-deploy-cli.md)
 #### [Развертывание частного шаблона с помощью маркера SAS](resource-manager-cli-sas-token.md)
 #### [Экспорт шаблона и повторное развертывание](resource-manager-export-template-cli.md)
-### Microsoft Azure
+### Портал Azure
 #### [Развертывание ресурсов](resource-group-template-deploy-portal.md)
 #### [Экспорт шаблона](resource-manager-export-template.md)
 ### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
@@ -52,26 +52,26 @@
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
 
 ## Управление
-### [PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
-### [Портал](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
+### [Портал Azure](resource-group-portal.md)
+### [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ### [Примеры реализации корпоративного каркаса Azure](resource-manager-subscription-examples.md)
 
 ## Контроль доступа
 ### Создание субъекта-службы
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Интерфейс командной строки Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [Портал](resource-group-create-service-principal-portal.md)
+#### [Портал Azure](resource-group-create-service-principal-portal.md)
 ### [API проверки подлинности для доступа к подпискам](resource-manager-api-authentication.md)
 ### [Блокировка ресурсов](resource-group-lock-resources.md)
 
 ## Задание политик ресурсов
 ### [Что представляют собой политики ресурсов?](resource-manager-policy.md)
-### [Назначение политик с помощью портала](resource-manager-policy-portal.md)
+### [Назначение политики с помощью портала Azure](resource-manager-policy-portal.md)
 ### [Назначение политик с помощью скриптов](resource-manager-policy-create-assign.md)
 ### Примеры
 #### [Теги](resource-manager-policy-tags.md)

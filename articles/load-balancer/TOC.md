@@ -1,8 +1,10 @@
 # Обзор
 ## [Что такое подсистема балансировки нагрузки?](load-balancer-overview.md)
+## [Что такое подсистема балансировки нагрузки уровня "Стандартный"?](load-balancer-standard-overview.md)
 ## [Подсистема балансировки нагрузки для Интернета](load-balancer-internet-overview.md)
 ## [Внутренняя подсистема балансировки нагрузки](load-balancer-internal-overview.md)
 ## [Основные сведения о пробах подсистемы балансировки нагрузки](load-balancer-custom-probe-overview.md)
+## [Основные сведения о высокодоступных портах](load-balancer-ha-ports-overview.md)
 ## [Поддержка Azure Resource Manager](load-balancer-arm.md)
 ## [Поддержка протокола IPv6](load-balancer-ipv6-overview.md)
 ## [Использование нескольких виртуальных IP-адресов](load-balancer-multivip-overview.md)
@@ -33,6 +35,10 @@
 ### [Создание подсистемы балансировки нагрузки для Интернета с поддержкой IPv6 (интерфейс командной строки)](load-balancer-ipv6-internet-cli.md)
 ### [Создание подсистемы балансировки нагрузки для Интернета с поддержкой IPv6 (шаблон)](load-balancer-ipv6-internet-template.md)
 
+## [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки уровня "Стандартный"](load-balancer-get-started-internet-az-portal.md)
+### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки уровня "Стандартный" (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Создание избыточной в пределах зоны общедоступной подсистемы балансировки нагрузки уровня "Стандартный" (интерфейс командной строки)](load-balancer-get-started-internet-az-cli.md)
+
 # Практическое руководство
 ## [Настройка времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 ## [Настройка режима распространения для подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
@@ -44,13 +50,17 @@
 ### [Использование конфигураций с несколькими IP-адресами (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log Analytics для Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Настройка DHCPv6 для виртуальных машин Linux](load-balancer-ipv6-for-linux.md)
+## [Настройка высокодоступных портов для внутренней подсистемы балансировки нагрузки](load-balancer-configure-ha-ports.md)
+## [Создание общедоступного IP-адреса в зоне доступности](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [Создание общедоступного IP-адреса в зоне доступности (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [Создание общедоступного IP-адреса в зоне доступности (интерфейс командной строки)](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## Устранение неполадок
 ### [Устранение неполадок Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
-## [PowerShell](/powershell/module/azurerm.network)
-## [Azure CLI 2.0](/cli/azure/network/lb)
+## [Azure PowerShell](/powershell/module/azurerm.network)
+## [Azure CLI](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)

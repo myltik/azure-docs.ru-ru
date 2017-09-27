@@ -109,23 +109,24 @@
 ### Использование заданий устройства для обновления встроенного ПО устройства
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-firmware-update.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Java: серверный компонент и устройство](iot-hub-java-java-firmware-update.md)
 ### Планирование и трансляция заданий
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Управление
 ### Создание центра IoT 
-#### [Использование портала](iot-hub-create-through-portal.md)
-#### [Использование PowerShell](iot-hub-create-using-powershell.md)
-#### [Использование CLI 2.0](iot-hub-create-using-cli.md)
+#### [Использование портала Azure](iot-hub-create-through-portal.md)
+#### [Использование Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Использование Azure CLI](iot-hub-create-using-cli.md)
 #### [Использование CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Использование REST API](iot-hub-rm-rest.md)
-#### [Использование шаблона с помощью PowerShell](iot-hub-rm-template-powershell.md)
+#### [Использование шаблона с помощью Azure PowerShell](iot-hub-rm-template-powershell.md)
 #### [Использование шаблона из .NET](iot-hub-rm-template.md)
 ### Настройка передачи файлов
-#### [Использование портала](iot-hub-configure-file-upload.md)
-#### [Использование PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [Использование CLI 2.0](iot-hub-configure-file-upload-cli.md)
+#### [Использование портала Azure](iot-hub-configure-file-upload.md)
+#### [Использование Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Использование Azure CLI](iot-hub-configure-file-upload-cli.md)
 ### [Массовое управление удостоверениями устройств Центра Интернета вещей](iot-hub-bulk-identity-mgmt.md)
 ### [Метрики использования](iot-hub-metrics.md)
 ### [Мониторинг операций](iot-hub-operations-monitoring.md)

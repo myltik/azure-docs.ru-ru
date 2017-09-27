@@ -1,0 +1,51 @@
+- name: Реестр контейнеров Azure
+  href: ./index.yml
+- name: Обзор
+  items:
+    - name: Сведения о реестре контейнеров
+      href: container-registry-intro.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Реестр контейнеров — CLI
+      href: container-registry-get-started-azure-cli.md
+    - name: Реестр контейнеров — портал
+      href: container-registry-get-started-portal.md
+    - name: Реестр контейнеров — PowerShell
+      href: container-registry-get-started-powershell.md
+- name: Учебники
+  items:
+    - name: Экземпляры контейнеров Azure
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Служба контейнеров Azure
+      href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+- name: Практические руководства
+  items:
+    - name: Передача и получение образа
+      href: container-registry-get-started-docker-cli.md
+    - name: Просмотр списка репозиториев
+      href: container-registry-repositories.md
+    - name: Создание субъекта-службы
+      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
+    - name: Аутентификация с помощью реестра
+      href: container-registry-authentication.md
+    - name: Использование веб-перехватчиков ACR
+      href: ./container-registry-webhook.md
+- name: Справочные материалы
+  items:
+    - name: Инфраструктура CLI Azure
+      href: /cli/azure/acr
+    - name: REST
+      href: /rest/api/containerregistry
+    - name: PowerShell
+      href: /powershell/module/azurerm.containerregistry
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Регионы доступности
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'
