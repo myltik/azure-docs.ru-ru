@@ -114,19 +114,15 @@ ms.lasthandoff: 06/22/2017
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://<instancename>.sandboxcerner.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
+    
 
     b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: 
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
-    | `https://cernercentral.com/<instasncename>` |
-    | `https://sandboxcernercentral.com/<instancename>` |
-    | `https://sandboxcernercentral.com/<instancename>` |
-    | `https://<subdomain>.sandboxcernercentral.com/<instancename>` |
+    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
+    
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в [службу поддержки Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations).

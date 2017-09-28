@@ -349,7 +349,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
       "name": "info",
       "type": "httpTrigger",
       "direction": "in",
-      "webHookType": "genericJson",
+      "webHookType": "genericJson"
     },
     {
       "name": "blobContents",
