@@ -3,7 +3,7 @@ title: "Интерфейсы API для выставления счетов Azur
 description: "Узнайте, как с помощью интерфейсов API отчетов для корпоративных клиентов Azure извлекать данные о потреблении программным способом."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing

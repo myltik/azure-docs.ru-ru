@@ -3,7 +3,7 @@ title: "Интерфейсы API для выставления счетов Azur
 description: "Сведения об интерфейсах API использования и RateCard для выставления счетов Azure, которые применяются для получения ценных сведений о потреблении ресурсов Azure и соответствующих тенденциях."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing
