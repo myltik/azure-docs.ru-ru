@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Начало работы с облачными службами Azure и ASP.NET
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/21/2017
 Приложение использует [рабочий шаблон на основе очередей](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) для разгрузки процессора от задач создания эскизов в фоновом режиме.
 
 ## <a name="alternative-architecture-websites-and-webjobs"></a>Альтернативная архитектура: веб-сайты и веб-задания
-Это руководство описывает, как запускать фоновые и интерфейсные компоненты в облачной службе Azure. Альтернативой является запуск интерфейсного компонента на [веб-сайте Azure](/services/web-sites/) и использование [веб-заданий](http://go.microsoft.com/fwlink/?LinkId=390226) (пока предварительной версии) для фонового компонента. Руководство по веб-заданиям см. в статье [Создание веб-задания .NET в службе приложений Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Сведения о том, как выбрать службы, см. в статье о [сравнении веб-сайтов, облачных служб и виртуальных машин Azure](../app-service-web/choose-web-site-cloud-service-vm.md).
+Это руководство описывает, как запускать фоновые и интерфейсные компоненты в облачной службе Azure. Альтернативой является запуск интерфейсного компонента на [веб-сайте Azure](/services/web-sites/) и использование [веб-заданий](http://go.microsoft.com/fwlink/?LinkId=390226) (пока предварительной версии) для фонового компонента. Руководство по веб-заданиям см. в статье [Создание веб-задания .NET в службе приложений Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Сведения о том, как выбрать службы, см. в статье о [сравнении веб-сайтов, облачных служб и виртуальных машин Azure](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Что вы узнаете
 * Как подготовить компьютер к разработке для Azure путем установки пакета Azure SDK.

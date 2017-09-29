@@ -64,7 +64,7 @@
 ## [Виртуальная машина](/azure/virtual-machines/)
 ## [Подсистема балансировки нагрузки](/azure/load-balancer/)
 ## [Диспетчер трафика](/azure/traffic-manager/)
-## [Веб-приложения](/azure/app-service-web/)
+## [Веб-приложения](/azure/app-service/)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=networking)

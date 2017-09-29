@@ -1,4 +1,4 @@
-Создайте [веб-приложение](../articles/app-service-web/app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). 
+В Cloud Shell создайте [веб-приложение](../articles/app-service/app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). 
 
 Веб-приложение предусматривает пространство для размещения кода, а также предоставляет URL-адрес для просмотра развернутого приложения.
 

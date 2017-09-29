@@ -1,4 +1,4 @@
-Создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan#create).
+В Cloud Shell создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan#create).
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 

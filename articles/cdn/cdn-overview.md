@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 2706f22d2bc3e77a53f0a6a39dcbea8048879d01
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Общие сведения о сети доставки содержимого(CDN) Azure
@@ -75,7 +75,7 @@ ms.lasthandoff: 08/23/2017
 | [Статистика в режиме реального времени.](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Оповещения в реальном времени](cdn-real-time-alerts.md) | | |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Простота использования__ |
-| Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [облачные службы](cdn-cloud-service-with-cdn.md), [веб-приложения](../app-service-web/app-service-web-tutorial-content-delivery-network.md) и [службы мультимедиа](../media-services/media-services-portal-manage-streaming-endpoints.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [облачные службы](cdn-cloud-service-with-cdn.md), [веб-приложения](../app-service/app-service-web-tutorial-content-delivery-network.md) и [службы мультимедиа](../media-services/media-services-portal-manage-streaming-endpoints.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Управление с помощью [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) или [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Настраиваемый модуль доставки контента на основе правил.](cdn-rules-engine.md) | | |**&#x2713;** |
 | Параметры кэша и заголовка (с использованием [обработчика правил](cdn-rules-engine.md)) | | |**&#x2713;** |

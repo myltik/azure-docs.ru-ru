@@ -1,6 +1,6 @@
-* [Развертывание приложения в службе приложений Azure](../articles/app-service-web/web-sites-deploy.md)
-* [Непрерывное развертывание с использованием GIT в службе приложений Azure](../articles/app-service-web/app-service-continuous-deployment.md)
-* [Настройка промежуточных сред для веб-приложений в службе приложений Azure](../articles/app-service-web/web-sites-staged-publishing.md)
+* [Развертывание приложения в службе приложений Azure](../articles/app-service/app-service-deploy-local-git.md)
+* [Непрерывное развертывание с использованием GIT в службе приложений Azure](../articles/app-service/app-service-continuous-deployment.md)
+* [Настройка промежуточных сред для веб-приложений в службе приложений Azure](../articles/app-service/web-sites-staged-publishing.md)
 * [RBAC and Azure Websites Publishing](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
 
 ## <a name="videos"></a>Видеоролики

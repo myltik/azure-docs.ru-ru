@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f23f71cc01eccf17d36885f786de9a7517606803
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Как создать веб-приложение с использованием кэша Redis
@@ -71,7 +70,7 @@ ms.lasthandoff: 05/10/2017
 
     Для параметра **Проверка подлинности** обязательно укажите значение **Без проверки подлинности**. В зависимости от установленной версии Visual Studio значение по умолчанию может быть другим. Чтобы изменить его, щелкните **Изменить проверку подлинности** и выберите **Без проверки подлинности**.
 
-    Если вы работаете в Visual Studio 2015, снимите флажок **Разместить в облаке**. На следующих шагах руководства вы [подготовите ресурсы Azure к работе](#provision-the-azure-resources) и [опубликуете приложение в Azure](#publish-the-application-to-azure). Пример подготовки веб-приложения службы приложений в Visual Studio с установленным флажком **Разместить в облаке** см. в статье [Развертывание веб-приложения ASP.NET в службе приложений Azure с помощью Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
+    Если вы работаете в Visual Studio 2015, снимите флажок **Разместить в облаке**. На следующих шагах руководства вы [подготовите ресурсы Azure к работе](#provision-the-azure-resources) и [опубликуете приложение в Azure](#publish-the-application-to-azure). Пример подготовки веб-приложения службы приложений в Visual Studio с установленным флажком **Разместить в облаке** см. в статье [Развертывание веб-приложения ASP.NET в службе приложений Azure с помощью Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
    
     ![Выбор шаблона проекта][cache-select-template]
 4. Нажмите кнопку **ОК** , чтобы создать проект.
@@ -827,7 +826,7 @@ ms.lasthandoff: 05/10/2017
 * Дополнительные примеры создания веб-приложения ASP.NET в службе приложений см. в статье [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Создание и развертывание веб-приложения ASP.NET в службе приложений Azure), описывающей [демоверсию](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect.
   * Дополнительные инструкции по быстрому началу работы с помощью средств разработчика Azure из демонстрационного проекта HealthClinic.biz см. [здесь](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Узнайте больше о подходе [Code First для создания базы данных](https://msdn.microsoft.com/data/jj193542) в Entity Framework, использованном в этом руководстве.
-* Узнайте больше о [веб-приложениях в службе приложений Azure](../app-service-web/app-service-web-overview.md).
+* Узнайте больше о [веб-приложениях в службе приложений Azure](../app-service/app-service-web-overview.md).
 * Узнайте, как [выполнять мониторинг](cache-how-to-monitor.md) кэша на портале Azure.
 * Изучите возможности кэша Redis для Azure уровня Premium:
   

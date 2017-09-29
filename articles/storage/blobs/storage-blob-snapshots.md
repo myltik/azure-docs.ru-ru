@@ -3,7 +3,7 @@ title: "Создание моментального снимка большог�
 description: "Узнайте, как создать моментальный снимок большого двоичного объекта для резервного копирования данных BLOB-объектов в конкретный момент времени. Узнайте, как выставляются счета за моментальные снимки и как их можно использовать для сокращения расходов емкости."
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b1d87cd66457b08bba594bfc7de1e9e4e2dff1e6

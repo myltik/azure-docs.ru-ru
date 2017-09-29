@@ -48,6 +48,6 @@ sections:
         className: cardsD
         items:
           - title: Командная строка
-            html: <p><a href="/cli/azure/container">Интерфейс командной строки Azure</a></p>
+            html: '<p><a href="/cli/azure/container">Интерфейс командной строки Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>'
           - title: REST
             html: <p><a href="/rest/api/container-instances">справочник по API REST</a></p>
