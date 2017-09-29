@@ -215,15 +215,15 @@ ms.lasthandoff: 09/20/2017
 [службе приложений Azure]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
-[Портал Azure]: https://portal.azure.com/
+[портал Azure]: https://portal.azure.com/
 [Настройка веб-приложений в службе приложений Azure]: /azure/app-service/web-sites-configure
 [Развертывание приложения в службе приложений Azure с помощью FTP или FTPS]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
-[Бесплатная учетная запись Azure]: https://azure.microsoft.com/pricing/free-trial/
-[Git.]: https://github.com/
+[бесплатной учетной записи Azure]: https://azure.microsoft.com/pricing/free-trial/
+[Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
-[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/ (Инструменты Java для Visual Studio Team Services)
+[инструментов Java для Visual Studio Team Services]: https://java.visualstudio.com/ (Инструменты Java для Visual Studio Team Services)
 [Maven]: http://maven.apache.org/
-[Преимущества для подписчиков MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[преимущества для подписчиков MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Boot Getting Started]: https://github.com/spring-guides/gs-spring-boot
 [Spring Framework]: https://spring.io/

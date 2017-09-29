@@ -22,7 +22,7 @@ ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Настройка веб-приложений в службе приложений Azure
-В этом разделе рассматривается настройка веб-приложения с помощью [портала Azure].
+В этом разделе рассматривается настройка веб-приложения с помощью [портале Azure].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 09/20/2017
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
-[портала Azure]: https://portal.azure.com/
+[портале Azure]: https://portal.azure.com/
 [Настройка личного доменного имени в службе приложений Azure]: ./app-service-web-tutorial-custom-domain.md
 [Настройка промежуточных сред для веб-приложений в службе приложений Azure]: ./web-sites-staged-publishing.md
 [Включение протокола HTTPS для приложения в службе приложений Azure]: ./app-service-web-tutorial-custom-ssl.md
@@ -170,7 +170,7 @@ ms.lasthandoff: 09/20/2017
 [Основы мониторинга для веб-приложений в службе приложений Azure]: ./web-sites-monitor.md
 [режим конвейера]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Масштабирование веб-приложения в службе приложений Azure]: ./web-sites-scale.md
-[пробного использования службы приложений]: https://azure.microsoft.com/try/app-service/
+[Пробное использование службы приложений]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 

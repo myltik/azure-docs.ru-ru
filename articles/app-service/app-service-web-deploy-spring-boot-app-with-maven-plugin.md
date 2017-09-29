@@ -197,7 +197,7 @@ ms.lasthandoff: 09/20/2017
 
 Элемент | Описание
 ---|---|---
-`<version>` | Версия [подключаемого модуля Maven для веб-приложений Azure]. Обратитесь к списку версий в [центральном репозитории Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22), чтобы убедиться, что вы используете актуальную версию.
+`<version>` | Версия [подключаемому модулю Maven для веб-приложений Azure]. Обратитесь к списку версий в [центральном репозитории Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22), чтобы убедиться, что вы используете актуальную версию.
 `<authentication>` | Сведения для проверки подлинности для Azure, в которых в данном примере содержится элемент `<serverId>`, который, в свою очередь, содержит `azure-auth`; Maven использует это значение для поиска значений субъекта-службы Azure в файле Maven *settings.xml*, который вы определили в предыдущем разделе этой статьи.
 `<resourceGroup>` | Целевая группа ресурсов, которой в этом примере является `maven-plugin`. Если эта группа ресурсов не существует, она создается во время развертывания.
 `<appName>` | Целевое имя веб-приложения. В этом примере целевое имя — `maven-web-app-${maven.build.timestamp}`, к которому в этом примере добавлен суффикс `${maven.build.timestamp}`, чтобы избежать конфликтов. (Метку времени добавлять необязательно; можно указать любую уникальную строку для имени приложения.)
@@ -257,7 +257,7 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 Дополнительные сведения о различных технологиях, рассматриваемых в данной статье, см. в следующих статьях.
 
-* [Подключаемый модуль Maven для веб-приложений Azure]
+* [подключаемому модулю Maven для веб-приложений Azure]
 
 * [Вход в Azure из интерфейса командной строки Azure](/azure/xplat-cli-connect)
 
@@ -271,17 +271,17 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 [Интерфейс командной строки Azure (CLI)]: /cli/azure/overview
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Портал Azure]: https://portal.azure.com/
-[Бесплатная учетная запись Azure]: https://azure.microsoft.com/pricing/free-trial/
-[Git.]: https://github.com/
+[портала Azure]: https://portal.azure.com/
+[бесплатной учетной записи Azure]: https://azure.microsoft.com/pricing/free-trial/
+[Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[Преимущества для подписчиков MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[преимущества для подписчиков MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Boot Getting Started]: https://github.com/microsoft/gs-spring-boot
 [Spring Framework]: https://spring.io/
-[Подключаемый модуль Maven для веб-приложений Azure]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
+[подключаемому модулю Maven для веб-приложений Azure]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 
