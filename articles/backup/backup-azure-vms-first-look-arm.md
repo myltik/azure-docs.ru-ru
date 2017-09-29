@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 696f8025d0d7a65f59be650fac0a6e0e68f1a2ca
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Архивация виртуальных машин Azure в хранилище служб восстановления
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/21/2017
 * виртуальные машины стандартного хранилища;
 * виртуальные машины хранилища класса Premium.
 * виртуальные машины, запущенные на управляемых дисках;
-* виртуальные машины, зашифрованные при помощи шифрования дисков Azure с использованием BEK и KEK.
+* виртуальные машины, зашифрованные при помощи шифрования дисков Azure;
 * согласованные с состоянием приложений резервные копии виртуальных машин Windows (с помощью VSS) и Linux (с помощью пользовательских скриптов, выполняемых перед и после создания моментального снимка).
 
 Дополнительные сведения о защите виртуальных машин хранилища класса Premium см. в разделе [Использование службы архивации Azure для виртуальных машин хранилища класса "Премиум"](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Дополнительные сведения о поддержке для виртуальных машин, запущенных на управляемых дисках, см. в разделе [Использование службы архивации Azure для виртуальных машин, запущенных на управляемых дисках](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Дополнительные сведения о платформе для резервного копирования виртуальных машин Linux с помощью платформы для предварительного и последующего выполнения скриптов см. в статье о [согласованном с состоянием приложений резервном копировании виртуальных машин Azure Linux (предварительная версия)] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).

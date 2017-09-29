@@ -1,6 +1,7 @@
 > [!div class="op_single_selector"]
 > * [Устройство — служба Node.js — Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
 > * [Устройство — служба Node.js — C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
+> * [Устройство — служба C# — C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Устройство — служба Java — Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 
 Внутренние приложения могут использовать примитивы Центра Интернета вещей, а именно [двойники устройств][lnk-devtwin] и [прямые методы][lnk-c2dmethod], чтобы удаленно запускать и отслеживать на устройствах действия по управлению ими. В этом руководстве показано, как серверное приложение и приложение для устройства взаимодействуют для запуска и отслеживания процесса удаленной перезагрузки устройства с помощью Центра Интернета вещей.

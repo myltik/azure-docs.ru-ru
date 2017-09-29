@@ -1,5 +1,5 @@
 
-Создайте [приложение API](../articles/app-service-api/app-service-api-apps-why-best-platform.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/appservice/web#create). 
+Создайте приложение в рамках плана службы приложений `myAppServicePlan` с помощью команды [az webapp create](/cli/azure/appservice/web#create). 
 
 Веб-приложение предусматривает пространство для API, а также предоставляет URL-адрес для просмотра развернутого приложения.
 
