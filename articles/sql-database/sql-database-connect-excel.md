@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: jhubbard
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 6a9993aa31142681f3f6c57684913bf932fd5e7d
+ms.translationtype: HT
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 68eadf7a7eef4ba5e6bcd9af1279227a01efdf70
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/15/2017
-
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Подключение Excel к базе данных SQL Azure и создание отчета
@@ -80,6 +79,6 @@ ms.lasthandoff: 04/15/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [подключаться к базе данных SQL с помощью SQL Server Management Studio](sql-database-connect-query-ssms.md) для выполнения сложных запросов и анализа.
 * Узнайте о преимуществах использования [пулов эластичных БД](sql-database-elastic-pool.md).
-* Узнайте, как [создавать веб-приложения, которые подключаются к базе данных SQL в серверной части](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+* Узнайте, как [создавать веб-приложения, которые подключаются к базе данных SQL в серверной части](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
 
 

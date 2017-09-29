@@ -17,10 +17,10 @@ ms.date: 09/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 1c39b2d9943532c8ccf0a11d3cf4bc8896669cfb
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: cec9660ee068b33a114748813f0c7ffa3821d973
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure
@@ -29,7 +29,7 @@ ms.lasthandoff: 09/20/2017
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Функции Azure](https://azure.microsoft.com/services/functions/)
-* [веб-задания службы приложений Azure](../app-service-web/web-sites-create-web-jobs.md)
+* [веб-задания службы приложений Azure](../app-service/web-sites-create-web-jobs.md)
 
 Все эти службы особенно полезны при объединении разрозненных систем. Они позволяют определять входные данные, действия, условия и выходные данные. Каждую отдельную службу можно запускать по расписанию или активировать по запросу. Каждая из них имеет уникальные преимущества. Поэтому цель сравнения служб — определить не лучшую из них, а самую подходящую в определенном сценарии. Обычно, чтобы быстро создать масштабируемое полнофункциональное решение интеграции, эти службы необходимо использовать вместе.
 

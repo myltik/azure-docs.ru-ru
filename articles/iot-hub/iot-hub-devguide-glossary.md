@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5631484bd2106ab5abff79dd3cbbf539c62bb164
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Глоссарий терминов, связанных с Центром Интернета вещей
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/21/2017
 Для нескольких языков доступны _пакеты SDK для служб_, которые позволяют создавать [внутренние приложения](#back-end-app), взаимодействующие с Центром Интернета вещей. Учебники, посвященные Центру Интернета вещей, демонстрируют, как использовать эти пакеты SDK. Исходный код и дополнительные сведения о пакетах SDK для служб можно найти в этом [репозиторий](https://github.com/Azure/azure-iot-sdks) на сайте GitHub.
 
 ## <a name="azure-portal"></a>Портал Azure
-[Портал Microsoft Azure](https://portal.azure.com) — это централизованное место, где можно подготавливать ресурсы Azure и управлять ими. Содержимое портала упорядочено с помощью _колонок_. В некоторых учебниках, посвященных Центру Интернета вещей, также может упоминаться [классический портал Azure](https://manage.windowsazure.com).
+[Портал Microsoft Azure](https://portal.azure.com) — это централизованное место, где можно подготавливать ресурсы Azure и управлять ими. Содержимое портала упорядочено с помощью _колонок_.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) — это коллекция командлетов, с помощью которых можно управлять Azure, используя Windows PowerShell. Эти командлеты можно использовать для создания, тестирования, развертывания решений и служб на платформе Azure и управления ими.

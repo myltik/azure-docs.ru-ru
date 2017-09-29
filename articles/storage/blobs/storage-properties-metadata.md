@@ -3,7 +3,7 @@ title: "Задание и получение свойств и метаданн�
 description: "Хранение пользовательских метаданных для объектов в службе хранилища Azure, а также задание и получение свойств системы."
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 036f9006-273e-400b-844b-3329045e9e1f
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 6af66607478c58874f00bcf017a35abfc37888df
+ms.author: tamram
+ms.translationtype: HT
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 6fe7d46e39de204874c8bc91a0101b9e0541539b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Задание и получение свойств и метаданных

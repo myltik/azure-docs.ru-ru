@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: ca5ee2733df51faa5025c4d8eb687c81df4a3b4f
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 8f9626fc47e7d32cb104b960bea9b7de9efa6f3e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>Настройка устройств с помощью требуемых свойств
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/09/2017
 Для работы с этим учебником требуется:
 
 * Visual Studio 2015 или Visual Studio 2017.
-* Node.js версии 0.10.x или более поздней.
+* Node.js 4.0.x или более поздней версии.
 * Активная учетная запись Azure. Если у вас нет учетной записи, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
 Если вы выполнили указания руководства [Начало работы с двойниками устройств][lnk-twin-tutorial], то у вас уже есть Центр Интернета вещей и удостоверение устройства **myDeviceId**. В этом случае можно перейти к разделу [Создание приложения имитации устройства][lnk-how-to-configure-createapp].

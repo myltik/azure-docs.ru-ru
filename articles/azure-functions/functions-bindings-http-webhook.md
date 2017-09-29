@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 08/26/2017
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: cac0f437cee86aa933763e5133ac1a0e892ffb52
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 3c3247592cbe2bc382d220264b0c646ee566b8a7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Привязки HTTP и webhook в функциях Azure
@@ -202,7 +202,7 @@ module.exports = function (context, req) {
 
 Дополнительные сведения о способах обновления файла *host.json* для функции см. в разделе [Как обновить файлы приложения-функции](functions-reference.md#fileupdate). 
 
-Дополнительные сведения о других свойствах, которые можно настроить в файле *host.json*, см. в [справочнике по host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+Дополнительные сведения о других свойствах, которые можно настроить в файле *host.json*, см. в [справочнике по host.json](functions-host-json.md).
 
 
 <a name="keys"></a>

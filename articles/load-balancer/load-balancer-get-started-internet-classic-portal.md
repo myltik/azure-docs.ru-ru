@@ -3,7 +3,7 @@ title: "Создание доступной в Интернете внутрен
 description: "Узнайте, как создать балансировщика нагрузки для Интернета в классической модели развертывания с помощью классического портала Azure."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management

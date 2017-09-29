@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9211b28debc2f0df194eded564e2a4d52303f3e6
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 6a03f668c6b9e18bf80cb04ea9feddeef4b6bd9e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -110,7 +110,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 В этом простом примере используется JSON-файл. Вы сможете определить контейнер Microsoft Internet Information Server (IIS), а затем с помощью команды `kubctl apply` создать модуль. 
 
-Создайте локальный файл `iis.json` и скопируйте в него следующий текст. Этот файл указывает Kubernetes запустить службы IIS в Nano Server Windows Server 2016 с помощью образа общедоступного контейнера из [концентратора Docker](https://hub.docker.com/r/nanoserver/iis/). Контейнер использует порт 80, но изначально он доступен только в сети кластера.
+Создайте локальный файл `iis.json` и скопируйте в него следующий текст. Этот файл указывает Kubernetes запустить службы IIS в Nano Server Windows Server 2016 с помощью образа общедоступного контейнера из [концентратора Docker](https://hub.docker.com/r/microsoft/iis/). Контейнер использует порт 80, но изначально он доступен только в сети кластера.
 
  ```JSON
  {
@@ -126,7 +126,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
     "containers": [
       {
         "name": "iis",
-        "image": "nanoserver/iis",
+        "image": "microsoft/iis:nanoserver",
         "ports": [
           {
           "containerPort": 80

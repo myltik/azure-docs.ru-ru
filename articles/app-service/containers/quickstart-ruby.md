@@ -17,10 +17,10 @@ ms.date: 08/29/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 7b3620d3674ea3783af72af37f80db0ea357d325
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 7080a655040918c6cc059023ad3d62389dd6ab71
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="create-a-ruby-app-with-web-apps-on-linux"></a>Создание приложения Ruby с помощью веб-приложений на платформе Linux
@@ -171,5 +171,5 @@ http://<app name>.azurewebsites.net
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Вопросы и ответы о веб-приложении службы приложений Azure на платформе Linux](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
+[Вопросы и ответы о веб-приложении службы приложений Azure на платформе Linux](app-service-linux-faq.md)
 

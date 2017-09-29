@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 88ee5b5c4a57b67190f3da2ebc8aed0964b804d5
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 5fbad8beebfaef370ea766e07932f1927f1d42e7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Подробнее об автоматически создаваемых резервных копиях в Базе данных SQL
@@ -80,7 +80,7 @@ ms.lasthandoff: 08/09/2017
 
 ## <a name="are-backups-encrypted"></a>Резервные копии зашифрованы?
 
-Когда для базы данных Azure SQL включено прозрачное шифрование данных, также шифруются резервные копии. Прозрачное шифрование данных включено по умолчанию для всех новых баз данных SQL Azure. Дополнительные сведения о TDE см. в статье [Прозрачное шифрование данных в Базе данных SQL Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database).
+Когда для базы данных Azure SQL включено прозрачное шифрование данных, также шифруются резервные копии. Прозрачное шифрование данных включено по умолчанию для всех новых баз данных SQL Azure. Дополнительные сведения о TDE см. в статье [Прозрачное шифрование данных в Базе данных SQL Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

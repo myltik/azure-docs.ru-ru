@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
-ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
+ms.translationtype: HT
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 23ee3572752030332c5bfdd84edc97df5fb8e58f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="service-fabric-application-upgrade"></a>Обновление приложения Service Fabric
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/13/2017
 
 1. Если службы по умолчанию, определенные в новом [манифесте приложения](service-fabric-application-model.md#describe-an-application), не существуют в кластере, то они создаются.
 > [!TIP]
-> Чтобы включить приведенные правила, для [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) необходимо задать значение true. Эта функция поддерживается, начиная с версии 5.5.
+> Чтобы включить приведенные правила, для [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) необходимо задать значение true. Эта функция поддерживается, начиная с версии 5.5.
 
 2. Службы по умолчанию, существующие в предыдущей и новой версиях [манифеста приложения](service-fabric-application-model.md#describe-an-application), обновляются. Описания служб в новой версии заменят описания, уже используемые в кластере. При сбое обновления служб по умолчанию автоматически выполняется откат обновления приложения.
 3. Службы по умолчанию, присутствующие в предыдущем [манифесте приложения](service-fabric-application-model.md#describe-an-application), но отсутствующие в его новой версии, удаляются. **Обратите внимание, что это удаление служб по умолчанию невозможно отменить.**

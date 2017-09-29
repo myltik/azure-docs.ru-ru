@@ -12,16 +12,16 @@ ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 22288cd1468b410df77b27721ccda32c3d033e47
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: dcc60feb4c0b3a961689f3d365d49ac1690696a6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Настройка непрерывной интеграции и развертывания в службе приложений Azure с помощью Jenkins и GitHub
 
-Это руководство содержит сведения о настройке непрерывной интеграции и развертывания примеров веб-приложения Java, разработанного на платформе [Spring Boot](http://projects.spring.io/spring-boot/), в [веб-приложение службы приложений Azure на платформе Linux](/azure/app-service-web/app-service-linux-intro) с помощью Jenkins.
+Это руководство содержит сведения о настройке непрерывной интеграции и развертывания примеров веб-приложения Java, разработанного на платформе [Spring Boot](http://projects.spring.io/spring-boot/), в [веб-приложение службы приложений Azure на платформе Linux](/azure/app-service/containers/app-service-linux-intro) с помощью Jenkins.
 
 В этом руководстве вы выполните следующие задачи:
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="configure-azure-app-service"></a>Настройка службы приложений Azure 
 
-1. Создайте [веб-приложение в Linux](/azure/app-service-web/app-service-linux-intro) с помощью Azure CLI или [Cloud Shell](/azure/cloud-shell/overview). В этом руководстве веб-приложение имеет имя `myJavaApp`, но для своего приложения укажите уникальное имя.
+1. Создайте [веб-приложение в Linux](/azure/app-service/containers/app-service-linux-intro) с помощью Azure CLI или [Cloud Shell](/azure/cloud-shell/overview). В этом руководстве веб-приложение имеет имя `myJavaApp`, но для своего приложения укажите уникальное имя.
    
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus
