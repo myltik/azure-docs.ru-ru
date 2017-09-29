@@ -11,28 +11,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: 7f2a3c4bf8fda9dd235986be8b0ceaa8eb8313e0
+ms.translationtype: HT
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: b8584809b76d6be12a6f489f0bb819081d1803d2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 12/28/2016
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Параметры реестра Cloud App Discovery для прокси-служб
-По умолчанию агент Cloud App Discovery настроен на использование только портов 80 и 443. Если вы планируете установить Cloud App Discovery в среде с прокси-сервером, который использует другой порт (не 80 или 443), необходимо настроить агенты на использование этого порта. Конфигурация основана на разделе реестра.
+В этом разделе описаны действия для установки требуемого порта на компьютере, на котором запущен агент Cloud App Discovery. По умолчанию агент Cloud App Discovery настроен на использование только портов 80 и 443. Если вы планируете установить Cloud App Discovery в среде с прокси-сервером, который использует другой порт (не 80 или 443), необходимо настроить агенты на использование этого порта. Конфигурация основана на разделе реестра.
 
-В этой статье приведены шаги, которые необходимо выполнить, чтобы задать требуемый порт на компьютере с запущенным агентом Cloud App Discovery.
+> [!TIP] 
+> Познакомьтесь с улучшениями Cloud App Discovery (теперь без агента) в Azure Active Directory, которые были достигнуты за счет [интеграции с Microsoft Cloud App Security](https://portal.cloudappsecurity.com).
 
-**Чтобы изменить порт, используемый на компьютере с запущенным агентом Cloud App Discovery, выполните следующие действия:**
+## <a name="modify-the-port-used-by-the-computer-running-the-cloud-app-discovery-agent"></a>Изменение порта на компьютере, на котором запущен агент Cloud App Discovery
 
-1. Откройте редактор реестра. <br> ![Выполнить](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
-2. Перейдите в следующий раздел реестра или создайте его:  <br> **HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint** 
-3. Создайте новый **мультистроковый** параметр **Ports**. ![Создать](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
-4. Откройте диалоговое окно **Редактирование мультистроки** , дважды щелкнув значение Ports.
-5. В текстовом поле «Данные параметра» введите следующие значения и добавьте все настраиваемые порты, которые используются в вашей организации:  <br><br>
+1. Откройте редактор реестра.
+  ![Run](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
+2. Перейдите в следующий раздел реестра или создайте его: **HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint**
+3. Создайте новый **мультистроковый** параметр **Ports**. 
+  ![Создать](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
+4. Откройте диалоговое окно **Редактирование мультистроки**, дважды щелкнув значение параметра **Ports**.
+5. В поле **Данные параметра** введите следующие значения и добавьте все настраиваемые порты, которые используются в вашей организации: <br><br>
    **80** <br>
    **8080** <br>
    **8118** <br>
@@ -48,7 +51,7 @@ ms.lasthandoff: 12/28/2016
    ![Редактирование мультистроки](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
 6. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Редактирование мультистроки**.
 
-**Дополнительные ресурсы**
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md) 
 

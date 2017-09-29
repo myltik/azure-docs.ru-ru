@@ -1,9 +1,9 @@
 ---
-title: "Разработка для хранилища файлов Azure с помощью Python | Документация Майкрософт"
-description: "Узнайте, как разрабатывать приложения и службы Python, использующие хранилище файлов Azure для хранения данных файлов."
+title: "Разработка для файлов Azure с помощью Python | Документы Майкрософт"
+description: "Узнайте, как разрабатывать приложения и службы Python, использующие файлы Azure для хранения данных файлов."
 services: storage
 documentationcenter: python
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
@@ -12,40 +12,40 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
-ms.author: robinsh
+ms.date: 09/19/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3dd14e8d3ea7d1e50f41633a7920a6d36becf789
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c9c7ee20e511d7aa6261119e7307e2b96682a6bb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-python"></a>Разработка для хранилища файлов Azure с помощью Python
+# <a name="develop-for-azure-files-with-python"></a>Разработка для файлов Azure с помощью Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>О данном учебнике
-В этом руководстве мы рассмотрим основы использования Python для разработки приложений и служб, использующих хранилище файлов Azure для хранения данных файлов. В рамках этого руководства мы создадим простое консольное приложение, а также покажем, как выполнять базовые действия с Python и хранилищем файлов Azure:
+В этом руководстве мы рассмотрим основы использования Python для разработки приложений и служб, использующих файлы Azure для хранения данных файлов. В рамках этого руководства мы создадим простое консольное приложение, а также покажем, как выполнять основные действия с Python и файлами Azure:
 
 * создание файловых ресурсов Azure;
 * создание каталогов;
 * перечисление файлов и каталогов в файловом ресурсе Azure;
-* передача, загрузка и удаление файла.
+* Передача, загрузка и удаление файлов.
 
 > [!Note]  
-> Так как доступ к хранилищу файлов Azure можно получить с помощью SMB, можно написать простые приложения, которые получают доступ к файловому ресурсу Azure, используя стандартные классы и функции Python для ввода-вывода. Из этой статьи вы узнаете, как создавать приложения, использующие пакет SDK Python для службы хранилища Azure, который использует [REST API хранилища файлов Azure](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) для взаимодействия с этим хранилищем.
+> Так как к файлам Azure можно обращаться через SMB, вы можете создавать простые приложения, которые получают доступ к общим папкам файлов Azure с использованием стандартных классов ввода-вывода и функций в Python. Из этой статьи вы узнаете, как создавать приложения на основе пакета SDK Python для службы хранилища Azure. Этот пакет SDK использует [API REST файлов Azure](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) для взаимодействия с файлами Azure.
 
-### <a name="set-up-your-application-to-use-azure-file-storage"></a>Настройка приложения для работы с хранилищем файлов Azure
+### <a name="set-up-your-application-to-use-azure-files"></a>Настройка приложения для работы с файлами Azure
 Добавьте следующий код в начало любого исходного файла Python, из которого планируется получать доступ к хранилищу Azure программным способом:
 
 ```python
 from azure.storage.file import FileService
 ```
 
-### <a name="set-up-a-connection-to-azure-file-storage"></a>Настройка подключения к хранилищу файлов Azure 
+### <a name="set-up-a-connection-to-azure-files"></a>Настройка подключения к файлам Azure 
 Объект `FileService` позволяет работать с общими ресурсами, каталогами и файлами. Следующий код создает объект `FileService`, используя имя и ключ учетной записи хранения. Замените `<myaccount>` и `<mykey>` именем учетной записи и ключом.
 
 ```python
@@ -60,7 +60,7 @@ file_service.create_share('myshare')
 ```
 
 ### <a name="create-a-directory"></a>Создайте каталог
-Вы также можете организовать хранилище, помещая файлы в подкаталоги вместо их размещения в корневом каталоге. Хранилище файлов Azure позволяет создать столько каталогов, сколько может позволить ваша учетная запись. В следующем примере кода в корневом каталоге создается вложенный каталог с именем **sampledir** .
+Вы также можете организовать хранилище, помещая файлы в подкаталоги вместо их размещения в корневом каталоге. Файлы Azure позволяют создать такое количество каталогов, которое допускается в вашей учетной записи. В следующем примере кода в корневом каталоге создается вложенный каталог с именем **sampledir** .
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
@@ -111,7 +111,7 @@ file_service.delete_file('myshare', None, 'myfile')
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь, когда вы узнали о работе с хранилищем файлов Azure с помощью Python, воспользуйтесь следующими ссылками для изучения дополнительных сведений.
+Теперь, когда вы узнали, как работать с файлами Azure с помощью Python, воспользуйтесь следующими ссылками для получения дополнительных сведений.
 
 * [Центр по разработке для Python](/develop/python/)
 * [API-интерфейс REST служб хранилища Azure](http://msdn.microsoft.com/library/azure/dd179355)

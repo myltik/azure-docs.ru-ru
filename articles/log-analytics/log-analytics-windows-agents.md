@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 48a0eaeb10d406d551c9e5870edde06809bd7544
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Подключение компьютеров Windows к службе Log Analytics в Azure
@@ -76,7 +76,7 @@ ms.lasthandoff: 07/04/2017
 
 
 ## <a name="download-the-agent-setup-file-from-oms"></a>Загрузка файла установки агента из OMS
-1. На портале OMS на странице **Обзор** щелкните плитку **Параметры**.  Откройте расположенную сверху вкладку **Подключенные источники**.  
+1. На [портале OMS](https://www.mms.microsoft.com) на странице **Обзор** щелкните плитку **Параметры**.  Откройте расположенную сверху вкладку **Подключенные источники**.  
     ![Вкладка "Подключенные источники"](./media/log-analytics-windows-agents/oms-direct-agent-connected-sources.png)
 2. Чтобы скачать файл установки, щелкните **Серверы с Windows** и нажмите кнопку **Скачать агент для Windows**, соответствующую типу процессора на вашем компьютере.
 3. Справа от **идентификатора рабочей области**нажмите значок копирования и вставьте идентификатор в Блокнот.

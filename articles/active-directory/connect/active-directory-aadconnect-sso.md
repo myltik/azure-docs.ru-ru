@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/18/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 5a390208f4b7c22e96d7888bcbbd14d8b27667eb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: dd619ddf62b079ecc06bdf3699e3e32c35313284
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,12 +28,14 @@ ms.lasthandoff: 08/07/2017
 
 Простой единый вход Azure Active Directory автоматически обеспечивает пользователям вход в систему, когда они работают на корпоративных устройствах, подключенных к корпоративной сети. Если он включен, пользователям не нужно вводить пароль для входа в Azure AD, а в большинстве случаев — даже вводить имя пользователя. Эта функция предоставляет пользователям удобный доступ к облачным приложениям и не требует установки каких-либо дополнительных локальных компонентов.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+
 Простой единый вход можно использовать вместе с методами [синхронизация хэша паролей](active-directory-aadconnectsync-implement-password-synchronization.md) или [сквозной проверки подлинности](active-directory-aadconnect-pass-through-authentication.md).
 
 ![Простой единый вход](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->Простой единый вход находится на этапе предварительной версии. Эта функция _не_ применяется к службам федерации Active Directory (AD FS).
+>Простой единый вход _не_ применяется к службам федерации Active Directory (AD FS).
 
 ## <a name="key-benefits"></a>Основные преимущества
 
@@ -64,9 +66,6 @@ ms.lasthandoff: 08/07/2017
 |Mac OS X|Недоступно|Недоступно|Да\*|Да\*|Да\*
 
 \*Требуется [дополнительная настройка](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
-
->[!IMPORTANT]
->Мы недавно выполнили откат поддержки Edge, чтобы найти причину проблем, о которых сообщили клиенты.
 
 >[!NOTE]
 >Чтобы обеспечить максимальное удобство единого входа в Azure AD, мы рекомендуем использовать в Windows 10 функцию [присоединения к Azure AD](../active-directory-azureadjoin-overview.md).

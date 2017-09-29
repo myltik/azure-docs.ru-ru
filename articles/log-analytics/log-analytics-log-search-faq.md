@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -130,6 +130,9 @@ ms.lasthandoff: 09/07/2017
 
 ### <a name="known-issue-application-insights-connector"></a>Известная проблема. Соединитель Application Insights
 В настоящее время [Соединитель Application Insights](log-analytics-app-insights-connector.md) не поддерживается в обновленной рабочей области.  Мы работаем над решением этой проблемы.
+
+### <a name="known-issue-backup-solution"></a>Известная проблема: решение архивации
+Решение архивации не будет собирать данные в обновленной рабочей области. Вскоре будет представлено новое решение архивации, которое будет работать с обновленной рабочей областью.
 
 ## <a name="upgrade-process"></a>Процесс обновления
 

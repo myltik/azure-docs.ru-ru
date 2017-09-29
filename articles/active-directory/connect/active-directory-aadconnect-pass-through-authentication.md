@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 6acbc347d7b187a6aac603dd05cf95c6aba54475
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9fcf2756dee8a19ee3fd6013ccbb427fcef99ae1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,14 +28,13 @@ ms.lasthandoff: 08/01/2017
 
 Сквозная проверка подлинности Azure Active Directory (Azure AD) позволяет пользователям входить в локальные и облачные приложения, используя те же пароли. Эта функция облегчает работу пользователей, так как им не нужно запоминать на один пароль больше, и сокращает затраты на ИТ-поддержку, так как снижается вероятность того, что пользователи забудут процедуру входа. Если пользователи выполняют вход с помощью Azure AD, эта функция проверяет пароли пользователей непосредственно в локальной службе Active Directory.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+
 Сквозная проверка подлинности является альтернативой [синхронизации хэшей паролей Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), которая также обеспечивает преимущество облачной проверки подлинности в организации. Однако политики безопасности и соответствия требованиям в некоторых организациях не позволяют отправлять пароли пользователей за пределы внутренней сети даже в хэшированной форме. Сквозная проверка подлинности является подходящим решением для таких организаций.
 
 ![Сквозная аутентификация Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
 Вы можете использовать сквозную проверку подлинности вместе с функцией [простого единого входа](active-directory-aadconnect-sso.md). Таким образом, когда пользователи обращаются к приложениям на корпоративных компьютерах, входящих в корпоративную сеть, им не нужно вводить пароль для входа.
-
->[!IMPORTANT]
->Сквозная проверка подлинности Azure AD доступна в предварительной версии.
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Основные преимущества сквозной проверки подлинности Azure AD
 
@@ -59,6 +58,7 @@ ms.lasthandoff: 08/01/2017
 - Поддерживает вход пользователей во все браузерные приложения и клиентские приложения Microsoft Office, которые используют [современную проверку подлинности](https://aka.ms/modernauthga).
 - Именем пользователя для входа может быть либо локальное имя пользователя по умолчанию (`userPrincipalName`), либо другой атрибут, настроенный в Azure AD Connect (известный как `Alternate ID`).
 - Эта функция взаимодействует с функциями [условного доступа](../active-directory-conditional-access.md), такими как Многофакторная Идентификация (MFA), для защиты пользователей.
+- Она интегрирована с [самостоятельным управлением паролями](../active-directory-passwords-overview.md) на основе облака, включая обратную запись паролей в локальный каталог Active Directory и защиту пароля с помощью запрета часто используемых паролей.
 - Среды с несколькими лесами поддерживаются, если между лесами AD существуют отношения доверия и правильно настроена маршрутизация по суффиксу имени.
 - Это бесплатная функция, и для ее использования не требуются платные выпуски Azure AD.
 - Функцию можно включить с помощью [Azure AD Connect](active-directory-aadconnect.md).
@@ -69,7 +69,7 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - [**Краткое руководство по сквозной проверке подлинности Azure Active Directory**](active-directory-aadconnect-pass-through-authentication-quick-start.md). Настройка и подготовка к работе сквозной проверки подлинности Azure Active Directory.
-- [**Текущие ограничения**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) — эта функция в настоящее время находится на стадии предварительной версии. Узнайте, какие сценарии поддерживаются, а какие нет.
+- [**Текущие ограничения**](active-directory-aadconnect-pass-through-authentication-current-limitations.md). Сведения о том, какие сценарии поддерживаются, а какие нет.
 - [**Техническое руководство по сквозной проверке подлинности Azure Active Directory**](active-directory-aadconnect-pass-through-authentication-how-it-works.md). Сведения о том, как работает эта функция.
 - [**Часто задаваемые вопросы**](active-directory-aadconnect-pass-through-authentication-faq.md). Ответы на часто задаваемые вопросы.
 - [**Устранение неполадок**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md). Узнайте, как устранить самые распространенные проблемы с этой функцией.

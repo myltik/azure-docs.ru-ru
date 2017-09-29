@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: jdial;narayan;annahar
+ms.date: 09/25/2017
+ms.author: jdial;anavin
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 0f49c875ff5592b3f21e9caf343554172b209935
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 13e9e83dc277d8e88ab46d8d51b3f4a70ccd3b46
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Создание пиринга виртуальных сетей, развернутых с помощью Resource Manager в разных подписках 
@@ -34,9 +34,40 @@ ms.lasthandoff: 08/31/2017
 |[Одна виртуальная сеть Resource Manager, одна классическая виртуальная сеть](create-peering-different-deployment-models.md) |Аналогично|
 |[Одна виртуальная сеть Resource Manager, одна классическая виртуальная сеть](create-peering-different-deployment-models-subscriptions.md) |Разные|
 
-Невозможно создать пиринг между двумя виртуальными сетями, созданными с помощью классической модели развертывания. Пиринг виртуальных сетей можно создать только между двумя виртуальными сетями, размещенными в одном регионе Azure. При создании пиринга между виртуальными сетями, которые существуют в разных подписках, эти подписки должны быть связаны с одним клиентом Azure Active Directory. Если у вас еще нет клиента Azure Active Directory, можно быстро [создать его](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Если вам необходимо подключить виртуальные сети, созданные с помощью классической модели развертывания, расположенные в разных регионах Azure или находящиеся в подписках, связанных с разными клиентами Azure Active Directory, можно использовать [VPN-шлюз](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure. 
+Пиринг виртуальных сетей можно создать только между двумя виртуальными сетями, размещенными в одном регионе Azure.
 
-Для создания пиринга виртуальных сетей можно использовать [портал Azure](#portal), [интерфейс командной строки](#cli) Azure (Azure CLI), Azure [PowerShell](#powershell) или [шаблон Azure Resource Manager](#template). Щелкните любую из предыдущих ссылок на инструмент, чтобы перейти непосредственно к инструкциям по созданию пиринга виртуальных сетей с помощью выбранного инструмента.
+  > [!WARNING]
+  > Создание пиринга виртуальной сети между виртуальными сетями в различных регионах сейчас находится в предварительной версии. Ниже вы можете зарегистрировать подписку для использования предварительной версии. Пиринги виртуальных сетей, создаваемые в этом сценарии, могут не обеспечивать тот же уровень доступности и надежности, что и пиринг виртуальных сетей, создаваемый в сценариях на основе общедоступного выпуска. Пиринги виртуальных сетей, создаваемые в этом сценарии, могут поддерживаться, обеспечивать все возможности или быть доступны не во всех регионах Azure. Актуальные сведения о доступности и состоянии этой функции см. на странице [обновлений виртуальной сети Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+
+Пиринг виртуальной сети невозможно создать между двумя виртуальными сетями, развернутыми с помощью классической модели развертывания. Если вам необходимо подключить виртуальные сети, созданные с помощью классической модели развертывания или расположенные в разных регионах Azure, можно использовать [VPN-шлюз](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure. 
+
+Для создания пиринга виртуальных сетей можно использовать [портал Azure](#portal), [интерфейс командной строки](#cli) Azure (CLI), Azure [PowerShell](#powershell) или [шаблон Azure Resource Manager](#template). Щелкните любую из предыдущих ссылок на инструмент, чтобы перейти непосредственно к инструкциям по созданию пиринга виртуальных сетей с помощью выбранного инструмента.
+
+## <a name="register"></a>Регистрация для предварительной версии пиринга глобальной виртуальной сети
+
+Чтобы создать пиринг между виртуальными сетями в различных регионах, зарегистрируйтесь для использования предварительной версии и выполните приведенные ниже действия для обеих подписок, которые содержат виртуальные сети, предназначенные для создания пиринга. Единственный инструмент, который можно использовать для регистрации, — PowerShell.
+
+1. Установите последнюю версию модуля [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) PowerShell. Если вы еще не работали с Azure PowerShell, ознакомьтесь со статьей [Overview of Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Общие сведения об Azure PowerShell).
+2. Запустите сеанс PowerShell и войдите в Azure с помощью команды `Login-AzureRmAccount`.
+3. Зарегистрируйте подписку для использования предварительной версии, введя следующие команды.
+
+    ```powershell
+    Register-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider `
+      -ProviderNamespace Microsoft.Network
+    ```
+    Не выполняйте инструкции в разделах для портала, PowerShell или Azure CLI в этой статье, пока значение **RegistrationState** (Состояние регистрации) в выходных данных приведенной ниже команды не станет **Registered** (Зарегистрировано) для обеих подписок.
+
+    ```powershell    
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    ```
+  > [!WARNING]
+  > Создание пиринга виртуальной сети между виртуальными сетями в различных регионах сейчас находится в предварительной версии. Пиринги виртуальных сетей, создаваемые в этом сценарии, могут иметь ограниченные возможности или быть доступными не во всех регионах Azure. Актуальные сведения о доступности и состоянии этой функции см. на странице [обновлений виртуальной сети Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="portal"></a>Создание пиринга с помощью портала Azure
 

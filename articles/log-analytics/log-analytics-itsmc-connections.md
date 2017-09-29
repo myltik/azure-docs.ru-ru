@@ -1,6 +1,6 @@
 ---
-title: "Подключения ITSM в соединителе управления ИТ-службами в OMS | Документация Майкрософт"
-description: "Подключите продукты и службы ITSM с помощью соединителя управления ИТ-службами в OMS, чтобы централизованно отслеживать и администрировать рабочие элементы ITSM."
+title: "Поддерживаемые подключения с использованием соединителя управления ИТ-службами в Azure Log Analytics | Документы Майкрософт"
+description: "Подключите продукты и службы ITSM с помощью соединителя управления ИТ-службами в Azure Log Analytics, чтобы централизованно отслеживать рабочие элементы ITSM и управлять ими."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: cf9963be162df3bd886b6fd44535c3d09e06284b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Подключение продуктов и служб ITSM с помощью соединителя управления ИТ-службами (предварительная версия)
@@ -39,7 +39,7 @@ ms.lasthandoff: 09/20/2017
 Выполните следующие предварительные требования:
 
 - Установите соединитель управления ИТ-службами в OMS.
-Дополнительные сведения см. в [разделе о настройке](log-analytics-itsmc-overview.md#configuration).
+Дополнительные сведения см. в разделе [Добавление соединителя управления ИТ-службами](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Разверните и настройте веб-приложение Service Manager. Дополнительные сведения о веб-приложении см. [здесь](#create-and-deploy-service-manager-web-app-service).
 - Создайте и настройте гибридное подключение. Дополнительные сведения см. на [этой странице](#configure-the-hybrid-connection).
 - Поддерживаемые версии Service Manager: 2012 R2 или 2016.
@@ -176,7 +176,7 @@ ms.lasthandoff: 09/20/2017
 
 Выполните следующие предварительные требования:
 
-- Установите соединитель управления ИТ-службами в OMS. Дополнительные сведения см. в разделе о [настройке](log-analytics-itsmc-overview.md#configuration).
+- Установите соединитель управления ИТ-службами в OMS. Дополнительные сведения см. в разделе [Добавление соединителя управления ИТ-службами](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Поддерживаемые версии ServiceNow — Fuji, Geneva, Helsinki.
 
 Администраторы ServiceNow должны выполнить в экземплярах ServiceNow следующие действия:
@@ -269,8 +269,10 @@ ms.lasthandoff: 09/20/2017
 
 Выполните следующие предварительные требования:
 
-- Установите соединитель управления ИТ-службами в OMS. Дополнительные сведения см. в разделе о [настройке](log-analytics-itsmc-overview.md#configuration).
-- Приложение Provance необходимо зарегистрировать с помощью Azure AD, а идентификатор клиента должен быть доступен. Дополнительные сведения см. в статье [Настройка приложения службы приложений для использования службы входа Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
+- Установите соединитель управления ИТ-службами в OMS. Дополнительные сведения см. в разделе [Добавление соединителя управления ИТ-службами](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Приложение Provance необходимо зарегистрировать с помощью Azure AD, а идентификатор клиента должен быть доступен. Дополнительные сведения см. в статье [Настройка приложения службы приложений для использования службы входа Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
 - Роль пользователя: администратор.
 
 ### <a name="connection-procedure"></a>Процедура подключения
@@ -313,7 +315,7 @@ ms.lasthandoff: 09/20/2017
 
 Выполните следующие предварительные требования:
 
-- Установите соединитель управления ИТ-службами в OMS. Дополнительные сведения см. в разделе о [настройке](log-analytics-itsmc-overview.md#configuration).
+- Установите соединитель управления ИТ-службами в OMS. Дополнительные сведения см. в разделе [Добавление соединителя управления ИТ-службами](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Создайте идентификатор клиента. Дополнительные сведения см. в разделе о [создании идентификатора клиента для Cherwell](#generate-client-id-for-cherwell).
 - Роль пользователя: администратор.
 

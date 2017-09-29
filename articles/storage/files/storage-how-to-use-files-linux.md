@@ -1,5 +1,5 @@
 ---
-title: "Использование хранилища файлов Azure в Linux | Документация Майкрософт"
+title: "Использование файлов Azure в Linux | Документы Майкрософт"
 description: "Узнайте, как подключить общую папку Azure через протокол SMB с помощью Linux."
 services: storage
 documentationcenter: na
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/8/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: d8987082c559a374b8d19fd69e20cf5e81cb25ef
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6c80c6814dacf90a0a50dab691899c3a8cc2bf82
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="use-azure-file-storage-with-linux"></a>Использование хранилища файлов Azure в Linux
-[Хранилище файлов Azure](../storage-dotnet-how-to-use-files.md) — это простая в использовании облачная файловая система Майкрософт. Общие папки Azure можно подключить в дистрибутивах Linux с помощью [пакета cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) из [проекта Samba](https://www.samba.org/). В этой статье описаны два способа подключения общей папки Azure: по запросу с помощью команды `mount` и при загрузке путем создания записи в `/etc/fstab`.
+# <a name="use-azure-files-with-linux"></a>Использование файлов Azure в Linux
+[Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от Майкрософт. Общие папки Azure можно подключить в дистрибутивах Linux с помощью [пакета cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) из [проекта Samba](https://www.samba.org/). В этой статье описаны два способа подключения общей папки Azure: по запросу с помощью команды `mount` и при загрузке путем создания записи в `/etc/fstab`.
 
 > [!NOTE]  
 > Чтобы подключить общую папку Azure за пределами региона Azure, в котором она размещается, например локально или в другом регионе Azure, операционная система должна поддерживать протокол функций шифрования SMB 3.0. Функция шифрования протокола SMB 3.0 для Linux появилась в ядре версии 4.11. Эта функция позволяет подключать общую папку файлов Azure из локальной среды или другого региона Azure. На момент публикации этой статьи функция была добавлена в дистрибутивы Ubuntu 16.04 и более поздних версий.
@@ -108,10 +108,10 @@ ms.lasthandoff: 08/25/2017
 ## <a name="feedback"></a>Отзыв
 Пользователи Linux, нам очень интересно ваше мнение!
 
-Хранилище файлов Azure для группы пользователей Linux включает форум, где можно поделиться своим мнением и опытом адаптации хранилища файлов в Linux. Чтобы вступить в группу пользователей, отправьте электронное письмо в группу [Пользователи хранилища файлов Azure в Linux](mailto:azurefileslinuxusers@microsoft.com).
+Файлы Azure для группы пользователей Linux включают форум, на котором можно поделиться своим мнением и опытом адаптации хранилища файлов в Linux. Чтобы вступить в группу пользователей, отправьте электронное письмо в группу [Пользователи файлов Azure в Linux](mailto:azurefileslinuxusers@microsoft.com).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительную информацию о хранилище файлов Azure см. по этим ссылкам.
+Дополнительную информацию о файлах Azure см. в следующих разделах.
 * [Справочник по REST API службы файлов](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [Перенос данных с помощью AzCopy для Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Использование Azure CLI 2.0 со службой хранилища Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)

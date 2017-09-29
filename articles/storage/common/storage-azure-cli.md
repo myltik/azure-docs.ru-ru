@@ -3,7 +3,7 @@ title: "Использование Azure CLI 2.0 со службой храни
 description: "Узнайте, как использовать интерфейс командной строки Azure (Azure CLI) версии 2.0 для создания учетных записей хранения и управления ими, а также для работы с большими двоичными объектами и файлами Azure в службе хранилища Azure. Azure CLI 2.0 — это кроссплатформенное средство, написанное на языке Python."
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 8dfa91de25eadb93186d994095f0a0107fe1a9d0
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b1f192a935dbf234936690b0d36b6ce708d38b14
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Использование Azure CLI 2.0 со службой хранилища Azure
@@ -317,7 +317,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Создание общих папок и управление ими
-Хранилище файлов Azure предоставляет общее хранилище для приложений с помощью протокола SMB. Виртуальные машины Microsoft Azure и облачные службы, а также локальные приложения, могут совместно использовать данные через монтированные ресурсы. Вы можете управлять общими папками и файловыми данными через интерфейс командной строки Azure. Дополнительные сведения о хранилище файлов Azure см. в статье [Приступая к работе с хранилищем файлов Azure в Windows](../storage-dotnet-how-to-use-files.md) или [Использование хранилища файлов Azure с Linux](../storage-how-to-use-files-linux.md).
+Служба файлов Azure предоставляет общее хранилище для приложений с использованием протокола SMB. Виртуальные машины Microsoft Azure и облачные службы, а также локальные приложения, могут совместно использовать данные через монтированные ресурсы. Вы можете управлять общими папками и файловыми данными через интерфейс командной строки Azure. Дополнительные сведения о службе файлов Azure см. в разделе [Общие сведения о службе файлов Azure](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Создайте общую папку
 Общая папка Azure представляет собой общую папку с файлами SMB в Azure. Все каталоги и файлы должны быть созданы в общей папке. Учетная запись может содержать любое количество совместно используемых ресурсов, а ресурс может содержать любое количество файлов, насколько это позволяет емкость учетной записи хранения. В следующем примере создается общая папка с именем **myshare**.

@@ -1,9 +1,9 @@
 ---
-title: "Разработка для хранилища файлов Azure на языке Java | Документация Майкрософт"
-description: "Узнайте, как разрабатывать приложения и службы Java, использующие хранилище файлов Azure для хранения файлов данных."
+title: "Разработка для файлов Azure с использованием языка Java | Документы Майкрософт"
+description: "Узнайте, как разрабатывать приложения и службы Java, использующие файлы Azure для хранения файлов данных."
 services: storage
 documentationcenter: java
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
@@ -12,23 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/27/2017
-ms.author: robinsh
+ms.date: 09/19/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ce38944b9d5e663505c5808864ba61a5e2284f3b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 192c4b5b89feca2a2e39c5e0670d05cc8868eb03
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-java"></a>Разработка для хранилища файлов Azure на языке Java
+# <a name="develop-for-azure-files-with-java"></a>Разработка для файлов Azure с использованием языка Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="about-this-tutorial"></a>О данном учебнике
-В этом руководстве мы рассмотрим основы использования Java для разработки приложений и служб, использующих хранилище файлов Azure для хранения данных файлов. В рамках этого руководства мы создадим простое консольное приложение, а также покажем, как выполнять базовые действия с Java и хранилищем файлов Azure.
+В этом руководстве мы рассмотрим основы использования Java для разработки приложений и служб, использующих файлы Azure для хранения данных файлов. В рамках этого руководства мы создадим простое консольное приложение, а также покажем, как выполнять основные действия с Java и файлами Azure:
 
 * Создание и удаление общих папок Azure.
 * Создание и удаление каталогов.
@@ -36,12 +36,12 @@ ms.lasthandoff: 08/21/2017
 * Передача, загрузка и удаление файлов.
 
 > [!Note]  
-> Так как к хранилищу файлов Azure можно обращаться через SMB, вы можете создавать простые приложения, которые получают доступ к общей папке Azure с использованием стандартных классов ввода-вывода в Java. Из этой статьи вы узнаете, как применять в приложениях пакет SDK Java для службы хранилища Azure, который использует [REST API хранилища файлов Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) для взаимодействия с хранилищем файлов Azure.
+> Так как к файлам Azure можно обращаться через SMB, вы можете создавать простые приложения, которые получают доступ к общим папкам файлов Azure с использованием стандартных классов ввода-вывода в Java. Из этой статьи вы узнаете, как создавать приложения на основе пакета SDK Java для службы хранилища Azure. Этот пакет SDK использует [API REST файлов Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) для взаимодействия с файлами Azure.
 
 ## <a name="create-a-java-application"></a>Создание приложения Java
 Для создания примеров вам потребуется комплект разработчика Java (JDK) и [Пакет SDK для службы хранилища Azure для Java][]. Вам также необходимо создать учетную запись хранилища Azure.
 
-## <a name="setup-your-application-to-use-azure-file-storage"></a>Настройка приложения для работы с хранилищем файлов Azure
+## <a name="set-up-your-application-to-use-azure-files"></a>Настройка приложения для работы с файлами Azure
 Чтобы использовать API-интерфейсы хранилища Azure, добавьте следующую инструкцию в верхнюю часть файла Java, откуда планируется осуществлять доступ к службе хранилища.
 
 ```java
@@ -50,8 +50,8 @@ import com.microsoft.azure.storage.*;
 import com.microsoft.azure.storage.file.*;
 ```
 
-## <a name="setup-an-azure-storage-connection-string"></a>Настройка строки подключения к службе хранилища Azure
-Чтобы начать работу с хранилищем файлов Azure, необходимо подключиться к учетной записи хранения Azure. Для начала потребуется настроить строку подключения, которая будет использоваться для подключения к учетной записи хранилища. Для этого определим статическую переменную.
+## <a name="set-up-an-azure-storage-connection-string"></a>Настройка строки подключения к хранилищу Azure
+Для использования файлов Azure необходимо подключиться к учетной записи хранения Azure. Для начала потребуется настроить строку подключения, которая будет использоваться для подключения к учетной записи хранения. Для этого определим статическую переменную.
 
 ```java
 // Configure the connection-string with your values
@@ -81,14 +81,14 @@ try {
 **CloudStorageAccount.parse** вызывает прерывание InvalidKeyException, поэтому необходимо поместить его в блок try-catch.
 
 ## <a name="create-an-azure-file-share"></a>Создание файлового ресурса Azure
-Все файлы и каталоги в хранилище файлов Azure размещаются в контейнере, который называется общей папкой (**Share**). Учетная запись хранения может иметь столько общих папок, насколько позволяет емкость вашей учетной записи. Чтобы получить доступ к общей папке и ее содержимому, необходимо использовать клиент хранилища файлов Azure.
+Все файлы и каталоги в файлах Azure находятся в контейнере, который называется **общей папкой**. Учетная запись хранения может иметь столько общих папок, насколько позволяет емкость вашей учетной записи. Чтобы получить доступ к общей папке и ее содержимому, необходимо использовать клиент файлов Azure.
 
 ```java
-// Create the Azure File storage client.
+// Create the Azure Files client.
 CloudFileClient fileClient = storageAccount.createCloudFileClient();
 ```
 
-С помощью клиента хранилища файлов Azure вы получите ссылку на общую папку.
+С помощью клиента файлов Azure вы получите ссылку на общую папку.
 
 ```java
 // Get a reference to the file share
@@ -129,7 +129,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>Создайте каталог
-Вы также можете организовать хранилище, помещая файлы в подкаталоги вместо их размещения в корневом каталоге. Хранилище файлов Azure позволяет создать столько каталогов, сколько допускает учетная запись. В следующем примере кода в корневом каталоге создается вложенный каталог с именем **sampledir** .
+Вы также можете организовать хранилище, помещая файлы в подкаталоги вместо их размещения в корневом каталоге. Файлы Azure позволяют создать такое количество каталогов, которое допускается в вашей учетной записи. В следующем примере кода в корневом каталоге создается вложенный каталог с именем **sampledir** .
 
 ```java
 //Get a reference to the root directory for the share.
@@ -194,7 +194,7 @@ CloudFileDirectory rootDir = share.getRootDirectoryReference();
 ```
 
 ## <a name="download-a-file"></a>Скачивание файла
-Одной из наиболее частых операций, которые выполняются с хранилищем файлов Azure, является операция скачивания файлов. В следующем примере происходит скачивание файла SampleFile.txt с последующим отображением его содержимого.
+Одной из наиболее частых операций, которые выполняются с файлами Azure, является скачивание файлов. В следующем примере происходит скачивание файла SampleFile.txt с последующим отображением его содержимого.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -211,7 +211,7 @@ System.out.println(file.downloadText());
 ```
 
 ## <a name="delete-a-file"></a>Удаление файла
-Следующая распространенная операция в хранилище файлов Azure — это удаление файлов. Следующий пример программы удаляет файл с именем SampleFile.txt, хранящийся в каталоге с именем **sampledir**.
+Другая распространенная операция с файлами Azure — это удаление файлов. Следующий пример программы удаляет файл с именем SampleFile.txt, хранящийся в каталоге с именем **sampledir**.
 
 ```java
 // Get a reference to the root directory for the share.
@@ -238,5 +238,5 @@ if ( file.deleteIfExists() ) {
 * [справочнике по пакету SDK для клиента службы хранилища Azure](http://dl.windowsazure.com/storage/javadoc/)
 * [API-интерфейс REST служб хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-* [Приступая к работе со служебной программой командной строки AzCopy](../common/storage-use-azcopy.md* [Troubleshooting Azure File storage problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-)
+* [Приступая к работе со служебной программой командной строки AzCopy](../common/storage-use-azcopy.md)
+* [Устранение неполадок с файлами Azure в Windows](storage-troubleshoot-windows-file-connection-problems.md)
