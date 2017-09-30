@@ -45,6 +45,8 @@
       items:
         - name: Настройка целевых объектов выполнения
           href: experiment-execution-configuration.md
+        - name: Создание кластера HDInsight Spark и виртуальной машины для обработки и анализа данных
+          href: how-to-create-dsvm-hdi.md
         - name: Обучение с помощью графических процессоров
           href: how-to-use-gpu.md
     - name: Получение и интерпретация данных

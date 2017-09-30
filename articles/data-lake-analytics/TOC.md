@@ -33,6 +33,7 @@
 
 ## Отладка программ U-SQL
 ### [Мониторинг заданий и устранение неполадок в них](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Устранение неполадок, связанных с неправильным повторяющимся заданием](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [Отладка кода C# в U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Использование обозревателя заданий и представления заданий](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Использования представления выполнения вершин](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

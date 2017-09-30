@@ -24,6 +24,8 @@
   items:
     - name: "Текстовая аналитика с использованием Power\_BI"
       href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Текстовая аналитика в Power Apps
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
 - name: Практические руководства
   items:
     - name: Регистрация

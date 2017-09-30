@@ -26,9 +26,8 @@
 ### [Настройка подсистемы балансировки нагрузки для Интернета (интерфейс командной строки)](load-balancer-get-started-internet-arm-cli.md)
 ### [Настройка подсистемы балансировки нагрузки для Интернета (шаблон)](load-balancer-get-started-internet-arm-template.md)
 
-## [Настройка подсистемы балансировки нагрузки для Интернета (классический портал)](load-balancer-get-started-internet-classic-portal.md)
+## [Настройка службы Load Balancer для Интернета (в классическом режиме с помощью PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [Настройка подсистемы балансировки нагрузки для Интернета (классическое облако)](load-balancer-get-started-internet-classic-cloud.md)
-### [Настройка подсистемы балансировки нагрузки для Интернета (классическая оболочка PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [Настройка подсистемы балансировки нагрузки для Интернета (классический интерфейс командной строки)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Создание подсистемы балансировки нагрузки для Интернета с поддержкой IPv6](load-balancer-ipv6-internet-ps.md)

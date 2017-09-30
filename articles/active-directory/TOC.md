@@ -148,13 +148,14 @@
 ### [Приступая к работе](active-directory-integrating-applications-getting-started.md)
 ### [Руководства по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 ### [Обнаружение облачных приложений](cloudappdiscovery-overview.md)
-#### [Что такое Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-#### [Этапы настройки](cloudappdiscovery-get-started.md)
+#### [Настройка безагентного обнаружения](cloudappdiscovery-get-started.md)
 #### [Создание отчетов о моментальных снимках](cloudappdiscovery-set-up-snapshots.md)
 #### [Настройка непрерывного создания отчетов](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Использование настраиваемого средства синтаксического анализа журналов](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### [Обновление параметров реестра](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Общие сведения о безопасности и конфиденциальности](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### Обнаружение на основе агента
+##### [Что такое Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+##### [Обновление параметров реестра](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Общие сведения о безопасности и конфиденциальности](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Удаленный доступ к приложениям с помощью прокси приложения](active-directory-application-proxy-get-started.md)
@@ -293,7 +294,7 @@
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
-#### [Приступая к работе](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
 #### Задачи

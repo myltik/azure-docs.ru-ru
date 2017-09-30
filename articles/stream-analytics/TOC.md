@@ -29,6 +29,11 @@
 ### [Вывод в Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Вывод в Cosmos DB](stream-analytics-documentdb-output.md)
 
+## Использование инструментов Visual Studio
+### [Установка](stream-analytics-tools-for-visual-studio-install.md)
+### [Начало работы](stream-analytics-tools-for-visual-studio.md)
+### [Настройка конвейеров CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
+
 ## Мониторинг и оптимизация
 ### [Добавление оповещений](stream-analytics-set-up-alerts.md)
 ### [Мониторинг заданий](stream-analytics-monitoring.md)
@@ -52,7 +57,6 @@
 ### [Журналы диагностики](stream-analytics-job-diagnostic-logs.md)
 
 ## Автоматизация
-### [Инструменты для Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Использование пакета SDK для .NET для управления](stream-analytics-dotnet-management-sdk.md)
 ### [Azure PowerShell одним щелчком](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 

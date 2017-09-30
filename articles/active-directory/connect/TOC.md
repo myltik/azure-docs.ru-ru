@@ -43,6 +43,7 @@
 ##### [Смарт-блокировка](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Часто задаваемые вопросы](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Устранение неполадок](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
+##### [Подробный обзор](active-directory-aadconnect-pta-security-deep-dive.md)
 ### [Поддержка нескольких доменов для федерации](active-directory-aadconnect-multiple-domains.md)
 ### [Автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Использование поставщика удостоверений (IdP) SAML 2.0 для единого входа](active-directory-aadconnect-federation-saml-idp.md)
