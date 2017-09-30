@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: ea1666007b88cdf45017b0bd91e100dc1218fb2b
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 4ba4155515e587038ffe2dbca064ad27aca97445
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Проверка подлинности и авторизация в службе приложений Azure
@@ -71,7 +71,7 @@ ms.lasthandoff: 09/07/2017
 
 В сценариях взаимодействия между службами служба приложений может защитить приложение с помощью Azure Active Directory. Вызывающее приложение просто предоставляет маркер авторизации субъекта-службы Azure Active Directory, полученный после предоставления идентификатора клиента и секрета клиента от Azure Active Directory. Пример такого сценария для приложений API ASP.NET приводится в руководстве [Проверка подлинности с использованием субъекта-службы для приложений API в службе приложений Azure][apia-service].
 
-Если в сценарии взаимодействия между службами нужно выполнить проверку подлинности службы приложений, используйте сертификаты клиентов или обычную проверку подлинности. Сведения о клиентских сертификатах в Azure см. в статье [Настройка взаимной проверки подлинности TLS для веб-приложения](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Сведения об обычной проверке подлинности в ASP.NET см. в статье [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters) (Фильтры проверки подлинности в веб-API ASP.NET 2).
+Если в сценарии взаимодействия между службами нужно выполнить проверку подлинности службы приложений, используйте сертификаты клиентов или обычную проверку подлинности. Сведения о клиентских сертификатах в Azure см. в статье [Настройка взаимной проверки подлинности TLS для веб-приложения](app-service-web-configure-tls-mutual-auth.md). Сведения об обычной проверке подлинности в ASP.NET см. в статье [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters) (Фильтры проверки подлинности в веб-API ASP.NET 2).
 
 Проверка подлинности учетной записи службы из приложения логики службы приложений в приложение API — это особый вариант проверки подлинности, который описан в статье [Использование настраиваемого интерфейса API, размещенного в службе приложений, с приложениями логики](../logic-apps/logic-apps-custom-hosted-api.md).
 
@@ -150,14 +150,11 @@ ms.lasthandoff: 09/07/2017
 
 * [How to: Authenticate users with the Google Sign-In SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
-### <a name="api-applications"></a>Приложения API
-Защита приложений API описана в следующих учебниках:
+<!-- ### API applications
+The following tutorials show how to protect your API apps:
 
-* [Проверка подлинности пользователя для приложений API в службе приложений Azure][apia-user]
-* [Проверка подлинности с использованием субъекта-службы для приложений API в службе приложений Azure][apia-service]
-
-[apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
-[apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
+* [User authentication for API Apps in Azure App Service][apia-user]
+* [Service principal authentication for API Apps in Azure App Service][apia-service] -->
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
@@ -167,11 +164,11 @@ ms.lasthandoff: 09/07/2017
 [Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
 [Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
-[AAD]: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook]: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md
-[Google]: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md
-[MSA]: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter]: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md
+[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
+[Google]: app-service-mobile-how-to-configure-google-authentication.md
+[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

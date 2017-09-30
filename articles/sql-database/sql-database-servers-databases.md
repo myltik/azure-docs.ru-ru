@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/19/2017
+ms.date: 09/13/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 4585be186554d5d7aa9bc79029b6f8506b278701
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 2ad643d5f099457018d02a43252db4c259f5b613
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -134,6 +134,7 @@ ms.lasthandoff: 09/08/2017
 |[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|Получает правила брандмауэра для сервера.|
 |[Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule)|Изменяет правило брандмауэра на сервере.|
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Удаляет правило брандмауэра с сервера.|
+| New-AzureRmSqlServerVirtualNetworkRule | Создает [*правило виртуальной сети*](sql-database-vnet-service-endpoint-rule-overview.md) на основе подсети, в которая является конечной точкой службы виртуальной сети. |
 
 > [!TIP]
 > Краткое руководство по PowerShell приведено в разделе [Создание отдельной базы данных SQL Azure с помощью PowerShell](sql-database-get-started-portal.md). Образцы скриптов PowerShell, см. в статьях [Создание отдельной базы данных SQL и настройка правила брандмауэра с помощью PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) и [Мониторинг и масштабирование отдельной базы данных SQL с помощью PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -219,7 +220,7 @@ ms.lasthandoff: 09/08/2017
 |[Базы данных: вывод списка по эластичному пулу](/rest/api/sql/databases/listbyelasticpool)|Возвращает список баз данных в пуле эластичных баз данных.|
 |[Базы данных: вывод списка по рекомендуемому эластичному пулу](/rest/api/sql/databases/listbyrecommendedelasticpool)|Возвращает список баз данных в рекомендуемом эластичном пуле.|
 |[Базы данных: вывод списка по серверу](/rest/api/sql/databases/listbyserver)|Возвращает список баз данных на сервере.|
-|[Базы данных: обновление](/api/sql/databases/update)|Обновляет имеющуюся базу данных.|
+|[Базы данных: обновление](/rest/api/sql/databases/update)|Обновляет имеющуюся базу данных.|
 |[Правила брандмауэра: создание и изменение](/rest/api/sql/firewallrules/createorupdate)|Создает или обновляет правило брандмауэра.|
 |[Правила брандмауэра: удаление](/rest/api/sql/firewallrules/delete)|Удаляет правило брандмауэра.|
 |[Правила брандмауэра: получение](/rest/api/sql/firewallrules/get)|Получает правило брандмауэра.|
@@ -231,4 +232,3 @@ ms.lasthandoff: 09/08/2017
 - Сведения о службе базы данных SQL Azure см. в статье [Функции службы базы данных SQL Azure](sql-database-technical-overview.md).
 - Чтобы узнать о переносе базы данных SQL Server в Azure, ознакомьтесь с разделом [Миграция базы данных SQL Server в базу данных SQL в облаке](sql-database-cloud-migrate.md).
 - Дополнительные сведения о поддерживаемых функциях см. [здесь](sql-database-features.md).
-

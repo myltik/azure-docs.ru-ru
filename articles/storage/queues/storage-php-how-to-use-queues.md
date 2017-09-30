@@ -3,7 +3,7 @@ title: "Как использовать хранилище очередей из
 description: "Узнайте, как создавать и удалять очереди, а также вставлять, получать и удалять сообщения с помощью службы хранилища очередей Azure. Примеры написаны на PHP."
 documentationcenter: php
 services: storage
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 7582b208-4851-4489-a74a-bb952569f55b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12ebb905184e74da534cd44e8314335145f7042d
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 5fa4e35184b39bd672bfc8b19b2d41acb164abdf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Использование хранилища очередей из PHP
@@ -27,16 +27,16 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Обзор
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища очередей Azure. Примеры написаны с использованием классов из пакета SDK для Windows для PHP. Здесь описаны такие сценарии, как вставка, просмотр, получение и удаление сообщений очереди, а также создание и удаление очередей.
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища очередей Azure. Примеры написаны через классы из [клиентской библиотеки службы хранилища Azure для PHP][download]. Здесь описаны такие сценарии, как вставка, просмотр, получение и удаление сообщений очереди, а также создание и удаление очередей.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Создание приложения PHP
-Единственным требованием для создания приложения PHP, которое получает доступ к хранилищу очередей Azure, является ссылка на классы в пакете SDK для Azure для PHP непосредственно из кода. Можно использовать любые средства разработки для создания приложения, включая программу "Блокнот".
+Единственным требованием для создания приложения PHP, которое получает доступ к хранилищу очередей Azure, является привязка к классам в [клиентской библиотеке службы хранилища Azure для PHP][download] непосредственно из кода. Можно использовать любые средства разработки для создания приложения, включая программу "Блокнот".
 
-В этом руководстве будут использоваться компоненты хранилища очередей, которые могут быть вызваны локально в приложении PHP или в коде, работающем в веб-роли, рабочей роли или на веб-сайте Azure.
+В этом руководстве будут использоваться компоненты службы хранилища очередей, которые могут быть вызваны локально в приложении PHP или в коде, работающем в веб-роли, рабочей роли или на веб-сайте Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Получение клиентских библиотек Azure
 [!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
@@ -49,18 +49,13 @@ ms.lasthandoff: 08/21/2017
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder** .
 
-> [!NOTE]
-> В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure с помощью Composer. Если вы установили эти библиотеки вручную, то потребуется добавить ссылку на файл автозагрузчика `WindowsAzure.php` .
-> 
-> 
-
 ```php
 require_once 'vendor/autoload.php';
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
 ```
 
-В приведенных ниже примерах всегда будет отображаться оператор `require_once` , но ссылки будут приводиться только на классы, которые необходимы для выполнения этого примера.
+В приведенных ниже примерах всегда будет отображаться оператор `require_once`, однако ссылки будут приводиться только на классы, которые необходимы для выполнения этого примера.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Настройка подключения к службе хранилища Azure
 Чтобы создать экземпляр клиента хранилища очередей Azure, сначала необходимо сформировать правильную строку подключения. Формат строки подключения к службе очередей:
@@ -80,17 +75,15 @@ UseDevelopmentStorage=true
 Чтобы создать клиент службы Azure, необходимо использовать класс **ServicesBuilder** . Для этого можно использовать один из следующих методов.
 
 * Передать строку подключения напрямую или
-* Использовать **CloudConfigurationManager (CCM)** для проверки нескольких внешних источников на наличие строки подключения.
-  * По умолчанию предоставляется поддержка одного внешнего источника — переменных среды.
-  * Можно добавить новые источники, расширив класс **ConnectionStringSource** .
-
+* Используйте переменные среды в веб-приложении для хранения строки подключения. Дополнительные сведения о настройке строк подключения см. в разделе [Настройка веб-приложений в службе приложений Azure](../../app-service/web-sites-configure.md).
 В приведенных здесь примерах строка подключения передается напрямую.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 ```
 
@@ -100,9 +93,11 @@ $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connection
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -137,9 +132,11 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -165,9 +162,11 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -206,13 +205,15 @@ else{
 ```
 
 ## <a name="de-queue-the-next-message"></a>Удаление следующего сообщения из очереди
-Ваш код удаляет сообщение из очереди в два этапа. Во-первых, вызовите метод **QueueRestProxy->listMessages**, который делает сообщение невидимым для любого другого кода, который считывает данные из очереди. По умолчанию это сообщение будет оставаться невидимым в течение 30 секунд (если за это время сообщение не будет удалено, оно снова станет видимым в очереди). Чтобы завершить удаление сообщения из очереди, необходимо вызвать **QueueRestProxy->deleteMessage**. Этот двухэтапный процесс удаления сообщения позволяет удостовериться, что если коду не удастся обработать сообщение из-за сбоя оборудования или программного обеспечения, другой экземпляр кода сможет получить то же сообщение и повторить попытку. Код вызывает метод **deleteMessage** сразу после обработки сообщения.
+Ваш код удаляет сообщение из очереди в два этапа. Во-первых, вызовите метод **QueueRestProxy->listMessages**, который делает сообщение невидимым для любого другого кода, который считывает данные из очереди. По умолчанию это сообщение остается невидимым в течение 30 секунд. (Если за это время сообщение не будет удалено, оно снова появится в очереди.) Чтобы завершить удаление сообщения из очереди, необходимо вызвать **QueueRestProxy->deleteMessage**. Этот двухэтапный процесс удаления сообщения позволяет удостовериться, что если коду не удастся обработать сообщение из-за сбоя оборудования или программного обеспечения, другой экземпляр кода сможет получить то же сообщение и повторить попытку. Код вызывает метод **deleteMessage** сразу после обработки сообщения.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -250,11 +251,13 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Get message.
 $listMessagesResult = $queueRestProxy->listMessages("myqueue");
@@ -293,9 +296,11 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -341,8 +346,10 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -370,8 +377,10 @@ echo $approx_msg_count;
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -393,11 +402,12 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы изучили основную информацию о хранилище очередей Azure. Дополнительную информацию о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-* Посетите [блог команды разработчиков службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+* [Справочник по API для клиентской библиотеки службы хранилища Azure для PHP](http://azure.github.io/azure-storage-php/)
+* [Пример расширенной очереди](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)
 
 Дополнительную информацию можно найти также в [Центре разработчика PHP](/develop/php/).
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 

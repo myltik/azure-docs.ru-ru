@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/20/2017
+ms.date: 09/27/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9424f43db504964ba5ea3cbd84f305d1a6697208
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Условный доступ в Azure Active Directory
@@ -119,7 +119,7 @@ ms.lasthandoff: 09/25/2017
 - Платформы устройств
 - Расположения
 - Клиентские приложения
-- Время
+
 
 ![Условия](./media/active-directory-conditional-access-azure-portal/01.png)
 
