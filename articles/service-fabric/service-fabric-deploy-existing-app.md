@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a1db3dda674ffe43587333d88f3816549af3019c
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a8579c66cbfb0968a3659316aa5f03b798f4e332
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>Развертывание гостевого исполняемого файла в Service Fabric
@@ -101,7 +100,7 @@ Visual Studio предоставляет шаблон службы Service Fabri
 6. Теперь можно выполнить упаковку и публикацию на локальном кластере, выполнив отладку решения в Visual Studio. Когда все будет готово, можно опубликовать приложение на удаленном кластере или вернуть решение в систему управления версиями.
 7. Перейдите к концу этой статьи, чтобы узнать, как просмотреть данные о работе гостевого исполняемого файла в Service Fabric Explorer.
 
-## <a name="use-yoeman-to-package-and-deploy-an-existing-executable-on-linux"></a>Упаковка и развертывание существующего исполняемого файла с помощью Yoeman в Linux
+## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Упаковка и развертывание существующего исполняемого файла в Linux с помощью Yeoman
 
 Процедура создания и развертывания гостевого исполняемого файла в Linux совпадает с процедурой развертывания приложения csharp или java.
 

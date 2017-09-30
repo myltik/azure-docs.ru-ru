@@ -1,6 +1,6 @@
 ---
-title: "Устранение неполадок хранилища файлов Azure в Linux | Документация Майкрософт"
-description: "Устранение неполадок, возникающих в работе хранилища файлов Azure в Linux."
+title: "Устранение неполадок службы файлов Azure в Linux | Документация Майкрософт"
+description: "Сведения об устранении неполадок со службой файлов Azure в Linux."
 services: storage
 documentationcenter: 
 author: genlin
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: dc32a57bf49d20faa2e0c241f99b1af7d02b586f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c4f46c0ee94cbeb39bc7b28874cd41f1faf5deb5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>Устранение неполадок в работе хранилища файлов Azure в Linux
+# <a name="troubleshoot-azure-files-problems-in-linux"></a>Устранение неполадок службы файлов Azure в Linux
 
-В этой статье приведен список распространенных проблем, возникающих в хранилище файлов Microsoft Azure при подключении с клиентов Linux. Кроме того, здесь представлены возможные причины этих проблем и способы их устранения.
+В этой статье приведен список распространенных проблем, возникающих в службе файлов Microsoft Azure при подключении из клиентов Linux. Кроме того, здесь представлены возможные причины этих проблем и способы их устранения.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>Отображается сообщение "[permission denied] Disk quota exceeded" ([Отказано в разрешении]. Превышена дисковая квота) при попытке открыть файл
@@ -41,7 +41,7 @@ ms.lasthandoff: 09/08/2017
 Сократите количество одновременно открытых дескрипторов, закрыв некоторые из них, и повторите операцию. Дополнительные сведения см. в статье [Производительность хранилища Microsoft Azure и контрольный список масштабируемости](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-file-storage-in-linux"></a>Медленное копирование файлов в хранилище файлов Azure и из него в Linux
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Медленное копирование файлов в службе файлов Azure и из нее в Linux
 
 -   Если определенные требования к минимальному размеру операций ввода-вывода отсутствуют, для оптимальной производительности мы рекомендуем использовать 1 МБ.
 -   Если окончательный размер файла, в который выполняются операции записи, известен, а у программного обеспечения нет проблем совместимости, и если еще не записанный заключительный фрагмент файла содержит нули, укажите размер файла заранее вместо того, чтобы расширять его для каждой операции записи.
@@ -79,15 +79,15 @@ ms.lasthandoff: 09/08/2017
 Если не удается выполнить обновление до последних версий ядра, можно обойти эту проблему, поместив в файловый ресурс Azure какой-либо файл и перезаписывая его каждые 30 секунд (или чаще). Это должна быть операция записи, такая как перезапись даты создания или изменения файла. В противном случае можно получить кэшированные результаты, в итоге операция записи не активирует повторное подключение.
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-file-storage-by-using-smb-30"></a>Отображается ошибка "Mount error(115): Operation now in progress" (Ошибка подключения (115). Идет выполнение операции) при подключении хранилища файлов Azure с помощью SMB 3.0
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>Отображается ошибка "Mount error(115): Operation now in progress" (Ошибка подключения (115). Идет выполнение операции) при подключении службы файлов Azure с помощью SMB 3.0
 
 ### <a name="cause"></a>Причина:
 
-Некоторые дистрибутивы Linux не поддерживают функции шифрования в SMB 3.0. Поэтому при попытке подключения хранилища файлов Azure с помощью SMB 3.0. пользователь может получить сообщение об ошибке "115".
+Некоторые дистрибутивы Linux не поддерживают функции шифрования в SMB 3.0. Поэтому при попытке подключения службы файлов Azure с помощью SMB 3.0. пользователь может получить сообщение об ошибке с кодом состояния 115.
 
 ### <a name="solution"></a>Решение
 
-Функция шифрования протокола SMB 3.0 для Linux появилась в ядре версии 4.11. Эта функция позволяет подключать общую папку файлов Azure из локальной среды или другого региона Azure. На момент публикации этой статьи функция была добавлена в дистрибутивы Ubuntu 17.04 и Ubuntu 16.10. Если используемый SMB-клиент Linux не поддерживает шифрование, подключите хранилище файлов Azure с помощью SMB 2.1 с виртуальной машины Linux в Azure, расположенной в том же центре обработки данных, что и учетная запись хранения службы файлов.
+Функция шифрования протокола SMB 3.0 для Linux появилась в ядре версии 4.11. Эта функция позволяет подключать общую папку файлов Azure из локальной среды или другого региона Azure. На момент публикации этой статьи функция была добавлена в дистрибутивы Ubuntu 17.04 и Ubuntu 16.10. Если используемый SMB-клиент Linux не поддерживает шифрование, подключите службу файлов Azure с помощью SMB 2.1 с виртуальной машины Linux в Azure, расположенной в том же центре обработки данных, что и учетная запись хранения службы файлов.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Низкая производительность файлового ресурса Azure, подключенного к виртуальной машине Linux
@@ -110,7 +110,7 @@ ms.lasthandoff: 09/08/2017
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Если параметр **cache=strict** или **serverino** отсутствует, отключите и повторно подключите хранилище файлов Azure, выполнив команду mount из [документации](../storage-how-to-use-files-linux.md). Затем еще раз проверьте наличие правильных параметров в записи **/etc/fstab**.
+Если параметр **cache=strict** или **serverino** отсутствует, отключите и повторно подключите службу файлов Azure, выполнив команду mount из [этой статьи](../storage-how-to-use-files-linux.md). Затем еще раз проверьте наличие правильных параметров в записи **/etc/fstab**.
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>При копировании файлов из Windows в Linux были потеряны метки времени

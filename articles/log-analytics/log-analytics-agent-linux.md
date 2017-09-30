@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/05/2017
+ms.date: 09/23/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 616505d7884189ddee2edadc4114deb8f08f7475
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -129,8 +129,8 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
-## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>Настройка агента для использования со шлюзом OMS или прокси-сервером HTTP
-Агент OMS для Linux поддерживает обмен данными со службой OMS через прокси-сервер HTTP или HTTPS либо шлюз OMS.  Поддерживается анонимная и базовая аутентификация (с именем пользователя и паролем).  
+## <a name="configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway"></a>Настройка агента для использования со шлюзом OMS или прокси-сервером
+Агент OMS для Linux поддерживает обмен данными со службой OMS через прокси-сервер или шлюз OMS по протоколу HTTPS.  Поддерживается анонимная и базовая аутентификация (с именем пользователя и паролем).  
 
 ### <a name="proxy-configuration"></a>Конфигурация прокси-сервера
 Значение конфигурации прокси-сервера имеет следующий синтаксис:
@@ -139,13 +139,13 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <sh
 
 Свойство|Описание
 -|-
-Протокол|HTTP или HTTPS
+Протокол|HTTPS
 user|Необязательное имя пользователя для аутентификации прокси-сервера
 пароль|Необязательный пароль для аутентификации прокси-сервера
 proxyhost|Адрес или полное доменное имя прокси-сервера или шлюза OMS
 порт|Номер дополнительного порта для прокси сервера или OMS шлюза
 
-Например: `http://user01:password@proxy01.contoso.com:8080`
+Например: `https://user01:password@proxy01.contoso.com:30443`
 
 Прокси-сервер можно указать во время установки или при изменении файла конфигурации proxy.conf после установки.   
 
@@ -153,13 +153,13 @@ proxyhost|Адрес или полное доменное имя прокси-с
 Аргумент `-p` или `--proxy` для установки пакета omsagent определяет используемую конфигурацию прокси-сервера. 
 
 ```
-sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>Определение конфигурации прокси-сервера в файле
 Конфигурацию прокси-сервера можно задать в файлах `/etc/opt/microsoft/omsagent/proxy.conf` и `/etc/opt/microsoft/omsagent/conf/proxy.conf `. Файлы можно создать или изменить напрямую, но необходимо обновить их разрешения, чтобы предоставить пользователю omiuser право на чтение файлов. Например:
 ```
-proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
+proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
 sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf  
@@ -240,7 +240,7 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 1. Повторно подключитесь к службе OMS, используя службу OMS для Linux и следующую команду с включенным параметром `-v`. За счет этого подробные выходные данные агента могут подключиться к службе OMS через прокси-сервер. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Просмотрите раздел [Настройка агента для использования со шлюзом OMS или прокси-сервером HTTP(#configuring the-agent-for-use-with-a-http-proxy-server), чтобы убедиться в правильности настройки агента для обмена данными через прокси-сервер.    
+2. Просмотрите раздел [Настройка агента для использования со шлюзом OMS или прокси-сервером](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway), чтобы убедиться в правильности настройки агента для обмена данными через прокси-сервер.    
 * Также проверьте включение в список разрешенных следующих конечных точек службы OMS:
 
     |Ресурс агента| порты; |  

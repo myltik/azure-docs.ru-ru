@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: ebac24385560377bac27a8b8c425323c57392bd2
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e37a68fcf645cf1056b70e520545fb3ce7c22946
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>Защита автономного кластера под управлением Windows с помощью сертификатов X.509
@@ -43,7 +43,8 @@ ms.lasthandoff: 08/12/2017
         "ClusterCertificateCommonNames": {
             "CommonNames": [
             {
-                "CertificateCommonName": "[CertificateCommonName]"
+                "CertificateCommonName": "[CertificateCommonName]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]"
             }
             ],
             "X509StoreName": "My"
@@ -56,7 +57,8 @@ ms.lasthandoff: 08/12/2017
         "ServerCertificateCommonNames": {
             "CommonNames": [
             {
-                "CertificateCommonName": "[CertificateCommonName]"
+                "CertificateCommonName": "[CertificateCommonName]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]"
             }
             ],
             "X509StoreName": "My"
@@ -108,9 +110,9 @@ ms.lasthandoff: 08/12/2017
 | **Параметры CertificateInformation** | **Описание** |
 | --- | --- |
 | ClusterCertificate |Рекомендуется использовать в тестовой среде. Этот сертификат нужен, чтобы защитить связь между узлами кластера. Для обновления можно использовать два разных сертификата — основной и дополнительный. Укажите отпечаток основного сертификата в разделе **Thumbprint**, а отпечаток дополнительного сертификата — в переменных **ThumbprintSecondary**. |
-| ClusterCertificateCommonNames |Рекомендуется использовать в рабочей среде. Этот сертификат нужен, чтобы защитить связь между узлами кластера. Можно использовать одно или два общих имени сертификата для кластера. |
+| ClusterCertificateCommonNames |Рекомендуется использовать в рабочей среде. Этот сертификат нужен, чтобы защитить связь между узлами кластера. Можно использовать одно или два общих имени сертификата для кластера. **CertificateIssuerThumbprint** соответствует отпечатку издателя сертификата. Можно указать несколько отпечатков издателя, если используется более одного сертификата с одним и тем же общим именем.|
 | ServerCertificate |Рекомендуется использовать в тестовой среде. Этот сертификат предоставляется клиенту при попытке подключиться к этому кластеру. Для удобства можно использовать один сертификат для параметров *ClusterCertificate* и *ServerCertificate*. Для обновления можно использовать два разных сертификата сервера — основной и дополнительный. Укажите отпечаток основного сертификата в разделе **Thumbprint**, а отпечаток дополнительного сертификата — в переменных **ThumbprintSecondary**. |
-| ServerCertificateCommonNames |Рекомендуется использовать в рабочей среде. Этот сертификат предоставляется клиенту при попытке подключиться к этому кластеру. Для удобства можно использовать один сертификат для параметров *ClusterCertificateCommonNames* и *ServerCertificateCommonNames*. Можно использовать одно или два общих имени сертификата для сервера. |
+| ServerCertificateCommonNames |Рекомендуется использовать в рабочей среде. Этот сертификат предоставляется клиенту при попытке подключиться к этому кластеру. **CertificateIssuerThumbprint** соответствует отпечатку издателя сертификата. Можно указать несколько отпечатков издателя, если используется более одного сертификата с одним и тем же общим именем. Для удобства можно использовать один сертификат для параметров *ClusterCertificateCommonNames* и *ServerCertificateCommonNames*. Можно использовать одно или два общих имени сертификата для сервера. |
 | ClientCertificateThumbprints |Это набор сертификатов, которые требуется установить на клиентских компьютерах, прошедших аутентификацию. На компьютерах, которым нужно предоставить доступ к кластеру, можно установить несколько различных клиентских сертификатов. Укажите отпечаток каждого сертификата в переменной **CertificateThumbprint**. Если для параметра **IsAdmin** задано значение *true*, то с клиентского компьютера с установленным сертификатом можно выполнять различные действия управления кластером от имени администратора. Если для параметра **IsAdmin** задано значение *false*, то с клиентского компьютера с установленным сертификатом можно выполнять действия, зависящие от прав доступа пользователей, обычно только операции чтения. Дополнительные сведения о ролях см. в статье [Контроль доступа на основе ролей](service-fabric-cluster-security.md#role-based-access-control-rbac) |
 | ClientCertificateCommonNames |Укажите общее имя первого сертификата клиента для параметра **CertificateCommonName**. **CertificateIssuerThumbprint** — это отпечаток издателя сертификата. Дополнительные сведения об общих именах и издателе см. в статье [Работа с сертификатами](https://msdn.microsoft.com/library/ms731899.aspx). |
 | ReverseProxyCertificate |Рекомендуется использовать в тестовой среде. Это необязательный сертификат, который можно указать, если вы хотите защитить [обратный прокси-сервер](service-fabric-reverseproxy.md). Если вы используете этот сертификат, обязательно укажите для параметра nodeTypes значение reverseProxyEndpointPort. |
@@ -161,7 +163,8 @@ ms.lasthandoff: 08/12/2017
                 "ClusterCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myClusterCertCommonName"
+                      "CertificateCommonName": "myClusterCertCommonName",
+                      "CertificateIssuerThumbprint": "7c fc 91 97 13 66 8d 9f a8 ee 71 2b a2 f4 37 62 00 03 49 0d"
                     }
                   ],
                   "X509StoreName": "My"
@@ -169,7 +172,8 @@ ms.lasthandoff: 08/12/2017
                 "ServerCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myServerCertCommonName"
+                      "CertificateCommonName": "myServerCertCommonName",
+                      "CertificateIssuerThumbprint": "7c fc 91 97 13 16 8d ff a8 ee 71 2b a2 f4 62 62 00 03 49 0d"
                     }
                   ],
                   "X509StoreName": "My"
@@ -218,7 +222,7 @@ ms.lasthandoff: 08/12/2017
 
 ## <a name="certificate-roll-over"></a>Смена сертификатов
 Если используется общее имя сертификата вместо отпечатка, чтобы сменить сертификат, не нужно обновлять конфигурацию кластера.
-Если смена сертификата подразумевает смену издателя сертификата, храните сертификат старого издателя в хранилище сертификатов как минимум 2 часа после установки сертификата нового издателя.
+Для обновления отпечатков издателя убедитесь, что новый список отпечатков пересекается со старым списком. Сначала нужно будет обновить конфигурацию, указав новые отпечатки издателя, а затем установить новые сертификаты (сертификат сервера или кластера и сертификаты издателя) в хранилище. Храните старый сертификат издателя в хранилище сертификатов как минимум 2 часа после установки нового сертификата издателя.
 
 ## <a name="acquire-the-x509-certificates"></a>Получение сертификатов X.509
 Чтобы защитить связь в кластере, сначала необходимо получить сертификаты X.509 для узлов кластера. Кроме того, чтобы разрешить подключение к этому кластеру только для авторизованных компьютеров и пользователей, необходимо получить и установить сертификаты для клиентских компьютеров.

@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 9667cc728d9700e9ca985969f3566cd8ea47e80e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a62aef7b4bb7ebc085adbdbf0b58f2bb34730dcc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Выполнение запроса Hive с помощью драйвера JDBC в HDInsight
@@ -197,6 +197,12 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 Теперь, когда вы узнали, как использовать JDBC для работы с Hive, воспользуйтесь следующими ссылками, чтобы изучить другие способы работы с Azure HDInsight.
 
+* [Визуализация данных Hive с помощью Microsoft Power BI в Azure HDInsight](./hdinsight-connect-hive-power-bi.md)
+* [Выполнение запросов Hive в Azure HDInsight с помощью Zeppelin](./hdinsight-connect-hive-zeppelin.md)
+* [Подключение Excel к Hadoop в Azure HDInsight с помощью Microsoft Hive ODBC Driver](./hdinsight-connect-excel-hive-odbc-driver.md)
+* [Подключение Excel к Hadoop с помощью Power Query](./hdinsight-connect-excel-power-query.md)
+* [Подключение к Azure HDInsight и выполнение запросов Hive с помощью средств Data Lake для Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)
+* [Использование Visual Studio Code для Hive, LLAP и pySpark](hdinsight-for-vscode.md)
 * [Отправка данных в HDInsight](hdinsight-upload-data.md)
 * [Использование Hive с HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)

@@ -17,10 +17,10 @@ ms.date: 08/22/2017
 ms.author: adegeo
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7489c3d0534a695c6fc39ad95890db7ba2a52f25
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fee02a5fd8aa27ac2c75a362c66d1dbcc395fa34
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,9 +28,15 @@ ms.lasthandoff: 08/24/2017
 
 Ниже приведена таблица со ссылками на примеры сценариев [интерфейса командной строки Service Fabric](service-fabric-cli.md), которые дают возможность управлять кластерами, приложениями и службами Service Fabric.
 
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
+
 | | |
 |-|-|
+| **Создать кластер** ||
+| [Создание защищенного кластера Linux](./scripts/cli-create-cluster.md)| Создает кластер Azure Service Fabric. |
 | **Управление приложениями** ||
+| [Список приложений](./scripts/sfctl-list-applications.md)| Список приложений, подготовленных в кластере.|
 | [Развертывание приложения](./scripts/cli-deploy-application.md)| Развертывание приложения в кластере.|
 | [Удаление приложения](./scripts/cli-remove-application.md)| Удаление приложения из кластера.|
+| [Обновление приложения](./scripts/sfctl-upgrade-application.md)| Обновление уже развернутого приложения.|
 

@@ -16,12 +16,13 @@ ms.workload: data-management
 ms.date: 09/22/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 75575fec0047dd653dca86df1daf234676859600
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 59bb9778c89142212708b660fb200de3f0f1f9d4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
+
 # <a name="azure-sql-database-features"></a>Возможности базы данных SQL Azure
 
 База данных SQL Azure и SQL Server используют общую базу кода и поддерживают преимущественно одинаковые функции на уровне базы данных. Основные отличия между функциями базы данных SQL Azure и SQL Server видны на уровне экземпляров. 
@@ -93,7 +94,7 @@ ms.lasthandoff: 09/22/2017
 | [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Нет |
 | [Управление на основе политик](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Нет |
 | [Предикаты](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Большинство. Дополнительные сведения см. в разделах по отдельным предикатам. |
-| [Службы R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Нет |
+| [Службы R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Предварительная версия. Ознакомьтесь с разделом [Новые возможности службы обучения машины в SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services).  |
 | [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Нет |
 | [Инструкции RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Нет | 
 | [Восстановление базы данных из резервной копии](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Только из встроенных резервных копий. Дополнительные сведения см. в статье [Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий](sql-database-recovery-using-backups.md). |

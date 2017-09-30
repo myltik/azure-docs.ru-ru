@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: mfussell
+ms.date: 09/20/2017
+ms.author: msfussell
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 32e84984a61bb54ea459826f191de7fc25fc2158
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8ff0d38a679b673b148dd808050eda82060cfe80
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="overview-of-azure-service-fabric"></a>Общие сведения о Service Fabric
@@ -50,12 +50,14 @@ Service Fabric работает где угодно. Кластеры Service Fa
 
 ![Платформа Service Fabric][Image1]
 
-См. дополнительные сведения о создании [локальных кластеров на платформе Windows Server или Linux](service-fabric-deploy-anywhere.md) и создании [кластеров Azure на портале Azure](service-fabric-cluster-creation-via-portal.md).
+Пакет SDK Service Fabric для .NET для разработки приложений Windows интегрируется с Visual Studio и PowerShell. Ознакомьтесь с разделом [Настройка среды разработки для Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md). Пакет SDK Service Fabric для Java для разработки приложений Linux интегрирован с Eclipse. Yeoman используется для создания шаблонов для приложений Java, .NET Core и приложений-контейнеров. Ознакомьтесь с разделом [Подготовка среды разработки в Linux](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md).
+
+Изучите дополнительные сведения о создании [кластеров на платформе Windows Server или Linux](service-fabric-deploy-anywhere.md) и создании кластеров Azure [на портале Azure](service-fabric-cluster-creation-via-portal.md).
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Микрослужбы Service Fabric с отслеживанием и без отслеживания состояния
 Service Fabric позволяет создавать приложения, состоящие из микрослужб или контейнеров. Микрослужбы без отслеживания состояния (протоколы шлюзов, веб-прокси и т. д.) не поддерживают изменяемые состояния без обработки запроса службой. К службам без отслеживания состояния можно отнести рабочие роли в облачных службах Azure. Микрослужбы с отслеживанием состояния (учетные записи пользователей, базы данных, устройства, корзины интернет-магазинов, очереди и т. д.) поддерживают изменяемые достоверные состояния без обработки запроса службой. Современные веб-приложения могут одновременно содержать микрослужбы с отслеживанием состояния и без него. 
 
-Ключевое отличие Service Fabric — активная ориентация на создание служб с отслеживанием состояния на основе [встроенных моделей программирования ](service-fabric-choose-framework.md) или контейнерных служб с отслеживанием состояния. В [сценариях приложений](service-fabric-application-scenarios.md) описаны ситуации, в которых используются службы с отслеживанием состояния.
+Ключевое отличие Service Fabric — активная ориентация на создание служб с отслеживанием состояния на основе [встроенных моделей программирования](service-fabric-choose-framework.md) или контейнерных служб с отслеживанием состояния. В [сценариях приложений](service-fabric-application-scenarios.md) описаны ситуации, в которых используются службы с отслеживанием состояния.
 
 
 ## <a name="application-lifecycle-management"></a>Управление жизненным циклом приложения
@@ -89,7 +91,8 @@ Service Fabric поддерживает управление полным жиз
 * Дополнительные сведения
   * [Разработка приложений с использованием микрослужб](service-fabric-overview-microservices.md)
   * [Общие сведения о терминологии](service-fabric-technical-overview.md)
-* Настройка [среды разработки](service-fabric-get-started.md)  
+* Настройка [среды разработки Windows](service-fabric-get-started.md).  
+* Настройка [среды разработки Linux](service-fabric-get-started-linux.md).
 * [Сведения о вариантах поддержки Service Fabric](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png

@@ -15,18 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/12/2017
+ms.date: 09/15/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 6ba04cd62aff587e56308bb332e31b2da75398cb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 445689cb067d33b0da45d63730e5e755bc799909
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Правила брандмауэра уровня сервера и уровня базы данных SQL Azure 
 
 База данных SQL Microsoft Azure предоставляет службу реляционных баз данных для Azure и других интернет-приложений. Чтобы защитить ваши данные, брандмауэр запрещает любой доступ к серверу базы данных, пока вы не укажете компьютеры, у которых есть разрешение на доступ. Брандмауэр предоставляет доступ к базам данным на основе исходного IP-адреса каждого запроса.
+
+#### <a name="virtual-netowrk-rules-as-alternatives-to-ip-rules"></a>Правила виртуальной сети как альтернатива правилам фильтрации IP-адресов
+
+Помимо правил фильтрации IP-адресов брандмауэр также управляет *правилами виртуальной сети*. Правила виртуальной сети основаны на конечных точках службы виртуальной сети. В некоторых случаях предпочтительнее использовать правила виртуальной сети, а не правила фильтрации IP-адресов. Чтобы узнать больше, ознакомьтесь с разделом [Использование конечных точек службы и правил виртуальной сети для базы данных SQL Azure](sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="overview"></a>Обзор
 
@@ -223,4 +227,3 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
-

@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/13/2017
+ms.date: 09/18/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 80c5a2a43302e1cc8ec3b4298eb393a1861252d3
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 86c01a55304c5f5179e0e94d67f318e42075fd48
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="create-a-secure-cluster-on-azure-using-powershell"></a>Создание безопасного кластера в Azure с помощью PowerShell
-В этом учебнике показано, как создать кластер Service Fabric (с Windows или Linux) в Azure. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения.
+# <a name="create-a-windows-cluster-in-azure-using-powershell"></a>Создание кластера Windows в Azure с помощью PowerShell
+В этом руководстве показано, как создать кластер Service Fabric на платформе Windows в Azure. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения.
 
 Из этого руководства вы узнаете, как выполнять такие задачи:
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/16/2017
 Дополнительные сведения о создании кластеров Service Fabric см. в статье [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="create-the-cluster-using-azure-powershell"></a>Создание кластера с помощью Azure PowerShell
-1. Скачайте локальную копию шаблона Azure Resource Manager и файл параметров из репозитория GitHub [шаблон Azure Resource Manager для Service Fabric](https://aka.ms/securepreviewonelineclustertemplate).  *azuredeploy.json* — шаблон Azure Resource Manager, который определяет кластер Service Fabric. *azuredeploy.parameters.json* — файл параметров для настройки развертывания кластера.
+1. Скачайте локальную копию шаблона Azure Resource Manager и файл параметров из репозитория GitHub [шаблон Azure Resource Manager для Service Fabric](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial).  *azuredeploy.json* — шаблон Azure Resource Manager, который определяет кластер Service Fabric. *azuredeploy.parameters.json* — файл параметров для настройки развертывания кластера.
 
 2. Настройте следующие параметры в файле параметров *azuredeploy.parameters.json*:
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 08/16/2017
    | clusterName     | Имя создаваемого кластера. | *Например, bobs-sfpreviewcluster* |
    | adminUserName   | Учетная запись локального администратора виртуальных машин кластера. | *Любое допустимое имя пользователя Windows Server* |
    | adminPassword   | Пароль локального администратора виртуальных машин кластера. | *Любой допустимый пароль Windows Server* |
-   | clusterCodeVersion | Выполняемая версия Service Fabric. (255.255.X.255 — предварительные версии). | **255.255.5718.255** |
+   | clusterCodeVersion | Выполняемая версия Service Fabric. (255.255.X.255 — предварительные версии). | **5.7.198.9494** |
    | vmInstanceCount | Число виртуальных машин в кластере (может быть 1 или 3–99). | **1** | *Для предварительной версии кластера укажите только одну виртуальную машину* |
 
 3. Откройте консоль Windows PowerShell, войдите в Azure и выберите подписку, в которую нужно развернуть кластер:

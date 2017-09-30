@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 8ca04ac79665d5ecc639addd48939f71825f2024
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 1ecded3af6396f50e67dc5d2a9ef8337699046ea
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="service-fabric-container-networking-modes"></a>Сетевые режимы контейнеров Service Fabric
@@ -79,7 +79,7 @@ ms.lasthandoff: 09/02/2017
             ],
     ```
 
-2. Настройте раздел с профилем сети, разрешив настройку нескольких IP-адресов на каждом узле кластера. В следующем примере для каждого узла в кластере Windows Service Fabric устанавливается пять IP-адресов (следовательно, у вас может быть пять экземпляров службы, которые ожидают передачи данных на порту на каждом узле).
+2. Настройте раздел с профилем сети, разрешив настройку нескольких IP-адресов на каждом узле кластера. В следующем примере для каждого узла в кластере Service Fabric на платформе Windows или Linux устанавливаются пять IP-адресов (следовательно, у вас может быть пять экземпляров службы, которые ожидают передачи данных через порт на каждом узле).
 
     ```json
     "variables": {
@@ -174,124 +174,8 @@ ms.lasthandoff: 09/02/2017
                   }
                 ]
               }
-    ```
-
-    Для кластеров Linux добавьте дополнительный открытый IP-адрес, разрешив исходящие подключения. В следующем фрагменте кода для каждого узла в кластере Linux настраиваются пять IP-адресов:
-
-    ```json
-    "networkProfile": {
-                "networkInterfaceConfigurations": [
-                  {
-                    "name": "[concat(parameters('nicName'), '-0')]",
-                    "properties": {
-                      "ipConfigurations": [
-                        {
-                          "name": "[concat(parameters('nicName'),'-',0)]",
-                          "properties": {
-                            "primary": "true",
-                            "publicipaddressconfiguration": {
-                              "name": "devpub",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "loadBalancerBackendAddressPools": [
-                              {
-                                "id": "[variables('lbPoolID0')]"
-                              }
-                            ],
-                            "loadBalancerInboundNatPools": [
-                              {
-                                "id": "[variables('lbNatPoolID0')]"
-                              }
-                            ],
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        },
-                        {
-                          "name": "[concat(parameters('nicName'),'-', 1)]",
-                          "properties": {
-                            "primary": "false",
-                            "publicipaddressconfiguration": {
-                              "name": "[concat('devpub', 1)]",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        },
-                        {
-                          "name": "[concat(parameters('nicName'),'-', 2)]",
-                          "properties": {
-                            "primary": "false",
-                            "publicipaddressconfiguration": {
-                              "name": "[concat('devpub', 2)]",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        },
-                        {
-                          "name": "[concat(parameters('nicName'),'-', 3)]",
-                          "properties": {
-                            "primary": "false",
-                            "publicipaddressconfiguration": {
-                              "name": "[concat('devpub', 3)]",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        },
-                        {
-                          "name": "[concat(parameters('nicName'),'-', 4)]",
-                          "properties": {
-                            "primary": "false",
-                            "publicipaddressconfiguration": {
-                              "name": "[concat('devpub', 4)]",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        },
-                        {
-                          "name": "[concat(parameters('nicName'),'-', 5)]",
-                          "properties": {
-                            "primary": "false",
-                            "publicipaddressconfiguration": {
-                              "name": "[concat('devpub', 5)]",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        }
-                      ],
-                      "primary": true
-                    }
-                  }
-                ]
-              }
-    ```
+   ```
+ 
 
 3. Только для кластеров Windows можно настроить правило NSG, открывая порт UDP/53 для виртуальной сети со следующими значениями:
 

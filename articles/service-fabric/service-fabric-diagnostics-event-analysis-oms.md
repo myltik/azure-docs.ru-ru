@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: f52988f2a67f2cafe93a7e0a358c599658d068b2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -92,7 +92,7 @@ Operations Management Suite (OMS) — это набор служб управл
 
 Чтобы настроить решение "Контейнеры" в рабочей области, необходимо развернуть агент OMS в узлах кластера, выполнив описанные выше действия. Когда кластер будет готов, разверните в нем контейнер. Не забывайте, что при первом запуске образ контейнера развертывается в кластер. Скачивание образа занимает несколько минут (в зависимости от его размера).
 
-В Azure Marketplace выполните поиск по запросу *Контейнеры* и создайте ресурс "Контейнеры" (в категории "Мониторинг и управление").
+В Azure Marketplace найдите *Решение мониторинга контейнеров* и создайте требуемый результат **решения мониторинга контейнеров** в категории "Мониторинг и управление".
 
 ![Добавление решения "Контейнеры"](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 

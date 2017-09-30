@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 0f27db7018e398f71a8d7bd0b86e643367b15875
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 34f4af31773097eafe2613eb7f3400655c387a84
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Основные сведения о поисках по журналам в Log Analytics
@@ -77,6 +77,13 @@ ms.lasthandoff: 08/28/2017
     | render timechart    
 
 Из этих примеров можно увидеть, что независимо от типа данных, с которыми вы работаете, структура запроса является аналогичной.  Ее можно разбить на отдельные действия, где полученные данные из одной команды отправляются через конвейер в следующую команду.
+
+Кроме того, вы можете запрашивать данные из рабочих областей Log Analytics в рамках своей подписки.
+
+    union Update, workspace("contoso-workspace").Update
+    | where TimeGenerated >= ago(1h)
+    | summarize dcount(Computer) by Classification 
+
 
 Полную документацию по языку запросов Azure Log Analytics, включающую руководства и справочник по языку, см. [здесь](https://docs.loganalytics.io/).
 

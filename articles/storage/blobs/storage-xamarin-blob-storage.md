@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5ff4d86082c03dcd7098743a984a97aa70232d1d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c7b4d0e7d7d95f2e3f8c5a97b78c60c52cc862a0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Как использовать хранилище BLOB-объектов из Xamarin
@@ -245,10 +245,9 @@ namespace XamarinApp.WinPhone
 В этом учебнике вы узнали, как создать кроссплатформенное приложение в Xamarin, которое использует хранилище Azure. В частности, рассматривался сценарий в хранилище BLOB-объектов. Но его можно использовать не только для работы с хранилищем BLOB-объектов, но также с хранилищами таблиц, файлов и очередей. Чтобы узнать больше, ознакомьтесь со следующими статьями:
 
 * [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md)
+* [Общие сведения о службе файлов Azure](../files/storage-files-introduction.md)
+* [Разработка для службы файлов Azure с помощью .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Приступая к работе с хранилищем таблиц Azure с помощью .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Приступая к работе с хранилищем очередей Azure с помощью .NET](../queues/storage-dotnet-how-to-use-queues.md)
-* [Приступая к работе с хранилищем файлов Azure в Windows](../files/storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-

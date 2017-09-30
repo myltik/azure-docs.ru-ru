@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 3ff04f031b2d170ac63fc1c6f4e2b6ba6a6c46bd
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6cfdeacb788db2e2f940ef1100eb03dc7e496ea6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -131,4 +131,4 @@ Service Fabric изменяет первичную реплику службы �
 - [Обзор надежных служб](service-fabric-reliable-services-introduction.md)
 - [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
 - [Продвинутое использование надежных служб](service-fabric-reliable-services-advanced-usage.md)
-
+- [Реплики и экземпляры](service-fabric-concepts-replica-lifecycle.md)

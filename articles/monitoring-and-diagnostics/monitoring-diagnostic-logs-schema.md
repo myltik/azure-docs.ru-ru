@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 09/25/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: aa4fa6e0310b2725005dfa34e3225c89fb4282d6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 23da12e518d88109fd7271fd363b6c1f099c5ab6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Поддерживаемые службы, схемы и категории для журналов диагностики Azure
@@ -40,15 +40,19 @@ ms.lasthandoff: 08/24/2017
 | Аналитика озера данных |[Доступ к журналам диагностики для Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Хранилище озера данных |[Доступ к журналам диагностики Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Концентраторы событий |[Журналы диагностики концентраторов событий Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
-| хранилище ключей; |[Ведение журнала хранилища ключей Azure](../key-vault/key-vault-logging.md) |
+| Служба подготовки Центра Интернета вещей | Схема недоступна. |
+| Хранилище ключей |[Ведение журнала хранилища ключей Azure](../key-vault/key-vault-logging.md) |
 | Балансировщик нагрузки |[Log Analytics для Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Приложения логики |[Настраиваемая схема отслеживания сообщений B2B для приложений логики](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | группы сетевой безопасности; |[Аналитика журналов для групп безопасности сети](../virtual-network/virtual-network-nsg-manage-log.md) |
+| Защита общедоступного IP-адреса от атак DDoS | Схема недоступна. |
 | Службы восстановления | Схема недоступна.|
 | Поиск |[Включение и использование аналитики поискового трафика](../search/search-traffic-analytics.md) |
 | Управление сервером | Схема недоступна. |
 | Служебная шина |[Журналы диагностики служебной шины Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| Анализ потока |[Журналы диагностики задания](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| База данных SQL | [Метрики и журналы диагностики базы данных SQL Azure](../sql-database/sql-database-metrics-diag-logging.md) |
+| Stream Analytics |[Журналы диагностики задания](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Виртуальные сети | Схема недоступна. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Поддерживаемые категории журнала для каждого типа ресурса
 |Тип ресурса|Категория|Отображаемое имя категории|
@@ -64,6 +68,8 @@ ms.lasthandoff: 08/24/2017
 |Microsoft.DataLakeAnalytics/accounts|Запросы|Журналы запросов|
 |Microsoft.DataLakeStore/accounts|Аудит|Журналы аудита|
 |Microsoft.DataLakeStore/accounts|Запросы|Журналы запросов|
+|Microsoft.Devices/provisioningServices|DeviceOperations|Операции с устройствами|
+|Microsoft.Devices/provisioningServices|ServiceOperations|Операции со службой|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Журналы архивации|
 |Microsoft.EventHub/namespaces|OperationalLogs|Журналы операций|
@@ -75,6 +81,8 @@ ms.lasthandoff: 08/24/2017
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Счетчик правил группы безопасности сети|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|События оповещения балансировщика нагрузки|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Состояние работоспособности балансировщика нагрузки|
+|Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Уведомления о защите от атак DDoS|
+|Microsoft.Network/virtualNetworks|VMProtectionAlerts|Оповещения о защите виртуальной машины|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Журнал доступа к шлюзу приложений|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Журнал производительности шлюза приложений|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Журнал брандмауэра шлюза приложений|
@@ -82,8 +90,18 @@ ms.lasthandoff: 08/24/2017
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Задания Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|События Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Реплицированные элементы Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Статистика репликации Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Точки восстановления Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Журналы операций|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Журналы операций|
+|Microsoft.Sql/servers/databases|QueryStore|Хранилище запросов|
+|Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Статистика среды выполнения хранилища запросов|
+|Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Статистика времени ожидания хранилища запросов|
+|Microsoft.Sql/servers/databases|Errors|Errors|
+|Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Статистика времени ожидания базы данных|
+|Microsoft.Sql/servers/databases|Timeouts|Время ожидания|
+|Microsoft.Sql/servers/databases|Blocks|Блоки|
+|Microsoft.Sql/servers/databases|SQLInsights|Аналитика SQL|
 |Microsoft.StreamAnalytics/streamingjobs|Выполнение|Выполнение|
 |Microsoft.StreamAnalytics/streamingjobs|Разработка|Разработка|
 

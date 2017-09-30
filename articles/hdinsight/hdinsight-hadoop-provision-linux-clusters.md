@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/06/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 8d7f397145bbecf0c651872f04b81cf44e25dbff
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8517c09d4dc4bd7907fc6e5260de119fbdd8f5e9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Установка кластеров в HDInsight с использованием Hadoop, Spark, Kafka и других технологий
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Узнайте, как установить и настроить кластеры в HDInsight с использованием Hadoop, Spark, Kafka, Interactive Hive, HBase, R Server или Storm. Кроме того, вы узнаете, как повысить безопасность кластеров путем их присоединения к домену.
+Узнайте, как установить и настроить кластеры в HDInsight с использованием Hadoop, Spark, Kafka, кластера интерактивных запросов, HBase, R Server или Storm. Кроме того, вы узнаете, как повысить безопасность кластеров путем их присоединения к домену.
 
 Кластер Hadoop включает в себя несколько виртуальных машин (узлов), которые используются для распределенной обработки задач. Azure HDInsight управляет сведениями об установке и настройке отдельных узлов, поэтому вам нужно указать только общие сведения о конфигурации. 
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 07/08/2017
 | [Spark](hdinsight-apache-spark-overview.md) |Обработка в памяти, интерактивные запросы, обработка потоков микро-пакетов |
 | [Kafka (предварительная версия)](hdinsight-apache-kafka-introduction.md) | Распределенная платформа потоковой передачи с открытым кодом, которую можно использовать для создания конвейеров и приложений потоковой передачи данных в режиме реального времени. |
 | [R Server](hdinsight-hadoop-r-server-overview.md) |Разнообразная статистика больших данных, прогнозное моделирование и возможности машинного обучения |
-| [Interactive Hive (предварительная версия)](hdinsight-hadoop-use-interactive-hive.md) |Кэширование в памяти для обеспечения интерактивных и ускоренных запросов Hive |
+| [Интерактивный запрос](hdinsight-hadoop-use-interactive-hive.md) |Кэширование в памяти для обеспечения интерактивных и ускоренных запросов Hive |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Количество узлов для каждого типа кластера
 Для каждого типа кластера используется своя терминология. Кроме того, типы отличаются количеством узлов и стандартными размерами виртуальных машин. В следующей таблице число узлов каждого типа указано в скобках.

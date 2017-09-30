@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 1db13c30e2ec1de62d5103f85b4181a5750403c5
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbad2e501acf024fb5b7f5c62ebe5fa81e19cce7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Что бы вы хотели узнать о Service Fabric?
@@ -139,9 +139,9 @@ Service Fabric интегрируется с [ASP.NET Core](service-fabric-relia
 
 Вы можете создать кластер в Azure на [портале Azure](service-fabric-cluster-creation-via-portal.md) с помощью [шаблона](service-fabric-cluster-creation-via-arm.md) или [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-Предварительная версия Service Fabric для Linux дает возможность создавать, развертывать высокодоступные приложения с высокой масштабируемостью и управлять ими в Linux так же, как и в Windows. Платформы Service Fabric (Reliable Services и Reliable Actors) в Linux доступны для программирования на языках Java и C# (.NET Core). Также можно создавать [гостевые исполняемые службы](service-fabric-deploy-existing-app.md) , используя любой язык или платформу. Кроме того, предварительная версия поддерживает оркестрацию контейнеров Docker. В контейнерах Docker могут выполняться гостевые исполняемые файлы или собственные службы Service Fabric, использующие платформы Service Fabric. Дополнительные сведения см. в статье [Service Fabric в Azure](service-fabric-linux-overview.md).
+Service Fabric для Linux дает возможность создавать, развертывать высокодоступные приложения с высокой масштабируемостью и управлять ими в Linux так же, как и в Windows. Платформы Service Fabric (Reliable Services и Reliable Actors) в Linux доступны для программирования на языках Java и C# (.NET Core). Также можно создавать [гостевые исполняемые службы](service-fabric-deploy-existing-app.md) , используя любой язык или платформу. Также поддерживается оркестрация контейнеров Docker. В контейнерах Docker могут выполняться гостевые исполняемые файлы или собственные службы Service Fabric, использующие платформы Service Fabric. Чтобы узнать больше, прочитайте о [Service Fabric в Azure](service-fabric-deploy-anywhere.md).
 
-Так как платформа Service Fabric для Linux доступна в предварительной версии, некоторые ее функции поддерживаются в Windows, но не в Linux. Дополнительные сведения см. в статье [Различия между Service Fabric для Linux (предварительная версия) и Windows (общедоступная версия)](service-fabric-linux-windows-differences.md).
+Некоторые функции Service Fabric поддерживаются в Windows, но не поддерживаются в Linux. Дополнительные сведения см. в статье [Различия между Service Fabric для Linux (предварительная версия) и Windows (общедоступная версия)](service-fabric-linux-windows-differences.md).
 
 ### <a name="standalone-clusters"></a>Изолированные кластеры
 Для Service Fabric предусмотрен пакет установки, с помощью которого можно создать автономный кластер Service Fabric в локальной среде и у любого поставщика облачных служб. Автономные кластеры можно размещать в любом расположении. Если данные ограничены нормативными требованиями или вы хотите хранить их локально, вы можете разместить собственный кластер и приложения. Приложения Service Fabric можно запускать в различных средах размещения без изменений, так что знания о создании приложений сохраняют свою актуальность при переходе из одной среды размещения в другую. 

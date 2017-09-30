@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 09/25/2017
 ms.author: mimig
 ms.custom: cda
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 992249949c6bd80e698a0bc21710039c6aa1f67e
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 947920783be3e2a8cd299cdcc667456adf140b57
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -71,19 +71,75 @@ ms.lasthandoff: 09/14/2017
 
 ## <a name="tip-6-migrate-your-mean-app"></a>Совет 6. Перенос приложения MEAN
 
-Совет 6. Подходит ли вам MEAN? Узнайте, как можно легко перенести приложения в Azure #cosmosDB! [https://aka.ms/gfh6i5](https://aka.ms/gfh6i5) Полное видео: [https://aka.ms/aoojih](https://aka.ms/aoojih)
-
-> [!VIDEO https://www.youtube.com/embed/1DzwI5HmU5w]
-
-[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
-
-## <a name="tip-7-build-a-nodejs-app-by-using-graph-api"></a>Совет 7. Создание приложения Node.js с помощью API Graph
-
-Совет 7. Создайте приложение Node.js с помощью API Graph и Azure #CosmosDB. Дополнительные сведения см. на странице документации [https://aka.ms/X79feg](https://aka.ms/X79feg)
+Совет 6. Подходит ли вам MEAN? Узнайте, как можно легко перенести приложения в Azure #cosmosDB! https://aka.ms/gfh6i5 Полное видео: https://aka.ms/aoojih  
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
-[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907982218353451009)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313762492686352384)
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
+
+## <a name="tip-8-build-a-nodejs-app-by-using-sql-api"></a>Совет 8. Создание приложения Node.js с помощью API SQL
+
+Совет 8. Создайте приложение @nodejs с помощью API SQL и Azure #CosmosDB. Дополнительные сведения см. на странице документации [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8).  
+
+> [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908344625101815808)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314096399197757440)
+
+## <a name="tip-9-query-using-mongodb-in-nodejs"></a>Совет 9. Выполнение запросов в Node.js с помощью MongoDB
+
+Совет 9. Выполните запрос к Azure #CosmosDB с помощью API MongoDB в Node.js. Дополнительные сведения см. на странице документации [https://aka.ms/Dert0r](https://aka.ms/Dert0r).  
+
+![Выполнение запросов с помощью MongoDB](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908737218759376896)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314500690261655552)
+
+## <a name="tip-10-copy-mongodb-data-using-studio-3t"></a>Совет 10. Копирование данных MongoDB с помощью Studio 3T
+
+Совет 10. Узнайте, как копировать данные MongoDB в Azure Cosmos DB с помощью Studio 3T (MongoChef). Документы доступны на странице [https://aka.ms/apzhww](https://aka.ms/apzhww).
+
+> [!VIDEO https://www.youtube.com/embed/Qa4YpShYEcI]
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/909794178489507840)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315565289329164288)
+
+## <a name="tip-11-use-react-nodejs-and-azure-cosmosdb"></a>Совет 11. Использование React, Node.js и Azure #CosmosDB
+
+Совет 11. Создайте приложение для отслеживания героев (элементов hero) с помощью React, Node.js и Azure Cosmos DB.
+
+Статья: [Создание приложения MongoDB с помощью React и Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
+
+## <a name="tip-12-go-serverless"></a>Совет 12. Независимость от сервера
+
+Совет 12. Добейтесь независимости от сервера с помощью Azure #CosmosDB и @AzureFunctions! Полная документация доступна на странице [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j).
+
+> [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910534418716069889)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316301619252248576)
+
+## <a name="tip-13-mean-app-from-scratch"></a>Совет 13. Создание приложения MEAN с нуля
+
+Совет 13. Создайте приложение с нуля с помощью @John_Papa и Azure Cosmos DB. Сведения о создании приложения MEAN с нуля
+
+Статья: [Создание приложения MongoDB с помощью Angular и Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
+
+## <a name="tip-14-use-cases"></a>Совет 14. Варианты использования
+
+Совет 14. Интересуют распространенные примеры использования Azure #CosmosDB? Ознакомьтесь с материалами на странице [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00), чтобы узнать о приложениях Интернета вещей, игровых и социальных приложениях.
+
+Статья: [Распространенные примеры использования Azure Cosmos DB](https://aka.ms/Ihpf00)
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/911270472481992704)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6317036550945333248)
+
+## <a name="tip-15-vs-code-integration"></a>Совет 15. Интеграция кода
+
+Совет 15. Создайте учетную запись Azure #CosmosDB, не выходя из @code. Установка расширения из [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
+
+> [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
