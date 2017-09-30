@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/01/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d6a13ceb8ccd9207ecacc166247535d496d5dec7
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 76606189e7bed1a5179c7486d7c10f3c253884b5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="connect-to-a-secure-cluster"></a>Безопасное подключение к кластеру
@@ -312,6 +312,8 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 `http://<your-cluster-endpoint>:19080/Explorer`
 
 Полный URL-адрес доступен также на панели основных компонентов кластера портала Azure.
+
+Чтобы подключиться к безопасному кластеру в Windows или OS X с помощью браузера, можно импортировать сертификат клиента. Браузер запросит его, чтобы подключиться к кластеру.  Для компьютеров с Linux необходимо импортировать сертификат с помощью расширенных параметров браузера (у каждого свой механизм), а затем указать его расположение на диске.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Подключение к защищенному кластеру с помощью Azure Active Directory
 

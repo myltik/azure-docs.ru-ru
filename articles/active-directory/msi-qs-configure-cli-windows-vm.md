@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 78a6164e76f6ceab936874e68bd38bb4eb387e00
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 Управляемое удостоверение службы предоставляет службы Azure с автоматически управляемыми удостоверениями в Azure Active Directory. Это удостоверение можно использовать для аутентификации в любой службе, которая поддерживает аутентификацию Azure AD, не храня какие-либо учетные данные в коде. 
 
-Из этой статьи вы узнаете, как включить и удалить MSI для виртуальных машин Windows в Azure с помощью Azure CLI.
+Из этой статьи вы узнаете, как включить и удалить MSI для виртуальных машин Azure с помощью Azure CLI.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/14/2017
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Включение MSI во время создания виртуальной машины Azure
 
-Ресурс виртуальной машины Windows с поддержкой MSI создается в новой группе ресурсов с помощью указанных параметров конфигурации. Кроме того, обратите внимание, что многие из этих функций могут выполняться в течение нескольких секунд или минут до возвращения ответа.
+Чтобы создать виртуальную машину с поддержкой MSI:
 
 1. Если вы не используете Azure Cloud Shell с портала Azure, то сначала войдите в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, которая связана с подпиской Azure, с помощью которой нужно развернуть виртуальную машину.
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 09/14/2017
 
 Если нужно включить MSI на имеющейся виртуальной машине, сделайте следующее:
 
-1. Если вы не используете Azure Cloud Shell с портала Azure, то сначала войдите в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, которая связана с подпиской Azure, с помощью которой нужно развернуть виртуальную машину.
+1. Если вы не используете Azure Cloud Shell с портала Azure, то сначала войдите в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, связанную с подпиской Azure, которая содержит виртуальную машину. Учетная запись должна принадлежать роли, которая предоставляет разрешения на запись в виртуальной машине, например "Участник виртуальных машин":
 
    ```azurecli-interactive
    az login
@@ -83,13 +83,13 @@ ms.lasthandoff: 09/14/2017
 
 При наличии виртуальной машины, которой больше не требуется MSI, сделайте следующее:
 
-1. Если вы не используете Azure Cloud Shell с портала Azure, то сначала войдите в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, которая связана с подпиской Azure, с помощью которой нужно развернуть виртуальную машину.
+1. Если вы не используете Azure Cloud Shell с портала Azure, то сначала войдите в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, связанную с подпиской Azure, которая содержит виртуальную машину. Учетная запись должна принадлежать роли, которая предоставляет разрешения на запись в виртуальной машине, например "Участник виртуальных машин":
 
    ```azurecli-interactive
    az login
    ```
 
-2. Чтобы удалить MSI, выполните команду [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) с параметром `-n ManagedIdentityExtensionForWindows`.
+2. Чтобы удалить MSI, выполните команду [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) с параметром `-n ManagedIdentityExtensionForWindows` или `-n ManagedIdentityExtensionForLinux` (в зависимости от типа виртуальной машины).
 
    ```azurecli-interactive
    az vm extension delete --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -98,7 +98,10 @@ ms.lasthandoff: 09/14/2017
 ## <a name="related-content"></a>Связанная информация
 
 - [Управляемое удостоверение службы (MSI) для Azure Active Directory](msi-overview.md)
-- Информация в этой статье взята из краткого руководства [Создание виртуальной машины Windows с помощью Azure CLI](../virtual-machines/windows/quick-create-cli.md) и содержит инструкции для MSI. 
+- Ниже приведены комплексные краткие руководства по созданию виртуальных машин Azure: 
+
+  - [Создание виртуальной машины Windows с помощью Azure CLI](../virtual-machines/windows/quick-create-cli.md)  
+  - [Создание виртуальной машины Linux с помощью Azure CLI](../virtual-machines/linux/quick-create-cli.md) 
 
 Оставляйте свои замечания и пожелания в разделе ниже. Они помогают нам улучшать содержимое веб-сайта.
 

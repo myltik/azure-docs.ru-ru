@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 09/21/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: bcfffe05dbce2824ea4933997865e8c7e86610b6
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -42,9 +42,9 @@ ms.lasthandoff: 06/21/2017
 ## <a name="system-requirements"></a>Требования к системе
 Перед началом необходимо выполнить следующие требования.
 
-* OMS поддерживает только Operations Manager 2016, Operations Manager 2012 с пакетом обновления 1 (SP1) и накопительным пакетом обновления 6 (UR6) и более поздней версии, а также Operations Manager 2012 R2 с накопительным пакетом обновления 2 (UR2) и более поздней версии.  Поддержка прокси-сервера была добавлена в Operations Manager 2012 с пакетом обновления 1 (SP1) и накопительным пакетом обновления 7 (UR7) и в Operations Manager 2012 R2 с накопительным пакетом обновления 3 (UR3).
+* OMS поддерживает только Operations Manager 2016, Operations Manager 2012 с пакетом обновления 1 (SP1) и накопительным пакетом обновления UR10 и более поздней версии, а также Operations Manager 2012 R2 с накопительным пакетом обновления UR11 и более поздней версии.
 * Все агенты Operations Manager должны удовлетворять минимальным требованиям поддержки. Убедитесь, что агенты соответствуют минимальным требованиям, иначе при передаче трафика агента Windows может возникнуть сбой, а журнал событий Operations Manager заполнит множество ошибок.
-* Наличие подписки OMS.  Дополнительные сведения см. в статье [Начало работы с Log Analytics](log-analytics-get-started.md).
+* Подписка Azure Log Analytics.  Дополнительные сведения см. в статье [Начало работы с Log Analytics](log-analytics-get-started.md).
 
 ### <a name="network"></a>Сеть
 Ниже приводятся сведения о конфигурации прокси-сервера и брандмауэра, необходимые для взаимодействия агента Operations Manager, серверов управления и консоли управления с OMS.  Трафик с каждого компонента является исходящим из локальной сети к службе OMS.     

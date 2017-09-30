@@ -185,9 +185,9 @@ For more information on how to manage Azure Machine Learning web service endpoin
 <!-- internal links -->
 [Создание обучающего эксперимента]: #create-a-training-experiment
 [Преобразование обучающего эксперимента в прогнозный]: #convert-the-training-experiment-to-a-predictive-experiment
-[Развертывание эксперимента в виде веб-службы]: #deploy-it-as-a-web-service
+[Развертывание в качестве веб-службы.]: #deploy-it-as-a-web-service
 [новую]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[классическая]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[классическую]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

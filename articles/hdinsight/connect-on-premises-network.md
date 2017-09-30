@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 09/21/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6fc863010cc59e20e7d86ea9344489e574be75f2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 27a5d0e69ec9c47feab2b23d7c79fe2547edfc08
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -34,9 +34,6 @@ ms.lasthandoff: 08/21/2017
 * Порты, предоставляемые HDInsight в виртуальной сети.
 
 ## <a name="create-the-virtual-network-configuration"></a>Создание конфигурации виртуальной сети
-
-> [!IMPORTANT]
-> Если вам необходимы пошаговые инструкции по подключению HDInsight к локальной сети с помощью виртуальной сети Azure, то см. статью [Подключение HDInsight к локальной сети](connect-on-premises-network.md).
 
 Дополнительные сведения о том, как создать виртуальную сеть Azure, подключенную к локальной сети, см. в следующих документах:
     
@@ -74,7 +71,10 @@ ms.lasthandoff: 08/21/2017
 Чтобы создать виртуальную машину Linux, использующую программное обеспечение DNS [Bind](https://www.isc.org/downloads/bind/), выполните следующие действия:
 
 > [!NOTE]
-> В следующих шагах описывается, как с помощью [портала Azure](https://portal.azure.com) создать виртуальную машину Azure. Другие способы создания виртуальных машин см. в статьях [Создание виртуальной машины Linux с помощью Azure CLI](../virtual-machines/linux/quick-create-cli.md) и [Создание виртуальной машины Linux с помощью портала Azure](../virtual-machines/linux/quick-create-portal.md).
+> В следующих шагах описывается, как с помощью [портала Azure](https://portal.azure.com) создать виртуальную машину Azure. Другие способы создания виртуальной машины см. в следующих документах:
+>
+> * [Создание виртуальной машины с помощью Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+> * [Создание виртуальной машины Linux с помощью Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 1. На [портале Azure](https://portal.azure.com) выберите __+__, __Вычисления__ и __Ubuntu Server 16.04 LTS__.
 
@@ -300,6 +300,8 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.
 ## <a name="connecting-to-hdinsight"></a>Подключение к HDInsight
 
 В большей части документации по HDInsight предполагается, что у вас есть доступ к кластеру через Интернет. Например, что вы можете подключиться к кластер по адресу https://CLUSTERNAME.azurehdinsight.net. Этот адрес использует общедоступный шлюз, который будет недоступен, если вы использовали группы безопасности сети или определяемые пользователем маршруты для ограничения доступа из Интернета.
+
+В некоторых документах также указывается `headnodehost` при подключении к кластеру из сеанса SSH. Этот адрес доступен только узлам в кластере и не может использоваться в клиентах, подключенных через виртуальную сеть.
 
 Для прямого подключения к HDInsight через виртуальную сеть сделайте следующее:
 

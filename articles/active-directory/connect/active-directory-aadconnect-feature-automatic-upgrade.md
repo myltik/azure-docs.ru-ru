@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9541cd195e8afa6e692a5a0214b0d614e429c33b
-ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 57cd81a92817171a23ffd0f607eb127005bc1e0d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 12/20/2016
+ms.lasthandoff: 09/22/2017
 
 ---
-# Azure AD Connect: автоматическое обновление
-<a id="azure-ad-connect-automatic-upgrade" class="xliff"></a>
+# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: автоматическое обновление
 Эта функция появилась в сборке 1.1.105.0 (выпущенной в феврале 2016 года).
 
-## Обзор
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Обзор
 С функцией **автоматического обновления** контроль за обновлением установки Azure AD Connect максимально упростился. Эта функция по умолчанию включена для быстрой установки и обновления DirSync. При выпуске новой версии установка обновляется автоматически.
 
 Автоматическое обновление по умолчанию включено в следующих случаях:
@@ -50,8 +48,7 @@ ms.lasthandoff: 12/20/2016
 
 Если на сервере запущен пользовательский интерфейс **диспетчера службы синхронизации** , обновление будет отложено до тех пор, пока он не будет закрыт.
 
-## Устранение неполадок
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>Устранение неполадок
 Если установка Connect не обновляется автоматически, выполните следующие действия, чтобы узнать, в чем может быть проблема.
 
 Во-первых, не следует ожидать попыток автоматического обновления в первый день выпуска новой версии. Попытки обновления выполняются в случайном порядке намеренно, поэтому не стоит беспокоиться, если обновление установки не начинается немедленно.
@@ -90,6 +87,7 @@ ms.lasthandoff: 12/20/2016
 | UpgradeAbortedSyncExeInUse |На сервере открыт [пользовательский интерфейс Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) . |
 | UpgradeAbortedSyncOrConfigurationInProgress |Выполняется мастер установки, или синхронизация была запланирована вне планировщика. |
 | **UpgradeNotSupported** | |
+| UpgradeNotSupportedAdfsSignInMethod | Вы выбрали вход с помощью AD FS. | 
 | UpgradeNotSupportedCustomizedSyncRules |Пользователь добавил собственные правила в конфигурацию. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Включена функция [обратной записи устройства](active-directory-aadconnect-feature-device-writeback.md) . |
 | UpgradeNotSupportedGroupWritebackEnabled |Включена функция [обратной записи групп](active-directory-aadconnect-feature-preview.md#group-writeback) . |
@@ -98,10 +96,11 @@ ms.lasthandoff: 12/20/2016
 | UpgradeNotSupportedMultiForestSetup |Выполняется подключение к нескольким лесам. Экспресс-установка подключается только к одному лесу. |
 | UpgradeNotSupportedNonLocalDbInstall |Вы не используете базу данных SQL Server Express LocalDB. |
 | UpgradeNotSupportedNonMsolAccount |[Учетная запись соединителя AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) больше не является учетной записью MSOL_ по умолчанию. |
+| UpgradeNotSupportedNotConfiguredSignInMethod | Вы выбрали вариант *не настраивать* метод входа. | 
+| UpgradeNotSupportedPtaSignInMethod | Вы выбрали сквозную проверку подлинности как метод входа. |
 | UpgradeNotSupportedStagingModeEnabled |Сервер настроен для работы в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Включена функция [обратной записи пользователей](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 

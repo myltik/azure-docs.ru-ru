@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 104c43e6fab2c3f18824a00860c30c8d6f82bbc4
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 612311f1c4e081e87dde76ce4a1d8efd46428c06
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 Управляемое удостоверение службы предоставляет службы Azure с автоматически управляемыми удостоверениями в Azure Active Directory. Это удостоверение можно использовать для аутентификации в любой службе, которая поддерживает аутентификацию Azure AD, не храня какие-либо учетные данные в коде. 
 
-Из этой статьи вы узнаете, как включить и удалить MSI для виртуальных машин Windows в Azure с помощью PowerShell.
+Из этой статьи вы узнаете, как включить и удалить MSI для виртуальных машин Azure с помощью PowerShell.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -37,73 +37,21 @@ ms.lasthandoff: 09/14/2017
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Включение MSI во время создания виртуальной машины Azure
 
-Ресурс виртуальной машины Windows с поддержкой MSI создается в новой группе ресурсов с помощью указанных параметров конфигурации. Кроме того, обратите внимание, что многие из этих командлетов могут выполняться более 30 секунд до возвращения ответа, при этом окончательное создание виртуальной машины займет несколько минут.
+Чтобы создать виртуальную машину с поддержкой MSI:
 
-1. Войдите в Azure, используя команду `Login-AzureRmAccount`. Используйте учетную запись, связанную с подпиской Azure, с помощью которой нужно развернуть виртуальную машину.
+1. Используя одно из кратких руководств ниже выполните действия только в нужных разделах ("Вход в Azure", "Создание группы ресурсов", "Создание группы сети", "Создание виртуальной машины"). 
 
-   ```powershell
-   Login-AzureRmAccount
-   ```
+   > [!IMPORTANT] 
+   > При выполнении действий, описанных в разделе о создании виртуальной машины, не забудьте внести небольшие изменения в синтаксис командлета [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm). Добавьте параметр `-IdentityType "SystemAssigned"`, чтобы подготовить виртуальную машину для MSI. Например:
+   >  
+   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
 
-2. Чтобы сохранить и развернуть виртуальную машину и связанные с ней ресурсы, создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md#terminology) с помощью командлета `New-AzureRmResourceGroup`. Если вы уже создали группу ресурсов, которую можно использовать, этот шаг можно пропустить:
+   - [Создание виртуальной машины Windows с помощью PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+   - [Создание виртуальной машины Linux с помощью PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-   ```powershell
-   New-AzureRmResourceGroup -Name myResourceGroup -Location WestUS
-   ```
-3. Создайте сетевые ресурсы для виртуальной машины.
 
-   а. Создайте виртуальную сеть, подсеть и общедоступный IP-адрес. Эти ресурсы используются для того, чтобы установить сетевое подключение к виртуальной машине и подключить ее к Интернету.
 
-   ```powershell
-   # Create a subnet configuration
-   $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-
-   # Create a virtual network
-   $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location WestUS -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-
-   # Create a public IP address and specify a DNS name
-   $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location WestUS -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
-   ```
-
-   b. Создайте группу безопасности сети и правило группы безопасности сети. Группа безопасности сети обеспечивает защиту виртуальной машины с помощью правил для входящего и исходящего трафика. В нашем случае создается правило для входящего трафика порта 3389, которое разрешает входящие подключения к удаленному рабочему столу. Мы также создадим правило входящего трафика для порта 80, разрешающее входящий веб-трафик.
-
-   ```powershell
-   # Create an inbound network security group rule for port 3389
-   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
-
-   # Create an inbound network security group rule for port 80
-   $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80 -Access Allow
-
-   # Create a network security group
-   $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location WestUS -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-   ```
-
-   c. Создайте виртуальную сетевую карту для виртуальной машины. Сетевая карта подключает виртуальную машину к подсети, группе безопасности сети и общедоступному IP-адресу.
-
-   ```powershell
-   # Create a virtual network card and associate with public IP address and NSG
-   $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location WestUS -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-   ```
-
-4. Создайте виртуальную машину.
-
-   а. Создайте настраиваемый объект виртуальной машины. Эти параметры используются при развертывании виртуальной машины, в том числе образ виртуальной машины, ее размер и конфигурации аутентификации. Еcли использовать параметр `-IdentityType "SystemAssigned"` в командлете [New AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm), виртуальная машина подготовится с MSI. Командлет `Get-Credential` запрашивает учетные данные, настроенные в качестве имени пользователя и пароля для виртуальной машины.
-
-   ```powershell
-   # Define a credential object (prompts for user/password to be used for VM authentication)
-   $cred = Get-Credential
-
-   # Create a configurable VM object with a Managed Service Identity
-   $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 -IdentityType "SystemAssigned" | Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
-   ```
-
-   b. Подготовьте новую виртуальную машину:
-
-   ```powershell
-   New-AzureRmVM -ResourceGroupName myResourceGroup -Location WestUS -VM $vmConfig
-   ```
-
-5. Добавьте расширение MSI для виртуальной машины, используя параметр `-Type "ManagedIdentityExtensionForWindows"` в командлете [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). В параметре `-Settings` указан порт, используемый конечной точкой токена OAuth для получения токена:
+2. Добавьте расширение MSI для виртуальной машины, используя параметр `-Type` в командлете [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Вы можете передать значения ManagedIdentityExtensionForWindows или ManagedIdentityExtensionForLinux (в зависимости от типа виртуальной машины) и задать имя с помощью параметра `-Name`. В параметре `-Settings` указан порт, используемый конечной точкой токена OAuth для получения токена:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -114,7 +62,7 @@ ms.lasthandoff: 09/14/2017
 
 Если нужно включить MSI на имеющейся виртуальной машине, сделайте следующее:
 
-1. Войдите в Azure, используя команду `Login-AzureRmAccount`. Используйте учетную запись, которая связана с подпиской Azure, с помощью которой нужно развернуть виртуальную машину.
+1. Войдите в Azure, используя команду `Login-AzureRmAccount`. Используйте учетную запись, связанную с подпиской Azure, которая содержит виртуальную машину. Учетная запись должна принадлежать роли, которая предоставляет разрешения на запись в виртуальной машине, например "Участник виртуальных машин":
 
    ```powershell
    Login-AzureRmAccount
@@ -127,7 +75,7 @@ ms.lasthandoff: 09/14/2017
    Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType "SystemAssigned"
    ```
 
-3. Добавьте расширение MSI для виртуальной машины, используя параметр `-Type "ManagedIdentityExtensionForWindows"` в командлете [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). В параметре `-Settings` указан порт, используемый конечной точкой токена OAuth для получения токена. Убедитесь, что указан правильный параметр `-Location`, совпадающий с расположением имеющейся виртуальной машины:
+3. Добавьте расширение MSI для виртуальной машины, используя параметр `-Type` в командлете [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Вы можете передать значения ManagedIdentityExtensionForWindows или ManagedIdentityExtensionForLinux (в зависимости от типа виртуальной машины) и задать имя с помощью параметра `-Name`. В параметре `-Settings` указан порт, используемый конечной точкой токена OAuth для получения токена. Убедитесь, что указан правильный параметр `-Location`, совпадающий с расположением имеющейся виртуальной машины:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -138,7 +86,13 @@ ms.lasthandoff: 09/14/2017
 
 Если виртуальной машине больше не нужен MSI, можно использовать командлет `RemoveAzureRmVMExtension`, чтобы удалить его с виртуальной машины:
 
-1. Используйте параметр `-Name "ManagedIdentityExtensionForWindows"` с командлетом [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension):
+1. Войдите в Azure, используя команду `Login-AzureRmAccount`. Используйте учетную запись, связанную с подпиской Azure, которая содержит виртуальную машину. Учетная запись должна принадлежать роли, которая предоставляет разрешения на запись в виртуальной машине, например "Участник виртуальных машин":
+
+   ```powershell
+   Login-AzureRmAccount
+   ```
+
+2. Используйте параметр `-Name` для командлета [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension), указав то же имя, которое вы использовали при добавлении расширения:
 
    ```powershell
    Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
@@ -147,7 +101,10 @@ ms.lasthandoff: 09/14/2017
 ## <a name="related-content"></a>Связанная информация
 
 - [Управляемое удостоверение службы (MSI) для Azure Active Directory](msi-overview.md)
-- Информация в этой статье взята из краткого руководства [Создание виртуальной машины Windows с помощью PowerShell](../virtual-machines/windows/quick-create-powershell.md) и содержит инструкции для MSI. 
+- Ниже приведены комплексные краткие руководства по созданию виртуальных машин Azure:
+  
+  - [Создание виртуальной машины Windows с помощью PowerShell](../virtual-machines/windows/quick-create-powershell.md) 
+  - [Создание виртуальной машины Linux с помощью PowerShell](../virtual-machines/linux/quick-create-powershell.md) 
 
 Оставляйте свои замечания и пожелания в разделе ниже. Они помогают нам улучшать содержимое веб-сайта.
 

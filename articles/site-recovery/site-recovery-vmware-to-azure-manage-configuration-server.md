@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 36da8c7d0f3ace194522e5288f26069cf46d470e
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: bf62fb21dfac99038e3b3759d9e78c6870f52f9e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -26,15 +26,19 @@ ms.lasthandoff: 06/30/2017
 
 Сервер конфигурации выполняет роль координатора между службами Site Recovery и локальной инфраструктурой. В этой статье описывается, как выполнить установку, настройку и администрирование сервера конфигурации.
 
-## <a name="prerequisites"></a>Предварительные требования
-Ниже перечислены минимальные требования к оборудованию, программному обеспечению и сети для установки сервера конфигурации.
-
 > [!NOTE]
 > [Планирование мощности](site-recovery-capacity-planner.md) — это важный шаг для развертывания сервера конфигурации с настройками, соответствующими требованиям нагрузки. Дополнительные сведения см. в разделе [Требования к размерам сервера конфигурации](#sizing-requirements-for-a-configuration-server).
+
+
+## <a name="prerequisites"></a>Предварительные требования
+Ниже перечислены минимальные требования к оборудованию, программному обеспечению и сети для установки сервера конфигурации.
+> [!IMPORTANT]
+> При развертывании сервера конфигурации для защиты виртуальных машин VMware мы рекомендуем развернуть его как виртуальную машину с **высокой доступностью**.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="downloading-the-configuration-server-software"></a>Скачивание программного обеспечения сервера конфигурации
+
 1. Войдите на портал Azure и перейдите в хранилище служб восстановления.
 2. Откройте последовательно **Инфраструктура Site Recovery** > **Серверы конфигурации** (в разделе "VMware или физические компьютеры").
 
@@ -131,10 +135,10 @@ ProxyPassword="Password"
 1. Войдите на сервер конфигурации.
 2. В командной строке от имени администратора выполните команду:
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. Запустите файл cspsconfigtool.exe с помощью ярлыка.
 4. Откройте вкладку **Vault Registration** (Регистрация хранилища).
 5. Скачайте новый файл регистрации на портале и укажите его в качестве входных данных для средства.
@@ -149,6 +153,17 @@ net stop dra
     net stop obengine
     net start obengine
     ```
+
+## <a name="updating-a-configuration-server"></a>Обновление сервера конфигурации
+
+> [!WARNING]
+> Поддерживаются обновления только для предыдущих последовательных четырех версий. Например, если последняя версия обновления — 9.11, значит вы можете выполнить обновление напрямую с версии 9.10, 9.9, 9.8 или 9.7. При использовании версии 9.6 сначала нужно выполнить обновление хотя бы до версии 9.7, и только потом вы сможете применить последние обновления на сервере конфигурации. Ссылки на скачивание предыдущей версии можно найти в [обновлениях службы Azure Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+1. Загрузите установщик обновлений на сервер конфигурации.
+2. Запустите его двойным щелчком.
+3. Установщик обнаружит версию компонентов Site Recovery, имеющуюся на компьютере, и вы получите запрос на подтверждение. 
+4. Нажмите кнопку "ОК" для подтверждения и продолжите обновление.
+
 
 ## <a name="decommissioning-a-configuration-server"></a>Списание сервера конфигурации
 Прежде чем списывать сервер конфигурации, выполните следующие условия.

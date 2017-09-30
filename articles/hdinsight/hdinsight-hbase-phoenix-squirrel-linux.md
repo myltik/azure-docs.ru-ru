@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 2c7431723906c912eb2a38fb0600dd13d5bc46a5
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 07646927f7f2e829e4f4cc6ac5f51b2b381e9c5a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Использование Apache Phoenix с кластерами HBase под управлением Linux в HDInsight
@@ -36,8 +36,7 @@ ms.lasthandoff: 09/09/2017
 ### <a name="prerequisites"></a>Предварительные требования
 Для использования SQLLine требуются следующие компоненты:
 
-* **Кластер HBase в HDInsight.** Сведения о подготовке кластера HBase см. в статье [Начало работы с примером Apache HBase в HDInsight][hdinsight-hbase-get-started].
-* **Подключение к кластеру с помощью протокола удаленного рабочего стола.** Инструкции см. в статье [Управление кластерами Hadoop на платформе Windows в HDInsight с помощью портала Azure][hdinsight-manage-portal].
+* **Кластер HBase в HDInsight.** Чтобы создать его, см. сведения в статье [Начало работы с примером Apache HBase в HDInsight](./hdinsight-hbase-tutorial-get-started.md).
 
 При подключении к кластеру HBase необходимо подключиться к одной из виртуальных машин Zookeeper. Каждый кластер HDInsight содержит три виртуальных машины Zookeeper.
 
@@ -55,7 +54,7 @@ ms.lasthandoff: 09/09/2017
 2. В SSH используйте следующие команды для запуска SQLLine:
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
-        ./sqlline.py <ClusterName>:2181:/hbase-unsecure
+        ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. Чтобы создать таблицу HBase и вставить данные, выполните следующие команды:
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
@@ -84,7 +83,6 @@ ms.lasthandoff: 09/09/2017
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
