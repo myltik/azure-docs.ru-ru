@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: bb058b11d211c4c41ff8f8c3849a4630886c78d5
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: d555f7a93a980a35c6b50d480c43de6bdc5c86df
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Устранение неполадок при архивации виртуальных машин Azure
@@ -32,9 +32,13 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="backup"></a>Резервное копирование
 
-## <a name="error-the-specified-disk-configuration-is-not-supported"></a>Ошибка: указанная конфигурация диска не поддерживается
+### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Ошибка: указанная конфигурация диска не поддерживается
 
-Сейчас служба Azure Backup не поддерживает размер диска больше 1023 ГБ. Убедитесь, что размер диска не превышает ограничение, разбив диски. Для этого необходимо скопировать данные на дисках размером больше 1023 ГБ на созданные диски размером до 1023 ГБ.
+Сейчас служба Azure Backup не поддерживает размер диска [больше 1023 ГБ](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- При наличии дисков, размер которых больше 1 ТБ, [подключите новые диски](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal), размер которых меньше 1 ТБ. <br>
+- Затем скопируйте данные с диска, размер которого больше 1 ТБ, на недавно созданные диски размером меньше 1 ТБ. <br>
+- Убедитесь, что все данные скопированы, и удалите диски размером больше 1 ТБ.
+- Запустите резервное копирование.
 
 | Сведения об ошибке | Возможное решение |
 | --- | --- |

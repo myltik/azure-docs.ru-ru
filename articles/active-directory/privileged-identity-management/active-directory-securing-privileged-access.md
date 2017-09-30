@@ -3,8 +3,8 @@ title: "Защита привилегированного доступа в Azur
 description: "В этом разделе описаны подходы к защите привилегированного доступа в Azure, Azure Active Directory и Microsoft Online Services."
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: barclayn
+manager: mbaldwin
 editor: mwahl
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: c96a0bd6710d60629bc631fe7e1f642cdb2bada6
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 849637fb391576954307bc84bb02e1d8579bf1cf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Защита привилегированного доступа в Azure AD
@@ -52,7 +51,7 @@ ms.lasthandoff: 05/17/2017
 ## <a name="time-bound-privileges"></a>Временное ограничение привилегий
 В некоторых организациях может оказаться, что пользователей с высоким уровнем привилегий оказалось слишком много. Например, пользователю могла быть назначена роль для определенного действия, например для подписки на службу, но после этого он не слишком часто использовал эти привилегии.
 
-Чтобы уменьшить продолжительность действия привилегий и повысить вашу осведомленность об их использовании, предоставляйте привилегии только на определенное время (JIT), когда они нужны, чтобы выполнить задачу. Для Azure Active Directory и Microsoft Online Services можно использовать [управление привилегированными пользователями (PIM) в Azure AD](http://aka.ms/AzurePIM).
+Чтобы уменьшить время выдержки привилегий и повысить эффективность их использования, разрешите пользователям применять привилегии только в определенное время (JIT) или назначьте привилегии на короткий период, по истечении которого привилегии будут автоматически отозваны. Для AAD, ресурсов Azure (предварительная версия) и Microsoft Online Services можно использовать [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
 
 ![Панель мониторинга PIM][2]
 

@@ -6,16 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/18/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 9bc82e628df5e380db84e22e1f5fd25f75929fdc
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-
 # <a name="event-grid-security-and-authentication"></a>Сетка событий: безопасность и проверка подлинности 
 
 В сетке событий Azure предусмотрено три типа проверки подлинности:
@@ -26,34 +25,33 @@ ms.lasthandoff: 09/13/2017
 
 ## <a name="webhook-event-delivery"></a>Доставка событий веб-перехватчика
 
-Веб-перехватчики — это один из многих способов получения событий в режиме реального времени из сетки событий Azure.
-
-Каждый раз, когда имеется новое событие, готовое к доставке, сетка событий отправляет в веб-перехватчик HTTP-запрос, в теле которого находится событие.
+Веб-перехватчики — это один из многих способов получения событий в режиме реального времени из сетки событий Azure. Каждый раз, когда имеется новое событие, готовое к доставке, сетка событий отправляет в конечную точку веб-перехватчика HTTP-запрос, в теле которого находится событие.
 
 При регистрации собственной конечной точки веб-перехватчика с сеткой событий он отправляет запрос POST с кодом простой проверки для подтверждения владения конечной точкой. В ответ приложение должно вернуть код проверки. Сетка событий не доставляет события на конечные точки веб-перехватчика, которые не прошли проверку.
- 
-### <a name="validation-details"></a>Сведения о проверке:
+
+### <a name="validation-details"></a>Сведения о проверке
 
 * Во время создания или обновления подписки на событие сетка событий публикует на целевой конечной точке событие "SubscriptionValidationEvent".
-* В качестве заголовка событие содержит значение "Event-Type: Validation".
+* В качестве заголовка событие содержит значение "Aeg-Event-Type: SubscriptionValidation".
 * Текст события имеет ту же схему, что и другие события сетки событий.
-* В данных события содержится свойство ValidationCode со строкой, сгенерированной случайным образом (например, ValidationCode: acb13…).
+* В данных события содержится свойство ValidationCode со строкой, сгенерированной случайным образом. Например "validationCode: acb13…".
 
-Пример SubscriptionValidationEvent показан ниже.
+Пример SubscriptionValidationEvent показан в следующем примере:
+
 ```json
 [{
-  "Id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
-  "Topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "Subject": "",
-  "Data": {
+  "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "subject": "",
+  "data": {
     "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
   },
-  "EventType": "Microsoft.EventGrid/SubscriptionValidationEvent",
-  "EventTime": "2017-08-06T22:09:30.740323Z"
+  "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
+  "eventTime": "2017-08-06T22:09:30.740323Z"
 }]
 ```
 
-Чтобы подтвердить владение конечной точкой, возвращается код проверки (например, "validation_response: acb13…"), пример которого показан ниже.
+Чтобы подтвердить владение конечной точкой, возвращается код проверки в свойстве validationResponse, как показано в следующем примере.
 
 ```json
 {
@@ -61,9 +59,8 @@ ms.lasthandoff: 09/13/2017
 }
 ```
 
-Чтобы подтвердить владение конечной точкой, возвращается код проверки (например, validation_response: acb13…).
-
 Наконец, необходимо отметить, что сетка событий Azure поддерживает только конечные точки веб-перехватчиков HTTPS.
+
 ## <a name="event-subscription"></a>Подписка на события
 
 Чтобы подписаться на событие, необходимо иметь разрешение **Microsoft.EventGrid/EventSubscriptions/Write** для требуемого ресурса. Это разрешение необходимо, так как вы записываете новую подписку в области действия ресурса. Требуемый ресурс зависит от того, оформляется ли подписка на системный или пользовательский раздел. В этом разделе описываются оба типа подписки.
@@ -90,7 +87,7 @@ ms.lasthandoff: 09/13/2017
 
 Проверка подлинности с использованием ключа — самая простая форма проверки подлинности. Используйте следующий формат: `aeg-sas-key: <your key>`
 
-Например, для передачи ключа можно использовать следующую команду: 
+Например, для передачи ключа можно использовать следующую команду:
 
 ```
 aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
@@ -108,7 +105,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 ```http
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=a4oNHpRZygINC%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
-``` 
+```
 
 В следующем примере создается маркер SAS для использования с сеткой событий:
 
@@ -120,7 +117,8 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
     const char Signature = 's';
 
     string encodedResource = HttpUtility.UrlEncode(resource);
-    string encodedExpirationUtc = HttpUtility.UrlEncode(expirationUtc.ToString());
+    var culture = CultureInfo.CreateSpecificCulture("en-US");
+    var encodedExpirationUtc = HttpUtility.UrlEncode(expirationUtc.ToString(culture));
 
     string unsignedSas = $"{Resource}={encodedResource}&{Expiration}={encodedExpirationUtc}";
     using (var hmac = new HMACSHA256(Convert.FromBase64String(key)))
@@ -136,17 +134,17 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Контроль доступа к управлению
 
-Сетка событий Azure позволяет контролировать уровень доступа, предоставленного разным пользователям для выполнения различных операций управления, таких как создание списка подписок на события, создание новых подписок и генерирование ключей. Для этих целей сетка событий использует проверку доступа на основе ролей Azure (RBAC).
+Сетка событий Azure позволяет контролировать уровень доступа, предоставленного разным пользователям для выполнения различных операций управления, таких как создание списка подписок на события, создание новых подписок и генерирование ключей. Сетка событий использует проверку доступа на основе ролей Azure (RBAC).
 
 ### <a name="operation-types"></a>Типы операций
 
 Сетка событий Azure поддерживает следующие действия:
 
-* Microsoft.EventGrid/*/read 
-* Microsoft.EventGrid/*/write 
-* Microsoft.EventGrid/*/delete 
-* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action 
-* Microsoft.EventGrid/topics/listKeys/action 
+* Microsoft.EventGrid/*/read
+* Microsoft.EventGrid/*/write
+* Microsoft.EventGrid/*/delete
+* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
+* Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
 Последние три операции возвращают потенциально секретную информацию, которая отфильтровывается из обычных операций чтения. Это наилучший способ ограничить доступ к этим операциям. Настраиваемые роли можно создавать с помощью [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), [интерфейса командной строки (CLI) Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md) и интерфейса [REST API](../active-directory/role-based-access-control-manage-access-rest.md).
@@ -157,85 +155,85 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 #### <a name="create-a-custom-role-definition-file-json"></a>Создание файла определения пользовательской роли (.json)
 
-Вот пример определений роли сетки событий, которые позволяют пользователям выполнять разные действия.
+Вот пример определений роли сетки событий, позволяющие пользователям выполнять разные действия.
 
-**EventGridReadOnlyRole.json**: разрешено только чтение.
+**EventGridReadOnlyRole.json**: разрешено только для операций чтения.
+
 ```json
-{ 
-  "Name": "Event grid read only role", 
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856", 
-  "IsCustom": true, 
-  "Description": "Event grid read only role", 
-  "Actions": [ 
-    "Microsoft.EventGrid/*/read" 
-  ], 
-  "NotActions": [ 
-  ], 
-  "AssignableScopes": [ 
-    "/subscriptions/<Subscription Id>" 
-  ] 
+{
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
 **EventGridNoDeleteListKeysRole.json**: разрешен ограниченный набор действий по публикации и запрещены действия удаления.
+
 ```json
-{ 
-  "Name": "Event grid No Delete Listkeys role", 
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174", 
-  "IsCustom": true, 
-  "Description": "Event grid No Delete Listkeys role", 
-  "Actions": [     
-    "Microsoft.EventGrid/*/write", 
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action" 
-    "Microsoft.EventGrid/topics/listkeys/action", 
-    "Microsoft.EventGrid/topics/regenerateKey/action" 
-  ], 
-  "NotActions": [ 
-    "Microsoft.EventGrid/*/delete" 
-  ], 
-  "AssignableScopes": [ 
-    "/subscriptions/<Subscription id>" 
-  ] 
+{
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
-**EventGridContributorRole.json**: разрешено выполнять все действия сетки событий.  
+**EventGridContributorRole.json**: разрешено выполнять все действия сетки событий.
+
 ```json
-{ 
-  "Name": "Event grid contributor role", 
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514", 
-  "IsCustom": true, 
-  "Description": "Event grid contributor role", 
-  "Actions": [ 
-    "Microsoft.EventGrid/*/write", 
-    "Microsoft.EventGrid/*/delete", 
-    "Microsoft.EventGrid/topics/listkeys/action", 
-    "Microsoft.EventGrid/topics/regenerateKey/action", 
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action" 
-  ], 
-  "NotActions": [], 
-  "AssignableScopes": [ 
-    "/subscriptions/d48566a8-2428-4a6c-8347-9675d09fb851" 
-  ] 
-} 
+{
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
+}
 ```
 
-#### <a name="install-and-login-to-azure-cli"></a>Установка интерфейса командной строки Azure и вход в него
-
-* Интерфейс командной строки Azure версии 0.8.8 или более поздней. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Установка Azure CLI](../cli-install-nodejs.md).
-* Azure Resource Manager в Azure CLI. Дополнительные сведения см. в статье [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](../xplat-cli-azure-resource-manager.md).
-
-#### <a name="create-a-custom-role"></a>Создание настраиваемой роли
+#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Создание и назначение пользовательской роли с помощью Azure CLI
 
 Чтобы создать настраиваемую роль, используйте следующую команду:
 
-    azure role create --inputfile <file path>
+```azurecli
+az role definition create --role-definition @<file path>
+```
 
-#### <a name="assign-the-role-to-a-user"></a>Назначение роли пользователю
+Чтобы назначить роль пользователю, используйте следующую команду:
 
-
-    azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
-
+```azurecli
+az role assignment create --assignee <user name> --role "<name of role>"
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

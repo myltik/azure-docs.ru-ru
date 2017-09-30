@@ -16,15 +16,15 @@ ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: c6981b8059f11afbce0492aac5acdf06b3ca4858
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 77d5e04b2e4606cdeb79de12b7c5a0b0cc8f5c25
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Создание веб-приложения PHP в Azure с подключением к базе данных MySQL
 
-Платформа [Веб-приложения для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом руководстве показано, как создать веб-приложение PHP и подключить его к базе данных MySQL. По завершении вы получите приложение [Laravel](https://laravel.com/), работающее на платформе "Веб-приложения для контейнеров".
+Платформа [Веб-приложение для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом руководстве показано, как создать веб-приложение PHP и подключить его к базе данных MySQL. По завершении вы получите приложение [Laravel](https://laravel.com/), работающее на платформе "Веб-приложение для контейнеров".
 
 ![Приложение PHP, работающее в службе приложений Azure](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -612,5 +612,5 @@ git push azure master
 Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена с веб-приложением.
 
 > [!div class="nextstepaction"]
-> [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](../app-service-web-tutorial-custom-domain.md)
 

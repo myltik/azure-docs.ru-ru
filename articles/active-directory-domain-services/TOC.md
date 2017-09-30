@@ -24,8 +24,7 @@
 ### Настройка защищенного протокола LDAP для управляемого домена
 #### [Задача 1. Получение сертификата для защищенного протокола LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Задача 2. Экспорт сертификата защищенного протокола LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Задача 3. Включение защищенного протокола LDAP для управляемого домена с помощью классического портала Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Задача 3. Включение защищенного протокола LDAP для управляемого домена с помощью портала Azure (предварительная версия)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Задача 3. Включение защищенного протокола LDAP для управляемого домена с помощью портала Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Создание подразделения на управляемом домене](active-directory-ds-admin-guide-create-ou.md)
 ### [Администрирование групповой политики в управляемом домене](active-directory-ds-admin-guide-administer-group-policy.md)

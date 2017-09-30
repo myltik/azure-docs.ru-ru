@@ -16,15 +16,15 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1b10636848198ab0ff46e6a492373ecf42a96202
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Создание веб-приложения PHP в контейнере Linux в Azure
 
-Платформа [Веб-приложения для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом кратком руководстве объясняется, как развернуть приложение PHP на платформе "Веб-приложения для контейнеров". Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) в Cloud Shell и разверните пример кода PHP в веб-приложении с помощью Git.
+Платформа [Веб-приложение для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом кратком руководстве объясняется, как развернуть приложение PHP на платформе "Веб-приложения для контейнеров". Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) в Cloud Shell и разверните пример кода PHP в веб-приложении с помощью Git.
 
 ![Пример приложения, выполняющегося в Azure]](media/quickstart-php/hello-world-in-browser.png)
 
@@ -56,7 +56,7 @@ cd php-docs-hello-world
 php -S localhost:8080
 ```
 
-Откройте браузер и перейдите к примеру приложения по адресу http://localhost:8080.
+Откройте веб-браузер и перейдите к примеру приложения по адресу `http://localhost:8080`.
 
 На странице отобразится сообщение **Hello World!** из примера приложения.
 

@@ -226,6 +226,13 @@
       items:
         - name: непрерывный экспорт.
           href: app-insights-export-telemetry.md
+          items:
+            - name: Примеры кода
+              items:
+                - name: Экспорт в SQL с использованием Stream Analytics
+                  href: app-insights-code-sample-export-sql-stream-analytics.md
+                - name: Экспорт в Stream Analytics
+                  href: app-insights-export-stream-analytics.md
         - name: Экспорт модели данных
           href: app-insights-export-data-model.md
         - name: "Экспорт в Power\_BI"

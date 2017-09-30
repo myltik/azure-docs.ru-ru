@@ -1,6 +1,6 @@
 ---
 title: "Выполнение заданий Sqoop с помощью PowerShell и Azure HDInsight | Документация Майкрософт"
-description: "Вы узнаете, как использовать Azure PowerShell с рабочей станции для запуска Sqoop, импорта и экспорта между кластером HDInsight и базой данных Azure SQL."
+description: "Вы узнаете, как использовать Azure PowerShell с рабочей станции для запуска Sqoop, импорта и экспорта между кластером HDInsight и базой данных SQL Azure."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -17,32 +17,30 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 87af5baeeb1b3132a17085db7cbf275ae86da53b
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 9ccb191335e8a0d2984599e822bc10db6dba9f2d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/19/2017
 
 ---
-# <a name="run-sqoop-jobs-using-azure-powershell-for-hadoop-in-hdinsight"></a>Выполнение заданий Sqoop с помощью Azure PowerShell для Hadoop в HDInsight
+# <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>Выполнение заданий Sqoop с помощью Azure PowerShell для Hadoop в HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Узнайте, как использовать пакет Azure PowerShell для выполнения заданий Sqoop, осуществляющих импорт и экспорт между кластером HDInsight и базой данных SQL Azure или базой данных SQL Server.
+Узнайте, как использовать пакет Azure PowerShell для выполнения заданий Sqoop, осуществляющих импорт и экспорт между кластером Azure HDInsight и базой данных SQL Azure или базой данных SQL Server.
 
 > [!NOTE]
-> Действия, описанные в этой статье, можно использовать для кластера HDInsight под управлением Windows или Linux. Однако эти действия можно выполнять только из клиента Windows. Чтобы ознакомиться с другими способами отправки заданий, воспользуйтесь выбором вкладок в верхней части статьи.
+> Инструкции, приведенные в этой статье, можно использовать для кластера HDInsight под управлением Windows или Linux. Но эти действия можно выполнять только из клиента Windows. Чтобы выбрать другие методы, используйте селектор вкладок в верхней части этой статьи. 
 > 
 > 
 
 ### <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим руководством необходимо иметь следующее:
 
-* **Рабочая станция с Azure PowerShell**.
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-* **Кластер Hadoop в HDInsight**. Ознакомьтесь с разделом [Создание кластера и базы данных SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Рабочая станция с Azure PowerShell.
+* Кластер Hadoop в HDInsight. Дополнительные сведения см. в разделе [Создание кластера и базы данных SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## <a name="run-sqoop-using-powershell"></a>Запуск Sqoop с помощью PowerShell
-Следующий сценарий PowerShell выполняет предварительную обработку исходного файла и экспортирует его в базу данных Azure SQL:
+## <a name="run-sqoop-by-using-powershell"></a>Запуск Sqoop с помощью PowerShell
+Следующий сценарий PowerShell выполняет предварительную обработку исходного файла, а затем экспортирует его в базу данных SQL Azure:
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $hdinsightClusterName = "<HDInsightClusterName>"
@@ -167,15 +165,18 @@ ms.lasthandoff: 09/07/2017
     #endregion
 
 ## <a name="limitations"></a>Ограничения
-* Массовый экспорт: при использовании HDInsight на основе Linux соединитель Sqoop, применяемый для экспорта данных в Microsoft SQL Server или базу данных SQL Azure, пока не поддерживает операции массовой вставки.
-* Пакетная обработка: при использовании HDInsight на основе Linux, когда для вставок применяется параметр `-batch`, Sqoop выполняет несколько вставок вместо пакетной обработки операций вставки.
+Для HDInsight под управлением Linux действуют следующие ограничения:
+
+* Массовый экспорт: соединитель Sqoop, применяемый для экспорта данных в Microsoft SQL Server или базу данных SQL Azure, пока не поддерживает операции массовой вставки.
+
+* Пакетная обработка: когда для вставок применяется параметр `-batch`, Sqoop выполняет несколько вставок вместо пакетной обработки операций вставки. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы узнали, как использовать Sqoop. Дополнительные сведения см. на следующих ресурсах:
 
 * [Использование Oozie с HDInsight](hdinsight-use-oozie.md): используйте действие Sqoop в рабочем процессе Oozie.
-* [Анализ данных о задержке рейсов с помощью HDInsight](hdinsight-analyze-flight-delay-data.md): используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
-* [Передача данных в HDInsight](hdinsight-upload-data.md): узнайте о других способах отправки данных в HDInsight и хранилище больших двоичных объектов Azure.
+* [Анализ данных о задержке рейсов с помощью Hive в HDInsight](hdinsight-analyze-flight-delay-data.md): используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
+* [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md): узнайте о других способах отправки данных в HDInsight или хранилище BLOB-объектов Azure.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 

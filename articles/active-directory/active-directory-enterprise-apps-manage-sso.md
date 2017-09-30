@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2017
+ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 73c0917702e2c222f3dc09ddfa2d6d54cf005abf
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 882180a553fffee05a612cf70ddd9a0f30108415
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Управление параметрами единого входа для корпоративных приложений
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/06/2017
 ## <a name="single-sign-on-modes"></a>Режимы единого входа
 Колонка **Единый вход** начинается с меню **Режим**, в котором можно настроить режим единого входа. Доступны следующие параметры.
 
-* **Вход на основе SAML**. Этот параметр доступен, если приложение поддерживает федеративный единый вход с помощью Azure Active Directory по протоколу SAML 2.0.
+* **Вход на основе SAML**. Этот параметр доступен, если приложение поддерживает федеративный единый вход с помощью Azure Active Directory по протоколу SAML 2.0, WS-Federation или OpenID Connect.
 * **Вход по паролю**. Этот параметр доступен, если Azure AD поддерживает заполняемую для приложения форму пароля.
 * **Вход по ссылке** — ранее назывался "Существующий единый вход". Этот параметр позволяет администраторам помещать ссылку для перехода в приложение на пользовательскую панель доступа Azure AD или в средство запуска приложений Office 365.
 

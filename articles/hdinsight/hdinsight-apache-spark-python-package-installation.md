@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 20cf384c96d4ff4eaf064c8880ad128d521fb9bf
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: d39fc7d75f6709391617e2e7c35d8cc7c7ac66fa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Использование действия сценария для установки внешних пакетов Python для записных книжек Jupyter в кластерах Apache Spark в HDInsight
@@ -40,7 +39,7 @@ ms.lasthandoff: 07/01/2017
 
 Полный список доступных пакетов можно найти в [указателе пакетов](https://pypi.python.org/pypi). Его также можно получить из других источников. Например, можно установить пакеты, предоставляемые посредством [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) или [conda-forge](https://conda-forge.github.io/feedstocks.html).
 
-В этой статье вы узнаете, как установить в кластере пакет [TensorFlow](https://www.tensorflow.org/) с помощью действия сценария и использовать его посредством Jupyter Notebook.
+В этой статье вы узнаете, как установить в кластере пакет [TensorFlow](https://www.tensorflow.org/) с помощью действия сценария и использовать с помощью записной книжки Jupyter.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Необходимо следующее:

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: a7e389037a458c91d67643f7c0fca0691c22224f
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 9bda115455ff1e122ac2764cec612546c71365c4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Публикация приложения HDInsight в Azure Marketplace
@@ -41,16 +41,17 @@ ms.lasthandoff: 09/09/2017
 ## <a name="define-the-application"></a>Определение приложения
 Публикация приложений в Marketplace осуществляется в два этапа. Сначала определите файл *createUiDef.json*. Файл createUiDef.json указывает, с какими кластерами совместимо ваше приложение. Затем опубликуйте шаблон с помощью портала Azure. Вот пример файла createUiDef.json:
 
-    {
-        "handler": "Microsoft.HDInsight",
-        "version": "0.0.1-preview",
-        "clusterFilters": {
-            "types": ["Hadoop", "HBase", "Storm", "Spark"],
-            "tiers": ["Standard", "Premium"],
-            "versions": ["3.4"]
-        }
+```json
+{
+    "handler": "Microsoft.HDInsight",
+    "version": "0.0.1-preview",
+    "clusterFilters": {
+        "types": ["Hadoop", "HBase", "Storm", "Spark"],
+        "tiers": ["Standard", "Premium"],
+        "versions": ["3.4"]
     }
-
+}
+```
 
 | Поле | Описание | Возможные значения |
 | --- | --- | --- |
@@ -64,7 +65,7 @@ ms.lasthandoff: 09/09/2017
   > [!IMPORTANT]
   > Имя сценария установки приложения должно быть уникальным для конкретного кластера и иметь следующий формат:
   > 
-  > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
   > Имя сценария состоит из трех частей:
   > 

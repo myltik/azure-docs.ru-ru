@@ -12,14 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: d2dda47bb3ba5a397ad9626ca4705214dd2560f8
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 1eb8c05f24fcf41f9c188e1153f96a53d8828a39
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -70,8 +70,11 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Указанная конфигурация диска не поддерживается
 
-Сейчас служба Azure Backup не поддерживает размер диска больше 1023 ГБ. Убедитесь, что размер диска не превышает ограничение, разбив диски. Для этого необходимо скопировать данные на дисках размером больше 1023 ГБ на созданные диски размером до 1023 ГБ.
-
+Сейчас служба Azure Backup не поддерживает размер диска [больше 1023 ГБ](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- При наличии дисков, размер которых больше 1 ТБ, [подключите новые диски](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal), размер которых меньше 1 ТБ. <br>
+- Затем скопируйте данные с диска, размер которого больше 1 ТБ, на недавно созданные диски размером меньше 1 ТБ. <br>
+- Убедитесь, что все данные скопированы, и удалите диски размером больше 1 ТБ.
+- Запустите резервное копирование.
 
 ## <a name="causes-and-solutions"></a>Причины и решения
 

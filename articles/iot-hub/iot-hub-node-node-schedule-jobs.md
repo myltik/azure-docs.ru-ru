@@ -206,12 +206,15 @@ ms.lasthandoff: 09/28/2017
    
     ```
     var twinPatch = {
-        etag: '*',
-        desired: {
-            building: '43',
-            floor: 3
-        }
+       etag: '*', 
+       properties: {
+           desired: {
+               building: '43', 
+               floor: 3
+           }
+       }
     };
+   
    
     var twinJobId = uuid.v4();
    

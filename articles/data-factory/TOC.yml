@@ -172,22 +172,34 @@
           href: control-flow-expression-language-functions.md
         - name: Системные переменные
           href: control-flow-system-variables.md
-    - name: Хранение учетных данных в хранилище ключей
-      href: store-credentials-in-key-vault.md
+    - name: Безопасность
+      items:
+        - name: Вопросы безопасности при перемещении данных
+          href: data-movement-security-considerations.md
+        - name: Хранение учетных данных в Azure Key Vault
+          href: store-credentials-in-key-vault.md
+        - name: Шифрование учетных данных для локальной среды выполнения интеграции
+          href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Отслеживание и управление
       items:
         - name: Использование .NET
           href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
         - name: Использование Azure Monitor
           href: monitor-using-azure-monitor.md
+        - name: Управление средой выполнения интеграции Azure SSIS
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Мониторинг среды выполнения интеграции
+          href: monitor-integration-runtime.md
     - name: Создание среды выполнения интеграции
       items:
         - name: Среда выполнения интеграции Azure
           href: create-azure-integration-runtime.md
-        - name: Среда выполнения интеграции Azure SSIS
-          href: create-azure-ssis-integration-runtime.md
         - name: Среда выполнения интеграции с самостоятельным размещением
           href: create-self-hosted-integration-runtime.md
+        - name: Среда выполнения интеграции Azure SSIS
+          href: create-azure-ssis-integration-runtime.md
+        - name: Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
+          href: join-azure-ssis-integration-runtime-virtual-network.md
 - name: Справочные материалы
   items:
     - name: .NET
@@ -200,6 +212,8 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Ресурсы
   items:
+    - name: Часто задаваемые вопросы
+      href: frequently-asked-questions.md
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Цены

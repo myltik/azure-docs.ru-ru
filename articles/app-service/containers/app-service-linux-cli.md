@@ -1,6 +1,6 @@
 ---
-title: "Управление веб-приложениями для контейнеров с помощью Azure CLI 2.0 | Документация Майкрософт"
-description: "Управление веб-приложениями для контейнеров с помощью Azure CLI."
+title: "Управление веб-приложением для контейнеров с помощью Azure CLI 2.0 | Документация Майкрософт"
+description: "Сведения о том, как управлять веб-приложением для контейнеров с помощью Azure CLI."
 keywords: "служба приложений azure, веб-приложение, cli, linux, oss"
 services: app-service
 documentationCenter: 
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: d58fab0b423b7bc1382a82f4bf308b6ad7286296
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5213bec66095d50ef29cc3bec0a7b6307614dc92
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="manage-web-apps-for-containers-using-azure-cli"></a>Управление веб-приложениями для контейнеров с помощью Azure CLI
+# <a name="manage-web-app-for-containers-using-azure-cli"></a>Управление веб-приложением для контейнеров с помощью Azure CLI
 
 Используя команды в этой статье, вы сможете создавать и администрировать веб-приложения для контейнеров с помощью Azure CLI 2.0.
 Начать использовать новую версию CLI можно двумя способами:
@@ -54,7 +54,7 @@ az webapp create -n sname -g rgname -p pname -i elnably/dockerimagetest
 az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
 
-## <a name="change-the-custom-docker-container-for-an-existing-web-apps-for-containers-app"></a>Изменение пользовательского контейнера Docker для существующих веб-приложений для контейнеров
+## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>Изменение пользовательского контейнера Docker для существующего веб-приложения для контейнеров
 
 Чтобы изменить текущий образ Docker ранее созданного приложения на новый образ, выполните следующую команду:
 
@@ -78,15 +78,15 @@ az webapp config container set -n sname1 -g rgname -c <container name> -r <serve
 az webapp deployment container config -n sname -g rgname -e true
 ```
 
-## <a name="create-a-web-apps-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Создание веб-приложений для контейнеров с помощью одной из наших встроенных платформ среды выполнения
+## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Создание веб-приложения для контейнеров с помощью одной из встроенных платформ среды выполнения
 
-Чтобы создать веб-приложения для контейнеров на основе PHP 5.6, выполните следующую команду:
+Чтобы создать веб-приложение для контейнеров на основе PHP 5.6, выполните следующую команду:
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -r "php|5.6"
 ```
 
-## <a name="change-framework-version-for-an-existing-web-apps-for-containers-app"></a>Изменение версии платформы для существующих веб-приложений для контейнеров
+## <a name="change-framework-version-for-an-existing-web-app-for-containers-app"></a>Изменение версии платформы для существующего веб-приложения для контейнеров
 
 Чтобы изменить ранее созданное приложение с текущей версии на Node.js 6.11, выполните следующую команду:
 
@@ -104,9 +104,9 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Сведения о платформе Azure "Веб приложения для контейнеров"](app-service-linux-intro.md)
+* [Сведения о платформе Azure "Веб-приложения для контейнеров"](app-service-linux-intro.md)
 * [Установите Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 * [Обзор Azure Cloud Shell (предварительная версия)](../../cloud-shell/overview.md)
-* [Настройка промежуточных сред в службе приложений Azure](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Настройка промежуточных сред в службе приложений Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Непрерывное развертывание с использованием платформы Azure "Веб-приложения для контейнеров"](app-service-linux-ci-cd.md)
 

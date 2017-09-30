@@ -42,7 +42,6 @@
 #### [Поиск и устранение проблем с лицензированием групп](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
-#### [Условия использования для пользователей и приложений](active-directory-tou.md)
 #### [Примеры Azure PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 ### [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
 ### [Сброс пароля](active-directory-users-reset-password-azure-portal.md)
@@ -153,7 +152,7 @@
 #### [Этапы настройки](cloudappdiscovery-get-started.md)
 #### [Создание отчетов о моментальных снимках](cloudappdiscovery-set-up-snapshots.md)
 #### [Настройка непрерывного создания отчетов](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Использование настраиваемого средства синтаксического анализа журналов](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
+#### [Использование настраиваемого средства синтаксического анализа журналов](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 #### [Обновление параметров реестра](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Общие сведения о безопасности и конфиденциальности](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
@@ -300,6 +299,7 @@
 #### Задачи
 ##### [Настройка условного доступа на основе устройств](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Настройка условного доступа на основе приложений](active-directory-conditional-access-mam.md)
+##### [Условия использования для пользователей и приложений](active-directory-tou.md)
 ##### [Настройка VPN-подключения](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [Настройка SharePoint и Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Исправление](active-directory-conditional-access-device-remediation.md)

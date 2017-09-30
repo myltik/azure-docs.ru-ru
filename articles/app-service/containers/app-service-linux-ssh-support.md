@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7cbdbc65bac97aef5d4215fd6b188830795a86f2
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7ce9b23e8925d4c79827c7c4e8bec63067ce33e0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="ssh-support-for-azure-web-apps-for-containers"></a>Поддержка SSH для веб-приложения Azure для контейнеров
+# <a name="ssh-support-for-azure-web-app-for-containers"></a>Поддержка SSH для веб-приложения Azure для контейнеров
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) —это сетевой протокол шифрования, предназначенный для безопасного использования сетевых служб. Чаще всего он используется для безопасного удаленного входа в систему из командной строки и удаленного выполнения административных команд.
 
-Платформа "Веб-приложения для контейнеров" предоставляет поддержку SSH в контейнере приложения в каждом из встроенных образов Docker, используемых для стека времени выполнения новых веб-приложений. 
+Веб-приложение для контейнеров предоставляет поддержку SSH в контейнере приложения в каждом из встроенных образов Docker, используемых для стека времени выполнения новых веб-приложений. 
 
 ![Стеки времени выполнения](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -67,7 +67,7 @@ https://<your sitename>.scm.azurewebsites.net/webssh/host
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Добавьте [инструкцию `COPY`](https://docs.docker.com/engine/reference/builder/#copy) в Dockerfile, чтобы скопировать файл [sshd_config](http://man.openbsd.org/sshd_config) в каталог */etc/ssh/*. Ваш файл конфигурации должен быть создан на основе нашего файла sshd_config из репозитория GitHub Azure-App-Service, который доступен [здесь](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+1. Добавьте [инструкцию `COPY`](https://docs.docker.com/engine/reference/builder/#copy) в Dockerfile, чтобы скопировать файл [sshd_config](http://man.openbsd.org/sshd_config) в каталог */etc/ssh/*. Ваш файл конфигурации должен быть создан на основе нашего файла sshd_config из репозитория GitHub Azure-App-Service, который доступен [здесь](https://github.com/Azure-App-Service/node/blob/master/6.11.0/sshd_config).
 
     > [!NOTE]
     > Файл *sshd_config* должен содержать приведенные ниже компоненты, иначе установить подключение будет невозможно. 
@@ -105,7 +105,7 @@ Dockerfile использует инструкцию [`CMD` ](https://docs.docke
 
 Дополнительные сведения о веб-приложениях Azure для контейнеров см. в следующих ресурсах. Если у вас возникли вопросы, опубликуйте их на [нашем форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Как применять пользовательский образ Docker для веб-приложений Azure для контейнеров](quickstart-custom-docker-image.md)
-* [Использование .NET Core в веб-приложениях Azure для контейнеров](quickstart-dotnetcore.md)
-* [Использование Ruby в веб-приложениях Azure для контейнеров](quickstart-ruby.md)
+* [Использование пользовательского образа Docker Hub для веб-приложений Azure для контейнеров](quickstart-custom-docker-image.md)
+* [Создание веб-приложения .NET Core в контейнере Linux в Azure](quickstart-dotnetcore.md)
+* [Создание приложения Ruby с помощью веб-приложений на платформе Linux](quickstart-ruby.md)
 * [Вопросы и ответы о платформе "Веб-приложения для контейнеров" в службе приложений Azure](app-service-linux-faq.md)

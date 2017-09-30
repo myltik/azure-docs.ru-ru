@@ -141,6 +141,8 @@
       items:
         - name: Конфигурация выполнения
           href: experiment-execution-configuration-reference.md
+        - name: API ведения журналов
+          href: reference-logging-api.md
     - name: Управление моделями
       items:
         - name: API управления моделями

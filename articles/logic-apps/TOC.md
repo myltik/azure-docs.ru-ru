@@ -43,6 +43,7 @@
 ### [Партнеры](logic-apps-enterprise-integration-partners.md)
 ### [Соглашения](logic-apps-enterprise-integration-agreements.md)
 ### [Обработка B2B](logic-apps-enterprise-integration-b2b.md)
+### [Пакетная отправка сообщений EDI](logic-apps-scenario-edi-send-batch-messages.md)
 ### [Обработка XML](logic-apps-enterprise-integration-xml.md)
 ### [Обработка неструктурированных файлов](logic-apps-enterprise-integration-flatfile.md)
 ### [Проверка XML](logic-apps-enterprise-integration-xml-validation.md)
@@ -88,7 +89,7 @@
 ### [Создание панели мониторинга социальных сетей без сервера](logic-apps-scenario-social-serverless.md)
 ### [Вызов приложений логики с помощью Функций Azure](logic-apps-scenario-function-sb-trigger.md)
 ### [Добавление обработки ошибок и исключений](logic-apps-scenario-error-and-exception-handling.md)
-### [Обработка B2B](logic-apps-enterprise-integration-b2b.md)
+### [Обработка B2B](logic-apps-enterprise-integration-b2b.md) 
 
 ## Цены и выставление счетов
 ### [Цены](https://azure.microsoft.com/pricing/details/logic-apps/)

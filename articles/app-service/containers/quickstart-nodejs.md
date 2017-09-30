@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/05/2017
-ms.author: cfowler;cephalin
+ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8dba82b37a1584199f6a16cd2b05129e2adca276
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 6a7e2a99af7bca9bd0b12f877511f765593acb0a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>Создание веб-приложения Node.js в контейнере Linux в Azure
 
-Платформа [Веб-приложения для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом кратком руководстве объясняется, как развертывать приложения Node.js на платформе "Веб-приложения для контейнеров". С помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) вы можете создавать веб-приложения, в которых можно развертывать код Node.js с использованием Git.
+Платформа [Веб-приложение для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом кратком руководстве объясняется, как развертывать приложения Node.js на платформе "Веб-приложения для контейнеров". С помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) вы можете создавать веб-приложения, в которых можно развертывать код Node.js с использованием Git.
 
 ![Пример приложения, выполняющегося в Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -62,7 +63,7 @@ cd nodejs-docs-hello-world
 npm start
 ```
 
-Откройте браузер и перейдите к примеру приложения по адресу http://localhost:1337.
+Откройте веб-браузер и перейдите к примеру приложения по адресу `http://localhost:1337`.
 
 На странице отобразится сообщение **Hello World** из примера приложения.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 9f72a4900f20282827ff939aa41bc4f306e547a3
+ms.translationtype: HT
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: de2d41d8c2787ffdc80daddf959487f6031da87d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Самостоятельный сброс пароля в Azure AD для ИТ-специалистов
@@ -55,8 +55,8 @@ ms.lasthandoff: 05/20/2017
 
 В зависимости от подписки самостоятельный сброс пароля в Azure AD доступен на трех уровнях.
 
-* **Бесплатная подписка Azure AD.** Администраторы облака могут сбрасывать свои пароли.
-* **Azure AD Basic** или любая **платная подписка Office 365.** Пользователи и администраторы облака могут сбрасывать свои пароли.
+* **Бесплатная подписка Azure AD.** Только администраторы облака могут сбрасывать свои пароли.
+* **Azure AD Basic** или любая **платная подписка Office 365.** Только пользователи облака могут изменять свои пароли, и только администраторы облака могут сбрасывать свои пароли.
 * **Azure AD Premium.** Любой пользователь или администратор, включая пользователей облака, федеративных пользователей и пользователей с синхронизацией паролей, могут сбрасывать свои пароли. Для локальных паролей требуется включить компонент обратной записи паролей.
 
 ## <a name="azure-ad-self-service-password-reset-a-sum-of-the-parts"></a>Компоненты самостоятельного сброса пароля в Azure AD

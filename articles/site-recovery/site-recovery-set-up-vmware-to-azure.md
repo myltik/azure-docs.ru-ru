@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: a2fabc56463c8cbf0b8a76b7a84369ed8e535486
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 49cc01e54158b68e440f1efbfe2f8b0d076a5692
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -37,7 +37,11 @@ ms.lasthandoff: 07/14/2017
 - Виртуальная машина для установки сервера конфигурации.
 
 ## <a name="configuration-server-minimum-requirements"></a>Минимальные требования к серверу конфигурации
-Программное обеспечение сервера конфигурации необходимо развернуть на высокодоступной виртуальной машине VMware. В следующей таблице перечислены минимальные требования к оборудованию, программному обеспечению и сети сервера конфигурации.
+В следующей таблице перечислены минимальные требования к оборудованию, программному обеспечению и сети сервера конфигурации.
+
+> [!IMPORTANT]
+> При развертывании сервера конфигурации для защиты виртуальных машин VMware мы рекомендуем развернуть его как виртуальную машину с **высокой доступностью**.
+
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]

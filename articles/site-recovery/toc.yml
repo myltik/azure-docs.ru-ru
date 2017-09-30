@@ -82,6 +82,8 @@
   items:
     - name: Аварийное восстановление
       items:
+        - name: Восстановление виртуальных машин VMware с поддержкой мультитенантности для репликации в Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: В Azure для виртуальных машин Hyper-V
           href: tutorial-hyper-v-to-azure.md
         - name: В Azure для физических серверов

@@ -16,10 +16,10 @@ ms.date: 08/09/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 07e55117d92e2780ea0c2ec24af04832f3f704a7
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: d0f67b1a63c36e878ed5f7c9aa1c45267e5b156c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -39,6 +39,7 @@ ms.lasthandoff: 09/02/2017
 > * [Создание приложения .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
 > * [Развертывание приложения в удаленном кластере](service-fabric-tutorial-deploy-app-to-party-cluster.md).
 > * Настройка непрерывной интеграции и непрерывного развертывания с помощью Visual Studio Team Services.
+> * [Настройка мониторинга и диагностики приложения](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим руководством выполните следующие действия:
@@ -159,10 +160,9 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 > * Создание определения выпуска
 > * Автоматическое развертывание и обновление приложения
 
-Теперь, когда вы развернули приложение и настроили непрерывную интеграцию, попробуйте сделать следующее:
-- [Обновление приложения](service-fabric-application-upgrade.md)
-- [Тестирование приложения](service-fabric-testability-overview.md) 
-- [Мониторинг и диагностика](service-fabric-diagnostics-overview.md)
+Перейдите к следующему руководству:
+> [!div class="nextstepaction"]
+> [Настройка мониторинга и диагностики приложения](service-fabric-tutorial-monitoring-aspnet.md) 
 
 
 <!-- Image References -->

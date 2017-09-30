@@ -43,6 +43,7 @@
 ### [Очереди недоставленных сообщений](service-bus-dead-letter-queues.md)
 ### [Обработка транзакций](service-bus-transactions.md)
 ### [Журналы диагностики](service-bus-diagnostic-logs.md)
+### [Реализация сопряженных пространств имен](service-bus-paired-namespaces.md)
 ### AMQP
 #### [Обзор AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)

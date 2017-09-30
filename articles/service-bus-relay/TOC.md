@@ -9,6 +9,8 @@
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
 ## [Ретранслятор WCF](relay-wcf-dotnet-get-started.md)
+## [Руководство по ретранслятору WCF](service-bus-relay-tutorial.md)
+## [Учебник по REST для ретранслятора WCF](service-bus-relay-rest-tutorial.md)
 
 # Практическое руководство
 ## Планирование и проектирование

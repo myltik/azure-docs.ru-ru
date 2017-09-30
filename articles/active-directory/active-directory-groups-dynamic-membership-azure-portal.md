@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 780f94f9863f73834ab72e9daf4362bea28242e9
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: edf3b0a80712e8287a66978e0e9574949805a27a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Создание правил на основе атрибутов для динамического членства в группах в Azure Active Directory
@@ -119,15 +119,13 @@ ms.lasthandoff: 08/30/2017
 
 
 ## <a name="query-error-remediation"></a>Исправление ошибки запроса
-В следующей таблице перечислены потенциальные ошибки и способы их исправления, если они встречаются
+В следующей таблице перечислены распространенные ошибки и способы их исправления.
 
 | Ошибка анализа запроса | Неправильное использование | Правильное использование |
 | --- | --- | --- |
-| Ошибка: атрибут не поддерживается. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>Свойство должно соответствовать одному из свойств [в списке поддерживаемых свойств](#supported-properties). |
-| Ошибка: не поддерживается оператор для атрибута. |(user.accountEnabled -contains true) |(user.accountEnabled - eq true)<br/>Свойство имеет логический тип. Используйте поддерживаемые операторы (-eq и - ne) для логического типа из списка выше. |
-| Ошибка: ошибка компиляции запроса. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Логический оператор должен соответствовать одному из свойств в приведенном выше списке поддерживаемых свойств. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") — ошибка в регулярном выражении. |
-| Ошибка: неправильный формат двоичного выражения. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
-| Ошибка: неизвестная ошибка при настройке динамического членства. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
+| Ошибка: атрибут не поддерживается. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Убедитесь, что атрибут находится в [списке поддерживаемых свойств](#supported-properties). |
+| Ошибка: не поддерживается оператор для атрибута. |(user.accountEnabled -contains true) |(user.accountEnabled - eq true)<br/><br/>Используемый оператор не поддерживается для этого типа свойств (в данном примере -contains не может использоваться в логическом типе). Используйте правильные операторы для типа свойств. |
+| Ошибка: ошибка компиляции запроса. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Отсутствует оператор. Используйте предикат соединения -and или -or.<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2. Ошибка в регулярном выражении, используемом с -match.<br/><br/>(user.userPrincipalName -match ".*@domain.ext"). Как вариант: (user.userPrincipalName -match "@domain.ext$")|
 
 ## <a name="supported-properties"></a>Поддерживаемые свойства
 Ниже приведены все свойства пользователя, которые можно использовать в расширенном правиле.

@@ -23,7 +23,7 @@
       href: powershell-samples.md
 - name: Основные понятия
   items:
-    - name: Часто задаваемые вопросы
+    - name: Часто задаваемые вопросы по Log Analytics
       href: log-analytics-faq.md
     - name: Использование данных
       href: log-analytics-usage.md
@@ -31,6 +31,14 @@
       href: log-analytics-manage-access.md
     - name: Функции для поставщиков услуг
       href: log-analytics-service-providers.md
+    - name: Поиск по журналам
+      items:
+        - name: Часто задаваемые вопросы о поиске по журналам
+          href: log-analytics-log-search-faq.md
+        - name: Обзор поиска по журналу
+          href: log-analytics-log-search-new.md
+        - name: Порталы поиска по журналам
+          href: log-analytics-log-search-portals.md
 - name: Практическое руководство
   items:
     - name: Сбор данных
@@ -92,15 +100,6 @@
       items:
         - name: Обновление рабочей области
           href: log-analytics-log-search-upgrade.md
-        - name: Часто задаваемые вопросы
-          href: log-analytics-log-search-faq.md
-        - name: Обзор поиска по журналу
-          href: log-analytics-log-search-new.md
-        - name: Порталы поиска по журналам
-          href: log-analytics-log-search-portals.md
-          items:
-            - name: Использование портала поиска по журналам
-              href: log-analytics-log-search-log-search-portal.md
         - name: Переход от устаревшего языка
           href: log-analytics-log-search-transition.md
         - name: Соединитель для Microsoft Flow

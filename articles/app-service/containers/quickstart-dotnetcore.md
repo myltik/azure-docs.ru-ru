@@ -14,17 +14,18 @@ ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
-ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
+ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 5d84e558e2fd998df31725b71d1474c0a774490b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3ae0f28272d70a63b74a9f249566ae789f07aad5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>Создание веб-приложения .NET Core в контейнере Linux в Azure
 
-Платформа [Веб-приложения для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом кратком руководстве показано, как создать приложение [.NET Core](https://docs.microsoft.com/aspnet/core/) на платформе Azure "Веб-приложения для контейнеров". Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) и разверните код .NET Core в веб-приложении с помощью Git.
+Платформа [Веб-приложение для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом кратком руководстве показано, как создать приложение [.NET Core](https://docs.microsoft.com/aspnet/core/) на платформе Azure "Веб-приложения для контейнеров". Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) и разверните код .NET Core в веб-приложении с помощью Git.
 
 ![Пример приложения, выполняющегося в Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -63,7 +64,7 @@ dotnet restore
 dotnet run
 ```
 
-Откройте браузер и перейдите к приложению по адресу http://localhost:5000.
+Откройте веб-браузер и перейдите к приложению в `http://localhost:5000`.
 
 На странице отобразится сообщение **Hello World** из примера приложения.
 
@@ -87,7 +88,7 @@ git commit -m "first commit"
 
 ## <a name="create-a-web-app"></a>Создание веб-приложения
 
-Создайте [веб-приложение](../../app-service-web/app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). Не забудьте указать уникальное имя приложения вместо `<app name>`.
+Создайте [веб-приложение](../app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). Не забудьте указать уникальное имя приложения вместо `<app name>`.
 
 Для среды выполнения в следующей команде задано значение `DOTNETCORE|1.1`. Чтобы просмотреть все поддерживаемые среды выполнения, выполните команду [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
 
@@ -184,5 +185,5 @@ git push azure master
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Создание веб-приложения .NET Core с базой данных SQL на платформе Azure "Веб-приложения для контейнеров"](tutorial-dotnetcore-sqldb-app.md)
+> [Создание веб-приложения .NET Core с базой данных SQL на платформе Azure "Веб-приложение для контейнеров"](tutorial-dotnetcore-sqldb-app.md)
 

@@ -16,10 +16,10 @@ ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: a26c40351c6b982fd90acb4bf06220ef3f79f399
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: a57edd30975ec0e943fd84b2c66137d328a89b8b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Настройка политик условного доступа на основе устройств для Azure Active Directory
@@ -57,7 +57,9 @@ ms.lasthandoff: 08/23/2017
 Это можно сделать в каталоге с помощью:
 
 - Intune 
-- Сторонней системы управления мобильными устройствами, интегрируемой с Azure AD.  
+- сторонней управляемой системы для мобильных устройств, которая управляет устройствами c Windows 10 с помощью интеграции с Azure AD. 
+ 
+  
 
 Помечены как соответствующие требованиям могут быть только устройства, подключенные к Azure AD. Для подключения устройства к Azure Active Directory имеются следующие варианты: 
 

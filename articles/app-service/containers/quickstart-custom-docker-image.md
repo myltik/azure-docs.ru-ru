@@ -1,6 +1,6 @@
 ---
-title: "Использование пользовательского образа Docker Hub для веб-приложений Azure для контейнеров | Документация Майкрософт"
-description: "Как применять пользовательский образ Docker для веб-приложений Azure для контейнеров"
+title: "Использование пользовательского образа Docker Hub для веб-приложения Azure для контейнеров | Документация Майкрософт"
+description: "Как применять пользовательский образ Docker для веб-приложений Azure для контейнеров."
 keywords: "служба приложений azure, веб-приложение, docker, контейнер"
 services: app-service
 documentationcenter: 
@@ -12,18 +12,19 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/05/2017
-ms.author: naziml;wesmc
+ms.author: wesmc
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 47eec572272eb22cd6cd881874d7ecb87d7e08ad
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: da47bc9dd6fd980a37e2fdb57485858c2f1b2a73
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="run-a-custom-docker-hub-image-in-azure-web-apps-for-containers"></a>Использование пользовательского образа Docker Hub для веб-приложений Azure для контейнеров #
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Использование пользовательского образа Docker Hub для веб-приложения Azure для контейнеров #
 
 Служба приложений включает предопределенные стеки приложений на платформе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Вы также можете использовать пользовательский образ Docker для развертывания веб-приложения в стек приложений, который еще не определен в Azure. В этом кратком руководстве показано, как создать веб-приложение и развернуть в нем образ Python. Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 09/07/2017
 
 ## <a name="create-a-web-app"></a>Создание веб-приложения
 
-Создайте [веб-приложение](../../app-service-web/app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). Не забудьте указать уникальное имя приложения вместо `<app name>`.
+Создайте [веб-приложение](../app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). Не забудьте указать уникальное имя приложения вместо `<app name>`.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
@@ -72,7 +73,7 @@ http://<app_name>.azurewebsites.net
 
 ![Пример приложения, выполняющегося в Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
-**Поздравляем!** Вы развернули пользовательский образ Docker для веб-приложений Azure для контейнеров.
+**Поздравляем!** Вы развернули пользовательский образ Docker для веб-приложения Azure для контейнеров.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

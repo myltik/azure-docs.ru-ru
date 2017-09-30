@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: skwan
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 891a895419a4fe882e01495231f33a1d79eb42a9
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: c18fd5d5b528dfbafa456b3702996b80c3a60a02
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -57,7 +57,6 @@ ms.lasthandoff: 09/14/2017
 | служба | Состояние | Дата |
 | --- | --- | --- |
 | Виртуальные машины Azure | Предварительный просмотр | Сентябрь 2017 г. |
-| Масштабируемые наборы виртуальных машин Azure | Предварительный просмотр | Сентябрь 2017 г. |
 | Служба приложений Azure | Предварительный просмотр | Сентябрь 2017 г. |
 | Функции Azure | Предварительный просмотр | Сентябрь 2017 г. |
 
@@ -69,7 +68,6 @@ ms.lasthandoff: 09/14/2017
 | --- | --- | --- | --- |
 | Диспетчер ресурсов Azure | https://management.azure.com/ | Доступна | Сентябрь 2017 г. |
 | Хранилище ключей Azure | https://vault.azure.net/ | Доступна | Сентябрь 2017 г. |
-| Azure SQL | https://database.windows.net/ | Доступна | Сентябрь 2017 г. |
 | Озеро данных Azure | https://datalake.azure.net/ | Доступна | Сентябрь 2017 г. |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Сколько стоит использование управляемого удостоверения службы?
@@ -85,28 +83,35 @@ ms.lasthandoff: 09/14/2017
 
 ## <a name="try-managed-service-identity"></a>Использование управляемого удостоверения службы
 
-Теперь, когда вы знакомы с основами, попробуйте изучить руководство по управляемому удостоверению службы, чтобы узнать, как получать доступ к разным ресурсам Azure.
+Чтобы ознакомиться с комплексными сценариями для доступа к различным ресурсам Azure, используйте руководство по управляемому удостоверению службы:
 
-- [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-arm.md)
-- [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-arm.md)
-- [Получение доступа к службе хранилища Azure с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-storage.md)
-- [Получение доступа к службе хранилища Azure с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-storage.md)
-- [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-nonaad.md)
-- [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-nonaad.md)
-- [Использование управляемого удостоверения службы со службой приложений Azure или службой "Функции Azure"](/azure/app-service/app-service-managed-service-identity)
+| Из ресурса, поддерживающего MSI | Сценарий для ознакомления |
+| ------- | -------- |
+| Виртуальная машина Azure (Windows) | [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Получение доступа к службе хранилища Azure с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Windows и Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
+| Виртуальная машина Azure (Linux)   | [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-arm.md) |
+|                    | [Получение доступа к службе хранилища Azure с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-nonaad.md) |
+| Служба приложений Azure  | [Использование управляемого удостоверения службы со службой приложений Azure или службой "Функции Azure"](/azure/app-service/app-service-managed-service-identity) |
+| функции Azure;     | [Использование управляемого удостоверения службы со службой приложений Azure или службой "Функции Azure"](/azure/app-service/app-service-managed-service-identity) |
 
+Если вы хотите узнать только основные сведения о включении MSI для ресурса Azure:
 
+| Для ресурса Azure | Включение/удаление MSI, используя |
+| ------------------ | ------------------------------------ |
+| Виртуальная машина Azure (Windows) | [Портал Azure](msi-qs-configure-portal-windows-vm.md) |
+|                    | [PowerShell](msi-qs-configure-powershell-windows-vm.md) |
+|                    | [Интерфейс командной строки Azure](msi-qs-configure-cli-windows-vm.md)|
+|                    | [Шаблоны диспетчера ресурсов Azure](msi-qs-configure-template-windows-vm.md) |
 
+Затем узнайте, как предоставить разрешение MSI для доступа к другому ресурсу Azure с помощью управления доступом на основе ролей (RBAC):
 
-
-
-
-
-
-
-
-
-
+| Из ресурса, поддерживающего MSI | Присвойте доступ к другому ресурсу Azure, используя |
+| ------------------------ | ---------------------------------------------------------- |
+| Виртуальная машина Azure (Windows) | [Портал Azure](msi-howto-assign-access-portal.md) |
+|                    | [PowerShell](msi-howto-assign-access-powershell.md) |
+|                    | [Интерфейс командной строки Azure](msi-howto-assign-access-CLI.md) |
 
 
 

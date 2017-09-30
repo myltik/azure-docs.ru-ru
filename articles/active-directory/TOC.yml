@@ -1,3 +1,5 @@
+- name: Обзор возможностей для управления доступом
+  href: manage-access-to-azure-resources.md
 - name: Доступ к ресурсам в Azure
   href: active-directory-understanding-resource-access.md
 - name: Управление доступа на основе ролей

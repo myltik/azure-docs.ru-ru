@@ -3,7 +3,7 @@ title: "Введение в FreeBSD в Azure | Документация Майк
 description: "Узнайте о том, как использовать виртуальные машины FreeBSD в Azure."
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
-ms.author: kyliel
+ms.date: 09/13/2017
+ms.author: huishao
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7ada9fddd7ffccc3dcbfe3eac05d99b710b67cbc
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 79724bced613619406b693b4b352037e2c5ec9f3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Введение в FreeBSD в Azure
@@ -32,6 +32,7 @@ FreeBSD для Microsoft Azure — это расширенная операци�
 
 - FreeBSD 10.3-RELEASE
 - FreeBSD 11.0-RELEASE
+- FreeBSD 11.1-RELEASE
 
 Этот агент отвечает за обмен данными между виртуальной машиной FreeBSD и Azure Fabric при таких операциях, как подготовка виртуальной машины к первому использованию (имя пользователя, пароль или ключ SSH, имя узла и т. д.) и выборочное включение функций расширений виртуальной машины.
 
@@ -42,6 +43,7 @@ FreeBSD для Microsoft Azure — это расширенная операци�
 
 - [FreeBSD 10.3 на Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
 - [FreeBSD 11.0 на Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+- [FreeBSD 11.1 на Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>Создайте виртуальную машину FreeBSD с помощью Azure CLI 2.0 в FreeBSD.
 Сначала необходимо установить [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), выполнив следующую команду на компьютере FreeBSD.

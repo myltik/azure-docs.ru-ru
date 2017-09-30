@@ -3,25 +3,19 @@
   items:
     - name: Сведения о средах службы приложений
       href: intro.md
-    - name: Сравнение вариантов размещения
-      href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Создание приложения в среде службы приложений
+    - name: Создание внешней среды ASE
       href: create-external-ase.md
-    - name: Создание с помощью шаблона
-      href: create-from-template.md
+    - name: Создание внутренней среды ASE
+      href: create-ilb-ase.md
 - name: Учебники
   items:
-    - name: Создание изолированного приложения
-      href: create-ilb-ase.md
-    - name: Интеграция с WAP
+    - name: Интеграция с WAF
       href: app-service-app-service-environment-web-application-firewall.md
-    - name: Управление входящим трафиком к общедоступному приложению
-      href: app-service-app-service-environment-control-inbound-traffic.md
-    - name: Горизонтальное масштабирование приложения в ASE
-      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+    - name: Настройка TLS
+      href: app-service-app-service-environment-custom-settings.md
 - name: Примеры
   items:
     - name: Инфраструктура CLI Azure
@@ -32,50 +26,49 @@
   items:
     - name: Сетевая архитектура
       href: network-info.md
-    - name: Адреса управления
-      href: management-addresses.md
     - name: Географически распределенное масштабирование
       href: app-service-app-service-environment-geo-distributed-scale.md
     - name: ASEv1
-      items:
-        - name: Введение в ASEv1
-          href: app-service-app-service-environment-intro.md
-        - name: Сетевая архитектура
-          href: app-service-app-service-environment-network-architecture-overview.md
+      href: app-service-app-service-environment-intro.md
 - name: Практические руководства
   items:
-    - name: Настройка ASE
+    - name: Использование ASE
+      href: using-an-ase.md
+    - name: Создание среды ASE с помощью шаблона
+      href: create-from-template.md
+- name: Справочные материалы
+  items:
+    - name: Адреса управления
+      href: management-addresses.md
+    - name: "Документация по ASE версии\_1"
       items:
-        - name: Использование ASE
-          href: using-an-ase.md
+        - name: Создание ASEv1
+          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: "Настройка среды ASE версии\_1"
+          href: app-service-web-configure-an-app-service-environment.md
+        - name: "Создание внутренней среды ASE версии\_1"
+          href: app-service-environment-with-internal-load-balancer.md
+        - name: "Создание внутренней среды ASE версии\_1 с помощью шаблона"
+          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
+        - name: "Настройка автомасштабирования в ASE версии\_1"
+          href: app-service-environment-auto-scale.md
+        - name: "Горизонтальное масштабирование приложений в ASE версии\_1"
+          href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+        - name: Сетевая архитектура
+          href: app-service-app-service-environment-network-architecture-overview.md
+        - name: Создание веб-приложения в ASEv1
+          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+        - name: Высокая плотность размещения
+          href: app-service-high-density-hosting.md
         - name: Подключение к серверной части
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: Настройка ExpressRoute
           href: app-service-app-service-environment-network-configuration-expressroute.md
-    - name: Безопасность ASE
-      items:
-        - name: Настройка TLS
-          href: app-service-app-service-environment-custom-settings.md
+        - name: Управление входящим трафиком к общедоступному приложению
+          href: app-service-app-service-environment-control-inbound-traffic.md
         - name: Использование многоуровневой безопасности
           href: app-service-app-service-environment-layered-security.md
-    - name: Мониторинг ASE
-      items:
-        - name: Мониторинг на портале
-          href: app-service-web-configure-an-app-service-environment.md
-    - name: Использование ASE1
-      items:
-        - name: Настройка автомасштабирования
-          href: app-service-environment-auto-scale.md
-        - name: Создание ASEv1
-          href: app-service-web-how-to-create-an-app-service-environment.md
-        - name: Создание веб-приложения в ASEv1
-          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-        - name: Создание внутреннего приложения в ASEv1
-          href: app-service-environment-with-internal-load-balancer.md
-        - name: Создание внутреннего приложения с помощью шаблона
-          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
-        - name: Высокая плотность размещения
-          href: app-service-high-density-hosting.md
+    - name: "CLI\_2.0"
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 69eb021014c2ae04fc71a03cd27c0e113a2b062b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 27a2c95c09197b3439d3fac7c74d253df2b32b1c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-for-containers"></a>Непрерывное развертывание с использованием платформы Azure "Веб-приложения для контейнеров"
@@ -88,9 +88,9 @@ az webapp deployment container show-cd-url -n sname1 -g rgname
 
 * [Сведения о платформе Azure "Веб-приложения для контейнеров"](./app-service-linux-intro.md)
 * [Реестр контейнеров Azure](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Использование .NET Core в веб-приложениях Azure для контейнеров](quickstart-dotnetcore.md)
-* [Использование Ruby в веб-приложениях Azure для контейнеров](quickstart-ruby.md)
-* [Как применять пользовательский образ Docker для веб-приложений Azure для контейнеров](quickstart-custom-docker-image.md)
+* [Создание веб-приложения .NET Core в контейнере Linux в Azure](quickstart-dotnetcore.md)
+* [Создание приложения Ruby с помощью веб-приложений на платформе Linux](quickstart-ruby.md)
+* [Использование пользовательского образа Docker Hub для веб-приложений Azure для контейнеров](quickstart-custom-docker-image.md)
 * [Вопросы и ответы о платформе "Веб-приложения для контейнеров" в службе приложений Azure](./app-service-linux-faq.md) 
 * [Управление веб-приложениями для контейнеров с помощью Azure CLI 2.0](./app-service-linux-cli.md)
 
