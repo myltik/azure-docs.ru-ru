@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -70,18 +70,6 @@ ms.lasthandoff: 08/28/2017
 
     Ход создания кластера будет отображаться в области уведомлений. (Щелкните значок колокольчика рядом со строкой состояния в правом верхнем углу экрана). Если при создании кластера вы установили флажок **Закрепить на начальной панели**, то на **начальной доске** вы увидите закрепленный элемент **Deploying Service Fabric Cluster** (Развертывание кластера Service Fabric).
 
-### <a name="view-cluster-status"></a>Просмотр сведений о состоянии кластера
-После создания кластера его можно просмотреть на портале в колонке **Обзор**. На панели мониторинга отобразятся подробные сведения о кластере, включая общедоступную конечную точку кластера и ссылку на Service Fabric Explorer.
-
-![Состояние кластера][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Визуализация кластера с помощью Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) — хорошее средство для визуализации кластера и управления приложениями.  Service Fabric Explorer — это служба, выполняющаяся в кластере.  Чтобы получить доступ к этой службе, используйте веб-браузер. Для этого щелкните ссылку **Service Fabric Explorer** на странице **обзора** кластера.  Вы также можете ввести адрес прямо в браузер [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
-
-На панели мониторинга кластера представлены общие сведения о кластере, включая общие сведения о приложении и работоспособности узла кластера. В представлении "Узлы" отображается физическая структура кластера. Для каждого узла можно просмотреть, какие приложения были развернуты на этом узле
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### <a name="connect-to-the-cluster-using-powershell"></a>Подключение к кластеру с помощью PowerShell
 Убедитесь, что кластер работает, подключившись к нему с помощью PowerShell.  Модуль PowerShell ServiceFabric установлен вместе с [пакетом SDK для Service Fabric](service-fabric-get-started.md).  Подключитесь к кластеру, используя командлет [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).   
 
@@ -112,7 +100,7 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigV
     ![Удаление группы ресурсов][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Развертывание защищенного кластера с помощью Azure PowerShell
+## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Развертывание защищенного кластера Windows с помощью Azure PowerShell
 1. Скачайте [модуль Azure PowerShell 4.0 или более поздней версии](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) на компьютер.
 
 2. Откройте окно Windows PowerShell и выполните следующую команду: 
@@ -205,10 +193,6 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.clouda
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Публикация приложений из Visual Studio в кластер
-
-После настройки кластера Azure можно опубликовать приложение из Visual Studio в Azure, следуя инструкциям из статьи о [публикации в кластер Azure](service-fabric-publish-app-remote-cluster.md). 
-
 ### <a name="remove-the-cluster"></a>Удаление кластера
 Помимо собственных ресурсов кластер содержит другие ресурсы Azure. Чтобы удалить кластер и все ресурсы, который он использует, проще всего удалить группу ресурсов. 
 
@@ -217,12 +201,62 @@ Get-ServiceFabricClusterHealth
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Развертывание защищенного кластера Linux с помощью Azure CLI
+
+1. Установите [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) на компьютере.
+2. Войдите в Azure и выберите подписку, в которой вы хотите создать кластер.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. Запустите команду [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create), чтобы создать безопасный кластер.
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### <a name="connect-to-the-cluster"></a>Подключение к кластеру
+Выполните следующую команду CLI, чтобы подключиться к кластеру с помощью сертификата.  При использовании сертификата клиента для проверки подлинности сведения о сертификате должны соответствовать сертификату, развернутому в узлах кластера.  Используйте параметр `--no-verify` для самозаверяющего сертификата.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+Выполните следующую команду, чтобы проверить подключение к кластеру и убедиться, что кластер работает:
+
+```azurecli
+az sf cluster health
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы настроили кластер разработки, перейдите к следующим шагам.
-* [Create a secure cluster in the portal](service-fabric-cluster-creation-via-portal.md) (Создание безопасного кластера на портале)
-* [Create a cluster from a template](service-fabric-cluster-creation-via-arm.md) (Создание кластера из шаблона) 
+* [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
+* [Удаление кластера](service-fabric-cluster-delete.md) 
 * [Разверните приложения с помощью PowerShell](service-fabric-deploy-remove-applications.md)
+* [Развертывание приложений с помощью CLI](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png

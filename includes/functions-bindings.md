@@ -8,10 +8,15 @@
 | [Очереди и разделы](../articles/azure-functions/functions-bindings-service-bus.md) |Azure Service Bus |✔ | |✔ |  
 | [Таблицы хранилища](../articles/azure-functions/functions-bindings-storage-table.md) |Хранилище Azure | |✔ |✔ |  
 | [Таблицы SQL](../articles/azure-functions/functions-bindings-mobile-apps.md) |Мобильные приложения Azure | |✔ |✔ |  
-| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB | |✔ |✔ |  
+| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB |✔ |✔ |✔ |  
 | [Push-уведомления](../articles/azure-functions/functions-bindings-notification-hubs.md) |Концентраторы уведомлений Azure | | |✔ |  
 | [Текстовое сообщение Twilio](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
 | [Электронная почта SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |
+| [Таблицы Excel](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
+| [Файлы OneDrive](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
+| [Электронная почта Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | | |✔ |
+| [События Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph |✔ |✔ |✔ |
+| [Токены аутентификации](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ | |
 
 (\* Все триггеры содержат связанные входные данные.)
 

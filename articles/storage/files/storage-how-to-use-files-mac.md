@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc3d67745afb8bbffe7ec3462e995104daff9632
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Подключение общей папки Azure через протокол SMB с помощью macOS
-[Хранилище файлов Azure](../storage-dotnet-how-to-use-files.md) — это служба Майкрософт, которая позволяет создавать и использовать сетевые файловые ресурсы в Azure, применяя отраслевой стандарт. Файловые ресурсы Azure можно подключить в macOS Sierra (10.12) и El Capitan (10.11). В этой статье описываются два разных способа подключения общей папки Azure в macOS: с помощью пользовательского интерфейса поиска и терминала.
+[Файлы Azure](storage-files-introduction.md) — это служба Майкрософт, которая позволяет создавать и использовать сетевые файловые ресурсы в Azure, применяя отраслевой стандарт. Файловые ресурсы Azure можно подключить в macOS Sierra (10.12) и El Capitan (10.11). В этой статье описываются два разных способа подключения общей папки Azure в macOS: с помощью пользовательского интерфейса поиска и терминала.
 
 > [!Note]  
 > Перед подключением общей папки Azure через протокол SMB, мы рекомендуем отключить подпись SMB-пакета. Если этого не сделать, это может вызвать снижение производительности при получении доступа к общей папке Azure из macOS. Ваше подключение SMB будет зашифровано, поэтому на безопасность подключения это не повлияет. Выполнив следующие команды из терминала, вы отключите подпись SMB-пакетов, как описано на странице об [отключении подписи пакета для подключений протоколов SMB 2 и SMB 3](https://support.apple.com/HT205926):  
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/21/2017
     ![Моментальный снимок подключенной общей папки Azure](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительную информацию о хранилище файлов Azure см. по этим ссылкам.
+Дополнительную информацию о службе файлов Azure см. по следующим ссылкам.
 
 * [Использование функции общего доступа к файлам на компьютере Mac](https://support.apple.com/HT204445)
 * [Часто задаваемые вопросы](../storage-files-faq.md)

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
 ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -31,11 +31,13 @@ ms.lasthandoff: 01/24/2017
 > * [Интерфейс командной строки Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Шаблон](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета, используя классическое развертывание](load-balancer-get-started-internet-classic-portal.md)
+В этой статье описывается модель развертывания с использованием менеджера ресурсов.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -63,7 +65,7 @@ ms.lasthandoff: 01/24/2017
 3. В колонке **Создание подсистемы балансировки нагрузки** введите имя для балансировщика нагрузки. Здесь он назван **myLoadBalancer**.
 4. В разделе **Тип** выберите **Общедоступный**.
 5. В разделе **Общедоступный IP-адрес** создайте общедоступный IP-адрес с именем **myPublicIP**.
-6. В разделе "Группа ресурсов" выберите **myRG**. Затем укажите соответствующее **Расположение** и нажмите кнопку **ОК**. После этого балансировщик нагрузки начнет выполнение развертывания, для завершения которого может потребоваться несколько минут.
+6. В разделе "Группа ресурсов" выберите **myRG**. Затем укажите соответствующее **Расположение** и нажмите кнопку **ОК**. После этого подсистема балансировки нагрузки начнет развертывание, для завершения которого может потребоваться несколько минут.
 
     ![Обновление группы ресурсов балансировщика нагрузки](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -83,7 +85,7 @@ ms.lasthandoff: 01/24/2017
     В параметрах балансировщика нагрузки выберите "Пробы". В верхней части колонки щелкните **Добавить** .
 
     Существует два способа настройки пробы: HTTP и TCP. В этот примере показан способ HTTP, но и через TCP настройка выполняется подобным образом.
-    Обновите необходимые сведения. Как уже упоминалось, балансировщик **myLoadBalancer** будет выполнять балансировку трафика, проходящего через порт 80. Выбранный путь — HealthProbe.aspx, интервал — 15 секунд, а порог состояния неработоспособности — 2. По завершении нажмите кнопку **ОК** , чтобы создать пробу.
+    Обновите необходимые сведения. Как уже упоминалось, **myLoadBalancer** будет выполнять балансировку трафика, проходящего через порт 80. Выбранный путь — HealthProbe.aspx, интервал — 15 секунд, а порог состояния неработоспособности — 2. По завершении нажмите кнопку **ОК** , чтобы создать пробу.
 
     Наведите указатель мыши на значок "i", чтобы узнать больше об индивидуальных настройках и о том, как их изменить для соответствия своим требованиям.
 

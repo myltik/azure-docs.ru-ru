@@ -1,6 +1,6 @@
 ---
-title: "Как управлять хранилищем файлов Azure с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте, как использовать PowerShell для управления хранилищем файлов Azure."
+title: "Как управлять службой файлов Azure с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте, как использовать PowerShell для управления службой файлов Azure."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ce62d4423ce711a6902aed7b8174ff4e827f6083
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f919e1880f709b416867a29de14f1dcc63a165fe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>Как использовать PowerShell для управления хранилищем файлов Azure
+# <a name="how-to-use-powershell-to-manage-azure-files"></a>Как использовать PowerShell для управления службой файлов Azure
 Вы можете использовать Azure PowerShell для создания общих папок и управления ими.
 
 ## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Установите командлеты PowerShell для хранилища Azure
@@ -96,7 +96,7 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительную информацию о хранилище файлов Azure см. по этим ссылкам.
+Дополнительную информацию о службе файлов Azure см. по следующим ссылкам.
 
 * [Часто задаваемые вопросы](../storage-files-faq.md)
 * [Troubleshoot Azure File storage problems in Windows](storage-troubleshoot-windows-file-connection-problems.md) (Устранение неполадок хранилища файлов Azure в Windows)      

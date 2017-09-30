@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric: различия между версиями для Linux и Windows | Документация Майкрософт"
-description: "Различия между предварительной версией Azure Service Fabric для Linux и Azure Service Fabric для Windows."
+description: "Различия между Azure Service Fabric для Linux и Azure Service Fabric для Windows."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,34 +12,26 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Различия между Service Fabric для Linux (предварительная версия) и Windows (общедоступная версия)
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Различия между Service Fabric для Linux и для Windows
 
-Так как платформа Service Fabric для Linux доступна в предварительной версии, некоторые ее функции поддерживаются в Windows, но не в Linux. В конечном счете, когда появится общедоступная версия Service Fabric для Linux, наборы функций будут одинаковыми. В последующих выпусках это различие между наборами функций будет минимизировано. Между последними доступными версиями (то есть между версией 5.6 для Windows и версией 5.5 для Linux) существуют различия в следующих компонентах: 
+Некоторые функции Service Fabric поддерживаются в Windows, но пока не поддерживаются в Linux. Со временем наборы функций будут одинаковыми, и с каждом выпуском это различие между функциями будет уменьшаться. Между последними доступными версиями (то есть между версией 6.0 для Windows и версией 6.0 для Linux) существуют различия в следующих компонентах: 
 
-* надежные коллекции (и надежные службы с отслеживанием состояния); 
-* обратный прокси-сервер; 
-* автономный установщик; 
-* проверка схемы XML для файлов манифеста; 
-* перенаправление консоли; 
-* служба анализа сбоев (FAS);
-* драйверы Docker Compose, а также драйверы томов и ведения журнала для контейнеров; 
-* управление ресурсами для контейнеров и служб; 
-* Служба DNS
-* поддержка Azure Active Directory;
-* команды интерфейса командной строки, эквивалентные некоторым командам PowerShell. 
-* В кластере Linux можно выполнять только определенный набор команд PowerShell (подробнее об этом — в следующем разделе).
-
->[!NOTE]
->Перенаправление консоли не поддерживается в рабочих кластерах, даже в Windows.
+* все модели программирования находятся в предварительной версии (Reliable Actors, Reliable Services без отслеживания состояния и Reliable Services с отслеживанием состояния для Java и C#);
+* Envoy (ReverseProxy) для Linux находится в предварительной версии;
+* автономный установщик для Linux пока недоступен в Linux;
+* перенаправление консоли (не поддерживается в рабочих кластерах Linux и Windows);
+* служба анализа сбоев (FAS) в Linux;
+* служба DNS для служб Service Fabric (служба DNS поддерживается для контейнеров в Linux);
+* команды интерфейса командной строки, эквивалентные некоторым командам PowerShell (большинство из перечисленных ниже команд применяются только к изолированным кластерам).
 
 Средства разработки в Windows и Linux также отличаются. В Windows используются Visual Studio, PowerShell, VSTS и трассировка событий Windows, а в Linux — Yeoman, Eclipse, Jenkins и LTTng.
 
@@ -67,7 +59,6 @@ ms.lasthandoff: 08/24/2017
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus

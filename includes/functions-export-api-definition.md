@@ -16,8 +16,8 @@
 
     |Настройка|Описание|
     |--------|------------|
-    |**Режим экспорта**|Выберите **Express**, чтобы автоматически создать пользовательский API. При выборе значения **Вручную** экспортируется определение API, но затем вы должны вручную импортировать его в PowerApps и Microsoft Flow. См. дополнительные инструкции по [экспорту в PowerApps и Microsoft Flow](https://docs.microsoft.com/azure/app-service/app-service-export-api-to-powerapps-and-flow?toc=%2fazure%2fazure-functions%2ftoc.json).|
-    |**Среда**|Выберите среду, в которую нужно сохранить пользовательский API. См. [общие сведения о средах (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) или [общие сведения о средах (Microsoft Flow)] (https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
+    |**Режим экспорта**|Выберите **Express**, чтобы автоматически создать пользовательский API. При выборе значения **Вручную** экспортируется определение API, но затем вы должны вручную импортировать его в PowerApps и Microsoft Flow. См. дополнительные инструкции по [экспорту в PowerApps и Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
+    |**Среда**|Выберите среду, в которую нужно сохранить пользовательский API. См. дополнительные сведения о [среде PowerApps](https://powerapps.microsoft.com/tutorials/environments-overview/) и [среде Microsoft Flow](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
     |**Имя пользовательского API**|Введите имя, например `Turbine Repair`.|
     |**Имя ключа API**|Введите имя, которое должны видеть создатели приложения и потока в интерфейсе пользовательского API. Обратите внимание, что в примере содержатся полезные сведения.|
  

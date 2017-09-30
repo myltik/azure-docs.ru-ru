@@ -1,6 +1,6 @@
 ---
-title: "Настройка среды разработки для микрослужб Azure | Документация Майкрософт"
-description: "Установите среду выполнения, пакет SDK и инструменты и создайте локальный кластер разработки. После этого вы сможете создавать приложения."
+title: "Настройка среды разработки Windows для микрослужб Azure | Документация Майкрософт"
+description: "Установите среду выполнения, пакет SDK и инструменты и создайте локальный кластер разработки. После завершения установки вы сможете создавать приложения на базе Windows."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2017
+ms.date: 09/25/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 10a5871d64524ff8adeb6ee3041b348ef2b1b32e
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 0691f26168feacf290b732afd7dfd680a2537179
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="prepare-your-development-environment"></a>Подготовка среды разработки
+# <a name="prepare-your-development-environment-on-windows"></a>Настройка среды разработки для Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/30/2017
 > 
 > 
 
- Чтобы создавать и запускать [приложения Service Fabric][1] на компьютере для разработки, установите среду выполнения, пакет SDK и инструменты. Вам также нужно включить выполнение сценариев Windows PowerShell, включенных в пакет SDK.
+ Чтобы создавать и запускать [приложения Service Fabric][1] на компьютере для разработки Windows, установите среду выполнения, пакет SDK и инструменты. Вам также нужно включить выполнение сценариев Windows PowerShell, включенных в пакет SDK.
 
 ## <a name="prerequisites"></a>Предварительные требования
 ### <a name="supported-operating-system-versions"></a>Поддерживаемые версии операционных систем
@@ -63,8 +63,8 @@ ms.lasthandoff: 08/30/2017
 * [Установка пакета SDK Microsoft Azure Service Fabric][core-sdk]
 
 Текущие версии:
-* Пакет SDK для Service Fabric 2.7.198
-* Среда выполнения Service Fabric 5.7.198
+* Пакет SDK для Service Fabric 2.8.211
+* Среда выполнения Service Fabric 6.0.211
 * Средства Service Fabric для Visual Studio 2015 1.7.50721
 * Visual Studio 2017 с обновлением 3 включает средства Service Fabric для Visual Studio 1.7.20170817
 * Visual Studio 2017 с обновлением 4 (предварительная версия 1) (15.4.0, предварительная версия 1.0) включает средства Service Fabric для Visual Studio 1.7.20170721

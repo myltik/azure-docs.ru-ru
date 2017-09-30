@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Подключение общей папки Azure и получение доступа к этой папке в Windows
-[Хранилище файлов Azure](../storage-dotnet-how-to-use-files.md) — это простая в использовании облачная файловая система Майкрософт. Файловые ресурсы Azure можно подключить в Windows и Windows Server. В этой статье описывается три разных способа подключения общей папки Azure в Windows: с помощью пользовательского интерфейса проводника, PowerShell, а также командной строки. 
+[Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от Майкрософт. Файловые ресурсы Azure можно подключить в Windows и Windows Server. В этой статье описывается три разных способа подключения общей папки Azure в Windows: с помощью пользовательского интерфейса проводника, PowerShell, а также командной строки. 
 
 Чтобы подключить общую папку Azure за пределами региона Azure, в котором она размещается, например локально или в другом регионе Azure, операционная система должна поддерживать протокол SMB 3.0. 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 09/02/2017
 | Windows 7              | SMB 2.1     | Да                   | Нет                   |
 | Windows Server 2008 R2 | SMB 2.1     | Да                   | Нет                   |
 
-<sup>1</sup>Windows 10 версии 1507, 1511, 1607 и 1703.
+<sup>1</sup>Windows 10 версии 1507, 1511, 1607, 1703 и 1709.
 
 > [!Note]  
 > Мы всегда рекомендуем использовать последнюю версию KB для своей версии Windows.
@@ -49,7 +49,7 @@ ms.lasthandoff: 09/02/2017
 
 * **Ключ учетной записи хранения**: чтобы подключить общую папку Azure, вам потребуется первичный (или вторичный) ключ учетной записи хранения. В настоящее время ключи SAS для подключения не поддерживаются.
 
-* **Откройте порт 445**: хранилище файлов Azure использует протокол SMB. Взаимодействие SMB выполняется через TCP-порт 445. Проверьте, чтобы брандмауэр не блокировал TCP-порты 445 с клиентского компьютера.
+* **Откройте порт 445**: служба файлов Azure использует протокол SMB. Взаимодействие SMB выполняется через TCP-порт 445. Проверьте, чтобы брандмауэр не блокировал TCP-порты 445 с клиентского компьютера.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Подключение общей папки Azure с помощью проводника
 > [!Note]  
@@ -63,7 +63,7 @@ ms.lasthandoff: 09/02/2017
 
 3. **Скопируйте UNC-путь из области подключения на портале Azure**: подробные сведения об этом см. [здесь](storage-how-to-use-files-portal.md#connect-to-file-share).
 
-    ![UNC-путь области подключения хранилища файлов Azure](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![UNC-путь из области подключения службы файлов Azure](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Выберите букву диска и введите UNC-путь.** 
     
@@ -121,24 +121,24 @@ ms.lasthandoff: 09/02/2017
 >   ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительную информацию о хранилище файлов Azure см. по этим ссылкам.
+Дополнительную информацию о службе файлов Azure см. по следующим ссылкам.
 
 * [Часто задаваемые вопросы](../storage-files-faq.md)
 * [Troubleshoot Azure File storage problems in Windows](storage-troubleshoot-windows-file-connection-problems.md) (Устранение неполадок хранилища файлов Azure в Windows)      
 
 ### <a name="conceptual-articles-and-videos"></a>Тематические статьи и видео
-* [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/) (Хранилище файлов Azure: удобная облачная файловая система SMB для Windows и Linux)
-* [Использование хранилища файлов Azure в Linux](../storage-how-to-use-files-linux.md)
+* [Файлы Azure: удобная облачная файловая система SMB для Windows и Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Использование службы файлов Azure в Linux](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Поддержка средств для работы с хранилищем файлов Azure
+### <a name="tooling-support-for-azure-files"></a>Средства для работы со службой файлов Azure
 * [Использование AzCopy со службой хранилища Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Troubleshoot Azure File storage problems in Windows](storage-troubleshoot-windows-file-connection-problems.md) (Устранение неполадок хранилища файлов Azure в Windows)
-* [Troubleshoot Azure File storage problems in Linux](storage-troubleshoot-linux-file-connection-problems.md) (Устранение неполадок хранилища файлов Azure в Linux)
+* [Устранение неполадок со службой файлов Azure в Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Устранение неполадок со службой файлов Azure в Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Записи блога
-* [Хранилище файлов Azure стало общедоступным](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/) (Хранилище файлов Azure: взгляд изнутри)
+* [Общедоступная версия службы файлов Azure](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Служба файлов Azure: взгляд изнутри](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Введение в службы файлов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migrating Data to Microsoft Azure Files](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/) (Перемещение данных в файлы Microsoft Azure)
 

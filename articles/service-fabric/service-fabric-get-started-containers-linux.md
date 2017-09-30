@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -166,7 +166,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 Укажите имя приложения, например mycontainerap. 
 
-Предоставьте URL-адрес для образа контейнеров в реестре контейнеров. 
+Предоставьте URL-адрес для образа контейнеров в реестре контейнеров (например, myregistry.azurecr.io/samples/helloworldapp). 
 
 В образе определена точка входа рабочей нагрузки, поэтому нужно явно указать входные команды, выполняемые внутри контейнера, которые обеспечат выполнение контейнера после запуска. 
 
@@ -175,23 +175,35 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ![Генератор Service Fabric Yeoman для контейнеров][sf-yeoman]
 
 ## <a name="configure-port-mapping-and-container-repository-authentication"></a>Настройка сопоставления порта и проверки подлинности репозитория контейнера
-Контейнерной службе необходима конечная точка для взаимодействия.  Теперь добавьте протокол, порт и тип для `Endpoint` в файле ServiceManifest.xml. В этой статье контейнерная служба ожидает передачи данных порта 4000: 
+Контейнерной службе необходима конечная точка для взаимодействия.  На этом этапе вы можете добавить протокол, порт и тип для `Endpoint` в файле ServiceManifest.xml под тегом Resources. В этой статье контейнерная служба ожидает передачи данных порта 4000: 
 
 ```xml
-<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-```
+
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ ```
+ 
 Если указать `UriScheme`, конечная точка контейнера будет автоматически зарегистрирована в службе именования Service Fabric, что улучшит ее поиск. Полный пример файла ServiceManifest.xml приведен в конце этой статьи. 
 
-Настройте сопоставление порта контейнера с портом узла, указав политику `PortBinding` в `ContainerHostPolicies` файле ApplicationManifest.xml.  В этой статье `ContainerPort` — 80 (контейнер предоставляет порт 80, как указано в Dockerfile), а `EndpointRef` — myserviceTypeEndpoint (конечная точка, определенная в манифесте служб).  Входящие запросы к службе через порт 4000 сопоставляются с портом 80 в контейнере.  Если для контейнера требуется проверка подлинности в частном репозитории, добавьте `RepositoryCredentials`.  Для работы с этим руководством добавьте имя учетной записи и пароль для реестра контейнеров myregistry.azurecr.io. 
+Настройте сопоставление порта контейнера с портом узла, указав политику `PortBinding` в `ContainerHostPolicies` файле ApplicationManifest.xml.  В этой статье значение `ContainerPort` — это 80 (контейнер предоставляет порт 80, как указано в Dockerfile), а значение `EndpointRef` — это myServiceTypeEndpoint (конечная точка, определенная в манифесте служб).  Входящие запросы к службе через порт 4000 сопоставляются с портом 80 в контейнере.  Если для контейнера требуется проверка подлинности в частном репозитории, добавьте `RepositoryCredentials`.  Для работы с этим руководством добавьте имя учетной записи и пароль для реестра контейнеров myregistry.azurecr.io. Убедитесь, что политика добавляется под тегом ServiceManifestImport в соответствии с нужным пакетом обновления.
 
 ```xml
-<Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-    </ContainerHostPolicies>
-</Policies>
-```
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+   </ServiceManifestImport>
+``` 
 
 ## <a name="build-and-package-the-service-fabric-application"></a>Создание и упаковка приложений Service Fabric
 Шаблоны Service Fabric для Yeoman включают скрипт сборки для [Gradle](https://gradle.org/), который можно использовать для создания приложения из терминала. Используйте следующую команду, чтобы собрать и упаковать приложение:
@@ -278,7 +290,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -300,7 +312,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
