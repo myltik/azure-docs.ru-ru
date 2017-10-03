@@ -138,7 +138,7 @@ MSI на виртуальной машине позволяет получить
 > Текст, который содержит URL-адрес, чувствителен к регистру, поэтому проверьте регистр в названиях групп ресурсов, чтобы текст отображался соответствующим образом. Кроме того, убедитесь, что используется запрос POST, а не GET, а также, что вы передали значение для регистрации максимальной длины с помощью параметра -d, который может иметь значение NULL.  
 
 ```bash 
-curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 –request POST -d"" -H "Authorization: Bearer <ACCESS TOKEN>" 
+curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 –-request POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
 ```
 
 В ответе cURL будет содержаться список ключей:  
@@ -158,11 +158,7 @@ echo "This is a test file." > test.txt
  
 
 ```azurecli-interactive
- az storage blob upload --container-name 
-                        --file 
-                        --name 
-                        [--account-name] 
-                        [--account-key] 
+az storage blob upload -c <CONTAINER NAME> -n test.txt -f test.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
 Ответ: 
@@ -180,11 +176,7 @@ Finished[#############################################################]  100.000
 Запрос: 
 
 ```azurecli-interactive
-az storage blob download --container-name
-                         --file 
-                         --name 
-                         [--account-name]
-                         [--account-key]  
+az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
 Ответ: 
@@ -193,18 +185,18 @@ az storage blob download --container-name
 {
   "content": null,
   "metadata": {},
-  "name": "testblob",
+  "name": "test.txt",
   "properties": {
     "appendBlobCommittedBlockCount": null,
     "blobType": "BlockBlob",
-    "contentLength": 16,
-    "contentRange": "bytes 0-15/16",
+    "contentLength": 21,
+    "contentRange": "bytes 0-20/21",
     "contentSettings": {
       "cacheControl": null,
       "contentDisposition": null,
       "contentEncoding": null,
       "contentLanguage": null,
-      "contentMd5": "Aryr///Rb+D8JQ8IytleDA==",
+      "contentMd5": "LSghAvpnElYyfUdn7CO8aw==",
       "contentType": "text/plain"
     },
     "copy": {
@@ -215,8 +207,8 @@ az storage blob download --container-name
       "status": null,
       "statusDescription": null
     },
-    "etag": "\"0x8D4F9929765C139\"",
-    "lastModified": "2017-09-12T03:58:56+00:00",
+    "etag": "\"0x8D5067F30D0C283\"",
+    "lastModified": "2017-09-28T14:42:49+00:00",
     "lease": {
       "duration": null,
       "state": "available",
