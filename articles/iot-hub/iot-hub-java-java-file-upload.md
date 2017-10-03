@@ -284,7 +284,7 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 
 
 
-[Центре разработчика для IoT в Azure]: http://www.azure.com/develop/iot
+[Центре разработчика Центра Интернета вещей Azure]: http://www.azure.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account
