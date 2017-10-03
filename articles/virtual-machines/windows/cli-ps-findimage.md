@@ -65,21 +65,21 @@ ms.lasthandoff: 07/14/2017
 
 Во-первых, выведите список издателей с помощью следующих команд.
 
-```powershell
+```azurepowershell-interactive
 $locName="<Azure location, such as West US>"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 
 Укажите название выбранного издателя и выполните следующие команды.
 
-```powershell
+```azurepowershell-interactive
 $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
 Укажите название выбранного предложения и выполните следующие команды.
 
-```powershell
+```azurepowershell-interactive
 $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
@@ -88,7 +88,7 @@ Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName |
 
 Ниже представлен полный пример.
 
-```powershell
+```azurepowershell-interactive
 $locName="West US"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
@@ -114,7 +114,7 @@ Canonical
 
 Для издателя MicrosoftWindowsServer:
 
-```powershell
+```azurepowershell-interactive
 $pubName="MicrosoftWindowsServer"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
@@ -131,7 +131,7 @@ WindowsServer-HUB
 
 Для предложения WindowsServer:
 
-```powershell
+```azurepowershell-interactive
 $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```

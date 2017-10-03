@@ -54,7 +54,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 1. Задайте некоторые параметры. 
 
- ```powershell
+ ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
 $location = 'southeastasia' 
 $dataDiskName = 'ContosoMD_datadisk1' 
@@ -68,17 +68,17 @@ $snapshotName = 'ContosoMD_datadisk1_snapshot1'
 
 2. Скопируйте диск VHD.
 
- ```powershell
+ ```azurepowershell-interactive
 $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
 ```
 3. Создайте конфигурации моментального снимка. 
 
- ```powershell
+ ```azurepowershell-interactive
 $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
 ```
 4. Создайте моментальный снимок.
 
- ```powershell
+ ```azurepowershell-interactive
 New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
 ```
 Если вы планируете использовать моментальный снимок, чтобы создать управляемый диск и подключить его к виртуальной машине, которая должна быть высокопроизводительной, используйте параметр `-AccountType Premium_LRS` в команде New-AzureRmSnapshot. Параметр создает моментальный снимок таким образом, чтобы он хранился в качестве управляемого диска уровня "Премиум". Управляемые диски уровня "Премиум" дороже, чем управляемые диски уровня "Стандартный". Поэтому, прежде чем использовать этот параметр, убедитесь, что вам действительно необходим управляемый диск уровня "Премиум".

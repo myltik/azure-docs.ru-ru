@@ -52,7 +52,7 @@ ms.lasthandoff: 08/21/2017
 
 Последняя команда обновляет состояние виртуальной машины, чтобы завершить процесс удаления диска данных.
 
-```powershell
+```azurepowershell-interactive
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine

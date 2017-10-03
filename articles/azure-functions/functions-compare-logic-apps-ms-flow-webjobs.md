@@ -3,7 +3,7 @@ title: "Сравнение Microsoft Flow, Logic Apps, Функций и веб-
 description: "Эта статья позволяет сравнить облачные службы интеграции Microsoft и выбрать наиболее оптимальный для вас вариант."
 services: functions,app-service\logic
 documentationcenter: na
-author: cephalin
+author: ggailey777
 manager: wpickett
 tags: 
 keywords: "microsoft flow, поток, logic apps, функции azure, функции, веб-задания azure, веб-задания, обработка событий, динамическое вычисление, независимая от сервера архитектура"

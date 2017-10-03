@@ -42,7 +42,7 @@ ms.lasthandoff: 09/01/2017
 
 Прежде чем создавать другие ресурсы Azure, нужно создать группу ресурсов с помощью командлета [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Следующий пример позволяет создать группу ресурсов *myRGNetwork* в расположении *EastUS*.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
@@ -50,7 +50,7 @@ New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 
 Создайте подсеть с помощью командлета [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig).
 
-```powershell
+```azurepowershell-interactive
 $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myFrontendSubnet `
   -AddressPrefix 10.0.0.0/24
@@ -58,7 +58,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 Создайте виртуальную сеть *myVNet*, использующую *myFrontendSubnet*, выполнив командлет [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork).
 
-```powershell
+```azurepowershell-interactive
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -73,7 +73,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 Создайте общедоступный IP-адрес с помощью командлета [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
-```powershell
+```azurepowershell-interactive
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -84,7 +84,7 @@ $pip = New-AzureRmPublicIpAddress `
 Создайте сетевую карту с помощью командлета [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
 
 
-```powershell
+```azurepowershell-interactive
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -95,13 +95,13 @@ $frontendNic = New-AzureRmNetworkInterface `
 
 Настройте на виртуальной машине имя пользователя и пароль для учетной записи администратора с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential): Эти учетные данные используются для подключения к виртуальной машине на дополнительных шагах:
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
 Создайте виртуальные машины с помощью командлетов [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) и [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). 
 
-```powershell
+```azurepowershell-interactive
 $frontendVM = New-AzureRmVMConfig `
     -VMName myFrontendVM `
     -VMSize Standard_D1
@@ -139,7 +139,7 @@ New-AzureRmVM `
 
 Получить общедоступный IP-адрес *myFrontendVM* можно с помощью командлета [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Следующий пример позволяет получить IP-адрес для созданного ранее *myPublicIPAddress*.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName myRGNetwork `
     -Name myPublicIPAddress | select IpAddress
@@ -157,7 +157,7 @@ mstsc /v:<publicIpAddress>
 
 Используйте командлет [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) для запуска расширения настраиваемых сценариев, которое устанавливает веб-сервер IIS:
 
-```powershell
+```azurepowershell-interactive
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
@@ -173,7 +173,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 Можно ограничить внутренний трафик для *myBackendVM* и разрешить только трафик из *myFrontendVM*, создав NSG для внутренней подсети. Следующий пример создает правило NSG *myBackendNSGRule* с помощью командлета [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig).
 
-```powershell
+```azurepowershell-interactive
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myBackendNSGRule `
   -Protocol Tcp `
@@ -188,7 +188,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
 
 Добавьте группу безопасности сети *myBackendNSG* с помощью командлета [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
 
-```powershell
+```azurepowershell-interactive
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -199,7 +199,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
 
 Добавьте *myBackEndSubnet* в *myVNet* с помощью командлета [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig).
 
-```powershell
+```azurepowershell-interactive
 Add-AzureRmVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -VirtualNetwork $vnet `
@@ -217,7 +217,7 @@ $vnet = Get-AzureRmVirtualNetwork `
 
 Создайте *myBackendNic*.
 
-```powershell
+```azurepowershell-interactive
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -227,13 +227,13 @@ $backendNic = New-AzureRmNetworkInterface `
 
 Настройте на виртуальной машине имя пользователя и пароль для учетной записи администратора с помощью командлета Get-Credential:
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
 Создайте *myBackendVM*.
 
-```powershell
+```azurepowershell-interactive
 $backendVM = New-AzureRmVMConfig `
   -VMName myBackendVM `
   -VMSize Standard_D1
