@@ -123,7 +123,7 @@ ms.lasthandoff: 09/13/2017
 
     ![Кнопка "Сохранить"](./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_400.png)
 
-6. В разделе **Настройка Questetra BPM Suite** щелкните **Настроить Questetra BPM Suite**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML ** из раздела **Краткий справочник**.
+6. В разделе **Настройка Questetra BPM Suite** щелкните **Настроить Questetra BPM Suite**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
     ![Раздел "Конфигурация Questetra BPM Suite"](./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_configure.png) 
 
