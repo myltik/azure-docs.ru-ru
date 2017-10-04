@@ -90,7 +90,7 @@ response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 
 ## <a name="example-requests-and-responses"></a>Примеры запросов и ответов
 
-### <a name="start-virtual-machine-202-with-azure-asyncoperation"></a>Запуск виртуальной машины (код&202;, значение Azure-AsyncOperation)
+### <a name="start-virtual-machine-202-with-azure-asyncoperation"></a>Запуск виртуальной машины (код 202, значение Azure-AsyncOperation)
 Здесь показано, как можно проверить состояние операции **Start** для виртуальных машин. Исходный запрос имеет следующий формат:
 
 ```HTTP
@@ -121,7 +121,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 }
 ```
 
-### <a name="deploy-resources-201-with-azure-asyncoperation"></a>Развертывание ресурсов (код&201;, значение Azure-AsyncOperation)
+### <a name="deploy-resources-201-with-azure-asyncoperation"></a>Развертывание ресурсов (код 201, значение Azure-AsyncOperation)
 
 Здесь показано, как можно проверить состояние операции **deployments** для развертывания ресурсов в Azure. Исходный запрос имеет следующий формат:
 
@@ -161,7 +161,7 @@ https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{res
 {"status":"Succeeded"}
 ```
 
-### <a name="create-storage-account-202-with-location-and-retry-after"></a>Создание учетной записи хранения (код&202;, значения Location и Retry-After)
+### <a name="create-storage-account-202-with-location-and-retry-after"></a>Создание учетной записи хранения (код 202, значения Location и Retry-After)
 
 Здесь показано, как можно проверить состояние операции **create** для учетных записей хранения. Исходный запрос имеет следующий формат:
 

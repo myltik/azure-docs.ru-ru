@@ -25,7 +25,7 @@ ms.lasthandoff: 02/09/2017
 В этом документе описываются все параметры интеграции и конфигурации, доступные для пакета SDK универсальных приложений для Windows для Azure Mobile Engagement.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Прежде чем приступить к этому учебнику, необходимо изучить [наш&15;-минутный учебник](mobile-engagement-windows-store-dotnet-get-started.md).
+Прежде чем приступить к этому учебнику, необходимо изучить [наш 15-минутный учебник](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="advanced-features"></a>Дополнительные функции
 ### <a name="reporting-features"></a>Функции отчетов
