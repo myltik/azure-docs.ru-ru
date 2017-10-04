@@ -1093,11 +1093,11 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Добавление аутентификации в приложение]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Добавление проверки подлинности в приложение]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Автономная синхронизация данных в мобильных приложениях Azure]: app-service-mobile-offline-data-sync.md
 [Добавление push-уведомлений в приложение]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Регистрация приложения для входа с использованием учетной записи Майкрософт]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Как настроить службу приложений для входа с помощью Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Настройка приложения службы приложений для использования службы входа Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
@@ -1116,7 +1116,7 @@ public class MyHandler : DelegatingHandler
 [OrderBy]: https://msdn.microsoft.com/en-us/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/mt691741(v=azure.10).aspx
-[take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
+[Take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
 [Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
 [Skip]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.(v=azure.10)aspx
@@ -1129,11 +1129,11 @@ public class MyHandler : DelegatingHandler
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
 [Центр разработки для Windows]: https://dev.windows.com/en-us/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
-[Пакет SDK для Windows Live]: https://msdn.microsoft.com/en-us/library/bb404787.aspx
+[пакету SDK для Windows Live]: https://msdn.microsoft.com/en-us/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [справочниками по API]: https://msdn.microsoft.com/library/azure/dn495101.aspx
-[Пример файлов мобильных приложений]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
+[примере файлов мобильных приложений]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 
 <!-- External URLs -->
