@@ -1,11 +1,5 @@
 # Обзор
 ## [Руководство для разработчиков](azure-developer-guide.md) 
-### [Что такое Azure?](azure-developer-guide.md#what-is-azure)
-### [С чего начать?](azure-developer-guide.md#where-do-i-start)
-### [Регионы Azure](azure-developer-guide.md#azure-regions)
-### [Как управлять приложениями и проектами?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Сведения об учетных записях, подписках и выставлении счетов](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Общие сведения о службах Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Общие сведения о портале Azure](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Пакеты SDK и средства](https://docs.microsoft.com/azure/index#pivot=sdkstools)

@@ -9,7 +9,7 @@
 
 # Практическое руководство
 
-## Управление учетными записями Data Lake Analytics
+## Управление службой Data Lake Analytics
 ### [Портал Azure](data-lake-analytics-manage-use-portal.md)
 ### [Интерфейс командной строки Azure](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
