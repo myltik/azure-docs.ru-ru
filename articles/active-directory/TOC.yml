@@ -40,6 +40,8 @@
 - name: Удостоверение управляемой службы
   href: msi-overview.md
   items:
+    - name: Как войти в систему или получить токен
+      href: msi-how-to-get-access-token-using-msi.md
     - name: Настройка MSI для виртуальной машины Azure
       items:
         - name: С помощью портала Azure
@@ -50,6 +52,8 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: С помощью шаблона Azure Resource Manager
           href: msi-qs-configure-template-windows-vm.md
+        - name: С пакетом Azure SDK
+          href: msi-qs-configure-sdk-windows-vm.md
     - name: Назначение прав доступа к ресурсу Azure с помощью MSI
       items:
         - name: С помощью портала Azure

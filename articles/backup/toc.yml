@@ -39,6 +39,8 @@
           href: backup-azure-vm-backup-faq.md
         - name: Часто задаваемые вопросы о резервном копировании файлов и папок с помощью агента Azure Backup
           href: backup-azure-file-folder-backup-faq.md
+        - name: Часто задаваемые вопросы по автоматическому обновлению резервного хранилища
+          href: backup-upgrade-backup-vault.md
     - name: Управление доступом на основе ролей
       href: backup-rbac-rs-vault.md
     - name: Безопасность гибридных резервных копий

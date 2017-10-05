@@ -869,7 +869,7 @@ if (error.code == MSErrorPreconditionFailed) {
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [панели мониторинга структуры]: https://www.fabric.io/home
-[Структура для iOS. Приступая к работе]: https://docs.fabric.io/ios/fabric/getting-started.html
+[Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
 [2]: http://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx

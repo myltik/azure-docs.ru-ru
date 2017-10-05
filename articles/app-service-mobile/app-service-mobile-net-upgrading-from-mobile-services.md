@@ -258,19 +258,19 @@ ms.lasthandoff: 09/20/2017
 
 <!-- URLs. -->
 
-[Портал Azure]: https://portal.azure.com/
-[Классический портал Azure]: https://manage.windowsazure.com/
-[Что представляют собой мобильные приложения?]: app-service-mobile-value-prop.md
+[портал Azure]: https://portal.azure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
+[Общие сведения о мобильных приложениях]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [пакет SDK для сервера мобильных приложений]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Планировщик Azure]: /en-us/documentation/services/scheduler/
+[планировщике Azure]: /en-us/documentation/services/scheduler/
 [веб-задание]: https://github.com/Azure/azure-webjobs-sdk/wiki
-[Как использовать пакет SDK для .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Цены на службу приложений]: https://azure.microsoft.com/en-us/pricing/details/app-service/
-[Обзор пакета SDK для сервера .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[ценами службы приложений]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 

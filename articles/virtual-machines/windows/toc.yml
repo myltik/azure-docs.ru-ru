@@ -344,6 +344,8 @@
               href: troubleshoot-recovery-disks-portal.md
         - name: Использование PerfInsights
           href: how-to-use-perfInsights.md
+        - name: Расширение виртуальной машины для диагностики производительности
+          href: performance-diagnostics-vm-extension.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

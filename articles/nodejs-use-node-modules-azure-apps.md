@@ -88,7 +88,7 @@ ms.lasthandoff: 09/20/2017
 
 Дополнительную информацию см. в [центре разработчиков Node.js](/nodejs/azure/).
 
-[указание версии Node.js]: nodejs-specify-node-version-azure-apps.md
+[указать версию Node.js]: nodejs-specify-node-version-azure-apps.md
 [использовать интерфейс командной строки Azure для Mac и Linux]:cli-install-nodejs.md
-[Пользовательские сценарии развертывания веб-сайтов с использованием Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
+[Custom Web Site Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
 

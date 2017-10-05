@@ -12,6 +12,7 @@
 ### [Архив](hdinsight-release-notes-archive.md)
 
 # Начало работы
+## [Планирование емкости кластера HDInsight](hdinsight-capacity-planning.md)
 ## [Начало работы с Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## Приступая к работе со Spark
 ### [Создание кластера Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
@@ -167,6 +168,8 @@
 ### [Использование SSH с HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Использование туннелирования SSH](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [Ограничение доступа к данным](hdinsight-storage-sharedaccesssignature-permissions.md)
+### [Авторизация пользователей для представлений Ambari](hdinsight-authorize-users-to-ambari.md)
+### [Управление разрешениями пользователя на уровнях файлов и папок](hdinsight-add-acls-at-file-folder-levels.md)
 ## Управление
 ### [Создание кластеров Linux](hdinsight-hadoop-provision-linux-clusters.md)
 #### [Использование Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -200,6 +203,7 @@
 ### [Использование Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 ### [Панели мониторинга для кластеров](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
 ### [Использование запросов в Log Analytics](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+### [Мониторинг производительности кластера](hdinsight-key-scenarios-to-monitor.md)
 ## [Устранение неполадок](hdinsight-troubleshoot-guide.md)
 ### [Устранение неполадок с HBase](hdinsight-troubleshoot-hbase.md)
 ### [Устранение неполадок с HDFS](hdinsight-troubleshoot-hdfs.md)

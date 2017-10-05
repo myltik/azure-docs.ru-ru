@@ -66,6 +66,8 @@
   items:
     - name: Модерация записей на Facebook
       href: facebook-post-moderation.md
+    - name: Модерирование каталога электронной коммерции
+      href: ecommerce-retail-catalog-moderation.md
 - name: Справочники по API
   items:
     - name: Все API

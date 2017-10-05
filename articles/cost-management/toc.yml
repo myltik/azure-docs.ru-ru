@@ -1,4 +1,4 @@
-- name: Документация по управлению затратами на Azure
+- name: Документация по Azure Cost Management
   href: index.yml
 - name: Обзор
   items:
@@ -19,6 +19,8 @@
       href: tutorial-review-usage.md
     - name: 2. Контроль доступа к данным
       href: tutorial-user-access.md
+    - name: 3. Прогнозирование затрат
+      href: tutorial-forecast-spending.md
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

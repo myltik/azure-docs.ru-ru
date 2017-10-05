@@ -37,11 +37,13 @@
 ### [Поддержка HTTP/2](cdn-http2.md)
 
 ## Анализ
-### [Анализ шаблонов использования](cdn-analyze-usage-patterns.md)
-### [Создание расширенных отчетов HTTP](cdn-advanced-http-reports.md)
-### [Просмотр статистики в реальном времени](cdn-real-time-stats.md)
-### [Анализ производительности граничного узла](cdn-edge-performance.md)
-### [Экспорт метрик с помощью журналов диагностики](cdn-log-analysis.md)
+### [Анализ вариантов использования CDN Azure](cdn-log-analysis.md)
+#### [Основные отчеты из Verizon](cdn-analyze-usage-patterns.md)
+#### [Журналы диагностики Azure](cdn-azure-diagnostic-logs.md)
+### Средства аналитики для Azure CDN от Verizon
+#### [Создание расширенных отчетов HTTP](cdn-advanced-http-reports.md)
+#### [Просмотр статистики в реальном времени](cdn-real-time-stats.md)
+#### [Анализ производительности граничного узла](cdn-edge-performance.md)
 
 ## Разработка
 ### [.NET](cdn-app-dev-net.md)

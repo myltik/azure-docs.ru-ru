@@ -25,7 +25,6 @@
 ### [Интеграция определяемых пользователем функций JavaScript](stream-analytics-javascript-user-defined-functions.md)
 ### [Интеграция машинного обучения и REST API](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Формирование выходных данных](stream-analytics-define-outputs.md)
-### [Вывод в функциях Azure](stream-analytics-functions-redis.md)
 ### [Вывод в Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Вывод в Cosmos DB](stream-analytics-documentdb-output.md)
 
@@ -39,7 +38,8 @@
 ### [Мониторинг заданий](stream-analytics-monitoring.md)
 ### [Программный мониторинг заданий](stream-analytics-monitor-jobs.md)
 ### [Мониторинг заданий с помощью PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Оптимизация единиц потоковой передачи](stream-analytics-streaming-unit-consumption.md)
+### [Обзор и настройка единиц потоковой передачи](stream-analytics-streaming-unit-consumption.md)
+### [Использование параллелизации запросов](stream-analytics-parallelization.md)
 ### [Масштабирование для повышения пропускной способности](stream-analytics-scale-jobs.md)
 ### [Масштабирование для функций машинного обучения](stream-analytics-scale-with-machine-learning-functions.md)
 

@@ -1,44 +1,42 @@
 # Обзор
-## [Что такое Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
-## [Новые возможности Power BI Embedded](power-bi-embedded-whats-new.md)
+## [Что такое Power BI Embedded?](what-is-power-bi-embedded.md)
 
 # Начало работы
-## [Начало работы с Power BI Embedded](power-bi-embedded-get-started.md)
-## [Начало работы с примером](power-bi-embedded-get-started-sample.md)
-## [Часто задаваемые вопросы](power-bi-embedded-faq.md)
+## [Начало работы с Power BI Embedded](get-started.md)
+## [Приступая к работе с примером](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
 # Практическое руководство
-## Планирование и проектирование
-### [Распространенные сценарии](power-bi-embedded-scenarios.md)
+## Управление емкостями
+### [Создание емкости](create-capacity.md)
+### [Изменение масштаба емкости](scale-capacity.md)
+### [Приостановка и запуск емкости](pause-start.md)
+## [Регистрация приложения Azure AD](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/)
+## [Внедрение содержимого Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)
 
-## Управление
-### [Подключение к источнику данных](power-bi-embedded-connect-datasource.md)
-### [Внедрение отчета Power BI](power-bi-embedded-embed-report.md)
-### [Взаимодействие с отчетами](power-bi-embedded-interact-with-reports.md)
-### [Создание отчета из набора данных](power-bi-embedded-create-report-from-dataset.md)
-### [Сохранение отчетов](power-bi-embedded-save-reports.md)
-### [Переключение между представлениями и изменениями](power-bi-embedded-toggle-mode.md)
+## Миграция
+### [Перенос содержимого из коллекций рабочей области Power BI](migrate-from-power-bi-workspace-collections.md)
+### [Средство миграции](migrate-tool.md)
+### [Фрагменты кода миграции](migrate-code-snippets.md)
 
-## Безопасность
-### [Аутентификация и авторизация](power-bi-embedded-app-token-flow.md)
-### [Безопасность уровня строк в Power BI Embedded](power-bi-embedded-rls.md)
+# Примеры
+## [Примеры кода](https://github.com/Microsoft/PowerBI-Developer-Samples)
+## [Пример пошагового руководства](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
 # Справочные материалы
-## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
-## [Azure PowerShell](/powershell/module/azurerm.powerbiembedded)
-## [Использование Azure Resource Manager с .NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
-## [Скачивание пакета SDK для .NET](https://www.nuget.org/profiles/powerbi)
-## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
-## [Интерфейсы REST API управления](/rest/api/powerbiembedded/)
-## [Интерфейсы REST API](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-
+## Интерфейсы API
+### [REST API управления ресурсами Azure](/rest/api/powerbiembedded/)
+### [Интерфейсы REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+## Пакеты SDK
+### [Скачивание пакета SDK для .NET](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+### [Скачивание пакета SDK для JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Пример внедрения JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [Репозиторий JavaScript Git](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Репозиторий Power BI C# Git](https://github.com/Microsoft/PowerBI-CSharp)
-## [Сообщество Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Apiary](http://docs.powerbi.apiary.io/)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
-## [Пример приложения](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
+## Репозитории GitHub
+### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
+### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Сообщество Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+

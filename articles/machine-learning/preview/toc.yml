@@ -73,6 +73,8 @@
           href: tutorial-iris-azure-cli.md
         - name: Отслеживание журнала выполнения и метрик модели
           href: how-to-use-run-history-model-metrics.md
+        - name: Как найти операции запуска с максимальной точностью и минимальным временем выполнения
+          href: how-to-find-best-accuracy-cli.md
         - name: Чтение и запись файлов
           href: how-to-read-write-files.md
         - name: Библиотека MMLSpark

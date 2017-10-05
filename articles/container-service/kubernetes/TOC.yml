@@ -1,13 +1,13 @@
-- name: ACS с Kubernetes
+- name: Kubernetes в Azure
   href: ./index.yml
 - name: Обзор
   items:
-    - name: Общие сведения о службе контейнеров
+    - name: Kubernetes в Azure
       href: container-service-intro-kubernetes.md
 - name: Быстрое начало работы
   expanded: true
   items:
-    - name: Kubernetes Linux
+    - name: Kubernetes в Azure
       href: container-service-kubernetes-walkthrough.md
 - name: Учебники
   items:
@@ -25,14 +25,8 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: 7. Мониторинг с помощью OMS
       href: container-service-tutorial-kubernetes-monitor.md
-- name: Примеры
-  items:
-    - name: Инфраструктура CLI Azure
-      href: cli-samples.md
 - name: Основные понятия
   items:
-    - name: Безопасные контейнеры
-      href: container-service-security.md
     - name: "Субъект-служба\_— Kubernetes"
       href: container-service-kubernetes-service-principal.md
 - name: Практические руководства
@@ -41,18 +35,14 @@
       href: container-service-kubernetes-windows-walkthrough.md
     - name: Веб-интерфейс Kubernetes
       href: container-service-kubernetes-ui.md
-    - name: Развертывание диаграмм Helm
+    - name: Использование диаграмм Helm
       href: container-service-kubernetes-helm.md
-    - name: Интеграция Jenkins с ACS и Kubernetes
+    - name: Использование Jenkins с ACS
       href: container-service-kubernetes-jenkins.md
-    - name: Использование Draft с ACR и ACS
+    - name: Использование Draft с ACS
       href: container-service-draft-up.md
-    - name: Подключение к кластеру ACS
-      href: container-service-connect.md
-    - name: Масштабирование кластера ACS
+    - name: Изменение масштаба кластера
       href: container-service-scale.md
-    - name: Распределение нагрузки кластера ACS Kubernetes
-      href: container-service-kubernetes-load-balancing.md
     - name: Монитор
       items:
         - name: Мониторинг с помощью OMS
@@ -73,10 +63,10 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Справочные материалы
   items:
-    - name: "Azure CLI\_2.0"
+    - name: Инфраструктура CLI Azure
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

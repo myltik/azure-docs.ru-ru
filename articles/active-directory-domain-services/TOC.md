@@ -16,8 +16,9 @@
 # Практическое руководство
 ## Присоединение к управляемому домену
 ### [Присоединение виртуальной машины Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Присоединение виртуальной машины Windows Server с помощью Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Присоединение виртуальной машины Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Присоединение виртуальной машины Windows с помощью PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Сервер Ubuntu](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Администрирование управляемого домена
 ### [Администрирование управляемого домена](active-directory-ds-admin-guide-administer-domain.md)
 ### [Администрирование DNS на управляемом домене](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## Устранение неполадок
 ### [Часто задаваемые вопросы](active-directory-ds-faqs.md)
 ### [Руководство по устранению неполадок](active-directory-ds-troubleshooting.md)
-### [Включение интерфейса предварительной версии портала Azure](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Устранение ошибок несоответствия клиента](active-directory-ds-mismatched-tenant-error.md)
 
 # Справочные материалы

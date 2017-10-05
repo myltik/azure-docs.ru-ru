@@ -26,8 +26,8 @@
 
 ## Создание кластера и управление им
 ### 1. Создание кластера в Azure
-#### [1а. Создание защищенного кластера Windows в Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1б. Создание защищенного кластера Linux в Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1А. Создание кластера Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1Б. Создание кластера Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2. Развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Примеры
@@ -198,7 +198,6 @@
 ### Создание службы Reliable Actors
 #### Начало работы
 ##### [C# в Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java в Linux](service-fabric-reliable-actors-get-started-java.md)
 ##### [Субъект Java в Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Отправка уведомлений](service-fabric-reliable-actors-events.md)
 #### [Настройка таймеров и напоминаний](service-fabric-reliable-actors-timers-reminders.md)

@@ -1,38 +1,57 @@
 # Обзор
 ## [Обзор Azure Data Lake Store](data-lake-store-overview.md)
 ## [Сравнение Azure Data Lake Store со службой хранилища Azure](data-lake-store-comparison-with-blob-storage.md)
-## [Использование Azure Data Lake Store для обработки больших данных](data-lake-store-data-scenarios.md)
+## [Azure Data Lake Store для обработки больших данных](data-lake-store-data-scenarios.md)
 ## [Приложения с открытым кодом, совместимые с Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Начало работы
-## [Использование портала Azure](data-lake-store-get-started-portal.md)
-## [Использование Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [Использование пакета SDK для .NET](data-lake-store-get-started-net-sdk.md)
-## [Использование пакета SDK для Java](data-lake-store-get-started-java-sdk.md)
-## [Использование REST API](data-lake-store-get-started-rest-api.md)
-## [Использование интерфейса командной строки Azure](data-lake-store-get-started-cli-2.0.md)
-## [Использование Node.js](data-lake-store-manage-use-nodejs.md)
-## [Использование Python](data-lake-store-get-started-python.md)
+## [Использование портала](data-lake-store-get-started-portal.md)
+## [Использование PowerShell](data-lake-store-get-started-powershell.md)
+## [Использование Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+
 
 # Практическое руководство
-## Копирование данных
-### [Использование фабрики данных Azure](../data-factory/connector-azure-data-lake-store.md)
+## Загрузка и перемещение данных
+### [Использование фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md)
 ### [С помощью AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [С помощью DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Использование Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Передача данных из источников вне сети](data-lake-store-offline-bulk-data-upload.md)
 ### [Перенос хранилища Azure Data Lake Store между регионами](data-lake-store-migration-cross-region.md)
 
-## Обеспечение безопасности данных
+## Защита данных
 ### [Обзор безопасности](data-lake-store-security-overview.md)
 ### [Контроль доступа в Data Lake Store](data-lake-store-access-control.md)
-### [Защита данных в Data Lake Store](data-lake-store-secure-data.md)
-### [Аутентификация между службами](data-lake-store-authenticate-using-active-directory.md)
-### [Аутентификация пользователей](data-lake-store-end-user-authenticate-using-active-directory.md)
+### [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 ### [Шифрование](data-lake-store-encryption.md)
+
+## Аутентификация с использованием Data Lake Store
+### [Параметры аутентификации](data-lakes-store-authentication-using-azure-active-directory.md)
+### [Аутентификация пользователей](data-lake-store-end-user-authenticate-using-active-directory.md)
+#### [С использованием Java](data-lake-store-end-user-authenticate-java-sdk.md)
+#### [Использование пакета SDK для .NET](data-lake-store-end-user-authenticate-net-sdk.md)
+#### [Использование REST API](data-lake-store-end-user-authenticate-rest-api.md)
+#### [Использование Python](data-lake-store-end-user-authenticate-python.md)
+### [Аутентификация между службами](data-lake-store-service-to-service-authenticate-using-active-directory.md)
+#### [С использованием Java](data-lake-store-service-to-service-authenticate-java.md)
+#### [Использование пакета SDK для .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+#### [Использование REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
+#### [Использование Python](data-lake-store-service-to-service-authenticate-python.md)
+
+## Работа с Data Lake Store
+### Операции управления учетными записями
+#### [Использование пакета SDK для .NET](data-lake-store-get-started-net-sdk.md)
+#### [Использование REST API](data-lake-store-get-started-rest-api.md)
+#### [Использование Python](data-lake-store-get-started-python.md)
+### Операции файловой системы
+#### [Использование пакета SDK для .NET](data-lake-store-data-operations-net-sdk.md)
+#### [Использование пакета SDK для Java](data-lake-store-get-started-java-sdk.md)
+#### [Использование REST API](data-lake-store-data-operations-rest-api.md)
+#### [Использование Python](data-lake-store-data-operations-python.md)
 
 ## Производительность
 ### [Рекомендации по настройке производительности Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Рекомендации по настройке производительности для использования PowerShell с Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 ### [Рекомендации по настройке производительности для Spark в HDInsight и Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
 ### [Рекомендации по настройке производительности для Hive в HDInsight и Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
 ### [Рекомендации по настройке производительности для MapReduce в HDInsight и Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
