@@ -3,7 +3,7 @@ title: "Управление кластерами Hadoop в HDInsight с пом�
 description: "Узнайте, как создавать кластеры HDInsight и управлять ими с помощью портала Azure."
 services: hdinsight
 documentationcenter: 
-author: mumian
+author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: jgao
+ms.author: ashishtha
 ms.translationtype: HT
 ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 54e53c98390b44ee5f298d5f61c13a4d299e5ae1
@@ -24,6 +24,7 @@ ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop в HDInsight с помощью портала Azure
+
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 [Портал Azure][azure-portal] позволяет управлять кластерами Hadoop в Azure HDInsight. Используйте другие вкладки выше, чтобы перейти к статьям об управлении кластерами Hadoop в HDInsight с помощью других инструментов.

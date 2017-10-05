@@ -309,7 +309,7 @@ private async Task<Dictionary<string, string>> GetChanges(
 
         while (query.HasMoreResults)
         {
-            FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+            FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>();
 
             foreach (DeviceReading changedDocument in readChangesResponse)
             {
@@ -339,7 +339,7 @@ checkpoints = await GetChanges(client, collection, checkpoints);
 Вы также можете фильтровать веб-канал изменений с помощью логики на стороне клиента, чтобы обрабатывать события выборочно. Например, ниже приведен фрагмент кода, в котором используется LINQ на стороне клиента для обработки только событий изменения температуры с датчиков устройств.
 
 ```csharp
-FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>;
 
 foreach (DeviceReading changedDocument in 
     readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))

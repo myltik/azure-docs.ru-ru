@@ -35,7 +35,7 @@ ms.lasthandoff: 08/21/2017
 |H:\Video\ |Коллекция видео.|12 ТБ|
 |H:\Photo\ |Коллекция фотографий.|30 ГБ|
 |K:\Temp\FavoriteMovie.ISO|Образ диска Blu-Ray™.|25 ГБ|
-|\\\bigshare\john\music\|Коллекция музыкальных файлов в сетевой папке.|10 ГБ|
+|\\\bigshare\john\music\ |Коллекция музыкальных файлов в сетевой папке.|10 ГБ|
 
 ## <a name="storage-account-destinations"></a>Целевые каталоги в учетной записи хранения
 
