@@ -55,7 +55,7 @@ ms.lasthandoff: 09/20/2017
 Чтобы ознакомиться с основными понятиями и общими процедурами создания и настройки, необходимо пройти следующие учебники:
 
 1. [Как использовать разделы и подписки служебной шины] — здесь подробно описывается работа с разделами и подписками служебной шины, создание пространства имен для хранения разделов и подписок, отправка им сообщений и получение сообщений от них.
-2. [Учебник по центрам уведомлений для Windows Universal] — в этом учебнике рассказывается о том, как настроить приложение Магазина Windows и использовать центры уведомлений для регистрации и последующего получения уведомлений.
+2. [учебника по центрам уведомлений для Windows Universal] — в этом учебнике рассказывается о том, как настроить приложение Магазина Windows и использовать центры уведомлений для регистрации и последующего получения уведомлений.
 
 ### <a name="sample-code"></a>Пример кода
 Полный пример кода доступен в [коллекции примеров центра уведомлений]. Он состоит из трех компонентов:
@@ -213,7 +213,7 @@ ms.lasthandoff: 09/20/2017
    
     ![][3]
    
-    ж. Настройте "непрерывное выполнение" задания, чтобы при входе на [классический портал Azure] отображалось примерно следующее:
+    ж. Настройте "непрерывное выполнение" задания, чтобы при входе на [классическом портале Azure] отображалось примерно следующее:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -260,10 +260,10 @@ ms.lasthandoff: 09/20/2017
 
 <!-- Links -->
 [коллекции примеров центра уведомлений]: https://github.com/Azure/azure-notificationhubs-samples
-[Мобильная служба Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
-[служебной шине Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Использование разделов и подписок Service Bus]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[мобильная служба Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
+[служебной шиной Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Как использовать разделы и подписки служебной шины]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [веб-задания Azure]: ../app-service/web-sites-create-web-jobs.md
-[Учебник по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[классический портал Azure]: https://manage.windowsazure.com/
+[учебника по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[классическом портале Azure]: https://manage.windowsazure.com/
 
