@@ -191,12 +191,12 @@ ms.lasthandoff: 09/25/2017
 
 <!-- Links -->
 
-[Портал Azure]: https://portal.azure.com/
+[портала Azure]: https://portal.azure.com/
 
-[Центре разработчика для IoT в Azure]: http://www.azure.com/develop/iot
+[Центре разработчика Центра Интернета вещей Azure]: http://www.azure.com/develop/iot
 
-[Обработка временного сбоя]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Пакет SDK NuGet для служб Azure IoT]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[пакет SDK NuGet для служб Azure IoT]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
