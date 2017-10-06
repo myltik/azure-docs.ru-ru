@@ -164,5 +164,5 @@ ms.lasthandoff: 09/25/2017
 - [Визуализация данных с помощью Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 
 <!-- Azure references -->
-[портале Azure]: https://portal.azure.com
+[портал Azure]: https://portal.azure.com
 

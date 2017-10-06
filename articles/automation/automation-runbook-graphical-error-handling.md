@@ -3,7 +3,7 @@ title: "Обработка ошибок в графических модулях
 description: "В этой статье описывается, как реализовать логику обработки ошибок в графических модулях Runbook в службе автоматизации Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 

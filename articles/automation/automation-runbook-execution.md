@@ -3,7 +3,7 @@ title: "Выполнение модуля Runbook в службе автомат
 description: "Рассматривается обработка модуля Runbook в службе автоматизации Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca

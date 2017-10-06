@@ -3,7 +3,7 @@ title: "Мой первый модуль Runbook PowerShell в службе ав
 description: "Учебник, в котором описывается создание, тестирование и публикация простого модуля Runbook PowerShell."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "Azure PowerShell, руководство по скриптам PowerShell, инструменты автоматизации PowerShell"

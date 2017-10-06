@@ -3,7 +3,7 @@ title: "Удаление гибридных рабочих ролей Runbook в
 description: "В этой статье содержатся сведения об управлении развернутыми гибридными рабочими ролями Runbook в службе автоматизации Azure, которые позволяют запускать модули Runbook на компьютерах в локальном центре обработки данных или облачной среде."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 

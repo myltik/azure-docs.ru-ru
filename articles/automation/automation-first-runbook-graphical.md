@@ -3,7 +3,7 @@ title: "Создание графического модуля Runbook в слу
 description: "Учебник, в котором описывается создание, тестирование и публикация простого графического модуля Runbook."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "Runbook, шаблон Runbook, служба автоматизации Runbook и Azure Runbook"

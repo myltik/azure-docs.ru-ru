@@ -3,7 +3,7 @@ title: "Создание учетной записи пользователя Az
 description: "В этой статье объясняется, как создать учетные данные учетной записи пользователя Azure AD для модулей Runbook в службе автоматизации Azure для выполнения проверки подлинности в Azure и на классическом портале Azure."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "пользователь azure active directory, управление службами azure, учетная запись пользователя azure ad"

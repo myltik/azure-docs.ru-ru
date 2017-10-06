@@ -3,7 +3,7 @@ title: "Проверка конфигурации учетной записи с
 description: "В этой статье описывается проверка правильной настройки конфигурации учетной записи службы автоматизации."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

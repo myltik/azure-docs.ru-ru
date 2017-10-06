@@ -3,7 +3,7 @@ title: "Решение для запуска и остановки виртуа�
 description: "Решения по управлению запуском и остановкой виртуальных машин Azure Resource Manager по расписанию и упреждающему мониторингу с помощью Log Analytics."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883

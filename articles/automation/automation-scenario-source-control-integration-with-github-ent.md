@@ -3,7 +3,7 @@ title: "Интеграция системы управления версиям�
 description: "В статье описано, как настроить интеграцию модулей Runbook системы управления версиями службы автоматизации с GitHub Enterprise."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: jwhit
 editor: 
 ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4

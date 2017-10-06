@@ -3,7 +3,7 @@ title: "Графическая разработка в службе автома
 description: "Графическая разработка позволяет создавать модули Runbook для службы автоматизации Azure без работы с кодом. Эта статья содержит вводные сведения о графическом создании и всю информацию, необходимую, чтобы приступить к созданию графического Runbook."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943

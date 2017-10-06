@@ -3,7 +3,7 @@ title: "Служба автоматизации Azure | Документация
 description: "Узнайте, какие преимущества обеспечивает служба автоматизации Azure, и получите ответы на часто задаваемые вопросы, чтобы приступить к созданию и использованию модулей Runbook и службы Azure Automation DSC."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "что такое служба автоматизации, служба автоматизации azure, примеры использования службы автоматизации azure"

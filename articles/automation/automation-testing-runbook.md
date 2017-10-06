@@ -3,7 +3,7 @@ title: "Тестирование модуля Runbook в службе автом
 description: "Перед публикацией модуля Runbook в службе автоматизации Azure его можно протестировать и проверить, работает ли он должным образом.  В этой статье описывается тестирование модулей Runbook и просмотр его выходных данных."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182

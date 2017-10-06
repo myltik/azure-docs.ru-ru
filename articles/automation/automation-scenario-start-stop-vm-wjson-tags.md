@@ -3,7 +3,7 @@ title: "Использование тегов в формате JSON для пл
 description: "В этой статье демонстрируется использование строк JSON в тегах для автоматизации планирования запуска и завершения работы виртуальной машины."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2

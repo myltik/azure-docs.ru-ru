@@ -3,7 +3,7 @@ title: "Гибридные рабочие роли Runbook службы авто
 description: "В этой статье содержатся сведения об установке гибридной рабочей роли Runbook в службе автоматизации Azure, которая позволяет запускать модули Runbook на компьютерах под управлением Linux в локальном центре обработки данных или облачной среде."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 
