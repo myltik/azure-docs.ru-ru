@@ -203,6 +203,6 @@ SendGrid предоставляет несколько интерфейсов AP
 [settings-documentation]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
 
 [облачная служба электронной почты]: https://sendgrid.com/solutions
-[доставки электронной почты]: https://sendgrid.com/use-cases/transactional-email
+[доставку транзакционных писем]: https://sendgrid.com/use-cases/transactional-email
 
 

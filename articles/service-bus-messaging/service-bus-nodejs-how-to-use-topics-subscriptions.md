@@ -327,7 +327,7 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Создание и развертывание приложения Node.js на веб-сайте Azure]: ../app-service/app-service-web-get-started-nodejs.md
+[Создание и развертывание веб-приложения Node.js в службе приложений Azure]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 
