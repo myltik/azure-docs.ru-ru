@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0fd127293edfaf7eb19a4561ab8d0a19f993bcad
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -30,6 +30,8 @@ ms.lasthandoff: 09/13/2017
 В рамках этой статьи вы создадите приложение для обслуживания ветроэлектрических установок. Здесь показано, как вызвать функцию, определенную в статье [Создание определения OpenAPI функции](functions-openapi-definition.md). Функция определяет экономичность аварийного ремонта ветроэлектрической установки.
 
 ![Готовое приложение в PowerApps](media/functions-powerapps-scenario/finished-app.png)
+
+Сведения о вызове этой же функции из Microsoft Flow вы найдете в статье [Call a function from Microsoft Flow](functions-flow-scenario.md) (Вызов функции из Microsoft Flow).
 
 В этой статье:
 
@@ -206,7 +208,7 @@ ms.lasthandoff: 09/13/2017
     ```
     If (BrowseGallery1.Selected.ServiceRequired="Yes", ClearCollect(DetermineRepair, TurbineRepair.CalculateCosts({hours: BrowseGallery1.Selected.EstimatedEffort, capacity: BrowseGallery1.Selected.MaxOutput})))
     ```
-    Эта формула выполняется при нажатии кнопки, а если элемент выбранной коллекции имеет значение ** параметра **Требуется_обслуживание`Yes`, она выполняет следующее:
+    Эта формула выполняется при нажатии кнопки, если для параметра **Требуется_обслуживание** элемента выбранной коллекции задано значение `Yes`:
 
     + Удаляет значение `DetermineRepair` *коллекции*, чтобы удалить данные предыдущих вызовов. (Коллекция — это табличная переменная).
 
@@ -251,4 +253,4 @@ ms.lasthandoff: 09/13/2017
 
 Дополнительные сведения о PowerApps см. в статье [Введение в PowerApps](https://powerapps.microsoft.com/tutorials/getting-started/).
 
-Дополнительные сведения о других сценариях использования Функций Azure см. в статье [Создание функции, интегрируемой с Azure Logic Apps](functions-twitter-email.md).
+Дополнительные сведения о других сценариях использования службы "Функции Azure" см. в статьях [Call a function from Microsoft Flow](functions-flow-scenario.md) (Вызов функции из Microsoft Flow) и [Создание функции, интегрируемой с Azure Logic Apps](functions-twitter-email.md).

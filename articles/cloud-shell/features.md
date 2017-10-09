@@ -1,7 +1,7 @@
 ---
-title: "Функции Azure Cloud Shell (предварительная версия) | Документация Майкрософт"
-description: "Обзор функций Azure Cloud Shell."
-services: 
+title: "Функции Bash в Azure Cloud Shell (предварительная версия) | Документация Майкрософт"
+description: "Обзор функций Bash в Azure Cloud Shell."
+services: Azure
 documentationcenter: 
 author: jluk
 manager: timlt
@@ -12,55 +12,69 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 09/25/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67f03d5857e37b253ac57536e289b5468d69e9b5
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 158b0b65ba53630050275c910f2a7acfc39b8759
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="features-and-tools-for-azure-cloud-shell"></a>Функции и средства Azure Cloud Shell
-Azure Cloud Shell — это браузерная оболочка, предназначенная для разработки ресурсов Azure и управления ими.
+# <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Функции и инструменты для Bash в Azure Cloud Shell
 
-Cloud Shell предлагает предварительно настроенную и доступную из браузера оболочку для управления ресурсами Azure, которая избавит вас от необходимости самостоятельно устанавливать ПО, управлять версиями и обслуживать компьютер.
+[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Cloud Shell подготавливает компьютеры по запросу, в результате чего состояние компьютера не сохраняется между сеансами. Поскольку Cloud Shell создана для интерактивных сеансов, оболочки автоматически завершают работу после 20 минут бездействия.
+> [!TIP]
+> Также доступны функции и инструменты для [PowerShell](features-powershell.md).
 
-## <a name="bash-in-cloud-shell"></a>Bash в Cloud Shell
-### <a name="tools"></a>Средства
+Bash в Cloud Shell выполняется в `Ubuntu 16.04 LTS`.
+
+## <a name="features"></a>Функции
+
+### <a name="secure-automatic-authentication"></a>Безопасная автоматическая аутентификация
+
+Bash в Cloud Shell безопасно и автоматически выполняет аутентификацию доступа учетных записей для Azure CLI 2.0.
+
+### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH-подключение к виртуальным машинам Linux в Azure
+
+При создании виртуальной машины Linux в Azure CLI 2.0 можно создать ключ SSH по умолчанию и поместить его в свой каталог `$Home`. Размещение ключей SSH в `$Home` позволяет осуществлять подключение по протоколу SSH к виртуальным машинам Linux в Azure непосредственно из Cloud Shell. Ключи хранятся в файле acc_<user>.img в файловом ресурсе. Следуйте рекомендациям по использованию файлового ресурса или ключей и предоставлению доступа к ним.
+
+### <a name="home-persistence-across-sessions"></a>Сохранение каталога $Home между сеансами
+
+Чтобы сохранять файлы между сеансами, при первом запуске Cloud Shell предлагается присоединить общую папку Azure.
+По завершении настройки Cloud Shell будет автоматически подключать хранилище (подключенное как `$Home\clouddrive`) для всех будущих сеансов.
+Кроме того, в Bash в Cloud Shell ваш каталог `$Home` сохраняется в виде IMG-файла в файловом ресурсе Azure.
+Файлы вне `$Home` и состояние компьютера не сохраняются между сеансами.
+
+[Дополнительные сведения о сохранении файлов для Bash в Cloud Shell.](persisting-shell-storage.md)
+
+## <a name="tools"></a>Средства
+
 |Категория   |Имя   |
 |---|---|
 |Интерпретатор оболочки Linux|Bash<br> sh               |
-|Инструменты Azure            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) и [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)     |
+|Инструменты Azure            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) и [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br>    |
 |Текстовые редакторы           |vim<br> nano<br> emacs       |
 |Система управления версиями         |git                    |
 |Инструменты сборки            |make<br> maven<br> npm<br> pip         |
-|Контейнеры             |[Docker CLI](https://github.com/docker/cli)/[Компьютер Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Draft](https://github.com/Azure/draft)<br> [Интерфейс командной строки DC/OS](https://github.com/dcos/dcos-cli)         |
+|Контейнеры             |[Docker CLI](https://github.com/docker/cli)/[Компьютер Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [Интерфейс командной строки DC/OS](https://github.com/dcos/dcos-cli)         |
 |Базы данных              |Клиент MySQL<br> Клиент PostgreSQL<br> [Служебная программа sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Другие                  |Клиент iPython<br> [Интерфейс командной строки Cloud Foundry](https://github.com/cloudfoundry/cli)<br> |
+|Другие                  |Клиент iPython<br> [Интерфейс командной строки Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> |
 
-### <a name="language-support"></a>Поддержка языков
+## <a name="language-support"></a>Поддержка языков
+
 |язык   |Version (версия)   |
 |---|---|
 |.NET       |1.01       |
 |Go         |1.7        |
 |Java       |1.8        |
 |Node.js    |6.9.4      |
+|PowerShell  |[6.0 (бета-версия)](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 и 3.5 (по умолчанию)|
 
-## <a name="secure-automatic-authentication"></a>Безопасная автоматическая аутентификация
-Cloud Shell безопасно и автоматически выполняет аутентификацию доступа к учетной записи для Azure CLI 2.0.
-
-## <a name="azure-files-persistence"></a>Сохраняемость файлов Azure
-Поскольку Cloud Shell выделяется по запросу с использованием временного компьютера, файлы за пределами каталога $Home и сведения о состоянии компьютера не сохраняются между сеансами.
-Чтобы сохранять файлы между сеансами, при первом запуске Cloud Shell предлагается присоединить общую папку Azure.
-По завершении настройки Cloud Shell будет автоматически присоединять хранилище для всех будущих сеансов.
-
-Дополнительные сведения см. в статье [Сохранение файлов в Azure Cloud Shell](persisting-shell-storage.md).
-
 ## <a name="next-steps"></a>Дальнейшие действия
-[Краткое руководство по Cloud Shell](quickstart.md) <br>
-[Подробное описание Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Краткое руководство по Bash в Cloud Shell](quickstart.md) <br>
+[Справочник команд Azure CLI 2.0](https://docs.microsoft.com/cli/azure/)
+

@@ -1,6 +1,6 @@
 ---
-title: "Привязки Cosmos DB в Функциях Azure | Документация Майкрософт"
-description: "Узнайте, как использовать привязки Azure Cosmos DB в Функциях Azure."
+title: "Привязки Azure Cosmos DB для службы \"Функции\" | Документация Майкрософт"
+description: "Узнайте, как использовать триггеры и привязки Azure Cosmos DB в службе \"Функции Azure\"."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -9,33 +9,105 @@ editor:
 tags: 
 keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
 ms.assetid: 3d8497f0-21f3-437d-ba24-5ece8c90ac85
-ms.service: functions
+ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fb79e2ad7514ae2cf48b9a5bd486e54b9b407bee
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ad058929eb888920823fddf549ada4ce2c6d9eee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-functions-cosmos-db-bindings"></a>Привязки Cosmos DB в Функциях Azure
+# <a name="azure-cosmos-db-bindings-for-functions"></a>Привязки Azure Cosmos DB для службы "Функции"
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-В этой статье объясняется, как настроить и запрограммировать привязки Azure Cosmos DB в Функциях Azure. Функции Azure поддерживают входные и выходные привязки для Cosmos DB.
+В этой статье объясняется, как настроить и запрограммировать привязки Azure Cosmos DB в Функциях Azure. Служба "Функции" поддерживает привязки триггера, а также входные и выходные привязки для Azure Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Дополнительные сведения о Cosmos DB см. в статьях [Знакомство с DocumentDB: база данных NoSQL JSON](../documentdb/documentdb-introduction.md) и [Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C#](../documentdb/documentdb-get-started.md).
+Дополнительные сведения о бессерверных вычислениях с помощью Azure Cosmos DB см. в разделе [Azure Cosmos DB: обработка данных бессерверных баз данных с помощью службы "Функции Azure"](..\cosmos-db\serverless-computing-database.md).
+
+<a id="trigger"></a>
+<a id="cosmosdbtrigger"></a>
+
+## <a name="azure-cosmos-db-trigger"></a>Триггер Azure Cosmos DB
+
+Триггер Azure Cosmos DB использует [канал изменений Azure Cosmos DB](../cosmos-db/change-feed.md) для ожидания передачи данных изменений между разделами. Триггеру требуется вторая коллекция, которая используется для хранения _аренды_ в разделах.
+
+Отслеживаемая коллекция и та, в которой содержатся аренды, должны быть доступны для успешной работы триггера.
+
+Триггер Azure Cosmos DB поддерживает следующие свойства:
+
+|Свойство  |Описание  |
+|---------|---------|
+|**type** | Нужно задать значение `cosmosDBTrigger`. |
+|**name** | Имя переменной, используемое в коде функции, представляющей список документов с изменениями. | 
+|**direction** | Нужно задать значение `in`. Этот параметр задается автоматически при создании триггера на портале Azure. |
+|**connectionStringSetting** | Имя параметра приложения, содержащего строку подключения, используемую для подключения к отслеживаемой учетной записи Azure Cosmos DB. |
+|**databaseName** | Имя базы данных Azure Cosmos DB с отслеживаемой коллекцией. |
+|**collectionName** | Имя отслеживаемой коллекции. |
+| **leaseConnectionStringSetting** | (Необязательно.) Имя параметра приложения, содержащее строку подключения для службы, содержащей коллекцию аренды. Если значение не задано, используется значение `connectionStringSetting`. Этот параметр задается автоматически при создании привязки на портале. |
+| **leaseDatabaseName** | (Необязательно.) Имя базы данных, в которой содержится коллекция, используемая для хранения аренд. Если значение не задано, используется значение параметра `databaseName`. Этот параметр задается автоматически при создании привязки на портале. |
+| **leaseCollectionName** | (Необязательно.) Имя коллекции, используемой для хранения аренд. Если значение не задано, используется значение `leases`. |
+| **createLeaseCollectionIfNotExists** | (Необязательно.) Если задано значение `true`, коллекция аренд создается автоматически, если она не создана. По умолчанию используется значение `false`. |
+| **leaseCollectionThroughput** | (Необязательно.) Определяет количество единиц запросов для назначения при создании коллекции аренд. Этот параметр используется, только если для `createLeaseCollectionIfNotExists` задано значение `true`. Этот параметр задается автоматически при создании привязки с помощью портала.
+
+>[!NOTE] 
+>Строка подключения, используемая для подключения к коллекции аренд, должна иметь разрешения на запись.
+
+Эти свойства можно задать на вкладке "Интеграция" для функции на портале Azure или путем изменения файла проекта `function.json`.
+
+## <a name="using-an-azure-cosmos-db-trigger"></a>Использование триггера Azure Cosmos DB
+
+В этом разделе содержатся примеры использования триггера Azure Cosmos DB. В этих примерах требуются примерно такие метаданные триггера:
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "<connection-app-setting>",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+```
+ 
+Пример того, как создать триггер Azure Cosmos DB из приложения-функции на портале, см. в статье [Создание функции, активируемой с помощью Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md). 
+
+### <a name="trigger-sample-in-c"></a>Пример триггера на языке C# #
+```cs 
+    #r "Microsoft.Azure.Documents.Client"
+    using Microsoft.Azure.Documents;
+    using System.Collections.Generic;
+    using System;
+    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+    {
+        log.Verbose("Documents modified " + documents.Count);
+        log.Verbose("First document Id " + documents[0].Id);
+    }
+```
+
+
+### <a name="trigger-sample-in-javascript"></a>Пример триггера для JavaScript
+```javascript
+    module.exports = function (context, documents) {
+        context.log('First document Id modified : ', documents[0].id);
+
+        context.done();
+    }
+```
 
 <a id="docdbinput"></a>
 
 ## <a name="documentdb-api-input-binding"></a>Входная привязка API DocumentDB
-Входная привязка API DocumentDB получает документ Cosmos DB и передает его именованному входному параметру функции. Идентификатор документа можно определить по триггеру, который вызывает функцию. 
+Входная привязка API DocumentDB получает документ Azure Cosmos DB и передает его именованному входному параметру функции. Идентификатор документа можно определить по триггеру, который вызывает функцию. 
 
 Входная привязка API DocumentDB имеет следующие свойства в *function.json*:
 
@@ -46,8 +118,8 @@ ms.lasthandoff: 08/29/2017
 |**databaseName** | База данных, содержащая документ.        |
 |**collectionName**  | Имя коллекции, содержащей документ. |
 |**id**     | Идентификатор документа, который нужно получить. Это свойство поддерживает параметры привязок. Дополнительные сведения см. в разделе [Привязка к пользовательским входным свойствам в выражении привязки](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). |
-|**sqlQuery**     | SQL-запрос к Cosmos DB, используемый для извлечения нескольких документов. Запрос поддерживает привязки времени выполнения, например `SELECT * FROM c where c.departmentId = {departmentId}`.        |
-|**подключение**     |Имя параметра приложения, содержащего строку подключения к Cosmos DB.        |
+|**sqlQuery**     | SQL-запрос к Azure Cosmos DB, используемый для извлечения нескольких документов. Запрос поддерживает привязки времени выполнения, например `SELECT * FROM c where c.departmentId = {departmentId}`.        |
+|**подключение**     |Имя параметра приложения, содержащего строку подключения к Azure Cosmos DB.        |
 |**direction**     | Нужно задать значение `in`.         |
 
 Невозможно задать одновременно свойства **id** и **sqlQuery**. Если ни одно свойство не задано, извлекается вся коллекция.
@@ -189,7 +261,7 @@ module.exports = function (context, input) {
 |**databaseName** | База данных, содержащая коллекцию, в которой создается документ.     |
 |**collectionName**  | Имя коллекции, в которой создается документ. |
 |**createIfNotExists**     | Логическое значение, указывающее, будет ли создана коллекция при ее отсутствии. Значение по умолчанию — *false*. Это вызвано тем, что коллекции создаются с использованием зарезервированной пропускной способности, с которой связаны ценовые требования. Дополнительные сведения см. на [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).  |
-|**подключение**     |Имя параметра приложения, содержащего строку подключения к Cosmos DB.        |
+|**подключение**     |Имя параметра приложения, содержащего строку подключения к Azure Cosmos DB.        |
 |**direction**     | Нужно задать значение `out`.         |
 
 ## <a name="using-a-documentdb-api-output-binding"></a>Использование выходной привязки API DocumentDB
@@ -229,7 +301,7 @@ module.exports = function (context, input) {
 }
 ```
 
-При этом вам нужно создать документы Cosmos DB в следующем формате для каждой записи:
+При этом вам нужно создать документы Azure Cosmos DB в следующем формате для каждой записи:
 
 ```json
 {

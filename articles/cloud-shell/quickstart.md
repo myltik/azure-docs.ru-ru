@@ -1,6 +1,6 @@
 ---
-title: "Краткое руководство по Azure Cloud Shell (предварительная версия) | Документация Майкрософт"
-description: "Краткое руководство по Azure Cloud Shell"
+title: "Краткое руководство по Bash в Azure Cloud Shell (предварительная версия) | Документация Майкрософт"
+description: "Краткое руководство по Bash в Cloud Shell"
 services: 
 documentationcenter: 
 author: jluk
@@ -12,28 +12,36 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 75676eb0ab784e2adbfd27b170c1dee5599b74ac
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="quickstart-for-using-the-azure-cloud-shell"></a>Краткое руководство по использованию Azure Cloud Shell
+# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Краткое руководство по Bash в Azure Cloud Shell
 
-В этой статье объясняется, как использовать Azure Cloud Shell на [портале Azure](https://ms.portal.azure.com/).
+В этом документе объясняется, как использовать Bash в Azure Cloud Shell на [портале Azure](https://ms.portal.azure.com/).
+
+> [!NOTE]
+> Также вы можете ознакомиться с кратким руководством по использованию [PowerShell в Azure Cloud Shell](quickstart-powershell.md).
 
 ## <a name="start-cloud-shell"></a>Запуск Cloud Shell
 1. Запустите **Cloud Shell** в верхней панели навигации портала Azure. <br>
-![](media/shell-icon.png)
+![](media/quickstart/shell-icon.png)
 2. Выберите подписку для создания учетной записи хранения и общей папки Azure.
 3. Нажмите кнопку "Создать хранилище".
 
 > [!TIP]
 > Вы автоматически проходите проверку подлинности для Azure CLI 2.0 в каждом сеансе.
+
+### <a name="select-the-bash-environment"></a>Выбор среды Bash
+1. Щелкните раскрывающийся список среды в левой части окна оболочки. <br>
+![](media/quickstart/env-selector.png)
+2. Выберите Bash.
 
 ### <a name="set-your-subscription"></a>Настройка подписки
 1. Выведите список подписок, к которым у вас есть доступ: <br>
@@ -61,16 +69,16 @@ ms.lasthandoff: 08/21/2017
 1. Найдите имя виртуальной машины на панели поиска портала Azure.
 2. Щелкните "Подключить" и выполните `ssh username@ipaddress`.
 
-![](media/sshcmd-copy.png)
+![](media/quickstart/sshcmd-copy.png)
 
-После установки SSH-подключения отобразится строка приветствия Ubuntu.
-![](media/ubuntu-welcome.png)
+После установки SSH-подключения отобразится строка приветствия Ubuntu. <br>
+![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Очистка. 
 Удалите группу ресурсов и все ее ресурсы. <br>
 Запустите `az group delete -n MyRG`
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Сохранение файлов в Azure Cloud Shell](persisting-shell-storage.md) <br>
+[Дополнительные сведения о сохранении файлов для Bash в Cloud Shell.](persisting-shell-storage.md) <br>
 [Справочник команд Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Знакомство с хранилищем файлов Azure](../storage/files/storage-files-introduction.md) <br>

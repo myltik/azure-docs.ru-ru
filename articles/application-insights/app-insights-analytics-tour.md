@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: edcf294856582569c00f7cf49beb3a481e28d7d8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ccea92dda99c3b76cbb7d37b20ce810b210a8217
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Знакомство с аналитикой в Application Insights
@@ -58,6 +58,16 @@ ms.lasthandoff: 08/02/2017
 > Чтобы изменить порядок результатов, доступных в веб-браузере, щелкните заголовок столбца. Но имейте в виду, что для большого результирующего набора в браузер загружается ограниченное количество строк. Сортировка таким способом не всегда показывает фактические наибольшие или наименьшие элементы. Чтобы безошибочно отсортировать элементы, используйте операторы `top` или `sort`.
 >
 >
+
+## <a name="query-across-applications"></a>Запрос в приложениях
+Если нужно объединить данные из нескольких приложений Application Insights, используйте ключевое слово **приложение**, чтобы указать приложение и имя таблицы.  Этот запрос объединяет запросы двух разных приложений, использующих команду **объединения**.
+
+
+```AIQL
+
+    union app('fabrikamstage').requests, app('fabrikamprod').requests
+    
+```
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>Операторы [top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) и [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` позволяет получить быструю выборку из результата, но отображает строки из таблицы в произвольном порядке. Чтобы упорядочить строки, используйте `top` (для выборки) или `sort` (для всей таблицы).

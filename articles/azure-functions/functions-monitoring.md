@@ -1,9 +1,8 @@
 ---
-title: "Мониторинг Функций Azure | Документация Майкрософт"
-description: "Сведения о мониторинге Функций Azure."
+title: "Мониторинг Функций Azure"
+description: "Сведения об использовании Azure Application Insights с решением \"Функции Azure\" для мониторинга выполнения функций."
 services: functions
-documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -14,110 +13,512 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/03/2016
-ms.author: wesmc
+ms.date: 09/15/2017
+ms.author: tdykstra
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 278fd4a811afac240b6ad3c2eb7f0a23cb686382
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 90720774f956149dc159de1d5457e556a52ddc82
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="monitoring-azure-functions"></a>Мониторинг функций Azure
+# <a name="monitor-azure-functions"></a>Мониторинг Функций Azure
 
 ## <a name="overview"></a>Обзор 
 
+Решение [Функции Azure](functions-overview.md) предлагает встроенную интеграцию со службой [Azure Application Insights](../application-insights/app-insights-overview.md) для мониторинга функций. В этой статье показано, как настроить отправку данных телеметрии из Функций в Application Insights.
 
-На вкладке **Мониторинг** для каждой функции можно просматривать каждое ее выполнение.
+![Обозреватель метрик в Application Insights](media/functions-monitoring/metrics-explorer.png)
 
-![Вкладка "Мониторинг" Функций Azure](./media/functions-monitoring/monitor-tab.png) 
+Функции также содержат встроенные средства для мониторинга, в которых не используется Application Insights. Мы рекомендуем использовать службу Application Insights, которая предоставляет дополнительные данные и больше возможностей для их анализа. Сведения о встроенных средствах мониторинга см. в [последнем разделе этой статьи](#monitoring-without-application-insights).
 
-Если щелкнуть выполнение, можно просмотреть длительность, входные данные, ошибки и связанные файлы журнала. Это полезно для отладки и настройки производительности ваших функций.
+## <a name="enable-application-insights-integration"></a>Включение интеграции с Application Insights
+
+Для отправки данных в Application Insights приложению-функции требуется ключ инструментирования для экземпляра Application Insights. Вы можете создать такое подключение на [портале Azure](https://portal.azure.com) двумя способами:
+
+* [создание подключенного экземпляра Application Insights одновременно с созданием приложения-функции](#new-function-app);
+* [подключение экземпляра Application Insights к существующему приложению-функции](#existing-function-app).
+ 
+### <a name="new-function-app"></a>Новое приложение-функция
+
+Включите Application Insights на странице **Создать** для приложения-функции, выполнив следующие действия.
+
+1. Установите переключатель **Application Insights** в состояние **Включено**.
+
+2. Выберите **расположение Application Insights**.
+
+   ![Включение Application Insights при создании приложения-функции](media/functions-monitoring/enable-ai-new-function-app.png)
+
+### <a name="existing-function-app"></a>Существующее приложение-функция
+
+Получите ключ инструментирования и сохраните его в приложении-функции, выполнив следующие действия.
+
+1. Создайте экземпляр Application Insights. Задайте тип приложения **Общие**.
+
+   ![Создание экземпляра Application Insights с типом "Общие"](media/functions-monitoring/ai-general.png)
+
+2. Скопируйте ключ инструментирования на странице **Основные компоненты** в экземпляре Application Insights. Наведите указатель мыши на конец отображаемого значения ключа, чтобы появилась кнопка **Щелкните, чтобы скопировать**.
+
+   ![Копирование ключа инструментирования Application Insights](media/functions-monitoring/copy-ai-key.png)
+
+1. На странице **Параметры приложения** для приложения-функции [добавьте параметр приложения](functions-how-to-use-azure-function-app-settings.md#settings) с именем APPINSIGHTS_INSTRUMENTATIONKEY и вставьте ключ инструментирования.
+
+   ![Добавление ключа инструментирования в настройках приложения](media/functions-monitoring/add-ai-key.png)
+
+1. Щелкните **Сохранить**.
+
+## <a name="view-telemetry-data"></a>Просмотр данных телеметрии
+
+Чтобы перейти к Application Insights из приложения-функция на портале, выберите ссылку **Application Insights** на странице **Обзор** для приложения-функции.
+
+Дополнительные сведения об использовании Application Insights см. в [документации по Application Insights](https://docs.microsoft.com/azure/application-insights/). В этом разделе представлено несколько примеров просмотра данных в Application Insights. Если вы уже знакомы с Application Insights, можете сразу переходить к [разделам, посвященным конфигурации и настройке данных телеметрии](#configure-categories-and-log-levels).
+
+В [обозревателе метрик](../application-insights/app-insights-metrics-explorer.md) можно создавать диаграммы и оповещения на основе таких метрик, как количество вызовов функции, время выполнения и процент успешных операций.
+
+![Обозреватель метрик](media/functions-monitoring/metrics-explorer.png)
+
+На вкладке [Сбои](../application-insights/app-insights-asp-net-exceptions.md) можно создавать диаграммы и оповещения на основе сбоев функции и исключений сервера. **Имя операции** обозначает имя функции. Сбои в зависимостях здесь не отображаются, если вы не настроили для зависимостей [пользовательскую телеметрию](#custom-telemetry-in-c-functions).
+
+![Сбои](media/functions-monitoring/failures.png)
+
+На вкладке [Производительность](../application-insights/app-insights-performance-counters.md) вы можете анализировать проблемы производительности.
+
+![Производительность](media/functions-monitoring/performance.png)
+
+Вкладка **Серверы** отображает использование ресурсов и пропускную способность для каждого сервера. Эти данные можно использовать для отладки в тех случаях, когда функции создают чрезмерную нагрузку на базовые ресурсы. Серверы здесь называются *экземплярами облачных ролей*. 
+
+![Серверы](media/functions-monitoring/servers.png)
+
+Вкладка [Live Metrics Stream](../application-insights/app-insights-live-stream.md) отображает создаваемые данные метрик в режиме реального времени.
+
+![Live Stream](media/functions-monitoring/live-stream.png)
+
+## <a name="query-telemetry-data"></a>Запросы к данным телеметрии
+
+[Аналитика в Application Insights](../application-insights/app-insights-analytics.md) предоставляет доступ ко всем данным телеметрии в формате таблиц в базе данных. Функция аналитики поддерживает язык запросов для извлечения и обработки данных.
+
+![Выбор функции аналитики](media/functions-monitoring/select-analytics.png)
+
+![Пример данных аналитики](media/functions-monitoring/analytics-traces.png)
+
+Ниже приведен пример запроса. Он демонстрирует распределение запросов по рабочим ролям за последние 30 минут.
+
+```
+requests
+| where timestamp > ago(30m) 
+| summarize count() by cloud_RoleInstance, bin(timestamp, 1m)
+| render timechart
+```
+
+Все доступные таблицы представлены на вкладке **Схема** в левой области. Данные, создаваемые при вызовах функций, вы найдете в следующих таблицах:
+
+* **traces** — журналы, созданные средой выполнения и кодом функций;
+* **requests** — по одному запросу для каждого вызова функции;
+* **exceptions** — любые исключения в среде выполнения;
+* **customMetrics** — число успешных и неудачных вызовов, доля успешных попыток, длительность;
+* **customEvents** — события, отслеживаемые средой выполнения, например HTTP-запросы, которые активируют функции;
+* **performanceCounters** — сведения о производительности серверов, на которых выполняются функции.
+
+Остальные таблицы предназначены для проверок доступности, а также телеметрии клиента и (или) браузера. Вы можете реализовать пользовательскую телеметрию, чтобы добавлять в них данные.
+
+В каждой таблице есть поле `customDimensions`, где хранится часть данных о конкретной функции.  Например, следующий запрос получает все трассировки с уровнем журнала `Error`.
+
+```
+traces 
+| where customDimensions.LogLevel == "Error"
+```
+
+Среда выполнения предоставляет `customDimensions.LogLevel` и `customDimensions.Category`. Вы можете указать дополнительные поля в журналах, которые указываются в коде функции. См. раздел [Структурированное ведение журнала](#structured-logging) далее в этой статье.
+
+## <a name="configure-categories-and-log-levels"></a>Настройка категорий и уровней ведения журнала
+
+Вы можете использовать Application Insights, не изменяя настроек по умолчанию, но в этом случае может создаваться чрезмерный объем данных. Если вы используете подписку Azure для Visual Studio, объем данных Application Insights может достигнуть установленного верхнего предела. В оставшейся части этой статьи мы покажем, как настроить данные, отправляемые функциями в Application Insights.
+
+### <a name="categories"></a>Категории
+
+В средстве ведения журнала Функций Azure предусмотрена *категория* для каждого журнала. Категория указывает, какая часть кода среды выполнения или кода функции записывала данные в этот журнал. 
+
+Среда выполнения Функций Azure создает журналы, название категории для которых начинается со слова Host. Например, журналы function started, function executed и function completed имеют категорию Host.Executor. 
+
+Если вы сохраняете данные в журнал из кода функции, ему присваивается категория Function.
+
+### <a name="log-levels"></a>Уровни журнала
+
+В средстве ведения журнала Функций Azure также предусмотрен *уровень ведения* каждого журнала. Параметр [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) (Уровень ведения журнала) является перечислением целочисленных значений, которые обозначают относительную важность.
+
+|LogLevel    |Код|
+|------------|---|
+|Трассировка       | 0 |
+|Отладка       | 1 |
+|Информация | 2 |
+|Предупреждение     | 3 |
+|Ошибка       | 4. |
+|критические ошибки.    | 5 |
+|None        | 6 |
+
+Уровень ведения журнала `None` описан в следующем разделе. 
+
+### <a name="configure-logging-in-hostjson"></a>Настройка ведения журналов в host.json
+
+Файл *host.json* определяет, какой объем информации приложение-функция отправляет в журнал Application Insights. В каждой категории вы можете указать минимальный уровень ведения журнала для отправки данных. Ниже приведен пример:
+
+```json
+{
+  "logger": {
+    "categoryFilter": {
+      "defaultLevel": "Information",
+      "categoryLevels": {
+        "Host.Results": "Error",
+        "Function": "Error",
+        "Host.Aggregator": "Information"
+      }
+    }
+  }
+}
+```
+
+В этом примере настраиваются следующие правила:
+
+1. Для журналов с категорией Host.Results или Function в Application Insights отправляются только данные с уровнем `Error` и выше. Данные журнала с уровнем `Information` и ниже игнорируются.
+2. Для журналов с категорией Host.Aggregator в Application Insights отправляются только данные с уровнем `Information` и выше. Данные журнала с уровнем `Debug` и ниже игнорируются.
+3. Для всех остальных журналов в Application Insights отправляются данные с уровнем `Information` и выше.
+
+Значение категории в *host.json* управляет ведением журнала для всех категорий, название которых начинается с аналогичного значения. Например, значение Host в *host.json* управляет ведением журнала для Host.General, Host.Executor, Host.Results и т. д.
+
+Если *host.json* содержит несколько категорий с одинаковым началом строки, сопоставление начинается с более длинных строк. Предположим, вы хотите регистрировать все данные среды выполнения, кроме данных категории Host.Aggregator, на уровне `Information`, а данные категории Host.Aggregator — на уровне `Error`.
+
+```json
+{
+  "logger": {
+    "categoryFilter": {
+      "defaultLevel": "Information",
+      "categoryLevels": {
+        "Host": "Error",
+        "Function": "Error",
+        "Host.Aggregator": "Information"
+      }
+    }
+  }
+}
+```
+
+Чтобы не вести журналы для определенной категории, установите для нее уровень ведения журнала `None`. Теперь для этой категории не будут сохраняться никакие журналы, так как более высокий уровень ведения журнала не существует.
+
+В следующих разделах описаны основные категории журналов, создаваемых средой выполнения. 
+
+### <a name="category-hostresults"></a>Категория Host.Results
+
+Эти журналы отображаются в Application Insights как "запросы" (requests). Они содержат сведения об успешном выполнении или сбое функций.
+
+![Диаграмма запросов](media/functions-monitoring/requests-chart.png)
+
+Все эти журналы ведутся на уровне `Information`, поэтому никакие данные при значении фильтра `Warning` или выше не отобразятся.
+
+### <a name="category-hostaggregator"></a>Категория Host.Aggregator
+
+Эти журналы содержат счетчики и средние значения по вызовам функций за [настраиваемый](#configure-the-aggregator) период времени. По умолчанию используется период 30 секунд или 1000 результатов в зависимости от того, что из этого наступит раньше. 
+
+Эти журналы отображаются в Application Insights как пользовательские метрики (customMetrics). Например, здесь вы найдете число запусков, долю успешных попыток и длительность выполнения.
+
+![Запрос по customMetrics](media/functions-monitoring/custom-metrics-query.png)
+
+Все эти журналы ведутся на уровне `Information`, поэтому никакие данные при значении фильтра `Warning` или выше не отобразятся.
+
+### <a name="other-categories"></a>Другие категории
+
+Все журналы для категорий, кроме перечисленных выше, отображаются в Application Insights как трассировки (traces).
+
+![Запрос по трассировкам](media/functions-monitoring/analytics-traces.png)
+
+Все журналы с категориями, имена которых начинаются со слова Host, сохраняются средой выполнения Функций Azure. Журналы function started, function executed и function completed имеют категорию Host.Executor. Успешные выполнения сохраняются в этих журналах на уровне `Information`, а исключения — на уровне `Error`. Кроме того, среда выполнения создает журналы уровня `Warning`, например очередь сообщений, отправленных в очередь подозрительных сообщений.
+
+Журналы, сохраняемые в коде функций, имеют категорию Function и могут иметь любой уровень ведения журнала.
+
+## <a name="configure-the-aggregator"></a>Настройка агрегатора
+
+Как отмечалось в предыдущем разделе, среда выполнения собирает данные о выполнении функции за определенный период времени. По умолчанию используется период в 30 секунд или 1000 запусков в зависимости от того, что из этого наступит раньше. Этот параметр можно настроить в файле *host.json*.  Ниже приведен пример:
+
+```json
+{
+    "aggregator": {
+      "batchSize": 1000,
+      "flushTimeout": "00:00:30"
+    }
+}
+```
+
+## <a name="configure-sampling"></a>Настройка выборки
+
+В Application Insights есть функция [выборки](../application-insights/app-insights-sampling.md), которая позволят избежать создания слишком большого объема данных телеметрии в периоды пиковой нагрузки. Если объем данных телеметрии превышает заданное значение, служба Application Insights будет случайным образом игнорировать часть поступающих элементов. Вы можете настроить выборку в файле *host.json*.  Ниже приведен пример:
+
+```json
+{
+  "applicationInsights": {
+    "sampling": {
+      "isEnabled": true,
+      "maxTelemetryItemsPerSecond" : 5
+    }
+  }
+}
+```
+
+## <a name="write-logs-in-c-functions"></a>Запись журналов в функциях C#
+
+В коде функции вы можете сохранять журналы, которые отображаются в виде трассировок в Application Insights.
+
+### <a name="ilogger"></a>ILogger
+
+Используйте параметр [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) в функциях вместо параметра `TraceWriter`. Журналы, созданные с помощью `TraceWriter`, тоже отправляются в Application Insights, но `ILogger` позволяют использовать [структурированное ведение журналов](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+
+Объект `ILogger` позволяет вызывать для создания журналов [методы расширения ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loggerextensions#Methods_) `Log<level>`. Например, следующий код записывает журнал `Information` с категорией Function.
+
+```cs
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
+{
+    logger.LogInformation("Request for item with key={itemKey}.", id);
+```
+
+### <a name="structured-logging"></a>Структурированное ведение журнала
+
+Использование параметров в сообщении журнала определяется порядком заполнителей, а не их именами. Предположим, что у вас есть следующий код:
+
+```csharp
+string partitionKey = "partitionKey";
+string rowKey = "rowKey";
+logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionKey, rowKey);
+```
+
+Если вы примените эту же строку сообщения с обратным порядком параметров, в тексте сообщения значения окажутся на неправильных местах.
+
+Такой метод обработки заполнителей позволяет выполнять структурированное ведение журналов. Application Insights сохраняет не только строку сообщения, но и параметры в формате пар "имя — значение". Благодаря этому все аргументы сообщения становятся полями, по которым можно выполнять запросы.
+
+Например, если используется метод ведения журнала из предыдущего примера, вы сможете отправить запрос к полю `customDimensions.prop__rowKey`. При этом добавляется префикс, чтобы не возникало конфликтов между полями, которые добавляет среда выполнения и которые добавляет код вашей функции.
+
+Исходную строку сообщения можно получить, указав в запросе поле `customDimensions.prop__{OriginalFormat}`.  
+
+Ниже приведен пример JSON-представления для данных `customDimensions`.
+
+```json
+{
+  customDimensions: {
+    "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
+    "Category":"Function",
+    "LogLevel":"Information",
+    "prop__message":"c9519cbf-b1e6-4b9b-bf24-cb7d10b1bb89"
+  }
+}
+```
+
+### <a name="logging-custom-metrics"></a>Сохранение в журнале пользовательских метрик  
+
+В функциях на языке C# вы можете использовать метод расширения `LogMetric` для `ILogger`, чтобы создать пользовательские метрики в Application Insights. Ниже приведен пример вызова метода.
+
+```csharp
+logger.LogMetric("TestMetric", 1234); 
+```
+
+Этот пример кода действует так же, как вызов `TrackMetric` с использованием [API Application Insights для .NET](#custom-telemetry-in-c-functions).
+
+## <a name="write-logs-in-javascript-functions"></a>Ведение журналов в функциях JavaScript
+
+В функциях Node.js для ведения журналов следует использовать `context.log`. Структурированное ведение журнала не используется.
+
+```
+context.log('JavaScript HTTP trigger function processed a request.' + context.invocationId);
+```
+
+### <a name="logging-custom-metrics"></a>Сохранение в журнале пользовательских метрик  
+
+В функциях Node.js вы можете использовать метод `context.log.metric`, чтобы создать пользовательские метрики в Application Insights. Ниже приведен пример вызова метода.
+
+```javascript
+context.log.metric("TestMetric", 1234); 
+```
+
+Этот пример кода действует так же, как вызов `trackMetric` с использованием [пакета SDK Node.js для Application Insights](#custom-telemetry-in-javascript-functions).
+
+## <a name="custom-telemetry-in-c-functions"></a>Пользовательские данные телеметрии в функциях C#
+
+Вы можете использовать пакет NuGet [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) для отправки пользовательских данных телеметрии в Application Insights.
+
+Ниже приведен пример кода C#, который использует [пользовательский API телеметрии](../application-insights/app-insights-api-custom-events-metrics.md). Пример приведен для библиотеки классов .NET, но код Application Insights в скрипте C# будет точно таким же.
+
+```cs
+using System;
+using System.Net;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Azure.WebJobs;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using System.Linq;
+
+namespace functionapp0915
+{
+    public static class HttpTrigger2
+    {
+        private static string key = TelemetryConfiguration.Active.InstrumentationKey = 
+            System.Environment.GetEnvironmentVariable(
+                "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
+
+        private static TelemetryClient telemetry = 
+            new TelemetryClient() { InstrumentationKey = key };
+
+        [FunctionName("HttpTrigger2")]
+        public static async Task<HttpResponseMessage> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
+            HttpRequestMessage req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // parse query parameter
+            string name = req.GetQueryNameValuePairs()
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Get request body
+            dynamic data = await req.Content.ReadAsAsync<object>();
+
+            // Set name to query string or body data
+            name = name ?? data?.name;
+
+            telemetry.Context.Operation.Id = context.InvocationId.ToString();
+            telemetry.Context.Operation.Name = "cs-http";
+            if (!String.IsNullOrEmpty(name))
+            {
+                telemetry.Context.User.Id = name;
+            }
+            telemetry.TrackEvent("Function called");
+            telemetry.TrackMetric("Test Metric", DateTime.Now.Millisecond);
+            telemetry.TrackDependency("Test Dependency", 
+                "swapi.co/api/planets/1/", 
+                start, DateTime.UtcNow - start, true);
+
+            return name == null
+                ? req.CreateResponse(HttpStatusCode.BadRequest, 
+                    "Please pass a name on the query string or in the request body")
+                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+        }
+    }
+}
+```
+
+Не вызывайте `TrackRequest` или `StartOperation<RequestTelemetry>`, ведь при этом будут отображаться повторные запросы на вызов функции.  Среда выполнения Функций Azure автоматически отслеживает запросы.
+
+При каждом запуске функции присваивайте параметру `telemetry.Context.Operation.Id` значение идентификатора вызова. Это позволит сопоставить все элементы телеметрии с конкретным вызовом функции.
+
+```cs
+telemetry.Context.Operation.Id = context.InvocationId.ToString();
+```
+
+## <a name="custom-telemetry-in-javascript-functions"></a>Пользовательские данные телеметрии в функциях JavaScript
+
+[Пакет SDK Node.js для Application Insights](https://www.npmjs.com/package/applicationinsights) сейчас доступен в бета-версии. Ниже приведен пример кода, который отправляет пользовательские данные телеметрии в Application Insights.
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    client.trackEvent({name: "my custom event", tagOverrides:{"ai.operation.id": context.invocationId}, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:{"ai.operation.id": context.invocationId}});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:{"ai.operation.id": context.invocationId}});
+    client.trackTrace({message: "trace message", tagOverrides:{"ai.operation.id": context.invocationId}});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
+
+    if (req.query.name || (req.body && req.body.name)) {
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+    context.done();
+};
+```
+
+Наборов параметров `tagOverrides` присваивает параметру `operation_Id` значение идентификатора вызова функции. Этот параметр позволяет сопоставлять все автоматически создаваемые и пользовательские данные телеметрии с конкретным вызовом функции.
+
+## <a name="known-issues"></a>Известные проблемы
+
+### <a name="dependencies"></a>Зависимости
+
+Зависимости не отображаются автоматически, но их можно отобразить, написав пользовательский код. Пример такого кода представлен в [разделе о пользовательских данных телеметрии на C#](#create-custom-telemetry-data-in-c-function-code). Этот пример кода создает в Application Insights *карту приложения* следующего вида.
+
+![Схема сопоставления приложений](media/functions-monitoring/app-map.png)
+
+### <a name="report-issues"></a>Сообщение о проблемах
+
+Чтобы сообщить о проблеме с интеграцией Функций Azure с Application Insights, внести предложение или отправить запрос, [создайте обращение в GitHub](https://github.com/Azure/Azure-Functions/issues/new).
+
+## <a name="monitoring-without-application-insights"></a>Мониторинг без использования Application Insights
+
+Мы рекомендуем использовать для мониторинга функций службу Application Insights, которая предоставляет дополнительные данные и больше возможностей для их анализа. Но вы также можете найти данные телеметрии и журналов на страницах приложения-функции на портале Azure. 
+
+Выберите вкладку **Мониторинг** для нужной функции, и вы увидите список выполнений этой функции. Щелкнув конкретное выполнение, можно просмотреть его длительность, входные данные, ошибки и связанные файлы журнала.
 
 > [!IMPORTANT]
-> При использовании [плана потребления](functions-overview.md#pricing) для Функций Azure на плитке **Мониторинг** приложения-функции не отображаются какие-либо данные. Это связано с тем, что платформа самостоятельно динамически масштабирует вычислительные операции и управляет ими. Эти показатели не имеют смысла в плане потребления. Для мониторинга использования приложений-функций следуйте инструкциям, приведенным в этой статье.
-> 
-> На следующем снимке экрана показан пример.
-> 
-> ![Мониторинг функции](./media/functions-monitoring/app-service-overview-monitoring.png)
+> При использовании [плана потребления](functions-overview.md#pricing) для Функций Azure на плитке **Мониторинг** приложения-функции не отображаются какие-либо данные. Это связано с тем, что платформа самостоятельно динамически масштабирует вычислительные операции и управляет ими. Эти показатели не имеют смысла в плане потребления.
 
+### <a name="real-time-monitoring"></a>Мониторинг в реальном времени
 
-## <a name="real-time-monitoring"></a>Мониторинг в реальном времени
-
-Чтобы выполнить мониторинг в реальном времени, щелкните ссылку **прямой поток событий**, как показано ниже. 
-
-![Параметр "Прямой поток событий" на вкладке "Мониторинг"](./media/functions-monitoring/monitor-tab-live-event-stream.png)
-
-Прямой поток событий отображается в виде диаграммы на новой вкладке браузера, как показано на следующем снимке экрана: 
-
-![Пример прямого потока событий](./media/functions-monitoring/live-event-stream.png)
-
+Чтобы включить мониторинг в реальном времени, щелкните ссылку **Прямой поток событий** на вкладке **Мониторинг** для функции. Прямой поток событий отображается в виде диаграммы на новой вкладке браузера.
 
 > [!NOTE]
-> Есть известная проблема, из-за которой может произойти сбой заполнения данных. Если она возникнет, может потребоваться закрыть вкладку браузера с прямым потоком событий, а затем щелкнуть ссылку **прямой поток событий** еще раз, чтобы приложение правильно заполнило данные потока событий. 
-
-На диаграмме потока событий будут представлены следующие статистические данные для функции:
-
-* количество начатых выполнений в секунду;
-* количество завершенных выполнений в секунду;
-* количество выполнений, завершившихся сбоем, в секунду;
-* среднее время выполнения в миллисекундах.
+> Есть известная проблема, из-за которой может произойти сбой заполнения данных. Возможно, вам потребуется закрыть вкладку браузера с прямым потоком событий, а затем щелкнуть ссылку **Прямой поток событий** еще раз, чтобы приложение правильно заполнило данные потока событий. 
 
 Эти статистические данные отображаются в режиме реального времени, но фактическое построение диаграммы данных выполнения может происходить с задержкой приблизительно в 10 секунд.
 
+### <a name="monitor-log-files-from-a-command-line"></a>Мониторинг файлов журнала из командной строки
 
-## <a name="monitoring-log-files-from-a-command-line"></a>Мониторинг файлов журнала из командной строки
+Вы можете настроить потоковую передачу файлов журнала в сеанс командной строки на локальной рабочей станции с помощью Azure CLI 1.0 или PowerShell.
 
-Потоковую передачу файлов журнала в сеанс командной строки на локальной рабочей станции можно осуществлять с помощью Azure CLI 1.0 или PowerShell.
+### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Мониторинг файлов журнала для приложения-функции с помощью Azure CLI 1.0
 
-### <a name="monitoring-function-app-log-files-with-the-azure-cli-10"></a>Мониторинг файлов журнала приложения-функции с помощью Azure CLI 1.0
+Чтобы начать работу, [установите Azure CLI 1.0](../cli-install-nodejs.md) и [войдите в Azure](../xplat-cli-connect.md).
 
-Чтобы начать работу, [установите Azure CLI 1.0](../cli-install-nodejs.md).
+Используйте следующие команды, чтобы включить классический режим управления службами, выбрать подписку и включить потоковую передачу файлов журнала:
 
-Войдите в учетную запись Azure, используя команду ниже или другие варианты, описанные в статье [Войдите в Azure из командной строки Azure](../xplat-cli-connect.md).
+```
+azure config mode asm
+azure account list
+azure account set <subscriptionNameOrId>
+azure site log tail -v <function app name>
+```
 
-    azure login
-
-При необходимости включите Azure CLI 1.0 в классическом режиме управления службами с помощью следующей команды:
-
-    azure config mode asm
-
-Если у вас несколько подписок, используйте следующие команды, чтобы вывести их список и настроить текущую подписку в качестве подписки, содержащую приложение-функцию.
-
-    azure account list
-    azure account set <subscriptionNameOrId>
-
-Следующая команда выполняет потоковую передачу файлов журналов приложения-функции в командную строку:
-
-    azure site log tail -v <function app name>
-
-### <a name="monitoring-function-app-log-files-with-powershell"></a>Мониторинг файлов журнала приложения-функции с помощью PowerShell
+### <a name="monitor-function-app-log-files-with-powershell"></a>Мониторинг файлов журнала для приложения-функции с помощью PowerShell
 
 Чтобы начать работу, [установите и настройте Azure PowerShell](/powershell/azure/overview).
 
-Добавьте свою учетную запись Azure с помощью следующей команды:
+Используйте следующие команды, чтобы добавить учетную запись Azure, выбрать подписку и включить потоковую передачу файлов журнала:
 
-    PS C:\> Add-AzureAccount
-
-Если у вас несколько подписок, с помощью следующей команды можно вывести их список, отсортированный по имени, чтобы убедиться, что в данный момент выбрана правильная подписка, по свойству `IsCurrent`:
-
-    PS C:\> Get-AzureSubscription
-
-Если необходимо настроить активную подписку в качестве подписки, содержащей приложение-функцию, используйте следующую команду:
-
-    PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-
-Передайте журналы в сеанс PowerShell с помощью следующей команды:
-
-    PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+```
+PS C:\> Add-AzureAccount
+PS C:\> Get-AzureSubscription
+PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+```
 
 Дополнительные сведения см. в разделе [Практическое руководство. Потоковая передача журналов](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Для получения дополнительных сведений см. следующие ресурсы:
 
-* [Тестирование функции](functions-test-a-function.md)
-* [Масштабирование функции](functions-scale.md)
+> [!div class="nextstepaction"]
+> [Дополнительные сведения об Application Insights](https://docs.microsoft.com/azure/application-insights/)
 
+> [!div class="nextstepaction"]
+> [Дополнительные сведения о платформе ведения журналов, которую используют Функции](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
 

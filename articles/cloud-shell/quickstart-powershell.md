@@ -1,0 +1,346 @@
+---
+title: "Краткое руководство по PowerShell в Azure Cloud Shell (предварительная версия) | Документация Майкрософт"
+description: "Краткое руководство по использованию PowerShell в Cloud Shell."
+services: Azure
+documentationcenter: 
+author: maertendmsft
+manager: timlt
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: azure
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 09/25/2017
+ms.author: damaerte
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fd1d340bc0408eaeb0b7b18235df109224eae5f5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/25/2017
+
+---
+
+# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Краткое руководство по использованию PowerShell в Azure Cloud Shell
+
+В этом документе объясняется, как использовать PowerShell в Cloud Shell на [портале Azure](https://aka.ms/PSCloudPreview).
+
+> [!NOTE]
+> Также вы можете ознакомиться с кратким руководством по использованию [Bash в Azure Cloud Shell](quickstart.md).
+
+## <a name="start-cloud-shell"></a>Запуск Cloud Shell
+
+1. Нажмите кнопку **Cloud Shell** в верхней панели навигации портала Azure.
+
+  ![](media/quickstart-powershell/shell-icon.png)
+
+2. Выберите среду PowerShell из раскрывающегося списка, и вы перейдете к диску Azure `(Azure:)`.
+
+  ![](media/quickstart-powershell/environment-ps.png)
+
+## <a name="run-powershell-commands"></a>Выполнение команд PowerShell
+
+Выполните обычные команды PowerShell в Cloud Shell. Примеры таких команд приведены ниже.
+
+```Powershell
+PS Azure:\> Get-Date
+Monday, September 25, 2017 08:55:09 AM
+
+PS Azure:\> Get-AzureRmVM -Status
+
+ResourceGroupName       Name       Location                VmSize   OsType     ProvisioningState  PowerState
+-----------------       ----       --------                ------   ------     -----------------  ----------
+MyResourceGroup2        Demo        westus         Standard_DS1_v2  Windows    Succeeded           running
+MyResourceGroup         MyVM1       eastus            Standard_DS1  Windows    Succeeded           running
+MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    Succeeded           deallocated
+```
+
+## <a name="navigate-azure-resources"></a>Переход к ресурсам Azure
+
+ 1. Вывод списка подписок.
+
+    ``` Powershell
+    PS Azure:\> dir
+    ```
+
+ 2. Переход к предпочитаемой подписке с помощью команды `cd`.
+
+    ``` Powershell
+    PS Azure:\> cd MySubscriptionName
+    PS Azure:\MySubscriptionName>
+    ```
+
+ 3. Просмотр всех ресурсов Azure в текущей подписке.
+ 
+    Введите `dir`, чтобы вывести несколько представлений ресурсов Azure.
+ 
+    ``` PowerShell
+    PS Azure:\MySubscriptionName> dir
+
+        Directory: azure:\MySubscriptionName
+
+    Mode Name
+    ---- ----
+    +    AllResources
+    +    ResourceGroups
+    +    StorageAccounts
+    +    VirtualMachines
+    +    WebApps
+     ```
+
+### <a name="allresources-view"></a>Представление AllResources 
+Введите `dir` в каталоге `AllResources`, чтобы просмотреть свои ресурсы Azure.
+    
+    PS Azure:\MySubscriptionName> dir AllResources
+
+### <a name="explore-resource-groups"></a>Изучение групп ресурсов
+
+ Можно перейти в каталог `ResourceGroups` и в определенной группе ресурсов найти виртуальные машины.
+
+``` PowerShell
+PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
+
+PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
+
+
+    Directory: Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
+
+
+VMName    Location   ProvisioningState VMSize          OS            SKU             OSVersion AdminUserName  NetworkInterfaceName
+------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
+TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
+TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
+
+```
+> [!NOTE]
+> Вы могли заметить, что при втором вводе команды `dir` служба Cloud Shell отображает элементы намного быстрее.
+> Это происходит потому, что дочерние элементы сохраняются в памяти для удобства работы пользователя.
+Тем не менее, вы всегда можете использовать `dir -Force`, чтобы получить последние данные.
+
+### <a name="navigate-storage-resources"></a>Переход к ресурсам хранилища
+    
+Войдя в папку `StorageAccounts`, можно легко перейти к своим ресурсам хранилища.
+    
+``` PowerShell 
+PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
+
+    Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
+
+
+Name          ConnectionString
+----          ----------------
+MyFileShare1  \\MyStorageAccountName.file.core.windows.net\MyFileShare1;AccountName=MyStorageAccountName AccountKey=<key>
+MyFileShare2  \\MyStorageAccountName.file.core.windows.net\MyFileShare2;AccountName=MyStorageAccountName AccountKey=<key>
+MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountName=MyStorageAccountName AccountKey=<key>
+
+
+```
+
+Можно использовать приведенную ниже команду для подключения файлового ресурса Azure с помощью строки подключения.
+        
+``` PowerShell
+net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
+
+
+```
+
+Дополнительные сведения см. в разделе [Подключение общей папки Azure и получение доступа к этой папке в Windows][azmount].
+
+Можно также перейти в каталоги в файловом ресурсе Azure каталоги, как показано ниже.
+
+            
+``` PowerShell
+PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> cd .\MyFileShare1\
+PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files\MyFileShare1> dir
+
+Mode  Name
+----  ----
++     TestFolder
+.     hello.ps1
+
+    
+```
+
+### <a name="interact-with-virtual-machines"></a>Взаимодействие с виртуальными машинами
+
+Все виртуальные машины в текущей подписке можно найти в каталоге `VirtualMachines`.
+    
+``` PowerShell
+PS Azure:\MySubscriptionName\VirtualMachines> dir
+
+    Directory: Azure:\MySubscriptionName\VirtualMachines
+
+
+Name       ResourceGroupName  Location  VmSize          OsType              NIC ProvisioningState  PowerState
+----       -----------------  --------  ------          ------              --- -----------------  ----------
+TestVm1    MyResourceGroup1   westus    Standard_DS2_v2 Windows       my2008r213         Succeeded     stopped
+TestVm2    MyResourceGroup1   westus    Standard_DS1_v2 Windows          jpstest         Succeeded deallocated
+TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest         Succeeded     running
+
+
+```
+
+#### <a name="invoke-powershell-script-across-remote-vms"></a>Вызов сценария PowerShell на удаленных виртуальных машинах
+
+ > [!WARNING]
+ > Ознакомьтесь с разделом [Устранение неполадок удаленного управления виртуальными машинами Azure](troubleshooting.md#powershell-resolutions).
+
+  При условии, что у вас есть виртуальная машина MyVM1, воспользуемся `Invoke-AzureRmVMCommand` для вызова сценария PowerShell на удаленном компьютере.
+
+  ``` Powershell
+  Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  ```
+  Можно также сначала перейти в каталог virtualMachines и выполнить команду `Invoke-AzureRmVMCommand`, как показано ниже.
+
+  ``` Powershell
+  PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
+  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock{Get-ComputerInfo}
+  ```
+  Должен появиться результат, аналогичный приведенному ниже.
+
+  ``` Powershell
+  PSComputerName                                          : 65.52.28.207
+  RunspaceId                                              : 2c2b60da-f9b9-4f42-a282-93316cb06fe1
+  WindowsBuildLabEx                                       : 14393.1066.amd64fre.rs1_release_sec.170327-1835
+  WindowsCurrentVersion                                   : 6.3
+  WindowsEditionId                                        : ServerDatacenter
+  WindowsInstallationType                                 : Server
+  WindowsInstallDateFromRegistry                          : 5/18/2017 11:26:08 PM
+  WindowsProductId                                        : 00376-40000-00000-AA947
+  WindowsProductName                                      : Windows Server 2016 Datacenter
+  WindowsRegisteredOrganization                           :
+   ...
+  ```
+
+#### <a name="interactively-log-on-to-a-remote-vm"></a>Интерактивный вход на удаленную виртуальную машину
+
+Можно выполнить `Enter-AzureRmVM` для интерактивного входа на виртуальную машину в Azure.
+
+  ``` Powershell
+  Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  ```
+
+Можно также сначала перейти в каталог `virtualMachines` и выполнить команду `Enter-AzureRmVM`, как показано ниже.
+
+  ``` Powershell
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
+ ```
+
+### <a name="discover-webapps"></a>Обнаружение веб-приложений
+
+Войдя в папку `WebApps`, можно легко перейти к своим ресурсам хранилища.
+
+``` PowerShell
+PS Azure:\MySubscriptionName> dir .\WebApps\
+
+    Directory: Azure:\MySubscriptionName\WebApps
+
+
+Name            State    ResourceGroup      EnabledHostNames                  Location
+----            -----    -------------      ----------------                  --------
+mywebapp1       Stopped  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
+mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
+mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
+
+
+
+# You can use Azure cmdlets to Start/Stop your web apps for example,
+PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
+
+Name           State    ResourceGroup        EnabledHostNames                   Location
+----           -----    -------------        ----------------                   --------
+mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
+
+# Refresh the current state with -force
+PS Azure:\MySubscriptionName\WebApps> dir -force
+
+    Directory: Azure:\MySubscriptionName\WebApps
+
+
+Name            State    ResourceGroup      EnabledHostNames                  Location
+----            -----    -------------      ----------------                  --------
+mywebapp1       Running  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
+mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
+mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
+
+```
+
+## <a name="list-available-commands"></a>Вывод списка доступных команд
+
+На диске `Azure` введите команду `Get-AzureRmCommand`, чтобы вывести контекстные команды Azure.
+
+Кроме того, вы всегда можете ввести команду `Get-Command *azurerm* -Module AzureRM.*`, чтобы узнать доступные команды Azure.
+
+## <a name="install-custom-modules"></a>Установка пользовательских модулей
+
+Можно выполнить команду `Install-Module`, чтобы установить модули из [коллекции PowerShell][gallery].
+
+## <a name="get-help"></a>Get-Help
+
+Введите `Get-Help`, чтобы получить сведения о PowerShell в Azure Cloud Shell.
+
+``` Powershell
+PS Azure:\> Get-Help
+```
+
+Чтобы получить справку по определенному командлету, можно ввести Get-Help и этот командлет, как показано ниже.
+
+``` Powershell
+PS Azure:\> Get-Help Get-AzureRmVM
+```
+
+## <a name="use-azure-file-storage-to-store-your-data"></a>Использование хранилищя файлов Azure для хранения данных
+
+Можно создать сценарий, например `helloworld.ps1`, и сохранить его на облачном диске, чтобы использовать во всех сеансах оболочки.
+
+``` Powershell
+cd C:\users\ContainerAdministrator\CloudDrive
+PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
+# Add the content, such as 'Hello World!'
+PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
+Hello World!
+```
+
+В следующий раз при использовании PowerShell в Cloud Shell файл `helloworld.ps1` будет находиться в папке `CloudDrive`, которая подключена к вашему файловому ресурсу Azure.
+
+## <a name="use-custom-profile"></a>Использование пользовательского профиля
+
+Можно настроить среду PowerShell, создав профили PowerShell профили, `profile.ps1` или `Microsoft.PowerShell_profile.ps1`. Сохраните профиль на диске `CloudDrive`, чтобы его можно было загрузить в каждый сеанс PowerShell при запуске Cloud Shell.
+
+О том, как создать профиль, можно узнать в разделе [About Profiles][profile] (О профилях).
+
+## <a name="use-git"></a>Использование Git
+
+Чтобы клонировать репозиторий Git в Cloud Shell, необходимо создать [личный маркер доступа][githubtoken] и использовать его в качестве имени пользователя. Создав маркер, клонируйте репозиторий, как показано ниже.
+
+ ``` PowerShell
+  git clone https://<your-access-token>@github.com/username/repo.git
+
+```
+Так как сеансы в Cloud Shell не сохраняются после выхода из системы или истечения срока действия сеанса, при следующем входе в систему файл конфигурации Git будет отсутствовать. Чтобы сохранить конфигурацию Git, необходимо сохранить GITCONFIG-файл для `CloudDrive` и скопировать его или создать символьную ссылку на него при запуске `CloudShell`. Создайте символьную ссылку на `CloudDrive`, добавив следующий фрагмент кода в файл profile.ps1.
+
+ ``` PowerShell
+ 
+# .gitconfig path relative to this script
+$script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
+
+# Create a symlink to .gitconfig in user's $home
+if(Test-Path $script:gitconfigPath){
+
+    if(-not (Test-Path (Join-Path $Home .gitconfig ))){
+         New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
+    }
+}
+
+```
+## <a name="exit-the-shell"></a>Выйдите из оболочки
+
+Введите команду `exit`, чтобы завершить сеанс.
+
+[bashqs]:quickstart.md
+[gallery]:https://www.powershellgallery.com/
+[customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
+[profile]: https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_profiles
+[azmount]: https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows
+[githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

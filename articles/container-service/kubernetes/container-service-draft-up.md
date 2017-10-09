@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b70d2340c0f1286fa355a78a4cd0cb1ce37cbc39
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b320581011c27a2efc49fa784f184a37bdb7f6fe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/25/2017
 
 [Черновик](https://aka.ms/draft) — новое средство с открытым исходным кодом, которое упрощает разработку приложений на основе контейнера и их развертывание в кластерах Kubernetes. Чтобы использовать черновик, особые знания Docker и Kubernetes или их установка не требуются. Использование таких средств, как черновик, позволит вам и вашей команде сосредоточиться на создании приложения с помощью Kubernetes, не вникая в инфраструктуру.
 
-Вы можете использовать черновик с любым реестром образов Docker и любым кластером Kubernetes, а также использовать его локально. В рамках этого руководства вы узнаете, как использовать службу ACS с Kubernetes, запись ACR и Azure DNS, чтобы создать динамичный конвейер разработки CI/CD с помощью черновика.
+Вы можете использовать черновик с любым реестром образов Docker и любым кластером Kubernetes, а также использовать его локально. В этом руководстве показано, как использовать ACS с Kubernetes и ACR для создания динамического защищенного конвейера разработчика в Kubernetes с помощью черновика и как использовать службу DNS Azure для предоставления доступа к этому конвейеру разработчика в домене для других пользователей.
 
 
 ## <a name="create-an-azure-container-registry"></a>Создание реестра контейнеров Azure
@@ -39,9 +39,9 @@ ms.lasthandoff: 07/25/2017
       az group create --name draft --location eastus
       ```
 
-2. Создайте реестр образов ACR с помощью команды [az acr create](/cli/azure/acr#create).
+2. Создайте образ реестра ACR с помощью команды [az acr create](/cli/azure/acr#create) и убедитесь, что для параметра `--admin-enabled` установлено значение `true`.
       ```azurecli
-      az acr create -g draft -n draftacs --sku Basic --admin-enabled true -l eastus
+      az acr create --resource-group draft --name draftacs --sku Basic --admin-enabled true 
       ```
 
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/25/2017
 
 Теперь вы готовы использовать команду [az acs create](/cli/azure/acs#create), чтобы создать кластер ACS, используя Kubernetes в качестве значения `--orchestrator-type`.
 ```azurecli
-az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
+az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
 
 > [!NOTE]
@@ -104,31 +104,110 @@ waiting for AAD role to propagate.done
 Теперь, когда у вас есть кластер, вы можете импортировать учетные данные с помощью команды [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). Теперь у вас есть локальный файл конфигурации для кластера, который нужен Helm и черновику для выполнения работы.
 
 ## <a name="install-and-configure-draft"></a>Установка и настройка черновика
-Инструкции по установке черновика находятся в [репозитории черновика](https://github.com/Azure/draft/blob/master/docs/install.md). Они относительно просты, но требуют определенной настройки, так как от [Helm](https://aka.ms/helm) зависит создание и развертывание чарта Helm в кластере Kubernetes.
 
-1. [Скачайте и установите Helm](https://aka.ms/helm#install).
-2. Используйте Helm для поиска и установки `stable/traefik` и входящий контроллер, чтобы разрешить входящие запросы для сборок.
-    ```bash
-    $ helm search traefik
-    NAME            VERSION DESCRIPTION
-    stable/traefik  1.3.0   A Traefik based Kubernetes ingress controller w...
 
-    $ helm install stable/traefik --name ingress
-    ```
-    Теперь настройте контрольное значение для контроллера `ingress`, чтобы сохранить значение внешнего IP-адреса после развертывания. Этот IP-адрес будет [сопоставлен с доменом развертывания](#wire-up-deployment-domain) в следующем разделе.
+1. Скачайте черновик для своей среды по адресу https://github.com/Azure/draft/releases и установите его в свой путь, чтобы использовать команду.
+2. Скачайте Helm для своей среды по адресу https://github.com/kubernetes/helm/releases и [установите его в свой путь, чтобы использовать команду](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+3. Настройте черновик, чтобы использовать реестр и создать поддомены для каждого чарта Helm, который он создает. Чтобы настроить черновик, вам потребуется следующее:
+  - имя реестра контейнеров Azure (в этом примере — `draftacsdemo`);
+  - раздел реестра или пароль, полученный из `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`;
 
-    ```bash
-    kubectl get svc -w
-    NAME                          CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
-    ingress-traefik               10.0.248.104   13.64.108.240   80:31046/TCP,443:32556/TCP   1h
-    kubernetes                    10.0.0.1       <none>          443/TCP                      7h
-    ```
+  Вызовите `draft init`, и в процессе настройки вам будет предложено задать значения, указанные выше. Обратите внимание, что URL-адрес реестра состоит из имени реестра (в этом примере `draftacsdemo`) и `.azurecr.io`. Ваше имя пользователя является именем реестра. При первом запуске процесс будет выглядеть приблизительно так:
+ ```bash
+    $ draft init
+    Creating /home/ralph/.draft 
+    Creating /home/ralph/.draft/plugins 
+    Creating /home/ralph/.draft/packs 
+    Creating pack go...
+    Creating pack python...
+    Creating pack ruby...
+    Creating pack javascript...
+    Creating pack gradle...
+    Creating pack java...
+    Creating pack php...
+    Creating pack csharp...
+    $DRAFT_HOME has been configured at /home/ralph/.draft.
 
-    В этом случае внешний IP-адрес для домена развертывания — `13.64.108.240`. Теперь вы можете сопоставить свой домен с этим IP-адресом.
+    In order to configure Draft, we need a bit more information...
 
-## <a name="wire-up-deployment-domain"></a>Подключение домена развертывания
+    1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): draftacsdemo.azurecr.io
+    2. Enter your username: draftacsdemo
+    3. Enter your password: 
+    Draft has been installed into your Kubernetes Cluster.
+    Happy Sailing!
+```
 
-Черновик создает выпуск для каждого чарта Helm, который он создает, в каждом приложении, над которым вы работаете. Каждый выпуск получает автоматически сформированное имя, которое используется черновиком в качестве _поддомена_ поверх _корневого домена развертывания_, которым вы управляете. (В этом примере в качестве домена развертывания мы используем `squillace.io`.) Чтобы включить этот режим поддомена, вы должны создать запись А для `'*'` в записях DNS для домена развертывания, чтобы каждый автоматически сформированный поддомен направлялся во входящий контроллер кластера Kubernetes.
+Теперь все готово для развертывания приложения.
+
+
+## <a name="build-and-deploy-an-application"></a>Сборка и развертывание приложения
+
+В репозитории черновика находятся [шесть простых примеров приложений](https://github.com/Azure/draft/tree/master/examples). Клонируйте репозиторий и используйте [пример на языке Java](https://github.com/Azure/draft/tree/master/examples/java). Измените каталог examples/java и введите `draft create`, чтобы создать приложение. Результат должен выглядеть примерно так:
+```bash
+$ draft create
+--> Draft detected the primary language as Java with 91.228814% certainty.
+--> Ready to sail
+```
+
+Выходные данные будут содержать файл Dockerfile и чарт Helm. Чтобы выполнить сборку и развертывание, введите `draft up`. Выходные данные будут расширенными. Они должны выглядеть примерно так:
+```bash
+$ draft up
+Draft Up Started: 'handy-labradoodle'
+handy-labradoodle: Building Docker Image: SUCCESS ⚓  (35.0232s)
+handy-labradoodle: Pushing Docker Image: SUCCESS ⚓  (17.0062s)
+handy-labradoodle: Releasing Application: SUCCESS ⚓  (3.8903s)
+handy-labradoodle: Build ID: 01BT0ZJ87NWCD7BBPK4Y3BTTPB
+```
+
+## <a name="securely-view-your-application"></a>Безопасный просмотр приложения
+
+Теперь контейнер запущен в ACS. Чтобы просмотреть его локально, используйте команду `draft connect`, создающую безопасное подключение к IP-адресу кластера с конкретным портом для приложения. В случае успешного выполнения найдите URL-адрес, чтобы подключиться к приложению, в первой строке после индикатора **ВЫПОЛНЕНО**.
+
+> [!NOTE]
+> Если появится сообщение о том, что готовые модули отсутствуют, подождите некоторое время и повторите попытку или отследите готовность модулей с помощью `kubectl get pods -w` и повторите попытку.
+
+```bash
+draft connect
+Connecting to your app...SUCCESS...Connect to your app on localhost:46143
+Starting log streaming...
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+== Spark has ignited ...
+>> Listening on 0.0.0.0:4567
+```
+
+В предыдущем примере можно ввести `curl -s http://localhost:46143`, чтобы получить ответ `Hello World, I'm Java!`. Если нажать клавиши CTRL+C или CMD+C (в зависимости от среды ОС), защищенный туннель отключится и можно будет продолжить итерацию.
+
+## <a name="sharing-your-application-by-configuring-a-deployment-domain-with-azure-dns"></a>Предоставление доступа к приложению путем настройки домена развертывания с помощью службы Azure DNS
+
+На предыдущих шагах вы уже выполнили цикл итерации разработчика, который создает черновик. Чтобы совместно использовать приложения в Интернете, сделайте следующее:
+1. Установите входящий контроллер в кластере ACS (для предоставления общедоступного IP-адреса, в котором будет отображаться приложение).
+2. Делегируйте личный домен Azure DNS и сопоставьте ваш домен с IP-адресом присваивания ACS вашему входящему контроллеру.
+
+### <a name="use-helm-to-install-the-ingress-controller"></a>Используйте Helm для установки входящего контроллера.
+Используйте **Helm** для поиска и установки `stable/traefik` и входящего контроллера, чтобы разрешить входящие запросы для сборок.
+```bash
+$ helm search traefik
+NAME            VERSION DESCRIPTION
+stable/traefik  1.3.0   A Traefik based Kubernetes ingress controller w...
+
+$ helm install stable/traefik --name ingress
+```
+Теперь настройте контрольное значение для контроллера `ingress`, чтобы сохранить значение внешнего IP-адреса после развертывания. Этот IP-адрес будет [сопоставлен с доменом развертывания](#wire-up-deployment-domain) в следующем разделе.
+
+```bash
+kubectl get svc -w
+NAME                          CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+ingress-traefik               10.0.248.104   13.64.108.240   80:31046/TCP,443:32556/TCP   1h
+kubernetes                    10.0.0.1       <none>          443/TCP                      7h
+```
+
+В этом случае внешний IP-адрес для домена развертывания — `13.64.108.240`. Теперь вы можете сопоставить свой домен с этим IP-адресом.
+
+### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>Сопоставление пользовательского поддомена с входящим IP-адресом
+
+Черновик создает выпуск для каждого чарта Helm, который он создает, в каждом приложении, над которым вы работаете. Каждый выпуск получает автоматически сформированное имя, которое используется **черновиком** в качестве _поддомена_ поверх корневого _домена развертывания_, которым вы управляете. (В этом примере в качестве домена развертывания мы используем `squillace.io`.) Чтобы включить этот режим поддомена, вы должны создать запись А для `'*.draft'` в записях DNS для домена развертывания, чтобы каждый автоматически сформированный поддомен направлялся во входящий контроллер кластера Kubernetes. 
 
 Поставщики домена самостоятельно назначают DNS-серверы. Чтобы [делегировать назначение имен серверов домена службе Azure DNS](../../dns/dns-delegate-domain-azure-dns.md), сделайте следующее:
 
@@ -169,98 +248,44 @@ waiting for AAD role to propagate.done
       "type": "Microsoft.Network/dnszones"
     }
     ```
-3. Добавьте полученные DNS-серверы поставщику домена для домена развертывания, чтобы использовать Azure DNS для повторного указания домена.
-4. Создайте запись набора записей A для домена развертывания, сопоставленного с IP-адресом `ingress` на шаге 2 в разделе выше.
-    ```azurecli
-    az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*' -g squillace.io -z squillace.io
-    ```
+3. Добавьте полученные DNS-серверы поставщику домена для домена развертывания, чтобы использовать Azure DNS для повторного указания домена. Способы выполнения зависят от домена, предоставленного пользователем. Дополнительные сведения см. в статье [Делегирование домена в Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). 
+4. После делегирования домена в службу Azure DNS создайте запись набора записей A для домена развертывания, сопоставленного с IP-адресом `ingress` на шаге 2 в разделе выше.
+  ```azurecli
+  az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
+  ```
 Результат будет выглядеть примерно так:
-    ```json
-    {
-      "arecords": [
-        {
-          "ipv4Address": "13.64.108.240"
-        }
-      ],
-      "etag": "<guid>",
-      "id": "/subscriptions/<guid>/resourceGroups/squillace.io/providers/Microsoft.Network/dnszones/squillace.io/A/*",
-      "metadata": null,
-      "name": "*",
-      "resourceGroup": "squillace.io",
-      "ttl": 3600,
-      "type": "Microsoft.Network/dnszones/A"
-    }
+  ```json
+  {
+    "arecords": [
+      {
+        "ipv4Address": "13.64.108.240"
+      }
+    ],
+    "etag": "<guid>",
+    "id": "/subscriptions/<guid>/resourceGroups/squillace.io/providers/Microsoft.Network/dnszones/squillace.io/A/*",
+    "metadata": null,
+    "name": "*.draft",
+    "resourceGroup": "squillace.io",
+    "ttl": 3600,
+    "type": "Microsoft.Network/dnszones/A"
+  }
+  ```
+5. Переустановите **черновик**.
+  1. Удалите **draftd** из кластера, введя `helm delete --purge draft`. 
+  2. Переустановите **черновик** с помощью той же команды `draft-init`, но с параметром `--ingress-enabled`:
+    ```bash
+    draft init --ingress-enabled
     ```
-
-5. Настройте черновик, чтобы использовать реестр и создать поддомены для каждого чарта Helm, который он создает. Чтобы настроить черновик, вам потребуется следующее:
-  - имя реестра контейнеров Azure (в этом примере — `draft`);
-  - раздел реестра или пароль, полученный из `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`;
-  - корневой домен развертывания, который вы настроили для сопоставления с входящим внешним IP-адресом Kubernetes (в этом примере — `squillace.io`).
-
-  Вызовите `draft init`, и процесс настройки запросит значения, приведенные выше. При первом запуске процесс будет выглядеть приблизительно так:
- ```bash
-    $ draft init
-    Creating pack ruby...
-    Creating pack node...
-    Creating pack gradle...
-    Creating pack maven...
-    Creating pack php...
-    Creating pack python...
-    Creating pack dotnetcore...
-    Creating pack golang...
-    $DRAFT_HOME has been configured at /Users/ralphsquillace/.draft.
-
-    In order to install Draft, we need a bit more information...
-
-    1. Enter your Docker registry URL (e.g. docker.io, quay.io, myregistry.azurecr.io): draft.azurecr.io
-    2. Enter your username: draft
-    3. Enter your password:
-    4. Enter your org where Draft will push images [draft]: draft
-    5. Enter your top-level domain for ingress (e.g. draft.example.com): squillace.io
-    Draft has been installed into your Kubernetes Cluster.
-    Happy Sailing!
-    ```
-
-Теперь все готово для развертывания приложения.
-
-
-## <a name="build-and-deploy-an-application"></a>Сборка и развертывание приложения
-
-В репозитории черновика находятся [шесть простых примеров приложений](https://github.com/Azure/draft/tree/master/examples). Клонируйте репозиторий и используйте [пример на языке Python](https://github.com/Azure/draft/tree/master/examples/python). Измените каталог examples/Python и введите `draft create`, чтобы создать приложение. Результат должен выглядеть примерно так:
+Ответьте на запросы, как описано выше. Однако есть еще один вопрос, на который нужно ответить, используя полный путь домена, настроенный с помощью Azure DNS.
 ```bash
-$ draft create
---> Python app detected
---> Ready to sail
+4. Enter your top-level domain for ingress (e.g. draft.example.com): draft.squillace.io
+```
+5. В этот раз при вызове `draft up` отобразится приложение (или `curl`) в URL-адресе в формате `<appname>.draft.<domain>.<top-level-domain>`. В этом случае `http://handy-labradoodle.draft.squillace.io`. 
+```bash
+curl -s http://handy-labradoodle.draft.squillace.io
+Hello World, I'm Java!
 ```
 
-Выходные данные будут содержать файл Dockerfile и чарт Helm. Чтобы выполнить сборку и развертывание, введите `draft up`. Результат будет обширным, но начальные выходные данные будут выглядеть примерно так:
-```bash
-$ draft up
---> Building Dockerfile
-Step 1 : FROM python:onbuild
-onbuild: Pulling from library/python
-10a267c67f42: Pulling fs layer
-fb5937da9414: Pulling fs layer
-9021b2326a1e: Pulling fs layer
-dbed9b09434e: Pulling fs layer
-ea8a37f15161: Pulling fs layer
-<snip>
-```
-
-Конечные выходные данные должны выглядеть примерно так:
-```bash
-ab68189731eb: Pushed
-53c0ab0341bee12d01be3d3c192fbd63562af7f1: digest: sha256:bb0450ec37acf67ed461c1512ef21f58a500ff9326ce3ec623ce1e4427df9765 size: 2841
---> Deploying to Kubernetes
---> Status: DEPLOYED
---> Notes:
-
-  http://gangly-bronco.squillace.io to access your application
-
-Watching local files for changes...
-```
-
-С любым именем чарта вы можете использовать `curl http://gangly-bronco.squillace.io`, чтобы получить ответ `Hello World!`.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

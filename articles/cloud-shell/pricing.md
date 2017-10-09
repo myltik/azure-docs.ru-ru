@@ -12,22 +12,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 09/25/2017
 ms.author: juluk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 191a5d12fa899db48bbb751409ce3a732a56095e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: eddbc6e977b52e3a068a1b55792512b966a58c18
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="pricing"></a>Цены
 
 ## <a name="compute-cost"></a>Стоимость вычислений
-Служба Azure Cloud Shell, выполняющаяся на компьютере, предоставляется бесплатно, но ей требуется подключенная общая папка Azure. 
+Служба Azure Cloud Shell выполняется на компьютере, который предоставляется бесплатно, но для ее работы требуется подключенный файловый ресурс Azure. 
 
 ## <a name="storage-cost"></a>Стоимость хранения
-Cloud Shell создает образ размером 5 ГБ по умолчанию в общей папке для хранения домашнего каталога ($HOME). За использование общих папок Azure взимается обычная плата.
+Службе Cloud Shell требуется подключенный новый или существующий файловый ресурс Azure для сохранения файлов между сеансами. За использование хранилища взимается обычная оплата.
 
 Дополнительные сведения о затратах на файлы Azure см. [здесь](https://azure.microsoft.com/pricing/details/storage/files/). 
