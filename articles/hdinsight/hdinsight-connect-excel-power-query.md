@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 415ecc7398e9fc5b29522265e17084000ad4588b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: c8ba8743fbadc2c40762d555a8c573c741a75282
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Подключение Excel к Hadoop с помощью Power Query
@@ -75,11 +75,11 @@ Power Query может импортировать данные, которые �
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье было показано, как использовать Power Query для извлечения данных из HDInsight в Excel. Аналогичным образом можно извлекать данные из HDInsight в SQL Azure. Можно также передавать данные в HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Визуализация данных Hive с помощью Microsoft Power BI в Azure HDInsight](./hdinsight-connect-hive-power-bi.md)
+* [Визуализация данных Hive с помощью Microsoft Power BI в Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
 * [Выполнение запросов Hive в Azure HDInsight с помощью Zeppelin](./hdinsight-connect-hive-zeppelin.md)
 * [Подключение Excel к Hadoop в Azure HDInsight с помощью Microsoft Hive ODBC Driver](./hdinsight-connect-excel-hive-odbc-driver.md)
 * [Подключение к Azure HDInsight и выполнение запросов Hive с помощью средств Data Lake для Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)
-* [Использование Visual Studio Code для Hive, LLAP и pySpark](hdinsight-for-vscode.md)
+* [Использование средств Azure HDInsight для Visual Studio Code](hdinsight-for-vscode.md).
 * [Отправка данных в HDInsight](./hdinsight-upload-data.md)
 
 [image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.selecthdisource.png

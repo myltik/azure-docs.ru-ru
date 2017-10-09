@@ -1,5 +1,5 @@
 ---
-title: "Настройка Cloud App Discovery в Azure Active Directory | Документы Майкрософт"
+title: "Настройка Cloud App Discovery в Azure Active Directory | Документация Майкрософт"
 description: "Содержит сведения о поиске приложений и управлении ими с помощью Cloud App Discovery, а также преимуществах и принципах работы Cloud App Discovery."
 services: active-directory
 keywords: "cloud app discovery, управление приложениями"
@@ -16,16 +16,16 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2943e0b119726b31dd6e6507d279f6c8f74df98b
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
-# <a name="get-started-using-cloud-app-discovery-in-azure-ad"></a>Приступая к работе с Cloud App Discovery в Azure AD
+# <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Настройка Cloud App Discovery в Azure AD
 
-Общедоступная предварительная версия усовершенствований для Cloud App Discovery в Azure AD теперь доступна по лицензии Azure Active Directory Premium P1. Эти усовершенствования основаны на интеграции с Microsoft Cloud App Security. Cloud App Discovery сравнивает журналы трафика с каталогом Cloud App Security из более чем 15 000 облачных приложений, чтобы предоставить вам актуальные сведения об использовании облака и теневых ИТ. 
+Новые усовершенствования для Cloud App Discovery в Azure AD теперь доступны по лицензии Azure Active Directory Premium P1. Эти усовершенствования основаны на интеграции с Microsoft Cloud App Security. Cloud App Discovery сравнивает журналы трафика с каталогом Cloud App Security из более чем 15 000 облачных приложений, чтобы предоставить вам актуальные сведения об использовании облака и теневых ИТ. 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -33,14 +33,14 @@ ms.lasthandoff: 09/25/2017
 
 Для настройки Cloud App Discovery вам нужно быть глобальным администратором или читателем безопасности в Azure Active Directory. Пользователь, которому назначена роль администратора, имеет одни и те же разрешения во всех облачных приложениях, на которые подписана ваша организация.
 
-## <a name="snapshot-and-continuous-reports"></a>Отчеты о снимках и непрерывные отчеты
+## <a name="setup-steps"></a>Процедура настройки
 
-Вы можете создать два типа отчетов:
+1. [Настройте отчеты о моментальных снимках](cloudappdiscovery-set-up-snapshots.md) для проверки формата журнала. Убедитесь, что журналы передают важные сведения в Cloud App Discovery. Они также позволяют детальнее проанализировать журналы трафика, которые вы вручную отправляете из брандмауэров и с прокси-серверов.
 
-* **Отчеты о снимках** позволяют детальнее проанализировать журналы трафика, которые вы вручную отправляете из брандмауэров и с прокси-серверов. С их помощью можно убедиться, что журналы предоставляют Cloud App Discovery полезные сведения.
+2. [Настройте непрерывные отчеты](https://docs.microsoft.com/cloud-app-security/discovery-docker) для анализа всех журналов, пересылаемых из вашей сети с помощью сборщика журналируемых данных Cloud App Security. Их можно использовать для определения новых приложений и тенденций использования.
 
-* **Непрерывные отчеты** анализируют все журналы, пересылаемые из вашей сети с помощью [сборщика журналируемых данных Cloud App Security](https://docs.microsoft.com/cloud-app-security/discovery-docker). Их можно использовать для определения новых приложений и тенденций использования.
-
+3. Если сейчас журналы не поддерживаются, [настройте пользовательское средство синтаксического анализа журналов](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser), чтобы модуль Cloud App Discovery смог их проанализировать.
+  
 ## <a name="log-processing-flow"></a>Процедура обработки журналов
 
 В зависимости от объема данных создание отчетов может занять от нескольких минут до нескольких часов. При этом анализируется следующее:
@@ -134,8 +134,8 @@ Cloud App Discovery не может показать или проанализи
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Используйте следующие ссылки, чтобы продолжить настройку усовершенствованной системы Cloud App Discovery в Azure AD.
+Используйте следующие ссылки, чтобы продолжить настройку системы Cloud App Discovery в Azure AD.
 
-* [Создание отчетов о снимках для Cloud App Discovery](cloudappdiscovery-set-up-snapshots.md)
-* [Настройка автоматической отправки для непрерывных отчетов](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [Создание отчетов о моментальных снимках](cloudappdiscovery-set-up-snapshots.md)
+* [Настройка непрерывного создания отчетов](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Использование настраиваемого средства синтаксического анализа журналов](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

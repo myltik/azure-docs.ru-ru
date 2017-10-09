@@ -15,16 +15,28 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 5672bb1e17dac4ae0aaa67f936676d6c2fc5ef12
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 71da98bf6d53ab50df4f6e40cf0b548752d10f93
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="troubleshoot-azure-backup-server"></a>Устранение неполадок на сервере резервного копирования Azure
 
 Для устранения ошибок, обнаруженных в ходе применения сервера резервного копирования Azure, можно использовать информацию в таблице ниже.
+
+## <a name="error-invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>Ошибка. Указаны недопустимые учетные данные хранилища. Файл либо поврежден, либо не содержит последних учетных данных, связанных со службой восстановления. 
+
+Выполните следующие [действия по устранению неполадок] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues), чтобы решить эту проблему.
+
+## <a name="error-the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-server"></a>Ошибка. Операция агента завершилась сбоем из-за ошибки связи со службой координатора агента DPM на сервере 
+
+Выполните следующие [действия по устранению неполадок] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues), чтобы решить эту проблему.
+
+## <a name="error-setup-could-not-update-registry-metadata"></a>Ошибка. При установке не удалось обновить метаданные реестра.
+
+Выполните следующие [действия по устранению неполадок] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#installation-issues), чтобы решить эту проблему.
 
 
 ## <a name="installation-issues"></a>Проблемы с установкой

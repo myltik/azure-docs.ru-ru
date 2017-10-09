@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 46d21ac6fe0992ebe6dca93e8ebd381931e49962
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 59af2a5de5936d15456058aaeacfc334b9b34d4c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="cloud-app-discovery-enhancements-in-azure-active-directory"></a>Усовершенствования Cloud App Discovery в Azure Active Directory 
@@ -34,7 +34,12 @@ ms.lasthandoff: 09/25/2017
 
 При отсутствии подписки Active Directory Premium см. статью [Цены на Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="next-steps"></a>Дальнейшие действия
-
 Используйте эту ссылку для ознакомления с [новым интерфейсом Cloud App Discovery в Azure AD](https://portal.cloudappsecurity.com).
 
+## <a name="next-steps"></a>Дальнейшие действия
+Используйте следующие ссылки для настройки Cloud App Discovery в Azure AD.
+
+* [Приступая к работе с Cloud App Discovery в Azure AD](cloudappdiscovery-get-started.md)
+* [Создание отчетов о моментальных снимках](cloudappdiscovery-set-up-snapshots.md)
+* [Настройка непрерывного создания отчетов](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [Использование настраиваемого средства синтаксического анализа журналов](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

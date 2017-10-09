@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/25/2017
 ms.author: curtand;jeffsta
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 402c1be07b8ee885ee5341128fb3f419611b924d
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 2f5a41907e9fa304444b369311e182d3f00ef619
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Управление личными доменными именами в Azure Active Directory
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/11/2017
 В качестве основного домена для каталога можно указать любой проверенный личный домен, который не является федеративным. При изменении основного домена для каталога имена существующих пользователей не изменятся.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad"></a>Добавление личных доменых имен в Azure AD
-В каждый каталог Azure AD можно добавить до 900 личных доменых имен. Процесс [добавления дополнительного личного домена](add-custom-domain.md) аналогичен добавлению первого личного домена.
+> Можно добавить до 900 управляемых доменных имен. Если вы собираетесь настроить все домены для федерации с локальной службой Active Directory, можно добавить до 450 доменных имен в каждом каталоге. Дополнительные сведения см. в разделе [Федеративные и управляемые доменные имена](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Добавление поддоменов для личного домена
 Если вы хотите добавить в ваш каталог доменное имя третьего уровня, например "europe.contoso.com", необходимо сначала добавить и проверить домен второго уровня, например "contoso.com". Поддомен будет проверен Azure AD автоматически. Чтобы узнать, проверен ли добавленный поддомен, обновите страницу со списком доменов в браузере.

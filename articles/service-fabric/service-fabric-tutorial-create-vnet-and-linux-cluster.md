@@ -1,6 +1,6 @@
 ---
-title: "Создание кластера Service Fabric в Azure | Документы Майкрософт"
-description: "Узнайте, как создать кластер Linux в Azure с помощью шаблона."
+title: "Создание кластера Service Fabric на платформе Linux в Azure | Документация Майкрософт"
+description: "Узнайте, как развернуть кластер Service Fabric на платформе Linux в существующей виртуальной сети с помощью Azure CLI."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,31 +12,31 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/16/2017
+ms.date: 09/26/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: aabf3a0767b2f6f96e357dc63f3e8ee737577a1f
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 1c493a3fa00d5185f8210fe25e3065bd7b32a41f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
-# <a name="deploy-a-secure-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Развертывание безопасного кластера Service Fabric на платформе Linux в виртуальной сети Azure
-Это руководство представляет первую часть цикла. Вы узнаете, как создать кластер Service Fabric (Linux), работающий в Azure, и развернуть его в подсети существующей виртуальной сети. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения. Создание кластера Windows описывается в разделе [Развертывание безопасного кластера Service Fabric на платформе Windows в виртуальной сети Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+# <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Развертывание кластера Service Fabric на платформе Linux в виртуальной сети Azure
+Это руководство представляет первую часть цикла. Вы узнаете, как развернуть кластер Service Fabric на платформе Linux в подсети существующей виртуальной сети с помощью Azure CLI. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения. Создание кластера Windows с помощью PowerShell описывается в разделе [Развертывание безопасного кластера Service Fabric на платформе Windows в виртуальной сети Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 Из этого руководства вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
-> * создание виртуальной сети в Azure с помощью шаблона;
-> * создание защищенного кластера Service Fabric в Azure с помощью шаблона;
-> * защита кластера с помощью сертификата X.509;
+> * создание виртуальной сети в Azure с помощью Azure CLI;
+> * создание защищенного кластера Service Fabric в Azure с помощью Azure CLI;
+> * Защита кластера с помощью сертификата X.509
 > * подключение к кластеру с помощью интерфейса командной строки Service Fabric;
-> * удаление кластера.
+> * Удаление кластера
 
 Из этого цикла руководств вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]
-> * создание безопасного кластера в Azure с помощью шаблона;
+> * создание защищенного кластера в Azure;
 > * [развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -45,10 +45,7 @@ ms.lasthandoff: 09/25/2017
 - Установите [интерфейс командной строки Service Fabric](service-fabric-cli.md).
 - Установите [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-Ниже приведены процедуры для создания кластера Service Fabric с пятью узлами. Для защиты этого кластера используется самозаверяющий сертификат, помещенный в хранилище ключей. 
-
-Чтобы рассчитать затраты, связанные с запуском кластера Service Fabric в Azure, используйте [калькулятор цен Azure](https://azure.microsoft.com/pricing/calculator/).
-Дополнительные сведения о создании кластеров Service Fabric см. в статье [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+Ниже приведены процедуры для создания кластера Service Fabric с пятью узлами. Чтобы рассчитать затраты, связанные с запуском кластера Service Fabric в Azure, используйте [калькулятор цен Azure](https://azure.microsoft.com/pricing/calculator/).
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Вход в Azure и выбор подписки
 В этом руководстве используется Azure CLI. При запуске нового сеанса войдите в свою учетную запись Azure и выберите подписку перед выполнением команд Azure.
@@ -89,13 +86,11 @@ az group deployment create \
 ```
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## <a name="deploy-the-service-fabric-cluster"></a>Развертывание кластера Service Fabric
-Когда сетевые ресурсы развернуты, необходимо развернуть кластер Service Fabric в виртуальной сети в подсети и группе безопасности сети, используемых для кластера Service Fabric. В рамках этого цикла руководств шаблон Resource Manager для Service Fabric предварительно настроен для использования имен виртуальной сети, подсети и группы безопасности сети, настроенных на предыдущем шаге.
-
-Для развертывания кластера в существующих виртуальной сети и подсети (развернутых ранее в этой статье) требуется шаблон Resource Manager.  Скачайте шаблон Resource Manager и файл параметров:
+Когда сетевые ресурсы развернуты, необходимо развернуть кластер Service Fabric в виртуальной сети в подсети и группе безопасности сети, используемых для кластера Service Fabric. Для развертывания кластера в существующих виртуальной сети и подсети (развернутых ранее в этой статье) требуется шаблон Resource Manager.  Дополнительные сведения см. в разделе [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). В рамках этого цикла руководств шаблон предварительно настроен для использования имен виртуальной сети, подсети и группы безопасности сети, настроенных на предыдущем шаге.  Скачайте шаблон Resource Manager и файл параметров:
 - [linuxcluster.json][cluster-arm]
 - [linuxcluster.parameters.json][cluster-parameters-arm]
 
-Заполните пустые значения параметров **clusterName**, **adminUserName** и **adminPassword** в файле`linuxcluster.parameters.json` для своего развертывания.  Оставьте значения параметров **certificateThumbprint**, **certificateUrlValue** и **sourceVaultValue** пустым, если вы хотите создать самозаверяющий сертификат.  Если вы передали имеющийся сертификат в хранилище ключей, заполните эти значения параметров.
+Заполните пустые значения параметров **clusterName**, **adminUserName** и **adminPassword** в файле *linuxcluster.parameters.json* для своего развертывания.  Оставьте значения параметров **certificateThumbprint**, **certificateUrlValue** и **sourceVaultValue** пустым, если вы хотите создать самозаверяющий сертификат.  Если у вас есть сертификат, который вы ранее передали в хранилище ключей, заполните эти значения параметров.
 
 Используйте приведенный ниже сценарий, чтобы развернуть кластер с помощью шаблона Resource Manager и файла параметров.  Самозаверяющий сертификат создается в указанном хранилище ключей и используется для обеспечения безопасности кластера.  Сертификат также скачивается в локальную среду.
 
@@ -108,7 +103,7 @@ az group create --name $ResourceGroupName --location $Location
 az sf cluster create --resource-group $ResourceGroupName --location $Location \
    --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
    --vault-name $VaultName --vault-resource-group $ResourceGroupName  \
-   --template-file portalcluster.json --parameter-file portalcluster.parameters.json
+   --template-file linuxcluster.json --parameter-file linuxcluster.parameters.json
 
 ```
 
@@ -116,7 +111,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 Подключитесь к кластеру, выполнив команду `sfctl cluster select` в интерфейсе командной строки Service Fabric и указав свой ключ.  Примечание. Используйте параметр **--no-verify** только для самозаверяющего сертификата.
 
 ```azurecli
-sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azure.com:19080 \
+sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
@@ -127,8 +122,7 @@ sfctl cluster health
 ```
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
-
-Помимо собственных ресурсов кластер содержит другие ресурсы Azure. Чтобы удалить кластер и все ресурсы, который он использует, проще всего удалить группу ресурсов.
+Кластер, который вы только что создали, используется в других статьях этого цикла руководств. Если вы не собираетесь немедленно приступить к следующей статье, то можете удалить кластер, чтобы за него не взималась плата. Чтобы удалить кластер и все ресурсы, который он использует, проще всего удалить группу ресурсов.
 
 Войдите в Azure и выберите идентификатор подписки, в которой вы хотите удалить кластер.  Идентификатор подписки можно узнать, войдя на [портал Azure](http://portal.azure.com). Удалите группу ресурсов и все ресурсы кластера с помощью команды [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete).
 
@@ -140,13 +134,13 @@ az group delete --name $ResourceGroupName
 Из этого руководства вы узнали, как выполнять такие задачи:
 
 > [!div class="checklist"]
-> * создание виртуальной сети в Azure с помощью шаблона;
-> * создание защищенного кластера Service Fabric в Azure с помощью шаблона;
-> * защита кластера с помощью сертификата X.509;
+> * создание виртуальной сети в Azure с помощью Azure CLI;
+> * создание защищенного кластера Service Fabric в Azure с помощью Azure CLI;
+> * Защита кластера с помощью сертификата X.509
 > * подключение к кластеру с помощью интерфейса командной строки Service Fabric;
 > * Удаление кластера
 
-Теперь перейдите к следующему руководству, из которого вы узнаете, как развернуть существующее приложение.
+Теперь перейдите к следующему руководству, из которого вы узнаете, как развернуть службу управления API с помощью Service Fabric.
 > [!div class="nextstepaction"]
 > [Развертывание службы управления API](service-fabric-tutorial-deploy-api-management.md)
 

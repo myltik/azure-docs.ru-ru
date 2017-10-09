@@ -16,10 +16,10 @@ ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ebafcb2463bc92f15c1299963e054fcddd47b0b3
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: c1b3feb79328269f4692d744e7a473397d0328c1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="web-apps-overview"></a>Обзор веб-приложений
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/20/2017
 
 В зависимости от выбранной ценовой категории вычислительные ресурсы могут находиться на общих или выделенных виртуальных машинах. Код приложения выполняется на управляемой виртуальной машине, которая изолирована от других клиентов.
 
-Этот код может быть создан на любом языке или платформе, поддерживаемой [службой приложений Azure](../app-service/app-service-web-overview.md), включая ASP.NET, Node.js, Java, PHP или Python. В веб-приложениях также можно запускать скрипты, которые используют [PowerShell и другие языки сценариев](web-sites-create-web-jobs.md#acceptablefiles) .
+Этот код может быть создан на любом языке или платформе, поддерживаемой службой приложений Azure, включая ASP.NET, Node.js, Java, PHP или Python. В веб-приложениях также можно запускать скрипты, которые используют [PowerShell и другие языки сценариев](web-sites-create-web-jobs.md#acceptablefiles) .
 
 Примеры типичных сценариев приложений, для которых можно использовать веб-приложения, см. в статье о [сценариях веб-приложений](https://azure.microsoft.com/documentation/scenarios/web-app/) и разделе **Сценарии и рекомендации** статьи [Сравнение службы приложений Azure, виртуальных машин, Service Fabric и облачных служб](choose-web-site-cloud-service-vm.md#scenarios).
 

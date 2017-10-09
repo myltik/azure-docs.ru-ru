@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2017
+ms.date: 09/27/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: e69d96e5f18b4334a63445b08979c457d241e818
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 7af2657b01b954c3f43a687dedebad7e4a814e6a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -340,7 +340,7 @@ Azure для SAP HANA — это уникальное предложение, к
 
 Сводка: для работы критически важных серверов SAP HANA в Azure (крупные экземпляры) крайне важно обеспечить высокий уровень доступности и реализовать стратегию аварийного восстановления. Кроме того, важно сотрудничать с SAP, вашим системным интегратором и (или) корпорацией Майкрософт, чтобы правильно создать архитектуру и реализовать стратегию обеспечения высокой доступности и аварийного восстановления. В зависимости от среды также важно учитывать такие понятия, как целевая точка восстановления (RPO) и целевое время восстановления (RTO).  В этом документе рассматриваются варианты для включения предпочтительного уровня высокой доступности и аварийного восстановления.
 
-Последнее обновление: декабрь 2016 г.
+Последнее обновление: сентябрь 2017 г.
 
 [Этот документ можно найти здесь](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

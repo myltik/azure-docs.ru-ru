@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 87f4d219a678cab78980af2ff8b98ae55739f04c
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9d1b629ad05f45efc8d01799616c82b4a11ecaab
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Настройка репликации кластера HBase в виртуальных сетях Azure
@@ -130,7 +130,11 @@ ms.lasthandoff: 09/09/2017
   3.  **Головной узел**. Выберите этот тип узла. Отмените выбор других типов узлов.
   4. **Параметры**: Параметры в следующем примере позволяют включить репликацию для всех существующих таблиц, а затем копировать все данные из исходного кластера в целевой.
 
-            -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+    
+    >[!note]
+    >
+    > Используйте имя узла вместо полного доменного имени (FQDN) для DNS-имени как исходного, так и целевого кластера.
 
 6. Нажмите кнопку **Создать**. Выполнение скрипта может занять некоторое время, особенно при использовании аргумента **-copydata**.
 

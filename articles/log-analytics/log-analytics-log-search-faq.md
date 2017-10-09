@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -58,6 +58,18 @@ ms.lasthandoff: 09/25/2017
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Вопрос. Почему результаты запроса не отсортированы?
 В новом языке запросов результаты не сортируются по умолчанию.  Чтобы отсортировать результаты по одному или нескольким свойствам, используйте [оператор SORT](https://go.microsoft.com/fwlink/?linkid=856079).
+
+### <a name="question-where-did-minify-go-after-i-upgraded"></a>Вопрос. Куда делать функция уменьшения после обновления?
+Уменьшение — это функция, позволяющая получить итоговое представление результатов поиска.  После обновления параметр Minify (Уменьшить) больше не отображается на портале поиска по журналам.  Вы можете получить аналогичную функцию с помощью нового языка поиска, используя [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) или [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
+
 
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Известная проблема. Результаты поиска в списке могут содержать свойства без данных
 Результаты поиска по журналу в списке могут содержать свойства без данных.  До обновления эти свойства не отображались.  Мы работаем над устранением этой проблемы, после чего они перестанут отображаться.
@@ -124,9 +136,6 @@ ms.lasthandoff: 09/25/2017
 
 ### <a name="known-issue-capacity-and-performance-solution"></a>Известная проблема. Решение "Емкость и производительность"
 Некоторые компоненты в представлении [Емкости и производительности](log-analytics-capacity.md) могут быть пустыми.  Вскоре мы предоставим исправление этой проблемы.
-
-### <a name="known-issue-device-health-solution"></a>Известная проблема. Решение "Работоспособность устройств"
-Решение [Работоспособность устройств ](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) не собирает данные в обновленной рабочей области.  Вскоре мы предоставим исправление этой проблемы.
 
 ### <a name="known-issue-application-insights-connector"></a>Известная проблема. Соединитель Application Insights
 В настоящее время [Соединитель Application Insights](log-analytics-app-insights-connector.md) не поддерживается в обновленной рабочей области.  Мы работаем над решением этой проблемы.

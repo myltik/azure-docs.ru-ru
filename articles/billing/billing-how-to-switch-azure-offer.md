@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 354eec1b0850edc1b2039e0c736b129936a27381
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 48f5f4db60c104778a6c391d254e0bc0c4c95cee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Переход с подписки с оплатой по мере использования на другое предложение
@@ -106,7 +106,7 @@ ms.lasthandoff: 08/31/2017
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Могу ли я переключить свою подписку с тарифного плата с оплатой по мере использования на [поставщик облачных решений](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) или [Соглашение Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Как перейти на CSP см. в статье [Azure Subscription Migration to CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/) (Перенос подписки Azure в CSP).
+* Как перейти на CSP см. в статье [Migrate Azure subscriptions from pay-as-you-go to Azure CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/migration/migration-from-payg-to-csp) (Перенос подписки Azure из подписки с оплатой по мере использования в Azure CSP).
 * Чтобы перейти к предложению "Соглашение Enterprise", попросите своего администратора регистрации добавить вашу учетную запись в соглашение Enterprise. Следуйте инструкциям в электронном сообщении с приглашением, чтобы перевести подписки на регистрацию в соглашении Enterprise. Дополнительные сведения см. в статье [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) (Связывание имеющейся учетной записи) на портале EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Можно ли перенести данные и службы в новую подписку?
@@ -117,3 +117,4 @@ ms.lasthandoff: 08/31/2017
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 
 Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
+

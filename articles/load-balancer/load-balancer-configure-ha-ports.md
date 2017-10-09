@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 17fee798661b7db4f9933684fceefbfed51409cd
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Настройка высокодоступных портов для внутреннего балансировщика нагрузки
 
 Эта статья содержит пример развертывания высокодоступных портов для внутреннего балансировщика нагрузки. Сведения о конкретных конфигурациях виртуальных сетевых устройств см. на веб-сайтах соответствующих поставщиков.
+
+>[!NOTE]
+> Сейчас компонент "Порты с высоким уровнем доступности" находится на этапе предварительной версии. В период действия предварительной версии эта функция может не отличаться таким же уровнем доступности и надежности, как функции, предоставляемые в общедоступной версии. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 На рис. 1 приведена конфигурация для примера развертывания, описанного в этой статье:
 - Виртуальные сетевые устройства развертываются в серверном пуле внутреннего балансировщика нагрузки с конфигурацией высокодоступных портов. 
@@ -37,6 +40,22 @@ ms.lasthandoff: 09/25/2017
 ![Пример развертывания высокодоступных портов](./media/load-balancer-configure-ha-ports/haports.png)
 
 Рис. 1. Виртуальные сетевые устройства, развернутые в зоне действия внутреннего балансировщика нагрузки с высокодоступными портами 
+
+## <a name="preview-sign-up"></a>Регистрация в предварительной версии
+
+Чтобы зарегистрироваться в предварительной версии компонента "Порты с высоким уровнем доступности" в Load Balancer с номером SKU уровня "Стандартный", зарегистрируйте свою подписку, чтобы получить доступ, используя PowerShell или Azure CLI 2.0.
+
+- Регистрация с помощью PowerShell
+
+   ```powershell
+   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- Регистрация с помощью Azure CLI 2.0
+
+    ```cli
+  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
+    ```
 
 ## <a name="configuring-ha-ports"></a>Настройка высокодоступных портов
 

@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f7351f310752803b910eef69e71d081ddc923c5e
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 09/25/2017
 
 - Подписка Azure и веб-приложение Node.js.
 
-Если у вас нет веб-приложения Node.js, его можно создать, следуя руководству [Создание веб-приложений Node.js в Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs).
+Если у вас нет веб-приложения Node.js, его можно создать, следуя руководству [Создание веб-приложений Node.js в Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs).
  
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 09/25/2017
    npm install applicationinsights --save
    ```
 
-3. Измените первый JS-файл приложения и добавьте две следующие строки в самую верхнюю часть своего скрипта. Если вы используете [приложение быстрого запуска Node.js](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs), необходимо изменить файл index.js. 
+3. Измените первый JS-файл приложения и добавьте две следующие строки в самую верхнюю часть своего скрипта. Если вы используете [приложение быстрого запуска Node.js](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs), необходимо изменить файл index.js. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');

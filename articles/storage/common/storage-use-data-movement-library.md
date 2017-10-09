@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 09/27/2017
 ms.author: seguler
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db1761a9a3b8a74a39b2d441849fb89d44cd42b
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Передача данных с использованием библиотеки перемещения данных службы хранилища Microsoft Azure
@@ -50,45 +50,30 @@ ms.lasthandoff: 08/21/2017
 ## <a name="setup"></a>Настройка  
 
 1. Ознакомьтесь с [руководством по установке .NET Core](https://www.microsoft.com/net/core), чтобы установить .NET Core. При выборе среды щелкните параметр командной строки. 
-2. В командной строке создайте каталог для проекта. Перейдите в этот каталог и введите `dotnet new` для создания проекта консольного приложения C#.
-3. Откройте этот каталог в Visual Studio Code. Этот шаг можно быстро выполнить, введя в командной строке `code .`.  
+2. В командной строке создайте каталог для проекта. Перейдите в этот каталог и введите `dotnet new console -o <sample-project-name>` для создания проекта консольного приложения C#.
+3. Откройте этот каталог в Visual Studio Code. Этот шаг можно быстро выполнить, введя в командной строке `code .` в Windows.  
 4. Установите [расширение C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) из Marketplace для Visual Studio Code. Перезапустите Visual Studio Code. 
 5. На этом этапе должны отобразиться два запроса. Первый — для добавления необходимых ресурсов для сборки. Щелкните "Да". Второй запрос — для восстановления неразрешенных зависимостей. Щелкните "Восстановить".
-6. Теперь приложение должно содержать файл `launch.json` в каталоге `.vscode`. В этом файле измените значение `externalConsole` на `true`.
+6. Измените `launch.json` в `.vscode`, чтобы использовать внешний терминал в качестве консоли. Этот параметр следует читать как ` "console": "externalTerminal"`.
 7. Visual Studio Code позволяет отлаживать приложения .NET Core. Нажмите клавишу `F5`, чтобы запустить приложение и проверить настройки. Вы должны увидеть текст "Hello World!" в консоли. 
 
 ## <a name="add-data-movement-library-to-your-project"></a>Добавление в проект библиотеки перемещения данных
 
-1. Добавьте последнюю версию библиотеки перемещения данных в раздел `dependencies` файла `project.json`. На момент написания статьи это версия `"Microsoft.Azure.Storage.DataMovement": "0.5.0"`. 
-2. Добавьте `"portable-net45+win8"` в раздел `imports`. 
-3. Должен появиться запрос на восстановление проекта. Нажмите кнопку "Восстановить". Можно также восстановить проект из командной строки, введя команду `dotnet restore` в корневом каталоге проекта.
+1. Добавьте последнюю версию библиотеки перемещения данных в раздел `dependencies` файла `<project-name>.csproj`. На момент написания статьи это версия `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`. 
+2. Должен появиться запрос на восстановление проекта. Нажмите кнопку "Восстановить". Можно также восстановить проект из командной строки, введя команду `dotnet restore` в корневом каталоге проекта.
 
-Измените `project.json`.
+Измените `<project-name>.csproj`.
 
-    {
-      "version": "1.0.0-*",
-      "buildOptions": {
-        "debugType": "portable",
-        "emitEntryPoint": true
-      },
-      "dependencies": {
-        "Microsoft.Azure.Storage.DataMovement": "0.5.0"
-      },
-      "frameworks": {
-        "netcoreapp1.1": {
-          "dependencies": {
-            "Microsoft.NETCore.App": {
-              "type": "platform",
-              "version": "1.1.0"
-            }
-          },
-          "imports": [
-            "dnxcore50",
-            "portable-net45+win8"
-          ]
-        }
-      }
-    }
+    <Project Sdk="Microsoft.NET.Sdk">
+
+        <PropertyGroup>
+            <OutputType>Exe</OutputType>
+            <TargetFramework>netcoreapp2.0</TargetFramework>
+        </PropertyGroup>
+        <ItemGroup>
+            <PackageReference Include="Microsoft.Azure.Storage.DataMovement" Version="0.6.2" />
+            </ItemGroup>
+        </Project>
 
 ## <a name="set-up-the-skeleton-of-your-application"></a>Настройка схемы приложения
 Первое, что мы сделаем — настроим схему кода приложения. Этот код запрашивает имя и ключ учетной записи хранения и использует эти учетные данные для создания объекта `CloudStorageAccount`. Этот объект используется для взаимодействия с нашей учетной записи хранения во всех сценариях передачи данных. Код также предлагает выбрать тип операции передачи, которую нужно выполнить. 
@@ -98,6 +83,7 @@ ms.lasthandoff: 08/21/2017
 ```csharp
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;

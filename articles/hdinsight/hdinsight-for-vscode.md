@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 09/26/2017
 ms.author: jejiang
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 17900c88fcfccd9c56ac548d1e9167b16a92b433
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: fdf1911f4f5b515592b6197ea738d808104cb43e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
-# <a name="use-azure-hdinsight-tool-for-visual-studio-code-hive-llap-or-pyspark"></a>Использование средств Azure HDInsight для Visual Studio Code (Hive, LLAP и pySpark)
+# <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>Использование средств Azure HDInsight для Visual Studio Code
 
 Сведения об использовании средств Azure HDInsight для Visual Studio Code (VSCode) для создания и отправки пакетных заданий Hive, интерактивных запросов Hive и сценариев pySpark. Средства Azure HDInsight можно устанавливать на всех платформах, поддерживаемых VSCode, включая Windows, Linux и MacOS. Здесь описаны предварительные требования для различных платформ.
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 09/25/2017
 **Установка средств Azure HDInsight**
 
 1. Откройте **Visual Studio Code**.
-2. Щелкните **Расширения** в левой области. Введите в поле поиска **Средства Azure HDInsight**.
+2. Щелкните **Расширения** в левой области. В поле поиска введите **HDInsight**.
 3. Щелкните **Установить** рядом с элементом **Средства Azure HDInsight**. Через несколько секунд вместо кнопки **Установить** появится кнопка **Перезагрузить**.
 4. Нажмите кнопку **Перезагрузить** для активации расширения **Средства Azure HDInsight**.
 5. Щелкните **Перезагрузить окно** для подтверждения. **Средства Azure HDInsight** появятся в области "Расширения".
@@ -86,13 +86,9 @@ ms.lasthandoff: 09/25/2017
 2. Щелкните правой кнопкой мыши редактор сценариев, а затем выберите **HDInsight: вход** в контекстном меню. Можно также нажать клавиши **CTRL+SHIFT+P** и ввести **HDInsight: вход**.
 
     ![Вход в средства HDInsight для Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
-3. Щелкните **Azure** или **AzureChina** в зависимости от вашей подписки.
-
-    ![Варианты входа в средства HDInsight для Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login-options.png)
-
 3. Следуйте инструкциям по входу в области **вывода**.
 
-    **Azure:** ![данные для входа в средства HDInsight для Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png) **AzureChina:** ![данные для входа в средства HDInsight для Visual Studio Code China](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-AzureChinalogin-info.png)
+    **Azure:** ![данные для входа в средства HDInsight для Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
 
     После подключения в строке состояния в левом нижнем углу окна VSCode будет отображаться имя учетной записи Azure. 
 

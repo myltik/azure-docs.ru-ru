@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 06/09/2017
 ms.author: donnam
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0613bb96d3afb85ff7e684246b128e4eef518d23
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Использование библиотек классов .NET с помощью Функций Azure
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="functions-class-library-project"></a>Проект библиотеки классов функций
 
-Создайте проект Функций Azure в Visual Studio. Шаблон проекта создает файлы *host.json* и *local.settings.json*. Вы можете [настроить параметры среды выполнения Функций Azure в файле host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
+Создайте проект Функций Azure в Visual Studio. Шаблон проекта создает файлы *host.json* и *local.settings.json*. Вы можете [настроить параметры среды выполнения Функций Azure в файле host.json](functions-host-json.md). 
 
 Файл *local.settings.json* хранит параметры приложения, строки подключения и параметры основных инструментов Функций Azure. Дополнительные сведения об этой структуре см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md#local-settings).
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/28/2017
 
 ### <a name="conversion-to-functionjson"></a>Преобразование в файл function.json
 
-При создании проект Функций Azure создает файл `function.json` в каталоге, соответствующем имени функции, определенной в `[FunctionName]`. Здесь задаются триггеры и привязки, а также указывается файл сборки проекта.
+При выполнении сборки проекта Функций Azure в каталоге функции создается файл *function.json*. Имя каталога совпадает с именем функции, указанным атрибутом `[FunctionName]`. Файл *function.json* содержит триггеры и привязки, а также указывает на файл сборки проекта.
 
 Это преобразование выполняется с помощью пакета NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Источник доступен в репозитории GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

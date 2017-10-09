@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4d96f96d6b9d6808d6a7c7ad8d720c2c2773d7d5
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -43,9 +43,9 @@ ms.lasthandoff: 09/25/2017
 
 ![Центр администрирования Active Directory Azure — колонка "Azure AD Connect"](./media/active-directory-aadconnect-sso/sso10.png)
 
-## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Причины сбоя единого входа в центре администрирования Azure Active Directory
+## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Причины сбоя единого входа в центре администрирования Azure Active Directory (требуется лицензия Premium)
 
-Лучше всего начать поиск неполадок со входом пользователей при использовании простого единого входа — проверить [отчет о действиях при входе](../active-directory-reporting-activity-sign-ins.md) в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/).
+Если к клиенту привязана лицензия Azure AD Premium, вы можете также изучить [отчет о действиях при входе](../active-directory-reporting-activity-sign-ins.md) в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Центр администрирования Azure Active Directory — отчет о действиях входа](./media/active-directory-aadconnect-sso/sso9.png)
 

@@ -18,10 +18,10 @@ ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 2c7c8e241010e86bf9ffe5b70921da71b8ace9da
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: d09f59715ac4dac1482e6ca5f79e8426f1f01ced
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -45,6 +45,8 @@ ms.lasthandoff: 09/14/2017
 Для выполнения действий, описанных в этом руководстве, необходимо базовое понимание основных понятий Docker, таких как контейнеры, образы контейнеров и основные команды Docker. При необходимости см. статью о [начале работы с Docker]( https://docs.docker.com/get-started/), чтобы ознакомиться с основами работы с контейнерами. 
 
 Для работы с этим руководством требуется среда разработки Docker. Docker содержит пакеты, которые позволяют быстро настроить Docker в любой системе [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) или [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+
+Azure Cloud Shell не включает в себя компоненты Docker, необходимые для выполнения каждого шага этого руководства. Таким образом мы рекомендуем полную среду разработки Docker.
 
 ## <a name="get-application-code"></a>Получение кода приложения
 

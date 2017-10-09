@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: d234d9c97064e22a0ea882f199da326b0aae0674
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c4723a7d174991f5bf679bf3e8c97fe2338926a2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>Восстановление виртуальных машин с помощью портала Azure
@@ -95,7 +95,7 @@ ms.lasthandoff: 09/20/2017
 ## <a name="choosing-a-vm-restore-configuration"></a>Выбор конфигурации восстановления для виртуальной машины
 Теперь, когда вы выбрали точку восстановления, следует задать конфигурацию восстановления для виртуальной машины. Настроить восстановление виртуальной машины можно с помощью портала Azure или PowerShell.
 
-1. Перейдите к колонке **Восстановление** , если она еще не открыта. Убедитесь, что вы выбрали [точку восстановления](#select-restore-point-for-restore), а затем щелкните **Конфигурация восстановления**, чтобы открыть колонку **Конфигурация восстановления**.
+1. Перейдите к колонке **Восстановление** , если она еще не открыта. Убедитесь, что вы выбрали [точку восстановления](#select-restore-point-for-restore), а затем щелкните **Restore configuration** (Конфигурация восстановления), чтобы открыть колонку **Restore configuration** (Конфигурация восстановления).
 
     ![Выбранный мастер настройки восстановления](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. В колонке **Конфигурация восстановления** есть два параметра:

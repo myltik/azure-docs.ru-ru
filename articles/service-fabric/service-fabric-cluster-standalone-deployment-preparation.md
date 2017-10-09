@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
-ms.openlocfilehash: e5d582431b53aafb977e219ecf3bc882232efaaa
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 67d47739c27081c4e10bf11988ed121ff02d8bb0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/16/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 09/16/2017
 5. Если компьютеры в составе кластера не имеют доступ к Интернету, задайте в конфигурации кластера следующие параметры:
 * Отключите телеметрию: в разделе *properties* задайте параметр *"enableTelemetry": false*.
 * Отключите автоматическое скачивание версий Service Fabric и уведомления о том, что приближается окончание срока поддержки текущей версии кластера: в разделе *properties* задайте параметр *"fabricClusterAutoupgradeEnabled": false*.
-* В качестве альтернативы, если интернет-доступ к сети ограничен доменами из белого списка, перечисленные ниже домены необходимы для автоматического обновления:   go.microsoft.com   download.microsoft.com
+* В качестве альтернативы, если доступ из Интернета к сети ограничен доменами из списка разрешений, перечисленные ниже домены необходимы для автоматического обновления: go.microsoft.com, download.microsoft.com
 
 6. Установите соответствующие исключения при проверке антивирусной программой для Service Fabric:
 

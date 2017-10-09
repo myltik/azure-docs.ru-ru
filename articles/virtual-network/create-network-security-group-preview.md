@@ -17,10 +17,10 @@ ms.date: 09/20/2017
 ms.author: jdial
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 21729bc6af282abc47c9b226f343bf2d44153d55
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Фильтрация сетевого трафика с помощью групп безопасности сети и приложений (предварительная версия)
@@ -36,13 +36,25 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
 
-Команды Azure CLI одинаковы для ОС Windows, Linux или macOS. Тем не менее существуют различия в сценариях между оболочками операционных систем. Сценарий ниже выполняется в оболочке Bash. 
+Команды Azure CLI одинаковы для ОС Windows, Linux или macOS. Тем не менее существуют различия в сценариях между оболочками операционных систем. Сценарии ниже выполняется в оболочке Bash. 
 
 1. [Установить и настроить Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Убедитесь, что вы используете версию интерфейса CLI 2.0 более позднюю, чем 2.0.17, с помощью команды `az --version`. Если это не так, установите последнюю версию.
+2. Убедитесь, вы используете Azure CLI версии 2.0.18 или более поздней, введя команду `az --version`. Если это не так, установите последнюю версию.
 3. Войдите в Azure с помощью команды `az login`.
-4. Зарегистрируйтесь для работы с функциями предварительной версии, используемыми в этом учебнике, выполнив шаги 1–5 в [PowerShell](#powershell). Зарегистрироваться для использования предварительной версии можно только с помощью PowerShell. Не переходите к оставшимся шагам, пока не выполните регистрацию: в противном случае процедуру завершить не удастся.
-5. Выполните следующий сценарий, чтобы создать группу ресурсов:
+4. Зарегистрируйтесь для использования предварительной версии, выполнив следующие команды:
+    
+    ```azurecli-interactive
+    az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    ``` 
+
+5. Убедитесь, что регистрация прошла успешно, выполнив следующую команду:
+
+    ```azurecli-interactive
+    az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    ```
+
+    Не продолжайте процедуру, пока в столбце *state* выходных данных предыдущей команды не появится значение **Registered**. Если вы продолжите до завершения регистрации, вам не удастся корректно выполнить процедуру.
+6. Выполните следующий сценарий bash, чтобы создать группу ресурсов:
 
     ```azurecli-interactive
     #!/bin/bash
@@ -52,7 +64,7 @@ ms.lasthandoff: 09/25/2017
       --location westcentralus
     ```
 
-6. Создайте три группы безопасности приложений, по одной для каждого типа сервера:
+7. Создайте три группы безопасности приложений, по одной для каждого типа сервера:
 
     ```azurecli-interactive
     az network asg create \
@@ -71,7 +83,7 @@ ms.lasthandoff: 09/25/2017
       --location westcentralus
     ```
 
-7. Создайте группу безопасности сети:
+8. Создайте группу безопасности сети:
 
     ```azurecli-interactive
     az network nsg create \
@@ -80,7 +92,7 @@ ms.lasthandoff: 09/25/2017
       --location westcentralus
     ```
 
-8. Создайте правила безопасности в пределах группы безопасности сети.
+9. Создайте правила безопасности в NSG, настроив группы безопасности приложений в качестве цели:
     
     ```azurecli-interactive    
     az network nsg rule create \
@@ -120,7 +132,7 @@ ms.lasthandoff: 09/25/2017
       --protocol "TCP" 
     ``` 
 
-9. Создайте виртуальную сеть: 
+10. Создайте виртуальную сеть: 
     
     ```azurecli-interactive
     az network vnet create \
@@ -129,8 +141,9 @@ ms.lasthandoff: 09/25/2017
       --subnet-name mySubnet \
       --address-prefix 10.0.0.0/16 \
       --location westcentralus
+    ```
 
-10. Associate the network security group to the subnet in the virtual network:
+11. Свяжите группу безопасности сети с подсетью в виртуальной сети:
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -138,8 +151,9 @@ ms.lasthandoff: 09/25/2017
       --resource-group myResourceGroup \
       --vnet-name myVnet \
       --network-security-group myNsg
-
-11. Create three network interfaces, one for each server type. 
+    ```
+    
+12. Создайте три сетевых интерфейса, по одному для каждого типа сервера: 
 
     ```azurecli-interactive
     az network nic create \
@@ -170,9 +184,9 @@ ms.lasthandoff: 09/25/2017
       --application-security-groups "DatabaseServers"
     ```
 
-    Только соответствующее правило безопасности, созданное на шаге 8, применяется к сетевому интерфейсу в зависимости от группы безопасности приложений, в которую он входит. Например, только правило *WebRule* действует для *myWebNic*, так как сетевой интерфейс является членом группы безопасности приложений *WebServers*, и правило указывает группу *WebServers* в качестве места назначения. Правила *AppRule* и *DatabaseRule* не применяются к *myWebNic*, так как сетевой интерфейс не является членом групп безопасности приложений *AppServers*и *DatabaseServers*.
+    Только соответствующее правило безопасности, созданное на шаге 9, применяется к сетевому интерфейсу в зависимости от группы безопасности приложений, в которую он входит. Например, только правило *WebRule* действует для *myWebNic*, так как сетевой интерфейс является членом группы безопасности приложений *WebServers*, и правило указывает группу *WebServers* в качестве места назначения. Правила *AppRule* и *DatabaseRule* не применяются к *myWebNic*, так как сетевой интерфейс не является членом групп безопасности приложений *AppServers*и *DatabaseServers*.
 
-12. Создайте одну виртуальную машину для каждого типа сервера, подключив соответствующий сетевой интерфейс к каждой виртуальной машине. В этом примере мы создаем виртуальные машины Windows, однако можно заменить *win2016datacenter* на *UbuntuLTS*, чтобы создать виртуальные машины Linux.
+13. Создайте одну виртуальную машину для каждого типа сервера, подключив соответствующий сетевой интерфейс к каждой виртуальной машине. В этом примере мы создаем виртуальные машины Windows, однако можно заменить *win2016datacenter* на *UbuntuLTS*, чтобы создать виртуальные машины Linux.
 
     ```azurecli-interactive
     # Update for your admin password
@@ -206,7 +220,7 @@ ms.lasthandoff: 09/25/2017
       --admin-password $AdminPassword    
     ```
 
-13. **Необязательно.** Удалите ресурсы, созданные в этом руководстве, с помощью шагов, описанных в разделе [Удаление ресурсов](#delete-cli).
+14. **Необязательно.** Удалите ресурсы, созданные в этом руководстве, с помощью шагов, описанных в разделе [Удаление ресурсов](#delete-cli).
 
 ## <a name="powershell"></a>PowerShell
 

@@ -1,3 +1,4 @@
+
 ---
 title: "Таблица поддержки для репликации на дополнительный сайт с помощью Azure Site Recovery | Документация Майкрософт"
 description: "В этой статье перечислены операционные системы и компоненты, поддерживаемые Azure Site Recovery."
@@ -14,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
+ms.translationtype: HT
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Таблица поддержки для репликации на дополнительный сайт с помощью Azure Site Recovery
@@ -44,7 +45,7 @@ ms.lasthandoff: 06/15/2017
 
   >[!Note]
   > Сейчас облака VMM 2016, сочетающие узлы Windows Server 2016 и 2012 R2, не поддерживаются.
-
+  > Конфигурации, которые включают в себя обновление существующих версий SCVMM, начиная с SCVMM 2012 R2 и заканчивая SCVMM  2016, в настоящее время не поддерживаются.
 ### <a name="host-servers"></a>Серверы узлов
 
 **Развертывание** | **Поддержка**

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/25/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: e6eede1c093145894f4330a0c4385969cd4dd7da
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: e77915c1d982ccf6262ffcbc09dc91dfd986dac5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/14/2017
 
 После включения MSI для ресурса Azure, [например виртуальной машины Azure](msi-qs-configure-cli-windows-vm.md): 
 
-1. Если вы не используете Azure Cloud Shell с портала Azure, то сначала войдите в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, которая связана с подпиской Azure, с помощью которой нужно развернуть виртуальную машину.
+1. Если вы используете Azure CLI в локальной консоли, сначала выполните вход в Azure с помощью команды [az login](/cli/azure/#login). Используйте учетную запись, которая связана с подпиской Azure, с помощью которой нужно развернуть виртуальную машину.
 
    ```azurecli-interactive
    az login
@@ -52,7 +52,7 @@ ms.lasthandoff: 09/14/2017
 2. В этом примере мы предоставляем виртуальной машине Azure доступ к учетной записи хранения. Сначала с помощью команды [az resource list](/cli/azure/resource/#list) мы получаем субъект-службу для виртуальной машины myVM, который был создан при включении MSI для виртуальной машины.
 
    ```azurecli-interactive
-   $spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
+   spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
 
 3. После получения идентификатора субъекта-службы мы выполняем команду [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create), чтобы предоставить этой виртуальной машине доступ для чтения к учетной записи хранения myStorageAcct.

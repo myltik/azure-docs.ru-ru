@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/25/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: e05d1a3d6111e3bbc34008226bcd1fdf35935450
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 519bab9d226f9d00ae0fa21348823d2d6b6cd2c9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="docker-compose-application-support-in-azure-service-fabric-preview"></a>Поддержка приложения Docker Compose в Azure Service Fabric (предварительная версия)
@@ -34,26 +34,26 @@ ms.lasthandoff: 08/24/2017
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Развертывание файла Docker Compose в Service Fabric
 
-Приведенные ниже команды создают приложение Service Fabric (в предыдущем примере оно называется `fabric:/TestContainerApp`), которое можно отслеживать и которым можно управлять, как и любым приложением Service Fabric. Указанное имя приложения можно использовать для запросов работоспособности.
+Приведенные ниже команды создают приложение Service Fabric (`TestContainerApp`), которое можно отслеживать и которым можно управлять, как и любым приложением Service Fabric. Указанное имя приложения можно использовать для запросов работоспособности.
 
 ### <a name="use-powershell"></a>Использование PowerShell
 
-Чтобы создать приложение Compose для Service Fabric из файла docker-compose.yml, выполните следующую команду в PowerShell:
+Чтобы создать развертывание Compose для Service Fabric из файла docker-compose.yml, выполните следующую команду в PowerShell.
 
 ```powershell
-New-ServiceFabricComposeDeployment -DeploymentName fabric:/TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
+New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName` и `RegistryPassword` задают имя пользователя и пароль реестра контейнеров. После выполнения приложения можно проверить его состояние с помощью следующей команды:
+`RegistryUserName` и `RegistryPassword` задают имя пользователя и пароль реестра контейнеров. После завершения развертывания можно проверить его состояние с помощью следующей команды.
 
 ```powershell
-Get-ServiceFabricComposeDeploymentStatus -DeploymentName fabric:/TestContainerApp -GetAllPages
+Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp -GetAllPages
 ```
 
-Чтобы удалить приложение Compose с помощью PowerShell, используйте следующую команду:
+Чтобы удалить развертывание Compose с помощью PowerShell, используйте следующую команду.
 
 ```powershell
-Remove-ServiceFabricComposeDeployment  -DeploymentName fabric:/TestContainerApp
+Remove-ServiceFabricComposeDeployment  -DeploymentName TestContainerApp
 ```
 
 ### <a name="use-azure-service-fabric-cli-sfctl"></a>Использование интерфейса командной строки Service Fabric (sfctl)
@@ -61,7 +61,7 @@ Remove-ServiceFabricComposeDeployment  -DeploymentName fabric:/TestContainerApp
 Можно также выполнить следующую команду интерфейса командной строки Service Fabric.
 
 ```azurecli
-sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+sfctl compose create --application-id TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 
 После создания приложения можно проверить его состояние с помощью следующей команды:

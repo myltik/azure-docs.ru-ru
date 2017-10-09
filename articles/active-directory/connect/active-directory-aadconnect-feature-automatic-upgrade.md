@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 57cd81a92817171a23ffd0f607eb127005bc1e0d
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: автоматическое обновление
@@ -26,7 +26,6 @@ ms.lasthandoff: 09/22/2017
 
 ## <a name="overview"></a>Обзор
 С функцией **автоматического обновления** контроль за обновлением установки Azure AD Connect максимально упростился. Эта функция по умолчанию включена для быстрой установки и обновления DirSync. При выпуске новой версии установка обновляется автоматически.
-
 Автоматическое обновление по умолчанию включено в следующих случаях:
 
 * Экспресс-установка параметров и обновление DirSync.
@@ -45,6 +44,7 @@ ms.lasthandoff: 09/22/2017
 Переключаться между состояниями **Включено** и **Отключено** позволяет командлет `Set-ADSyncAutoUpgrade`. Состояние **Приостановлено**может устанавливаться только системой.
 
 В качестве инфраструктуры обновлений при автоматическом обновлении используется Azure AD Connect Health. Чтобы работало автоматическое обновление, откройте в прокси-сервере URL-адреса для **Azure AD Connect Health** , указанные в статье [URL-адреса и диапазоны IP-адресов Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
 
 Если на сервере запущен пользовательский интерфейс **диспетчера службы синхронизации** , обновление будет отложено до тех пор, пока он не будет закрыт.
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 09/22/2017
 | UpgradeNotSupportedMultiForestSetup |Выполняется подключение к нескольким лесам. Экспресс-установка подключается только к одному лесу. |
 | UpgradeNotSupportedNonLocalDbInstall |Вы не используете базу данных SQL Server Express LocalDB. |
 | UpgradeNotSupportedNonMsolAccount |[Учетная запись соединителя AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) больше не является учетной записью MSOL_ по умолчанию. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | Вы выбрали вариант *не настраивать* метод входа. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | При настройке AAD Connect в качестве метода входа вы выбрали параметр *Не настраивать*. | 
 | UpgradeNotSupportedPtaSignInMethod | Вы выбрали сквозную проверку подлинности как метод входа. |
 | UpgradeNotSupportedStagingModeEnabled |Сервер настроен для работы в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Включена функция [обратной записи пользователей](active-directory-aadconnect-feature-preview.md#user-writeback) . |

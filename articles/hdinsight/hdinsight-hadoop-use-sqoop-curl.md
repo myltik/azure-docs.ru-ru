@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 0975aedf58c6e110726dd3308eae5f9ad3907cc7
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 5aa47b4b12dc136a3f6ba66688804859f9eb5446
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Выполнение заданий Sqoop с Hadoop в HDInsight с помощью Curl
@@ -30,17 +30,12 @@ ms.lasthandoff: 07/28/2017
 
 Curl используется для демонстрации возможностей взаимодействия с HDInsight с помощью необработанных HTTP-запросов для выполнения и мониторинга заданий Sqoop, а также получения их результатов. Для этого используется REST API для WebHCat (прежнее название — Templeton), предоставляемый кластером HDInsight.
 
-> [!NOTE]
-> Если вы уже знаете, как использовать серверы Hadoop на платформе Linux, но не знакомы с HDInsight, ознакомьтесь со статьей [Сведения об использовании HDInsight в Linux](hdinsight-hadoop-linux-information.md).
-> 
-> 
-
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Hadoop в кластере HDInsight (на платформе Linux или Windows)
-* [Curl](http://curl.haxx.se/)
-* [jq](http://stedolan.github.io/jq/)
+* Выполните инструкции, приведенные в статье [Использование Sqoop с Hadoop в HDInsight](./hdinsight-use-sqoop.md#create-cluster-and-sql-database), чтобы настроить среду с помощью кластера HDInsight и базы данных SQL Azure.
+* [Curl](http://curl.haxx.se/). Curl — это средство для передачи данных в кластер HDInsight или из него.
+* [jq](http://stedolan.github.io/jq/). Служебная программа jq используется для обработки данных JSON, возвращаемых запросами REST.
 
 ## <a name="submit-sqoop-jobs-by-using-curl"></a>Отправка заданий Sqoop с помощью Curl
 > [!NOTE]
@@ -53,22 +48,28 @@ Curl используется для демонстрации возможнос
 > 
 
 1. Используйте следующую команду в командной строке, чтобы проверить возможность подключения к кластеру HDInsight:
-   
-        curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
-   
+
+    ```bash   
+    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```
+
     Вы должны получить ответ, аналогичный показанному ниже:
-   
-        {"status":"ok","version":"v1"}
+
+    ```json   
+    {"status":"ok","version":"v1"}
+    ```
    
     Ниже приведены параметры, используемые в этой команде:
    
    * **-u** — имя пользователя и пароль, используемый для аутентификации запроса.
    * **-G** — указывает, что это запрос GET.
      
-     Начало URL-адреса **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** будет одинаковым для всех запросов. Путь **/status** указывает, что по запросу серверу должно быть возвращено состояние WebHCat (другое название — Templeton). 
+     Начало URL-адреса **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** одинаковое для всех запросов. Путь **/status** указывает, что по запросу серверу должно быть возвращено состояние WebHCat (другое название — Templeton). 
 2. Чтобы отправить задание Sqoop, воспользуйтесь следующей командой:
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
+    ```bash
+    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /example/data/sample.log --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/data/sqoop/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
+    ```
 
     Ниже приведены параметры, используемые в этой команде:
 
@@ -80,34 +81,27 @@ Curl используется для демонстрации возможнос
 
         * **statusdir** — каталог, в который будет записано состояние этого задания.
 
-    Эта команда должна возвращать идентификатор задания, который может использоваться для проверки состояния задания.
+    Эта команда возвратит идентификатор задания, который может использоваться для проверки состояния задания.
 
+        ```json
         {"id":"job_1415651640909_0026"}
+        ```
 
-1. Чтобы проверить состояние задания, используйте следующую команду. Замените **JOBID** значением, возвращенным на предыдущем шаге. Например, если возвращено значение `{"id":"job_1415651640909_0026"}`, то **JOBID** будет `job_1415651640909_0026`.
-   
-        curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
-   
+3. Чтобы проверить состояние задания, используйте следующую команду. Замените **JOBID** значением, возвращенным на предыдущем шаге. Например, если возвращено значение `{"id":"job_1415651640909_0026"}`, то **JOBID** будет `job_1415651640909_0026`.
+
+    ```bash
+    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    ```
+
     Если задание завершено, у него будет состояние **SUCCEEDED**(Успешно).
    
    > [!NOTE]
    > Этот запрос Curl возвращает документ нотации объектов JavaScript с информацией о задании. При этом jq используется только для получения значения состояния.
    > 
    > 
-2. После изменения состояния задания на **SUCCEEDED** результаты задания можно получить из хранилища больших двоичных объектов Azure. Параметр `statusdir`, передаваемый с запросом, содержит расположение выходного файла. В нашем примере это **wasb:///example/curl**. При использовании этого адреса выходные данные задания сохраняются в каталоге **example/curl** в контейнере хранилища, используемом по умолчанию кластером HDInsight.
+4. После изменения состояния задания на **SUCCEEDED** результаты задания можно получить из хранилища больших двоичных объектов Azure. Параметр `statusdir`, передаваемый с запросом, содержит расположение выходного файла. В нашем примере это **wasb:///example/data/sqoop/curl**. При использовании этого адреса выходные данные задания сохраняются в каталоге **example/data/sqoop/curl** в контейнере хранилища, используемом по умолчанию кластером HDInsight.
    
-    Вы можете вывести список этих файлов и скачать их с помощью [интерфейса командной строки Azure](../cli-install-nodejs.md). Например, для просмотра списка файлов в **example/curl**можно использовать следующую команду:
-   
-        azure storage blob list <container-name> example/curl
-   
-    Чтобы скачать файл:
-   
-        azure storage blob download <container-name> <blob-name> <destination-file>
-   
-   > [!NOTE]
-   > Необходимо либо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\_STORAGE\_ACCOUNT** и **AZURE\_STORAGE\_ACCESS\_KEY**. См. также: <a href="hdinsight-upload-data.md" target="_blank".
-   > 
-   > 
+    Портал Azure можно использовать для доступа к большим двоичным объектам stderr и stdout.  Также можно использовать Microsoft SQL Server Management Studio для проверки данных, передаваемых в таблицу log4jlogs.
 
 ## <a name="limitations"></a>Ограничения
 * Массовый экспорт: при использовании HDInsight на основе Linux соединитель Sqoop, применяемый для экспорта данных в Microsoft SQL Server или базу данных SQL Azure, пока не поддерживает операции массовой вставки.
@@ -129,30 +123,13 @@ Curl используется для демонстрации возможнос
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
+Другие статьи об HDInsight, в которых используется curl:
+ 
+* [Создание кластеров Hadoop с помощью Azure REST API](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
+* [Выполнение запросов Hive с Hadoop в HDInsight с помощью REST](hdinsight-hadoop-use-hive-curl.md)
+* [Выполнение заданий MapReduce с помощью REST в Hadoop в HDInsight](hdinsight-hadoop-use-mapreduce-curl.md)
+* [Выполнение запросов Pig с помощью cURL с использованием Hadoop в HDInsight](hdinsight-hadoop-use-pig-curl.md)
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-
-
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
-
-
-
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 
 

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/15/2016
+ms.date: 09/27/2016
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 293ac7a275398f05e3abe815413403efeaadc6e0
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: c7f3da9a92d5e9c60355c93a7205d16dc9ab8390
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Высокий уровень доступности и аварийное восстановление SAP HANA в Azure (крупные экземпляры) 
@@ -155,7 +155,7 @@ SAP HANA в Azure (крупные экземпляры) поставляется
 
 ### <a name="step-1-install-the-sap-hana-hdb-client"></a>Шаг 1. Установка клиента SAP HANA HDB
 
-Операционная система Linux, установленная в решении "SAP HANA в Azure (крупные экземпляры)", содержит папки и сценарии, необходимые для создания моментальных снимков хранилища SAP HANA, используемых для резервного копирования и восстановления. Проверьте наличие последних выпусков на сайте [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Самой последней версией выпуска сценариев является версия 2.0.
+Операционная система Linux, установленная в решении "SAP HANA в Azure (крупные экземпляры)", содержит папки и сценарии, необходимые для создания моментальных снимков хранилища SAP HANA, используемых для резервного копирования и восстановления. Проверьте наличие последних выпусков на сайте [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Самой последней версией выпуска сценариев является версия 2.1.
 Однако во время установки SAP HANA вы должны самостоятельно установить клиент SAP HANA HDB для единиц крупных экземпляров HANA. (Майкрософт не устанавливает ни клиент HDB, ни SAP HANA.)
 
 ### <a name="step-2-change-the-etcsshsshconfig"></a>Шаг 2. Изменение файла /etc/ssh/ssh\_config

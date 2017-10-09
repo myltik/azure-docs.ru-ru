@@ -4,7 +4,7 @@ description: "Узнайте, как использовать расширени
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 63d0d80999fd57d014c74d5c6aef3733ec2afe85
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 0cef78edaeec9d45aa733b1912d82d5a058ba289
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Создание среды Docker в Azure с помощью расширения виртуальной машины Docker
@@ -35,13 +35,13 @@ Docker — это популярная платформа для управле�
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Развертывание шаблона с помощью расширения виртуальных машин Docker для Azure
 Чтобы создать виртуальную машину Ubuntu, на которой установлено расширение виртуальной машины Docker для Azure (для установки и настройки узла Docker), мы используем готовый шаблон быстрого запуска. Шаблон можно найти в разделе [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)(Простое развертывание виртуальной машины Ubuntu с Docker). Вам нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
-Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *westus*.
+Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Затем, выполнив команду [az group deployment create](/cli/azure/group/deployment#create), разверните виртуальную машину с расширением виртуальной машины Docker для Azure с помощью [этого шаблона Azure Resource Manager из репозитория GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Укажите собственные значения для параметров *newStorageAccountName*, *adminUsername*, *adminPassword* и *dnsNameForPublicIP*, как показано ниже:
+Затем, выполнив команду [az group deployment create](/cli/azure/group/deployment#create), разверните виртуальную машину с расширением виртуальной машины Docker для Azure с помощью [этого шаблона Azure Resource Manager из репозитория GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Укажите собственные уникальные значения для параметров *newStorageAccountName*, *adminUsername*, *adminPassword* и *dnsNameForPublicIP*, как показано ниже:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -68,20 +68,31 @@ az vm show \
 
 Если эта команда возвращает состояние *Succeeded*, значит, развертывание завершено, и вы сможете установить подключение SSH к виртуальной машине на следующем шаге.
 
-## <a name="deploy-your-first-nginx-container"></a>Развертывание первого контейнера nginx
-Для просмотра сведений о виртуальной машине, включая DNS-имя, можно использовать команду `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`. Установите подключение по протоколу SSH к новому узлу Docker с локального компьютера, как показано ниже.
+## <a name="deploy-your-first-nginx-container"></a>Развертывание первого контейнера NGINX
+Для просмотра сведений о виртуальной машине, включая DNS-имя, можно использовать команду [az vm show](/cli/azure/vm#show):
 
-```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --show-details \
+    --query [fqdns] \
+    --output tsv
 ```
 
-После входа в систему узла Docker запустите контейнер nginx.
+Подключитесь к новому узлу Docker по протоколу SSH. Укажите DNS-имя следующим образом:
+
+```bash
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+```
+
+После входа в систему узла Docker запустите контейнер NGINX.
 
 ```bash
 sudo docker run -d -p 80:80 nginx
 ```
 
-После скачивания образа nginx и запуска контейнера результаты должны выглядеть примерно так, как показано в следующем примере.
+После скачивания образа NGINX и запуска контейнера результаты должны выглядеть примерно так, как показано в следующем примере.
 
 ```bash
 Unable to find image 'nginx:latest' locally
@@ -101,7 +112,7 @@ b6ed109fb743a762ff21a4606dd38d3e5d35aff43fa7f12e8d4ed1d920b0cd74
 sudo docker ps
 ```
 
-Результаты должны выглядеть примерно так, как показано ниже. В них должно быть указано, что контейнер nginx запущен, а TCP-порты 80 и 443 перенаправлены.
+Результаты должны выглядеть примерно так, как показано ниже. В них должно быть указано, что контейнер NGINX запущен, а TCP-порты 80 и 443 перенаправлены.
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES

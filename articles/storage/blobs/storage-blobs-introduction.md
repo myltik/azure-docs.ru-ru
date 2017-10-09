@@ -3,7 +3,7 @@ title: "Общие сведения о хранилище BLOB-объектов 
 description: "Общие сведения о хранилище BLOB-объектов Azure"
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: robinsh
+ms.date: 09/28/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 051f1b37eab254d4ab4f806166ac8d0b8cab944d
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 7fe3db3d31dc7212c47a0f8dd48c86c98fb498c1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="introduction-to-blob-storage"></a>Общие сведения о хранилище BLOB-объектов
@@ -47,7 +47,7 @@ ms.lasthandoff: 08/25/2017
   
     *Блочные BLOB-объекты* идеально подходят для хранения текстовых и двоичных файлов, таких как документы и файлы мультимедиа. *Добавочные большие двоичные объекты* схожи с блочными BLOB-объектами, так как они состоят из блоков, однако они оптимизированы для операций добавления и поэтому полезны для сценариев ведения журнала. Один блочный BLOB-объект может содержать до 50 000 блоков размером до 100 МБ каждый с общим размером немного более 4,75 ТБ (100 МБ X 50 000). Один добавочный BLOB-объект может содержать до 50 000 блоков размером до 4 МБ каждый с общим размером немного более 195 ГБ (4 МБ X 50 000).
   
-    *Страничные BLOB-объекты* могут иметь размер до 1 ТБ. Они более эффективны для частых операций чтения и записи. Служба "Виртуальные машины Azure" использует страничные BLOB-объекты в качестве дисков данных и дисков операционной системы.
+    *Страничные BLOB-объекты* могут иметь размер до 8 ТБ. Они более эффективны для частых операций чтения и записи. Виртуальные машины Azure используют страничные BLOB-объекты в качестве дисков данных и дисков операционной системы.
   
     Дополнительные сведения об именовании контейнеров и больших двоичных объектов см. в статье, посвященной [именованию контейнеров, больших двоичных объектов и метаданных, а также создание ссылок на них](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
@@ -55,3 +55,4 @@ ms.lasthandoff: 08/25/2017
 
 * [создать учетную запись хранения;](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Начало работы с хранилищем BLOB-объектов с использованием .NET](storage-dotnet-how-to-use-blobs.md)
+

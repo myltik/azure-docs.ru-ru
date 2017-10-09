@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: mimig
 ms.custom: cda
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 947920783be3e2a8cd299cdcc667456adf140b57
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: fccf0e3d8cb5d0f0adfb53a06b95aa1090451915
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -140,6 +140,24 @@ ms.lasthandoff: 09/25/2017
 > [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
 
 [![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
+
+
+## <a name="tip-16-functions-and-twilio-demo"></a>Совет 16. Ролик про функции и Twilio
+
+Совет 16. Отличный ролик! Интеграция Azure Cosmos DB, функций и @twilio для отправки SMS при любом изменении базы данных. Документация доступна на странице [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d). 
+
+> [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
+
+
+## <a name="tip-17-using-mongoose-discriminators"></a>Совет 17. Использование дискриминаторов Mongoose
+
+Совет 17. Оптимизируйте затраты, используя дискриминаторы Mongoose для хранения нескольких сущностей в одной коллекции Cosmos DB: [https://aka.ms/M488jm](https://aka.ms/M488jm).
+
+Блог. [Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection](https://aka.ms/M488jm) (Использование дискриминаторов Mongoose для хранения нескольких сущностей в одной коллекции Cosmos DB) Автор: Энтони Чу (Anthony Chu).
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2017
+ms.date: 09/28/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c863dbdcb242bdea208f7e72f6c1f61b5ba04844
-ms.openlocfilehash: 77d157800d71d1afc3411553b31c1182a1d0bc28
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 2728e8b1e190b4ecd0635925b96e97775564a2ee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/22/2017
 Номер SKU уровня "Стандартный" Azure Load Balancer и номер SKU уровня "Стандартный" общедоступного IP-адреса позволяют создавать надежные архитектуры с высоким уровнем масштабируемости.  Приложения, использующие Load Balancer уровня "Стандартный", могут использовать новые возможности в дополнение к низкой задержке, высокой пропускной способности и масштабируемости миллионов потоков всех приложений TCP и UDP.
 
 >[!NOTE]
-> Номер SKU уровня "Стандартный" Load Balancer в настоящее время находится в предварительной версии. На период действия предварительной версии эта функция может не отличаться таким же уровнем доступности и надежности, как функции, предоставляемые в режиме общедоступной версии. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Общедоступный номер SKU уровня "Базовый" Load Balancer](load-balancer-overview.md) можно использовать для производственных служб.
+> Номер SKU уровня "Стандартный" Load Balancer в настоящее время находится в предварительной версии. В период действия предварительной версии эта функция может не отличаться таким же уровнем доступности и надежности, как функции, предоставляемые в общедоступной версии. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Общедоступный номер SKU уровня "Базовый" Load Balancer](load-balancer-overview.md) можно использовать для производственных служб.
 
 ## <a name="why-use-load-balancer-standard"></a>Преимущества Load Balancer уровня "Стандартный"
 
@@ -369,6 +369,9 @@ Load Balancer уровня "Стандартный" в настоящее вре
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+
+>[!NOTE]
+>На регистрацию компонента Load Balancer уровня "Стандартный" может уйти до часа.
 
 >[!NOTE]
 >Если вы хотите использовать зоны доступности вместе с Load Balancer и общедоступным IP-адресом, необходимо также зарегистрировать подписку для использования предварительной версии зон доступности.

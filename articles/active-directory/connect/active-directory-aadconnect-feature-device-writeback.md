@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 310dcb176c2e1556af4ed0e0f50ea77c4644ec98
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: включение обратной записи устройств
@@ -44,19 +44,27 @@ ms.lasthandoff: 07/06/2017
 Выполните следующие действия для подготовки к использованию функции обратной записи устройств.
 
 1. На компьютере, где устанавливается служба Azure AD Connect, запустите PowerShell с повышенными правами.
-2. Если модуль Active Directory PowerShell НЕ установлен, установите его с помощью следующей команды:
-   
-   `Add-WindowsFeature RSAT-AD-PowerShell`
-3. Если модуль Azure Active Directory PowerShell НЕ установлен, скачайте и установите его из [модуля Azure Active Directory для Windows PowerShell (64-разрядная версия)](http://go.microsoft.com/fwlink/p/?linkid=236297). Этот компонент имеет зависимость от помощника по входу, который устанавливается вместе с Azure AD Connect.
+2. Если модуль PowerShell для Active Directory НЕ установлен, установите средства удаленного администрирования сервера, содержащие модуль PowerShell для AD и dsacls.exe, которые необходимы для выполнения сценария.  Выполните следующую команду:
+  
+   ``` powershell
+   Add-WindowsFeature RSAT-AD-Tools
+   ```
+
+3. Если модуль Azure Active Directory PowerShell НЕ установлен, скачайте и установите его из [модуля Azure Active Directory для Windows PowerShell (64-разрядная версия)](http://go.microsoft.com/fwlink/p/?linkid=236297). Этот компонент имеет зависимость от помощника по входу, который устанавливается вместе с Azure AD Connect.  
 4. Используя учетные данные администратора предприятия, выполните следующие команды и выйдите из PowerShell.
    
-   `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
-   
-   `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
+   ``` powershell
+   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+   ```
+
+   ``` powershell
+   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
+   ```
 
 Необходимо указать именно учетные данные администратора предприятия, так как изменения вносятся в пространство имен конфигурации. Администратор домена не имеет достаточных разрешений.
 
-![Powershell для включения обратной записи устройств](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+![PowerShell для включения обратной записи устройств](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+
 
 Описание:
 

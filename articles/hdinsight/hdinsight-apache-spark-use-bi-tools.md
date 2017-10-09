@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 49dd161049ac442081fe6d26cf8bd3a56a2e0687
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 869a000909813e607620c47ef802b4043e37dfa9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Использование средств визуализации данных с помощью Apache Spark BI в Azure HDInsight
@@ -146,7 +146,7 @@ ms.lasthandoff: 07/28/2017
 
       ![Список таблиц на панели мониторинга Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "Список таблиц на панели мониторинга Apache Spark BI")
 
-8. Создайте визуализацию для отображения расхождений между целевой температурой и фактической температурой для каждого здания. Для визуализации данных выберите **Диаграмма с областями** (выделена красным). Чтобы определить оси, перетащите поле **Код здания** в раздел **Ось**, а поля **ActualTemp**(Фактическая температура)/**TargetTemp** (Целевая температура) — в раздел **Значение**.
+8. Создайте визуализацию для отображения расхождений между целевой температурой и фактической температурой для каждого здания. Для визуализации данных выберите **Область карты** (показана красным). Чтобы определить оси, перетащите поле **Код здания** в раздел **Ось**, а поля **ActualTemp**(Фактическая температура)/**TargetTemp** (Целевая температура) — в раздел **Значение**.
 
     ![Создание визуализаций данных Spark с помощью Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Создание визуализаций данных Spark с помощью Apache Spark BI")
 

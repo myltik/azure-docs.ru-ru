@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 08/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a0563af9a7fc62fe3923562dd352d756f4945287
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 65a93003eb829a2eaf4684d2a6ecacf74b0adc75
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Подключение Excel к Hadoop в Azure HDInsight с помощью драйвера Microsoft Hive ODBC
@@ -108,7 +108,7 @@ ms.lasthandoff: 09/25/2017
 * [Выполнение запросов Hive в Azure HDInsight с помощью Zeppelin](./hdinsight-connect-hive-zeppelin.md).
 * [Подключение Excel к Hadoop с помощью Power Query](./hdinsight-connect-excel-power-query.md).
 * [Подключение к Azure HDInsight и выполнение запросов Hive с помощью средств Data Lake для Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Использование Visual Studio Code для Hive, LLAP и pySpark](hdinsight-for-vscode.md).
+* [Использование средств Azure HDInsight для Visual Studio Code](hdinsight-for-vscode.md).
 * [Отправка данных в HDInsight](./hdinsight-upload-data.md).
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md

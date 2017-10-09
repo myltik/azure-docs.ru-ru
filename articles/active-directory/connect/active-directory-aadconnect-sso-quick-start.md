@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -70,7 +70,10 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="step-3-roll-out-the-feature"></a>Шаг 3. Развертывание компонента
 
-Чтобы развернуть компонент для пользователей, необходимо добавить несколько URL-адресов Azure AD в параметры зоны интрасети с помощью групповой политики Active Directory.
+Чтобы развернуть компонент для пользователей, необходимо добавить приведенные ниже URL-адреса Azure AD в параметры зоны интрасети с помощью групповой политики Active Directory:
+
+- https://autologon.microsoftazuread-sso.com
+- https://aadg.windows.net.nsatc.net
 
 >[!NOTE]
 > Следующие инструкции подходят только для Internet Explorer и Google Chrome Windows (при условии, что этот браузер использует тот же набор URL-адресов доверенных сайтов, что и Internet Explorer). В следующем разделе приведены инструкции по настройке Mozilla Firefox и Google Chrome на Mac.

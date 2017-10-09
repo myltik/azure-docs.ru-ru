@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: banders
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: cab45cc6dd621eb4a95ef5f1842ec38c25e980b6
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 0b0d91b130172eb3506fdebb9547ab6ba5cc3780
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 07/28/2017
 | [Агенты Linux](log-analytics-linux-agents.md) | Нет | Решение не использует прямые агенты Linux. |
 | [Группы управления SCOM](log-analytics-om-agents.md) | Нет | Решение не использует прямое подключение агента SCOM к Log Analytics. |
 | [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет | Log Analytics не считывает данные из учетной записи хранения. |
-| [Настройка системы диагностики Azure для входа в Application Insights](log-analytics-azure-storage.md) | Да | Данные метрик Azure отправляются в Log Analytics из Azure непосредственно. |
+| [Настройка системы диагностики Azure для входа в Application Insights](log-analytics-azure-storage.md) | Да | Данные метрик и журнала Azure отправляются в Log Analytics непосредственно из Azure. |
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -63,9 +63,9 @@ ms.lasthandoff: 07/28/2017
 3. В списке **Мониторинг и управление** щелкните **Показать все**.
 4. В списке **Рекомендуется** выберите **More** (Дополнительно), а затем в новом списке найдите и выберите **Службы анализа SQL Azure (предварительная версия)**.  
     ![Решение служб анализа SQL Azure](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. В колонке **Службы анализа SQL Azure (предварительная версия)** щелкните **Создать**.  
+5. В области **Azure SQL Analytics (Preview)** (Службы анализа SQL Azure (предварительная версия)) щелкните **Создать**.  
     ![Создание](./media/log-analytics-azure-sql/portal-create.png)
-6. В колонке **Создание решения** выберите рабочую область, в которую необходимо добавить решение, а затем нажмите кнопку **Создать**.  
+6. В области **Создание решения** выберите рабочую область, в которую необходимо добавить решение, а затем нажмите кнопку **Создать**.  
     ![Добавление в рабочую область](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -85,39 +85,71 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>Использование решения
 
+>[!NOTE]
+> Обновите рабочую область Log Analytics, чтобы получить последнюю версию службы аналитики SQL Azure.
+>
+
 Вместе с решением в рабочую область добавляется элемент служб анализа SQL Azure. Кроме того, он появляется в общих сведениях. В элементе отображаются сведения о количестве баз данных и эластичных пулов SQL Azure, к которым подключено решение.
 
 ![Элемент служб анализа SQL Azure](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Просмотр данных службы "Аналитика SQL Azure"
 
-Щелкните плитку **Azure SQL Analytics** (Аналитика SQL Azure), чтобы открыть панель мониторинга службы "Аналитика SQL Azure". Панель мониторинга содержит колонки, определенные ниже. В каждой колонке приведено до 15 ресурсов (подписка, сервер, эластичный пул и база данных). Щелкните любой из ресурсов, чтобы открыть для него панель мониторинга. Эластичный пул или база данных содержит диаграммы с метриками для выбранного ресурса. Щелкните диаграмму, чтобы открыть диалоговое окно поиска по журналам.
+Щелкните плитку **Azure SQL Analytics** (Аналитика SQL Azure), чтобы открыть панель мониторинга службы "Аналитика SQL Azure". На панели мониторинга отображаются общие сведения обо всех базах данных, мониторинг которых осуществляется через различные перспективы. Для работы различных перспектив необходимо включить соответствующие метрики или журналы в ресурсах SQL для потоковой передачи в рабочую область Log Analytics. 
 
-| Колонка | Описание |
-|---|---|
-| Подписки | Список подписок с количеством подключенных серверов, пулов и баз данных. |
-| Серверы | Список серверов с количеством подключенных пулов и баз данных. |
-| Эластичные пулы | Список подключенных эластичных пулов с максимальным объемом хранилища в ГБ и eDTU в течение наблюдаемого периода времени. |
-|Базы данных | Список подключенных баз данных с максимальным объемом хранилища в ГБ и eDTU в течение наблюдаемого периода времени.|
+![Обзор службы "Аналитика SQL Azure"](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
+При выборе любой плитки открывается подробный отчет о конкретной перспективе.
+
+![Время ожидания службы "Аналитика SQL Azure"](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+
+Каждая перспектива предоставляет сводки по подписке, серверу, эластичному пулу и уровню базы данных. Кроме того, справа в каждой перспективе показан отчет о ней. При выборе подписки, сервера, пула или базы данных из списка позволяет продолжить подробное изучение.
+
+| Перспектива | Описание |
+| --- | --- |
+| Resource by type (Ресурсы по типу) | Перспектива, в которой представлено число всех отслеживаемых ресурсов. При подробном изучении вы получаете сводку о метриках DTU и ГБ. |
+| Аналитика | Предоставляет подробные сведения о Intelligent Insights в иерархическом виде. Получите дополнительные сведения об Intelligent Insights. |
+| Errors | Предоставляет подробные данные об ошибках SQL, возникших в базах данных, в иерархическом виде. |
+| Время ожидания | Предоставляет подробные данные о времени ожидания SQL в базах данных в иерархическом виде. |
+| Blockings (Блокировки) | Предоставляет подробные данные о блокировках SQL в базах данных в иерархическом виде. |
+| Database waits (Время ожидания базы данных) | Предоставляет подробную статистику времени ожидания SQL на уровне базы данных в иерархическом виде. Включает сводку по общему времени ожидания и времени ожидания для каждого типа ожидания. |
+| Query duration (Длительность запросов) | Предоставляет подробную статистику о выполнении запросов, такую как продолжительность запроса, загрузку ЦП, число операций ввода-вывода данных, число операций ввода-вывода журнала, в иерархическом виде. |
+| Query waits (Время ожидания запроса) | Предоставляет подробную статистику времени ожидании запросов по категории ожидания в иерархическом виде. |
+
+### <a name="intelligent-insights-report"></a>Отчет Intelligent Insights
+
+Все собранные данные Intelligent Insights можно визуализировать в перспективе Intelligent Insights, а также получить к ним доступ. [Щелкните здесь, чтобы узнать больше об Intelligent Insights](../sql-database/sql-database-intelligent-insights.md).
+
+![Аналитические сведения службы "Аналитика SQL Azure"](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
+
+### <a name="elastic-pool-and-database-reports"></a>Отчеты эластичных пулов и базы данных
+
+Для эластичных пулов и баз данных предусмотрены собственные определенные отчеты, в которых можно просмотреть все данные, собранные для ресурса в указанное время.
+
+![База данных службы "Аналитика SQL Azure"](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
+
+![Эластичный пул службы "Аналитика SQL Azure"](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
+
+### <a name="query-reports"></a>Отчеты о запросах
+
+С помощью перспективы Query duration (Длительность запросов) и Query waits (Время ожидания запроса) можно сопоставить производительность любого запроса в отчете о запросах. В этом отчете сравнивается производительность запросов в различных базах данных. Кроме того, он упрощает точное определение баз данных с высокой и низкой производительностью запросов.
+
+![Запросы службы "Аналитика SQL Azure"](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>Анализ данных и создание оповещений
 
 Оповещения можно легко создать с помощью данных, поступающих из ресурсов базы данных SQL Azure. Вот несколько полезных запросов для [поиска по журналам](log-analytics-log-searches.md), которые можно использовать для предупреждений.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
-
-
 *Высокий уровень DTU в базе данных SQL Azure*
 
 ```
-Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
 *Высокий уровень DTU в эластичном пуле базы данных SQL Azure*
 
 ```
-Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
 Используя запросы на основе оповещений, можно создавать предупреждения об определенных пороговых значениях для баз данных и эластичных пулов SQL Azure. Чтобы настроить оповещение для рабочей области OMS, сделайте следующее.
@@ -132,25 +164,6 @@ Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"*
 ![Создание оповещения в поиске](./media/log-analytics-azure-sql/create-alert01.png)
 6. На странице **Добавить правило оповещения** настройте соответствующие свойства и определенные пороговые значения, а затем нажмите кнопку **Сохранить**.  
 ![Добавление правила оповещения](./media/log-analytics-azure-sql/create-alert02.png)
-
-### <a name="act-on-azure-sql-analytics-data"></a>Выполнение действий над данными службы "Аналитика SQL Azure"
-
-К примеру, один из наиболее полезных запросов, которые можно выполнить, заключается в сравнении использования DTU для всех эластичных пулов SQL Azure во всех подписках Azure. Единица пропускной способности базы данных (DTU) выражает относительную емкость уровня производительности пулов и баз данных уровня "Базовый", "Стандартный" и "Премиум". Единицы DTU получают на основе показателей ЦП, памяти, операций чтения и записи. С увеличением числа единиц DTU увеличивается также и мощность, предлагаемая на уровне производительности. Например, уровень производительности с 5 единицами DTU в пять раз выше уровня производительности с 1 единицей DTU. К каждому серверу и эластичному пулу применяется максимальная квота DTU.
-
-Выполнив следующий запрос поиска по журналам, вы можете легко определить степень использования эластичных пулов SQL Azure.
-
-```
-Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
-```
-
->[!NOTE]
-> Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), приведенный выше запрос будет изменен следующим образом.
->
->`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
-
-Как видно из примера ниже, в одном эластичном пуле используется практически 100 % единиц DTU, тогда как показатели других чрезвычайно низкие. С помощью журналов действий Azure вы можете устранить потенциальные последние изменения в окружении.
-
-![Результаты поиска по журналам. Высокая загрузка](./media/log-analytics-azure-sql/log-search-high-util.png)
 
 ## <a name="see-also"></a>См. также
 

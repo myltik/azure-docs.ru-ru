@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ad47c3b6d7f44815208741e686f11675c81eca8b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 17fac0327c3c454a8ea5c4d91b2d3e23de71f4ce
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Использование Interactive Query в HDInsight
@@ -82,7 +82,7 @@ Interactive Query (также Hive LLAP, или [Live Long and Process](https://
 * Узнайте, как [визуализировать большие данные с помощью Power BI в Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
 * Узнайте, как [выполнять запросы Hive в Azure HDInsight с помощью Zeppelin](./hdinsight-connect-hive-zeppelin.md).
 * Узнайте, как [выполнять запросы Hive с помощью Средств Data Lake для Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
-* Узнайте, как [использовать Visual Studio Code для Hive, LLAP и pySpark](hdinsight-for-vscode.md).
+* Узнайте, как [использовать средствами HDInsight для Visual Studio Code](hdinsight-for-vscode.md).
 * Узнайте, как [использовать представление Hive с Hadoop в HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
 * Узнайте, как [использовать Beeline для отправки запросов Hive в HDInsight](hdinsight-hadoop-use-hive-beeline.md).
 * Узнайте, как [подключить Excel к Hadoop с помощью драйвера Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md).

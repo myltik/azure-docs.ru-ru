@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: bcd1d13265350d8ac96250c5cd5b4b2880e1c146
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 6385dd99e3f5d96eee2cf50016e4af599d91b011
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Установка исправлений операционной системы Windows в кластере Service Fabric
 
-Приложение для управления исправлениями — это приложение Azure Service Fabric, которое позволяет автоматизировать установку исправлений операционной системы в кластере Service Fabric в Azure и избежать простоев.
+Приложение для управления исправлениями — это приложение Azure Service Fabric, которое позволяет автоматизировать установку исправлений операционной системы в кластере Service Fabric и избежать простоев.
 
 Приложение для управления исправлениями предоставляет описанные ниже возможности.
 

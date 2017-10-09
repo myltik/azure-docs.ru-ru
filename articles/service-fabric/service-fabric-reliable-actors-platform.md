@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 09/20/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 0a12da52b6e74c721cd25f89e7cde3c07153a396
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Использование платформы Service Fabric надежными субъектами
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/14/2017
 Вместе эти компоненты образуют платформу Reliable Actors.
 
 ## <a name="service-layering"></a>Структура служб
-Так как служба субъектов сама по себе является надежной службой, понятия [модели приложений](service-fabric-application-model.md), жизненного цикла, [упаковки](service-fabric-package-apps.md), [развертывания](service-fabric-deploy-remove-applications.md), обновления и масштабирования, связанные с Reliable Services, также относятся и к службам субъектов. 
+Так как служба субъектов сама по себе является надежной службой, понятия [модели приложений](service-fabric-application-model.md), жизненного цикла, [упаковки](service-fabric-package-apps.md), [развертывания](service-fabric-deploy-remove-applications.md), обновления и масштабирования, связанные с Reliable Services, также относятся и к службам субъектов.
 
 ![Структура службы субъектов][1]
 
@@ -372,6 +372,35 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
 При использовании строк и GUID или UUID значения хэшируются в значения типа Int64. Однако, если значение типа Int64 предоставляется в `ActorId` напрямую, Int64 сопоставляется с секцией напрямую без дополнительного хэширования. Этот метод можно использовать для управления тем, в каких секциях будут размещаться субъекты.
+
+## <a name="actor-using-remoting-v2-stack"></a>Субъект, использующий стек удаленного взаимодействия версии 2
+Теперь с помощью пакета NuGet 2.8 пользователи могут использовать стек удаленного взаимодействия версии 2, который обеспечивает более высокую производительность и предоставляет такие функции, как настраиваемая сериализация. Стек удаленного взаимодействия версии 2 не обеспечивает обратную совместимость с существующим стеком удаленного взаимодействия (который теперь называется стеком удаленного взаимодействия версии 1).
+
+Для использования стека удаленного взаимодействия версии 2 требуется внести следующие изменения.
+ 1. Добавьте приведенный ниже атрибут сборки в интерфейсы субъекта.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   ```
+
+ 2. Выполните сборку и обновление проектов службы субъекта и клиента субъекта, чтобы начать использование стека версии 2.
+
+### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Обновление службы субъекта для использования стека удаленного взаимодействия версии 2 без влияния на доступность службы
+Это изменение будет выполнено в 2 этапа. Выполните приведенные действия в указанной последовательности.
+
+1.  Добавьте приведенный ниже атрибут сборки в интерфейсы субъекта. Этот атрибут запустит два прослушивателя для служб субъекта: прослушиватель версии 1 (существующий) и прослушиватель версии 2. Обновите службу субъекта, внеся в нее это изменение.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  ```
+
+2. Обновите клиенты субъекта после завершения обновления, упомянутого выше.
+Это гарантирует, что прокси-сервер субъекта будет использовать стек удаленного взаимодействия версии 2.
+
+3. Этот шаг не является обязательным. Измените приведенный выше атрибут, чтобы удалить прослушиватель версии 1.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Управление состоянием субъекта](service-fabric-reliable-actors-state-management.md)

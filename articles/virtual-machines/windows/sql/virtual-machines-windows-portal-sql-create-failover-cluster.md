@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 09/26/2017
 ms.author: mikeray
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 439353b7d22fb7376049ea8e1433a8d5840d3e0f
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -427,19 +427,37 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 Задайте параметр порта проверки кластера в PowerShell.
 
-Чтобы задать параметр порта проверки кластера, обновите переменные в следующем скрипте из своей среды.
+Чтобы задать параметр порта пробы кластера, измените переменные в следующем сценарии, указав значения для своей среды. Удалите угловые скобки `<>` из сценария. 
 
-  ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <59999>
+   ```PowerShell
+   $ClusterNetworkName = "<Cluster Network Name>"
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+   $ILBIP = "<n.n.n.n>" 
+   [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
+В предыдущем сценарии задайте значения для своей среды. Эти значения описаны в списке ниже.
+
+   - `<Cluster Network Name>`: имя отказоустойчивого кластера Windows Server для сети. Выберите **Диспетчер отказоустойчивости кластеров** > **Сети**, щелкните правой кнопкой мыши сеть и щелкните **Свойства**. Правильное значение указано в поле **Имя** на вкладке **Общие**. 
+
+   - `<SQL Server FCI IP Address Resource Name>`: имя ресурса IP-адреса экземпляра отказоустойчивого кластера SQL Server. Выберите **Диспетчер отказоустойчивости кластеров** > **Роли**. Для роли экземпляра отказоустойчивого кластера SQL Server в разделе **Имя сервера** щелкните правой кнопкой мыши ресурс IP-адреса и выберите **Свойства**. Правильное значение указано в поле **Имя** на вкладке **Общие**. 
+
+   - `<ILBIP>`: IP-адрес внутренней подсистемы балансировки нагрузки. Этот адрес настраивается на портале Azure в качестве интерфейсного адреса внутренней подсистемы балансировки нагрузки. Это также IP-адрес экземпляра отказоустойчивого кластера SQL Server. Его можно найти в окне **Диспетчер отказоустойчивости кластеров** на той же странице свойств, где указано значение `<SQL Server FCI IP Address Resource Name>`.  
+
+   - `<nnnnn>`: порт пробы, настроенный в пробе работоспособности подсистемы балансировки нагрузки. Допускается любой неиспользуемый TCP-порт. 
+
+>[!IMPORTANT]
+>Маска подсети для параметра кластера должна быть широковещательным адресом TCP IP: `255.255.255.255`.
+
+После настройки пробы кластера все параметры кластера можно просмотреть в PowerShell. Выполните следующий скрипт:
+
+   ```PowerShell
+   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
+  ```
 
 ## <a name="step-7-test-fci-failover"></a>Шаг 7. Проверка отработки отказа экземпляра отказоустойчивого кластера
 

@@ -14,14 +14,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 36285fbaf1da3c566d338bd5612eebad327eaf50
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c72de1c83fe73019ac3ad8b8487aa25bbd078555
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Создание топологии Apache Storm на языке Java
@@ -38,7 +38,7 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* [Java Developer Kit (JDK) версии 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+* [Java Developer Kit (JDK) версии 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 * [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): система сборки проектов для Java.
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 07/13/2017
 
 Во время установки Java и JDK могут быть установлены следующие переменные среды. Однако следует убедиться, что они существуют и что они содержат правильные значения для вашей системы.
 
-* **JAVA_HOME** — эта переменная должна указывать на каталог, в который установлена среда выполнения Java (JRE). Например, в дистрибутиве Unix или Linux она должна иметь примерно такое значение: `/usr/lib/jvm/java-7-oracle` В Windows значение будет приблизительно таким: `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA_HOME** — эта переменная должна указывать на каталог, в который установлена среда выполнения Java (JRE). Например, в дистрибутиве Unix или Linux она должна иметь примерно такое значение: `/usr/lib/jvm/java-8-oracle` В Windows значение будет приблизительно таким: `c:\Program Files (x86)\Java\jre1.8`
 
 * **PATH** — эта переменная должна содержать следующие пути:
 
@@ -133,9 +133,9 @@ Maven позволяет определить значения на уровне
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
-    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight.
+    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight 3.5.
     -->
-    <storm.version>1.0.1.2.5.3.0-37</storm.version>
+    <storm.version>1.1.0.2.6.1.9-1</storm.version>
 </properties>
 ```
 
@@ -611,40 +611,42 @@ Flux — это новая платформа, доступная в Storm 0.10.
 
 2. В каталоге `resources` создайте файл с именем `topology.yaml`. В качестве содержимого файла добавьте следующий текст:
 
-        name: "wordcount"       # friendly name for the topology
+    ```yaml
+    name: "wordcount"       # friendly name for the topology
+
+    config:                 # Topology configuration
+      topology.workers: 1     # Hint for the number of workers to create
+
+    spouts:                 # Spout definitions
+    - id: "sentence-spout"
+      className: "com.microsoft.example.RandomSentenceSpout"
+      parallelism: 1      # parallelism hint
+
+    bolts:                  # Bolt definitions
+    - id: "splitter-bolt"
+      className: "com.microsoft.example.SplitSentence"
+      parallelism: 1
         
-        config:                 # Topology configuration
-        topology.workers: 1     # Hint for the number of workers to create
-        
-        spouts:                 # Spout definitions
-        - id: "sentence-spout"
-            className: "com.microsoft.example.RandomSentenceSpout"
-            parallelism: 1      # parallelism hint
-        
-        bolts:                  # Bolt definitions
-        - id: "splitter-bolt"
-            className: "com.microsoft.example.SplitSentence"
-            parallelism: 1
-         
-        - id: "counter-bolt"
-            className: "com.microsoft.example.WordCount"
-            constructorArgs:
-                - 10
-            parallelism: 1
-        
-        streams:                # Stream definitions
-            - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-            from: "sentence-spout"       # The stream emitter
-            to: "splitter-bolt"          # The stream consumer
-            grouping:                    # Grouping type
-                type: SHUFFLE
-          
-            - name: "Splitter -> Counter"
-            from: "splitter-bolt"
-            to: "counter-bolt"
-            grouping:
-            type: FIELDS
-                args: ["word"]           # field(s) to group on
+    - id: "counter-bolt"
+      className: "com.microsoft.example.WordCount"
+      constructorArgs:
+        - 10
+      parallelism: 1
+
+    streams:                # Stream definitions
+    - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+      from: "sentence-spout"       # The stream emitter
+      to: "splitter-bolt"          # The stream consumer
+      grouping:                    # Grouping type
+        type: SHUFFLE
+    
+    - name: "Splitter -> Counter"
+      from: "splitter-bolt"
+      to: "counter-bolt"
+      grouping:
+        type: FIELDS
+        args: ["word"]           # field(s) to group on
+    ```
 
 3. Внесите следующие изменения в файл `pom.xml`.
    
@@ -722,14 +724,14 @@ Flux — это новая платформа, доступная в Storm 0.10.
     ```
 
     > [!WARNING]
-    > Эта команда не выполняется, если топология использует ресурсы Storm 1.0.1. Причиной этого является ошибка [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Вместо этого [установите Storm в среде разработки](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) и используйте следующие сведения.
-
-    Если вы [установили Storm в среде разработки](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), вместо этого можно использовать приведенные ниже команды.
-
-    ```bash
-    mvn compile package
-    storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
-    ```
+    > Эта команда не выполняется, если топология использует ресурсы Storm 1.0.1. Причиной этого является ошибка [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Вместо этого [установите Storm в среде разработки](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) и выполните следующие действия:
+    >
+    > Если вы [установили Storm в среде разработки](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), вместо этого можно использовать приведенные ниже команды.
+    >
+    > ```bash
+    > mvn compile package
+    > storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
+    > ```
 
     Параметр `--local` выполняет топологию в локальном режиме в среде разработки. Параметр `-R /topology.yaml` использует файловый ресурс `topology.yaml` из JAR-файла для определения топологии.
 

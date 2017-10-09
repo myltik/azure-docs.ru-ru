@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 12bf76deebda27cdc7e7611e0585dc0bf92bde2f
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 3af597d7af13daaf80cd750b230675c8475033e1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Управление ресурсами отдельной базы данных в Базе данных SQL Azure
@@ -102,7 +102,7 @@ ALTER DATABASE <myDatabaseName>
 |[Базы данных: вывод списка по эластичному пулу](/rest/api/sql/databases/listbyelasticpool)|Возвращает список баз данных в пуле эластичных баз данных.|
 |[Базы данных: вывод списка по рекомендуемому эластичному пулу](/rest/api/sql/databases/listbyrecommendedelasticpool)|Возвращает список баз данных в рекомендуемом эластичном пуле.|
 |[Базы данных: вывод списка по серверу](/rest/api/sql/databases/listbyserver)|Возвращает список баз данных на сервере.|
-|[Базы данных: обновление](/api/sql/databases/update)|Обновляет имеющуюся базу данных.|
+|[Databases - Update]((/rest/api/sql/databases/update)|Обновляет имеющуюся базу данных.|
 
 
 

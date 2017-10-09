@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 3411c59fee73aa2e26a05d70e1dae11cdfc865ff
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: b9a8f857f42f16ec7735a79ec29e77e3c99c8ba7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Выполнение запросов Hive с помощью Средств Data Lake для Visual Studio
@@ -72,7 +72,7 @@ ms.lasthandoff: 07/13/2017
 
    * `ROW FORMAT`: инструкции по форматированию данных для Hive. В данном случае поля всех журналов разделены пробелом.
 
-   * `STORED AS TEXTFILE LOCATION`: указывает Hive расположение хранения данных (каталог example/data) и их формат (текст).
+   * `STORED AS TEXTFILE LOCATION`: указывает Hive, что данные хранятся в каталоге example/data и их формат — текст.
 
    * `SELECT`: подсчитывает количество строк, в которых столбец `t4` содержит значение `[ERROR]`. Эта инструкция должна вернуть значение `3`, так как данное значение содержат три строки.
 

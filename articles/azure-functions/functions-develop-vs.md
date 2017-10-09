@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: b69bbd00b85fdf093ac1ccf021515d9b44ea7f55
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 5f0b346ec1c4a42d11ef74ab8ac8701dd45b00eb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
@@ -57,7 +57,7 @@ ms.lasthandoff: 09/07/2017
 
 При создании нового проекта с помощью шаблона Функции Azure получается пустой проект C#, содержащий следующие файлы:
 
-* **host.json**: позволяет настроить узел Функций. Эти параметры применяются как в локальном режиме, так и в Azure. Дополнительные сведения см. в справочной статье о [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+* **host.json**: позволяет настроить узел Функций. Эти параметры применяются как в локальном режиме, так и в Azure. Дополнительные сведения см. в [справочной статье о host.json](functions-host-json.md).
     
 * **local.settings.json**: содержит параметры, используемые при выполнении функций локально. Эти параметры не используются в Azure, они используются [основными инструментами Функций Azure](functions-run-local.md). Используйте этот файл для указания параметров, таких как строки подключения к другим службам Azure. Добавьте новый ключ в массив **Values** для каждого подключения, которое необходимо для функций в проекте. Дополнительные сведения см. в разделе [Local settings file](functions-run-local.md#local-settings-file) (Файл локальных параметров) статьи, посвященной основным инструментам Функций Azure.
 

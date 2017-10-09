@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 848284f37ae2470a169d8f8a8c9c0bb5b926abe3
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 5a5fc9bac4f0ee54532f34fe957e3722123df178
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 06/30/2017
 * [Установка с помощью службы автоматизации Azure и настройки требуемого состояния (DSC службы автоматизации)](site-recovery-automate-mobility-service-install.md).
 * [Установка вручную с помощью графического пользовательского интерфейса (GUI)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui).
 * [Установка Mobility Service в командной строке вручную](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt).
-* [Принудительная установка Mobility Service из Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery).
+* [Принудительная установка Mobility Service из Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 
 >[!IMPORTANT]
@@ -78,7 +78,7 @@ ms.lasthandoff: 06/30/2017
 
 
 ## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Принудительная установка Mobility Service из Azure Site Recovery
-Для принудительной установки службы Mobility Service с использованием Site Recovery все для целевых компьютеров следует выполнить следующие предварительные требования.
+Для принудительной установки службы Mobility Service с использованием Site Recovery для всех целевых компьютеров следует выполнить следующие предварительные требования.
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
@@ -87,6 +87,20 @@ ms.lasthandoff: 06/30/2017
 
 > [!NOTE]
 После установки службы Mobility Service на портале Azure нажмите кнопку **Репликация**, чтобы приступить к защите виртуальных машин.
+
+## <a name="update-mobility-service"></a>Обновляет службу Mobility Service.
+
+> [!WARNING]
+> Убедитесь, что сервер конфигурации, серверы обработки масштабирования и все главные целевые серверы, которые являются частью развертывания, обновлены, прежде чем начать обновление службы Mobility Service на защищенных серверах. Дополнительные сведения см. в разделах [Обновление сервера конфигурации](site-recovery-vmware-to-azure-manage-configuration-server.md#updating-a-configuration-server) и [Обновление сервера обработки масштабирования](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server).
+
+1. На портале Azure перейдите к представлению <Your Vault> > "Реплицированные элементы".
+2. Если **сервер конфигурации** уже обновлен до последней версии, то вы увидите уведомление *Доступно обновление для агента репликации Site Recovery. Щелкните, чтобы установить его.*
+3. Щелкните это уведомление, чтобы открыть страницу выбора виртуальной машины.
+4. Выберите виртуальные машины, на которых нужно обновить службу Mobility Service, и нажмите кнопку "ОК".
+5. Для каждой выбранной виртуальной машины будет запущено задание обновления службы Mobility Service.
+
+> [!NOTE]
+> [Узнайте больше](site-recovery-vmware-to-azure-manage-configuration-server.md) о том, как обновить пароль учетной записи, используемой для установки службы Mobility Service. 
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Удаление Mobility Service с компьютера Windows Server
 Воспользуйтесь одним из следующих методов для удаления службы Mobility Service на компьютере Windows Server.

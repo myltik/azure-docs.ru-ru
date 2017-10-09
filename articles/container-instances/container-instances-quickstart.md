@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 09/26/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 012a48410bb08cb54f42a4f87e952f67ad18c112
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 71a16c71a18b63efe039d3a47ab6f2ce7244caba
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 09/13/2017
 
 Служба "Экземпляры контейнеров Azure" является ресурсом Azure и должна быть помещена в группу ресурсов Azure — логическую коллекцию, в которой выполняется развертывание ресурсов Azure и управление ими.
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create).
+Создайте группу ресурсов с помощью команды [az group create][az-group-create].
 
 В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
@@ -51,13 +51,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Создание контейнера
 
-Чтобы создать контейнер, нужно указать его имя, образ Docker и группу ресурсов Azure. Либо же можно предоставить контейнер в Интернете по общедоступному IP-адресу. В этом случае мы используем контейнер, в котором размещено очень простое веб-приложение, написанное на [Node.js](http://nodejs.org).
+Чтобы создать контейнер, нужно указать его имя, образ Docker и группу ресурсов Azure в команде [az container create][az-container-create]. Либо же можно предоставить контейнер в Интернете по общедоступному IP-адресу. В этом случае мы используем контейнер, в котором размещено очень простое веб-приложение, написанное на [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
-Через несколько секунд вы должны получить ответ на запрос. Изначально контейнер будет в состоянии **создания**, но через несколько секунд он запустится. Его состояние можно проверить с помощью команды `show`:
+Через несколько секунд вы должны получить ответ на запрос. Изначально контейнер будет в состоянии **создания**, но через несколько секунд он запустится. Вы можете проверить состояние, выполнив команду [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -87,7 +87,7 @@ az container show --name mycontainer --resource-group myResourceGroup
 
 ## <a name="pull-the-container-logs"></a>Извлечение журналов контейнера
 
-Вы можете извлечь журналы для созданного контейнера с помощью команды `logs`:
+Вы можете извлечь журналы для созданного контейнера с помощью команды [az container logs][az-container-logs]:
 
 ```azurecli-interactive
 az container logs --name mycontainer --resource-group myResourceGroup
@@ -103,7 +103,7 @@ listening on port 80
 
 ## <a name="delete-the-container"></a>Удаление контейнера
 
-По завершении работы с контейнером его можно удалить с помощью команды `delete`:
+По завершении работы с контейнером его можно удалить с помощью команды [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
@@ -119,6 +119,13 @@ az container delete --name mycontainer --resource-group myResourceGroup
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
+[az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
+[az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
+[az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

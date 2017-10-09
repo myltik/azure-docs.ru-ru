@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 06/07/2017
 ms.author: donnam
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 25c5f72be8dc79d8b33a598c7be494bd955eb850
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c9dfd3e3b9c155255959f76fd9b58b6935888db2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Справочник разработчика скриптов C# по функциям Azure
@@ -96,7 +96,7 @@ public static void Run(ICollector<string> myQueueItem, TraceWriter log)
 ## <a name="logging"></a>Ведение журналов
 Для записи выходных данных в потоковые журналы в C# включите аргумент с типом `TraceWriter`. Рекомендуем присвоить ему имя `log`. Не используйте `Console.Write` в Функциях Azure. 
 
-`TraceWriter` определяется в [пакете SDK веб-заданий Azure](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Уровень ведения журнала для `TraceWriter` можно настроить в [host\.json].
+`TraceWriter` определяется в [пакете SDK веб-заданий Azure](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Уровень ведения журнала для `TraceWriter` можно настроить в [host.json](functions-host-json.md).
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -198,7 +198,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 ### <a name="watched-directories"></a>Каталоги отслеживания
 
-Каталог, содержащий файл сценария функции, автоматически отслеживает изменения в сборках. Чтобы отслеживать изменения сборки в других каталогах, добавьте их в список `watchDirectories` в [host\.json].
+Каталог, содержащий файл сценария функции, автоматически отслеживает изменения в сборках. Чтобы отслеживать изменения сборки в других каталогах, добавьте их в список `watchDirectories` в [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Использование пакетов NuGet
 Чтобы использовать пакеты NuGet в функции C#, отправьте файл *project.json* в папку соответствующей функции в файловой системе приложения-функции. Ниже приведен пример файла *project.json* , который добавляет ссылку на Microsoft.ProjectOxford.Face версии 1.1.0.
@@ -443,6 +443,4 @@ public static async Task Run(string input, Binder binder)
 * [Справочник разработчика F# по функциям Azure](functions-reference-fsharp.md)
 * [Справочник разработчика NodeJS по функциям Azure](functions-reference-node.md)
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
-
-[host\.json]: https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json
 

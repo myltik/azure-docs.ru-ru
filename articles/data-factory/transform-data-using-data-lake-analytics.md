@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f72ee8b6ef51046a64e794b17d1c389a25246358
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Преобразование данных с помощью сценариев U-SQL в Azure Data Lake Analytics 
@@ -28,7 +28,7 @@ ms.lasthandoff: 09/25/2017
 Конвейер в фабрике данных Azure обрабатывает данные в связанной службе хранилища с помощью связанных вычислительных служб. В нем содержится последовательность действий, каждое из которых выполняет определенную операцию обработки. В этой статье описывается **действие U-SQL в Data Lake Analytics**, которое запускает сценарий **U-SQL** в связанной службе вычислений **Azure Data Lake Analytics**. 
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, см. статью [Преобразование данных с помощью сценариев U-SQL в Azure Data Lake Analytics](v1/data-factory-usql-activity.md).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, см. статью [Преобразование данных с помощью сценариев U-SQL в Azure Data Lake Analytics](v1/data-factory-usql-activity.md).
 
 Перед созданием конвейера с действием U-SQL в Data Lake Analytics следует создать учетную запись Data Lake Analytics. Дополнительные сведения об Azure Data Lake Analytics см. в статье [Начало работы с аналитикой озера данных Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 09/25/2017
 | name                | Имя действия в конвейере.     | Да      |
 | description         | Описание действия.  | Нет       |
 | type                | Для действия U-SQL Data Lake Analytics в качестве типа действия используется **DataLakeAnalyticsU-SQL**. | Да      |
-| linkedServiceName (имя связанной службы)   | Связанная служба Azure Data Lake Analytics. Дополнительные сведения об этой связанной службе см. в статье [Вычислительные среды, поддерживаемые фабрикой данных Azure](compute-linked-services.md).  |          |
+| linkedServiceName (имя связанной службы)   | Связанная служба Azure Data Lake Analytics. Дополнительные сведения об этой связанной службе см. в статье [Вычислительные среды, поддерживаемые фабрикой данных Azure](compute-linked-services.md).  |Да       |
 | scriptPath          | Путь к папке, содержащей скрипт U-SQL В имени файла учитывается регистр. | Да      |
 | scriptLinkedService | Связанная служба, которая связывает хранилище, содержащее скрипт, с фабрикой данных | Да      |
 | degreeOfParallelism | Максимальное количество узлов, используемых одновременно для выполнения задания. | Нет       |

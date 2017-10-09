@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 09/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 008c670a8043da0c67ccefde48d5ef721c75d97c
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 67534da42ac27989a8b08cec4d6f9f9c31774264
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Руководство по интеграции Azure Active Directory с Pingboard
@@ -28,9 +29,9 @@ ms.lasthandoff: 04/07/2017
 
 - С помощью Azure AD вы можете контролировать доступ к Pingboard.
 - Вы можете включить автоматический вход пользователей в Pingboard (единый вход) с использованием учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно — через портал управления Azure.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -44,8 +45,8 @@ ms.lasthandoff: 04/07/2017
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
@@ -58,27 +59,24 @@ ms.lasthandoff: 04/07/2017
 
 **Чтобы добавить Pingboard из коллекции, выполните следующие действия:**
 
-1. На **[портале управления Azure](https://portal.azure.com)** в левой области навигации нажмите значок **Azure Active Directory**. 
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Кнопка "Azure Active Directory"][1]
 
 2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-    ![Приложения][2]
+    ![Пункт "Корпоративные приложения"][2]
     
 3. Нажмите кнопку **Добавить** в верхней части диалогового окна.
 
-    ![Приложения][3]
+    ![Кнопка "Новое приложение"][3]
 
-4. В поле поиска введите **Pingboard**.
+4. В поле поиска введите **Pingboard**, выберите **Pingboard** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_search.png)
+    ![Pingboard в списке результатов](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_addfromgallery.png)
 
-5. На панели результатов выберите **Pingboard** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в приложение Pingboard с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в Pingboard соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Pingboard.
@@ -87,50 +85,50 @@ ms.lasthandoff: 04/07/2017
 
 Чтобы настроить и проверить единый вход Azure AD в Pingboard, вам потребуется выполнить действия в следующих стандартных блоках:
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Pingboard](#creating-a-pingboard-test-user)** требуется для создания в Pingboard пользователя Britta Simon, связанного с соответствующим пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Pingboard](#create-a-pingboard-test-user)** требуется для того, чтобы в Pingboard существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
-В этом разделе описано, как включить единый вход Azure AD на портале управления Azure и настроить его в приложении Pingboard.
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Pingboard.
 
 **Чтобы настроить единый вход Azure AD в Pingboard, выполните следующие действия:**
 
-1. На портале управления Azure на странице интеграции с приложением **Pingboard** щелкните **Единый вход**.
+1. На портале Azure на странице интеграции с приложением **Pingboard** щелкните **Единый вход**.
 
-    ![Настройка единого входа][4]
+    ![Ссылка "Настройка единого входа"][4]
 
-2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+2.  В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
  
-    ![Настройка единого входа](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_samlbase.png)
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_samlbase.png)
 
 3. Если вы хотите настроить приложение в режиме, инициированном **поставщиком удостоверений**, то в разделе **Домены и URL-адреса приложения Pingboard** выполните следующие действия:
 
-    ![Настройка единого входа](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_url.png)
+    ![Сведения о домене и URL-адресах единого входа для приложения Pingboard для IdP](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_url.png)
 
-    а. В текстовом поле **Идентификатор** введите значение `http://<entity-id>.pingboard.com/sp`.
+    а. В текстовом поле **Идентификатор** введите значение `http://app.pingboard.com/sp`.
 
     b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<entity-id>.pingboard.com/auth/saml/consume`.
 
-    > [!NOTE] 
-    > Обратите внимание, что значения, указанные выше, используются в качестве примера. Необходимо указать фактические значения идентификатора и URL-адреса ответа. Мы рекомендуем использовать уникальное значение строки идентификатора. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Pingboard](https://support.pingboard.com/). 
-
 4. Установите флажок **Показать дополнительные параметры URL-адресов**, если вы хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**.
 
-    ![Настройка единого входа](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
+    ![Сведения о домене и URL-адресах единого входа для приложения Pingboard для поставщика услуг](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите значение `http://<sub-domain>.pingboard.com/sign_in`.
-     
+     В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<sub-domain>.pingboard.com/sign_in`.
+
+    > [!NOTE] 
+    > Обратите внимание на то, что эти значения используются в качестве примера. Измените их на фактические значения URL-адреса ответа и URL-адреса входа. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Pingboard](https://support.pingboard.com/).
+
 5. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
 
-    ![Настройка единого входа](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png) 
+    ![XML-файл метаданных Pingboard](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png) 
 
 6. Нажмите кнопку **Сохранить** .
 
-    ![Настройка единого входа](./media/active-directory-saas-pingboard-tutorial/tutorial_general_400.png)
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-pingboard-tutorial/tutorial_general_400.png)
 
 7. Чтобы настроить единый вход на стороне Pingboard, откройте новое окно браузера и войдите в учетную запись Pingboard. Для настройки единого входа нужны права администратора Pingboard.
 
@@ -140,40 +138,41 @@ ms.lasthandoff: 04/07/2017
 
 9.  На странице **Integrations** (Интеграция) найдите элемент **Azure Active Directory** и щелкните его.
 
-    ![Настройка единого входа](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
+    ![Интеграция для единого входа в Pingboard](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
 10. В появившемся модальном окне щелкните **Configure** (Настройка).
 
-    ![Настройка единого входа](./media/active-directory-saas-pingboard-tutorial/Pingboard_configure.png)
+    ![Кнопка настройки в Pingboard](./media/active-directory-saas-pingboard-tutorial/Pingboard_configure.png)
 
 11. На следующей странице вы увидите сообщение "Azure SSO Integration is enabled" (Интеграция для единого входа Azure включена). Откройте скачанный XML-файл метаданных в Блокноте и вставьте его содержимое в поле **IDP Metadata** (Метаданные IdP).
 
-    ![Настройка единого входа](./media/active-directory-saas-pingboard-tutorial/Pingboard_sso_configure.png)
+    ![Экран настройки единого входа в Pingboard](./media/active-directory-saas-pingboard-tutorial/Pingboard_sso_configure.png)
 
 12. Файл будет проверен, и если он пройдет проверку, то единый вход будет включен.
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на портале управления Azure тестового пользователя с именем Britta Simon.
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 
-![Создание пользователя Azure AD][100]
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+![Создание тестового пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **портале управления Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pingboard-tutorial/create_aaduser_01.png) 
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-pingboard-tutorial/create_aaduser_01.png) 
 
-2. Перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**, чтобы отобразить список пользователей.
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
     
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png) 
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png) 
 
 3. В верхней части диалогового окна щелкните **Добавить**, чтобы открыть диалоговое окно **Пользователь**.
  
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pingboard-tutorial/create_aaduser_03.png) 
+    ![Кнопка "Добавить"](./media/active-directory-saas-pingboard-tutorial/create_aaduser_03.png) 
 
 4. На странице диалогового окна **Пользователь** выполните следующие действия.
  
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png) 
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png) 
 
     а. В текстовом поле **Имя** введите **BrittaSimon**.
 
@@ -183,12 +182,11 @@ ms.lasthandoff: 04/07/2017
 
     d. Щелкните **Создать**.
  
-### <a name="creating-a-pingboard-test-user"></a>Создание тестового пользователя Pingboard
+### <a name="create-a-pingboard-test-user"></a>Создание тестового пользователя Pingboard
 
-Чтобы пользователи Azure AD могли входить в Pingboard, их необходимо подготовить в Pingboard.  
-В случае с Pingboard подготовка выполняется вручную.
+Чтобы пользователи Azure AD могли входить в Pingboard, их необходимо подготовить в Pingboard. Для Pingboard подготовка выполняется вручную.
 
-**Чтобы подготовить учетные записи пользователей, выполните следующие действия.**
+**Чтобы подготовить учетную запись пользователя, сделайте следующее:**
 
 1. Войдите на корпоративный сайт Pingboard в качестве администратора.
 
@@ -200,9 +198,9 @@ ms.lasthandoff: 04/07/2017
 
     ![Приглашение пользователей](./media/active-directory-saas-pingboard-tutorial/create_testuser_name.png)
 
-    А. В текстовом поле **Full Name** (Полное имя) введите полное имя пользователя Britta Simon.
+    а. В текстовом поле **Full Name** (Полное имя) введите полное имя пользователя, например **Britta Simon**.
 
-    b. В текстовом поле **Электронная почта** введите адрес электронной почты учетной записи Britta Simon.
+    b. В текстовом поле **Email** (Электронная почта) введите адрес электронной почты пользователя, например **brittasimon@contoso.com**.
 
     c. В текстовом поле **Job Title** (Должность) введите должность пользователя Britta Simon.
 
@@ -217,29 +215,29 @@ ms.lasthandoff: 04/07/2017
     > [!NOTE]
     > Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к PingBoard.
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Pingboard.
 
 ![Назначение пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon в Pingboard, выполните следующие действия:**
 
-1. На портале управления Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
     ![Назначение пользователя][201] 
 
 2. В списке приложений выберите **Pingboard**.
 
-    ![Настройка единого входа](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_app.png) 
+    ![Ссылка на Pingboard в списке "Приложения"](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_app.png) 
 
 3. В меню слева выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][202] 
+    ![Ссылка "Пользователи и группы"][202] 
 
 4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
 
-    ![Назначение пользователя][203]
+    ![Область "Добавление назначения"][203]
 
 5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
 
@@ -247,9 +245,10 @@ ms.lasthandoff: 04/07/2017
 
 7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
     
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 Щелкнув элемент Pingboard на панели доступа, вы автоматически войдете в приложение Pingboard.
 

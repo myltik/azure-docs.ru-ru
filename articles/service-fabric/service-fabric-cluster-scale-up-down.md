@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32d8fca81c20e77db4ed3aae05d017ccc2ce1be3
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: f5ffcb5be1c52f27948414304f1fc2e82c76709b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Масштабирование кластера Service Fabric с помощью правил автомасштабирования
@@ -100,7 +100,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 Проверить удаление узла при удалении виртуальной машины можно двумя способами:
 
-1) Выбрать уровень надежности Gold или Silver (будет доступно в ближайшее время) для типов узлов в кластере — это обеспечит интеграцию инфраструктуры. При уменьшении масштаба узлы будут удаляться из состояния системных служб (FM) автоматически.
+1) Выбрать уровень надежности Gold или Silver для типов узлов в кластере — это обеспечит интеграцию инфраструктуры. При уменьшении масштаба узлы будут удаляться из состояния системных служб (FM) автоматически.
 Дополнительные сведения об уровнях надежности см. [здесь](service-fabric-cluster-capacity.md).
 
 2) После уменьшения масштаба экземпляра виртуальной машины необходимо вызвать [командлет Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).

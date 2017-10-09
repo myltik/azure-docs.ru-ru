@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 09/15/2017
+ms.date: 09/27/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: eb409b6e5cb0f6bfbf6bfa8103c01482abf928cf
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: e4ee69abe0b3b5d594ee191cc8210d25c325efaa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Использование конечных точек службы и правил виртуальной сети для базы данных SQL Azure
 
-*Правила виртуальной сети* Microsoft Azure — это одна из функций брандмауэра, обеспечивающая управление приемом сервером базы данных SQL Azure подключений из определенных подсетей в виртуальных сетях. В этой статье объясняется, почему правила виртуальной сети иногда являются лучшим вариантом для защиты подключений к базе данных SQL Azure.
+*Правила виртуальной сети* — это одна из функций безопасности брандмауэра, обеспечивающая управление приемом сервером базы данных SQL Azure подключений из определенных подсетей в виртуальных сетях. В этой статье объясняется, почему правила виртуальной сети иногда являются лучшим вариантом для защиты подключений к базе данных SQL Azure.
+
+Чтобы создать правило виртуальной сети, требуется [конечная точка службы виртуальной сети][vm-virtual-network-service-endpoints-overview-649d], используемая для ссылки.
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Как создать правило виртуальной сети
 
@@ -44,7 +46,7 @@ ms.lasthandoff: 09/25/2017
 
 **Подсеть**. Виртуальная сеть содержит **подсети**. Все ваши виртуальные машины Azure назначены в подсети. Одна подсеть может содержать несколько виртуальных машин или других вычислительных узлов. Вычислительные узлы, которые находятся вне вашей виртуальной сети, не имеют доступа к ней, если только не настроить систему безопасности таким образом, чтобы предоставить им доступ.
 
-**Конечная точка службы виртуальной сети.** Это подсеть, значения свойств которой включают в себя одно или несколько формальных имен типов службы Azure. В этой статье мы рассмотрим тип **Microsoft.Sql**, который относится к службе Azure, которая называется Базой данных SQL.
+**Конечная точка службы виртуальной сети**. [Конечная точка службы виртуальной сети][vm-virtual-network-service-endpoints-overview-649d] — это подсеть, значения свойств которой включают в себя одно или несколько формальных имен типов службы Azure. В этой статье мы рассмотрим тип **Microsoft.Sql**, который относится к службе Azure, которая называется Базой данных SQL.
 
 **Правило виртуальной сети**. Правило виртуальной сети для сервера базы данных SQL — это подсеть, которая указана в списке управления доступом (ACL) сервера базы данных SQL. Для включения в ACL для базы данных SQL подсеть должна содержать имя типа **Microsoft.Sql**.
 
@@ -118,15 +120,21 @@ ms.lasthandoff: 09/25/2017
 
 #### <a name="limitations"></a>Ограничения
 
-Правила виртуальной сети имеют следующие ограничения:
+Для базы данных SQL Azure правила виртуальной сети имеют следующие ограничения.
 
-- Каждый сервер базы данных SQL Azure можно использовать до 128 записей IP-ACL для любой заданной виртуальной сети.
+- Каждый сервер базы данных SQL Azure может использовать до 128 записей ACL для любой заданной виртуальной сети.
 
 - Правила виртуальной сети применяются только к виртуальным сетям Azure Resource Manager, но не к сетям на основе [классической модели развертывания][arm-deployment-model-568f].
 
-- Правила виртуальной сети не распространяются на какие-либо из следующих компонентов сети:
-    - локальная среда с подключением [ExpressRoute][expressroute-indexmd-744v];
-    - [виртуальная частная сеть (VPN) типа "сеть — сеть"][vpn-gateway-indexmd-608y].
+- К приведенным ниже элементам сети применяются диапазоны IP-адресов в брандмауэре, а правила виртуальной сети — нет:
+    - [виртуальная частная сеть (VPN) типа "сеть — сеть"][vpn-gateway-indexmd-608y];
+    - локальная среда с подключением [ExpressRoute][expressroute-indexmd-744v].
+
+#### <a name="expressroute"></a>ExpressRoute
+
+Если сеть подключена к сети Azure с использованием [ExpressRoute][expressroute-indexmd-744v], то для каждого канала настроены два общедоступных IP-адреса в Microsoft Edge. Эти два IP-адреса используются для подключения к службам Майкрософт, таким как служба хранилища Azure, с помощью общедоступного пиринга Azure.
+
+Чтобы разрешить взаимодействие канала с базой данных SQL Azure, необходимо создать правила IP-сети для общедоступных IP-адресов каналов. Чтобы найти общедоступные IP-адреса канала ExpressRoute, отправьте запрос по ExpressRoute в службу поддержки через портал Azure.
 
 
 <!--
@@ -195,6 +203,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 ## <a name="related-articles"></a>Связанные статьи
 
 - [Создание конечной точки службы и правила виртуальной сети для базы данных SQL Azure с помощью PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Конечные точки служб виртуальной сети][vm-virtual-network-service-endpoints-overview-649d]
 - [Правила брандмауэра уровня сервера и уровня базы данных SQL Azure][sql-db-firewall-rules-config-715d]
 
 Функции конечных точек службы виртуальной сети Microsoft Azure и правил виртуальной сети для базы данных SQL Azure стали доступны в конце сентября 2017 года.
@@ -228,6 +237,8 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+
+[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
 
