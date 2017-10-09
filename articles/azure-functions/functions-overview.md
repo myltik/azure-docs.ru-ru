@@ -18,10 +18,10 @@ ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 77538db308c657392ac8bc6a0b7665f9b8427256
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 891640526b25c030f7e01d79e981aad517dfafb4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="an-introduction-to-azure-functions"></a>Общие сведения о Функциях Azure  
@@ -37,7 +37,7 @@ ms.lasthandoff: 09/02/2017
 * **Использование собственных зависимостей** — Функции поддерживают NuGet и NPM, поэтому можно использовать предпочитаемые библиотеки.  
 * **Встроенная система безопасности** — вы можете защитить функции с HTTP-активацией, которые используют поставщики OAuth (Azure Active Directory, Facebook, Google, Twitter и учетная запись Майкрософт).  
 * **Упрощенная интеграция** — вы можете легко пользоваться службами Azure и предложениями SaaS (программное обеспечение как услуга). Примеры см. в разделе [Интеграция](#integrations).  
-* **Гибкая разработка** — вы можете программировать функции на портале, а также настраивать непрерывную интеграцию и развертывание кода с помощью GitHub, Visual Studio Team Services и других [поддерживаемых средств разработки](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
+* **Гибкая разработка** — вы можете программировать функции на портале, а также настраивать непрерывную интеграцию и развертывание кода с помощью [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md), [Visual Studio Team Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md) и других [поддерживаемых средств разработки](../app-service/app-service-deploy-local-git.md).  
 * **Открытый код** — среда выполнения Функций имеет открытый исходный код, [доступный на GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>Что можно сделать с помощью функций
@@ -47,7 +47,7 @@ ms.lasthandoff: 09/02/2017
 
 * **HTTPTrigger** — активация выполнения кода с помощью HTTP-запроса. Пример см. в статье [Создание первой функции на портале Azure](functions-create-first-azure-function.md).
 * **TimerTrigger** — выполнение очистки или других пакетных задач на основе предопределенного расписания. Пример см. в статье [Создание в Azure функции, активируемой по таймеру](functions-create-scheduled-function.md).
-* **Объект webhook GitHub** — реагирование на события, происходящие в репозитории GitHub. Дополнительные сведения см. в статье [Создание функции, активируемой объектом webhook GitHub](functions-create-a-web-hook-or-api-function.md).
+* **Объект webhook GitHub** — реагирование на события, происходящие в репозитории GitHub. Дополнительные сведения см. в статье [Создание функции, активируемой объектом webhook GitHub](functions-create-github-webhook-triggered-function.md).
 * **Универсальный веб-перехватчик** — обработка HTTP-запросов веб-перехватчика от любой службы, поддерживающей веб-перехватчики. Пример см. в статье [Создание функции, активируемой универсальным веб-перехватчиком](functions-create-generic-webhook-triggered-function.md).
 * **BlobTrigger** — обработка больших двоичных объектов службы хранилища Azure при добавлении в контейнер. Эту функцию можно использовать для изменения размеров изображения. Дополнительные сведения см. в статье [Привязки хранилища BLOB-объектов для Функций Azure](functions-bindings-storage-blob.md).
 * **QueueTrigger** — обработка сообщений, помещаемых в очереди службы хранилища Azure. Пример см. в статье [Создание функции, которая подключается к другим службам Azure, с помощью службы функций Azure](functions-create-an-azure-connected-function.md).
@@ -87,7 +87,7 @@ ms.lasthandoff: 09/02/2017
   Описание различных средств и методов тестирования функций.
 * [Масштабирование функций Azure](functions-scale.md)  
   Обсуждение планов обслуживания, доступных для использования с функциями Azure (включая план потребления), а также выбор подходящего плана. 
-* [Дополнительные сведения о службе приложений Azure](../app-service/app-service-value-prop-what-is.md)  
+* [Дополнительные сведения о службе приложений Azure](../app-service/app-service-web-overview.md)  
   Служба "Функции Azure" использует службу приложений Azure для таких базовых операций, как развертывание, диагностика и использование переменных среды. 
 
 

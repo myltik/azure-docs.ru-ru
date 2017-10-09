@@ -1,5 +1,5 @@
 ---
-title: "Включение Azure Application Insights Profiler в ресурсе облачных служб | Документация Майкрософт"
+title: "Включение Azure Application Insights Profiler в вычислительных ресурсах Azure | Документация Майкрософт"
 description: "Узнайте, как настроить профилировщик в приложении ASP.NET, размещенном в ресурсе облачных служб Azure."
 services: application-insights
 documentationcenter: 
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c2cae6129386260f2bf35f75d44fa001f7541d40
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 65ba755f35df7bd09dd652ac6fccf96a878c6ca9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -113,13 +113,15 @@ New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Rep
 
 
 ## <a name="enable-the-profiler"></a>Включение профилировщика
-1. Перейдите к колонке Application Insights **Производительность** и выберите**Настройка**.
-   
-   ![Значок настройки](./media/enable-profiler-compute/enableprofiler1.png)
- 
+
+1. Перейдите к колонке **Производительность** в Application Insights и щелкните **Profiler** (Профилировщик) в правом верхнем углу, чтобы настроить его.
+
+   ![Кнопка настройки профилировщика](./media/enable-profiler-compute/PerformanceTriageViewPofilerButton.png)
+
 2. Выберите **Включить профилировщик**.
-   
-   ![Значок включения профилировщика](./media/enable-profiler-compute/enableprofiler2.png)
+
+   ![Кнопка Enable Profiler (Включить профилировщик)](./media/enable-profiler-compute/enableprofiler2.png)
+
 
 ## <a name="add-a-performance-test-to-your-application"></a>Добавьте в приложение тест производительности
 Выполните следующие инструкции, чтобы мы могли собирать примеры данных для отображения в Application Insights Profiler:
@@ -134,9 +136,15 @@ New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Rep
 
 1. Подождите 10–15 минут, пока профилировщик соберет и проанализирует данные. 
 
-2. Перейдите к колонке **Производительность** своего ресурса Application Insights и посмотрите, как приложение работает под нагрузкой.
+2. Перейдите к колонке **Производительность** своего ресурса Application Insights и посмотрите, как приложение работает под нагрузкой. Сосредоточьтесь на интересующей вас медленной операции с достаточным объемом используемых ресурсов. Для этого отсортируйте операционную сетку по столбцу "Счетчик". Обратите внимание, в каких диапазонах длительности есть трассировка проектировщика, просмотрев строку "Профилировщик" над значениями распределения длительности. Обратите внимание, что чем дольше выполняется мониторинг, тем больше трассировок соберет профилировщик. Таким образом, в объемных примерах на уровне кода, которые поддерживает трассировка профилировщика, будет представлено более широкое распределение. 
 
-   ![Просмотр данных производительности](./media/enable-profiler-compute/aiperformance.png)
+   ![Трассировки профилировщика в представлении рассмотрения производительности](./media/enable-profiler-compute/PerformanceTriageViewProfilerTraces.png)
+
+    Вы можете увеличить масштаб интересующего диапазона длительности, например 3-я вершина рядом с 95-м процентилем. Так вы ограничите число примеров и трассировок профилировщика, отображаемых в кнопках Take Action (Выполнить действие). 
+
+    ![Изменение масштаба диапазона длительности](./media/enable-profiler-compute/DurationRangeZoomedTo95th.png)
+
+    Теперь нажмите кнопку **Profiler traces** (Трасcировки профилировщика), чтобы открыть профилировщик с соответствующей трассировкой.
 
 3. Нажмите значок в разделе **Примеры** с открытой колонкой **Представление трассировки**.
 

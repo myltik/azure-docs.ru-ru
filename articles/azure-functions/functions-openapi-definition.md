@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: be871b1c5f131b0ff6de1f74ed3e6f12b7a482ce
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5aed57e69924f03221fc0d9909889358d80df9a4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="generate-the-openapi-definition"></a>Создание определения OpenAPI
 
-Теперь можно приступить к созданию определения OpenAPI. Это определение может использоваться другими технологиями Майкрософт, такими как [приложения API](../app-service-api/app-service-api-dotnet-get-started.md), [PowerApps](functions-powerapps-scenario.md) и [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md), а также инструментами сторонних разработчиков, таких как [Postman](https://www.getpostman.com/docs/importing_swagger) и [другими дополнительными пакетами](http://swagger.io/tools/).
+Теперь можно приступить к созданию определения OpenAPI. Это определение может использоваться другими технологиями Майкрософт, такими как приложения API, [PowerApps](functions-powerapps-scenario.md) и [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), а также инструментами сторонних разработчиков, такими как [Postman](https://www.getpostman.com/docs/importing_swagger) и [другими дополнительными пакетами](http://swagger.io/tools/).
 
 1. Выберите только *команды*, которые поддерживает API (в этом случае POST). Это очищает созданное определение API.
 
@@ -175,20 +175,9 @@ ms.lasthandoff: 08/29/2017
     Определение описывается как _шаблон_, так как требуются дополнительные метаданные, чтобы превратить его в полное определение OpenAPI. Вы измените его на следующем шаге.
 
 ## <a name="modify-the-openapi-definition"></a>Изменение определения OpenAPI
-Теперь, когда у вас есть определение шаблона, измените его, чтобы предоставить дополнительные метаданные об операциях API и структурах данных. В этом руководстве достаточно просто вставить измененное определение ниже в область **Определение API** и выбрать **Сохранить**.
+Теперь, когда у вас есть определение шаблона, измените его, чтобы предоставить дополнительные метаданные об операциях API и структурах данных. В области **Определение API** полностью удалите созданное определение из `post`, вставьте содержимое ниже и щелкните **Сохранить**.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -248,7 +237,7 @@ securityDefinitions:
     in: query
 ```
 
-При этом очень важно понимать типы изменений, которые мы внесли в стандартный шаблон:
+В этом случае можно просто вставить отправленные метаданные, но необходимо знать типы изменений, внесенных в шаблон по умолчанию:
 
 + API создает и потребляет данные в формате JSON.
 

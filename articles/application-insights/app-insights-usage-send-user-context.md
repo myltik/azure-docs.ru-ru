@@ -1,9 +1,25 @@
-title: Отправка идентификаторов контекста пользователя для включения впечатления от использования Azure Application Insights | Документация Майкрософт description: Отслеживание перемещения пользователей в службе путем назначения каждому из них уникальной постоянной строки идентификатора в Application Insights.
-services: application-insights documentationcenter: '' author: abgreg manager: carmonm
-
-ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: csharp ms.topic: article ms.date: 08/02/2017 ms.author: bwren
+---
+title: "Отправка идентификаторов контекста пользователей для обеспечения оптимального использования в Azure Application Insights | Документация Майкрософт"
+description: "Отслеживайте, как пользователи перемещаются по службе, назначив каждому из них строку уникального постоянного идентификатора в Application Insights."
+services: application-insights
+documentationcenter: 
+author: abgreg
+manager: carmonm
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: csharp
+ms.topic: article
+ms.date: 08/02/2017
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e16866501fd34f0b998ba929771a423866759b55
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/20/2017
 
 ---
+
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Отправка идентификаторов контекста пользователей для обеспечения оптимальной работы в Azure Application Insights
 
 ## <a name="tracking-users"></a>Отслеживание пользователей
@@ -81,3 +97,4 @@ Application Insights позволяет отслеживать пользова�
     * [Воронки](usage-funnels.md)
     * [Сохранение](app-insights-usage-retention.md)
     * [Книги](app-insights-usage-workbooks.md)
+

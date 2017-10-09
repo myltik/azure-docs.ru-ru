@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ddfed2be315ae261e9c3015aa21d0b44405d6109
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Профилирование динамических веб-приложений Azure с помощью Application Insights
@@ -50,6 +50,7 @@ ms.lasthandoff: 09/14/2017
 
 ![Колонка «Настройка»][linked app services]
 
+## <a name="disable-the-profiler"></a>Отключение профилировщика
 Чтобы остановить или перезапустить профилировщик для отдельного экземпляра службы приложений, его можно найти **в ресурсе службы приложений** в области **Веб-задания**. Чтобы его удалить, найдите раздел **Расширения**.
 
 ![Отключение профилировщика для веб-заданий][disable-profiler-webjob]
@@ -91,9 +92,13 @@ ms.lasthandoff: 09/14/2017
 * **Число.** Количество запросов в диапазоне времени колонки.
 * **Median** (Медиана). Стандартное время, требуемое приложению для ответа на запрос. Половина всех ответов была получена быстрее, чем сейчас.
 * **95th percentile** (95-й процентиль). 95 % ответов были получены быстрее, чем сейчас. Если это число существенно отличается от медианы, возможно, в приложении периодически возникают неполадки. (Или это можно объяснить с помощью такой конструктивной функции, как кэширование.)
-* **Примеры.** Значок указывает, что профилировщик получил трассировки стека для этой операции.
+* **Profiler Traces** (Трассировка профилировщика). Значок указывает, что профилировщик получил трассировки стека для этой операции.
 
-Щелкните значок "Примеры", чтобы открыть обозреватель трассировки. В обозревателе находится несколько примеров, записанных профилировщиком, которые классифицируются по времени ответа.
+Нажмите кнопку "Просмотр", чтобы открыть обозреватель трассировки. В обозревателе находится несколько примеров, записанных профилировщиком, которые классифицируются по времени ответа.
+
+Если вы используете колонку Preview Performance (Производительность предварительной версии), перейдите в раздел **Take Actions** (Предпринять действия) в правом нижнем углу, чтобы просмотреть трассировку профилировщика. Нажмите кнопку Profiler Traces (Трассировка профилировщика).
+
+![Кнопка Profiler Traces (Трассировка профилировщика) колонки Preview Performance (Производительность предварительной версии) Application Insights][performance-blade-v2-examples]
 
 Выберите пример, чтобы отобразить классификацию на уровне кода по времени, затраченному на выполнение запроса.
 
@@ -158,6 +163,10 @@ ms.lasthandoff: 09/14/2017
 
 ## <a id="troubleshooting"></a>Устранение неполадок
 
+### <a name="too-many-active-profiling-sessions"></a>Слишком много активных сеансов профилирования
+
+Сейчас вы можете включить профилировщик не более, чем в 4 веб-приложениях Azure и слотах развертывания, работающих в рамках одного плана службы. Если веб-задание профилировщика содержит слишком много активных сеансов профилирования, некоторые веб-приложения необходимо переместить в другой план службы.
+
 ### <a name="how-can-i-know-whether-application-insights-profiler-is-running"></a>Как узнать, работает ли профилировщик Application Insights?
 
 Профилировщик запускается в качестве непрерывного веб-задания в веб-приложении. Вы можете открыть ресурс веб-приложения на сайте https://portal.azure.com и проверить состояние ApplicationInsightsProfiler в колонке веб-заданий. Если он не работает, щелкните **Журналы**, чтобы узнать об этом побольше.
@@ -204,10 +213,7 @@ ms.lasthandoff: 09/14/2017
 Чтобы устранить эту проблему, нужно добавить приведенные ниже параметры развертывания в задачу веб-развертывания.
 
 ```
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
 ```
 
 Это позволит удалить папку, используемую Application Insights Profiler, и разблокировать процесс повторного развертывания. Текущий запущенный экземпляр Profiler не будет затронут.
@@ -237,6 +243,7 @@ ms.lasthandoff: 09/14/2017
 
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
+[performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
 [trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
 [trace-explorer-toolbar]: ./media/app-insights-profiler/trace-explorer-toolbar.png
 [trace-explorer-hint-tip]: ./media/app-insights-profiler/trace-explorer-hint-tip.png

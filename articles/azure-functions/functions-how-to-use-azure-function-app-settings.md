@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e6f5798b260c4923452dcc96c18d4839f5c34bfc
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3229fe0b5aacbbc716039a4a6abfd235dbc4c4f7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Управление приложением-функцией на портале Azure 
@@ -57,7 +57,7 @@ ms.lasthandoff: 04/25/2017
 + [Аутентификация](#auth)
 + [Определение интерфейса API](#swagger)
 
-Дополнительные сведения о работе с параметрами службы приложений см. в статье [Настройка параметров в службе приложений Azure](../app-service-web/web-sites-configure.md).
+Дополнительные сведения о работе с параметрами службы приложений см. в статье [Настройка параметров в службе приложений Azure](../app-service/web-sites-configure.md).
 
 ### <a name="editor"></a>Редактор службы приложений
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 04/25/2017
 
 | | |
 |-|-|
-| ![Swagger для API приложения-функции на портале Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Компонент функции поддерживает Swagger, что позволяет упростить использование функций, активируемых по HTTP, клиентами. Дополнительные сведения о создании определений API с помощью Swagger см. в статье [Приступая к работе с приложениями API, ASP.NET и Swagger в службе приложений Azure](../app-service-api/app-service-api-dotnet-get-started.md). Можно также использовать прокси-серверы для функций, чтобы определить единую поверхность API для нескольких функций. Дополнительные сведения см. в статье [Работа с прокси-серверами для функций Azure](functions-proxies.md). |
+| ![Swagger для API приложения-функции на портале Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Компонент функции поддерживает Swagger, что позволяет упростить использование функций, активируемых по HTTP, клиентами. Дополнительные сведения о создании определений API с помощью Swagger см. в статье [Создание API RESTful Node.js и его развертывание в приложении API в Azure](../app-service/app-service-web-tutorial-rest-api.md). Можно также использовать прокси-серверы для функций, чтобы определить единую поверхность API для нескольких функций. Дополнительные сведения см. в статье [Работа с прокси-серверами для функций Azure](functions-proxies.md). |
 
 ![Настройка API приложения-функции](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-+ [Настройка параметров службы приложений Azure](../app-service-web/web-sites-configure.md)
++ [Настройка параметров службы приложений Azure](../app-service/web-sites-configure.md)
 + [Непрерывное развертывание для функций Azure](functions-continuous-deployment.md)
 
 

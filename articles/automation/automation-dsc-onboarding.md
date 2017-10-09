@@ -13,12 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 7aaede3e93938553ee6d372478e3516e72885057
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 581bee11729e6fef5dbe7e752962f7ab9896066b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Подключение компьютеров для управления с помощью Azure Automation DSC
@@ -36,6 +35,10 @@ ms.lasthandoff: 05/01/2017
 * Физические или виртуальные машины под управлением Linux, расположенные локально, в Azure или облачной службе, отличной от Azure.
 
 Кроме того, если вы не готовы управлять конфигурацией компьютера из облака, платформа Azure Automation DSC может также использоваться как конечная точка только для отчетности. Это позволяет задать (отправить) требуемую конфигурацию через DSC локально и просмотреть подробные сведения отчетов о соответствии узла требуемому состоянию в службе автоматизации Azure.
+
+> [!NOTE]
+> Управление виртуальными машинами Azure с помощью DSC поставляется без дополнительной оплаты, если установлена версия расширения виртуальной машины DSC выше, чем 2.7.  Дополнительные сведения см. на странице [**цен на службу автоматизации**](https://azure.microsoft.com/en-us/pricing/details/automation/).
+
 
 В следующих разделах описываются способы подключения каждого типа компьютеров к службе Azure Automation DSC.
 
@@ -123,13 +126,13 @@ $VM | Update-AzureVM
 
 На [портале Azure](https://portal.azure.com/)перейдите к учетной записи службы автоматизации Azure, чтобы подключить виртуальные машины. На панели мониторинга учетной записи службы автоматизации щелкните **Узлы DSC** -> **Добавить виртуальную машину Azure**.
 
-На странице **Выбор виртуальных машин для подключения**выберите одну или несколько виртуальных машин Azure для подключения.
+Выберите виртуальную машину Azure для подключения.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
+Если на компьютере не установлено требуемое расширение состояний PowerShell и состояние питания запущено, щелкните **Подключиться**.
 
-В разделе **Настроить данные регистрации** введите необходимые вам [значения локального диспетчера конфигураций DSC PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4). Также можно ввести конфигурацию узла, которая будет назначена виртуальной машине.
+В разделе **Регистрация** введите необходимые вам [значения локального диспетчера конфигураций DSC PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4). Кроме того, можно ввести конфигурацию узла, которая будет назначена виртуальной машине.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
+![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Шаблоны диспетчера ресурсов Azure
 
