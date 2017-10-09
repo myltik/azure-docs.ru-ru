@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 601cfb136530d2595cded0dd147703d6b272c3ce
+ms.sourcegitcommit: d07d5d59632791a52bcb3a2f54bebe194cc76a54
+ms.openlocfilehash: 44eaaae123490934bc62b4ea30968656900d48fc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/04/2017
 
 ---
 
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Развертывание приложения-контейнера Azure Service Fabric для Linux в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания масштабируемых надежных микрослужб и контейнеров и управления ими. 
 
-В этом руководстве объясняется, как развертывать контейнеры Linux в кластер Service Fabric. Изучив это руководство, вы создадите приложение для голосования с веб-интерфейсом Python и сервером Redis, которое работает в кластере Service Fabric. 
+В этом руководстве объясняется, как развертывать контейнеры Linux в кластер Service Fabric. Изучив это руководство, вы создадите приложение для голосования с веб-интерфейсом Python и серверной частью Redis, которое работает в кластере Service Fabric. 
 
 ![quickstartpic][quickstartpic]
 
@@ -53,18 +53,18 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Развертывание контейнеров в кластер Service Fabric в Azure
-Для развертывания приложения в кластере Azure можно использовать собственный или общедоступный кластер.
+Для развертывания приложения в кластере Azure можно использовать собственный кластер или кластер сообщества.
 
-Общедоступные кластеры — это бесплатные временные кластеры Service Fabric, размещенные в Azure. Их обслуживает команда Service Fabric. Любой пользователь может развертывать приложения в этих кластерах и изучать платформу. Чтобы получить доступ к кластеру сообщества, следуйте инструкциям в [этом разделе](http://aka.ms/tryservicefabric). 
+Общедоступные кластеры — это бесплатные временные кластеры Service Fabric, размещенные в Azure. Их обслуживает команда Service Fabric. Любой пользователь может развертывать приложения в этих кластерах и изучать платформу. Чтобы получить доступ к кластеру сообщества, следуйте инструкциям на [этом сайте](http://aka.ms/tryservicefabric). 
 
 Сведения о создании собственного кластера см. в разделе [Создание первого кластера Service Fabric в Azure](service-fabric-get-started-azure-cluster.md).
 
 > [!Note]
-> Служба веб-интерфейса ожидает передачи данных через порт 80 для входящего трафика. Убедитесь, что порт открыт в кластере. При использовании общедоступного кластера этот порт открыт.
+> Служба веб-интерфейса ожидает передачи данных через порт 80 для входящего трафика. Убедитесь, что порт открыт в кластере. При использовании кластера сообщества этот порт открыт.
 >
 
 ### <a name="deploy-the-application-manifests"></a>Развертывание манифестов приложения 
-Установка командной строки Service Fabric (sfctl) в среде CLI
+Установка [интерфейса командной строки Service Fabric (sfctl)](service-fabric-cli.md) в среде CLI
 
 ```azurecli-interactive
 pip3 install --user sfctl 
@@ -82,7 +82,7 @@ sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:190
 ./install.sh
 ```
 
-Откройте браузер и перейдите к обозревателю Service Fabric Explorer по адресу http://\<my-azure-service-fabric-cluster-url>:80. Например: `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Разверните узел приложения, чтобы увидеть запись для типа приложения голосования и созданный вами экземпляр.
+Откройте браузер и перейдите к обозревателю Service Fabric Explorer по адресу http://\<URL-адрес_моего_кластера_Azure_Service_Fabric>:19080/Explorer. Например: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Разверните узел приложения, чтобы увидеть запись для типа приложения голосования и созданный вами экземпляр.
 
 ![Service Fabric Explorer][sfx]
 
@@ -95,7 +95,7 @@ sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:190
 
 Чтобы выполнить отработку отказа внешнего контейнера, сделайте следующее:
 
-1. Откройте Service Fabric Explorer в своем кластере (например, по ссылке `http://linh1x87d1d.westus.cloudapp.azure.com:19080`).
+1. Откройте Service Fabric Explorer в своем кластере (например, по ссылке `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`).
 2. Щелкните узел **fabric:/Voting/azurevotefront** в представлении в виде дерева и разверните узел раздела (он отображается в виде идентификатора GUID). Найдите имя узла в представлении в виде дерева с узлами, на которых сейчас выполняется контейнер. Пример: `_nodetype_4`.
 3. Разверните узел **Узлы** в представлении в виде дерева. Щелкните многоточие рядом с узлом, на котором выполняется контейнер.
 4. Выберите **Перезапустить**, чтобы перезапустить этот узел, и подтвердите операцию перезапуска. Перезапуск приведет к отработке отказа контейнера на другой узел в кластере.

@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2017
+ms.date: 09/26/2017
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 28424d139499b797b09664f73657a7f73361e3bc
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Настройка среды разработки для Mac OS X
@@ -49,7 +49,7 @@ ms.lasthandoff: 09/25/2017
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    На этом шаге отключается файл `Vagrantfile`, содержащий конфигурацию виртуальной машины и расположение, из которого загружается виртуальная машина.  Файл указывает на образ Ubuntu. 
+    На этом шаге скачивается файл `Vagrantfile`, содержащий конфигурацию виртуальной машины и расположение, из которого скачана виртуальная машина.  Файл указывает на образ Ubuntu.
 
 2. Перейдите к локальному клону репозитория.
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 09/25/2017
     ```bash
     vagrant ssh
     ```
-   
+
    Установите пакет SDK, как описано [здесь](service-fabric-get-started-linux.md).  Следующий скрипт позволяет быстро установить общий пакет SDK для Service Fabric и среду выполнения Service Fabric с помощью CLI (sfctl). Для работы со скриптом необходимо прочитать и принять условия использования лицензии на устанавливаемое программное обеспечение.
 
     ```bash
@@ -97,6 +97,23 @@ ms.lasthandoff: 09/25/2017
 
     ![Вид Service Fabric Explorer с узла Mac][sfx-mac]
 
+## <a name="install-the-necessary-java-artifacts-on-vagrant-to-use-service-fabric-java-programming-model"></a>Установка необходимых артефактов Java в Vagrant для использования модели программирования Java для Service Fabric
+
+Для создания служб Service Fabric с помощью Java установите пакет JDK 1.8, а также средство Gradle, которое используется для выполнения задач сборки. Указанный ниже фрагмент кода устанавливает Open JDK 1.8 и средство Gradle. Библиотеки Java для Service Fabric извлекаются из Maven.
+
+  ```bash
+  vagrant ssh
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+```
+
+## <a name="set-up-the-service-fabric-cli"></a>Настройка интерфейса командной строки Service Fabric
+
+[Интерфейс командной строки Service Fabric](service-fabric-cli.md) поддерживает команды для взаимодействия с сущностями Service Fabric, включая кластеры и приложения. Интерфейс основан на Python, поэтому убедитесь, что Python и PIP установлены, прежде чем выполнить следующую команду:
+
+```bash
+pip install sfctl
+```
 
 ## <a name="create-application-on-mac-using-yeoman"></a>Создание приложения на компьютере Mac с помощью Yeoman
 Service Fabric предоставляет средства формирования шаблонов, которые позволяют создать приложение Service Fabric из терминала с помощью генератора шаблонов Yeoman. Чтобы установить генератор шаблонов Yeoman для Service Fabric на компьютере, сделайте следующее.
@@ -141,6 +158,7 @@ Service Fabric предоставляет средства формирован�
 * [Создание кластера Service Fabric в Azure с помощью портала Azure](service-fabric-cluster-creation-via-portal.md)
 * [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Моделирование приложения в Service Fabric](service-fabric-application-model.md)
+* [Manage an Azure Service Fabric application by using Azure Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md) (Управление приложением Azure Service Fabric с помощью интерфейса командной строки Azure Service Fabric)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
