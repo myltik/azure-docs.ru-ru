@@ -94,8 +94,8 @@ ms.lasthandoff: 09/20/2017
 
 Дополнительную информацию см. в [центре разработчиков Node.js](https://azure.microsoft.com/develop/nodejs/).
 
-[Средства командной строки Azure для Mac и Linux]:cli-install-nodejs.md
+[использовать средства командной строки Azure для Mac и Linux]:cli-install-nodejs.md
 [средств командной строки Azure]:cli-install-nodejs.md
-[работа с модулями]: nodejs-use-node-modules-azure-apps.md
+[работать с модулями]: nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md
 
