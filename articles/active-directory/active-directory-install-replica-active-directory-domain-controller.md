@@ -1,19 +1,20 @@
 ---
 title: "Установка реплики контроллера домена Active Directory в Azure | Документация Майкрософт"
 description: "Учебник, в котором объясняется, как установить контроллер домена из леса локальной службы Active Directory на виртуальной машине Azure."
-services: virtual-network
+services: active-directory
 documentationcenter: 
 author: curtand
 manager: femila
 editor: 
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0
-ms.service: virtual-network
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
 ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3

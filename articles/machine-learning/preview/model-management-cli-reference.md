@@ -193,7 +193,7 @@ ms.lasthandoff: 09/25/2017
 
 Можно создать образ с возможностью предварительного создания манифеста. 
 
-`az ml image create -n [image name] -manifest-id [the manifest ID]`
+`az ml image create -n [image name] --manifest-id [the manifest ID]`
 
 Или же создать манифест и образ одной командой. 
 
