@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 931954e312b02c7a71acc7a3268b5ee3c0a11708
-ms.lasthandoff: 01/20/2017
-
-
+ms.openlocfilehash: 18ff5c81d0aa5e8a28ed8a11dad19811d2fa1d2c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Функциональные возможности операционной системы для службы приложений Azure
 В этой статье описываются общие базовые функции операционной системы, доступные для всех приложений под управлением [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Данные функциональные возможности включают в себя доступ к файлам, сети и реестру, а также диагностику и журналы событий. 
@@ -119,6 +118,5 @@ ms.lasthandoff: 01/20/2017
 > Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
-
 
 

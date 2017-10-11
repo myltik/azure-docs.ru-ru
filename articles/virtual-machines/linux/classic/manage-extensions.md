@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 2d16b4c2c3bfa8db6dc1455915bd3f8a80222163
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-virtual-machine-extensions"></a>Управление расширениями виртуальной машины
 Эта статья описывает методы поиска, добавления, изменения и удаления расширений ВМ на виртуальных машинах Azure Windows или Linux.
@@ -29,5 +28,4 @@ ms.lasthandoff: 04/03/2017
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения об использовании расширений виртуальных машин с моделью Resource Manager см. [здесь](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../../../includes/virtual-machines-common-classic-manage-extensions.md)]
-
 

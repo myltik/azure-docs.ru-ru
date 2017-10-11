@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Технический справочник по соединителю Windows PowerShell
 В этой статье описан соединитель Windows PowerShell. Статья относится к следующим продуктам:
@@ -343,4 +342,3 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 [pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
-

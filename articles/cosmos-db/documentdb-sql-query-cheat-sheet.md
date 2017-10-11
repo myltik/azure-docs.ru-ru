@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB. Памятка по SQL-запросам API DocumentDB в формате PDF
 **Памятка по SQL-запросам API DocumentDB Azure Cosmos DB** помогает быстро создавать запросы для данных API DocumentDB, так как в удобном для печати справочном листе в формате PDF отображаются общие запросы, ключевые слова, встроенные функции и операторы базы данных. 
@@ -43,5 +42,4 @@ Cosmos DB поддерживает реляционные, иерархичес�
 
 ## <a name="release-notes"></a>Заметки о выпуске
 Обновлено 29.07.2016 г.
-
 

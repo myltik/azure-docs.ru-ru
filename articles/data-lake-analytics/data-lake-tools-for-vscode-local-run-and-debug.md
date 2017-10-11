@@ -1,4 +1,3 @@
-
 ---
 title: "Средства Azure Data Lake — локальный запуск и локальная отладка U-SQL в Visual Studio Code | Документация Майкрософт"
 description: "Узнайте, как выполнять локальную отладку и локальный запуск с помощью средств Azure Data Lake для Visual Studio Code."
@@ -17,14 +16,12 @@ ms.tgt_pltfrm:
 ms.workload: big-data
 ms.date: 07/14/2017
 ms.author: jejiang
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 367e4ba792f83d6ee246208306e4c09b69cb49ef
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="u-sql-local-run-and-local-debug-with-visual-studio-code"></a>Локальный запуск и локальная отладка U-SQL в Visual Studio Code
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -97,4 +94,3 @@ ms.lasthandoff: 08/24/2017
 - Дополнительные сведения о начале работы с Data Lake Analytics см. в статье [Начало работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md).
 - Дополнительные сведения об использовании средств Data Lake для U-SQL см. в статье [Разработка скриптов U-SQL с помощью средств Data Lake для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Сведения о разработке сборок см. в статье [Разработка сборок U-SQL для заданий Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
-

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 7cd25954c83abe3eb1d3d1b6ad076cd46ff9099e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 32d1c26a31f78bb58e9e1d5c47d9810c2ae881cd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-managing-application-access-and-permissions"></a>Проблемы при управлении доступом к приложениям и разрешениями
 
 
@@ -37,4 +35,3 @@ ms.lasthandoff: 04/17/2017
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Я не знаю, как пользователь был назначен для приложения](https://docs.microsoft.com/azure/active-directory/application-access-unexpected-user-assignment/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Я вижу в моем списке приложений непредвиденное приложение и хочу узнать больше об этом](https://docs.microsoft.com/azure/active-directory/application-access-unexpected-application/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

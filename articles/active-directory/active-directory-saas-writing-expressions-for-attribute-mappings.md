@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: d2d7f5b00039cd1beab009b78b273ec4dffaab47
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: c944a355c07b96c27dcdd477f625638284eabdf3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Запись выражений для сопоставления атрибутов в Azure Active Directory
 При настройке подготовки для приложения SaaS одним из типов сопоставления атрибутов, которые можно указать, является сопоставление выражений. Для этого необходимо написать выражение, похожее на скрипт. Оно позволит вам преобразовать данные пользователей в форматы, более подходящие для приложений SaaS.
@@ -238,5 +236,4 @@ ms.lasthandoff: 04/06/2017
 * [Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md)
 * [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
 * [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
-
 

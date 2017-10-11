@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
 ms.openlocfilehash: 26d4adf4f74f9aacc4cf8cf24be293ebdb4d63c8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Аутентификация решений по управлению пакетной службой с помощью Active Directory
 
 Аутентификация приложений, вызывающих службу управления пакетной службой Azure, выполняется с помощью [Azure Active Directory][aad_about] (Azure AD). Azure AD — многопользовательский облачный каталог и служба управления удостоверениями корпорации Майкрософт. Инфраструктура Azure уже использует Azure AD для проверки подлинности клиентов, администраторов служб и пользователей организации.
@@ -140,4 +138,3 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: http://portal.azure.com
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
-

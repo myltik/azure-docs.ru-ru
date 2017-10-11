@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 4963888748d7103e3b24ac9c8de3d10ef9554fd4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: 0b6a7f22d744480a40a878c979986cdd7667109c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Теневые атрибуты службы синхронизации Azure AD Connect
 Большинство атрибутов представляется в Azure AD так же, как и в локальной службе Active Directory. Однако некоторые атрибуты требуют особого обращения, их значение в Azure AD может отличаться от того, что синхронизирует Azure AD Connect.
@@ -75,4 +74,3 @@ ProxyCalc может потратить некоторое время на об�
 ## <a name="see-also"></a>Дополнительные материалы
 * [Службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-

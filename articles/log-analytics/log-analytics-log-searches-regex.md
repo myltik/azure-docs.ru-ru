@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Фильтрование поиска по журналам в Log Analytics с помощью регулярных выражений
 
@@ -99,4 +98,3 @@ ms.lasthandoff: 08/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Ознакомьтесь с [поиском по журналу](log-analytics-log-searches.md), чтобы просматривать и анализировать данные в репозитории Log Analytics.
-

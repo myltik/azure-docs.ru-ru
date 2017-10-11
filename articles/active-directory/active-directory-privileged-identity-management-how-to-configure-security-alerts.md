@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd8987a05c71643b49e0ac9e3c8ae43d47743225
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: e057120e31eeebc3da274536c09d6d9972854338
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Настройка оповещений безопасности в компоненте управления привилегированными пользователями Azure AD
 ## <a name="security-alerts"></a>Оповещения безопасности
@@ -68,4 +67,3 @@ PIM инициирует это предупреждение, если выпо�
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
-

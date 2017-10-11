@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 922774c2482737537b64787ae473231ec1fbb68e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 336b945929f80e1a566f7cf71b40fd799a98c12d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Как предоставить разрешения для специально разработанного приложения
 
-Если требуется дать согласие в приложении заранее или возникла ошибка, указывающая на то, что вы не предоставили согласие для приложения, попробуйте выполнить приведенные ниже действия.
+Если требуется дать согласие в приложении заранее или если возникло сообщение об ошибке в связи с тем, что не предоставлено согласие для приложения, попробуйте выполнить следующие действия.
 
 ## <a name="how-to-perform-admin-consent-for-your-application"></a>Предоставление согласия администратора для вашего приложения
 
-Это приводит к предоставлению согласия для приложения для всех пользователей в организации.
+Это приводит к тому, что согласие предоставляется для всех пользователей в организации.
 
 1. Перейдите к колонке **Регистрация приложений** в качестве **глобального администратора**, а затем выберите приложение.
 
@@ -37,7 +35,7 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="how-to-force-user-consent-for-your-application"></a>Принудительное предоставление согласия пользователя для приложения
 
-* Добавьте *&prompt=consent* к запросам проверки подлинности, чтобы пользователю требовалось давать согласие при каждой проверке.
+* Добавьте *&prompt=consent* к запросу на аутентификацию, при этом пользователю необходимо будет давать согласие всякий раз, как он проходит аутентификацию.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -46,4 +44,3 @@ ms.lasthandoff: 04/14/2017
 [Согласие и разрешения для конвергированных приложений в Azure AD версии 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [StackOverflow в AzureAD](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

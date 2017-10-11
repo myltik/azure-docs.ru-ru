@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 81deb3b31a4483b8c0031cf3571e5c5752db39ac
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: aeaefb484b29da6e89c2c3c650a79a881b3fa5b6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Предоставление доступа к Azure AD Privileged Identity Management
 Глобальный администратор, который активирует в организации управление привилегированными пользователями (PIM) Azure AD, автоматически получает доступ к службе PIM и право назначать роли. Никто больше не получает доступ на запись по умолчанию, даже другие глобальные администраторы. Другие глобальные администраторы, администраторы безопасности и читатели безопасности имеют доступ только для чтения к PIM Azure AD. Чтобы предоставить доступ к PIM, первый пользователь может назначить другим пользователям роль **администратора привилегированных ролей** . Это назначение нужно выполнить в PIM, и его нельзя изменить с помощью PowerShell или на других порталах.
@@ -62,4 +61,3 @@ ms.lasthandoff: 01/27/2017
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png
-

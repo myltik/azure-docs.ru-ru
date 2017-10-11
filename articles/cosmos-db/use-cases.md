@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: edbed5654a4df8a28b43f03ffd0ac204e0d7f8b1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="common-azure-cosmos-db-use-cases"></a>Распространенные примеры использования Azure Cosmos DB
 В этой статье представлен обзор нескольких распространенных примеров использования Azure Cosmos DB.  Рекомендации в данной статье служат отправной точкой для разработки приложений с использованием Cosmos DB.   
 
@@ -138,4 +136,3 @@ JSON — это эффективный формат, поддерживаемы
 * [Orange Tribes](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). Это приложение, работающее с продуктами питания, содержит больше возможностей, чем можно увидеть глазами или почувствовать на вкус.
 * [Реал Мадрид](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Футбольный клуб "Реал" (Мадрид) использует Microsoft Cloud, чтобы предоставить доступ на стадион 450-ти миллионам болельщиков со всего мира.
 * [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services). Службы Azure помогают TUKU превратить процесс покупки автомобиля в увлекательное мероприятие.
-

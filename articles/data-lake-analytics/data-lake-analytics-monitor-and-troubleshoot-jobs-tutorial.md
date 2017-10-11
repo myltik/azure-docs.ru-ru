@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Устранение неполадок с заданиями аналитики озера данных Azure с помощью портала Azure
 Узнайте, как использовать портал Azure для устранения неполадок с заданиями аналитики озера данных.
@@ -84,4 +83,3 @@ OUTPUT @searchlog
 * [Начало работы с аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Начало работы с аналитикой озера данных Azure и U-SQL с помощью Visual Studio](data-lake-analytics-u-sql-get-started.md)
 * [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
-

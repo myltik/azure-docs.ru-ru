@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Настраиваемые уровни согласованности данных в Azure Cosmos DB
 Служба Azure Cosmos DB была разработана "с нуля", при этом в ее основу заложены возможности глобального распространения данных для всех моделей данных. Она предлагает гарантии прогнозируемой низкой задержки, соглашение об уровне обслуживания, обеспечивающее 99,99 % доступности, и нескольких четко определенных моделей нестрогой согласованности. Сейчас Azure Cosmos DB поддерживает пять уровней согласованности: строгий, с ограниченным устареванием, уровня сеанса, согласованность префиксов и согласованный в конечном счете. 
@@ -134,4 +133,3 @@ ms.lasthandoff: 07/24/2017
   [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
 * Себастьян Буркхардт, Крис Дерн, Маканал Мусувати, Рой Тан (Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan). "Line-up: a complete and automatic linearizability checker" (Line-up: полная автоматическая проверка линеаризации). Тезисы конференции 2010 ACM SIGPLAN по проектированию и реализации языков программирования, 5-10 июня 2010 г., г. Торонто, штат Онтарио, Канада [doi>10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
 * Питер Бейлис, Шиварам Венкатараман, Майкл Дж. Франклин, Джозеф М. Хеллерштейн, Ион Стойка (Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica). "Probabilistically bounded staleness for practical partial quorums" (Вероятностное ограниченное устаревание для практических неполных кворумов). Тезисы конференции VLDB Endowment, том 5, выпуск 8, стр. 776-787, апрель 2012 г. [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
-

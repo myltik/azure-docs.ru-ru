@@ -16,14 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 33eef1b51a5ee00b0fa67096030ed9ce92cf768e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB как хранилище пар "ключ — значение". Общие сведения о стоимости
 
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных, предназначенная для быстрого создания высокодоступных крупномасштабных приложений. По умолчанию Azure Cosmos DB автоматически эффективно индексирует все принимаемые данные. Это обеспечивает быстрое и согласованное выполнение [SQL](documentdb-sql-query.md)-запросов (и запросов [JavaScript](programming.md)) для любого типа данных. 
@@ -58,5 +56,4 @@ Azure Cosmos DB — это глобально распределенная мн
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Ждите новых статей по оптимизации подготовки ресурсов в Azure Cosmos DB. А пока вы можете воспользоваться нашим [калькулятором ЕЗ](https://www.documentdb.com/capacityplanner).
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6612ee61f5c50e743241b92030660cea7ae7094d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="apply-resource-policies-to-storage-accounts"></a>Применение политик ресурсов к учетным записям хранения
 В этом разделе показано несколько [политик ресурсов](resource-manager-policy.md), которые можно применить к учетным записям хранения Azure. Эти политики обеспечивают согласованность данных в учетных записях хранения, развернутых в организации. 
@@ -116,5 +115,4 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * После определения правила политики (как показано в приведенных выше примерах) необходимо создать определение политики и назначить ей область. Областью может быть подписка, группа ресурсов или ресурс. Сведения о назначении политик с помощью портала см. в статье [Назначение политик ресурсов и управление ими с помощью портала Azure](resource-manager-policy-portal.md). Сведения о назначении политик с помощью REST API, PowerShell или Azure CLI см. в статье [Назначение политик ресурсов и управление ими](resource-manager-policy-create-assign.md). 
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-
 

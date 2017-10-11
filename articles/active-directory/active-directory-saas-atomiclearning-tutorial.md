@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 6cce8fc839e60eb6498ab48bf68e9906c98889a2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Руководство. Интеграция Azure Active Directory с Atomic Learning
 
@@ -222,5 +221,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_203.png
-
 

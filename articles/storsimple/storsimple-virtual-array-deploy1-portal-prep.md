@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Развертывание виртуального массива StorSimple. Подготовка портала Azure
 
@@ -171,5 +170,4 @@ ms.lasthandoff: 08/21/2017
 
 * [Развертывание виртуального массива StorSimple — подготовка виртуального массива в Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 * [Развертывание виртуального массива StorSimple — подготовка виртуального массива в VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
-
 

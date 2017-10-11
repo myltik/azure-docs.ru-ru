@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
 ms.openlocfilehash: f4b2e8a5583855df7472af3fbef01ac641caf6bf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/05/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Примеры Azure CLI для виртуальных машин Windows
 
@@ -42,4 +41,3 @@ ms.lasthandoff: 06/05/2017
 |**Мониторинг виртуальных машин**||
 | [Мониторинг виртуальной машины с помощью Operations Management Suite](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Создает виртуальную машину, устанавливает агент Operations Management Suite и регистрирует виртуальную машину в рабочей области OMS.  |
 | | |
-

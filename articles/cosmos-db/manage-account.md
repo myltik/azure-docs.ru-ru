@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: kirillg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: a0c6ec8d490e1adacc96758971ab91d8eaeab45c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Как управлять учетной записью Azure Cosmos DB
 Узнайте, как задать глобальную согласованность, как работать с ключами и как удалить учетную запись Azure Cosmos DB на портале Azure.
@@ -111,4 +109,3 @@ ms.lasthandoff: 05/31/2017
 [consistency]: consistency-levels.md
 [azureregions]: https://azure.microsoft.com/regions/#services
 [offers]: https://azure.microsoft.com/pricing/details/cosmos-db/
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
 ms.openlocfilehash: bd1c860db026f948202cd1f3aa763b4547c597b4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager
 В этой статье описывается развертывание шаблона Azure Resource Manager с помощью C#. Создаваемый шаблон позволяет выполнить развертывание одной виртуальной машины под управлением Windows Server в новой виртуальной сети с одной подсетью.
@@ -51,7 +50,7 @@ ms.lasthandoff: 07/18/2017
 
 ## <a name="create-the-files"></a>Создание файлов
 
-На этом шаге создается файл шаблона, который развертывает ресурсы и файл параметров, предоставляющий значения параметров шаблона. Кроме того, создается файл авторизации, который используется для выполнения операций Azure Resource Manager.
+На этом шаге вы создадите файл шаблона, который развертывает ресурсы, и файл параметров, который предоставляет значения для параметров шаблона. Кроме того, создается файл авторизации, который используется для выполнения операций Azure Resource Manager.
 
 ### <a name="create-the-template-file"></a>Создание файла шаблона
 
@@ -330,4 +329,3 @@ azure.ResourceGroups.DeleteByName(groupName);
 ## <a name="next-steps"></a>Дальнейшие действия
 * При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении распространенных ошибок при развертывании Azure с помощью Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Узнайте, как развернуть виртуальную машину и ее вспомогательные ресурсы, ознакомившись с разделом [Развертывание ресурсов Azure с помощью языка C#](csharp.md).
-

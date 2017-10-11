@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 54e092e4bb8d83a59d05d8aca2760f9098ecd548
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: da7bc05c6452cde4d0236806f249559f178dd4e1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Настройка федеративного единого входа для приложения не из коллекции
 
 Чтобы настроить приложение не из коллекции, вам потребуется Azure AD Premium, а приложение должно поддерживать SAML 2.0. Дополнительные сведения о версиях Azure AD см. в разделе [Цены на Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -184,4 +182,3 @@ Azure AD не предоставляет URL-адреса для получен�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
-

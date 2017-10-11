@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: 2e53c3ff2ffbef95d6b72ca6afb3b4de377f0389
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli-10"></a>Управление группами безопасности сети с помощью Azure CLI 1.0
 
@@ -62,7 +61,7 @@ azure network nsg list --resource-group RG-NSG
     info:    network nsg list command OK
 
 ### <a name="list-all-rules-for-an-nsg"></a>Перечисление всех правил для группы безопасности сети
-Чтобы просмотреть правила группы безопасности сети с именем **NSG-FrontEnd`azure network nsg show`, выполните команду **, как показано ниже. 
+Чтобы просмотреть правила группы безопасности сети с именем **NSG-FrontEnd`azure network nsg show`, выполните команду** , как показано ниже. 
 
 ```azurecli
 azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd
@@ -97,7 +96,7 @@ azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd
 
 ### <a name="view-nsg-associations"></a>Просмотр связей для группы безопасности сети
 
-Чтобы просмотреть, с какими ресурсами связана группа безопасности сети **NSG-FrontEnd`azure network nsg show`, выполните команду **, как показано ниже. Обратите внимание, что единственная разница — использование параметра **--json** .
+Чтобы просмотреть, с какими ресурсами связана группа безопасности сети **NSG-FrontEnd`azure network nsg show`, выполните команду** , как показано ниже. Обратите внимание, что единственная разница — использование параметра **--json** .
 
 ```azurecli
 azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json
@@ -367,5 +366,4 @@ azure network vnet subnet set --resource-group RG-NSG \
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
-
 

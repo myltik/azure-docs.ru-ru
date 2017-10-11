@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/27/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 3dfc026490093523446650c510dbebdd660e8b6b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-use-azure-redis-cache"></a>Как использовать кэш Redis для Azure
 > [!div class="op_single_selector"]
@@ -308,6 +307,5 @@ Redis хранит большинство данных в строках Redis, 
 [a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
-
 
 

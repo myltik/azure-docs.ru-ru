@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 16c387fe574243544cf54cf283c7713ddcaa1942
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Моделирование данных документов для базы данных NoSQL
 Хотя базы данных без схем, такие как Azure Cosmos DB, существенно упрощают внесение изменений в модель данных, вам все равно следует уделить время анализу ситуации с данными. 
@@ -397,4 +396,3 @@ ms.lasthandoff: 05/31/2017
 Дополнительные сведения об Azure Cosmos DB см. на странице [документации](https://azure.microsoft.com/documentation/services/cosmos-db/) по этой службе. 
 
 Чтобы понять, как сегментировать данные по нескольким разделам, ознакомьтесь со статьей [Секционирование, ключи секции и масштабирование в DocumentDB](documentdb-partition-data.md). 
-

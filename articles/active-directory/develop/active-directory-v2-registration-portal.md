@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: lenalepa
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: b961254274409215d79b5cb2c9ee230a97b42769
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: c60499c425a7fd800f7ca9a5bac1fed5af73b801
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="app-registration-reference"></a>Справка по регистрации приложений
 Этот документ содержит контекст и описания различных функций, доступных на портале регистрации приложений Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
@@ -48,5 +46,4 @@ ms.lasthandoff: 05/25/2017
 Если поддержка Live SDK отключена, секрет приложения записывается только в хранилище данных Azure AD.  В хранилище данных Azure AD действуют нормы корпоративного уровня, обеспечивающие соответствие определенным стандартам, таким как FISMA.  При включении поддержки Live SDK приложение перестанет соответствовать некоторым из этих стандартов.
 
 Если впоследствии вы захотите использовать конечную точку Azure AD 2.0, поддержку Live SDK можно будет спокойно отключить.
-
 

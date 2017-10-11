@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Условные выражения обработчика правил Azure CDN
 В этой статье подробно описаны условные выражения для [обработчика правил](cdn-rules-engine.md) сети доставки содержимого (CDN) Azure.
 
@@ -44,4 +42,3 @@ ELSE IF| Выражение ELSE IF указывает альтернативн�
 * [Условия соответствия обработчика правил](cdn-rules-engine-reference-match-conditions.md)
 * [Функции обработчика правил](cdn-rules-engine-reference-features.md)
 * [Переопределение стандартного поведения через HTTP с помощью обработчика правил](cdn-rules-engine.md)
-

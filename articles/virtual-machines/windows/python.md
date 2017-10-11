@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Развертывание виртуальной машины Azure с помощью Python
 
 [Виртуальной машине Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) требуется несколько вспомогательных ресурсов Azure. В этой статье описывается создание, управление и удаление ресурсов виртуальной машины с помощью Python. Вы узнаете, как выполнять следующие задачи:
@@ -576,5 +574,4 @@ compute_client = ComputeManagementClient(
 
 - При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении неполадок развертываний групп ресурсов с помощью портала Azure](../../resource-manager-troubleshoot-deployments-portal.md).
 - Узнайте больше о [библиотеке Azure для Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python).
-
 

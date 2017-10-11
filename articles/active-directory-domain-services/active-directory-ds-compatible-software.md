@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 553111d37543a0d5d6d3c89afab118b209704fec
-ms.openlocfilehash: b6ed4bd6898d54f6f9ef3206de38e2be6d2900be
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 1a4af8c9a5f30cf7ea24d587866d1b41ab9cfb2c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Программное обеспечение сторонних производителей, которое совместимо с доменными службами Azure AD
 
 ## <a name="one-identity-authentication-services"></a>Службы аутентификации One Identity
@@ -42,4 +40,3 @@ ms.lasthandoff: 01/18/2017
 Red Hat Enterprise Linux — лидирующая в мире корпоративная платформа Linux, ориентированная на потребности современных компаний. Для корпоративных рабочих нагрузок виртуальных машин Linux в Microsoft Azure Red Hat Enterprise Linux является предпочтительным вариантом. Red Hat Enterprise Linux выступает открытой, надежной и безопасной платформой, предназначенной для пользователей, нуждающихся в гибкости развертывания для критически важных для бизнеса рабочих нагрузок (как в центре обработки данных, так и в облаке Azure). Кроме того, она имеет тесно интегрированную поддержку корпоративного уровня от Red Hat и Microsoft.
 
 [Присоединение виртуальной машины Red Hat Enterprise Linux 7.2 к управляемому домену](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-

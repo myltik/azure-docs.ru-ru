@@ -15,13 +15,11 @@ ms.devlang: dotnet
 ms.date: 02/20/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 8013fc618fe78ea16c21a4605deb91797bf00f7d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: 369802f1a42b8720aa730d5ac7e5576ed20eeddf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>Добавление входа в универсальное приложение для Windows с помощью конечной точки версии 2.0
   Краткий учебник для универсальных приложений Windows еще не совсем готов... Вернитесь через некоторое время и следите за каналом @AzureAD в Twitter.
@@ -34,5 +32,4 @@ ms.lasthandoff: 05/25/2017
     ## Get security updates for our products
 
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
-
 

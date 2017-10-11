@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Начало работы с соединителем Salesforce
 Соединитель Salesforce предоставляет API для работы с объектами Salesforce.
@@ -60,5 +59,4 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
-
 

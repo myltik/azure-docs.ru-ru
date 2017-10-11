@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 440a062e5fff73526b2d77d7d0a7c52ca72a66f1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Использование динамических DNS для регистрации имен узлов на собственном DNS-сервере
 [Azure предоставляет разрешение имен](virtual-networks-name-resolution-for-vms-and-role-instances.md) для виртуальных машин и экземпляров ролей. Однако, если разрешение имен должно выходить за рамки возможностей Azure, вы можете предоставить свои DNS-серверы. В этом случае ваше решение DNS можно настроить в соответствии с конкретными потребностями. Например, вам может понадобиться доступ к локальным ресурсам через контроллер домена Active Directory.
@@ -68,5 +67,4 @@ ms.lasthandoff: 11/17/2016
 При необходимости в виртуальные машины можно добавить суффикс поиска DNS. DNS-суффикс указан в файле */etc/resolv.conf* . Большинство дистрибутивов Linux управляет содержимым этого файла автоматически, поэтому его обычно нельзя изменить. Тем не менее, вы можете переопределить суффикс с помощью команды *supersede* DHCP-клиента. Для этого в файле */etc/dhcp/dhclient.conf*добавьте:
 
         supersede domain-name <required-dns-suffix>;
-
 

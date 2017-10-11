@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 28450d72f19a5467d88bc787d11f6c37c5afbf9a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight (SSH) на платформе Linux
 
@@ -220,4 +219,3 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-

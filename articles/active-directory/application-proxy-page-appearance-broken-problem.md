@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: d0b0ddba5ad9f8c584cd35c6f20edf76883b425d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: cac4c333e59ef9a0f28a2f93a7afee22eeafd54e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Неправильное отображение страницы приложения для приложения прокси приложения
 
 Эта статья помогает устранить проблемы с приложениями прокси приложения Azure Active Directory, когда вы переходите на страницу и на ней что-то работает неправильно.
@@ -40,4 +38,3 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Публикация приложений с помощью прокси приложения Azure AD](application-proxy-publish-azure-portal.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/3/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Инструкции и рекомендации для надежных коллекций в Azure Service Fabric
 В этом разделе приведены инструкции по использованию надежных коллекций и диспетчера надежных состояний. Цель этого руководства — помочь пользователям избежать распространенных ошибок.
@@ -61,4 +60,3 @@ ms.lasthandoff: 05/12/2017
 * Прочее
   * [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
   * [Справочник разработчика по надежным коллекциям](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-

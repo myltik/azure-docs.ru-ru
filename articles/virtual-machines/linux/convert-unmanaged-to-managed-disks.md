@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 94f8e3330fb2d6547811315fcfdb8ced338e0247
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Переключение виртуальной машины Linux с неуправляемых дисков на управляемые диски
 
 При наличии виртуальных машин Linux, использующих неуправляемые диски, их можно преобразовать для использования управляемых дисков с помощью службы [Управляемые диски Azure](../windows/managed-disks-overview.md). При этом преобразуются диск операционной системы и все подключенные диски данных.
@@ -99,4 +97,3 @@ ms.lasthandoff: 08/21/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о возможностях хранения данных доступны в [обзоре Управляемых дисков Azure](../windows/managed-disks-overview.md).
-

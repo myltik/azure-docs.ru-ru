@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/30/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 8629235511e0dda149ceef6a9c834c3042f64f90
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Предварительные требования и контрольный список для ExpressRoute
 Чтобы подключиться к службам Microsoft Cloud через ExpressRoute, вам нужно выполнить условия в следующих разделах.
@@ -67,4 +66,3 @@ ms.lasthandoff: 07/04/2017
   * [Создайте канал ExpressRoute.](expressroute-howto-circuit-classic.md)
   * [Настройка маршрутизации](expressroute-howto-routing-classic.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
-

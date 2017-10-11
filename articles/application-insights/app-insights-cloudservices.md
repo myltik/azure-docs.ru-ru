@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 692cd9e3113589142a7df84da88215eabe8f10fd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: c12b225aa351d0c272243469550791a6840091e0
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights для облачных служб Azure
 С помощью [Application Insights][start] можно отслеживать [приложения облачной службы Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) на предмет доступности, производительности, сбоев и использования, объединяя данные из пакета SDK Application Insights с данными [диагностики Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) из облачных служб. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
@@ -252,4 +251,3 @@ ms.lasthandoff: 08/17/2017
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 
-

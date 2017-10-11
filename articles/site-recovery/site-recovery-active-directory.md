@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 7/20/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Защита Active Directory и DNS с Azure Site Recovery
 Правильная работа корпоративных приложений, таких как SharePoint, Dynamics AX и SAP, зависит от Active Directory и инфраструктуры DNS. При создании решения аварийного восстановления для приложений важно помнить, что необходимо защищать и восстанавливать работу Active Directory и DNS раньше других компонентов приложения, чтобы гарантировать сохранение работоспособности при возникновении аварии.
@@ -209,5 +208,4 @@ Site Recovery — это служба Azure, которая обеспечива
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о защите корпоративных приложений с помощью Azure Site Recovery см. в статье [Какие рабочие нагрузки можно защитить с помощью службы Azure Site Recovery?](site-recovery-workload.md)
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/05/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0c76287232e578df695f73e5d9792ee457266db9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: 6ba88885805f1a206f01015f7eec5236da517403
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="data-catalog-developer-samples"></a>Примеры каталога данных для разработчиков
 Приступите к разработке приложений каталога данных с помощью REST API каталога данных. REST API каталога данных — это API на основе REST, который предоставляет программный доступ к ресурсам каталога данных для регистрации, аннотирования и поиска ресурсов-контейнеров данных программными средствами.
@@ -40,5 +39,4 @@ ms.lasthandoff: 05/09/2017
 * [Глоссарий терминов по массовому импорту](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
 
     В этом примере показано, как импортировать термины глоссария из CSV-файлов в глоссарий ADC.
-
 

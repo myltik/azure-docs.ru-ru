@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
-ms.openlocfilehash: cbe7da8670693a6bbc895ce06f000b6a7d6f0ae1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 1c1b3aa86dc8211de0c07c9fb68da5685c86f551
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Как настроить и выполнить задачи запуска для облачной службы
 С помощью задач запуска вы можете выполнять различные операции перед запуском роли. Это может быть установка компонента, регистрация компонентов COM, установка разделов реестра или запуск длительного процесса.
@@ -168,4 +167,3 @@ EXIT /B 0
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-

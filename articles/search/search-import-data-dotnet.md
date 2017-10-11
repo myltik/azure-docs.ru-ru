@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Отправка данных в службу поиска Azure с помощью пакета SDK для .NET
 > [!div class="op_single_selector"]
@@ -238,5 +237,4 @@ public partial class Hotel
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Заполнив индекс службы поиска Azure, вы можете приступать к отправке запросов на поиск документов. Дополнительные сведения см. в статье [Запросы в службе поиска Azure](search-query-overview.md).
-
 

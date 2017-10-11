@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 75b06ddd02da231b7813c609c848c75e42116da5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Общие сведения о поддержке WebSocket в шлюзе приложений
 
@@ -123,5 +122,4 @@ ms.lasthandoff: 06/07/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Ознакомившись с поддержкой протокола WebSocket, приступите к [созданию шлюза приложений](application-gateway-create-gateway.md) , чтобы начать работу с веб-приложением с поддержкой WebSocket.
-
 

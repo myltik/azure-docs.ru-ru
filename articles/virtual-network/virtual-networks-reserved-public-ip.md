@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 120ae95fe12daa8fc213d0062ca446d5c1b10134
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>Зарезервированные IP-адреса (классическая модель)
 
@@ -49,11 +47,11 @@ IP-адреса в Azure делятся на две категории: дина
 1. Можно ли использовать зарезервированный IP-адрес для всех служб Azure? <br>
     Нет. Зарезервированные IP-адреса можно использовать только для виртуальных машин и экземпляров ролей облачных служб, представляемых через виртуальный IP-адрес.
 2. Сколько зарезервированных IP-адресов можно установить? <br>
-    См. дополнительные сведения об [ограничениях в Azure](../azure-subscription-service-limits.md#networking-limits).
+    Дополнительные сведения см. в разделе [Azure ограничивает](../azure-subscription-service-limits.md#networking-limits) статьи.
 3. Взимается ли плата за зарезервированные IP-адреса? <br>
     Иногда. Сведения о ценах на зарезервированные IP-адреса см. на [этой странице](http://go.microsoft.com/fwlink/?LinkID=398482).
 4. Как зарезервировать IP-адрес? <br>
-    Чтобы зарезервировать IP-адрес в определенном регионе Azure, можно использовать PowerShell, [интерфейс REST API управления Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) или [портал Azure](https://portal.azure.com). Зарезервированный IP-адрес связывается с подпиской.
+    Можно использовать PowerShell, [API REST управления Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx), или [портал Azure](https://portal.azure.com) зарезервировать IP-адрес в регионе Azure. Зарезервированный IP-адрес связывается с подпиской.
 5. Можно ли использовать зарезервированный IP-адрес с виртуальными сетями на основе территориальной группы? <br>
     Нет. Зарезервированные IP-адреса поддерживаются только в региональных виртуальных сетях. Зарезервированные IP-адреса не поддерживаются для виртуальных сетей, которые связаны с территориальными группами. Дополнительные сведения о связывании виртуальной сети с регионом или территориальной группой см. в статье [Переход от территориальных групп к региональной виртуальной сети](virtual-networks-migrate-to-regional-vnet.md).
 
@@ -169,5 +167,4 @@ Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestSer
 * Общие сведения об IP-адресах в классической модели развертывания см. в [этой статье](virtual-network-ip-addresses-overview-classic.md).
 * Ознакомьтесь с информацией о [зарезервированных частных IP-адресах](virtual-networks-reserved-private-ip.md).
 * Ознакомьтесь с информацией об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md).
-
 

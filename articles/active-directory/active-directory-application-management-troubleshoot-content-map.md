@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: f3f3616805f9bdf94fdd6cb467313244608f2d84
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 40579bbc950fb4ed9ddece4880b03d8ef32149ae
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-application-management"></a>Устранение неполадок при управлении приложением Azure Active Directory
 По следующим ссылкам вы можете перейти к картам содержимого, которые помогут решить некоторые из наиболее распространенных проблем при управлении **корпоративными приложениями** в Azure Active Directory.
 
@@ -30,4 +28,3 @@ ms.lasthandoff: 04/17/2017
 * [Проблемы при использовании веб-сайта или мобильного приложения панели доступа к приложениям](active-directory-application-access-panel-content-map.md)
 * [Проблемы при настройке прокси приложения Azure AD](active-directory-application-proxy-content-map.md)
 * [Проблемы при настройке условного доступа к одному из моих приложений](active-directory-application-conditional-access-content-map.md)
-

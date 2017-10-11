@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: a573a7ef79e28c50ae0923849a88f88af40f21be
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Руководство по настройке Salesforce для автоматической подготовки пользователей
 
@@ -67,7 +66,7 @@ ms.lasthandoff: 06/23/2017
 3. Выберите экземпляр Salesforce, а затем перейдите на вкладку **Подготовка**.
 
 4. Для параметра **Режим подготовки к работе** выберите значение **Automatic** (Автоматически). 
-![Подготовка](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+![подготовка](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
 5. В разделе **Учетные данные администратора** укажите следующие параметры конфигурации:
    

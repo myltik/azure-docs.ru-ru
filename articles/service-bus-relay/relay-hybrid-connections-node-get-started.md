@@ -14,12 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: c3bfc45969f250059988129f532edd12dfe3dcfe
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Приступая к работе с гибридными подключениями к ретранслятору
 
@@ -83,5 +82,4 @@ ms.lasthandoff: 07/10/2017
 * [Создание пространства имен](relay-create-namespace-portal.md)
 * [Приступая к работе с .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Приступая к работе с Node](relay-hybrid-connections-node-get-started.md)
-
 

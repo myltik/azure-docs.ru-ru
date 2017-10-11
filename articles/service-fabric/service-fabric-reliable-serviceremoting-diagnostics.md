@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: f54e157654fb15d2f7ff48ddc666c6c8803c75a2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Диагностика и мониторинг производительности в модели Reliable Service Remoting
 Среда выполнения Reliable ServiceRemoting генерирует [счетчики производительности](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Они содержат полезную информацию о работоспособности ServiceRemoting и помогают устранять неполадки и контролировать производительность.
@@ -102,4 +101,3 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Пример кода](https://github.com/Azure/servicefabric-samples)
 * [Поставщики EventSource в PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-

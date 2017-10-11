@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: boltean
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="use-ip-filters"></a>Использование фильтрации IP-адресов
 
 Безопасность является важным аспектом любого решения Интернета вещей на базе Центра Интернета вещей Azure. Иногда при настройке системы безопасности необходимо явно указать IP-адреса, с которых могут подключаться устройства. Функция _фильтрации IP-адресов_ позволяет настроить правила для отклонения или приема трафика с определенных IPv4-адресов.

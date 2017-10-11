@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
 ms.openlocfilehash: a65b1ba2998eae33b3e73bd2492fbbf025eb5946
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Получение таблиц ARP в модели развертывания с помощью Resource Manager
 > [!div class="op_single_selector"]
@@ -178,5 +177,4 @@ ms.lasthandoff: 03/11/2017
   * Получение таблицы маршрутов для определения того, какие префиксы объявляются в ExpressRoute.
 * Проверка передачи данных путем просмотра входящих и выходящих байтов.
 * Отправьте запрос в [службу поддержки Майкрософт](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , если у вас по-прежнему возникают проблемы.
-
 

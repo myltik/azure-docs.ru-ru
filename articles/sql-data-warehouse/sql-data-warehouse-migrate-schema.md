@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 07ca2321852e276502187e768177e7e82bdfd080
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Перенос схем в хранилище данных SQL
 Рекомендации по переносу схем SQL в хранилище данных SQL. 
@@ -85,4 +84,3 @@ ms.lasthandoff: 06/30/2017
 
 
 <!--Other Web references-->
-

@@ -1,5 +1,4 @@
 ---
-
 title: "Как перевести отдельных лицензированных пользователей в группу в Azure Active Directory | Документация Майкрософт"
 description: "Как перейти с отдельных пользовательских лицензий на групповое лицензирование с помощью Azure Active Directory"
 services: active-directory
@@ -17,15 +16,12 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: d7c5ba12738c4713517743ae8c44e236c5e1a210
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/08/2017
-
-
+ms.openlocfilehash: 6b77dd4e9a6d361a05382397e89b575896fdad84
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Как добавить лицензированных пользователей в групповое лицензирование в Azure Active Directory
 
 Возможно, у вас есть существующие лицензии, развернутые для пользователей в организациях путем "прямого назначения", то есть с помощью сценариев PowerShell или других средств для назначения отдельных пользовательских лицензий. Если вы хотите начать использовать групповое лицензирование для управления лицензиями в вашей организации, вам потребуется план миграции для беспроблемного перехода от существующих решений лицензирования к групповому лицензированию.
@@ -93,4 +89,3 @@ ms.lasthandoff: 03/08/2017
 * [Group-based licensing basics in Azure Active Directory](active-directory-licensing-whatis-azure-portal.md) (Основы группового лицензирования в Azure Active Directory)
 * [Поиск и устранение проблем лицензирования группы в Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Дополнительные сценарии лицензирования на основе группы в Azure Active Directory](active-directory-licensing-group-advanced.md)
-

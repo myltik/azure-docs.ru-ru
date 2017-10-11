@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: 5b9b793d49217acd9f0c6c518596a7afb5600d69
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>Установка и использование R на кластерах HDInsight Hadoop
 
@@ -114,4 +113,3 @@ R совместим с хранилищем больших двоичных о�
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
-

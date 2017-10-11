@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4cbffd6627bccc96400ec6de103d4d7fc5d77950
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 8ecd6d7e666d362194126a4abba7a65f2c7b8b6b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Как открыть порты брандмауэра, необходимые для приложения прокси приложения
 
 Чтобы просмотреть полный список необходимых портов и функции каждого порта, обратитесь к разделу "Необходимые компоненты" в [документации по прокси приложения](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). Обратите внимание, что прокси приложения использует только исходящие порты.
@@ -39,4 +37,3 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md)
-

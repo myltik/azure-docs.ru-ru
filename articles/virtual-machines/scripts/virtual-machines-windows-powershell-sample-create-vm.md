@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bd1736fdc04498779c7b749bf9cb1c79de075c96
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: a9e46aded0cf3792558a7fba6f00e5662166cc0a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Создание полностью настроенной виртуальной машины с помощью PowerShell
 
 Этот сценарий создает виртуальную машину Azure под управлением Windows Server 2016. После выполнения сценария можно получить доступ к виртуальной машине по протоколу RDP.
@@ -67,4 +65,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
 Дополнительные примеры сценариев PowerShell для виртуальных машин представлены в [документации по виртуальным машинам Azure под управлением Windows](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

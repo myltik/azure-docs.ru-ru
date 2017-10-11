@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: eacfac5971396590ce2e65613701e8980e6b1b21
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: c8b700d13e4645d408e4e752a541e521ef93a6e0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-docker-host-with-powershell"></a>Создание узла Docker с помощью PowerShell
 
 Этот сценарий создает виртуальную машину с включенным Docker и запускает контейнер в котором будет запущен NGINX. После выполнения сценария можно получить доступ к веб-серверу NGINX, используя полное доменное имя виртуальной машины Azure. 
@@ -68,4 +66,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
 Дополнительные примеры сценариев PowerShell для виртуальных машин представлены в [документации по виртуальным машинам Azure под управлением Linux](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

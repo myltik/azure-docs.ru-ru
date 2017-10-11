@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 91451b2cdc42ed05ef7c1ba9c66ad5b4b45dd788
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Управление хранилищами и серверами службы архивации Azure с помощью классической модели развертывания
 > [!div class="op_single_selector"]
@@ -199,4 +198,3 @@ ms.lasthandoff: 08/21/2017
 * [Восстановление Windows Server или клиента Windows из Azure](backup-azure-restore-windows-server.md)
 * Дополнительную информацию о службе архивации Azure см. в статье [Обзор службы архивации Azure](backup-introduction-to-azure-backup.md).
 * Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-

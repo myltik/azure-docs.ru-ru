@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5b133afd82afecbfab250c2760404a4173086fa5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 4945958deedc8a1d9989ff901192c03a5363b4dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Не удается найти рабочую группу соединителей для приложения прокси приложения
 
 Эта статья поможет решить распространенные проблемы при отсутствии соединителя для приложения прокси приложения, интегрированного с Azure Active Directory.
@@ -68,6 +66,5 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md)
-
 
 

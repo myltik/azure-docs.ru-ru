@@ -15,14 +15,12 @@ ms.workload: big-data
 ms.date: 08/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 0853e8605e07c28867676e9c13b89263ade67c88
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Добавление дополнительных учетных записей хранения в HDInsight
 
 Узнайте, как использовать действия сценариев для добавления дополнительных учетных записей хранения Azure в кластер HDInsight. В этом документе описаны действия по добавлению учетной записи хранения в существующий кластер HDInsight под управлением Linux.
@@ -152,4 +150,3 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Вы узнали, как добавлять дополнительные учетные записи хранения Azure в существующий кластер HDInsight. Дополнительные сведения о действиях скриптов см. в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
-

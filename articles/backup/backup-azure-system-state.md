@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Резервное копирование состояния системы Windows с использованием модели развертывания Resource Manager
 В этой статье описано, как выполнить резервное копирование состояния системы Windows Server в Azure. В этом руководстве приведены общие сведения,
@@ -320,4 +319,3 @@ ms.lasthandoff: 08/21/2017
 * См. дополнительные сведения об [архивации компьютеров Windows](backup-configure-vault.md).
 * Теперь, когда вы выполнили резервное копирование файлов и папок, вы можете [управлять хранилищами и серверами](backup-azure-manage-windows-server.md).
 * Если необходимо восстановить резервную копию, см. статью о [восстановлении файлов на компьютере Windows](backup-azure-restore-windows-server.md).
-

@@ -13,16 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 30db71c0706de1dcc0d48fb72fa5d62475a14ba7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Пользователи для приложения в коллекции Azure AD не подготавливаются
 
 Настройте автоматическую подготовку для приложения (проверив действительность учетных данных, с помощью которых Azure AD подключается к приложению). Пользователи и (или) группы, которые подготавливаются для приложения, определяются следующими критериями.
@@ -69,5 +65,4 @@ ms.lasthandoff: 06/03/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Служба синхронизации Azure AD Connect: общие сведения о декларативной подготовке](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
-
 

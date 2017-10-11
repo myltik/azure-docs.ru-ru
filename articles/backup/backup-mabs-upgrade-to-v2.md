@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="install-azure-backup-server-v2"></a>Установка Azure Backup Server версии 2
 
 Azure Backup Server обеспечивает защиту виртуальных машин, рабочих нагрузок, файлов, папок и т. д. Компонент Azure Backup Server версии 2 основан на Azure Backup Server версии 1 и предоставляет новые функции, недоступные в версии 1. Сравнение функций версии 1 и версии 2 см. в [таблице поддержки защиты Azure Backup Server](backup-mabs-protection-matrix.md). 
@@ -288,5 +286,4 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 - [Резервное копирование сервера VMware в Azure](backup-azure-backup-server-vmware.md)
 - [Архивация баз данных SQL Server в Azure с помощью Azure Backup Server](backup-azure-sql-mabs.md)
 - [Add storage to Azure Backup Server v2](backup-mabs-add-storage.md) (Добавление хранилища к Azure Backup Server версии 2)
-
 

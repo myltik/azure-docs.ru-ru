@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: maheshu
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Доменные службы Azure AD — связь с нами
 ## <a name="contact-the-product-team"></a>Связь с группой разработка продукта
@@ -36,4 +35,3 @@ ms.lasthandoff: 08/24/2017
 Мы будем рады получить ваши отзывы о доменных службах Azure AD через **[канал мнений пользователей об Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
 
 Чтобы мы получили ваш вопрос или отзыв, он должен начинаться со слова **AADDS**.
-

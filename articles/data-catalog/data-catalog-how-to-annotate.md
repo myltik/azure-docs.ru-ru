@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba15ebc176ada48943fb6afa5f9c723e3d906099
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 4518fc126c717cc79ca7950c0b1ddcd9f1d8c7d2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-annotate-data-sources"></a>Создание заметок к источникам данных
 ## <a name="introduction"></a>Введение
@@ -69,4 +68,3 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="see-also"></a>Дополнительные материалы
 * Пошаговые инструкции по комментированию источников данных см. в руководстве [Начало работы с каталогом данных Azure](data-catalog-get-started.md).
-

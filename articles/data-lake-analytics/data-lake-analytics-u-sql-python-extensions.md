@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 6f3477b67b27a30e6b69f6015e9063bfa27834f7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: d18ef1f747aee2fa01cef9891432d0461031ee4c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Руководство. Начало работы с расширением возможностей U-SQL c Python
 
 Расширения Python для U-SQL позволяют разработчикам выполнять код Python с массовым параллелизмом. В следующих примерах представлены основные шаги:
@@ -100,5 +98,4 @@ ms.lasthandoff: 06/20/2017
 * [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
 * [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
-
 

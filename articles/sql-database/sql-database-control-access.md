@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/06/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 0ca1ccd273317d67537d31724d566625a4eb2c85
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sql-database-access-control"></a>Контроль доступа к базе данных SQL Azure
 Чтобы обеспечить безопасность, база данных SQL управляет доступом с помощью правил брандмауэра, ограничивающих подключение по IP-адресу, механизмов проверки подлинности, требующих удостоверений пользователей, и методов авторизации, ограничивающих действия и данные для пользователей. 
@@ -68,4 +67,3 @@ ms.lasthandoff: 06/22/2017
 - Сведения о пользователях и имена для входа см. в статье [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](sql-database-manage-logins.md). 
 - Описание упреждающего мониторинга см. во вводных статьях об [аудите базы данных](sql-database-auditing.md) и [системе обнаружения угроз базы данных SQL](sql-database-threat-detection.md).
 - Ознакомьтесь с руководством [Защита базы данных SQL Azure](sql-database-security-tutorial.md).
-

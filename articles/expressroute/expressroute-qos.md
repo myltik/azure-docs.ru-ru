@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
 ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="expressroute-qos-requirements"></a>Требования к качеству обслуживания для ExpressRoute
 В Skype для бизнеса имеются различные рабочие нагрузки, требующие дифференцированного подхода к качеству обслуживания. Если вы планируете использовать голосовые службы с помощью ExpressRoute, то необходимо соблюдать указанные ниже требования.
@@ -52,5 +51,4 @@ ms.lasthandoff: 07/26/2017
   * [Создание канала ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Настройка маршрутизации](expressroute-howto-routing-classic.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
 

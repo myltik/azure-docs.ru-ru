@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 81d5ae3775cca7cea5abf1922a25be0663a8a949
-ms.contentlocale: ru-ru
-
+ms.openlocfilehash: 2ac1117a31a101705539a1f75520ce8de43809a2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Использование библиотеки проверки подлинности Майкрософт для получения маркера для API Microsoft Graph
 
@@ -238,5 +238,4 @@ func application(_ application: UIApplication, open url: URL, sourceApplication:
     return true
 }
 ```
-
 

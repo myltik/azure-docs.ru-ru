@@ -13,37 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6aba9206ab0634e9379d63520ad9e2d0256b7e94
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 80f4a965920fec9cb578c1bee235c7857f37431e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="how-to-determine-what-single-sign-on-method-to-use" class="xliff"></a>
-
-# Определение используемого метода единого входа
+# <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Определение используемого метода единого входа
 
 В этой статье представлены общие сведения о режимах единого входа, поддерживаемых в Azure AD, и о выборе подходящего режима для интересующего приложения.
 
-<a id="single-sign-on-and-provisioning-modes-supported-by-specific-application-types" class="xliff"></a>
-
-## Режимы единого входа и подготовки, поддерживаемые конкретными типами приложений
+## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Режимы единого входа и подготовки, поддерживаемые конкретными типами приложений
 
 В следующей таблице описываются различные режимы единого входа и подготовки, поддерживаемые каждым из приведенных выше типов приложений. С помощью этой таблицы вы узнаете, какое приложение необходимо добавить для достижения конкретной цели.
 
   ![Таблица типов приложений](./media/application-tables/table1.png)
 
-<a id="how-to-choose-a-single-sign-on-mode" class="xliff"></a>
-
-## Выбор режима единого входа
+## <a name="how-to-choose-a-single-sign-on-mode"></a>Выбор режима единого входа
 
 Ниже приведены поддерживаемые режимы **единого входа** для приложений Azure AD.
 
 -   **Единый вход Azure AD отключен.** Выберите **режим** "Единый вход Azure AD отключен", если вы еще не готовы к интеграции этого приложения с единым входом в Azure AD или просто его тестируете.
 
--   **Вход по ссылке.** Выберите **режим** [Вход по ссылке](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) при наличии приложения, уже подключенного с решением имеющегося единого входа, или если требуется опубликовать простую ссылку для пользователей на [панели доступа к приложениям](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) или в [средстве запуска приложений Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none).
+-   **Вход по ссылке**. Выберите **режим** [Вход по ссылке](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) при наличии приложения, уже подключенного с использованием решения единого входа, или если требуется опубликовать простую ссылку для пользователей на [панели доступа к приложениям](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) или в [средстве запуска приложений Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none).
 
 -   **Вход по паролю.** Выберите **режим единого входа** [Вход по паролю](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work), если приложение отображает HTML-поле имени пользователя и пароля, а также если необходимо безопасно сохранить имя пользователя и пароль для их повторного использования в приложении.
 
@@ -53,27 +45,23 @@ ms.lasthandoff: 04/11/2017
 
 -   **Интегрированная проверка подлинности Windows.** Выберите режим единого входа [Интегрированная проверка подлинности Windows](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) при использовании локального приложения WIA, для которого необходимо выполнить единый вход. *(**Примечание.** Этот параметр доступен только при настройке прокси приложения для приложения.)*
 
-<a id="single-sign-on-modes-for-custom-developed-applications" class="xliff"></a>
+## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Режимы единого входа для специально разработанных приложений
 
-## Режимы единого входа для специально разработанных приложений
+[Специально разработанные приложения](#_Custom-Developed_Applications) также поддерживают дополнительные режимы единого входа, не указанные в списке выше. В частности, описаны такие возможности:
 
-Приложения, настроенные с помощью возможности [специально разработанного приложения](#_Custom-Developed_Applications), также поддерживают дополнительные режимы единого входа, не указанные в списке выше. В частности, описаны такие возможности:
+-   единый вход на основе [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code);
 
--   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) на основе единого входа;
+-   единый вход на основе [OpenID Connect 1.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code);
 
--   [OpenID Connect 1.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) на основе единого входа;
+-   единый вход на основе [WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html);
 
--   [WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) на основе единого входа;
-
--   [SAML 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference) на основе единого входа.
+-   единый вход на основе [SAML 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference).
 
 Ознакомьтесь с [руководством разработчика по Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide), чтобы узнать больше о создании специально разработанного приложения, поддерживающего данные режимы единого входа.
 
-<a id="how-to-set-an-applications-single-sign-on-mode" class="xliff"></a>
+## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Настройка режима единого входа для приложения
 
-## Настройка режима единого входа для приложения
-
-Для **этого** выполните приведенные далее инструкции.
+Чтобы настроить режим **единого входа** для приложения, сделайте следующее:
 
 1.  Откройте [**портал Azure**](https://portal.azure.com/) и войдите в систему как **глобальный администратор** или **соадминистратор**.
 
@@ -91,9 +79,6 @@ ms.lasthandoff: 04/11/2017
 
 7.  После загрузки приложения выберите для этого приложения пункт **Единый вход** в меню навигации слева.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
-
 

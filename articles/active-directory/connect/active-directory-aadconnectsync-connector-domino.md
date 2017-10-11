@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: 328e2039bbaa8988dc35b46712fd0de6f8bcbee8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Технический справочник по соединителю Lotus Domino
 В этой статье описывается соединитель Lotus Domino. Статья относится к следующим продуктам:
@@ -495,4 +494,3 @@ ms.lasthandoff: 03/14/2017
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 * Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731) (Включение трассировки событий Windows для соединителей).
-

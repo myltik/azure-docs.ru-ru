@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a9de327c20463469bc91d9720aa17333a36f919e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>Сохранение данных заданий и задач в службе хранилища Azure с помощью библиотеки соглашений о пакетных файлах для .NET 
 
@@ -77,7 +76,7 @@ ms.lasthandoff: 08/21/2017
 
 ### <a name="create-storage-container"></a>Создание контейнера хранилища
 
-Для сохранения выходных данных задачи в службе хранилища Azure сначала создайте контейнер путем вызова [CloudJob][net_cloudjob].[ PrepareOutputStorageAsync][net_prepareoutputasync]. Этот метод расширения принимает объект [CloudStorageAccount][net_cloudstorageaccount] в качестве параметра. Он создает контейнер, именованный в соответствии со стандартом соглашений об именовании файлов, чтобы его содержимое можно было бы обнаружить с помощью портала Azure и методов извлечения данных, которые описаны ниже в этой статье.
+Для сохранения выходных данных задачи в службе хранилища Azure сначала создайте контейнер путем вызова [CloudJob][net_cloudjob].[ PrepareOutputStorageAsync][net_prepareoutputasync]. Этот метод расширения принимает объект [CloudStorageAccount] [ net_cloudstorageaccount] в качестве параметра. Он создает контейнер, именованный в соответствии со стандартом соглашений об именовании файлов, чтобы его содержимое можно было бы обнаружить с помощью портала Azure и методов извлечения данных, которые описаны ниже в этой статье.
 
 Обычно этот код применяется для создания контейнера в клиентском приложении &mdash;, то есть приложении, которое создает пулы, задания и задачи.
 
@@ -262,4 +261,3 @@ foreach (CloudTask task in myJob.ListTasks())
 
 [1]: ./media/batch-task-output/task-output-01.png "Селекторы сохраненных выходных файлов и журналов на портале"
 [2]: ./media/batch-task-output/task-output-02.png "Колонка выходных данных задачи на портале Azure"
-

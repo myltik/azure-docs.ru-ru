@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 573e940c5390e7b990d889681eb37b73c5b253d9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Справочник по API аудита Azure Active Directory
 Эта статья входит в серию статей об API отчетов Azure Active Directory.  
@@ -241,5 +240,4 @@ ms.lasthandoff: 07/17/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Хотите увидеть примеры отфильтрованных системных операций? См. [примеры API аудита Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Хотите узнать больше об API отчетов Azure AD? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
 

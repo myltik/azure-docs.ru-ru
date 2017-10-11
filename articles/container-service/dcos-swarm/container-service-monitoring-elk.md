@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 6abad7d9d501a1fdead83a1a678f1b053ee70a25
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: fcfa277cdd0f3cebc0fbbb23e771fb23ffbe2ca6
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Мониторинг кластера службы контейнеров Azure с помощью ELK
 В этой статье показано, как развертывать стек ELK (Elasticsearch, Logstash, Kibana) в кластере DC/OS в службе контейнеров Azure. 
@@ -70,5 +69,4 @@ ms.lasthandoff: 07/25/2017
 * Чтобы узнать о фильтрации журналов, ознакомьтесь с разделом [Filtering Logs with ELK](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/) (Фильтрация журналов с помощью ELK). 
 
  
-
 

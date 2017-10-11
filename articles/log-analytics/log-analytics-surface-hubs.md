@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: b6ecd0d09589fec85c1633f528afc1165c346b7f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Мониторинг работоспособности устройств Surface Hub с помощью Log Analytics
 
@@ -89,4 +88,3 @@ Intune — это продукт Microsoft, который позволяет �
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [Поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных о Surface Hub.
 * Создайте [оповещения](log-analytics-alerts.md), которые будут уведомлять вас о возникновении проблем с устройствами Surface Hub.
-

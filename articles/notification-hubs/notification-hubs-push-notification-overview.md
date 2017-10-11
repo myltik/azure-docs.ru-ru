@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 1/17/2017
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 58458cdc99cc8f78e63c9640a7c71a8ce5dc70f1
 ms.openlocfilehash: a1be0b13cd1feb582a23965df142e44d90ac6851
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs"></a>Концентраторы уведомлений Azure
 ## <a name="overview"></a>Обзор
@@ -155,4 +154,3 @@ Push-уведомления доставляются через инфрастр
 [templates]: notification-hubs-templates-cross-platform-push-messages.md
 [портале Azure]: https://portal.azure.com
 [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6efe6de6cc6d6d4c9788549048c5b50b03b3de42
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 141e3c571d744470fd07e99538b6e38d4144e8d7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Устранение проблем с маршрутами с помощью Azure PowerShell
 > [!div class="op_single_selector"]
@@ -136,5 +135,4 @@ ms.lasthandoff: 04/27/2017
 * Для правильной работы пирингового трафика виртуальной сети системный маршрут, в котором для **nextHopType** *VNetPeering* , должен действовать в диапазоне префиксов пиринговой виртуальной сети. Если такого маршрута не существует и пиринговая связь сети действует нормально, возможны два сценария действий.
   * Подождите несколько секунд и повторите попытку, если пиринговая связь установлена недавно. Иногда требуется больше времени, чтобы распространить маршруты для всех сетевых интерфейсов в подсети.
   * Правила групп безопасности сети (NSG) могут влиять на потоки трафика. Дополнительные сведения см. в статье, посвященной [устранению неполадок с группами безопасности сети](virtual-network-nsg-troubleshoot-powershell.md).
-
 

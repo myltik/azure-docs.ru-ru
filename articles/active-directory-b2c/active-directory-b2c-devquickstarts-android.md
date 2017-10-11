@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: cd4b8048245be49ea79bcb1b364f2f99c56f8291
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C. Вход с помощью приложения Android
 
@@ -142,5 +141,4 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 Дополнительные сведения о завершении остальной части процесса см. в [руководстве по AppAuth](https://openid.github.io/AppAuth-Android/). Если вам нужно быстро приступить к работе с приложением, ознакомьтесь с [нашим примером](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Следуйте указаниям в файле [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md), чтобы ввести собственные значения для настройки Azure AD B2C.
 
 Мы всегда рады вашим отзывам и предложениям! Если у вас возникли трудности с выполнением действий, описанных в этой статье или у вас есть рекомендации по улучшению этого материала, поделитесь с нами своими наблюдениями, воспользовавшись формой в нижней части страницы. Запросы функций оставляйте на форуме [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
-
 

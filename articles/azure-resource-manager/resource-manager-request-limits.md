@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="throttling-resource-manager-requests"></a>Регулирование запросов Resource Manager
 Для каждой подписки и клиента Resource Manager ограничивает число запросов на чтение до 15 000 и запросов на запись — до 1200 в час. Эти ограничения применяются к каждому экземпляру Azure Resource Manager. В каждом регионе Azure существует несколько экземпляров, а Azure Resource Manager развертывается во всех регионах Azure.  На практике ограничений гораздо больше, чем указано выше, так как запросы пользователя обычно обслуживаются многими экземплярами.
@@ -112,4 +111,3 @@ silly: returnObject
 
 * Дополнительные сведения об ограничениях и квотах см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 * Сведения об обработке асинхронных запросов REST см. в статье [Track asynchronous Azure operations](resource-manager-async-operations.md) (Отслеживание асинхронных операций Azure).
-

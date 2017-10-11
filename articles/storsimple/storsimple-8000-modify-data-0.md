@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 90df43e22f17fd32fe642514df098b72700e77af
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Изменение параметров сетевого интерфейса DATA 0 на устройстве StorSimple серии 8000
 
@@ -69,5 +68,4 @@ ms.lasthandoff: 07/12/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сетевые интерфейсы, отличные от DATA 0, можно [настроить на портале Azure](storsimple-8000-modify-device-config.md). 
 * Если у вас возникли проблемы при настройке сетевых интерфейсов, см. статью [Устранение неполадок в развертывании устройства StorSimple](storsimple-troubleshoot-deployment.md).
-
 

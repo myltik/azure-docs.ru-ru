@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 196f6d03567cbad8e061d45be546bc86015ede2e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Выполнение различных действий в приложениях логики с помощью оператора switch
 
 При создании рабочего процесса часто требуется выполнять разные действия в зависимости от значения объекта или выражения. Например, поведение приложения логики может быть разным при разных кодах состояния HTTP-запроса или выборе разных параметров в сообщении электронной почты.

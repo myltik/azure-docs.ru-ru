@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 350a65b1c6432baf258e014c9e63133d2b29e34f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Использование данных Application Insights в Power BI
 [Power BI](http://www.powerbi.com/) — это набор средств бизнес-аналитики для анализа данных и обмена сведениями. На каждом устройстве доступны панели мониторинга с широкими возможностями. Вы можете объединять данные из различных источников, в том числе аналитические запросы из [ Application Insights](app-insights-overview.md).
@@ -119,5 +118,4 @@ ms.lasthandoff: 06/15/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Дополнительные сведения о Power BI](http://www.powerbi.com/learning/)
 * [Руководство по аналитике](app-insights-analytics-tour.md)
-
 

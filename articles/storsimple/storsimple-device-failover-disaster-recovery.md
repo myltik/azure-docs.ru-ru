@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Отработка отказа и аварийное восстановление для устройства StorSimple
 ## <a name="overview"></a>Обзор
@@ -179,5 +178,4 @@ ms.lasthandoff: 11/17/2016
 ## <a name="next-steps"></a>Дальнейшие действия
 * После отработки отказа, возможно, нужно будет [отключить или удалить устройство StorSimple](storsimple-deactivate-and-delete-device.md).
 * Сведения об управлении устройством с помощью службы диспетчера StorSimple см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
 

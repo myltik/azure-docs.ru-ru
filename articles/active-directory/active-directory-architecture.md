@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: 50dad848cfbdab7f5b1fff0fcec3b5f754e6ae74
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Общие сведения об архитектуре Azure Active Directory
 Azure Active Directory (Azure AD) позволяет безопасно управлять доступом к службам и ресурсам Azure пользователей, а также содержит полный набор возможностей управления удостоверениями. Дополнительные сведения о возможностях Azure AD см. в статье [Что такое Microsoft Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis).
@@ -118,5 +117,4 @@ Azure AD выполняет ежедневное резервное копиро
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Руководство разработчика по Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
-
 

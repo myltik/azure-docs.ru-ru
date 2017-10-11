@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: 0c9a9a56e1489ee91fcc332beeef36cdc9c93dc1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Синхронизация в управляемом домене доменных служб Azure AD
 На следующей схеме показано, как работает синхронизация в управляемых доменах доменных служб Azure AD.
@@ -122,4 +121,3 @@ ms.lasthandoff: 03/07/2017
 * [Сценарии развертывания доменных служб Azure AD](active-directory-ds-scenarios.md)
 * [Рекомендации по сетям для доменных служб Azure AD](active-directory-ds-networking.md)
 * [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)
-

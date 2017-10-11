@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5760c4a381a10fd1619b0239dd38e41d88f495e5
 ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Удаленное подключение к устройству StorSimple серии 8000
 
@@ -236,5 +235,4 @@ ms.lasthandoff: 02/28/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше об [использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
 * Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
 

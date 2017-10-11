@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 6ed02ead07c50b9a49e8868756b6f957d7b49b99
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-database-faq"></a>Часто задаваемые вопросы о базе данных SQL
 
@@ -124,4 +123,3 @@ ms.lasthandoff: 05/18/2017
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Перенос базы данных из одной подписки в другую
 * На [портале Azure](https://portal.azure.com)щелкните **Серверы SQL Server** и выберите из списка сервер, на котором размещена ваша база данных. Щелкните **Перенести**и выберите ресурсы, которые нужно перенести, а также подписку, в которую их нужно переместить.
-

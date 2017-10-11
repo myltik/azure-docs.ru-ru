@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Создание базы данных хранилища данных SQL с помощью Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ ms.lasthandoff: 12/07/2016
 Для начала работы необходимы перечисленные ниже компоненты и данные.
 
 * **Учетная запись Azure.** Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][Azure Free Trial] или [денег на счете в Azure][MSDN Azure Credits] MSDN.
-* **Сервер Azure SQL Server.** Сведения см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure][Create an Azure SQL Database logical server with the Azure Portal] или [Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра][Create an Azure SQL Database logical server with PowerShell].
+* **Сервер SQL Azure**: см. раздел [создание логического сервера базы данных SQL Azure с помощью портала Azure] [создание логического сервера базы данных SQL Azure с помощью портала Azure] или [создание логического сервера базы данных SQL Azure с помощью PowerShell] [создание логического сервера базы данных SQL Azure с помощью PowerShell] для получения дополнительных сведений.
 * **Группа ресурсов.** Используйте ту же группу ресурсов, что и для Azure SQL Server, или [создайте группу ресурсов][how to create a resource group].
 * **Среда выполнения T-SQL.** Для выполнения T-SQL можно использовать [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] или [SSMS][SSMS].
 
@@ -89,4 +87,3 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

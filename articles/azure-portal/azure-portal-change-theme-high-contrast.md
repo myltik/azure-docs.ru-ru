@@ -10,12 +10,11 @@ ms.topic: how to
 ms.service: multiple
 ms.custom: accessibility
 manager: timlt
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 87ef9bf72f110ea3c27d0554e461d8c12132d422
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Включение режима высокой контрастности или изменение темы на портале Azure
 Если вы хотите увеличить контрастность или изменить цветовую схему на портале Azure, внесите необходимые изменения в настройки портала. 
@@ -41,4 +40,3 @@ ms.lasthandoff: 08/28/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 - [Сочетания клавиш на портале Azure](azure-portal-keyboard-shortcuts.md)
 - [Поддерживаемые браузеры и устройства](../azure-preview-portal-supported-browsers-devices.md)
-

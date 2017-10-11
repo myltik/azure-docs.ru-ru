@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
 ms.openlocfilehash: 28f99d56404e47adcd375d9f3106cc234469cbfd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cosmos-db-create-an-documentdb-api-account-using-cli"></a>Azure Cosmos DB: создание учетной записи API DocumentDB с помощью интерфейса командной строки
 
 Этот пример сценария интерфейса командной строки (CLI) создает учетную запись, базу данных и коллекцию API DocumentDB в Azure Cosmos DB.  
@@ -59,4 +57,3 @@ az group delete --name myResourceGroup
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Дополнительные примеры скриптов CLI для базы данных Azure Cosmos DB см. в [документации по интерфейсу командной строки базы данных Azure Cosmos DB](../cli-samples.md).
-

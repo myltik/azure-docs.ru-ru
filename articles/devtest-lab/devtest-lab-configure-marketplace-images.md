@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 5f888c9d92a9164cc7d3d1aed66c29a724b365d7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Настройка параметров образов Azure Marketplace в Azure DevTest Labs
 DevTest Labs поддерживает создание виртуальных машин на основе образов Azure Marketplace в зависимости от того, как вы настроили образы Azure Marketplace для использования в лаборатории. В этой статье показано, как определить, какие образы Azure Marketplace (если таковые имеются) можно использовать при создании виртуальных машин в лаборатории. Благодаря этому ваша рабочая группа будет иметь доступ только к тем образам Marketplace, которые ей требуются. 
@@ -50,5 +49,4 @@ DevTest Labs поддерживает создание виртуальных м
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После настройки разрешения образов Azure Marketplace при создании виртуальной машины необходимо [добавить виртуальную машину в лабораторию](devtest-lab-add-vm-with-artifacts.md).
-
 

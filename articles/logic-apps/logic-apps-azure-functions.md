@@ -15,14 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 7d21ab1180fcd6df39a5dcc5c095c9521c00f6fd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/10/2017
-
+ms.openlocfilehash: 18442c87b049200fac5ed41cc7034ba7a848b8d3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Добавление и выполнение пользовательского кода для приложений логики с помощью Функций Azure
 
 Для выполнения пользовательских фрагментов кода C# или Node.js в приложениях логики можно с помощью Функций Azure создать пользовательские функции. 
@@ -78,4 +76,3 @@ function start(req, res){
 <!--Image references-->
 [1]: ./media/logic-apps-azure-functions/callfunction.png
 [2]: ./media/logic-apps-azure-functions/createfunction.png
-

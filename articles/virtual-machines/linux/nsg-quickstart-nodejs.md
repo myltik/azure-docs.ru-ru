@@ -13,14 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 847bc76c37ed929851712ba1c12463a01032e267
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-10"></a>Открытие портов и конечных точек для виртуальной машины Linux в Azure с помощью интерфейса командной строки Azure 1.0
 Чтобы открыть порт или создать конечную точку для виртуальной машины в Azure, создайте сетевой фильтр для подсети или сетевого интерфейса виртуальной машины. Эти фильтры, контролирующие входящий и исходящий трафик, добавляются в группу безопасности сети и присоединяются к ресурсу, который будет получать трафик. Давайте используем распространенный пример веб-трафика через порт 80. В этой статье показано, как открыть порт для виртуальной машины с помощью интерфейса командной строки Azure версии 1.0.
 
@@ -95,5 +93,4 @@ azure network vnet subnet set \
 * [Общие сведения об Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 * [Группа безопасности сети](../../virtual-network/virtual-networks-nsg.md)
 * [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../../load-balancer/load-balancer-arm.md)
-
 

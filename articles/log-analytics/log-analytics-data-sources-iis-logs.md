@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 2114bdafb3b9fe2eb0632271840b8b70a76d10f1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="iis-logs-in-log-analytics"></a>Журналы IIS в службе Log Analytics
 Службы IIS (Internet Information Services) хранят данные об активности пользователей в файлах журналов, собираемых службой Log Analytics.  
@@ -92,4 +91,3 @@ Log Analytics собирает записи в журналах IIS из каж�
 * Настройте службу Log Analytics для сбора других [источников данных](log-analytics-data-sources.md) для анализа.
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений.
 * Настройте оповещения в службе Log Analytics для получения заблаговременных уведомлений о важных условиях, обнаруженных в журналах IIS.
-

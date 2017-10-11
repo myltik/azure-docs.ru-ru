@@ -15,14 +15,12 @@ ms.date: 08/01/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
 ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/05/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Работа с пользовательскими доменами в прокси приложения Azure AD
 
 При публикации приложения через прокси приложения Azure Active Directory можно создать внешний URL-адрес для перехода ваших пользователей при удаленной работе. Имя этого URL-адреса содержит домен по умолчанию *ваш_клиент-msappproxy.net*. Например, если вы опубликовали приложение Expenses и используете клиент Contoso, то внешним URL-адресом будет https://expenses-contoso.msappproxy.net. Если вы хотите использовать собственное доменное имя, настройте личный домен для своего приложения. 
@@ -88,6 +86,5 @@ ms.lasthandoff: 08/05/2017
 * [Включите единый вход](active-directory-application-proxy-sso-using-kcd.md) в опубликованные приложения с помощью аутентификации Azure AD.
 * [Включите условный доступ](active-directory-application-proxy-conditional-access.md) к опубликованным приложениям.
 * [Добавление имени личного домена в Azure Active Directory](active-directory-domains-add-azure-portal.md)
-
 
 

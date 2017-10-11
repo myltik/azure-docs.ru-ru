@@ -1,6 +1,6 @@
 ---
 title: "Интеграция пакета SDK универсальных приложений Windows для Служб мобильного взаимодействия Azure | Документация Майкрософт"
-description: "Интеграция универсальных приложений для Windows с пакетом SDK для Azure Mobile Engagement"
+description: "Интеграция универсальных приложений для Windows с пакетом SDK для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,15 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>Интеграция пакета SDK универсальных приложений для Windows для Azure Mobile Engagement
-В этом документе описываются все параметры интеграции и конфигурации, доступные для пакета SDK универсальных приложений для Windows для Azure Mobile Engagement.
+# <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>Интеграция пакета SDK универсальных приложений для Windows для Служб мобильного взаимодействия Azure
+В этом документе описываются все параметры интеграции и конфигурации, доступные для пакета SDK универсальных приложений для Windows для Служб мобильного взаимодействия Azure.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Прежде чем приступить к этому учебнику, необходимо изучить [наш 15-минутный учебник](mobile-engagement-windows-store-dotnet-get-started.md).
@@ -38,7 +37,7 @@ ms.lasthandoff: 02/09/2017
 [Как интегрировать Reach (Notifications) в универсальное приложение для Windows](mobile-engagement-windows-store-integrate-engagement-reach.md)
 
 ### <a name="tag-plan-implementation"></a>Реализация плана добавления тегов:
-[Как использовать API для расширенного добавления тегов Mobile Engagement в универсальном приложении для Windows](mobile-engagement-windows-store-use-engagement-api.md)
+[Как использовать API для расширенного добавления тегов Служб мобильного взаимодействия в универсальном приложении для Windows](mobile-engagement-windows-store-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Заметки о выпуске
 ### <a name="341-11032016"></a>3.4.1 (03.11.2016)
@@ -74,5 +73,4 @@ ms.lasthandoff: 02/09/2017
 
 ### <a name="upgrade-from-older-versions"></a>Обновление предыдущих версий
 См. статью [Процедуры обновления SDK универсальных приложений для Windows](mobile-engagement-windows-store-upgrade-procedure.md).
-
 

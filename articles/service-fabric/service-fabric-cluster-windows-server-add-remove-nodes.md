@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/02/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 42b7ea3ec1efa6eb7f3ac31ecefa615c29f7d495
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 9c6035e97de38ff63ef074109afd9f3c7484f828
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Добавление узлов в автономный кластер Service Fabric под управлением Windows Server или удаление узлов из него
 После [создания автономного кластера Service Fabric на компьютерах под управлением Windows Server](service-fabric-cluster-creation-for-windows-server.md) потребности компании могут измениться, и вам может понадобиться добавить или удалить несколько узлов в кластере. В данной статье содержатся детальные инструкции по выполнению этой задачи. Обратите внимание, что добавление и удаление узлов в кластерах локальной разработки не поддерживается.
@@ -131,5 +130,4 @@ ms.lasthandoff: 06/07/2017
 * [Параметры конфигурации для автономного кластера Windows](service-fabric-cluster-manifest.md)
 * [Защита автономного кластера под управлением Windows с помощью сертификатов](service-fabric-windows-cluster-x509-security.md)
 * [Create a three node standalone Service Fabric cluster with Azure virtual machines running Windows Server (Создание автономного кластера Service Fabric с тремя узлами на виртуальных машинах Azure под управлением Windows)](service-fabric-cluster-creation-with-windows-azure-vms.md)
-
 

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Резервное копирование сервера VMware в Azure
 
@@ -385,4 +384,3 @@ Azure Backup Server обеспечивает резервное копирова
 Если вы используете сервер Azure Backup Server для защиты рабочих нагрузок VMware, попробуйте использовать этот сервер для защиты [Microsoft Exchange Server](./backup-azure-exchange-mabs.md), [фермы Microsoft SharePoint](./backup-azure-backup-sharepoint-mabs.md) или [базы данных SQL Server](./backup-azure-sql-mabs.md).
 
 Дополнительные сведения о проблемах с регистрацией агента, настройкой группы защиты и заданиями резервного копирования см. в статье [Устранение неполадок на сервере резервного копирования Azure](./backup-azure-mabs-troubleshoot.md).
-

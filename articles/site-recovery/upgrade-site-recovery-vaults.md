@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/31/2017
 ms.author: rajani-janaki-ram
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: fdb33ea0d08353b491f2934fcf885fcb6910b9a2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>Повышение уровня хранилища Site Recovery до хранилища служб восстановления на основе Azure Resource Manager
 
@@ -186,4 +185,3 @@ ms.lasthandoff: 08/24/2017
 В хранилище Site Recovery для каждой группы защиты настроены частота копирования, хранение точки восстановления, согласованные на уровне приложения моментальные снимки и другие параметры репликации. В хранилище служб восстановления эти параметры настраиваются как политика репликации. Имя политики является именем группы защиты или *primarycloud_Policy*.
 
 Дополнительные сведения о политике репликации см. в статье [Управление политикой репликации для VMware в Azure](site-recovery-setup-replication-settings-vmware.md).
-

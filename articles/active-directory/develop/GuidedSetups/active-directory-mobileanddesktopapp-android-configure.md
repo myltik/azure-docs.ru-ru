@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 945b09ccdb7537987da33d32d94a3ccacd829ffd
-ms.contentlocale: ru-ru
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="create-an-application-express"></a>Создание приложения (экспресс)
 Теперь вам необходимо зарегистрировать приложение на *портале регистрации приложений Майкрософт*:
 1. Зарегистрируйте свое приложение на [портале регистрации приложений Майкрософт](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
@@ -70,4 +69,3 @@ final static String CLIENT_ID = "[Enter the application Id here]";
 В `BrowserTabActivity` замените заполнитель `[Enter the application Id here]` идентификатором приложения.
 </li>
 </ol>
-

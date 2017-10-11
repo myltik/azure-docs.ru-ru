@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Управление активами и связанными сущностями с помощью пакета SDK служб мультимедиа для .NET
 > [!div class="op_single_selector"]
@@ -404,5 +403,4 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -14,12 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 4a4c9949843b16ae6be2f516de4fd1e3f7415959
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Как использовать разделы и подписки служебной шины с Ruby
  
@@ -166,4 +165,3 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 * Посетите репозиторий [Azure SDK для Ruby](https://github.com/Azure/azure-sdk-for-ruby) на веб-сайте GitHub.
 
 [Azure portal]: https://portal.azure.com
-

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 2a7c761062dcf5da016a2e106274839f5f6c0d13
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/20/2017
-
-
+ms.openlocfilehash: 5bb6d17ffd047ae91476c52750f293414d1dfdd5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Развертывание с помощью Базы данных SQL Azure
 Можно легко развертывать базы данных SQL Azure с помощью инструментов **эластичной базы данных** . Эти инструменты и компоненты позволяют использовать практически неограниченные ресурсы **Базы данных SQL Azure** для создания решений для транзакционных рабочих нагрузок и, в частности, приложений SaaS (программное обеспечение как услуга). Возможности эластичных баз данных включают следующее.
@@ -105,5 +103,4 @@ ms.lasthandoff: 04/20/2017
 [2]:./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]:./media/sql-database-elastic-scale-introduction/overview.png
 [4]:./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
-
 

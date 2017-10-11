@@ -1,5 +1,4 @@
 ---
-
 title: "Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory? | Документация Майкрософт"
 description: "Служба совместной работы B2B позволяет информационным работникам добавлять в Azure AD пользователей из своей организации | Документация Майкрософт"
 services: active-directory
@@ -16,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: c6ca561d1a02e283c7932f08f53b8dd590208835
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?
 
 Информационные работники могут добавлять в администрируемые ими группы и приложения пользователей службы совместной работы B2B с помощью [панели доступа к приложениям](http://myapps.microsoft.com).
@@ -55,4 +52,3 @@ ms.lasthandoff: 05/25/2017
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-

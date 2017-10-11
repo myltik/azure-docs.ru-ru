@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: cd6db44f7776859d1e6a893543cf0666182ca41a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="map-azure-cdn-content-to-a-custom-domain"></a>Сопоставление содержимого Azure CDN с пользовательским доменом
 Личный домен можно сопоставить с конечной точкой CDN, чтобы использовать имя своего домена в URL-адресах кэшированного содержимого вместо того, чтобы использовать поддомен azureedge.net.
@@ -81,5 +80,4 @@ ms.lasthandoff: 04/29/2017
 
 ## <a name="see-also"></a>См. также
 [Включение сети доставки содержимого (CDN) для Azure](cdn-create-new-endpoint.md)  
-
 

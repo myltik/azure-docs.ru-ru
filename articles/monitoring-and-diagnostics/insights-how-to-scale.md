@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Масштабирование числа экземпляров вручную или автоматически
 На [портале Azure](https://portal.azure.com/)можно вручную задать число экземпляров для используемого плана размещения веб-сайтов либо параметры для его автоматического масштабирования. Это обычно называется *развертыванием* или *свертыванием*.
@@ -128,5 +127,4 @@ ms.lasthandoff: 07/18/2017
 * [Отслеживайте производительность приложения](../application-insights/app-insights-azure-web-apps.md) , чтобы точно понять, как ваш код работает в облаке.
 * [Просматривайте журналы событий и действий](insights-debugging-with-events.md), чтобы знать обо всем, что произошло в службе.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
-
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Использование API аутентификации Resource Manager для доступа к подпискам
 ## <a name="introduction"></a>Введение
@@ -363,4 +361,3 @@ API разрешений возвращает несколько разреше�
 Этот вызов осуществляет метод [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) примера приложения ASP.NET MVC.
 
 Теперь пользователи могут легко подключать подписки Azure к приложениям и управлять ими с помощью этих подписок.
-

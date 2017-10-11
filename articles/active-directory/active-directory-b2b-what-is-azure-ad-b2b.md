@@ -17,14 +17,12 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: fbc12a52555b190d43b5e953fd4d19923a25b0ed
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="what-is-azure-ad-b2b-collaboration"></a>Что такое служба совместной работы Azure AD B2B
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
@@ -124,4 +122,3 @@ ms.lasthandoff: 06/28/2017
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Auditing and reporting a B2B collaboration user](active-directory-b2b-auditing-and-reporting.md) (Аудит и создание отчетов для пользователей службы совместной работы B2B)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-

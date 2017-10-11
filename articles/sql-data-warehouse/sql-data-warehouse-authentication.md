@@ -16,12 +16,11 @@ ms.workload: data-management
 ms.custom: security
 ms.date: 03/21/2017
 ms.author: rortloff;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Аутентификация в хранилище данных SQL Azure
 > [!div class="op_single_selector"]
@@ -99,4 +98,3 @@ ms.lasthandoff: 07/04/2017
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 [Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
-

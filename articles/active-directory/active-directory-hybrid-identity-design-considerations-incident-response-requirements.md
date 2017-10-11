@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: bc8e3b76aad18e8d7a73de8bc12e6527e415035d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 536071ec61d093af243bfd42faa6bb404172fb8e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Определение требований к реагированию на инциденты для решения для гибридной идентификации
 В средних и крупных организациях скорее всего будет развернута [политика реагирования на инциденты безопасности](https://technet.microsoft.com/library/cc700825.aspx) , которая поможет IT-специалистам предпринять необходимые действия в соответствии с уровнем инцидента. Систему управления идентификацией является важным компонентом в процессе реагирования на инциденты, поскольку с ее помощью можно определить лицо, выполнившее указанное действие по отношению к целевому ресурсу. Решение для гибридной идентификации также должно предоставить возможности мониторинга и составления отчетов, с помощью которых ИТ-специалисты смогут выявить и устранить потенциальные угрозы. Типичный план реагирования на инциденты будет состоять из следующих фаз:
@@ -66,5 +65,4 @@ ms.lasthandoff: 12/28/2016
 
 ## <a name="see-also"></a>См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

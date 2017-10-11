@@ -10,12 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/31/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: e141c15b9999a33206285290b9a34c8616bf3791
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.openlocfilehash: 59ac187e50527517c402a5cc2aa871717dde5650
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Параметры и производительность базы данных Azure для PostgreSQL: возможности, доступные в каждой ценовой категории
 При создании базы данных Azure для сервера PostgreSQL настройка выделяемых серверу ресурсов определяется тремя основными параметрами. Эти параметры влияют на производительность и масштаб сервера.
@@ -105,4 +104,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 - Дополнительные сведения о единицах вычислений и единицах хранения см. в [этой статье](concepts-compute-unit-and-storage.md).
 - Дополнительные сведения о мониторинге и масштабировании отдельного сервера PostgreSQL с помощью Azure CLI см. в [этой статье](scripts/sample-scale-server-up-or-down.md).
-

@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: ebf54f5a203adb7f0e5b0c47dcc07595e269e218
-ms.contentlocale: ru-ru
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="set-up-your-project"></a>Настройка проекта
 
 В этом разделе описаны шаги по установке и настройке конвейера проверки подлинности через промежуточный слой OWIN в проекте ASP.NET с помощью OpenID Connect. 
@@ -150,5 +149,4 @@ public class Startup
 
 > Параметры, указанные в *OpenIDConnectAuthenticationOptions*, будут служить координатами приложения для взаимодействия с Azure AD. Так как промежуточный слой OpenID Connect использует файлы cookie в фоновом режиме, вам также необходимо настроить проверку подлинности для этих файлов, как показано в коде выше. Значение *ValidateIssuer* сообщает OpenIdConnect не ограничивать доступ для определенной организации.
 <!--end-collapse-->
-
 

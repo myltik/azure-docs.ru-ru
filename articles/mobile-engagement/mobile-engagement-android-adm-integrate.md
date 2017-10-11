@@ -1,6 +1,6 @@
 ---
-title: "Интеграция пакета Android SDK для Azure Mobile Engagement"
-description: "Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
+title: "Интеграция пакета Android SDK для Служб мобильного взаимодействия Azure"
+description: "Последние обновления и процедуры пакета Android SDK для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 928c3d85f98f0bd073a5aaadf0ae4495840c5da6
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>Интеграция ADM с платформой Engagement
 > [!IMPORTANT]
@@ -109,4 +108,3 @@ ms.lasthandoff: 11/17/2016
 [клиентскую библиотеку ADM]:https://developer.amazon.com/sdk/adm/setup.html
 [интегрировали ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [следующую процедуру]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
-

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: briar
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 85ac34444cc54b9c6fe9d5d3fcd1ab53bf1dc0d9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 2078d0694fc4dd6e83ecd2792588b4254980cd78
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="jenkins-integration-with-azure-container-service-and-kubernetes"></a>Интеграция Jenkins со Службой контейнеров Azure и Kubernetes 
 В этом руководстве мы поэтапно рассмотрим процесс настройки непрерывной интеграции многоконтейнерного приложения с кластером Kubernetes в Службе контейнеров Azure с помощью платформы Jenkins. Рабочий процесс обновляет образ контейнера в Docker Hub и модули Kubernetes с помощью развертывания. 
 
@@ -209,4 +207,3 @@ sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.ku
 - Выполните развертывание реестра контейнеров Azure и сохраните образы в безопасном репозитории. Ознакомьтесь с [документацией по реестру контейнеров Azure](https://docs.microsoft.com/azure/container-registry).
 - Создайте более сложный рабочий процесс, который включает в себя параллельное развертывание и автоматическое тестирование в Jenkins.
 - Дополнительные сведения о непрерывной интеграции и доставке Jenkins при использовании Kubernetes см. в [блоге Jenkins](https://jenkins.io/blog/2015/07/24/integrating-kubernetes-and-jenkins/).
-

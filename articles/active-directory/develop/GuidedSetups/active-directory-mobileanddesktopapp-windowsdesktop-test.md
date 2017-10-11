@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 972cc48057c13271d725b0c973c3ccf651ad27c4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 ## <a name="test-your-code"></a>Тестирование кода
 
@@ -54,7 +53,6 @@ ms.lasthandoff: 07/08/2017
 API Graph требуется область `user.read` для чтения профиля пользователя. По умолчанию эта область автоматически добавляется в каждое приложение, регистрируемое на портале регистрации. Некоторые другие API Graph, а также пользовательские API для вашего внутреннего сервера требуют дополнительные области. Например, для Graph требуется `Calendars.Read`, чтобы отобразить список календарей пользователя. Чтобы получить доступ к календарю пользователя в контексте приложения, необходимо добавить сведения о регистрации делегированного приложения `Calendars.Read`, а затем добавить `Calendars.Read` в вызов `AcquireTokenAsync`. При увеличении количества областей от пользователя могут потребоваться дополнительные согласия.
 
 <!--end-collapse-->
-
 
 
 

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: willzhan;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: a4531b69c44337c4863016810123f7f89bf7f98f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Использование аутентификации Azure AD для доступа к API служб мультимедиа Azure с помощью REST
 
 Команда разработчиков служб мультимедиа Azure реализовала поддержку аутентификации Azure Active Directory (Azure AD) для доступа к службам мультимедиа Azure. Она также анонсировала намерение объявить устаревшей аутентификацию на основе службы контроля доступа Azure, используемую для доступа к службам мультимедиа. Так как каждая подписка Azure и каждая учетная запись служб мультимедиа подключена к клиенту Azure AD, поддержка аутентификации Azure AD дает много преимуществ с точки зрения безопасности. Дополнительные сведения об этом изменении и миграции (если вы используете пакет SDK служб мультимедиа для .NET для своего приложения) можно получить в приведенных ниже записях блога и статьях.
@@ -147,4 +145,3 @@ ms.lasthandoff: 07/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Приступите к [передаче файлов в учетную запись](media-services-dotnet-upload-files.md).
-

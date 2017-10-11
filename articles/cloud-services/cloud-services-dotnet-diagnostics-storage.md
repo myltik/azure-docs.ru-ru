@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 16ce99cab9077450a5cfa8e95f7e306ffc1afb6d
-
-
+ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Хранение и просмотр диагностических данных в хранилище Azure
 Диагностические данные не хранятся долго. Для длительного хранения их необходимо переместить в эмулятор хранения Microsoft Azure или в хранилище Azure. Поместив данные в хранилище, вы можете просматривать их с помощью одного из нескольких доступных средств.
@@ -84,10 +84,4 @@ ms.openlocfilehash: 16ce99cab9077450a5cfa8e95f7e306ffc1afb6d
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Трассировка потока в приложении облачных служб с помощью системы диагностики Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

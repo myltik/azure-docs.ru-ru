@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae0054ac9d87562f6babbfaeaf440d653d60963a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: d9b007d29e06e672db71b4a8415673f258c3fd89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Мониторинг базы данных SQL Azure с помощью динамических представлений управления
 База данных SQL Microsoft Azure предлагает ряд динамических представлений управления для диагностирования проблем производительности, которые могут быть вызваны заблокированными или долго выполняющимися запросами, узкими местами ресурсов, непродуманным планом запросов и т. д. Этот раздел содержит информацию о том, как выявлять распространенные проблемы производительности с помощью динамических административных представлений.
@@ -137,5 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Введение в базы данных SQL](sql-database-technical-overview.md)
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: a0fe91568d747148b3940e9c90db15481c765a9c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 8bd6c3b5a923ce2f3cd0f60af82e59c5cc27cbb4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Источники данных, поддерживаемые в службах Azure Analysis Services
 Серверы служб Azure Analysis Services поддерживают подключение к локальным и облачным источникам данных. Дополнительные поддерживаемые источники данных добавляются на постоянной основе. Следите за обновлениями. 
@@ -103,5 +102,4 @@ ms.lasthandoff: 06/03/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 При наличии локальных источников данных не забудьте установить [локальный шлюз](analysis-services-gateway.md).   
 Дополнительные сведения об управлении сервером в SSDT или SSMS см. в разделе об [управлении сервером](analysis-services-manage.md).
-
 

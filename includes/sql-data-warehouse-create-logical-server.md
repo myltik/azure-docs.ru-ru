@@ -9,8 +9,7 @@
   
 3. Щелкните **Создать**, чтобы открыть колонку создания логического сервера SQL Server.
 
-   <kbd> ![откройте колонку логического сервера](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd>
-    <kbd>![колонка логического сервера](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
+   <kbd>![открыть колонку логический сервер](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd> ![колонке логический сервер](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png)</kbd>
   
 3. В поле "Имя сервера" сервера SQL Server (логический сервер) введите допустимое имя для нового логического сервера. Зеленый флажок указывает, что выбрано допустимое имя.
     

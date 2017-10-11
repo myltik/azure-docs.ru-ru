@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: b3c0727a279649f4f7dae30d41027129ce5b04ee
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="migrate-virtual-machines-in-amazon-web-services-aws-to-azure-with-azure-site-recovery"></a>Перенос виртуальных машин из Amazon Web Services (AWS) в Azure с помощью Azure Site Recovery
 
@@ -81,4 +80,3 @@ Site Recovery можно использовать для переноса экз
 
 - [Подготовьте перенесенные виртуальные машины для включения репликации](site-recovery-azure-to-azure-after-migration.md) в другой регион в целях аварийного восстановления.
 - Включите защиту рабочих нагрузок, [выполнив репликацию виртуальных машин Azure.](site-recovery-azure-to-azure.md)
-

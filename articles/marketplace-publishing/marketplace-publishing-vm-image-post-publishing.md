@@ -14,13 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Руководство по эксплуатации предложений виртуальных машин в Azure Marketplace
 В этой статье объясняется, как обновить действующее предложение виртуальной машины в Azure Marketplace. Она вам поможет добавить один или нескольких новых SKU в существующее предложение. Она также поможет вам удалить действующее предложение виртуальной машины или номер SKU.
@@ -338,4 +336,3 @@ ms.lasthandoff: 05/17/2017
 * [Поддержка издателей](marketplace-publishing-get-publisher-support.md)
 * [Локальная разработка образа виртуальной машины для Azure Marketplace](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

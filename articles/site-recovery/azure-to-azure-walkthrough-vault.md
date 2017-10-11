@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: e03d17992ee0b12049636e40188950bcc4a6f31e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-4-set-up-a-vault-for-azure-to-azure-replication"></a>Шаг 4. Настройка хранилища для репликации из Azure в Azure
 
 После [планирования сетей](azure-to-azure-walkthrough-network.md) вы можете воспользоваться этой статьей, чтобы настроить хранилище для виртуальных машин Azure, реплицируемых в другой регион Azure, с помощью службы [Azure Site Recovery](site-recovery-overview.md) на портале Azure.
@@ -50,4 +48,3 @@ ms.lasthandoff: 08/02/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 5. Включение репликации для виртуальных машин Azure](azure-to-azure-walkthrough-enable-replication.md).
-

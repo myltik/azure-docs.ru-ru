@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 7a82e58d9ff9208130c43fcd11d03dcc3238696a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-vmware-to-azure-replication"></a>Шаг 2. Проверка предварительных требований для репликации из VMware в Azure
 
 Ознакомьтесь с предварительными требованиями, перечисленными в этой таблице.
@@ -54,4 +52,3 @@ ms.lasthandoff: 08/25/2017
 
 - При выполнении полного развертывания перейдите к статье [Step 3: Plan capacity and scaling for physical server to Azure replication](vmware-walkthrough-capacity.md) (Шаг 3. Планирование производительности и масштабирования для репликации физического сервера в Azure).
 - При выполнении простого тестового развертывания перейдите к разделу [Шаг 4. Планирование сетей для репликации из Hyper-V в Azure](vmware-walkthrough-network.md).
-

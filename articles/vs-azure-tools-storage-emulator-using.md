@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 729e953cae9d65e637be0fdaec9027312fdb6c6a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: f4cd8ccc3b186cf2b4178b7d8a98d8928c705cbc
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Настройка и использование эмулятора хранения с помощью Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -56,5 +55,4 @@ ms.lasthandoff: 08/21/2017
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Просмотр данных эмулятора хранения в обозревателе сервера
 С помощью узла «Хранилище Azure» в обозревателе сервера вы можете просматривать данные и изменять параметры для данных BLOB-объектов и таблиц в своих учетных записях хранения, включая эмулятор хранения. Дополнительные сведения см. в статье [Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ (предварительная версия)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs).
-
 

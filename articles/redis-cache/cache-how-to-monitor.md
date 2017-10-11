@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: a1c7afab747b917ae979a41e63739a4f726265fc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 8996f5ce03e39557d9cc9c3de1ec214f5cd664b4
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Как отслеживать кэш Redis для Azure
 В кэше Redis для Azure используется платформа [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/), которая предоставляет несколько функций для мониторинга экземпляров кэша. Вы можете просматривать метрики, закреплять диаграммы метрик на начальной панели, настраивать диапазоны дат и времени для диаграмм мониторинга, добавлять и удалять метрики в диаграммах, а также настраивать отправку оповещений при выполнении определенных условий. Эти инструменты позволяют наблюдать за работоспособностью экземпляров кэша Redis для Azure и помогают управлять кэшируемыми приложениями.
@@ -139,7 +138,6 @@ ms.lasthandoff: 05/26/2017
 Чтобы просмотреть журналы действий для кэша, щелкните **Журналы действий** в меню **Ресурсы**.
 
 Дополнительные сведения о журналах действий см. в статье [Общие сведения о журнале действий Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
-
 
 
 

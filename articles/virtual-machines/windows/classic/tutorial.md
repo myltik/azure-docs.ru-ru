@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Создание виртуальной машины под управлением Windows на портале Azure
 > [!div class="op_single_selector"]
@@ -49,4 +48,3 @@ ms.lasthandoff: 06/01/2017
 * Узнайте, как [создать виртуальную машину для модели развертывания с помощью Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), используя портал Azure.
 * Войдите в виртуальную машину. Инструкции см. в статье [Вход в виртуальную машину под управлением Windows Server](connect-logon.md).
 * Подключите диск для хранения данных. Можно присоединять пустые диски и диски с данными. Инструкции см. в статье [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](attach-disk.md).
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9e79f275b8de045892517ec33581b72195a81f32
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 17da71ac0c5ab9330b9244c0354e4d161d98229e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>Настройка ролей для облачной службы Azure в Visual Studio
 Облачной службе Azure можно назначить одну или несколько рабочих ролей или веб-ролей. Для каждой роли нужно определить способ настройки, а также настроить способ выполнения. Дополнительные сведения о ролях в облачных службах см. в видео [Введение в облачные службы Azure](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). 
@@ -278,5 +277,4 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о проектах Azure в Visual Studio см. в статье [Настройка проекта облачной службы в Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Дополнительные сведения о схеме облачной службы см. в статье [Справка по схемам Windows Azure](https://msdn.microsoft.com/library/azure/dd179398).
-
 

@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 68213a40755ae7dc675556c595da032b408be261
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: 0462fe8ff75bdda397decb301c459795886e9e58
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Начало работы с управлением доступом на основе ролей на портале Azure
 Ориентированным на информационную безопасность компаниям следует сосредоточиться на предоставлении сотрудникам именно тех разрешений, которые им необходимы. Слишком большое число разрешений делает учетную запись уязвимой для злоумышленников. Недостаточное число разрешений мешает эффективной работе сотрудников. Управление доступом на основе ролей (RBAC) Azure помогает решить эту задачу, обеспечивая точное управление доступом для Azure.
@@ -68,4 +67,3 @@ ms.lasthandoff: 07/19/2017
 * Приступите к работе с [управлением доступом на основе ролей на портале Azure](role-based-access-control-configure.md).
 * Ознакомьтесь со статьей [RBAC: встроенные роли](role-based-access-built-in-roles.md)
 * Определите собственные [пользовательские роли в RBAC Azure](role-based-access-control-custom-roles.md)
-

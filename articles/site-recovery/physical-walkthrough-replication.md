@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 9ce23382001b54e7b9b7a58b8dd9aa61b400826d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-8-set-up-a-replication-policy-for-physical-server-replication-to-azure"></a>Шаг 8. Настройка политики репликации для репликации физического сервера в Azure
 
@@ -44,4 +43,3 @@ ms.lasthandoff: 06/29/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Step 9: Install the Mobility service](physical-walkthrough-install-mobility.md) (Шаг 9. Установка службы Mobility Service).
-

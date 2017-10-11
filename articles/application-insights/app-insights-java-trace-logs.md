@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 086091bb3be6659436ec8e371acbe4b8e86bfacb
-ms.openlocfilehash: 3ef5f6240d7e4704118b86fb0cfee8cf502859ff
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/13/2016
-
+ms.openlocfilehash: 5baba3deaf58a1a24995c60381592a9c2ffefd81
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Просмотр журналов трассировки Java в Application Insights
 Если вы используете Logback или Log4J (версия 1.2 или 2.0) для трассировки, можно настроить автоматическую пересылку журналов в Application Insights, где вы сможете их изучить.
@@ -168,6 +167,5 @@ ms.lasthandoff: 12/13/2016
 
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
-
 
 

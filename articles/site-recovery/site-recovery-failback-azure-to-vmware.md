@@ -14,12 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: dde0bb6b4f6bc10afdd7d40adc6689d42b37de81
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Восстановление размещения виртуальных машин VMware и физических серверов на локальном сайте
 
@@ -244,4 +243,3 @@ ms.lasthandoff: 07/14/2017
 
 * Подключение ExpressRoute необходимо настроить в виртуальной сети Azure, в которую будет выполняться отработка отказа исходных виртуальных машин и в которой будут размещены виртуальные машины Azure после отработки отказа.
 * Данные реплицируются в учетную запись хранения Azure в общедоступной конечной точке. Чтобы настроить подключение ExpressRoute, следует настроить в ExpressRoute общедоступный пиринг с целевым центром обработки данных для репликации Site Recovery.
-

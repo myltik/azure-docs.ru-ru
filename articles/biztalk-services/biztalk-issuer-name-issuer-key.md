@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 4fb13a158c660105a5fc8f79a92c67ba65c5356d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>Службы BizTalk: имя и ключ издателя
 
@@ -52,7 +50,7 @@ ms.lasthandoff: 11/17/2016
 4. Выберите свою подписку: `select-azuresubscription <name of your subscription>`. 
 5. Создайте пространство имен: `new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`.
 
-    Пример:    `new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
+    Пример:`new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
       
 5. При создании пространства имен ACS (занимает несколько минут) значения имени и ключа издателя указываются в строке подключения: 
 
@@ -102,5 +100,4 @@ ms.lasthandoff: 11/17/2016
 * [Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Службы BizTalk: резервное копирование и восстановление](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [Службы BizTalk: регулирование](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-
 

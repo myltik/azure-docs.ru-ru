@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Назначение виртуальным машинам нескольких IP-адресов с помощью Azure CLI 2.0
 
@@ -109,7 +108,7 @@ az network nic ip-config create \
 --private-ip-address 10.0.0.5 \
 --public-ip-name myPublicIP2
 
-# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and    # no public IP address.
+# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
 
 azure network nic ip-config create \
 --resource-group $RgName \
@@ -206,7 +205,7 @@ az vm create \
         --dns-name mypublicdns3
         ```
 
-         Чтобы создать новую конфигурацию IP с частным статическим IP-адресом и связанным ресурсом общедоступного IP-адреса *myPublicIP3*, введите следующую команду:
+        Чтобы создать новую конфигурацию IP с частным статическим IP-адресом и связанным ресурсом общедоступного IP-адреса *myPublicIP3*, введите следующую команду:
 
         ```bash
         az network nic ip-config create \
@@ -217,8 +216,7 @@ az vm create \
         --public-ip-address myPublicIP3
         ```
 
-    - **Связывание ресурса с имеющейся IP-конфигурацией**
-       Ресурс общедоступного IP-адреса может быть связан только с IP-конфигурацией, у которой еще нет такого ресурса. Чтобы определить, связан ли с конкретной IP-конфигурацией какой-либо общедоступный IP-адрес, выполните следующую команду:
+    - **Свяжите ресурс к существующей конфигурации IP** открытого ресурса IP-адреса может быть связан только на IP-конфигурацию, в котором уже не связан. Чтобы определить, связан ли с конкретной IP-конфигурацией какой-либо общедоступный IP-адрес, выполните следующую команду:
 
         ```bash
         az network nic ip-config list \
@@ -277,4 +275,3 @@ az vm create \
 4. Добавьте в операционную систему виртуальной машины частные IP-адреса, которые вы ранее назначили сетевой карте. Для этого выполните инструкции из раздела [Добавление IP-адресов в операционную систему виртуальной машины](#os-config) этой статьи. Не добавляйте в операционную систему общедоступные IP-адреса.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Источники данных для журнала событий Windows в Log Analytics
 Журналы событий Windows — это один из самых распространенных [источников данных](log-analytics-data-sources.md), используемый для сбора данных агентами Windows, так как он применяется большинством приложений для записи сведений.  События можно собирать из стандартных журналов, таких как журналы системы и приложений, а также указывать пользовательские журналы приложений, которые необходимо отслеживать.
@@ -89,4 +88,3 @@ Log Analytics собирает события только из журналов
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений.  
 * Используйте [настраиваемые поля](log-analytics-custom-fields.md) для анализа записей событий в отдельных полях.
 * Настройте [коллекцию счетчиков производительности](log-analytics-data-sources-performance-counters.md) из агентов Windows.
-

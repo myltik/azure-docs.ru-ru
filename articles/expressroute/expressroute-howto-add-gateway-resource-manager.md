@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: charwen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0fb6b5efc8ad4d40e1b0f41aad678eca6da9798d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 3aeddd03e0be548933775164ae790ba208fc13ae
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Настройка шлюза виртуальной сети для ExpressRoute с помощью PowerShell
 > [!div class="op_single_selector"]
@@ -41,5 +40,4 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После создания шлюза виртуальной сети вы можете связать виртуальную сеть с каналом ExpressRoute. Ознакомьтесь со статьей [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md).
-
 

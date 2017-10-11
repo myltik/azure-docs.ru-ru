@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 33d4aaa78fcdf3bd9e2e236606f2d3049f464a8a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Как создать виртуальную машину Linux с помощью Azure CLI 1.0 и шаблона Azure Resource Manager
 В этой статье показано, как быстро развернуть виртуальную машину Linux с помощью Azure CLI 1.0 и шаблона Azure Resource Manager. Для работы с этой статьей потребуется:
@@ -86,5 +85,4 @@ info:    group create command OK
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В [коллекции шаблонов](https://azure.microsoft.com/documentation/templates/) вы сможете найти другие платформы приложений для развертывания.
-
 

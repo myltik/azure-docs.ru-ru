@@ -14,17 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 4ce2273cc0dcc456c2edc8c5dd2fc22496f20380
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Использование средства импорта и экспорта Azure (классическая модель развертывания)
 
-Средство импорта и экспорта Azure (WAImportExport.exe) используется для создания заданий службы импорта и экспорта Azure и управления ими, что позволяет передавать большие объемы данных в хранилище BLOB-объектов Azure или из него.
+Инструмент импорта и экспорта Azure (WAImportExport.exe) используется для создания заданий службы импорта и экспорта Azure и управления ими, что позволяет передавать большие объемы данных в хранилище BLOB-объектов Azure или из него.
 
 Эта документация предназначена для версии средства импорта и экспорта Azure, которая используется в классической модели развертывания. Сведения об использовании самой последней версии средства см. в статье [Использование средства импорта и экспорта Azure (классическая модель развертывания)](../storage-import-export-tool-how-to.md).
 

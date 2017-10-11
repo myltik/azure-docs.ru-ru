@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: bfedbbf8b26e1b129584a6a644e64a15635f5723
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B
 
 Эти вопросы о службе совместной работы Azure Active Directory (Azure AD) B2B периодически обновляются для добавления новых разделов.
@@ -147,4 +144,3 @@ Azure AD имеет единые требования в отношении фи
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-

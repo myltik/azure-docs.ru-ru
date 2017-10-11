@@ -11,14 +11,12 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: LADocs; estfan
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 4d4c16860dbec10162797a13c8f9f57106abd17f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Отслеживание изменений виртуальной машины с помощью Azure Logic Apps и службы "Сетка событий Azure"
 
 Можно запускать автоматический [рабочий процесс приложения логики](../logic-apps/logic-apps-what-are-logic-apps.md) при определенных событиях, которые происходят с ресурсами Azure или сторонними ресурсами. Эти ресурсы могут публиковать данные события в службу [Сетка событий Azure](../event-grid/overview.md). В свою очередь, служба "Сетка событий" передает эти события подписчикам, использующим очереди, веб-привязки или [концентраторы событий](../event-hubs/event-hubs-what-is-event-hubs.md) в качестве конечных точек. В качестве подписчика приложение логики может ожидать эти события из службы "Сетка событий" перед запуском автоматических рабочих процессов для выполнения задач без написания кода.
@@ -51,7 +49,7 @@ ms.lasthandoff: 08/19/2017
 
 Сначала создайте приложение логики и добавьте триггер службы "Сетка событий", отслеживающий группу ресурсов для виртуальной машины. 
 
-1. Войдите на [портал Azure](https://portal.azure.com). 
+1. Выполните вход на [портал Azure](https://portal.azure.com). 
 
 2. В верхнем левом углу главного меню Azure выберите **Создать** > **Enterprise Integration** (Интеграция Enterprise) > **Приложение логики**.
 

@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: b4cc2ce4d05b035829584a610d52e6079a13a9c1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 7379b7f58563675f28d77928d933c0d9c7992e71
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="sqlruleaction-syntax"></a>Синтаксис SQLRuleAction
 
 *SqlRuleAction* — это экземпляр класса [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction). Он представляет набор действий, написанных по правилам синтаксиса на основе языка SQL, выполняемых с [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
@@ -226,4 +223,3 @@ ms.lasthandoff: 03/24/2017
 
 - [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) (Класс SQLRuleAction)
 - [SQLFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) (Класс SQLFilter)
-

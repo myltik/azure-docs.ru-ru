@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-software-raid-on-linux"></a>Настройка программного RAID-массива в Linux
 Это обычный сценарий для использования программного RAID-массива на виртуальных машинах Linux в Azure, который позволяет представить множество дисков данных в виде одного RAID-устройства. Обычно это делается для повышения производительности и обеспечения возможности увеличения пропускной способности по сравнению с использованием только одного диска.
@@ -62,7 +61,7 @@ zypper install mdadm
                     sectors (command 'u').
     ```
 
-2. Нажмите «n» в командной строке, чтобы создать новый ( **n**ew) раздел:
+2. Нажмите клавишу 'n' в командной строке для создания  **n** овый секции:
 
     ```bash
     Command (m for help): n
@@ -239,4 +238,3 @@ zypper install mdadm
     # sudo yum install util-linux
     # sudo fstrim /data
     ```
-

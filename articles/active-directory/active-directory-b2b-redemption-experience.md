@@ -1,5 +1,4 @@
 ---
-
 title: "Активация приглашения службы совместной работы Azure Active Directory B2B | Документация Майкрософт"
 description: "Процедура активации приглашения службы совместной работы Azure Active Directory B2B."
 services: active-directory
@@ -16,16 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: aea802af038786c58d9640333458ad88fe8f90bd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Активация приглашения службы совместной работы Azure Active Directory B2B
 
 ## <a name="azure-ad-and-microsoft-account-users"></a>Пользователи учетных записей Azure AD и Майкрософт
@@ -52,4 +47,3 @@ ms.lasthandoff: 05/25/2017
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-

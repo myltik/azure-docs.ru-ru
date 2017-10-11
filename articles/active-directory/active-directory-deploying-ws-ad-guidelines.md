@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure
 В этой статье описываются важные различия локального развертывания доменных служб Windows Server Active Directory (AD DS) и служб федерации Active Directory (AD FS) по сравнению с их развертыванием на виртуальных машинах Microsoft Azure.
@@ -498,5 +497,4 @@ Azure также хорошо подходит как замена дороги�
 > Балансировка сетевой нагрузки Windows Server не поддерживается в Azure.
 > 
 > 
-
 

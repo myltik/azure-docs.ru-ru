@@ -13,31 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: d63d4b6e9e230e814762aadbe57bb3971b129d95
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 5abddf3a8698e3eb39f118f54eeac62ce68fed39
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="how-application-consent-works" class="xliff"></a>
-
-# Как действует согласие для приложения
+# <a name="how-application-consent-works"></a>Как действует согласие для приложения
 
 Эта статья содержит дополнительные сведения о действии инфраструктуры согласия Azure AD, используя которые вы сможете оптимизировать разработку приложений.
 
-<a id="recommended-documents" class="xliff"></a>
-
-## Рекомендуемые документы
+## <a name="recommended-documents"></a>Рекомендуемые документы
 
 - Получите общее представление о том, [как владелец ресурса может управлять доступом приложения к ресурсам благодаря согласию](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
 - Ознакомьтесь с пошаговым руководством по [реализации согласия в инфраструктуре согласия Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
 - Получите более подробные сведения об [использовании инфраструктуры согласия в мультитенантном приложении](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent), чтобы реализовать согласие пользователя и администратора, с поддержкой нескольких дополнительных шаблонов многоуровневого приложения.
 - Узнайте подробнее о том, [как согласие поддерживается на уровне протокола OAuth 2.0 во время предоставления кода авторизации.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [StackOverflow в AzureAD](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

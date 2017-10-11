@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 08a05a70d976104d4e0a37b0a0dd15042b0212d8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-use-self-service-application-access"></a>Использование самостоятельного доступа к приложениям
 
 Прежде чем пользователи смогут самостоятельно находить приложения на панели доступа, необходимо включить **самостоятельный доступ к приложениям**, чтобы пользователи либо искали их сами, либо запрашивали к ним доступ.
@@ -86,4 +84,3 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Настройка Azure Active Directory для самостоятельного управления группами](active-directory-accessmanagement-self-service-group-management.md)
-

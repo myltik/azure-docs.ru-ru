@@ -1,5 +1,5 @@
 ---
-title: "Гибкая демонстрация работы с решением &quot;Схема услуги&quot; | Документация Майкрософт"
+title: "Гибкая демонстрация работы с решением \"Схема услуги\" | Документация Майкрософт"
 description: "Схема услуги — это решение Operations Management Suite (OMS), которое автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами.  В этой демонстрации представлены пошаговые инструкции по определению и диагностике имитации проблемы в веб-приложении с помощью схемы услуги."
 services: operations-management-suite
 documentationcenter: 
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.lasthandoff: 04/13/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Гибкая демонстрация работы с решением "Схема услуги" в Operations Management Suite (OMS).
 В этой демонстрации представлены пошаговые инструкции по определению и диагностике имитации проблемы в веб-приложении с помощью [решения "Схема услуги"](operations-management-suite-service-map.md) в Operations Management Suite (OMS).  Служба схемы услуги автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами.  Здесь также объединяются данные из других служб OMS, которые помогут в анализе производительности и выявлении проблем.  Чтобы определить источник проблемы, вы будете подробно изучать собранные данные, выполнив [поиск по журналам в Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
@@ -37,7 +35,7 @@ ms.lasthandoff: 04/13/2017
 ## <a name="walk-through"></a>Пошаговое руководство
 
 ### <a name="1-connect-to-the-oms-experience-center"></a>1. Подключение к OMS Experience Center
-В этом пошаговом руководстве используется [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), предоставляющий полную среду OMS с демонстрационными данными. Сначала перейдите по этой ссылке, укажите необходимые сведения и выберите сценарий **Insight and Analytics** (Анализ и аналитика).
+В этом пошаговом руководстве используется [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), предоставляющий полную среду OMS с демонстрационными данными. Сначала перейдите по этой ссылке, укажите необходимые сведения и выберите сценарий  **Insight and Analytics** (Анализ и аналитика).
 
 
 ### <a name="2-start-service-map"></a>2) Запуск решения "Схема услуги"

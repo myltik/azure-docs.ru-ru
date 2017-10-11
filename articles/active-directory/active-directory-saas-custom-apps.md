@@ -15,12 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
-ms.openlocfilehash: b4a1bb3211da8c02d48ebad69d5e1cbb4de2c45d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 9049f526243cb4659aaf86b3d31146abe8f5f3ef
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory
 Эта статья о функциях, с помощью которых администраторы могут настроить единый вход для приложений, не принадлежащих к коллекции приложений Azure Active Directory, *без написания кода*. Эта возможность добавлена 18 ноября 2015 г. в составе технической предварительной версии и включена в [Azure Active Directory Premium](active-directory-editions.md). Если вам все же необходимо руководство для разработчиков по интеграции пользовательских приложений в Azure AD с использованием кода, см. статью [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md).
@@ -142,4 +141,3 @@ ms.lasthandoff: 03/01/2017
 [5]: ./media/active-directory-saas-custom-apps/customapp5.png
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
-

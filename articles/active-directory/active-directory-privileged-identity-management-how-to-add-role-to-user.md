@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Управление привилегированными пользователями Azure AD: добавление и удаление роли пользователя
 С помощью Azure Active Directory (AD) глобальный администратор (или администратор организации) может изменить назначения **постоянных** ролей для пользователей в Azure AD. Это делается с помощью таких командлетов PowerShell, как `Add-MsolRoleMember` и `Remove-MsolRoleMember`. Кроме того, можно использовать классический портал Azure, как описано в разделе [Назначение ролей администраторов в Azure Active Directory](active-directory-assign-admin-roles.md).
@@ -48,7 +47,7 @@ ms.lasthandoff: 12/28/2016
 
 > [!NOTE]
 > Новым пользователям роль по умолчанию назначается временно. Если вы хотите сделать роль постоянной, выберите пользователя в списке. Откроется отдельная колонка со сведениями о пользователе. Выберите в меню пользователя команду **Сделать постоянным** .  
-> Если пользователи не могут зарегистрироваться для прохождения многофакторной идентификации (MFA) Azure или используют учетную запись Майкрософт (как правило, @outlook.com),), необходимо назначить им все роли на постоянной основе. Временным администраторам будет предложено зарегистрироваться для использования MFA во время активации.
+> Если пользователь не может зарегистрировать Azure многофакторной проверки подлинности (MFA), или использует учетную запись Майкрософт (обычно @outlook.com), необходимо внести их в их роли. Временным администраторам будет предложено зарегистрироваться для использования MFA во время активации.
 
 Предоставив пользователям право на получение ролей, сообщите им, что они могут активировать их согласно инструкциям в статье [Как активировать и деактивировать роли в компоненте управления привилегированными пользователями Azure AD](active-directory-privileged-identity-management-how-to-activate-role.md).
 
@@ -66,5 +65,4 @@ ms.lasthandoff: 12/28/2016
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

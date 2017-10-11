@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Настройка обратного просмотра DNS для размещенных в Azure служб
 
 Из этой статьи вы узнаете, как настроить обратный просмотр DNS для размещенных в Azure служб.
@@ -255,5 +253,4 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 Дополнительные сведения см. [в статье Википедии об обратном просмотре DNS](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Узнайте, как [разместить зону обратного просмотра для диапазона IP-адресов, присвоенного поставщиком услуг Интернета, в службе Azure DNS](dns-reverse-dns-for-azure-services.md).
-
 

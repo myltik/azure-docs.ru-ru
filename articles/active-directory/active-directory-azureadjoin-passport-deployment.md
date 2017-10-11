@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08fcdb4ec6dd124760cff54c522d998d5a0327
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: 58943e1e29755c983e55c675dd4fe7b75ac47b34
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Включение Microsoft Windows Hello для бизнеса в организации
 После [подключения присоединенных к домену устройств Windows 10 к Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md) выполните следующую процедуру, чтобы включить Microsoft Windows Hello для бизнеса в организации:
@@ -78,7 +76,7 @@ ms.lasthandoff: 12/28/2016
    
     а. В текстовом поле **Имя** введите имя профиля, например **Мой профиль WHfB**.
    
-    b. Нажмите кнопку **Далее**.
+    b. Щелкните **Далее**.
 4. В диалоговом окне **Поддерживаемые платформы** выберите платформы, которые будут подготовлены с помощью этого профиля Windows Hello для бизнеса, и нажмите кнопку **Далее**.
    
     ![Настройка Windows Hello для бизнеса](./media/active-directory-azureadjoin-passport-deployment/04.png)
@@ -92,7 +90,7 @@ ms.lasthandoff: 12/28/2016
    
     c. Для параметра **Способ проверки подлинности** выберите значение **На основе сертификата**.
    
-    d. Нажмите кнопку **Далее**.
+    d. Щелкните **Далее**.
 6. В диалоговом окне **Сводка** нажмите кнопку **Далее**.
 7. В диалоговом окне **Завершение** нажмите кнопку **Закрыть**.
 8. На панели инструментов в верхней части экрана щелкните **Развернуть**.
@@ -114,5 +112,4 @@ ms.lasthandoff: 12/28/2016
 * [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
-
 

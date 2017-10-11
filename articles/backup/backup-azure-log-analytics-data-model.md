@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Модель данных Log Analytics для данных Azure Backup
 В этой статье описывается модель данных, используемая для принудительной отправки данных отчетов в Log Analytics. С помощью этой модели данных можно создавать пользовательские запросы и панели мониторинга. Вы также можете использовать ее в OMS. 
@@ -288,4 +287,3 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После просмотра модели данных для создания отчетов Azure Backup вы можете приступить к [созданию панели мониторинга](../log-analytics/log-analytics-dashboards.md) в Log Analytics и OMS.
-

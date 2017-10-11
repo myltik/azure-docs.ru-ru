@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Как устранить распространенные неполадки, возникающие в процессе создания виртуального жесткого диска
 Сведения, приведенные в этой статье, помогут издателям и соадминистраторам решить проблемы, возникающие в процессе публикации решений lkz виртуальных машин или управления ими.

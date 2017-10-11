@@ -15,14 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9366bae67be7d1abf932d07971d2062c7bd29f3c
-ms.openlocfilehash: 49825cc7455ae082ef750a2a31abbd2d71693c79
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/27/2017
-
-
-
+ms.openlocfilehash: c4199a387f5cdbd477a5e348e48ba8e8b5900075
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="load-data-into-azure-sql-data-warehouse"></a>Загрузка данных в хранилище данных Azure SQL
 Сводка параметров сценария и рекомендаций по загрузке данных в хранилище данных SQL.
@@ -144,4 +141,3 @@ ms.lasthandoff: 02/27/2017
 
 <!--Other Web references-->
 [Import/Export]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
-

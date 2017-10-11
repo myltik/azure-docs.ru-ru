@@ -12,15 +12,12 @@ ms.devlang: na
 ms.topic: landing - page
 ms.date: 7/06/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f246c6d1355220314a2f56aa91634625ec352c69
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
-
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Устранение неполадок при помощи Azure HDInsight
 
 | Рабочая нагрузка Apache | Основные вопросы |
@@ -38,6 +35,5 @@ ms.lasthandoff: 08/23/2017
 | --- | --- |
 | HDInsight в Linux и оптимизация | - [Сведения об использовании HDInsight в Linux](hdinsight-hadoop-linux-information.md)<br>- [Указатель статей об устранении неполадок Hadoop в HDInsight](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Troubleshooting Hive query performance in HDInsight Hadoop cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) (Устранение неполадок с производительностью запросов Hive в кластере HDInsight Hadoop) |
 | Журналы и дампы | - [Доступ к журналам приложений YARN в HDInsight под управлением Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Включение дампов кучи для служб Hadoop в HDInsight под управлением Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Сведения об анализе журналов Azure HDInsight в этой статье](hdinsight-debug-jobs.md)|
-| Ошибки | - [Понимание и устранение ошибок, полученных из WebHCat в HDInsight](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Устранение ошибки нехватки памяти Hive в Azure HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
+| Errors | - [Понимание и устранение ошибок, полученных из WebHCat в HDInsight](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Устранение ошибки нехватки памяти Hive в Azure HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Средства | - [Отладка заданий Tez в HDInsight с помощью представлений Ambari](hdinsight-debug-ambari-tez-view.md)<br>- [Оптимизация запросов Hive в Azure HDInsight](hdinsight-hadoop-optimize-hive-query.md) |
-

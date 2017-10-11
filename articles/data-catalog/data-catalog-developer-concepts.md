@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: f48eb610b47820e6d7438520a00a5e6dfe879e01
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Концепции каталога данных Azure для разработчиков
 **Каталог данных Azure** — это полностью управляемая облачная служба, предоставляющая возможности обнаружения источников данных и совместной работы над метаданными источников данных. Разработчики могут взаимодействовать с этой службой через интерфейс API REST. Для успешной интеграции с **каталогом данных Azure**разработчикам важно понимать концепции, реализованные в каталоге.
@@ -360,4 +359,3 @@ ChangeOwnership, ChangeVisibility, ViewPermissions.</td></tr><tr><td>Участ�
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
-

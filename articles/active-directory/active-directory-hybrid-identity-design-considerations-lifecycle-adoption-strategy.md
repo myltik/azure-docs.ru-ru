@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: 18b40486a66d8e092a8af299460145989a1ab99d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Определение стратегии выбора жизненного цикла гибридной идентификации
 В этом упражнении вы определите стратегию управления идентификацией для решений гибридной идентификации в соответствии с бизнес-требованиями, определенными в разделе [Определение задач управления гибридной идентификацией](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -100,5 +99,4 @@ Azure Active Directory предоставляет единый вход и ра�
 
 ## <a name="see-also"></a>См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

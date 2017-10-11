@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 4962c26e6bf2ed36ce670cc78f4ecfcab871a8bf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.openlocfilehash: b7a3844ce86b4efac8a4fc3c2540e7b6460873a2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="high-performance-compute-linux-vm-sizes"></a>Размеры виртуальных машин Linux, оптимизированных для HPC
 
 [!INCLUDE [virtual-machines-common-sizes-hpc](../../../includes/virtual-machines-common-sizes-hpc.md)]
@@ -85,7 +83,6 @@ ms.lasthandoff: 07/14/2017
 - Чтобы приступить к развертыванию и использованию виртуальных машин Linux для ресурсоемких вычислений с поддержкой RDMA, изучите статью [Настройка кластера Linux RDMA для выполнения приложений MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 - Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
-
 
 
 

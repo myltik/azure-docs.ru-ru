@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Отправка push-уведомлений в приложения Windows Phone с помощью центров уведомлений Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -139,7 +139,7 @@ Push-уведомления можно отправлять с помощью ц
 
 Примеры отправки push-уведомлений с использованием [REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx) см. в статье [How to use Notification Hubs from Java](notification-hubs-java-push-notification-tutorial.md) (Использование центров уведомлений из Java) и [How to use Notification Hubs from PHP](notification-hubs-php-push-notification-tutorial.md) (Использование центров уведомлений из PHP).
 
-1. Щелкните решение правой кнопкой мыши, выберите пункты **Добавить** и **Новый проект**. После этого в разделе **Visual C#** выберите **Windows** и **Консольное приложение**, а затем нажмите кнопку **ОК**.
+1. Щелкните решение правой кнопкой мыши, выберите пункты **Добавить** и **Создать проект...**. После этого в разделе **Visual C#** выберите **Windows** и **Консольное приложение**, а затем нажмите кнопку **ОК**.
    
        ![Visual Studio - New Project - Console Application][6]
    
@@ -216,17 +216,11 @@ Push-уведомления можно отправлять с помощью ц
 
 <!-- URLs. -->
 [Microsoft Visual Studio 2012 Express для Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Режим работы MPNS с проверкой подлинности]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[руководстве по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-[каталог всплывающих уведомлений]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
+[каталоге всплывающих уведомлений]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [каталоге уведомлений на плитке]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Центр уведомлений: учебник для Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

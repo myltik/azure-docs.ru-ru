@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 2d3046381892978e3aea12752f526d7cdf8184f5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: f8718e240eaefb47b18b6098be083e335ccbc89d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Браузеры и устройства, поддерживаемые порталом Azure
 [Портал Azure](https://portal.azure.com) можно запустить на всех современных настольных и планшетных устройствах, а также во всех браузерах.
@@ -37,5 +36,4 @@ ms.lasthandoff: 06/30/2017
 * Safari (последняя версия, только для Mac);
 * Chrome (последняя версия);
 * Firefox (последняя версия).
-
 

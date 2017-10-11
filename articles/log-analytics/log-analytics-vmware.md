@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Решение для мониторинга VMware (предварительная версия) в Log Analytics | Microsoft Azure
 
 ![Символ VMware](./media/log-analytics-vmware/vmware-symbol.png)
@@ -205,4 +203,3 @@ vSphere ESXi Host версий 5.5 и 6.0.
 * Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных об узле VMware.
 * [Создавайте собственные панели мониторинга](log-analytics-dashboards.md), отображающие данные об узле VMware.
 * [Создавайте оповещения](log-analytics-alerts.md), информирующие о возникновении определенных событий узла VMware.
-

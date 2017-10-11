@@ -11,14 +11,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 06/29/2017
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: a7555464879826c5e4f55929d23163b002664e81
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запросы данных с помощью языка Go
 В этом кратком руководстве описывается, как подключиться к базе данных Azure для PostgreSQL с помощью кода на языке [Go](https://golang.org/) (golang). Здесь также показано, как использовать инструкции SQL для запроса, вставки, обновления и удаления данных в базе данных. В этой статье предполагается, что у вас уже есть опыт разработки на Go, и вы только начали работу с базой данных Azure для PostgreSQL.
 
@@ -339,4 +337,3 @@ func main() {
 ## <a name="next-steps"></a>Дальнейшие действия
 > [!div class="nextstepaction"]
 > [Перенос базы данных с помощью экспорта и импорта](./howto-migrate-using-export-and-import.md)
-

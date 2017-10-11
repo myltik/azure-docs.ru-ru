@@ -16,12 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Сценарий обработки исключений и ведения журнала ошибок для приложений логики
 
@@ -492,4 +491,3 @@ ms.lasthandoff: 07/06/2017
 * [Примеры приложений логики и распространенные сценарии](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Мониторинг приложений логики](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Создание шаблона развертывания приложения логики](../logic-apps/logic-apps-create-deploy-template.md)
-

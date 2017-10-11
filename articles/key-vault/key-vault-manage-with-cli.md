@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: a691aad9e4aa21799640efc9c96ac90d38d7bf31
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
-
+ms.openlocfilehash: c2565a742ce4f6ab5f7639a54c4a475f00cbc260
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-key-vault-using-cli"></a>Управление хранилищем ключей с помощью CLI
 
@@ -265,5 +263,4 @@ ms.lasthandoff: 05/09/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Справочные материалы по программированию см. в статье [Руководство разработчика хранилища ключей Azure](key-vault-developers-guide.md).
-
 

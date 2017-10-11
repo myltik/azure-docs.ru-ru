@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d244905089605bb8608085d3e0132590c927ef6f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 0f8136cb066fa6e3e4a8dd06e34b9f866e3916f6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="unexpected-application-in-my-applications-list"></a>Неожиданные приложения в списке приложений
 
 Эта статья поможет разобраться, как приложения попадают в список **Все приложения** в разделе **Корпоративные приложения**. 
@@ -125,4 +123,3 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 34f5caa13aa94dc982ed497d7c8ddeceed61a6d8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Сетевое сопоставление между двумя регионами Azure
 
@@ -99,4 +98,3 @@ IP-адрес для каждого сетевого интерфейса цел
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о репликации виртуальных машин см. в [этой статье](site-recovery-azure-to-azure-networking-guidance.md).
-

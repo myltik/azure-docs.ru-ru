@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 63f2d88ad59661b7fbcffd0aaeb94c58d40bdb73
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Устранение неполадок с YARN с помощью Azure HDInsight
 
 Ознакомьтесь с основными проблемами и их разрешением при работе с полезными данными Apache Hadoop YARN в Apache Ambari.
@@ -35,7 +33,7 @@ ms.lasthandoff: 08/23/2017
 Чтобы создать очередь YARN и выполнить балансировку выделения емкости для всех очередей, выполните следующие шаги с помощью Ambari. 
 
 В этом примере емкость двух имеющихся очередей (**default** и **thriftsvr**) изменяется с 50 % на 25 %, что позволяет обеспечить для новой очереди (spark) емкость 50 %.
-| Очередь | Емкость | Максимальная емкость |
+| Очередь | Capacity | Максимальная емкость |
 | --- | --- | --- | --- |
 | по умолчанию | 25 % | 50 % |
 | thrftsvr | 25 % | 50 % |
@@ -143,7 +141,6 @@ ms.lasthandoff: 08/23/2017
 
 - [Подключение к HDInsight (Hadoop) с помощью SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [APACHE HADOOP YARN — CONCEPTS AND APPLICATIONS](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/) (Apache Hadoop YARN: приложения и основные понятия)
-
 
 
 

@@ -13,14 +13,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: eac0e95a46731b9d396ea0590e629d61ca6a7d70
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Передача объекта JSON в модуль runbook службы автоматизации Azure
 
 Иногда может быть полезным хранить данные, которые необходимо передать в модуль runbook, в файле JSON.
@@ -118,6 +116,5 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 
 * Дополнительные сведения о редактировании модулей Runbook PowerShell и рабочих процессов PowerShell с помощью текстового редактора см. в статье [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md). 
 * Дополнительные сведения о создании и импорте модулей runbook см. в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md).
-
 
 

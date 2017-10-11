@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
 ms.openlocfilehash: 5a5f77b9adafe32e8559d0b3396febca4b191de3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/05/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Примеры Azure PowerShell для базы данных SQL Azure
 
 В следующей таблице содержатся ссылки на примеры сценариев Azure PowerShell для базы данных SQL Azure.
@@ -51,4 +49,3 @@ ms.lasthandoff: 08/05/2017
 | [Синхронизация данных между базой данных SQL и локальной базой данных SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Этот сценарий PowerShell настраивает синхронизацию данных между базой данных SQL Azure и локальной базой данных SQL Server. |
 |||
 |||
-

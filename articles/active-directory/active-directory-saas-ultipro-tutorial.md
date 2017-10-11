@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: ab60bda1be7101d5bd0c51f5499a820db40375bf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Руководство. Интеграция Azure Active Directory с UltiPro
 
@@ -241,5 +240,4 @@ ms.lasthandoff: 07/11/2017
 [201]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_203.png
-
 

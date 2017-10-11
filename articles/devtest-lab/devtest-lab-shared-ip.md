@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: casoper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 9f6e1980bf5ea5b41da98a135d89f1c5159921a7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Общие IP-адреса в Azure DevTest Labs
 
 Azure DevTest Labs позволяет виртуальным машинам лаборатории совместно использовать тот же общедоступный IP-адрес, чтобы минимизировать количество общедоступных IP-адресов, необходимых для доступа к отдельным виртуальным машинам лаборатории.  В этой статье описывается принцип работы общих IP-адресов и варианты их настройки.
@@ -56,7 +54,6 @@ Azure DevTest Labs позволяет виртуальным машинам ла
 
 * [Управление всеми политиками лаборатории в Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 * [Настройка виртуальной сети в Azure DevTest Labs](devtest-lab-configure-vnet.md)
-
 
 
 

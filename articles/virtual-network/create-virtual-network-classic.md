@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Создание (классической) виртуальной сети с несколькими подсетями
 
@@ -167,4 +166,3 @@ ms.lasthandoff: 08/01/2017
 - Создайте виртуальную машину [с Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или [с Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), а затем подключите ее к имеющейся виртуальной сети.
 - Чтобы подключить две виртуальные сети в одном расположении Azure, создайте [пиринг виртуальных сетей](create-peering-different-deployment-models.md) между ними. Вы можете настроить пиринг между виртуальной сетью диспетчера ресурсов и классической виртуальной сетью, но не между двумя классическими виртуальными сетями.
 - Чтобы подключить виртуальную сеть к локальной сети, используйте [VPN-шлюз](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или канал [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-

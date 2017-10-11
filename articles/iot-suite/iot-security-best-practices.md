@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de7db3f353f1f6c815ee61cbdfbf9b2b38471a8d
-ms.openlocfilehash: 87647756be65f577850fe8209173280b89de15ea
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: dcab91856bcebb8f3bfab8cc69b63fad487f8ace
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="internet-of-things-security-best-practices"></a>Рекомендации по обеспечению безопасности "Интернета вещей"
 Защита инфраструктуры "Интернета вещей" (IoT) требует тщательно продуманной стратегии с точки зрения безопасности. Согласно этой стратегии необходимо защищать данные в облаке, обеспечивать целостность данных в процессе передачи через общедоступный Интернет и безопасно подготавливать устройства. Каждый следующий уровень обеспечивает большие гарантии безопасности во всей инфраструктуре.
 
@@ -90,4 +87,3 @@ ms.lasthandoff: 03/02/2017
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
-

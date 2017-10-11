@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 69f7b49fd82e4d34b1d54718cfbd2f4dedd2ae47
-ms.openlocfilehash: bfa6413bd939b6082de4a88195b1f35cf8210375
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Планирование повышения безопасности данных благодаря надежному решению для идентификации
 Первый шаг для защиты данных — определение того, кто должен иметь доступ к этим данным. Для этого необходимо иметь решение для идентификации, которое можно быстро интегрировать в систему для реализации проверки подлинности и авторизации. Проверку подлинности и авторизацию часто путают друг с другом, понимая их роли неправильно. На самом деле между ними есть довольно большие различия, как показано на рисунке ниже:
@@ -85,5 +84,4 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="see-also"></a>См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

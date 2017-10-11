@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 77f8f10c764013e539480138fb1479d0326b5eef
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 5638434270ee82d2b9737ea8eed8b5a8c62f7121
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Проблемы при входе в приложение Майкрософт
 
 Приложения Майкрософт (такие как Office 365 Exchange, SharePoint, Yammer и т. д.) назначаются и управляются немного иначе, чем приложения SaaS от сторонних разработчиков и другие приложения, которые вы интегрируете с Azure AD для единого входа.
@@ -101,7 +99,7 @@ ms.lasthandoff: 06/30/2017
 
 -   [Включение самостоятельного сброса пароля](#enable-self-service-password-reset)
 
--   [Проверка состояния службы Многофакторной идентификации](#check-a-users-multi-factor-authentication-status)
+-   [Проверка состояния службы Многофакторной Идентификации](#check-a-users-multi-factor-authentication-status)
 
 -   [Проверка контактной информации для проверки подлинности](#check-a-users-authentication-contact-info)
 
@@ -181,9 +179,9 @@ ms.lasthandoff: 06/30/2017
 
 -   [Разрешение пользователям сбрасывать или изменять пароли AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 
-### <a name="check-a-users-multi-factor-authentication-status"></a>Проверка состояния службы Многофакторной идентификации
+### <a name="check-a-users-multi-factor-authentication-status"></a>Проверка состояния службы Многофакторной Идентификации
 
-Чтобы проверить состояние службы Многофакторной идентификации, сделайте следующее:
+Чтобы проверить состояние службы Многофакторной Идентификации, сделайте следующее:
 
 1.  Откройте [**портал Azure**](https://portal.azure.com/) и войдите в систему как **глобальный администратор**.
 
@@ -195,9 +193,9 @@ ms.lasthandoff: 06/30/2017
 
 5.  Щелкните **Все пользователи**.
 
-6.  Нажмите кнопку **Многофакторная идентификация** в верхней части колонки.
+6.  Нажмите кнопку **Многофакторная Идентификация** в верхней части колонки.
 
-7.  После загрузки **портала администрирования Многофакторной идентификации** перейдите на вкладку **Пользователи**.
+7.  После загрузки **портала администрирования Многофакторной Идентификации** перейдите на вкладку **Пользователи**.
 
 8.  Найдите пользователя в списке пользователей, выполнив поиск, фильтрацию или сортировку.
 
@@ -207,7 +205,7 @@ ms.lasthandoff: 06/30/2017
 
 ### <a name="check-a-users-authentication-contact-info"></a>Проверка контактной информации для проверки подлинности
 
-Чтобы проверить контактную информацию для проверки подлинности, используемую для Многофакторной идентификации, условного доступа, защиты идентификации и сброса пароля, сделайте следующее:
+Чтобы проверить контактную информацию для проверки подлинности, используемую для Многофакторной Идентификации, условного доступа, защиты идентификации и сброса пароля, сделайте следующее:
 
 1.  Откройте [**портал Azure**](https://portal.azure.com/) и войдите в систему как **глобальный администратор**.
 
@@ -528,5 +526,4 @@ ms.lasthandoff: 06/30/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Использование конечной точки предоставления согласия администратора](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
 

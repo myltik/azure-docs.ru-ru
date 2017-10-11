@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 65d9cc77d7ce87d05a9357673712c518e4e43dc3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 49b72cd306aa91f114af7688f02d95db6f6eca05
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="automate-mobility-service-installation-by-using-software-deployment-tools"></a>Автоматизация установки Mobility Service с использованием средств развертывания программного обеспечения
 
@@ -472,4 +471,3 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы можете [включить защиту](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) для виртуальных машин.
-

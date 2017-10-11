@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c059fd74854813615754e67547497b7ededbe4dd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-03-release-notes---february-2015"></a>Заметки о выпуске, посвященные обновлению 0.3 для устройств серии StorSimple 8000. Февраль 2015 г.
 ## <a name="overview"></a>Обзор
@@ -82,5 +81,4 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="virtual-device-updates-in-the-february-release"></a>Обновления виртуального устройства в февральском выпуске
 Эта версия не содержит никаких обновлений для виртуального устройства. Установка этого обновления не приведет к изменению версии программного обеспечения виртуального устройства.
-
 

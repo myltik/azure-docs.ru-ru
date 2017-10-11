@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2d568a38f66605da63054d1797ce23653e6204d4
-ms.openlocfilehash: ff5d64bc00bc5fb3617160db852c7d08f8b3677b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/20/2017
-
+ms.openlocfilehash: f7eb2f3cba535eb64db5544c498289c9e895987a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Заметки к диаграммам метрик в Application Insights
 Заметки к диаграммам [обозревателя метрик](app-insights-metrics-explorer.md) показывают, где развернута новая сборка, а также отображают другие важные события. С их помощью легко увидеть, повлияли ли ваши изменения на производительность приложения. Заметки могут быть созданы автоматически [системой сборки Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). Заметки можно также создавать, чтобы помечать какие-либо события, [используя PowerShell](#create-annotations-from-powershell).
@@ -107,4 +106,3 @@ ms.lasthandoff: 01/20/2017
 
 * [Создание рабочих элементов](app-insights-diagnostic-search.md#create-work-item)
 * [Автоматизация с помощью PowerShell](app-insights-powershell.md)
-

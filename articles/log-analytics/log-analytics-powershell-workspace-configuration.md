@@ -14,12 +14,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Управление Log Analytics с помощью PowerShell
 [Командлеты PowerShell Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) можно использовать для выполнения различных функций в Log Analytics как из командной строки, так и в составе сценария.  Примеры задач, которые можно выполнять с помощью PowerShell.
@@ -266,5 +265,4 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об использовании PowerShell для настройки Log Analytics см. в [описании командлетов PowerShell Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx).
-
 

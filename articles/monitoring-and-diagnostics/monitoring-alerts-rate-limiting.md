@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: bde645624ab1860d19ba18470f55845855a7d1fb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="rate-limiting-for-sms-messages-emails-and-webhook-posts"></a>Ограничение частоты отправки SMS, сообщений электронной почты и вызовов веб-перехватчика
 Ограничение частоты означает приостановку уведомлений, которые слишком часто отправляются на указанный номер телефона или адрес электронной почты. Ограничение скорости гарантирует управляемость и действенность оповещений.
 
@@ -42,4 +40,3 @@ ms.lasthandoff: 08/24/2017
 * Дополнительные сведения о поведении SMS-оповещений в группе действий см. в [этой статье](monitoring-sms-alert-behavior.md).
 * Изучите [обзор оповещений журнала действий](monitoring-overview-alerts.md) и узнайте, как получать оповещения.  
 * Узнайте, как [настроить оповещения при поступлении уведомлений о работоспособности службы](monitoring-activity-log-alerts-on-service-notifications.md).
-

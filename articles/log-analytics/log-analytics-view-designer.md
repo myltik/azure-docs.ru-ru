@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: e3c463d749dc4179df58286b9bb75584880a6bc6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Использование конструктора представлений для создания пользовательских представлений Log Analytics
 Конструктор представлений [Log Analytics](log-analytics-overview.md) позволяет создавать в консоли OMS пользовательские представления, содержащие различные визуальные представления данных репозитория OMS. Эта статья содержит обзор конструктора представлений и процедур по созданию и изменению пользовательских представлений.
@@ -99,4 +98,3 @@ ms.lasthandoff: 08/28/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Добавление [плиток](log-analytics-view-designer-tiles.md) к пользовательскому представлению.
 * Добавление [элементов визуализации](log-analytics-view-designer-parts.md) к пользовательскому представлению.
-

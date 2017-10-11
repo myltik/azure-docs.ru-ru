@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Сериализация объектов надежной коллекции в Azure Service Fabric
 Надежные коллекции реплицируют и сохраняют свои элементы, чтобы обеспечить надежность их работы в случае сбоев машин и отключения электроэнергии.
@@ -156,4 +155,3 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
   * Управление обновлениями приложения осуществляется с помощью [параметров обновления](service-fabric-application-upgrade-parameters.md).
   * [Дополнительные разделы](service-fabric-application-upgrade-advanced.md)содержат сведения о работе с расширенными функциями при обновлении приложения.
   * Сведения об устранении распространенных проблем при обновлении приложений см. в статье [Устранение неполадок при обновлениях приложений](service-fabric-application-upgrade-troubleshooting.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: HT
-ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
 ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
-ms.contentlocale: ru-ru
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/18/2017
-
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory: вопросы и ответы
 Azure Active Directory — это комплексная служба идентификации (IDaaS), охватывающая все аспекты идентификации, управления доступом и безопасности.
@@ -213,4 +212,3 @@ Azure Active Directory — это комплексная служба иден�
 **Вопрос. Можно ли установить безопасное подключение LDAP к Azure AD?** 
 
 **Ответ.** Нет. Azure AD не поддерживает использование протокола LDAP.
-

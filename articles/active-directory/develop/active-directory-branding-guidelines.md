@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 316f073019abef03227b741d9349d0ca75dda6bd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 4f6806cde52ce965a8f78a5cce8a24c3d1248594
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>Рекомендации по фирменной символике для приложений
 В этом разделе рассматриваются рекомендации по фирменной символике, которыми следует пользоваться при разработке приложений в среде Azure Active Directory (Azure AD). Эти рекомендации позволят управлять пользователями, работающими со своей рабочей или учебной учетной записью, управляемой в Azure AD, или личной учетной записью для регистрации или входа в ваше приложение.
@@ -90,5 +88,4 @@ ms.lasthandoff: 03/29/2017
 
 ## <a name="navigation-dos-and-donts"></a>Что следует и что не следует делать с навигацией
 **Следует** предоставить пользователям способ выйти из системы и переключиться на другую учетную запись. Хотя многие имеют только одну личную учетную запись в Майкрософт/Facebook/Google/Twitter, зачастую пользователи связаны с несколькими организациями. Поддержка одновременного входа нескольких пользователей скоро появится.
-
 

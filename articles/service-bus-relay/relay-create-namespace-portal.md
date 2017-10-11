@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: dc2b69db669366a89b33751ca2b3a9f5af292da2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Создание пространства имен ретранслятора с помощью портала Azure
 Пространство имен — это общий контейнер для всех компонентов ретранслятора Azure. В одном пространстве имен могут содержаться несколько ретрансляторов. Часто пространства имен используются как контейнеры приложений. Сейчас создать пространство имен ретранслятора можно двумя способами.
 
@@ -38,5 +36,4 @@ ms.lasthandoff: 05/18/2017
 * [Вопросы и ответы по ретранслятору](relay-faq.md)
 * [Приступая к работе с .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Приступая к работе с Node](relay-hybrid-connections-node-get-started.md)
-
 

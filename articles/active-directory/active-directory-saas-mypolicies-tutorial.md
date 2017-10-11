@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: fcb403041cb3a8bd20ff7b34aa5cc4b7bf0c0a16
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Руководство по интеграции Azure Active Directory с myPolicies
 
@@ -247,5 +246,4 @@ ms.lasthandoff: 07/14/2017
 [201]: ./media/active-directory-saas-mypolicies-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-mypolicies-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-mypolicies-tutorial/tutorial_general_203.png
-
 

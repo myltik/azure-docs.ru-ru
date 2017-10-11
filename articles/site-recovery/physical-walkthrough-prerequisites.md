@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 5f5cb4b9b6fcee6b56ccdcb6223afddd9de90fec
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-physical-server-to-azure-replication"></a>Шаг 2. Просмотр предварительных требований для репликации физического сервера в Azure
 
 Ознакомьтесь с предварительными требованиями, перечисленными в таблице.
@@ -53,4 +51,3 @@ ms.lasthandoff: 06/29/2017
 
 - При выполнении полного развертывания перейдите к статье [Step 3: Plan capacity and scaling for physical server to Azure replication](physical-walkthrough-capacity.md) (Шаг 3. Планирование производительности и масштабирования для репликации физического сервера в Azure).
 - При выполнении простого тестового развертывания перейдите к разделу [Шаг 4. Планирование сетей для репликации из Hyper-V в Azure](physical-walkthrough-network.md).
-

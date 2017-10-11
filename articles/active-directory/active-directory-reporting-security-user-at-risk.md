@@ -13,12 +13,11 @@ ms.workload: identity
 ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 04f15384a7cd0fa03300acdf159d371569ecf9fc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Описание отчета системы безопасности о пользователях под угрозой на портале Azure Active Directory
 
@@ -112,5 +111,4 @@ Azure Active Directory обнаруживает подозрительные д�
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о защите идентификации Azure см. в статье [Защита идентификации Azure Active Directory](active-directory-identityprotection.md).
-
 

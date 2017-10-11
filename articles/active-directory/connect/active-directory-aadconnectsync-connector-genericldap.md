@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: adb174526bc377f484be5fb0a71b28e8daaaa6fd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>Технический справочник по универсальному соединителю LDAP
 В этой статье описывается универсальный соединитель LDAP. Статья относится к следующим продуктам:
@@ -270,4 +269,3 @@ ShowDeletedControl используется только при импорте �
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 * Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731) (Включение трассировки событий Windows для соединителей).
-

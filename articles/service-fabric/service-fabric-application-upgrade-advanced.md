@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar;chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c83c4db0ada77998354b3fca4e2297335899a9bd
-ms.openlocfilehash: 20a3277370583ccf93b36191a70149ed7d814238
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: 8d3b922f3d50b645ac9db2cc879a319df1262e0a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Обновление приложений Service Fabric: дополнительные разделы
 ## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Добавление или удаление служб во время обновления приложения
@@ -100,4 +99,3 @@ app1/
 Узнайте, как использовать [сериализацию данных](service-fabric-application-upgrade-data-serialization.md), чтобы обеспечить совместимость обновлений приложения.
 
 Сведения об устранении распространенных проблем при обновлении приложений см. в статье [Устранение неполадок при обновлениях приложений](service-fabric-application-upgrade-troubleshooting.md).
-

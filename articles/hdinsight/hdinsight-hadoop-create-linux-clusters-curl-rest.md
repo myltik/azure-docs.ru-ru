@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1b257b5a021a682990fb615d7c9aae4fc9160dd4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: a36a41c231472ceeeb46d02ddb65549b1c79728a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Создание кластеров Hadoop с помощью Azure REST API
 
@@ -376,4 +375,3 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 * [Разработка приложений Java для Storm в HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Развертывание и мониторинг топологий с помощью Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
-

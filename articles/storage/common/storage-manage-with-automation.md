@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: eamono
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4649e42a628307e15f8b067503e4e8e13f16f1af
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Управление хранилищем Azure RemoteApp с помощью службы автоматизации Azure
 В этом руководстве представлена служба автоматизации Azure и описано, как ее использовать, чтобы упростить управление BLOB-объектами, таблицами и запросами хранилища Azure.
@@ -44,5 +43,4 @@ ms.lasthandoff: 08/21/2017
 Теперь, когда вы познакомились с основами службы автоматизации Azure и способами ее использования для управления BLOB-объектами, таблицами и запроса хранилища Azure, пройдите по ссылкам, чтобы получить дополнительные сведения о службе автоматизации Azure.
 
 См. руководство [Создание или импорт модуля Runbook в службе автоматизации Azure](../../automation/automation-creating-importing-runbook.md).
-
 

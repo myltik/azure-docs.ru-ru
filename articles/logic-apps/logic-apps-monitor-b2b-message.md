@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f717dae9a70a96944b623f22b90cf8c5a943f382
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>Мониторинг и настройка ведения журнала диагностики для взаимодействия B2B в учетных записях интеграции
 
 После настройки взаимодействия B2B между двумя выполняющимися бизнес-процессами или приложениями с помощью учетной записи интеграции эти сущности могут обмениваться сообщениями друг с другом. Чтобы убедиться в том, что это взаимодействие осуществляется должным образом, можно настроить мониторинг сообщений AS2, X12 и EDIFACT, а также ведение журналов диагностики для учетной записи интеграции с помощью службы [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Эта служба в [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) отслеживает облачную и локальную среды, помогая обеспечить их доступность и производительность, а также собирает сведения о времени выполнения и событиях для отладки. Также можно [использовать полученные диагностические данные в других службах](#extend-diagnostic-data), таких как служба хранилища Azure и концентраторы событий Azure.
@@ -137,5 +135,4 @@ Azure поддерживает приведенные ниже типы схем
 
 * [Отслеживание сообщений B2B в OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Отслеживание сообщений B2B в OMS")
 * [Обзор пакета интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise")
-
 

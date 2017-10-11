@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/01/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b73ab6914bad3d08e1833338634abf62aa3e9c05
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
-
+ms.openlocfilehash: 245bee7c1dbb0236afdc2506e7ab84b5573cbc85
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Подключение к Kafka HDInsight (предварительная версия) с помощью виртуальной сети Azure
 
 Узнайте, как напрямую подключиться к Kafka в HDInsight с помощью виртуальных сетей Azure. В этой статье приведены сведения о подключении к Kafka с использованием приведенных ниже конфигураций.
@@ -391,4 +389,3 @@ HDInsight не разрешает прямое подключение к Kafka �
 
 * [Get started with Apache Kafka on HDInsight (preview)](hdinsight-apache-kafka-get-started.md) (Приступая к работе с Apache Kafka в HDInsight (предварительная версия))
 * [Создание реплики Kafka в кластере HDInsight с помощью MirrorMaker (предварительная версия)](hdinsight-apache-kafka-mirroring.md)
-

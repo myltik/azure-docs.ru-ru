@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: asmalser-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Руководство по настройке Cerner Central для автоматической подготовки пользователей
 
 Цель этого руководства — показать, как настроить автоматическую подготовку и отзыв учетных записей пользователей Azure AD в списке пользователей в Cerner Central. 
@@ -136,4 +134,3 @@ ms.lasthandoff: 08/25/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Сведения о просмотре журналов и получении отчетов о действиях по подготовке](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
-

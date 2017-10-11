@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: d0bc7d7514f111b4bbde33bd60ae21264bd797fc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-database-roles-and-users"></a>Управление ролями и пользователями базы данных
 
@@ -151,5 +150,4 @@ ms.lasthandoff: 08/19/2017
   [Управление администраторами сервера](analysis-services-server-admins.md)   
   [Управление службами Azure Analysis Services с помощью PowerShell](analysis-services-powershell.md)  
   [Справочник по языку TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
-
 

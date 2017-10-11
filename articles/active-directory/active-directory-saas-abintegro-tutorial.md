@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: a2a3c1a7a338ee1cb35dd08176ad3bb5f3cdc319
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>Руководство. Интеграция Azure Active Directory с Abintegro
 
@@ -115,7 +113,7 @@ ms.lasthandoff: 05/26/2017
     В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`
 
     > [!NOTE] 
-    > Это ненастоящее значение. Вместо него необходимо указать фактический URL-адрес для входа. Для получения этого значения обратитесь в [службу поддержки клиентов Abintegro](mailto:support@abintegro.com). 
+    > Это значение приведено для справки. Вместо него необходимо указать фактический URL-адрес для входа. Для получения этого значения обратитесь в [службу поддержки клиентов Abintegro](mailto:support@abintegro.com). 
  
 4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -224,5 +222,4 @@ ms.lasthandoff: 05/26/2017
 [201]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_203.png
-
 

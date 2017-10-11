@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 7288f8fa173f8018570cd17aa7274f56a4eead41
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Использование ограничения клиентов для управления доступом к облачным приложениям SaaS
 
@@ -124,9 +122,9 @@ ms.lasthandoff: 05/15/2017
 
 Fiddler — бесплатный прокси-сервер веб-отладки, который может использоваться для записи и изменения трафика HTTP и HTTPS, включая вставку заголовков HTTP. Чтобы настроить Fiddler для проверки ограничения клиентов, выполните следующие действия.
 
-1.    [Скачайте и установите Fiddler](http://www.telerik.com/fiddler).
-2.    Настройте Fiddler для расшифровки трафика HTTPS, как описано в [справочной документации Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
-3.    Настройте Fiddler для вставки заголовков *Restrict-Access-To-Tenants* и *Restrict-Access-Context* с помощью настраиваемых правил.
+1.  [Скачайте и установите Fiddler](http://www.telerik.com/fiddler).
+2.  Настройте Fiddler для расшифровки трафика HTTPS, как описано в [справочной документации Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+3.  Настройте Fiddler для вставки заголовков *Restrict-Access-To-Tenants* и *Restrict-Access-Context* с помощью настраиваемых правил.
   1. В инструменте Fiddler Web Debugger выберите меню **Rules** (Правила) и щелкните **Customize Rules…** (Настройка правил…), чтобы открыть файл CustomRules.
   2. Добавьте следующие строки в начало функции *OnBeforeRequest*. Замените \<tenant domain\> доменом, зарегистрированным в вашем клиенте (например, contoso.onmicrosoft.com). Замените \<directory ID\> идентификатором GUID Azure AD своего клиента.
 
@@ -148,8 +146,8 @@ Fiddler — бесплатный прокси-сервер веб-отладки
 
 В зависимости от возможностей инфраструктуры прокси-сервера можно выполнить поэтапное развертывание параметров для пользователей. Ниже приведено несколько общих способов, которые вы можете рассмотреть.
 
-1.    Используйте PAC-файлы, чтобы направить тестовых пользователей в тестовую инфраструктуру прокси-сервера, а обычные пользователи пусть продолжат использовать рабочую инфраструктуру прокси-сервера.
-2.    Некоторые прокси-серверы могут поддерживать различные конфигурации с использованием групп.
+1.  Используйте PAC-файлы, чтобы направить тестовых пользователей в тестовую инфраструктуру прокси-сервера, а обычные пользователи пусть продолжат использовать рабочую инфраструктуру прокси-сервера.
+2.  Некоторые прокси-серверы могут поддерживать различные конфигурации с использованием групп.
 
 Обратитесь к документации по вашему прокси-серверу, чтобы получить подробную информацию.
 
@@ -158,4 +156,3 @@ Fiddler — бесплатный прокси-сервер веб-отладки
 - Ознакомьтесь со статьей [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Обновление поддержи современной аутентификации в Office 365).
 
 - Прочтите статью [URL-адреса и диапазоны IP-адресов Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Добавление "расширительных" узлов по запросу в кластер пакета HPC в Azure
 Если вы настроили кластер [пакета Microsoft HPC](https://technet.microsoft.com/library/cc514029) в Azure, то вам может понадобиться способ быстро масштабировать емкость кластера, не обслуживая набор предварительно настроенных вычислительных узлов. В этой статье показано, как добавить расширительные узлы по запросу (экземпляры рабочей роли, запущенные в облачной службе) в качестве вычислительных ресурсов на головной узел в Azure. 
@@ -82,4 +81,3 @@ ms.lasthandoff: 07/12/2017
 
 <!--Image references-->
 [burst]: ./media/hpcpack-cluster-node-burst/burst.png
-

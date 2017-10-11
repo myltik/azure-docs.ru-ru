@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 75e509a7e39f5b268ce550d0c4dea2261d4fe56f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Служба метаданных Azure. Запланированные события (предварительная версия) для виртуальных машин Linux
 
 > [!NOTE] 
@@ -190,4 +188,3 @@ if __name__ == '__main__':
 
 - Дополнительные сведения об API, доступных в [службе метаданных экземпляра](instance-metadata-service.md).
 - Подробнее о [плановом обслуживании виртуальных машин Linux в Azure](planned-maintenance.md).
-

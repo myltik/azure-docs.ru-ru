@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Руководство по интеграции Azure Active Directory с SAML SSO for Confluence by resolution GmbH
 
@@ -133,7 +131,7 @@ ms.lasthandoff: 05/31/2017
 
 6. Нажмите кнопку **Сохранить** .
 
-    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)    
+    ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)  
     
 7. В другом окне браузера войдите на **портал администрирования SAML SSO for Confluence by resolution GmbH** с правами администратора.
 
@@ -159,7 +157,7 @@ ms.lasthandoff: 05/31/2017
 
     ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
 
-13.    Нажмите кнопку **Управление**.
+13. Нажмите кнопку **Управление**.
 
     ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
     
@@ -187,7 +185,7 @@ ms.lasthandoff: 05/31/2017
 
     г) Нажмите кнопку **Load** (Загрузить).
 
-    д. Будут считаны метаданные поставщика удостоверений и заполнены поля, как показано на снимке экрана.    
+    д. Будут считаны метаданные поставщика удостоверений и заполнены поля, как показано на снимке экрана. 
 18. Нажмите кнопку **Save settings** (Сохранить параметры), чтобы сохранить параметры.
 
     ![Настройка единого входа](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
@@ -312,5 +310,4 @@ ms.lasthandoff: 05/31/2017
 [201]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_203.png
-
 

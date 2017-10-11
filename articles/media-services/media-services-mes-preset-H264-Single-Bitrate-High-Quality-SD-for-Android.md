@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 09c6c4f8552cb8dd9b987d5e2e6d3175d4780025
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/29/2016
-
+ms.openlocfilehash: 325078dd188556daaf4092909a174d97a2e01e1a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="h264-single-bitrate-high-quality-sd-for-android"></a>H264 Single Bitrate High Quality SD для Android
 `Media Encoder Standard` определяет набор предустановок кодирования, которые можно использовать при создании заданий кодирования. Можно также использовать `preset name`, чтобы указать, в какой формат нужно закодировать файл мультимедиа. Или можно создать собственные предустановки в формате JSON или XML (с использованием кодировки UTF-8 или UTF-16). Затем следует передавать пользовательскую предустановку в кодировщик. Список предустановок, поддерживаемых данным кодировщиком `Media Encoder Standard`, приведен в разделе [Предустановки задач для Media Encoder Standard](media-services-mes-presets-overview.md).  
   
@@ -116,4 +114,3 @@ ms.lasthandoff: 11/29/2016
   ]  
 }  
 ```
-

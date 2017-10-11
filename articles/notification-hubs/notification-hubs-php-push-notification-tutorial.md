@@ -14,12 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c81ab9004bf71007395d2545c4e44b07c865aa9d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Использование концентраторов уведомлений из PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -198,7 +197,7 @@ ms.lasthandoff: 11/17/2016
 
 Указанные выше методы отправляют запрос HTTP POST в конечную точку "/messages" концентратора уведомлений, с надлежащим телом и заголовками для отправки уведомления.
 
-## <a name="a-namecomplete-tutorialacomplete-the-tutorial"></a><a name="complete-tutorial"></a>Завершение работы с учебником
+## <a name="complete-tutorial"></a>Завершение работы с учебником
 Теперь вы можете завершить работу с учебником по началу работы, отправив уведомление из серверной части PHP.
 
 Инициализируйте клиент концентратора уведомлений (замените строку подключения и имя концентратора в соответствии с инструкциями в [учебнике по началу работы]):
@@ -254,5 +253,4 @@ ms.lasthandoff: 11/17/2016
 
 [примера оболочки REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [учебнике по началу работы]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-
 

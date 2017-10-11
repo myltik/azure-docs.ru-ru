@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.lasthandoff: 03/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Получение сведений о состоянии задания импорта и экспорта
 Чтобы получить сведения о заданиях импорта и экспорта, можно вызвать операцию [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). Возвращаемые сведения включают:
 
@@ -94,4 +92,3 @@ ms.lasthandoff: 03/30/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Использование REST API службы импорта и экспорта Azure](storage-import-export-using-the-rest-api.md)
-

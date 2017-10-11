@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: e00ceb8dd87e00bbdd05146e107c72e6182eb474
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Области, разрешения и согласие для конечной точки Azure Active Directory версии 2.0
 Приложения, интегрируемые с Azure Active Directory (Azure AD), придерживаются определенной модели авторизации, позволяющей пользователям контролировать способ получения приложением доступа к их данным. Реализация версии 2.0 этой модели авторизации была обновлена, в результате чего изменился механизм взаимодействия приложения с Azure AD. В этой статье рассматриваются основные понятия этой модели авторизации, включая области, разрешения и согласие на их предоставление.
@@ -204,4 +202,3 @@ Content-Type: application/json
 Полученный маркер доступа можно использовать в HTTP-запросах к ресурсу. Он достоверно указывает ресурсу, что у приложения имеется необходимое разрешение для выполнения определенной задачи.  
 
 Дополнительные сведения о протоколе OAuth 2.0 и способах получения маркеров доступа можно найти в [справочнике по протоколу конечной точки версии 2.0](active-directory-v2-protocols.md).
-

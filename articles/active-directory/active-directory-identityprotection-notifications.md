@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
-ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/22/2016
-
+ms.openlocfilehash: 079d16bbf75cd2b3b94269d684e1ae1a0e6aa967
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Уведомления защиты идентификации Azure Active Directory
 Служба защиты идентификации Azure AD отправляет по электронной почте два типа автоматических уведомлений, что упрощает управление рисками для пользователей и событиями риска:
@@ -42,25 +41,24 @@ ms.lasthandoff: 12/22/2016
 * ссылки на связанные отчеты в службе защиты идентификации.
 
 <br>
-![Исправление](./media/active-directory-identityprotection-notifications/400.png "Remediation")
+![Исправления](./media/active-directory-identityprotection-notifications/400.png "исправления")
 <br>
 
 Можно отключить отправку еженедельных дайджестов по электронной почте.
 <br><br>
-![Риск для пользователя](./media/active-directory-identityprotection-notifications/62.png "User risks")
+![Рисков для пользователя](./media/active-directory-identityprotection-notifications/62.png "рисков для пользователя")
 <br>
 
 **Вот как можно открыть диалоговое окно настройки**.
 
 1. В колонке **Защита идентификации Azure AD** щелкните **Параметры**.
    <br><br>
-   ![Политика риска пользователя](./media/active-directory-identityprotection-notifications/401.png "User risk policy")
+   ![Политика пользователя риск](./media/active-directory-identityprotection-notifications/401.png "риск политика пользователя")
    <br>
 2. В разделе **Общие** щелкните **Уведомления**.
    <br><br>
-   ![Политика риска пользователя](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
+   ![Политика пользователя риск](./media/active-directory-identityprotection-notifications/405.png "риск политика пользователя")
    <br>
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
-

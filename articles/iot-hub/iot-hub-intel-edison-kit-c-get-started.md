@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 4/17/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Подключение Intel Edison к Центру Интернета вещей Azure (C)
 
@@ -241,4 +240,3 @@ ms.lasthandoff: 07/13/2017
 Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

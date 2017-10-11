@@ -1,6 +1,6 @@
 ---
 title: "Добавление брандмауэра следующего поколения в центре безопасности Azure | Документация Майкрософт"
-description: "В этом документе показано, как выполнить рекомендации центра безопасности по **добавлению брандмауэра следующего поколения** и **маршрутизации трафика только через NGFW**."
+description: "В этом документе показано, как выполнить рекомендации центра безопасности **Добавить брандмауэр следующего поколения** и **Route traffic through NGFW only** (Маршрутизировать трафик только через NGFW)."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
 ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Добавление брандмауэра следующего поколения в центре безопасности Azure
 Для повышения безопасности центр безопасности Azure может порекомендовать вам добавить брандмауэр следующего поколения (NGFW) от партнера корпорации Майкрософт. В этом документе вы найдете пример применения такой рекомендации.
@@ -81,4 +80,3 @@ ms.lasthandoff: 02/04/2017
 [8]: ./media/security-center-add-next-gen-firewall/select-vm.png
 [9]: ./media/security-center-add-next-gen-firewall/configure-rules-to-limit-access.png
 [10]: ./media/security-center-add-next-gen-firewall/edit-inbound-rule.png
-

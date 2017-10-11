@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Приступая к работе с Центрами уведомлений для приложений Kindle
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -74,7 +74,7 @@ ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
 Добавьте библиотеки ADM в проект Eclipse.
 
 1. Чтобы получить библиотеку ADM, [загрузите пакет SDK]. Распакуйте ZIP-файл пакета SDK.
-2. В Eclipse щелкните правой кнопкой мыши по проекту и выберите **Свойства**. Слева выберите **Java Build Path** (Путь построения Java), а затем вверху откройте вкладку **Libraries ** (Библиотеки). Щелкните **Add External Jar** (Добавить внешний JAR-файл) и выберите файл `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` из каталога, в который вы распаковали пакет SDK Amazon.
+2. В Eclipse щелкните правой кнопкой мыши по проекту и выберите **Свойства**. Выберите **путь построения Java** в левой части экрана и выберите ** библиотеки ** вверху вкладку. Щелкните **Add External Jar** (Добавить внешний JAR-файл) и выберите файл `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` из каталога, в который вы распаковали пакет SDK Amazon.
 3. Загрузите пакет NotificationHubs Android SDK (ссылка).
 4. Извлеките содержимое пакета, а затем перетащите файл `notification-hubs-sdk.jar` в папку `libs` в Eclipse.
 
@@ -265,9 +265,3 @@ ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

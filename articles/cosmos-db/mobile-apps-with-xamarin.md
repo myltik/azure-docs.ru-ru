@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 4dfe9c755f3e7d5414ae04dd4027defd6cef2e4a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Создание мобильных приложений с помощью Xamarin и Azure Cosmos DB
 Большинство мобильных приложений хранят данные в облаке, а Azure Cosmos DB — одна из облачных баз данных для мобильных приложений. В ней есть все, что необходимо для разработчика мобильных приложений. Это полностью управляемая база данных как услуга, которая масштабируется по запросу. Она может прозрачно передавать ваши данные пользователям, где бы они ни находились, непосредственно в ваше приложение. С помощью [пакета SDK Azure Cosmos DB для .NET Core](documentdb-sdk-dotnet-core.md) можно настроить в мобильных приложениях Xamarin взаимодействие непосредственно с Azure Cosmos DB без служб среднего уровня.
@@ -105,7 +104,6 @@ Azure Cosmos DB — это управляемая база данных как 
 * Ознакомьтесь с другими примерами кода для [приложений .NET](documentdb-dotnet-samples.md).
 * Узнайте о [расширенных возможностях запросов в Azure Cosmos DB](documentdb-sql-query.md).
 * Узнайте о [геопространственной поддержке в Azure Cosmos DB](geospatial.md).
-
 
 
 

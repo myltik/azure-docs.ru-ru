@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: c591cf99aecc4153e378c42a530b80deeca63158
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Руководство. Интеграция Azure Active Directory с GaggleAMP
 
@@ -114,7 +113,7 @@ ms.lasthandoff: 06/16/2017
      В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.gaggleamp.com`
 
     > [!NOTE] 
-    > Это значение приведено для справки. Вместо него необходимо указать фактический URL-адрес для входа. Чтобы получить это значение, обратитесь в [службу поддержки клиентов GaggleAMP](mailto:sales@gaggleamp.com). 
+    > Это значение приведено для примера. Вместо него необходимо указать фактический URL-адрес для входа. Чтобы получить это значение, обратитесь в [службу поддержки клиентов GaggleAMP](mailto:sales@gaggleamp.com). 
  
 4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 
@@ -239,5 +238,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_203.png
-
 

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43b77cabdb2d8832bda8fd0b726ba27edb0a0602
-ms.openlocfilehash: 2992b074986a7b7f3244ce996f2b41269bff8bbd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: ba5bdf7daba6086b70aec54ebe25d4445fa708c3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Добавление функции входа в веб-приложение .NET MVC
 Конечная точка версии 2.0 позволяет быстро реализовать аутентификацию в веб-приложениях с поддержкой личных учетных записей Майкрософт, а также рабочих или учебных учетных записей.  В веб-приложениях ASP.NET это можно делать с помощью ПО промежуточного уровня OWIN корпорации Microsoft, включенного в .NET Framework 4.5.
@@ -219,4 +217,3 @@ ms.lasthandoff: 02/03/2017
 
 ## <a name="get-security-updates-for-our-products"></a>Получение обновлений системы безопасности для наших продуктов
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 35b4a4270846c54a1ca760e803ef7adba60cf03b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Трассировка потока в приложении облачных служб с помощью системы диагностики Azure
 Трассировка — это мониторинг выполнения запущенного приложения. Сведения об ошибках и выполнении приложений можно записывать в журналы, текстовые файлы или на устройства для последующего анализа с помощью классов [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx) и [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx). Дополнительные сведения о трассировке см. в статье [Tracing and Instrumenting Applications](https://msdn.microsoft.com/library/zs6s4h68.aspx) (Трассировка и инструментирование приложений).
@@ -76,5 +75,4 @@ ms.lasthandoff: 11/17/2016
     ```
 3. Добавьте трассировочные операторы, чтобы записывать сведения о состоянии приложения. Вывод оператора трассировки можно форматировать разными способами. Дополнительные сведения об этом см. в статье [How to: Add Trace Statements to Application Code](https://msdn.microsoft.com/library/zd83saa2.aspx) (Добавление трассировочных операторов в код приложения).
 4. Сохраните исходный файл.
-
 

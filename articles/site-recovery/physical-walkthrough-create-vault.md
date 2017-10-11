@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: deb5ad0495edc969b374795eeb2698326dd4ff4d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-6-set-up-a-vault-for-physical-server-replication-to-azure"></a>Шаг 6. Настройка хранилища для репликации физического сервера в Azure
 
@@ -48,4 +47,3 @@ ms.lasthandoff: 06/29/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 7. Настройка исходной и целевой среды для репликации физического сервера в Azure](physical-walkthrough-source-target.md).
-

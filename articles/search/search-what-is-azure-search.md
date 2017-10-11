@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: baf73639eb6506b14d0d3a4de1bf55b66e973b95
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-azure-search"></a>Что такое поиск Azure?
 Поиск Azure — это облачное решение по модели "поиск как услуга", которое предоставляет разработчикам API и средства для реализации расширенных возможностей поиска в веб-, мобильных и корпоративных приложениях.
@@ -129,6 +128,5 @@ ms.lasthandoff: 07/12/2017
 + 3–4 минуты: подготовка службы. 
 + 4–6 минуты: использование мастера импорта данных для создания индекса с помощью встроенного набора данных, связанного с недвижимостью.
 + 6–9 минуты: обозреватель поиска и различные запросы.
-
 
 

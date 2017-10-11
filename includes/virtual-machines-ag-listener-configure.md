@@ -37,8 +37,8 @@
 
    ![Ресурс IP-адреса](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
-    <!-----------------------Этот параметр не отображается в SQL Server 2016
-    1. Отключите протокол NetBIOS для этого адреса и нажмите кнопку **ОК**. Повторите этот шаг для каждого IP-ресурса, если решение распространяется на несколько виртуальных сетей Azure. 
+    <!-----------------------I don't see this option on server 2016
+    1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
 4. <a name = "dependencyGroup"></a>Сделайте так, чтобы ресурс группы доступности SQL Server зависел от точки доступа клиента.

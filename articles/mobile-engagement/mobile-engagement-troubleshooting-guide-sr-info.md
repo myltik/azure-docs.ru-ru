@@ -1,6 +1,6 @@
 ---
-title: "Руководство по устранению неполадок Azure Mobile Engagement — Информация о запросе на обслуживание"
-description: "Информация о запросе на обслуживание, необходимая службе поддержки для устранения неполадок в работе Azure Mobile Engagement."
+title: "Руководство по устранению неполадок Служб мобильного взаимодействия Azure — Информация о запросе на обслуживание"
+description: "Информация о запросе на обслуживание, необходимая службе поддержки для устранения неполадок в работе Служб мобильного взаимодействия Azure."
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 05abc6a620468aff9a26ed1d37562c8cd2b2acc8
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a4497046df74003a733d80f190e82b5e798d398e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-request-sr-information"></a>Информация о запросе на обслуживание
-При отправке запроса на обслуживание для любой службы Mobile Engagement укажите следующую информацию.
+При отправке запроса на обслуживание для любой службы мобильного взаимодействия укажите следующую информацию.
 
 ## <a name="ids-applicable-identifiers-related-to-your-issue"></a>Идентификаторы, связанные с вашей проблемой:
 * Идентификатор приложения API.
@@ -40,6 +39,5 @@ ms.lasthandoff: 11/17/2016
 ## <a name="code-applicable-coding-information"></a>Код: релевантные сведения о коде
 * Версия пакета SDK и платформы приложения (Android SDK 2.4.1, iOS 1.16.2 и т. д.)
 * Каталог загрузки рабочего приложения (или файлы APK/TGZ приложения в разработке).
-* Файл AndroidManifest.xml и/или любой фрагмент кода приложения, связанный с Mobile Engagement (для дополнительного устранения неполадок)
-
+* Файл AndroidManifest.xml и/или любой фрагмент кода приложения, связанный со Службами мобильного взаимодействия (для дополнительного устранения неполадок)
 

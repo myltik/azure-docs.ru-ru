@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d8f6da61b02a1289be0fa3444fd4dcfbe487068f
-
-
+ms.openlocfilehash: 0659ab9d304dbfcce72e8c3c79edad68e70b9630
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-device"></a>Замена диска на устройстве StorSimple
 ## <a name="overview"></a>Обзор
@@ -55,7 +55,7 @@ ms.openlocfilehash: d8f6da61b02a1289be0fa3444fd4dcfbe487068f
 2. Поворачивайте ключ против часовой стрелки, пока красный индикатор в щели над ключом не перестанет быть видимым.
 3. Извлеките ключ.
    
-    ![ Защитная защелка открыта](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![Защитная защелка открыта](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Рис. 2.** Защитная защелка открыта
 4. Теперь диск можно снять.
@@ -114,10 +114,4 @@ ms.openlocfilehash: d8f6da61b02a1289be0fa3444fd4dcfbe487068f
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

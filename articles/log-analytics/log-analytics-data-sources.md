@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-sources-in-log-analytics"></a>Источники данных в Log Analytics
 Служба Log Analytics собирает данные из подключенных источников в рабочую область OMS и сохраняет их в репозитории OMS.  Собираемые данные зависят от заданного вами источника данных.  Данные в репозитории OMS хранятся как набор записей.  Каждый источник данных создает записи определенного типа, а каждый тип обладает собственным набором свойств.
@@ -67,4 +66,3 @@ ms.lasthandoff: 05/25/2017
 * Узнайте больше о [решениях](log-analytics-add-solutions.md) , которые расширяют функции службы Log Analytics и собирают данные в репозиторий OMS.
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений.  
 * Настройте [оповещения](log-analytics-alerts.md) для получения заблаговременных уведомлений о получении критически важных данных из источников данных и решений.
-

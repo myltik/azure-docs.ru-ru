@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: импорт данных MongoDB 
 
 Для переноса данных из MongoDB в учетную запись Azure Cosmos DB для использования с API для MongoDB необходимо выполнить следующие действия:
@@ -154,4 +152,3 @@ ms.lasthandoff: 07/25/2017
 
 > [!div class="nextstepaction"]
 >[Как выполнять запросы к данным в базе данных Azure Cosmos DB с помощью API для MongoDB](../cosmos-db/tutorial-query-mongodb.md)
-

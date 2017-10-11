@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью Site Recovery на портале Azure
 > [!div class="op_single_selector"]
@@ -475,4 +474,3 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Когда начальная репликация завершится и вы проверите работу развертывания, отработку отказа можно будет использовать в любой момент, как только возникнет необходимость. [Узнайте больше](site-recovery-failover.md) о разных типах отработки отказа и способах их выполнения.
-

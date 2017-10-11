@@ -1,6 +1,6 @@
 ---
-title: "Приступая к работе с Azure Mobile Engagement для развертывания Unity в Android"
-description: "Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для развертывания приложений Unity на устройствах iOS."
+title: "Приступая к работе со Службами мобильного взаимодействия Azure для развертывания Unity в Android"
+description: "Узнайте, как использовать Службы мобильного взаимодействия Azure с аналитическими функциями и push-уведомлениями для развертывания приложений Unity на устройствах iOS."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
@@ -14,22 +14,22 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Приступая к работе с Azure Mobile Engagement для развертывания Unity в Android
+# <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Приступая к работе со Службами мобильного взаимодействия Azure для развертывания Unity в Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-В этой статье показано, как с помощью Azure Mobile Engagement анализировать использование приложения и как отправлять push-уведомления сегментированным пользователям приложения Unity при его развертывании на устройстве Android.
-Это руководство основывается на классическом руководстве по создании игры в мяч в приложении Unity. Вам следует выполнить инструкции, приведенные в этом [руководстве](mobile-engagement-unity-roll-a-ball.md) , прежде чем начинать интеграцию Mobile Engagement, пример которой приводится в настоящем руководстве. 
+В этой статье показано, как с помощью Служб мобильного взаимодействия Azure анализировать использование приложения и как отправлять push-уведомления сегментированным пользователям приложения Unity при его развертывании на устройстве Android.
+Это руководство основывается на классическом руководстве по создании игры в мяч в приложении Unity. Вам следует выполнить инструкции, приведенные в этом [руководстве](mobile-engagement-unity-roll-a-ball.md), прежде чем начинать интеграцию Служб мобильного взаимодействия, пример которой приводится в настоящем руководстве. 
 
 Для работы с данным учебником требуется следующее:
 
 * приложение [Unity Editor](http://unity3d.com/get-unity);
-* [пакет SDK для Mobile Engagement Unity](https://aka.ms/azmeunitysdk)
+* [пакет SDK Unity для Служб мобильного взаимодействия](https://aka.ms/azmeunitysdk)
 * пакет SDK для Google Android.
 
 > [!NOTE]
@@ -37,12 +37,13 @@ ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения Android
+## <a id="setup-azme"></a>Настройка Служб мобильного взаимодействия для вашего приложения Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
+## <a id="connecting-app">
+            </a>Подключение приложения к серверной части Служб мобильного взаимодействия
 ### <a name="import-the-unity-package"></a>Импорт пакета Unity
-1. Загрузите пакет [Mobile Engagement Unity](https://aka.ms/azmeunitysdk) и сохраните его на локальном компьютере. 
+1. Загрузите пакет [Служб мобильного взаимодействия для Unity](https://aka.ms/azmeunitysdk) и сохраните его на локальном компьютере. 
 2. Выберите **Ресурсы -> Импорт пакета -> Custom Package** (Пользовательский пакет) и выберите пакет, скачанный на предыдущем этапе. 
    
     ![][70] 
@@ -58,7 +59,7 @@ ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
    
     ![][73]
 2. Сохраните файл. 
-3. Щелкните **Файл -> Engagement -> Generate Android Manifest** (Создание манифеста Android). Это подключаемый модуль, добавленный в ваш пакет SDK для Mobile Engagement. Если его щелкнуть, параметры проекта будут автоматически обновлены. 
+3. Щелкните **Файл -> Engagement -> Generate Android Manifest** (Создание манифеста Android). Это подключаемый модуль, добавленный в ваш пакет SDK для Служб мобильного взаимодействия. Если его щелкнуть, параметры проекта будут автоматически обновлены. 
    
     ![][74]
 
@@ -98,10 +99,10 @@ ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
 6. Возможно, вам потребуется указать имя папки для хранения пакета Android. 
 7. Если процесс пройдет успешно и пакет будет развернут на подключенном устройстве, вы увидите игру Unity у себя на телефоне. 
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Подключение приложения с мониторингом в режиме реального времени
+## <a id="monitor"></a>Подключение приложения с мониторингом в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
+## <a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ### <a name="update-the-engagementconfiguration"></a>Обновление конфигурации EngagementConfiguration
@@ -109,7 +110,7 @@ ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
    
     ![][75]
 2. Сохраните файл. 
-3. Щелкните **Файл -> Engagement -> Generate Android Manifest** (Создание манифеста Android). Это подключаемый модуль, добавленный в ваш пакет SDK для Mobile Engagement. Если его щелкнуть, параметры проекта будут автоматически обновлены. 
+3. Щелкните **Файл -> Engagement -> Generate Android Manifest** (Создание манифеста Android). Это подключаемый модуль, добавленный в ваш пакет SDK для Служб мобильного взаимодействия. Если его щелкнуть, параметры проекта будут автоматически обновлены. 
    
     ![][74]
 
@@ -134,9 +135,3 @@ ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
 [52]: ./media/mobile-engagement-unity-android-get-started/52.png
 [53]: ./media/mobile-engagement-unity-android-get-started/53.png
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

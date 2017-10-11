@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: ec4b06a341f74e021a8745bfb324358c0a12b6ec
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: adb00e28b0b204858a763f83836ee2ac96f8f9e4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Контроль безопасности виртуальных машин с помощью центра безопасности Azure
 
@@ -149,4 +148,3 @@ ms.lasthandoff: 05/17/2017
 
 > [!div class="nextstepaction"]
 > [Создание конвейера для непрерывной интеграции с помощью Visual Studio Team Services и IIS](./tutorial-vsts-iis-cicd.md)
-

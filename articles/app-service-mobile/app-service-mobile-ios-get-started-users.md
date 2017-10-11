@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 21a2cc6c1eaf4b34cbe8c2d7c4dbb69c8730cf32
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Добавление проверки подлинности в приложение iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -220,5 +219,4 @@ ms.lasthandoff: 07/20/2017
 [портале Azure]: https://portal.azure.com
 
 [быстрому запуску iOS]: app-service-mobile-ios-get-started.md
-
 

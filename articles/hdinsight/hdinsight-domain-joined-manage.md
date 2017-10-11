@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 9b56ce6cc5bdd3b8d48d047751e978cad08598e1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-domain-joined-hdinsight-clusters-preview"></a>Управление присоединенными к домену кластерами HDInsight (предварительная версия)
 Узнайте, что такое пользователи и роли в кластерах HDInsight, присоединенных к домену, и как управлять присоединенными к домену кластерами HDInsight.
@@ -111,4 +110,3 @@ ms.lasthandoff: 06/13/2017
 * Сведения о настройке присоединенного к домену кластера HDInsight см. в [этой статье](hdinsight-domain-joined-configure.md).
 * Сведения о настройке политик Hive и выполнении запросов Hive для присоединенного к домену кластера HDInsight см. [здесь](hdinsight-domain-joined-run-hive.md).
 * Сведения о выполнении запросов Hive с помощью SSH в присоединенных к домену кластерах HDInsight см. в статье [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-

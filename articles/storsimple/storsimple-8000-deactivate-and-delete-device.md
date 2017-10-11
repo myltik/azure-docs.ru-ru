@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
-ms.contentlocale: ru-ru
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Отключение и удаление устройства StorSimple
 
@@ -121,5 +120,4 @@ ms.lasthandoff: 08/03/2017
 * Сведения о том, как восстановить на отключенном устройстве заводские параметры, см. в разделе [Восстановление на устройстве заводских настроек](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Чтобы получить техническую поддержку, [обратитесь в службу поддержки Майкрософт](storsimple-8000-contact-microsoft-support.md).
 * Дополнительные сведения об управлении устройством с помощью службы диспетчера устройств StorSimple см. в статье [Использование службы диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
-
 

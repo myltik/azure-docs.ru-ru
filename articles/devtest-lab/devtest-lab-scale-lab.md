@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
 ms.openlocfilehash: f11ed42b474e4f208eac92689bfa33fb188d15a1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Масштабирование квот и ограничений в DevTest Labs
 При работе в DevTest Labs вы, вероятно, замечали, что для некоторых ресурсов Azure существуют определенные ограничения по умолчанию, которые могут влиять на работу службы DevTest Labs. Такие ограничения называют **квотами**.
@@ -69,4 +68,3 @@ ms.lasthandoff: 05/17/2017
 
 ### <a name="next-steps"></a>Дальнейшие действия
 * Изучите [коллекцию шаблонов быстрого запуска Azure Resource Manager для DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
-

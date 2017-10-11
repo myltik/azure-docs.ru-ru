@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="optimizing-transactions-for-sql-data-warehouse"></a>Оптимизация транзакций для хранилища данных SQL
 В этой статье объясняется, как оптимизировать производительность кода обработки транзакций, чтобы свести к минимуму риск длительных откатов.
@@ -438,5 +437,4 @@ END
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!-- Other web references -->
-
 

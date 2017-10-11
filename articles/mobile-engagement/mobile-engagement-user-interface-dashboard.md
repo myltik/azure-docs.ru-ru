@@ -1,6 +1,6 @@
 ---
-title: "Пользовательский интерфейс Azure Mobile Engagement - Панель мониторинга"
-description: "Просмотр диаграмм данных о приложении о управление ими с помощью Azure Mobile Engagement"
+title: "Пользовательский интерфейс Служб мобильного взаимодействия Azure — Панель мониторинга"
+description: "Просмотр диаграмм данных о приложении и управление ими с помощью Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Просмотр диаграмм данных о приложении о управление ими
 Раздел «Панель мониторинга» пользовательского интерфейса дает клиентам возможность создавать настраиваемые диаграммы, которые предоставляют точную информацию без необходимости ее поиска в разделе аналитики, позволяя сэкономить время. На панели мониторинга отображаются тенденции приложения и число активных пользователей для разных версий приложения за определенное время (час, день, неделя, месяц, другой заданный период). Ниже показаны тенденции за последние 7 дней.
@@ -132,5 +131,4 @@ ms.lasthandoff: 03/01/2017
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

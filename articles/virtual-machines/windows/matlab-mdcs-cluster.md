@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b86f13f49c6390a90609bba9141564d2ac69246d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: b302c6b3c6acbb8552796e7fb1bfd153d23dceb3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Создание кластеров MATLAB Distributed Computing Server на виртуальных машинах Azure
 Используя виртуальные машины Microsoft Azure, вы можете создать один или несколько кластеров MATLAB Distributed Computing Server, в которых можно запускать параллельные рабочие нагрузки MATLAB для ресурсоемких вычислений. Установите программное обеспечение MATLAB Distributed Computing Server на виртуальную машину для использования в качестве базового образа. Затем примените шаблон быстрого запуска Azure или сценарий Azure PowerShell (доступный на [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) для развертывания кластера и управления им. После развертывания подключитесь к кластеру, чтобы запустить рабочие нагрузки.
@@ -73,4 +72,3 @@ ms.lasthandoff: 04/27/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Подробные инструкции по развертыванию и управлению кластерами MATLAB Distributed Computing Server в Azure см. в репозитории [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster), содержащем шаблоны и сценарии.
 * Посетите [сайт MathWorks](http://www.mathworks.com/) с подробной документацией по MATLAB и MATLAB Distributed Computing Server.
-

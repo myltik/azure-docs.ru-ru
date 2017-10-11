@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: bc10d7a1f3b7f26389b49af21f9553e83b5e078d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/29/2016
-
+ms.openlocfilehash: 629ef7690f25dc6de1773a83cf967544cdf16682
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="h264-single-bitrate-720p-audio-51"></a>H264 Single Bitrate 720p Audio 5.1
 `Media Encoder Standard` определяет набор предустановок кодирования, которые можно использовать при создании заданий кодирования. Можно также использовать `preset name`, чтобы указать, в какой формат нужно закодировать файл мультимедиа. Или можно создать собственные предустановки в формате JSON или XML (с использованием кодировки UTF-8 или UTF-16). Затем следует передавать пользовательскую предустановку в кодировщик. Список предустановок, поддерживаемых данным кодировщиком `Media Encoder Standard`, приведен в разделе [Предустановки задач для Media Encoder Standard](media-services-mes-presets-overview.md).  
   
@@ -117,4 +115,3 @@ ms.lasthandoff: 11/29/2016
   ]  
 }  
 ```
-

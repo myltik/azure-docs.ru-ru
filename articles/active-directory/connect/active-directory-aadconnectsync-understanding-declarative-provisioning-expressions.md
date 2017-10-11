@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 58908d65fdebd651e5cfab2b668574bdf7ab6085
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Служба синхронизации Azure AD Connect: общие сведения о выражениях декларативной подготовки
 Служба синхронизации Azure AD Connect основана на принципах декларативной подготовки, впервые представленной в Forefront Identity Manager 2010. Эта функция позволяет реализовать бизнес-логику интеграции идентификации без необходимости написания компилируемого кода.
@@ -82,7 +81,7 @@ ms.lasthandoff: 01/27/2017
 
 Например,   
 `Trim([proxyAddresses])` выполняет обрезку (Trim) для каждого значения атрибута proxyAddress.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"` Для каждого значения со знаком @-sign, замените домен на @contoso.com.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"`Для каждого значения с @-sign, замените домен с @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Найдите SIP-адрес и удалите его из значений.
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -98,5 +97,4 @@ ms.lasthandoff: 01/27/2017
 **Справочные материалы**
 
 * [Синхронизация Azure AD Connect: справочник по функциям](active-directory-aadconnectsync-functions-reference.md)
-
 

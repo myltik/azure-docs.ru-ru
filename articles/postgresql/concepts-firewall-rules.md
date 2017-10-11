@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 464a8725847271bddb19dcf71add3f5184e4771f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 150c4f53c5ab6a6425b6af7d286d4c1518b006f8
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Правила брандмауэра сервера базы данных Azure для PostgreSQL
 Брандмауэр запрещает любой доступ к серверу базы данных, пока вы не укажете компьютеры, у которых есть разрешение на доступ. Брандмауэр предоставляет доступ к серверу на основе исходного IP-адреса каждого запроса.

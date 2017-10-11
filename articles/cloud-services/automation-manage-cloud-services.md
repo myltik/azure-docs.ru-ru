@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47307ed521201b462730a2ea4cb8d0ca665b6d72
-
-
+ms.openlocfilehash: 6b5acac1b8647c324988c316cd5602b3dba98a1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Управление облачными службами Azure с помощью службы автоматизации Azure
 В этом руководстве будет представлена служба автоматизации Azure и способы ее использования для упрощения управления облачными службами Azure.
@@ -44,9 +44,3 @@ ms.openlocfilehash: 47307ed521201b462730a2ea4cb8d0ca665b6d72
 * [Обзор службы автоматизации Azure](../automation/automation-intro.md)
 * [Мой первый Runbook](../automation/automation-first-runbook-graphical.md)
 * [План обучения работе со службой автоматизации Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

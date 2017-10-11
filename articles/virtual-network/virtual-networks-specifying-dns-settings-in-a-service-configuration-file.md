@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0fba2ea06827aff29a7a092933edb8120d668b29
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Настройка параметров DNS в файле конфигурации службы
 ## <a name="dns-elements"></a>Элементы DNS
@@ -46,5 +45,4 @@ ms.lasthandoff: 11/17/2016
 [Настройка виртуальной сети с помощью файлов конфигурации сети](http://go.microsoft.com/fwlink/?LinkId=248094)
 
 [Параметры виртуальной сети на портале управления](http://go.microsoft.com/fwlink/?LinkId=248092)
-
 

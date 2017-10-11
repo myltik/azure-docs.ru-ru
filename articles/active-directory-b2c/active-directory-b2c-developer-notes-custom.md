@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/05/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Заметки о выпуске общедоступной предварительной версии настраиваемой политики Azure Active Directory B2C
 Набор функций настраиваемой политики теперь доступен для оценки в общедоступной предварительной версии для всех клиентов Azure Active Directory B2C (Azure AD B2C). Этот набор функций предназначен для опытных разработчиков удостоверений, создающих самые сложные решения удостоверений.  
@@ -64,4 +63,3 @@ ms.lasthandoff: 05/31/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).
-

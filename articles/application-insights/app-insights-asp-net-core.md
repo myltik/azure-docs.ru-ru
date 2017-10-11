@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 43e9e864a11cd6601ca9599f5a193793d344e0e5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: d86495eea467977f6c079de72e2b49a2a1da2b60
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights для ASP.NET Core
 [Application Insights](app-insights-overview.md) позволяет осуществлять мониторинг доступности, производительности и использования вашего веб-приложения. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
@@ -63,5 +62,4 @@ ms.lasthandoff: 08/17/2017
 * [Отслеживайте зависимости](app-insights-asp-net-dependencies.md) , чтобы выяснить, что стало причиной медленной работы: REST, SQL или другие внешние ресурсы.
 * [Используйте API](app-insights-api-custom-events-metrics.md) для отправки собственных событий и метрик для более четкого представления о производительности и использовании приложения.
 * [Тесты доступности](app-insights-monitor-web-app-availability.md) позволяют постоянно проверять работу приложения из всех точек мира. 
-
 

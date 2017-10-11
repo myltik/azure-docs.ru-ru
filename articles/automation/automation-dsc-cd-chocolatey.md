@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/29/2016
 ms.author: golive
-translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 0f2f25175e3988c58961be3d23e0e7aabcb0da8d
-
-
+ms.openlocfilehash: f23d7374a8954a0a95853fa9e00b54a8d9c468c4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Пример использования. Непрерывное развертывание на виртуальных машинах с помощью Automation DSC и Chocolatey
 В среде DevOps существует множество средств, которые упрощают различные аспекты процесса непрерывной интеграции.  Платформа для настройки требуемого состояния службы автоматизации Azure (далее — Automation DSC Azure) — это долгожданная новая функция, которую могут использовать команды разработчиков DevOps.  В этой статье показана настройка непрерывного развертывания для компьютера Windows.  Применение этого метода можно легко расширить, включив любое количество компьютеров Windows, необходимое для роли (например, веб-сайта), а также дополнительные роли.
@@ -176,10 +176,4 @@ New-ConfigurationScript.ps1:
 * [Обзор DSC службы автоматизации Azure](automation-dsc-overview.md)
 * [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

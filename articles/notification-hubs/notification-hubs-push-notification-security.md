@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9128fa76cc0b0f4d879faaaf98d55b5b9180f46e
-
-
+ms.openlocfilehash: 7c3283799806135060bb8ca57ea398c93d1106bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="security"></a>Безопасность
 ## <a name="overview"></a>Обзор
@@ -45,10 +45,4 @@ ms.openlocfilehash: 9128fa76cc0b0f4d879faaaf98d55b5b9180f46e
 | Управление |Операции CRUD в Центрах уведомлений (включая обновление учетных данных PNS и ключей безопасности) и чтение регистраций на основе тегов |Создание, обновление, чтение, удаление Центров уведомлений<br><br>Чтение регистраций по тегу |
 
 Центры уведомлений принимают утверждения, предоставленные маркерами контроля доступа Microsoft Azure и маркерами подписей, которые создаются с использованием общих ключей, заданных непосредственно в Центре уведомлений.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

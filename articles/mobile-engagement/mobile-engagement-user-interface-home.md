@@ -1,6 +1,6 @@
 ---
-title: "Пользовательский интерфейс Azure Mobile Engagement — домашняя страница"
-description: "Узнайте, как управлять существующими приложениями и проектами с помощью Azure Mobile Engagement"
+title: "Пользовательский интерфейс Служб мобильного взаимодействия Azure — домашняя страница"
+description: "Узнайте, как управлять существующими приложениями и проектами с помощью Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1e3e4825d06486e6e8dfa874271ec82d203f7a7b
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>Управление существующими приложениями и проектами
-В этой статье описывается страница **Главная** портала **Mobile Engagement**. Портал **Mobile Engagement** используется для отслеживания мобильных приложений и управления ими. Обратите внимание, что для того, чтобы начать пользоваться порталом, сначала необходимо создать учетную запись **Azure Mobile Engagement** . 
+В этой статье описывается страница **Главная** портала **Служб мобильного взаимодействия**. Портал **Служб мобильного взаимодействия** используется для отслеживания мобильных приложений и управления ими. Обратите внимание, что для того, чтобы начать пользоваться порталом, сначала необходимо создать учетную запись **Служб мобильного взаимодействия Azure**. 
 
 Чтобы перейти на главную страницу, щелкните **Главная** в верхнем левом углу экрана. Здесь содержится список всех приложений, которые входят в выбранную коллекцию. На этой странице приводится только краткий обзор приложений.
 
@@ -165,4 +164,3 @@ ms.lasthandoff: 02/16/2017
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-

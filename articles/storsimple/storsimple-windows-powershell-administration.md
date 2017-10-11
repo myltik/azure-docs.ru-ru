@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f9e97bb2352231b46bdf66b1165bf22ec639fddf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: af135518f66eb8c94c183f28191f016fcd601ae1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Администрирование устройства с помощью Windows PowerShell для StorSimple
 ## <a name="overview"></a>Обзор
@@ -164,7 +163,7 @@ Windows PowerShell для StorSimple — это интерфейс команд�
 
 #### <a name="to-update-cmdlet-help"></a>Обновление справки по командлетам
 1. Запустите Windows PowerShell с параметром **Запуск от имени администратора** .
-2. В командной строке введите следующий текст:  `Update-Help`.
+2. В командной строке введите следующий текст: `Update-Help`.
 3. Будут установлены обновленные файлы справки.
 4. После установки файлов справки введите следующий текст: `Get-Help Get-Command`. Появится список командлетов, для которых доступна справка.
 
@@ -175,5 +174,4 @@ Windows PowerShell для StorSimple — это интерфейс команд�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если при выполнении одного из указанных выше рабочих процессов возникнут проблемы с устройством StorSimple, см. раздел [Средства для устранения неполадок в развертываниях StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: d987a4ae170f21532a886552cbe1eb5a0d25fc3f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Использование колонки сводки по службе для устройства StorSimple серии 8000
 
@@ -88,5 +87,4 @@ ms.lasthandoff: 07/12/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Узнайте больше об [использовании службы диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
-
 

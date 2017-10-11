@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b95dc0a83d8e5618effb573353f419e1837d30c5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Архивация сервера Windows Server или клиента Windows в Azure с использованием модели развертывания с помощью Resource Manager
 > [!div class="op_single_selector"]
@@ -268,4 +267,3 @@ ms.lasthandoff: 08/21/2017
 
 * Теперь, когда вы выполнили резервное копирование файлов и папок, вы можете [управлять хранилищами и серверами](backup-azure-manage-windows-server.md).
 * Если необходимо восстановить резервную копию, см. статью о [восстановлении файлов на компьютере Windows](backup-azure-restore-windows-server.md).
-

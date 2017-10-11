@@ -14,14 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Схема языка определения рабочих процессов в Azure Logic Apps
 
 Определение рабочего процесса содержит фактическую логику, которая выполняется как часть приложения логики. Это определение включает в себя один или несколько триггеров для запуска приложения логики и одно или несколько действий, которые будет выполнять приложение логики.  
@@ -338,4 +336,3 @@ ms.lasthandoff: 08/10/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [Действия и триггеры рабочего процесса](logic-apps-workflow-actions-triggers.md)
-

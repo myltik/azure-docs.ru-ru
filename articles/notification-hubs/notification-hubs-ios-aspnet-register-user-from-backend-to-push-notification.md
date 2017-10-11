@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Регистрация текущего пользователя для push-уведомлений с помощью ASP.NET
 > [!div class="op_single_selector"]
@@ -111,7 +111,7 @@ ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
    > 
 8. В файле PushToUserAppDelegate.m добавьте следующий метод обработчика:
    
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:                         [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:                         @"OK" otherButtonTitles:nil, nil];   [alert show]; }
+   * (void) приложения:(UIApplication *) приложения didReceiveRemoteNotification:(NSDictionary *) userInfo {NSLog (@"% @", сведений о пользователях);   UIAlertView * предупреждение = [[UIAlertView alloc] initWithTitle:@"Notification» сообщение: cancelButtonTitle делегата: nil [userInfo objectForKey:@"inAppMessage]»: @ otherButtonTitles:nil «ОК», nil];   [Показать предупреждения]; }
    
    Этот метод отображает предупреждение в пользовательском интерфейсе, когда приложение получает уведомления во время работы.
 9. Откройте файл PushToUserViewController.m и верните клавиатуру в следующей реализации:
@@ -220,9 +220,3 @@ ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
 [Уведомление пользователей с помощью концентраторов уведомлений]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Приступая к работе с концентраторами уведомлений]: /manage/services/notification-hubs/get-started-notification-hubs-ios
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

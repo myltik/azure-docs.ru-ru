@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Создание конвейера для непрерывной интеграции с помощью Visual Studio Team Services и IIS
 Чтобы автоматизировать этапы создания, тестирования и развертывания проекта приложения, вы можете использовать конвейер для непрерывной интеграции и развертывания (CI/CD). В рамках этого руководства вы создадите конвейер CI/CD с помощью Visual Studio Team Services и виртуальной машины Windows в Azure, где выполняются службы IIS. Вы узнаете, как выполнять такие задачи.
 

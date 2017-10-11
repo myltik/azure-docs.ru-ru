@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 06/11/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 269cbd80fb6e861fa8588025eec70b6c6e2890d7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C. Выполнение входа с помощью учетных записей Salesforce через SAML
 
@@ -256,4 +255,3 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Свои отзывы отправляйте сюда: [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
-

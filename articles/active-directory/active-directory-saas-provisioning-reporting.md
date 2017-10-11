@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 86b9a3d93745045904c6038583b9bc6ebac5667e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Руководство по отчетам об автоматической подготовке учетных записей пользователей
 
 
@@ -136,4 +134,3 @@ Azure Active Directory включает в себя [службу подгото
 
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-

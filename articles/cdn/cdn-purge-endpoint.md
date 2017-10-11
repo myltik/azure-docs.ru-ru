@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eb46368541551feff1b28642f9343e508ef47b95
 ms.openlocfilehash: b035c232bb58d653960190d4974cc3789d55a51d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/14/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Очистка конечной точки сети CDN Azure
 ## <a name="overview"></a>Обзор
@@ -76,5 +75,4 @@ ms.lasthandoff: 02/14/2017
 ## <a name="see-also"></a>Дополнительные материалы
 * [Предварительная загрузка ресурсов на конечной точке CDN Azure](cdn-preload-endpoint.md)
 * [Справочник по API REST CDN. Очистка и предварительная загрузка конечной точки](https://msdn.microsoft.com/library/mt634451.aspx)
-
 

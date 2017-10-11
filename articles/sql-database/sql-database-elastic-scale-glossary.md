@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ebd5224caa41efe61bdea14b4570005880f4411c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 0fda4bb948bbed1c14d468519ba67cce9bc4e6c3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="elastic-database-tools-glossary"></a>Глоссарий по средствам работы с эластичными базами данных
 В связи со [средствами работы с эластичными базами данных SQL Azure](sql-database-elastic-scale-introduction.md)применяются следующие термины. Для управления [картами сегментов](sql-database-elastic-scale-shard-map-management.md) используются такие инструменты, как [клиентская библиотека](sql-database-elastic-database-client-library.md), [средство разбиения и слияния](sql-database-elastic-scale-overview-split-and-merge.md), [пулы эластичных баз данных](sql-database-elastic-pool.md) и [запросы](sql-database-elastic-query-overview.md). 
@@ -93,5 +91,4 @@ ms.lasthandoff: 12/08/2016
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
-
 

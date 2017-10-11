@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
 ms.openlocfilehash: a86864a779b0de1c6d5669cfbba0f3e1a27f1ff1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/31/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Выполнение заданий Pig с помощью REST с использованием Hadoop в HDInsight
 
@@ -125,4 +124,3 @@ ms.lasthandoff: 07/31/2017
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
-

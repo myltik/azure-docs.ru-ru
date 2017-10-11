@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: mmccrory
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4acea8e7f4714754e6b3e54e9aaa622219ca9f7f
-ms.openlocfilehash: f16d981a0dc33295c1981d9c282beb1d3243d9ef
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/03/2016
-
-
+ms.openlocfilehash: a7ae8ff202d403dff19b8c9a6a09492235db27ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Как масштабировать облачную службу в PowerShell
 
@@ -81,4 +79,3 @@ Set-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>' -S
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Настроить автомасштабирование для облачных служб из PowerShell невозможно. Об этом можно узнать в разделе [Автомасштабирование облачной службы](cloud-services-how-to-scale-portal.md).
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 57ba0e46139bda2d74c9f7db0ffab2f2122b0df2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="multitenant-applications-in-azure"></a>Мультитенантные приложения Azure
 Мультитенантное приложение – это общий ресурс, который позволяет разделять пользователей или "клиентов" для просмотра приложения, как будто каждый пользователь является его владельцем. Типичный сценарий, связанный с мультитенатным приложением: все пользователи приложения могут настроить под себя интерфейс, однако во всем остальном приложение должно соответствовать одним и тем же бизнес-требованиям. Примерами крупных мультитенатных приложений являются Office 365, Outlook.com и visualstudio.com.
@@ -93,4 +92,3 @@ Azure предоставляет ряд способов подготовки н
 
 [Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
-

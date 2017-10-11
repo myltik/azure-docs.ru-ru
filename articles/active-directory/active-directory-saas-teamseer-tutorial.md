@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 2a5e8f6d1443681c43db95da5cef0b7f2ef92291
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Учебник. Интеграция Azure Active Directory с TeamSeer
 
@@ -114,7 +113,7 @@ ms.lasthandoff: 06/16/2017
      В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://www.teamseer.com/<companyid>`
 
     > [!NOTE] 
-    > Это значение приведено для справки. Вместо него необходимо указать фактический URL-адрес для входа. Чтобы получить это значение, обратитесь в [службу поддержки клиентов TeamSeer](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html). 
+    > Это значение приведено для примера. Вместо него необходимо указать фактический URL-адрес для входа. Чтобы получить это значение, обратитесь в [службу поддержки клиентов TeamSeer](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html). 
  
 4. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)**, а затем сохраните файл сертификата на компьютере.
 
@@ -278,5 +277,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_203.png
-
 

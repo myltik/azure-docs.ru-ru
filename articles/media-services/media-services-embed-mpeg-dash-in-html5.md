@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35ba9161f70a27a215685830d1a9e7c1881cc3bb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Встраивание адаптивного потокового видео MPEG-DASH в приложение HTML5 с помощью DASH.js
 ## <a name="overview"></a>Обзор
@@ -106,5 +105,4 @@ Dash.js — это проигрыватель видео MPEG-DASH с откр�
 [Разработка приложений видеопроигрывателя](media-services-develop-video-players.md)
 
 [Репозиторий dash.js на GitHub](https://github.com/Dash-Industry-Forum/dash.js) 
-
 

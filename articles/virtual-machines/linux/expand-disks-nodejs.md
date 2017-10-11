@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Расширение дисков операционной системы на виртуальной машине Linux с помощью Azure CLI 1.0
 Как правило, размер виртуального жесткого диска по умолчанию для операционной системы на виртуальной машине Linux в Azure составляет 30 ГБ. Вы можете [добавить диски данных](add-disk.md), чтобы предоставить дополнительное место для хранения, а также расширить диск операционной системы. В этой статье подробно описано, как расширить диск ОС виртуальной машины Linux, использующей неуправляемые диски, с помощью Azure CLI 1.0.
 
@@ -77,4 +75,3 @@ azure config mode arm
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если вам требуется дополнительное место для хранения, можно также [добавить диски данных в виртуальную машину Linux](add-disk.md). Дополнительные сведения о шифровании диска см. в статье [Encrypt disks on a Linux VM using the Azure CLI](encrypt-disks.md) (Шифрование дисков на виртуальной машине Linux с помощью Azure CLI).
-

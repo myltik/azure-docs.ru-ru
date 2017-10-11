@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a662841bebda460d4225e080f16705b3f16fdc46
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-started-with-azure-advisor"></a>Приступая к работе с Azure Advisor
 
 Узнайте, как воспользоваться Помощником на портале Azure и как получить, реализовать, найти и обновить рекомендации.
@@ -95,4 +93,3 @@ ms.lasthandoff: 03/31/2017
 * [Рекомендации Azure Advisor по безопасности](advisor-security-recommendations.md)
 -  [Рекомендации Azure Advisor по производительности](advisor-performance-recommendations.md)
 * [Рекомендации Azure Advisor по затратам](advisor-performance-recommendations.md)
-

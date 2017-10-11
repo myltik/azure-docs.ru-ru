@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: cc30a54cd56c0cb03a67f86e4552398baa764e58
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # Вызовы между службами с помощью учетных данных клиента (общий секрет или сертификат)
 Процесс предоставления учетных данных клиента OAuth 2.0 позволяет веб-службе (*конфиденциальный клиент*) вместо олицетворения пользователя использовать свои собственные учетные данные для аутентификации при вызове другой веб-службы. В этом сценарии клиент обычно является службой среднего уровня, веб-службой, службой управляющей программы или веб-сайтом. Для большей надежности Azure AD также позволяет вызывающей службе использовать в качестве учетных данных сертификат (вместо общего секрета).
@@ -122,4 +121,3 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 ## Дополнительные материалы
 * [OAuth 2.0 в Azure AD](active-directory-protocols-oauth-code.md)
 * [Пример вызова между службами с помощью общего секрета (на языке C#)](https://github.com/Azure-Samples/active-directory-dotnet-daemon) и [Пример вызова между службами с помощью сертификата (на языке C#)](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
-

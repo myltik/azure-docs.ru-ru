@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6942ea67050b86dc8f5a4c9d71ebd8ebd83ad0a2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 07d21b7ce6cd8aee1cff704d316e7a2ca8c00437
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publish-WebApplicationWebSite (сценарий Windows PowerShell)
 ## <a name="syntax"></a>Синтаксис
@@ -125,5 +124,4 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения см. в статье [Publish-WebApplicationVM (сценарий Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
-
 

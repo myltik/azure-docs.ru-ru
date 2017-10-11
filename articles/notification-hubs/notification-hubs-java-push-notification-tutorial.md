@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Использование концентраторов уведомлений из Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -271,7 +271,7 @@ API установки — это альтернативный механизм 
 
 После выполнения кода Java на целевом устройстве должно отобразиться уведомление.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 В этом разделе было показано, как создать простой клиент Java REST для концентраторов уведомлений. На данном этапе можно сделать следующее.
 
 * Скачайте полный [пакета SDK для Java], содержащий весь код пакета SDK. 
@@ -283,17 +283,11 @@ API установки — это альтернативный механизм 
   * [Отправка кроссплатформенных уведомлений проверенным пользователям]
 
 [пакета SDK для Java]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Учебник по началу работы]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Приступая к работе с центрами уведомлений]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Отправка экстренных новостей]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
 [Отправка локализованных экстренных новостей]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Отправка уведомлений проверенным пользователям]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
 [Отправка кроссплатформенных уведомлений проверенным пользователям]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

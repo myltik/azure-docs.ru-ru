@@ -1,5 +1,5 @@
 ---
-title: 'Who''s using Azure Search: case studies and customer stories | Microsoft Docs'
+title: "Кто использует службы поиска Azure: примеры использования и описания функциональности пользователей | Документы Microsoft"
 description: "Примеры использования и истории клиентов о Поиске Azure, размещенной облачной службы поиска в Microsoft Azure."
 services: search
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Служба поиска Azure: примеры использования и истории клиентов
 Узнайте, как указанные ниже организации смогли улучшить свой бизнес за счет интеграции широких возможностей поиска в онлайн-приложениях.
@@ -53,4 +52,3 @@ Weichert Realtors переходит на облако и полностью м�
 [4]: ./media/search-case-studies/medihoo_m.png
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
-

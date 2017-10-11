@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>Разработка действий сценариев с помощью HDInsight
 
@@ -379,4 +378,3 @@ fi
 * Узнайте, как [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md)
 * Используйте [справочник по пакету SDK .NET для HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) , чтобы узнать больше о создании приложений .NET, которые управляют HDInsight.
 * Используйте [REST API HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) , чтобы узнать, как использовать REST для выполнения операций управления кластерами HDInsight.
-

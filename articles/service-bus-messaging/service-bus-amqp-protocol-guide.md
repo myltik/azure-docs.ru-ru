@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: clemensv;hillaryc;sethm
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 2ef07d78a9d81fac933f2c3359e9ee48f86e6790
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # Руководство по использованию протокола AMQP 1.0 в служебной шине и концентраторах событий Azure
 
@@ -334,4 +333,3 @@ CBS определяет виртуальный узел управления *$
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-

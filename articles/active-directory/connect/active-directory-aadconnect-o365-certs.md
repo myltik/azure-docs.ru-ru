@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
-ms.openlocfilehash: 51eafa16bd918a065f896ba89dec54d2340b5c69
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Обновление сертификатов федерации для Office 365 и Azure AD
 ## <a name="overview"></a>Обзор
@@ -165,4 +164,3 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 Если вы настроили ферму AD FS и доверие Azure AD, используя Azure AD Connect, то с помощью Azure AD Connect можно определить, нужно ли выполнять какие-либо действия с сертификатами для подписи маркеров. Если требуется обновить сертификаты, используйте Azure AD Connect.
 
 Дополнительные сведения см. в разделе [Восстановление доверия](active-directory-aadconnect-federation-management.md).
-

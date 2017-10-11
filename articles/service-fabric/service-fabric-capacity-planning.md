@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: caeb0569de89b1af7b87f393601c7aa1a1e293dc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/03/2017
-
+ms.openlocfilehash: fc98bdd8b3597810b0c07563af507e93c611f769
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Планирование емкости для приложений Service Fabric
 В этом документе содержатся сведения об определении объема ресурсов (ЦП, ОЗУ, дискового хранилища), необходимых для выполнения приложений Service Fabric. Чаще всего требования к ресурсам со временем меняются. Как правило, при разработке или тестировании службы требуется незначительное количество ресурсов. Но при переходе в рабочую среду и росте популярности приложения объем ресурсов возрастает. При проектировании приложения следует рассмотреть требования в долгосрочной перспективе и принять решения, которые позволят масштабировать службу в соответствии с возросшими требованиями клиентов.
@@ -67,4 +66,3 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
-

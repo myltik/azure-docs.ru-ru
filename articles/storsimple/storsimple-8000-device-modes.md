@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: dd160ede1189b0de544c8cf5db3b13228d212419
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Переключение режима устройства StorSimple
 
@@ -164,5 +163,4 @@ ms.lasthandoff: 07/08/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Узнайте, как [применить обновления нормального режима и режима обслуживания](storsimple-update-device.md) к своему устройству StorSimple.
-
 

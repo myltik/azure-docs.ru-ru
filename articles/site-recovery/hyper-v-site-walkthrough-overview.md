@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: da10b213bc2543942b5ac77cf5c5d8547c00220c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="replicate-hyper-v-virtual-machines-without-vmm-to-azure"></a>Репликация виртуальных машин Hyper-V (без VMM) в Azure 
 
 > [!div class="op_single_selector"]
@@ -109,4 +107,3 @@ ms.lasthandoff: 06/23/2017
 После завершения начальной репликации и запуска репликации разностных изменений можно выполнить тестовую отработку отказа, чтобы убедиться, что все работает правильно.
 
 Перейдите к статье [Шаг 11: Запуск тестовой отработки отказа физических серверов в Azure](hyper-v-site-walkthrough-test-failover.md).
-

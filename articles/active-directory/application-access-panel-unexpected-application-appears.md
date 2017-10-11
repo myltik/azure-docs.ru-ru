@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: f8ccf2cf66b49940bc7f2b9f4764020efc04838e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-applications-appear-on-the-access-panel"></a>Отображение приложений на панели доступа
 
 Панель доступа — это веб-портал, который позволяет пользователям, имеющим рабочую или учебную учетную запись Azure Active Directory (Azure AD), просматривать и запускать облачные приложения, к которым администратор Azure AD предоставил доступ. Эти приложения настраиваются от имени пользователя на портале Azure AD. Администратор может подготовить приложение непосредственно для пользователя или для группы, в которую он входит, после чего приложение появится на панели доступа пользователя.
@@ -154,4 +152,3 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)
-

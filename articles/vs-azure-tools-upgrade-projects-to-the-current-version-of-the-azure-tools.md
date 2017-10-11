@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e346640f6cbf7969bf373b84d8a20a24a74f654e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 9a35de7ca0e7161468181b21709e1bd9915d566f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-upgrade-projects-to-the-current-version-of-the-azure-tools-for-visual-studio"></a>Обновление проектов до текущей версии инструментов Azure для Visual Studio
 ## <a name="overview"></a>Обзор
@@ -47,5 +46,4 @@ ms.lasthandoff: 11/17/2016
     На вкладке **Приложение** отображается версия инструментов, связанная с проектом. Если отображается текущая версия инструментов Azure, проект уже обновлен. Если вы установили более новую версию инструментов, чем та, которая отображается на вкладке, появится кнопка **Обновление** .
 3. Нажмите кнопку **Обновление** , чтобы обновить проект до текущей версии инструментов.
 4. Выполните сборку проекта, а затем исправьте все ошибки, возникающие в результате изменения API. Сведения об изменении кода для новой версии см. в документации к конкретному API.
-
 

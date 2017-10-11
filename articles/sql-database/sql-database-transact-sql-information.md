@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 105255696c59346f3a8f0013d98602c9f17b7661
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: c4efec378a31852feacfce4ed4f040f80284e230
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Отличия Transact-SQL базы данных SQL Azure   
 При [миграции базы данных](sql-database-cloud-migrate.md) из SQL Server на Azure SQL Server может оказаться, что базу данных необходимо переработать до переноса. В этом разделе содержатся рекомендации, которые помогут выполнить переработку и понять основные причины ее необходимости. Чтобы обнаружить проблемы с совместимостью, используйте [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -92,5 +90,4 @@ ms.lasthandoff: 05/18/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Список поддерживаемых и неподдерживаемых в базе данных SQL функций см. в статье [Сравнение функций базы данных SQL Azure](sql-database-features.md). Список на этой странице дополняет сведения в разделе с рекомендациями и функциями и содержит перечень инструкций Transact-SQL.
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f8a20b45b50f71631122e574b634818c1912f12e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-4-plan-networking-for-physical-server-replication-to-azure"></a>Шаг 4. Планирование сетей для репликации физического сервера в Azure
 
 В этой статье собраны рекомендации по планированию сетей при репликации локальных физических серверов в Azure с помощью службы [Azure Site Recovery](site-recovery-overview.md).
@@ -85,4 +83,3 @@ ms.lasthandoff: 06/29/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 5. Подготовка ресурсов Azure для репликации Hyper-V в Azure](physical-walkthrough-prepare-azure.md).
-

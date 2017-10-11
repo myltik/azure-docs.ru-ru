@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 736f7c11ec3de04f1ad52ee29d0a4c952c9b0545
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Перемещение файлов на виртуальную машину Linux и с нее с помощью SCP
 
 В этой статье показано, как перемещать файлы между рабочей станцией и виртуальной машиной Azure под управлением Linux, используя протокол SCP. Быстрое и безопасное перемещение файлов между рабочей станцией и виртуальной машиной с Linux является важной частью управления инфраструктурой Azure. 

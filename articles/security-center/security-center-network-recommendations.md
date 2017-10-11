@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 174546d59124296711731de6c8d8929bada56baf
 ms.openlocfilehash: 00b715507a7c3a4d784b800e7bf0c700f6ea6ff1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/18/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="protecting-your-network-in-azure-security-center"></a>Защита сети в центре безопасности Azure.
 Центр безопасности Azure анализирует состояние безопасности ресурсов Azure. Когда центр безопасности выявляет потенциальные уязвимости в системе безопасности, он создает рекомендации по настройке необходимых элементов управления.  Рекомендации относятся к следующим типам ресурсов Azure: виртуальные машины (ВМ), сети, SQL и приложения.
@@ -46,4 +45,3 @@ ms.lasthandoff: 11/18/2016
 * [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
 * [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
-

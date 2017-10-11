@@ -1,6 +1,6 @@
 ---
-title: "Интеграция пакета Android SDK для Azure Mobile Engagement"
-description: "Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
+title: "Интеграция пакета Android SDK для Служб мобильного взаимодействия Azure"
+description: "Последние обновления и процедуры пакета Android SDK для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97ce7f4d682ec12470db4248d046a8367840f0bd
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 1f047f93fa8bc852b28c86e91d0c007a94fb4299
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-procedures"></a>Процедуры обновления
 Если вы уже интегрировали в приложение старую версию пакета SDK, при обновлении пакета SDK необходимо учитывать следующее.
@@ -146,10 +145,10 @@ ms.lasthandoff: 11/17/2016
 Внедрите новый файл `res/layout/engagement_loading.xml` в проект.
 
 ## <a name="from-240-to-300"></a>Из версии 2.4.0 в 3.0.0
-Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement. При миграции с более ранней версии сначала ознакомьтесь с информацией о переносе на версию 2.4.0 на веб-сайте Capptain, а затем примените следующую процедуру.
+Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение Служб мобильного взаимодействия Azure. При миграции с более ранней версии сначала ознакомьтесь с информацией о переносе на версию 2.4.0 на веб-сайте Capptain, а затем примените следующую процедуру.
 
 > [!IMPORTANT]
-> Службы Capptain и Azure Mobile Engagement отличаются друг от друга. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
+> Службы Capptain и Службы мобильного взаимодействия Azure отличаются друг от друга. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Служб мобильного взаимодействия.
 > 
 > 
 
@@ -414,5 +413,4 @@ ms.lasthandoff: 11/17/2016
             -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
               <methods>;
             }
-
 

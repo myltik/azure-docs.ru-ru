@@ -10,14 +10,12 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Создание сервера Jenkins на виртуальной машине Azure под управлением Linux на портале Azure
 
 В этом кратком руководстве описано, как установить [Jenkins](https://jenkins.io) на виртуальной машине под управлением Ubuntu Linux с помощью средств и подключаемых модулей, настроенных для работы с Azure. Мы создадим в Azure сервер Jenkins для сборки образца приложения Java из [GitHub](https://github.com).
@@ -113,4 +111,3 @@ ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp
 
 > [!div class="nextstepaction"]
 > [Использование агентов виртуальных машин для непрерывной интеграции с Jenkins.](jenkins-azure-vm-agents.md)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: af453ec27ba15ad8c59cf9f544584ad18dc0f74a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="step-7-set-up-a-vault-for-hyper-v-replication"></a>Шаг 7. Настройка хранилища для репликации Hyper-V
 
 В этой статье описано, как настроить хранилище и указать, что именно необходимо реплицировать из локальной среды в Azure, используя службу [Azure Site Recovery](site-recovery-overview.md) на портале Azure.
@@ -50,4 +48,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к разделу [Шаг 8. Настройка исходной и целевой среды для репликации физического сервера в Azure](vmm-to-azure-walkthrough-source-target.md).
-

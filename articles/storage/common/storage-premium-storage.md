@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: ramankum
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 559753d7ff3da7e8b5dc8f976368a1d35dd6258b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Высокопроизводительное хранилище класса Premium и управляемые диски для виртуальных машин Azure
 Хранилище Azure класса Premium обеспечивает поддержку дисков с высокой производительностью и малой задержкой для виртуальных машин с интенсивной рабочей нагрузкой ввода-вывода. Диски виртуальной машины, использующие хранилище класса Premium, хранят данные на твердотельных накопителях. Диски виртуальной машины приложения можно перенести в хранилище Azure класса Premium, чтобы использовать их быстродействие и производительность.
@@ -329,4 +328,3 @@ sudo yum install microsoft-hyper-v
 ### <a name="blog-posts"></a>Записи блога
 * [Azure Premium Storage, now generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) (Хранилище Azure класса Premium общедоступно)
 * [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/) (Объявление о серии GS: добавление поддержки хранилища класса Premium для наиболее крупных виртуальных машин в общедоступном облаке)
-

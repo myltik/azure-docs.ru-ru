@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Часто задаваемые вопросы об отчетах Azure Active Directory
 
@@ -110,4 +109,3 @@ ms.lasthandoff: 08/23/2017
 **Ответ.** IP-адреса выдаются таким образом, что определенная связь между IP-адресом и физическим расположением компьютера с этим адресом отсутствует. Это осложняется тем, что поставщики мобильной связи и виртуальные частные сети выдают IP-адреса из центральных пулов, которые нередко находятся очень далеко от места, где фактически используется клиентское устройство. Учитывая все вышесказанное, преобразование IP-адреса в физическое расположение не гарантируется и осуществляется на основе трассировок, данных реестра, обратных просмотров и других сведений. 
 
 ---
-

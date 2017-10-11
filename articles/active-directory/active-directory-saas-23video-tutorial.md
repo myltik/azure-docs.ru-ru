@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: ffcd665506c21e25c84367af5b6a3afb8e319af7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Руководство по интеграции Azure Active Directory с платформой 23 Video
 
@@ -252,4 +250,3 @@ ms.lasthandoff: 05/31/2017
 [400]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_10.png
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
-

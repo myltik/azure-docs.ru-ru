@@ -14,12 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 3c5826d58887ff1af4df8e66999d9c1a1643bcc7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-azure-cli-to-create-a-service-principal-to-access-resources"></a>Использование интерфейса командной строки Azure для создания субъекта-службы и доступа к ресурсам
 
@@ -296,4 +295,3 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 * Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [Управление ресурсами клиента с помощью Azure Active Directory и Resource Manager](resource-manager-api-authentication.md).
 * Дополнительные сведения об использовании сертификатов и Azure CLI см. в статье [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) (Проверка подлинности на основе сертификата для субъектов-служб Azure из командной строки Linux). 
 * Список доступных действий, которые можно разрешить или запретить пользователям, см. в разделе [Операции поставщиков ресурсов Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
-

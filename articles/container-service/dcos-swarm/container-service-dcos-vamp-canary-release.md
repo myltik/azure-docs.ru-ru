@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: db2e0bd43161aad02ffce61b4cd9325892844dde
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 4a20091b59f2643ea71cce99c159a5075706e35d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
-
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Ранний выпуск микрослужб с помощью Vamp в кластере DC/OS Службы контейнеров Azure
 
 В этом пошаговом руководстве мы настраиваем Vamp в Службе контейнеров Azure, используя кластер DC/OS. Мы создаем ранний выпуск демоверсии службы Vamp "sava", а затем устраняем несовместимость этой службы с Firefox, применив интеллектуальную фильтрацию трафика. 
@@ -299,5 +296,4 @@ Vamp использует **условия** для фильтрации тра�
 * Создайте сценарии автоматизации Vamp, используя Node.js, и выполните их как [рабочие процессы Vamp](http://vamp.io/documentation/tutorials/create-a-workflow/).
 
 * Также ознакомьтесь с дополнительными [руководствами по VAMP](http://vamp.io/documentation/tutorials/overview/).
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9173e34f889ce1c082b20bb382cb6ca9a03dd797
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Использование службы диспетчера StorSimple для управления записями контроля доступа
 
@@ -130,5 +129,4 @@ ms.lasthandoff: 07/08/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше об [управлении томами StorSimple](storsimple-8000-manage-volumes-u2.md).
 * Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
-
 

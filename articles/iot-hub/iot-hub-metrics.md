@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 82cec2c9545cd5ae33ec6d5d0e4c7ebf1a500e5b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: e850370faf2d271b4adad1af48c1ead7b316fa67
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="understand-iot-hub-metrics"></a>Общие сведения о метриках Центра Интернета вещей
 Метрики Центра Интернета вещей предоставляют более качественные данные о состоянии ресурсов Интернета вещей Azure в вашей подписке Azure. Метрики Центра Интернета вещей позволяют оценивать общую работоспособность службы Центра Интернета вещей и подключенных к ней устройств. Доступные пользователям статистические данные имеют важное значение, поскольку благодаря им вы знаете, что происходит с центром IoT, и можете устранять основные проблемы без обращения в службу поддержки Azure.
@@ -98,7 +97,7 @@ ms.lasthandoff: 05/16/2017
 
 * [Мониторинг операций][lnk-monitor]
 
-Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
 * [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
 * [Отправка сообщений с устройства в облако с помощью имитации устройства (Linux) с использованием Edge Интернета вещей Azure][lnk-iotedge]
@@ -116,4 +115,3 @@ ms.lasthandoff: 05/16/2017
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

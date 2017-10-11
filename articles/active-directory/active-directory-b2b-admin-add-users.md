@@ -1,5 +1,4 @@
 ---
-
 title: "Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B? | Документация Майкрософт"
 description: "Администратор может добавлять в Azure AD гостевых пользователей из партнерской организации с помощью службы совместной работы Azure Active Directory B2B."
 services: active-directory
@@ -16,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 7f33165141f31c1b495313f2da0d6e4681bdf8f2
-ms.lasthandoff: 03/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="how-do-azure-active-directory-admins-add-b2b-collaboration-users"></a>Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B?
 
 Глобальные администраторы и 	администраторы с ограниченными правами могут использовать [портал Azure](https://portal.azure.com) для приглашения пользователей службы совместной работы B2B в каталог, группу или приложение.
@@ -70,4 +66,3 @@ ms.lasthandoff: 03/17/2017
 * [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-

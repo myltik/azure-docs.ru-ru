@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 868b2cc1559053057d17b34c03e2e31347f399bf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-azure-portal-to-assign-and-manage-resource-policies"></a>Назначение политик ресурсов и управление ими с помощью портала Azure
 Портал Azure позволяет назначить группам ресурсов и подпискам политики ресурсов. Пользовательский интерфейс позволяет с легкостью выбрать политику, которую требуется назначить, и указать значения параметров политики, чтобы ее настроить. 
@@ -84,5 +83,4 @@ ms.lasthandoff: 03/31/2017
 * Сведения о синтаксисе JSON для определений политик см. в статье [Общие сведения о политике ресурсов](resource-manager-policy.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
 * Схема политики опубликована на странице [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
 

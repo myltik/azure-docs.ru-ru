@@ -1,5 +1,4 @@
 ---
-
 title: "Назначение лицензий группе в Azure Active Directory | Документация Майкрософт"
 description: "Как назначить лицензии пользователям с помощью группового лицензирования Azure Active Directory"
 services: active-directory
@@ -17,15 +16,12 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 42b18eab9cb419e6ada72ba72dc8be8d7f7b2eed
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
-
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Назначение лицензий пользователям в соответствии с членством в группах в Azure Active Directory
 
 В этой статье приводятся пошаговые инструкции по назначению лицензий на продукты группе пользователей в Azure Active Directory (Azure AD) и проверке наличия нужных лицензий.
@@ -112,4 +108,3 @@ ms.lasthandoff: 07/10/2017
 * [Поиск и устранение проблем лицензирования группы в Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Как перевести отдельных лицензированных пользователей на групповое лицензирование в Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Дополнительные сценарии лицензирования на основе группы в Azure Active Directory](active-directory-licensing-group-advanced.md)
-

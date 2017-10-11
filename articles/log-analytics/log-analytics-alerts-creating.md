@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Работа с правилами генерации оповещений в Log Analytics
 Оповещения создаются с помощью правил оповещения, которые автоматически выполняют поиск по журналам через регулярные интервалы.  Они создают запись оповещения, если результаты соответствуют определенным условиям.  После этого правило может автоматически запустить одно или несколько действий, чтобы заблаговременно уведомить вас об оповещении либо вызвать другой процесс.   
@@ -155,5 +154,4 @@ ms.lasthandoff: 05/25/2017
 * Вы можете ознакомиться с дополнительными сведениями о [поисках журналов](log-analytics-log-searches.md) , которые могут создавать оповещения.
 * Вы можете выполнить пошаговое руководство по [настройке webook](log-analytics-alerts-webhooks.md) с использованием правила генерации оповещений.  
 * Вы можете научиться писать [модули Runbook в службе автоматизации Azure](https://azure.microsoft.com/documentation/services/automation) для устранения проблем, обозначенных в оповещениях.
-
 

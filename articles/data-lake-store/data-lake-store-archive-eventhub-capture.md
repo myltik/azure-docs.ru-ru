@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: a9e69576958ae96d22a4eb03d0df429f0b307298
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Запись данных из концентраторов событий с помощью Azure Data Lake Store
 
@@ -124,4 +123,3 @@ ms.lasthandoff: 08/28/2017
 ## <a name="see-also"></a>См. также
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 * [Копирование данных из больших двоичных объектов службы хранилища Azure в Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
-

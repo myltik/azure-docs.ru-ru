@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Устранение ошибок синхронизации
 При синхронизации данных удостоверений Windows Server Active Directory (AD DS) с Azure Active Directory (Azure AD) могут возникать ошибки. В этой статье предоставляются общие сведения о различных типах ошибок синхронизации, некоторые возможные сценарии возникновения этих ошибок, а также возможные способы их устранения. Здесь содержатся сведения о распространенных типах ошибок, возможно, рассматриваются не все возможные ошибки.
@@ -223,4 +222,3 @@ b. Атрибут userPrincipalName не соответствует требуе
 ## <a name="related-links"></a>Связанные ссылки
 * [Locate Active Directory Objects in Active Directory Administrative Center](https://technet.microsoft.com/library/dd560661.aspx) (Поиск объектов Active Directory в центре администрирования Active Directory)
 * [How to query Azure Active Directory for an object using Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) (Как запросить объект с помощью модуля Azure Active Directory для PowerShell)
-

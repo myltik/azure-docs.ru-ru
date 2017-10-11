@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: a2cbb6ca9197c7af0d1d30e87d58b0314507a531
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: ccebc722386a19014674d7a59757a3685bd50793
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="bandwidththroughput-testing-ntttcp"></a>Проверка пропускной способности (NTTTCP)
 
 При тестировании пропускной способности сети в Azure рекомендуется использовать инструмент, предназначенный для тестирования сети и сводящий к минимуму использование других ресурсов, которые могут повлиять на скорость. Рекомендуется использовать NTTTCP.
@@ -164,4 +162,3 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ## <a name="next-steps"></a>Дальнейшие действия
 * В зависимости от полученных результатов в вашем сценарии вполне может быть возможность [оптимизировать пропускную способность сети виртуальных машин](virtual-network-optimize-network-bandwidth.md).
 * Узнайте больше из раздела [Виртуальная сеть Azure: часто задаваемые вопросы](virtual-networks-faq.md).
-

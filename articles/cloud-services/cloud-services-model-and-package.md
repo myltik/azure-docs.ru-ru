@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cca4d126a5c5f012af6afb9a31d0aedc0f7eb155
-ms.openlocfilehash: 7aebd5bd168799e1a88bad0e78ba3a164bfcfccd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 21fbdbc4c24440c6fbbd7487cfbb2e0a3140aa96
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Что такое модель облачных служб и как создать ее пакет?
 Облачная служба создается из трех компонентов: определения службы *(CSDEF-файл)*, конфигурации службы *(CSCFG-файл)* и пакета службы *(CSPKG-файл)*. Файлы **ServiceDefinition.csdef** и **ServiceConfig.cscfg** являются XML-файлами, которые описывают структуру облачной службы и ее конфигурацию. В совокупности это называется моделью. **ServicePackage.cspkg** — это ZIP-файл, который создается на основе файла **ServiceDefinition.csdef** и который, помимо прочего, содержит все необходимые зависимости в двоичном формате. Azure создает облачную службу из двух файлов: **ServicePackage.cspkg** и **ServiceConfig.cscfg**.
@@ -296,4 +295,3 @@ cspack [DirectoryName]\[ServiceDefinition]
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: d6a0be5d9c876984a323a65f9e0ce73668e94cb8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: 45e80ca672dfdb6defc6e5c1aac3d29f5479125c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Включение автономной синхронизации для мобильного приложения Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -211,4 +210,3 @@ ms.lasthandoff: 07/19/2017
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-

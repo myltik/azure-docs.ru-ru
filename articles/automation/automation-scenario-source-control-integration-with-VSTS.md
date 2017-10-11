@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f68563587d375dde22fd1ca45591fd49042533d0
 ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Сценарий службы автоматизации Azure: интеграция системы управления версиями службы автоматизации с Visual Studio Team Services
 
@@ -101,4 +100,3 @@ VSAccessTokenVariableName | Имя защищенной переменной (VS
 Если этот модуль Runbook запускается вручную, а не активируется VSTS, то параметр WebhookData можно оставить пустым, и он выполнит полную синхронизацию из указанной папки VSTS.
 
 Если вы хотите удалить сценарий, то удалите перехватчик события из VSTS, удалите модуль Runbook и переменную VSToken.
-

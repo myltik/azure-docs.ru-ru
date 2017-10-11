@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.lasthandoff: 04/11/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Автоматическая настройка групп доступности AlwaysOn на виртуальных машинах Azure с использованием Resource Manager
 
@@ -212,4 +211,3 @@ ms.lasthandoff: 04/11/2017
 7. В окне **удаленного рабочего стола** может появиться предупреждение о том, что проверка подлинности удаленного компьютера не может быть выполнена из-за проблем с сертификатом безопасности. В нем будет отображено имя сертификата безопасности. Если вы следовали инструкциям в руководстве, здесь указано значение **sqlserver-0.contoso.com**. Щелкните **Да**.
 
 Теперь вы подключены к виртуальной машине SQL Server по протоколу RDP. Откройте SQL Server Management Studio, подключитесь к экземпляру SQL Server по умолчанию и убедитесь, что группа доступности настроена.
-

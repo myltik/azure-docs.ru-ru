@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 839ad8c9437918b3f64d42500a7bfbad19afa3c4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.openlocfilehash: 2bc1f0114a096920d4a7c9cb57e44c9b3612bf86
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Копирование существующих BLOB-объектов в файл служб мультимедиа
 В этой статье демонстрируется, как копировать большие двоичные объекты из учетной записи хранения в файл служб мультимедиа Azure (AMS) с помощью [расширений пакета SDK служб мультимедиа Azure для .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
@@ -338,5 +337,4 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

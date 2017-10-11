@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Шаблоны разработки для мультитенантных приложений SaaS и Поиска Azure
 Мультитенантным называется приложение, предоставляющее одинаковые службы и возможности любому числу клиентов, каждый из которых не может видеть или совместно использовать данные любого другого клиента. В этом документе рассматриваются стратегии изоляции клиентов в мультитенантных приложениях на основе Поиска Azure.
@@ -135,5 +134,4 @@ ms.lasthandoff: 07/06/2017
 Поиск Azure — привлекательное решение для многих приложений. Вы можете прочитать [больше о надежных возможностях этой службы](http://aka.ms/whatisazsearch). При оценке различных шаблонов разработки для мультитенантных приложений рассмотрите [различные ценовые категории](https://azure.microsoft.com/pricing/details/search/) и соответствующие [ограничения служб](search-limits-quotas-capacity.md), чтоб подобрать наилучшее решение Поиска Azure для рабочих нагрузок приложений и архитектур любого размера.
 
 Любые вопросы о службе поиска Azure и мультитенантных сценариях можно отправить на электронный адрес azuresearch_contact@microsoft.com.
-
 

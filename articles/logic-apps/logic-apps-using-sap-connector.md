@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connect-to-an-on-premises-sap-system-from-logic-apps-with-the-sap-connector"></a>Подключение к локальной системе SAP из приложения логики с помощью соединителя SAP 
 
 Локальный шлюз данных позволяет управлять данными и безопасно обращаться к ресурсам, расположенным в локальной среде. В этом разделе показано, как приложения логики могут подключаться к локальной системе SAP. В этом примере приложение логики запрашивает IDOC по протоколу HTTP и отправляет ответ обратно.    
@@ -92,4 +90,3 @@ ms.lasthandoff: 07/28/2017
 
 - Проверка, преобразование и другие функции в стиле BizTalk для [пакета интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md). 
 - [Подключение к локальным данным](../logic-apps/logic-apps-gateway-connection.md) из приложений логики
-

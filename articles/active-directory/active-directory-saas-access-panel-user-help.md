@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Нужна помощь по работе с порталом "Мои приложения"?
 
@@ -109,5 +108,4 @@ ms.lasthandoff: 07/17/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Сведения об устранении неполадок см. в разделе [Проблемы при использовании веб-сайта или мобильного приложения панели доступа к приложениям](active-directory-application-access-panel-content-map.md).
-
 

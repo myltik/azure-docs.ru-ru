@@ -14,12 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 69e50e7fe0e1f302e96c309878b8dea6869dff4a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Использование Twilio для поддержки голосовых возможностей и SMS в Ruby
 В этом руководстве показано, как выполнять типовые задачи программирования с помощью службы Twilio API в Azure. Здесь описываются такие сценарии, как телефонный звонок и отправка SMS-сообщения. Дополнительные сведения о Twilio и использовании голосовых функций и SMS в приложениях см. в разделе [Дальнейшие действия](#NextSteps).
@@ -195,4 +194,3 @@ TwiML — это набор инструкций на основе XML, кото
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 057d4d7370207859617eb63238bf425bfa6d3e16
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="change-a-blob-path-from-the-default-path-private-preview"></a>Изменение пути к большому двоичному объекту по умолчанию (закрытая предварительная версия)
 
 В этой статье описывается настройка функции Azure для переименования пути к файлу большого двоичного объекта по умолчанию. 
@@ -242,4 +240,3 @@ ms.lasthandoff: 04/12/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [Использование пользовательского интерфейса для службы диспетчера данных StorSimple (закрытая предварительная версия)](storsimple-data-manager-ui.md)
-

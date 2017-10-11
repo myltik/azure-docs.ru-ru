@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: c49f283971b33a4e88573e1d67ba159021fbccb8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
-
+ms.openlocfilehash: 01a6f35fe61290f8c7275c34273d66956a53d3f9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Репликация локальных виртуальных машин VMware или физических серверов на вторичный сайт с помощью классического портала Azure
 
@@ -231,4 +230,3 @@ InMage Scout в Azure Site Recovery обеспечивает репликаци�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы можете задать любые вопросы на [форуме по Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-

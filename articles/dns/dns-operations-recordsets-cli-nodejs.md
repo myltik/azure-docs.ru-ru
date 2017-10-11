@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/20/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 307b327e4c04a0461e39930114eb193791cbda9a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-dns-records-in-azure-dns-using-the-azure-cli-10"></a>Управление записями DNS в Azure DNS с помощью Azure CLI 1.0
 
 > [!div class="op_single_selector"]
@@ -247,7 +245,7 @@ azure network dns record-set set-soa-record rg1 contoso.com --email admin.contos
 
 Набор записей типа NS на вершине зоны автоматически создается вместе с каждой зоной DNS. Он содержит имена DNS-серверов Azure, назначенные зоне.
 
-Вы можете добавить дополнительные имена серверов в этот набор записей NS, обеспечив поддержку совместного размещения доменов с использованием более чем одного поставщика DNS. Вы также можете изменить срок жизни и метаданные для этого набора записей. При этом вы не можете удалить или изменить предварительно заполненные DNS-серверы Azure.
+Вы можете добавить дополнительные имена серверов в этот набор записей NS, обеспечив поддержку совместного размещения доменов с использованием более чем одного поставщика DNS. Вы также можете изменить срок жизни и метаданные для этого набора записей. При этом вы не можете удалить или изменить предварительно заполненные серверы доменных имен Azure DNS.
 
 Обратите внимание, что это относится только к набору записей NS на вершине зоны. Другие наборы записей NS в зоне (используемые для делегирования дочерних зон) можно изменять без ограничений.
 
@@ -297,4 +295,3 @@ azure network dns record-set delete MyResourceGroup contoso.com www A
 См. дополнительные сведения о [зонах и записях в Azure DNS](dns-zones-records.md).
 <br>
 Узнайте, как [защитить зоны и записи](dns-protect-zones-recordsets.md) при использовании Azure DNS.
-

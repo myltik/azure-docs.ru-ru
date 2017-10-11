@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: ad4140eb1183094a67822ad92eabcd35101360b6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Руководство. Интеграция Azure Active Directory с SAP NetWeaver
 
@@ -117,7 +115,7 @@ ms.lasthandoff: 06/16/2017
 
     b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<your company instance of SAP NetWeaver>`
 
-    c. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:  `https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`.
+    c. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`.
      
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора, URL-адреса ответа и URL-адреса входа. Мы рекомендуем использовать уникальное значение строки идентификатора. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов SAP NetWeaver](https://www.sap.com/support.html). 
@@ -229,5 +227,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_203.png
-
 

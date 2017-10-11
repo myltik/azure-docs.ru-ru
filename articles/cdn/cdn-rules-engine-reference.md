@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-cdn-rules-engine"></a>Обработчик правил Azure CDN
 В этом разделе приводятся подробные описания доступных условий соответствия и функций для [обработчика правил](cdn-rules-engine.md)сети доставки содержимого (CDN) Azure.
@@ -81,4 +80,3 @@ Character | Описание
 * [Функции обработчика правил](cdn-rules-engine-reference-features.md)
 * [Переопределение стандартного поведения через HTTP с помощью обработчика правил](cdn-rules-engine.md)
 * [Обзор Azure CDN](cdn-overview.md)
-

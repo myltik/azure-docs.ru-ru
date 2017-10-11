@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: 3efb26c819739cd980b278438f407bf1ec10dbc4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 64c68363d4ba89e9ebbcaca8ff45d12f771e3a8c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="h264-single-bitrate-4k"></a>H264 Single Bitrate 4K
 `Media Encoder Standard` определяет набор предустановок кодирования, которые можно использовать при создании заданий кодирования. Можно также использовать `preset name`, чтобы указать, в какой формат нужно закодировать файл мультимедиа. Или можно создать собственные предустановки в формате JSON или XML (с использованием кодировки UTF-8 или UTF-16). Затем следует передавать пользовательскую предустановку в кодировщик. Список предустановок, поддерживаемых данным кодировщиком `Media Encoder Standard`, приведен в разделе [Предустановки задач для Media Encoder Standard](media-services-mes-presets-overview.md).  
   
@@ -120,4 +118,3 @@ ms.lasthandoff: 01/27/2017
   ]  
 }  
 ```
-

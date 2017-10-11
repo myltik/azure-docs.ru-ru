@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Загрузка данных с помощью Redgate Data Platform Studio
 > [!div class="op_single_selector"]
@@ -153,4 +152,3 @@ DPS запрашивает расположение для размещения 
 [Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
 [Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-

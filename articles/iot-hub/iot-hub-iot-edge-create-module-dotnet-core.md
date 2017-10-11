@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: jcline
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 91ff3c96e4d7928131eba83c0e8c1951782447be
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 7175ffc8de2c043593d61143b402484d33e4a8cc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-cx23"></a>Создание модуля Azure IoT Edge с помощью C&#x23;
 
@@ -386,5 +385,4 @@ ms.lasthandoff: 07/04/2017
 
 >[!IMPORTANT]
 Не рекомендуется использовать сочетание клавиш `Ctrl` + `C` для завершения работы приложения шлюза `IoT Edge` (то есть **gw.exe**). Это действие может вызвать аварийное завершение процесса.
-
 

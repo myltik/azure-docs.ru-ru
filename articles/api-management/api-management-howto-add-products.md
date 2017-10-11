@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 1568bbba999018e26493654e0286a6b8d93f3ae7
-ms.lasthandoff: 12/20/2016
-
-
+ms.openlocfilehash: 73bf4451ba1b71807e22440beecc73a7e8045c5e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Создание и публикация продукта в службе управления API Azure
 В службе управления API Azure продукт содержит один или несколько API вместе с квотой и условиями использования. Как только продукт будет опубликован, разработчики могут подписаться на него и начать использовать его интерфейсы API. В данном разделе рассматривается процесс создания продукта, добавления интерфейса API и публикации продукта для разработчиков.
@@ -152,4 +151,3 @@ ms.lasthandoff: 12/20/2016
 [Next steps]: #next-steps
 [How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
 [How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
-

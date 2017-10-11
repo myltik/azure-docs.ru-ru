@@ -13,13 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
---- 
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
+---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Руководство по публикации Cortana Intelligence в AppSource
 
 ## <a name="overview"></a>Обзор
@@ -116,5 +115,4 @@ AppSource — это единственная площадка, где лица,
 Отдача, которую вы получите от публикации своего приложения в AppSource, сильно зависит от вашего влияния на целевую аудиторию. Дополнительные сведения о том, как добиться максимальной отдачи, см. в документе [Growth-Hacking your Cortana Intelligence app on AppSource](http://aka.ms/aagrowthhackguide) (Увеличение спроса на приложение Cortana Intelligence в AppSource).
 
 Если у вас есть вопросы или предложения, отправьте сообщение по адресу <appsourcecissupport@microsoft.com>.
-
 

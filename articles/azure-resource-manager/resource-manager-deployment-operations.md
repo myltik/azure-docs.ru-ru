@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
 ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Просмотр операций развертывания с помощью Azure Resource Manager
 
@@ -217,5 +216,4 @@ ms.lasthandoff: 03/07/2017
 * Сведения об устранении некоторых ошибок развертывания см. в статье об [устранении распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Дополнительные сведения об использовании журналов действий для мониторинга других типов действий см. в статье [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
 * Чтобы проверить развернутую службу перед ее выполнением, ознакомьтесь со статьей [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md).
-
 

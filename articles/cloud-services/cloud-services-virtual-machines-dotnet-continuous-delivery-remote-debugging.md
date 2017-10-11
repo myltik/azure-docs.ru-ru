@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: a10b142283cf19295330238ac7289329b2d1f70e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: 7a8a853a93e3e9915f687a20c871444e6a0de50d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Включение удаленной отладки при использовании непрерывной доставки для публикации на Azure
 Когда для публикации в Azure используется [непрерывная доставка](cloud-services-dotnet-continuous-delivery.md), в службе Azure можно включить удаленную отладку для облачных служб или виртуальных машин. Для этого следует выполнить рассмотренную ниже процедуру.
@@ -95,5 +94,4 @@ ms.lasthandoff: 08/28/2017
     ```
 
 6. Импортируйте сертификат (.pfx) на машину, на которой имеется Visual Studio с установленным пакетом Azure SDK для .NET.
-
 

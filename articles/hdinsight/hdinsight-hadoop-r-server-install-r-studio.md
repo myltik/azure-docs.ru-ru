@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: 416420d855505508735ebd8526e93efdb230ad53
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="installing-rstudio-with-r-server-on-hdinsight"></a>Установка RStudio с R Server в HDInsight
 
@@ -134,5 +133,4 @@ ms.lasthandoff: 06/20/2017
 
 * [Compute context options for R Server on HDInsight clusters (Параметры контекста вычислений для R Server в кластерах HDInsight)](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Параметры службы хранилища Azure для R Server в HDInsight (предварительная версия)](hdinsight-hadoop-r-server-storage.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-update-a-cloud-service"></a>Обновление облачной службы
 
@@ -190,4 +189,3 @@ Azure равномерно распределяет экземпляры рол�
 [Управление облачными службами](cloud-services-how-to-manage.md)  
 [Мониторинг облачных служб](cloud-services-how-to-monitor.md)  
 [Настройка облачных служб](cloud-services-how-to-configure.md)  
-

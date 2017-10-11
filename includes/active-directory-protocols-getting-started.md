@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
-ms.translationtype: HT
-ms.sourcegitcommit: 8bdd78473b506fd3946ab12839ccbc20ca697f38
 ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
-ms.contentlocale: ru-ru
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 ## Регистрация приложения в клиенте AD
 Для начала необходимо зарегистрировать приложение в клиенте Azure Active Directory (Azure AD). После этого вашему приложению будет присвоен идентификатор, и оно сможет получать маркеры.
@@ -31,4 +31,3 @@ ms.contentlocale: ru-ru
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Для собственных приложений укажите **URI перенаправления**который Azure AD будет использовать для возврата ответов маркеров. Укажите значение, специфичное для вашего приложения, например `http://MyFirstAADApp`
 * После завершения регистрации система Azure AD присвоит приложению уникальный идентификатор клиента (код приложения). Это значение вам понадобится в следующих разделах, поэтому не забудьте скопировать его на странице приложения.
-

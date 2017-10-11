@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 2b727a56f43a727807d4452eefa4229d4d90406e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Общие сведения о потоковой трансляции с использованием служб мультимедиа Azure
 ## <a name="overview"></a>Обзор
@@ -155,4 +154,3 @@ URL-адрес приема и URL-адрес предварительного �
 [Квоты и ограничения](media-services-quotas-and-limitations.md)  
 
 [Основные понятия служб мультимедиа](media-services-concepts.md)
-

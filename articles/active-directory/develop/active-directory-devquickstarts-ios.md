@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="integrate-azure-ad-into-an-ios-app"></a>Интеграция Azure AD в приложение для iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -245,5 +244,4 @@ ms.lasthandoff: 06/01/2017
 * См. раздел [Включение единого входа в нескольких приложениях iOS с помощью ADAL](active-directory-sso-ios.md).  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
 

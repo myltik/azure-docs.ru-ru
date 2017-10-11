@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/17/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ae028d3fafe0afac859055a61e2d5a154676f1b2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: d45f2cabe712a7982f99a9d280fed4494fc4d377
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Как просматривать связанные ресурсы данных в каталоге данных Azure
 Каталог данных Azure позволяет просматривать ресурсы данных, связанные с выбранным ресурсом, и связи между ними. 

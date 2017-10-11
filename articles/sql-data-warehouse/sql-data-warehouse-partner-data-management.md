@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: partners
 ms.date: 12/27/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 70bc2363172199455785e90753560cc2281432b1
-ms.openlocfilehash: eeb858514af80d1e6074b7c86ead5955f0d22ad2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 2fc8d1876e8a26252e83928857f5e7e9bf6ad47f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Партнеры по управлению данными хранилища данных SQL
 Для создания собственного комплексного решение для хранилища данных можно воспользоваться одним из широкого спектра ведущих профессиональных средств. В данной статье рассматриваются компании-партнеры корпорации Майкрософт, которые предлагают инструменты и решения для управления данными, поддерживающие хранилище данных SQL Azure.
@@ -100,4 +98,3 @@ ms.lasthandoff: 01/05/2017
 [sql_sentry_twitter]:https://twitter.com/SQLSentry
 
 <!--Video links-->
-

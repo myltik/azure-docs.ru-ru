@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 42229b338063634480551f26896963d8add5e071
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 2009cfc956a2703e268c9364996aa2d0fbd8f279
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Устранение неполадок службы совместной работы Azure Active Directory B2B
 
 В этой статье описаны способы устранения распространенных проблем, возникающих в службе совместной работы Azure Active Directory (Azure AD) B2B.
@@ -99,4 +96,3 @@ ms.lasthandoff: 05/26/2017
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4d33237833f34495e6049e348ad4518a2b70ee51
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 55c5abccb2472d653a4e355e39a19a224b979b85
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>Проблемы при настройке и подготовке пользователей для приложения
 
 
@@ -35,4 +33,3 @@ ms.lasthandoff: 04/17/2017
   * [Возникла проблема при настройке подготовки пользователей для приложения из коллекции Azure AD](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Подготовка для моего приложения из коллекции Azure AD настроена, но пользователи не подготавливаются](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Подготовка для моего приложения из коллекции Azure AD работает, но подготавливается неправильный набор пользователей](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

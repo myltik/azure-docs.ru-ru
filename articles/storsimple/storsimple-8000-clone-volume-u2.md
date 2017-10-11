@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/26/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Использование службы диспетчера устройств StorSimple на портале Azure для клонирования тома
 
@@ -125,5 +124,4 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [восстановить том StorSimple из резервного набора данных](storsimple-8000-restore-from-backup-set-u2.md).
 * Узнайте, как [использовать службу диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
-
 

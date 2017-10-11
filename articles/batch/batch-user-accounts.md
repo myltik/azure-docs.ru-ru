@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: d408c0565c0ed81fc97cc2b3976a4fc233e31302
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Выполнение задач с учетными записями пользователей в пакетной службе
 
 Задача в пакетной службе Azure всегда выполняется с учетной записью пользователя. По умолчанию задачи выполняются со стандартными учетными записями пользователей без разрешений администратора. Как правило, параметров этих учетных записей пользователей по умолчанию достаточно. Тем не менее, в определенных ситуациях полезно иметь возможность настроить учетную запись пользователя для выполнения задачи. В этой статье рассматриваются типы учетных записей пользователей и их настройка для вашего сценария.

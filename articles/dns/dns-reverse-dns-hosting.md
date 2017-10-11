@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 3e10b25d2f9b91c96af2958fef6dc6a4fdbff301
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="hosting-reverse-dns-lookup-zones-in-azure-dns"></a>Размещение зон обратного просмотра DNS в Azure DNS
 
 В этой статье описано размещение зон обратного просмотра DNS для назначенных диапазонов IP-адресов в Azure DNS. Диапазоны IP-адресов, представленные зоной обратного просмотра, должны быть назначены организации (как правило, поставщиком услуг Интернета).
@@ -269,4 +267,3 @@ Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -Reso
 Дополнительные сведения см. [в статье Википедии об обратном просмотре DNS](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Узнайте, как [управлять записями обратной зоны DNS для служб Azure](dns-reverse-dns-for-azure-services.md).
-

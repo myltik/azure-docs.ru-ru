@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a2beec313c0dfcd9cf7f7c1ad716223dcaf453b7
 ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Руководство по интеграции Azure Active Directory с Inkling
 
@@ -47,7 +46,7 @@ ms.lasthandoff: 02/11/2017
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Описание сценария
@@ -135,7 +134,7 @@ ms.lasthandoff: 02/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_02.png)
 
-7. Во всплывающем окне **Rollover certificate** (Сертификат возобновления) нажмите кнопку **ОК**.
+7. Во всплывающем окне **Rollover certificate** (Сертификат восстановления) нажмите кнопку **ОК**.
 
     ![Настройка единого входа](./media/active-directory-saas-inkling-tutorial/tutorial_general_600.png)
 
@@ -165,7 +164,7 @@ ms.lasthandoff: 02/11/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-inkling-tutorial/create_aaduser_03.png) 
 
-4. На странице диалогового окна **Пользователь** сделайте следующее:
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-inkling-tutorial/create_aaduser_04.png) 
 

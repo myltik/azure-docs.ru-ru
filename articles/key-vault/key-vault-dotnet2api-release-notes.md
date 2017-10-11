@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 21b34e30a7e07b37ccae3f101f2ab4dfadfad9bf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/29/2017
-
-
+ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Хранилище ключей Azure .NET 2.0. Руководство по миграции и заметки о выпуске
 Следующие примечания и инструкции предназначены для разработчиков, использующих библиотеки .NET и C# при работе с Azure Key Vault. Переходная версия между 1.0 и 2.0 включает ряд таких обновлений, как реализация поддержки **сертификатов хранилища ключей**. Чтобы воспользоваться новыми возможностями и улучшениями, необходимо программным образом выполнить перенос.
@@ -108,5 +106,4 @@ ms.lasthandoff: 04/29/2017
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Пакет NuGet Microsoft.Azure.KeyVault.Extensions
 
 * Пакет разбит на **Microsoft.Azure.KeyVault.Extensions** и **Microsoft.Azure.KeyVault.Cryptography** для шифрования.
-
 

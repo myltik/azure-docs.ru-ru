@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 96d05bd6bdbe0006aa1f8fff7b518f11cebc5d0a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: ccab427857b1439f37f3d9f193e35a4fc2237014
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Как настроить единый вход для приложения прокси приложения
 
 Единый вход (SSO) позволяет пользователям обращаться к приложению несколько раз без повторной проверки подлинности. Он позволяет выполнить одну проверку подлинности для Azure Active Directory в облаке, после чего соединитель или служба будут выполнять дополнительные проверки подлинности для приложения от лица пользователя.
@@ -49,4 +47,3 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
-

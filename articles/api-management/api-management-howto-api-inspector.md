@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
-ms.lasthandoff: 01/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Как использовать инспектор API для трассировки вызовов в Azure API Management
 Служба управления содержит инспектор API, которое позволяет выполнять отладку и устранять неполадки интерфейсов API. Инспектор API может использоваться на программном уровне, а также напрямую из портала разработчика. 
@@ -262,7 +262,6 @@ ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net
 [api-management-open-console]: ./media/api-management-howto-api-inspector/api-management-open-console.png
 [api-management-http-get]: ./media/api-management-howto-api-inspector/api-management-http-get.png
 [api-management-send-results]: ./media/api-management-howto-api-inspector/api-management-send-results.png
-
 
 
 

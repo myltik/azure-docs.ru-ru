@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/24/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: af202cf652300ee7897eb2dede33f38058fc2837
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-virtual-array-update-06-release-notes"></a>Заметки о выпуске обновления 0.6 для виртуального массива StorSimple
 
@@ -93,5 +92,4 @@ ms.lasthandoff: 05/25/2017
 * [Заметки о выпуске обновления 0.3 для виртуального массива StorSimple](storsimple-ova-update-03-release-notes.md)
 * [Заметки о выпуске обновлений 0.1 и 0.2 для виртуального массива StorSimple.](storsimple-ova-update-01-release-notes.md)
 * [Заметки о выпуске общедоступной версии виртуального массива StorSimple.](storsimple-ova-pp-release-notes.md)
-
 

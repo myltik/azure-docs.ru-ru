@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 10f7b8f20cc41a5ebb1b1376e2bf17be02600ae4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Анализ данных центра безопасности Azure с помощью Power BI
 [Панель мониторинга Power BI](http://aka.ms/azure-security-center-power-bi) в центре безопасности Azure позволяет визуализировать, анализировать и фильтровать рекомендации и предупреждения безопасности из любого источника, включая ваше мобильное устройство. С помощью панели мониторинга Power BI можно выявлять тенденции и схемы атак, просматривая предупреждения безопасности по ресурсам или IP-адресам источников, а неустраненные угрозы безопасности — по ресурсам или времени возникновения.
@@ -120,4 +119,3 @@ ms.lasthandoff: 03/31/2017
 * [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 * [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
-

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27561c3c401f93d4024974a19581d79cda9c4eee
-
-
+ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Устранение неполадок со сжатием файлов CDN
 Эта статья поможет вам устранить неполадки со [сжатием файлов CDN](cdn-improve-performance.md).
@@ -117,10 +117,4 @@ HTTP-заголовок **Via** указывает веб-серверу, что
 
 * **IIS 6**: [задайте HcNoCompressionForProxies="FALSE" в свойствах метабазы IIS](https://msdn.microsoft.com/library/ms525390.aspx)
 * **IIS 7 и выше**: [присвойте параметрам **noCompressionForHttp10** и **noCompressionForProxies** значение False в конфигурации сервера](http://www.iis.net/configreference/system.webserver/httpcompression).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

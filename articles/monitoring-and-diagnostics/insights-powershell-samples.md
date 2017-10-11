@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: f06e5dd7d17c1d7795fb1f112e649cd42d7dd6d4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
-
+ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Примеры для быстрого запуска Azure Monitor с помощью PowerShell
 В этой статье показаны примеры команд PowerShell, с помощью которых можно быстро получить доступ к функциям Azure Monitor. Azure Monitor позволяет выполнять автомасштабирование облачных служб, виртуальных машин и веб-приложений, отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии.
@@ -152,7 +151,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 | Расположение этого правила генерации оповещений |Восток США |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName созданного оповещения |\Физический диск(_общий объем ресурсов)\скорость записи на диск/с Точные имена метрик можно получить с помощью командлета `Get-MetricDefinitions`. |
+| MetricName созданного оповещения |\PhysicalDisk (_Total) \Disk операции записи в секунду. В разделе `Get-MetricDefinitions` командлет о том, как получить точные имена метрик |
 | operator |GreaterThan |
 | Пороговое значение (число/с для этой метрики) |1 |
 | WindowSize (в формате чч:мм:сс) |00:05:00 |
@@ -363,4 +362,3 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insigh
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
 
 ```
-

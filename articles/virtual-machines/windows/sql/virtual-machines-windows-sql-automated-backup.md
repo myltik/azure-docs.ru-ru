@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: d95f193b5bb88f8d29110b67d8555a36a070888c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 91aab896dd5f06c950ee0ed8f36cc6a953d91611
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Автоматическая архивация для виртуальных машин SQL Server 2014 (Resource Manager)
 
 > [!div class="op_single_selector"]
@@ -277,5 +275,4 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Сведения о других доступных задачах автоматизации см. в разделе [Расширение агента IaaS для SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Дополнительные сведения о запуске SQL Server на виртуальных машинах Azure см. в [обзоре использования SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
 

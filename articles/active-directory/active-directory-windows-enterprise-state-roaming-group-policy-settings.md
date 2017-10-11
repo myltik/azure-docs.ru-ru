@@ -1,4 +1,3 @@
-
 ---
 title: "Параметры групповой политики и управления мобильными устройствами | Документация Майкрософт"
 description: "Здесь содержатся сведения о параметрах групповой политики и управления мобильными устройствами, которые следует использовать на корпоративных устройствах. Эти политики применяются ко всему устройству пользователя."
@@ -16,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 6bdec7bf35bb4a233200def36c0e697baaf15fec
-ms.openlocfilehash: 5ca48cf3cc4b2f4d86463e36c73de47e386cff25
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 71dd5281a618fe7367eab3e97daac069f77ab491
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="group-policy-and-mdm-settings"></a>Параметры групповой политики и управления мобильными устройствами
 Используйте эти параметры групповой политики и управления мобильными устройствами (MDM) только на корпоративных устройствах, так как эти политики применяются ко всему устройству пользователя. Применение политики MDM для отключения синхронизации параметров на личном устройстве пользователя может негативно отразиться на использовании этого устройства. Кроме того, политика также влияет на другие учетные записи пользователей на устройстве.
@@ -60,5 +58,4 @@ ms.lasthandoff: 01/05/2017
 * [Часто задаваемые вопросы о перемещении параметров и данных](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Справочник по перемещаемым параметрам в Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 * [Устранение неполадок](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
 

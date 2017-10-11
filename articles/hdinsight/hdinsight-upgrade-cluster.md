@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: bhanupr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
 ms.openlocfilehash: fa2e37bd922690322ccc3d8f68128180d013b701
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Обновление кластера HDInsight до более новой версии
 Чтобы воспользоваться преимуществами новых возможностей HDInsight, мы рекомендуем обновить кластеры HDInsight до последней версии. Выполните следующие инструкции, чтобы обновить версию кластера HDInsight.
@@ -53,5 +52,4 @@ ms.lasthandoff: 05/18/2017
 * [Узнайте, как создавать кластеры HDInsight под управлением Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Подключитесь к HDInsight с помощью протокола SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 * [Выполняйте управление кластером под управлением Linux с помощью Ambari](hdinsight-hadoop-manage-ambari.md)
-
 

@@ -13,14 +13,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 07/09/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e511eee2f9eac3969b15ad3d45558dc7034f330a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Развертывание шаблона Azure Resource Manager в runbook PowerShell службы автоматизации Azure
 
 Можно написать [runbook PowerShell службы автоматизации Azure](automation-first-runbook-textual-powershell.md), который развертывает ресурс Azure с помощью [шаблона управления ресурсами Azure](../azure-resource-manager/resource-manager-create-first-template.md).
@@ -245,5 +243,4 @@ Get-AzureRmStorageAccount
 * Чтобы приступить к работе со службой хранилища Azure, изучите раздел [Введение в хранилище Microsoft Azure](../storage/common/storage-introduction.md).
 * Другие полезные runbook службы автоматизации Azure приведены в разделе [Коллекции модулей Runbook и других модулей для службы автоматизации Azure](automation-runbook-gallery.md).
 * Другие полезные шаблоны Resource Manager можно найти на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/resources/templates/).
-
 

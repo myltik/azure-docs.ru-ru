@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: kgremban
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 9d77b9329116afcf2fdde48d672c95020738138c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Настройка параметров Многофакторной идентификации Azure
 Из этой статьи вы узнаете, как управлять настроенной и запущенной службой многофакторной идентификации Azure (MFA).  В статье рассматриваются способы наиболее эффективного использования Многофакторной идентификации Azure.  Описываемые возможности представлены не в каждой версии службы Многофакторной идентификации Azure.
@@ -319,4 +318,3 @@ Azure AD поддерживает федерацию (единый вход) с 
    ![Варианты проверки](./media/multi-factor-authentication-whats-next/authmethods.png)
 4. Щелкните **Сохранить**.
 5. Нажмите кнопку **Закрыть**
-

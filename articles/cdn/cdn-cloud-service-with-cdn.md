@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="intro"></a>Интеграция облачной службы с Azure CDN
 Облачную службу можно интегрировать с сетью Azure CDN, которая обслуживает любое содержимое из расположения облачной службы. Такой подход обеспечивает следующие преимущества.
@@ -601,4 +600,3 @@ CDN со статической оптимизацией доставки не �
 [cdn-new-endpoint-button]: ./media/cdn-cloud-service-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
-

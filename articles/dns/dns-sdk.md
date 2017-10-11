@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
 ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/22/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Создание зон и наборов записей DNS с помощью пакета SDK для .NET
 
 Вы можете автоматизировать операции создания, удаления или обновления зон, наборов записей и записей DNS, используя пакет SDK для DNS и библиотеку управления DNS для .NET. Полный проект Visual Studio доступен [здесь](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
@@ -167,4 +165,3 @@ while (page.NextPageLink != null)
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Скачайте [пример проекта SDK .NET для Azure DNS](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), который содержит дополнительные примеры использования пакета SDK .NET для Azure DNS, а также примеры других типов записей DNS.
-

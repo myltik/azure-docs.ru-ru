@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Реализация Oracle Data Guard на виртуальной машине Azure под управлением Linux 
 
 Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью сценариев. В этой статье описывается, как с помощью Azure CLI развернуть базу данных Oracle Database 12c из образа Azure Marketplace. В этой статье представлено пошаговое руководство по установке и настройке Data Guard на виртуальной машине Azure.
@@ -692,4 +690,3 @@ az group delete --name myResourceGroup
 [Создание полной среды Linux с помощью Azure CLI 2.0](../../linux/create-cli-complete.md)
 
 [Примеры Azure CLI для виртуальных машин Linux](../../linux/cli-samples.md).
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 6ae024e59d29d20c223243b71aceae1db7eefdf5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/21/2017
-
+ms.openlocfilehash: 3fdef7bb58a5cd5dfbe4d37d9baf9c8e392ebe42
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Предварительные условия для работы с каталогом данных Azure
 
@@ -52,4 +51,3 @@ Azure AD предоставляет компаниям простой спосо
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Подробнее: [Настройка политик проверки подлинности](https://technet.microsoft.com/library/dn486781.aspx).
-

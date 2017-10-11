@@ -14,33 +14,28 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ffb134085c8555b22a317213622ca6c9490497d8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: c8654ed547a9001e2e968d2a45d990a73ef27d3b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-# Создание пространства имен служебной шины с помощью портала Azure
-<a id="create-a-service-bus-namespace-using-the-azure-portal" class="xliff"></a>
+# <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Создание пространства имен служебной шины с помощью портала Azure
 
 Пространство имен — это контейнер, определяющий область действия для всех компонентов обмена сообщениями. В одном пространстве имен могут содержаться несколько очередей и разделов. Часто пространства имен выполняют роль контейнеров приложений. Сейчас создать пространство имен служебной шины можно двумя способами.
 
 1. Портал Azure (в этой статье)
 2. [Шаблоны Resource Manager][create-namespace-using-arm]
 
-## Создание пространства имен на портале Azure
-<a id="create-a-namespace-in-the-azure-portal" class="xliff"></a>
+## <a name="create-a-namespace-in-the-azure-portal"></a>Создание пространства имен на портале Azure
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 Поздравляем! Вы создали пространство имен служебной шины, предназначенное для обмена сообщениями.
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 
 Ознакомьтесь с [примерами GitHub][github-samples], демонстрирующими расширенные возможности обмена сообщениями служебной шины Azure.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples
-

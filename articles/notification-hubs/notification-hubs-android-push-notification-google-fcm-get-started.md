@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Отправка push-уведомлений в приложения Android с помощью центров уведомлений Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -70,7 +70,7 @@ ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
 
 Теперь центр уведомлений настроен для работы с Firebase Cloud Messaging, а у вас есть строки подключения, с помощью которых вы можете зарегистрировать приложение для получения и отправки push-уведомлений.
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Подключение приложения к центру уведомлений
+## <a id="connecting-app"></a>Подключение приложения к центру уведомлений
 ### <a name="add-google-play-services-to-the-project"></a>Добавление служб Google Play в проект
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
@@ -669,17 +669,11 @@ ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
 
 
 <!-- URLs. -->
-[Приступая к работе с push-уведомлениями в мобильных службах]: ../mobile-services-javascript-backend-android-get-started-push.md  
-[Пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Ссылки на проект библиотеки]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Классический портал Azure]: https://manage.windowsazure.com/
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [обзоре Центров уведомлений]: notification-hubs-push-notification-overview.md
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [использованию центров уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [портала Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

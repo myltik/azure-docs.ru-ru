@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: willzhan;juliako
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: dbaf2f99bb1d3ad719e2f680f53babfec707afb7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.openlocfilehash: 841b1164db6fd1a2c029b98392509c15f23158e2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Гибридная структура подсистем DRM
 
@@ -137,5 +136,4 @@ ms.lasthandoff: 07/18/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

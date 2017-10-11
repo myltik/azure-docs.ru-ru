@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ed759edbf4548bc0d6c041ca825ddb392430795b
 ms.openlocfilehash: c926f0c80ce56cac3106ad97ec3ec2e18a8e2cc6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Архивация общих ресурсов или томов на виртуальном массиве StorSimple
 
@@ -115,5 +114,4 @@ ms.lasthandoff: 03/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в статье [Использование пользовательского веб-интерфейса для администрирования виртуального массива StorSimple](storsimple-ova-web-ui-admin.md).
-
 

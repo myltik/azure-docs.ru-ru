@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-bus-messaging-exceptions"></a>Исключения обмена сообщениями служебной шины
 В этой статье перечислены некоторые исключения, создаваемые API обмена сообщениями служебной шины Microsoft Azure. Этот справочник может измениться, поэтому следите за обновлениями.
@@ -91,12 +89,10 @@ ConnectionsQuotaExceeded for namespace xxx.
 #### <a name="common-causes"></a>Основные причины
 Существует две основные причины этой ошибки: очередь недоставленных сообщений и неработающие получатели сообщений.
 
-1. **Очередь недоставленных сообщений**
-   . Средству чтения не удается завершить доставку сообщений, и сообщения возвращаются в очередь или раздел по истечении срока действия блокировки. Это может произойти, если в средстве чтения возникает исключение, блокирующее вызов [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). После 10 попыток считывания сообщения оно по умолчанию перемещается в очередь недоставленных сообщений. Это поведение управляется свойством [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) со значением по умолчанию "10". По мере накапливания сообщений в очереди недоставленных сообщений они начинают занимать много места.
+1. **Очередь недоставленных сообщений** модуль чтения не смог завершить сообщения и сообщения возвращаются в очередь или раздел по прошествии периода блокировки. Это может произойти, если в средстве чтения возникает исключение, блокирующее вызов [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). После 10 попыток считывания сообщения оно по умолчанию перемещается в очередь недоставленных сообщений. Это поведение управляется свойством [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) со значением по умолчанию "10". По мере накапливания сообщений в очереди недоставленных сообщений они начинают занимать много места.
    
     Чтобы устранить эту проблему, считайте и завершите сообщения в очереди недоставленных сообщений, как и в любой другой очереди. Класс [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) даже содержит метод [FormatDeadLetterPath](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.formatdeadletterpath.aspx), который помогает форматировать путь очереди недоставленных сообщений.
-2. **Получатель остановлен**
-   . Получатель прекратил прием сообщений из очереди или подписки. Определить эту проблему можно с помощью свойства [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx), которое выводит полную статистику по сообщениям. Если значение свойства [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) большое или растет, значит сообщения не считываются с той же скоростью, с которой отправляются.
+2. **Остановить получателя** приемником остановлена получение сообщений из очереди или подписки. Определить эту проблему можно с помощью свойства [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx), которое выводит полную статистику по сообщениям. Если значение свойства [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) большое или растет, значит сообщения не считываются с той же скоростью, с которой отправляются.
 
 ### <a name="event-hubs"></a>Концентраторы событий
 Концентраторы событий имеют ограничение в 20 групп потребителей на один концентратор событий. При попытке создать больше групп появляется исключение [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
@@ -115,10 +111,8 @@ ConnectionsQuotaExceeded for namespace xxx.
 ### <a name="common-causes"></a>Основные причины
 Существует две основные причины этой ошибки: неправильная конфигурация или временная ошибка службы.
 
-1. **Неправильная конфигурация**
-   . Время ожидания операции может быть слишком коротким для состояния операции. Время ожидания операции в пакете SDK клиента по умолчанию составляет 60 секунд. Проверьте, не задано ли в вашем коде слишком маленькое значение. Учтите, что состояние сети и загрузка ЦП могут повлиять на время, необходимое для выполнения конкретной операции, поэтому не следует задавать слишком маленькое значение времени ожидания операции.
-2. **Временная ошибка службы**
-   . Иногда служба служебной шины может испытывать задержки при обработке запросов, например, в периоды интенсивной загрузки сети. В таких случаях можно настроить повторную попытку выполнения операции через некоторое время до ее успешного завершения. Если же операцию по-прежнему не удается выполнить после нескольких попыток, посетите [сайт состояния служб Azure](https://azure.microsoft.com/status/), чтобы получить сведения об известных простоях служб.
+1. **Неправильная конфигурация.** Время ожидания операции может быть слишком коротким для состояния операции. Время ожидания операции в пакете SDK клиента по умолчанию составляет 60 секунд. Проверьте, не задано ли в вашем коде слишком маленькое значение. Учтите, что состояние сети и загрузка ЦП могут повлиять на время, необходимое для выполнения конкретной операции, поэтому не следует задавать слишком маленькое значение времени ожидания операции.
+2. **Временная ошибка** иногда служба шины обслуживания могут возникать задержки при обработке запросов, например во время периодов с большим трафиком. В таких случаях можно настроить повторную попытку выполнения операции через некоторое время до ее успешного завершения. Если же операцию по-прежнему не удается выполнить после нескольких попыток, посетите [сайт состояния служб Azure](https://azure.microsoft.com/status/), чтобы получить сведения об известных простоях служб.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -129,5 +123,4 @@ ConnectionsQuotaExceeded for namespace xxx.
 * [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
 * [Базовая информация о служебной шине](service-bus-fundamentals-hybrid-solutions.md)
 * [Архитектура служебной шины](service-bus-architecture.md)
-
 

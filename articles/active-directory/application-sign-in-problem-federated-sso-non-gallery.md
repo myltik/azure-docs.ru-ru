@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: 3afc7bca878caef424d3fa3c64aa17df0fda7de5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
-
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Проблемы с входом в приложение не из коллекции, для которого настроен федеративный единый вход
 
 Чтобы устранить проблему, нужно проверить конфигурации приложения в Azure AD следующим образом:
@@ -242,4 +239,3 @@ Azure AD не поддерживает запрос SAML, отправленны
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Требования к протоколу SAML единого входа в Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
-

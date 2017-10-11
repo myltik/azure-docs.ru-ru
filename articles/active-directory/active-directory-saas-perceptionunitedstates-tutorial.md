@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 8e2f9f979f8b94e0c043d4db6e93bd7a53c3dd27
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Руководство по интеграции Azure Active Directory с Perception United States (Non-UltiPro)
 
@@ -120,7 +119,7 @@ ms.lasthandoff: 07/28/2017
 
     ![Ссылка для скачивания сертификата](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_certificate.png) 
 
-5. Нажмите кнопку **Сохранить**.
+5. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_general_400.png)
 
@@ -267,5 +266,4 @@ ms.lasthandoff: 07/28/2017
 [201]: ./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_general_203.png
-
 

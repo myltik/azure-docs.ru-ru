@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Оптимизация среды с помощью решения для оценки System Center Operations Manager (предварительная версия)
 
 ![Символ System Center Operations Manager Assessment](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
@@ -292,4 +290,3 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Используйте [поиск в журналах](log-analytics-log-searches.md), чтобы просмотреть подробные данные оценки System Center Operations Manager и соответствующие рекомендации.
-

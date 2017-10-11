@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 6ddb1915c8073a7b64ba03ff6b90e701ad337c3e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.openlocfilehash: 41a26e8b13fdb2531924ba441017c4c01e664995
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Общие команды PowerShell для виртуальных сетей Azure
 
@@ -76,5 +75,4 @@ ms.lasthandoff: 07/18/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Использование созданного сетевого интерфейса при [создании виртуальной машины](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Узнайте, как можно [создать виртуальную машину с несколькими сетевыми интерфейсами](../../virtual-network/virtual-networks-multiple-nics.md).
-
 

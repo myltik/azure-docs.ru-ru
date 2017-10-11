@@ -16,14 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Совместное использование ScaleR и SparkR в HDInsight
 
 В этой статье показано, как прогнозировать задержки прибытия авиарейсов с помощью модели логистической регрессии **ScaleR** на основе данных по задержкам авиарейсов и погодных данных, объединенных с помощью **SparkR**. В этом сценарии демонстрируются возможности ScaleR для работы с данными в Spark и Microsoft R Server для выполнения задач аналитики. Сочетание этих технологий позволяет применять новейшие возможности распределенной обработки.
@@ -561,4 +559,3 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 - [SparkR (R on Spark)](https://spark.apache.org/docs/2.1.0/sparkr.html) (SparkR (язык R в Spark))
 
 - [SparkR Overview](https://docs.databricks.com/spark/latest/sparkr/overview.html) (Общие сведения о SparkR) на сайте Databricks
-

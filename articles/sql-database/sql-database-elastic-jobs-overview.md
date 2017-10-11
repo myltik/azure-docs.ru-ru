@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 0d95f9f0e0c5b69aed6ba74a2488e46540589c00
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/23/2016
-
-
+ms.openlocfilehash: 8e84562115a866c0df5e0dee6c7f66c036a74737
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Управление масштабируемыми облачными базами данных
 Для управления масштабируемыми сегментированными базами данных можно воспользоваться функцией **заданий обработки для эластичных баз данных** (предварительная версия). Она позволяет надежно выполнить скрипт Transact-SQL (T-SQL) для группы баз данных, включая:
@@ -144,6 +142,5 @@ ms.lasthandoff: 12/23/2016
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
-
 
 

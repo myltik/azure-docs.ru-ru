@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: aabe99dbd375b80e4a87ca7a067927008672b4ed
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-10-enable-replication-for-hyper-v-vms-replicating-to-azure"></a>Шаг 10. Включение репликации для репликации виртуальных машин Hyper-V в Azure
 
 
@@ -81,5 +79,4 @@ ms.lasthandoff: 06/23/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 
-Ознакомьтесь со статьей [Step 11: Run a test failover for Hyper-V replication to Azure](hyper-v-site-walkthrough-test-failover.md) (Шаг 11. Выполнение тестовой отработки отказа для репликации виртуальных машин Hyper-V в Azure).
-
+Перейдите к статье [Шаг 11: Запуск тестовой отработки отказа физических серверов в Azure](hyper-v-site-walkthrough-test-failover.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: daf2017bfbab4250e3f1481f592e0e858c77f121
-
-
+ms.openlocfilehash: 56a8aad7484fed18b74200ffa7acf22363625a15
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="testing-your-data-service-offer-in-staging"></a>Тестирование предложения службы данных в промежуточной среде
 > [!IMPORTANT]
@@ -96,10 +96,4 @@ ms.openlocfilehash: daf2017bfbab4250e3f1481f592e0e858c77f121
 
 ## <a name="see-also"></a>См. также
 * [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

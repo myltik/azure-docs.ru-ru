@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: 18e0f8c5a8dace2af0ab8f15e678fc761a7b3a91
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 48f373b013b1192c353352b801876d706d91dd28
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="playing-your-content-with-existing-players"></a>Воспроизведение содержимого с помощью существующих проигрывателей
 Службы мультимедиа Azure поддерживают многие популярные форматы потоковой передачи, например Smooth Streaming, HTTP Live Streaming и MPEG-Dash. В этой статье описываются имеющиеся проигрыватели, которые можно использовать для тестирования потоков.
@@ -31,12 +30,12 @@ ms.lasthandoff: 01/27/2017
 
 Важные особенности
 
-* **ПРОИГРЫВАТЕЛЬ КОНТЕНТА СЛУЖБ МУЛЬТИМЕДИА** выполняет воспроизведение из конечной точки потоковой передачи по умолчанию. Если требуется воспроизвести из конечной точке потоковой передачи не по умолчанию, используйте другой проигрыватель. Например, [мультимедиапроигрыватель Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* **ПРОИГРЫВАТЕЛЬ КОНТЕНТА СЛУЖБ МУЛЬТИМЕДИА** выполняет воспроизведение из конечной точки потоковой передачи по умолчанию. Если требуется воспроизвести из конечной точке потоковой передачи не по умолчанию, используйте другой проигрыватель. Например, [Проигрыватель мультимедиа Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ![AMSPlayer][AMSPlayer]
 
-### <a name="azure-media-player"></a>мультимедиапроигрыватель Azure
-Используйте [мультимедиапроигрыватель Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) для воспроизведения содержимого (незашифрованного или защищенного) в любом из следующих форматов:
+### <a name="azure-media-player"></a>Проигрыватель мультимедиа Azure
+Используйте [Проигрыватель мультимедиа Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) для воспроизведения содержимого (незашифрованного или защищенного) в любом из следующих форматов:
 
 * Smooth Streaming
 * MPEG DASH
@@ -75,4 +74,3 @@ ms.lasthandoff: 01/27/2017
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
-

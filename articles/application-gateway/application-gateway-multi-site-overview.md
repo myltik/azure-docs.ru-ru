@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: 645f68d836babf11f32fc391e6dacc9430f0070c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Размещение нескольких сайтов с помощью шлюза приложений
 
@@ -130,5 +129,4 @@ ms.lasthandoff: 07/14/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Изучив размещение нескольких сайтов, перейдите к [созданию шлюза приложений с использованием размещения нескольких сайтов](application-gateway-create-multisite-azureresourcemanager-powershell.md) , чтобы создать шлюз приложений с возможностью поддержки нескольких веб-приложений.
-
 

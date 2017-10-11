@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 27ab2084cdb6506cbb807fc9c35b0e67630ad85f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.openlocfilehash: 9987f04e7e71df5fe10c8bc209a390cb940ec4f2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Навигация и панели мониторинга на портале Application Insights
 После [настройки Application Insights для проекта](app-insights-overview.md) данные телеметрии о производительности и использовании вашего приложения будут отображаться в ресурсе Application Insights на [портале Azure](https://portal.azure.com).
@@ -165,4 +164,3 @@ ms.lasthandoff: 08/25/2017
 | [Обозреватель метрик](app-insights-metrics-explorer.md)<br/>Фильтрация и сегментирование метрик |![Пример поиска](./media/app-insights-dashboards/64.png) |
 | [Поиск по журналу диагностики](app-insights-diagnostic-search.md)<br/>Поиск и проверка событий, связанные события и создание ошибок |![Пример поиска](./media/app-insights-dashboards/61.png) |
 | [Аналитика в Application Insights](app-insights-analytics.md)<br/>Эффективный язык запросов |![Пример поиска](./media/app-insights-dashboards/63.png) |
-

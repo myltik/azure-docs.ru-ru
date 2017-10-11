@@ -15,15 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 68ee013cff4e0be15af30239e0314f779f50177a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Фильтрация входящего и исходящего сетевого трафика виртуальной машины
 
 В этом примере скрипта создается виртуальная сеть с интерфейсной и внутренней подсетями. Входящий сетевой трафик в интерфейсной подсети принимается по портам HTTP, HTTPS и SSH, тогда как исходящий трафик в Интернет из внутренней подсети не разрешен. После выполнения скрипта у вас будет одна виртуальная машина с двумя сетевыми адаптерами. Каждый сетевой адаптер подключен к другой подсети.

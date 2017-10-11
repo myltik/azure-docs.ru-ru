@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="application-upgrade-parameters"></a>Параметры обновления приложений
 В настоящей статье описаны различные параметры, которые применяются во время обновления приложения Azure Service Fabric. Параметры включают название и версию приложения. Это элементы управления временем ожидания и проверками работоспособности, которые применяются во время обновления и указывают политики, которые должны применяться при сбое обновления.
@@ -74,4 +73,3 @@ ms.lasthandoff: 08/24/2017
 [Дополнительные разделы](service-fabric-application-upgrade-advanced.md)содержат сведения о работе с расширенными функциями при обновлении приложения.
 
 Сведения об устранении распространенных проблем при обновлении приложений см. в статье [Устранение неполадок при обновлениях приложений](service-fabric-application-upgrade-troubleshooting.md).
-

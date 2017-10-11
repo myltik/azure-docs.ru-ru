@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c0c9362f1c2e15c947aaaf7187f3383ad243140f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-service-publishing-guide-for-the-azure-marketplace"></a>Руководство по публикации службы данных для Azure Marketplace
 > [!IMPORTANT]
@@ -160,4 +159,3 @@ ms.lasthandoff: 02/16/2017
 * Если вы хотите поработать с примерами, см. статью [Примеры сопоставления существующей веб-службы OData через CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md), где приводятся примеры кода вместе с объяснением синтаксиса и контекста.
 
 [link-pubportal]:https://publish.windowsazure.com
-

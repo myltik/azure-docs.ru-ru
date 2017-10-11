@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: a7abb8fb279e134b7f23df779f1c4548a9feb82d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 30151b7bdc544bc36e959cc3528d37897198fc7e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Использование обозревателя Центра Интернета вещей для обмена сообщениями между устройством и Центром Интернета вещей
 
@@ -88,4 +87,3 @@ ms.lasthandoff: 05/08/2017
 Вы узнали, как отслеживать сообщения, отправляемые из устройства Интернета вещей в облако Центра Интернета вещей, и отправлять сообщения из этого облака на устройство.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

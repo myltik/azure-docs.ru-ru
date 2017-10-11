@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Отчеты о действиях аудита на портале Azure Active Directory 
 
@@ -186,5 +185,4 @@ ms.lasthandoff: 07/19/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Общие сведения об отчетах Azure Active Directory см. в [этой статье](active-directory-reporting-azure-portal.md).
-
 

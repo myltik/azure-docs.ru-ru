@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ddda0e60dc9d5414142791175b77a5a65e3f40e3
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 010e7dc492abefaa3afe814c0322af9f6fe5acd2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Синхронизация содержимого из папки в облаке со службами приложений Azure
 В этом учебнике показано, как выполнить развертывание в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) , синхронизируя содержимое из популярных облачных служб хранилища, например Dropbox и OneDrive. 
 
-## <a name="a-nameoverviewaoverview-of-content-sync-deployment"></a><a name="overview"></a>Обзор развертывания синхронизации содержимого
+## <a name="overview"></a>Обзор развертывания синхронизации содержимого
 Развертывание синхронизации содержимого по запросу основано на [механизме развертывания Kudu](https://github.com/projectkudu/kudu/wiki), который интегрирован в службу приложений. На [портале Azure](https://portal.azure.com) в облачном хранилище можно указать специальную папку, в которой вы будете работать с кодом приложения и содержимым. Затем эту папку можно синхронизировать со службой приложений нажатием всего лишь одной кнопки. При синхронизации содержимого для выполнения сборки и развертывания используется процесс Kudu. 
 
-## <a name="a-namecontentsyncahow-to-enable-content-sync-deployment"></a><a name="contentsync"></a>Как включить развертывание синхронизации содержимого
+## <a name="contentsync"></a>Как включить развертывание синхронизации содержимого
 Чтобы включить синхронизацию содержимого на [портале Azure](https://portal.azure.com), выполните следующее.
 
 1. На портале Azure в колонке приложения щелкните **Параметры** > **Источник развертывания**. Щелкните **Выбор источника** и в качестве источника развертывания выберите **OneDrive** или **Dropbox**. 
@@ -48,5 +47,4 @@ ms.lasthandoff: 11/17/2016
     ![Журнал развертываний](./media/app-service-deploy-content-sync/onedrive_sync.png)
 
 Дополнительные сведения о развертывании Dropbox можно найти в разделе [Deploy from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). 
-
 

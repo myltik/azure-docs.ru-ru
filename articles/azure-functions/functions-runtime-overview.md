@@ -14,14 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 98d1e2ad162f4b69be4fdf9a5b004f640fbb5d7e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.openlocfilehash: cb98d5f2aaa526555820c15ba5a32fb7e78ffc5a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-functions-runtime-overview"></a>Обзор среды выполнения Функций Azure
 
 Среда выполнения Функций Azure позволяет воспользоваться преимуществами простоты и гибкости модели программирования Функций Azure в локальной системе. Разработанная на базе той же технологии с открытым исходным кодом, что и Функции Azure, среда выполнения Функций Azure развертывается в локальной среде, предоставляя практически тот же интерфейс разработки, что и облачная служба.
@@ -56,4 +54,3 @@ ms.lasthandoff: 07/11/2017
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png
-

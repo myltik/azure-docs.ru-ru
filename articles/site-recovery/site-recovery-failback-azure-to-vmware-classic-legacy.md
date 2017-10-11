@@ -14,13 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e6d0539c35d403c24ddd5e0b5d49f4d6116eead
-ms.openlocfilehash: 86f7e0565fe30af613f06764a494cbb996abcabe
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/30/2017
-
-
+ms.openlocfilehash: 3053fc622c6343898e2007b8aaafbe1fa8e6934e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-legacy"></a>Восстановление размещения виртуальных машин и физических серверов VMware с переносом из Azure в VMware с помощью службы Azure Site Recovery (устарело)
 > [!div class="op_single_selector"]
@@ -183,7 +181,7 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 1. Скопируйте двоичный файл унифицированного агента RHEL 6-64 в установленную операционную систему.
 2. Выполните следующую команду, чтобы распаковать двоичный файл: **tar -zxvf \<имя_файла\>**
-3. Выполните следующую команду, чтобы предоставить разрешения: \#**chmod 755 ./ApplyCustomChanges.sh**
+3. Выполните следующую команду, чтобы предоставить разрешения: \# **chmod 755 ./ApplyCustomChanges.sh**
 4. Запустите скрипт **\#./ApplyCustomChanges.sh**. Этот сценарий необходимо выполнить на сервере только один раз. После выполнения сценария перезагрузите сервер.
 
 ### <a name="install-the-linux-server"></a>Установка сервера под управлением ОС Linux
@@ -356,4 +354,3 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Прочтите статью](site-recovery-vmware-to-azure-classic.md) о репликации виртуальных машин VMware и физических серверов в Azure с помощью расширенного развертывания.
-

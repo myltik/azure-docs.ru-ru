@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: anandy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 589c37d4bb59ceeb37742163fad21d465b3d3827
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect и федерация
 Azure Active Directory (Azure AD) Connect позволяет настроить федерацию с локальными службами федерации Active Directory (AD FS) и Azure AD. С помощью федеративного входа ваши пользователи могут входить в службы Azure AD со своими локальными паролями, а в корпоративной сети им не нужно будет вводить пароли повторно. Благодаря возможности федерации с AD FS можно развернуть новую установку AD FS или указать существующую установку в ферме Windows Server 2012 R2.
@@ -52,4 +51,3 @@ Azure Active Directory (Azure AD) Connect позволяет настроить
 * [Федерация нескольких экземпляров Azure AD с одним экземпляром AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 * [Развертывание AD FS в Azure](active-directory-aadconnect-azure-adfs.md)
 * [Развертывание AD FS высокого уровня доступности в нескольких регионах Azure с помощью диспетчера трафика Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/06/2016
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Подключение средств обеспечения безопасности к решению для защиты и аудита Operations Management Suite (OMS) 
 Этот документ поможет вам подключить свои средства обеспечения безопасности к решению для защиты и аудита OMS. Поддерживаются следующие источники:
@@ -64,7 +63,7 @@ CEF — это отраслевой стандартный формат на о
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Скачайте файл *security_events.conf* и поместить его в каталог */etc/opt/microsoft/omsagent/conf/omsagent.d/* на компьютере агента OMS.
-4. Введите следующую команду, чтобы перезапустить управляющую программу системного журнала:  *Для syslog-ng выполните следующую команду:*
+4. Введите следующую команду, чтобы перезапустить управляющую программу syslog: *для запуска syslog-ng:*
     
     ```
     sudo service rsyslog restart
@@ -113,5 +112,4 @@ OMS поддерживает профиль базовых показателе�
 * [Общие сведения об Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite](oms-security-responding-alerts.md)
 * [Мониторинг ресурсов в решении "Безопасность и аудит" Operations Management Suite](oms-security-monitoring-resources.md)
-
 

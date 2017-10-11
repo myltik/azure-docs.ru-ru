@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-db2-connector"></a>Приступая к работе с соединителем DB2
 Соединитель DB2 (Майкрософт) подключает приложения логики к ресурсам, хранящимся в базе данных IBM DB2. Этот соединитель включает в себя клиент Майкрософт для взаимодействия с удаленными серверами DB2 по сети TCP/IP. Сюда входят облачные базы данных, например IBM Bluemix dashDB или IBM DB2 для Windows, работающие в среде виртуализации Azure, и локальные базы данных, использующие локальный шлюз данных. Ознакомьтесь со [списком поддерживаемых](connectors-create-api-db2.md#supported-db2-platforms-and-versions) платформ и версий IBM DB2 (в этой статье).
@@ -283,5 +282,4 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
-
 

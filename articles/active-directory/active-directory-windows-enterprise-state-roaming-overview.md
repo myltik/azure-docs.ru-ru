@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: ce78b996a5f45b0b074563bc50af5aaab85f2667
-ms.openlocfilehash: 56eacc48102302961132bba6d14838327a899c59
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: b3c01f8d332d26e92dc3052681a4b2c95142d440
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enterprise-state-roaming-overview"></a>Обзор службы Enterprise State Roaming
 Используя Windows 10, пользователи [Azure Active Directory (Azure AD)](active-directory-whatis.md) получают возможность безопасно синхронизировать свои параметры пользователя и данные параметров приложения в облаке. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства. Enterprise State Roaming работает так же, как и стандартная [синхронизация параметров потребителя](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) , которая впервые представлена в Windows 8. Кроме того, Enterprise State Roaming обеспечивает следующее:
@@ -38,5 +37,4 @@ ms.lasthandoff: 01/05/2017
 | [Group policy and MDM settings for settings sync (Параметры групповой политики и управления мобильными устройствами)](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |Windows 10 предоставляет параметры групповой политики и управления мобильными устройствами (MDM) для ограничения синхронизации параметров. |
 | [Справочник по перемещаемым параметрам в Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |Ниже приведен полный список всех параметров, для которых в Windows 10 будет выполнено перемещение и/или резервное копирование. |
 | [Устранение неполадок](active-directory-windows-enterprise-state-roaming-troubleshooting.md) |В этом разделе представлены основные инструкции по устранению неполадок, а также список известных проблем. |
-
 

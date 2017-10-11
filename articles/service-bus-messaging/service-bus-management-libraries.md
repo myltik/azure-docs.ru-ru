@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 384066affe46bfd2917a3a14e4cfa7d2fc8a25f1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 1db00dc1f91e8976b622030450445babbe547ad8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="service-bus-management-libraries"></a>Библиотеки управления служебной шины
 
 Библиотеки управления служебной шины Azure могут динамически подготавливать пространства имен и сущности служебной шины. Это дает возможность реализовывать сложные развертывания и сценарии обмена сообщениями и позволяет программно определять, какие сущности следует подготовить. В настоящее время эти библиотеки доступны для .NET.
@@ -83,4 +81,3 @@ ms.lasthandoff: 07/06/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Пример управления для .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Справочник по API Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
-

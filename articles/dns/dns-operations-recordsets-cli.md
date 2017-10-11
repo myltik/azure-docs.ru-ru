@@ -14,14 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 9543759d7ba88c7c5068021cebbeec6b8d63633e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Управление записями и наборами записей DNS в Azure DNS с помощью Azure CLI 2.0
 
 > [!div class="op_single_selector"]
@@ -301,4 +299,3 @@ az network dns record-set a delete --resource-group myresourcegroup --zone-name 
 См. дополнительные сведения о [зонах и записях в Azure DNS](dns-zones-records.md).
 <br>
 Узнайте, как [защитить зоны и записи](dns-protect-zones-recordsets.md) при использовании Azure DNS.
-

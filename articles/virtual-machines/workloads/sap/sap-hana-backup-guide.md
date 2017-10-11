@@ -13,14 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Руководство по резервному копированию SAP HANA на виртуальных машинах Azure
 
 ## <a name="getting-started"></a>Приступая к работе
@@ -236,4 +234,3 @@ SAP HANA обеспечивает шифрование данных и журн�
 * В статье [Резервное копирование SAP HANA в Azure на уровне файлов](sap-hana-backup-file-level.md) описан вариант резервного копирования на основе файлов,
 * а в статье [Резервное копирование SAP HANA на основе моментальных снимков хранилища](sap-hana-backup-storage-snapshots.md) — на основе моментальных снимков хранилища.
 * Дополнительные сведения об обеспечении высокого уровня доступности и планировании аварийного восстановления SAP HANA в Azure (крупные экземпляры) см. в [этой статье](hana-overview-high-availability-disaster-recovery.md).
-

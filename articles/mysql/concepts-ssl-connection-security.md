@@ -9,14 +9,12 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6dc147c9dd3983c2c599108162fa285d87ffc7a3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 4b03b3a2dbfad92cc0cfa84777b38ddff90452cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="ssl-connectivity-in-azure-database-for-mysql"></a>SSL-соединения в базе данных Azure для MySQL
 База данных Azure для MySQL поддерживает подключение сервера базы данных к клиентским приложениям с помощью SSL (Secure Sockets Layer). Применение SSL-соединений между сервером базы данных и клиентскими приложениями обеспечивает защиту от атак "злоумышленник в середине" за счет шифрования потока данных между сервером и приложением.
 
@@ -31,4 +29,3 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Библиотеки подключений для базы данных Azure для MySQL](concepts-connection-libraries.md)
-

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Настройка необходимых компонентов для создания групп доступности AlwaysOn на виртуальных машинах Azure
 
 В этом руководстве показано, как настроить необходимые компоненты для создания [группы доступности AlwaysOn для SQL Server на виртуальных машинах Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md). Когда необходимые компоненты будут настроены, у вас будут подготовлены контроллер домена, две виртуальные машины SQL Server и следящий сервер в одной группе ресурсов.
@@ -498,4 +496,3 @@ Azure создаст виртуальные машины.
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Настройка группы доступности AlwaysOn на виртуальной машине Azure вручную](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-

@@ -15,12 +15,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: edmacauley
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 713e4a29550f37b03af3547bead42146a84a417f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: ee7398304b7ba864eff17eb6e7d7c3777f4a9fe6
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Подключение к базе данных SQL с помощью C и C++
 Эта публикация предназначена для разработчиков C и C++, выполняющих подключение приложений к базе данных SQL Azure. Публикация содержит несколько разделов, что дает возможность переходить сразу к интересующей вас теме. 
@@ -135,5 +134,4 @@ ms.lasthandoff: 04/15/2017
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/)
-
 

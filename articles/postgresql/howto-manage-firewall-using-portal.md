@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b93827ec35916759c26e5e58186acaff1f160a35
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 20ac1392949a6f604e68d984cb50273b61051037
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Создание правил брандмауэра базы данных Azure для PostgreSQL и управление ими с помощью портала Azure
 Правила брандмауэра уровня сервера позволяют администраторам обращаться к серверу базы данных Azure для PostgreSQL с указанного IP-адреса или диапазона IP-адресов. 
@@ -56,4 +55,3 @@ ms.lasthandoff: 05/10/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 - Аналогичным образом можно [создать правила брандмауэра базы данных Azure для PostgreSQL и управлять ими с помощью Azure CLI](howto-manage-firewall-using-cli.md).
 - Справка по подключению к серверу базы данных Azure для PostgreSQL доступна в разделе [Библиотеки подключений для базы данных Azure для PostgreSQL](concepts-connection-libraries.md).
-

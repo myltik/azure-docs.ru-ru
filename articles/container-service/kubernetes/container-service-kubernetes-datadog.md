@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 40b34457447a8f80d8cdf77579750e0c42df22d0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Мониторинг кластера службы контейнеров Azure с помощью Datadog
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -64,4 +62,3 @@ Kubernetes использует наборы DaemonSet для выполнени
 
 ## <a name="conclusion"></a>Заключение
 Вот и все! Через несколько минут после того, как агенты будут запущены и начнут работать, вы увидите данные в консоли. Вы можете посетить интегрированную [панель мониторинга Kubernetes](https://app.datadoghq.com/screen/integration/kubernetes), чтобы просмотреть сводку по кластеру.
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: e5985831598a0e5b1277d2c6cd02b03c919aad4d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Учебник. Интеграция Azure Active Directory с RightAnswers
 
@@ -226,5 +225,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-rightanswers-tutorial/tutorial_general_203.png
-
 

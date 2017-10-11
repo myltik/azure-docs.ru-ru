@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="governance-in-azure"></a>Система управления в Azure
 
 Мы понимаем, что в облаке безопасность имеет наивысший приоритет и вам крайне важно получать точные и своевременные сведения о безопасности Azure. Одним из наиболее весомых доводов в пользу использования Azure для приложений и служб является доступ к обширному ассортименту различных инструментов и функций обеспечения безопасности. Эти средства и возможности мы предлагаем вам для создания безопасных решений на безопасной платформе Azure.
@@ -493,4 +491,3 @@ Azure Operations Manager расширяет их функциональные в
 - [Примеры реализации управления подписками Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-examples).
 
 - [Microsoft Azure для государственных организаций](https://docs.microsoft.com/azure/azure-government/).
-

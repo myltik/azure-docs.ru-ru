@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Шифрование неактивных данных базы данных в Azure Cosmos DB
 
 При шифровании неактивных данных обычно шифруются данные на устройствах долговременного хранения, например твердотельных накопителях (SSD) и жестких дисках (HDD). Основные базы данных хранятся в Cosmos DB на твердотельных накопителях. Мультимедийные вложения и резервные копии хранятся в хранилище BLOB-объектов Azure, как правило, на основе жестких дисков. С реализацией возможности шифрования неактивных данных Cosmos DB вы можете шифровать все базы данных, мультимедийные вложения и резервные копии. Шифруются как передаваемые данные (по сети), так и неактивные (долговременное хранение), обеспечивая непрерывное шифрование.
@@ -70,4 +68,3 @@ ms.lasthandoff: 05/31/2017
 
 Общие сведения о системе безопасности и последних усовершенствованиях Cosmos DB см. в статье [Безопасность базы данных в Azure Cosmos DB](database-security.md).
 Дополнительные сведения о сертификатах Майкрософт см. в [центре управления безопасностью Azure](https://azure.microsoft.com/en-us/support/trust-center/).
-

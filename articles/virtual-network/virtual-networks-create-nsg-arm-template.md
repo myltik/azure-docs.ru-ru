@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 87246de343f5c810bf765b467ba0d131934f8526
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 88f7e5b2144daee7bf1c8e7312ba98e6fa967899
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Создание групп безопасности сети с помощью шаблона Azure Resource Manager
 
@@ -190,5 +189,4 @@ ms.lasthandoff: 04/27/2017
    * **-l (или --location)**. Регион Azure, в котором будет создана группа ресурсов.
    * **-f (или --template-file)**. Путь к файлу шаблона ARM.
    * **-e (или --parameters-file)**. Путь к файлу параметров ARM.
-
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
 ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Добавление владельцев и пользователей в Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -134,10 +134,4 @@ ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
 11. Вернувшись в колонку **Пользователи** , вы увидите, что пользователь добавлен как владелец. Теперь он является владельцем любых лабораторий, созданных в этой подписке, а значит может выполнять задачи пользователя. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

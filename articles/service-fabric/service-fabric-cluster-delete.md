@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c2792287ef8b25a57beb4af069ffc5a3eed85e15
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Удаление кластера Service Fabric в Azure и используемых им ресурсов
 Кластер Service Fabric состоит из многих других ресурсов Azure помимо собственно ресурса кластера. Чтобы полностью удалить кластер Service Fabric, необходимо также удалить все ресурсы, из которых он состоит.
@@ -109,4 +108,3 @@ Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Mic
 [ResourceTags]: ./media/service-fabric-cluster-delete/ResourceTags.png
 
 [TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.PNG
-

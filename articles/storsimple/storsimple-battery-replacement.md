@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Замена резервного аккумулятора на устройстве StorSimple
 ## <a name="overview"></a>Обзор
@@ -111,5 +110,4 @@ ms.lasthandoff: 01/26/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
-
 

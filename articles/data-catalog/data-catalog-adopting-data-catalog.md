@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 06/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Процедура внедрения каталога данных Azure | Документация Майкрософт
 Эта статья поможет вам начать внедрение **каталога данных Azure** в своей организации. Чтобы успешно внедрить **каталог данных Azure**, вам нужно сосредоточиться на трех ключевых элементах: разработать концепцию, определить основные варианты использования каталога в организации и выбрать пилотный проект.
@@ -167,4 +166,3 @@ ms.lasthandoff: 06/21/2017
 * [Поиск источников данных](data-catalog-get-started.md)
 * [Комментарии к источникам данных](data-catalog-get-started.md)
 * [Краудсорсинг метаданных](data-catalog-get-started.md)
-

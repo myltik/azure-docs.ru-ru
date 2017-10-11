@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: b028a75836f7c762431bfb9e3fc30822b7dee885
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: f44d75f45073a5d9aa9b1863ed227aba4efcf785
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Защита веб-API с помощью токенов носителя из Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -155,4 +153,3 @@ Azure Active Directory (Azure AD) упрощает для разработчик
 Готовый пример (для которого лишь осталось задать конфигурацию) можно найти в [репозитории GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Теперь можно приступить к другим сценариям идентификации.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

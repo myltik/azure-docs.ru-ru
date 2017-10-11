@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94a25f63887aea4eb71420dbd7ddc536e9f8d644
 ms.openlocfilehash: 2ce65aa4efba735305208f7a6d761bc2814d1b8f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Управление записями контроля доступа для виртуального массива StorSimple с помощью диспетчера устройств StorSimple
 
@@ -130,5 +129,4 @@ ms.lasthandoff: 03/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Сведения о добавлении томов и настройке записей ACR](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume)
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-center-data-security"></a>Защита данных в центре безопасности Azure
 Чтобы помочь клиентам предотвращать и выявлять угрозы, а также реагировать на них, центр безопасности Azure собирает и обрабатывает данные о безопасности, в том числе сведения о конфигурации, метаданные, журналы событий, файлы аварийных дампов и многое другое. Корпорация Майкрософт следует строгим нормативным требованиям и указаниям по безопасности — от создания кода до эксплуатации служб.
@@ -85,4 +84,3 @@ ms.lasthandoff: 06/17/2017
 * [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md) — узнайте, как отслеживать состояние работоспособности решений партнеров.
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 * [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
-

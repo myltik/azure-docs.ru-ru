@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b307051f2490e73e254c9904762b5187f6d1ae1a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 38476119c88aa7d4f6578fc1e3756e11951e804a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-an-iis-vm-with-powershell"></a>Создание виртуальной машины IIS с помощью PowerShell
 
 Этот сценарий создает виртуальную машину Azure под управлением Windows Server 2016, а затем использует расширение DSC для виртуальных машин Azure, чтобы установить IIS. После выполнения сценария можно получить доступ к веб-сайту IIS по умолчанию по общедоступному IP-адресу виртуальной машины.
@@ -67,4 +65,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
 Дополнительные примеры сценариев PowerShell для виртуальных машин представлены в [документации по виртуальным машинам Azure под управлением Windows](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

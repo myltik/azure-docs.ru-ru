@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: b0d98688518acd2157905fda6a9a847763e45ae7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: b082e345ca1bb3b12c548e05e699474d3aa9306c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Мониторинг приложений Docker в Application Insights
 События жизненного цикла и счетчики производительности из контейнеров [Docker](https://www.docker.com/) можно выводить в виде диаграмм в Application Insights. Установите образ [Application Insights](app-insights-overview.md) в контейнер в узле. Он будет отображать счетчики производительности для этого узла, а также для других образов.
@@ -130,4 +129,3 @@ ms.lasthandoff: 08/17/2017
 * [Application Insights для Java](app-insights-java-get-started.md)
 * [Application Insights для Node.js](app-insights-nodejs.md)
 * [Application Insights для ASP.NET](app-insights-asp-net.md)
-

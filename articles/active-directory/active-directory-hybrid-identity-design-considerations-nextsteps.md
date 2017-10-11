@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfb4104dd58f2af8b3ffed7491c91ae6c6557ddc
-ms.openlocfilehash: ba0d31a8f718cc5577fe779061db2144d4295cbb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 1d133430e0dcdcd0c24b44a2a7c452fbf16ecf29
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory — следующие шаги
 После завершения определения требований и проверки всех вариантов решения управления мобильными устройствами вы готовы к дальнейшим действиям по развертыванию инфраструктуры поддержки, которая идеально подходит вам и вашей организации.
@@ -49,5 +48,4 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

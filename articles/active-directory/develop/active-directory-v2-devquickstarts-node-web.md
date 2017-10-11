@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: 6d49c742f72440e22830915c90de009d9188db2a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-a-nodejs-web-app"></a>Добавление функции входа в веб-приложение Node.js
 
@@ -422,5 +421,4 @@ ms.lasthandoff: 07/06/2017
 
 ### <a name="get-security-updates-for-our-products"></a>Получение обновлений системы безопасности для наших продуктов
 Мы рекомендуем вам зарегистрироваться для получения уведомлений о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на странице [технического центра безопасности](https://technet.microsoft.com/security/dd252948).
-
 

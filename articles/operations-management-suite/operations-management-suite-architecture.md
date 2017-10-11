@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: df1a5b2c200b7fa69961247ac036ee35fd14f54d
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="oms-architecture"></a>Архитектура OMS
 [Operations Management Suite](https://azure.microsoft.com/documentation/services/operations-management-suite/) — это набор облачных служб для управления локальными и облачными средами.  В этой статье приводится описание различных локальных и облачных компонентов OMS, а также обобщенное описание архитектуры облачных вычислений.  Более подробные сведения см. в документации для каждой службы.
@@ -84,5 +83,4 @@ Azure Site Recovery предполагает три основных сцена�
 * Дополнительные сведения о [службе автоматизации Azure](https://azure.microsoft.com/documentation/services/automation)
 * Дополнительные сведения о [службе архивации Azure](http://azure.microsoft.com/documentation/services/backup).
 * Дополнительные сведения об [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
-
 

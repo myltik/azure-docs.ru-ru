@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
 ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="security-management-in-azure"></a>Управление безопасностью в Azure
 Подписчики Azure могут управлять своими облачными средами с помощью нескольких устройств, в том числе рабочих станций управления, ПК для разработки и даже устройств привилегированных пользователей, у которых есть разрешения на выполнение конкретных задач. В некоторых случаях функции администрирования можно выполнять с помощью веб-консолей, таких как [портал Azure](https://azure.microsoft.com/features/azure-portal/). Кроме того, пользователи могут устанавливать прямое подключение к Azure из локальной системы, используя виртуальные частные сети (VPN), службы терминалов, протоколы клиентских приложений или API управления службами Azure (программным путем). Они также могут использовать присоединенные к домену или изолированные и неуправляемые конечные точки клиентов, например планшеты и смартфоны.
@@ -233,4 +232,3 @@ Azure предоставляет механизмы безопасности, п
 [2]: ./media/azure-security-management/stand-alone-hardened-workstation-topology.png
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
-

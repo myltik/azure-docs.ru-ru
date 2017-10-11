@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: a481c7c62383c92a5dfab0e3f2b1b4f4f0e5ddf5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/25/2017
-
+ms.openlocfilehash: 4e56998382610ad3d7224e6a8de5aee5419ebe43
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Отслеживание зависимостей, исключений и времени выполнения в веб-приложениях Java
 
@@ -112,4 +111,3 @@ ms.lasthandoff: 01/25/2017
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-

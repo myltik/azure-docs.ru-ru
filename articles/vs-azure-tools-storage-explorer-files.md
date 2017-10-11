@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/14/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Использование обозревателя хранилищ (предварительная версия) с хранилищем файлов Azure
 
 Хранилище файлов Azure — это служба, которая предлагает доступ к общим папкам в облаке с использованием стандартного протокола SMB. Поддерживаются версии SMB 2.1 и SMB 3.0. Хранилище файлов Azure позволяет быстро и без дорогостоящей перезаписи выполнить перенос приложений прежних версий, связанных с общими папками. Хранилища файлов можно использовать для предоставления данных в открытом доступе по всему миру или для хранения данных приложений в частном порядке. Эта статья посвящена использованию обозревателя хранилищ (предварительная версия) для работы с общими папками и файлами.
@@ -263,4 +261,3 @@ ms.lasthandoff: 03/14/2017
 - Просмотрите [последние заметки о выпуске обозревателя хранилищ (предварительная версия) и связанные с ним видео](http://www.storageexplorer.com/).
 
 - Узнайте, как [создавать приложения с помощью больших двоичных объектов (BLOB), таблиц, очередей и файлов Azure](https://azure.microsoft.com/documentation/services/storage/).
-

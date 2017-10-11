@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 82b7e6662986573d139691bb9e2cc216c1c5a535
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: caad9212649dd3dc47ddb21555b5b8496c3d2da1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cosmos-db-create-a-firewall-using-powershell"></a>Azure Cosmos DB: создание брандмауэра с помощью PowerShell
 
 Этот пример сценария PowerShell создает брандмауэр для любой учетной записи API в Azure Cosmos DB. 
@@ -58,4 +56,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 Дополнительные сведения о Azure PowerShell см. в [документации по Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Дополнительные примеры сценариев PowerShell для Azure Cosmos DB можно найти [здесь](../powershell-samples.md).
+Дополнительные примеры скриптов PowerShell для базы данных Azure Cosmos DB можно найти [здесь](../powershell-samples.md).

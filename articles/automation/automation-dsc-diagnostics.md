@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Пересылка данных отчетов Azure Automation DSC в OMS Log Analytics
 
@@ -196,5 +195,4 @@ Log Analytics предоставляет расширенный оператив
 * Чтобы узнать больше о том, как создавать различные поисковые запросы и просматривать журналы Automation DSC с помощью Log Analytics, см. статью [Поиск данных по журналам](../log-analytics/log-analytics-log-searches.md).
 * Дополнительные сведения об использовании Azure Automation DSC см. в статье [Приступая к работе с DSC службы автоматизации Azure](automation-dsc-getting-started.md).
 * Чтобы узнать больше о Log Analytics (OMS) и источниках сбора данных, ознакомьтесь с разделом [Подключение службы Azure к Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-
 

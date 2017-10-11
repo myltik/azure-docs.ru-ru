@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
 ms.openlocfilehash: 6a2525c02ce7bd3969469d2e28a5fccc948f89b1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Выполнение задач подготовки и задач завершения заданий на вычислительных узлах пакетной службы
 
@@ -225,4 +224,3 @@ Sample complete, hit ENTER to exit...
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
-

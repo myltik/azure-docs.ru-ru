@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: 3d6a46116ae9d7d940bc10dfa832540f42c0af7e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Определение порядка развертывания ресурсов в шаблонах Azure Resource Manager
 У заданного ресурса могут быть другие ресурсы, которые должны существовать до его развертывания. Например, сервер SQL Server должен существовать до развертывания базы данных SQL. Эта связь определяется путем пометки одного ресурса как зависимого от другого. Для определения зависимостей можно использовать элемент **dependsOn** или функцию **reference**. 
@@ -159,5 +158,4 @@ Resource Manager выявляет циклические зависимости 
 * Чтобы узнать об устранении ошибок зависимостей во время развертывания, ознакомьтесь с разделом [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Сведения о создании шаблонов диспетчера ресурсов Azure см. в статье о [создании шаблонов](resource-group-authoring-templates.md). 
 * Список доступных в шаблоне функций см. в статье о [функциях шаблонов](resource-group-template-functions.md).
-
 

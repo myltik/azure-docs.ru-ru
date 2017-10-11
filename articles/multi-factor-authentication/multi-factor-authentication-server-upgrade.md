@@ -15,15 +15,12 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Обновление сервера Многофакторной идентификации Azure до последней версии
 
 В этой статье описывается процесс обновления сервера Многофакторной идентификации (MFA) Azure до версии 6.0 или более поздней. Если требуется обновить старую версию агента PhoneFactor, то см. статью [Переход с агента PhoneFactor на сервер Многофакторной идентификации Azure](multi-factor-authentication-get-started-server-upgrade.md).
@@ -116,4 +113,3 @@ ms.lasthandoff: 09/20/2017
 - [Интеграция каталогов между сервером Azure Multi-Factor Authentication и Active Directory](multi-factor-authentication-get-started-server-dirint.md).
 
 - Настройте для своих приложений проверку подлинности Windows, как описано в статье [Проверка подлинности Windows и сервер Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-windows.md).
-

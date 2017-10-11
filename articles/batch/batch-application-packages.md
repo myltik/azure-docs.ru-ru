@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: afcc04c80ec15872a22de5d5969a7ef6a583562f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Развертывание приложений на вычислительных узлах с помощью пакетов приложений пакетной службы
 
@@ -381,4 +380,3 @@ foreach (ApplicationSummary app in applications)
 [10]: ./media/batch-application-packages/app_pkg_10.png "Выбор колонки учетной записи хранения на портале Azure"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Колонка "Обновление пакета" на портале Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Диалоговое окно для подтверждения удаления пакета на портале Azure"
-

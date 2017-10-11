@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 243c1cd5ebf34f2d8a8fda234fa3875298390336
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="microsoft-cloud-services-and-network-security"></a>Облачные службы Microsoft Cloud и сетевая безопасность
 Облачные службы (Майкрософт) позволяют пользоваться масштабируемыми службами и инфраструктурой, возможностями корпоративного класса и множеством вариантов гибридных подключений. Клиенты могут обращаться к этим службам через Интернет или с помощью службы Azure ExpressRoute, которая позволяет создавать подключения к частной сети. Платформа Microsoft Azure позволяет клиентам легко добавлять в свою инфраструктуру облачные решения и создавать многоуровневую архитектуру. Кроме того, сторонние производители могут получить дополнительные возможности путем предоставления служб безопасности и виртуальных устройств. В этом техническом документе мы предлагаем обзор вопросов, касающихся безопасности и архитектуры, которые необходимо учитывать при использовании облачных служб Microsoft Cloud с помощью ExpressRoute. В нем также рассматриваются более безопасные службы в виртуальных сетях Azure.
 
@@ -552,4 +550,3 @@ IP-пересылка всегда используется вместе с оп
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 5ff7c4ee612fd1261d85870be4d6fcbd66b64735
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: a767c93fb271f3aa33d9556c69c511bcac7cb0d5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Добавление Azure Active Directory с помощью подключенных служб в Visual Studio
 Azure Active Directory (Azure AD) позволяет обеспечить единый вход для веб-приложений ASP.NET MVC или проверку подлинности Active Directory в службах веб-API. Благодаря проверке подлинности Azure Active Directory пользователи смогут подключаться к вашим веб-приложениям, используя свои учетные записи Azure Active Directory. В число преимуществ проверки подлинности Azure Active Directory с веб-API входит усиленная защита данных при использовании API из веб-приложения. С Azure AD вам не придется управлять отдельной системой проверки подлинности с отдельным управлением пользователями и учетными записями.
@@ -59,5 +58,4 @@ Azure Active Directory (Azure AD) позволяет обеспечить еди
 * [Форум MSDN по Azure Active Directory](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 * [Документация по Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Introduction to Windows Azure Active Directory](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx) (Общие сведения о Microsoft Azure Active Directory)
-
 

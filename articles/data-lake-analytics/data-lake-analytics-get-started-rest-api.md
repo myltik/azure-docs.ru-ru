@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 332d7af2539eea8890745005104ac5b0921c2b7f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-rest-apis"></a>Начало работы с Azure Data Lake Analytics с помощью интерфейсов REST API
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -346,5 +345,4 @@ ms.lasthandoff: 06/20/2017
 * Задачи управления описываются в руководстве по [управлению Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 * Общие сведения об Azure Data Lake Analytics см. в [этой статье](data-lake-analytics-overview.md).
 * Для просмотра учебника с помощью других средств используйте вкладки-селекторы в верхней части страницы.
-
 

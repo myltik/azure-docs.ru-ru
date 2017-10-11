@@ -10,12 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 08/01/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 322560aece243e150606e722d467b843bc9580b7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
-
+ms.openlocfilehash: 0dba4db0ae62a4f7e8440e80e830e5f64f5b49e0
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Что такое база данных Azure для PostgreSQL
 
@@ -57,4 +56,3 @@ ms.lasthandoff: 08/03/2017
 - Ознакомьтесь со [страницей цен](https://azure.microsoft.com/pricing/details/postgresql/) для сравнения цен и доступа к калькуляторам.
 - Приступите к делу, [создав свою первую базу данных Azure для PostgreSQL](./quickstart-create-server-database-portal.md).
 - Создайте свое первое приложение на Python, PHP, Ruby, C\#, Java, Node.js: [Библиотеки подключений для базы данных Azure для PostgreSQL](./concepts-connection-libraries.md).
-

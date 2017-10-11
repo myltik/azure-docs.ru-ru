@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Использование поставщика удостоверений (IdP) SAML 2.0 для единого входа
 
 В этом разделе содержатся сведения об использовании поставщика удостоверений на основе профилей SP-Lite, совместимого с SAML 2.0, в качестве предпочитаемой службы токенов безопасности (STS) или поставщика удостоверений. Это полезно при наличии локального каталога пользователей и хранилища паролей, доступ к которым возможен с помощью SAML 2.0. Существующий каталог пользователей может использоваться для единого входа в Office 365 и другие ресурсы, защищенные с помощью Azure AD. Профиль SAML 2.0 SP-Lite основан на широко использующемся стандарте федеративных удостоверений SAML (Security Assertion Markup Language) для предоставления единого входа и структуры обмена атрибутами.
@@ -271,4 +269,3 @@ ms.lasthandoff: 07/13/2017
 - [Управление службами федерации Active Directory и их настройка с помощью Azure AD Connect](active-directory-aadconnect-federation-management.md)
 - [Список совместимости с федерацией Azure AD](active-directory-aadconnect-federation-compatibility.md)
 - [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: ef77ed3a4efee7ebcdd716376be78db38ce46f8f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-media-services-community"></a>Сообщество служб мультимедиа Azure
 На этой странице сообщества служб мультимедиа Azure (AMS) описаны различные возможности для получения новых сведений об AMS, ознакомления с новыми видеороликами и подкастами, а также для обратной связи, с помощью которой вы можете задавать вопросы и отправлять отзывы.   
@@ -57,8 +56,7 @@ ms.lasthandoff: 11/17/2016
 | Функция | Email |
 | --- | --- |
 | Аналитика мультимедиа Azure |amsanalytics@microsoft.com |
-| Azure Media Player |ampinfo@microsoft.com |
+| Проигрыватель мультимедиа Azure |ampinfo@microsoft.com |
 | Обозреватель мультимедиа Azure |amse@microsoft.com |
 | Конструктор рабочих процессов |mepd@microsoft.com |
-
 

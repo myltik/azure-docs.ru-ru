@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 510a1827f432c4db2190deff016a886dd79eebc9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/26/2017
-
-
+ms.openlocfilehash: 9c7e959530a836fe5ddf74708363a636c39b3cc6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Как включить единый вход для нескольких приложений Android с помощью ADAL
 Сегодня пользователи рассчитывают на возможность единого входа, позволяющую вводить учетные данные только один раз с последующим автоматическим входом в разные приложения. Сложность ввода имени пользователя и пароля на маленьком экране, часто с дополнительной проверкой подлинности, например посредством звонка по телефону или кода в SMS, приводит к неудовлетворенности пользователя, если ему приходится это делать больше одного раза.
@@ -251,5 +249,4 @@ MANAGE_ACCOUNTS
 
 ### <a name="youve-configured-sso"></a>Вы настроили единый вход!
 Теперь пакет SDK для Microsoft Identity будет автоматически предоставлять учетные данные в приложения и вызывать брокера, если он есть на устройстве.
-
 

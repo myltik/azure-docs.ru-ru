@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Применение политик ресурсов для имен и текста
 В этом разделе показано несколько [политик ресурсов](resource-manager-policy.md), которые можно применить для настройки соглашений об именовании и соглашений текста. Эти политики обеспечивают согласованность данных в именах ресурсов и в значениях тегов. 
@@ -78,5 +77,4 @@ ms.lasthandoff: 06/30/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * После определения правила политики (как показано в приведенных выше примерах) необходимо создать определение политики и назначить ей область. Областью может быть подписка, группа ресурсов или ресурс. Сведения о назначении политик с помощью портала см. в статье [Назначение политик ресурсов и управление ими с помощью портала Azure](resource-manager-policy-portal.md). Сведения о назначении политик с помощью REST API, PowerShell или Azure CLI см. в статье [Назначение политик ресурсов и управление ими](resource-manager-policy-create-assign.md). 
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-
 

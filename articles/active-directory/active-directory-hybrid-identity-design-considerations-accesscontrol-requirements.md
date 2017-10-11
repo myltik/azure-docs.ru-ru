@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 032467e0885d574a7b0f4a1c043e1800e5cc4071
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/11/2017
-
+ms.openlocfilehash: 6404940da460461632616fe49f055d50c2a7aba3
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Определение требований к контролю доступа для решения гибридной идентификации
 При проектировании решения для гибридной идентификации организация может пересмотреть требования доступа к ресурсам, которые планируется сделать доступными для пользователей. Доступ к данным объединяет все четыре ключевых компонента идентификации, к которым относятся:
@@ -80,5 +79,4 @@ ms.lasthandoff: 02/11/2017
 
 ## <a name="see-also"></a>См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Использование API службы Engagement в Android
-Этот документ представляет собой дополнение к статье [Reporting Options with Engagement on Android](mobile-engagement-android-advanced-reporting.md)(Параметры отчетов для службы Engagement на устройствах Android). В нем рассказывается о том, как с помощью Engagement API предоставлять статистику по приложению.
+Этот документ представляет собой дополнение к статье [Reporting Options with Engagement on Android](mobile-engagement-android-advanced-reporting.md)(Параметры отчетов для Служб мобильного взаимодействия на устройствах Android). В нем рассказывается о том, как с помощью Engagement API предоставлять статистику по приложению.
 
 Следует иметь в виду, что если вы хотите использовать службу Engagement только для получения отчетов о сеансах, действиях, сбоях и технической информации, проще всего сделать так, чтобы все подклассы `Activity` наследовались из класса `EngagementActivity`.
 
@@ -31,7 +30,7 @@ ms.lasthandoff: 11/17/2016
 API Engagement предоставляется в классе `EngagementAgent` . Экземпляр этого класса можно получить, вызвав статический метод `EngagementAgent.getInstance(Context)` (обратите внимание на то, что объект `EngagementAgent` возвращается в виде singleton).
 
 ## <a name="engagement-concepts"></a>Основные понятия Engagement
-В следующих подразделах дано более подробное объяснение [общих понятий Mobile Engagement](mobile-engagement-concepts.md)для платформы Android.
+В следующих подразделах дано более подробное объяснение [общих понятий Служб мобильного взаимодействия](mobile-engagement-concepts.md) для платформы Android.
 
 ### <a name="session-and-activity"></a>`Session` и `Activity`
 Если пользователь неактивен между двумя *действиями* больше чем несколько секунд, то последовательность его *действий* разбивается на два отдельных *сеанса*. Эти несколько секунд называются «время ожидания сеанса».
@@ -282,4 +281,3 @@ API Engagement предоставляется в классе `EngagementAgent` 
 В предыдущем примере длина JSON-файла, отправленного на сервер, составляет 44 знака:
 
             {"expiration":"2016-12-07","status":"premium"}
-

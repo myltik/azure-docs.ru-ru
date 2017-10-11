@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: 9df7f7851ef1fc6b4ed03b981aa5062d6b0913ad
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure
 > [!div class="op_single_selector"]
@@ -80,5 +79,4 @@ ms.lasthandoff: 07/19/2017
 * [Создание отчета по журналу изменений доступа](role-based-access-control-access-change-history-report.md)
 * Ознакомьтесь со статьей [RBAC: встроенные роли](role-based-access-built-in-roles.md)
 * Определите собственные [пользовательские роли в RBAC Azure](role-based-access-control-custom-roles.md)
-
 

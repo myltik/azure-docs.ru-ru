@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 0f0129710bcf81c0ad8def2f3305e525477c7d3d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 1a6f1c6566468188daa71939db8345280b7a529f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory
 Когда требуется, чтобы пользователи присоединяли свои личные устройства к рабочей области в службе регистрации устройств Azure Active Directory (Azure AD), эти устройства можно помечать как известные организации. Ниже приведено пошаговое руководство по включению условного доступа к локальным приложениям с помощью служб федерации Active Directory (AD FS) в Windows Server 2012 R2.
@@ -224,6 +223,5 @@ ms.lasthandoff: 06/01/2017
 Теперь, обратившись к приложению с устройства, не зарегистрированного в службе регистрации устройств Azure Active Directory, пользователи будут попадать на страницу, как показано на снимке экрана ниже.
 
 ![Снимок экрана с ошибкой, возникающей, если пользователь еще не зарегистрировал свое устройство в Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
-
 
 

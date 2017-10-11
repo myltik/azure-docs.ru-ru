@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: d0247ba0242af05ca6dcd8049ff9116683538fa5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Введение в надежные коллекции в службах с отслеживанием состояния Azure Service Fabric
 Надежные коллекции позволяют создавать высокодоступные и масштабируемые облачные приложения с низкой задержкой точно так же, как приложения для одного компьютера. Классы в пространстве имен **Microsoft.ServiceFabric.Data.Collections** предоставляют набор коллекций, которые автоматически обеспечивают состояние высокой доступности. Разработчикам нужно только создать интерфейсы API для надежных коллекций и разрешить надежным коллекциям управлять реплицированным и локальным состояниями.
@@ -68,4 +67,3 @@ API надежных коллекций являются развитием API 
 * Прочее
   * [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
   * [Справочник разработчика по надежным коллекциям](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-

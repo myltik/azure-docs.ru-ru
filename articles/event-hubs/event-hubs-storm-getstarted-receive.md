@@ -14,14 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Получение событий из концентраторов событий с помощью Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) — это распределенная система вычислений в реальном времени, упрощающая надежную обработку неограниченных потоков данных. В этом разделе показано использование spout Storm концентраторов событий Azure для приема событий из концентраторов событий. С помощью Apache Storm можно разделить события между несколькими процессами, размещенными в разных узлах. Интеграция концентраторов событий с помощью Storm упрощает использование событий путем прозрачного определения контрольных точек в ходе выполнения с помощью установки Storm Zookeeper, управляя постоянными контрольными точками и одновременно облегчает получение от концентраторов событий.
@@ -254,4 +252,3 @@ ms.lasthandoff: 08/16/2017
 <!-- Images -->
 
 [12]: ./media/event-hubs-get-started-receive-storm/create-storm1.png
-

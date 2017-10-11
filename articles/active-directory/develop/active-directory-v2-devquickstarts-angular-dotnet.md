@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 0ab6506e14997c0c6d58afa22db63f928d7cceb9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Добавление функции входа в одностраничное приложение AngularJS — версия для .NET
 В этой статье мы добавим в приложение AngularJS функцию входа с учетными записями на платформе Майкрософт с помощью конечной точки Azure Active Directory версии 2.0.  Конечная точка версии 2.0 обеспечивает единую интеграцию в приложении и аутентификацию пользователей как с личными, так и с рабочими или учебными учетными записями.
@@ -236,5 +234,4 @@ return $http.get('/api/tasks');
 
 ## <a name="get-security-updates-for-our-products"></a>Получение обновлений системы безопасности для наших продуктов
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
-
 

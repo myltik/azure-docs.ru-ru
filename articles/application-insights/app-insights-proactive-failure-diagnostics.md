@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 24ca63e69d181f0d2c236b1fb6761984ce89520b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/02/2017
-
+ms.openlocfilehash: e82d35459110e122ec8438b406a52df61922b0fc
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="smart-detection---failure-anomalies"></a>Интеллектуальное обнаружение аномальных сбоев
 [Application Insights](app-insights-overview.md) автоматически уведомляет вас (почти в реальном времени), когда работа веб-приложения сопровождается чрезмерно частыми неудачно завершенными запросами. Эта служба обнаруживает необычное увеличение числа невыполненных HTTP-запросов или вызовов зависимостей. Невыполненными обычно считаются запросы с кодом ответа 400 или больше. Для того чтобы вам было проще определить и диагностировать проблему, в уведомление включается анализ характеристик сбоев и соответствующие данные телеметрии. Кроме того, даются ссылки на портал Application Insights для дальнейшей диагностики. Эта функция не требует настройки, так как использует алгоритмы машинного обучения для прогнозирования нормальной частоты невыполненных запросов.
@@ -152,4 +151,3 @@ ms.lasthandoff: 02/02/2017
 
 * [Настройка оповещений в Application Insights](app-insights-alerts.md)
 * [Доступность веб-тестов](app-insights-monitor-web-app-availability.md)
-

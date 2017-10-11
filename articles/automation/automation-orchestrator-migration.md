@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
 ms.openlocfilehash: 457888b4d38875b912ad87d44e96ab727e3ee3ee
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Миграция из Orchestrator в службу автоматизации Azure (бета-версия)
 Модули Runbook в [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) основаны на действиях из пакетов интеграции, которые созданы специально для Orchestrator, а модули Runbook службы автоматизации Azure основаны на рабочих процессах Windows PowerShell.  [Графические модули Runbook](automation-runbook-types.md#graphical-runbooks) в службе автоматизации Azure имеют сходный вид с модулями Runbook в Orchestrator, при этом действия представляют собой командлеты PowerShell, зависимые модули Runbook и ресурсы-контейнеры.
@@ -136,4 +135,3 @@ Orchestrator содержит набор [стандартных действи�
 * [Гибридный компонент Runbook Worker](automation-hybrid-runbook-worker.md)
 * [Стандартные действия Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
 * [Скачивание набора средств для миграции System Center Orchestrator](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
-

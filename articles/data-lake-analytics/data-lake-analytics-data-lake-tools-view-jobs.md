@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Использование браузера и представления для заданий Azure Data Lake Analytics
 Служба Azure Data Lake Analytics архивирует отправленные задания в [хранилище запросов](#query-store). В этой статье вы узнаете, как использовать браузер и представление заданий в средствах Azure Data Lake для Visual Studio, чтобы находить исторические сведения о заданиях. 
@@ -176,5 +175,4 @@ ms.lasthandoff: 08/08/2017
 * Сведения о том, как записывать диагностические данные в журнал, см. в статье [Доступ к журналам диагностики для Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 * Более сложный запрос можно посмотреть в статье [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md).
 * Дополнительные сведения см. в статье [Использование представления выполнения вершин в инструментах Data Lake для Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
-
 

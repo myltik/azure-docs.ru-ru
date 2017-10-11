@@ -1,4 +1,3 @@
-
 ---
 title: "Использование Azure AD версии 2.0 для доступа к защищенным ресурсам без участия пользователя | Документация Майкрософт"
 description: "Построение веб-приложений с помощью реализации протокола проверки подлинности OAuth 2.0 в Azure AD."
@@ -16,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # Azure Active Directory версии 2.0 и поток учетных данных клиента OAuth 2.0
 [Предоставление учетных данных клиента OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), которое иногда называют также *двусторонним OAuth*, можно использовать для доступа к интернет-ресурсам с помощью удостоверения приложения. Как правило, подобное предоставление используется для взаимодействия между серверами, которое должно выполняться в фоновом режиме без немедленного вмешательства пользователя. Приложения такого типа часто называют *управляющими программами* или *учетными записями служб*.
@@ -231,4 +229,3 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## Пример кода
 Пример программной реализации предоставления учетных данных клиента с помощью конечной точки предоставления согласия администратора представлен в [примере кода управляющей программы версии 2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-

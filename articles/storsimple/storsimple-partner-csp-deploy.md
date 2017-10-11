@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b28c5e93dc8f53597b1d2fa6f4ae154acf16068
 ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Развертывание виртуального массива StorSimple для программы поставщика облачных решений
 
 ## <a name="overview"></a>Обзор
@@ -106,4 +104,3 @@ ms.lasthandoff: 02/09/2017
 
 - Если у вас есть дополнительные вопросы о StorSimple в CSP, перейдите к статье [StorSimple in CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple в CSP: часто задаваемые вопросы).
 - Если вы уже готовы развернуть StorSimple, перейдите к статье [Развертывание виртуального массива StorSimple для программы поставщика облачных решений](storsimple-partner-csp-deploy.md).
-

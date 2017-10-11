@@ -15,14 +15,12 @@ ms.devlang: rest-api
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Подключение к Azure Cosmos DB с помощью драйвера ODBC с использованием инструментов бизнес-аналитики
 
 Драйвер ODBC для Azure Cosmos DB позволяет подключаться к Azure Cosmos DB с помощью инструментов бизнес-аналитики, таких как SQL Server Integration Services, Power BI Desktop и Tableau, а также анализировать данные Azure Cosmos DB и создавать их визуализации в этих решениях.
@@ -151,4 +149,3 @@ Azure Cosmos DB — это база данных без схемы, поэто�
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о службе Azure Cosmos DB см. в статье [Знакомство со службой Azure Cosmos DB. API DocumentDB](introduction.md).
-

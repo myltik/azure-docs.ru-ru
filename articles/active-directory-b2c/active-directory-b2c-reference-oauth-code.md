@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: dfc4f2e84704307ccbea6141c0dbc8d089733b22
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: поток кода авторизации OAuth 2.0
 Код авторизации OAuth 2.0 может использоваться в приложениях, установленных на устройстве, для получения доступа к защищенным ресурсам, таким как веб-API. С помощью реализации OAuth 2.0 в Azure Active Directory B2C можно добавить регистрацию, вход и другие задачи по управлению пользователями в мобильные и настольные приложения. Эта статья не зависит от языка. В ней описывается, как отправлять и получать сообщения HTTP, не используя ни одну из библиотек с открытым исходным кодом.
@@ -246,5 +245,4 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 1. [Создайте каталог Azure AD B2C](active-directory-b2c-get-started.md). Используйте имя своего каталога в запросах.
 2. [Создайте приложение](active-directory-b2c-app-registration.md) для получения идентификатора приложения и URI перенаправления. Включите собственный клиент в приложение.
 3. [Создайте собственные политики](active-directory-b2c-reference-policies.md) для получения имен политик.
-
 

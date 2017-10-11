@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: начало работы с настраиваемыми политиками
 
@@ -218,4 +217,3 @@ ms.lasthandoff: 08/28/2017
 В базовом файле, который использовался в этом руководстве по началу работы, уже имеется некоторое содержимое, необходимое для добавления других поставщиков удостоверений. Сведения о настройке входа в систему см. в статье [Azure Active Directory B2C. Выполнение входа с помощью учетных записей Azure AD](active-directory-b2c-setup-aad-custom.md).
 
 Обзор настраиваемых политик в Azure AD B2C, использующих инфраструктуру процедур идентификации, см. в статье [Azure Active Directory B2C: пользовательские политики](active-directory-b2c-overview-custom.md). 
-

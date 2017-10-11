@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 9847bcfcc139a769847678c1cca6a8b9c3a30e93
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Общие сведения о пользовательских политиках начального пакета Azure Active Directory B2C
 
 В этой статье перечислены все основные элементы политики B2C_1A_base, которые входят в **начальный пакет** и используются для создания собственных политик путем наследования политики *B2C_1A_base_extensions*.
@@ -219,4 +217,3 @@ ms.lasthandoff: 05/09/2017
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |
-

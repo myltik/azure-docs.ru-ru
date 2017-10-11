@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 7fc2b59fe37ed2ffe85925c457300ef8fd83c3c7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Примеры для API отчета о действиях при входе Azure Active Directory
 Эта статья входит в серию статей об API отчетов Azure Active Directory.  
@@ -88,5 +87,4 @@ ms.lasthandoff: 07/17/2017
 * Хотите настроить примеры в этой статье? Просмотрите [API отчета о действиях при входе Azure Active Directory](active-directory-reporting-api-sign-in-activity-reference.md). 
 * Полный обзор использования API отчетов Azure Active Directory см. в статье [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Дополнительные сведения об отчетах Azure Active Directory см. в статье [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).  
-
 

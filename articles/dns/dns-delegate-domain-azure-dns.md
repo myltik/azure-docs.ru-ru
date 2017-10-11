@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="delegate-a-domain-to-azure-dns"></a>Делегирование домена в Azure DNS
 
 Azure DNS позволяет размещать зону DNS и управлять записями DNS для домена в Azure. Чтобы запросы DNS для домена достигали Azure DNS, домен должен быть делегирован в Azure DNS из родительского домена. Помните, что Azure DNS — это не регистратор доменных имен. В этой статье описывается делегирование домена в Azure DNS.
@@ -308,4 +306,3 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 [Управление зонами DNS](dns-operations-dnszones.md)
 
 [Управление зонами DNS](dns-operations-recordsets.md)
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 57f95b765b1b116814683a6643db16091c3041f6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="add-network-interfaces-to-or-remove-from-virtual-machines"></a>Добавление или удаление сетевых интерфейсов виртуальных машин
 
 Узнайте, как добавить имеющейся сетевой интерфейс при создании виртуальной машины, а также как добавить или удалить сетевые интерфейсы имеющейся виртуальной машины, которая остановлена (освобождена). Сетевой интерфейс позволяет виртуальной машине Azure взаимодействовать с Интернетом, Azure и локальными ресурсами. У виртуальной машины может быть один или несколько сетевых интерфейсов. 
@@ -129,4 +127,3 @@ ms.lasthandoff: 08/15/2017
 |Создание виртуальной машины с несколькими сетевыми адаптерами|[Интерфейс командной строки](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Создание виртуальной машины с одним сетевым адаптером, которому назначено несколько IPv4-адресов|[Интерфейс командной строки](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Создание виртуальной машины с одним сетевым адаптером, которому назначен частный IPv6-адрес (обслуживаемый Azure Load Balancer).|[Интерфейс командной строки](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [шаблон Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-

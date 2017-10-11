@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="azure-service-health"></a>Служба работоспособности служб Azure
 Служба работоспособности служб Azure предоставляет своевременную и персонализированную информацию о том, как проблемы в службах Azure влияют на ваши службы.  Она также помогает вам подготовиться к предстоящему плановому обслуживанию.
@@ -59,4 +58,4 @@ ms.lasthandoff: 07/11/2017
 Служба работоспособности служб Azure интегрируется с Azure Monitor и сообщает вам о воздействии на критически важные ресурсы с помощью сообщений электронной почты, текстовых сообщений и уведомлений веб-перехватчика. Настройте оповещение о действиях в журнале действий для соответствующего события службы работоспособности служб. Направьте это оповещение соответствующим пользователям организации в разделе "Группы действий". Дополнительные сведения см. в разделе [Настройка оповещений для службы работоспособности служб](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
 # <a name="next-steps"></a>Дальнейшие действия
-Настройте оповещения о проблемах, связанных с работоспособностью. Дополнительные сведения см. в разделе [Настройка оповещений для службы работоспособности служб](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+Настройте оповещения о проблемах, связанных с работоспособностью. Дополнительные сведения см. в статье [Создание оповещений журнала действий для уведомлений службы](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

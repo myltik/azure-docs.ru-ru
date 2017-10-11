@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Процедуры ExpressRoute для подготовки каналов и состояний каналов
 На этой странице описаны процедуры подготовки служб и настройки маршрутизации на высоком уровне.
@@ -116,5 +115,4 @@ ms.lasthandoff: 05/15/2017
   * [Создайте канал ExpressRoute.](expressroute-howto-circuit-arm.md)
   * [Настройка маршрутизации](expressroute-howto-routing-arm.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
 

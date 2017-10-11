@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: b67bb30fa259fa08e37e11afec724c8b8c3eb633
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="understand-azure-deployment-errors"></a>Основные сведения об ошибках развертывания Azure
 В этой статье описаны ошибки развертывания и объясняется, как можно получить подробности ошибки. Способы решения распространенных ошибок развертывания см. в статье [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
@@ -207,4 +205,3 @@ Resource Manager выявляет циклические зависимости 
 * Способы решения распространенных ошибок развертывания см. в статье [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Сведения о действиях аудита см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).
 * Дополнительные сведения об определении ошибок во время развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-deployment-operations.md).
-

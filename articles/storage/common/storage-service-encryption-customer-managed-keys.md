@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Шифрование службы хранилища с помощью управляемых клиентом ключей в Azure Key Vault
 
@@ -127,4 +126,3 @@ Microsoft Azure прилагает все усилия, чтобы защити�
 *   Дополнительные сведения о комплексном наборе функций, помогающем разработчикам создавать безопасные приложения, см. в разделе [Руководство по безопасности службы хранилища Azure](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
 *   Общие сведения о Azure Key Vault см. в статье [Что такое хранилище ключей Azure?](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)
 *   О том, как приступить к работе с Azure Key Vault, рассказывается в разделе [Приступая к работе с хранилищем ключей Azure](../../key-vault/key-vault-get-started.md).
-

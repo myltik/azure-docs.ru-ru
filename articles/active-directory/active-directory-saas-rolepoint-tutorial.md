@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: fcde562484f4401e9f936614b9978f839f4aa290
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Руководство по интеграции Azure Active Directory с RolePoint
 
@@ -114,7 +112,7 @@ ms.lasthandoff: 06/16/2017
 
     а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.rolepoint.com/login`
     
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:  `https://app.rolepoint.com/<instancename>`
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://app.rolepoint.com/<instancename>`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Мы рекомендуем использовать уникальное значение строки в идентификаторе. Чтобы получить это значение, обратитесь в [службу поддержки RolePoint](mailto:info@rolepoint.com). 
@@ -225,5 +223,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-rolepoint-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-rolepoint-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-rolepoint-tutorial/tutorial_general_203.png
-
 

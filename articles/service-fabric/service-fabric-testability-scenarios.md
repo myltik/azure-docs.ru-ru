@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 8975df6b0fe594b092c9890352c7b3787733d8db
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d06026c750e01ad5825338a78d9af331265f434a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="testability-scenarios"></a>Сценарии Testability
 Крупные распределенные системы, такие как облачные инфраструктуры, ненадежные по своей сути. Azure Service Fabric предоставляет разработчикам возможность создавать службы, которые работают в ненадежных инфраструктурах. Чтобы создать высококачественные службы, разработчики должны иметь возможность проверить стабильность работы своих служб в таких ненадежных инфраструктурах.
@@ -255,4 +253,3 @@ Connect-ServiceFabricCluster $connection
 
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
-

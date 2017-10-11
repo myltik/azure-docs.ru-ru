@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Создание групп томов и управление ими с помощью диспетчера моментальных снимков StorSimple
 ## <a name="overview"></a>Обзор
@@ -128,5 +127,4 @@ ms.lasthandoff: 07/08/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [использовать диспетчер моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
 * Узнайте, как [создавать политики архивации и управлять ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-policies.md).
-
 

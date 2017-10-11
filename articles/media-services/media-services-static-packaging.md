@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f05f188633e2d5103e29ae4501f7ea9a832acba
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: cd36e46821eb85db523a5c84ec44895f68cc60e1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Использование Azure Media Packager для выполнения задач статической упаковки
 > [!NOTE]
@@ -702,7 +701,7 @@ ms.lasthandoff: 11/17/2016
 > [!NOTE]
 > Чтобы преобразовать содержимое в формат HLS, необходимо сначала преобразовать или закодировать содержимое в формат Smooth Streaming.
 > Кроме того, чтобы зашифровать содержимое HLS с AES, обязательно установите следующие свойства в файле MediaPackager_SmoothToHLS.xml: установите свойство encrypt в true и установите значение ключа и значение keyuri, так чтобы они указывали на ваш сервер проверки подлинности или авторизации.
-> Службы мультимедиа создадут файл ключа и поместят его в контейнер ресурса. Скопируйте файл /asset-containerguid/*.key на сервер (или создайте собственный файл ключа) и затем удалите файл *.key из контейнера ресурса.
+> Службы мультимедиа создадут файл ключа и поместят его в контейнер ресурса. Необходимо скопировать файл /asset-containerguid/*.key на сервер (или создать свой собственный файл ключа) и затем удалите Key-файл из контейнера актива.
 > 
 > 
 
@@ -1459,5 +1458,4 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Анализ и визуализация событий с помощью Application Insights
 
 Azure Application Insights — это расширяемая платформа для отслеживания и диагностики приложений. Она включает в себя эффективное средство аналитики и запросов, настраиваемую панель мониторинга, визуализации и дополнительные параметры, включая автоматическое оповещение. Это рекомендуемая платформа для отслеживания и диагностики приложений и служб Service Fabric.

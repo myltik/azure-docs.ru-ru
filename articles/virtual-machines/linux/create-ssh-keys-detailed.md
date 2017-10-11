@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: d4548c6f21d04effd57ea36e4fc0d15f77568903
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Подробное руководство по созданию пары ключей SSH и дополнительных сертификатов для виртуальной машины Linux в Azure
 С помощью пары ключей SSH в Azure можно создавать виртуальные машины, по умолчанию использующие ключи SSH для проверки подлинности, что позволяет обойтись без паролей для входа. Так как существует вероятность подбора пароля, ваши виртуальные машины могут подвергаться непрерывным попыткам взлома. Виртуальные машины, созданные с помощью интерфейса командной строки Azure или шаблонов Resource Manager, могут содержать открытый ключ SSH, что устраняет необходимость в настройке после их развертывания, а именно в отключении входа с использованием пароля для SSH. В этой статье приведены подробные указания и дополнительные примеры создания сертификатов, используемых, например, на виртуальных машинах Linux. Если вы хотите быстро создать и использовать пару ключей SSH, см. сведения в [этой статье](mac-create-ssh-keys.md).
 
@@ -217,4 +215,3 @@ ssh fedora22
 * [Создание защищенной виртуальной машины Linux с помощью шаблона Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Создание виртуальной машины Linux в Azure с помощью портала](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Создание защищенной виртуальной машины Linux с помощью интерфейса командной строки Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 527d011476b046add0842b1c7275fc6507be31d4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
-
+ms.openlocfilehash: 730917b6859f8dbd800ef2cb141062f45d7779ac
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC с несколькими DRM и управление доступом: справочное проектирование и реализация в Azure и Azure Media Services
  
@@ -143,7 +142,7 @@ ms.lasthandoff: 07/20/2017
 
 | **Стандартный блок** | **Технология** |
 | --- | --- |
-| **Проигрыватель** |[Проигрыватель Мультимедиа Azure](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Проигрыватель** |[Проигрыватель мультимедиа Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Поставщик удостоверений (IDP)** |Azure Active Directory |
 | **Служба маркеров безопасности (STS)** |Azure Active Directory |
 | **Рабочий процесс защиты DRM** |Динамическая защита служб мультимедиа Azure |
@@ -152,7 +151,7 @@ ms.lasthandoff: 07/20/2017
 | **Управление ключами** |Не требуется для справочной реализации |
 | **Управление содержимым** |Консольное приложение C# |
 
-Другими словами, и поставщиком удостоверений (IDP), и службой маркеров безопасности (STS) будет Azure AD. Для проигрывателя мы будем использовать [API Проигрывателя Мультимедиа Azure](http://amp.azure.net/libs/amp/latest/docs/). Службы мультимедиа Azure и Проигрыватель Мультимедиа Azure поддерживают DASH и CENC с несколькими DRM.
+Другими словами, и поставщиком удостоверений (IDP), и службой маркеров безопасности (STS) будет Azure AD. Для проигрывателя мы будем использовать [API Проигрывателя мультимедиа Azure](http://amp.azure.net/libs/amp/latest/docs/). Службы мультимедиа Azure и Проигрыватель Мультимедиа Azure поддерживают DASH и CENC с несколькими DRM.
 
 Следующая схема показывает общую структуру и поток с описанным выше сопоставлением технологии.
 
@@ -197,7 +196,7 @@ ms.lasthandoff: 07/20/2017
    * Install-Package Microsoft.Owin.Security.Cookies
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-8. Создайте проигрыватель с помощью [API Проигрывателя Мультимедиа Azure](http://amp.azure.net/libs/amp/latest/docs/). [API ProtectionInfo Проигрывателя Мультимедиа Azure](http://amp.azure.net/libs/amp/latest/docs/) позволяет указать, какие технологии DRM следует использовать на разных платформах DRM.
+8. Создайте проигрыватель с помощью [API Проигрывателя мультимедиа Azure](http://amp.azure.net/libs/amp/latest/docs/). [API ProtectionInfo Проигрывателя мультимедиа Azure](http://amp.azure.net/libs/amp/latest/docs/) позволяет указать, какие технологии DRM следует использовать на разных платформах DRM.
 9. Тестовая матрица:
 
 | **DRM** | **"Обзор"** | **Результат для соответствующего пользователя** | **Результат для не соответствующего пользователя** |
@@ -445,10 +444,10 @@ EME в Microsoft Edge и IE 11 в Windows 10 позволяет вызывать
 В обоих указанных случаях проверка подлинности пользователя остается неизменной — через Azure AD. Единственное различие состоит в том, что маркеры JWT выдаются пользовательской STS вместо Azure AD. Конечно, при настройке динамической защиты CENC ограничение службы доставки лицензий указывает тип маркера JWT, симметричный или асимметричный ключ.
 
 ## <a name="summary"></a>Сводка
-В этом документе мы обсуждали CENC с несколькими собственными DRM и контролем доступа через проверку подлинности маркера: проектирование и реализацию системы с помощью Azure, служб мультимедиа Azure и Проигрывателя Мультимедиа Azure.
+В этом документе мы обсуждали CENC с несколькими собственными DRM и контролем доступа через проверку подлинности маркера: проектирование и реализацию системы с помощью Azure, служб мультимедиа Azure и Проигрывателя мультимедиа Azure.
 
 * Мы представили справочную структуру, содержащую все необходимые компоненты в подсистеме DRM и CENC, а также
-* справочную реализацию в Azure, службах мультимедиа Azure и Проигрывателе Мультимедиа Azure.
+* справочную реализацию в Azure, службах мультимедиа Azure и Проигрывателе мультимедиа Azure.
 * Мы также обсудили некоторые вопросы, напрямую связанные с проектированием и реализацией.
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
@@ -457,4 +456,3 @@ EME в Microsoft Edge и IE 11 в Windows 10 позволяет вызывать
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
-

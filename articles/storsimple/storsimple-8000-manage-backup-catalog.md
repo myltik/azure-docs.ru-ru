@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: ac2577c6cd350d6d437d55e61ec73d954cb24893
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Использование службы диспетчера устройств StorSimple для управления каталогом резервного копирования
 ## <a name="overview"></a>Обзор
@@ -112,5 +111,4 @@ ms.lasthandoff: 07/08/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте об использовании каталога резервного копирования [для восстановления устройства с помощью набора архивации](storsimple-8000-restore-from-backup-set-u2.md).
 * Узнайте, как [использовать службу диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
-
 

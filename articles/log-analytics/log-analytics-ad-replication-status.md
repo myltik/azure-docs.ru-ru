@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: bfe52ef5d9d09ffe179faaf6ffbd90ef964fbda9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Мониторинг состояния репликации Active Directory с помощью Log Analytics
 
@@ -155,4 +154,3 @@ Active Directory является ключевым компонентом в к�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md) , чтобы просматривать подробные данные о состоянии репликации Active Directory.
-

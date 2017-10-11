@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/17/2017
 ms.author: anbacker
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: c000a642aa088ac80cc7077453b87e9a47f96900
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>Отключение и удаление устройства StorSimple серии 8000 с помощью службы диспетчера StorSimple
 ## <a name="overview"></a>Обзор
@@ -95,5 +94,4 @@ ms.lasthandoff: 05/18/2017
 * Сведения о том, как восстановить на отключенном устройстве заводские параметры, см. в разделе [Восстановление на устройстве заводских настроек](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Чтобы получить техническую поддержку, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 * Дополнительные сведения об управлении устройством с помощью службы диспетчера StorSimple см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md). 
-
 

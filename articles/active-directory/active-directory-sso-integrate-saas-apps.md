@@ -16,12 +16,11 @@ ms.workload: identity
 ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: aaronsm
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: fc0d297598c334ca8f6f8a2bd3ae948c87956342
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Интеграция единого входа Azure Active Directory с приложениями SaaS
 > [!div class="op_single_selector"]
@@ -78,4 +77,3 @@ Azure AD предоставляет несколько настраиваемы�
 В библиотеке Azure.com представлены более подробные сведения обо всех этих аспектах, начиная с раздела [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 Кроме того, не пропустите [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md).
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 9528148792f083cb0e48d356e61cf61762ee954f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-store"></a>Рекомендации по настройке производительности для MapReduce в HDInsight и Azure Data Lake Store
 
@@ -119,4 +117,3 @@ ms.lasthandoff: 07/06/2017
 **Teravalidate**
 
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
-

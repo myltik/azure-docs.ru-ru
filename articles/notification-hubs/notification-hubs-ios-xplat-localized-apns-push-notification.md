@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>Использование концентраторов уведомлений для вещания локализованных экстренных новостей на устройства iOS
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
 > 
 
 ## <a name="overview"></a>Обзор
-В этом разделе показано, как использовать функцию [шаблонов](notification-hubs-templates-cross-platform-push-messages.md) центров уведомлений Azure для рассылки уведомлений об экстренных новостях, локализованных для языка и устройства. В этом учебнике вы начнете с приложения iOS, созданного в учебнике [Использование центров уведомлений для передачи экстренных новостей]. По завершении вы сможете регистрировать для категорий, которые вас интересуют, указывать язык уведомлений, и получать push-уведомления только для выбранных категорий на этом языке.
+В этом разделе показано, как использовать функцию [шаблонов](notification-hubs-templates-cross-platform-push-messages.md) центров уведомлений Azure для рассылки уведомлений об экстренных новостях, локализованных для языка и устройства. В этом учебнике вы начнете с приложения iOS, созданного в учебнике [Использование концентраторов уведомлений для передачи экстренных новостей]. По завершении вы сможете регистрировать для категорий, которые вас интересуют, указывать язык уведомлений, и получать push-уведомления только для выбранных категорий на этом языке.
 
 Этот сценарий состоит из двух частей:
 
@@ -36,12 +36,12 @@ ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
 * сервер рассылает уведомления, используя функции **tag** и **template** Центров уведомлений Azure.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Вы должны предварительно выполнить учебник [Использование центров уведомлений для передачи экстренных новостей] , чтобы у вас был нужный код, так как этот учебник построен непосредственно на этом коде.
+Вы должны предварительно выполнить учебник [Использование концентраторов уведомлений для передачи экстренных новостей] , чтобы у вас был нужный код, так как этот учебник построен непосредственно на этом коде.
 
 Наличие Visual Studio 2012 или более поздней версии не обязательно.
 
 ## <a name="template-concepts"></a>Основные сведения о шаблонах
-В учебнике [Использование центров уведомлений для передачи экстренных новостей] вы создали приложение, которое использовало **теги** для подписки на уведомления для различных категорий новостей.
+В учебнике [Использование концентраторов уведомлений для передачи экстренных новостей] вы создали приложение, которое использовало **теги** для подписки на уведомления для различных категорий новостей.
 Однако многие приложения ориентированы на несколько рынков и требуют локализации. Это означает, что само содержимое уведомлений должно быть локализовано и доставлено в правильный набор устройств.
 В этом разделе будут продемонстрированы способы использования **шаблонов** центров уведомлений, которые позволяют легко доставлять уведомления о локализованных экстренных новостях.
 
@@ -66,7 +66,7 @@ ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
 Шаблоны — это очень мощная функция, о них можно узнать больше в нашей статье [Шаблоны](notification-hubs-templates-cross-platform-push-messages.md) .
 
 ## <a name="the-app-user-interface"></a>Пользовательский интерфейс приложения
-Теперь изменим приложение "Экстренные новости", созданное в разделе [Использование центров уведомлений для передачи экстренных новостей] для отправки локализованных экстренных новостей с помощью шаблонов.
+Теперь изменим приложение "Экстренные новости", созданное в разделе [Использование концентраторов уведомлений для передачи экстренных новостей] для отправки локализованных экстренных новостей с помощью шаблонов.
 
 В файл MainStoryboard_iPhone.storyboard добавьте Segmented Control для трех поддерживаемых языков: английского, французского и китайского (мандаринский диалект).
 
@@ -247,29 +247,23 @@ ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
 
 
 <!-- URLs. -->
-[Практическое руководство. Использование Центров уведомлений служебной шины (приложения iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Использование центров уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-ios
-[Мобильная служба]: /develop/mobile/tutorials/get-started
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[Использование концентраторов уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-ios
+[Mobile Service]: /develop/mobile/tutorials/get-started
 [Уведомление пользователей с помощью центров уведомлений: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Уведомление пользователей с помощью центров уведомлений: мобильные службы]: /manage/services/notification-hubs/notify-users
-[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Пакет Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started/#create-new-service
-[Приступая к работе с данными]: /develop/mobile/tutorials/get-started-with-data-ios
-[Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-ios
-[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-ios
-[Push-уведомления для пользователей приложений]: /develop/mobile/tutorials/push-notifications-to-users-ios
-[Авторизация пользователей с помощью скриптов]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[JavaScript и HTML]: ../get-started-with-push-js.md
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[JavaScript and HTML]: ../get-started-with-push-js.md
 
-[Этапы регистрации Windows Developer Preview для мобильных служб]: ../mobile-services-windows-developer-preview-registration.md
-[Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Инструкции по использованию концентраторов уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+[Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx

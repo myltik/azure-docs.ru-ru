@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 0d659cb860a6c98342b548212820efe046decfcc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="event-hubs-management-libraries"></a>Библиотеки управления концентраторов событий
 
 Библиотеки управления концентраторов событий могут динамически подготавливать пространства имен и сущности концентраторов событий. Это дает возможность реализовывать сложные развертывания и сценарии обмена сообщениями, позволяя программно определять, какие сущности следует подготовить. В настоящее время эти библиотеки доступны для .NET.
@@ -81,4 +79,3 @@ ms.lasthandoff: 08/16/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Пример управления для .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Справочник по Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 
-
