@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/20/2017
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 91d2f47a528050f644973044f96c0354b91dba25
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: bb3ac21d2e8b8efd7b4f6943fcc3256f18cbdd68
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -27,7 +27,13 @@ ms.lasthandoff: 09/25/2017
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
 ## <a name="prerequisites"></a>Предварительные требования
-В настоящее время Azure Machine Learning Workbench можно установить только в следующих операционных системах: Windows 10, Windows Server 2016 и macOS Sierra.
+Сейчас классическое приложение Azure Machine Learning Workbench можно установить только в следующих операционных системах: 
+- Windows 10
+- Windows Server 2016
+- macOS Sierra.
+
+>[!NOTE]
+>macOS High Sierra пока что не поддерживается.
 
 ## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
 Войдите на [портал Azure](https://portal.azure.com/).
@@ -118,7 +124,7 @@ Azure Machine Learning Workbench можно установить на компь
 
 5. Приложение Azure Machine Learning Workbench будет установлено в следующий каталог: 
 
-   _/Applications/AmlWorkbench.app_
+   `/Applications/AmlWorkbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-log-in-the-first-time"></a>Запуск Azure Machine Learning Workbench для первого входа
 1. Нажмите кнопку **Запуск Workbench** на последней странице программы установки, когда завершится процесс установки. Если вы уже закрыли программу установки, найдите ярлык Azure Machine Learning Workbench на рабочем столе или пункт **Azure Machine Learning Workbench** в меню "Пуск" и запустите приложение с их помощью.
