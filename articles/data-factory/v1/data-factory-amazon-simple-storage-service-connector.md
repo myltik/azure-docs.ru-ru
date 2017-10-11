@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 09/26/2017
 ms.author: jingwang
 robots: noindex
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 042b81cd2228ac87bcb6c654776a9c235920b77e
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: d2681e629d478208301091571d77a3c283a8e774
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Перемещение данных из Amazon Simple Storage Service с помощью фабрики данных Azure
@@ -69,6 +69,10 @@ ms.lasthandoff: 09/25/2017
 | --- | --- | --- | --- |
 | accessKeyID |Идентификатор секретного ключа доступа. |string |Да |
 | secretAccessKey |Сам секретный ключ доступа. |Зашифрованная строка секрета |Да |
+
+>[!NOTE]
+>Для этого соединителя требуются ключи доступа к учетной записи IAM для копирования данных из Amazon S3. [Временные учетные данные безопасности](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) не поддерживаются.
+>
 
 Пример:
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 09/26/2017
 ms.author: marsma
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 0cc6612a91532774a2645676e36f617ddc5de12c
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 8b499bbbe5f30e5bf0f0cde5882ae17d5ade3cc9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -47,7 +47,7 @@ Login-AzureRmAccount
 
 ## <a name="create-resource-group"></a>Создать группу ресурсов
 
-Создайте группу ресурсов Azure с помощью командлета [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Группа ресурсов — это логический контейнер, в котором происходит развертывание ресурсов Azure и управление ими.
+Создайте группу ресурсов Azure с помощью командлета [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Группа ресурсов — это логический контейнер, в котором происходит развертывание ресурсов Azure и управление ими.
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -55,13 +55,13 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Создание контейнера
 
-Чтобы создать контейнер, нужно указать его имя, образ Docker и группу ресурсов Azure. Либо же можно предоставить контейнер в Интернете по общедоступному IP-адресу. В этом случае мы будем использовать контейнер Windows Nano Server со службами Internet Information Services (IIS).
+Чтобы создать контейнер, нужно указать его имя, образ Docker и группу ресурсов Azure в командлете [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Либо же можно предоставить контейнер в Интернете по общедоступному IP-адресу. В этом случае мы будем использовать контейнер Windows Nano Server со службами Internet Information Services (IIS).
 
 ```powershell
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
 ```
 
-Через несколько секунд вы получите ответ на запрос. Изначально контейнер будет в состоянии **создания**, но через пару минут он запустится. Его состояние можно проверить с помощью командлета `Get-AzureRmContainerGroup`:
+Через несколько секунд вы получите ответ на запрос. Изначально контейнер будет в состоянии **создания**, но через пару минут он запустится. Можно проверить состояние с помощью командлета [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
 ```powershell
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -92,7 +92,7 @@ Volumes                  :
 
 ## <a name="delete-the-container"></a>Удаление контейнера
 
-По завершении работы с контейнером его можно удалить с помощью командлета `Remove-AzureRmContainerGroup`:
+По завершении работы с контейнером его можно удалить с помощью командлета [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
 
 ```powershell
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -104,6 +104,12 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 > [!div class="nextstepaction"]
 > [Руководства по использованию службы "Экземпляры контейнеров Azure"](./container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS -->
+[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
+[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
+[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
+[Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
 
 <!-- IMAGES -->
 [qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png

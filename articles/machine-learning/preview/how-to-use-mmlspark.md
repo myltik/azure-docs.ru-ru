@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/26/2017
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 506d439dc51513138c92e05bc5855848fc60f6a1
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 6714e8ad77693f0cdefe3e40c99153299e1c72d0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Как использовать библиотеку службы "Машинное обучение Microsoft" для Apache Spark
@@ -66,10 +66,14 @@ MMLSpark также можно установить непосредственн
 
 Откройте окно интерфейса командной строки в Azure Machine Learning Workbench. Для этого перейдите в меню "Файл" и щелкните "Открыть командную строку".
 
-В окне интерфейса командной строки выполните следующую команду:
+В окне интерфейса командной строки выполните следующие команды.
 
 ```
-az ml computecontext attach --name <myhdi> --address <ssh-myhdi.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+az ml computetarget attach --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+```
+
+```
+az ml experiment prepare -c <myhdi>
 ```
 
 Теперь кластер доступен как целевой объект вычислений для проекта.

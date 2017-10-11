@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4ea7220310f63108f8ec2fa1b28ddcaf992a3a51
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 784b9489911be0d9a559b6fe7795a6c2cbdb09fc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Действие копирования в фабрике данных Azure
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/25/2017
 ![Роль действия копирования](media/copy-activity-overview/copy-activity.png)
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data by using Copy Activity](v1/data-factory-data-movement-activities.md) (Перемещение данных с помощью действия копирования).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Move data by using Copy Activity](v1/data-factory-data-movement-activities.md) (Перемещение данных с помощью действия копирования).
 
 Действие копирования выполняется в [интегрированной среде выполнения](concepts-integration-runtime.md). В различных сценариях копирования данных могут использоваться разные версии интегрированной среды выполнения:
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 09/25/2017
 | sqlDwPolyBase | Если при копировании данных в хранилище данных SQL используется PolyBase. | Логический |
 | redshiftUnload | Если при копировании данных из Redshift используется команда UNLOAD. | Логический |
 | hdfsDistcp | Если при копировании данных из HDFS используется DistCp. | Логический |
-| effectiveIntegrationRuntime | Показывает, какая интегрированная среда выполнения используется для выполнения действия, в формате "<IR name> (<region for Azure IR>)". | Текст (string) |
+| effectiveIntegrationRuntime | Показывает, какие среды Integration Runtime используются для выполнения действия, в формате "`<IR name> (<region if it's Azure IR>)`". | Текст (string) |
 | usedCloudDataMovementUnits | Эффективные единицы перемещения облачных данных во время копирования. | Значение Int32 |
 | redirectRowPath | Путь к журналу пропущенных несовместимых строк в хранилище BLOB-объектов, который настраивается в разделе redirectIncompatibleRowSettings. См. пример ниже. | Текст (string) |
 | billedDuration | Оплачиваемая продолжительность перемещения данных. | Значение Int32 в секундах |
