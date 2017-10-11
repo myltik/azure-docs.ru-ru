@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 68958dd42ef2382caaa740c52fc4f20c1cd3eff0
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: e1356439385cc7fe66985bd2b84e4121386ec23d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -113,7 +113,7 @@ packages:
 ## <a name="run-configuration"></a>Конфигурация запуска
 Чтобы определить конфигурацию запуска, нужны два файла. Обычно они создаются с помощью команды CLI. Но вы можете клонировать уже существующие файлы, переименовать их и изменить содержимое.
 
-```shell
+```azurecli
 # create a compute target pointing to a VM via SSH
 $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
 
@@ -126,8 +126,8 @@ $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of 
 >[!NOTE]
 > Имена _local_ и _docker_ для файлов конфигурации запуска выбраны произвольно. Azure ML Workbench упрощает вам задачу, автоматически добавляя эти две конфигурации запуска при создании пустого проекта. Вы можете переименовать файлы <run configuration name>.runconfig, предоставленные вам в шаблоне проекта, или создать новые с любыми именами.
 
-### <a name="compute-target-namecompute"></a><compute target name>.compute
-Файл _<compute target name>.compute_ указывает на подключение к целевому объекту вычислений и параметры для него. Информация в нем хранится в виде списка пар "имя — значение". Ниже перечислены поддерживаемые параметры.
+### <a name="compute-target-namecompute"></a>\<имя_целевого_объекта_вычисления> .compute
+В файле _\<имя_целевого_объекта_вычисления>.compute_ указаны сведения о подключении к целевому объекту вычислений и его конфигурации. Информация в нем хранится в виде списка пар "имя — значение". Ниже перечислены поддерживаемые параметры.
 
 **type**. Тип вычислительной среды. Поддерживаемые значения:
   - local
@@ -135,7 +135,7 @@ $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of 
   - remotedocker
   - cluster
 
-**baseDockerImage**. Образ Docker, который используется для запуска скрипта Python или PySpark. По умолчанию имеет значение _microsoft/mmlspark:plus-0.7.dev7_2.gcfbc920_. Мы предлагаем еще один образ: _microsoft/mmlspark:plus-gpu-0.7.dev7_2.gcfbc920_, который поддерживает использование графического процессора на хост-компьютере (если графический процессор присутствует).
+**baseDockerImage**. Образ Docker, который используется для запуска скрипта Python или PySpark. Значение по умолчанию — _microsoft/mmlspark:plus-0.7.91_. Мы предлагаем еще один образ: _microsoft/mmlspark:plus-gpu-0.7.91_, который поддерживает использование графического процессора на хост-компьютере (при наличии графического процессора).
 
 **address**. IP-адрес или полное доменное имя виртуальной машины или головного узла кластера HDInsight.
 
@@ -149,8 +149,8 @@ $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of 
 
 **nativeSharedDirectory**. Этот параметр указывает базовый каталог (например, _~/.azureml/share/_), в котором файлы будут сохраняться между последовательными запусками для одного целевого объекта вычислений. Если этот параметр используется при работе с контейнером Docker, необходимо установить значение true для параметра _sharedVolumes_. В противном случае произойдет сбой выполнения.
 
-### <a name="run-configuration-namerunconfig"></a><run configuration name>.runconfig
-_<run configuration name>.runconfig_ задает поведение выполнения для Azure ML Workbench. К поведению выполнения относятся такие действия, как отслеживание истории запусков и выбор целевого объекта вычислений, а также другие действия. Имена файлов конфигурации запуска будут перечислены в раскрывающемся списке контекста выполнения в приложении Azure ML Workbench для рабочего стола.
+### <a name="run-configuration-namerunconfig"></a>\<имя_конфигурации_запуска>.runconfig
+В файле _\<имя_конфигурации_запуска>.runconfig_ задается поведение выполнения для Azure ML Workbench. Вы можете настроить поведение выполнения, например отслеживание журнала выполнения, выбор целевого объекта вычислений и множество других действий. Имена файлов конфигурации запуска будут перечислены в раскрывающемся списке контекста выполнения в приложении Azure ML Workbench для рабочего стола.
 
 **ArgumentVector**. В этом разделе указывается скрипт, который должен выполняться в этом запуске, и параметры для него. Допустим, в файле <run configuration name>.runconfig содержится следующий фрагмент кода: 
 
@@ -212,4 +212,6 @@ DataSourceSubstitutions:
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения о [настройке среды выполнения](experiment-execution-configuration.md)
 
