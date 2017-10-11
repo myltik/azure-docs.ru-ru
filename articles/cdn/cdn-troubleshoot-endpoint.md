@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53fdf1fe661167b468ef602634528e4d4173f606
-
-
+ms.openlocfilehash: f59fbd18413fb44026d8c92b7f6940ed2f8a00a8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-cdn-endpoints-returning-404-statuses"></a>Устранение неполадок конечных точек CDN, возвращающих состояние 404
 Эта статья поможет вам устранить неполадки с [конечными точками CDN](cdn-create-new-endpoint.md) , возвращающими ошибки 404.
@@ -97,10 +97,4 @@ ms.openlocfilehash: 53fdf1fe661167b468ef602634528e4d4173f606
 Например, для моей конечной точки необходимо, чтобы все ресурсы в моей учетной записи хранения были доступными, поэтому я оставил поле **Путь к источнику** пустым.  Это означает, что запрос файла `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` вызовет подключение из конечной точки к узлу `cdndocdemo.core.windows.net`, который запросит файл `/publicblob/lorem.txt`.  Аналогичным образом, запрос файла `https://cdndocdemo.azureedge.net/donotcache/status.png` приведет к запросу конечной точкой файла `/donotcache/status.png` из источника.
 
 Но что делать, если я не хочу использовать CDN для каждого пути к источнику?  Предположим, я хочу предоставить только путь `publicblob` .  Если ввести */publicblob* в поле **Путь к источнику**, то конечная точка будет вставлять */publicblob* перед каждым запросом к источнику.  Это означает, что запрос файла `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` теперь фактически будет использовать часть запроса URL-адреса, `/publicblob/lorem.txt`, добавляя в начало `/publicblob`. Это приводит к запросу файла `/publicblob/publicblob/lorem.txt` из источника.  Если этот путь не разрешается в фактический файл, источник будет возвращать состояние 404.  Правильный URL-адрес для получения файла lorem.txt в этом примере: `https://cdndocdemo.azureedge.net/lorem.txt`.  Обратите внимание, что мы не включали путь */publicblob*, так как часть запроса URL-адреса — `/lorem.txt` и конечная точка добавляет `/publicblob`, в результате чего создается запрос `/publicblob/lorem.txt`, передаваемый источнику.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

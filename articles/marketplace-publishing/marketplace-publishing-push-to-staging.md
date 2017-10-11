@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Завершение создания предложения с маркетинговыми материалами
 На этом шаге процесса публикации необходимо предоставить определенные маркетинговые материалы и сведения о предложении и (или) номера SKU в Azure Marketplace. К ним относятся, например, описание продукта, эмблемы компании, ценовые категории, сведения об организации и другие сведения, необходимые для отправки вашего предложения и (или) номера SKU на промежуточный этап. Эта информация используется в качестве маркетинговых материалов на нашем портале Azure. Этот процесс начинается на [портале публикации][link-pubportal].
@@ -287,9 +287,3 @@ ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
 
 [link-pubportal]:https://publish.windowsazure.com
 [link-push-to-production]:marketplace-publishing-push-to-production.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

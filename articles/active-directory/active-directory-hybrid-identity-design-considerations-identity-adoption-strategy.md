@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Определение стратегии внедрения гибридной идентификации
 В этой статье вы определите стратегию внедрения гибридной идентификации для гибридных решений идентификации, которая соответствует бизнес-требованиям, выработанным вами с помощью таких статей:
@@ -213,5 +212,4 @@ ms.lasthandoff: 07/19/2017
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

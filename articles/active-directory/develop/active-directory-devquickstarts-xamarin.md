@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c40d273f102339fac8ea633c870b869d10106a7
-ms.openlocfilehash: ccbc051f49220e824782ed4831a31ab1a716570a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 54ee403f283bc5dc79911e2e813dd513ff595828
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="integrate-azure-ad-with-xamarin-apps"></a>Интеграция Azure AD с приложениями Xamarin
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -91,7 +89,7 @@ ms.lasthandoff: 02/17/2017
 2. В проекте DirectorySearcherLib откройте файл DirectorySearcher.
 3. Замените значения членов класса значениями, введенными на портале Azure. Ваш код будет ссылаться на эти значения при каждом использовании ADAL.
 
-  * *tenant* — это домен вашего клиента Azure AD (например, contoso.onmicrosoft.com).
+  * *tenant* — это домен вашего клиента Azure AD (например, contoso.onmicrosoft.com).
   * *clientId* — идентификатор клиента приложения, скопированный с портала.
   * *returnUri* — URI перенаправления, который вы указали на портале (например, http://DirectorySearcher).
 
@@ -189,11 +187,10 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 1. Запустите приложение DirectorySearcher и войдите как один из пользователей.
 2. Осуществите поиск других пользователей по их имени участника-пользователя.
 
-ADAL упрощает процесс включения общих возможностей идентификации в приложение. Эта библиотека отвечает за всю "грязную работу": управление кэшем, поддержку протокола OAuth, предоставление пользователю пользовательского интерфейса для входа и обновление истекших маркеров. Вам нужно знать только один вызов API — `authContext.AcquireToken*(…)`.
+ADAL упрощает процесс включения общих возможностей идентификации в приложение. Эта библиотека отвечает за всю "грязную работу": управление кэшем, поддержку протокола OAuth, предоставление пользователю пользовательского интерфейса для входа и обновление истекших маркеров. Вам нужно знать только один вызов API — `authContext.AcquireToken*(…)`.
 
 Скачайте для справки [готовый пример](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip) (без ваших значений конфигурации).
 
 Теперь можно приступить к дополнительным сценариям идентификации. Например, попробуйте использовать [защиту веб-API для .NET с помощью Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
 ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Настроить CHAP для устройства StorSimple.
 В этом учебнике описывается настройка CHAP для устройства StorSimple. Процедуры, описанные в этой статье, относятся к серии StorSimple 8000, а также к устройствам StorSimple 1200.
@@ -161,5 +160,4 @@ CHAP лучше всего использовать для повышения б
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Узнайте о больше о безопасности StorSimple](storsimple-security.md).
 * Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Руководство по созданию образа виртуальной машины для Azure Marketplace
 Эта статья ( **шаг 2**) содержит инструкции по подготовке виртуальных жестких дисков (VHD), развертываемых в Azure Marketplace. Виртуальные жесткие диски являются основой номера SKU. Процесс подготовки будет отличаться в зависимости от типа номера SKU (на основе Linux или Windows). В этой статье рассматриваются оба сценария. Описываемую процедуру можно выполнять параллельно с [созданием учетной записи разработчика Майкрософт][link-acct-creation].
@@ -568,4 +567,3 @@ VHD с операционной системой Windows в образе вир�
 [link-openssl]:https://www.openssl.org/
 [link-intsvc]:http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]:https://www.python.org/
-

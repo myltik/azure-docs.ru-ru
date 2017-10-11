@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Перемещение каналов ExpressRoute из классической модели развертывания в модель развертывания с помощью Resource Manager
 В этой статье описывается перемещение канала Azure ExpressRoute из классической модели развертывания в модель развертывания с помощью Azure Resource Manager.
@@ -105,5 +104,4 @@ ms.lasthandoff: 05/03/2017
   * [Создание канала ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Настройка маршрутизации](expressroute-howto-routing-arm.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
 

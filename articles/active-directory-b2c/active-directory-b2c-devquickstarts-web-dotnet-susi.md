@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: 3144ced01b524abb035dc1c6f0cdf764bec46804
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Создание веб-приложения ASP.NET с возможностями регистрации, входа, редактирования профиля и сброса пароля Azure Active Directory B2C
 
@@ -392,4 +391,3 @@ public ActionResult Claims()
 ```
 
 Вы можете открыть любое утверждение, которое ваше приложение получает таким же образом.  Список всех получаемых приложением утверждений можно найти на странице **Утверждения** .
-

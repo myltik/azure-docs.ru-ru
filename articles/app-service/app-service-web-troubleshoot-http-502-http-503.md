@@ -1,6 +1,6 @@
 ---
-title: "Устранение ошибок &quot;502 — недопустимый шлюз&quot; и &quot;503 — служба недоступна&quot; | Документация Майкрософт"
-description: "Устранение ошибок &quot;502 — недопустимый шлюз&quot; и &quot;503 — служба недоступна&quot;, возникающих при работе веб-приложения, размещенного в службе приложений Azure."
+title: "Устранение ошибок \"502 — недопустимый шлюз\" и \"503 — служба недоступна\" | Документация Майкрософт"
+description: "Устранение ошибок \"502 — недопустимый шлюз\" и \"503 — служба недоступна\", возникающих при работе веб-приложения, размещенного в службе приложений Azure."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 397a6aaf7dc27adfa0fc0e722b8a2be5cc1d75f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Устранение ошибок HTTP "502 — недопустимый шлюз" и "503 — служба недоступна" в работе ваших веб-приложений Azure
 "502 — недопустимый шлюз" и "503 — служба недоступна" — распространенные ошибки, возникающие при работе веб-приложения, размещенного в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Эта статья поможет вам устранить эти ошибки.
@@ -130,5 +129,4 @@ Microsoft Azure информирует о каждом случае прерыв
  ![Перезапуск приложения для устранения ошибок HTTP "502 — недопустимый шлюз" и "503 — служба недоступна"](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
-
 

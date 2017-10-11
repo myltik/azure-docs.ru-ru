@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
-ms.lasthandoff: 03/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Доменные службы Azure AD: руководство по устранению неполадок
 В этой статье приводятся советы по устранению проблем, с которыми вы можете столкнуться при настройке или администрировании доменных служб Azure Active Directory (AD).
@@ -158,4 +157,3 @@ Azure AD обеспечивает защиту от случайного уда�
 
 ## <a name="contact-us"></a>Свяжитесь с нами
 Чтобы [оставить отзыв или обратиться за помощью](active-directory-ds-contact-us.md), свяжитесь с командой разработки продукта, отвечающей за доменные службы Azure Active Directory.
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 419e489e4e99935dea49b2d3f9a405013b94048c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 141919ab4506b3de4c4a69670dcf54c60ee6409c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Справочник по командлетам PowerShell планировщика
 В следующей таблице приведено описание и ссылки на справочную страницу для каждого из основных командлетов в планировщике Azure.
@@ -76,5 +75,4 @@ Get-Help <cmdlet name> -Full
  [Ограничения, значения по умолчанию и коды ошибок планировщика Azure](scheduler-limits-defaults-errors.md)
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
-
 

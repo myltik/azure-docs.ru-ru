@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4d35bdd88998d30435e9e5e916a18b3ce3bc7978
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: 538a6ab60168735c2626a93cdeedd8d4999a6efc
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Обзор и сравнение кодировщиков мультимедиа Azure по запросу
-## <a name="encoding-overview"></a>Общие сведения о кодировании
+## <a name="encoding-overview"></a>Общие сведения о Службе кодирования
 Службы мультимедиа Azure предоставляют несколько вариантов для кодирования мультимедиа в облаке.
 
 При начале работы со службами мультимедиа важно понимать разницу между кодеками и форматами файлов.
@@ -74,12 +73,12 @@ ms.lasthandoff: 03/14/2017
 
 ## <a name="media-encoder-premium-workflow"></a>Расширенный рабочий процесс кодировщика мультимедиа
 ### <a name="overview"></a>Обзор
-[Знакомство с кодированием Premium в службах мультимедиа Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
+[Знакомство со Службой кодирования категории "Премиум" в службах мультимедиа Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ### <a name="how-to-use"></a>Использование
 Рабочий процесс Premium кодировщика мультимедиа настраивается с помощью сложных рабочих процессов. Файлы рабочих процессов можно создавать и обновлять с помощью [конструктора рабочих процессов](media-services-workflow-designer.md) .
 
-[Использование кодирования Premium в службах мультимедиа Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+[Использование Службы кодирования категории "Премиум" в службах мультимедиа Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>Известные проблемы
 Если входящее видео не содержит скрытых субтитров, выходящий ресурс по-прежнему будет содержать пустой файл TTML.
@@ -97,4 +96,3 @@ ms.lasthandoff: 03/14/2017
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-

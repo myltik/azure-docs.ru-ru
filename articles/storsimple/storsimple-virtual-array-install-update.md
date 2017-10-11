@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 978dde5857344704ce14e2dd090895f1fe541863
 ms.openlocfilehash: c2d081604c0ca01f47c3ff2aab7477859d280963
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Установка обновлений на виртуальный массив StorSimple с помощью портала Azure
 
@@ -110,5 +109,4 @@ ms.lasthandoff: 03/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в статье [Использование пользовательского веб-интерфейса для администрирования виртуального массива StorSimple](storsimple-ova-web-ui-admin.md).
-
 

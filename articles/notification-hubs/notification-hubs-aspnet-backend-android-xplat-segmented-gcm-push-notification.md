@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Использование концентраторов уведомлений для передачи экстренных новостей
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -29,7 +29,7 @@ ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
 Широковещательные сценарии реализуются путем включения одного или нескольких *тегов* при создании регистрации в концентраторе уведомлений. Если уведомления отправляются на тег, их получают все устройства, зарегистрированные для данного тега. Поскольку теги представляют собой обычные строки, их не нужно подготавливать заранее. Дополнительные сведения о тегах см. в статье [Маршрутизация и выражения тегов](notification-hubs-tags-segment-push-message.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Материал этой статьи основан на приложении, созданном в [руководстве по началу работы с Центрами уведомлений][get-started]. Перед началом работы с руководством необходимо пройти задания [руководства по началу работы с Центрами уведомлений][get-started].
+Материал данной статьи основан на приложении, созданном в разделе по [началу работы с центрами уведомлений][get-started]. Перед началом работы с данным руководством необходимо выполнить задания руководства по [началу работы с центрами уведомлений][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Добавление возможности выбора категорий в приложение
 Прежде всего, необходимо добавить элементы пользовательского интерфейса для имеющегося основного действия, позволяющие пользователю выбирать категории для регистрации. Выбранные пользователем категории хранятся на устройстве. При запуске приложения в концентраторе уведомлений создается регистрация устройства с выбранными категориями, представленными в форме тегов.
@@ -295,18 +295,12 @@ ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
 <!-- URLs.-->
 [get-started]: notification-hubs-android-push-notification-google-gcm-get-started.md
 [Использование центров уведомлений для передачи локализованных экстренных новостей]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Уведомление пользователей с помощью концентраторов уведомлений]: /manage/services/notification-hubs/notify-users
-[Мобильная служба]: /develop/mobile/tutorials/get-started/
-[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Инструкции по использованию Центров уведомлений для Магазина Windows]: http://msdn.microsoft.com/library/jj927172.aspx
-[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Пакет Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
+[Mobile Service]: /develop/mobile/tutorials/get-started/
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [классическом портале Azure]: https://manage.windowsazure.com
-[Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

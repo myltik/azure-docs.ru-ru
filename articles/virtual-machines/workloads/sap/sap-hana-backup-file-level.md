@@ -13,14 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="sap-hana-azure-backup-on-file-level"></a>Резервное копирование SAP HANA в Azure на уровне файлов
 
 ## <a name="introduction"></a>Введение
@@ -161,4 +159,3 @@ ms.lasthandoff: 08/21/2017
 * Общие сведения и информацию о начале работы см. в [руководстве по резервному копированию SAP HANA на виртуальных машинах Azure](sap-hana-backup-guide.md).
 * Дополнительные сведения о резервном копировании SAP HANA на основе моментальных снимков хранилища см. в [этой статье](sap-hana-backup-storage-snapshots.md).
 * Дополнительные сведения об обеспечении высокого уровня доступности и планировании аварийного восстановления SAP HANA в Azure (крупные экземпляры) см. в [этой статье](hana-overview-high-availability-disaster-recovery.md).
-

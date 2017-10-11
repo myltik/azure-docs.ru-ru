@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 0056c458cc002cbdb1b8dabefe0d11a8abd61179
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Управление базами данных в хранилище данных SQL Azure
 Хранилище данных SQL позволяет автоматизировать многие аспекты управления базами данных. Например, для масштабирования производительности достаточно выбрать и оплатить необходимый уровень вычислительных ресурсов, после чего всю работу по увеличению и уменьшению масштаба выполнит хранилище данных SQL.
@@ -115,4 +113,3 @@ ms.lasthandoff: 03/29/2017
 
 <!--Other web references-->
 [Azure portal]: http://portal.azure.com/
-

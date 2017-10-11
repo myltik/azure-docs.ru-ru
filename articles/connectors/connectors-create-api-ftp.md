@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Начало работы с соединителем FTP
 Соединитель FTP можно использовать для создания и мониторинга файлов на FTP-сервере, а также для управления ими. 
@@ -93,5 +92,4 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
-
 

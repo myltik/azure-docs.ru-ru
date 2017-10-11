@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: fd9e6dcea6524f55c1bd06da35f02be5670bf95f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Руководство по Hadoop. Приступая к работе с Hadoop в HDInsight
 
@@ -81,7 +80,7 @@ ms.lasthandoff: 08/24/2017
 
 1. Щелкните **Панель мониторинга кластера** и **Панель мониторинга кластера HDInsight**, как показано на предыдущем снимке экрана.  Чтобы открыть Ambari, можно также перейти по ссылке **https://&lt;ClusterName>.azurehdinsight.net**, где &lt;ClusterName> — это кластер, созданный в предыдущем разделе.
 2. Введите имя пользователя Hadoop и пароль, указанные в предыдущем разделе. Имя пользователя по умолчанию — **admin**.
-3. Откройте **представление Hive**, как показано на снимке экрана ниже:
+3. Откройте **представление Hive** , как показано на снимке экрана ниже:
    
     ![Выбор представления Ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png "Меню представления Hive в HDInsight")
 4. На странице в разделе **Редактор запросов** вставьте в рабочий лист следующие инструкции HiveQL:
@@ -159,6 +158,5 @@ ms.lasthandoff: 08/24/2017
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
 
 

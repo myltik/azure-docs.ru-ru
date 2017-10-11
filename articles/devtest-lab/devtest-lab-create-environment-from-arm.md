@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/14/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Создание сред со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Azure Resource Manager
 
 [Портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) позволяет с легкостью [создать и добавить виртуальную машину в лабораторию](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Этот вариант хорошо подходит, если одновременно создается только одна виртуальная машина. Но если среда содержит несколько виртуальных машин, то каждую из них необходимо создавать отдельно. Для сценариев, где задействовано многоуровневое веб-приложение или ферма SharePoint, требуется механизм создания множества виртуальных машин одним действием. С помощью шаблонов Azure Resource Manager теперь можно определить инфраструктуру и конфигурацию решения Azure и многократно развернуть множество виртуальных машин в согласованном состоянии. Эта функция обеспечивает следующие преимущества:
@@ -132,4 +130,3 @@ ms.lasthandoff: 06/14/2017
 * После создания виртуальной машины к ней можно подключиться, щелкнув **Подключиться** в колонке виртуальной машины.
 * Для просмотра и администрирования ресурсов в среде выберите среду в списке **Мои виртуальные машины** в вашей лаборатории. 
 * Ознакомьтесь с [шаблонами Azure Resource Manager из коллекции шаблонов быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates).
-

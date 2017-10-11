@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Отслеживание взаимодействия B2B в Microsoft Operations Management Suite (OMS)
 
 После настройки взаимодействия B2B между двумя выполняющимися бизнес-процессами или приложениями с помощью учетной записи интеграции эти сущности могут обмениваться сообщениями друг с другом. Для проверки того, обрабатываются ли эти сообщения должным образом, можно организовать отслеживание сообщений AS2, X12 и EDIFACT с помощью [Azure Log Analytics](../log-analytics/log-analytics-overview.md) в [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Например, для отслеживания сообщений можно использовать следующие функции:

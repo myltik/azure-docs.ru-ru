@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Системные требования для виртуального массива StorSimple
 ## <a name="overview"></a>Обзор
@@ -131,5 +130,4 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="next-step"></a>Дальнейшие действия
 * [Подготовка портала для развертывания виртуального массива StorSimple.](storsimple-virtual-array-deploy1-portal-prep.md)
-
 

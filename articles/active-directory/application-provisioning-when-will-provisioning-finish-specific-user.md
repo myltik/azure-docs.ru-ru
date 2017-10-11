@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b1f16079ad13c4e45f93a7e5e3d29568738e03cf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: fcefb31904cfb77022db0358e9feee6a0479db81
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Как определить, когда конкретный пользователь получит доступ к приложению
 При использовании автоматической подготовки пользователей Azure AD будет автоматически подготавливать и обновлять учетные записи пользователей в приложении на основе [назначений пользователей и групп](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) с установленным интервалом времени, обычно каждые 10 минут.
 
@@ -49,4 +47,3 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Автоматическая подготовка пользователей и отмена подготовки для приложений SaaS в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)
-

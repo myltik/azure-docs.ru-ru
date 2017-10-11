@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 22f2bcfdd8c3978a6924c8c8cdea2744001000fe
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Федерация нескольких экземпляров Azure AD с одним экземпляром AD FS
 
 Одна высокодоступная ферма AD FS может объединять несколько лесов при наличии взаимного доверия между ними. Эти несколько лесов могут соответствовать или не соответствовать одной службе Azure Active Directory. Эта статья содержит инструкции по настройке федерации между одним экземпляром AD FS и несколькими лесами, которые синхронизируются с другим экземпляром Azure AD.
@@ -66,4 +64,3 @@ ms.lasthandoff: 04/10/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Подключение Active Directory к Azure Active Directory](active-directory-aadconnect.md)
-

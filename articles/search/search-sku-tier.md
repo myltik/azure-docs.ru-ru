@@ -15,14 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Выбор SKU или ценовой категории для службы поиска Azure
 В Поиске Azure [служба подготавливается](search-create-service-portal.md) согласно конкретной ценовой категории или SKU. Доступны такие уровни: **Бесплатный**, **Базовый** и **Стандартный** (уровень **Стандартный** доступен для нескольких конфигураций и емкостей).
 
@@ -115,4 +113,3 @@ ms.lasthandoff: 06/08/2017
 
 * [Создание службы поиска Azure с помощью портала Azure](search-create-service-portal.md)
 * [Планирование емкости в Поиске Azure](search-capacity-planning.md)
-

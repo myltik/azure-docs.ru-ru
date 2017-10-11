@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
 ms.openlocfilehash: 337a7adfd93c76882a749685702bea6d1524c96a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Включение агента виртуальной машины в центре безопасности Azure
 Чтобы [включить сбор данных](security-center-enable-data-collection.md), нужно установить агент виртуальной машины на виртуальные машины.  Центр безопасности Azure позволяет узнать, для каких виртуальных машин требуется агент виртуальной машины, и рекомендует включить его на них.
@@ -51,4 +50,3 @@ ms.lasthandoff: 07/06/2017
 <!--Image references-->
 [1]: ./media/security-center-enable-vm-agent/enable-vm-agent.png
 [2]: ./media/security-center-enable-vm-agent/vm-agent-is-missing.png
-

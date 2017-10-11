@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 2212b7a81b66d1afd1aa78d1487b07b6d7b84129
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Руководство по интеграции Azure Active Directory с Canvas LMS
 
@@ -152,7 +151,7 @@ ms.lasthandoff: 06/16/2017
 
     г) В текстовое поле **Change Password Link** (Ссылка для изменения пароля) вставьте **URL-адрес изменения пароля**, скопированный на портале Azure. 
 
-    д. В текстовое поле **Certificate Fingerprint** (Отпечаток сертификата) вставьте значение **Отпечаток** сертификата, которое вы скопировали на портале Azure.      
+    д. В текстовое поле **Certificate Fingerprint** (Отпечаток сертификата) вставьте значение **Отпечаток**, которое вы скопировали на портале Azure.      
         
     f. В списке **Login Attribute** (Атрибут входа) выберите значение **NameID**.
 
@@ -288,5 +287,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_203.png
-
 

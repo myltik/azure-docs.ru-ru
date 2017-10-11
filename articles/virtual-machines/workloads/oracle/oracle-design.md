@@ -15,15 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9bd9ff35cebc2aeaf0558dcf1a37887050682f0a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 1af7e1d40a0eb129875dd6a30ac899f2025bee13
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
-
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Разработка базы данных Oracle и ее реализация в Azure
 
 ## <a name="assumptions"></a>Предположения
@@ -102,7 +99,7 @@ SQL> @?/rdbms/admin/awrrpt.sql
 - размер базы данных (в ГБ);
 - число байт, полученных через SQL*Net из клиента и поступивших него.
 
-### <a name="virtual-machine-size"></a>Размер виртуальной машины
+### <a name="virtual-machine-size"></a>размер виртуальной машины;
 
 #### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Оценка необходимого размера виртуальных машин на основе использования ЦП, памяти или операций ввода-вывода из отчета AWR
 
@@ -116,7 +113,7 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 ![Снимок экрана страницы отчета AWR](./media/oracle-design/io_info.png)
 
-#### <a name="2-choose-a-vm"></a>2) Выбор виртуальной машины
+#### <a name="2-choose-a-vm"></a>2. Выбор виртуальной машины
 
 Далее на основе данных из отчета AWR следует выбрать размер виртуальной машины, который соответствует вашим требованиям. Список доступных виртуальных машин см. в статье об [оптимизации для памяти](https://docs.microsoft.com/azure/virtual-machinFine tune es/virtual-machines-windows-sizes-memory).
 
@@ -238,4 +235,3 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 - Изучите [руководство по созданию высокодоступных виртуальных машин](../../linux/create-cli-complete.md).
 - [Изучите примеры развертывания виртуальных машин с помощью интерфейса командной строки](../../linux/cli-samples.md).
-

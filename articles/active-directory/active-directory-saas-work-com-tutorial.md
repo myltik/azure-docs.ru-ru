@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 7cfec8e9ac12d43095483696a15c0580776d3114
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Руководство. Интеграция Azure Active Directory с Work.com
 
@@ -331,5 +330,4 @@ ms.lasthandoff: 07/26/2017
 [201]: ./media/active-directory-saas-work-com-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-work-com-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-work-com-tutorial/tutorial_general_203.png
-
 

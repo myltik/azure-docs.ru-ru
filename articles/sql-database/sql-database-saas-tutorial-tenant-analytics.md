@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Извлечение данных из баз данных клиента в базу данных аналитики для автономного анализа.
 
@@ -120,4 +119,3 @@ ms.lasthandoff: 06/17/2017
 
 * [Руководства по SaaS WTP базы данных SQL](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Управление масштабируемыми облачными базами данных](sql-database-elastic-jobs-overview.md)
-

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
 ms.openlocfilehash: 35c94e2d9d8a938971f85ea732a74a7e1655545e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Руководство. Интеграция Azure Active Directory с Lecorpio
 
@@ -225,5 +223,4 @@ ms.lasthandoff: 05/04/2017
 [201]: ./media/active-directory-saas-lecorpio-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-lecorpio-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-lecorpio-tutorial/tutorial_general_203.png
-
 

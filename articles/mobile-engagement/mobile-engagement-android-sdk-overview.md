@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
 ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Интеграция пакета SDK для Служб мобильного взаимодействия Azure с Android
 > [!div class="op_single_selector"]
@@ -68,5 +67,4 @@ ms.lasthandoff: 07/18/2017
 
 ## <a name="upgrade-procedures"></a>Процедуры обновления
 Если вы уже интегрировали более старую версию нашего пакета SDK в приложение, ознакомьтесь с разделом [Процедуры обновления](mobile-engagement-android-upgrade-procedure.md).
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/14/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 23cea0486a769d4f446f5114016d5accbe8113cf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: e617d600dbc8287eea737fc4969833e873365288
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Публикация облачной службы с помощью инструментов Azure
 С помощью инструментов Azure для Microsoft Visual Studio можно опубликовать приложение Azure прямо из Visual Studio. Visual Studio поддерживает интегрированную публикацию в промежуточную или рабочую среду облачной службы.
@@ -148,5 +147,4 @@ ms.lasthandoff: 08/16/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о публикации в Azure из Visual Studio см. в статье [Мастер публикации приложения Azure](vs-azure-tools-publish-azure-application-wizard.md).
-
 

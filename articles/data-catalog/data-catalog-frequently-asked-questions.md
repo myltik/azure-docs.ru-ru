@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: ea6b6651a32b9f259186991d9609301fd4dfa131
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 11e4bc7e71b4a94c3a0eda4275745b1beb44974d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Часто задаваемые вопросы о каталоге данных Azure
 Эта статья содержит ответы на часто задаваемые вопросы, связанные со службой каталога данных Azure.
@@ -129,4 +128,3 @@ ms.lasthandoff: 06/05/2017
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Мне не удалось найти здесь ответ на свой вопрос. Что делать?
 Перейдите на [форум каталога данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Ответы на вопросы, заданные на форуме, будут опубликованы здесь.
-

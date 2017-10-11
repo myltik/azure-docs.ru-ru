@@ -12,12 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 3c7c49ee5fbd98762da0eef6f02e7c2f036453cb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C. Настройка языка
 
@@ -202,4 +201,3 @@ Chrome и Firefox запрашивают настроенный в них язы
 | Турецкий               | tr            |
 | Китайский (упрощенное письмо)  | zh-hans       |
 | Китайский (традиционное письмо) | zh-hant       |
-

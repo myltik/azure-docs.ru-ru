@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Приемы разработки шаблонов Azure Resource Manager при развертывании сложных решений
 Гибкий подход, основывающийся на использовании шаблонов Azure Resource Manager, позволяет быстро и согласованно развертывать сложные топологии. Эти развертывания можно с легкостью адаптировать по мере развития основных предложений. Кроме того, можно работать с вариантами для сценариев выбросов или клиентов.
@@ -347,5 +346,4 @@ Redis использует только один тип узла, поэтому
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о состоянии общего доступа в рамках шаблонов и за их пределами см. в статье [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md) (Состояние общего доступа в шаблонах Azure Resource Manager).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-
 

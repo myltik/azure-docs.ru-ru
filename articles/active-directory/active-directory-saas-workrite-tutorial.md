@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 4358c4c621634c17cbbd7fa1c72f12746b8e4a2a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Руководство. Интеграция Azure Active Directory с Workrite
 
@@ -144,11 +143,11 @@ ms.lasthandoff: 07/19/2017
 
     ![Кнопка "Azure Active Directory"](./media/active-directory-saas-workrite-tutorial/create_aaduser_01.png)
 
-2. Перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**, чтобы отобразить список пользователей.
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
 
     ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-workrite-tutorial/create_aaduser_02.png)
 
-3. В верхней части диалогового окна **Пользователь** щелкните **Добавить**, чтобы открыть диалоговое окно **Все пользователи**.
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
 
     ![Кнопка "Добавить"](./media/active-directory-saas-workrite-tutorial/create_aaduser_03.png)
 
@@ -251,5 +250,4 @@ ms.lasthandoff: 07/19/2017
 [400]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_400.png
 [401]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_401.png
 [402]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_402.png
-
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 7076b476ba71c5d94ae4728e5f6032b0d7e047ad
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Руководство. Интеграция Azure Active Directory с Brightspace (разработка Desire2Learn)
 
@@ -112,13 +110,13 @@ ms.lasthandoff: 06/23/2017
 
     ![Настройка единого входа](./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в приведенном ниже формате.
+    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
     | |
     |--|
     | `https://<companyname>.tenants.brightspace.com/samlLogin`|
     | `https://<companyname>.desire2learn.com/shibboleth-sp`|
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:  `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`.
+    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`.
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь к [группе поддержки Brightspace by Desire2Learn](https://www.d2l.com/contact/).
@@ -234,5 +232,4 @@ ms.lasthandoff: 06/23/2017
 [201]: ./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_general_203.png
-
 

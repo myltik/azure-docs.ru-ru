@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d5a3c0a323b31696d39e3d2b36317dec3a2337d7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C. Настройка пользовательского интерфейса с помощью настраиваемой политики
 
@@ -162,7 +161,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 | Шаблон HTML5 | Описание |
 |----------------|-------------|
-| *phonefactor.html* | Этот файл используется как шаблон для страницы Многофакторной идентификации. |
+| *phonefactor.html* | Этот файл используется как шаблон для страницы многофакторной проверки подлинности. |
 | *ResetPassword.html* | Этот файл используется как шаблон для страницы восстановления пароля. |
 | *selfasserted.html* | Этот файл используется как шаблон для страницы регистрации учетных записей социальных сетей, страницы регистрации локальной учетной записи или страницы входа в локальную учетную запись. |
 | *unified.html* | Этот файл используется как шаблон для единой страницы регистрации или входа в систему. |
@@ -186,4 +185,3 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ## <a name="next-steps"></a>Дальнейшие действия
 
 См. [справочное руководство по настройке пользовательского интерфейса для встроенных политик](active-directory-b2c-reference-ui-customization.md).
-

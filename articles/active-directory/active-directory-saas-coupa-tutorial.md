@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d1660c9ea528741ea02e6bbae7b1f8fd7afea0eb
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Руководство. Интеграция Azure Active Directory с Coupa
 Цель данного руководства — показать интеграцию Azure и Coupa.  
@@ -91,7 +90,7 @@ ms.lasthandoff: 02/17/2017
    1. В текстовом поле **URL-адрес для входа** введите URL-адрес, используемый для входа в приложение Coupa (например, *http://компания.Coupa.com*).
    2. Откройте скачанный файл метаданных Coupa и скопируйте **AssertionConsumerService index/URL**.
    3. Вставьте значение **AssertionConsumerService index/URL** в текстовое поле **URL-адрес ответа Coupa**.
-   4. Нажмите кнопку **Далее**.
+   4. Щелкните **Далее**.
 8. На странице **Настройка единого входа в Coupa** нажмите кнопку **Скачать метаданные**, чтобы скачать файл метаданных, а затем сохраните его на локальном компьютере.
    
    ![Настройка единого входа](./media/active-directory-saas-coupa-tutorial/IC791905.png "Настройка единого входа")
@@ -143,7 +142,7 @@ ms.lasthandoff: 02/17/2017
 **Чтобы назначить пользователей Coupa, сделайте следующее:**
 
 1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Coupa** нажмите кнопку **Назначить пользователей**.
+2. На ** Coupa ** странице интеграции приложения щелкните **назначить пользователей**.
    
    ![Назначение пользователей](./media/active-directory-saas-coupa-tutorial/IC791911.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
@@ -151,5 +150,4 @@ ms.lasthandoff: 02/17/2017
    ![Да](./media/active-directory-saas-coupa-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
 

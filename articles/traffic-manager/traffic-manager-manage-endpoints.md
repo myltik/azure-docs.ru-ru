@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="add-disable-enable-or-delete-endpoints"></a>Добавление, отключение, включение и удаление конечных точек
 
 Функция веб-приложений в службе приложений Azure уже обеспечивает отказоустойчивую и циклическую маршрутизацию трафика для веб-сайтов в центре обработки данных, независимо от режима работы веб-сайта. Диспетчер трафика Azure позволяет использовать отказоустойчивую и циклическую маршрутизацию трафика для веб-сайтов и облачных служб в разных центрах данных. Первое, что нужно сделать, чтобы обеспечить такую возможность, — это добавить конечную точку облачной службы или веб-сайта в диспетчер трафика.
@@ -85,5 +83,4 @@ ms.lasthandoff: 05/09/2017
 * [Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
 * [Рекомендации по безопасности для диспетчера трафика](traffic-manager-performance-considerations.md)
 * [Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
 

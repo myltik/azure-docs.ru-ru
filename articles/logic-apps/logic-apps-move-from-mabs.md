@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Переход от служб BizTalk к службе Logic Apps
 
 Службы Microsoft Azure BizTalk Services (MABS) находятся на этапе прекращения использования. Эта статья поможет вам переместить решения интеграции MABS в службу Azure Logic Apps. 
@@ -131,4 +129,3 @@ ms.lasthandoff: 05/31/2017
 * Прочтите статью [Что такое приложения логики?](logic-apps-what-are-logic-apps.md)
 * [Создайте свое первое приложение логики](logic-apps-create-a-logic-app.md) или приступите к работе, используя [готовый шаблон](logic-apps-use-logic-app-templates.md).  
 * [Просмотрите список всех доступных соединителей](../connectors/apis-list.md), которые можно использовать в приложении логики.
-

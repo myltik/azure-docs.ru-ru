@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 3d41a3665ffb2217ecbe1ad53853f0e9d30fac34
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 43fbfe2f2c5fb86e496c4419f9565365cf89830a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-nodejs"></a>Подключение устройства Raspberry Pi 3 к решению для удаленного мониторинга и отправка имитированных данных телеметрии с помощью Node.js
 
@@ -128,4 +127,3 @@ sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator/remot
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-node-get-started-simulator/app-output.png
 
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
-

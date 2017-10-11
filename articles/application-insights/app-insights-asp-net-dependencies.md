@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 43733e452126c85ab9e19b6036aea96f56fc4d12
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
-
+ms.openlocfilehash: 6e0b67ba98af27017901608dde4401600eb9957f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Настройка Application Insights: отслеживание зависимостей
 *Зависимость* – это внешний компонент, который вызывается приложением. Как правило, это служба, вызываемая с использованием HTTP, база данных или файловая система. [Application Insights](app-insights-overview.md) измеряет время, в течение которого приложение ожидает зависимости, и определяет, как часто происходит сбой вызова зависимости. Можно изучить определенные вызовы и установить их взаимосвязь с теми или иными запросами и исключениями.
@@ -213,4 +212,3 @@ ms.lasthandoff: 08/02/2017
 * [Исключения](app-insights-asp-net-exceptions.md)
 * [Данные пользователей и страниц](app-insights-javascript.md)
 * [Доступность](app-insights-monitor-web-app-availability.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 5/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: cb7a9f01e43d41eb7315cb37a41e69f044ce5566
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C. Регистрация и вход пользователей в приложения с помощью пользовательских политик
 Пользовательские политики — это файлы конфигурации, которые определяют поведение вашего клиента Azure AD B2C. Разработчик удостоверений может полностью их изменять для выполнения практически неограниченного количества задач.
@@ -41,7 +40,6 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="whats-new"></a>Новые возможности
 Регулярно просматривайте указанные ниже страницы и узнавайте о будущих изменениях в Azure Active Directory B2C. Кроме того, мы будем сообщать о нововведениях в Twitter под именем @AzureAD.
-
 
 
 

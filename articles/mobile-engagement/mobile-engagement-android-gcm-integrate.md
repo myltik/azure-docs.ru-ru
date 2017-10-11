@@ -1,6 +1,6 @@
 ---
-title: "Интеграция пакета Android SDK для Azure Mobile Engagement"
-description: "Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
+title: "Интеграция пакета Android SDK для Служб мобильного взаимодействия Azure"
+description: "Последние обновления и процедуры пакета Android SDK для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,14 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-to-integrate-gcm-with-mobile-engagement"></a>Интеграция GCM с помощью службы Mobile Engagement
+# <a name="how-to-integrate-gcm-with-mobile-engagement"></a>Интеграция GCM с помощью Служб мобильного взаимодействия
 > [!IMPORTANT]
 > Перед выполнением действий, описанных в этом руководстве, необходимо выполнить процедуру интеграции, описанную в документе "Интеграция Engagement на платформе Android".
 > 
@@ -79,8 +78,7 @@ ms.lasthandoff: 11/17/2016
             <uses-permission android:name="<your_package_name>.permission.C2D_MESSAGE" />
             <permission android:name="<your_package_name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-## <a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Предоставление Mobile Engagement доступа к ключу API GCM
-Следуйте [этому руководству](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key) , чтобы предоставить Mobile Engagement доступ к вашему ключу API GCM.
+## <a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Предоставление Службам мобильного взаимодействия доступа к ключу API GCM
+Следуйте [этому руководству](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key), чтобы предоставить Службам мобильного взаимодействия доступ к вашему ключу API GCM.
 
 [пакет SDK для Google Play]:https://developers.google.com/cloud-messaging/android/start
-

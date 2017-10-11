@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2017
 ms.author: kdotchko
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1a8dd3d024fbe1e85a43c5b4f98901ab59c5797f
-ms.openlocfilehash: e0a7c813da53bc6ab49a456f13227b62725c5fc4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: b2ad2c6f5eeec2f803e2d2f5f98831b551efa8b1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # Поддержка дополнительных протоколов для Центра Интернета вещей
 Центр Интернета вещей Azure изначально поддерживает взаимодействие по протоколам MQTT, AMQP и HTTP. В некоторых случаях устройства или полевые шлюзы не могут использовать один из этих стандартных протоколов и требуют адаптации протокола. В таких случаях вы можете использовать настраиваемый шлюз. Адаптацию протокола для конечных точек центра IoT можно провести с помощью пользовательского шлюза, через который пропускается трафик к центру IoT и от него. [Шлюз протокола Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) можно использовать как настраиваемый шлюз для включения адаптации протокола для центра IoT.
@@ -50,4 +49,3 @@ ms.lasthandoff: 01/12/2017
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-

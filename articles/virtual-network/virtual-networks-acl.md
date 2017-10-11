@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Что такое список управления доступом к конечной точке?
 
@@ -92,5 +91,4 @@ ACL — это объект, содержащий список правил. П
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Управление списками управления доступом для конечных точек с помощью PowerShell](virtual-networks-acl-powershell.md)
-
 

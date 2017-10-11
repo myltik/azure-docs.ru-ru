@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
 ms.openlocfilehash: 22c72020200138e78835ed7dd2661f18b824c785
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Руководство. Интеграция Azure Active Directory с iLMS
 
@@ -123,13 +121,13 @@ ms.lasthandoff: 05/01/2017
 
     ![Настройка единого входа](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url1.png)
 
-    В текстовое поле **URL-адрес входа** вставьте значение **URL-адреса конечной точки**, которое необходимо скопировать в разделе параметров SAML **Service Provider** (Поставщик услуг) на портале администрирования iLMS, в виде `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`        
+    В текстовое поле **URL-адрес входа** вставьте значение **URL-адреса конечной точки**, которое необходимо скопировать в разделе параметров SAML **Service Provider** (Поставщик услуг) на портале администрирования iLMS, в виде `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
 5. Чтобы выполнить JIT-подготовку, приложение iLMS ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. На следующем снимке экрана приведен пример.
     
     ![Настройка единого входа](./media/active-directory-saas-ilms-tutorial/4.png)
     
-    Создайте атрибуты **department, region** и **division** и добавьте их имена в iLMS. Все указанные выше атрибуты являются обязательными.    
+    Создайте атрибуты **department, region** и **division** и добавьте их имена в iLMS. Все указанные выше атрибуты являются обязательными.  
 
     > [!NOTE] 
     > В iLMS необходимо установить флажок **Create Un-recognized User Account** (Создать учетную запись неопознанного пользователя) для сопоставления этих атрибутов. Следуйте указаниям, приведенным [здесь](http://support.inspiredelearning.com/customer/portal/articles/2204526), чтобы получить представление о конфигурации атрибутов.
@@ -325,5 +323,4 @@ ms.lasthandoff: 05/01/2017
 [201]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_203.png
-
 

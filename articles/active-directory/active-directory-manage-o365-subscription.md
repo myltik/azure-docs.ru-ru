@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Управление каталогом для подписки Office 365 в Azure
 В этой статье описывается управление каталогом, созданным для подписки Office 365, на классическом портале Azure. Для входа на классический портал Azure вы должны быть администратором служб или соадминистратором подписки Azure. Если у вас нет подписки Azure, вы можете зарегистрироваться прямо сейчас, чтобы использовать [бесплатную пробную версию в течение 30 дней](https://azure.microsoft.com/trial/get-started-active-directory/) и развернуть первое облачное решение в течение 5 минут, применив эту ссылку. Убедитесь, что вы используете рабочую или учебную учетную запись, с помощью которой входите в Office 365.
@@ -70,4 +69,3 @@ ms.lasthandoff: 07/26/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о связях между подписками и каталогами см. в статье [Связь между подписками Azure и Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
-

@@ -1,6 +1,6 @@
 ---
 title: "Отправка файлов в учетную запись служб мультимедиа Azure с помощью Aspera | Документация Майкрософт"
-description: "Из этого руководства вы узнаете, как отправлять файлы в учетную запись хранилища, связанную с учетной записью служб мультимедиа, с помощью службы **Aspera Server On Demand** в Azure."
+description: "Этот учебник поможет выполнить необходимые действия по передаче файлов в учетную запись хранилища, связанный с учетной записью служб мультимедиа с помощью ** Aspera Server по запросу ** службы в Azure."
 services: media-services
 documentationcenter: 
 author: johndeu
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 86cb6a979d3aa429c0f501a5ebf37db4bff8ba99
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Отправка файлов в учетную запись служб мультимедиа с помощью службы Aspera Server On Demand в Azure
 
@@ -137,5 +136,4 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

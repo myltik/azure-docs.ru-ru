@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: 49a8cd3acfc6df15ef6a51171c8421162bc94efc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Учебник. Интеграция Azure Active Directory со Small Improvements
 
@@ -277,5 +276,4 @@ ms.lasthandoff: 07/14/2017
 [201]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_203.png
-
 

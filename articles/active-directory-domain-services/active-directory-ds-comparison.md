@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 09a68c7f4e7169a6ca02e33e89e0f048155fa88c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Как определить, подходят ли вам доменные службы Azure AD
 Доменные службы Azure AD позволяют развертывать рабочие нагрузки в службах инфраструктуры Azure, не заботясь об обслуживании инфраструктуры удостоверений в Azure. Эта управляемая служба отличается от типичного развертывания Windows Server Active Directory, требующего самостоятельного развертывания и администрирования. Она проста в развертывании и обеспечивает автоматическое отслеживание работоспособности и исправление проблем. Мы постоянно с данную службу, чтобы добавить поддержку наиболее распространенных сценариев развертывания.
@@ -120,4 +119,3 @@ ms.lasthandoff: 07/08/2017
 * [Возможности доменных служб Azure AD](active-directory-ds-features.md)
 * [Сценарии развертывания доменных служб Azure AD](active-directory-ds-scenarios.md)
 * [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-

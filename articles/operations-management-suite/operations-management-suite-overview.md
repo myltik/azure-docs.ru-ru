@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Что такое Operations Management Suite (OMS)?
 Эта статья содержит обзорные сведения об Operations Management Suite (OMS) включая краткий обзор преимуществ этой службы для бизнеса, описание содержащихся в ней служб и решений по управлению, а также предложений, которые объединяют различные службы и решения.  Здесь приведены ссылки на подробную документацию по развертыванию и использованию каждой службы и решения.
@@ -172,5 +171,4 @@ Azure Site Recovery хранит метаданные в хранилищах, �
 * Дополнительные сведения о [службе архивации Azure](http://azure.microsoft.com/documentation/services/backup).
 * Дополнительные сведения об [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
 * Изучите [доступные решения](../log-analytics/log-analytics-add-solutions.md) в различных предложениях OMS. 
-
 

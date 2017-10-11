@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # Вызовы между службами с использованием делегированного удостоверения пользователя в потоке On-Behalf-Of
 Поток On-Behalf-Of в OAuth 2.0 используется в том случае, когда приложение вызывает API службы или веб-API, который, в свою очередь, должен вызывать другой API службы или веб-API. Идея состоит в том, чтобы распространить делегированное удостоверение пользователя и разрешения с помощью цепочки запросов. Для того чтобы служба среднего уровня могла выполнять запросы к службе нижнего уровня с проверкой подлинности, служба среднего уровня должна защитить токен доступа из Azure Active Directory (Azure AD) от имени пользователя.
@@ -201,4 +200,3 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 Дополнительные сведения о протоколе OAuth 2.0 и другом способе проверки подлинности между службами с использованием учетных данных клиента.
 * [Проверка подлинности между службами с использованием учетных данных клиента OAuth 2.0 в Azure AD](active-directory-protocols-oauth-service-to-service.md)
 * [OAuth 2.0 в Azure AD](active-directory-protocols-oauth-code.md)
-

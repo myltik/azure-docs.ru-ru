@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
 ms.openlocfilehash: 8d79626fa8516f226a82d3dac693c2033904c91d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings"></a>Управление режимом кэширования Azure CDN с помощью строк запросов
 > [!div class="op_single_selector"]
@@ -62,5 +61,4 @@ ms.lasthandoff: 01/25/2017
 > Изменения параметров вступают в силу не сразу, так как распространение регистрационных сведений по сети CDN может занять некоторое время.  Для профилей <b>Azure CDN от Akamai</b> распространение обычно занимает не более минуты.  Для профилей <b>Azure CDN от Verizon</b> распространение обычно завершается в течение 90 минут, но в некоторых случаях может занимать больше времени.
 > 
 > 
-
 

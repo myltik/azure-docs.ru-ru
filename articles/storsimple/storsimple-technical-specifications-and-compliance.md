@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: ac1f6fbd40770374f68d0d280fc1cc040e41b1ef
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Технические характеристики и информация о соответствии нормативным требованиям для устройства StorSimple
 ## <a name="overview"></a>Обзор
@@ -174,5 +173,4 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы можете развернуть устройство StorSimple в центре обработки данных. Дополнительные сведения см. в разделе [Развертывание локального устройства](storsimple-deployment-walkthrough-u2.md).  
-
 

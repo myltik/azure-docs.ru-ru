@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 03e60574ec892d83b6849089f0c89b1196e574e8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: b00a3fe7ba4b12c2e9c486188c292cd6fafb60a3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Настройка BGP на VPN-шлюзах Azure с помощью PowerShell
 В этой статье содержится пошаговое описание процесса, который позволит с помощью модели развертывания Resource Manager и PowerShell включить BGP для VPN-подключения типа "сеть — сеть" (S2S), настроенного между локальными сетями, или для подключения между виртуальными сетями.
@@ -112,7 +111,7 @@ $subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualN
 $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $subnet1 -PublicIpAddress $gwpip1
 ```
 
-#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2) Создание VPN-шлюза с номером AS
+#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Создание VPN-шлюза с номером AS
 Создайте шлюз для виртуальной сети TestVNet1. Для использования BGP обязательно нужен VPN-шлюз на основе маршрутов, а также дополнительный параметр -Asn, который задает номер ASN для TestVNet1. Если параметр ASN не указан, будет назначено значение ASN 65515. Создание шлюза может занять некоторое время (30 минут или более).
 
 ```powershell
@@ -172,7 +171,7 @@ $BGPPeerIP5 = "10.52.255.254"
 
 Прежде чем продолжить, убедитесь, что вы все еще подключены к подписке 1.
 
-#### <a name="2-create-the-local-network-gateway-for-site5"></a>2) Создание локального сетевого шлюза для сети Site5
+#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Создание локального сетевого шлюза для сети Site5
 
 Прежде чем создавать локальный сетевой шлюз, не забудьте создать группу ресурсов, если она не была создана ранее. Обратите внимание на два дополнительных параметра локального сетевого шлюза: Asn и BgpPeerAddress.
 

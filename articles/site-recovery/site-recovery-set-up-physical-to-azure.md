@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 49b9d2e21dbcb612828a25f21ed4382327d6f64c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Настройка исходной среды (репликация физических серверов в Azure)
 > [!div class="op_single_selector"]
 > * [VMware в VMware](./site-recovery-set-up-vmware-to-azure.md)
@@ -83,4 +81,3 @@ ms.lasthandoff: 06/30/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Следующий этап заключается в [настройке целевой среды](./site-recovery-prepare-target-physical-to-azure.md) в Azure.
-

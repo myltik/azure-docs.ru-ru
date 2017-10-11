@@ -12,14 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 67edaa55d7ccd00d4aebb309f11bcf95486e87fa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="pool-create-event"></a>Событие создания пула
 
  Это событие возникает при создании пула. Содержимое журнала предоставляет общие сведения о пуле. Обратите внимание, что если целевой размер пула больше 0 вычислительных узлов, сразу после этого события начинается событие начала изменения размера пула.
@@ -99,4 +97,3 @@ ms.lasthandoff: 04/22/2017
 |Имя элемента|Тип|Примечания|
 |------------------|--------------|----------|
 |subnetId|Строка|Указывает идентификатор ресурса для подсети, в которой создаются вычислительные узлы пула.|
-

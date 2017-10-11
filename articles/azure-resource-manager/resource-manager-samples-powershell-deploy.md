@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: eea616b03c95dea7f09d86a29b5dda8d8c20981a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/21/2017
-
-
+ms.openlocfilehash: b7a7dda1da653d084e02e6724d2f0cb5aa76807a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-resource-manager-template-deployment---powershell-script"></a>Развертывание шаблона Azure Resource Manager — сценарий PowerShell
 
@@ -123,5 +121,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * Сведения о развертывании шаблона, которому нужен токен SAS, см. в статье [Развертывание частного шаблона с помощью маркера SAS](resource-manager-powershell-sas-token.md).
 * Сведения об определении параметров в шаблоне см. в разделе [Создание шаблонов](resource-group-authoring-templates.md#parameters).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-
 

@@ -16,12 +16,11 @@ ms.date: 08/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: H1Hack27Feb2017;it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: b4baccafc0a9178223dbf64c664fc34ab9f7f916
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Управление параметрами группы в Azure Active Directory
 В этой статье объясняется, как управлять параметрами группы в Azure Active Directory (Azure AD).
@@ -50,4 +49,3 @@ ms.lasthandoff: 08/08/2017
 * [Управление участниками группы](active-directory-groups-members-azure-portal.md)
 * [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
 * [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
-

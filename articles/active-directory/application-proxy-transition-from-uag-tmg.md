@@ -15,12 +15,11 @@ ms.date: 07/27/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 6c9f70493155de6989b26fd4e8bcf1dff01c835c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="compare-remote-access-solutions"></a>Сравнение решений для удаленного доступа
 
@@ -65,4 +64,3 @@ ms.lasthandoff: 08/01/2017
 
 - [Обеспечение безопасного удаленного доступа к локальным приложениям с помощью службы приложений Azure AD](active-directory-application-proxy-get-started.md)
 - [Переход с Forefront TMG и UAG на прокси-службу приложений](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).
-

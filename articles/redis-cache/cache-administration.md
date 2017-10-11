@@ -14,12 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Администрирование кэша Redis для Azure
 В этом разделе описывается выполнение задач администрирования, таких как [перезагрузка](#reboot) и [планирование обновлений](#schedule-updates) для экземпляров кэша Redis для Azure.
@@ -122,5 +121,4 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [кэше Redis для Azure уровня "Премиум"](cache-premium-tier-intro.md).
-
 

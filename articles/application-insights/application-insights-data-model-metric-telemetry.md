@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 069457d7ef7855749f64e299e0db579e6bb2b590
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 42e55db4f932de85ee1a71c408b889e0ff9fe3e1
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Телеметрия метрик: модель данных Application Insights
 
@@ -74,4 +73,3 @@ ms.lasthandoff: 05/19/2017
 - Вы можете узнать, как использовать [API Application Insights для пользовательских событий и метрик](app-insights-api-custom-events-metrics.md#trackmetric).
 - В [этой статье](application-insights-data-model.md) представлены типы данных и модель данных для Application Insights.
 - Ознакомление с [платформами](app-insights-platforms.md), поддерживаемыми Application Insights.
-

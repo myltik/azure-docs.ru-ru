@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="os-patching-for-hdinsight"></a>Обновление путем частичной замены ОС для кластеров HDInsight 
 Являясь управляемой службой Hadoop, HDInsight отвечает за обновление путем частичной замены ОС базовых виртуальных машин, используемых в кластерах HDInsight. Начиная с 1 апреля 2016 года изменена политика обновления путем частичной замены гостевой ОС для кластеров HDInsight под управлением Linux (версии 3.4 или более поздней версии). Цель этой новой политики — значительно сократить число перезагрузок, выполняемых в процессе исправления. Согласно новой политике исправления виртуальных машин в кластерах Linux будут по-прежнему выполняться каждый понедельник или четверг, начиная с 12:00 (UTC), поочередно обслуживая узлы в каждом данном кластере. Однако перезагрузка каждой данной виртуальной машины по причине исправлений в гостевой ОС будет выполняться не чаще одного раза в 30 дней. Кроме того, первая перезагрузка только что созданного кластера будет выполняться не ранее, чем через 30 дней от даты создания кластера. Исправления начнут действовать после перезагрузки виртуальных машин.
 
@@ -73,4 +70,3 @@ ms.lasthandoff: 06/10/2017
 
 * [Использование действия скрипта при создании кластера](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Применение действия скрипта в работающем кластере](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
-

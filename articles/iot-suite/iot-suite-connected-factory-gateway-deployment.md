@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: caa12f4ef55006cd3edbe2d9606397d34fed3a3e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
-
+ms.openlocfilehash: b0e6ae705911d7c18643c77b7fe08fdffffa5eb1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Развертывание шлюза в ОС Windows или Linux для предварительно настроенного решения подключенной фабрики
 
 Программное обеспечение, необходимое для развертывания шлюза для предварительно настроенного решения подключенной фабрики, состоит из двух компонентов:

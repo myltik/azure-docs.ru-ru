@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f48f9dff289c556aea1912ecf7b6415abb902f33
 ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-update-3-on-your-storsimple-8000-series-device"></a>Установка обновления 3 на устройство StorSimple серии 8000
 
@@ -119,5 +118,4 @@ ms.lasthandoff: 02/28/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [выпуске обновления 3](storsimple-update3-release-notes.md).
-
 

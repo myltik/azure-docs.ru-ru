@@ -15,14 +15,12 @@ ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 57218346d236b376d2227e0ffaea6c6dd5ebe855
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Перенаправление встроенных ссылок для приложений, опубликованных с помощью прокси приложения Azure AD
 
 С помощью прокси приложения Azure AD ваши локальные приложения доступны удаленным пользователям или пользователям со своими устройствами. Тем не менее, некоторые приложения были разработаны с помощью локальных ссылок, внедренных в HTML-код. Эти ссылки могут работать некорректно при использовании приложения удаленно. Если несколько локальных приложений указывают друг на друга, то пользователям требуется, чтобы ссылки продолжали работать, когда их нет в офисе. 
@@ -92,4 +90,3 @@ ms.lasthandoff: 08/24/2017
 [Работа с пользовательскими доменами в прокси приложения Azure AD](active-directory-application-proxy-custom-domains.md)
 
 [Настройка альтернативных сопоставлений доступа для SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
-

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2b25ffd844507074a8467b1135b1331feb9d3ed7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
-
+ms.openlocfilehash: 59c4dfafc102b26e3b9873f433065715f4aec9ec
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Узнайте, как клиенты используют ваше приложение с помощью воронок Application Insights
 
 Понимание потребностей клиента является важнейшим приоритетом для бизнеса. Если приложение состоит из нескольких шагов, необходимо узнать, проходит ли большинство клиентов весь процесс или же они прекращают его в какой-то момент. Продвижение через ряд шагов в веб-приложении называется воронкой. Воронки Application Insights можно использовать для получения ценной информации о пользователях и пошагового отслеживания коэффициента преобразования. 
@@ -50,4 +48,3 @@ ms.lasthandoff: 08/09/2017
   * [Сохранение](app-insights-usage-retention.md)
   * [Книги](app-insights-usage-workbooks.md)
   * [Добавление контекста пользователей](app-insights-usage-send-user-context.md)
-

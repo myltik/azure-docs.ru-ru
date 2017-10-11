@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: b78e9b7161207a74880e912241d5e965b353d1c5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Руководство. Интеграция Azure Active Directory с приложениями Splunk Enterprise и Splunk Cloud
 
 В этом руководстве описано, как интегрировать Splunk Enterprise и Splunk Cloud с Azure Active Directory (Azure AD).
@@ -127,13 +125,13 @@ ms.lasthandoff: 03/28/2017
   1. В текстовом поле **URL-адрес входа** введите URL-адрес, с помощью которого пользователи входят в приложение Splunk Enterprise и Splunk Cloud, в следующем формате: `https://<splunkserverUrl>/en-US/app/launcher/home`
   2. В текстовом поле **Идентификатор** введите URL-адрес сервера Splunk Server.
   3. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<splunkserver>/saml/acs`
-  4. Нажмите кнопку **Далее**.
+  4. Щелкните **Далее**.
  
 4. На странице **Настройка единого входа в Splunk Enterprise и Splunk Cloud** сделайте следующее.
 
     ![Настройка единого входа](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_05.png)
   1. Нажмите **Загрузить метаданные**и сохраните файл на свой компьютер.
-  2. Нажмите кнопку **Далее**.
+  2. Щелкните **Далее**.
 
 5. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Splunk Enterprise и Splunk Cloud и укажите следующие сведения:
 
@@ -172,7 +170,7 @@ ms.lasthandoff: 03/28/2017
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_05.png) 
   1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
   2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-  3. Нажмите кнопку **Далее**.
+  3. Щелкните **Далее**.
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
   
@@ -181,7 +179,7 @@ ms.lasthandoff: 03/28/2017
   2. В текстовом поле **Фамилия** введите **Simon**.
   3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
   4. В списке **Роль** выберите **Пользователь**.
-  5. Нажмите кнопку **Далее**.
+  5. Щелкните **Далее**.
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
@@ -254,4 +252,3 @@ ms.lasthandoff: 03/28/2017
 [203]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_205.png
-

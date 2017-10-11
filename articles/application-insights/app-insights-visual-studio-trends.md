@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: c0c1eb80685d18794bcae7acaa16b777ff21b3e6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 13fca37303296355ce601333b13110d04fa5fa4e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Анализ трендов в Visual Studio
 Средство "Тренды Application Insights" визуализирует изменение важных событий телеметрии приложения с течением времени, помогая быстро выявлять проблемы и аномалии. В этом средстве можно перейти к более подробным диагностическим сведениям, что позволяет повысить производительность приложения, а также отслеживать причины исключений и анализировать данные пользовательских событий.
@@ -107,5 +106,4 @@ ms.lasthandoff: 03/21/2017
 | **[Работа с Application Insights в Visual Studio](app-insights-visual-studio.md)**<br/>Поиск телеметрии, просмотр данных в CodeLens и настройка Application Insights — все это в Visual Studio |![Щелкните проект правой кнопкой мыши и последовательно выберите пункты "Application Insights" и "Поиск".](./media/app-insights-visual-studio-trends/34.png) |
 | **[Добавление данных](app-insights-asp-net-more.md)**<br/>Мониторинг использования, доступности, зависимостей и исключений. Интеграция трассировок из платформ ведения журналов. Написание пользовательской телеметрии. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
 | **[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, эффективные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт данных телеметрии. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
-
 

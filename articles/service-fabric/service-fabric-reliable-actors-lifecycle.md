@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: amanbha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 0d942fa9f4a3b9094d8122e4745c0450f507ea16
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 75b7b77a0bef2051599a4f61183109cfb2ffff3b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Жизненный цикл субъектов, автоматическая сборка мусора и удаление вручную
 Субъект активируется при первом вызове любого из его методов. Субъект деактивируется, если он не используется в течение заданного периода времени (при этом среда выполнения субъектов собирает мусор). Субъект и его состояние можно также удалить вручную в любое время.
@@ -157,4 +155,3 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: e83488f4ec420c2af40d373239ba6989387da3cb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: b8d577326d23ec45cb4a9ec0e450ebf7afd945f3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Кодирование сообщений EDIFACT для Azure Logic Apps с помощью пакета интеграции Enterprise
 
@@ -42,7 +40,7 @@ ms.lasthandoff: 05/17/2017
 
 2. В соединителе для кодирования сообщений EDIFACT нет триггеров, поэтому вам придется добавить триггер, чтобы запустить приложение логики (например, триггер запроса). В конструкторе приложений логики добавьте триггер, а затем добавьте действие в приложение логики.
 
-3.    В поле поиска введите "EDIFACT" в качестве фильтра. Выберите пункт **Encode EDIFACT Message by agreement name** (Кодирование сообщения EDIFACT по имени соглашения) или **Encode to EDIFACT message by identities** (Кодирование сообщения EDIFACT по идентификаторам).
+3.  В поле поиска введите "EDIFACT" в качестве фильтра. Выберите пункт **Encode EDIFACT Message by agreement name** (Кодирование сообщения EDIFACT по имени соглашения) или **Encode to EDIFACT message by identities** (Кодирование сообщения EDIFACT по идентификаторам).
    
     ![поиск EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
 
@@ -57,7 +55,7 @@ ms.lasthandoff: 05/17/2017
     | Имя подключения* |Введите имя подключения |
     | Учетная запись интеграции* |Выберите имя для учетной записи интеграции. Убедитесь, что учетная запись интеграции и приложение логики находятся в одном регионе Azure. |
 
-5.    Когда все будет готово, данные для подключения должны выглядеть примерно так, как показано в примере. Чтобы завершить создание подключения, нажмите кнопку **Создать**.
+5.  Когда все будет готово, данные для подключения должны выглядеть примерно так, как показано в примере. Чтобы завершить создание подключения, нажмите кнопку **Создать**.
 
     ![сведения о подключении к учетной записи интеграции](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
 
@@ -100,5 +98,4 @@ ms.lasthandoff: 05/17/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Обзор пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise") 
-
 

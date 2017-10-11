@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 1305fdc4cf87905eef701ec5471d6329006c2b5f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/31/2017
-
-
+ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>Создание приложения логики с помощью шаблона
 Шаблоны предоставляют быстрый способ применения различных соединителей в приложении логики. Logic Apps включает в себя шаблоны Azure Resource Manager для создания приложения логики, которое можно использовать для определения бизнес-процессов. При развертывании приложения логики можно указать, какие ресурсы развертывать и как определять параметры. Вы можете использовать этот шаблон для собственных бизнес-сценариев или настроить его в соответствии с вашими требованиями.
@@ -109,7 +107,6 @@ ms.lasthandoff: 01/31/2017
 
 ### <a name="azure-cli"></a>Инфраструктура CLI Azure
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
-
 
 
 

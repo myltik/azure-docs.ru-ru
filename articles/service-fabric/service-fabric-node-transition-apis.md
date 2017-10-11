@@ -14,15 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 5f76100007466f2baf4e067de963486f47fbf857
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 850fbc0c74811ec942292da64064dec867cd1b9e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Замена API-интерфейсов запуска и остановки узла API-интерфейсом перехода узла
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Для чего нужны API-интерфейсы запуска и остановки узла?
@@ -31,7 +28,7 @@ API остановки узла (управляемый: [StopNodeAsync()][stopn
 
 ## <a name="why-are-we-replacing-these"></a>Зачем их заменять?
 
-Как было описано ранее, *остановленный* узел Service Fabric — это узел, к которому намеренно применен API остановки узла.  *Отключенный* узел — это узел, который не работает по какой-либо другой причине (например, из-за отключения компьютера или виртуальной машины).  При использовании API остановки узла в системе не отображаются сведения, с помощью которых можно различить *остановленные* и *отключенные* узлы.
+Как было описано ранее, *остановленный* узел Service Fabric — это узел, к которому намеренно применен API остановки узла.  *Отключенный*  узел — это узел, который не работает по какой-либо другой причине (например, из-за отключения компьютера или виртуальной машины).  При использовании API остановки узла в системе не отображаются сведения, с помощью которых можно различить *остановленные* и *отключенные* узлы.
 
 Кроме того, некоторые сообщения об ошибках, возвращаемые этими API-интерфейсами, недостаточно содержательны.  Например, при вызове API остановки узла на уже *остановленном* узле возвращается ошибка *InvalidAddress*.  Это поведение можно оптимизировать.
 
@@ -290,4 +287,3 @@ API остановки узла (управляемый: [StopNodeAsync()][stopn
 [nodequeryps]: https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode?redirectedfrom=msdn
 [snt]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartNodeTransitionAsync_System_Fabric_Description_NodeTransitionDescription_System_TimeSpan_System_Threading_CancellationToken_
 [gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_GetNodeTransitionProgressAsync_System_Guid_System_TimeSpan_System_Threading_CancellationToken_
-

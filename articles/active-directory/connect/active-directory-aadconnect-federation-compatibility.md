@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 6b0fd60e79308b75c3a2797ff25065b8a500a3b4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Список совместимости с федерацией Azure AD
 Azure Active Directory предоставляет возможность единого входа и обеспечивает повышенную безопасность доступа к приложениям для Office 365 и других служб Microsoft Online Services для гибридных и исключительно облачных реализаций без использования стороннего решения. Набор Office 365, как и большинство служб Microsoft Online Services, интегрируется с Azure Active Directory для служб каталогов, проверки подлинности и авторизации. Azure Active Directory также предоставляет возможность единого входа в тысячи приложений SaaS и локальные веб-приложения. Список поддерживаемых приложений SaaS см. в коллекции приложений Azure Active Directory.
@@ -377,5 +376,4 @@ Sign&go 5.3 поддерживает проверку подлинности Ker
 | Полнофункциональные почтовые клиенты, такие как Outlook и ActiveSync |Поддерживаются |None |
 
 Дополнительные сведения см. в документе [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
-
 

@@ -25,7 +25,7 @@
 #### [Игровое приложение](mobile-engagement-gaming-scenario.md)
 
 ## Разработка
-### [Создание приложения служб мобильного взаимодействия](mobile-engagement-create.md)
+### [Создание приложения Служб мобильного взаимодействия](mobile-engagement-create.md)
 
 ### [Android](mobile-engagement-android-sdk-overview.md)
 #### [Интеграция с приложением Android](mobile-engagement-android-integrate-engagement.md)

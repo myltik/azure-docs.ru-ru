@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Развертывание локального устройства StorSimple на портале для государственных организаций
 
@@ -197,5 +196,4 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Настройте [виртуальное устройство](storsimple-8000-cloud-appliance-u2.md).
 * Для управления устройством StorSimple используется [служба диспетчера устройств StorSimple](storsimple-8000-manager-service-administration.md).
-
 

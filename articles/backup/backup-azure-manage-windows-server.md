@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Мониторинг хранилищ и серверов служб восстановления Azure для компьютеров Windows и управление ими
 > [!div class="op_single_selector"]
@@ -320,4 +319,3 @@ ms.lasthandoff: 08/16/2017
 * [Восстановление Windows Server или клиента Windows из Azure](backup-azure-restore-windows-server.md)
 * Дополнительную информацию о службе архивации Azure см. в статье [Обзор службы архивации Azure](backup-introduction-to-azure-backup.md).
 * Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-

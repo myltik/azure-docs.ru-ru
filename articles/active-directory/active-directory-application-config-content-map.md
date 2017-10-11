@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1feba4f7c33276996213f50e34784c0f8edff226
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 11231bb5af5374f3c05cfd5038e1ad03cdd01372
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-adding-or-configuring-applications"></a>Проблемы при добавлении или настройке приложений
 
 
@@ -44,4 +42,3 @@ ms.lasthandoff: 04/17/2017
   * [Возникла проблема при настройке федеративного единого входа для приложения из коллекции Azure AD](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-federated-sso-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Возникла проблема при настройке единого входа по паролю для приложения не из коллекции](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Возникла проблема при настройке единого входа по паролю для приложения из коллекции Azure AD](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

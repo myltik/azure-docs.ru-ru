@@ -16,15 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb58cd7a00bc8eb5eaf2ea5a7a8f7641b0502ed9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Настройка группы доступности AlwaysOn на виртуальной машине Azure вручную
 
 В этом руководстве показано, как создать группу доступности AlwaysOn SQL Server на виртуальных машинах Azure. Полная версия руководства позволяет создать группу доступности с репликой базы данных на двух серверах SQL Server.
@@ -58,7 +55,7 @@ ms.lasthandoff: 05/10/2017
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## Создание кластера
+##Создание кластера
 
 Первым шагом после выполнения предварительных условий является создание отказоустойчивого кластера Windows Server, включающего в себя два сервера SQL Server и следящий сервер.  
 
@@ -503,4 +500,3 @@ sqlcmd автоматически подключается к любому эк�
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - [Добавление в подсистему балансировки нагрузки IP-адреса для второй группы доступности](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).
-

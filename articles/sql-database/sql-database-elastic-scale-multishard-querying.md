@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 873df52da976597ddfaa8f777b90382bfa7723fc
-ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 67bcb3c7fe33341103f28bc70e8cc2acbb924cae
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-shard-querying"></a>Многосегментное формирование запросов
 ## <a name="overview"></a>Обзор
@@ -77,5 +75,4 @@ ms.lasthandoff: 01/24/2017
 Классы и методы **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)**.
 
 Управление сегментами с использованием [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md). Она включает в себя новое пространство имен с именем [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx), предоставляющее возможность выполнять запрос к нескольким сегментам, используя один запрос и один результат. Это позволяет абстрагировать обработку запросов по набору сегментов. Также предоставляются альтернативные политики выполнения, в особенности частичные результаты для обработки сбоев при выполнении запросов по нескольким сегментам.  
-
 

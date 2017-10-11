@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 68820f9c018b1076bae8dc0195906d0f34590748
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 1eb2e0c467d4fb4cb263047caf58d36231578d9a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: мониторинг и диагностика с задержкой в 1 секунду 
 
 Держите руку на пульсе работы веб-приложения с помощью Live Metrics Stream в [Application Insights](app-insights-overview.md). Выбирайте и фильтруйте метрики и счетчики производительности для отслеживания в режиме реального времени, не нарушая работу служб. Проверяйте трассировки стека на основе образцов неудавшихся запросов и исключений. Вместе с [Profiler](app-insights-profiler.md), [отладчиком моментальных снимков](app-insights-snapshot-debugger.md) и [тестированием производительности](app-insights-monitor-web-app-availability.md#performance-tests) Live Metrics Stream предоставляет эффективное средство диагностики веб-сайта, не вмешивающееся в его работу.
@@ -161,4 +159,3 @@ ms.lasthandoff: 05/26/2017
 * [Использование диагностического поиска](app-insights-diagnostic-search.md)
 * [Профилировщик](app-insights-profiler.md)
 * [Отладчик моментальных снимков](app-insights-snapshot-debugger.md)
-

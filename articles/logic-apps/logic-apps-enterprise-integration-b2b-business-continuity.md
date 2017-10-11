@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Межрегиональное аварийное восстановление Logic Apps B2B
 
 Рабочие нагрузки B2B включают денежные транзакции, например заказы и счета. Для компаний в случае аварии чрезвычайно важно быстро восстановить систему для соответствия Соглашениям об уровне обслуживания корпоративного уровня по договоренности с партнерами. В этой статье описывается создание плана обеспечения непрерывности бизнес-процессов для рабочих нагрузок B2B. 
@@ -248,5 +246,4 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [Мониторинг сообщений B2B](logic-apps-monitor-b2b-message.md)
-
 

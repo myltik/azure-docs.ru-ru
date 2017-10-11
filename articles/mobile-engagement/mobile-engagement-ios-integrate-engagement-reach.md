@@ -1,6 +1,6 @@
 ---
 title: "Службы мобильного взаимодействия Azure: интеграция пакета SDK Reach для iOS | Документация Майкрософт"
-description: "Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
+description: "Последние обновления и указания для пакета SDK для iOS для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Как интегрировать рекламные кампании Engagement в iOS
 Перед выполнением этого руководства вам следует выполнить процедуры по интеграции, описанные в статье [Интеграция службы Engagement в iOS](mobile-engagement-ios-integrate-engagement.md) .
@@ -502,4 +501,3 @@ ms.lasthandoff: 07/19/2017
     }
 
     @end
-

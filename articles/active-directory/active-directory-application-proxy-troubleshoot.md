@@ -15,15 +15,12 @@ ms.date: 07/21/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 3ef74c8d5d5b75eb2bca4e6c994f4718b5226db8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
-
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Устранение неполадок и сообщения об ошибках прокси приложения
 Если во время доступа к опубликованному приложению или публикации приложений возникают ошибки, проверьте следующие параметры, чтобы выяснить, правильно ли работает прокси-сервер приложений Microsoft Azure AD.
 
@@ -99,4 +96,3 @@ ms.lasthandoff: 07/24/2017
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
-

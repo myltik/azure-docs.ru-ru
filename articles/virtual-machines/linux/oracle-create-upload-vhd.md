@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: szark
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: c631ddf3acf6df7364c03eb4691b78be0493e0d9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Подготовка виртуальной машины Oracle Linux для Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +36,7 @@ ms.lasthandoff: 04/03/2017
 * NUMA не поддерживается для виртуальных машин большего размера из-за ошибки ядра Linux в версиях ниже 2.6.37. Эта проблема влияет в основном на дистрибутивы, в которых используется исходное ядро Red Hat 2.6.32. При ручной установке агента Azure Linux (waagent) NUMA автоматически отключается в конфигурации GRUB для ядра Linux. Дополнительные сведения описаны далее.
 * Не настраивайте раздел подкачки на диске с ОС. Можно настроить агент Linux для создания файла подкачки на временном диске ресурсов.  Дополнительные сведения описаны далее.
 * Все VHD-диски должны иметь размер, кратный 1 МБ.
-* Убедитесь, что `Addons` включен репозиторий. Измените файл `/etc/yum.repo.d/public-yum-ol6.repo` (Oracle Linux 6) или `/etc/yum.repo.d/public-yum-ol7.repo` (Oracle Linux) и замените в нем строку `enabled=0` строкой `enabled=1` в разделе **[ol6_addons]** или **[ol7_addons]**.
+* Убедитесь, что `Addons` включен репозиторий. Измените файл `/etc/yum.repo.d/public-yum-ol7.repo` (Oracle Linux 6) или `enabled=0` (Oracle Linux) и замените в нем строку `enabled=1` строкой **в разделе `/etc/yum.repo.d/public-yum-ol6.repo`[ol6_addons]** или **[ol7_addons]**.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4+
 Необходимо выполнить определенные действия с конфигурацией операционной системы, чтобы виртуальная машина запускалась в среде Azure.
@@ -185,5 +184,4 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы можете создавать новые виртуальные машины в Azure с помощью VHD-файла системы Oracle Linux. Если вы загружаете VHD-файл в Azure впервые, обратитесь к шагам 2 и 3 в статье [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
 

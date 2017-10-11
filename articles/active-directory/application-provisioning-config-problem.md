@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e15784a662b1691774eb3d9cc8b3fbe66ac67385
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 44e344095352f2bc6b27e389fc8be2cdf3e368d8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Проблема при настройке подготовки пользователей для приложения из коллекции Azure AD
 
 При настройке [автоматической подготовки пользователей](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) для приложения (если она поддерживается) необходимо выполнить определенные инструкции для автоматической подготовки приложения. Затем можно настроить службу подготовки для синхронизации учетных записей пользователей для приложения на портале Azure.
@@ -70,4 +68,3 @@ ms.lasthandoff: 04/17/2017
 
 #<a name="next-steps"></a>Дальнейшие действия
 [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](active-directory-saas-app-provisioning.md)
-

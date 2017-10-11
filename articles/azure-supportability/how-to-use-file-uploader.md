@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: ba6dafd8d890d88478a5e3213dd023921908f4bf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Инструкции по подаче новых запросов на техническую поддержку в утилите загрузки файлов Microsoft Azure
 При [создании запроса в службу поддержки](https://portal.azure.com/#create/Microsoft.Support) служебная программа передачи файлов поможет легко передать файлы диагностики и любые другие файлы, которые могут быть связаны с инцидентом.  
@@ -68,4 +67,3 @@ ms.lasthandoff: 06/28/2017
 | -            | -      | -            | -      | -         | .wtl       | .zit    |
 | -            | -      | -            | -      | -         |     -       | .zix    |
 | -            | -      | -            | -      | -         |  -          | .zzz    |
-

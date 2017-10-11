@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/03/2017
 ms.author: alkohli@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Администрирование устройства с помощью Windows PowerShell для StorSimple
 
@@ -186,5 +185,4 @@ Windows PowerShell для StorSimple — это интерфейс команд�
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Если при выполнении одного из указанных выше рабочих процессов возникнут проблемы с устройством StorSimple, см. раздел [Средства для устранения неполадок в развертываниях StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-
 

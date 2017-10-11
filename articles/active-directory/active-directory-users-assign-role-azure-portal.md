@@ -1,5 +1,4 @@
 ---
-
 title: "Назначение пользователю ролей администратора в Azure Active Directory | Документы Майкрософт"
 description: "В данном разделе поясняется, как изменить административную информацию о пользователе в Azure Active Directory."
 services: active-directory
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: ebbadff39c736ec7364999f7644694e8a177073f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
-
-
+ms.openlocfilehash: bfadf133154488f9827cfbeaa98ddb0eb84b52f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Назначение пользователю ролей администратора в Azure Active Directory
 В этой статье описывается назначение роли администратора пользователю в Azure Active Directory (Azure AD). Сведения о добавлении новых пользователей в организации см. в статье [Добавление пользователей из других каталогов или организаций-партнеров в предварительной версии Azure Active Directory](active-directory-users-create-azure-portal.md). По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
@@ -47,4 +44,3 @@ ms.lasthandoff: 05/08/2017
 * [Изменение сведений о работе пользователя](active-directory-users-work-info-azure-portal.md)
 * [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
 * [Удаление пользователя из Azure AD](active-directory-users-delete-user-azure-portal.md)
-

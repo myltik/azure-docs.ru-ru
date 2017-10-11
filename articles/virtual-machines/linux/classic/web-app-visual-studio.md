@@ -15,17 +15,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 136a82084d06227a71e1ad7632a31b9d764fda58
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 9110211578a04514a14bdd1256a5efe6e3e5e749
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="creating-a-virtual-machine-for-a-web-application-with-visual-studio"></a>Создание виртуальной машины для веб-приложения с помощью Visual Studio
 > [!IMPORTANT] 
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
 [!INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]
-
 

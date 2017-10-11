@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
 ms.openlocfilehash: ec431dd5ccfa53e4b975e46da247704dd1e15c2c
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Руководство. Интеграция Azure Active Directory с Datahug
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 04/21/2017
 - Вы можете включить автоматический вход пользователей в Datahug (единый вход) с применением учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -203,7 +202,7 @@ ms.lasthandoff: 04/21/2017
     ![Добавление сотрудника](./media/active-directory-saas-datahug-tutorial/3.png)
 
     > [!NOTE] 
-    > Вы можете отправить пользователю сообщение о регистрации, установив флажок **Send welcome email** (Отправить приветственное сообщение).    
+    > Вы можете отправить пользователю сообщение о регистрации, установив флажок **Send welcome email** (Отправить приветственное сообщение).  
     > При создании учетной записи для Salesforce не отправляйте приветственное сообщение.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
@@ -261,5 +260,4 @@ ms.lasthandoff: 04/21/2017
 [201]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_203.png
-
 

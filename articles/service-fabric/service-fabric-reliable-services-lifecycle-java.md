@@ -13,14 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="reliable-services-lifecycle-overview"></a>Жизненный цикл Reliable Services
 > [!div class="op_single_selector"]
 > * [C# в Windows](service-fabric-reliable-services-lifecycle.md)
@@ -80,4 +78,3 @@ ms.lasthandoff: 08/19/2017
 * [Обзор надежных служб](service-fabric-reliable-services-introduction.md)
 * [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Продвинутое использование надежных служб](service-fabric-reliable-services-advanced-usage.md)
-

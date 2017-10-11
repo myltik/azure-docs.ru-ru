@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b62df3074779559ffab55c52a902e7473753868e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Сбор журналов и метрик для служб Azure для использования в Log Analytics
 
@@ -153,4 +152,3 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 * [Используйте хранилище BLOB-объектов для IIS и хранилище таблиц для событий](log-analytics-azure-storage-iis-table.md), чтобы считывать журналы служб Azure, которые записывают диагностические данные в табличное хранилище, или журналы IIS, записанные в хранилище BLOB-объектов.
 * [Включите решения](log-analytics-add-solutions.md) , чтобы обеспечить глубокое понимание данных.
 * [Воспользуйтесь запросами поиска](log-analytics-log-searches.md) для анализа данных.
-

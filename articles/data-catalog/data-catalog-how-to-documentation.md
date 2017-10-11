@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a869c52c3e3574e4ffc958a82daaa12b2f6cb6c1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: ffe951f60afb57524568fe1ed3b3668d0088e124
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="document-data-sources"></a>Создание документации по источникам данных
 ## <a name="introduction"></a>Введение
@@ -52,4 +51,3 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="summary"></a>Сводка
 Создавая документацию по источникам данных с помощью **каталога данных Azure** , можно описать свои ресурсы данных максимально подробно.  Вы можете добавить ссылки на существующий репозиторий содержимого, чтобы использовать уже имеющиеся документы и ресурсы данных. А ваши пользователи, обнаружив определенные ресурсы данных, могут пользоваться полным набором документации.
-

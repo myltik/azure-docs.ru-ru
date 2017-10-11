@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Руководство по интеграции Azure Active Directory с SAML SSO for Jira by resolution GmbH
 
@@ -153,7 +151,7 @@ ms.lasthandoff: 05/31/2017
 
     ![Настройка единого входа](./media/active-directory-saas-samlssojira-tutorial/addon9.png)
 
-12.    Нажмите кнопку **Управление**.
+12. Нажмите кнопку **Управление**.
 
     ![Настройка единого входа](./media/active-directory-saas-samlssojira-tutorial/addon10.png)
     
@@ -177,7 +175,7 @@ ms.lasthandoff: 05/31/2017
 
     г) Нажмите кнопку **Load** (Загрузить).
 
-    д. Будут считаны метаданные поставщика удостоверений и заполнены поля, как показано на снимке экрана.    
+    д. Будут считаны метаданные поставщика удостоверений и заполнены поля, как показано на снимке экрана. 
 
 16. Нажмите кнопку **Save settings** (Сохранить параметры), чтобы сохранить параметры.
 
@@ -251,7 +249,7 @@ ms.lasthandoff: 05/31/2017
 
     г) В текстовом поле **Password** (Пароль) введите пароль пользователя.
 
-    д. Щелкните **Create user** (Создать пользователя).    
+    д. Щелкните **Create user** (Создать пользователя).   
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
@@ -310,5 +308,4 @@ ms.lasthandoff: 05/31/2017
 [201]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_203.png
-
 

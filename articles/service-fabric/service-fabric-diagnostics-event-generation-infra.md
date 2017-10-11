@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="platform-level-event-and-log-generation"></a>Создание событий и журналов на уровне платформы
 
 ## <a name="monitoring-the-cluster"></a>Мониторинг кластера
@@ -113,4 +111,3 @@ Service Fabric предоставляет 5 различных готовых �
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перед отправкой на платформу анализа журналы и события должны быть агрегированы. Прочтите статьи о [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) и [WAD](service-fabric-diagnostics-event-aggregation-wad.md), чтобы лучше понять некоторые рекомендуемые параметры.
-

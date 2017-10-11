@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Архивация сервера Exchange Server в службу архивации Azure с помощью Сервера резервного копирования Azure
 В этой статье описывается, как настроить Сервер резервного копирования Microsoft Azure (MABS) для архивации сервера Microsoft Exchange Server в Azure.  
@@ -53,7 +52,7 @@ ms.lasthandoff: 03/27/2017
 
    * «Мне нужна краткосрочная защита с использованием диска»;
    * «Мне нужна оперативная защита».
-6. Нажмите кнопку **Далее**.
+6. Щелкните **Далее**.
 7. Выберите параметр **Запустить программу Eseutil для проверки целостности данных** , чтобы проверить целостность баз данных Exchange Server.
 
     После этого проверка согласованности резервных копий будет выполняться на сервере MABS, что позволит исключить операции ввода-вывода при выполнении команды **eseutil** на сервере Exchange Server.
@@ -63,7 +62,7 @@ ms.lasthandoff: 03/27/2017
    > ![ошибка Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Нажмите кнопку **Далее**.
+8. Щелкните **Далее**.
 9. Выберите базу данных для **копирующей архивации**, а затем нажмите кнопку **Далее**.
 
    > [!NOTE]
@@ -112,4 +111,3 @@ ms.lasthandoff: 03/27/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
-

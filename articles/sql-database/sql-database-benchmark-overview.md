@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/21/2016
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
-ms.openlocfilehash: 7b9b222be1a131d2a80d37404cbdd309b61785f3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 57178352e0a402f3559c94ce25f125dcbefd1374
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Общие сведения об измерении производительности Базы данных SQL Azure
 ## <a name="overview"></a>Обзор
@@ -134,4 +132,3 @@ ms.lasthandoff: 01/13/2017
 [Уровни служб и уровни производительности](sql-database-service-tiers.md)
 
 [Руководство по производительности для отдельных баз данных](sql-database-performance-guidance.md)
-

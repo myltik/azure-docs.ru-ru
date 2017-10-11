@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3107e918a12ba17e72dbbe3660d42527e9e9f051
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: d269e62b8d49a6c96ce40c2e31c4096e16e07793
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Устранение неполадок хранилища данных SQL Azure
 В этом разделе рассмотрены общие вопросы наших клиентов об устранении неполадок.
@@ -137,4 +135,3 @@ ms.lasthandoff: 04/27/2017
 [Форум Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Видеоролики]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-

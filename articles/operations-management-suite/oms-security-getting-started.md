@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Приступая к работе с решением "Безопасность и аудит" Operations Management Suite
 В этой статье приводится описание всех возможностей, которые помогут вам быстро приступить к работе с функциями решения "Безопасность и аудит" Operations Management Suite (OMS).
@@ -200,5 +199,4 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 * [Общие сведения об Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite](oms-security-responding-alerts.md)
 * [Мониторинг ресурсов в решении "Безопасность и аудит" Operations Management Suite](oms-security-monitoring-resources.md)
-
 

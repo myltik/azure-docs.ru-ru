@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: f9c1e41c423cc0d638d5c1d273d58b2fe713fa1c
-ms.openlocfilehash: 2aeb1f20255264ca97b8aff6bd506b5fa1832e28
-
-
+ms.openlocfilehash: e0c2d827553567ddbc7d006192dc35574e66f1cd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: вспомогательное средство, используемое для демонстрации настройки пользовательского интерфейса для страницы пользователя
 Эта статья дополняет [основную статью о настройке пользовательского интерфейса](active-directory-b2c-reference-ui-customization.md) в Azure Active Directory (Azure AD) B2C. Описанные ниже действия показывают, как работать с функцией настройки пользовательского интерфейса страницы на основе предоставленных нами примеров HTML и CSS.
@@ -86,10 +86,4 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 Теперь, когда образец содержимого загружен в свою учетную запись хранения, политику регистрации нужно изменить таким образом, чтобы она ссылалась на этот образец. Повторите действия из приведенного выше раздела [Настройка политики](#customize-your-policy) , но на этот раз используйте URL-адреса вашей учетной записи хранения. Например, файл `unified.html` будет расположен по адресу `<url-of-your-container>/wingtip/unified.html`.
 
 Теперь еще раз запустите политику с помощью кнопки **Выполнить** (или используя свое приложение). Результат выглядит практически так же, поскольку в обоих случаях использовался один и тот же образец HTML и CSS-кода. Однако теперь политики ссылаются на наш собственный экземпляр хранилища BLOB-объектов Azure, а значит, вы можете спокойно редактировать и отправлять файлы. Дополнительные сведения о настройке HTML и CSS-кода см. в [статье о настройке основного пользовательского интерфейса](active-directory-b2c-reference-ui-customization.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Интеграция пакета Android SDK для Azure Mobile Engagement"
-description: "Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
+title: "Интеграция пакета Android SDK для Служб мобильного взаимодействия Azure"
+description: "Последние обновления и процедуры пакета Android SDK для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f47772a16dc38c5b9b4751b22b99938e26cc1e0
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 27190b54fc2b3b5c77b5f0a02273883e36ceaf1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sdk-content"></a>Содержимое пакета SDK
 В этом документе указано и описано содержимое архива SDK.
@@ -51,5 +50,4 @@ ms.lasthandoff: 11/17/2016
 > 
 
 Другие файлы являются копиями лицензий на программное обеспечение.
-
 

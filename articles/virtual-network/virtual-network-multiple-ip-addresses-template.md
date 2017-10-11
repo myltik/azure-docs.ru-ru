@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>Назначение виртуальным машинам Azure нескольких IP-адресов с помощью шаблона Azure Resource Manager
 
@@ -101,4 +100,3 @@ ms.lasthandoff: 04/21/2017
 2. Развернув виртуальную машину, подключитесь к ней и добавьте в развернутую операционную систему частные IP-адреса, выполнив действия, описанные в этой статье в разделе [Добавление IP-адреса в операционную систему виртуальной машины](#os-config). Не добавляйте в операционную систему общедоступные IP-адреса.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

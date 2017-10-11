@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 131c2c3f46c60193d512b1779e917c8322732fbc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Учебник. Интеграция Azure Active Directory с Kindling
 
@@ -114,7 +112,7 @@ ms.lasthandoff: 06/23/2017
 
     а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<companyname>.kindlingapp.com`
 
-    b.  В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:  `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
+    b.  В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки Kindling](mailto:support@kindlingapp.com).
@@ -230,5 +228,4 @@ ms.lasthandoff: 06/23/2017
 [201]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_203.png
-
 

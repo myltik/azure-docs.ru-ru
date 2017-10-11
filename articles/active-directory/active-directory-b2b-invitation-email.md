@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Элементы сообщения с приглашением в службу совместной работы B2B
 
 Сообщение с приглашением является важнейшим компонентом, необходимым для подключения партнеров в качестве пользователей службы совместной работы B2B в Azure AD. Их можно использовать, чтобы повысить уровень доверия получателя. Вы можете придать сообщению законность и социальную значимость, чтобы получатель был спокоен, нажимая кнопку **Начало работы** и принимая приглашение. Это доверие является ключевым компонентом в процессе налаживания совместной работы. И, конечно же, вам бы хотелось, чтобы это сообщение отлично выглядело!
@@ -89,4 +86,3 @@ ms.lasthandoff: 05/25/2017
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-

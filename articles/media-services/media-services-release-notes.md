@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 3ecd6ff8edf189b9389cd239b20236a2a228ed94
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/22/2017
-
+ms.openlocfilehash: 202cd5441401a91736a55ccba095fa08dc95aa26
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Заметки о выпуске служб мультимедиа Azure
 В этих заметках описаны изменения по сравнению с предыдущими выпусками, а также известные проблемы.
@@ -115,7 +114,7 @@ ms.lasthandoff: 07/22/2017
 ## <a id="jan_changes_16"></a>Выпуск: январь 2016 г.
 Зарезервированные единицы кодирования переименованы во избежание путаницы с именами кодировщика.
 
-Зарезервированные модули кодирования "Базовый", "Стандартный" и "Премиум" переименованы в зарезервированные модули кодирования S1, S2 и S3 соответственно.  Теперь пользователи зарезервированных модулей кодирования Базовый будут видеть на портале Azure (а также счете) метку S1, а пользователи модулей Стандартный и Премиум — метки S2 и S3 соответственно. 
+Зарезервированные модули кодирования "Базовый", "Стандартный" и "Премиум" переименованы в зарезервированные модули кодирования S1, S2 и S3 соответственно.  Теперь пользователи зарезервированных модулей кодирования категории "Базовый" будут видеть на портале Azure (а также счете) метку S1, а пользователи модулей "Стандартный" и "Премиум" — метки S2 и S3 соответственно. 
 
 ## <a id="dec_changes_15"></a>Выпуск: декабрь 2015 г.
 
@@ -142,8 +141,8 @@ ms.lasthandoff: 07/22/2017
 ## <a id="oct_changes_15"></a>Выпуск: октябрь 2015 г.
 Службы мультимедиа Azure (AMS) теперь доступны в следующих центрах обработки данных: южная Бразилия, западная Индия, южная Индия и центральная Индия. Теперь с помощью портала Azure вы можете [создавать учетные записи служб мультимедиа](media-services-portal-create-account.md) и выполнять различные задачи, описанные [здесь](https://azure.microsoft.com/documentation/services/media-services/). Но в этих центрах обработки данных не поддерживается Сервис Кодирования в реальном времени. Кроме того, в этих центрах обработки данных доступны не все типы зарезервированных единиц кодирования.
 
-* Южная Бразилия: доступны зарезервированные единицы кодирования только уровня "Стандартный" и "Базовый".
-* Западная Индия, южная Индия и Центральная Индия: доступны зарезервированные единицы кодирования только уровня "Базовый".
+* Южная Бразилия: доступны зарезервированные единицы кодирования только категории "Стандартный" и "Базовый".
+* Западная Индия, южная Индия и Центральная Индия: доступны зарезервированные единицы кодирования только категории "Базовый".
 
 ## <a id="september_changes_15"></a>Выпуск: сентябрь 2015 г.
 * Теперь AMS позволяет защищать видео по запросу и потоки Live Stream с технологией Widevine Modular DRM. Вы можете использовать следующих партнеров служб доставки для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/). Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
@@ -166,7 +165,7 @@ ms.lasthandoff: 07/22/2017
   
   * [Запись блога](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
   * [Репозиторий примеров для Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-* Обновление Проигрывателя Мультимедиа Azure с поддержкой нескольких аудиопотоков. Дополнительные сведения можно найти в разделе 
+* Обновление Проигрывателя мультимедиа Azure с поддержкой нескольких аудиопотоков. Дополнительные сведения можно найти в разделе 
   * [Запись блога](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
 
 ## <a id="july_changes_15"></a>Выпуск: июль 2015 г.
@@ -204,7 +203,7 @@ ms.lasthandoff: 07/22/2017
 
 ## <a id="april_changes_15"></a>Выпуск: апрель 2015 г.
 ### <a name="general-media-services-updates"></a>Общие обновления служб мультимедиа
-* [Выход Проигрывателя Мультимедиа Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+* [Выход Проигрывателя мультимедиа Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
 * Начиная с интерфейса REST 2.10 служб мультимедиа, каналы, которые настроены для приема протокола RTMP, создаются с первичными и вторичными URL-адресами приема. Дополнительные сведения см. в разделе [Конфигурации входа (приема) канала](media-services-live-streaming-with-onprem-encoders.md#channel_input).
 * Обновления индексатора мультимедийных данных Azure
 * Поддержка испанского языка
@@ -225,7 +224,7 @@ ms.lasthandoff: 07/22/2017
 ## <a id="march_changes_15"></a>Выпуск: март 2015 г.
 ### <a name="general-media-services-updates"></a>Общие обновления служб мультимедиа
 * Теперь службы мультимедиа обеспечивают интеграцию Azure CDN. Для поддержки интеграции свойство **CdnEnabled** было добавлено к **StreamingEndpoint**.  **CdnEnabled** можно использовать с REST API, начиная с версии 2.9 (дополнительные сведения см. в статье [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)).  **CdnEnabled** можно использовать с пакетом SDK для .NET, начиная с версии 3.1.0.2 (дополнительные сведения см. в статье [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx)).
-* Объявление о **рабочем процессе Premium обработчика мультимедиа**. Дополнительные сведения см. в статье [Знакомство с кодированием Premium в службах мультимедиа Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/).
+* Объявление о **рабочем процессе Premium обработчика мультимедиа**. Дополнительные сведения см. в статье [Знакомство со Службой кодирования категории "Премиум" в службах мультимедиа Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/).
 
 ## <a id="february_changes_15"></a>Выпуск: февраль 2015 года.
 ### <a name="general-media-services-updates"></a>Общие обновления служб мультимедиа
@@ -556,5 +555,4 @@ API REST служб мультимедиа обновлены до версии 
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Управление активами служб мультимедиа в нескольких учетных записях хранения]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
-
 

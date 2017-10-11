@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: anhoh
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 4dbf91a3c1d6a287d7337647f9e059566c7ddbe5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Знакомство с API для MongoDB в Azure Cosmos DB
 
@@ -70,4 +69,3 @@ ms.lasthandoff: 07/17/2017
 * Подключитесь к учетной записи API для MongoDB с помощью [Robomongo](mongodb-robomongo.md).
 * С помощью [команды GetLastRequestStatistics и метрик портала Azure](request-units.md#GetLastRequestStatistics) узнайте, сколько единиц запроса (ЕЗ) используют ваши операции.
 * Узнайте, как [настроить параметры чтения для глобально распределенных приложений](../cosmos-db/tutorial-global-distribution-mongodb.md).
-

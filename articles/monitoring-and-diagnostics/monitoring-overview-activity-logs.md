@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 8ff9f73fc0732cd2227b7e0cc1091e04d69014eb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Мониторинг действий подписки с помощью журнала действий Azure
 **Журнал действий Azure** — это журнал подписки с подробными сведениями о событиях на уровне подписки, которые произошли в Azure. Сюда входят различные данные — от операционных данных Azure Resource Manager до обновлений в событиях работоспособности службы. Журнал действий раньше назывался журналом аудита или операционным журналом, так как категория "Административная" содержит связанные с подписками события на уровне управления. С помощью журнала изменений можно ответить на вопросы "что? кто? когда?" о любой операции записи (PUT, POST, DELETE) с ресурсами в вашей подписке. Вы также можете отслеживать состояние операции и другие ее свойства. Журнал действий не содержит операции чтения (GET) или операции с ресурсами, которые используют классическую модель или модель RDFE.
@@ -182,4 +181,3 @@ azure insights logprofile delete --name my_log_profile
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Дополнительные сведения о журнале действий (прежнее название — журналы аудита)](../azure-resource-manager/resource-group-audit.md)
 * [Потоковая передача журнала действий Azure в концентраторы событий](monitoring-stream-activity-logs-event-hubs.md)
-

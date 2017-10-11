@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
-ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/16/2016
-
+ms.openlocfilehash: 20933afab55043ccc5ce908c04c6e4a7a28e3538
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Телеметрия Application Insights в Visual Studio CodeLens
 Методы в коде веб-приложения можно обозначить с помощью данных телеметрии об исключениях во время выполнения и времени ответа на запрос. Если установить в приложении [Azure Application Insights](app-insights-overview.md), данные телеметрии будут отображаться в Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) в виде примечаний в верхней части данных о функции. Там обычно приведены такие полезные сведения, как число расположений со ссылками на функцию или имя пользователя, который последним вносил в нее изменения.
@@ -79,5 +78,4 @@ ms.lasthandoff: 11/16/2016
 | **[Работа с Application Insights в Visual Studio](app-insights-visual-studio.md)**<br/>Поиск телеметрии, просмотр данных в CodeLens и настройка Application Insights — все это в Visual Studio |![Щелкните проект правой кнопкой мыши и последовательно выберите пункты "Application Insights" и "Поиск".](./media/app-insights-visual-studio-codelens/34.png) |
 | **[Добавление данных](app-insights-asp-net-more.md)**<br/>Мониторинг использования, доступности, зависимостей и исключений. Интеграция трассировок из платформ ведения журналов. Написание пользовательской телеметрии. |![Visual studio](./media/app-insights-visual-studio-codelens/64.png) |
 | **[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, эффективные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт данных телеметрии. |![Visual studio](./media/app-insights-visual-studio-codelens/62.png) |
-
 

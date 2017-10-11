@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: f686685138625a53971f1fc5fc754fd22c9d67b2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="performance-considerations-for-traffic-manager"></a>Рекомендации по безопасности для диспетчера трафика
 
 На этой странице описываются особенности использования диспетчера трафика. Рассмотрим следующие сценарии.
@@ -87,5 +85,4 @@ ms.lasthandoff: 03/18/2017
 [Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Командлеты для диспетчера трафика Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
 

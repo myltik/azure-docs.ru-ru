@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 540ef8379145b764d0926649095db57fddb27329
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 6a91ea2251ea3b748faba5c97765bfded9c00234
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Добавление сегмента с использованием средств эластичных баз данных
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Добавление сегмента для нового диапазона или ключа
@@ -79,5 +77,4 @@ ms.lasthandoff: 11/17/2016
 **Важно.** Используйте этот метод, только если вы уверены, что диапазон для обновленного сопоставления пуст.  Методы выше не позволяют проверить данные для перемещаемого диапазона, так что лучше включить проверки в код.  Если перемещаемый диапазон содержит строки, фактическое распределение данных не будет соответствовать обновленному сопоставлению сегментов. В таких случаях для выполнения операции используйте [средство разбиения и объединения](sql-database-elastic-scale-overview-split-and-merge.md) .  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

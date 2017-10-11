@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 928e33392924a7461a4a03ac16ff0994680e68f9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: 8c981046ff41d3927ff60d6dc4f40366ae25ba74
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C. Добавление учетной записи Майкрософт (MSA) в качестве поставщика удостоверений с помощью пользовательских политик
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -51,7 +49,7 @@ ms.lasthandoff: 08/28/2017
 
     ![Учетная запись Майкрософт, регистрация приложения](media/active-directory-b2c-custom-setup-ms-account-idp/msa-app-name.png)
 
-4.  Скопируйте значение **Идентификатор приложения**. Оно необходимо для настройки учетной записи Майкрософт в качестве поставщика удостоверений в вашем клиенте.
+4.  Скопируйте значение **Идентификатор приложения**. Он необходим для настройки учетной записи Майкрософт в качестве поставщика удостоверений в вашем клиенте.
 
     ![Учетная запись Майкрософт, копирование значения идентификатора приложения](media/active-directory-b2c-custom-setup-ms-account-idp/msa-app-id.png)
 
@@ -228,4 +226,3 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="download-the-complete-policy-files"></a>Загрузка завершенных файлов политики
 Необязательно. Мы советуем создать свой сценарий, используя собственные файлы пользовательской политики, а не эти примеры файлов, после того, как вы ознакомитесь с пошаговым руководством по началу работы с пользовательскими политиками.  [Примеры файлов политики для справки](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-msa-app)
-

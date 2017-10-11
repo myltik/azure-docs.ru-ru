@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Моделирование сложных типов данных в службе поиска Azure
 Внешние наборы данных, используемые для заполнения индекса Поиска Azure, иногда включают иерархические или вложенные подструктуры, которые невозможно аккуратно разделить на табличные наборы строк. К примерам таких структур можно отнести несколько расположений и номеров телефонов для одного клиента, несколько цветов и размеров для одного SKU, несколько авторов на одну книгу и т. д. В моделировании эти структуры называются *сложные типы данных*, *составные типы данных*, *композитные типы данных*, *агрегатные типы данных* и т. д.
@@ -138,5 +137,4 @@ var index = new Index()
 
 ## <a name="next-step"></a>Дальнейшие действия
 [Голосуйте за встроенную поддержку сложных типов данных](https://feedback.azure.com/forums/263029-azure-search) на странице UserVoice Поиска Azure и предоставьте дополнительные сведения о реализации функции на наше рассмотрение. Для связи со мной вы можете написать в Twitter через канал @liamca.
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 8ff39e31d790b9d7040ec0398a42fb104890915f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.openlocfilehash: 95b367e7cd74405088190c1fe19cf92990759d90
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Создание сервера Azure Analysis Services на портале Azure
 В этой статье приведено пошаговое руководство по созданию ресурса сервера служб Analysis Services в подписке Azure.
@@ -60,5 +59,4 @@ ms.lasthandoff: 08/04/2017
 После создания сервера вы можете [развернуть на нем модель](analysis-services-deploy.md) с помощью SSDT или SSMS.
 
 Если модель, развертываемая на сервере, подключается к локальным источникам данных, необходимо будет установить [локальный шлюз данных](analysis-services-gateway.md) на одном из компьютеров в вашей сети.
-
 

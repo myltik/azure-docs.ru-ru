@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 5dc4a98bf889d38c62c76364289c2d58c14d771e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Отработка отказа и аварийное восстановление для устройств StorSimple серии 8000
 
@@ -140,5 +139,4 @@ ms.lasthandoff: 07/08/2017
 
 * [Отключение и удаление устройства StorSimple](storsimple-8000-deactivate-and-delete-device.md)
 * [Использование службы диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md)
-
 

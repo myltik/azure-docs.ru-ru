@@ -6,12 +6,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 07/03/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 921bbd109c9ea98d8b5c286a7512bed026412d26
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Системы безопасности и географические ограничения Azure Key Vault
 
@@ -41,7 +40,6 @@ Azure Key Vault —это мультитенантная служба, кото
 >Исключением являются восточная часть США (US DOD) и центральная часть США (US DOD), которые имеют собственные системы безопасности. 
 
 Аналогично Северная и Западная Европа на вкладке **Европа** сопоставляются с регионом "Европа". Это также касается вкладки **Азиатско-Тихоокеанский регион**.
-
 
 
 

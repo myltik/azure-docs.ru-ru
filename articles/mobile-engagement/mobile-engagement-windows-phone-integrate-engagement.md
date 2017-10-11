@@ -1,6 +1,6 @@
 ---
 title: "Интеграция пакета SDK Engagement для Windows Phone Silverlight"
-description: "Интеграция Azure Mobile Engagement с приложениями Windows Phone Silverlight"
+description: "Интеграция Служб мобильного взаимодействия Azure с приложениями Windows Phone Silverlight"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 29b18aecff783cebf617995e2a19f16f0b68b51b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Интеграция пакета SDK Engagement для Windows Phone Silverlight
 > [!div class="op_single_selector"]
@@ -30,12 +29,12 @@ ms.lasthandoff: 11/17/2016
 > 
 > 
 
-Здесь описана самая простая процедура активации функций раздела аналитики и мониторинга Azure Mobile Engagement в приложении Windows Phone Silverlight.
+Здесь описана самая простая процедура активации функций раздела аналитики и мониторинга Служб мобильного взаимодействия Azure в приложении Windows Phone Silverlight.
 
-Достаточно выполнить следующие шаги, чтобы активировать отчеты по журналам, которые необходимы для вычисления всех статистических данных, касающихся пользователей, сеансов, действий, сбоев и технической информации. Отчеты по журналам, необходимые для вычисления других статистических данных (например, касающихся событий, ошибок и заданий), требуется активировать вручную с помощью API Engagement (см. статью [Как использовать API для расширенного добавления тегов Mobile Engagement в приложении Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md) ниже), так как эти статистические данные зависят от приложения.
+Достаточно выполнить следующие шаги, чтобы активировать отчеты по журналам, которые необходимы для вычисления всех статистических данных, касающихся пользователей, сеансов, действий, сбоев и технической информации. Отчеты по журналам, необходимые для вычисления других статистических данных (например, касающихся событий, ошибок и заданий), требуется активировать вручную с помощью API Служб мобильного взаимодействия (см. статью [Как использовать API для расширенного добавления тегов Служб мобильного взаимодействия в приложении Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md) ниже), так как эти статистические данные зависят от приложения.
 
 ## <a name="supported-versions"></a>Поддерживаемые версии
-Пакет SDK Mobile Engagement для Windows Silverlight можно интегрировать только в приложения, предназначенные для:
+Пакет SDK для Служб мобильного взаимодействия для Windows Silverlight можно интегрировать только в приложения, предназначенные для:
 
 * Windows Phone 8.0
 * Windows Phone 8.1 Silverlight
@@ -45,8 +44,8 @@ ms.lasthandoff: 11/17/2016
 > 
 > 
 
-## <a name="install-the-mobile-engagement-silverlight-sdk"></a>Установка пакета SDK Mobile Engagement для Silverlight
-Пакет SDK Mobile Engagement для Windows Silverlight доступен в виде пакета Nuget, который называется *MicrosoftAzure.MobileEngagement*. Вы можете установить его из диспетчера пакетов NuGet в Visual Studio. 
+## <a name="install-the-mobile-engagement-silverlight-sdk"></a>Установка пакета SDK для Служб мобильного взаимодействия для Silverlight
+Пакет SDK Служб мобильного взаимодействия для Windows Silverlight доступен в виде пакета Nuget, который называется *MicrosoftAzure.MobileEngagement*. Вы можете установить его из диспетчера пакетов NuGet в Visual Studio. 
 
 ## <a name="add-the-capabilities"></a>Добавление возможностей
 Для надлежащей работы пакету SDK для Engagement требуются некоторые возможности пакета SDK для Windows Phone Silverlight.
@@ -208,7 +207,7 @@ ms.lasthandoff: 11/17/2016
 ## <a name="advanced-reporting"></a>Расширенные отчеты
 При желании можно также сообщать об определенных событиях, ошибках и заданиях приложения. Это можно сделать с помощью других методов в классе `EngagementAgent`. Engagement API позволяет использовать все дополнительные возможности Engagement.
 
-Дополнительные сведения см. в статье [Как использовать API Engagement в Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md).
+Дополнительные сведения см. в статье [Как использовать API Служб мобильного взаимодействия в Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md).
 
 ## <a name="advanced-configuration"></a>Расширенная конфигурация
 ### <a name="disable-automatic-crash-reporting"></a>Отключение автоматического создания отчетов о сбоях
@@ -247,5 +246,4 @@ ms.lasthandoff: 11/17/2016
 > Для порогового значения пакета нельзя настроить период менее одной секунды. При попытке задать значение менее одной секунды трассировка в пакете SDK отобразится с ошибкой, и будет автоматически восстановлено значения по умолчанию, т. е. ноль секунд. Это приведет к тому, что пакет SDK начнет создавать отчеты по журналам в режиме реального времени.
 > 
 > 
-
 

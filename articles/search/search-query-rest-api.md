@@ -13,14 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Отправка запросов в индекс службы поиска Azure с помощью REST API
 > [!div class="op_single_selector"]
 >
@@ -165,4 +163,3 @@ api-key: [query key]
 ```
 
 Дополнительные сведения см. в статье [Поиск документов (REST API службы поиска Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) в разделе "Ответ". Дополнительные сведения о других кодах состояния HTTP, которые могут быть возвращены в случае сбоя, см. в статье [Коды состояния HTTP (поиск в Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
-

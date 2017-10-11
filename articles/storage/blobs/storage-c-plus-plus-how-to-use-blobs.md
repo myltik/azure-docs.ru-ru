@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: daf480b7be78dc001712010eac6386d4744c3c1d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Использование хранилища BLOB-объектов из C++
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -273,5 +272,4 @@ blockBlob.delete_blob();
 * [Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
 * [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Приступая к работе со служебной программой командной строки AzCopy](../storage-use-azcopy.md)
-
 

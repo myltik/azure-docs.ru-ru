@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Создание файла решения по управлению в Operations Management Suite (OMS) (предварительная версия)
 > [!NOTE]
@@ -245,4 +244,3 @@ ms.lasthandoff: 05/09/2017
 * [Добавьте модули Runbook и другие ресурсы службы автоматизации](operations-management-suite-solutions-resources-automation.md) в решение по управлению.
 * Узнайте больше о [создании шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Найдите в коллекции [шаблонов быстрого запуска Azure](https://azure.microsoft.com/documentation/templates) примеры разных шаблонов Resource Manager.
-

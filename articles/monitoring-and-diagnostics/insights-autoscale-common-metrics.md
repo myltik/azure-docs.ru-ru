@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2016
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7f9fb67a28560f8cc48ba8be8011bc1991d09024
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Общие метрики автомасштабирования Azure Monitor
 Автомасштабирование Azure Monitor позволяет увеличивать или уменьшать количество запущенных экземпляров на основе данных телеметрии (метрик). В этой статье рассматриваются общие метрики, которые вы можете использовать. На портале Azure для облачных служб и ферм серверов можно выбрать метрики ресурсов, по которым будет выполняться масштабирование. Однако вы также можете выбрать любую метрику из другого ресурса.
@@ -193,4 +192,3 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 > Для служебной шины концепции группы ресурсов не существует, но Azure Resource Manager создает группу ресурсов по умолчанию на регион. Группа ресурсов обычно имеет формат Default-ServiceBus-[region]. Например, Default-ServiceBus-EastUS, Default-ServiceBus-WestUS, Default-ServiceBus-AustraliaEast и т. д.
 >
 >
-

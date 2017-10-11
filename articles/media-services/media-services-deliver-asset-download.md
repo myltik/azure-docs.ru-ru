@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 19f6ea37f892054ee5d7bf793a32364dff264058
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Доставка актива путем загрузки
 В этом разделе обсуждаются возможности доставки файлов мультимедиа, переданных в службы мультимедиа. Для доставки контента служб мультимедиа можно использовать различные сценарии. Можно загрузить мультимедийные активы или получить к ним доступ с помощью указателя. Можно отправить мультимедийный контент в другое приложение или другой поставщик контента. Для повышения производительности и масштабируемости можно также доставлять контент с помощью сети доставки содержимого (CDN).
@@ -88,5 +87,4 @@ ms.lasthandoff: 03/14/2017
 
 ## <a name="see-also"></a>См. также
 [Доставка потокового контента](media-services-deliver-streaming-content.md)
-
 

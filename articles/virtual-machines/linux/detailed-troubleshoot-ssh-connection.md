@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 07/06/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Подробные инструкции по устранению неполадок SSH-подключений к виртуальной машине Linux в Azure
 Клиенту SSH не всегда удается получить доступ к SSH-службе на виртуальной машине по многим причинам. Если вы использовали более [общие действия по устранению неполадок SSH](troubleshoot-ssh-connection.md), то необходимы более конкретные действия для устранения проблемы подключения. В этой статье подробно изложено, как определить, где происходит сбой подключения SSH и как его устранить.
@@ -132,4 +131,3 @@ ms.lasthandoff: 07/12/2017
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 Дополнительные сведения об устранении неполадок с доступом к приложению см. в статье [Устранение проблем с подключением к приложениям на виртуальных машинах Linux в Azure](troubleshoot-app-connection.md).
-

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 87ea3cc55f9683e7d5b9912a87d675575cea0347
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Руководство по интеграции Azure Active Directory с ASC Contracts
 
@@ -223,5 +221,4 @@ ms.lasthandoff: 05/12/2017
 [201]: ./media/active-directory-saas-asccontracts-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-asccontracts-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-asccontracts-tutorial/tutorial_general_203.png
-
 

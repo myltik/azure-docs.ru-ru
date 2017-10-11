@@ -13,21 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 15412c3853a2b8436c5e96034c9a92a2a1094662
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Устранение неполадок в HBase с помощью Azure HDInsight
 
 Ознакомьтесь с основными проблемами и их разрешением при работе с полезными данными Apache HBase в Apache Ambari.
 
 ## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Как запускать отчеты о командах hbck с несколькими неназначенными регионами
 
-При выполнении команды `hbase hbck` часто можно увидеть сообщение об ошибке "multiple regions being unassigned or holes in the chain of regions" (несколько регионов не назначены или присутствуют пропуски в цепочке регионов).
+При выполнении команды `hbase hbck` часто можно увидеть сообщение об ошибке "multiple regions being unassigned or holes in the chain of regions" (несколько регионов не назначены, или присутствуют пропуски в цепочке регионов).
 
 В пользовательском интерфейсе главного узла HBase можно увидеть количество регионов, которые не сбалансированы по всем региональным серверам. Затем можно выполнить команду `hbase hbck`, чтобы увидеть пропуски в цепочке регионов.
 
@@ -128,7 +126,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Возможные причины
 
-Кластер HDInsight был уменьшен до небольшого числа узлов. Число узлов ниже или равно фактору репликации HDFS.
+Кластер HDInsight был уменьшен до небольшого числа узлов. Число узлов ниже фактора репликации HDFS или близко к нему.
 
 ### <a name="resolution-steps"></a>Способы устранения 
 
@@ -294,7 +292,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="detailed-description"></a>Подробное описание
 
-В кластере Linux может появиться сообщение, которое указывает, что таблица *hbase: meta* находится в автономном режиме. При выполнении `hbck` может появиться сообщение "hbase: meta table replicaId 0 is not found on any region" (Таблица метаданных HBase реплики 0 не найдена ни в одном из регионов). Проблема может заключаться в том, что HMaster не удалось инициализировать после перезагрузки HBase. В журналах HMaster может появиться сообщение: "No server address listed in hbase: meta for region hbase: backup \<region name\>" (Отсутствуют адреса серверов в метаданных hbase для региона hbase: резервное копирование <имя региона>).  
+В кластере Linux может появиться сообщение, которое указывает, что таблица *hbase: meta* находится в автономном режиме. При выполнении `hbck` может появиться сообщение "hbase: meta table replicaId 0 is not found on any region" (Таблица метаданных HBase реплики 0 не найдена ни в одном из регионов). Проблема может заключаться в том, что серверу HMaster не удалось выполнить инициализацию после перезагрузки HBase. В журналах HMaster может появиться сообщение: "No server address listed in hbase: meta for region hbase: backup \<region name\>" (Отсутствуют адреса серверов в метаданных hbase для региона hbase: резервное копирование <имя региона>).  
 
 ### <a name="resolution-steps"></a>Способы устранения
 
@@ -325,7 +323,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="error"></a>Ошибка
 
-Время ожидания HMaster истекает и возникает неустранимое исключение следующего вида "java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned" (java.io.IOException: истекло время ожидания назначения таблицы пространства имен (300 000 мс)).
+Время ожидания HMaster истекает, и возникает неустранимое исключение следующего вида "java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned" (java.io.IOException: истекло время ожидания назначения таблицы пространства имен (300 000 мс)).
 
 ### <a name="detailed-description"></a>Подробное описание
 
@@ -422,5 +420,4 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bffa481a498b130ef1f2388a5ba856da5d164ee0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="backup-and-restore"></a>Архивация и восстановление
 
 Архивация баз данных табличной модели в Azure Analysis Services во многом аналогична процедуре для локальных служб Analysis Services. Основное различие заключается в расположении для хранения архивных файлов. Архивные файлы следует сохранять в контейнер в [учетной записи хранения Azure](../storage/common/storage-create-storage-account.md). Можно использовать уже имеющиеся учетную запись хранения и контейнер либо создать их при настройке параметров хранилища для сервера.
@@ -115,4 +113,3 @@ ms.lasthandoff: 08/21/2017
 [Учетные записи хранения Azure](../storage/common/storage-create-storage-account.md)  
 [Высокая доступность](analysis-services-bcdr.md)     
 [Управление службами Azure Analysis Services](analysis-services-manage.md)
-

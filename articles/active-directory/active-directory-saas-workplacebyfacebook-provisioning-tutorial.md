@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9b22679c304248ed7ba7a6bd9eaf82b64f7143cf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Руководство по настройке Workplace by Facebook для подготовки пользователей
 
@@ -74,7 +73,7 @@ Azure AD поддерживает автоматическую синхрони�
 
 4. Для параметра **Режим подготовки к работе** выберите значение **Automatic** (Автоматически). 
 
-    ![Подготовка](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![подготовка](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
 5. В разделе **Учетные данные администратора** введите секретный токен и URL-адрес клиента администратора Workplace by Facebook.
 
@@ -101,5 +100,4 @@ Azure AD поддерживает автоматическую синхрони�
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Настройка единого входа](active-directory-saas-workplacebyfacebook-tutorial.md)
-
 

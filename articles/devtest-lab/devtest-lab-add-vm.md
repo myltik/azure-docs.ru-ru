@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 449bffb040dafc8edd0b8b0afd80dbea35cd28ac
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Добавление виртуальной машины в лабораторию в Azure DevTest Labs
 Если вы уже [создали свою первую виртуальную машину](devtest-lab-create-first-vm.md), скорее всего, вы использовали предварительно загруженный [образ Мarketplace](devtest-lab-configure-marketplace-images.md). Теперь, если вы хотите добавить в лабораторию больше виртуальных машин, вы также можно использовать *базовый образ* — [пользовательский образа](devtest-lab-create-template.md) или [формулу](devtest-lab-manage-formulas.md). В данном руководстве описывается добавление виртуальной машины в лабораторию в DevTest Labs с помощью портала Azure.
@@ -117,4 +115,3 @@ ms.lasthandoff: 06/07/2017
 * После создания виртуальной машины к ней можно подключиться, щелкнув **Подключиться** в колонке виртуальной машины.
 * Узнайте, как [создавать пользовательские артефакты для виртуальной машины DevTest Labs](devtest-lab-artifact-author.md).
 * Изучите [коллекцию шаблонов быстрого запуска Azure Resource Manager для DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
-

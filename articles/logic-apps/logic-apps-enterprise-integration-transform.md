@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
-ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Интеграция Enterprise с преобразованием данных XML
 ## <a name="overview"></a>Обзор
@@ -73,5 +71,4 @@ ms.lasthandoff: 02/07/2017
 ## <a name="learn-more"></a>Подробнее
 * [Обзор пакета интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise")  
 * [Узнайте больше о картах](../logic-apps/logic-apps-enterprise-integration-maps.md "Узнайте о картах интеграции Enterprise")  
-
 

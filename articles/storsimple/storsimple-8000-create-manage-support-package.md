@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Создание пакета поддержки StorSimple для устройства StorSimple серии 8000 и управление им
 
@@ -150,5 +149,4 @@ ms.lasthandoff: 07/08/2017
 * Дополнительные сведения о [данных, собираемых в пакете поддержки](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs).
 * Узнайте об [использовании пакетов поддержки и журналов устройства для устранения неполадок при его развертывании](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Узнайте, как [использовать службу диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
-
 

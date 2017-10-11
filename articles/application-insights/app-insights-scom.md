@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 68ec072b972e38d8cd020adda4dcc85cdaccfb76
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 9c205465981fabdbb696cdc44f765532bbb992b5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Мониторинг производительности приложений с помощью Application Insights для SCOM
 Если для управления серверами вы используете System Center Operations Manager (SCOM), мониторинг производительности и диагностику проблем можно выполнять с помощью [Azure Application Insights](app-insights-asp-net.md). Application Insights отслеживает входящие запросы вашего веб-приложения, исходящие вызовы REST и SQL, а также исключения и трассировку журналов. Вы можете использовать панели мониторинга с диаграммами метрик и смарт-оповещениями, а также мощные средства диагностического поиска и аналитических запросов для работы с данными телеметрии. 
@@ -99,5 +98,4 @@ ms.lasthandoff: 11/17/2016
 * [Диагностика проблем с производительностью](app-insights-detect-triage-diagnose.md)
 * [Мощные аналитические запросы](app-insights-analytics.md)
 * [Доступность веб-тестов](app-insights-monitor-web-app-availability.md)
-
 

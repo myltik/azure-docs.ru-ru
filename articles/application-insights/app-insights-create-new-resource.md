@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 054e49478e70aeb15a012592fbb9642c39a60496
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 5f8814ee943424c1c278ab3732129d4459f83819
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-an-application-insights-resource"></a>Создание ресурса Application Insights
 В Azure Application Insights данные о приложении отображаются в *ресурсе* Microsoft Azure. Таким образом, создание ресурса является частью [настройки Application Insights для мониторинга нового приложения][start]. Во многих случаях создать ресурс можно автоматически с помощью IDE. Однако в некоторых случаях создавать ресурс необходимо вручную. Например, чтобы иметь отдельные ресурсы для сборок разработки и производственных сборок приложения.
@@ -81,5 +80,4 @@ ms.lasthandoff: 08/17/2017
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [start]: app-insights-overview.md
-
 

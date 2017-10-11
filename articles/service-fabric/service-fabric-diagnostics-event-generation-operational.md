@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 934719868ab9968db352db2b440014d35dbc0274
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="operational-channel"></a>Операционный канал 
 
 Операционный канал состоит из журналов действий высокого уровня, выполняемых Service Fabric на узлах и в кластере. При включении "Диагностики" для кластера агент системы диагностики Azure развертывается в кластере и по умолчанию настраивается для чтения журналов из операционного канала. Дополнительные сведения о настройке агента для изменения конфигурации диагностики кластера с целью выбора дополнительных журналов или счетчиков производительности см. в разделе [Агент системы диагностики Azure](service-fabric-diagnostics-event-aggregation-wad.md). 
@@ -61,4 +59,3 @@ ms.lasthandoff: 07/20/2017
 * Дополнительные сведения о создании событий на уровне платформы в Service Fabric см. в [этом разделе](service-fabric-diagnostics-event-generation-infra.md).
 * Изменение конфигурации [системы диагностики Azure](service-fabric-diagnostics-event-aggregation-wad.md) для сбора дополнительных журналов
 * [Настройка Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) для просмотра журналов операционного канала
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e0f8d92495c976040113f8edc0d4c789920c549
-ms.openlocfilehash: e22dca7b666720edfcbfd1b871d98b9468441fbd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse
 В этом руководстве показано, как использовать службу Azure Access Control Service (ACS) в наборе средств Azure для Eclipse. Дополнительные сведения об ACS см. в разделе [Дальнейшие действия](#next_steps).
@@ -171,7 +169,7 @@ Azure создает и активирует пространство имен. 
    
     ![Пример добавления JSP-файла для ACS][add_jsp_file_acs]
    
-    Нажмите кнопку **Далее**.
+    Щелкните **Далее**.
 4. В диалоговом окне **Выбор шаблона JSP** выберите **Новый JSP-файл (html)** и нажмите кнопку **Готово**.
 5. Открыв файл index.jsp в Eclipse, добавьте в отображаемый текст **Hello ACS World!** в существующий элемент `<body>`. Обновленное содержимое элемента `<body>` должно иметь следующий вид:
    
@@ -299,5 +297,4 @@ Azure создает и активирует пространство имен. 
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-
 

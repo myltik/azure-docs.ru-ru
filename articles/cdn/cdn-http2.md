@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 4f8dd685c3ae89535217d7a17a01c5129ca7e6e4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="http2-support-in-azure-cdn"></a>Поддержка HTTP/2 в Azure CDN
 
-HTTP/2 является основной редакцией HTTP/1.1\. Этот протокол обеспечивает более высокую производительность, сокращение времени ответа и более удобную среду работы пользователей, наряду с привычными методами, кодами состояния и семантикой HTTP. Хотя HTTP/2 предназначен для работы с HTTP и HTTPS, многие клиентские веб-браузеры поддерживают только HTTP/2 через TLS.
+HTTP/2 является основной версии для HTTP/1.1\. Он содержит быстрее веб-тестов производительности, уменьшения времени ответа и улучшенное взаимодействие с пользователем, сохраняя известные методы HTTP, коды состояния и семантику. Хотя HTTP/2 предназначен для работы с HTTP и HTTPS, многие клиентские веб-браузеры поддерживают только HTTP/2 через TLS.
 
 ###<a name="http2-benefits"></a>Преимущества HTTP/2
 

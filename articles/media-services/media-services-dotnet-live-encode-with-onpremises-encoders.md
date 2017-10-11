@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cenkdin;juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 87d855b26a61db56de936444331d11bc1ccbcc49
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: 3ef6065f5b9e05e0ea5716548699943a2c877bc4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Как вести потоковую трансляцию с помощью локальных кодировщиков и .NET
 > [!div class="op_single_selector"]
@@ -387,5 +386,4 @@ ms.lasthandoff: 07/19/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

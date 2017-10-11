@@ -11,14 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: markscu
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Использование шаблонов интерфейса командной строки для пакетной службы Azure и передачи файлов (предварительная версия)
 
 Интерфейс командной строки Azure позволяет выполнять пакетные задания Azure без написания кода.
@@ -265,4 +263,3 @@ az batch file download --file-group ffmpeg-output --local-path
 
 - Прочитайте запись блога о пакетной службе: [Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/) (Выполнение пакетных заданий Azure с помощью Azure CLI без написания кода).
 - Подробная документация по установке и использованию, примеры и исходный код доступны в [репозитории Azure GitHub](https://github.com/Azure/azure-batch-cli-extensions).
-

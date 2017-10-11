@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Общее представление о схеме узлов для сопоставления существующей веб-службы с OData с помощью языка CSDL
 > [!IMPORTANT]
@@ -273,4 +272,3 @@ ms.lasthandoff: 07/06/2017
 * Если вы хотите понять процесс и смысл сопоставления OData, см. статью [Сопоставление существующей веб-службы и OData с помощью CSDL](marketplace-publishing-data-service-creation-odata-mapping.md), где приводятся определения, структуры и инструкции.
 * Если вы хотите поработать с примерами, см. статью [Примеры сопоставления существующей веб-службы OData через CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md), где приводятся примеры кода вместе с объяснением синтаксиса и контекста.
 * Чтобы вернуться к указанному пути для публикации службы данных в Azure Marketplace, см. [руководство по публикации службы данных](marketplace-publishing-data-service-creation.md).
-

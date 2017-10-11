@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Сочетания клавиш на портале Azure
 В этой статье описываются сочетания клавиш, которые можно использовать на портале Azure. У определенных служб могут быть свои сочетания клавиш.

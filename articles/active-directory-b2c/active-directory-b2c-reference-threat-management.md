@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2016
 ms.author: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 9472cb01eb713e297053727b1a314293574bb657
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-threat-management"></a>Предотвращение угроз в Azure Active Directory B2C
 
@@ -34,4 +33,3 @@ ms.lasthandoff: 06/28/2017
 Служба Azure AD B2C также имеет методики противодействия атакам для взлома пароля. Эти методики действуют при атаках методом подбора пароля и при словарных атаках на пароль. Пароли, задаваемые пользователями, должны быть достаточно сложными. Используя различные сигналы, Azure AD B2C анализирует целостность запросов. Azure AD B2C предназначен для того, чтобы интеллектуально отличить предполагаемых пользователей от злоумышленников и ботнетов. Служба Azure AD B2C применяет сложные стратегии для блокировки учетных записей, анализируя вводимые пароли и выявляя потенциальные атаки.
 
 Дополнительные сведения см. в [центре управления безопасностью Майкрософт](https://www.microsoft.com/trustcenter/security/threatmanagement).
-

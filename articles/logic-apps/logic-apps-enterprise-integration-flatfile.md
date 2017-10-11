@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: b9b0f1970a5c7edeb9986c0d60c8bc249c50f2ac
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/31/2017
-
-
+ms.openlocfilehash: bc3430624844cdeb92958433fba295f67a8ae0ff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Обзор интеграции Enterprise с неструктурированными файлами
 
@@ -86,5 +84,4 @@ ms.lasthandoff: 01/31/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Обзор пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise")  
-
 

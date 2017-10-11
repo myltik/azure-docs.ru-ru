@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Архитектуры с несколькими глобально реплицированными базами данных master с использованием Azure Cosmos DB
 Azure Cosmos DB поддерживает готовую [глобальную репликацию](distribute-data-globally.md), что позволяет распространять данные в нескольких регионах и обеспечивает доступ с низкой задержкой в любом месте рабочей нагрузки. Эта модель обычно используется для рабочих нагрузок типа "издатель и потребитель", в которых модуль записи находится в одном географическом регионе, а глобально распределенные модули чтения — в других регионах (регионах чтения). 
@@ -322,4 +321,3 @@ Azure Cosmos DB поддерживает готовую [глобальную р
 * Сведения о разработке с использованием нескольких регионов с помощью API DocumentDB см. в статье [Как настроить глобальное распределение Azure Cosmos DB с помощью API DocumentDB](tutorial-global-distribution-documentdb.md).
 * Сведения о разработке с использованием нескольких регионов с помощью API MongoDB см. в статье [Как настроить глобальное распределение Azure Cosmos DB с помощью API MongoDB](tutorial-global-distribution-MongoDB.md).
 * Сведения о разработке с использованием нескольких регионов с помощью API таблицы см. в статье [Как настроить глобальное распределение Azure Cosmos DB с помощью API таблицы](tutorial-global-distribution-table.md).
-

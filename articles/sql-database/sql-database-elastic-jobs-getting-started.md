@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 12f84f7ee418955f34316686c836a8697be94ea2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: 05c20e880d4eb1eacdecc0c4c7e7491dfe1e6a89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Начало работы с заданиями обработки эластичных баз данных
 Задания обработки эластичных баз данных (предварительная версия) для Базы данных SQL Azure позволяют надежно выполнять сценарии T-SQL, относящиеся к нескольким базам данных, автоматически повторяя попытки и обеспечивая гарантии успешного завершения. Дополнительные сведения о функции заданий обработки эластичных баз данных см. на [странице с обзором функций](sql-database-elastic-jobs-overview.md).
@@ -480,4 +478,3 @@ ms.lasthandoff: 04/10/2017
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-

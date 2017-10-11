@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 516240ccc82a522a414d837ec334712196edf7dd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Установка нового леса Active Directory в виртуальной сети Azure
 В этом разделе показано, как создать новую среду Windows Server Active Directory на виртуальной машине (ВМ) в [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md). В данном случае виртуальная сеть Azure не соединена с локальной сетью.
@@ -124,4 +123,3 @@ ms.lasthandoff: 04/27/2017
 
 <!--Image references-->
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
-

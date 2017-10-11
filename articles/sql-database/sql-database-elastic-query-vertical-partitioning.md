@@ -14,14 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 078784bcdf7a3a6d4423389d2f5ca4ffdb67c89f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/22/2017
-
-
-
+ms.openlocfilehash: e9036f92f6c76e8c4738ee981efa8a7b9791dcc7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Запрос к нескольким облачным базам данных с разными схемами (предварительная версия)
 ![Запросы между таблицами в разных базах данных][1]
@@ -196,4 +193,3 @@ ms.lasthandoff: 02/22/2017
 
 
 <!--anchors-->
-

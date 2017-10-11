@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: fa962b3f0547b1afcf1c85abb0f28205f26ef96d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: ef1b5860ba0a406022bbd11afb366d14bee2c57d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Руководство по интеграции Azure Active Directory с Litmos
 
@@ -189,11 +188,11 @@ ms.lasthandoff: 07/19/2017
 
     ![Кнопка "Azure Active Directory"](./media/active-directory-saas-litmos-tutorial/create_aaduser_01.png)
 
-2. Перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**, чтобы отобразить список пользователей.
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
 
     ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-litmos-tutorial/create_aaduser_02.png)
 
-3. В верхней части диалогового окна **Пользователь** щелкните **Добавить**, чтобы открыть диалоговое окно **Все пользователи**.
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
 
     ![Кнопка "Добавить"](./media/active-directory-saas-litmos-tutorial/create_aaduser_03.png)
 
@@ -295,5 +294,4 @@ ms.lasthandoff: 07/19/2017
 [201]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_203.png
-
 

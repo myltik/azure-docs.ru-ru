@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 72591111f417267c1daaf13a40a499da42a2c303
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a9da67373465cebbdbecae5c8fb8bd0a0ee3c171
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Настройка приложения прокси приложения для использования PingAccess
 
 Наше сотрудничество с PingAccess позволило предоставить преимущества прокси приложения в приложениях, использующих проверку подлинности на основе заголовков. Если ваши приложения не используют заголовки, см. нашу [документацию по единому входу](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) для получения сведений о других возможностях.
@@ -38,4 +36,3 @@ ms.lasthandoff: 04/17/2017
 4.  Настройка приложений в PingAccess
 
 Сведения о каждом из этих шагов см. в нашей [документации по единому входу с использованием заголовков](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access).
-

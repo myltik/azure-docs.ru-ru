@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9b5556fabd2ccfc026037a411a2f8e83f97ffb81
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: de94633cabaa7a1562a5a4839a8a8924da91a283
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Углубленная диагностика для веб-приложений и служб с помощью Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Зачем мне Application Insights?
@@ -175,5 +174,4 @@ Visual Studio и Eclipse оснащены инструментами для на
 * Инструментирование уже работающего веб-приложения. При этом вы получаете всю встроенную телеметрию производительности. Эта функция доступна для [Java](app-insights-java-live.md) и [серверов IIS](app-insights-monitor-performance-live-website-now.md), а также для [веб-приложений Azure](app-insights-azure.md).
 * Инструментирование проекта во время разработки. Это можно сделать для приложений [ASP.NET](app-insights-asp-net.md) или [Java](app-insights-java-get-started.md), а также для [Node.js](app-insights-nodejs.md) и узлов [других типов](app-insights-platforms.md). 
 * Инструментирование [любой веб-страницы](app-insights-javascript.md) с помощью добавления небольшого фрагмента кода.
-
 

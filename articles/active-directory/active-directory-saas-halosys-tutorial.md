@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
-ms.openlocfilehash: 655d2ea7193551caa4b32efcf75a1dbf204f4954
-
-
+ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Руководство по интеграции Azure Active Directory с Halosys
 
@@ -124,7 +124,7 @@ ms.openlocfilehash: 655d2ea7193551caa4b32efcf75a1dbf204f4954
 
     а. В текстовом поле **URL-адрес для входа** введите URL-адрес, используемый пользователями для входа в приложение Halosys, в следующем формате: `https://<company-name>.Halosys.com/client-api/api`.
 
-    В текстовом поле **Identifier URL** (URL-адрес идентификатора) введите URL-адрес в следующем формате: `https://<company-name>.Halosys.com`.    
+    В текстовом поле **Identifier URL** (URL-адрес идентификатора) введите URL-адрес в следующем формате: `https://<company-name>.Halosys.com`.   
          
 4. На странице **Настройка единого входа в Halosys** нажмите кнопку **Скачать метаданные**, а затем сохраните файл метаданных на своем компьютере.
 
@@ -168,13 +168,13 @@ ms.openlocfilehash: 655d2ea7193551caa4b32efcf75a1dbf204f4954
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+5. На **сообщите нам об этом пользователе** диалогового окна выполните следующие действия: ![Создание тестового пользователя Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
     b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
 
-    c. Нажмите кнопку **Далее**.
+    c. Щелкните **Далее**.
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
 
@@ -264,9 +264,3 @@ ms.openlocfilehash: 655d2ea7193551caa4b32efcf75a1dbf204f4954
 [203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

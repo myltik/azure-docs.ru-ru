@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 23d235d326273e7ec59feee6588a39f685401e52
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-10-run-a-test-failover-for-hyper-v-replication-to-a-secondary-site"></a>Шаг 10. Выполнение тестовой отработки отказа для репликации Hyper-V на дополнительный сайт
 
@@ -56,4 +55,3 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 После проверки развертывания изучите другие типы [отработки отказа](site-recovery-failover.md).
-

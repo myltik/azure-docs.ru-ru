@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6e6e12f3d6d95002b223ad0fcb11d72bd920cdaf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Уведомление пациентов об изменениях в медицинских картах HL7 FHIR с помощью Logic Apps и Azure Cosmos DB
 
 Недавно специалист MVP по Azure Ховард Эдидин (Howard Edidin) получил запрос от медицинской организации, которая решила добавить новые функциональные возможности на свой портал для пациентов. Ей нужно было отправлять пациентам уведомления об изменениях в медицинских картах, а также предоставить пациентам возможность подписаться на такие уведомления. 
@@ -232,6 +230,5 @@ Azure Cosmos DB выполняет роль репозитория для рес
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о базе данных Azure Cosmos DB см. на [ее главной странице](https://azure.microsoft.com/services/cosmos-db/). Подробную информацию о приложениях логики см. [здесь](https://azure.microsoft.com/services/logic-apps/).
-
 
 

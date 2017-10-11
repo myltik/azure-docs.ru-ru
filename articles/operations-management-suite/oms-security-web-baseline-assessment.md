@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Оценка базовых показателей в Интернете в решении "Безопасность и аудит" Operations Management Suite
 В этом документе показано, как использовать возможности оценки базовых показателей в Интернете решения "Безопасность и аудит" OMS, чтобы оценить безопасное состояние отслеживаемых ресурсов.
@@ -79,5 +78,4 @@ ms.lasthandoff: 08/19/2017
 * [Общие сведения об Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite](oms-security-responding-alerts.md)
 * [Мониторинг ресурсов в решении "Безопасность и аудит" Operations Management Suite](oms-security-monitoring-resources.md)
-
 

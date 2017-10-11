@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Основные сведения о токенах пользователей в службе совместной работы Azure AD B2B
 
 Если вам необходимо знать, как выглядит токен для пользователя службы совместной работы B2B, ниже приведены сведения о токене носителя и содержимое токена для гостевого пользователя Azure Active Directory (Azure AD) и гостевого пользователя учетной записи Майкрософт в клиенте ресурса (для tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Чтобы просмотреть содержимое токена JSON Web Token (JWT), воспользуйтесь сайтом [https://jwt.io](https://jwt.io/) или [http://calebb.net](http://calebb.net/).
@@ -53,4 +50,3 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ilk0dWVLMm9hSU
 * [Сопоставление утверждений пользователя службы совместной работы B2B в Azure Active Directory](active-directory-b2b-claims-mapping.md)
 * [Доступ внешних пользователей к Office 365](active-directory-b2b-o365-external-user.md)
 * [Текущие ограничения службы совместной работы Azure Active Directory B2B](active-directory-b2b-current-limitations.md)
-

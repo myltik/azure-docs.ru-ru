@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: a3eedacac5efb53f82e46a56285713dece56ffe8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="service-fabric-with-azure-api-management-overview"></a>Общие сведения о Service Fabric со службой управления API Azure
 
 Обычно, облачным приложениям требуется интерфейсный шлюз, который предоставляет единую точку передачи входящего трафика пользователей, устройств или других приложений. В Service Fabric в качестве шлюза может выступать любая служба без отслеживания состояния, например [приложение ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), или другая служба, предназначенная для обработки входящего трафика, например [концентраторы событий](https://docs.microsoft.com/azure/event-hubs/), [Центр Интернета вещей](https://docs.microsoft.com/azure/iot-hub/) или [служба управления API Azure](https://docs.microsoft.com/azure/api-management/).

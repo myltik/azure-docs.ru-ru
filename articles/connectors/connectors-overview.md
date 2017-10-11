@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44a756ba437b2ce9f625017998d9ae7d09acae1f
 ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Использование соединителей в приложении логики
 Соединители обеспечивают быстрый доступ к событиям, данным и действиям в службах, протоколах и на платформах.  Полный список соединителей, которые поддерживают приложения логики, можно найти [здесь](apis-list.md).  Соединители можно использовать в качестве триггера или действия в приложении логики. Для их работы может потребоваться настроенное *подключение* (например, авторизация учетной записи Twitter для доступа или публикации от вашего имени).
@@ -64,4 +63,3 @@ ms.lasthandoff: 01/20/2017
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
 [2]: ./media/connectors-overview/configureAction.png
-

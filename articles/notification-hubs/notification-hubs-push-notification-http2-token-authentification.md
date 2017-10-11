@@ -13,12 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: kapiteir
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Проверка подлинности на основе токенов (HTTP/2) для APNS
 ## <a name="overview"></a>Обзор
@@ -119,4 +118,3 @@ ms.lasthandoff: 06/22/2017
 
 ## <a name="reverting-to-using-certificate-based-authentication"></a>Восстановление проверки подлинности на основе сертификатов
 С помощью любого предыдущего метода можно в любое время вернуться к использованию проверки подлинности на основе сертификатов и передавать сертификат вместо свойств токена. Это действие перезаписывает ранее сохраненные учетные данные.
-

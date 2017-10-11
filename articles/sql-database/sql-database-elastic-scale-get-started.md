@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Приступая к работе с инструментами эластичных баз данных
 Настоящий документ выступает в качестве введения в процесс запуска примера приложения. В данном примере выполняется создание простого сегментированного приложения и исследуются основные возможности инструментов эластичной базы данных. В примере показаны функции [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md)
@@ -98,5 +97,4 @@ ms.lasthandoff: 07/06/2017
 [2]: ./media/sql-database-elastic-scale-get-started/click-online.png
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
-
 

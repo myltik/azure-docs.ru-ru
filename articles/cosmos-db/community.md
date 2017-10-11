@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="community-portal"></a>Портал сообщества
 ## <a name="community-spotlight"></a>В центре внимания сообщества
@@ -243,5 +242,4 @@ fluent-plugin-documentdb — это подключаемый модуль Fluen
 | [Matías Quaranta](https://twitter.com/ealsur) (Матиас Куаранта) |[![Matías Quaranta](./media/community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) (Матиас Куаранта) |
 
 Хотите стать мастером Azure Cosmos DB? Несмотря на то что критериев для отбора мастеров не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, например StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askcosmosdb@microsoft.com).
-
 

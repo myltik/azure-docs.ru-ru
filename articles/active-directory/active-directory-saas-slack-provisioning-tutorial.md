@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3c339de98250f43c71f7dd9706888c6715ca2ef
-ms.openlocfilehash: e39f2202e83cdf66b85f1cc02a9320ec9e31472e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 3cb49a4abb26c34a938c963c4cf326b5ccd490de
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>Tutorial: Configuring Slack for Automatic User Provisioning (Учебник. Настройка Slack для автоматической подготовки пользователей)
 
 
@@ -116,4 +114,3 @@ ms.lasthandoff: 02/08/2017
 
 * [Управление подготовкой учетных записей пользователей для корпоративных приложений](active-directory-enterprise-apps-manage-provisioning.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-

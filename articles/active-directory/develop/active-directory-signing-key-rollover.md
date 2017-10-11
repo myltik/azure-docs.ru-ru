@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: a13bedc2ad31e45f3525a87655b6c46e653cee16
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 228bb9058537af1e4eb38207c376c2eb86aee68c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Смена ключей подписывания Azure Active Directory
 В этом разделе представлены основные сведения об открытых ключах, которые используются в Azure Active Directory (Azure AD) для подписывания маркеров безопасности. Важно отметить, что эти ключи периодически меняются и в случае чрезвычайной ситуации могут быть изменены немедленно. Все приложения, использующие Azure AD, должны обладать механизмом программной смены ключей или предоставлять возможность периодически запускать процесс смены ключей вручную. Здесь вы узнаете принцип действия ключей, а также то, как оценить степень влияния их смены на приложение и как обновить приложение или настроить периодический запуск процесса смены ключей в ручном режиме, чтобы приложение могло обрабатывать этот процесс.
@@ -312,5 +310,4 @@ namespace JWTValidation
 
 ## <a name="how-to-perform-a-manual-rollover-if-you-application-does-not-support-automatic-rollover"></a>Настройка процедуры смены ключей в ручном режиме, если приложение не поддерживает автоматическую смену ключей
 Если приложение **не** поддерживает автоматическую смену ключей, необходимо создать процесс, который будет периодически отслеживать ключи подписывания Azure AD и выполнять смену ключей в ручном режиме соответствующим образом. [Этот репозиторий GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) содержит скрипты и инструкции о том, как это сделать.
-
 

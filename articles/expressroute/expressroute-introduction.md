@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a998ec92ad58932c5f71e84fbffcd7783cbb459b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 7390462d79506e63989baadac2b2cee00eef325d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="expressroute-overview"></a>Обзор ExpressRoute
 Microsoft Azure ExpressRoute позволяет переносить локальные сети в облако Microsoft по частному подключению, которое обеспечивается поставщиком услуг подключения. ExpressRoute позволяет устанавливать подключения к облачным службам Майкрософт, таким как Microsoft Azure, Office 365 и Dynamics 365.
@@ -114,4 +113,3 @@ ExpressRoute обладает постоянно растущей экосист
   * [Настройка пиринга для канала ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
   * [Подключение виртуальной сети к каналу ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Дополнительные сведения о некоторых других ключевых [сетевых возможностях](../networking/networking-overview.md) Azure.
-

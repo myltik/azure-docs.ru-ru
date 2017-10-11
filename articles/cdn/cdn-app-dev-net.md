@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2d7b2f5feefc4d25c36a5fd30ca1d666b904f58
-
-
+ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Приступая к разработке для Azure CDN
 > [!div class="op_single_selector"]
@@ -340,10 +340,4 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 Чтобы найти дополнительную документацию по библиотеке управления Azure CDN для .NET, воспользуйтесь [справкой на сайте MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
 Управление ресурсами CDN с помощью [PowerShell](cdn-manage-powershell.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

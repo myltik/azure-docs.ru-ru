@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: f8296aa92f58829da698cae8bf6e2e9191c4b257
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Учебник. Интеграция Azure Active Directory с песочницей Salesforce
 
@@ -188,5 +187,4 @@ ms.lasthandoff: 07/12/2017
 Подождите 10 минут и убедитесь, что учетная запись синхронизирована с песочницей Salesforce.
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
-
 

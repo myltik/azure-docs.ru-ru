@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: a7e73f6ee763d1005ad85935cf2d8f6b24ecf116
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Руководство по интеграции Azure Active Directory с SAP HANA
 
@@ -293,5 +292,4 @@ SAP HANA поддерживает JIT-подготовку. Эта функци�
 [201]: ./media/active-directory-saas-saphana-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-saphana-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-saphana-tutorial/tutorial_general_203.png
-
 

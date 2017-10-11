@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 07/12/2017
 ms.author: jrj;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Распределенные данные и распределенные таблицы для вычислений с массовым параллелизмом (MPP)
 Сведения о распределении пользовательских данных в хранилище данных SQL Azure и хранилище Parallel Data Warehouse, системах Майкрософт для вычислений с массовым параллелизмом (MPP). Проектирование хранилища данных с учетом эффективного использования распределенных данных помогает использовать преимущества архитектуры MPP при обработке запросов. Выбор правильных вариантов при проектировании базы данных может иметь значительное влияние на повышение производительности запросов.  
@@ -73,5 +72,4 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы эффективно использовать распределенные таблицы, см. инструкции в статье [Distributing tables in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md) (Распределение таблиц в хранилище данных SQL).  
-
 

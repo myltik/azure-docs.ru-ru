@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 65d970651aec2afaa80c7b82fd58a8fc16e5b42c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 2de668f38ca836d3a8ab205a2689156349f8f8d0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-configuring-conditional-access-to-one-of-my-applications"></a>Проблемы при настройке условного доступа к одному из моих приложений
 
 
@@ -36,5 +34,4 @@ ms.lasthandoff: 04/17/2017
   * [Как настроить политику условного доступа для Exchange Online?](http://aka.ms/csforexchange/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Как настроить условный доступ для устройств Windows 7?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access#device-based-conditional-access/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Какие приложения поддерживают условный доступ?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-supported-apps/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-
 

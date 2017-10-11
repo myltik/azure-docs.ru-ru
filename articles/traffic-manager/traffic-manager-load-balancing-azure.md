@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="using-load-balancing-services-in-azure"></a>Использование служб балансировки нагрузки в Azure
 
 ## <a name="introduction"></a>Введение
@@ -212,4 +210,3 @@ Microsoft Azure включает несколько служб, управляю
 * [Обзор диспетчера трафика](traffic-manager-overview.md)
 * [Обзор шлюза приложений](../application-gateway/application-gateway-introduction.md)
 * [Обзор Azure Load Balancer](../load-balancer/load-balancer-overview.md)
-

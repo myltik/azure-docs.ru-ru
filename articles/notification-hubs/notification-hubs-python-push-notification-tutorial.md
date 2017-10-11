@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9ceedb9940759427fc8cec74a1307e42472563a6
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Использование концентраторов уведомлений с Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -266,7 +266,7 @@ ms.openlocfilehash: 9ceedb9940759427fc8cec74a1307e42472563a6
 
 В результате к URL-адресу типа HTTP запроса на отправку для концентратора уведомлений прикрепляется строка запроса "test". 
 
-## <a name="a-namecomplete-tutorialacomplete-the-tutorial"></a><a name="complete-tutorial"></a>Завершение работы с учебником
+## <a name="complete-tutorial"></a>Завершение работы с учебником
 Теперь вы можете завершить работу с учебником по началу работы, отправив уведомление из серверной части Python.
 
 Инициализируйте клиент концентратора уведомлений (замените строку подключения и имя концентратора в соответствии с инструкциями в [Приступая к работе с центрами уведомлений]):
@@ -322,7 +322,7 @@ ms.openlocfilehash: 9ceedb9940759427fc8cec74a1307e42472563a6
 
 ## <a name="examples"></a>Примеры:
 ### <a name="enabling-debug-property"></a>Включение свойства отладки
-Если включить флаг отладки во время инициализации центра уведомлений (NotificationHub), вы увидите подробный дамп HTTP-запроса и HTTP-ответа наряду с данными NotificationOutcome, которые указывают, какие именно заголовки HTTP переданы в запросе и какой HTTP-ответ был получен от центра уведомлений:        ![][1]
+Если включить флаг отладки во время инициализации центра уведомлений (NotificationHub), вы увидите подробный дамп HTTP-запроса и HTTP-ответа наряду с данными NotificationOutcome, которые указывают, какие именно заголовки HTTP переданы в запросе и какой HTTP-ответ был получен от центра уведомлений: ![][1]
 
 Вы увидите подробный результат концентратора уведомлений, например сведения о том, 
 
@@ -389,10 +389,4 @@ ms.openlocfilehash: 9ceedb9940759427fc8cec74a1307e42472563a6
 [3]: ./media/notification-hubs-python-backend-how-to/SendWithOneTag.png
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

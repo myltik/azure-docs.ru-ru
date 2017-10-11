@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 0651f497de446bd6b66f8eaccd7114d262925afd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 3a768c30cb874d42d7b4fbd2eeaa6c0e23904e10
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-kerberos-constrained-delegation"></a>Настройка приложения прокси приложения для использования ограниченного делегирования Kerberos
 
 Методы обеспечения единого входа в разных опубликованных приложениях могут немного различаться. Одной из функций, включенных в состав прокси приложения Azure, является ограниченное делегирование Kerberos (KCD). В ней узел соединителя настроен для проверки подлинности на базе ограниченного делегирования Kerberos для серверных приложений, от имени пользователей.
@@ -171,4 +169,3 @@ ms.lasthandoff: 06/03/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Настройка ограниченного делегирования Kerberos в управляемом домене](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
-

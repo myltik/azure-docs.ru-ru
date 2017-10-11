@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d1cd23eac464d48ebc6dd618c52c252444b47e21
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: d407c29f99fd7537590ec787febd84a9e3f4f353
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="leverage-other-services-with-sql-data-warehouse"></a>Интеграция других служб с хранилищем данных SQL
 Помимо базовых возможностей, хранилище данных SQL позволяет пользователям дополнительно использовать многие другие службы в Azure.  В частности, мы приняли меры по глубокой интеграции со следующими службами:
@@ -78,4 +76,3 @@ Azure Stream Analytics — это сложная полностью управ�
 <!--MSDN references-->
 
 <!--Other Web references-->
-

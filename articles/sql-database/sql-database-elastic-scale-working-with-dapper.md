@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 01369360fa10ae39e2f9b435d877de0171574286
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: f0efd37a39c1a60eee7b47304483c27727ca8833
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Использование клиентской библиотеки эластичной базы данных с Dapper
 Документ предназначен для разработчиков, которые используют Dapper для создания приложений, но также хотят применять [средства эластичной базы данных](sql-database-elastic-scale-introduction.md) , позволяющие создавать приложения, реализующие сегментирование для горизонтального масштабирования своего уровня данных.  В документе показаны изменения, которые следует внести в приложениях на базе Dapper, для интеграции со средствами эластичной базы данных. Внимание уделяется совмещению методов управления сегментами эластичной базы данных и маршрутизации на основе данных с помощью Dapper. 
@@ -169,4 +167,3 @@ ms.lasthandoff: 01/13/2017
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="traffic-manager-routing-methods"></a>Методы маршрутизации диспетчера трафика
 
 Диспетчер трафика Azure поддерживает четыре метода маршрутизации трафика, которые определяют правила маршрутизации сетевого трафика в разные конечные точки службы. Диспетчер трафика применяет выбранный метод маршрутизации трафика к каждому полученному запросу DNS. Метод маршрутизации трафика определяет, какая конечная точка будет возвращена в ответе DNS.
@@ -136,7 +134,6 @@ ms.lasthandoff: 07/14/2017
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
-
 
 
 

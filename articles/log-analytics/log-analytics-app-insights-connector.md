@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 297c85d2aa5609729e394dc527fb3a1ca5810ffa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: fe6c003e095b25cf3ec3430fc68dcd399150b3ed
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Решение "Соединитель Application Insights" (предварительная версия) в Operations Management Suite (OMS)
 
 ![Символ Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
@@ -266,4 +264,3 @@ Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Используйте [поиск по журналам](log-analytics-log-searches.md), чтобы просматривать подробные сведения о приложениях Application Insights.
-

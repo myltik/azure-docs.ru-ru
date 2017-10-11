@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Оптимизация производительности MySQL на виртуальных машинах Linux в Azure
 Существует множество факторов, влияющих на производительность MySQL в Azure, которые зависят и от выбора виртуального оборудования, и от конфигурации программного обеспечения. Эта статья посвящена оптимизации производительности с помощью конфигураций хранилища, системы и базы данных.
@@ -343,5 +342,4 @@ MySQL — база данных с высокой степенью паралл
 [12]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8dafdf8183e2a30773274c2433fbcb4346727996
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: 09d1649f0ca0cf4ca464d95b29461cad3fe51788
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Настройка параллельных подключений ExpressRoute и "сайт — сайт" (классическая версия)
 > [!div class="op_single_selector"]
@@ -230,5 +229,4 @@ VPN-подключение типа "сеть-сеть" можно настро�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
-
 

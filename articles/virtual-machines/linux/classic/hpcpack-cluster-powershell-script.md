@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: c15dc66718a855e22f8109448cb8c8a23787b9bf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Создание кластера высокопроизводительных вычислительных систем (HPC) Linux с помощью сценария развертывания пакета HPC в IaaS
 Выполните сценарий PowerShell для развертывания пакета HPC в IaaS, чтобы развернуть полный кластер HPC 2012 R2 для рабочих нагрузок Linux на виртуальных машинах Azure. Кластер состоит из присоединенного к Active Directory головного узла под управлением Windows Server и пакета Microsoft HPC, а также вычислительных узлов под управлением одного из дистрибутивов Linux с поддержкой пакета HPC. Если вы хотите развернуть кластер пакета HPC в Azure для рабочих нагрузок Windows, см. статью [Создание кластера для высокопроизводительных вычислений (HPC) Windows с помощью сценария развертывания пакета HPC в IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Вы также можете использовать шаблон диспетчера ресурсов Azure для развертывания HPC-кластера. Например, см. статью [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) (Создание кластера HPC с вычислительными узлами Linux).
@@ -89,5 +88,4 @@ ms.lasthandoff: 03/27/2017
   * [Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](hpcpack-cluster-namd.md)
   * [Выполнение заданий OpenFoam в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](hpcpack-cluster-openfoam.md)
   * [Выполнение заданий STAR-CCM+ в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](hpcpack-cluster-starccm.md)
-
 

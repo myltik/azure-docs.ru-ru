@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
-ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/10/2016
-
+ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Потоковая передача журнала действий Azure в концентраторы событий
 [**Журнал действий Azure**](monitoring-overview-activity-logs.md) можно передавать в близком к реальному времени в любое приложение. Для этого следует настроить стандартный параметр "Экспорт" на портале или включить идентификатор правила служебной шины в профиле журнала с помощью командлетов Azure PowerShell или интерфейса командной строки Azure.
@@ -80,5 +79,4 @@ ServiceBusRuleID — это строка в таком формате: `{service
 * [Архивация журнала действий Azure](monitoring-archive-activity-log.md)
 * [Общие сведения о журнале действий Azure](monitoring-overview-activity-logs.md)
 * [Настройка объекта webhook для оповещений журнала действий Azure](insights-auditlog-to-webhook-email.md)
-
 

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bcf8071454cd598d6aa309823f5cd551779747c3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: e4b2a02d6019d7610fc1dce95d94efa764c6f04c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-an-nginx-vm-with-powershell"></a>Создание виртуальной машины NGINX с помощью PowerShell
 
 Этот скрипт создает виртуальную машину в Azure, а затем использует расширение пользовательских скриптов для виртуальных машин Azure, чтобы установить NGINX. После выполнения сценария можно получить доступ к веб-сайту с демоверсиями по общедоступному IP-адресу виртуальной машины.
@@ -68,4 +66,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
 Дополнительные примеры сценариев PowerShell для виртуальных машин представлены в [документации по виртуальным машинам Azure под управлением Linux](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

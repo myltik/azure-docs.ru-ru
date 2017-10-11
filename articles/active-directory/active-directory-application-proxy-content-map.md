@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9fe3f343ef95106c52c4ea3ff22143a5e855c6c7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a2cd51279476f0964164705cf60b9b4e177972fd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-configuring-the-azure-ad-application-proxy"></a>Проблемы при настройке прокси приложения Azure AD
 
 
@@ -53,4 +51,3 @@ ms.lasthandoff: 04/17/2017
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Возникла проблема с соединителем агента прокси приложения
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Возникли проблемы при установке соединителя агента прокси приложения](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

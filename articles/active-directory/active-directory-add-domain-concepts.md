@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 3c591680160101a91174868714392674c9aa7178
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Общие сведения об именах личных доменов в Azure Active Directory
 Доменное имя может выступать важным идентификатором для многих ресурсов каталога как часть:
@@ -71,5 +70,4 @@ ms.lasthandoff: 07/26/2017
 * [Managing custom domain names in your Azure Active Directory (Управление именами личных доменов в Azure Active Directory)](active-directory-add-manage-domain-names.md)
 * [Управление доменными именами в Azure AD с помощью PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Управление доменными именами в Azure AD с помощью API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
-
 

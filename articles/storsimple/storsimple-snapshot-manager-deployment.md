@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: cde355381b0d726a1ab340bc4230b2dc8f6e2c56
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Развертывание оснастки консоли управления диспетчера моментальных снимков StorSimple (необязательно)
 
@@ -215,5 +214,4 @@ ms.lasthandoff: 07/08/2017
 * Дополнительные сведения о StorSimple Snapshot Manager см. в статье [Что такое диспетчер моментальных снимков StorSimple?](storsimple-what-is-snapshot-manager.md)
 * Чтобы узнать больше о пользовательском интерфейсе StorSimple Snapshot Manager, см. статью [Пользовательский интерфейс диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md).
 * Чтобы узнать больше об использовании StorSimple Snapshot Manager см. статью [Использование диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
-
 

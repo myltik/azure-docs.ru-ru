@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 9d59e7f0e8f326c40be86e199d7712f6c565cc13
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Типы приложений для конечной точки Azure Active Directory версии 2.0
 Конечная точка Azure Active Directory версии 2.0 поддерживает аутентификацию для различных современных архитектур приложений, которые основаны на стандартном отраслевом протоколе [OAuth 2.0 или OpenID Connect](active-directory-v2-protocols.md). В этой статье описываются типы приложений, которые можно создавать с помощью Azure AD версии 2.0 вне зависимости от выбранного языка и платформы. Сведения в этой статье помогут вам получить общее представление о возможных сценариях, прежде вы [приступите к работе с кодом](active-directory-appmodel-v2-overview.md#getting-started).
@@ -122,4 +121,3 @@ Accept: application/json
 ![Поток аутентификации управляющей программы](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
 Чтобы создать управляющую программу, изучите документацию по учетным данным клиентов в нашем разделе [Приступая к работе](active-directory-appmodel-v2-overview.md#getting-started) или ознакомьтесь с [примером приложения .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-

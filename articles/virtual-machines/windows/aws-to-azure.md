@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: b382e545e47353a177b3b02b3931001ab22d53c8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.openlocfilehash: 7d2b498d3f84c4fd6cccf97c6d7781f293f5b395
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
-
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Перемещение виртуальной машины Windows из Amazon Web Services (AWS) в Azure с помощью PowerShell
 
 При оценке виртуальных машин Azure для размещения рабочих нагрузок можно экспортировать существующий экземпляр виртуальной машины Windows EC2 из Amazon Web Services (AWS) и передать виртуальный жесткий диск (VHD) в Azure. После передачи VHD вы можете создать на его основе виртуальную машину в Azure. 
@@ -71,4 +68,3 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
 - Если вы не запускали Sysprep перед экспортом, VHD считается **специализированным**. См. статью [Создание виртуальной машины из специализированного диска](create-vm-specialized.md).
 
  
-

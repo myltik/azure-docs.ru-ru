@@ -14,14 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Инфраструктура и возможности подключения SAP HANA в Azure (крупные экземпляры) 
 
 В этом руководстве используются некоторые общие определения. Ознакомьтесь с ними, прежде чем приступать к изучению руководства. В статье [Обзор и описание архитектуры SAP HANA в Azure (крупные экземпляры)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) мы представили два разных класса единиц крупных экземпляров HANA с:
@@ -299,6 +297,5 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 Чтобы удалить дополнительный канал ExpressRoute SAP HANA в Azure (крупные экземпляры), откройте запрос на поддержку Azure в службе поддержки решения "SAP HANA для управления службами Azure" и укажите, что нужно удалить канал. В подписке Azure вы можете по желанию удалить или оставить виртуальную сеть. Тем не менее нужно удалить подключение между каналом ExpressRoute крупных экземпляров HANA и связанным шлюзом виртуальной сети.
 
 Если требуется также удалить виртуальную сеть, следуйте соответствующим указаниям в предыдущем разделе.
-
 
 

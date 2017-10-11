@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: baf6476c6dfc0db29d51d5b0b1643b1ff099a808
-
-
+ms.openlocfilehash: c5ebc3cb13359d824f022859078e4feb2b6869a0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy: курсы по безопасности в Azure
 Microsoft Virtual Academy предлагает бесплатное интерактивное обучение, помогающее разработчикам, ИТ-специалистам, специалистам по обработке данных и студентам узнать о новейших технологиях, усовершенствовать навыки и подняться по карьерной лестнице.
@@ -64,9 +64,3 @@ Microsoft Virtual Academy предлагает бесплатное интера
 [Основные навыки работы со службами Azure Rights Management](https://mva.microsoft.com/en-us/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
 
 Из этого курса вы узнаете, почему защита информации является обязательной для вашей организации и как управление правами защищает вашу интеллектуальную собственность на любом устройстве и в любом расположении в облаке. Специалисты Майкрософт готовы поделиться с вами своими знаниями и опытом.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

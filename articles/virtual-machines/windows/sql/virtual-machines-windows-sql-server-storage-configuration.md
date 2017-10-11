@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Настройка хранилища для виртуальных машин SQL Server
 При настройке образа виртуальной машины SQL Server на портале Azure некоторые процессы конфигурации хранилища выполняются автоматически. К этим процессам относится подключение хранилища к виртуальной машине, предоставление SQL Server доступа к нему и настройка параметров, которые позволяют оптимизировать производительность хранилища.
@@ -144,4 +143,3 @@ Azure создает диск на основе ваших параметров.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-

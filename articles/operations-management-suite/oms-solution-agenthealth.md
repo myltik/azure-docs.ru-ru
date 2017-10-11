@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Решение для мониторинга работоспособности агентов в OMS
 Решение для мониторинга работоспособности агентов в OMS помогает выявлять среди всех агентов, отправляющих отчеты непосредственно в OMS или подключенную к OMS группу управления System Center Operations Manager, агенты, которые не отвечают на запросы и которые отправляют оперативные данные.  Вы также можете отслеживать число развернутых агентов и их географическое распределение, а также выполнять другие запросы, чтобы знать о распределении агентов, развернутых в Azure, других облачных средах или в локальной среде.    
@@ -135,4 +134,3 @@ ms.lasthandoff: 07/28/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о генерации оповещений из Log Analytics см. в статье [Оповещения в Log Analytics](../log-analytics/log-analytics-alerts.md).
-

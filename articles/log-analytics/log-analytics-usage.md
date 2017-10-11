@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Анализ использования данных в службе Log Analytics
 Log Analytics содержит сведения об объеме собранных данных, компьютерах, которые отправляют эти данные, а также различных типах отправленных данных.  Используйте панель мониторинга **использования службы Log Analytics**, чтобы просмотреть объем данных, отправленных в службу Log Analytics. На панели мониторинга отображаются объем данных, собранных каждым решением, и объем данных, отправляемый компьютерами.
@@ -173,4 +172,3 @@ Log Analytics содержит сведения об объеме собранн
 * Измените [конфигурацию счетчика производительности](log-analytics-data-sources-performance-counters.md).
 * Измените [конфигурацию журнала событий](log-analytics-data-sources-windows-events.md).
 * Измените [конфигурацию системного журнала](log-analytics-data-sources-syslog.md).
-

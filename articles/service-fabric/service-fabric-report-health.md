@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: oanapl
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: ed10eef347d4d93012078456b3a145589e66d30e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Добавление настраиваемых отчетов о работоспособности Service Fabric
 В Azure Service Fabric представлена [модель работоспособности](service-fabric-health-introduction.md) , которая предназначена для обозначения условий неработоспособности кластеров или приложений в отдельных сущностях. В этой модели используются **информаторы о работоспособности** (системные компоненты и устройства наблюдения). Их целью является простая и быстрая диагностика и восстановление. Создатели службы должны предупреждать проблемы работоспособности. Любые условия, которые могут повлиять на работоспособность, должны регистрироваться, особенно в случаях, если это может помочь выяснить причину возникновения проблем. Сведения о работоспособности может сократить время и усилия, затрачиваемые на изучение и отладку. Полезность станет особенно очевидна после того, как служба будет масштабно запущена в облаке (в частном облаке или облаке Azure).
@@ -315,5 +314,4 @@ HealthEvents          :
 [Мониторинг и диагностика состояния служб в локальной среде разработки](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
-
 

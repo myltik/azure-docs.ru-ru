@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 0b7040d6273b3a6b85cd55850d596807226b87fc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-to-protect-dns-zones-and-records"></a>Как защитить зоны и записи DNS
 
 Зоны и записи DNS являются критически важными ресурсами. Удаление зоны DNS или даже одной записи DNS может привести к полному отключению службы.  Поэтому важно, чтобы критически важные зоны и записи DNS были защищены от несанкционированных или случайных изменений.
@@ -223,5 +221,4 @@ New-AzureRmResourceLock -LockLevel DoNotDelete -LockName "<lock name>" -Resource
 
 * Дополнительные сведения о работе с RBAC см. в статье [Начало работы с управлением доступом на портале Azure](../active-directory/role-based-access-control-what-is.md).
 * Дополнительные сведения о работе с блокировками ресурсов см. в статье [Блокировка ресурсов с помощью диспетчера ресурсов Azure](../azure-resource-manager/resource-group-lock-resources.md).
-
 

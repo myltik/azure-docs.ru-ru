@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 8ef9ddc345fb553b93815022dc3e6a796cae8b3a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Функции безопасности для защиты гибридных резервных копий, использующих службу архивации Azure
 Среди пользователей растет обеспокоенность вопросами безопасности, связанными с вредоносными программами, программами-шантажистами и вторжениями в системы. Эти угрозы могут привести к значительным расходам и потере данных. Чтобы защитить вас от таких атак, в службе архивации Azure доступны функции безопасности для защиты гибридных резервных копий. В этой статье описывается, как включить и использовать эти функции с помощью агента служб восстановления Azure и сервера резервного копирования Azure. Эти функции включают в себя следующие:
@@ -119,4 +118,3 @@ ms.lasthandoff: 08/23/2017
 * [Скачайте последнюю версию агента служб восстановления Azure](http://aka.ms/azurebackup_agent), чтобы обеспечить безопасность компьютеров Windows и защитить данные резервных копий от атак.
 * [Скачайте последнюю версию Сервера резервного копирования Azure](https://aka.ms/latest_azurebackupserver), которая поможет защитить рабочие нагрузки и данные резервных копий.
 * Скачайте [накопительный пакет обновления 12 для System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) или [накопительный пакет обновления 2 для System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager), которые помогут защитить рабочие нагрузки и данные резервных копий.
-

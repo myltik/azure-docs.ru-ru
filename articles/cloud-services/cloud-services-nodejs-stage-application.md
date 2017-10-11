@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: a015c4a2f5dccb8cae49b739e5d8c342daec54cf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/11/2017
-
+ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Развертывание приложения в промежуточной среде Azure
 Упакованное приложение можно развернуть в промежуточной среде в Azure и протестировать его перед развертыванием в рабочей среде, где оно будет доступно пользователям через Интернет. Промежуточная среда в точности схожа с рабочей средой за исключением того, что доступ к приложению в промежуточной среде возможен только с использованием допустимого URL-адреса, который создается Azure. Убедившись, что приложение работает правильно, вы можете развернуть его в рабочей среде, выполнив переключение виртуальных IP-адресов (VIP).
@@ -74,4 +73,3 @@ ms.lasthandoff: 02/11/2017
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
-

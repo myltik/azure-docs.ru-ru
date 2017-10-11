@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Приступая к работе со службой DNS Azure с помощью портала Azure
 
 > [!div class="op_single_selector"]
@@ -104,5 +102,4 @@ ms.lasthandoff: 05/18/2017
 Дополнительные сведения о службе DNS Azure см. в статье [Обзор Azure DNS](dns-overview.md).
 
 Дополнительные сведения об управлении записями DNS в службе DNS Azure см. в статье [Управление записями и наборами записей DNS с помощью портала Azure](dns-operations-recordsets-portal.md).
-
 

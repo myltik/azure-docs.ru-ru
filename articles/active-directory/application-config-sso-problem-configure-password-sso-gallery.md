@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 32c6d4ed5470077856d4ab175a5df5188b3690a6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 58d29996a922fac6d295e753ba5d66d32e745a57
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Проблема при настройке единого входа по паролю для приложения из коллекции Azure AD
 
 Эта статья поможет понять распространенные проблемы, которые возникают при настройке **единого входа по паролю** для приложения из коллекции Azure AD.
@@ -109,5 +107,4 @@ ms.lasthandoff: 06/13/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
-
 

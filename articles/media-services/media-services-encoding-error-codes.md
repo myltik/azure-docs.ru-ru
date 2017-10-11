@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b341416f837d03e0532b4f8c0a3f3f85641a8995
-ms.openlocfilehash: d1e6421404d9c8845eb3ccd30d84c0c8cf5930b8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: f4fd2212d19f89148dde08c75c5a48cdd322d029
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="encoding-error-codes"></a>Коды ошибок кодирования
 
 В следующей таблице перечислены коды ошибок, которые могут быть возвращены при возникновении ошибок во время выполнения задачи кодирования.  Чтобы получить сведения об ошибке в коде .NET, используйте класс [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) . Чтобы получить сведения об ошибке в коде REST, используйте REST API [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) .
@@ -53,4 +51,3 @@ ms.lasthandoff: 01/27/2017
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-

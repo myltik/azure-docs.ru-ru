@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="exclude-disks-from-replication"></a>Исключение дисков из репликации
 В этой статье описывается, как исключать диски из репликации. Благодаря этому можно оптимизировать использование пропускной способности при репликации или же ресурсы целевой стороны, используемые такими дисками. Эта функция поддерживается для сценариев VMware и Hyper-V в Azure.
@@ -270,4 +269,3 @@ DB-Disk3 | Диск 3 | F:\ | Пользовательские данные 2
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Настроив и запустив развертывание, вы можете ознакомиться с [дополнительными сведениями](site-recovery-failover.md) о различных типах обработки отказа.
-

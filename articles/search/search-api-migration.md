@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/14/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Обновление REST API службы поиска Azure до версии 2016-09-01
 Если вы используете предварительную версию 2015-02-28 или 2015-02-28-Preview [REST API службы поиска Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) или более раннюю, эта статья поможет вам обновить приложения для использования следующей общедоступной версии API 2016-09-01.
@@ -68,5 +67,4 @@ ms.lasthandoff: 01/14/2017
 Будем рады вашим отзывам о службе поиска Azure. Если вы столкнулись с проблемами, то всегда можете обратиться за помощью на [форуме по службе поиску Azure на сайте MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) или [StackOverflow](http://stackoverflow.com/). Если вы задаете вопрос о службе поиска Azure на сайте StackOverflow, обязательно добавьте к нему `azure-search`.
 
 Благодарим вас за использование поиска Azure!
-
 

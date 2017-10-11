@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 2dfe58c032888ca34e905f4e549fcc4d6e36d324
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Добавление функции входа в приложение Android, использующее стороннюю библиотеку и API Graph, с помощью конечной точки версии 2.0
 Платформа Microsoft Identity использует открытые стандарты, такие как OAuth2 и OpenID Connect. Разработчики могут использовать любую библиотеку на свой выбор для интеграции с нашими службами. Чтобы помочь разработчикам с использованием нашей платформы с другими библиотеками, мы написали несколько подобных этому пошаговых руководств по настройке сторонних библиотеки для подключения к платформе Microsoft Identity. Большинство библиотек, в которых реализована [спецификация RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) , могут подключаться к платформе Microsoft Identity.
@@ -95,8 +93,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
     ![Модуль приложения по умолчанию](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
 5. Импортируйте модули из клонированного репозитория в текущий проект.
    
-    ![Импорт проекта gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
-    ![Страница создания нового модуля](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
+    ![Импорт проекта gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG) ![создать новую страницу модуля](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
 6. Повторите эти действия для модуля `oidlib-sample` .
 7. Проверьте зависимости oidclib в модуле `oidlib-sample` .
    
@@ -191,5 +188,4 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 ## <a name="get-security-updates-for-our-product"></a>Получение обновлений системы безопасности для наших продуктов
 Рекомендуем вам получать уведомления об инцидентах безопасности. Для этого посетите [Технический центр безопасности](https://technet.microsoft.com/security/dd252948) и подпишитесь на уведомления о советах безопасности.
-
 

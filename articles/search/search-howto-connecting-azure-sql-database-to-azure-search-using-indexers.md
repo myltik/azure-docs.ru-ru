@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов
 
 Перед запросом [индексом службы Поиска Azure](search-what-is-an-index.md) необходимо заполнить его данными. Если данные находятся в базе данных SQL Azure, **индексатор Поиска Azure для базы данных SQL Azure** (сокращенно — **индексатор SQL Azure**) поможет автоматизировать индексирование, что позволяет сократить количество кода и объем инфраструктуры.
@@ -358,4 +356,3 @@ ms.lasthandoff: 07/17/2017
 + Можно гарантировать, что при выполнении индекса в индексируемой таблице нет необработанных транзакций. Например, все обновления таблицы происходят пакетно по расписанию, а расписание индексатора Поиска Azure настроено избегать перекрытия с расписанием обновления таблицы.  
 
 + Вы периодически выполняете полное повторное индексирование, чтобы обнаружить все пропущенные строки. 
-

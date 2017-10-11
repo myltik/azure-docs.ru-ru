@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: 36c83ad9424c7c1e0bc096696148dda801bc4257
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: cf1455dc3d55ea3581195f7a315556d134c23a26
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Добавление функции входа в приложение iOS, использующее стороннюю библиотеку и API Graph, с помощью конечной точки версии 2.0
 Платформа Microsoft Identity использует открытые стандарты, такие как OAuth2 и OpenID Connect. Разработчики могут использовать любую библиотеку на свой выбор для интеграции с нашими службами. Чтобы помочь разработчикам с использованием нашей платформы с другими библиотеками, мы написали несколько подобных этому пошаговых руководств по настройке сторонних библиотеки для подключения к платформе Microsoft Identity. Большинство библиотек, в которых реализована [спецификация RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) , могут подключаться к платформе Microsoft Identity.
@@ -571,5 +569,4 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
 
 ## <a name="get-security-updates-for-our-product"></a>Получение обновлений системы безопасности для наших продуктов
 Рекомендуем получать уведомления о произошедших инцидентах безопасности. Для этого посетите [технический центр безопасности](https://technet.microsoft.com/security/dd252948) и подпишитесь на уведомления о советах безопасности.
-
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4e6ef568f510d9db4df115e25d66f53feffc829e
-ms.openlocfilehash: c607830466d7f942f1d0a43ebeccea07ed0877a9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: 8e9e8192ee4fcb636b5be91d2616acbc9120c8c0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Синхронизация Azure AD Connect: управление учетной записью службы Azure AD
 Учетная запись службы, используемая соединителем Azure AD, как правило, не нуждается в обслуживании. Если требуется сбросить ее учетные данные, в этой статье вы найдете необходимые сведения. Например, это потребуется, если глобальный администратор по ошибке сбросит пароль учетной записи службы с помощью PowerShell.
@@ -53,5 +52,4 @@ AADSTS70002: ошибка при проверке учетных данных. A
 
 * [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
 

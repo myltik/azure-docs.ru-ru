@@ -14,22 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 2a7ecec310f4e321417364eee854409b2f85e2d3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="what-is-an-integration-account"></a>Что такое учетная запись интеграции?
 
 Учетная запись интеграции позволяет приложениям интеграции Enterprise управлять артефактами, включая схемы, карты, сертификаты, партнеры и соглашения. Любое создаваемое приложение интеграции использует учетную запись интеграции для доступа к схемам, картам, сертификатам и т. д.
 
 ## <a name="create-an-integration-account"></a>Создание учетной записи интеграции
 
-1.    Войдите на [портал Azure](http://portal.azure.com "Портал Azure"). В меню слева выберите **Больше служб**.
+1.  Войдите на [портал Azure](http://portal.azure.com "Портал Azure"). В меню слева выберите **Больше служб**.
 
     ![Выбор "Больше служб"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
@@ -131,5 +128,4 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Узнайте о соглашениях и Пакете интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-agreements.md "Узнайте о соглашениях и Пакете интеграции Enterprise")  
-
 

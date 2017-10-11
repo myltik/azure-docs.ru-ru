@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c0b963ef661612b1a176dd8e5f01d56e61eb5acb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs-notify-users-with-net-backend"></a>Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -345,9 +345,3 @@ ms.openlocfilehash: c0b963ef661612b1a176dd8e5f01d56e61eb5acb
 [Безопасные push-уведомления]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

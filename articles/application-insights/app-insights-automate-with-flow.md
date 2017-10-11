@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d0cd0cc97fa61d3401f6101292b82132622c9e81
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 510f4f284bbd0dbe4171896899f7ade7dee19e39
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Автоматизация процессов Azure Application Insights с помощью соединителя для Microsoft Flow
 
 Постоянно выполняете одинаковые запросы к данным телеметрии, чтобы проверить, что ваша служба работает правильно? Хотите автоматизировать эти запросы для поиска тенденций и аномалий и создавать на их основе собственные рабочие процессы? Соединитель Application Insights (предварительная версия) для Microsoft Flow — это то, что вам нужно.
@@ -132,7 +130,6 @@ ms.lasthandoff: 07/08/2017
 
 
 <!--Link references-->
-
 
 
 

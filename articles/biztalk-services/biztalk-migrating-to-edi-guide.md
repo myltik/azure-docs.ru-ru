@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 1b70fc3d199d7f1521acb534dafec8fb3e69500e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Перенос решений EDI для BizTalk Server в службы BizTalk: техническое руководство
 
@@ -125,4 +124,3 @@ ms.lasthandoff: 05/31/2017
 [Разработка корпоративных приложений с Azure](https://msdn.microsoft.com/library/azure/hh674490.aspx)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
-

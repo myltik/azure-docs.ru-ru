@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d7333f9752a9e03c1087a4bc588284b418d8926
-ms.openlocfilehash: 4a80252f139d653ff8788b3c1a6a075448cb48e7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/14/2017
-
+ms.openlocfilehash: d9f53148787729d29a0a89cce1b8b2b83ba228f8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Интеграция Azure AD с приложением Apache Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -88,7 +87,7 @@ ms.lasthandoff: 02/14/2017
 Azure AD выдает маркеры только для знакомых приложений. Прежде чем использовать службу Azure AD из приложения, вы должны создать для него запись в собственном клиенте. Чтобы зарегистрировать новое приложение в клиенте:
 
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. На верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиента Azure AD, в котором будет зарегистрировано приложение.
+2. На верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Azure AD, в котором будет зарегистрировано приложение.
 3. В области слева щелкните **Больше служб** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.
 5. Следуя инструкциям, создайте **собственное клиентское приложение**. (Хотя приложения Cordova основаны на HTML, мы создаем собственное клиентское приложение. Чтобы оно работало, должен быть выбран параметр **Собственное клиентское приложение**.)
@@ -292,4 +291,3 @@ var authority = "https://login.microsoftonline.com/common",
 Теперь вы можете приступить к более сложным и содержательным сценариям. Дополнительные сведения см. в статье [Приступая к работе с веб-интерфейсом API для узла](active-directory-devquickstarts-webapi-nodejs.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

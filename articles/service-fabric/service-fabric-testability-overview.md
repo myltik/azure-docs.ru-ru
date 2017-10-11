@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c05081685532aecbe29e9bf380f0278e775ad6b7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: f275fa5d3d6d727b016e55c188321d7e68091a33
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Общие сведения о службе анализа сбоев
 Служба анализа сбоев предназначена для проверки служб, созданных с помощью платформы Microsoft Azure Service Fabric. Она позволяет вызывать значимые ошибки и запускать в приложениях тестовые сценарии. Вызываемые ошибки и сценарии позволяют воспроизвести и проверить в контролируемых, безопасных и согласованных условиях разные состояния и переходы, происходящие со службой в течение ее жизненного цикла.
@@ -104,4 +102,3 @@ ms.lasthandoff: 04/27/2017
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
-

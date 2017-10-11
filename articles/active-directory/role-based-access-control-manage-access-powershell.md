@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: e7323325c303c26e2ea4d9f2a8ac5178fa33b875
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: d7b11df21650b5cb27f9c3dd8306f8d12664185e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Управление доступом на основе ролей с помощью Azure PowerShell
 > [!div class="op_single_selector"]
@@ -280,5 +279,4 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 ## <a name="see-also"></a>Дополнительные материалы
 * [Использование Azure PowerShell с Azure Resource Manager](../powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 3518fdfcf60454178b00a713d9f38479e3e149e7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: 55dca4bcb80e8daab2b4d293a9cc85a087055110
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Создание задачи кодирования, создающей блоки fMP4
 
@@ -168,5 +167,4 @@ ms.lasthandoff: 07/19/2017
 
 ## <a name="see-also"></a>См. также
 [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
-
 

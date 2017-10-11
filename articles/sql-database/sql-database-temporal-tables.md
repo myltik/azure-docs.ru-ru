@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sql-database
 ms.date: 01/10/2017
 ms.author: bonova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: e00345ddd9e52e2613789ba78c48e8f993d2415c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: d84db682089c65c2716d2d9bd92f7bc0ac47af27
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Приступая к работе с временными таблицами в базе данных SQL Azure
 Временные таблицы — это новая программная возможность базы данных SQL Azure, которая позволяет отслеживать и анализировать полный журнал изменений в данных, не создавая какого-либо дополнительного пользовательского кода. Во временных таблицах хранятся данные, тесно связанные с контекстом времени, чтобы хранимые факты можно было интерпретировать как действительные только в течение определенного периода. Эта особенность временных таблиц дает возможность эффективно выполнять анализ с учетом времени и получать ценную информацию об эволюции данных.
@@ -199,5 +197,4 @@ ALTER TABLE dbo.WebsiteUserInfo
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о темпоральных таблицах см. в [документации MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
 Посетите сайт Channel 9, чтобы ознакомиться с [историей успешного внедрения временных решений реальным клиентом](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) и посмотреть наглядную [демонстрацию временных решений](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
-
 

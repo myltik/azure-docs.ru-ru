@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Планировщик ресурсов Azure Site Recovery
 В этой статье приведены рекомендации по использованию планировщика развертывания Azure Site Recovery в сценариях рабочих развертываний виртуальных машин VMware в Azure.
@@ -612,4 +611,3 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 * Эта программа поддерживает только сценарии развертывания виртуальных машин VMware в Azure (а не развертывание виртуальных машин Hyper-V в Azure). В сценариях развертывания виртуальных машин Hyper-V в Azure используйте [планировщик ресурсов Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * Операция GetThroughput не поддерживается в регионах Microsoft Azure для государственных организаций США и в регионах Microsoft Azure в Китае.
 * Программа не поддерживает профилирование виртуальных машин, если на сервере vCenter Server находится несколько виртуальных машин с одинаковым именем или IP-адресом, расположенных на разных узлах ESXi. В этой версии программа пропускает профилирование виртуальных машин, имена или IP-адреса которых заданы в качестве значения параметра VMListFile несколько раз. Возможное решение — выполнить профилирование виртуальных машин на узле ESXi, а не на сервере vCenter Server. Необходимо запустить один экземпляр для каждого узла ESXi.
-

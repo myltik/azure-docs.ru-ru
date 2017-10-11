@@ -1,6 +1,6 @@
 ---
-title: "Создание моста между Android WebView и собственным пакетом SDK Android Mobile Engagement"
-description: "Описывает, как создать мост между WebView с Javascript и собственным пакетом SDK Android Mobile Engagement"
+title: "Создание моста между Android WebView и собственным пакетом SDK Android для Служб мобильного взаимодействия"
+description: "Описывает, как создать мост между WebView с Javascript и собственным пакетом SDK Android для Служб мобильного взаимодействия"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,22 +14,22 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f4fc7b3c81747ec80974a99084eeb1acc311f11f
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="bridge-android-webview-with-native-mobile-engagement-android-sdk"></a>Создание моста между Android WebView и собственным пакетом SDK Android Mobile Engagement
+# <a name="bridge-android-webview-with-native-mobile-engagement-android-sdk"></a>Создание моста между Android WebView и собственным пакетом SDK Android для Служб мобильного взаимодействия
 > [!div class="op_single_selector"]
 > * [Мост Android](mobile-engagement-bridge-webview-native-android.md)
 > * [Мост iOS](mobile-engagement-bridge-webview-native-ios.md)
 > 
 > 
 
-Некоторые мобильные приложения представляют собой гибридные приложения. В этом случае само приложение разрабатывается на основе Android, но некоторые или даже все окна отображаются с помощью Android WebView. Тем не менее, пакет SDK Android Mobile Engagement можно использовать в таких приложениях, и в этом учебнике описывается, как это сделать. Следующий пример кода основан на документации по Android, с которой можно ознакомиться [здесь](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript). Он описывает, как с помощью этого задокументированного подхода можно реализовать то же самое для часто используемых методов пакета SDK Android Mobile Engagement, чтобы Webview из гибридного приложения также могло инициировать запросы на отслеживание событий, заданий, ошибок и информации о приложении во время их передачи через пакет SDK для Android. 
+Некоторые мобильные приложения представляют собой гибридные приложения. В этом случае само приложение разрабатывается на основе Android, но некоторые или даже все окна отображаются с помощью Android WebView. Тем не менее, пакет SDK Android для Служб мобильного взаимодействия можно использовать в таких приложениях, и в этом руководстве описывается, как это сделать. Следующий пример кода основан на документации по Android, с которой можно ознакомиться [здесь](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript). Он описывает, как с помощью этого задокументированного подхода можно реализовать то же самое для часто используемых методов пакета SDK Android для Служб мобильного взаимодействия, чтобы Webview из гибридного приложения также могло инициировать запросы на отслеживание событий, заданий, ошибок и информации о приложении во время их передачи через пакет SDK для Android. 
 
-1. Во-первых, полностью изучите наш [Учебник "Приступая к работе"](mobile-engagement-android-get-started.md) для интеграции пакета SDK Android Mobile Engagement в свое гибридное приложение. После этого ваш метод `OnCreate` будет выглядеть следующим образом.  
+1. Во-первых, полностью изучите наш [Учебник "Приступая к работе"](mobile-engagement-android-get-started.md) для интеграции пакета SDK Android для Служб мобильного взаимодействия в свое гибридное приложение. После этого ваш метод `OnCreate` будет выглядеть следующим образом.  
    
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ ms.openlocfilehash: f4fc7b3c81747ec80974a99084eeb1acc311f11f
             ...
             SetWebView();
         }
-3. Теперь создайте файл моста с именем **WebAppInterface**, который создает оболочку для некоторых часто используемых методов пакета SDK Android Mobile Engagement с помощью подхода `@JavascriptInterface`, описанного в [документации Android](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript):
+3. Теперь создайте файл моста с именем **WebAppInterface**, который создает оболочку для некоторых часто используемых методов пакета SDK Android для Служб мобильного взаимодействия с помощью подхода `@JavascriptInterface`, описанного в [документации Android](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript):
    
         import android.content.Context;
         import android.os.Bundle;
@@ -199,10 +199,10 @@ ms.openlocfilehash: f4fc7b3c81747ec80974a99084eeb1acc311f11f
         </html>
 7. Обратите внимание на следующие моменты, касающиеся файла HTML выше:
    
-   * Он содержит набор полей ввода, в которые можно ввести данные для использования в качестве имен для событий, заданий, ошибок и информации о приложении. При нажатии на кнопку рядом с ним выполняется вызов Javascript, который в конечном итоге вызывает методы из файла моста, чтобы передать этот вызов пакету SDK Android Mobile Engagement. 
+   * Он содержит набор полей ввода, в которые можно ввести данные для использования в качестве имен для событий, заданий, ошибок и информации о приложении. При нажатии на кнопку рядом с ним выполняется вызов Javascript, который в конечном итоге вызывает методы из файла моста, чтобы передать этот вызов пакету SDK Android для Служб мобильного взаимодействия. 
    * Мы добавляем теги для указания дополнительной статической информации для событий, заданий и даже ошибок, чтобы показать, как это можно сделать. Эти дополнительные сведения отправляются в виде строки JSON, которая, если заглянуть в файл `WebAppInterface`, анализируется, помещается в Android `Bundle` и передается вместе с отправкой событий, заданий и ошибок. 
-   * Задание Mobile Engagement запускается под именем, указанным в поле ввода, работает в течение 10 секунд и завершается. 
-   * Информация о приложении Mobile Engagement или тег передаются с "customer_name" в виде статического ключа и значения, введенных в поле ввода в качестве значения тега. 
+   * Задание Служб мобильного взаимодействия запускается под именем, указанным в поле ввода, работает в течение 10 секунд и завершается. 
+   * Информация о приложении Служб мобильного взаимодействия или тег передаются с "customer_name" в виде статического ключа и значения, введенных в поле ввода в качестве значения тега. 
 8. Запустите приложение и вы увидите следующее. Теперь укажите какое-нибудь имя для тестового события (например такое, как указано ниже) и щелкните **Отправить** под ним. 
    
     ![][1]
@@ -213,9 +213,3 @@ ms.openlocfilehash: f4fc7b3c81747ec80974a99084eeb1acc311f11f
 <!-- Images. -->
 [1]: ./media/mobile-engagement-bridge-webview-native-android/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-android/event-output.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

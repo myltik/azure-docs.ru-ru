@@ -1,6 +1,6 @@
 ---
 title: "Описание операций хранилища данных SQL Azure | Документация Майкрософт"
-description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. '
+description: "Эластичность хранилища данных SQL — это возможность повышать и понижать вычислительную мощность, а также приостанавливать вычислительную работу с помощью обычного ползунка изменения уровня производительности (количества DWU). В этой статье описываются метрики хранилища данных и их связь с DWU. "
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 79fedaabc438bc4cd884af6b494e43d32361950a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 629ce22bf669a760d041bbd006b836d2da5d237b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-warehouse-workload"></a>Рабочая нагрузка хранилища данных
 Рабочая нагрузка хранилища данных — это все операции, которые выполняются в хранилище данных. Рабочая нагрузка хранилища охватывает весь процесс загрузки данных в хранилище, выполнение анализа, создание отчетов о хранилище, управление данными в хранилище и экспорт данных из хранилища. Глубина и ширина этих процессов зачастую зависят от уровня зрелости хранилища данных.
@@ -79,4 +77,3 @@ ms.lasthandoff: 01/24/2017
 <!--MSDN references-->
 
 <!--Other web references-->
-

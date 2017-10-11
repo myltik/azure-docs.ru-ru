@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/11/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: baf456740bddd562391ed64d707f990c8921d710
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="consume-azure-managed-applications-in-the-marketplace"></a>Использование управляемых приложений Azure в Marketplace
 
 Как обсуждалось в статье [Обзор управляемых приложений Azure](managed-application-overview.md), существует два сценария работы с управляемыми приложениями: первый — для издателя или поставщика, желающего создать управляемое приложение и предоставить его пользователям, и второй — для пользователя, использующего управляемое приложение. Эта статья посвящена второму сценарию. В ней описывается, как можно развернуть управляемое приложение из Microsoft Azure Marketplace.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 90724099842eac513c39dccf113ad1c0a63983f2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Использование службы диспетчера устройств StorSimple для мониторинга компонентов оборудования и их состояния
 ## <a name="overview"></a>Обзор
@@ -147,5 +146,4 @@ ms.lasthandoff: 07/08/2017
 * Для устранения неполадок компонента устройства, в котором возник отказ или снизилась производительность, обратитесь к статье об [индикаторах мониторинга StorSimple](storsimple-monitoring-indicators.md).
 * Чтобы заменить неисправный компонент аппаратного обеспечения, см. статью [Замена компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
 * Если проблемы с устройством не исчезают, [обратитесь в службу поддержки Майкрософт](storsimple-8000-contact-microsoft-support.md).
-
 

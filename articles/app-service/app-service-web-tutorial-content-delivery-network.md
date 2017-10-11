@@ -10,12 +10,11 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: a4f5113c4cc0ffb5fdd072e9a59743c83154c38c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 257b75d01f3904661c1a188a2d53ffcb74f48f06
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Добавление сети доставки содержимого (CDN) в службу приложений Azure
 
@@ -308,4 +307,3 @@ Azure проверит наличие записи CNAME для введенно
 
 > [!div class="nextstepaction"]
 > [Предварительная загрузка ресурсов на конечной точке CDN Azure](../cdn/cdn-preload-endpoint.md)
-

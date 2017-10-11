@@ -15,22 +15,20 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: LADocs; stepsic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ae5ce7d16ac9ed3a06c313ff3c48e8cbf79c54
-ms.openlocfilehash: f1bf19e6dfbcf187635730a53c93162244c17c6a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 35d7a56d5607dcc18a4407c65b92962d3d0dcd1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Обновления схемы для Azure Logic Apps от 1 августа 2015 г. (ознакомительная версия)
 
 Эта новая версия схемы и API для Azure Logic Apps включает основные улучшения, которые повышают надежность приложений логики и упрощают их использование.
 
-*    Вместо типа действия **APIApp** введен новый тип действия [**APIConnection**](#api-connections).
-*    Действие **Repeat** переименовано в [**Foreach**](#foreach).
-*    [**Прослушиватель HTTP** (приложение API)](#http-listener) больше не требуется.
-*    При вызове дочерних рабочих процессов используется [новая схема](#child-workflows).
+*   Вместо типа действия **APIApp** введен новый тип действия [**APIConnection**](#api-connections).
+*   Действие **Repeat** переименовано в [**Foreach**](#foreach).
+*   [**Прослушиватель HTTP** (приложение API)](#http-listener) больше не требуется.
+*   При вызове дочерних рабочих процессов используется [новая схема](#child-workflows).
 
 <a name="api-connections"></a>
 ## <a name="move-to-api-connections"></a>Переход к API-подключениям
@@ -480,4 +478,3 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 ## <a name="coming-soon-enterprise-integration-apis"></a>Ожидается в ближайшее время: API-интерфейсы для интеграции Enterprise
 
 У нас пока нет управляемых версий API интеграции Enterprise, например AS2. Пока вы можете использовать существующие развернутые API BizTalk, используя действие HTTP. Дополнительные сведения см. в разделе об использовании уже развернутых приложений API в [схеме интеграции](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
-

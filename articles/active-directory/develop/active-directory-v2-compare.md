@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>В чем отличия конечной точки версии 2.0?
 Если вы знакомы с Azure Active Directory или интегрировали приложения с Azure AD в прошлом, то можете столкнуться с некоторыми неожиданными отличиями в конечной точке версии 2.0.  Они описаны в этом документе.
@@ -127,4 +125,3 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 
 ## <a name="limitations"></a>Ограничения
 Существует несколько ограничений, которые следует учитывать при использовании точки версии 2.0.  Изучите [документ об ограничениях версии 2.0](active-directory-v2-limitations.md) , чтобы узнать, применимы ли эти ограничения к вашему сценарию.
-

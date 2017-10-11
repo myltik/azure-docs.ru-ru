@@ -1,6 +1,6 @@
 ---
 title: "Настраиваемые поля в службе Log Analytics | Документация Майкрософт"
-description: "Функция &quot;Настраиваемые поля&quot; в службе Log Analytics позволяет создавать поля с поддержкой поиска на основе данных OMS, которые добавляются к свойствам собранной записи.  В этой статье описывается процедура создания настраиваемого поля и представлено пошаговое руководство с примером события."
+description: "Функция \"Настраиваемые поля\" в службе Log Analytics позволяет создавать поля с поддержкой поиска на основе данных OMS, которые добавляются к свойствам собранной записи.  В этой статье описывается процедура создания настраиваемого поля и представлено пошаговое руководство с примером события."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b98dcbcf219276bb9a7fd24e7f8c8c8eba806cf0
-
-
+ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="custom-fields-in-log-analytics"></a>Настраиваемые поля в службе Log Analytics
 Функция **Настраиваемые поля** , предоставляемая службой Log Analytics, позволяет расширить существующие записи в репозитории OMS путем добавления собственных полей с поддержкой поиска.  Настраиваемые поля автоматически заполняются на основе данных, извлеченных из других свойств в той же записи.
@@ -141,10 +141,4 @@ ms.openlocfilehash: b98dcbcf219276bb9a7fd24e7f8c8c8eba806cf0
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [запросах поиска по журналу](log-analytics-log-searches.md) для создания запросов с использованием настраиваемых полей в качестве условия.
 * Отслеживайте [пользовательские файлы журналов](log-analytics-data-sources-custom-logs.md), которые можно анализировать с помощью настраиваемых полей.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

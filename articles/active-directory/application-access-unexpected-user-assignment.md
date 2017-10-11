@@ -13,23 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 43ed4b0e96c583d8fd9da57eec40ddd2e96fee2f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 916238ba402a2555bac620d7f08e02799d981ae0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="how-to-assign-users-to-applications" class="xliff"></a>
-
-# Назначение пользователей для приложений
+# <a name="how-to-assign-users-to-applications"></a>Назначение пользователей для приложений
 
 В этой статье представлены общие сведения о назначении пользователей для приложения в клиенте.
 
-<a id="how-do-users-get-assigned-to-an-application-in-azure-ad" class="xliff"></a>
-
-## Как пользователи назначаются для приложений в Azure AD?
+## <a name="how-do-users-get-assigned-to-an-application-in-azure-ad"></a>Как пользователи назначаются для приложений в Azure AD?
 
 Чтобы пользователь смог получить доступ к приложению, сначала его нужно любым образом назначить этому приложению. Это может сделать администратор, бизнес-делегат или, в некоторых случаях, сам пользователь. Ниже описаны способы назначения пользователя для приложения.
 
@@ -63,8 +57,5 @@ ms.lasthandoff: 04/11/2017
 
 10. Пользователь сам [дает согласие на использование приложения](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) при входе в него.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)
-

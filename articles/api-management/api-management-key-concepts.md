@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-api-management"></a>Что такое управление API
 Служба управления API помогает организациям публиковать API для внешних пользователей, партнеров и собственных разработчиков, раскрывая таким образом потенциал своих данных и услуг. Компании по всему миру стремятся расширить свои операции в виде цифровой платформы, создать новые каналы, найти новых потребителей и выстроить прочные отношения с ними. API Management предоставляет базовые компетенции для обеспечения успешной программы API через отношения с разработчиками, понимание бизнеса, аналитику, безопасность и защищенность.
@@ -126,11 +127,5 @@ API является основой экземпляра службы API Manage
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
-
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

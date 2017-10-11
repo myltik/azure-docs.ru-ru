@@ -12,13 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/02/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 068adc72976ec8429312f1909d0fd65460b73e98
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: 8f5703d15766f221517cd89352d41685652d32d6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C. Управление SSO и настройкой токенов с помощью пользовательских политик
 Использование пользовательских политик предоставляет тот же контроль над конфигурациями токена, сеанса и единого входа, что и при использовании встроенных политик.  Ознакомиться с функциями каждого параметра вы можете в [этом руководстве](#active-directory-b2c-token-session-sso).
@@ -93,4 +91,3 @@ ms.lasthandoff: 05/04/2017
 **Время существования сеанса веб-приложения (в минутах).** Чтобы изменить время существования сеанса веб-приложения, вам необходимо изменить значение элемента `<SessionExpiryInSeconds>`.  Значение по умолчанию во встроенных политиках составляет 86 400 секунд (1440 минут).
 
 **Время ожидания сеанса веб-приложения.** Чтобы изменить время ожидания сеанса веб-приложения, вам необходимо изменить значение `<SessionExpiryType>`.  Применимые значения — `Absolute` и `Rolling`.
-

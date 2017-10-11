@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 5c96a1cfa56d1535549cb15d5a7bcf03bd11e723
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: a4ceb822e0ec3e1c1dc31ece1db761834e795f6c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-activity-log-event-schema"></a>Схема событий журнала действий Azure
 **Журнал действий Azure** — это журнал с подробными сведениями о событиях на уровне подписки, которые произошли в Azure. В этой статье описывается схема событий по категориям данных.
@@ -415,4 +414,3 @@ Properties.communicationId | Сообщение, с которым связан�
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Дополнительные сведения о журнале действий (прежнее название — журналы аудита)](monitoring-overview-activity-logs.md)
 * [Потоковая передача журнала действий Azure в концентраторы событий](monitoring-stream-activity-logs-event-hubs.md)
-

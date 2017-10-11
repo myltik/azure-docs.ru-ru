@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 40d8d57d974a949fbdc0a06eeceb2d06bfbaa09f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Переключение на клиент Azure AD B2C
 
 Чтобы настроить Azure AD B2C, вам нужно быть в контексте вашего клиента Azure AD B2C.
@@ -46,4 +44,3 @@ ms.lasthandoff: 04/27/2017
 
 > [!IMPORTANT]
 > Вам необходимо быть глобальным администратором данного клиента B2C, чтобы получить доступ к колонке функций B2C. Доступ к ней невозможен для глобальных администраторов или пользователей из других клиентов.  Переключиться на клиент B2C можно с помощью переключателя клиента в правом верхнем углу портала Azure.
-

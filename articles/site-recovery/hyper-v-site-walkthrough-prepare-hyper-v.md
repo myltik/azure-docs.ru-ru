@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: f9bcaa8e55be6e8fddaf88ebc3f18f5dbb2811e4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-6-prepare-hyper-v-hosts-for-replication-to-azure"></a>Шаг 6. Подготовка узлов Hyper-V для репликации в Azure
 
 Используйте инструкции в этой статье, чтобы подготовить локальные узлы Hyper-V к взаимодействию со службой Azure Site Recovery.
@@ -45,5 +43,4 @@ ms.lasthandoff: 07/20/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 7. Настройка хранилища для репликации Hyper-V](hyper-v-site-walkthrough-create-vault.md).
-
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-your-first-virtual-network"></a>Создание первой собственной виртуальной сети
 
 В этой статье приведены сведения, которые помогут вам понять, как создать виртуальную машину с двумя подсетями и две виртуальные машины, а затем подключить каждую виртуальную машину к одной из подсетей, как показано на рисунке ниже.
@@ -253,4 +251,3 @@ ms.lasthandoff: 08/21/2017
 - [Сетевые интерфейсы](virtual-network-network-interface.md)
 - [Группы безопасности сети](virtual-networks-nsg.md)
 - [Виртуальные машины](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

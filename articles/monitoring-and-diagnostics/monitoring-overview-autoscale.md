@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ed9bfe928699d040aa4283da5a8690318932738c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 413828d79d79c181c662bc7cfb4114345de57f90
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Обзор автомасштабирования в виртуальных машинах, облачных службах и веб-приложениях Microsoft Azure
 В этой статье объясняется, что такое автомасштабирование Microsoft Azure, каковы преимущества этой функции и как начать ее использовать.  
@@ -125,4 +124,3 @@ ms.lasthandoff: 05/10/2017
 * [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](insights-autoscale-to-webhook-email.md)
 * [Create or update an autoscale setting in Azure Insights REST API (Создание и изменение параметров автомасштабирования в REST API Azure Insights)](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Устранение неполадок при автомасштабировании масштабируемых наборов виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

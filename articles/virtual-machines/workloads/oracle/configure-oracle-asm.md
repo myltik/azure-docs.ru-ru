@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
 ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/31/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Настройка Oracle ASM в виртуальной машине Linux в Azure  
 
 Виртуальные машины Azure предоставляют полностью настраиваемую и гибкую вычислительную среду. В этом руководстве описано развертывание базовой виртуальной машины Azure, а также установка и настройка Oracle ASM.  Вы узнаете, как выполнять следующие задачи:
@@ -589,4 +587,3 @@ az group delete --name myResourceGroup
 [Реализация Oracle Golden Gate на виртуальной машине Azure под управлением Linux](Configure-oracle-golden-gate.md)
 
 Ознакомьтесь со статьей [Разработка базы данных Oracle и ее внедрение в Azure](oracle-design.md)
-

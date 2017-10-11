@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Подключение к Dynamics 365 из рабочих процессов приложения логики
 
 Благодаря приложениям логики можно подключаться к Dynamics 365 (Интернет) и создавать полезные бизнес-процессы для создания записей, обновления элементов или возвращения списка записей. С помощью соединителя Dynamics 365 можно делать следующее:
@@ -174,4 +172,3 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
-

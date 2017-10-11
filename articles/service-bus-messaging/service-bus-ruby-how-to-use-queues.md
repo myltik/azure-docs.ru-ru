@@ -14,12 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 357a7277dd42b6973cf35a9f642b8eec36a745e3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Как использовать очереди служебной шины с Ruby
 
@@ -98,5 +97,4 @@ azure_service_bus_service.delete_queue_message(message)
 * Посетите репозиторий [Azure SDK для Ruby](https://github.com/Azure/azure-sdk-for-ruby) на веб-сайте GitHub.
 
 Сравнение очередей служебной шины Azure, описанных в этой статье, и очередей служебной шины Azure, описанных в статье [Использование хранилища очередей из Ruby](../storage/queues/storage-ruby-how-to-use-queue-storage.md), см. в статье [Очереди Azure и очереди служебной шины: сходства и различия](service-bus-azure-and-service-bus-queues-compared-contrasted.md).
-
 

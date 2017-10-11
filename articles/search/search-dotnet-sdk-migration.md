@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e2ad6b466ba4885ae14576b83d4c0f3010bab67
 ms.openlocfilehash: 9782454e3bfc697b63cde8aa28a14be0c393c36b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/13/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Обновление пакета SDK службы поиска Azure для .NET до версии 3
 Если вы используете версию 2.0-preview [пакета SDK службы поиска Azure для .NET](https://aka.ms/search-sdk) или более раннюю, то эта статья поможет вам обновить приложение для использования версии 3.
@@ -483,5 +482,4 @@ index.Analyzers = new Analyzer[]
 По этой причине по-прежнему рекомендуется использовать типы, допускающие значения NULL, в классах модели.
 
 Дополнительные сведения по этой ошибке и исправлению см. в разделе об [этой проблеме на GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
-
 

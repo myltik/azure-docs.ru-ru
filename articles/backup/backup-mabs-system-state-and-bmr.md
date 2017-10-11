@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: markgal,masaran
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Резервное копирование состояния системы и восстановление исходного состояния системы с помощью Azure Backup Server
 
 Azure Backup Server создает резервную копию состояния системы и защищает восстановление исходного состояния системы (BMR).
@@ -227,5 +225,4 @@ Backup Server вызывает систему архивации данных Wi
     Используйте идентификатор версии для запуска восстановления состояния системы. В командной строке введите следующую команду: ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
     Подтвердите, что вы хотите начать восстановление. Вы увидите ход процесса в окне командной строки. Журнал восстановления создан. После восстановления перезапустите сервер.
-
 

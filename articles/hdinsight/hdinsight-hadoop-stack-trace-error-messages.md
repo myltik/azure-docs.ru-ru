@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: big-data
 ms.date: 08/15/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: 45b3df39dcabf8be640bf6b9e5b83a452d6dd824
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Указатель статей об устранении неполадок Hadoop в HDInsight
 Статьи упорядочены по типу ошибок.
@@ -38,5 +37,4 @@ ms.lasthandoff: 08/17/2017
 * [Доступ к журналам приложений YARN в HDInsight под управлением Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Включение дампов кучи для служб Hadoop в HDInsight под управлением Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Заметки о выпуске для компонентов Hadoop в Azure HDInsight](hdinsight-release-notes.md)
-
 

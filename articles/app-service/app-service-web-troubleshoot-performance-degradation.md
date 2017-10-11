@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Устранение причин низкой производительности веб-приложения в службе приложений Azure
 Эта статья поможет устранить причины снижения производительности веб-приложения, размещенного в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -187,4 +186,3 @@ Application Insights Profiler предоставляет статистику п
  ![Перезапуск веб-приложение для устранения проблем с производительностью](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
-

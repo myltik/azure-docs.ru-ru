@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 7963a07a2b9d529e89302f32e5ffd56c51687ffa
-ms.contentlocale: ru-ru
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Использование библиотеки проверки подлинности Майкрософт для получения маркера для API Microsoft Graph
 
 1.  Откройте `MainActivity` (выберите `app` > `java` > `{domain}.{appname}`).
@@ -379,4 +378,3 @@ private void updateSignedOutUI() {
 `onSignOutClicked` удаляет пользователя из кэша пользователей MSAL. Это фактически заставит MSAL забыть текущего пользователя, поэтому будущий запрос на получение маркера будет успешным только в том случае, если он будет выполнен интерактивно.
 Несмотря на то что приложение в этом примере поддерживает одного пользователя, MSAL поддерживает сценарии, где можно войти в несколько учетных записей одновременно, например приложение электронной почты, где у пользователя есть несколько учетных записей.
 <!--end-collapse-->
-

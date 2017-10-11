@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 69f7b49fd82e4d34b1d54718cfbd2f4dedd2ae47
-ms.openlocfilehash: e50a308a897878d0985f2a8f1baa044e5c82335f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 5ef87e606f055359ca325befd6048353ce57ca2b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Определение требований к синхронизации каталога
 Синхронизация предназначена для предоставления пользователям идентификации в облаке на основе их локальной идентификации. Независимо от того, используют ли они синхронизированную учетную запись для проверки подлинности или федеративной проверки подлинности, пользователям по-прежнему будет нужно идентифицироваться в облаке.  Эту идентификацию будет необходимо поддерживать и периодически обновлять.  Обновления могут принимать различные формы от изменения заголовка до изменения пароля.  
@@ -74,5 +73,4 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

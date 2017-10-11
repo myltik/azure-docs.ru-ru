@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="permissions-in-azure-security-center"></a>Разрешения в центре безопасности Azure
 
 Центр безопасности Azure использует [управление доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-configure.md), в котором предусмотрены [встроенные роли](../active-directory/role-based-access-built-in-roles.md). Эти роли можно назначать пользователям, группам и службам.
@@ -65,4 +63,3 @@ ms.lasthandoff: 06/15/2017
 - [Отслеживание работоспособности защиты ресурсов Azure](security-center-monitoring.md)
 - [Управление оповещениями системы безопасности и управление ими в центре безопасности](security-center-managing-and-responding-alerts.md)
 - [Мониторинг партнерских решений безопасности](security-center-partner-solutions.md)
-

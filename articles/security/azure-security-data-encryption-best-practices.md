@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 06c308f41444e7fa7b227911ff8542149790710a
-
-
+ms.openlocfilehash: 81136e53756adfdba2f07c103b042499fe2967db
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Рекомендации по защите и шифрованию данных в Azure
 Один из основных способов защиты данных в облаке — учет всех возможных состояний, в которых могут находиться данные, а также всех методов управления для каждого из этих состояний. Рекомендации по защите и шифрованию данных в Azure предусматривают учет следующих состояний данных.
@@ -157,9 +157,3 @@ ms.openlocfilehash: 06c308f41444e7fa7b227911ff8542149790710a
 Организации, которые не уделяют достаточно внимания [классификации данных](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) и защите файлов, могут быть более уязвимыми к утечкам данных. Без правильной защиты файлов организация не сможет получать данные бизнес-аналитики, а также отслеживать нарушения и предотвращать неправомочный доступ к файлам.
 
 Дополнительные сведения об Azure RMS см. в статье [Начало работы со службой Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

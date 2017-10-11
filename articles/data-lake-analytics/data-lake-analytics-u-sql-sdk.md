@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Масштабирование локального выполнения и тестирования сценариев U-SQL с помощью пакета SDK U-SQL для Azure Data Lake
 
 При разработке сценария U-SQL, прежде чем он отправляется в облако, как правило, сценарий запускается и тестируется в локальной среде. Для этого сценария Azure Data Lake предоставляет пакет Nuget, который называется пакетом SDK Azure Data Lake для U-SQL, с помощью которого можно легко масштабировать локальное выполнение и тестирование заданий U-SQL. Можно также интегрировать этот тест U-SQL с системой CI (непрерывная интеграция), чтобы автоматизировать компиляцию и тестирование.
@@ -398,4 +395,3 @@ E_CSC_SYSTEM_INTERNAL: Внутренняя ошибка! Не удалось з
 * Более сложный запрос см. в руководстве [Анализ журналов веб-сайта с помощью службы Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Для просмотра сведений о заданиях см. статью [Использование браузера и представления для заданий Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
 * Дополнительные сведения см. в статье [Использование представления выполнения вершин в инструментах Data Lake для Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
-

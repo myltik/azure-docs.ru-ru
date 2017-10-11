@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 0508868e3b00c5771cc26038a3dd71fde6625a84
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: настройка самостоятельного сброса пароля для потребителей
 С помощью функции самостоятельного сброса пароля ваши потребители (которые зарегистрировали локальные учетные записи) могут самостоятельно сбрасывать пароли. Это значительно упрощает работу службы поддержки, особенно если вашим приложением регулярно пользуются миллионы клиентов. В настоящее время поддерживается только восстановление с помощью подтвержденного адреса электронной почты. В будущем мы добавим другие способы восстановления (подтвержденный номер телефона, секретные вопросы и т. д.).
@@ -46,5 +45,4 @@ ms.lasthandoff: 05/05/2017
 > Страницы самостоятельного сброса пароля можно настраивать с помощью [функции фирменной символики](../active-directory/active-directory-add-company-branding.md).
 > 
 > 
-
 

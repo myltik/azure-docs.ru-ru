@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 333db54fe01aad42cfcd050995b64f3725b31ae9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: a756316054dd3bb63f3b0a9f59621bb1345bc693
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-webapi-projects"></a>Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi)
 > [!div class="op_single_selector"]
@@ -34,5 +33,4 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-
 

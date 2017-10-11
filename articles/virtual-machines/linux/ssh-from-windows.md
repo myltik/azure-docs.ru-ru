@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 7f572adf499dd1fcd0db19500c9049af1e31cdea
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Использование ключей SSH с Windows в Azure
 > [!div class="op_single_selector"]
@@ -184,4 +183,3 @@ PuTTY — это общераспространенный SSH-клиент дл�
 Дополнительные сведения о Bash для Windows и преимуществах средств OSS на компьютере Windows см. в записи блога [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash для Ubuntu в Windows).
 
 Если при подключении к виртуальным машинам Linux по протоколу SSH возникают проблемы, см. статью [Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Секционирование в базе данных Azure Cosmos DB с помощью API DocumentDB
 
@@ -229,5 +228,4 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 * Выполняйте проверку масштабирования и производительности с помощью базы данных Azure Cosmos DB. Пример см. в статье [Проверка производительности и масштабирования с помощью Azure DocumentDB](performance-testing.md).
 * Приступите к созданию кода с помощью [пакетов SDK](documentdb-sdk-dotnet.md) или [REST API](/rest/api/documentdb/).
 * Дополнительные сведения о подготовленной пропускной способности в базе данных Azure Cosmos DB см. в [этой статье](request-units.md).
-
 

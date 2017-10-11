@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Развертывание предложения в Azure Marketplace
 Если вы довольны своим предложением (т. е. протестировали клиентские сценарии, маркетинговое содержимое и т. д.) и готовы к запуску, запросите **отправление в рабочую среду** на вкладке **Публикация**.  
@@ -85,9 +85,3 @@ ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]:media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

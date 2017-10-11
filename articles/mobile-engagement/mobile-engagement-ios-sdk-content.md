@@ -1,6 +1,6 @@
 ---
-title: "Содержимое SDK для рекламных кампаний в iOS для Azure Mobile Engagement"
-description: "Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
+title: "Содержимое SDK для рекламных кампаний в iOS для Служб мобильного взаимодействия Azure"
+description: "Последние обновления и указания для пакета SDK для iOS для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: MehrdadMzfr
@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8980a560f3459adf328afb9cc08ff27bde0c284b
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: bdc96cd47ece6054184d167192ebec4cd4bd081c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sdk-content"></a>Содержимое пакета SDK
 В этом документе указано и описано содержимое архива SDK.
@@ -50,5 +49,4 @@ ms.lasthandoff: 11/17/2016
 > Контроллеры представлений службы Engagement и исходный код пакета SDK для рекламных кампаний (для опытных пользователей, которым нужно адаптировать классы Engagement для своих потребностей).
 > 
 > 
-
 

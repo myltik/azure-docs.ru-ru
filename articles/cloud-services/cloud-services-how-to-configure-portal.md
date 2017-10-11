@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb66627b170c9010414b24266fdae608e67f5c61
 ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Настройка облачных служб
 > [!div class="op_single_selector"]
@@ -110,4 +109,3 @@ ms.lasthandoff: 01/20/2017
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
 * [Управление облачной службой](cloud-services-how-to-manage-portal.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate-portal.md).
-

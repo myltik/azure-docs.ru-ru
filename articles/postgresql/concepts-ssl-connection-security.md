@@ -10,12 +10,11 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: dd8b3d5b26f4a903f403e5c7e9dba645a14b3231
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 685aa4c2f75b7c3260ca737f7c786157480b2d90
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Настройка SSL-соединения в базе данных Azure для PostgreSQL
 База данных Azure для PostgreSQL предпочитает подключать клиентские приложения к службе PostgreSQL с помощью SSL (Secure Sockets Layer). Применение SSL-соединений между сервером базы данных и клиентскими приложениями обеспечивает защиту от атак "злоумышленник в середине" за счет шифрования потока данных между сервером и приложением.
@@ -143,4 +142,3 @@ postgres=>
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Сведения о вариантах подключения приложений см. в статье [Библиотеки подключений для базы данных Azure для PostgreSQL](concepts-connection-libraries.md).
-

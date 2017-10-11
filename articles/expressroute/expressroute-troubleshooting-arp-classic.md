@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
 ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Получение таблиц ARP в классической модели развертывания
 > [!div class="op_single_selector"]
@@ -169,5 +168,4 @@ ARP — это протокол уровня 2, который определе�
   * Получение таблицы маршрутов для определения того, какие префиксы объявляются в ExpressRoute.
 * Проверка передачи данных путем просмотра входящих и исходящих байтов.
 * Отправьте запрос на поддержку с помощью функции [Справка и поддержка Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , если у вас по-прежнему возникают проблемы.
-
 

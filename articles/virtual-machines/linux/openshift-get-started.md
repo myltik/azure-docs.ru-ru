@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: jbinder
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
 ms.openlocfilehash: e03da05625e440eab29ccc28a2343d3433fc7607
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="deploy-openshift-origin-to-azure-virtual-machines"></a>Развертывание OpenShift Origin на виртуальных машинах Azure 
 
 [OpenShift Origin](https://www.openshift.org/) — это платформа контейнера с открытым исходным кодом, созданная на основе [Kubernetes](https://kubernetes.io/). Она упрощает развертывание, масштабирование и эксплуатацию приложений с несколькими клиентами. 
@@ -164,4 +162,3 @@ az group delete --name myResourceGroup
 > * установить и настроить [интерфейс командной строки OpenShift](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) для управления кластером.
 
 Теперь, когда вы развернули кластер OpenShift Origin, можно ознакомиться со следующими руководствами, чтобы узнать, как развернуть свое первое приложение, а также как использовать инструменты OpenShift. Ознакомьтесь с [обзором OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html). 
-

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 97d3485030b0f9f2a6036cdae14e3c37ca89fd6e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: d78f9c59c069664fa77bdf9a16a48bb3745b1224
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-using-the-application-access-panel-website-or-mobile-application"></a>Проблемы при использовании веб-сайта или мобильного приложения панели доступа к приложениям
 
 
@@ -40,4 +38,3 @@ ms.lasthandoff: 04/17/2017
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Я не знаю, как использовать самостоятельный доступ к приложениям](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Возникла проблема при использовании самостоятельного доступа к приложениям](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

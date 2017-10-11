@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Коды ошибок отчета об активности входа на портале Azure Active Directory
 
@@ -101,5 +100,4 @@ ms.lasthandoff: 07/17/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в статье [Отчеты о действиях входа на портале Azure Active Directory](active-directory-reporting-activity-sign-ins.md).
-
 

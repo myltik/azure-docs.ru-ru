@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c81f23603cfbbc916c148c61bd3de52ef1db36ac
 ms.openlocfilehash: 5c598bfa5b6725d21a89df54dbcb3314cc631d80
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Руководство по интеграции Azure Active Directory с Zscaler Private Access (ZPA)
 

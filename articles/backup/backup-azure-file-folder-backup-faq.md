@@ -1,4 +1,3 @@
-
 ---
 title: "Часто задаваемые вопросы об агенте службы Azure Backup | Документация Майкрософт"
 description: "Ответы на часто задаваемые вопросы о принципе работы агента службы Azure Backup, а также об ограничениях хранения и резервного копирования."
@@ -16,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: b9d022c780b618825bb2416f3834e4ada280092f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
-
+ms.openlocfilehash: 227cdc87f3e2c8ed393145f4bbde7f74606bdf3b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="questions-about-the-azure-backup-agent"></a>Вопросы об агенте службы Azure Backup
 В этой статье содержатся ответы на часто задаваемые вопросы, которые помогут вам быстро ознакомиться с компонентами агента службы Azure Backup. В некоторых ответах приведены ссылки на статьи, содержащие более подробные сведения. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
@@ -128,4 +125,3 @@ ms.lasthandoff: 07/20/2017
  
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Отображается предупреждение "Служба архивации Azure для этого сервера не настроена", хотя политика архивации была настроена. <br/>
 Это предупреждение появляется, если параметры расписания резервного копирования, сохраненные на локальном сервере, не совпадают с параметрами в хранилище службы архивации. Восстановление сервера или параметров до известного рабочего состояния может привести к потере синхронизации между расписаниями. Если вы получили это предупреждение, [повторно настройте политику резервного копирования](backup-azure-manage-windows-server.md) и выберите команду **Запустить архивацию сейчас** , чтобы заново синхронизировать локальный сервер с Azure.
-

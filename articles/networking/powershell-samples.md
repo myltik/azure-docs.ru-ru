@@ -15,12 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: georgewallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 0bca4fb6874bd265f0ae9faeb4219abeb4ffb6d4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Примеры Azure PowerShell для работы с сетями
 
@@ -38,4 +37,3 @@ ms.lasthandoff: 05/26/2017
 | [Балансировка нагрузки нескольких веб-сайтов на виртуальных машинах](./scripts/load-balancer-windows-powershell-load-balance-multiple-websites-vm.md?toc=%2fazure%2fnetworking%2ftoc.json) | Создание двух виртуальных машин с несколькими IP-конфигурациями, присоединенных к группе доступности Azure, которые доступны через Azure Load Balancer. |
 | [Направление трафика через несколько регионов для обеспечения высокого уровня доступности приложений](./scripts/traffic-manager-powershell-websites-high-availability.md?toc=%2fazure%2fnetworking%2ftoc.json) |  Создание двух планов службы приложений, двух веб-приложений, а также профиля и двух конечных точек диспетчера трафика. |
 | | |
-

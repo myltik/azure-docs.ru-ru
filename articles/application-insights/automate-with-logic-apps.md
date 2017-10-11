@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 06bfb75a07b7902fcf245271def5d40e9941a89e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 36df5bc0a019f4197d40fd6fa5a2a9957820c8b4
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Автоматизация процессов Application Insights с помощью Logic Apps
 
 Постоянно выполняете одинаковые запросы к данным телеметрии, чтобы проверить, что ваша служба работает правильно? Хотите автоматизировать эти запросы для поиска тенденций и аномалий и создавать на их основе собственные рабочие процессы? Соединитель Application Insights (предварительная версия) для Logic Apps — это то, что вам нужно.
@@ -139,7 +137,6 @@ ms.lasthandoff: 07/08/2017
 
 
 <!--Link references-->
-
 
 
 

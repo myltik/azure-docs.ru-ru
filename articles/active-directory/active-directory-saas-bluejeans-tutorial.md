@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 03bf65852b8d3cf14aebf155891a028db86e78d0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Руководство по интеграции Azure Active Directory с BlueJeans
 
@@ -285,5 +284,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_203.png
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-azure-cdn-with-cors"></a>Использование Azure CDN с CORS
 ## <a name="what-is-cors"></a>Что такое CORS?
@@ -96,5 +95,4 @@ CORS в Azure CDN будет работать автоматически без 
 
 ### <a name="azure-cdn-standard"></a>Azure CDN уровня "Стандартный"
 Единственный механизм, который разрешает наличие нескольких источников без использования источника с подстановочным знаком в профилях Azure CDN уровня "Стандартный" — это [кэширование строки запроса](cdn-query-string.md).  Вам необходимо включить параметр строки запроса для конечной точки CDN, а затем использовать уникальную строку запроса для запросов от каждого разрешенного домена. Это приведет к тому, что CDN будет кэшировать отдельный объект для каждой уникальной строки запроса. Однако этот подход не является идеальным, так как он приведет к появлению нескольких копий одного файла в кэше CDN.  
-
 

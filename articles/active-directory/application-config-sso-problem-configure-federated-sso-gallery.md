@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: b8c189865c27566e3265f14eb54cb5ea4a005dc5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 290ca66048281de5e031b0404919bed84ab19ffa
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Проблема при настройке федеративного единого входа для приложения из коллекции Azure AD
 
 Если при настройке приложения возникла проблема, выполните следующие действия. Убедитесь, что выполнены все шаги в учебнике по приложению. В конфигурации приложения имеется встроенная документация по настройке приложения. Кроме того, подробное пошаговое руководство можно найти в [списке учебников по интеграции приложений SaaS с Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).
@@ -111,4 +109,3 @@ Azure AD не предоставляет URL-адреса для получен�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)
-

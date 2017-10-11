@@ -15,14 +15,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Отправка данных в службу поиска Azure с помощью REST API
 > [!div class="op_single_selector"]
 >
@@ -181,4 +179,3 @@ ms.lasthandoff: 07/12/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Заполнив индекс службы поиска Azure, вы можете приступать к отправке запросов на поиск документов. Дополнительные сведения см. в статье [Запросы в службе поиска Azure](search-query-overview.md).
-

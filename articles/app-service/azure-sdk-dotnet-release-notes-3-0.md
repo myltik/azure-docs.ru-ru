@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/07/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: dea4a174aaf3727d66e9d69d32d433ff24e0d06d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: eea4e569ac2d0192ed7872d2fcb9bed03614832b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-sdk-for-net-30-release-notes"></a>Заметки о выпуске пакета Azure SDK для .NET 3.0
 
@@ -52,7 +51,6 @@ ms.lasthandoff: 03/22/2017
 ### <a name="azure-in-role-cache"></a>Кэш роли Azure 
 
 - Поддержка кэша роли Azure завершилась 30 ноября 2016 года. Дополнительные сведения см. [здесь](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
-
 
 
 

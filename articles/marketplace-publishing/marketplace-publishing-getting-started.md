@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Публикация предложения и управление им в Azure Marketplace
 Эта статья поможет разработчикам создать и развернуть решения, а также управлять ими в Azure Marketplace, чтобы их могли приобрести и использовать другие клиенты и партнеры Azure.
@@ -106,4 +105,3 @@ ms.lasthandoff: 05/25/2017
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 [Настройка Azure PowerShell для создания предложения для Azure Marketplace](marketplace-publishing-powershell-setup.md)
-

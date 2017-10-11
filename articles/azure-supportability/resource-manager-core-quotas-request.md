@@ -7,14 +7,12 @@ ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2373cf227cbed4f6657e31088b11dca5223ce5fe
 ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="resource-manager-core-quota-increase-requests"></a>Запросы на увеличение квоты ядер Resource Manager
 
 Квоты ядер Resource Manager применяются на уровне региона и семейства SKU.
@@ -44,4 +42,3 @@ ms.lasthandoff: 07/06/2017
 
 - Чтобы удалить строку, снимите флажок SKU в раскрывающемся списке семейства SKU или щелкните значок отмены "x".
 После ввода требуемой квоты для каждого семейства SKU нажмите кнопку "Далее" на странице "Проблема", чтобы продолжить создание запроса на поддержку.
-

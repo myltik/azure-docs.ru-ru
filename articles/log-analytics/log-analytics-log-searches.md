@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Поиск данных по журналам в Log Analytics
 
@@ -598,4 +597,3 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 
 * Чтобы расширить возможности поиска по журналам, см. статью [Настраиваемые поля в службе Log Analytics](log-analytics-custom-fields.md).
 * Полный список полей и аспектов для поиска, доступных в Log Analytics, см. в [справочнике по поиску в журналах Log Analytics](log-analytics-search-reference.md).
-

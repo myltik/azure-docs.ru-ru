@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42b245d4e205dffda7ec62199ced3834c278a466
-
-
+ms.openlocfilehash: 32d20e7a8adcfc646c592213fe7395b87a93c985
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-and-manage-a-storsimple-support-package"></a>Создание пакетов поддержки StorSimple и управление ими
 ## <a name="overview"></a>Обзор
@@ -166,10 +166,4 @@ ms.openlocfilehash: 42b245d4e205dffda7ec62199ced3834c278a466
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте об [использовании пакетов поддержки и журналов устройства для устранения неполадок при его развертывании](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Узнайте об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

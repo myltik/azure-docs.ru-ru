@@ -16,12 +16,11 @@ ms.date: 07/06/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 9dbe88a59b68bfb424c43dd89acf55d8c73fdf39
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-help-with-two-step-verification"></a>Получение справки по двухфакторной проверке подлинности
 Эта статья содержит ответы на наиболее распространенные вопросы пользователей о двухфакторной проверке подлинности. 
@@ -95,5 +94,4 @@ ms.lasthandoff: 09/20/2017
 ## <a name="related-topics"></a>Связанные разделы
 * [Управление параметрами двухфакторной проверки подлинности](multi-factor-authentication-end-user-manage-settings.md)  
 * [Часто задаваемые вопросы о приложении Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 1283b570200f05003658824760ecbb6722f241d9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Управление сертификатами для федеративного единого входа в Azure Active Directory
 В этой статье рассматриваются распространенные вопросы и предоставляются сведения, связанные с сертификатами, создаваемыми службой Azure Active Directory (Azure AD) для обеспечения федеративного единого входа в приложения SaaS. Эти приложения можно добавить из коллекции приложений Azure AD или с помощью шаблона приложения не из коллекции. Настройте приложение для федеративного единого входа.
@@ -79,4 +78,3 @@ ms.lasthandoff: 07/28/2017
 * [Указатель статей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Устранение неполадок единого входа на основе SAML](active-directory-saml-debugging.md)
-

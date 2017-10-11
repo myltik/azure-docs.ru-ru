@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Обработка типов содержимого в приложениях логики
 
@@ -111,5 +110,4 @@ CustomerName=Frank&Address=123+Avenue
 ```
 
 В настоящее время встроенной функции для формирования данных нет, поэтому эти данные можно использовать в рабочем процессе, обращаясь к ним вручную с помощью функции вида `@string(body('formdataAction'))`. Если исходящий запрос должен также иметь заголовок content-type типа `application/x-www-url-formencoded`, вы можете добавить запрос в тело действия без приведения (например, `@body('formdataAction')`). Однако этот метод работает, только если тело запроса является единственным параметром входных данных `body`. Если вы попытаетесь использовать `@body('formdataAction')` в запросе `application/json`, вы получите ошибку выполнения, так как тело запроса будет отправлено в закодированном виде.
-
 

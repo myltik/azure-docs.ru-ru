@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
 ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/31/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Высокий уровень доступности SAP HANA на виртуальных машинах Azure
 
@@ -58,8 +57,8 @@ ms.lasthandoff: 07/31/2017
   * сведения о поддерживаемом программном обеспечении SAP и сочетаниях операционных систем и баз данных;
   * сведения о требуемой версии ядра SAP для Windows и Linux в Microsoft Azure.
 * примечание к SAP [2015553], в котором описываются предварительные требования к SAP при развертывании программного обеспечения SAP в Azure;
-* Примечание SAP [2205917] содержит рекомендуемые параметры ОС для SUSE Linux Enterprise Server for SAP Applications.
-* Примечание SAP [1944799] содержит рекомендации для SAP HANA в SUSE Linux Enterprise Server for SAP Applications.
+* Примечание SAP [2205917] содержит рекомендуемые параметры ОС для SUSE Linux Enterprise Server для приложений SAP.
+* Примечание SAP [1944799] содержит рекомендации для SAP HANA в SUSE Linux Enterprise Server для приложений SAP.
 * примечание к SAP [2178632], содержащее подробные сведения обо всех доступных метриках мониторинга для SAP в Azure;
 * примечание к SAP [2191498], содержащее сведения о необходимой версии агента SAP Host Agent для Linux в Azure;
 * примечание к SAP [2243692], содержащее сведения о лицензировании SAP в Linux в Azure;
@@ -645,4 +644,3 @@ crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 * [Развертывание программного обеспечения SAP на виртуальных машинах Azure][deployment-guide]
 * [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД][dbms-guide]
 * Дополнительные сведения об обеспечении высокого уровня доступности и планировании аварийного восстановления SAP HANA в Azure (крупные экземпляры) см. в [этой статье](hana-overview-high-availability-disaster-recovery.md). 
-

@@ -1,6 +1,6 @@
 ---
-title: "Пользовательский интерфейс Azure Mobile Engagement - Моя учетная запись"
-description: "Управление профилем учетной записи и тестовыми устройствами с помощью Azure Mobile Engagement"
+title: "Пользовательский интерфейс Служб мобильного взаимодействия Azure — Моя учетная запись"
+description: "Управление профилем учетной записи и тестовыми устройствами с помощью Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-manage-your-account-profile-and-test-devices"></a>Управление профилем учетной записи и тестовыми устройствами
-В этой статье описывается страница **Главная** портала **Mobile Engagement**. Портал **Mobile Engagement** используется для отслеживания мобильных приложений и управления ими. 
+В этой статье описывается страница **Главная** портала **Служб мобильного взаимодействия**. Портал **Служб мобильного взаимодействия** используется для отслеживания мобильных приложений и управления ими. 
 
 Чтобы перейти на страницу **своей учетной записи** , щелкните свою учетную запись в верхней части страницы.
 
@@ -155,7 +154,6 @@ ms.lasthandoff: 03/01/2017
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 
 
 

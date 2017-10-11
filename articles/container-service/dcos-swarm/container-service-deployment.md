@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: caf6b470c334793931594df56ee13c4de9c8ba93
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 0ef256537bf095e2a5d582bd345a9c8dcede2095
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Развертывание решения для размещения контейнера Docker с помощью портала Azure
 
@@ -212,4 +211,3 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 * [Работа со службой контейнеров Azure и DC/OS](container-service-mesos-marathon-rest.md)
 * [Работа со службой контейнеров Azure и Docker Swarm](container-service-docker-swarm.md)
 * [Работа со службой контейнеров Azure и Kubernetes](../kubernetes/container-service-kubernetes-walkthrough.md)
-

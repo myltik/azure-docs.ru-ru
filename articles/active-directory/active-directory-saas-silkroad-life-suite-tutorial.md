@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: ecf4e31ecea00d003fc47ea4cebb781ca58957f7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Руководство по интеграции Azure Active Directory с решением SilkRoad Life Suite
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением SilkRoad Life Suite. 
@@ -136,13 +135,13 @@ ms.lasthandoff: 03/28/2017
    
     ![единого входа Azure AD][21] 
  4. Вставьте значение в текстовое поле **URL-адрес ответа**.  
- 5. Нажмите кнопку **Далее**.
+ 5. Щелкните **Далее**.
 
 6. На странице **Настройка единого входа в SilkRoad Life Suite** выполните следующие действия:
    
     ![единого входа Azure AD][9]  
  1. Нажмите "Загрузить сертификат" и сохраните файл сертификата на свой компьютер.  
- 2. Нажмите кнопку **Далее**.
+ 2. Щелкните **Далее**.
 
 7. В приложении **SilkRoad** щелкните **Authentication Sources** (Источники проверки подлинности).
    
@@ -208,7 +207,7 @@ ms.lasthandoff: 03/28/2017
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png)  
  1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».  
  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**. 
- 3. Нажмите кнопку **Далее**.
+ 3. Щелкните **Далее**.
 
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия. 
    
@@ -217,7 +216,7 @@ ms.lasthandoff: 03/28/2017
  2. В текстовом поле **Фамилия** введите **Simon**. 
  3. В текстовом поле **Отображаемое имя** введите **Britta Simon**. 
  4. В списке **Роль** выберите **Пользователь**.
- 5. Нажмите кнопку **Далее**.
+ 5. Щелкните **Далее**.
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
@@ -305,7 +304,6 @@ ms.lasthandoff: 03/28/2017
 [203]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
-
 
 
 

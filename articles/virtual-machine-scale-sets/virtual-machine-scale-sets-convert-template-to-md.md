@@ -16,16 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 01983ac7b60f7fdb237fba27f22cb31fcb3c1b7b
-ms.openlocfilehash: cd1e67ce89a856f325b66087f003b1a9a1ac6f6a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/08/2017
-
-
+ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Преобразование шаблона масштабируемого набора в соответствующий шаблон с управляемым диском.
 
 Клиенты, которые с помощью шаблона Resource Manager создают масштабируемые наборы без поддержки управляемого диска, могут легко добавить поддержку управляемого диска. В этой статье такое преобразование демонстрируется на примере создания запроса на включение внесенных изменений. (Опубликовано в [шаблонах быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates) — репозитории сообщества пользователей с примерами шаблонов Resource Manager.) Полную версию этого запроса можно увидеть здесь: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998). Все важные фрагменты, изменения и пояснения к ним приводятся в этой статье.
@@ -150,5 +146,4 @@ ms.lasthandoff: 02/08/2017
 Чтобы найти примеры шаблонов Resource Manager с использованием наборов масштабирования, выполните поиск строки "vmss" в [репозитории GitHub с шаблонами быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Общие сведения см. на [главной целевой странице по наборам масштабирования](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
-
 

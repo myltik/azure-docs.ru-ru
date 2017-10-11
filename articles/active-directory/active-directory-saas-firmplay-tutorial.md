@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c0bb99976277405cfd79c37ebd754311c3c6004e
 ms.openlocfilehash: 3cddd5b9508159089bf344dbb3882d462799747c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Руководство. Интеграция Azure Active Directory с FirmPlay — Employee Advocacy for Recruiting
 
@@ -47,7 +46,7 @@ ms.lasthandoff: 02/23/2017
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Описание сценария
@@ -131,7 +130,7 @@ ms.lasthandoff: 02/23/2017
 
     ![Настройка единого входа](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_04.png)
 
-7. Во всплывающем окне **Rollover certificate** (Сертификат возобновления) нажмите кнопку **ОК**.
+7. Во всплывающем окне **Rollover certificate** (Сертификат восстановления) нажмите кнопку **ОК**.
 
     ![Настройка единого входа](./media/active-directory-saas-firmplay-tutorial/tutorial_general_400.png)
 
@@ -175,7 +174,7 @@ ms.lasthandoff: 02/23/2017
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-firmplay-tutorial/create_aaduser_03.png) 
 
-4. На странице диалогового окна **Пользователь** сделайте следующее:
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-firmplay-tutorial/create_aaduser_04.png) 
 

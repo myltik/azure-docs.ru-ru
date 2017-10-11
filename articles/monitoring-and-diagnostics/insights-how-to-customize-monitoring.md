@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Обзор метрик в Microsoft Azure
 Все службы Azure отслеживают ключевые метрики, которые позволяют контролировать работоспособность, производительность, доступность и использование служб. Эти метрики можно просмотреть на портале Azure. Кроме того, можно использовать [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) или [пакет SDK для .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) для программного доступа ко всем метрикам.
@@ -68,5 +67,4 @@ ms.lasthandoff: 07/18/2017
 * [Отслеживайте производительность приложения](../application-insights/app-insights-azure-web-apps.md) , чтобы точно понять, как ваш код работает в облаке.
 * Используйте [приложения Application Insights для JavaScript и веб-страниц](../application-insights/app-insights-web-track-usage.md) для анализа браузеров, которые посещают веб-страницу.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
-
 

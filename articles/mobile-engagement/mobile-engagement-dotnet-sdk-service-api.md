@@ -14,18 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 6a497189268c5a1b7e269cc57904ebc77c1906fd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="using-net-sdk-to-access-azure-mobile-engagement-service-apis"></a>Использование пакета SDK для .NET для доступа к интерфейсам API Служб мобильного взаимодействия Azure
 Службы мобильного взаимодействия Azure предоставляют набор интерфейсов API для управления устройствами, кампаниями охвата/продвижения и т. д. Для взаимодействия с этими интерфейсами API мы также предоставляем [файл Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json), который можно использовать со средствами для создания пакетов SDK для предпочитаемого языка. Мы рекомендуем использовать средство [AutoRest](https://github.com/Azure/AutoRest) для создания пакета SDK из нашего файла Swagger.
 
 > [!NOTE]
-> Мы прекратим использование Служб мобильного взаимодействия Azure в марте 2018 года. Сейчас они доступны только существующим клиентам. Дополнительные сведения см. в статье [Службы мобильного взаимодействия](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> Мы прекратим использование Служб мобильного взаимодействия Azure в марте 2018 г. Сейчас они доступны только существующим клиентам. Дополнительные сведения см. на странице [Службы мобильного взаимодействия](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 Аналогичным образом мы создали пакет SDK для .NET, который позволяет взаимодействовать с этими интерфейсами API с помощью оболочки C# без самостоятельного согласования маркера проверки подлинности и обновления.  
 
@@ -59,7 +58,7 @@ ms.lasthandoff: 08/08/2017
         const string APP_COLLECTION_NAME = "";
         // Application Resource Name - make sure you are using the one as specified in the Azure portal (NOT the App Name)
         const string APP_RESOURCE_NAME = "";
-6. Определите переменную `EngagementManagementClient`, которая будет использоваться для вызова методов пакета SDK Служб мобильного взаимодействия:
+6. Определите переменную `EngagementManagementClient`, которая будет использоваться для вызова методов пакета SDK для Служб мобильного взаимодействия:
    
         static EngagementManagementClient engagementClient; 
 7. Затем добавьте в метод `Main` следующие строки:
@@ -123,4 +122,3 @@ ms.lasthandoff: 08/08/2017
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
-

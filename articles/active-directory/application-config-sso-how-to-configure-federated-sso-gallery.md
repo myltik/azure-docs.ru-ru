@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 76078566c93f2b0359c1157cdcdb5b15a1402996
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 1b1d00718981b2c7d11f5b88428d02e16dd0b34d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Настройка федеративного единого входа для приложения из коллекции Azure AD
 
 Для всех приложений в коллекции Azure AD, для которых включен корпоративный единый вход, доступны пошаговые руководства. Подробное пошаговое руководство можно найти в [Списке руководств по интеграции приложений SaaS с Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).
@@ -213,7 +211,6 @@ Azure AD не предоставляет URL-адреса для получен�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
-
 
 
 

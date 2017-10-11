@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Использование концентраторов уведомлений для передачи экстренных новостей
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -29,7 +29,7 @@ ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
 Широковещательные сценарии реализуются путем включения одного или нескольких *тегов* при создании регистрации в концентраторе уведомлений. Если уведомления отправляются на тег, их получают все устройства, зарегистрированные для данного тега. Поскольку теги представляют собой обычные строки, их не нужно подготавливать заранее. Дополнительные сведения о тегах см. в статье [Маршрутизация и выражения тегов](notification-hubs-tags-segment-push-message.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Материал этой статьи основан на приложении, созданном в [руководстве по началу работы с Центрами уведомлений][get-started]. Перед началом работы с руководством необходимо пройти задания [руководства по началу работы с Центрами уведомлений][get-started].
+Материал данной статьи основан на приложении, созданном в разделе по [началу работы с центрами уведомлений][get-started]. Перед началом работы с данным руководством необходимо выполнить задания руководства по [началу работы с центрами уведомлений][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Добавление возможности выбора категорий в приложение
 Прежде всего, необходимо добавить элементы пользовательского интерфейса для имеющейся раскадровки, позволяющие пользователю выбирать категории для регистрации. Выбранные пользователем категории хранятся на устройстве. При запуске приложения в центре уведомлений создается регистрация устройства с выбранными категориями, представленными в форме тегов.
@@ -149,16 +149,16 @@ ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
 
     Обратите внимание, что на данном этапе не должно быть никакого другого кода в методе **didRegisterForRemoteNotificationsWithDeviceToken** .
 
-1. По завершении работы с [руководством по началу работы с Центрами уведомлений][get-started] в файле AppDelegate.m уже должны присутствовать указанные методы.  В противном случае добавьте их.
+1. Следующие методы должны уже присутствовать в AppDelegate.m завершению [приступить к работе с концентраторами уведомлений] [ get-started] учебника.  В противном случае добавьте их.
    
-    -(void)MessageBox:(NSString *)title message:(NSString *)messageText  {
+    -(void) {messageText:(NSString *) сообщение MessageBox:(NSString *) заголовка
    
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
             cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
    
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:   (NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]]; }
+   * didReceiveRemoteNotification приложения:(UIApplication *) (void) приложения: (NSDictionary *) userInfo {NSLog (@"% @", сведений о пользователях);   [самостоятельной MessageBox:@"Notification» сообщение: [valueForKey:@"alert [userInfo objectForKey:@"aps»]»]]; }
    
    Этот метод обрабатывает уведомления, полученные при запуске приложения, отображая простой **UIAlert**.
 2. В файле ViewController.m добавьте оператор импорта для AppDelegate.h и скопируйте предложенный код в созданный с помощью XCode метод **подписки** . Этот код обновляет регистрацию уведомлений для использования тегов новой категории, которые пользователь выбрал в пользовательском интерфейсе.
@@ -212,7 +212,7 @@ ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(Необязательно.) Отправка уведомлений с устройства
-Как правило, уведомления отправляются серверной службой, но вы можете отправлять уведомления об экстренных новостях непосредственно из приложения. Для этого мы обновим метод `SendNotificationRESTAPI`, определенный в [руководстве по началу работы с Центрами уведомлений][get-started].
+Как правило, уведомления отправляются серверной службой, но вы можете отправлять уведомления об экстренных новостях непосредственно из приложения. Для этого корпорация Майкрософт будет обновлять `SendNotificationRESTAPI` метод, определенный в [приступить к работе с концентраторами уведомлений] [ get-started] учебника.
 
 1. В файле ViewController.m обновите метод `SendNotificationRESTAPI` , как показано ниже, чтобы он принимал параметр для тега категории и отправлял правильное [шаблонное](notification-hubs-templates-cross-platform-push-messages.md) уведомление.
    
@@ -324,17 +324,11 @@ ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
 
 
 <!-- URLs. -->
-[Практическое руководство. Использование Центров уведомлений служебной шины (приложения iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Использование Центров уведомлений для вещания локализованных экстренных новостей на устройства iOS]: notification-hubs-ios-xplat-localized-apns-push-notification.md
-[Мобильная служба]: /develop/mobile/tutorials/get-started
-[Уведомление пользователей с помощью Центров уведомлений]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/dn530749.aspx
-[Инструкции по использованию концентраторов уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [классического портала Azure]: https://manage.windowsazure.com
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

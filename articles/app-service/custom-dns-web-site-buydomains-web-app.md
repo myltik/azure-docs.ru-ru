@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 44d350d2d098be14ad254066a8528fe117200ec4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Приобретение имени личного домена для веб-приложений Azure
 
@@ -240,4 +239,3 @@ ms.lasthandoff: 08/04/2017
 Нажмите кнопку **ОК**, чтобы подтвердить операцию. Если вы не хотите продолжать, щелкните в любом месте за пределами диалогового окна подтверждения.
 
 После завершения операции домен освобождается из подписки, и его снова может купить любой желающий. 
-

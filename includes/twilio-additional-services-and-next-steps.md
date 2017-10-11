@@ -1,12 +1,12 @@
 ## <a name="AdditionalServices"></a>Практическое руководство. Использование дополнительных служб Twilio
-В дополнение к приведенным примерам, Twilio предлагает веб-интерфейсы API для использования дополнительных функций Twilio в вашем приложении Azure. Подробные сведения см. в [twilio_api_documentation][twilio_api_documentation].
+В дополнение к приведенным примерам, Twilio предлагает веб-интерфейсы API для использования дополнительных функций Twilio в вашем приложении Azure. Дополнительные сведения см. в [документации по интерфейсу API Twilio][twilio_api_documentation].
 
 ## <a name="NextSteps"></a>Дальнейшие действия
 Вы узнали основные сведения о службе Twilio. Для получения дополнительных сведений используйте следующие ссылки.
 
 * [Рекомендации по безопасности Twilio][twilio_security_guidelines]
-* [Практические руководства и примеры кода Twilio][twilio_howtos]
-* [Краткие руководства по Twilio][twilio_quickstarts] 
+* [Практические руководства по Twilio и пример кода][twilio_howtos]
+* [Краткие учебники по Twilio][twilio_quickstarts] 
 * [Twilio на GitHub][twilio_on_github]
 * [Обращение в службу поддержки Twilio][twilio_support]
 

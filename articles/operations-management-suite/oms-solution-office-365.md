@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: dcc44986acbb76eafc3cfacb79acf237802de021
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="office-365-solution-in-operations-management-suite-oms"></a>Решение Office 365 в Operations Management Suite (OMS)
 
@@ -305,4 +304,3 @@ ms.lasthandoff: 07/25/2017
 * Используйте поиск по журналам в [Log Analytics](../log-analytics/log-analytics-log-searches.md), чтобы просматривать подробные данные об обновлениях.
 * [Создайте собственные панели мониторинга](../log-analytics/log-analytics-dashboards.md) для отображения избранных поисковых запросов Office 365.
 * [Создайте оповещения](../log-analytics/log-analytics-alerts.md), чтобы заранее получать уведомления о важных действиях в Office 365.  
-

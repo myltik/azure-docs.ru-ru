@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Автоматическая отработка отказа между регионами для обеспечения непрерывности бизнес-процессов в Azure Cosmos DB
 Azure Cosmos DB упрощает глобальное распространение данных, предлагая полностью управляемые учетные [записи базы данных в нескольких регионах](distribute-data-globally.md), которые обеспечивают четкие компромиссы между согласованностью, доступностью и производительностью с соответствующими гарантиями. Учетные записи Cosmos DB обеспечивают высокий уровень доступности, задержки в единицы миллисекунд, [четко определенные уровни согласованности](consistency-levels.md), прозрачную региональную отработку отказа с API многосетевого подключения, а также возможность эластично масштабировать пропускную способность и хранилище по всему миру. 
@@ -123,5 +122,4 @@ DocumentClient usClient = new DocumentClient(
 * Дополнительные сведения о глобальной согласованности в Cosmos DB см. в [этой статье](consistency-levels.md).
 * Сведения о разработке с использованием нескольких регионов см. в статье [Как настроить глобальное распределение Azure Cosmos DB с помощью API DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md).
 * Сведения о разработке [архитектуры записи в нескольких регионах](multi-region-writers.md) с помощью Azure DocumentDB
-
 

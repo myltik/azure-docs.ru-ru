@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: 9a78daac2269c9d44558e92b80c869603e014fb6
-
-
+ms.openlocfilehash: 8e2b5c704230ee2ba1395dc76a1551aaa8e7af7f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: создание классического приложения Windows
 Azure Active Directory (Azure AD) B2C позволяет добавлять в приложения мощные функции для самостоятельного управления удостоверениями. Это можно сделать, выполнив несколько простых действий. В этой статье описывается, как создать приложение .NET WPF "Список дел", которое предусматривает регистрацию и вход пользователя, а также управление профилем. Приложение будет поддерживать регистрацию и вход в систему по имени пользователя или адресу электронной почты, а также по учетной записи в социальной сети, такой как Facebook или Google.
@@ -330,9 +330,3 @@ private void SignOut(object sender, RoutedEventArgs e)
 Готовый пример [предоставляется в виде ZIP-файла](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Кроме того, его можно клонировать из GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
-
-
-
-<!--HONumber=Dec16_HO4-->
-
-

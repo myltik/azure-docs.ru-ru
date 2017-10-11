@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 65964a322f0adab4f648fb350bedb77b46bf9054
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Создание функции, которая подключается к другим службам Azure, с помощью службы функций Azure
 
@@ -192,5 +191,4 @@ ms.lasthandoff: 04/18/2017
   Обсуждение планов обслуживания, доступных для использования с функциями Azure (включая план потребления), а также выбор подходящего плана. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
 

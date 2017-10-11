@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: b075e2eb36f54afb7544e0aeb698701cd224ff93
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>Начало работы с соединителем ProjectOnline
 Project Online — это гибкое интернет-решение для управления портфелем проектов (PPM) и повседневной работы с продуктами Майкрософт. Project Online предоставляется в рамках служб Office 365. Это решение позволяет организациям быстро приступить к работе с эффективными функциями управления проектами для планирования, определения приоритетов и управления проектами и инвестициями в портфель проектов в режиме повсеместной доступности.

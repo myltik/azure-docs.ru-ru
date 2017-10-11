@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b0b067f02f02f722534238891f7412153635df80
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 32e3a2e6f840afd865375a622cfae0d33ba65090
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs---diagnosis-guidelines"></a>Центры уведомлений Azure — рекомендации по диагностике
 ## <a name="overview"></a>Обзор
@@ -240,5 +239,4 @@ ms.lasthandoff: 02/16/2017
 [функция EnableTestSend]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
 [Программный доступ к телеметрии]: http://msdn.microsoft.com/library/azure/dn458823.aspx
 [Доступ к телеметрии с помощью образца API]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-
 

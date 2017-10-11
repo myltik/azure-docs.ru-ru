@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 12484338f5b4d489604d70a657ef0992b6267297
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Восстановление тома StorSimple из резервного набора данных
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -88,5 +87,4 @@ ms.lasthandoff: 07/06/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте об [управлении томами StorSimple](storsimple-manage-volumes.md).
 * Узнайте об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Проверка подлинности с помощью интерфейсов REST API Mobile Engagement — настройка вручную"
-description: "Описание ручной настройки проверки подлинности для REST API Mobile Engagement"
+title: "Проверка подлинности с помощью интерфейсов REST API Служб мобильного взаимодействия — настройка вручную"
+description: "Описание ручной настройки проверки подлинности для REST API Служб мобильного взаимодействия"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,18 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 9d6132e1a01be489b8e8e28a0219cf8a0b50b318
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Проверка подлинности с помощью интерфейсов REST API Mobile Engagement — настройка вручную
-Это приложение к статье [Проверка подлинности с помощью интерфейсов REST API Mobile Engagement](mobile-engagement-api-authentication.md). Сначала следует ознакомиться с данными в статье. Здесь описывается альтернативный способ выполнения однократной настройки для настройки проверки подлинности с помощью интерфейсов REST API Mobile Engagement на портале Azure. 
+# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Проверка подлинности с помощью интерфейсов REST API Служб мобильного взаимодействия — настройка вручную
+Это приложение к статье [Проверка подлинности с помощью интерфейсов REST API Служб мобильного взаимодействия](mobile-engagement-api-authentication.md). Сначала следует ознакомиться с данными в статье. Здесь описывается альтернативный способ выполнения однократной настройки для настройки проверки подлинности с помощью интерфейсов REST API Служб мобильного взаимодействия на портале Azure. 
 
 > [!NOTE]
-> Приведенные ниже инструкции основаны на этом [руководстве по Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md). Они настроены в соответствии с требованиями к проверке подлинности с помощью API Mobile Engagement. Ознакомьтесь с этим руководством, если хотите получить более подобные сведения о выполняемых действиях. 
+> Приведенные ниже инструкции основаны на этом [руководстве по Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md). Они настроены в соответствии с требованиями к проверке подлинности с помощью API Служб мобильного взаимодействия. Ознакомьтесь с этим руководством, если хотите получить более подобные сведения о выполняемых действиях. 
 > 
 > 
 
@@ -86,10 +85,10 @@ ms.lasthandoff: 02/11/2017
     
         https://login.microsoftonline.com/<GUID>/oauth2/token
 17. Перейдем к настройке разрешений для этого приложения. Для этого необходимо открыть [портал Azure](https://portal.azure.com). 
-18. Щелкните **Группы ресурсов** и найдите группу **Mobile Engagement**.  
+18. Щелкните **Группы ресурсов** и найдите группу **Службы мобильного взаимодействия**.  
     
     ![][15]
-19. Щелкните группу ресурсов **Mobile Engagement** и перейдите к колонке **Параметры**. 
+19. Щелкните группу ресурсов **Службы мобильного взаимодействия** и перейдите к колонке **Параметры**. 
     
     ![][16]
 20. В колонке "Параметры" щелкните **Пользователи**, а затем нажмите кнопку **Добавить**, чтобы добавить пользователя. 
@@ -132,7 +131,6 @@ ms.lasthandoff: 02/11/2017
 [19]: ./media/mobile-engagement-api-authentication-manual/select-role.png
 [20]: ./media/mobile-engagement-api-authentication-manual/add-user-select.png
 [21]: ./media/mobile-engagement-api-authentication-manual/add-access-final.png
-
 
 
 

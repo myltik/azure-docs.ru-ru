@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 04c83dcd4df442d3e8bb41a15bb033de91bc4fcc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: a78ee0877de717210d5c9140c6957d271a2b2453
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-for-microsoft-azure-apps"></a>Application Insights для приложений Microsoft Azure
 
@@ -37,5 +36,4 @@ ms.lasthandoff: 04/05/2017
 
 * [Profiler for live Azure web apps](app-insights-profiler.md) (Профилировщик для динамических веб-приложений Azure)
 * [Отображение журналов системы диагностики Azure в Application Insights](app-insights-azure-diagnostics.md)
-
 

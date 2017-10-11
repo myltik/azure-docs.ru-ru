@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 07/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: ba3637a3a8b15b45c16bf5a00c1f4225bcfc5af8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Развертывание службы диспетчера StorSimple на классическом портале Azure
 
@@ -102,4 +101,3 @@ ms.lasthandoff: 07/14/2017
 * Узнайте больше о [процессе развертывания StorSimple](storsimple-deployment-walkthrough-u2.md).
 * Узнайте больше об [управлении учетной записью хранения StorSimple](storsimple-manage-storage-accounts.md).
 * Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 5c276c23288292a1c54dd9d57177d5072b90c9e3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Руководство по интеграции Azure Active Directory с IBM Kenexa Survey Enterprise
 
@@ -147,11 +146,11 @@ ms.lasthandoff: 07/13/2017
 
     ![Кнопка "Azure Active Directory"](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_01.png) 
 
-2. Перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**, чтобы отобразить список пользователей.
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
     
     ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_02.png) 
 
-3. В верхней части диалогового окна **Пользователь** щелкните **Добавить**, чтобы открыть диалоговое окно **Все пользователи**.
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
  
     ![Кнопка "Добавить"](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_03.png) 
 
@@ -229,4 +228,3 @@ ms.lasthandoff: 07/13/2017
 [203]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_203.png
 
  
-

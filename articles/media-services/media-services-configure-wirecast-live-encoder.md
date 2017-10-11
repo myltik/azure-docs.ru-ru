@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: c4df14f24650ce431dfb31cc774cab6d3cf3aef0
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Использование кодировщика Wirecast для отправки односкоростного обновляющегося потока
 > [!div class="op_single_selector"]
@@ -46,7 +45,7 @@ ms.lasthandoff: 01/11/2017
 * При использовании программных кодировщиков закройте все ненужные программы.
 
 ## <a name="create-a-channel"></a>Создание канала
-1. В средстве AMSE перейдите на вкладку **Поток** и щелкните правой кнопкой мыши в области канала. Выберите **Создать канал...**  в меню.
+1. В средстве AMSE перейдите на вкладку **Поток** и щелкните правой кнопкой мыши в области канала. Выберите **Создать канал...** в меню.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -145,7 +144,7 @@ ms.lasthandoff: 01/11/2017
 
 ## <a name="test-playback"></a>Проверка воспроизведения
 
-Перейдите в средство AMSE и щелкните правой кнопкой мыши на канале, который необходимо проверить. В меню наведите указатель мыши на пункт **Playback the Preview** (Воспроизведение для предварительного просмотра) и выберите пункт **with Azure Media Player** (с помощью проигрывателя мультимедиа Azure).  
+Перейдите в средство AMSE и щелкните правой кнопкой мыши на канале, который необходимо проверить. В меню наведите указатель мыши на пункт **Playback the Preview** (Воспроизведение для предварительного просмотра) и выберите пункт **with Azure Media Player** (с помощью Проигрывателя мультимедиа Azure).  
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
@@ -164,7 +163,7 @@ ms.lasthandoff: 01/11/2017
    >[!NOTE]
    >Создание программы занимает меньше времени, чем создание канала.
        
-5. После запуска программы проверьте воспроизведение. Для этого щелкните правой кнопкой мыши программу, перейдите к пункту **Playback the program(s)** (Воспроизвести программы) и выберите пункт **with Azure Media Player** (с помощью проигрывателя мультимедиа Azure).  
+5. После запуска программы проверьте воспроизведение. Для этого щелкните правой кнопкой мыши программу, перейдите к пункту **Playback the program(s)** (Воспроизвести программы) и выберите пункт **with Azure Media Player** (с помощью Проигрывателя мультимедиа Azure).  
 6. После проверки снова щелкните программу правой кнопкой мыши и выберите команду **Copy the Output URL to Clipboard** (Копировать выходной URL-адрес в буфер обмена) или получите соответствующий адрес, используя пункт меню **Program information and settings** (Сведения о программе и параметры).
 
 Теперь поток можно внедрить в проигрыватель или транслировать аудитории для просмотра в режиме реального времени.  
@@ -177,4 +176,3 @@ ms.lasthandoff: 01/11/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

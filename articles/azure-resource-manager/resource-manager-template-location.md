@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 73e50a593c41e841dcaf184abb895406ff5001e9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="set-resource-location-in-azure-resource-manager-templates"></a>Определение расположения ресурса в шаблонах Azure Resource Manager
 При развертывании шаблона вам нужно указать расположение для каждого ресурса. В этой статье описано, как определить расположения, доступные в рамках вашей подписки для каждого типа ресурсов.
@@ -101,5 +100,4 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * См. дополнительные рекомендации по [созданию шаблонов Azure Resource Manager](resource-manager-template-best-practices.md).
-
 

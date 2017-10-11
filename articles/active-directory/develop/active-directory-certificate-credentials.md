@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 08bb5140bb35bbd120aaa506afeab8ad247f81e1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="certificate-credentials-for-application-authentication"></a>Учетные данные сертификата для аутентификации приложения
 
 Azure Active Directory позволяет приложению использовать для аутентификации свои собственные учетные данные, например, в потоке предоставления учетных данных клиента OAuth 2.0 и потоке On-Behalf-Of.
@@ -104,4 +102,3 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 Сохраните изменения в манифесте приложения и отправьте его в Azure AD. Свойство keyCredentials является многозначным, поэтому для расширенного управления ключами можно передать несколько сертификатов.
-

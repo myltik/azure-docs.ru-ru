@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3a5f06b7e9600c34ef690e025a0a2079f71f843e
-
-
+ms.openlocfilehash: 18faa88641623e1248d6a33bc2d87099e1c9f624
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="routing-and-tag-expressions"></a>Маршрутизация и выражения тегов
 ## <a name="overview"></a>Обзор
@@ -33,7 +33,7 @@ ms.openlocfilehash: 3a5f06b7e9600c34ef690e025a0a2079f71f843e
 3. **По выражению тега**: уведомление получают все регистрации, набор тегов которых соответствует указанному выражению.
 
 ## <a name="tags"></a>Теги
-Тегом может быть любая строка длиной до 120 символов, содержащая буквы, цифры и следующие символы: "_", ‘@’,, "#", ".", ":", "-". В следующем примере показано приложение, из которого можно получать всплывающие уведомления об определенных музыкальных группах. В этом случае для маршрутизации уведомлений удобно пометить регистрации тегами различных групп, как показано на следующем рисунке.
+Тег может быть любой строкой, до 120 символов, содержащая буквы, цифры и следующие символы, отличные от буквенно-цифровых: «_», "@", «#», ". «,»:", "-". В следующем примере показано приложение, из которого можно получать всплывающие уведомления об определенных музыкальных группах. В этом случае для маршрутизации уведомлений удобно пометить регистрации тегами различных групп, как показано на следующем рисунке.
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
@@ -102,9 +102,3 @@ ms.openlocfilehash: 3a5f06b7e9600c34ef690e025a0a2079f71f843e
     toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
     "You want info on the Red Socks</text></binding></visual></toast>";
     outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

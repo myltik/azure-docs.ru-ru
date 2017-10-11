@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: d27c773baaae64922fc8ad2c8f65bab177769f67
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Руководство. Интеграция Azure Active Directory с ZIVVER
 
@@ -217,5 +216,4 @@ ms.lasthandoff: 08/01/2017
 [201]: ./media/active-directory-saas-zivver-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zivver-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zivver-tutorial/tutorial_general_203.png
-
 

@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Synonyms в Поиске Azure (предварительная версия)
 
@@ -166,4 +165,3 @@ Synonyms представляет собой поисковые системы, 
 - Если у вас есть индекс в среде разработки (не в рабочей среде), поэкспериментируйте с небольшим словарем, чтобы узнать, как добавление синонимов изменяет результаты поиска, включая влияние на профили повышения, выделение совпадений и предложения.
 
 - [Включите аналитику трафика поиска](search-traffic-analytics.md) и используйте стандартный отчет Power BI, чтобы узнать, какие термины указываются чаще всего и какие возвращают ноль документов. Получив эти сведения, отредактируйте словарь, добавив синонимы для неэффективных запросов, которые должны выдавать документы из индекса.
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: b38eb3a011d46f2239891ea1d1bcac2a4059a866
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-8-set-up-the-source-and-target-for-hyper-v-replication-to-azure"></a>Шаг 8. Настройка исходной и целевой среды для репликации из Hyper-V в Azure
 
 В этой статье описано, как настроить параметры исходной и целевой среды при репликации локальных виртуальных машин Hyper-V (без System Center VMM) в Azure с помощью службы [Azure Site Recovery](site-recovery-overview.md) на портале Azure.
@@ -94,4 +92,3 @@ ms.lasthandoff: 06/23/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к разделу [Шаг 9. Настройка политики репликации для репликации физического сервера в Azure](hyper-v-site-walkthrough-replication.md).
-

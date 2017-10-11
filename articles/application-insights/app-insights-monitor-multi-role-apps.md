@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: d8b466caba7201a5bb8612e773ad61943f6d1cf2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: ca1bb8ee886c4b4e69be9dd653d6a52b874e1f5a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Мониторинг приложений с несколькими компонентами с помощью Application Insights (предварительная версия)
 
@@ -129,4 +128,3 @@ ms.lasthandoff: 07/25/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Отделение телеметрии стадий разработки, тестирования и эксплуатации](app-insights-separate-resources.md)
-

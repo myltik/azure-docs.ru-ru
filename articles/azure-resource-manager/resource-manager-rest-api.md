@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resource-manager-rest-apis"></a>API-интерфейсы REST диспетчера ресурсов
 > [!div class="op_single_selector"]
@@ -254,4 +252,3 @@ Content-Type: application/json
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Сведения об обработке асинхронных операций REST см. в статье [Отслеживание асинхронных операций Azure](resource-manager-async-operations.md).
-

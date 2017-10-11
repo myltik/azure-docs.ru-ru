@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 78ca7eceb31396c748c4c20763d5c74575bbc8f4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Использование аутентификации Azure AD для доступа к API служб мультимедиа Azure с помощью .NET
 
@@ -189,4 +188,3 @@ ms.lasthandoff: 07/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Приступите к [передаче файлов в учетную запись](media-services-dotnet-upload-files.md).
-

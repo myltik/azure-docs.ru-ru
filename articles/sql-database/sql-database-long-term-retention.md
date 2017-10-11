@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: 25e651203f804fbf32d632b5f83145a3f3f72a7f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Хранение резервных копий базы данных SQL Azure до 10 лет
 В соответствии с нормативными требованиями, стандартами соответствия или бизнес-задачами многие приложения должны хранить резервные копии баз данных более 7–35 дней, то есть дольше, чем при [автоматическом резервном копировании](sql-database-automated-backups.md) базы данных SQL Azure. Функция долгосрочного хранения резервных копий позволяет хранить резервные копии базы данных SQL Azure в хранилище служб восстановления Azure до 10 лет. В каждом хранилище можно разместить до 1000 баз данных. Вы можете выбрать любую резервную копию из хранилища и восстановить ее как новую базу данных.
@@ -167,4 +166,3 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName 'RG1' -Se
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Поскольку резервные копии базы данных защищают данные от случайного повреждения или удаления, они являются важной частью любой стратегии непрерывности бизнес-процессов и аварийного восстановления. Дополнительные сведения о других решениях для базы данных SQL, обеспечивающих непрерывность бизнес-процессов, см. в статье [Обзор обеспечения непрерывности бизнес-процессов с помощью базы данных SQL Azure](sql-database-business-continuity.md).
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
-ms.contentlocale: ru-ru
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>Архивация виртуальных машин Azure (классический портал)
 > [!div class="op_single_selector"]
@@ -200,4 +199,3 @@ ms.lasthandoff: 08/03/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Мониторинг виртуальных машин и управление ими](backup-azure-manage-vms.md)
 * [Восстановление виртуальных машин](backup-azure-restore-vms.md)
-

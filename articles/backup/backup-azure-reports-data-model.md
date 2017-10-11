@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 06/26/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: efecbc9f1c410744f49795889c4ec3cc618f07e0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Модель данных для отчетов Azure Backup
 В этой статье описывается модель данных Power BI, используемая для создания отчетов в Azure Backup. С ее помощью можно отфильтровать имеющиеся отчеты на основе соответствующих полей и, что важнее, создать собственные отчеты с использованием таблиц и полей в модели. 
@@ -198,4 +197,3 @@ Power BI предоставляет возможности настройки, �
 
 * [Создание отчета Power BI путем импорта набора данных](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
 * [О фильтрах и выделении в отчетах Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/).
-

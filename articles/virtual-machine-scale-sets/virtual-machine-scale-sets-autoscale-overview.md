@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: adegeo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Как использовать автомасштабирование и масштабируемые наборы виртуальных машин
 Автоматическое масштабирование виртуальных машин (ВМ) в наборе масштабирования — это процесс создания или удаления входящих в набор ВМ в соответствии требованиями к производительности. По мере роста рабочей нагрузки для эффективного выполнения задач приложению могут потребоваться дополнительные ресурсы.
@@ -251,4 +250,3 @@ ms.lasthandoff: 07/01/2017
 * Узнайте, как [использовать журналы аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
 
 * Узнайте больше о [расширенных сценариях автомасштабирования](virtual-machine-scale-sets-advanced-autoscale.md).
-

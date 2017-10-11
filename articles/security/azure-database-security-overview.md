@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-database-security-overview"></a>Общие сведения о защите базы данных Azure
 
 При управлении базами данных безопасность имеет первостепенное значение и всегда была приоритетной задачей для базы данных SQL Azure. База данных SQL Azure поддерживает безопасность подключения с помощью шифрования соединения и правил брандмауэра. Она поддерживает проверку подлинности с именем пользователя и паролем, а также проверку подлинности Azure Active Directory, в которой используются удостоверения, контролируемые Azure Active Directory. Проверка подлинности использует управление доступом на основе ролей.
@@ -219,4 +217,3 @@ Azure Marketplace объединяет экосистемы партнеров M
 - Ознакомьтесь с дополнительными сведениями о [центре безопасности Azure и службе базы данных SQL Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-database).
 - Дополнительные сведения об обнаружении угроз см. в разделе [Обнаружение угроз для базы данных SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 - Ознакомьтесь с дополнительными сведениями в разделе [Улучшение производительности базы данных SQL](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial). 
-

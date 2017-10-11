@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7884032fd4b5a72ca7e2f2dc2830b0a7c2220e94
-ms.openlocfilehash: 5d8ddd4449d3b160dbca7496c801e75dcf4a44e5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Проверка XML с помощью схем для Azure Logic Apps и пакета интеграции Enterprise
 
@@ -60,11 +58,11 @@ ms.lasthandoff: 02/07/2017
 
 **Определение уровня доступа**
 
-1.    Откройте **обозреватель хранилищ Azure**. 
+1.  Откройте **обозреватель хранилищ Azure**. 
 
-2.    В разделе **Контейнеры BLOB-объектов** выберите нужный контейнер двоичных объектов. 
+2.  В разделе **Контейнеры BLOB-объектов** выберите нужный контейнер двоичных объектов. 
 
-3.    Выберите последовательно **Безопасность**, **Уровень доступа**.
+3.  Выберите последовательно **Безопасность**, **Уровень доступа**.
 
 Если для контейнера больших двоичных объектов определен уровень доступа **Общедоступный**, выполните следующие действия.
 
@@ -134,5 +132,4 @@ Azure отображает сообщение, что схема успешно 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Узнайте больше о пакете интеграции Enterprise.](logic-apps-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise").  
-
 

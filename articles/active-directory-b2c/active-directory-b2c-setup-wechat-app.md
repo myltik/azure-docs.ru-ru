@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: a54aec23d951610118246e9f70cdd27752ef39a6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C: организация регистрации и входа для потребителей с учетными записями WeChat
 
@@ -49,5 +48,4 @@ ms.lasthandoff: 08/08/2017
 7. Введите **ключ приложения**, скопированный ранее, в поле **Идентификатор клиента**.
 8. Введите **секрет приложения**, скопированный ранее, в поле **Секрет клиента**.
 9. Нажмите кнопку **ОК**, а затем — **Создать**, чтобы сохранить конфигурацию WeChat.
-
 

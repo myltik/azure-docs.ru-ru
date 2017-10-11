@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 5121a810badcaa9c66a9f5d85bd83b9f522b9665
-ms.openlocfilehash: 449499ebed1b455af012ec97976d04604a320941
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Развертывание прокси приложения Azure AD в управляемых доменах доменных служб Azure AD
 Прокси приложения Azure Active Directory помогает организовать удаленную работу сотрудников, публикуя локальные приложения для доступа через Интернет. С помощью доменных служб Azure AD теперь можно переносить устаревшие локальные приложения в службы инфраструктуры Azure. Затем эти приложения можно опубликовать с помощью прокси приложения Azure AD, чтобы обеспечить безопасный удаленный доступ для пользователей в вашей организации.
 
@@ -131,4 +129,3 @@ Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateTo
 * [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)
 * [Настройка ограниченного делегирования Kerberos в управляемом домене](active-directory-ds-enable-kcd.md)
 * [(Обзор ограниченного делегирования Kerberos)](https://technet.microsoft.com/library/jj553400.aspx)
-

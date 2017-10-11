@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
-ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 7361d05850cf3ae997c0c186bf9a674c139f1f9e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Как Azure Active Directory использует протокол SAML
+# Как Azure Active Directory использует протокол SAML
 Azure Active Directory (Azure AD) использует протокол SAML 2.0, чтобы приложения могли предоставлять пользователям единый вход. Профили [единого входа](active-directory-single-sign-on-protocol-reference.md) и [единого выхода](active-directory-single-sign-out-protocol-reference.md) SAML в Azure AD содержат сведения о том, как в службе поставщика удостоверений используются утверждения SAML, протоколы и привязки.
 
 Протокол SAML подразумевает, что поставщик удостоверений (Azure AD) и поставщик услуг (приложение) обмениваются информацией друг о друге.
@@ -35,4 +34,3 @@ Azure Active Directory предоставляет клиентские и общ
 * Общая для всех клиентов конечная точка находится по адресу `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. В этом адресе конечной точки вместо доменного имени или идентификатора клиента содержится ключевое слово **common**.
 
 Сведения о документах метаданных федерации, публикуемых в Azure AD, см. в статье [Метаданные федерации](active-directory-federation-metadata.md).
-

@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: e15f3740fbf7cd97002b0b7efda34e968db4fe3c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: b99037fc28eca1a3ebffefb9e99991e74f52c9a5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="account-provisioning-notifications"></a>Уведомления о подготовке учетных записей
 С помощью подготовки пользователей можно автоматизировать процесс управления пользователями в сторонних приложениях SaaS. <br>
- Хотя этот процесс автоматизирован, время от времени ваше участие будет необходимо. <br>
- Например, когда истечет срок действия пароля учетной записи, которую вы настроили для обмена данными со сторонним приложением SaaS. 
+Хотя этот процесс автоматизирован, время от времени ваше участие будет необходимо. <br>
+Например, когда истечет срок действия пароля учетной записи, которую вы настроили для обмена данными со сторонним приложением SaaS. 
 
 После включения уведомлений о подготовке учетных записей вы гарантированно будете получать уведомления о проблемах, связанных с подготовкой пользователей, которые требуют вашего внимания.
 
@@ -52,4 +50,3 @@ ms.lasthandoff: 12/28/2016
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
-

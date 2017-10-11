@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Начало работы с соединителем Google-диска
 Подключитесь к Google-диску, чтобы создавать файлы, получать строки и выполнять множество других действий. С помощью Google-диска вы можете: 
@@ -46,4 +45,3 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="more-connectors"></a>Дополнительные сведения о соединителях
 Вы можете вернуться к [списку интерфейсов API](apis-list.md).
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
-ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Создание определений рабочих процессов для приложений логики с помощью JSON
 
@@ -277,9 +275,9 @@ ms.lasthandoff: 03/01/2017
 
 Иногда следует отметить следующее: 
 
-*    Функция [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) проверяет, соответствует ли категория одной из известных определенных категорий.
+*   Функция [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) проверяет, соответствует ли категория одной из известных определенных категорий.
 
-*    Получив категорию, мы можем извлечь элемент из сопоставления, используя квадратные скобки: `parameters[...]`.
+*   Получив категорию, мы можем извлечь элемент из сопоставления, используя квадратные скобки: `parameters[...]`.
 
 ## <a name="process-strings"></a>Строки для обработки
 
@@ -452,4 +450,3 @@ ms.lasthandoff: 03/01/2017
 В каждой среде можно предоставить другое значение для параметра `connection`. 
 
 В [документации по интерфейсу API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) описаны все параметры для создания приложений логики и управления ими. 
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 331c03cd0819aa4935f9b486ff38f54d23d6a7fd
-ms.openlocfilehash: e3d5f89b1c8525f791e73667d6f7cd6a999ab971
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Что можно и что нельзя сделать с помощью состояния службы BizTalk
 
@@ -61,5 +59,4 @@ ms.lasthandoff: 11/17/2016
 * [Службы BizTalk: регулирование](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 * [Службы BizTalk: имя и ключ издателя](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 * [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-
 

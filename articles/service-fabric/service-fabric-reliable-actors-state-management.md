@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: aca8cf2b94e8b746a5cac6af021c7221a29b7345
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reliable-actors-state-management"></a>Управление состоянием субъектов Reliable Actors
 Субъекты Reliable Actors — это однопотоковые объекты для инкапсуляции логики и состояния. Так как субъекты выполняются в службах Reliable Services, они могут поддерживать состояние, используя те же механизмы сохранения и репликации, которые применяются службами Reliable Services. При этом субъекты не теряют свое состояние после сбоев, повторной активации после сборки мусора или перемещения между узлами в кластере из-за балансировки ресурсов или обновления.
@@ -411,4 +410,3 @@ class MyActorImpl extends FabricActor implements  MyActor
 Состояние, которое хранится в Reliable Actors, должно быть сериализовано перед записью на диск и реплицировано для обеспечения высокого уровня доступности. Узнайте больше о [сериализации типа субъекта](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 Затем ознакомьтесь с [диагностикой и мониторингом производительности субъекта](service-fabric-reliable-actors-diagnostics.md).
-

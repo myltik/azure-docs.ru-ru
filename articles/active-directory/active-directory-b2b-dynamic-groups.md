@@ -16,14 +16,12 @@ ms.workload: identity
 ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 5818c41610c8c5df89abcb0dcd058bcbe9579ce7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Динамические группы и служба совместной работы Azure Active Directory B2B
 
 ## <a name="what-are-dynamic-groups"></a>Что такое динамические группы?
@@ -61,4 +59,3 @@ ms.lasthandoff: 06/28/2017
 * [Сопоставление утверждений пользователя службы совместной работы B2B в Azure Active Directory](active-directory-b2b-claims-mapping.md)
 * [Доступ внешних пользователей к Office 365](active-directory-b2b-o365-external-user.md)
 * [Текущие ограничения службы совместной работы Azure Active Directory B2B](active-directory-b2b-current-limitations.md)
-

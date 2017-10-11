@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/20/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 53ae23dba61cf835c6a4826b528772b1cd2e1622
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: b6f8d327123fc0ebe13790cbb3760f6eba90f5b5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Общедоступные наборы данных для тестирования и создания прототипов
 
@@ -60,4 +59,3 @@ ms.lasthandoff: 03/29/2017
 | [Архив GitHub](https://www.githubarchive.org/) | "Архив GitHub — это проект для записи общедоступной временной шкалы событий GitHub, ее архивирования и облегчения доступа к ней для дальнейшего анализа". | Скачайте архивы событий с кодировкой JSON в формате GZIP из веб-клиента. |
 | [Данные о действиях GitHub из проекта GHTorrent](http://ghtorrent.org/) | "Целью проекта GHTorrent является создание масштабируемого, поддерживающего запросы автономного зеркала данных, предоставляемого через REST API GitHub. GHTorrent контролирует общедоступную временную шкалу событий GitHub. Для каждого события он полностью извлекает содержимое и зависимости". | Дампы базы данных MySQL доступны в формате CSV. |
 | [Дамп данных Stack Overflow](https://archive.org/details/stackexchange) | "Это анонимный дамп всего содержимого, предоставленного пользователями в сети Stack Exchange (включая сайт сети Stack Overflow)". | "Каждый сайт (например, Stack Overflow) отформатирован в виде отдельного архива, состоящего из файлов XML, сжатых с помощью файлового архиватора 7-Zip и технологии сжатия BZIP2. Каждый архив сайта включает в себя сведения о сообщениях, пользователях, голосах, комментариях, журнале публикаций и ссылках публикаций". |
-

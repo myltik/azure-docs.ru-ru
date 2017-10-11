@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3400d00112b4b66cceef602dba5cb8666e49e0e4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: c0b4f455f067e825362bdecc02ea62d7984f0d31
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="unlicensed-usage-report"></a>Отчет о нелицензированном использовании
 Отчет о нелицензированном использовании помогает выявить пользователей, которые используют платные функции Azure AD без лицензии. Благодаря этому вы сможете эффективнее использовать приобретенные лицензии и вовремя узнавать о необходимости купить новые. 
@@ -46,5 +44,4 @@ ms.lasthandoff: 12/28/2016
 ## <a name="see-also"></a>Дополнительные материалы
 * [Защита доступа к Office 365 и другим приложениям, подключенным к Azure Active Directory](active-directory-conditional-access.md)
 * [Основные сведения об условном доступе к Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
-
 

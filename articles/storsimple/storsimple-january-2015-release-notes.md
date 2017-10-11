@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/16/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e9b5773f0152a8ff377169041b28fa1782288217
-
-
+ms.openlocfilehash: 2fc50f7faddb4b61ea5e7d328469fc3cc0eb6f3e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-02-release-notes---january-2015"></a>Заметки о выпуске, посвященные обновлению 0.2 для устройств серии StorSimple 8000. Январь 2015 г.
 ## <a name="overview"></a>Обзор
@@ -71,10 +71,4 @@ ms.openlocfilehash: e9b5773f0152a8ff377169041b28fa1782288217
 
 ## <a name="virtual-device-updates-in-the-january-release"></a>Обновления виртуального устройства в январском выпуске
 Этот выпуск содержит обновленный образ для виртуального устройства. Виртуальные устройства, созданные после 20 января 2015 года, будут иметь версию программного обеспечения 6.3.9600.17361.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

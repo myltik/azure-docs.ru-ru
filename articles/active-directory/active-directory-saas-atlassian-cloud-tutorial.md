@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: 2891838b56dd15cb5f97dcae391770143a80c781
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Руководство по интеграции Azure Active Directory с Atlassian Cloud
 
@@ -296,5 +295,4 @@ ms.lasthandoff: 07/14/2017
 [201]: ./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_203.png
-
 

@@ -14,12 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
-ms.openlocfilehash: 61aa9e5c004decff18337efe3b1baacfcf9279dc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: ebf0e911eeada0e529f908dd3e3430c94edae763
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Как использовать клиентскую библиотеку Apache Cordova для мобильных приложений Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -182,4 +181,3 @@ pushHandler.on('error', function (error) {
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
-

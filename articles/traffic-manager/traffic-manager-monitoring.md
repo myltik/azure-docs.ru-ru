@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 5ce000814f2f5899a7338fdefb39c4873c006b1d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="traffic-manager-endpoint-monitoring"></a>Мониторинг конечных точек в диспетчере трафика
 
 Диспетчер трафика Azure включает в себя встроенные возможности мониторинга и автоматическую отработку отказа конечных точек. Благодаря этому можно получать высокодоступные приложения, которые устойчивы к сбоям конечной точки, в том числе к сбоям региона Azure.
@@ -161,4 +159,3 @@ ms.lasthandoff: 06/23/2017
 Узнайте, как [создать профиль диспетчера трафика](traffic-manager-manage-profiles.md)
 
 [устранении неполадок с состоянием пониженной функциональности](traffic-manager-troubleshooting-degraded.md) конечной точки диспетчера трафика.
-

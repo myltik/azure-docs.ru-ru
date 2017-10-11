@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>События риска Azure Active Directory
 
@@ -184,4 +183,3 @@ ms.lasthandoff: 08/16/2017
 
 Обнаружение событий риска само по себе является важным аспектом защиты ваших удостоверений, однако вы также можете устранять их вручную или применять автоматические ответы, настроив политики условного доступа. Дополнительные сведения см. в статье [Защита идентификации Azure Active Directory](active-directory-identityprotection.md).
  
-

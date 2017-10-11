@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 0be893406c6a20193b10b728fff2cec06f562069
-ms.lasthandoff: 12/20/2016
-
-
+ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Делегирование пользователю регистрации и подписки на продукт
 Делегирование позволяет использовать ваш существующий веб-сайт для обработки входа и регистрации разработчика и подписки на продукты вместо применения встроенной функции на портале разработчика. В результате этого веб-сайт будет владеть пользовательскими данными и проверять эти шаги в соответствии с вашими настройками.
@@ -180,4 +179,3 @@ var signature = digest.toString('base64');
 [на приведенном ниже примере кода]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
-

@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг ресурсов в решении &quot;Безопасность и аудит&quot; Operations Management Suite | Документация Майкрософт"
-description: "Этот документ поможет вам использовать функции решения OMS &quot;Безопасность и аудит&quot; для отслеживания ресурсов и выявления проблем безопасности."
+title: "Мониторинг ресурсов в решении \"Безопасность и аудит\" Operations Management Suite | Документация Майкрософт"
+description: "Этот документ поможет вам использовать функции решения OMS \"Безопасность и аудит\" для отслеживания ресурсов и выявления проблем безопасности."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 81d7d09f48d08943623b24e7e7a26847a0d129fe
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 2f73266b65a4eda6c8751a2d56bc3f11bf4e6a57
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitoring-resources-in-operations-management-suite-security-and-audit-solution"></a>Мониторинг ресурсов в решении "Безопасность и аудит" Operations Management Suite
 Этот документ поможет вам использовать функции решения OMS "Безопасность и аудит" для отслеживания ресурсов и выявления проблем безопасности.
@@ -112,5 +111,4 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 * [Общие сведения об Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Приступая к работе с решением "Безопасность и аудит" Operations Management Suite](oms-security-getting-started.md)
 * [Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite](oms-security-responding-alerts.md)
-
 

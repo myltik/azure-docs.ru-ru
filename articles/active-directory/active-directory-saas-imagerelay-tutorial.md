@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 0bfbbaee7a74df6508584b7c8846fd07c2dc15c9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Руководство по интеграции Azure Active Directory с приложением Image Relay
 
@@ -295,5 +294,4 @@ ms.lasthandoff: 06/23/2017
 [201]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_203.png
-
 

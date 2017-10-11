@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0c930c7413b24a811707c3a1ff3d7d70585bc528
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Планирование инфраструктуры резервного копирования виртуальных машин в Azure
 Эта статья содержит рекомендации по производительности и ресурсам, которые помогут спроектировать инфраструктуру резервного копирования виртуальных машин. Также здесь приводятся ключевые определения службы архивации; эти аспекты могут быть критически важными при определении архитектуры, планировании и распределении мощностей. Если вы уже [подготовили среду](backup-azure-vms-prepare.md), то следующий шаг (планирование) позволит начать [архивацию виртуальных машин](backup-azure-vms.md). Дополнительные сведения о виртуальных машинах Azure содержатся в [документации по виртуальным машинам](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -153,4 +152,3 @@ ms.lasthandoff: 08/21/2017
 * [Управление резервными копиями виртуальной машины](backup-azure-manage-vms.md)
 * [Восстановление виртуальных машин](backup-azure-restore-vms.md)
 * [Устранение проблем с резервным копированием виртуальных машин](backup-azure-vms-troubleshoot.md)
-

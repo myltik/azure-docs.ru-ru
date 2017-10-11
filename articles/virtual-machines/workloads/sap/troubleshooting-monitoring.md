@@ -14,12 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: ee5be707b443cbe42bf4a492d79390e534d4b91f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Как устранять неполадки и отслеживать работу SAP HANA (крупные экземпляры) в Azure
 
@@ -189,5 +188,4 @@ SAP HANA в Azure (крупные экземпляры) ничем не отли
 **HANA\_Configuration\_Parameters\_Rev70 +** для проверки параметров SAP HANA.
 
 ![HANA\_Configuration\_Parameters\_Rev70 + для проверки параметров SAP HANA](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/12/2017
 ms.author: anuragm;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Согласованное с приложениями резервное копирование виртуальных машин Azure Linux (предварительная версия)
 
 В этой статье описана платформа Linux с поддержкой скриптов предварительного и последующего выполнения. Также рассмотрены способы ее использования при согласованном с приложениями резервном копировании виртуальных машин Azure Linux.
@@ -99,4 +97,3 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Резервное копирование виртуальных машин Azure в хранилище служб восстановления](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
-

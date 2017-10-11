@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e9683d4c5779450fd67fa42ab13095c7f201b4cd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Как настроить автомасштабирование для облачной службы на портале
 > [!div class="op_single_selector"]
 > * [Портал Azure](cloud-services-how-to-scale-portal.md)
@@ -114,4 +112,3 @@ ms.lasthandoff: 08/21/2017
 3. Экземпляры роли для масштабирования.
 
 После настройки параметров масштабирования выберите значок **Сохранить** вверху экрана.
-

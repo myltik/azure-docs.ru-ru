@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0974b9eda2cb7e3ba54a4a0fad0a768db644caf9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-11-run-a-test-failover-for-hyper-v-replication-to-azure"></a>Шаг 11. Выполнение тестовой отработки отказа для репликации Hyper-V в Azure
 
 В этой статье описано, как запустить тестовую отработку отказа для локальных виртуальных машин Hyper-V (которыми не управляет System Center VMM) в Azure с помощью службы [Azure Site Recovery](site-recovery-overview.md) на портале Azure.
@@ -100,5 +98,4 @@ ms.lasthandoff: 08/21/2017
 
 - [Узнайте больше](site-recovery-failover.md) о разных типах отработки отказа и способах их выполнения.
 - [См. сведения в этой статье](site-recovery-failback-from-azure-to-hyper-v.md), если вам нужно выполнить восстановление размещения и репликацию виртуальных машин Azure на основном локальном сайте Hyper-V.
-
 

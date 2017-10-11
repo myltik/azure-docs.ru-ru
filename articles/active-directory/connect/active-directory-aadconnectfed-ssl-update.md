@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: anandy
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
-ms.contentlocale: ru-ru
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/03/2017
-
----    
-
+---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Обновление SSL-сертификата для фермы служб федерации Active Directory (AD FS)
 
 ## <a name="overview"></a>Обзор
@@ -108,4 +106,3 @@ Azure AD Connect попытается автоматически получит�
 
 - [Azure AD Connect и федерация](active-directory-aadconnectfed-whatis.md)
 - [Управление службами федерации Active Directory и их настройка с помощью Azure AD Connect](active-directory-aadconnect-federation-management.md)
-

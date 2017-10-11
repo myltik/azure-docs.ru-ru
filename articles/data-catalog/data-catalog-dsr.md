@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1ef3903bc4c401988c0f8b27dc9f9f0f3ec99466
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: d6867c73bc6ea3c238cceef8a68466d451f3365c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Источники данных, поддерживаемые в каталоге данных Azure
 
 Вы можете публиковать метаданные с помощью общедоступного API или средства быстрой регистрации, или вручную, указав данные непосредственно на веб-портале каталога данных Azure. В следующей таблице перечислены все источники данных, поддерживаемые каталогом в настоящее время, и возможности публикации для каждого из них. Здесь же перечислены внешние средства работы с данными, которые каждый источник данных может запускать из портала. Во второй таблице содержатся технические характеристики свойств подключения каждого источника данных.
@@ -980,4 +978,3 @@ ms.lasthandoff: 07/08/2017
       </td>
     </tr>
 </table>
-

@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 61adb7ae8fddc3cf423ee4558308eb9ded11fea3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 2466e823c448ada4dc7bc5769b1b7f10bbb5dc7d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Служебная программа для миграции в хранилище данных (предварительная версия)
 > [!div class="op_single_selector"]
@@ -69,4 +67,3 @@ ms.lasthandoff: 02/16/2017
 
 <!--Other Web references--> 
 [Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
-

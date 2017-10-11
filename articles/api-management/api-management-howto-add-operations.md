@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Добавление операций в API в Azure API Management
 Прежде чем API может быть использован в API Management, должны быть добавлены операции. Это руководство описывает добавление и настройку операций различного типа в интерфейсе API в API Management.
@@ -171,4 +169,3 @@ ms.lasthandoff: 07/06/2017
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to cache operation results in Azure API Management]: api-management-howto-cache.md
-

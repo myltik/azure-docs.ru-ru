@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f9d586a140b27f672f8cff463ba0607e2bd844f
-ms.openlocfilehash: 6f2a184242f3f69bdc4a15ac02c095a45c723565
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 127fd6e3012bdb0788ed23ae5e8921df651d863b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="more-telemetry-from-application-insights"></a>Дополнительные данные телеметрии из Application Insights
 После [добавления Application Insights в код ASP.NET](app-insights-asp-net.md)можно сделать еще кое-что, чтобы получать дополнительные данные телеметрии. 
@@ -31,7 +30,6 @@ ms.lasthandoff: 02/08/2017
 |Убедитесь, что MSBuild создает [файл BuildInfo.config](https://msdn.microsoft.com/library/dn449058.aspx)|[Создание заметок к диаграммам метрик](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
 |[Напишите собственные события и систему телеметрии](app-insights-api-custom-events-metrics.md)|Учет бизнес-событий и метрик, отслеживание подробных сведений об использовании и многое другое|
 |[Выполните профилирование активного сайта](https://aka.ms/AIProfilerPreview)|Подробные временные показатели функций из активного веб-приложения|
-
 
 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: 7497ec2ca658c3790227c56ef1755d9a1cb74e0a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/22/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Служба синхронизации Azure AD Connect: общие сведения о декларативной подготовке
 В этой статье объясняется используемая в Azure AD Connect модель конфигурации, именуемая декларативной подготовкой. Она позволяет без труда вносить изменения в конфигурацию. Некоторые сложные аспекты, описанные в этой статье, не предназначены для большинства клиентских сценариев.
@@ -163,4 +162,3 @@ ms.lasthandoff: 08/22/2017
 **Справочные материалы**
 
 * [Синхронизация Azure AD Connect: справочник по функциям](active-directory-aadconnectsync-functions-reference.md)
-

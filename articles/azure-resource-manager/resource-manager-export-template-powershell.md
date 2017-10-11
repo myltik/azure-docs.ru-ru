@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 74bf865d796c965b4843092215639b32f033d807
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 7543811eb9448222b6e7c266756e68debc7d54be
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Экспорт шаблонов Azure Resource Manager с помощью PowerShell
 
@@ -222,4 +221,3 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
 * Дополнительные сведения об экспорте шаблона с помощью портала см. в статье [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
 * Сведения об определении параметров в шаблоне см. в разделе [Создание шаблонов](resource-group-authoring-templates.md#parameters).
 * Советы по устранению распространенных ошибок развертывания см. в разделе [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
-

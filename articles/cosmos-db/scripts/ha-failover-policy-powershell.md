@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da3c16a433cf31272375a36bb4f84a210f803478
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 16da3cd543ccbb7fe346261f91d2e9a3ceaf3a8b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>Создание политики отработки отказа базы данных Azure Cosmos DB для обеспечения высокой доступности с помощью PowerShell
 
 Этот пример скрипта PowerShell создает политику отработки отказа для обеспечения высокой доступности базы данных Azure Cosmos DB. 

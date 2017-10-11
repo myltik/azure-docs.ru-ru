@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: 62d01333b61e73c83588d2d1701c0c300df4ab1c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Руководство. Интеграция Azure Active Directory с Egnyte
 
@@ -284,5 +283,4 @@ ms.lasthandoff: 06/20/2017
 [201]: ./media/active-directory-saas-egnyte-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-egnyte-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-egnyte-tutorial/tutorial_general_203.png
-
 

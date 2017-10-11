@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 307373c75bbb87cec683f7a3097f8f159c9d5e61
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Самостоятельная регистрация на портале для службы совместной работы Azure AD B2B
 
 С помощью встроенных функций, предоставленных для ИТ-администраторов через [портал Azure](https://portal.azure.com) и [панель доступа к приложениям](https://myapps.microsoft.com) для пользователей, клиенты могут выполнять множество различных операций. Но мы также знаем, что предприятиям требуется настроить рабочий процесс регистрации для пользователей B2B с учетом потребностей конкретной организации. Они могут это сделать с помощью [нашего интерфейса API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).

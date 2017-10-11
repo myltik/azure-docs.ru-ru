@@ -15,15 +15,13 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: d999cc5ce3527539bbdf868912d5b2f6f470c21e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 05dd28bf850a84ff4644c46a45bd941b7c6e7d01
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
-# Общие сведения о пользовательском интерфейсе Synchronization Service Manager Azure AD Connect
-<a id="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui" class="xliff"></a>
+# <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Общие сведения о пользовательском интерфейсе Synchronization Service Manager Azure AD Connect
 
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 
@@ -34,9 +32,7 @@ ms.lasthandoff: 02/28/2017
 
 Перейдите по ссылкам в верхней части этого раздела, чтобы узнать больше о различных вкладках в этом пользовательском интерфейсе.
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов
 В этом разделе приводятся сведения о модели развертывания с помощью Azure Resource Manager, классической модели развертывания, состоянии ресурсов и о том, почему для развертывания ресурсов используется тот или иной метод. Модель развертывания с помощью Azure Resource Manager и классическая модель представляют собой два разных способа развертывания решений Azure и управления ими. При работе с ними применяются два разных набора API, и развернутые ресурсы могут содержать важные различия. Две модели не являются полностью совместимыми друг с другом. В данном разделе описываются эти различия.
@@ -218,5 +217,4 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 ## <a name="next-steps"></a>Дальнейшие действия
 * Пошаговые инструкции по созданию шаблона, который определяет виртуальную машину, учетную запись хранения и виртуальную сеть, см. в статье [Пошаговое руководство по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md).
 * Команды для развертывания шаблонов см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md).
-
 

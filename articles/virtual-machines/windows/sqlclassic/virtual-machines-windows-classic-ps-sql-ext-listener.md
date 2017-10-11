@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Настройка внешнего прослушивателя для групп доступности AlwaysOn в Azure
 > [!div class="op_single_selector"]
@@ -133,5 +132,4 @@ ms.lasthandoff: 06/01/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-
 

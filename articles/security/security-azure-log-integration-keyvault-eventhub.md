@@ -11,14 +11,12 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 02dde6366a8897a060df451c7f514f79e6733681
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Руководство по интеграции журналов Azure. Обработка событий Azure Key Vault с помощью концентраторов событий
 
 Службу интеграции журналов Azure можно использовать для получения зарегистрированных событий журнала и обеспечения их доступности для системы SIEM. В этом руководстве предоставляется поэтапный пример использования службы интеграции журналов Azure для обработки журналов, полученных из концентраторов событий.
@@ -182,4 +180,3 @@ ms.lasthandoff: 08/23/2017
 - [Интеграция журналов Azure: часто задаваемые вопросы](security-azure-log-integration-faq.md)
 - [Приступая к работе со службой интеграции журналов Azure](security-azure-log-integration-get-started.md)
 - [Интеграция журналов из ресурсов Azure в системы SIEM](security-azure-log-integration-overview.md)
-

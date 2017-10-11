@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Знакомство с кэшем Redis для Azure уровня Премиум
 Кэш Redis для Azure — это распределенный управляемый кэш, который позволяет создавать быстрые приложения с высокой степенью масштабируемости благодаря тому, что обеспечивается сверхбыстрый доступ к данным. 
@@ -102,5 +101,4 @@ ms.lasthandoff: 07/06/2017
 * [Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md)
 * [Как импортировать данные из кэша Redis для Azure и экспортировать данные из него](cache-how-to-import-export-data.md)
 * [Администрирование кэша Redis для Azure](cache-administration.md)
-
 

@@ -12,12 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
 ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/10/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-azure-search-index"></a>Создание индекса Поиска Azure
 > [!div class="op_single_selector"]
@@ -66,5 +65,4 @@ ms.lasthandoff: 12/10/2016
 Проектируя индекс, тщательно продумайте каждое решение на этапе планирования. При проектировании индекса важно помнить о бизнес-потребностях и удобстве работы с поиском, поэтому каждому полю необходимо назначить [правильные атрибуты](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Изменение индекса после развертывания повлечет за собой перестройку и повторную загрузку данных.
 
 Если требования к хранилищу данных со временем изменятся, можно увеличить или уменьшить емкость, добавляя или удаляя разделы. Дополнительные сведения см. в статьях [Управление службой поиска в Microsoft Azure](search-manage.md) и [Ограничения поиска Azure](search-limits-quotas-capacity.md).
-
 

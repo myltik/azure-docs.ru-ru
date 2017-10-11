@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 66c4a82153dccd82977cf42c5bb9de2a8a8d6255
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: f203b2a532ea721d9797c67a4750896e3ab2b9f7
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="smart-detection-in-application-insights"></a>Интеллектуальное обнаружение в Application Insights
  Функция интеллектуального обнаружения автоматически предупреждает о потенциальных проблемах с производительностью в веб-приложении. Она выполняет упреждающий анализ данных телеметрии, которые приложение отправляет в [Application Insights](app-insights-overview.md). В случае внезапного увеличения частоты сбоев или числа аномальных тенденций в производительности клиента или сервера вы получите оповещение. Эта функция не требует настройки. Она работает, если приложение отправляет достаточный объем данных телеметрии.
@@ -63,5 +62,4 @@ ms.lasthandoff: 08/17/2017
 
 * [Настройка оповещений в Application Insights](app-insights-alerts.md)
 * [Доступность веб-тестов](app-insights-monitor-web-app-availability.md) 
-
 

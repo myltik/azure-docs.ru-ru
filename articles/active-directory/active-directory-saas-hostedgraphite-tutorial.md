@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: f6ed02cc67be4090402a115c30819ff6cff99c99
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Учебник. Интеграция Azure Active Directory с Hosted Graphite
 
@@ -112,9 +110,9 @@ ms.lasthandoff: 06/22/2017
 
     ![Настройка единого входа](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:  `https://www.hostedgraphite.com/metadata/<user id>`
+    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:  `https://www.hostedgraphite.com/complete/saml/<user id>`.
+    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://www.hostedgraphite.com/complete/saml/<user id>`.
 
 4. Если вы хотите настроить приложение в **режиме, инициированном поставщиком услуг**, то в разделе **Домены и URL-адреса Hosted Graphite** сделайте следующее:
    
@@ -265,5 +263,4 @@ ms.lasthandoff: 06/22/2017
 [201]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_203.png
-
 

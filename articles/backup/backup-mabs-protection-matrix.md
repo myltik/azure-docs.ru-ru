@@ -12,14 +12,12 @@ ms.date: 05/15/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-backup-server-protection-matrix"></a>Таблица защиты посредством Azure Backup Server
 
 В этой статье перечислены различные серверы и рабочие нагрузки, которые можно защищать с помощью Azure Backup Server. В приведенной ниже таблице перечислены компоненты, которые можно защищать с помощью Azure Backup Server версий 1 и 2.
@@ -112,4 +110,3 @@ Azure Backup Server может защищать данные в следующи
 -   SQL Server — Azure Backup Server не поддерживает резервное копирование баз данных SQL Server, размещенных в общих томах кластера (CSV).
 
 Azure Backup Server может защищать рабочие нагрузки кластера, размещенные в том же домене, что и сервер DPM, а также в дочернем или доверенном домене. Если необходимо защитить источники данных в недоверенных доменах или рабочих группах, используйте проверку подлинности NTLM или на основе сертификата для отдельного сервера либо проверку подлинности на основе сертификата только для кластера.
-

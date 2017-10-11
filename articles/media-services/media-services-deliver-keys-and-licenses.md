@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 69019f41bcc72b71bcc7d0bf8a66fe37d5243b7b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Использование служб мультимедиа Azure для доставки лицензий DRM или ключей AES
 Службы мультимедиа Azure (AMS) позволяют принимать и кодировать содержимое, добавлять функции защиты содержимого, а также передавать содержимое в потоковом режиме (см. [эту статью](media-services-protect-with-drm.md)). Однако некоторые клиенты хотят использовать AMS только для доставки лицензий и (или) ключей, а выполнять кодирование, шифрование и потоковую передачу содержимого — с помощью своих локальных серверов AMS. В этой статье содержатся сведения об использовании AMS для доставки лицензий PlayReady и (или) Widevine и использовании локальных серверов для остальных задач. 
@@ -338,5 +337,4 @@ ms.lasthandoff: 07/19/2017
 [Использование динамического шифрования AES-128 и службы доставки ключей](media-services-protect-with-aes128.md)
 
 [Использование партнеров для доставки лицензий Widevine для служб мультимедиа Azure](media-services-licenses-partner-integration.md)
-
 

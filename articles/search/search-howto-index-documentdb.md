@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Подключение Cosmos DB к службе поиска Azure с помощью индексаторов
 
@@ -298,4 +297,3 @@ ms.lasthandoff: 08/10/2017
 
 * Дополнительные сведения о базе данных Azure Cosmos DB см. на [странице службы Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 * Дополнительные сведения о Поиске Azure см. на [странице документации по службе поиска](https://azure.microsoft.com/services/search/).
-

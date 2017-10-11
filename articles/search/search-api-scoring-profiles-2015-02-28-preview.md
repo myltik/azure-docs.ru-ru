@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a67637d149a84313270c03d21acf8a9c1870be05
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scoring-profiles-azure-search-rest-api-version-2015-02-28-preview"></a>Профили оценки (API REST службы "Поиск Azure", версия 2015-02-28-Preview)
 > [!NOTE]
 > В этой статье описываются профили оценки, доступные в версии [2015-02-28-Preview](search-api-2015-02-28-preview.md). Сейчас нет различий между версией `2016-09-01`, описанной на сайте [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx), и версией `2015-02-28-Preview`, описанной в этой статье. Однако мы предлагаем этот документ, чтобы обеспечить полную документацию по API.
@@ -276,8 +274,7 @@ ms.lasthandoff: 03/31/2017
 * `Quadratic`: по сравнению с линейной интерполяцией с постоянно убывающим повышением приоритета квадратичная интерполяционная функция сначала уменьшается не так быстро, а по мере приближения к конечному диапазону уменьшается на гораздо большую величину. Этот тип интерполяции невозможно использовать в функциях оценки tag.
 * `Logarithmic`: по сравнению с линейной интерполяцией с постоянно убывающим повышением приоритета логарифмическая интерполяционная функция сначала уменьшается быстрее, а по мере приближения к конечному диапазону уменьшается на гораздо меньшую величину. Этот тип интерполяции невозможно использовать в функциях оценки tag.
 
-<a name="Figure1"></a>
- ![][1]
+<a name="Figure1"></a> ![][1]
 
 <a name="bkmk_boostdur"></a>
 
@@ -297,11 +294,10 @@ ms.lasthandoff: 03/31/2017
 
 Дополнительные примеры см. в [документе о типах данных в схеме XML (веб-сайт W3.org)](http://www.w3.org/TR/xmlschema11-2/).
 
-**Ознакомьтесь также с разделом**
-[REST службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) на сайте MSDN. <br/>
+**Ознакомьтесь также с разделом** 
+[Azure Search Service REST](http://msdn.microsoft.com/library/azure/dn798935.aspx) (REST службы поиска Azure) на сайте MSDN. <br/>
 [Создание индекса (API Поиска Azure)](http://msdn.microsoft.com/library/azure/dn798941.aspx) (на сайте MSDN).<br/>
 [Добавление профиля оценки в индекс поиска](http://msdn.microsoft.com/library/azure/dn798928.aspx) (на сайте MSDN).<br/>
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-

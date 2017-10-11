@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 4065727aef04d7969d438c6ef79127bb44568be1
-ms.contentlocale: ru-ru
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="set-up-your-project"></a>Настройка проекта
 
 В этом разделе содержатся пошаговые инструкции по созданию проекта, чтобы продемонстрировать, как интегрировать классическое приложение для Windows .NET (XAML) с *входом с учетной записью Майкрософт*, что позволит выполнять запрос к веб-API, требующим маркер.
@@ -92,4 +91,3 @@ public partial class App : Application
     </StackPanel>
 </Grid>
 ```
-

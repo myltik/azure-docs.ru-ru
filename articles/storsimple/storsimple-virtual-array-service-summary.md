@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 284e404c44505a98d9e0ed5abe87cd945415af56
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Использование колонки сводных данных о службе в диспетчере устройств StorSimple, подключенному к виртуальному массиву StorSimple
 ## <a name="overview"></a>Обзор
@@ -47,5 +46,4 @@ ms.lasthandoff: 01/26/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте, как с помощью локального веб-интерфейса [администрировать виртуальный массив StorSimple](storsimple-ova-web-ui-admin.md).
-
 

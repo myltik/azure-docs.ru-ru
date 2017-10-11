@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: 39bb294c96ce0c12d91cf8b3488ac3e1a7b2f7b2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Настройка облачных служб
 > [!div class="op_single_selector"]
@@ -77,5 +76,4 @@ ms.lasthandoff: 07/19/2017
 * [Управляйте облачной службой](cloud-services-how-to-manage.md).
 * [Активация подключения к удаленному рабочему столу для роли в облачных службах Azure](cloud-services-role-enable-remote-desktop.md)
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate.md).
-
 

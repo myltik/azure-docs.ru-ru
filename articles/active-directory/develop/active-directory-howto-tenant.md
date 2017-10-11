@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Как получить клиент Azure Active Directory
 В Azure Active Directory (Azure AD) [клиент](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) представляет организацию.  Это выделенный экземпляр службы Azure AD, который она получает и которым владеет при подписке на облачные службы Майкрософт, такие как Azure, Office 365 или Microsoft Intune.  Каждый клиент Azure AD отделен от остальных клиентов Azure AD.  
@@ -65,4 +64,3 @@ ms.lasthandoff: 04/14/2017
 Если вам не понятно ничего из указанного выше, не беспокойтесь.  Просто перейдите по адресу [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) , чтобы подписаться на Azure для новой организации.  После выполнения процесса вы получите собственный клиент Azure AD с доменным именем, выбранным во время подписки.  Его можно найти на [портале Azure](https://portal.azure.com) в разделе Azure Active Directory, расположенном на панели навигации слева.
 
 При регистрации для получения подписки Azure вам потребуется предоставить информацию о кредитной карте.  Не беспокойтесь, плата за публикацию приложений в Azure AD или создание новых клиентов не взимается.
-

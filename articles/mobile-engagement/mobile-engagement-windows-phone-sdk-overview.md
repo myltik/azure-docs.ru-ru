@@ -1,6 +1,6 @@
 ---
 title: "Общие сведения о пакете SDK для Windows Phone Silverlight для Служб мобильного взаимодействия Azure | Документация Майкрософт"
-description: "Общие сведения о пакете SDK для Windows Phone Silverlight для Azure Mobile Engagement"
+description: "Общие сведения о пакете SDK для Windows Phone Silverlight для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,26 +14,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Общие сведения о пакете SDK для Windows Phone Silverlight для Azure Mobile Engagement
-Начните с этой статьи, чтобы получить подробную информацию об интеграции Azure Mobile Engagement в приложение Windows Phone Silverlight. Если вы хотите потренироваться, обязательно пройдите наш [15-минутный учебник](mobile-engagement-windows-phone-get-started.md).
+# <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Общие сведения о пакете SDK для Windows Phone Silverlight для Служб мобильного взаимодействия Azure
+Начните с этой статьи, чтобы получить подробную информацию об интеграции Служб мобильного взаимодействия Azure в приложение Windows Phone Silverlight. Если вы хотите потренироваться, обязательно пройдите наш [15-минутный учебник](mobile-engagement-windows-phone-get-started.md).
 
 Щелкните, чтобы просмотреть [содержимое пакета SDK](mobile-engagement-windows-phone-sdk-content.md)
 
 ## <a name="integration-procedures"></a>Процедуры по интеграции
-1. Начните с этого раздела: [Как интегрировать Mobile Engagement в приложение Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+1. Начните с этого раздела: [Как интегрировать Службы мобильного взаимодействия в приложение Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 2. Сведения об уведомлениях: [Как интегрировать Reach (Notifications) в приложение Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement-reach.md)
-3. Реализация плана добавления тегов: [Как использовать API для расширенного добавления тегов Mobile Engagement в приложении Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md)
+3. Реализация плана добавления тегов: [Как использовать API для расширенного добавления тегов Служб мобильного взаимодействия в приложении Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Заметки о выпуске
 ###<a name="331-11032016"></a>3.3.1 (11/03/2016)
-Входит в пакет NuGet *MicrosoftAzure.MobileEngagement***версии&3;.4.1**
+Входит в пакет NuGet *MicrosoftAzure.MobileEngagement***версии 3.4.1**
 
 * Улучшение стабильности.
 
@@ -53,5 +52,4 @@ ms.lasthandoff: 02/09/2017
 
 ### <a name="upgrade-from-older-versions"></a>Обновление предыдущих версий
 См. статью [Процедуры обновления SDK универсальных приложений для Windows](mobile-engagement-windows-phone-upgrade-procedure.md).
-
 

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9c6eab099057ef91f79ff1a97e1cc1bd397fc946
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 9b8f96b34b53982c469273a3df9751ceb7930d60
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Мониторинг кластера DC/OS в Службе контейнеров Azure с помощью Operations Management Suite
 
 Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее. Контейнер OMS — это решение в OMS Log Analytics, которое помогает просматривать сведения, касающиеся инвентаризации и производительности контейнеров, а также соответствующие журналы в одном расположении. Оно позволяет выполнять аудит и устранять неполадки контейнеров, просматривая журналы в централизованном расположении, а также находить контейнеры с высоким уровнем потребления ресурсов на узле.
@@ -52,8 +50,7 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. Здесь вам будет предложено ввести `wsid` (идентификатор рабочей области OMS) и `wskey` (первичный ключ OMS для идентификатора рабочей области). Чтобы получить `wsid` и `wskey`, необходимо создать учетную запись OMS, перейдя по адресу <https://mms.microsoft.com>.
-Следуйте инструкциям, чтобы создать учетную запись. После создания учетной записи необходимо получить `wsid` и `wskey`, щелкнув **Параметры**, **Подключенные источники**, а затем — **Серверы с Linux**, как показано ниже.
+3. Здесь вам будет предложено ввести `wsid` (идентификатор рабочей области OMS) и `wskey` (первичный ключ OMS для идентификатора рабочей области). Чтобы получить `wsid` и `wskey`, необходимо создать учетную запись OMS, перейдя по адресу <https://mms.microsoft.com>. Следуйте инструкциям, чтобы создать учетную запись. После создания учетной записи необходимо получить `wsid` и `wskey`, щелкнув **Параметры**, **Подключенные источники**, а затем — **Серверы с Linux**, как показано ниже.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -117,4 +114,3 @@ $ dcos package uninstall msoms
 ## <a name="next-steps"></a>Дальнейшие действия
 
  Теперь, когда вы настроили OMS для мониторинга контейнеров, [просмотрите свою панель мониторинга контейнера](../../log-analytics/log-analytics-containers.md).
-

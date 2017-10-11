@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5f10f6dc878d92337a37bbc4b16edf3962d53cc6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/26/2017
-
-
+ms.openlocfilehash: 73b8ed7e6a153a0790f7eae9bd51bb2e554ae72e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Включение единого входа в нескольких приложениях iOS с помощью ADAL
 Современные клиенты ожидают предоставления возможности единого входа, которая позволяет пользователям ввести учетные данные только один раз, после чего они смогут автоматически входить в разные приложения. Сложность ввода имени пользователя и пароля на маленьком экране, часто с дополнительной проверкой подлинности, например посредством звонка по телефону или кода в SMS, приводит к неудовлетворенности пользователя, если ему приходится это делать больше одного раза.
@@ -298,11 +296,9 @@ ADAL использует –canOpenURL для проверки того, уст
 
 <key>LSApplicationQueriesSchemes</key>
 
-<array>
-     <string>msauth</string>
+<array><string>msauth</string>
 </array>
 
 ### <a name="youve-configured-sso"></a>Вы настроили единый вход!
 Теперь пакет SDK для Microsoft Identity будет автоматически предоставлять учетные данные в приложения и вызывать брокера, если он есть на устройстве.
-
 

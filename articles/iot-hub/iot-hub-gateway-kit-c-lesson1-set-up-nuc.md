@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: b9e842a93dfdb7699158a11978aa622c31382d28
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: 1a3a92ab8d08c6ed6f047208217c46022027157e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Настройка Intel NUC в качестве шлюза Интернета вещей
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -174,5 +173,4 @@ vim log.txt
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Использование шлюза Интернета вещей для подключения устройства к Центру Интернета вещей Azure](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-
 

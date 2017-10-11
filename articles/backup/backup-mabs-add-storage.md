@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 751b9b495fd368dff1f72429707f5f33a0ccb569
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="add-storage-to-azure-backup-server-v2"></a>Добавление хранилища на Azure Backup Server версии 2
 
 Azure Backup Server версии 2 поставляется с Modern Backup Storage System Center 2016 Data Protection Manager. Modern Backup Storage обеспечивает до 50 % экономии пространства хранения, архивацию, которая в три раза быстрее, и более эффективное хранилище. Кроме того, предлагается хранение с учетом рабочих нагрузок. 
@@ -104,5 +102,4 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 - [Подготовка к резервному копированию рабочих нагрузок с использованием Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 - [Резервное копирование сервера VMware в Azure](backup-azure-backup-server-vmware.md)
 - [Архивация баз данных SQL Server в Azure с помощью Azure Backup Server](backup-azure-sql-mabs.md)
-
 

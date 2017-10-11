@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: fa30c78a5a5d458ba8845c3c10b87538427786c9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Настройка Tomcat7 на виртуальной машине Linux с использованием Azure
 Apache Tomcat (или просто Tomcat, ранее также именуемый Jakarta Tomcat) — это веб-сервер с открытым исходным кодом и контейнер сервлетов, разработанный Apache Software Foundation (ASF). Tomcat реализует спецификации технологий Java Servlet и JavaServer Pages (JSP) от Sun Microsystems, а также обеспечивает чистую среду HTTP-веб-серверов Java для выполнения Java-кода. При самой простой конфигурации Tomcat запускается с помощью одного процесса в операционной системе. Этот процесс запускает виртуальную машину Java. Каждый HTTP-запрос браузера к серверу Tomcat обрабатывается как отдельный поток в рамках процесса Tomcat.  
@@ -331,4 +330,3 @@ TCP-порт 8080 — номер порта по умолчанию, котор
 [16]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
-

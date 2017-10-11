@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 4dfd3973593a94adfc15a6e15d69c697e13998af
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-01-release-notes--october-2014"></a>Заметки о выпуске, посвященные обновлению 0.1 для устройств серии StorSimple 8000. Октябрь 2014 г.
 ## <a name="overview"></a>Обзор
@@ -95,5 +94,4 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="virtual-device-updates-in-the-october-release"></a>Обновления виртуального устройства в октябрьском выпуске
 Эта версия не содержит никаких обновлений для виртуального устройства. Установка этого обновления не приведет к изменению версии программного обеспечения виртуального устройства.
-
 

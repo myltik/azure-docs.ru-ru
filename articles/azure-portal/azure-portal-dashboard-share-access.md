@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Предоставление общего доступа к панелям мониторинга Azure с помощью управления доступом на основе ролей
 После настройки панели мониторинга ее можно опубликовать и использовать совместно с другими пользователями в организации. Вы можете предоставить другим пользователям доступ к панели мониторинга Azure с помощью [управления доступом на основе ролей](../active-directory/role-based-access-control-configure.md). Роль назначается пользователю или группе пользователей. Она определяет, можно ли пользователям просматривать или изменять опубликованную панель мониторинга. 
@@ -34,9 +33,9 @@ ms.lasthandoff: 08/25/2017
 ## <a name="understanding-access-control-for-dashboards"></a>Общие сведения о контроле доступа для панелей мониторинга
 С помощью управления доступом на основе ролей пользователям можно назначать роли на трех разных уровнях:
 
-* подписка;
-* группа ресурсов;
-* ресурс.
+* Подписка
+* resource group
+* resource
 
 Разрешения, которые вы назначаете, наследуются от подписки до ресурса. Опубликованная панель мониторинга — это ресурс. Значит, пользователям уже могут быть назначены роли для подписки, которая также относится к опубликованной панели мониторинга. 
 
@@ -77,5 +76,4 @@ ms.lasthandoff: 08/25/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о списке ролей см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
 * Сведения об управлении ресурсами см. в статье [Manage Azure resources through portal](resource-group-portal.md) (Управление ресурсами Azure через портал).
-
 

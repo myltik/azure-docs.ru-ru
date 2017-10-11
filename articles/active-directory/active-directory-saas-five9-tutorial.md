@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: d75163ea5eb3fa811e07861f06e6c4d5c758b898
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Руководство по интеграции Azure Active Directory с Five9 Plus Adapter (CTI, Contact Center Agents)
 
@@ -242,5 +241,4 @@ ms.lasthandoff: 07/18/2017
 [201]: ./media/active-directory-saas-five9-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-five9-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-five9-tutorial/tutorial_general_203.png
-
 
