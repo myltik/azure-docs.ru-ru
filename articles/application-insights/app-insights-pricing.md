@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 311cee724fc77256748153b5167d2a38ccba9775
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 65d11d30e23cd7671b769c3c17e4aba32c432340
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Управление ценами и объемом данных в Application Insights
 
@@ -187,5 +186,4 @@ ms.lasthandoff: 06/09/2017
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-
 

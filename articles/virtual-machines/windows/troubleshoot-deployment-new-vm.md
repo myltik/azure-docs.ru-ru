@@ -16,12 +16,11 @@ ms.topic: troubleshooting
 ms.date: 06/26/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 42cf9c3f0198b1fb8bcc84532c004c576b30d935
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 86795ba6eab3505a3d539e4fc4e032bdeecc2e78
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Устранение неполадок развертывания при создании виртуальной машины Windows в Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -91,5 +90,4 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При возникновении проблем во время запуска остановленной виртуальной машины Windows или в случае изменения размера существующей виртуальной машины Windows в Azure см. раздел [Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

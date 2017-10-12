@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Получение уведомлений при выполнении условия в значении метрики
 
 Azure Monitor предоставляет доступ к метрикам многим ресурсам Azure. Эти метрики передают значения производительности и работоспособности этих ресурсов. Во многих случаях значения метрик могут указывать, что с ресурсом возникла проблема. Вы можете создать оповещения метрик, чтобы отслеживать ненормальное поведение и получать уведомления при его возникновении. Это краткое руководство содержит сведения по созданию приложения логики, созданию задания и визуализации метрик для приложения логики. Здесь также описаны сведения о создании оповещений и получении уведомлений о метриках для ресурса приложения логики.
@@ -28,7 +26,7 @@ Azure Monitor предоставляет доступ к метрикам мно
 
 ## <a name="sign-in-to-the-azure-portal"></a>Выполните вход на портал Azure.
 
-Войдите на [портал Azure](https://portal.azure.com/).
+Выполните вход на [портал Azure](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Создание приложения логики
 
@@ -116,4 +114,3 @@ Azure Monitor предоставляет доступ к метрикам мно
 
 > [!div class="nextstepaction"]
 > [Аудит и получение уведомлений о важных действиях в подписке Azure](./monitor-quick-audit-notify-action-in-subscription.md )
-

@@ -16,10 +16,10 @@ ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e850370faf2d271b4adad1af48c1ead7b316fa67
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-iot-hub-metrics"></a>Общие сведения о метриках Центра Интернета вещей
 Метрики Центра Интернета вещей предоставляют более качественные данные о состоянии ресурсов Интернета вещей Azure в вашей подписке Azure. Метрики Центра Интернета вещей позволяют оценивать общую работоспособность службы Центра Интернета вещей и подключенных к ней устройств. Доступные пользователям статистические данные имеют важное значение, поскольку благодаря им вы знаете, что происходит с центром IoT, и можете устранять основные проблемы без обращения в службу поддержки Azure.

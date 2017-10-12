@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jgao
+ms.openlocfilehash: c1aeed8c6fe4f83b170838e4efb9d9c4744fb951
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 9ad482a932c56aa2585560eb74cf4cef06a6fa52
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Создание приложения .NET HDInsight с неинтерактивной проверкой подлинности
 Приложение Microsoft .NET Azure HDInsight можно запустить с помощью его собственного удостоверения (неинтерактивный режим) или удостоверения пользователя, вошедшего в приложение (интерактивный режим). В этой статье описано, как создать приложение .NET с неинтерактивной проверкой подлинности для подключения к Azure и управления HDInsight. Пример интерактивного приложения см. в разделе [Подключение к Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -40,7 +39,7 @@ ms.lasthandoff: 09/09/2017
 
 **Добавление роли владельца в приложение Azure AD**
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Выполните вход на [портал Azure](https://portal.azure.com).
 2. В меню слева выберите **Группа ресурсов**.
 3. Выберите группу ресурсов с кластером HDInsight, в котором позднее будет выполняться ваш запрос Hive. Если у вас много групп ресурсов, для поиска нужной можно использовать фильтр.
 4. В меню группы ресурсов щелкните **Управление доступом (IAM)**.
@@ -129,4 +128,3 @@ ms.lasthandoff: 09/09/2017
 * [Создание приложения Azure Active Directory и субъекта-службы на портале Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * Узнайте, как [выполнять проверку подлинности субъекта-службы в Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 * Узнайте, как [управлять доступом на основе ролей (RBAC) в Azure](../active-directory/role-based-access-control-configure.md).
-

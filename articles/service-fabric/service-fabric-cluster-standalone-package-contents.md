@@ -13,14 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: chackdan;maburlik
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 6a6bacedde04419449a061554d5ce9ad37259a2f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Содержимое изолированного пакета Service Fabric для Windows Server
 В [скачанном](http://go.microsoft.com/fwlink/?LinkId=730690) изолированном пакете Service Fabric для Windows Server вы найдете приведенные ниже файлы.
 
@@ -60,4 +58,3 @@ ms.lasthandoff: 08/12/2017
 ## <a name="related"></a>Сопутствующие материалы
 * [Создание изолированного кластера Azure Service Fabric](service-fabric-cluster-creation-for-windows-server.md)
 * [Сценарии защиты кластера Service Fabric](service-fabric-windows-cluster-windows-security.md)
-

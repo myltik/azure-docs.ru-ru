@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8274d48db034c8a2634ab28bd634c024b8ea055c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Упаковка и развертывание контейнеров в виде приложения Service Fabric
 
 Это руководство представляет собой вторую часть цикла. В нем описывается, как с помощью инструмента создания шаблонов (Yeoman) создать определение приложения Service Fabric. Это приложение затем можно использовать для развертывания контейнеров в Service Fabric. Из этого руководства вы узнаете, как выполнить следующие задачи: 
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/25/2017
 > * установка Yeoman;  
 > * создание пакета приложения с помощью Yeoman;
 > * настройка параметров в пакете приложения для контейнеров;
-> * создание приложения;  
+> * Создание приложения  
 > * развертывание и запуск приложения; 
 > * очистка приложения.
 
@@ -364,7 +362,7 @@ sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:190
 > * установка Yeoman;  
 > * создание пакета приложения с помощью Yeoman;
 > * настройка параметров в пакете приложения для контейнеров;
-> * создание приложения;  
+> * Создание приложения  
 > * развертывание и запуск приложения; 
 > * очистка приложения.
 
@@ -375,6 +373,5 @@ sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:190
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
-
 
 

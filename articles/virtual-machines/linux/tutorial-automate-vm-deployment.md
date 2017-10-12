@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 6adf4e43aa80c28c6f5f8d8a071966323ba85723
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Как настроить виртуальную машину Linux при первой загрузке
 В рамках предыдущего руководства вы узнали, как применить протокол SSH к виртуальной машине и установить nginx. Для быстрого и согласованного создания виртуальных машин, как правило, применяются средства автоматизации. Наиболее распространенный подход к настройке виртуальной машины при первой загрузке — использование [cloud-init](https://cloudinit.readthedocs.io). Из этого руководства вы узнали, как выполнять такие задачи:
 
@@ -286,4 +284,3 @@ az vm open-port \
 
 > [!div class="nextstepaction"]
 > [Создание образа настраиваемой виртуальной машины](./tutorial-custom-images.md)
-

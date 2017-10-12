@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
+ms.openlocfilehash: 086a853d0849ee22f992c9d3265f6988bcc7bd83
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc61be74d85a309c158716460b918baaf4fa94dc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Устранение неполадок шлюза виртуальной сети и подключений, используя Наблюдатель за сетями Azure
 
 > [!div class="op_single_selector"]
@@ -82,8 +80,8 @@ $requestBody = @"
 }
 "@
 
-}
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
+
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" -verbose
 ```
 
 Поскольку эта операция выполняется долго, URI для запроса операции и URI результата возвращаются в заголовке ответа, как показано в следующем примере.
@@ -116,7 +114,7 @@ null
 Используйте URI операций, чтобы запросить ход выполнения операции, как показано в следующем примере:
 
 ```powershell
-armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
+armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
 Во время выполнения операции ответ показывает состояние **InProgress** (Выполняется), как видно в следующем примере:
@@ -140,7 +138,7 @@ armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-000
 После того как возвратится состояние **Succeeded**, вызовите метод GET на URI operationResult, чтобы получить результаты.
 
 ```powershell
-armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
+armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
 Следующие ответы являются примерами стандартного ограниченного ответа, который возвращается при запросе результатов устранения неполадок шлюза. См. раздел [Анализ результатов](#understanding-the-results), чтобы понять значения свойств в ответе.
@@ -332,4 +330,3 @@ is a transient state while the Azure platform is being updated.",
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Если изменены параметры, которые мешают VPN-подключению, см. статью [Управление группами безопасности сети с помощью портала](../virtual-network/virtual-network-manage-nsg-arm-portal.md), чтобы найти сведения о группах безопасности сети и соответствующие правила безопасности.
-

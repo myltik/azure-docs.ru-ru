@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
+ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 18aa9837742082535a115efd47bdc4b8dfda8a6b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-network-monitoring-overview"></a>Обзор мониторинга сети Azure
 
 Клиенты создают комплексную сеть в Azure, администрируя и сочетая различные отдельные сетевые ресурсы, в том числе виртуальные сети, каналы ExpressRoute, шлюзы приложений, подсистемы балансировки нагрузки и многое другое. Мониторинг доступен для всех сетевых ресурсов. Мы называем его мониторингом на уровне ресурса.
@@ -133,7 +131,6 @@ ms.lasthandoff: 08/24/2017
 [logs]: ./media/network-watcher-monitoring-overview/logs.png
 [metrics]: ./media/network-watcher-monitoring-overview/metrics.png
 [nsl]: ./media/network-watcher-monitoring-overview/nsl.png
-
 
 
 

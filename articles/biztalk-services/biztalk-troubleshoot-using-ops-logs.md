@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Службы BizTalk: устранение неполадок с помощью журналов операций
 
@@ -38,7 +36,7 @@ ms.lasthandoff: 05/31/2017
 ## <a name="view-biztalk-services-operation-logs"></a>Просмотр журналов операций служб BizTalk
 1. На классическом портале Azure выберите **Службы управления**, а затем выберите вкладку **Журналы операций**.
 2. Можно фильтровать журналы по различным параметрам, таким как подписки, диапазон дат, тип службы (например, службы BizTalk), имя службы или состояние операции (например, "Успешно", "Ошибка").
-3. Щелкните флажок, чтобы просмотреть отфильтрованный список. На следующем рисунке показаны действия, связанные с тестовой службой BizTalk:  ![Просмотр журналов действий][ViewLogs] 
+3. Щелкните флажок, чтобы просмотреть отфильтрованный список. На следующем рисунке показаны действия, связанные с тестовой службой BizTalk: ![Просмотр журналов действий][ViewLogs] 
 4. Чтобы узнать больше о конкретной операции, выберите строку и щелкните **Подробности** на панели задач в нижней части страницы.
 
 ## <a name="bizops"></a>Операции, отслеживаемые с помощью служб управления Azure
@@ -74,5 +72,4 @@ ms.lasthandoff: 05/31/2017
 * [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
-
 

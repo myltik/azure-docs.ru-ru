@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4050fdc2056df395bbcc37e3783f61eebd90f80a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Сборник тренировочных заданий по решению для аналитики телеметрии автомобиля. Подробный обзор решения
 В этом **меню** содержатся ссылки на разделы сборника тренировочных заданий: 
@@ -699,5 +698,4 @@ Power BI предоставляет для этого решения расши
 
 ## <a name="summary"></a>Сводка
 Этот документ содержит подробные сведения о решении для аналитики телеметрии автомобилей. Здесь показан шаблон лямбда-архитектуры для анализа в режиме реального времени и пакетного анализа с прогнозами и действиями. Этот шаблон подходит для самых разнообразных сценариев использования, в которых требуется использование «горячего» (в режиме реального времени) и «холодного» (пакетного) анализа. 
-
 

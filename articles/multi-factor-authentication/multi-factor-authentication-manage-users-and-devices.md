@@ -15,12 +15,11 @@ ms.date: 06/23/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: e9b8504d4a59cf0fae69a4e975d6f834028066d5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Управление параметрами пользователей в облаке с помощью Многофакторной идентификации Azure
 Как администратор вы можете управлять следующими параметрами пользователей и устройств.
@@ -80,4 +79,3 @@ ms.lasthandoff: 09/20/2017
 - Дополнительные сведения см. в разделе о [сохранении данных Многофакторной идентификации для устройств, которым доверяют пользователи](multi-factor-authentication-whats-next.md).
 
 - Если пользователям требуется помощь, попросите их ознакомиться со статьей [Что для меня означает Azure Multi-Factor Authentication](./end-user/multi-factor-authentication-end-user.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
+ms.openlocfilehash: f52520f88d36914d4cad7c8aea4fb21e44b3cc9d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 3f130c7718e204ba2e826c2500d8935a6285f71f
-ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Таблица поддержки Azure Site Recovery для репликации из одного региона Azure в другой
 
@@ -85,6 +84,8 @@ ms.lasthandoff: 09/20/2017
 - CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
 - Сервер Ubuntu версии 14.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Сервер Ubuntu версии 16.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Debian 7
+- Debian 8;
 - Oracle Enterprise Linux 6.4, 6.5 с ядром, совместимым с Red Hat, или с ядром Unbreakable Enterprise Kernel Release 3 (UEK3).
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
@@ -191,4 +192,3 @@ VPN типа "сеть — сеть" с локальной средой (с и�
 ## <a name="next-steps"></a>Дальнейшие действия
 - Дополнительные сведения о репликации виртуальных машин см. в [этой статье](site-recovery-azure-to-azure-networking-guidance.md).
 - Включите защиту рабочих нагрузок, [выполнив репликацию виртуальных машин Azure](site-recovery-azure-to-azure.md).
-

@@ -15,14 +15,12 @@ ms.topic: overview
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: fe4c79f4e71d885e22bbcf31869b809f5d7fe1a4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="welcome-to-azure-cosmos-db"></a>Добро пожаловать в базу данных Azure Cosmos DB
 
 Azure Cosmos DB — это глобально распределенная многомодельная база данных Майкрософт. Azure Cosmos DB позволяет гибко и независимо масштабировать пропускную способность и ресурсы хранилища в любых регионах Azure, стоит лишь нажать кнопку. Она гарантирует пропускную способность, задержку, доступность и согласованность в соответствии с [соглашениями об уровне обслуживания](https://aka.ms/acdbsla) (SLA), которые зачастую не могут предложить другие службы баз данных.
@@ -100,4 +98,3 @@ Azure Cosmos DB предоставляет лучшие возможности �
 * [Azure Cosmos DB: Migrate an existing Node.js MongoDB web app](create-mongodb-nodejs.md) (Azure Cosmos DB. Миграция имеющегося веб-приложения Node.js MongoDB)
 * [Azure Cosmos DB: Build a .NET application using the Graph API](create-graph-dotnet.md) (Azure Cosmos DB. Создание приложения .NET с помощью API Graph)
 * [Azure Cosmos DB: Build a .NET application using the Table API](create-table-dotnet.md) (Azure Cosmos DB. Создание приложения .NET с помощью API таблицы)
-

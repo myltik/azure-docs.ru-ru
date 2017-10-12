@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08cba012cca61eeb03187d2b4165e2a79b15bc3d
-ms.openlocfilehash: 12313f7f245d32c33882f1036f7d4b48bfb3ddc5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/03/2017
-
+ms.openlocfilehash: 521b7bd1599ebe4158258e0eb706efae2e5c5b3a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Обработка ошибок в графических модулях Runbook в службе автоматизации Azure
 
 При проектировании модулей Runbook крайне важно определить различные состояния и условия, характерные для действий в модуле, например состояние успеха, состояния ожидаемых ошибок и условия непредвиденных ошибок.
@@ -75,4 +73,3 @@ ms.lasthandoff: 02/03/2017
 * Дополнительные сведения о ссылках и их типах в графических модулях Runbook см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Дополнительные сведения о выполнении модулей Runbook, отслеживании заданий модуля Runbook и других технических деталях см. в статье [Выполнение модуля Runbook в службе автоматизации Azure](automation-runbook-execution.md).
-

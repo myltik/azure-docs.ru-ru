@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: f965e3a5067dd8dd2ac6dc29446c7f5b50cdd450
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: 32ae9949806e0cb762b87cb739f94ddf3704c2ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Анализ данных в хранилище озера данных с помощью Power BI
 В этой статье вы узнаете, как использовать Power BI Desktop для анализа и визуализации данных в хранилище озера данных Azure.
@@ -100,5 +99,4 @@ ms.lasthandoff: 02/07/2017
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Анализ данных в хранилище озера данных с помощью Аналитики озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-
 

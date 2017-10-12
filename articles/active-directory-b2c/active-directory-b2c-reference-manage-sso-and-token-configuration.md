@@ -13,10 +13,10 @@ ms.devlang: na
 ms.date: 05/02/2017
 ms.author: sama
 ms.openlocfilehash: 8f5703d15766f221517cd89352d41685652d32d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C. Управление SSO и настройкой токенов с помощью пользовательских политик
 Использование пользовательских политик предоставляет тот же контроль над конфигурациями токена, сеанса и единого входа, что и при использовании встроенных политик.  Ознакомиться с функциями каждого параметра вы можете в [этом руководстве](#active-directory-b2c-token-session-sso).

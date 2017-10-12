@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">Отправка и получение данных изображений в облаке</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Активация функций Azure для обработки больших двоичных объектов</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Активация функций Azure для обработки больших двоичных объектов</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">Защита данных приложения</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Мониторинг и устранение неполадок хранилища</a>
   - title: Примеры

@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
+ms.openlocfilehash: 6ca2d2e49c4b7f5eb0580e7091b09209f8b73a7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 50f084b8e5fc7c113e54c3be094cbf06413eb035
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="container-management-with-docker-swarm"></a>Управление контейнерами с помощью Docker Swarm
 Docker Swarm — это среда для развертывания контейнерной рабочей нагрузки в наборе узлов, объединенных в пул Docker. В Docker Swarm используется собственный API Docker. Поэтому рабочие процессы при управлении контейнерами Docker Swarm и отдельного узла контейнера почти не отличаются. Этот документ содержит простые примеры развертывания контейнерной рабочей нагрузки в экземпляре Docker Swarm, который развернут в службе контейнеров Azure. Дополнительные сведения о Docker Swarm см. в [документации по Docker Swarm на сайте Docker.com](https://docs.docker.com/swarm/).
@@ -118,5 +117,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Дополнительные сведения о Docker Swarm](https://docs.docker.com/swarm/)
-
 

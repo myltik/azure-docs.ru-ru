@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: f57c915dd566e9da9b751bb776a1170842d87297
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Агрегирование и сбор событий с помощью EventFlow
 
 [EventFlow службы диагностики Microsoft](https://github.com/Azure/diagnostics-eventflow) позволяет направлять события от узла к одному или нескольким целевым объектам для мониторинга. Так как это решение включается в проект службы как пакет NuGet, код и конфигурация EventFlow перемещаются вместе со службой, устраняя необходимость отдельной настройки каждого узла для системы диагностики Azure, которую мы обсуждали выше. EventFlow выполняется внутри процесса службы и напрямую подключается к настроенным потокам вывода. Прямое подключение позволяет использовать EventFlow для служб, развернутых в Azure, с помощью контейнера или в локальной среде. Соблюдайте осторожность при выполнении EventFlow в сценариях с высокой плотностью, например в контейнере, так как каждый конвейер EventFlow создает внешнее соединение. Если вы разместите несколько процессов, то получите несколько исходящих подключений. Об этом можно не беспокоиться при использовании приложений Service Fabric, так как все реплики `ServiceType` выполняются в одном процессе, что ограничивает число исходящих подключений. EventFlow также поддерживает фильтрацию событий, то есть позволяет отправлять только события, соответствующие указанному фильтру.
@@ -157,4 +155,3 @@ servicefabric:/<section-name>/<setting-name>
 * [Анализ событий и визуализация с помощью Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Анализ событий и визуализация с помощью OMS](service-fabric-diagnostics-event-analysis-oms.md)
 * [Документация по EventFlow](https://github.com/Azure/diagnostics-eventflow)
-

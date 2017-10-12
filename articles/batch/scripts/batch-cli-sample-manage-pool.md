@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="managing-azure-batch-pools-with-azure-cli"></a>Управление пулами пакетной службы Azure с помощью Azure CLI
 
 Этот скрипт демонстрирует некоторые из доступных средств Azure CLI для создания пулов вычислительных узлов в пакетной службе Azure и управления ими.
@@ -39,11 +37,11 @@ ms.lasthandoff: 09/09/2017
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>Пример скрипта для пула с настройкой облачной службы
 
-[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Управление пулами облачных служб")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Manage Cloud Services Pools")]
 
 ## <a name="pool-with-virtual-machine-configuration-sample-script"></a>Пример скрипта для пула с настройкой виртуальной машины
 
-[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Управление пулами виртуальных машин")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Manage Virtual Machine Pools")]
 
 ## <a name="clean-up-pools"></a>Очистка пулов
 
@@ -79,5 +77,4 @@ az batch pool delete --pool-id mypool-linux
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Дополнительные примеры скриптов для интерфейса командной строки пакетной службы см. в [документации по интерфейсу командной строки пакетной службы Azure](../batch-cli-samples.md).
-
 

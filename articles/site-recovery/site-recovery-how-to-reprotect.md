@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Повторное включение защиты виртуальных машин, восстанавливаемых из Azure на локальный сайт
 
@@ -271,5 +270,4 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 *Хранилище данных недоступно из узла ESXi.*
 
 Ознакомьтесь с [предварительными требованиями к главному целевому серверу](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) и [хранилищами данных поддержки](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) для восстановления размещения.
-
 

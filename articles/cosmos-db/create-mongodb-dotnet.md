@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b95afa4dd3cd264ea911c7aa809c7862f9576da8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: c92d970783ae0fb36e5761e4f35af7d4d6718121
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB. Создание веб-приложения API MongoDB с использованием языка .NET и портала Azure
 
@@ -139,5 +138,4 @@ Azure Cosmos DB — это глобально распределенная мн�
 
 > [!div class="nextstepaction"]
 > [Перенос данных в DocumentDB с помощью mongoimport и mongorestore](mongodb-migrate.md)
-
 

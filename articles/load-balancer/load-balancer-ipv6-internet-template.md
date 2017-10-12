@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Развертывание решения балансировки нагрузки для Интернета с поддержкой IPv6 с помощью шаблона
 
 > [!div class="op_single_selector"]
@@ -136,4 +134,3 @@ Azure Load Balancer является балансировщиком нагруз
 | lbName |Укажите имя балансировщика нагрузки. Это имя отображается на портале, а также используется интерфейсом командной строки и командами PowerShell. |
 
 Остальные переменные в шаблоне содержат производные значения, которые назначаются, когда Azure создает ресурсы. Не изменяйте эти переменные.
-

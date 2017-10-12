@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1a9941b21b92c70dd0a46ce2e4c75142e1786650
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Передача объектов в хранилище BLOB-объектов Azure и обратно с помощью Azure PowerShell
 
 Модуль PowerShell используется для создания ресурсов Azure и управления ими с помощью командной строки PowerShell или сценариев. В этом руководстве рассматривается использование PowerShell для передачи файлов между локальным диском и хранилищем BLOB-объектов Azure.
@@ -35,7 +33,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="create-a-container"></a>Создание контейнера
 
-BLOB-объекты всегда отправляются в контейнер. Это позволяет упорядочивать группы BLOB-объектов аналогично организации файлов в папки на компьютере.
+Большие двоичные объекты всегда отправляются в контейнер. Это позволяет упорядочивать группы BLOB-объектов аналогично организации файлов в папки на компьютере.
 
 Задайте имя контейнера, а затем создайте контейнер с помощью командлета [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer), задав разрешения на открытый доступ к файлам. В этом примере контейнеру присвоено имя *quickstartblobs*.
 
@@ -78,7 +76,7 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Скачивание больших двоичных объектов
 
-Скачайте BLOB-объекты на локальный диск. Для каждого скачиваемого BLOB-объекта задайте имя и вызовите командлет [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent).
+Скачайте большие двоичные объекты на локальный диск. Для каждого скачиваемого BLOB-объекта задайте имя и вызовите командлет [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent).
 
 В этом примере показано скачивание BLOB-объектов на локальный диск D:\\_TestImages\Downloads. 
 
@@ -98,7 +96,7 @@ Get-AzureStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>Передача данных с помощью AzCopy
 
-Программа [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) является дополнительным способом высокопроизводительной передачи данных с поддержкой скриптов для хранилища Azure. AzCopy можно использовать для передачи данных из хранилища BLOB-объектов, таблиц и файлов и обратно.
+Программа [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) является дополнительным способом высокопроизводительной передачи данных с поддержкой сценариев для хранилища Azure. AzCopy можно использовать для передачи данных из хранилища BLOB-объектов, таблиц и файлов и обратно.
 
 В качестве краткого примера здесь приводится команда AzCopy для отправки файла *myfile.txt* в контейнере *mystoragecontainer* контейнера в окне PowerShell.
 

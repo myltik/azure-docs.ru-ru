@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
 ms.openlocfilehash: f7dd532e96540fa297cac8fa3736f9f4a6ccd82f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Запуск SAP NetWeaver на виртуальных машинах SUSE Linux в Microsoft Azure
 В этой статье описываются различные моменты, которые следует учитывать при запуске SAP NetWeaver на виртуальных машинах SUSE Linux в Microsoft Azure. По состоянию на 19 мая 2016 года SAP NetWeaver официально поддерживается на виртуальных машинах SUSE Linux в Azure. Все сведения о версиях Linux, версиях ядра SAP и других необходимых компонентах можно найти в примечании SAP 1928533 "Приложения SAP в Azure: поддерживаемые продукты и типы виртуальных машин Azure".
@@ -164,5 +163,4 @@ ms.lasthandoff: 09/16/2017
 
 ## <a name="sap-support-for-oracle-on-linux-in-the-cloud"></a>Поддержка SAP для Oracle на платформе Linux в облаке
 Существует ограничение поддержки, накладываемое Oracle на Linux в виртуализованных средах. Несмотря на то что эти ограничения поддержки не относятся к Azure, их следует изучить. SAP не поддерживает Oracle на SUSE или RedHat в общедоступном облаке, таком как Azure. По этому вопросу обращайтесь напрямую в Oracle.
-
 

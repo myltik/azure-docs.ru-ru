@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 5f9d4e580b0d4d7c3ea39c53b1bf4067a59d4d52
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Устранение неполадок при регистрации в Azure
 Если не удается зарегистрироваться для работы с Azure, то воспользуетесь подсказками в этой статье для устранения распространенных неполадок. При возникновении проблем с кредитной картой во время регистрации см. статью [Банковская или кредитная карта отклонена при регистрации в Azure](billing-credit-card-fails-during-azure-sign-up.md). Если у вас есть учетная запись Azure, но не удается выполнить вход, то см. статью [Не удается выполнить вход в подписку Azure](billing-cannot-login-subscription.md).
@@ -91,4 +90,3 @@ ms.lasthandoff: 09/22/2017
 
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 Если вам все еще нужна помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
-

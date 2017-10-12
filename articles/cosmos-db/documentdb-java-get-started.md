@@ -15,12 +15,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: ea667a889bc6eaed08619ee5e141d8e3e9add7bf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="nosql-tutorial-build-a-documentdb-api-java-console-application"></a>Руководство по NoSQL. Создание консольного приложения Java с помощью API-интерфейса DocumentDB
 > [!div class="op_single_selector"]
@@ -196,4 +195,3 @@ Azure Cosmos DB поддерживает обновление документо
 * Дополнительные сведения о модели программирования см. в разделе "Разработка" [на странице документации Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
-

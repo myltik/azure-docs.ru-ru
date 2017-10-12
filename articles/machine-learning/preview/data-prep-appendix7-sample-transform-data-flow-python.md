@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f43f65ca89349fc790684e9bd7acd2f19e15abe5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Пример пользовательских преобразований потока данных (Python) 
 В меню этот сценарий преобразования имеет название Transform Dataflow (Script) (Преобразовать поток данных (скрипт)). Перед ознакомлением с этим приложением прочтите статью [Расширения Python для подготовки данных](data-prep-python-extensibility-overview.md).
 
@@ -84,5 +82,4 @@ ms.lasthandoff: 09/25/2017
 |Техас         |Техас         |Даллас     |
 |              |Техас         |Сан-Антонио|
 |              |Техас         |Хьюстон    |
-
 

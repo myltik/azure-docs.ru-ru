@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 6d6afd2b9b956138ed400fbd6cabd3b480fde0f0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-network"></a>Виртуальная сеть Azure
 
@@ -92,4 +91,3 @@ Azure создает таблицы маршрутов, используя ко�
 - Создайте первую виртуальную сеть и подключите к ней несколько виртуальных машин, выполнив действия, описанные в [этой статье](virtual-network-get-started-vnet-subnet.md).
 - Установите подключение типа "точка — сеть" к виртуальной сети, выполнив действия, описанные в [этой статье](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Изучите другие ключевые [сетевые возможности](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
-

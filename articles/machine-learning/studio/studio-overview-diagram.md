@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/04/2017
 ms.author: haining;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f4e53fa46a6b7f8811e4fee67b1466786b81cdc9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Обзорная схема возможностей Студии машинного обучения Azure 
 Схема **Обзор возможностей Студии машинного обучения Microsoft Azure** предоставляет высокоуровневый обзор вариантов использования Студии машинного обучения для разработки модели прогнозной аналитики и введения ее в эксплуатацию в облаке Azure.
@@ -51,5 +50,4 @@ ms.lasthandoff: 09/25/2017
 * Подробное описание алгоритмов машинного обучения, доступных в Студии машинного обучения, можно найти в разделе [Выбор алгоритмов машинного обучения Microsoft Azure](algorithm-choice.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

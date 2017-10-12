@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5eef2116f238b477fa8de46ce7b25728c393739c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 51320d93689da3e37c0946d8877b27a11793d9c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advisor-cost-recommendations"></a>Рекомендации Azure Advisor по затратам
 
 Advisor помогает оптимизировать и уменьшить общие расходы на Azure, выявляя простаивающие и недостаточно нагруженные ресурсы. Рекомендации по затратам можно получить на вкладке **Стоимость** панели мониторинга Помощника.
@@ -64,4 +62,3 @@ Advisor определяет экземпляры SQL Server, создание �
 * [Рекомендации Azure Advisor по производительности](advisor-cost-recommendations.md)
 * [Рекомендации Azure Advisor по высокой доступности](advisor-cost-recommendations.md)
 * [Рекомендации Azure Advisor по безопасности](advisor-cost-recommendations.md)
-

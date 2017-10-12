@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 3fe57e9c22d04a3557978093ce3fe86613c5c1d6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Что такое автоматическая подготовка пользователей для приложений SaaS
@@ -162,5 +161,4 @@ Azure AD предлагает предварительно интегриров�
 * [Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md)
 * [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
 * [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
-
 

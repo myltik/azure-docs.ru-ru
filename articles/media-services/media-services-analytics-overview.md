@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 63dd4299f5d4bcd98f87fa78c2d7da080a105696
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Медиа-аналитика на платформе служб мультимедиа
 ## <a name="overview"></a>Обзор
@@ -138,4 +137,3 @@ Azure Media Redactor — это обработчик медиа-аналити�
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-

@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
 ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Индексирование хранилища таблиц Azure с помощью поиска Azure
 В этой статье показано, как использовать поиск Azure для индексирования данных в хранилище таблиц Azure.

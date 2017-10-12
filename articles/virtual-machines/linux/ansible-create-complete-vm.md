@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b2fcc288b40c12a9b3f966156ee2eedf4acca313
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: f5dfecd1f5aafc1b7117433ef1bdb1805be2c57b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Создание готовой среды виртуальных машин Linux в Azure с помощью Ansible
 Ansible позволяет автоматизировать развертывание и настройку ресурсов в среде. Ansible можно использовать для управления виртуальными машинами в Azure так же, как любым другим ресурсом. В этой статье показано, как создать готовую среду Linux и вспомогательные ресурсы с помощью Ansible. Вы также можете узнать, как [создать простейшую виртуальную машину с помощью Ansible](ansible-create-vm.md).
 

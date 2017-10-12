@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Использование соединителя хранилища BLOB-объектов Azure в приложении логики
 Используйте соединитель хранилища BLOB-объектов Azure, чтобы отправлять, обновлять, получать и удалять большие двоичные объекты в учетной записи хранения в рамках приложения логики.  
@@ -76,5 +75,4 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
-
 

@@ -14,14 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 8cd3698d4281b933881c45dfa5e7868bd7b0bdaf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 192c4b5b89feca2a2e39c5e0670d05cc8868eb03
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-java"></a>Разработка для файлов Azure с использованием языка Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
@@ -41,7 +39,7 @@ ms.lasthandoff: 09/25/2017
 ## <a name="create-a-java-application"></a>Создание приложения Java
 Для создания примеров вам потребуется комплект разработчика Java (JDK) и [Пакет SDK для службы хранилища Azure для Java][]. Вам также необходимо создать учетную запись хранилища Azure.
 
-## <a name="set-up-your-application-to-use-azure-files"></a>Настройка приложения для работы с файлами Azure
+## <a name="set-up-your-application-to-use-azure-files"></a>Настройка приложения для работы со службой файлов Azure
 Чтобы использовать API-интерфейсы хранилища Azure, добавьте следующую инструкцию в верхнюю часть файла Java, откуда планируется осуществлять доступ к службе хранилища.
 
 ```java
@@ -88,7 +86,7 @@ try {
 CloudFileClient fileClient = storageAccount.createCloudFileClient();
 ```
 
-С помощью клиента файлов Azure вы получите ссылку на общую папку.
+С его помощью вы получите ссылку на общую папку.
 
 ```java
 // Get a reference to the file share
@@ -129,7 +127,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>Создайте каталог
-Вы также можете организовать хранилище, помещая файлы в подкаталоги вместо их размещения в корневом каталоге. Файлы Azure позволяют создать такое количество каталогов, которое допускается в вашей учетной записи. В следующем примере кода в корневом каталоге создается вложенный каталог с именем **sampledir** .
+Вы также можете организовать хранилище, помещая файлы в подкаталоги вместо их размещения в корневом каталоге. Служба файлов Azure позволяет создать такое количество каталогов, которое допускается в вашей учетной записи. В следующем примере кода в корневом каталоге создается вложенный каталог с именем **sampledir** .
 
 ```java
 //Get a reference to the root directory for the share.
@@ -211,7 +209,7 @@ System.out.println(file.downloadText());
 ```
 
 ## <a name="delete-a-file"></a>Удаление файла
-Другая распространенная операция с файлами Azure — это удаление файлов. Следующий пример программы удаляет файл с именем SampleFile.txt, хранящийся в каталоге с именем **sampledir**.
+Другая распространенная операция в службе файлов Azure — это удаление файлов. Следующий пример программы удаляет файл с именем SampleFile.txt, хранящийся в каталоге с именем **sampledir**.
 
 ```java
 // Get a reference to the root directory for the share.

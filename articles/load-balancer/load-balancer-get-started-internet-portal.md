@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Создание балансировщика нагрузки для Интернета на портале Azure
 
 > [!div class="op_single_selector"]
@@ -65,7 +63,7 @@ ms.lasthandoff: 09/25/2017
 3. В колонке **Создание подсистемы балансировки нагрузки** введите имя для балансировщика нагрузки. Здесь он назван **myLoadBalancer**.
 4. В разделе **Тип** выберите **Общедоступный**.
 5. В разделе **Общедоступный IP-адрес** создайте общедоступный IP-адрес с именем **myPublicIP**.
-6. В разделе "Группа ресурсов" выберите **myRG**. Затем укажите соответствующее **Расположение** и нажмите кнопку **ОК**. После этого подсистема балансировки нагрузки начнет развертывание, для завершения которого может потребоваться несколько минут.
+6. В разделе "Группа ресурсов" выберите **myRG**. Затем укажите соответствующее **Расположение** и нажмите кнопку **ОК**. После этого подсистема балансировки нагрузки начнет развертывание. Этот процесс может занять несколько минут.
 
     ![Обновление группы ресурсов балансировщика нагрузки](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -116,4 +114,3 @@ ms.lasthandoff: 09/25/2017
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
-

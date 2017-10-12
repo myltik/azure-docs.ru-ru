@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
 ms.openlocfilehash: 73b3bc05aeb337c12acb7e47c0dbebe6d0196530
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>Руководство. Интеграция Azure Active Directory с Wizergos Productivity Software
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Wizergos Productivity Software.
@@ -132,7 +131,7 @@ ms.lasthandoff: 02/28/2017
     ![единого входа Azure AD][10]
 10. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
     
-    ![Единый вход в Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -156,7 +155,7 @@ ms.lasthandoff: 02/28/2017
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_05.png) 
   1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
   2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-  3. Нажмите кнопку **Далее**.
+  3. Щелкните **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_06.png)
@@ -164,7 +163,7 @@ ms.lasthandoff: 02/28/2017
   2. В текстовом поле **Фамилия** введите **Simon**.
   3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
   4. В списке **Роль** выберите **Пользователь**.
-  5. Нажмите кнопку **Далее**.
+  5. Щелкните **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_07.png)
@@ -224,4 +223,3 @@ ms.lasthandoff: 02/28/2017
 [203]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_205.png
-

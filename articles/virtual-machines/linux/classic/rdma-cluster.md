@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Настройка кластера Linux RDMA для выполнения приложений MPI
 Узнайте, как настроить кластер Linux RDMA в Azure с [виртуальными машинами серии H или серии A для ресурсоемких вычислений](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для параллельного выполнения приложений с интерфейсом MPI. Эта статья содержит процедуру подготовки образа Linux HPC для запуска Intel MPI в кластере. После предварительной подготовки вы развернете кластер виртуальных машин, используя этот образ и еще один для любого размера виртуальной машины Azure, поддерживающего RDMA (сейчас это H16r, H16mr, A8 и A9). Такой кластер позволяет выполнять приложения MPI, которые эффективно взаимодействуют через сеть с низкой задержкой и высокой пропускной способностью с использованием технологии удаленного прямого доступа к памяти (RDMA).
@@ -380,4 +379,3 @@ mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAP
 * Разверните и запустите приложения MPI в кластере Linux.
 * Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/).
 * Чтобы создать кластер Intel Lustre с помощью образа пакета HPC на основе CentOS, воспользуйтесь [шаблоном быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos). Дополнительные сведения см. в статье [Deploying Intel Cloud Edition for Lustre on Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/) (Развертывание Intel Cloud Edition для Lustre в Microsoft Azure).
-

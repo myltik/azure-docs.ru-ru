@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 2c581a2d152a6d3f16de8f249e27a426aa9f844f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: f4175875b68c52e68588b8d0debd003ab73427ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Общие сведения о представлении групп безопасности сети в Наблюдателе за сетями Azure
 
 Группы безопасности сети (NSG) связаны на уровне подсети или сетевой карты. Если она связана на уровне подсети, то применяется ко всем экземплярам виртуальной машины в этой подсети. Представление групп безопасности сети возвращает все настроенные NSG и правила, связанные на уровне сетевой карты и подсети для виртуальной машины, обеспечивая глубокое понимание данных. Кроме того, оно возвращает действующие правила безопасности для каждой из сетевых карт в виртуальной машине. С помощью представления групп безопасности сети можно оценить сетевые уязвимости виртуальной машины, например открытые порты. Можно также проверить, работает ли группа безопасности сети ожидаемым образом, [сравнив настроенные и действующие правила безопасности](network-watcher-nsg-auditing-powershell.md).
@@ -42,7 +40,6 @@ ms.lasthandoff: 04/27/2017
 
 [1]: ./media/network-watcher-security-group-view-overview/securitygroupview.png
 [2]: ./media/network-watcher-security-group-view-overview/figure1.png
-
 
 
 

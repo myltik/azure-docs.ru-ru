@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ac58c5e8f43a1e6bab1023826818cc3641cad54a
-ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="media-services-documentation"></a>Документация по службам мультимедиа
 
 Сведения о потоковой передаче видео высокого качества в службах мультимедиа, представляющих собой расширяемую облачную платформу. В руководствах, справочниках по API и другой документации показано, как безопасно выполнять потоковую передачу видео- и аудиоматериалов по требованию и осуществлять прямую трансляцию с масштабированием для миллионов пользователей.
@@ -212,5 +210,4 @@ ms.lasthandoff: 02/09/2017
         </div>
     </li>
 </ul>
-
 

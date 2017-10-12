@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfb4104dd58f2af8b3ffed7491c91ae6c6557ddc
-ms.openlocfilehash: f5006b6ce1b409fae5e540d8414e8e56651f9349
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 5b3a8ce6e4203dfb3700f324e32687dd910118af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Определение требований к многофакторной проверке подлинности для решения гибридной идентификации
 В мире мобильных пользователей, обращающихся к данным и приложениям в облаке и с любого устройства, защита этой информация приобретает первостепенное значение.  Каждый день мы видим новости о взломе систем безопасности.  Хотя полностью застраховаться от них невозможно, многофакторная проверка подлинности обеспечивает дополнительный уровень безопасности, который помогает предотвратить эти действия.
@@ -62,5 +61,4 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

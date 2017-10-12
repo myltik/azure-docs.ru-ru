@@ -13,10 +13,10 @@ ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: ca7092a06a9ffce8383ca8bc9f70ce312cdf9de4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-hosting-model"></a>Модель размещения Service Fabric
 В этой статье представлен обзор моделей размещения приложений, предоставленных Service Fabric, и приведены различия между моделями **с общим** и **монопольным процессом**. Здесь также описывается, как развернутое приложение выглядит на узле Service Fabric, и рассматриваются связи между репликами (или экземплярами) службы и процессом размещения служб.

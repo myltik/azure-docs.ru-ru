@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 59d35852d6c703f3c96089a8bf426b57660441a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-logic-apps"></a>Что такое приложения логики?
 Приложения логики позволяют упростить и реализовать масштабируемые рабочие процессы и сценарии интеграции в облаке. Это визуальный конструктор для моделирования и автоматизации процессов в виде ряда операций, которые называются рабочим процессом.  Для облачных и локальных сред доступно [множество соединителей](../connectors/apis-list.md) , которые позволяют быстро реализовать сценарии интеграции в службах и протоколах.  Приложение логики запускается при срабатывании триггера (например, "When an account is added to Dynamics CRM" (При добавлении учетной записи в Dynamics CRM)), после чего могут выполняться разные комбинации действий, преобразования и условная логика.
@@ -78,4 +77,3 @@ ms.lasthandoff: 06/28/2017
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-

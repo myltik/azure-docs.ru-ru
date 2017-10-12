@@ -17,14 +17,12 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: sasubram
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: dfef32c05af157ae8d3a5434016f87f488a35051
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Руководство по лицензированию службы совместной работы Azure Active Directory B2B
 
 Вы можете воспользоваться возможностями службы совместной работы Azure AD B2B, чтобы пригласить гостевых пользователей в клиент Azure AD и предоставить им доступ к службам Azure AD и другим ресурсам вашей организации. Если вы хотите предоставить доступ к платным функциям Azure AD, гостевым пользователям службы совместной работы B2B необходимо назначить соответствующие лицензии Azure AD. 
@@ -86,4 +84,3 @@ ms.lasthandoff: 08/12/2017
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-

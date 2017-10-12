@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: danlep
+ms.openlocfilehash: 87d60ae51aaa33b709d272605419fd85eeb5d93d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 653af144eb12cacf955f96a5442efd73add38e88
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Установка веб-сервера LEMP на виртуальной машине Azure
 Эта статья содержит указания по развертыванию веб-сервера NGINX, MySQL и PHP (стека LEMP) на виртуальной машине Ubuntu в Azure. Стек LEMP является альтернативой известному [стеку LAMP](tutorial-lamp-stack.md), который также можно установить в Azure. Чтобы оценить работу сервера LEMP в действии, вы можете установить и настроить сайт WordPress. Из этого руководства вы узнаете, как выполнить следующие задачи:
@@ -39,7 +38,7 @@ ms.lasthandoff: 08/21/2017
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
-## <a name="install-nginx-mysql-and-php"></a>Установка NGINX, MySQL и PHP
+## <a name="install-nginx-mysql-and-php"></a>Установка NGINX, MySQL и PHP.
 
 Чтобы обновить источники пакетов Ubuntu и установить NGINX, PHP и MySQL, выполните команду ниже. 
 
@@ -51,7 +50,7 @@ sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
 
 ![Страница с паролем привилегированного пользователя MySQL][1]
 
-## <a name="verify-installation-and-configuration"></a>Проверка установки и настройки
+## <a name="verify-installation-and-configuration"></a>Проверка установки и настройки.
 
 
 ### <a name="nginx"></a>NGINX
@@ -71,7 +70,7 @@ nginx -v
 Узнайте версию MySQL, выполнив указанную ниже команду. Обратите внимание, что параметр `V` указан с заглавной буквы.
 
 ```bash
-msql -V
+mysql -V
 ```
 
 Чтобы обеспечить безопасную установку MySQL, мы рекомендуем выполнить следующий скрипт:
@@ -177,4 +176,3 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 [1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png
-

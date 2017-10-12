@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 1031cd63dede9ed202fdc11b153a550766d9cb19
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Создание решения IoT с помощью Stream Analytics
 ## <a name="introduction"></a>Введение
 В этом руководстве содержатся инструкции по анализу данных в режиме реального времени с использованием Azure Stream Analytics. Разработчики могут легко объединять потоки данных, такие как сведения о посещении, данные журналов и созданные устройствами события, с историческими записями или справочными данными для получения бизнес-информации. Являясь полностью управляемой службой потоковой обработки в режиме реального времени, которая размещена на платформе Microsoft Azure, Azure Stream Analytics обеспечивает высокую надежность, малую задержку и масштабируемую обработку, что помогает приступить к работе за считаные минуты.
@@ -442,6 +440,5 @@ Azure Stream Analytics поддерживает масштабируемость
    > Ресурсы идентифицируются по имени. Убедитесь, что перед подтверждением удаления вы внимательно просмотрели каждый элемент.
    > 
    > 
-
 
 

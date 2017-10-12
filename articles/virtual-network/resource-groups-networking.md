@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
 ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/23/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-resource-provider"></a>Поставщик сетевых ресурсов
 В современных условиях для успеха бизнеса необходима возможность быстрого, гибкого, безопасного и воспроизводимого создания и администрирования крупномасштабных сетевых приложений. Azure Resource Manager позволяет создавать такие приложения в виде единой коллекции ресурсов в группах ресурсов. Для управления такими ресурсами используются различные поставщики ресурсов в Azure Resource Manager.
@@ -266,5 +265,4 @@ API Rest соответствует спецификации протокола 
 [Azure Resource Manager и классическое развертывание](../azure-resource-manager/resource-manager-deployment-model.md)
 
 [Общие сведения об Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
 

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/25/2017
 ms.author: genli
+ms.openlocfilehash: f7810d519da500a33c2e1cd15b8de54835f304d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: a4d2f0bd548ae98b564f1e0f23476cfde225c209
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Устранение неполадок с подключением к виртуальной машине Azure через удаленный рабочий стол
 Подключение протокола удаленного рабочего стола (RDP) к виртуальной машине Azure под управлением Windows может завершиться неудачно по нескольким причинам. В этом случае доступ к виртуальной машине будет невозможен. Эта проблема может быть вызвана службой удаленного рабочего стола на виртуальной машине, сетевым подключением или клиентом удаленного рабочего стола на главном компьютере. В этой статье описываются некоторые из наиболее распространенных методов устранения проблем подключения по протоколу RDP. 
@@ -234,5 +233,4 @@ ms.lasthandoff: 09/27/2017
 Если ни одна из указанных ошибок не возникла, но подключиться к виртуальной машине с помощью протокола удаленного рабочего стола не удается, прочтите [подробное руководство по устранению неполадок с удаленным рабочим столом](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Сведения об устранении неполадок с доступом к приложениям, работающим на виртуальной машине, см. в статье [Устранение проблем с подключением к приложениям на виртуальных машинах Linux в Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Если вы подключаетесь к виртуальной машине Linux в Azure по протоколу SSH и у вас возникают проблемы, см. статью [Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 

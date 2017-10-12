@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c9b7e7a1fbc6b67821183ce31bdf2527de490c92
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Отправка объектов в хранилище BLOB-объектов Azure и обратно с помощью Azure CLI
 
 Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. Это краткое руководство содержит сведения об использовании Azure CLI для отправки и загрузки данных в хранилище BLOB-объектов Azure и обратно.
@@ -109,4 +107,3 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Perform Blob storage operations with Azure CLI](storage-how-to-use-blobs-cli.md) (Выполнение операций в хранилище BLOB-объектов с помощью Azure CLI)
-

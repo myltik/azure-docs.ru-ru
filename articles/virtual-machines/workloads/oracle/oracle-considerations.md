@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 9174f7c8d16ff311312980fbe4d35996ec7ac832
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Решения Oracle в Microsoft Azure и их развертывание
 В этой статье представлены сведения о развертывании различных решений Oracle в Microsoft Azure. Эти решения созданы на основе образов виртуальных машин, опубликованных Oracle в Azure Marketplace. Чтобы получить список доступных образов, выполните следующую команду:

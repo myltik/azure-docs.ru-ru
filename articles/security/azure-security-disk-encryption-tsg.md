@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: devtiw
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: f2b9aad02a1ae3d5117ffd59b448eabe65a936fc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Руководство по устранению неполадок шифрования дисков Azure
 
@@ -124,4 +123,3 @@ DISKPART> list vol
 - [Шифрование диска в центре безопасности Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Шифрование виртуальной машины Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Шифрование неактивных данных в Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
-

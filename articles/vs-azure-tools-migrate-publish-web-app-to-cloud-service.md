@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d5de4f5a7357cf5adde7773867356d47ad447bab
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio
 Чтобы использовать все возможности служб размещения и масштабирования, предлагаемые Azure, необходимо выполнить миграцию и публикацию веб-приложения в облачную службу Azure. Для запуска веб-приложения в Azure вам нужно будет внести в свое приложение минимальные изменения.
@@ -202,4 +201,3 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о публикации см. в статье [Подготовка к публикации или развертыванию приложения Azure из Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Ознакомьтесь также со статьей [Настройка именованных учетных данных для проверки подлинности](vs-azure-tools-setting-up-named-authentication-credentials.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
 ms.author: kgremban
+ms.openlocfilehash: 19f3228b874fc4e37bf83388dae4341428226482
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 1cce449a87571fdabd0dbf76f764f442b2990ffe
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Приступая к работе со службой "Многофакторная идентификация Microsoft Azure" в облаке
 В этой статье вы узнаете, как приступить к работе со службой "Многофакторная идентификация Microsoft Azure" в облаке.
@@ -46,5 +45,4 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда служба "Многофакторная идентификация Microsoft Azure" в облаке настроена, можно настроить и выполнить развертывание. Дополнительные сведения см. в статье [Настройка службы "Многофакторная идентификация Microsoft Azure"](multi-factor-authentication-whats-next.md).
-
 

@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 5f0b470bd46cfeaf00b3092dbe9db507ed50f622
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-spring-boot-application-on-linux-in-the-azure-container-service"></a>Развертывание приложения Spring Boot в Linux в службе контейнеров Azure
 
 **[Spring Framework]** — это решение с открытым кодом, которое помогает разработчикам Java создавать приложения корпоративного класса. Одним из самых популярных проектов, созданных на этой платформе, является проект [Spring Boot]. Он упрощает подход к созданию автономных приложений Java.
@@ -315,4 +313,3 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 [LX01]: ./media/container-service-deploy-spring-boot-app-on-linux/LX01.png
 [LX02]: ./media/container-service-deploy-spring-boot-app-on-linux/LX02.png
 [LX03]: ./media/container-service-deploy-spring-boot-app-on-linux/LX03.png
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3540a1d74de52e5e8cff5648dd02a92e0cfb4eb5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 571d222068e92a45b0e37bec298bab7a6825f731
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Мониторинг выполнения задания кодирования с помощью портала Azure
 > [!div class="op_single_selector"]
@@ -53,5 +52,4 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

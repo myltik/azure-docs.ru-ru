@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 0b8b2bad967532bb0040407dc6a3a7b9599576d2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Дефрагментация метрик и нагрузки в Service Fabric
 По умолчанию диспетчер кластерных ресурсов Service Fabric использует для метрик нагрузки стратегию распределения нагрузки. Обеспечение равномерного использования узлов позволяет избежать перегруженных и недогруженных точек, которые приводят к состязанию за ресурсы и их нецелесообразной растрате. Распределение рабочих нагрузок в кластере — самый безопасный способ минимизировать риск сбоев, так как единичный сбой не сможет вывести из строя значительную часть рабочей нагрузки. 
@@ -101,4 +100,3 @@ ClusterManifest.xml:
 - Метрики показывают, как диспетчер кластерных ресурсов Service Fabric управляет потреблением и емкостью в кластере. Чтобы узнать больше о метриках и их настройке, ознакомьтесь с [этой статьей](service-fabric-cluster-resource-manager-metrics.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
-

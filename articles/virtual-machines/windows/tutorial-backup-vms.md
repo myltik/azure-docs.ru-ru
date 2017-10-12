@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Архивация виртуальных машин Windows в Azure
 
@@ -106,7 +105,6 @@ ms.lasthandoff: 07/28/2017
 
 > [!div class="nextstepaction"]
 > [Мониторинг виртуальных машин](tutorial-monitoring.md)
-
 
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Создание узлов Docker в Azure с помощью машины Docker
 Для запуска контейнеров [Docker](https://www.docker.com/) требуется виртуальная машина узла с запущенной управляющей программой Docker.
@@ -121,5 +120,4 @@ PS C:\> docker-machine ip MyDockerHost
 Сведения о рабочем размещении контейнеров см. в разделе [Служба контейнеров Azure](http://aka.ms/AzureContainerService).
 
 Сведения о разработке приложений .NET Core с помощью Visual Studio см. в разделе [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) (Инструменты Docker для Visual Studio).
-
 

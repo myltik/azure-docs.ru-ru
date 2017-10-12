@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: ac2f5dad7c0af29772b4c4064cc9700ebcf2a22d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Руководство по интеграции Azure Active Directory с Insignia SAML SSO
 
@@ -51,7 +50,7 @@ ms.lasthandoff: 09/13/2017
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. Добавление Insignia SAML SSO из коллекции.
+1. Добавление Insignia SAML SSO из коллекции
 2. Настройка и проверка единого входа в Azure AD
 
 ## <a name="adding-insignia-saml-sso-from-the-gallery"></a>Добавление Insignia SAML SSO из коллекции
@@ -233,5 +232,4 @@ ms.lasthandoff: 09/13/2017
 [201]: ./media/active-directory-saas-insigniasamlsso-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-insigniasamlsso-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-insigniasamlsso-tutorial/tutorial_general_203.png
-
 

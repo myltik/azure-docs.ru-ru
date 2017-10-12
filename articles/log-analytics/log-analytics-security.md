@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: magoedte
+ms.openlocfilehash: 91af774560860b35913e57b49fb7a1dd59f5640f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9ae1629462d375c1061d9c7b25975c789ee661c9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-data-security"></a>Защита данных Log Analytics
 Корпорация Майкрософт заботится о вашей конфиденциальности и безопасности ваших данных, выпуская программное обеспечение и службы, которые помогают вам управлять ИТ-инфраструктурой своей организации. Мы понимаем, что когда вы доверяете свои данные сторонним организациям, они требуют надежной защиты. Корпорация Майкрософт следует строгим нормативным требованиям и указаниям по безопасности — от создания кода до эксплуатации служб.
@@ -165,4 +164,3 @@ OMS Log Analytics соответствует следующим требован
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Приступая к работе с Log Analytics](log-analytics-get-started.md) .
-

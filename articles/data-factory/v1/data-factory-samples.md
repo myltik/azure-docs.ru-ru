@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2e1024924b96cf2c86c9dec8d199a0b7ea2422c6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---samples"></a>Фабрика данных Azure — примеры
 ## <a name="samples-on-github"></a>Примеры на GitHub
@@ -123,4 +122,3 @@ ms.lasthandoff: 09/25/2017
 16. На странице **Состояние развертывания** вы увидите состояние процесса развертывания. После завершения развертывания нажмите кнопку "Готово".
 
 Подробные сведения об использовании Visual Studio для создания сущностей фабрики данных и их публикации в Azure см. в статье [Создание первой фабрики данных Azure с помощью Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md).          
-

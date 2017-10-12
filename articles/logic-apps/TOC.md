@@ -108,7 +108,7 @@
 # Справочные материалы
 ## [Язык определения рабочего процесса](logic-apps-workflow-definition-language.md)
 ## [Действия и триггеры рабочего процесса](logic-apps-workflow-actions-triggers.md)
-## [ИНТЕРФЕЙС REST API](/rest/api/logic/)
+## [REST API](/rest/api/logic/)
 ## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Соединители: подробные сведения
 ### [AS2](logic-apps-enterprise-integration-as2.md)

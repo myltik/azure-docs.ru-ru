@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-service-fabric-continuous-integration-and-deployment-with-visual-studio-team-services"></a>Настройка непрерывных интеграции и развертывания с помощью Visual Studio Team Services
 В этой статье описано, как настроить непрерывную интеграцию и развертывание для приложения Azure Service Fabric, используя Visual Studio Team Services (VSTS).
@@ -131,5 +130,4 @@ ms.lasthandoff: 04/27/2017
 * [Домашняя страница документации по Team Services](https://www.visualstudio.com/docs/overview)
 * [Управление сборками в Team Services](https://www.visualstudio.com/docs/build/overview)
 * [Управление выпусками в Team Services](https://www.visualstudio.com/docs/release/overview)
-
 

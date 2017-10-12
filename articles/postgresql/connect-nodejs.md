@@ -11,14 +11,12 @@ ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2017
+ms.openlocfilehash: e115a9a5f925dc038aca4e403d678cce06262ab0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: f6c98833c73b70bcf1f8ca53596a34f09807b276
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью Node.js
 В этом кратком руководстве объясняется, как подключиться к базе данных Azure для PostgreSQL с помощью [Node.js](https://nodejs.org/). Здесь также показано, как использовать инструкции SQL для запроса, вставки, обновления и удаления данных в базе данных. В этой статье предполагается, что у вас уже есть опыт разработки на Node.js и вы только начали работу с базой данных Azure для PostgreSQL.
 
@@ -28,7 +26,7 @@ ms.lasthandoff: 08/23/2017
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 Также вам потребуется:
-- Установить [Node.js](https://nodejs.org).
+- Установите [Node.js](https://nodejs.org)
 
 ## <a name="install-pg-client"></a>Установка клиента pg
 Установите [pg](https://www.npmjs.com/package/pg), клиент PostgreSQL для Node.js.
@@ -254,4 +252,3 @@ function queryDatabase() {
 ## <a name="next-steps"></a>Дальнейшие действия
 > [!div class="nextstepaction"]
 > [Перенос базы данных с помощью экспорта и импорта](./howto-migrate-using-export-and-import.md)
-

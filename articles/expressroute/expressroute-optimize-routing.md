@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/06/2017
 ms.author: charwen
 ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-expressroute-routing"></a>Оптимизация маршрутизации ExpressRoute
 При наличии нескольких каналов ExpressRoute к сети Майкрософт можно подключиться по нескольким маршрутам. Поэтому маршрутизация может быть неоптимальной, а это значит, что при передаче трафика из вашей сети в сеть Майкрософт и наоборот он будет проходить более длинный маршрут. А это, в свою очередь, может стать причиной возникновения длительной задержки, которая прямо влияет на производительность приложения и работу пользователей. В настоящей статье описана эта проблема и объясняется, как оптимизировать маршрутизацию с помощью стандартных технологий.

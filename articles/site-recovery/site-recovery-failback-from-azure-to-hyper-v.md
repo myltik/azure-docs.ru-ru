@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Восстановление размещения в Site Recovery для виртуальных машин Hyper-V
 
 В этой статье описывается восстановление размещения виртуальных машин, защищенных службой Site Recovery.
@@ -98,4 +96,3 @@ Azure — это среда с высокой доступностью, в ко
 После завершения задания восстановления размещения **зафиксируйте** виртуальную машину. Фиксация удаляет виртуальную машину Azure и ее диски и подготавливает виртуальную машину к защите.
 
 После **фиксации** можно запустить *обратную репликацию*. Будет запущена репликация виртуальной машины из локальной среды обратно в Azure. Обратите внимание, эта операция реплицирует изменения только с момента выключения виртуальной машины в Azure и отправляет только разностные изменения.
-

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: eb79d574fd4dddfb986660cc338bc8748f2082c2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Оптимизация виртуальной машины Linux в Azure
 Вы можете легко создать виртуальную машину (VM) Linux с помощью портала или командной строки. В этом руководстве показано, как при помощи настроек оптимизировать производительность VM на платформе Microsoft Azure. В этой статье описывается виртуальная машина Ubuntu Server, но вы можете также создавать виртуальные машины Linux, используя [собственные образы в качестве шаблонов](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -136,5 +135,4 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 * [Руководство пользователя агента Linux для Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Оптимизация производительности MySQL в виртуальных машинах Azure Linux](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Настройка программного RAID-массива в Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 

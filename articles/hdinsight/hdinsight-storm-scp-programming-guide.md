@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
 ms.openlocfilehash: 3d76aebd2a1fd729c8e0639e6afcbde4c3fb752b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scp-programming-guide"></a>Руководство по программированию для SCP
 SPC — это платформа для создания надежного, согласованного и высокопроизводительного приложения для обработки данных в реальном времени. Она основана на [Apache Storm](http://storm.incubator.apache.org/) — системе обработки потоковых данных, созданной сообществами разработчиков OSS. Создателем Storm является Натан Марц (Nathan Marz), программа имеет открытый код и распространяется компанией Twitter. В платформе используется [Apache ZooKeeper](http://zookeeper.apache.org/)— еще один проект Apache для обеспечения высоконадежной распределенной координации и управления состоянием. 

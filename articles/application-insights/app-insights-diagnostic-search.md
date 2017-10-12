@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: e2d12f807756b778a64920b12a66fba184a99844
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: aeb27a02ed624106afec5dbd98faacf5f400f89e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-search-in-application-insights"></a>Поиск в Application Insights
 Поиск — это функция [Application Insights](app-insights-overview.md), которая позволяет искать и изучать отдельные элементы телеметрии, например просмотры страниц, исключения и веб-запросы. Также можно просматривать журнал трассировки и события, которые были закодированы.
@@ -184,4 +183,3 @@ ms.lasthandoff: 08/17/2017
 * [Журналы, исключения и пользовательские средства диагностики для ASP.NET в Application Insights](app-insights-asp-net-trace-logs.md)
 * [Наблюдение за доступностью и скоростью реагирования веб-сайта](app-insights-monitor-web-app-availability.md)
 * [Устранение неполадок](app-insights-troubleshoot-faq.md)
-

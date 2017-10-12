@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 394c3e4a0feda0b4943b479cf00edf6d6b5a265b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>Интерпретация результатов модели в машинном обучении Azure
 В этой статье объясняется, как визуализировать и интерпретировать результаты прогнозирования в студии машинного обучения Azure. Когда вы обучите модель и получите с ее помощью прогнозы (оценки модели), этот результат нужно интерпретировать.
@@ -315,4 +314,3 @@ ms.lasthandoff: 09/25/2017
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
-

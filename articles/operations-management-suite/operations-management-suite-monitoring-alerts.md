@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f2b0655bdddc162c7c8ef7d478b2ce1fd1993f15
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7df2fd7ef838465a60e3b0ce2f889127b7487684
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Управление оповещениями с помощью решений Майкрософт для мониторинга
 Оповещение указывает на некоторые проблемы, которые требуют внимания администратора.  Между System Center Operations Manager (SCOM) и службой Log Analytics в составе Operations Management Suite (OMS) существуют четкие различия с точки зрения создания оповещений, управления и анализа, а также уведомления пользователей об обнаружении критических ошибок.
@@ -74,5 +73,4 @@ SCOM позволяет выполнять диагностику и восст�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Ознакомьтесь с подробными сведениями об [оповещениях в System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
-
 

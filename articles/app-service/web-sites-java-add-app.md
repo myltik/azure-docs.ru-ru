@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 1309985d7f1b93230b38ada2ee2687b1db10a791
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Добавление приложения Java в веб-приложения службы приложений Azure
 После инициализации веб-приложения в [службе приложений Azure][Azure App Service], как описано в статье [Создание веб-приложения Java в службе приложений Azure](app-service-web-get-started-java.md), приложение можно передать, поместив WAR-файл в папку **webapps**.
@@ -44,4 +43,3 @@ ms.lasthandoff: 09/20/2017
 
 [Центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
-

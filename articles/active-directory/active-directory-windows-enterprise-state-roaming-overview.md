@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
 ms.openlocfilehash: b3c01f8d332d26e92dc3052681a4b2c95142d440
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enterprise-state-roaming-overview"></a>Обзор службы Enterprise State Roaming
 Используя Windows 10, пользователи [Azure Active Directory (Azure AD)](active-directory-whatis.md) получают возможность безопасно синхронизировать свои параметры пользователя и данные параметров приложения в облаке. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства. Enterprise State Roaming работает так же, как и стандартная [синхронизация параметров потребителя](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) , которая впервые представлена в Windows 8. Кроме того, Enterprise State Roaming обеспечивает следующее:

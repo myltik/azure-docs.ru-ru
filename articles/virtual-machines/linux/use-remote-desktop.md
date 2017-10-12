@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Установка и настройка удаленного рабочего стола для подключения к виртуальной машине Linux в Azure
 Управление виртуальными машинами Linux в Azure обычно осуществляется из командной строки с помощью подключения Secure Shell (SSH). Если вы только начинаете работу с Linux или хотите быстро устранить неполадки, проще всего использовать удаленный рабочий стол. В этой статье описывается установка и настройка среды рабочего стола ([xfce](https://www.xfce.org)) и удаленного рабочего стола ([xrdp](http://www.xrdp.org)) для виртуальной машины Linux с помощью модели развертывания Resource Manager.
@@ -144,5 +143,4 @@ tail -f /var/log/syslog
 Дополнительные сведения о создании и использовании ключей SSH на виртуальных машинах Linux см. в статье [Создание пары из открытого и закрытого ключей SSH для виртуальных машин Linux](mac-create-ssh-keys.md).
 
 Сведения об использовании SSH в Windows см. в статье [Использование SSH с Windows в Azure](ssh-from-windows.md).
-
 

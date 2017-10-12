@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 3750f975600575349e5ea9de249cf4521636fd2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # Протоколы версии 2.0: OAuth 2.0 и OpenID Connect
 Конечная точка версии 2.0 может использовать Azure AD для предоставления "идентификации как услуги" с помощью стандартных отраслевых протоколов OpenID Connect и OAuth 2.0.  Хотя эта служба соответствует стандартам, между любыми двумя реализациями этих протоколов могут быть незначительные различия.  Сведения в этой статье могут оказаться полезными, если вы планируете писать код с использованием прямой отправки и обработки HTTP-запросов или сторонней библиотеки с открытым кодом вместо одной из библиотек с открытым кодом Майкрософт.

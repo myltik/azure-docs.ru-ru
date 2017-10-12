@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 8314292cdb9b7a3f464c60119ed10f6b06ed4d10
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-table-storage-from-c"></a>Использование табличного хранилища из C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -457,4 +456,3 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 * [Перечисление ресурсов хранилища Azure в C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
 * [Документация по службе хранилища Azure](https://azure.microsoft.com/documentation/services/storage/)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
 ms.author: kraigb
+ms.openlocfilehash: 35638083cd75e1b751d00a9c8163a3bc7480f0cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2fc396c93c3156054277d592eb2772fd29eed832
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Добавление хранилища Azure с использованием подключенных служб Visual Studio
 В Visual Studio с помощью диалогового окна **Add Connected Services** (Добавление подключенных служб) можно подключить любое из следующих хранилищ Azure:
@@ -75,4 +74,3 @@ ms.lasthandoff: 08/21/2017
 - [Форум MSDN: хранилище Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 - [Блог команды разработчиков службы хранилища Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Документация по службе хранилища Azure](https://docs.microsoft.com/azure/storage/)
-

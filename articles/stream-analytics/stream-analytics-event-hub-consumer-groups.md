@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: ede3137de92e251f4ad020bc1ce3f041918242b2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Отладка Azure Stream Analytics с помощью приемников концентратора событий
 
 Вы можете использовать концентраторы событий Azure в Azure Stream Analytics для приема или вывода данных в задании. Мы рекомендуем использовать концентраторы событий с несколькими группами потребителей, чтобы обеспечить масштабируемость задания. Одной из причин является то, что число модулей чтения в задании Stream Analytics для определенных входных данных влияет на число модулей чтения в одной группе потребителей. Точное число приемников зависит от сведений о внутренней реализации логики топологии развертывания. Число приемников не предоставляется извне. Число модулей чтения можно изменить во время запуска или обновления задания.
@@ -90,4 +88,3 @@ FROM data
 * [Масштабирование заданий Azure Stream Analytics для повышения пропускной способности базы данных](stream-analytics-scale-jobs.md)
 * [Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) (Справочник по языку запросов Stream Analytics)
 * [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) (Справочник по API-интерфейсу REST для управления Stream Analytics)
-

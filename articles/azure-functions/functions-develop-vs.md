@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 5f0b346ec1c4a42d11ef74ab8ac8701dd45b00eb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
 
@@ -138,4 +137,3 @@ ms.lasthandoff: 09/29/2017
 
 Дополнительные сведения об основных инструментах Функций Azure см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md).  
 Дополнительные сведения о разработке функций, таких как библиотек классов .NET, см. в статье [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (Использование библиотек классов .NET с помощью Функций Azure). Здесь также приведены примеры того, как использовать атрибуты для объявления различных типов привязок, поддерживаемых Функциями Azure.    
-

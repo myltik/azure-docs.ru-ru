@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
 ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Корпоративный каркас Azure: рекомендуемая система управления подписками
 Предприятия все чаще внедряют общедоступное облако ввиду его гибкости и динамичности. Они используют преимущества облака для создания дохода или оптимизации ресурсов для бизнеса. Microsoft Azure предоставляет множество служб, из которых как из строительных блоков предприятия могут конструировать решения для широкого спектра рабочих нагрузок и приложений. 

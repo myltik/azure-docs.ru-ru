@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 34c0f2f88e6af5a0f822ec116e7e2334e4e29e8d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 605c56ba30357343db02856db9390385935a7ce3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Common.Section
 Элемент управления, группирующий один или несколько элементов под заголовком. Этот элемент используется при [создании управляемого приложения Azure](managed-application-publishing.md).
@@ -65,4 +64,3 @@ basics('section1').element1
 * Общие сведения об управляемых приложениях Azure см. в [этой статье](managed-application-overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Дополнительные сведения об общих свойствах элементов пользовательского интерфейса см. в статье [Элементы CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

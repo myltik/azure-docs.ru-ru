@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: aff0710ead4f76bb80c38e2d88fe9cd3ce6a7b48
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Восстановление тома StorSimple из резервного набора данных
 
@@ -143,5 +142,4 @@ ms.lasthandoff: 07/08/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте об [управлении томами StorSimple](storsimple-8000-manage-volumes-u2.md).
 * Узнайте, как [использовать службу диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-8000-manager-service-administration.md).
-
 

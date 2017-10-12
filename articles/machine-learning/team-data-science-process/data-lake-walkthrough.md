@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: bradsev;weig
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5c4ec4578d7d59ae128448be7378f6104d0ce601
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Полное пошаговое руководство по масштабируемому анализу данных с помощью Azure Data Lake
 В этом пошаговом руководстве на примере набора данных о поездках и тарифах такси в Нью-Йорке показано, как использовать озеро данных Azure для выполнения задач по исследованию и двоичной классификации данных, чтобы спрогнозировать вероятность получения чаевых за поездку. Здесь подробно описаны шаги [процесса обработки и анализа данных группы](http://aka.ms/datascienceprocess)— от получения данных для обучения модели и до развертывания веб-службы, которая публикует модель.
@@ -686,4 +685,3 @@ ms.lasthandoff: 09/25/2017
 * [Процесс обработки и анализа данных группы на практике: использование кластеров HDInsight Hadoop](hive-walkthrough.md)
 * [Процесс обработки и анализа данных группы на практике: использование SQL Server](sql-walkthrough.md)
 * [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](spark-overview.md)
-

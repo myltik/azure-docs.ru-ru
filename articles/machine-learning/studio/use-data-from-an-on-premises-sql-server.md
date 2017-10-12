@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: garye;krishnan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 79ae5cd78ce07fcc84be49c2693773d58a15771e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Выполнение расширенной аналитики с помощью Машинного обучения Azure на основе данных из локальной базы данных SQL Server
 
@@ -149,4 +148,3 @@ ms.lasthandoff: 09/25/2017
 После завершения эксперимента можно визуализировать данные, импортированные из базы данных, щелкнув порт вывода модуля **Import Data** (Импорт данных) и выбрав **Visualize** (Визуализировать).
 
 После завершения разработки эксперимента можно развернуть и ввести в эксплуатацию свою модель. С помощью службы выполнения пакетов из локальной базы данных SQL Server, настроенной в модуле **Импорт данных** , будут считываться данные, которые будут использоваться для оценки. Хотя вы можете для оценки локальных данных использовать службу ответа на запросы, вместо нее корпорация Майкрософт рекомендует использовать [надстройку Excel](excel-add-in-for-web-services.md) . В настоящее время запись в локальную базу данных SQL Server через модуль **Экспорт данных** не поддерживается в экспериментах или опубликованных веб-службах.
-

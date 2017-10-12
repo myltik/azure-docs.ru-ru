@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9bc56d242abde919f6150b88c81921d409e1d94c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Использование виртуальной машины для глубокого обучения
 
@@ -36,7 +35,6 @@ ms.lasthandoff: 09/25/2017
 2. [Руководство по созданию комплексного решения по обнаружению продуктов на изображениях.](https://github.com/Azure/cortana-intelligence-product-detection-from-images) Обнаружение изображений — это метод, с помощью которого можно находить и классифицировать объекты на изображении. Эта технология может быть очень полезна во многих сферах бизнеса в реальной жизни. Например, розничные продавцы могут использовать этот метод для определения того, какой продукт клиент взял с полки. Эти сведения, в свою очередь, помогают управлять запасами продукции. 
 
 3. [Классификация текстовых документов.](https://github.com/anargyri/lstm_han) В этом руководстве показано, как создать и обучить две различные архитектуры нейронных сетей (сеть, ориентированная на иерархию, и сеть долгой краткосрочной памяти) для классификации текстовых документов с помощью API Keras для глубокого обучения. Keras — это интерфейс для трех самых популярных платформ машинного обучения: Microsoft Cognitive Toolkit, TensorFlow и Theano.
-
 
 
 

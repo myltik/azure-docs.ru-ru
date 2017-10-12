@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Создание параметра автомасштабирования для ресурсов Azure на основе данных о производительности или расписания
 
 Параметры автомасштабирования позволяют добавлять и удалять экземпляры службы на основе предварительно заданных условий. Эти параметры можно создать на портале. В этом случае для создания и настройки параметра автомасштабирования используется браузерный пользовательский интерфейс. Это руководство описывает следующие этапы:
@@ -174,4 +172,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [Архивирование данных мониторинга](./monitor-tutorial-archive-monitoring-data.md)
-

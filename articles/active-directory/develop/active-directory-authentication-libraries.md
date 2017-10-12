@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Библиотеки проверки подлинности Azure Active Directory
 Библиотека аутентификации Azure Active Directory (ADAL) позволяет разработчикам приложений аутентифицировать пользователей в облачной или локальной среде Active Directory (AD) и получать маркеры для защиты вызовов API. ADAL упрощает для разработчиков работу с проверкой подлинности, предоставляя такие возможности, как:
@@ -92,4 +91,3 @@ ms.lasthandoff: 09/13/2017
 - [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 - [Сценарии проверки подлинности в Azure Active Directory](active-directory-authentication-scenarios.md)
 - [Примеры кода Azure Active Directory](active-directory-code-samples.md)
-

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 0c37a035cfc782e05dd72da7323fe244eadc4ce9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/12/2017
-
-
+ms.openlocfilehash: 3861814974b95f0c65879158cb02ec727a25c99f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>С помощью Azure компания SnelStart быстро расширила свои бизнес-службы со скоростью 1000 новых баз данных SQL Azure в месяц
 ![Эмблема SnelStart](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -109,5 +107,4 @@ SnelStart также разрабатывает API, который действ
 * Чтобы узнать больше о веб-ролях и рабочих ролях, ознакомьтесь с [рабочими ролями](../fundamentals-introduction-to-azure.md#compute).    
 * Дополнительные сведения о хранилище данных SQL Azure см. в статье [Хранилище данных SQL](https://azure.microsoft.com/documentation/services/sql-data-warehouse/).
 * Дополнительные сведения о SnelStart см. в статье [SnelStart](http://www.snelstart.nl).
-
 

@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 088d127521ce89d3a82e30ad8797fe5746ae7e03
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Настройка облачных ресурсов для подготовки устройств с помощью службы подготовки устройств для Центра Интернета вещей
 
 В этом руководстве показано, как настроить облако для автоматической подготовки устройств с помощью службы подготовки устройств для Центра Интернета вещей. Из этого руководства вы узнаете, как выполнять такие задачи:
@@ -107,4 +105,3 @@ ms.lasthandoff: 09/06/2017
 
 > [!div class="nextstepaction"]
 > [Set up a device to provision using the Azure IoT Hub Device Provisioning Service](tutorial-set-up-device.md) (Настройка устройства для подготовки с помощью службы подготовки устройств для Центра Интернета вещей)
-

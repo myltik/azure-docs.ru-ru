@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: carolz
+ms.openlocfilehash: 9b4352dbbec053ccc4a681886d86582adddf132c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: d9145591f768f2d5a8e55f28b0764b31e2ee452b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-portal-documentation"></a>Документация по порталу Azure
 Узнайте о функциях, с помощью которых можно развертывать ресурсы на портале Azure. В руководствах, справочниках по API и других документах объясняется, как развертывать и отслеживать ресурсы Azure, а также управлять ими.
-

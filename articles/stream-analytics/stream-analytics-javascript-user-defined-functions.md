@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Определяемые пользователем функции JavaScript в Azure Stream Analytics
 Azure Stream Analytics поддерживает определяемые пользователем функции, написанные на языке JavaScript. Благодаря обширному набору методов, которые предоставляют объекты JavaScript **String**, **RegExp**, **Math**, **Array** и **Date**, в заданиях Stream Analytics стало проще создавать сложные преобразования данных.
 
@@ -149,4 +147,3 @@ FROM
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) (Справочник по языку запросов Azure Stream Analytics).
 * [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) (Справочник по API-интерфейсу REST для управления Stream Analytics).
-

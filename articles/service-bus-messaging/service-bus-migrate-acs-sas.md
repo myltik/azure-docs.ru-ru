@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Переход от службы контроля доступа Azure Active Directory к авторизации подписанного URL-адреса
 
 В приложениях служебной шины исторически доступно две различные модели авторизации: модель токена [подписанного URL-адреса (SAS)](service-bus-sas.md), предоставляемая служебной шиной, и федеративная модель, где управление правилами выполняется внутри с помощью службы контроля доступа (ACS) [Azure Active Directory](/azure/active-directory/). Токены, полученные из службы ACS, передаются в служебную шину для авторизации доступа к необходимым компонентам.
@@ -68,5 +66,4 @@ ACS и служебная шина интегрируются за счет из
 * [Аутентификация и авторизация в служебной шине](service-bus-authentication-and-authorization.md)
 * [Аутентификация служебной шины с помощью подписанных URL-адресов](service-bus-sas.md)
 * [Базовая информация о служебной шине](service-bus-fundamentals-hybrid-solutions.md)
-
 

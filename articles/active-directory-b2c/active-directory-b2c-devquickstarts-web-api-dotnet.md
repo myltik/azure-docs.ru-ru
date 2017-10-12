@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: вызов веб-API .NET из веб-приложения .NET
 
@@ -187,5 +186,4 @@ public async Task<ActionResult> Index()
 ## <a name="run-the-sample-app"></a>Запуск примера приложения
 
 Выполните сборку обоих приложений и запустите их. Зарегистрируйтесь в приложении и войдите в него, а затем создайте задачи для пользователя, выполнившего вход. Выйдите и зарегистрируйтесь от имени другого пользователя. Создайте задачи для этого пользователя. Обратите внимание, что в API хранятся задачи для каждого пользователя, так как API извлекает удостоверение пользователя из получаемого маркера. Также выполните эксперименты с областями. Удалите разрешение на запись и попробуйте добавить задачу. После каждого изменения областей обязательно выполняйте выход из системы.
-
 

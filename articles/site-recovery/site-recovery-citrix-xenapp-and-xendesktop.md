@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: ponatara
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: dc064352b1841ff346b705dc63186b12d79350b3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Репликация многоуровневого развертывания Citrix XenApp и XenApp с помощью Azure Site Recovery
 
@@ -199,4 +198,3 @@ Citrix XenDesktop — это решение для виртуализации �
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о репликации развертываний Citrix XenApp и XenDesktop см. в [этом техническом документе](https://aka.ms/citrix-xenapp-xendesktop-with-asr). Сведения о репликации других приложений с помощью Site Recovery см. в [этом руководстве](site-recovery-workload.md).
-

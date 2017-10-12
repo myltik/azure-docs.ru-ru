@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d1ee6870ba0188ff2c473e4cca12a5bdc1f97d3d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: c865793190e6079227ca093a018b0a6f98528d4f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Определите тип следующего прыжка, используя возможность определения следующего прыжка в Наблюдателе за сетями Azure в Azure CLI 2.0.
 
 > [!div class="op_single_selector"]
@@ -89,4 +87,3 @@ az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNa
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Узнайте, как просмотреть параметры группы безопасности сети программным образом, в статье [NSG Auditing with Network Watcher](network-watcher-nsg-auditing-powershell.md) (Выполнение аудита групп безопасности сети с помощью Наблюдателя за сетями).
-

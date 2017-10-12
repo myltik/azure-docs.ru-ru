@@ -17,12 +17,11 @@ ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.custom: oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: b19fd8c0c41638ffec5fda32b6b1a855be2abc7b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: e93bfacfd74c0e8f34bc1bab372cc287193e992f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="conditional-access-in-the-azure-classic-portal"></a>Условный доступ на классическом портале Azure
 
@@ -97,5 +96,4 @@ ms.lasthandoff: 07/06/2017
 ### <a name="next-steps"></a>Дальнейшие действия
 * [Условный доступ к Azure Active Directory: часто задаваемые вопросы](active-directory-conditional-faqs.md)
 * [Технический справочник: условный доступ к приложениям Azure AD](active-directory-conditional-access-technical-reference.md)
-
 

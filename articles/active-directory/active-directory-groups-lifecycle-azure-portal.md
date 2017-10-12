@@ -16,14 +16,12 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
+ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f4efac7b74620e68e727292e02a5a904b03d6e2f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-office-365-groups-expiration-preview"></a>Настройка срока действия групп Office 365 (предварительная версия)
 
 Теперь вы можете управлять жизненным циклом групп Office 365, задавая срок действия для выбранных групп Office 365. После настройки этого срока действия владельцам этих групп будет предложено обновить свои группы, если они им по-прежнему нужны. Все группы Office 365, которые не будут обновлены, будут удалены. Любую удаленную группу Office 365 в течение 30 дней может восстановить ее владелец или администратор.  
@@ -81,4 +79,3 @@ ms.lasthandoff: 08/08/2017
 * [Управление участниками группы](active-directory-groups-members-azure-portal.md)
 * [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
 * [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
-

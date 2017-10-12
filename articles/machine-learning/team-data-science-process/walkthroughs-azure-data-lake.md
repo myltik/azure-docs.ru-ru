@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 100f75c5d21d5723bd7438b49e982ff116b75908
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Пошаговые руководства по обработке и анализу данных в Azure Data Lake с помощью U-SQL
 
 В этих пошаговых руководствах для выполнения прогнозной аналитики используется U-SQL с Azure Data Lake. Выполните шаги, описанные в процессе обработки и анализа данных группы. Процесс обработки и анализа данных группы представлен в статье [Жизненный цикл процесса обработки и анализа данных группы](overview.md). Общие сведения об Azure Data Lake см. в статье [Обзор хранилища озера данных Azure](../../data-lake-store/data-lake-store-overview.md).

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/18/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 29a92f0c70bffedeb75c50b7fc3b687ee5ee227d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Руководство по выбору ценовой категории для виртуальных машин SQL Server в Azure
 
@@ -120,4 +119,3 @@ ms.lasthandoff: 04/21/2017
 Последние цены на виртуальные машины, включая лицензии SQL Server, доступны на [странице цен на виртуальные машины Azure](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard).
 
 Просмотрите другие разделы, посвященные виртуальным машинам SQL Server, в статье [Приступая к работе с SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-

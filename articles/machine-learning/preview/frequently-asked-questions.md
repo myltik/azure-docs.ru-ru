@@ -9,12 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Часто задаваемые вопросы о службе "Машинное обучение Azure"
 
@@ -230,4 +229,3 @@ Azure Machine Learning Workbench — это дополнительное при
 **Где можно получить поддержку по Машинному обучению Azure?**
 
 Чтобы получить техническую поддержку, откройте страницу "Служба поддержки Azure" и выберите "Машинное обучение". На сайте [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) есть активное сообщество службы "Машинное обучение Azure", помеченное тегом Azure-Machine-Learning, которое отслеживается командой.  Предложения и запросы на новые функции отправляйте на сайте [обратной связи службы "Машинное обучение Azure"](https://feedback.azure.com/forums/257792-machine-learning). 
-

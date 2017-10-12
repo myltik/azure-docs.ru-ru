@@ -9,14 +9,12 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Подключение существующей службы приложений Azure к базе данных Azure для сервера MySQL
 В этом разделе объясняется, как подключить имеющуюся службу приложений Azure к базе данных Azure для сервера MySQL.
 
@@ -64,4 +62,3 @@ ms.lasthandoff: 09/14/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о строках подключения см. в [соответствующей статье](howto-connection-string.md).
-

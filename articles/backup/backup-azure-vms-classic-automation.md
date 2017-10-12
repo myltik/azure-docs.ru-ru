@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 8/2/2017
 ms.author: markgal;trinadhk;jimpark
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 5f0f06adb8177ce2d17aa0b40666470279c04e22
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Архивация виртуальных машин с помощью командлетов AzureRM.Backup
 > [!div class="op_single_selector"]
@@ -358,4 +357,3 @@ $DAILYBACKUPSTATS | Out-GridView
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если вы предпочитаете использовать PowerShell для взаимодействия с ресурсами Azure, ознакомьтесь со статьей о защите Windows Server с помощью PowerShell: [Развертывание службы архивации для Windows Server и управление ею](backup-client-automation-classic.md). Доступна и другая статья, посвященная тому, как использовать PowerShell для управления службой архивации DPM: [Развертывание службы архивации для DPM и управление ею](backup-dpm-automation-classic.md). Обе эти статьи имеют две версии — для развертывания с помощью Resource Manager и для классической модели развертывания.
-

@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ca5bec5cf1152e6259b9fe7a869edd2d62b88e1a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-9-set-up-a-replication-policy-for-hyper-v-vm-replication-to-azure"></a>Шаг 9. Настройка политики репликации для репликации виртуальных машин Hyper-V в Azure
 
 В этой статье описывается настройка политики репликации при выполнении репликации виртуальных машин Hyper-V в Azure (без System Center VMM) с помощью службы [Azure Site Recovery](site-recovery-overview.md) на портале Azure.
@@ -58,4 +56,3 @@ Hyper-V использует два типа резервного копиров
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 10. Включение репликации для физических серверов в Azure](hyper-v-site-walkthrough-enable-replication.md).
-

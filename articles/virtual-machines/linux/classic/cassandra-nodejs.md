@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
+ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: acfa9f6f0166167341fc54c4d55fb37e0a338024
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Запуск Cassandra под управлением Linux в Azure и доступ к нему из Node.js
 > [!IMPORTANT] 
@@ -683,5 +682,4 @@ Microsoft Azure — это гибкая платформа, которая по�
 * [http://cassandra.apache.org](http://cassandra.apache.org)
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)
-
 

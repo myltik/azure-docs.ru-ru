@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: e8e270ce865d4da3ee219958b308db2c1c89b11b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Нагрузочное тестирование приложения с помощью Visual Studio Team Services
 В этой статье показано, как выполнить нагрузочное тестирование приложения с помощью функций нагрузочного тестирования Microsoft Visual Studio. В ней используются служба с отслеживанием состояния Azure Service Fabric в серверной части и служба без отслеживания состояния в клиентской части. Используемый здесь пример приложения представляет собой симулятор расположения самолета. Вы указываете идентификатор самолета, время вылета и место назначения. Серверная часть приложения обрабатывает запросы, а клиентская отображает на карте самолет в соответствии с заданными критериями.

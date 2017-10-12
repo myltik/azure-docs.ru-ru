@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Оптимизация потоковой передачи мультимедиа через сеть доставки содержимого Azure 
  
@@ -98,5 +97,4 @@ DASH | mpd, тире, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4
 ### <a name="cache-fill-wait-time"></a>Время ожидания заполнения кэша
 
  Функция времени ожидания заполнения кэша вынуждает пограничный сервер удерживать последующие запросы к тому же ресурсу, пока с сервера-источника не будут возвращены заголовки HTTP-ответа. Если заголовки HTTP-ответа с сервера-источника поступают до истечения времени ожидания, то все удерживаемые запросы возвращаются из растущего кэша. В это же время кэш заполняется данными из источника. Время ожидания заполнения кэша по умолчанию равно 3,000 мс. 
-
 

@@ -9,20 +9,18 @@ editor:
 tags: top-support-issue
 ms.assetid: 0756b52d-4f5a-4503-ae45-c00a6a2edcdf
 ms.service: virtual-machines-windows
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
 ms.date: 06/13/2017
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: a99af3b7087d5d7af2687a080deb05ed566fdb63
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 5fe9cc11a9046b537a4a10f34e77bacb69232743
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Устранение неполадок в развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure
 Когда вы запускаете остановленную виртуальную машину Azure или изменяете размер существующей виртуальной машины Azure, часто возникает ошибка выделения ресурсов. Это происходит, когда кластер или регион не имеют доступных ресурсов или не поддерживают запрашиваемый размер виртуальной машины.
@@ -67,5 +65,4 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При возникновении проблем во время создания виртуальной машины Windows в Azure ознакомьтесь со статьей, посвященной [устранению неполадок в развертывании](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

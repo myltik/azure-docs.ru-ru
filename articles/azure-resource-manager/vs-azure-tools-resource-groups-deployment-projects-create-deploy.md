@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Создание и развертывание групп ресурсов Azure с помощью Visual Studio
 С помощью Visual Studio и [пакета Azure SDK](https://azure.microsoft.com/downloads/) можно создать проект для развертывания инфраструктуры и кода в Azure. Например, можно определить веб-узел, веб-сайт и базу данных для приложения, а затем развернуть эту инфраструктуру вместе с кодом. Или можно определить виртуальную машину, виртуальную сеть и учетную запись хранилища, а затем развернуть эту инфраструктуру со сценарием, который выполняется на виртуальной машине. Проект развертывания **группа ресурсов Azure** позволяет развернуть все необходимые ресурсы в ходе одной воспроизводимой операции. Подробнее о развертывании ресурсов и управлении ими см. в разделе [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
@@ -220,5 +219,4 @@ ms.lasthandoff: 03/14/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об управлении ресурсами на портале см. в статье [Управление ресурсами Azure через портал](resource-group-portal.md).
 * Дополнительные сведения о шаблонах см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
-
 

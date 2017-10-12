@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Стоит ли сделать выбор в пользу облачных служб или чего-то другого?
 Являются ли облачные службы Azure удачным выбором для вас? Azure предоставляет разные модели размещения для запуска приложений. Каждая из них содержит различный набор служб, и ваш выбор зависит от конкретных целей.
@@ -63,5 +62,4 @@ ms.lasthandoff: 09/20/2017
 [Создание приложения облачной службы на Node.js](cloud-services-nodejs-develop-deploy-app.md)  
 [Создание приложения облачной службы на PHP](../cloud-services-php-create-web-role.md)  
 [Создание приложения облачной службы на Python](cloud-services-python-ptvs.md)
-
 

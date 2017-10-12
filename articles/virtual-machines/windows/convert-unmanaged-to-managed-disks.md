@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: cynthn
+ms.openlocfilehash: 7f26f357268d6a3190557b7099ef07c7ef805119
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 54afcf1e37f696979bfe270a473c72aedf20dc43
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Переключение виртуальной машины Windows с неуправляемых дисков на управляемые диски
 
 При наличии виртуальных машин Windows, использующих неуправляемые диски, их можно преобразовать для использования управляемых дисков с помощью службы [Управляемые диски Azure](managed-disks-overview.md). При этом преобразуются диск операционной системы и все подключенные диски данных.
@@ -44,7 +42,7 @@ ms.lasthandoff: 08/21/2017
 
 1. Отмените выделение виртуальной машины с помощью командлета [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). В следующем примере освобождается виртуальная машина `myVM`, входящая в группу ресурсов `myResourceGroup`. 
 
-  ```powershell
+  ```azurepowershell-interactive
   $rgName = "myResourceGroup"
   $vmName = "myVM"
   Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
@@ -52,13 +50,13 @@ ms.lasthandoff: 08/21/2017
 
 2. Преобразуйте виртуальную машину для использования управляемых дисков с помощью командлета [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk). Приведенный ниже процесс преобразовывает виртуальную машину, включая ее диск ОС и все диски данных.
 
-  ```powershell
+  ```azurepowershell-interactive
   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
   ```
 
 3. После преобразования запустите виртуальную машину с помощью командлета [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm). Следующий пример перезапустит предыдущую виртуальную машину:
 
-  ```powershell
+  ```azurepowershell-interactive
   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
   ```
 
@@ -69,7 +67,7 @@ ms.lasthandoff: 08/21/2017
 
 1. Преобразуйте группу доступности с помощью командлета [Update-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/update-azurermavailabilityset). В следующем примере преобразовывается группа доступности `myAvailabilitySet` в группе ресурсов `myResourceGroup`.
 
-  ```powershell
+  ```azurepowershell-interactive
   $rgName = 'myResourceGroup'
   $avSetName = 'myAvailabilitySet'
 
@@ -79,14 +77,14 @@ ms.lasthandoff: 08/21/2017
 
   Если регион, в котором находится группа доступности, имеет только 2 управляемых домена сбоя, но количество неуправляемых доменов сбоя равно 3, отобразится ошибка "Указанное число доменов сбоя 3 должно быть в диапазоне от 1 до 2". Чтобы устранить эту ошибку, необходимо обновить количество доменов сбоя до двух и обновить значение `Sku` к `Aligned` следующим образом:
 
-  ```powershell
+  ```azurepowershell-interactive
   $avSet.PlatformFaultDomainCount = 2
   Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
 2. Освободите и преобразуйте виртуальные машины в группе доступности. Следующий сценарий отменяет выделение каждой виртуальной машины с помощью командлета [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm), а затем преобразует ее с помощью командлета [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) и перезапускает с помощью командлета [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm).
 
-  ```powershell
+  ```azurepowershell-interactive
   $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
   foreach($vmInfo in $avSet.VirtualMachinesReferences)
@@ -109,5 +107,4 @@ ms.lasthandoff: 08/21/2017
 [Преобразование управляемых дисков уровня "Стандартный" в диски уровня "Премиум"](convert-disk-storage.md)
 
 Создайте копию виртуальной машины, доступную только для чтения, с помощью [моментальных снимков](snapshot-copy-managed-disk.md).
-
 

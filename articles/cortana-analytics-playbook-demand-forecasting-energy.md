@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Сборник шаблонов решений Cortana Intelligence для прогнозирования энергопотребления
 ## <a name="executive-summary"></a>Аннотация
@@ -401,5 +400,4 @@ MAPE — это средняя абсолютная погрешность в �
 ![Сквозная архитектура развертывания](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 Дополнительные сведения о каждом компоненте и полной архитектуре см. в разделе "Шаблон решения по прогнозированию спроса на энергию".
-
 

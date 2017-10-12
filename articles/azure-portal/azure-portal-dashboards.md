@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Создание панелей мониторинга на портале Azure и предоставление общего доступа к ним
 Можно создать несколько панелей мониторинга и предоставить к ним общий доступ другим пользователям, у которых есть доступ к вашим подпискам Azure.  В этой статье представлены основные сведения о создании, изменении и публикации панелей мониторинга, а также об управлении доступом к ним.
@@ -95,5 +94,4 @@ ms.lasthandoff: 08/24/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения об управлении ресурсами см. в статье [Управление ресурсами Azure через портал](../azure-resource-manager/resource-group-portal.md).
 * Сведения о развертывании ресурсов см. в статье [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md) (Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure).
-
 

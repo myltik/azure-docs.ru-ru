@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 7/15/2017
 ms.author: delhan
+ms.openlocfilehash: eb1a6f93670317203c4de53b7b1307a2034c26ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 786c5fa4a72abac4dfcbce2c0b987ff622e96ed3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Поддержка добавления виртуальных машин Azure в существующую группу доступности
 
@@ -39,4 +38,3 @@ ms.lasthandoff: 09/14/2017
 Все остальные серии не могут находиться в одной и той же группе доступности, так как для них требуется определенное оборудование.
 
 Размер виртуальной машины A8 или A9 нельзя смешивать, потому что требуется выделенная сеть серверной сети RDMA.
-

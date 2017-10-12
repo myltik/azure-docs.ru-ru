@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 7d655c482a16c991a819eec84c84556d2f288a75
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Руководство по интеграции Azure Active Directory с Zscaler One
 
@@ -319,5 +318,4 @@ ms.lasthandoff: 07/13/2017
 [201]: ./media/active-directory-saas-zscaler-one-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zscaler-one-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zscaler-one-tutorial/tutorial_general_203.png
-
 

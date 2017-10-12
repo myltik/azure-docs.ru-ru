@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ffab59315a5533c9df92e8b18b4db2ff2314fd59
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 04ccb4ab4e60a11cdce11ca8194c157b8e8f11f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Поддерживаемые версии сервера базы данных Azure для MySQL
 База данных Azure для MySQL была разработана на базе выпуска MySQL Community Edition [MySQL Community Edition](https://www.mysql.com/products/community/) с использованием подсистемы InnoDB.  В настоящее время база данных Azure для MySQL поддерживает перечисленные ниже версии.
@@ -31,4 +30,3 @@ ms.lasthandoff: 05/10/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Сведения о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб** представлены в статье [Уровни служб в базе данных Azure для MySQL](./concepts-service-tiers.md).
-

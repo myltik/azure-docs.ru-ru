@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: 43087ab83b931f9bcafdffb5a7355045b9577e61
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: aab705688079601bbce93455f7dda80cdd733110
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Примеры API аудита инструментов создания отчетов Azure Active Directory
 Эта статья входит в серию статей об API отчетов Azure Active Directory.  
@@ -152,7 +151,7 @@ ms.lasthandoff: 07/19/2017
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
-    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
+    request_string = 'https://graph.windows.net/' + tenant_domain + '/activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
     response = requests.get(request_string, headers = header_params)
 
     if response.status_code is 200:
@@ -168,5 +167,4 @@ ms.lasthandoff: 07/19/2017
 * Хотите настроить примеры в этой статье? См. статью [Справочник по API аудита Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 * Полный обзор использования API отчетов Azure Active Directory см. в статье [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Дополнительные сведения об отчетах Azure Active Directory см. в статье [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).  
-
 

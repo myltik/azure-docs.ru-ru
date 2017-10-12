@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Развертывание и администрирование облачного устройства StorSimple в Azure (обновление 3 и более поздние версии)
 
@@ -265,4 +264,3 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [управлять облачным устройством с помощью службы диспетчера устройств StorSimple](storsimple-8000-manager-service-administration.md).
 * Узнайте, как [восстановить том StorSimple из резервного набора данных](storsimple-8000-restore-from-backup-set-u2.md).
-

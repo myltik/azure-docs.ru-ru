@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: c230e73f83d8acd0f142e037f70a80c9e0e4107e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-manage-device-enrollments-in-the-iot-hub-device-provisioning-service"></a>Как управлять регистрацией устройств в службе подготовки устройств для Центра Интернета вещей
 
 При *регистрации устройства* создается запись одного устройства или группы устройств, которые можно в будущем зарегистрировать с помощью службы подготовки устройств для Центра Интернета вещей Azure. Запись регистрации содержит необходимую начальную конфигурацию устройств как часть регистрации, включая нужный Центр Интернета вещей. В этой статье описывается, как управлять регистрацией устройств для службы подготовки.
@@ -76,7 +74,6 @@ ms.lasthandoff: 09/06/2017
 5. После завершения действия запись будет удалена из списка регистрации устройств. 
  
     ![Удаление регистрации на портале](./media/how-to-manage-enrollments/remove-enrollment.png)
-
 
 
 

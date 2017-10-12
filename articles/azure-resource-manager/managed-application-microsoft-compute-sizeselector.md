@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: e54962f73028ada258a7faef271d66f0fbcef649
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: e75cea7dd1845a2769e2eab065d19a26423fbf17
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Compute.SizeSelector
 Элемент управления для выбора размера одного или нескольких экземпляров виртуальной машины. Этот элемент используется при [создании управляемого приложения Azure](managed-application-publishing.md).
@@ -71,4 +70,3 @@ ms.lasthandoff: 05/12/2017
 * Общие сведения об управляемых приложениях Azure см. в [этой статье](managed-application-overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Дополнительные сведения об общих свойствах элементов пользовательского интерфейса см. в статье [Элементы CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

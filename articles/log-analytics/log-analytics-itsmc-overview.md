@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Централизованное управление рабочими элементами ITSM с помощью соединителя управления ИТ-службами (предварительная версия)
 
@@ -307,4 +306,3 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Подключение продуктов и служб ITSM с помощью соединителя управления ИТ-службами (предварительная версия)](log-analytics-itsmc-connections.md)
-

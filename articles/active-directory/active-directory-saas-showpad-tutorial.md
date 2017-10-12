@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: c8b39c9215675d8073f896f934339e7cd55334cc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Руководство. Интеграция Azure Active Directory с Showpad
 
@@ -254,5 +253,4 @@ ms.lasthandoff: 07/12/2017
 [201]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_203.png
-
 

@@ -1,4 +1,4 @@
----   
+---
 title: "Общие сведения о политике SSL для шлюза приложений Azure | Документация Майкрософт"
 description: "Дополнительные сведения о том, как шлюз приложений Azure позволяет настроить политику SSL"
 services: application gateway
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-   
-
 # <a name="application-gateway-ssl-policy-overview"></a>Общие сведения о политике SSL шлюза приложений
 
 Шлюз приложений Azure можно использовать, чтобы централизовать управление SSL-сертификатами и сократить нагрузку на внутренний сервер фермы, связанную с шифрованием данных и их расшифровкой. Такая централизованная обработка SSL также дает возможность задать центральную политику SSL в соответствии с требованиями безопасности организации. Это помогает обеспечить соответствие требованиям, а также рекомендациям по безопасности и организации работы.
@@ -107,4 +104,3 @@ ms.lasthandoff: 09/06/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о настройке политики SSL см. в статье [Настройка версий политики SSL и комплектов шифров на шлюзе приложений](application-gateway-configure-ssl-policy-powershell.md).
-
