@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Поддержка метаданных OpenAPI 2.0 в Функциях Azure (предварительная версия)
 Поддержка метаданных OpenAPI 2.0 (прежнее название — Swagger) в Функциях Azure — это предварительная версия функции, которая предназначена для записи определения OpenAPI 2.0 в приложении-функции. Затем можно разместить этот файл с помощью приложения-функции.
@@ -82,4 +81,3 @@ ms.lasthandoff: 09/20/2017
 * [Создание метаданных OpenAPI 2.0 (Swagger) для приложения-функции (предварительная версия)](functions-api-definition-getting-started.md). Попробуйте воспользоваться нашим пошаговым руководством, чтобы увидеть определения OpenAPI в действии.
 * [Репозиторий GitHub для Функций Azure](https://github.com/Azure/Azure-Functions/). Ознакомьтесь со сведениями о Функциях в репозитории и оставьте свои отзывы о предварительной версии средства поддержки определений API. Добавьте на GitHub сведения обо всех проблемах, которые необходимо устранить.
 * [Руководство для разработчиков по Функциям Azure](functions-reference.md). Сведения о написании кода функций и определении триггеров и привязок.
-

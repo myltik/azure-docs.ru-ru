@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 42644bd97443e827b523503989b0b25d3d48028c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Включение ведения журнала диагностики для веб-приложений в службе приложений Azure
 ## <a name="overview"></a>Обзор
@@ -287,4 +286,3 @@ Visual Studio Application Insights предоставляет средства �
 ## <a name="whats-changed"></a>Изменения
 * Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Информацию о смене старого портала на новый см. в [справочнике по навигации на портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
-

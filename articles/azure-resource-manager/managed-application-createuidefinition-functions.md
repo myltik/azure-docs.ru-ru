@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: tomfitz
+ms.openlocfilehash: 856ccd7433a46187a5d7bad27b79c804e7931eb9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 62ee10eb8e6f33cc4d828cf01b405c846bef8aa4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="createuidefinition-functions"></a>Функции CreateUiDefinition
 Этот раздел содержит подписи для всех поддерживаемых функций CreateUiDefinition.
@@ -788,5 +787,4 @@ ms.lasthandoff: 07/21/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Общие сведения об Azure Resource Manager см. в [этой статье](resource-group-overview.md).
-
 

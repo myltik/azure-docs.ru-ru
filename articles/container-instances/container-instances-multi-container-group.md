@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 94744e8138d40dd777c0c004472804e3af6c0b1e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-container-group"></a>Развертывание группы контейнеров
 
 Служба "Экземпляры контейнеров Azure" поддерживает развертывание нескольких контейнеров на одном узле с использованием *группы контейнеров*. Это полезно при создании сопроводительного приложения для ведения журнала, мониторинга или любой другой конфигурации, когда службе требуется еще один прикрепленный процесс. 
@@ -203,4 +201,3 @@ Date: Mon, 17 Jul 2017 18:27:36 GMT
 
 > [!div class="nextstepaction"]
 > [Руководство по службе "Экземпляры контейнеров Azure"]: ./container-instances-tutorial-prepare-app.md
-

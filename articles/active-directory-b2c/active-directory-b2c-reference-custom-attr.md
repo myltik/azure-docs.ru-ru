@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: использование настраиваемых атрибутов для сбора данных о потребителях
 Каталог Azure Active Directory (Azure AD) B2C поставляется со встроенным набором информации (атрибутов): "Given Name", "Surname", "City", "Postal Code" и т. д. Однако у каждого потребительского приложения особые требования к атрибутам, которые им требуется собирать у потребителей. С помощью Azure AD B2C можно расширить набор атрибутов, хранящихся в каждой учетной записи потребителя. На [портале Azure](https://portal.azure.com/) можно создать настраиваемые атрибуты и использовать их в политиках регистрации, как показано ниже. Можно также читать и записывать эти атрибуты с помощью [API Graph Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md).

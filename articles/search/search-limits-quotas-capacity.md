@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/07/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Ограничения поиска Azure
 Максимальные ограничения хранилища, рабочих нагрузок, количества индексов, документов и других объектов зависят от того, на каком уровне [вы подготовили службу поиска Azure для работы](search-create-service-portal.md): **Бесплатный**, **Базовый** или **Стандартный**.
@@ -96,4 +95,3 @@ ms.lasthandoff: 07/26/2017
 
 * Максимум 2 ключа администратора на одну службу.
 * Максимум 50 ключей запросов на одну службу.
-

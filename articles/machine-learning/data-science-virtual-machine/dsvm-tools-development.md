@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Средства разработки виртуальных машин для обработки и анализа данных
 
 Виртуальная машина для обработки и анализа данных (DSVM) предоставляет производительную среду для разработки, объединяя несколько популярных средств и интегрированную среду разработки. Ниже приведены некоторые средства, предоставляемые на виртуальной машине для обработки и анализа данных. 
@@ -83,5 +81,4 @@ ms.lasthandoff: 09/25/2017
 | Распространенные способы применения      |  Визуализация данных и создание панелей мониторинга   |
 | Запуск и использование      | С помощью ярлыка на рабочем столе (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      |   Visual Studio 2017, Visual Studio Code, Juno      |
-
 

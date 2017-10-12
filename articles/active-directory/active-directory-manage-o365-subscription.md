@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Управление каталогом для подписки Office 365 в Azure
 В этой статье описывается управление каталогом, созданным для подписки Office 365, на классическом портале Azure. Для входа на классический портал Azure вы должны быть администратором служб или соадминистратором подписки Azure. Если у вас нет подписки Azure, вы можете зарегистрироваться прямо сейчас, чтобы использовать [бесплатную пробную версию в течение 30 дней](https://azure.microsoft.com/trial/get-started-active-directory/) и развернуть первое облачное решение в течение 5 минут, применив эту ссылку. Убедитесь, что вы используете рабочую или учебную учетную запись, с помощью которой входите в Office 365.
@@ -33,8 +34,8 @@ ms.lasthandoff: 08/03/2017
 
 | Подписки | Office 365 | Таблицы Azure |
 | --- | --- | --- |
-|   Отображаемое имя |Contoso |Каталог по умолчанию Azure Active Directory (Azure AD) |
-|   Доменное имя |contoso.com |msmithhotmail.onmicrosoft.com |
+|   Отображаемое имя | Contoso | Каталог по умолчанию Azure Active Directory (Azure AD) |
+|   Доменное имя | contoso.com | msmithhotmail.onmicrosoft.com |
 
 Для управления удостоверениями пользователей он желает использовать каталог Contoso, тогда как в Azure он вошел с использованием учетной записи Майкрософт, поэтому он может включить функции Azure AD, такие как многофакторная проверка подлинности. На схеме ниже демонстрируется этот процесс.
 

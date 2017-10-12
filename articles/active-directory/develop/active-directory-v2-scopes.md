@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Области, разрешения и согласие для конечной точки Azure Active Directory версии 2.0
 Приложения, интегрируемые с Azure Active Directory (Azure AD), придерживаются определенной модели авторизации, позволяющей пользователям контролировать способ получения приложением доступа к их данным. Реализация версии 2.0 этой модели авторизации была обновлена, в результате чего изменился механизм взаимодействия приложения с Azure AD. В этой статье рассматриваются основные понятия этой модели авторизации, включая области, разрешения и согласие на их предоставление.

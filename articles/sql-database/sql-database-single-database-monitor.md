@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 50d635191ff65f8b892595c954673b2820b22ecb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Мониторинг производительности базы данных в базе данных SQL Azure
 Мониторинг производительности базы данных SQL в Azure начинается с мониторинга использования ресурсов в соответствии с выбранным уровнем производительности базы данных. С помощью мониторинга можно определить, является ли емкость базы данных избыточной или же проблема возникает из-за того, что ресурсы используются на пределе возможностей. Затем при необходимости можно изменить уровень производительности и [уровень службы](sql-database-service-tiers.md) такой базы данных. Вы можете выполнять мониторинг базы данных с помощью графических средств на [портале Azure](https://portal.azure.com) или с использованием [динамических административных представлений](https://msdn.microsoft.com/library/ms188754.aspx).
@@ -217,4 +216,3 @@ ms.lasthandoff: 09/25/2017
 
 - Узнайте, как использовать автоматическую настройку индексов базы данных и планов выполнения запросов, изучив раздел [Автоматическая настройка](sql-database-automatic-tuning.md).
 - Узнайте, как автоматически отслеживать производительность базы данных с помощью [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md). Этот компонент предоставляет диагностические данные и анализ первопричин проблем с производительностью.
-

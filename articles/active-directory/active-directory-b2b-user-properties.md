@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 6e49cb202ed03bf50fb9ca34d34924cda434829c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Свойства пользователя службы совместной работы Azure Active Directory B2B
 
 В Azure Active Directory B2B (бизнес — бизнес) пользователем службы совместной работы называется пользователь с гостевой учетной записью (UserType = Guest). Обычно такой пользователь является представителем партнерской организации и по умолчанию имеет ограниченные права в каталоге приглашающей организации.
@@ -107,4 +105,3 @@ ms.lasthandoff: 05/26/2017
 * [Сопоставление утверждений пользователя службы совместной работы B2B в Azure Active Directory](active-directory-b2b-claims-mapping.md)
 * [Доступ внешних пользователей к Office 365](active-directory-b2b-o365-external-user.md)
 * [Текущие ограничения службы совместной работы Azure Active Directory B2B](active-directory-b2b-current-limitations.md)
-

@@ -9,14 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: ce297476cfdf80564c6c0cb835955a146f7a1c12
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 40b3cd74fc68158b679db462278edef4827d8603
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Мониторинг и оповещение о работоспособности приложения с помощью Azure Application Insights
 
 Azure Application Insights позволяет выполнять мониторинг приложения и отправлять оповещения, когда оно отключено, недоступно или в нем возникают проблемы с производительностью.  В этом руководстве описано процесс создания тестов для постоянной проверки доступности приложения и отправки различных типов оповещений в ответ на обнаруженные неполадки.  Вы узнаете, как выполнять следующие задачи:

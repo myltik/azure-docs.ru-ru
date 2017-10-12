@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
+ms.openlocfilehash: c10c947b6fc0737a7b9fba6b7f3efcae1f96638b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: d1daa01191480eaeb81727416b2134b00c698dc3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Изменение группы доступности для виртуальной машины Windows
 Ниже приведены инструкции по изменению группы доступности виртуальной машины с помощью Azure PowerShell. Виртуальную машину можно добавить в группу доступности только при ее создании. Чтобы изменить группу доступности, необходимо удалить и повторно создать виртуальную машину. 
@@ -157,5 +156,4 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Увеличьте емкость хранилища для виртуальной машины, добавив дополнительный [диск данных](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

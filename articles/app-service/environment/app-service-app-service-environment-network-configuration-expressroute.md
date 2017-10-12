@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: bb3e283e8a9327a9c66c8d8ded037cee5195ffc6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Сведения о конфигурации сети для сред службы приложений с ExpressRoute
 ## <a name="overview"></a>Обзор
@@ -136,4 +135,3 @@ ms.lasthandoff: 09/20/2017
 
 
 <!-- IMAGES -->
-

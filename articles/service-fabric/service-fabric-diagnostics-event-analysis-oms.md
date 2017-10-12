@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: f52988f2a67f2cafe93a7e0a358c599658d068b2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-analysis-and-visualization-with-oms"></a>Анализ и визуализация событий с помощью OMS
 
 Operations Management Suite (OMS) — это набор служб управления, которые помогают в мониторинге и диагностике приложений и служб, размещенных в облаке. Более подробные сведения о наборе OMS и его возможностях см. в статье [Что такое Operations Management Suite (OMS)?](../operations-management-suite/operations-management-suite-overview.md)

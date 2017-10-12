@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
 ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Как в Site Recovery работает репликация Hyper-V в Azure?
 
@@ -64,8 +64,7 @@ ms.lasthandoff: 07/11/2017
 1. После включения защиты для виртуальных машин Hyper-V на портале Azure или локально запустится рабочий процесс **Включение защиты**.
 2. Это задание проверяет, соответствует ли компьютер необходимым требованиям перед вызовом метода [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), который настраивает репликацию, используя определенные вами параметры.
 3. Задание запускает начальную репликацию, вызывая метод [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), чтобы инициализировать полную репликацию виртуальной машины и отправить ее виртуальные диски в Azure.
-4. На вкладке **Задания** можно отслеживать ход выполнения задания.
-        ![Список заданий](media/site-recovery-hyper-v-azure-architecture/image1.png)![Подробные сведения о включении защиты](media/site-recovery-hyper-v-azure-architecture/image2.png)
+4. На вкладке **Задания** можно отслеживать ход выполнения задания.      ![Список заданий](media/site-recovery-hyper-v-azure-architecture/image1.png)![Подробные сведения о включении защиты](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Репликация исходных данных
 

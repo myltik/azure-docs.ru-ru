@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 7/12/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 8b8fda17a8d1d1796d5299e3aba4b0fd5e719a4c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Подключение Raspberry Pi к Центру Интернета вещей Azure (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -82,7 +80,7 @@ ms.lasthandoff: 08/01/2017
 Подготовьте карту microSD для установки образа ОС Raspbian.
 
 1. Скачайте ОС Raspbian.
-   1. [Скачайте Raspbian Jessie with Pixel](https://www.raspberrypi.org/downloads/raspbian/) (ZIP-файл).
+   1. [Скачайте Raspbian Jessie with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (ZIP-файл).
    1. Извлеките образ ОС Raspbian в папку на компьютере.
 1. Установите ОС Raspbian на карту microSD.
    1. [Скачайте и установите служебную программу Etcher для записи данных на карты SD](https://etcher.io/).
@@ -154,7 +152,7 @@ ms.lasthandoff: 08/01/2017
    
    **Пользователи MAC и Ubuntu**
    
-   Используйте встроенный SSH-клиент в Ubuntu или macOS. Попробуйте выполнить `ssh pi@<ip address of pi>`, чтобы подключить устройство Pi по протоколу SSH.
+   Используйте SSH-клиент, встроенный в Ubuntu или macOS. Возможно, для подключения устройства Pi по протоколу SSH потребуется выполнить `ssh pi@<ip address of pi>`.
    > [!NOTE] 
    Имя пользователя по умолчанию — `pi`, а пароль — `raspberry`.
 
@@ -219,7 +217,6 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей. Сведения о том, как просматривать сообщения, отправленные устройством Raspberry Pi в Центр Интернета вещей, а также отправлять сообщения на устройство Raspberry Pi в интерфейсе командной строки, см. в руководстве по [управлению обменом сообщений между облаком и устройством с помощью обозревателя Центра Интернета вещей](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей. Сведения о том, как просматривать сообщения, отправляемые устройством Raspberry Pi в Центр Интернета вещей, а также как отправлять сообщения на устройство Raspberry Pi в интерфейсе командной строки, см. в руководстве по [управлению обменом сообщениями между облаком и устройством с помощью обозревателя Центра Интернета вещей](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

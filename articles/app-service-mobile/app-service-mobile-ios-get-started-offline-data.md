@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dc5f98fd548512801c705f942e30df5e6b95d542
-ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/31/2017
-
+ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Включение автономной синхронизации с помощью мобильных приложений iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -287,4 +286,3 @@ ms.lasthandoff: 01/31/2017
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
-

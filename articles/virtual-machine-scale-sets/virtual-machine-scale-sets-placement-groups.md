@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/1/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Работа с крупными масштабируемыми наборами виртуальных машин
 Теперь вы можете создавать [масштабируемые наборы виртуальных машин](/azure/virtual-machine-scale-sets/) Azure, включающие до 1000 виртуальных машин. В этом документе под _крупным масштабируемым набором виртуальных машин_ подразумевается масштабируемый набор, в который можно добавить более 100 виртуальных машин. Эта возможность задается с помощью свойства масштабируемого набора (_singlePlacementGroup=False_). 
@@ -85,6 +84,5 @@ az vmss create --help
 
 >[!NOTE] 
 Масштабируемый набор с поддержкой одной группы размещения (по умолчанию) можно преобразовать в масштабируемый набор с поддержкой нескольких групп размещения, но не наоборот. Поэтому прежде чем выполнять преобразование, разберитесь со свойствами крупных масштабируемых наборов. В частности, убедитесь, что вам не нужна балансировка нагрузки уровня 4 с помощью Azure Load Balancer.
-
 
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: fa9983a3d53cf8d6278163a2b7d08c86ae2f0637
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 06afc6b4149ea1590a2994d1638d6979a89035e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Операции Azure Active Directory Connect Health
 В этой статье описаны различные операции, которые можно выполнить с помощью Azure Active Directory (Azure AD) Connect Health.
@@ -157,4 +156,3 @@ Azure AD Connect Health поддерживает управление досту
 * [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health: история выпусков версий](active-directory-aadconnect-health-version-history.md)
-

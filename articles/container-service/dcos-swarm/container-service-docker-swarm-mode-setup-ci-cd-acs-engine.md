@@ -15,14 +15,12 @@ ms.workload: na
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
+ms.openlocfilehash: 2c0e5fe4f60738fcc1aa67a78674e6f3c62e5628
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: e68f06925fd7c72d72610ca68fab58a6fa2f4561
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Полный конвейер непрерывной интеграции и развертывания многоконтейнерного приложения в Службе контейнеров Azure с обработчиком ACS и Docker Swarm Mode при помощи Visual Studio Team Services
 
 *Эта статья основана на [документации по ](container-service-docker-swarm-setup-ci-cd.md)полному конвейеру непрерывной интеграции и развертывания многоконтейнерного приложения в Службе контейнеров Azure с Docker Swarm с использованием Visual Studio Team Services*.
@@ -257,4 +255,3 @@ Visual Studio Team Services позволяет [управлять выпуск�
 * Дополнительные сведения о CI/CD с Visual Studio Team Services см. в [обзоре сборки VSTS](https://www.visualstudio.com/docs/build/overview).
 * Дополнительные сведения об обработчике ACS см. в [репозитории GitHub для обработчика ACS](https://github.com/Azure/acs-engine).
 * Дополнительные сведения о Docker Swarm Mode см. в [этой статье](https://docs.docker.com/engine/swarm/).
-

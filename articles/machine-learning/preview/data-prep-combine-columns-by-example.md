@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="combine-columns-by-example-transformation"></a>Преобразование Combine Columns by Example (Объедение столбцов по образцу).
 Это преобразование позволяет добавить новый столбец, объединив значения из нескольких столбцов. Пользователь может указать разделитель или предоставить примеры объединенных значений, чтобы выполнить это преобразование. Когда пользователь предоставляет примеры сочетания, преобразование обрабатывается на основе подхода **По образцу**, который используется в преобразовании **Derive Column by Example** (Получение столбцов по образцу).
 
@@ -74,5 +72,4 @@ ms.lasthandoff: 09/25/2017
 |16|Янв|2017|22|34|56|16-Янв-2016 15:01:56 PDT|
 |23|Мар|2017|01|55|25|23-Мар-2016 15:01:25 PDT|
 |16|Апр|2017|11|34|36|16-Апр-2016 15:01:36 PDT|
-
 

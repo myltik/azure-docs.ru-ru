@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9691408bcd80afb6eba534f26749b76dd3bfe315
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-automation-to-trigger-a-job-private-preview"></a>Активация задания с помощью службы автоматизации Azure (закрытая предварительная версия)
 
 В этой статье описывается активация задания диспетчера данных StorSimple с помощью службы автоматизации Azure.

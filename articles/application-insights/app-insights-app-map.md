@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: 207526b7a675f92134d045ebefb9a372749bce92
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 27bb185d0243b1e8c0fd7697650eaf7bbd5eefa7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-map-in-application-insights"></a>Схема сопоставления приложений в Application Insights
 Схема сопоставления приложений в [Azure Application Insights](app-insights-overview.md) — это наглядный макет отношений зависимости компонентов приложения. С помощью компонентов, которые отображают ключевые показатели эффективности, включая нагрузку, производительность, сбои и оповещения, вы можете определять другие компоненты, вызывающие проблемы с производительностью или сбои. Вы можете щелкнуть любой компонент, чтобы получить более подробные диагностические данные (например, события Application Insights). Если приложение использует службы Azure, то можно также выбрать данные системы диагностики Azure, например рекомендации Помощника по базам данных SQL.
@@ -129,4 +128,3 @@ ms.lasthandoff: 08/17/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Портал Azure](https://portal.azure.com)
-

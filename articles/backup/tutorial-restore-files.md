@@ -1,29 +1,27 @@
 ---
 title: "Восстановление файлов на виртуальной машине с помощью службы архивации Azure | Документы Майкрософт"
 description: "Сведения о процедуре восстановления на уровне файлов для виртуальной машины Azure с помощью служб архивации и восстановления."
-services: virtual-machines, azure-backup
+services: backup, virtual-machines
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines, azure-backup
+ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: abad99f862e3831e70254e76e768e4eb7b2a5053
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6a009ef06e4e92d234b1954fbb282ff50fc4cae8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Восстановление файлов на виртуальной машине в Azure
 Служба архивации Azure создает точки восстановления, которые хранятся в геоизбыточных хранилищах восстановления. Используя точку восстановления, можно восстановить всю виртуальную машину или только отдельные файлы. В этой статье подробно описывается восстановление отдельных файлов. Из этого руководства вы узнаете, как выполнить следующие задачи:
 
@@ -88,7 +86,7 @@ ms.lasthandoff: 09/25/2017
 ## <a name="generate-file-recovery-script"></a>Создание сценария восстановления файла
 Чтобы восстановить файлы, служба архивации Azure предоставляет сценарий для запуска на виртуальной машине: она подключает точку восстановления как локальный диск. Вы можете просмотреть этот локальный диск, восстановить файлы на виртуальной машине, а затем отключить точку восстановления. Служба архивации Azure продолжает выполнять резервное копирование данных согласно назначенной политике расписания и хранения.
 
-1. Чтобы создать список точек восстановления для виртуальной машины, используйте команду **az backup recoverypoint list**. В этом примере мы выбираем самую последнюю точку восстановления для виртуальной машины с именем *myVM*, защищенной в хранилище *myRecoveryServicesVault*:
+1. Чтобы создать список точек восстановления для виртуальной машины, используйте команду [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). В этом примере мы выбираем самую последнюю точку восстановления для виртуальной машины с именем *myVM*, защищенной в хранилище *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -100,7 +98,7 @@ ms.lasthandoff: 09/25/2017
         --output tsv
     ```
 
-2. Чтобы получить сценарий, который подключает точку восстановления к виртуальной машине, используйте команду **az backup restore files mount-rp**. В следующем примере мы получаем сценарий для виртуальной машины с именем *myVM*, защищенной в хранилище *myRecoveryServicesVault*.
+2. Чтобы получить сценарий, который подключает точку восстановления к виртуальной машине, используйте команду [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp). В следующем примере мы получаем сценарий для виртуальной машины с именем *myVM*, защищенной в хранилище *myRecoveryServicesVault*.
 
     Замените *myRecoveryPointName* именем точки восстановления, полученной в предыдущей команде:
 
@@ -147,7 +145,7 @@ ms.lasthandoff: 09/25/2017
     ./myVM_we_1571974050985163527.sh
     ```
 
-    Во время выполнения сценария вам будет предложено ввести пароль для доступа к точке восстановления. Введите пароль, указанный в выходных данных предыдущей команды **az backup restore files mount-rp**, с помощью которой был создан сценарий восстановления.
+    Во время выполнения сценария вам будет предложено ввести пароль для доступа к точке восстановления. Введите пароль, указанный в выходных данных предыдущей команды [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp), с помощью которой был создан сценарий восстановления.
 
     В выходных данных сценария будет указан путь к точке подключения. В следующем примере выходные данные указывают, что точка восстановления подключена по адресу */home/azureuser/myVM-20170919213536/Volume1*:
 
@@ -187,7 +185,7 @@ ms.lasthandoff: 09/25/2017
     exit
     ```
 
-8. Отключите точку восстановления от виртуальной машины с помощью команды **az backup restore files unmount-rp**. В следующем примере выполняется отключение точки восстановления от виртуальной машины *myVM* в хранилище *myRecoveryServicesVault*.
+8. Отключите точку восстановления от виртуальной машины с помощью команды [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp). В следующем примере выполняется отключение точки восстановления от виртуальной машины *myVM* в хранилище *myRecoveryServicesVault*.
 
     Замените *myRecoveryPointName* именем вашей собственной точки восстановления, полученной в предыдущей команде:
     
@@ -212,5 +210,4 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [Архивация Windows Server в Azure](tutorial-backup-windows-server-to-azure.md)
-
 

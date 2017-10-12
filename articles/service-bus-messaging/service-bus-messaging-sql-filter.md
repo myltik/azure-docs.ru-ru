@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 3aaec8f9b6a3bbcf814f771405c3b589de6f7ae0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sqlfilter-syntax"></a>Синтаксис SQLFilter
 
 *SqlFilter* — это экземпляр [класса SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), представляющий выражение фильтра на основе языка SQL, которое вычисляется по классу [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). SqlFilter поддерживает подмножество стандарта SQL-92.  

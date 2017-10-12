@@ -15,12 +15,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c072cb3a7d376d1e3c2b9f741f5410106e701256
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Создание базы данных MySQL и подключение к ней в Azure
 В этом учебнике объясняется, как создать базу данных MySQL на [портале Azure](https://portal.azure.com) (поставщик — [ClearDB](http://www.cleardb.com/)) и подключиться к ней из веб-приложения PHP, запущенного в [службе приложений Azure](app-service/app-service-web-overview.md).
@@ -71,4 +70,3 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).
-

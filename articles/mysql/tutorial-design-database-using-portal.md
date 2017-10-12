@@ -10,14 +10,12 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 06/06/2017
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: c7b76cacbdc4e483353f64cc4e50c974867bb5b7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 92ae809646cb956b0b7cb71cf2a21610bb2d610f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Проектирование первой базы данных Azure для MySQL
 База данных Azure для MySQL — это управляемая служба, которая позволяет вам запускать, администрировать и масштабировать высокодоступные базы данных MySQL в облаке. С помощью портала Azure можно легко управлять сервером и проектировать базы данных.
 
@@ -168,4 +166,3 @@ SELECT * FROM inventory;
 
 > [!div class="nextstepaction"]
 > [Как подключить приложения к базе данных Azure для MySQL](./howto-connection-string.md)
-

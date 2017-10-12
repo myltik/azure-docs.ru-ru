@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: chrande
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Руководство для разработчиков по Функциям Azure
 Некоторые из Функций Azure имеют ряд общих технических особенностей и компонентов вне зависимости от используемого языка или привязки. Прежде чем приступать к детальному изучению особенностей, характерных для определенного языка или привязки, ознакомьтесь с этими общими сведениями.
@@ -134,5 +133,4 @@ ms.lasthandoff: 09/20/2017
 * [Справочник разработчика NodeJS по функциям Azure](functions-reference-node.md)
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Функции Azure: путешествие) в блоге группы разработчиков службы приложений Azure. В этой статье рассказывается история создания функций Azure.
-
 

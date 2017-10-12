@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 254f383ee6f7cb9f7051fa135d85319a22c3c369
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 9a35d6d8631e02fd7b3745cc15efd92a1556de53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Compute.CredentialsCombo
 Группа элементов управления со встроенной проверкой паролей и открытых ключей SSH для Windows и Linux. Этот элемент используется при [создании управляемого приложения Azure](managed-application-publishing.md).
@@ -111,4 +110,3 @@ ms.lasthandoff: 05/12/2017
 * Общие сведения об управляемых приложениях Azure см. в [этой статье](managed-application-overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Дополнительные сведения об общих свойствах элементов пользовательского интерфейса см. в статье [Элементы CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

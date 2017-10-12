@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Сведения о реализации и финансовых затратах для сопряженных пространств имен
 Метод [PairNamespaceAsync][PairNamespaceAsync] с помощью экземпляра [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] выполняет отображаемые задачи от вашего имени. Так как использование функции связано с финансовыми расходами, полезно понимать эти задачи, чтобы при выполнении каких-либо автоматических действий они были ожидаемы. API включает следующие автоматические действия, выполняемые от вашего имени:
@@ -120,4 +119,3 @@ ms.lasthandoff: 08/31/2017
 [0]: ./media/service-bus-paired-namespaces/IC673405.png
 [1]: ./media/service-bus-paired-namespaces/IC673406.png
 [2]: ./media/service-bus-paired-namespaces/IC673407.png
-

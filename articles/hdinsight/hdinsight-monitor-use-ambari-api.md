@@ -17,10 +17,10 @@ ms.date: 04/07/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.openlocfilehash: b6fc2098027690eb76b69b1427f0e9541b8a7a69
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API
 Узнайте, как отслеживать кластеры HDInsight с помощью интерфейсов Ambari API.
@@ -39,8 +39,7 @@ ms.lasthandoff: 07/11/2017
 
 Перед началом работы с этим руководством необходимо иметь следующее:
 
-* <seg>
-  **Рабочая станция с Azure PowerShell**.</seg>
+* **Рабочая станция с Azure PowerShell**.
 * [cURL][curl] (необязательно). Чтобы установить cURL, перейдите на страницу [выпусков и скачиваемых файлов][curl-download].
   
   > [!NOTE]

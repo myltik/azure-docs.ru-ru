@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/13/2017
 ms.author: mimig
+ms.openlocfilehash: 0a05f4ee86d2dcca40dc0b5ec2c503ba0b8bfe8c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 63b2d20c74df4fd6173994ee1a727594ba8afba3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Справочник по синтаксису SQL-запросов API DocumentDB в Azure Cosmos DB
 
 API DocumentDB в Azure Cosmos DB позволяет выполнять запросы к документам с помощью знакомой грамматики SQL, например к иерархическим файлам JSON, без использования явных схем или создания вторичных индексов. В этой статье содержится справочная документация по языку SQL-запросов API DocumentDB.
@@ -2773,4 +2771,3 @@ SELECT ST_ISVALIDDETAILED({
  [Документация по базе данных Azure Cosmos](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
   
   
-

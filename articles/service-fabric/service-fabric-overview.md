@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8ff0d38a679b673b148dd808050eda82060cfe80
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-service-fabric"></a>Общие сведения о Service Fabric
 Azure Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые надежные микрослужбы и контейнеры, но и управлять ими. Service Fabric также позволяет устранить значительные трудности, возникающие при разработке облачных собственных приложений и управлении ими. Получая гарантированную масштабируемость, надежность и управляемость, разработчики и администраторы могут сосредоточиться на реализации критически важных и ресурсоемких рабочих нагрузок вместо того, чтобы тратить силы на решение сложных проблем с инфраструктурой. Service Fabric — это принципиально новая платформа, позволяющая создавать облачные высококлассные приложения уровня 1, выполняющиеся в контейнерах, и управлять ими.
@@ -96,4 +95,3 @@ Service Fabric поддерживает управление полным жиз
 * [Сведения о вариантах поддержки Service Fabric](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
-

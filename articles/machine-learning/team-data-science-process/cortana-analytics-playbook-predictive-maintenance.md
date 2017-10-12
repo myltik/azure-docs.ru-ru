@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: fboylu
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aafa395f8c0593d9597f74cd5cd2a41f26897c6f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Сборник тренировочных заданий для шаблона решения Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических и других компаниях
 ## <a name="executive-summary"></a>Аннотация
@@ -369,5 +368,4 @@ ms.lasthandoff: 09/25/2017
 Рис. 8. Архитектура примера решения для прогнозируемого обслуживания
 
 Дополнительные сведения о каждом из компонентов архитектуры см. в документации [Azure](https://azure.microsoft.com/).
-
 

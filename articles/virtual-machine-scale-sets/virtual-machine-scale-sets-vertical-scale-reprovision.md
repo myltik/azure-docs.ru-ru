@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Вертикальное автомасштабирование масштабируемых наборов виртуальных машин
 В этой статье описывается, как выполнить вертикальное масштабирование [масштабируемых наборов виртуальных машин](https://azure.microsoft.com/services/virtual-machine-scale-sets/) Azure с повторной подготовкой или без нее. Дополнительные сведения о вертикальном масштабировании виртуальных машин, которые не входят в масштабируемые наборы, см. в статье [Вертикальное масштабирование виртуальной машины Azure c помощью службы автоматизации Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -127,4 +126,3 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
-

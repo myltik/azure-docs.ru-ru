@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
 ms.openlocfilehash: a3cbcf63533f4042dcd695e141655c5814bd7068
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>Создание среды Docker в Azure с использованием расширения виртуальной машины Docker посредством Azure CLI 1.0
 Docker — это популярная платформа управления контейнерами и работы с образами, которая позволяет быстро работать с контейнерами в Linux (а также в Windows). В Azure развертывание Docker можно выполнить несколькими разными способами в соответствии с конкретными потребностями. В этой статье рассматривается использование расширения виртуальной машины Docker и шаблонов Azure Resource Manager. 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Установка главного целевого сервера Linux
 После отработки отказа виртуальных машин для них можно восстановить размещение на локальном сайте. Для восстановления размещения из Azure на локальном сайте необходимо повторно включить защиту виртуальной машины. Для этого понадобится локальный главный целевой сервер, который будет получать трафик. 
@@ -401,4 +400,3 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 * В некоторых пользовательских конфигурациях сетевые интерфейсы отключаются на время запуска. В такой ситуации агент главного целевого сервера не сможет выполнить инициализацию. Убедитесь, что правильно заданы следующие свойства. Проверьте эти свойства в файлах сетевых адаптеров (/etc/sysconfig/network-scripts/ifcfg-eth*.).
     * BOOTPROTO=dhcp
     * ONBOOT=yes
-

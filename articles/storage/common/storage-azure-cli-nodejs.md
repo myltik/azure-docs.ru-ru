@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Использование Azure CLI 1.0 со службой хранилища Azure
 
@@ -242,4 +241,3 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 * [Установка Azure CLI](../../cli-install-nodejs.md)
 
 Кроме того, вы можете применить [Azure CLI 2.0](../storage-azure-cli.md). Это интерфейс командной строки нового поколения, написанный на языке Python, для модели развертывания с помощью Resource Manager.
-

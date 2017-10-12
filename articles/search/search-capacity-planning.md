@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
 ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Масштабирование уровней ресурсов для рабочих нагрузок запросов и индексирования в Поиске Azure
 После [выбора ценовой категории](search-sku-tier.md) и [подготовки службы поиска](search-create-service-portal.md) следующим шагом является необязательное увеличение количества реплик или секций, используемых службой. Каждый уровень предоставляет фиксированное число единиц выставления счетов. В этой статье объясняется, как выделять эти единицы для достижения оптимальной конфигурации, позволяющей сбалансировать ваши требования к для выполнению запросов, индексированию и хранению данных.

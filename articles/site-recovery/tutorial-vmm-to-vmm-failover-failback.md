@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/16/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f139070de99c4249207d048d445e86dd41e9060
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Отработка отказа и восстановление размещения виртуальных машин Hyper-V, реплицированных на дополнительный локальный сайт
 
 Служба [Azure Site Recovery](site-recovery-overview.md) управляет репликацией, отработкой отказа и восстановлением размещения локальных компьютеров и виртуальных машин Azure.
@@ -102,5 +100,4 @@ ms.lasthandoff: 09/25/2017
 
 > [!NOTE]
 > При этом реплицируются только изменения с момента выключения реплики виртуальной машины и отправляются только разностные изменения.
-
 

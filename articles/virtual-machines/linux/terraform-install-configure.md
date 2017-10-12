@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
-ms.translationtype: HT
-ms.sourcegitcommit: 8727e15448a74b68277c5bdd82c573e817254f80
 ms.openlocfilehash: da567097be38ac649c6bf1de1508de24d21cb877
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Установка и настройка Terraform для подготовки виртуальных машин и другой инфраструктуры в Azure 
 В этой статье описано, как установить и настроить Terraform для подготовки ресурсов, таких как виртуальные машины, в Azure. Вы узнаете, как создать и использовать учетные данные Azure, необходимые Terraform для подготовки облачных ресурсов в безопасном режиме.
 
@@ -130,4 +128,3 @@ export ARM_TENANT_ID=your_tenant_id
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы установили Terraform и настроили учетные данные Azure, так что вы можете начать развертывание инфраструктуры в свою подписку Azure. Теперь вы можете перейти к [созданию инфраструктуры с помощью Terraform](terraform-create-complete-vm.md).
-

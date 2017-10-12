@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 51001feb17ae99d3bd391a9f980d514e07f97099
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: типы приложений
 Служба Azure Active Directory (Azure AD) B2C поддерживает проверку подлинности для различных архитектур современных приложений. Все они основаны на стандартных отраслевых протоколах: [OAuth 2.0](active-directory-b2c-reference-protocols.md) или [OpenID Connect](active-directory-b2c-reference-protocols.md). В этом документе кратко описаны типы приложений, которые можно создавать независимо от используемого языка или платформы. Кроме того, ознакомившись с ним, вы узнаете о сценариях, необходимых для [разработки приложений](active-directory-b2c-overview.md#get-started).
@@ -132,4 +131,3 @@ Accept: application/json
 Многие архитектуры включают в себя интерфейс веб-API, которому требуется вызывать другой нисходящий веб-API. При этом Azure AD B2C защищает оба интерфейса. Этот сценарий характерен для собственных клиентов, содержащих интерфейс веб-API в качестве серверного компонента. Этот интерфейс вызывает службу Microsoft Online Service, например Azure AD API Graph.
 
 Этот сценарий веб-API с цепочками может поддерживаться путем предоставления учетных данных носителя JWT OAuth 2.0 или потока On-Behalf-Of.  Однако в Azure AD B2C поток On-Behalf-Of еще не реализован.
-

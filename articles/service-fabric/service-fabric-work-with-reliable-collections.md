@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rajak
-translationtype: Human Translation
-ms.sourcegitcommit: 407f2631044fb836930093a774f5b718c91f711d
-ms.openlocfilehash: 822941aa3f745e51f653b4274bf0add9c44ff0c8
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: f53f13e4fb83b1cd370ec673e86e5311cd93055f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-reliable-collections"></a>Работа с Reliable Collections
 Платформа Service Fabric предлагает модель программирования с отслеживанием состояния, которая доступна разработчикам .NET через API-интерфейсы Reliable Collections. В частности, Service Fabric предоставляет такие классы, как Reliable Dictionaries (далее — надежные словари) и Reliable Queues (далее — надежные очереди). При использовании этих классов состояние секционируется (для масштабируемости), реплицируется (для доступности) и обрабатывается в ходе транзакции в секции (для семантики ACID). Рассмотрим типичное использование объекта надежного словаря, чтобы узнать, какие функции этот объект выполняет.
@@ -217,4 +216,3 @@ public struct ItemId {
 Указания по реализации контрактов данных, которые не зависят от версий, см. в статье [Обратные вызовы сериализации, независимые от версий](https://msdn.microsoft.com/library/ms733734.aspx).
 
 Указания по предоставлению структуры данных, которые могут взаимодействовать в нескольких версиях, см. в статье [Интерфейс IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
-

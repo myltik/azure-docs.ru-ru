@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 7f1d55b90af4e5397d74a8e37b44b5a88530897d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 10cc1daf89212635243cbfe8f7b598a567d0f7c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Защита API-интерфейсов с помощью аутентификации на основе сертификата клиента в службе управления API Azure
 
 Служба управления API помогает защитить доступ к API-интерфейсам (например, осуществляемый клиентом к службе управления API) с помощью сертификатов клиента. Сейчас можно проверить отпечаток сертификата клиента для сопоставления с требуемым значением. Можно также сопоставить отпечаток с существующими сертификатами, отправленными в службу управления API.  
@@ -88,5 +86,4 @@ ms.lasthandoff: 03/31/2017
 
 *  [Как защитить серверные службы с помощью аутентификации на основе сертификата клиента](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 *  [Как передавать сертификаты](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
-
 

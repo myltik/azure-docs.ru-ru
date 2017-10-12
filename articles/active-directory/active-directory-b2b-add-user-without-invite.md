@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 91b9477cdb679851e7d8d2942c06999a05f64e46
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Добавление гостевых пользователей службы совместной работы B2B без приглашения
 
 Можно разрешить пользователю, например представителю партнера, добавлять пользователей из партнерской организации в вашу организацию без необходимости активировать приглашения. Все, что необходимо сделать, — предоставить этому пользователю привилегии на перечисление в каталоге, используемом для партнерской организации. 

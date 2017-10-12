@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 881ce13b6e4b10064294e590431434b29da3fb33
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Мониторинг локальной инфраструктуры идентификации и служб синхронизации в облаке.
 Служба Azure Active Directory (Azure AD) Connect Health помогает отслеживать локальную инфраструктуру идентификации и службы синхронизации. Она обеспечивает надежное подключение к службам Office 365 и Microsoft Online Services и предоставляет возможности мониторинга ключевых компонентов идентификации, таких как серверы служб федерации Active Directory (AD FS), серверы Azure AD Connect (также называемые модулями синхронизации), контроллеры домена Active Directory и т. п. С помощью этой службы пользователи могут с легкостью получить доступ к общим сведениям о компонентах, в частности к информации об использовании и другим важным данным, необходимым для принятия обоснованных решений.

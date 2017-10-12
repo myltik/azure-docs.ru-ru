@@ -15,12 +15,11 @@ ms.date: 08/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Интеграция существующей инфраструктуры NPS с Многофакторной идентификацией Azure
 
@@ -251,4 +250,3 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 - См. дополнительные сведения об интеграции [шлюза удаленных рабочих столов](nps-extension-remote-desktop-gateway.md) и [VPN-серверов](nps-extension-vpn.md) с помощью расширения NPS.
 
 - [Устранение ошибок, связанных с расширением NPS для Многофакторной идентификации Azure](multi-factor-authentication-nps-errors.md)
-

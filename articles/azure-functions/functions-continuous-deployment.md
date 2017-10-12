@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Непрерывное развертывание для Функций Azure
 Функции Azure упрощают развертывание приложения-функции за счет непрерывной интеграции службы приложений. Компонент функции интегрируется с BitBucket, Dropbox, GitHub и Visual Studio Team Services (VSTS). Это позволяет организовать работу так, чтобы изменения кода функций, вносимые одной из интегрированных служб, активировали развертывание в Azure. Если вы еще не работали с Функциями Azure, начните с [обзора](functions-overview.md).
@@ -153,4 +152,3 @@ ms.lasthandoff: 09/29/2017
 
 > [!div class="nextstepaction"]
 > [Best Practices for Azure Functions](functions-best-practices.md) (Рекомендации по Функциям Azure)
-

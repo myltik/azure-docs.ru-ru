@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: 81136e53756adfdba2f07c103b042499fe2967db
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Рекомендации по защите и шифрованию данных в Azure
 Один из основных способов защиты данных в облаке — учет всех возможных состояний, в которых могут находиться данные, а также всех методов управления для каждого из этих состояний. Рекомендации по защите и шифрованию данных в Azure предусматривают учет следующих состояний данных.

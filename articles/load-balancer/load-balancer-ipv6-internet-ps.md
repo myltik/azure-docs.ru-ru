@@ -3,7 +3,7 @@ title: "Создание подсистемы балансировки нагр�
 description: "Узнайте, как создать балансировщик нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell для Resource Manager."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 keywords: "IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей"
@@ -13,30 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 5eff828095cd58732c78d4af43b5ff5420dfe8fd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: a84fd69c568e26bbd1ff06b699b804c70e0e9c09
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-<a id="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager" class="xliff"></a>
-
-# Приступая к созданию балансировщика нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell для Resource Manager
+# <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Приступая к созданию балансировщика нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell для Resource Manager
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [Интерфейс командной строки Azure](load-balancer-ipv6-internet-cli.md)
 > * [Шаблон](load-balancer-ipv6-internet-template.md)
 
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 Azure Load Balancer является балансировщиком нагрузки 4-го уровня (TCP, UDP). Балансировщик нагрузки обеспечивает высокий уровень доступности, распределяя входящий трафик между работоспособными экземплярами службы в облачных службах или виртуальных машинах, определенных в наборе балансировщика нагрузки. Azure Load Balancer может также представить данные службы на нескольких портах, нескольких IP-адресах или обоими этими способами.
 
-<a id="example-deployment-scenario" class="xliff"></a>
-
-## Пример сценария развертывания
+## <a name="example-deployment-scenario"></a>Пример сценария развертывания
 
 На следующей схеме показано решение балансировки нагрузки, которое развертывается в этой статье.
 
@@ -50,9 +47,7 @@ Azure Load Balancer является балансировщиком нагруз
 * две виртуальные машины;
 * виртуальный сетевой интерфейс для каждой виртуальной машины с назначенными IPv4 и IPv6-адресами.
 
-<a id="deploying-the-solution-using-the-azure-powershell" class="xliff"></a>
-
-## Развертывание решения с помощью Azure PowerShell
+## <a name="deploying-the-solution-using-the-azure-powershell"></a>Развертывание решения с помощью Azure PowerShell
 
 Ниже описана процедура создания балансировщика нагрузки для Интернета с помощью Azure Resource Manager и PowerShell. Azure Resource Manager позволяет по отдельности создавать и настраивать ресурсы, после чего на их основе создается единый ресурс.
 
@@ -66,9 +61,7 @@ Azure Load Balancer является балансировщиком нагруз
 
 Дополнительные сведения см. в статье [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](load-balancer-arm.md).
 
-<a id="set-up-powershell-to-use-resource-manager" class="xliff"></a>
-
-## Настройка PowerShell для использования Resource Manager
+## <a name="set-up-powershell-to-use-resource-manager"></a>Настройка PowerShell для использования Resource Manager
 
 Убедитесь, что вы используете последнюю рабочую версию модуля Azure Resource Manager для PowerShell.
 
@@ -98,9 +91,7 @@ Azure Load Balancer является балансировщиком нагруз
     New-AzureRmResourceGroup -Name NRP-RG -location "West US"
     ```
 
-<a id="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool" class="xliff"></a>
-
-## Создание виртуальной сети и общедоступного IP-адреса для пула IP-адресов клиентской части
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Создание виртуальной сети и общедоступного IP-адреса для пула IP-адресов клиентской части
 
 1. Создайте виртуальную сеть с подсетью.
 
@@ -119,9 +110,7 @@ Azure Load Balancer является балансировщиком нагруз
     > [!IMPORTANT]
     > Балансировщик нагрузки использует метку домена общедоступного IP-адреса в качестве префикса к полному доменному имени (FQDN). В этом примере полные доменные имена — *lbnrpipv4.westus.cloudapp.azure.com* и *lbnrpipv6.westus.cloudapp.azure.com*.
 
-<a id="create-a-front-end-ip-configurations-and-a-back-end-address-pool" class="xliff"></a>
-
-## Создание интерфейсных конфигураций IP-адресов и внутреннего пула адресов
+## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Создание интерфейсных конфигураций IP-адресов и внутреннего пула адресов
 
 1. Создайте интерфейсную конфигурацию адресов, которая использует созданные вами общедоступные IP-адреса.
 
@@ -137,9 +126,7 @@ Azure Load Balancer является балансировщиком нагруз
     $backendpoolipv6 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv6"
     ```
 
-<a id="create-lb-rules-nat-rules-a-probe-and-a-load-balancer" class="xliff"></a>
-
-## Создание правил балансировки нагрузки, правил преобразования сетевых адресов, пробы и балансировщика нагрузки
+## <a name="create-lb-rules-nat-rules-a-probe-and-a-load-balancer"></a>Создание правил балансировки нагрузки, правил преобразования сетевых адресов, пробы и балансировщика нагрузки
 
 В этом примере создаются следующие элементы:
 
@@ -187,9 +174,7 @@ Azure Load Balancer является балансировщиком нагруз
     $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
     ```
 
-<a id="create-nics-for-the-back-end-vms" class="xliff"></a>
-
-## Создание сетевых карт для внутренних виртуальных машин
+## <a name="create-nics-for-the-back-end-vms"></a>Создание сетевых карт для внутренних виртуальных машин
 
 1. Получите виртуальную сеть и подсеть виртуальной сети, в которых должны быть созданы сетевые карты.
 
@@ -210,9 +195,7 @@ Azure Load Balancer является балансировщиком нагруз
     $nic2 = New-AzureRmNetworkInterface -Name 'myNrpIPv6Nic1' -IpConfiguration $nic2IPv4,$nic2IPv6 -ResourceGroupName NRP-RG -Location 'West US'
     ```
 
-<a id="create-virtual-machines-and-assign-the-newly-created-nics" class="xliff"></a>
-
-## Создание виртуальных машин и назначение только что созданных сетевых карт
+## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Создание виртуальных машин и назначение только что созданных сетевых карт
 
 Дополнительные сведения о создании виртуальной машины см. в статье [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
@@ -247,13 +230,10 @@ Azure Load Balancer является балансировщиком нагруз
     New-AzureRmVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
     ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
 
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
-

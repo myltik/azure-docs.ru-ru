@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/27/2017
-ms.author: sethm;babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: bcc8427d57a001f73d321fbf35c5226a047b68d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Журналы диагностики концентраторов событий
 
@@ -29,6 +28,7 @@ ms.lasthandoff: 07/08/2017
 * **[Журналы диагностики](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Вы можете настроить журналы диагностики, чтобы получать более подробные сведения обо всем, что происходит с заданием. Журналы диагностики охватывают действия с момента создания задания до его удаления, включая обновления и действия, которые происходят во время выполнения задания.
 
 ## <a name="turn-on-diagnostic-logs"></a>Включение журналов диагностики
+
 По умолчанию журналы диагностики отключены. Включение журналов диагностики
 
 1.  На [портале Azure](https://portal.azure.com) в разделе **Мониторинг и управление** щелкните **Журналы диагностики**.
@@ -136,5 +136,4 @@ Example:
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Что такое концентраторы событий Azure?](event-hubs-what-is-event-hubs.md)
 * [Общие сведения об API концентраторов событий](event-hubs-api-overview.md)
-* [Начало работы с концентраторами событий](event-hubs-csharp-ephcs-getstarted.md)
-
+* [Начало работы с концентраторами событий](event-hubs-dotnet-standard-getstarted-send.md)

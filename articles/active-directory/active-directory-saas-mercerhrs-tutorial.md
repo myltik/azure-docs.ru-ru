@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: c577a0163af04bec5737a215e788c3fb92c653c5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Руководство по интеграции Azure Active Directory с Mercer BenefitsCentral (MBC)
 
@@ -51,7 +50,7 @@ ms.lasthandoff: 09/28/2017
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. Добавление Mercer BenefitsCentral (MBC) из коллекции.
+1. Добавление Mercer BenefitsCentral (MBC) из коллекции
 2. Настройка и проверка единого входа в Azure AD
 
 ## <a name="adding-mercer-benefitscentral-mbc-from-the-gallery"></a>Добавление Mercer BenefitsCentral (MBC) из коллекции
@@ -224,5 +223,4 @@ ms.lasthandoff: 09/28/2017
 [201]: ./media/active-directory-saas-mercerhrs-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-mercerhrs-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-mercerhrs-tutorial/tutorial_general_203.png
-
 

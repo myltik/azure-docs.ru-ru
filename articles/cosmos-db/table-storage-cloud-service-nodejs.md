@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="nodejs-web-application-using-storage"></a>Веб-приложение Node.js, использующее хранилище
 ## <a name="overview"></a>Обзор
@@ -415,6 +414,5 @@ PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -lo
 [Создание веб-приложения Node.js с использованием модуля Express в облачной службе Azure]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
 [Хранилище Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Построение и развертывание приложения Node.js в облачной службе Azure]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
-
 
 

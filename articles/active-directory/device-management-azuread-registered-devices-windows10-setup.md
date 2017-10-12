@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 427bf9a0487c771e57ac53a9bb0b7d7e2f6bdca2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Настройка устройств с Windows 10, зарегистрированных в Azure Active Directory
 
@@ -108,7 +107,6 @@ ms.lasthandoff: 09/20/2017
 - Дополнительные сведения см. в статье [Общие сведения об управлении устройствами в Azure Active Directory](device-management-introduction.md).
 
 - Дополнительные сведения об управлении устройствами на портале Azure AD см. в разделе [Управление устройствами с помощью портала Azure (предварительная версия)](device-management-azure-portal.md).
-
 
 
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
 ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Тестирование виртуальной машины для Azure Marketplace в промежуточной среде
 Промежуточная среда подразумевает развертывание номера SKU в частной "песочнице", где можно проверить все функциональные возможности вашего решения и убедиться в его работоспособности перед развертыванием в Marketplace. SKU отображается в промежуточной среде точно так же, как на компьютере выполнившего развертывание клиента. Для промежуточного развертывания образ виртуальной машины должен пройти сертификацию.

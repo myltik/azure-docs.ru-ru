@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: jhubbard
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f2f2b2ab37d84865c049253be7c30da0d98fd992
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 7f45b8b654691063823c13bee61e9bb874a6a13a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Управление базами данных SQL Azure с помощью службы автоматизации Azure
 В этом руководстве будет представлена служба автоматизации Azure и способы ее использования для упрощения управления базами данных SQL Azure.
@@ -52,5 +50,4 @@ ms.lasthandoff: 04/27/2017
 * [Мой первый Runbook](../automation/automation-first-runbook-graphical.md)
 * [План обучения работе со службой автоматизации Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
 * [Служба автоматизации Azure: ваш агент SQL в облаке](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
-
 

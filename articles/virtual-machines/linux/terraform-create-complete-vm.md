@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
 ms.openlocfilehash: a4a418a3b277d41b62aa049941a4c65e3bb82808
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Создание готовой инфраструктуры виртуальных машин Linux в Azure с помощью Terraform
 Terraform позволяет определить и создать развертывания комплексной инфраструктуры в Azure. Шаблоны Terraform нужно создавать в понятном формате, чтобы их можно было использовать для создания и настройки ресурсов Azure в согласованном и воспроизводимом виде. В этой статье показано, как создать готовую среду Linux и вспомогательные ресурсы с помощью Terraform. Узнайте, как [установить и настроить Terraform](terraform-install-configure.md).
 

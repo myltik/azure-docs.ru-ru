@@ -1,4 +1,4 @@
---- 
+---
 title: "Приступая к работе со службой автоматизации Azure | Документация Майкрософт"
 description: "В этой статье содержится обзор службы автоматизации Azure и сведения о разработке и реализации в рамках подготовки к внедрению предложения из Azure Marketplace."
 services: automation
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>Приступая к работе со службой автоматизации Azure
 
 В этом руководстве представлены основные понятия, связанные с развертыванием службы автоматизации Azure. Если вы не знакомы с автоматизацией в Azure или у вас есть опыт работы с программным обеспечением для автоматизации рабочих процессов, например с System Center Orchestrator, из этого руководства вы узнаете об особенностях подготовки и внедрения автоматизации.  Оно подготовит вас к разработке модулей Runbook для поддержки автоматизации процесса. 
@@ -191,6 +189,5 @@ ms.lasthandoff: 09/02/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Чтобы убедиться, что учетная запись службы автоматизации может выполнять проверку подлинности ресурсов Azure, ознакомьтесь со статьей [Тестирование проверки подлинности учетной записи запуска от имени службы автоматизации Azure](automation-verify-runas-authentication.md).
 * Перед созданием модулей Runbook изучите список поддерживаемых [типов модулей Runbook в службе автоматизации](automation-runbook-types.md) и связанные с ними рекомендации. Эти сведения помогут вам в разработке.
-
 
 

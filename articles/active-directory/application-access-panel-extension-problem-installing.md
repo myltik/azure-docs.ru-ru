@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 8b7327508633e33917d1fa9c1f35ed1bde5a26e1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-installing-the-application-access-panel-browser-extension"></a>Проблема при установке расширения браузера для панели доступа к приложениям
 
 Панель доступа — это веб-портал, позволяющий пользователям с рабочей или учебной учетной записью Azure Active Directory (Azure AD) просматривать и запускать облачные приложения, к которым администратор Azure AD предоставил доступ. Пользователь, у которого есть выпуски Azure AD, также может использовать возможности самостоятельного управления группами и приложениями с помощью панели доступа. Панель доступа отделена от портала Azure, и для нее не требуется подписка Azure.
@@ -100,4 +98,3 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-

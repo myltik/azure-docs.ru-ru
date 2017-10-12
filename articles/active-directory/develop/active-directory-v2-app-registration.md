@@ -16,10 +16,10 @@ ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
 ms.openlocfilehash: e6202aa8665c906382666fe08a561421e50e0a8d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Как зарегистрировать приложение с использованием конечной точки версии 2.0
 Для создания приложения, которое поддерживает единый вход MSA b Azure AD вход, сначала необходимо зарегистрировать приложение в Майкрософт.  На данном этапе вы не сможете использовать любые существующие приложения с Azure AD или учетными записями Майкрософт, необходимо будет создать новое приложение.

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 89fa80b3e3409b7cd2f600776fffdeb3a5271b5d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Приступая к работе с R Server в HDInsight
 
@@ -350,7 +349,7 @@ HDInsight поддерживает интеграцию R Server в класт�
         You are welcome to redistribute it under certain conditions.
         Type 'license()' or 'licence()' for distribution details.
 
-    Поддерживается ествестенный язык, но устанавливается на английском языке
+    Natural language support but running in an English locale
 
         R is a collaborative project with many contributors.
         Type 'contributors()' for more information and
@@ -788,4 +787,3 @@ HDInsight поддерживает интеграцию R Server в класт�
 * [Установка RStudio с R Server в HDInsight (предварительная версия)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Варианты контекста вычислений для R Server в HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Параметры службы хранилища Azure для R Server в HDInsight (предварительная версия)](hdinsight-hadoop-r-server-storage.md)
-

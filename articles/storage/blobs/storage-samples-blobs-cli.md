@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a2c7bee9ad17e430e04a11d1f8fe0c22f167c672
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Примеры Azure CLI для хранилища BLOB-объектов Azure
 
@@ -33,4 +32,3 @@ ms.lasthandoff: 09/25/2017
 |**Хранилище BLOB-объектов**||
 | [Calculate the size of a Blob storage container](../scripts/storage-blobs-container-calculate-size-cli.md?toc=%2fcli%2fazure%2ftoc.json) (Вычисление размера контейнера хранилища BLOB-объектов) | Вычисление общего размера всех больших двоичных объектов в контейнере. |
 | [Delete containers based on container name prefix](../scripts/storage-blobs-container-delete-by-prefix-cli.md?toc=%2fcli%2fazure%2ftoc.json) (Удаление контейнеров на основе префикса имени контейнера) | Удаление контейнеров, начинающихся с указанной строки. |
-

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 10/10/2017
 ms.author: alkohli
-ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 178bdfd7bf2eb162e7a94f3eef9c44c5ff646fb9
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Системные требования для виртуального массива StorSimple
 ## <a name="overview"></a>Обзор
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/11/2017
 | **Низкоуровневая оболочка** | **Версия** |
 | --- | --- |
 | Hyper-V. |Windows Server 2008 R2 с пакетом обновления 1 и более поздней версии |
-| VMware ESXi |5.5 и более поздней версии |
+| VMware ESXi |5.5 и 6.0 |
 
 ### <a name="virtual-device-requirements"></a>Требования к виртуальному устройству
 | **Компонент** | **Требование** |

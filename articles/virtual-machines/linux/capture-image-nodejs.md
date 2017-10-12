@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Запись виртуальной машины Linux, работающей в Azure
 Выполните инструкции в этой статье, чтобы подготовить и записать образ виртуальной машины под управлением Linux для Azure в рамках модели развертывания с помощью Resource Manager. При подготовке к использованию виртуальной машины удаляются личные сведения учетных записей и виртуальная машина подготавливается к использованию в качестве образа. После этого можно записать универсальный образ виртуального жесткого диска (VHD) для операционной системы, виртуальные жесткие диски для подключенных дисков данных и [шаблон Resource Manager](../../azure-resource-manager/resource-group-overview.md) для развертывания новой виртуальной машины. В этой статье подробно описано, как записать образ виртуальной машины, использующей неуправляемые диски, с помощью Azure CLI 1.0. Вы можете также [записать образ виртуальной машины, использующей Управляемые диски Azure, с помощью Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Управляемые диски полностью контролируются платформой Azure и не требуют никакой подготовки или выделения места. Дополнительные сведения об Управляемых дисках Azure см. в [этой статье](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 

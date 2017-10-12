@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
+ms.openlocfilehash: b04cca6e551a15a31bbebc4932ea05dd39e8e916
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 7292e1954418186d8820529c54d4d781c79e1ae4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Перенос Data Lake Store между регионами
 
@@ -54,4 +53,3 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
-

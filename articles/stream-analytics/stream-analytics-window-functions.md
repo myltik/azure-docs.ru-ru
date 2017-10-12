@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Введение в функции окна Stream Analytics
 При использовании потоковой передачи во многих случаях необходимо выполнять операции только с теми данными, которые содержатся во временных окнах. Ключевой возможностью Azure Stream Analytics является встроенная поддержка функций управления окнами, которая существенно повышает производительность разработчиков при создании сложных задач обработки потоков. Stream Analytics позволяет разработчикам использовать [**"переворачивающиеся"**](https://msdn.microsoft.com/library/dn835055.aspx), [**"прыгающие"**](https://msdn.microsoft.com/library/dn835041.aspx) и [**"скользящие"**](https://msdn.microsoft.com/library/dn835051.aspx) окна для временных операций при потоковой передаче данных. Следует отметить, что все операции с [окном](https://msdn.microsoft.com/library/dn835019.aspx) выводят результаты в **конце** этого окна. Результатом для окна будет единичное событие, полученное на основе выбранной статистической функции. Метка времени для этого события соответствует времени завершения окна, и все функции окна выполняются с фиксированной длительностью. И последнее важное замечание: все функции окна следует использовать в предложении [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx).
@@ -51,5 +50,4 @@ ms.lasthandoff: 08/29/2017
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

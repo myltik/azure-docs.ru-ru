@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8e616bd6f13c4f97886a3eae225e188afadb2305
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Развертывание веб-службы в нескольких регионах
 Новые веб-службы Azure позволяют легко развернуть веб-службу в нескольких регионах. При этом не требуется иметь несколько подписок или рабочих областей. 
@@ -49,5 +48,4 @@ ms.lasthandoff: 09/25/2017
 9. В раскрывающемся списке **Storage account** (Учетная запись хранения) выберите учетную запись, в которой будет храниться веб-служба.
 10. В раскрывающемся списке **Price Plan** (Ценовой план) выберите план в регионе, который вы выбрали в действии 8.
 11. Нажмите **Копировать**.
-
 

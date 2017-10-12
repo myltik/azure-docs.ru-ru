@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: kbaroni;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Использование линейной регрессии в Машинном обучении Azure
 > *Кейт Барони* (Kate Baroni) и *Бен Боутмен* (Ben Boatman) — архитекторы корпоративных решений в Научно-инновационном центре анализа данных корпорации Майкрософт. В этой статье они описывают свой опыт миграции существующего набора для регрессионного анализа в облачное решение с помощью Машинного обучения Azure. 
@@ -156,5 +155,4 @@ ms.lasthandoff: 09/25/2017
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
 

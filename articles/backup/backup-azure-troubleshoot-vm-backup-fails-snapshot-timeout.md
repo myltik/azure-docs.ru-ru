@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
+ms.openlocfilehash: f3195fa83479986a3e605abce618c78bcdb64dac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
-ms.openlocfilehash: 1eb8c05f24fcf41f9c188e1153f96a53d8828a39
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Устранение неполадок службы Azure Backup: проблемы с агентом и/или расширением
 
 В этой статье описано, как устранять неполадки службы архивации, связанные с ошибками связи с агентом виртуальной машины и расширением.
@@ -180,5 +178,4 @@ ms.lasthandoff: 09/20/2017
 6. Нажмите кнопку **Удалить**.
 
 После этого расширение будет повторно установлено при следующей архивации.
-
 

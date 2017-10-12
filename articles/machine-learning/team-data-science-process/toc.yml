@@ -23,7 +23,7 @@
       href: group-manager-tasks.md
     - name: Руководитель команды
       href: team-lead-tasks.md
-    - name: Руководитель проектной группы
+    - name: руководитель проектной группы.
       href: project-lead-tasks.md
     - name: Отдельный участник
       href: project-ic-tasks.md
@@ -34,7 +34,7 @@
 - name: Учебники
   href: walkthroughs.md
   items:
-    - name: Azure Machine Learning Workbench
+    - name: Azure Machine Learning Workbench;
       href: walkthroughs-aml-with-tdsp.md
       items:
         - name: Классификация доходов в США

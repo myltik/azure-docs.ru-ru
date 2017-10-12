@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Начало работы с соединителем базы данных Oracle
 
@@ -136,4 +135,3 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md) и узнайте, какие еще соединители доступны в Logic Apps, с помощью [списка интерфейсов API](apis-list.md).
-

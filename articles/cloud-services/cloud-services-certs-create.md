@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 689977491e6df37e48536f59234bf4ddba6a1575
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Общие сведения о сертификатах для облачных служб Azure
 Сертификаты используются в Azure для облачных служб ([сертификаты службы](#what-are-service-certificates)), а также для проверки подлинности с помощью API управления ([сертификаты управления](#what-are-management-certificates) при использовании классического портала Azure, а не портала более новой версии). В этой статье приводится общий обзор этих двух типов сертификатов, а также описывается процесс их [создания](#create) и [развертывания](#deploy) в Azure.
@@ -97,5 +96,4 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 [Передайте сертификат вашей службы на классический портал Azure](cloud-services-configure-ssl-certificate.md) (или [на портал Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
 Передайте на классический портал Azure [сертификат API управления](../azure-api-management-certs.md) . Портал Azure не использует сертификаты управления для проверки подлинности.
-
 

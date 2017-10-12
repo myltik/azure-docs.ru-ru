@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 6a14bd0cb95f8965ae53ff60fe1e638199a0b5b5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 9d13a146e94328b8ac57dc1036676328a4bea9d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Шаблоны проблем в службе управления API Azure
 Служба управления API Azure позволяет настраивать содержимое страниц портала разработчика с помощью набора шаблонов. С помощью синтаксиса [DotLiquid](http://dotliquidmarkup.org/), выбранного редактора, например [DotLiquid для разработчиков](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), и указанного набора локализованных [строковых ресурсов](api-management-template-resources.md#strings), [ресурсов глифов](api-management-template-resources.md#glyphs), а также [элементов управления на странице](api-management-page-controls.md) можно гибко настраивать содержимое страниц по своему усмотрению с использованием этих шаблонов.  
@@ -29,7 +28,7 @@ ms.lasthandoff: 01/12/2017
 -   [Список проблем](#IssueList)  
   
 > [!NOTE]
->  Примеры шаблонов по умолчанию включены в следующую документацию, но могут в любой момент измениться, так как ведется постоянная работа по их улучшению. Динамические шаблоны по умолчанию можно просмотреть на портале разработчика, перейдя к требуемому отдельному шаблону. Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).  
+>  Примеры шаблонов по умолчанию включены в следующую документацию, но могут в любой момент измениться, так как ведется постоянная работа по их улучшению. Актуальные шаблоны по умолчанию можно просмотреть на портале разработчика, перейдя к требуемому отдельному шаблону. Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).  
   
 ##  <a name="IssueList"></a> Список проблем  
  Шаблон **списка проблем** позволяет настроить текст страницы со списком проблем на портале разработчика.  
@@ -89,13 +88,13 @@ ms.lasthandoff: 01/12/2017
 ```  
   
 ### <a name="controls"></a>Управление  
- `Issue list`Шаблон может использовать следующие [элементы управления страницы](api-management-page-controls.md).  
+ В шаблоне `Issue list` можно использовать следующие [элементы управления страницы](api-management-page-controls.md).  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Модель данных  
   
-|Свойство|При появлении запроса на подтверждение нажмите клавишу |Описание|  
+|Свойство|Тип|Описание|  
 |--------------|----------|-----------------|  
 |Проблемы|Коллекция сущностей [проблем](api-management-template-data-model-reference.md#Issue).|Проблемы, которые отображаются для текущего пользователя.|  
 |Разбиение по страницам|Сущность [разбиения по страницам](api-management-template-data-model-reference.md#Paging).|Сведения о разбиении по страницам для коллекции приложений.|  

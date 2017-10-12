@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 784b9489911be0d9a559b6fe7795a6c2cbdb09fc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Действие копирования в фабрике данных Azure
 
@@ -196,4 +195,3 @@ ms.lasthandoff: 09/27/2017
 - [Create a data factory and pipeline using .NET SDK](quickstart-create-data-factory-dot-net.md) (Создание фабрики данных и конвейера с помощью пакета SDK для .NET)
 - [Copy data from Azure Blob to Azure SQL Database using Azure Data Factory](tutorial-copy-data-dot-net.md) (Копирование данных из большого двоичного объекта Azure в Базу данных SQL Azure с помощью фабрики данных Azure)
 - [Copy data between on-premises and cloud](tutorial-hybrid-copy-powershell.md) (Копирование данных между локальным расположением и облаком)
-

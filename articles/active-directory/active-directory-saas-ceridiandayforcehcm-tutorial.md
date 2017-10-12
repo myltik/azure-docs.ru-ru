@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: b2ea3d92f233dab5bd6814e4875f881117eac8e3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Учебник. Интеграция Azure Active Directory с Ceridian Dayforce HCM
 
@@ -292,5 +291,4 @@ ms.lasthandoff: 07/19/2017
 [201]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_203.png
-
 

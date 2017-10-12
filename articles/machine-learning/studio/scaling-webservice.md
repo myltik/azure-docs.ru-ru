@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: neerajkh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: eea085308a5ca755cbf570465b97019de800768e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Масштабирование веб-службы машинного обучения Azure с помощью добавления дополнительных конечных точек
 > [!NOTE]
@@ -43,4 +42,3 @@ ms.lasthandoff: 09/25/2017
 <!--Image references-->
 [1]: ./media/scaling-webservice/machlearn-1.png
 [2]: ./media/scaling-webservice/machlearn-2.png
-

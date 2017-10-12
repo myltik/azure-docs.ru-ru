@@ -15,12 +15,11 @@ ms.date: 06/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017, it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: a05219398aefa158321ae63934743dd43841e33f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Настройка сервера Многофакторной идентификации Azure для работы с AD FS 2.0
 Эта статья предназначена для организаций, в которых настроена федерация с Azure Active Directory и которым нужно защитить локальные или облачные ресурсы. Вы можете сделать это с помощью сервера Многофакторной идентификации Azure. Его нужно настроить для работы с AD FS, так чтобы двухфакторная проверка подлинности запускалась для важных конечных точек.
@@ -117,4 +116,3 @@ ms.lasthandoff: 02/28/2017
 4. Укажите IP-адрес, диапазон IP-адресов или подсеть, которые нужно внести в список разрешений. Указывая подсеть, выберите соответствующую маску сети и нажмите кнопку **ОК**. Надежный IP-адрес добавлен.
 
 <center>![Настройка](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-

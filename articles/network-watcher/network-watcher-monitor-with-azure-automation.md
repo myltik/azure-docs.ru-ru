@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
+ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 55ec52dd0d94a0347cc67a8785b89611da955111
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Мониторинг VPN-шлюзов с помощью средства устранения неполадок Наблюдателя за сетями
 
 Чтобы предоставлять клиентам надежное обслуживание, вы должны знать все о производительности своей сети. Поэтому важно быстро обнаруживать аварийные состояния сети и принимать необходимые меры, чтобы свести к минимуму последствия этих состояний. Служба автоматизации Azure позволяет реализовать и выполнить эту задачу программными средствами с помощью модулей runbook. С помощью службы автоматизации Azure вы можете выполнять упреждающий непрерывный мониторинг сети и создавать оповещения.
@@ -201,4 +199,3 @@ else
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-

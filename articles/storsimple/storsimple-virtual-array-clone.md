@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Клонирование из резервной копии виртуального массива StorSimple
 
@@ -138,5 +137,4 @@ ms.lasthandoff: 01/26/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Узнайте, как осуществлять [администрирование виртуального массива StorSimple, используя локальный пользовательский веб-интерфейс](storsimple-ova-web-ui-admin.md).
-
 

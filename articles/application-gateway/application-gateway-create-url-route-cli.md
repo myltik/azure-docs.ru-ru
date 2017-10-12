@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: 10d01d5d80e2d111d6b39598eed3612f80162b23
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: c617006bcb122cd3191f5da3ff08191e3c55b04b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>Создание шлюза приложений с маршрутизацией на основе пути с помощью Azure CLI 2.0
 
@@ -100,7 +99,7 @@ az network application-gateway http-listener create --name imageListener --front
 > [!IMPORTANT]
 > Каждый путь должен начинаться с "/". Звездочка может находиться только в конце пути. Примеры допустимых значений: /xyz, /xyz* или /xyz/*. Строка, передаваемая для сопоставления пути, не должна содержать никакого текста после первого символа "?" или "#", и сами эти символы не допускаются. 
 
-В следующем примере создается одно правило для пути /images/*, которое перенаправляет трафик во внутренний пулу серверов **imagesBackendPool**. Это правило гарантирует, что трафик для каждого набора URL-адресов направляется к серверной части. Например, файл http://adatum.com/images/figure1.jpg передается в **imagesBackendPool**. При настройке сопоставления для пути правил также настраивается пул серверной части по умолчанию, который будет использоваться, если путь не соответствует ни одному из предустановленных правил. Например, файл http://adatum.com/shoppingcart/test.html передается в **pool1**, так как этот пул определен как пул по умолчанию для несоответствующего трафика.
+В следующем примере создается одно правило для пути /images/\* , которое перенаправляет трафик во внутренний пулу серверов **imagesBackendPool**. Это правило гарантирует, что трафик для каждого набора URL-адресов направляется к серверной части. Например, файл http://adatum.com/images/figure1.jpg передается в **imagesBackendPool**. При настройке сопоставления для пути правил также настраивается пул серверной части по умолчанию, который будет использоваться, если путь не соответствует ни одному из предустановленных правил. Например, файл http://adatum.com/shoppingcart/test.html передается в **pool1** так как этот пул определен как пул по умолчанию для несоответствующего трафика.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -124,4 +123,3 @@ az network application-gateway url-path-map create \
 [1]: ./media/application-gateway-create-url-route-cli/figure1.png
 [2]: ./media/application-gateway-create-url-route-cli/figure2.png
 [3]: ./media/application-gateway-create-url-route-cli/figure3.png
-

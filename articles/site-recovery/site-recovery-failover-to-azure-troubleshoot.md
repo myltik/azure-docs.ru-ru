@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/24/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 0e50433e1ccdcbc0010070eec110914f0d33b5ab
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Устранение ошибок при отработке отказа виртуальной машины в Azure
 Во время выполнения отработки отказа виртуальной машины в Azure может появиться одна из следующих ошибок. Для устранения неполадок используйте описанные действия для каждого условия ошибки.

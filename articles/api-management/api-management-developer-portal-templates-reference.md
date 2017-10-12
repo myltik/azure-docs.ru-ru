@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 090f724c3ea569d226622c7d57fec74549260f4e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 2f2a943657dd328fc5657b775ba0273f99718f39
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-developer-portal-templates"></a>Шаблоны портала разработчика в службе управления API Azure
 Служба управления API Azure позволяет настраивать содержимое страниц портала разработчика с помощью набора шаблонов. С помощью синтаксиса [DotLiquid](http://dotliquidmarkup.org/), выбранного редактора, например [DotLiquid для разработчиков](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), и указанного набора локализованных [строковых ресурсов](api-management-template-resources.md#strings), [ресурсов глифов](api-management-template-resources.md#glyphs), а также [элементов управления на странице](api-management-page-controls.md) можно гибко настраивать содержимое страниц по своему усмотрению с использованием этих шаблонов.  
@@ -39,7 +38,7 @@ ms.lasthandoff: 01/12/2017
         -   [C#](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
         -   [JavaScript](api-management-api-templates.md#JavaScript)  
-        -   [Objective C](api-management-api-templates.md#ObjectiveC)  
+        -   [Objective C](api-management-api-templates.md#ObjectiveC)  
         -   [PHP](api-management-api-templates.md#PHP)  
         -   [Python](api-management-api-templates.md#Python)  
         -   [Ruby](api-management-api-templates.md#Ruby)  
@@ -53,8 +52,8 @@ ms.lasthandoff: 01/12/2017
     -   [Список проблем](api-management-issue-templates.md#IssueList)  
 -   [Профиль пользователя](api-management-user-profile-templates.md)  
     -   [Профиль](api-management-user-profile-templates.md#Profile)  
-    -   [Подписки](api-management-user-profile-templates.md#Subscriptions)  
-    -   [Приложения](api-management-user-profile-templates.md#Applications)  
+    -   [Подписки](api-management-user-profile-templates.md#Subscriptions).  
+    -   [Приложения](api-management-user-profile-templates.md#Applications).  
     -   [Обновить сведения об учетной записи](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [Страницы](api-management-page-templates.md)  
     -   [Вход](api-management-page-templates.md#SignIn)  

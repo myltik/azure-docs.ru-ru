@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Параметры входа в Azure AD Connect
 Служба Azure Active Directory (Azure AD) Connect позволяет входить в облачные и локальные ресурсы, используя те же пароли. В этой статье рассматриваются основные сведения о каждой модели идентификации, с помощью которых вы можете выбрать удостоверение для входа в Azure AD.
@@ -176,4 +175,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 - Дополнительные сведения об интеграции локальных удостоверений см. в статье [Подключение Active Directory к Azure Active Directory](active-directory-aadconnect.md).
 - Дополнительные сведения об принципах проектирования см. в статье [Azure AD Connect: принципы проектирования](active-directory-aadconnect-design-concepts.md).
-

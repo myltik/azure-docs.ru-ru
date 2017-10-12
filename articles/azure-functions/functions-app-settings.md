@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
 ms.author: tdykstra
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: ce7bf2cf650b0df7e8998766b2d3f5a37c4a1b72
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="app-settings-reference-for-azure-functions"></a>Справочник по параметрам приложений для Функций Azure
 
 Параметры приложения в приложении-функции содержат параметры глобальной конфигурации, влияющие на все функции данного приложения-функции. При локальном запуске эти параметры содержатся в переменных среды. В этой статье перечислены параметры приложений, которые доступны в приложениях-функциях.
@@ -162,4 +160,3 @@ ms.lasthandoff: 09/29/2017
 
 > [!div class="nextstepaction"]
 > [Ознакомьтесь с глобальными параметрами в файле host.json](functions-host-json.md)
-

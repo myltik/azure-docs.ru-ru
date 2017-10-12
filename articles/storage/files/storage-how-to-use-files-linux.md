@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 192680efe07368666c5a9d037549c7686189d0b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6c80c6814dacf90a0a50dab691899c3a8cc2bf82
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-files-with-linux"></a>Использование файлов Azure в Linux
 [Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от Майкрософт. Общие папки Azure можно подключить в дистрибутивах Linux с помощью [пакета cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) из [проекта Samba](https://www.samba.org/). В этой статье описаны два способа подключения общей папки Azure: по запросу с помощью команды `mount` и при загрузке путем создания записи в `/etc/fstab`.
@@ -111,10 +110,9 @@ ms.lasthandoff: 09/25/2017
 Файлы Azure для группы пользователей Linux включают форум, на котором можно поделиться своим мнением и опытом адаптации хранилища файлов в Linux. Чтобы вступить в группу пользователей, отправьте электронное письмо в группу [Пользователи файлов Azure в Linux](mailto:azurefileslinuxusers@microsoft.com).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительную информацию о файлах Azure см. в следующих разделах.
+Дополнительную информацию о службе файлов Azure см. по следующим ссылкам.
 * [Справочник по REST API службы файлов](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [Перенос данных с помощью AzCopy для Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Использование Azure CLI 2.0 со службой хранилища Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Часто задаваемые вопросы](../storage-files-faq.md)
 * [Устранение неполадок](storage-troubleshoot-linux-file-connection-problems.md)
-

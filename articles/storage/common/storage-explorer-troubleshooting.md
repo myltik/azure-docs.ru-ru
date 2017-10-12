@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Руководство по устранению неполадок в обозревателе хранилищ Azure
 
 Microsoft Azure Storage Explorer (предварительная версия) — это автономное приложение, позволяющее легко работать с данными из службы хранилища Azure на платформе Windows, macOS и Linux. Приложение может подключаться к учетным записям хранения, размещенным в Azure, Sovereign Clouds и Azure Stack.
@@ -182,4 +180,3 @@ Microsoft Azure Storage Explorer (предварительная версия) 
 Для этого перейдите в меню **Справка** и щелкните пункт **Отправить отзыв**.
 
 ![Отзыв](./media/storage-explorer-troubleshooting/4022503_en_1.png)
-

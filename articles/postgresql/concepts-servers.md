@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/06/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 43123486f21178a5ba657caa9d4b090922435913
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: c79603a11fa23ad775783157675c07ab67102057
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Серверы базы данных Azure для PostgreSQL
 В этой статье приведены рекомендации и указания по работе с серверами базы данных Azure для PostgreSQL.
@@ -54,4 +53,3 @@ ms.lasthandoff: 07/08/2017
 - Обзор службы содержится в статье [Что такое база данных Azure для PostgreSQL](overview.md).
 - Сведения о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб** представлены в статье [Уровни служб в базе данных Azure для MySQL](concepts-service-tiers.md).
 - Сведения о подключении к службе см. в статье [Библиотеки подключений для базы данных Azure для PostgreSQL](concepts-connection-libraries.md).
-

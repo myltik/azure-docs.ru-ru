@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: bwren
+ms.openlocfilehash: d7603f47d985e1abbab96e931e46e37a8ecb4bc5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: 6baffb1fb14a3b7ede5a754029b9efbaf543ea07
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Диагностика исключений в веб-приложениях с помощью Application Insights
 Об исключениях активного веб-приложения сообщает [Application Insights](app-insights-overview.md). Вы можете сопоставлять неудачно завершенные запросы с исключениями и другими событиями на клиенте и сервере, чтобы быстро выявлять причины неполадок.
@@ -33,8 +32,8 @@ ms.lasthandoff: 09/21/2017
 * Для некоторых платформ приложений или заданных параметров необходимо выполнить дополнительные шаги, чтобы перехватывать дополнительные исключения:
   * [веб-формы](#web-forms);
   * [MVC](#mvc);
-  * [веб-API 1.*](#web-api-1);
-  * [веб-API 2.*](#web-api-2);
+  * [веб-API 1.*](#web-api-1x);
+  * [веб-API 2.*](#web-api-2x);
   * [WCF](#wcf)
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Диагностика исключений с помощью Visual Studio
@@ -445,4 +444,3 @@ VB
 * [Настройка Application Insights: отслеживание зависимостей](app-insights-asp-net-dependencies.md)
 * [Мониторинг времени загрузки страниц, исключений браузера и вызовов AJAX](app-insights-javascript.md)
 * [Мониторинг счетчиков производительности](app-insights-performance-counters.md)
-

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: edmacauley
 ms.openlocfilehash: ee7398304b7ba864eff17eb6e7d7c3777f4a9fe6
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Подключение к базе данных SQL с помощью C и C++
 Эта публикация предназначена для разработчиков C и C++, выполняющих подключение приложений к базе данных SQL Azure. Публикация содержит несколько разделов, что дает возможность переходить сразу к интересующей вас теме. 

@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e66f808da8d301e0adc393ba0ae67ab8618ce814
-ms.openlocfilehash: e73e52665dd22e33054745907613c269b6d57915
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Перенос хранилища данных в хранилище класса Premium
 В хранилище данных SQL Azure недавно реализована возможность использовать [хранилище класса Premium, чтобы обеспечить более предсказуемую производительность][premium storage for greater performance predictability]. Теперь хранилища данных, расположенные в хранилище класса Standard, можно перенести в хранилище класса Premium. Такой перенос будет выполнен автоматически. Также вы можете выполнить его самостоятельно, если предпочитаете выбрать точное время для переноса (необходимо учитывать время простоя).
@@ -118,7 +116,7 @@ ms.lasthandoff: 12/16/2016
 **Предварительные требования:**
 
 - Хранилище данных должно располагать минимум 1000 единицами использования хранилища данных (см. раздел [Масштабирование вычислительных ресурсов][scale compute power]).
-- Пользователь, выполняющий скрипт, должен быть участником [роли mediumrc][mediumrc role] или роли более высокого уровня. Чтобы назначить пользователю эту роль, выполните следующую команду:     ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- Пользователь, выполняющий скрипт, должен быть участником [роли mediumrc][mediumrc role] или роли более высокого уровня. Чтобы назначить пользователю эту роль, выполните следующую команду: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
@@ -184,4 +182,3 @@ go
 <!--Other Web references-->
 [Premium Storage for greater performance predictability]: https://azure.microsoft.com/en-us/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure Portal]: https://portal.azure.com
-

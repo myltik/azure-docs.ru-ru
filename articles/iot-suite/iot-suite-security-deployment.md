@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
 ms.openlocfilehash: d752dd13b138cdae80dac5c0b2f84a19fe0aa670
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-your-iot-deployment"></a>Защита развертывания IoT
 В этой статье более подробно рассматривается защита инфраструктуры "Интернета вещей" (IoT) на основе Azure IoT. Она содержит ссылки на сведения о настройке и развертывании каждого компонента на уровне реализации. Кроме того, в статье представлены сравнения различных конкурирующих методов и рекомендации по их выбору.

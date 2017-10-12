@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/2/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: f17ebb2b74cd7ad872f88483ed7cdb4f239ee069
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Аварийное восстановление базы данных Oracle Database 12c в среде Azure.
 
 ## <a name="assumptions"></a>Предположения
@@ -49,7 +47,7 @@ ms.lasthandoff: 08/17/2017
 - *группа доступности*, которая используется для службы приложений и базы данных на основном сайте;
 - одна среда Jumpbox на каждом сайте, которая ограничивает доступ к частной сети и разрешает вход только администратору;
 - среда Jumpbox, служба приложения, база данных и VPN-шлюз в отдельных подсетях;
-- группа безопасности сети, применяющаяся в подсетях приложения и базы данных.
+- группа безопасности сети, применяющаяся в подсетях приложения и базы данных;
 
 ![Снимок экрана страницы топологии аварийного восстановления](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
@@ -109,4 +107,3 @@ ms.lasthandoff: 08/17/2017
 
 - Изучите [руководство по созданию высокодоступных виртуальных машин](../../linux/create-cli-complete.md).
 - [Изучите примеры развертывания виртуальных машин с помощью интерфейса командной строки](../../linux/cli-samples.md).
-

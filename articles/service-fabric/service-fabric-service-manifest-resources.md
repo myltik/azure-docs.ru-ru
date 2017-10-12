@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Указание ресурсов в манифесте службы
 ## <a name="overview"></a>Обзор
@@ -201,4 +200,3 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 Если в ApplicationParameters параметры Port1 и Protocol1 имеют значение или же оно не задано, порт по-прежнему определяет платформа Service Fabric, а в качестве протокола используется TCP.
 
 Предположим, что вы задали неверное значение. Например, для порта задано строковое значение Foo вместо целого числа.  При выполнении команды New-ServiceFabricApplication произойдет ошибка: The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int' (Недопустимый параметр переопределения ServiceEndpoint1 атрибута Port1 в разделе ResourceOverrides. Указано значение Foo, а требуется целое число).
-

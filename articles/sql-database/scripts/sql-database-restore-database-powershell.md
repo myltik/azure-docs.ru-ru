@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 2be93bd623ae3960c61d54d4219cc4b60257f88d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 1c8ce646f28d5f13ec1c5760d4c110b994b3a4cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>Восстановление базы данных SQL Azure из резервных копий с помощью PowerShell
 
 Этот пример сценария PowerShell восстанавливает базу данных SQL Azure из геоизбыточной резервной копии, восстанавливает последнюю резервную копию удаленной базы данных SQL Azure и восстанавливает базу данных SQL Azure до определенной точки во времени.  
@@ -32,7 +30,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Создание базы данных SQL")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 
@@ -61,4 +59,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 Дополнительные сведения о Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
 Дополнительные примеры сценариев PowerShell для базы данных SQL Azure можно найти [здесь](../sql-database-powershell-samples.md).
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
 ms.openlocfilehash: 0c479a58f4158bb1a72dc43432507160f65d2791
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Управление политикой кэширования Azure CDN в службах мультимедиа Azure
 Службы мультимедиа Azure предоставляют адаптивную потоковую передачу и прогрессивное скачивание на основе протокола HTTP. Потоковая передача на основе протокола HTTP — это высокомасштабируемая технология, обладающая преимуществами кэширования на стороне прокси-сервера и на стороне клиента, а также преимуществами слоев CDN. Функция конечных точек потоковой передачи предоставляет общие возможности потоковой передачи, а также конфигурацию для заголовков кэша HTTP. Она также задает заголовки HTTP Cache-Control: max-age и Expires. Узнать больше о заголовках кэша HTTP можно на веб-сайте [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).

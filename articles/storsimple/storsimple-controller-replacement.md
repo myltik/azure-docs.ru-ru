@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Замена модуля контроллера на устройстве StorSimple
 ## <a name="overview"></a>Обзор
@@ -248,5 +247,4 @@ ms.lasthandoff: 03/04/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
-
 

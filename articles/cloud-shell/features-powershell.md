@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9eacb57b5a00ff11739695ed3311be0c638ba25f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Функции и инструменты для PowerShell в Azure Cloud Shell
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
@@ -113,4 +111,3 @@ PowerShell в Cloud Shell запускается на диске Azure (`Azure:`
 
 [Краткое руководство по использованию PowerShell в Cloud Shell](quickstart-powershell.md) <br>
 [Дополнительные сведения об Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
-

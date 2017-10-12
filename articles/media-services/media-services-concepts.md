@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
+ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: ed3417f69bb13043db0affc9249f3ff5e49d7c79
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-concepts"></a>Основные понятия служб мультимедиа Azure
 В этом разделе приводится обзор наиболее важных понятий служб мультимедиа.
@@ -231,5 +230,4 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

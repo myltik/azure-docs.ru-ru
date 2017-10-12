@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 28526c05c7f364f0fcaaa362fc97857f850040ee
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: f9b679f167952076db6df17711dc124931a0880c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="relay-hybrid-connections-node-api-overview"></a>Общие сведения об API узла гибридных подключений ретранслятора
 
 ## <a name="overview"></a>Обзор
@@ -213,4 +211,3 @@ WebSocket.relayedConnect(
 Дополнительные сведения о ретрансляторе Azure доступны по следующим ссылкам:
 * [Что такое ретранслятор Azure?](relay-what-is-it.md)
 * [Available Relay APIs](relay-api-overview.md) (Доступные API-интерфейсы ретранслятора)
-

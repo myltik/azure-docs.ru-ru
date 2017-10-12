@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Настройка политики IPsec/IKE для VPN-подключений типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть"
 
@@ -211,7 +210,7 @@ $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA38
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
 ```
 
-#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2) Создание подключения VPN типа "сеть — сеть" с помощью политики IPsec/IKE
+#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Создание подключения VPN типа "сеть — сеть" с помощью политики IPsec/IKE
 
 Создайте VPN-подключение типа "сеть — сеть" и примените созданную ранее политику IPsec/IKE.
 
@@ -355,7 +354,7 @@ PfsGroup            : PFS24
 
 Если политика IPsec/IKE не настроена, команда (PS> $connection6.policy) возвращает пустой список. Это не значит, что для подключения не настроена политика IPsec/IKE. Это значит, что отсутствует настраиваемая политика IPsec/IKE. Фактическое подключение использует политику по умолчанию, согласованную между локальным VPN-устройством и VPN-шлюзом Azure.
 
-#### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2) Добавление или обновление политики IPsec/IKE для подключения
+#### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Добавление или обновление политики IPsec/IKE для подключения
 
 Действия по добавлению новой политики или обновлению существующей (для подключения) остаются теми же. Создайте новую политику, а затем примените ее к подключению.
 

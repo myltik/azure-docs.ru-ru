@@ -12,15 +12,14 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c91a34eb34a73abe5c5ac2bb6aeb08c818a97856
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: cb514d211450bfe012ac9024e191239adf7166ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Устранение ошибки выделения при развертывании облачных служб в Azure
 ## <a name="summary"></a>Сводка
@@ -72,4 +71,3 @@ ms.lasthandoff: 11/17/2016
    * Выполните описанный выше пункт 2 и убедитесь, что в CSCFG службы указан новый адрес ReservedIP.
 4. Удалите территориальную группу для новых развертываний. Использовать территориальные группы больше не рекомендуются. Выполните описанный выше пункт 1, чтобы развернуть новую облачную службу. Убедитесь, что облачная служба не входит в территориальную группу.
 5. Сведения о выполнении преобразования в региональную виртуальную сеть см. в статье [Переход от территориальных групп к региональной виртуальной сети](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-

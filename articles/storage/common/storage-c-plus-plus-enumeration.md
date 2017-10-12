@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 ms.openlocfilehash: 9844412739f4f6f95416f81347f0f2eeeca62bea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Перечисление ресурсов хранилища Azure в C++
 Операции перечисления необходимы для многих сценариев разработки с использованием хранилища Azure. В этой статье описано, как наиболее эффективно перечислять объекты в хранилище Azure с помощью API-интерфейсов, предоставленных в клиентской библиотеке для службы хранилища Microsoft Azure для C++.

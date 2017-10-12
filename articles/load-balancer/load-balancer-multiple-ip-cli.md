@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d88c53784cec302f5e67b9d50f84780bbec37db
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>Балансировка нагрузки в конфигурациях с несколькими IP-адресами
 
@@ -132,4 +131,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 - Узнайте больше о том, как объединять службы балансировки нагрузки, в статье [Использование служб балансировки нагрузки в Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Узнайте, как в Azure можно использовать журналы разных типов для управления подсистемой балансировки нагрузки и устранения неполадок в ее работе, ознакомившись со статьей [Служба анализа журналов для балансировщика нагрузки Azure](../load-balancer/load-balancer-monitor-log.md).
-

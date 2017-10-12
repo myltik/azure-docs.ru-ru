@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Создание виртуальной машины Windows с помощью портала Azure
 
 Виртуальные машины Azure можно создать на портале Azure. В этом случае для создания и настройки виртуальных машин и всех связанных ресурсов Azure используется пользовательский интерфейс на основе браузера. В этом кратком руководстве содержатся пошаговые инструкции по созданию виртуальной машины и установке веб-сервера на этой виртуальной машине.
@@ -48,11 +46,11 @@ ms.lasthandoff: 09/01/2017
 
     ![Снимок экрана, на котором показаны размеры виртуальных машин](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. В разделе **параметров** оставьте значения по умолчанию и нажмите кнопку **ОК**. 
+5. В разделе **Параметры** оставьте значения по умолчанию и нажмите кнопку **ОК**. 
 
 6. На странице сводки нажмите кнопку **OК**, чтобы начать развертывание виртуальной машины.
 
-7. Виртуальная машина будет закреплена на панели мониторинга портала Azure. По завершении развертывания автоматически откроются сводные сведения о виртуальной машине.
+7. Виртуальная машина будет закреплена на панели мониторинга портала Azure. Когда развертывание завершится, автоматически отобразятся сводные сведения о виртуальной машине.
 
 
 ## <a name="connect-to-virtual-machine"></a>Подключение к виртуальной машине
@@ -108,4 +106,3 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 > [!div class="nextstepaction"]
 > [Создание виртуальных машин Windows и управление ими с помощью модуля Azure PowerShell](./tutorial-manage-vm.md)
-

@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 ms.manager: tihazen
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Сопоставление вопросов и ответов с помощью Azure Machine Learning Workbench
 На открытые вопросы часто трудно найти ответ, и для этого требуются ручные действия профильных специалистов. Чтобы сократить нагрузку на внутренних специалистов, компании часто создают списки часто задаваемых вопросов (FAQ) для помощи пользователям. В этом примере показаны различные действующие методы машинного обучения, которые сопоставляют открытые запросы и уже существующие пары часто задаваемых вопросов и ответов на них. В этом примере показан несложный процесс разработки, позволяющий создать такое решение с использованием Azure Machine Learning Workbench. 
 
@@ -162,4 +160,3 @@ ms.lasthandoff: 09/25/2017
 Тимоти Дж. Хейзен (Timothy J. Hazen), Фред Ричардсон (Fred Richardson). [_Modeling Multiword Phrases with Constrained Phrases Trees for Improved Topic Modeling of Conversational Speech_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf) (Моделирование фраз из нескольких слов с использованием ограниченных деревьев фраз для эффективного тематического моделирования разговорной речи). Семинар IEEE по технологиям анализа разговорной речи, 2012 г. IEEE, 2012 г.
 
 Тимоти Дж. Хейзен (Timothy J. Hazen). [ _MCE Training Techniques for Topic Identification of Spoken Audio Documents_](http://ieeexplore.ieee.org/abstract/document/5742980/) (Методы обучения MCE для определения темы в аудиодокументах с устной речью). Материалы конференции IEEE по обработке аудио, речи и естественного языка, том 19, №8, стр. 2451–2460, ноябрь 2011 г.
-

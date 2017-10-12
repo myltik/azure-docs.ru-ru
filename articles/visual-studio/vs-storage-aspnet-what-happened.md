@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 680960f51201a98c81db4bce3615e1602e795651
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>Что произошло с моим проектом ASP.NET (подключенными к службе хранилища Azure службами Visual Studio)?
 ## <a name="references-added"></a>Добавлены ссылки
@@ -39,5 +38,4 @@ ms.lasthandoff: 08/28/2017
 В файле web.config проекта был создан элемент с ключом и строкой подключения выбранной учетной записи хранилища.
 
 Дополнительные сведения см. в разделе [ASP.NET](http://www.asp.net).
-
 

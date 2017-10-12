@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Справочник по API модели сбора данных для Машинного обучения Azure
 
@@ -95,5 +94,4 @@ dc = ModelDataCollector(model_name, identifier='default', feature_names=None, mo
 |-------------|------------|-------------------------|
 | input_data | несколько типов | Собираемые данные (сейчас принимает такие типы данных, как numpy.array, pandas.DataFrame, pyspark.sql.DataFrame). Для кадров данных, если есть заголовок с именами функций, эта информация будет включена в пункте назначения данных (без необходимости явно передавать имена функций в конструкторе ModelDataCollector). |
 | user_correlation_id | string | Дополнительный идентификатор сопоставления, который может быть предоставлен пользователю для сопоставления прогноза. |
-
 

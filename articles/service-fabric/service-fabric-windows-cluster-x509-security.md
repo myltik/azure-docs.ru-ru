@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dekapur
+ms.openlocfilehash: d66f02051279d1cfe685fdae6aa8a035f4edd5aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e37a68fcf645cf1056b70e520545fb3ce7c22946
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>Защита автономного кластера под управлением Windows с помощью сертификатов X.509
 В этой статье описывается, как защитить обмен данными между различными узлами автономного кластера под управлением Windows, а также как аутентифицировать клиентов, подключающихся к этому кластеру, с помощью сертификатов X.509. Это гарантирует, что только авторизованные пользователи могут получить доступ к кластеру для развертывания приложений и выполнения задач управления.  Безопасность на основе сертификатов необходимо включить в кластере при его создании.  
@@ -327,5 +326,4 @@ Connect-ServiceFabricCluster $ConnectArgs
 > Из-за неправильной конфигурации сертификата кластер может не восстановиться во время развертывания. Чтобы самостоятельно определить проблемы безопасности, откройте средство просмотра событий и выберите группу *Журналы приложений и служб* > *Microsoft-Service Fabric*.
 > 
 > 
-
 

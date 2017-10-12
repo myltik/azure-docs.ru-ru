@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 4de812c7f863e42a6ed10c2312d61b8377e06431
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 6dce88bdd85a28ce05e1621b08a0f4b148b02627
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Изучение основных понятий рабочего процесса Windows PowerShell для модулей Runbook службы автоматизации 
 Модули Runbook в службе автоматизации Azure реализованы в виде рабочих процессов Windows PowerShell.  Рабочий процесс Windows PowerShell похож на сценарий Windows PowerShell, но имеет ряд существенных отличий, которые могут запутать нового пользователя.  Хотя эта статья предназначена помочь вам в написании модулей Runbook с помощью рабочего процесса PowerShell, мы рекомендуем использовать для этого PowerShell, если только вам не требуются контрольные точки.  Существует ряд различий в синтаксисе при разработке модулей runbook рабочего процесса PowerShell, и эти различия требуют немного больше усилий для написания эффективных рабочих процессов.  
@@ -261,4 +260,3 @@ InlineScript использует описанный ниже синтаксис
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Мой первый модуль Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
-

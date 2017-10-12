@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 712b29a347e246ad5afbf842930b0e01749c1203
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными
 Эта статья содержит общие сведения об интеграции данных, хранящихся в локальных и облачных хранилищах данных, с помощью фабрики данных. В статье используются понятия, описанные в статье [Действия по перемещению данных](data-factory-data-movement-activities.md) и других основополагающих статьях о фабрике данных: [наборы данных](data-factory-create-datasets.md) и [конвейеры](data-factory-create-pipelines.md).
@@ -413,4 +412,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Все дополнительные сведения о шлюзе управления данными см. в статье [Шлюз управления данными](data-factory-data-management-gateway.md).
 * Чтобы узнать, как перемещать данные из исходного хранилища данных в приемник данных с помощью действия копирования, ознакомьтесь со статьей [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
-

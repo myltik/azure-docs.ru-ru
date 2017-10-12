@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
+ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: f5ffcb5be1c52f27948414304f1fc2e82c76709b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Масштабирование кластера Service Fabric с помощью правил автомасштабирования
 Наборы масштабирования виртуальных машин относятся к вычислительным ресурсам Azure. Их можно использовать для развертывания коллекции виртуальных машин и управления ею как набором. Каждый тип узла, определенный в кластере Service Fabric, настроен как отдельный масштабируемый набор виртуальных машин. Каждый тип узла поддерживает возможность независимого масштабирования, имеет разные наборы открытых портов и собственные метрики емкости. Дополнительные сведения о типах узлов Service Fabric см. в этом [документе](service-fabric-cluster-nodetypes.md). Так как типы узлов Service Fabric в вашем кластере состоят из масштабируемых наборов виртуальных машин на сервере, для каждого типа узлов или масштабируемого набора необходимо настроить правила автомасштабирования.
@@ -53,7 +52,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 Настройте автомасштабирование для каждого масштабируемого набора виртуальных машин согласно [этим инструкциям](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> Если тип узла имеет уровень надежности Gold или Silver, то в сценарии уменьшения масштаба необходимо вызывать [командлет Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) с именем соответствующего узла.
+> Если тип узла имеет уровень надежности Gold или Silver, то в сценарии уменьшения масштаба необходимо вызывать [командлет Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) с именем соответствующего узла.
 > 
 > 
 
@@ -120,4 +119,3 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
-

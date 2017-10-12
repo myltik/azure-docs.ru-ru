@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: zivr
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 90129bee5771534b01ac12473c6cfed77840ae20
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Обработка плановых уведомлений по обслуживанию для виртуальных машин Windows
 
 Azure периодически выполняет обновления, чтобы повысить надежность, производительность и безопасность инфраструктуры узлов, в которой работают виртуальные машины. Обновления — это изменения, такие как исправление среды размещения или модернизация оборудования и вывод его из эксплуатации. Большинство этих обновлений не влияют на работу размещенных виртуальных машин. Но в некоторых случаях они все же оказывают определенное воздействие:

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: ashishtha
+ms.openlocfilehash: d08a9a7cc82095b0a90abd98bd4f6d13cdadb671
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 54e53c98390b44ee5f298d5f61c13a4d299e5ae1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop в HDInsight с помощью портала Azure
 
@@ -58,14 +57,14 @@ HDInsight работает со множеством компонентов Hado
 
 - Чтобы создать новую группу ресурсов:
 
-    1. Войдите на [портал Azure](https://portal.azure.com).
+    1. Выполните вход на [портал Azure](https://portal.azure.com).
     2. Щелкните **Подписка** в меню слева (вы увидите значок ключа желтого цвета). Отобразится список подписок.
     3. Щелкните подписку, которую вы используете для создания кластеров. 
     4. Щелкните **Мои разрешения**.  Вы увидите свою [роль](../active-directory/role-based-access-control-what-is.md#built-in-roles) в подписке. Создавать кластер HDInsight могут пользователи с ролью не ниже участника.
 
 - Использование существующей группы ресурсов:
 
-    1. Войдите на [портал Azure](https://portal.azure.com).
+    1. Выполните вход на [портал Azure](https://portal.azure.com).
     2. Щелкните **Группы ресурсов** в меню слева, чтобы отобразить группы ресурсов.
     3. Щелкните группу ресурсов, которую вы хотите использовать для создания кластера HDInsight.
     4. Щелкните **Управление доступом (IAM)** и проверьте, есть ли у вас (или у группы, к которой вы принадлежите) доступ к группе ресурсов, соответствующий роли (не ниже участника).
@@ -362,4 +361,3 @@ Ambari изменит пароль на всех узлах в кластере.
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
-

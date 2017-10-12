@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
-ms.openlocfilehash: 5da5707900b35be69018ba4e9c8efb05d8a74a9d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 63a7707f16bbf037c0c91da1d02093e2314dc06e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Диагностические функции для надежных служб с отслеживанием состояния
 Класс StatefulServiceBase служб Reliable Services с отслеживанием состояния генерирует события [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx), которые можно использовать для отладки. Они позволяют исследовать работу среды выполнения и помогают устранять неполадки.
@@ -50,4 +48,3 @@ ms.lasthandoff: 01/05/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Поставщики EventSource в PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-

@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Настройка устройства для подготовки с помощью службы подготовки устройств для Центра Интернета вещей
 
 В предыдущем руководстве вы узнали, как настроить службу подготовки устройств для Центра Интернета вещей, чтобы автоматически подготавливать устройства в Центре Интернета вещей. Это руководство содержит инструкции по настройке устройства во время производства, чтобы можно было настроить службу подготовки устройств для своего устройства на основе [аппаратного модуля безопасности (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security) и устройство могло подключаться к службе подготовки устройств при первоначальной загрузке. В этом руководстве рассматриваются такие процессы:
@@ -186,5 +184,4 @@ int main()
 
 > [!div class="nextstepaction"]
 > [Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service](tutorial-provision-device-to-hub.md) (Подготовка устройства в Центре Интернета вещей с помощью службы подготовки устройств для Центра Интернета вещей).
-
 

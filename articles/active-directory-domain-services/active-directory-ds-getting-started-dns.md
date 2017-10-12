@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: maheshu
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: ab8e3215e8e73d3943af06cffafa730cf1b7744b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Включение доменных служб Azure Active Directory
 
@@ -49,4 +48,3 @@ ms.lasthandoff: 09/27/2017
 
 ## <a name="next-step"></a>Дальнейшие действия
 [Задача 5. Включение синхронизации паролей с доменными службами Azure AD](active-directory-ds-getting-started-password-sync.md)
-

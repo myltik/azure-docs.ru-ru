@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a37aed8b3321d3518ffd73e09f5bb21266a7e577
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Мониторинг и обновление виртуальных машин Windows с помощью Azure PowerShell
 
 Служба мониторинга Azure использует агенты для сбора данных о производительности и загрузке с виртуальных машин Azure, сохраняет эти данные в хранилище Azure и предоставляет к ним доступ через портал, модуль Azure PowerShell и Azure CLI. Управление обновлениями позволяет управлять обновлениями и исправлениями виртуальных машин Azure под управлением Windows.
@@ -37,7 +35,7 @@ ms.lasthandoff: 09/25/2017
 > * Установка расширения системы диагностики
 > * Просмотр метрик виртуальной машины
 > * Создание оповещения
-> * Управление обновлениями Windows.
+> * Управление обновлениями Windows
 > * Настройка расширенного мониторинга.
 
 Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -157,7 +155,7 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
   * Средства
   * Обновления
 
-* **Параметры расписания.** Вы можете принять дату и время по умолчанию (на 30 минут больше текущего времени) либо указать другое время.
+* **Параметры расписания.** Вы можете принять дату и время по умолчанию (на 30 минут больше текущего времени) либо указать другое время.
   Кроме того, можно указать, происходит ли развертывание один раз, или настроить расписание повторяющегося развертывания. Щелкните параметр Recurring (Повторяющееся) в разделе "Повторение", чтобы настроить повторяющееся расписание.
 
   ![Экран параметров обновления расписания](./media/tutorial-monitoring/manageupdates-schedule-win.png)
@@ -229,7 +227,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
 > * Установка расширения системы диагностики
 > * Просмотр метрик виртуальной машины
 > * Создание оповещения
-> * Управление обновлениями Windows.
+> * Управление обновлениями Windows
 > * Настройка расширенного мониторинга.
 
 Перейдите к следующему руководству, чтобы узнать о центре безопасности Azure.

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/22/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 5aa47b4b12dc136a3f6ba66688804859f9eb5446
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Выполнение заданий Sqoop с Hadoop в HDInsight с помощью Curl
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -129,7 +128,6 @@ Curl используется для демонстрации возможнос
 * [Выполнение запросов Hive с Hadoop в HDInsight с помощью REST](hdinsight-hadoop-use-hive-curl.md)
 * [Выполнение заданий MapReduce с помощью REST в Hadoop в HDInsight](hdinsight-hadoop-use-mapreduce-curl.md)
 * [Выполнение запросов Pig с помощью cURL с использованием Hadoop в HDInsight](hdinsight-hadoop-use-pig-curl.md)
-
 
 
 

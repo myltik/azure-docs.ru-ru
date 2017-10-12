@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1b59144e0426b50c2ac49acbd7914d975ff037ec
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Создание учетной записи хранения и смена ее ключей доступа
 
 Этот скрипт создает учетную запись хранения Azure, отображает ключи доступа новой учетной записи хранения, а затем обновляет (меняет) ключи.
@@ -37,7 +35,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания 
 
-Выполните следующую команду, чтобы удалить группу ресурсов, учетную запись хранения и все связанные ресурсы.
+Выполните команду ниже, чтобы удалить группу ресурсов, учетную запись хранения и все связанные ресурсы.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -58,5 +56,4 @@ az group delete --name myResourceGroup
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](/cli/azure/overview).
 
-Дополнительные примеры скриптов CLI хранилища можно найти в статье [Azure CLI samples for Azure Blob storage](../blobs/storage-samples-blobs-cli.md) (Примеры скриптов Azure CLI для хранилища BLOB-объектов Azure).
-
+Дополнительные примеры скриптов CLI хранилища см. в статье [Примеры скриптов Azure CLI для хранилища BLOB-объектов Azure](../blobs/storage-samples-blobs-cli.md).

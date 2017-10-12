@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a635b214fcc9b37ac426df227420b643e2a02cc7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Управление службой поиска Azure с помощью PowerShell
 > [!div class="op_single_selector"]
@@ -138,5 +137,4 @@ ms.lasthandoff: 04/27/2017
 * [Настройка индексатора для загрузки данных из других служб](search-indexer-overview.md)
 * [Как использовать Поиск Azure в приложении .NET](search-howto-dotnet-sdk.md)
 * [Анализ трафика Поиска Azure](search-traffic-analytics.md)
-
 

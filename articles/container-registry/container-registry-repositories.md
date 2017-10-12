@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: cristyg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 06b809c31cecef1714f60d04657eb74c611be8cb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: d737df98fee955b57166cb44f45f61dff906514e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-container-registry-repositories"></a>Репозитории реестра контейнеров Azure
 
@@ -54,4 +53,3 @@ docker push myregistry.azurecr.io/samples/nginx
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы знаете основы, можно приступать к использованию реестра. Например, разверните образы контейнера в кластер [службы контейнеров Azure](https://azure.microsoft.com/documentation/services/container-service/).
-

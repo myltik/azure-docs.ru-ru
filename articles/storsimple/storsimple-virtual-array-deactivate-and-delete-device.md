@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
 ms.openlocfilehash: 8dea36f92b034f8c6cdb6875634848d37f4c6606
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/28/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Отключение и удаление виртуального массива StorSimple
 
@@ -91,5 +90,4 @@ ms.lasthandoff: 11/28/2016
 * Сведения о выполнении отработки отказа см. статье [Аварийное восстановление и отработка отказа устройства для виртуального массива StorSimple](storsimple-virtual-array-failover-dr.md).
 
 * Дополнительные сведения об управлении устройством с помощью службы диспетчера устройств StorSimple см. в [этой статье](storsimple-virtual-array-manager-service-administration.md). 
-
 

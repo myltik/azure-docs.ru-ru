@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6ec74ae0b0931f3fed99a43f4f7e58f9d425b138
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="previewing-drive-usage-for-an-export-job"></a>Предварительный просмотр использования дисков для задания экспорта
 Прежде чем создать задание импорта, необходимо выбрать набор больших двоичных объектов для экспорта. Служба импорта и экспорта Microsoft Azure позволяет использовать список путей к большим двоичным объектам или их префиксов для выбора больших двоичных объектов.  
   
@@ -80,4 +78,3 @@ Number of drives needed:        3
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Руководство по использованию инструмента импорта и экспорта](../storage-import-export-tool-how-to-v1.md)
-

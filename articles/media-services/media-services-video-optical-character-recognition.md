@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
+ms.openlocfilehash: 43f5b3a9bbec243e668c79702045094fcfedbdda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: feb4d85270d3c2bee90280459ca2b8383aeca107
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Преобразование текстового содержимого в видеофайлах в цифровой текст с помощью медиа-аналитики Azure
 ## <a name="overview"></a>Обзор
@@ -354,5 +353,4 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="related-links"></a>Связанные ссылки
 [Общие сведения об аналитике служб мультимедиа Azure](media-services-analytics-overview.md)
-
 

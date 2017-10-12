@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: e6399831fe7c6cc727e92b13719df3b69e9981bf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Мониторинг и отладка с помощью метрик в Azure Cosmos DB
 
 Azure Cosmos DB предоставляет метрики пропускной способности, хранилища, согласованности, доступности и задержки. На [портале Azure](https://portal.azure.com) можно просмотреть общее представление этих метрик. Более детальные метрики доступны в клиентских пакетах SDK и [журналах диагностики](./logging.md).
@@ -101,4 +99,3 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 * [Проверка производительности и масштабирования с помощью Azure Cosmos DB](performance-testing.md)
 * [Советы по повышению производительности для Azure Cosmos DB](performance-tips.md)
-

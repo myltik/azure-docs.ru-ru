@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 1756e14819e3b7c79361c193413a1fcd7f24a4e6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: c2d86777625059253864c1c9dc885aa28ac4b016
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Анализ безопасности виртуальных машин с помощью Azure CLI 2.0 и представления группы безопасности
 
 > [!div class="op_single_selector"]
@@ -164,4 +162,3 @@ az network watcher show-security-group-view --resource-group resourceGroupName -
 Сведения об автоматизации проверки групп безопасности сети см. в статье [Auditing Network Security Groups (NSG) with Network Watcher](network-watcher-nsg-auditing-powershell.md) (Выполнение аудита групп безопасности сети с помощью Наблюдателя за сетями).
 
 Дополнительные сведения о правилах безопасности, применяемых к сетевым ресурсам, см. в статье [Security group view overview](network-watcher-security-group-view-overview.md) (Обзор представления группы безопасности).
-

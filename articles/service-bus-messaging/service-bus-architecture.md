@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: b810618b485b631e1d72b24c2a9587017d635cc4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-architecture"></a>Архитектура служебной шины
 В этой статье описывается архитектура обработки сообщений, которая используется служебной шиной Azure.
@@ -48,6 +47,5 @@ ms.lasthandoff: 09/06/2017
 * [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
 * [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Решение для обмена сообщениями в очередях с помощью очередей служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
-
 
 

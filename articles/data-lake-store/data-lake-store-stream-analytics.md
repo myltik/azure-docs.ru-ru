@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ecf4f8594f7a274bec231fb74c4caa22c3cc354
-ms.openlocfilehash: b5f2ae124ca3276e15e0d1f75d655ec346bf8ee8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/06/2017
-
-
+ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Потоковая передача данных из большого двоичного объекта службы хранилища Azure в хранилище озера данных с помощью Azure Stream Analytics
 Из этой статьи вы узнаете, как использовать хранилище озера данных Azure в качестве источника выходных данных для задания Azure Stream Analytics. В этой статье показан простой сценарий, в котором данные считываются из большого двоичного объекта службы хранилища Azure (входные данные) и записываются в хранилище озера данных (выходные данные).
@@ -129,4 +127,3 @@ ms.lasthandoff: 01/06/2017
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Создание кластера HDInsight для работы с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
-

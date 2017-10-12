@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0ac4aa10db43fb84119ab97cf78b2d5592cfd277
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-the-azure-cli-on-windows"></a>Использование Azure CLI в Windows
 
 Интерфейс командной строки Azure (CLI) представляет собой интерфейс командной строки и среду скриптов для создания ресурсов Azure и управления ими. Azure CLI доступен для операционных систем macOS, Linux и Windows. Для этих операционных систем команды CLI идентичны. Однако синтаксис конкретного скрипта операционной системы может отличаться.
@@ -65,4 +63,3 @@ docker run -it azuresdk/azure-cli-python:latest bash
 [Примеры сценариев интерфейса командной строки для веб-приложений Azure](../../app-service/app-service-cli-samples.md)
 
 [Примеры сценариев интерфейса командной строки для SQL Azure](../../sql-database/sql-database-cli-samples.md)
-

@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: b8584809b76d6be12a6f489f0bb819081d1803d2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Параметры реестра Cloud App Discovery для прокси-служб
 В этом разделе описаны действия для установки требуемого порта на компьютере, на котором запущен агент Cloud App Discovery. По умолчанию агент Cloud App Discovery настроен на использование только портов 80 и 443. Если вы планируете установить Cloud App Discovery в среде с прокси-сервером, который использует другой порт (не 80 или 443), необходимо настроить агенты на использование этого порта. Конфигурация основана на разделе реестра.
@@ -54,5 +53,4 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md) 
-
 

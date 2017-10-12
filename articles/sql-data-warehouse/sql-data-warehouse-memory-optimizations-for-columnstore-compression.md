@@ -15,14 +15,12 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 6/2/2017
 ms.author: shigu;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Максимальное повышение качества группы строк для индекса columnstore
 
 Качество группы строк определяется количеством строк в группе строк. Вы можете снизить требования к памяти (или увеличить объем доступной памяти), чтобы достичь максимально возможного числа строк, которые индекс columnstore сжимает в каждой группе строк.  Эти способы можно использовать, чтобы оптимизировать степень сжатия и производительность запросов для индексов columnstore.
@@ -164,4 +162,3 @@ OPTION (MAXDOP 1);
 <!--MSDN references-->
 
 <!--Other Web references-->
-

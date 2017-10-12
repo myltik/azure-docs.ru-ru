@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: da455a350f61e17425cd308d0fdc8bb5294a0b76
-ms.openlocfilehash: 574921fdecdadaa48c572685f7486d4e7b1d25f4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 2d212599302fced3f60085ab30cdeaefc1ee2e6a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dynamic-packaging"></a>Динамическая упаковка
 ## <a name="overview"></a>Обзор
@@ -60,5 +59,4 @@ ms.lasthandoff: 01/27/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

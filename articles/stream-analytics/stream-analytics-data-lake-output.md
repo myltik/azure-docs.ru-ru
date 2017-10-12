@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Выходные данные хранилища озера данных в Stream Analytics
 Задания Stream Analytics поддерживают несколько методов вывода, одним из которых является [хранилище озера данных Azure](https://azure.microsoft.com/services/data-lake-store/). Хранилище озера данных Azure — это крупномасштабный репозиторий корпоративного уровня для рабочих нагрузок анализа больших данных. Озеро данных Azure позволяет сохранять данные с любым размером, типом и скоростью приема в одном месте для эксплуатационной и исследовательской аналитики.
@@ -88,5 +87,4 @@ ms.lasthandoff: 08/12/2017
 Чтобы устранить эту проблему, остановите выполнение задания и перейдите к выходным данным хранилища озера данных. Щелкните ссылку "Обновить авторизацию", после чего на непродолжительное время откроется страница с сообщением "Перенаправление для авторизации...". Страница автоматически закроется, и в случае успешного выполнения появится сообщение "Авторизация успешно возобновлена". В нижней части страницы нажмите кнопку "Сохранить", а затем перезапустите задание с момента последней остановки, чтобы избежать потери данных.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
 

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
 ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Решение для мониторинга работоспособности агентов в OMS
 Решение для мониторинга работоспособности агентов в OMS помогает выявлять среди всех агентов, отправляющих отчеты непосредственно в OMS или подключенную к OMS группу управления System Center Operations Manager, агенты, которые не отвечают на запросы и которые отправляют оперативные данные.  Вы также можете отслеживать число развернутых агентов и их географическое распределение, а также выполнять другие запросы, чтобы знать о распределении агентов, развернутых в Azure, других облачных средах или в локальной среде.    

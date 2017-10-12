@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
+ms.openlocfilehash: 9b4163471f3dc8483993b9ac762694af4e926aa0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 716c07f6a738189d6cf2b3caafa16b753927d182
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Создание и передача образа жесткого диска OpenBSD в Azure
 В этой статье описывается, как создать и передать виртуальный жесткий диск, содержащий операционную систему OpenBSD. После передачи его можно использовать как свой собственный образ для создания виртуальной машины в Azure с помощью Azure CLI.
@@ -178,4 +177,3 @@ ssh azureuser@<ip address>
 Если вы хотите получить дополнительные сведения о поддержке Hyper-V в OpenBSD 6.1, посетите веб-сайты [OpenBSD 6.1](https://www.openbsd.org/61.html) и [hyperv.4](http://man.openbsd.org/hyperv.4).
 
 Если требуется создать виртуальную машину из управляемого диска см. статью [Управляемые диски - az disk](/cli/azure/disk). 
-

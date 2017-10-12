@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Проектирование, создание и развертывание приложений логики Azure в Visual Studio
 
 Хотя [портал Azure](https://portal.azure.com/) позволяет легко создавать и администрировать приложения логики с помощью службы Azure Logic Apps, вы также можете использовать Visual Studio для проектирования, создания и развертывания приложений логики. Расширенные средства Visual Studio, такие как конструктор приложений логики, позволяют создавать приложения логики, настраивать шаблоны развертывания и автоматизации, а также развертывать приложения в любой среде. 
@@ -238,4 +236,3 @@ Visual Studio добавляет в файл ресурсов ресурс `Micr
 * [Примеры приложений логики и распространенные сценарии](logic-apps-examples-and-scenarios.md)
 * Узнайте, как можно [автоматизировать бизнес-процессы с помощью Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694).
 * Изучите вопросы [интеграции систем с Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462).
-
