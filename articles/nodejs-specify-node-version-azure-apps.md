@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a20179c72b227deb14df442bea7b80cf31728aa7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specifying-a-nodejs-version-in-an-azure-application"></a>Указание версии Node.js в приложении Azure
 При размещении приложения Node.js может потребоваться, чтобы приложение использовало конкретную версию Node.js. Существует несколько способов это сделать для приложений, размещенных в Azure.
@@ -90,12 +89,11 @@ ms.lasthandoff: 09/20/2017
     После публикации приложения откройте веб-сайт в браузере. Должно появиться сообщение "Hello from Azure running node version: v0.8.1".
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь, когда вы научились устанавливать версии Node.js, используемые приложением, узнайте, как [работать с модулями], [создавать и развертывать веб-сайт Node.js](app-service/app-service-web-get-started-nodejs.md) и [использовать средства командной строки Azure для Mac и Linux].
+Теперь, когда вы научились устанавливать версии Node.js, используемые приложением, узнайте, как [работа с модулями], [создавать и развертывать веб-сайт Node.js](app-service/app-service-web-get-started-nodejs.md) и [Средства командной строки Azure для Mac и Linux].
 
 Дополнительную информацию см. в [центре разработчиков Node.js](https://azure.microsoft.com/develop/nodejs/).
 
-[использовать средства командной строки Azure для Mac и Linux]:cli-install-nodejs.md
+[Средства командной строки Azure для Mac и Linux]:cli-install-nodejs.md
 [средств командной строки Azure]:cli-install-nodejs.md
-[работать с модулями]: nodejs-use-node-modules-azure-apps.md
+[работа с модулями]: nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md
-
