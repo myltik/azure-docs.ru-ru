@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-authorization--mitigations"></a>Механизм безопасности. Авторизация | Устранение рисков 
 | Продукт или служба | Статья |
 | --------------- | ------- |
@@ -462,4 +460,3 @@ public class CustomController : ApiController
 | **Атрибуты**              | Недоступно  |
 | **Справочные материалы**              | Недоступно  |
 | **Действия** | Полевой шлюз должен авторизовать вызывающий объект, чтобы проверить, имеет ли он необходимые разрешения на выполнение запрашиваемого действия. Например, у него должны быть разные разрешения для API пользователя с правами администратора, который используется для настройки полевого шлюза и подключенных к нему устройств.|
-

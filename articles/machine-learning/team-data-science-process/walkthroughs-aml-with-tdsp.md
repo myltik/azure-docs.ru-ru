@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 25488640e4a1e129f06dffbe5e7896f5ace8facc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Структурированные проекты обработки и анализа данных группы в Azure Machine Learning Workbench
 
 В этих руководствах и примерах показано, как создать структурированные проекты обработки и анализа данных группы с помощью Azure Machine Learning Workbench. Процесс обработки и анализа данных группы представлен в статье [Жизненный цикл процесса обработки и анализа данных группы](overview.md). Обзор Spark в HDInsight см. в статье [Общие сведения о Spark в HDInsight](../../hdinsight/hdinsight-apache-spark-overview.md).

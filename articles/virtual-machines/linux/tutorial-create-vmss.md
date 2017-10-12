@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 09/08/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 1f54bb04023ad61f4eae51389c6a902a029e9399
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Создание масштабируемого набора виртуальных машин и развертывание высокодоступного приложения на базе Linux
 Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. Вы можете вручную изменить число виртуальных машин в масштабируемом наборе или определить правила для автоматического масштабирования на основе использования ЦП, объема памяти или сетевого трафика. В рамках этого руководства вы развернете масштабируемый набор виртуальных машин в Azure. Вы узнаете, как выполнять такие задачи.
 
@@ -339,4 +337,3 @@ az vmss disk detach \
 
 > [!div class="nextstepaction"]
 > [Балансировка нагрузки между виртуальными машинами](tutorial-load-balancer.md)
-

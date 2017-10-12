@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 383f0a466f92a230e49c3d1e96d306a0b7d67da2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Развитие модели машинного обучения от эксперимента до рабочей веб-службы
 Студия машинного обучения Azure обеспечивает интерактивный холст, на котором вы можете выполнять разработку, запуск, тестирование и интеграцию ***эксперимента*** модели прогнозной аналитики. Существует множество модулей для следующих задач:
@@ -119,5 +118,4 @@ ms.lasthandoff: 09/25/2017
 
 * [Инструкции по созданию первого эксперимента в Студии машинного обучения Azure](create-experiment.md)
 * [Пошаговое руководство по разработке решения для прогнозной аналитики в службе машинного обучения Azure для оценки кредитных рисков](walkthrough-develop-predictive-solution.md)
-
 

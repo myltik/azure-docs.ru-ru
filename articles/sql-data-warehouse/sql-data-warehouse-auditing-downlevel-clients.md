@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3750e2875935d2753a819ef8ce540009417d19b5
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a7ea6141285a0098339f1e071af2592dd4535c12
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse----downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Хранилище данных SQL. Поддержка клиентов прежних версий для аудита и динамического маскирования данных
 [аудита](sql-data-warehouse-auditing-overview.md) работают в клиентах SQL, которые поддерживают перенаправление TDS.
@@ -41,5 +40,4 @@ ms.lasthandoff: 11/17/2016
 * Tedious (для Node.JS)
 
 **Примечание.** Описанное выше изменение полного доменного имени сервера можно использовать также для применения политики аудита уровня SQL Server без необходимости настройки в каждой базе данных (временное устранение рисков).     
-
 

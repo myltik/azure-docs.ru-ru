@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f8c126475ae36aa646dafb18b9b55d7b3b6b3ce7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Планирование и исполнение с использованием фабрики данных
 Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных Azure. В этой статье предполагается, что вам известны основные понятия модели приложений фабрики данных: действия, конвейеры, связанные службы и наборы данных. С основными понятиями фабрики данных Azure можно ознакомиться в следующих статьях:

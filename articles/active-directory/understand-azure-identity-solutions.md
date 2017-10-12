@@ -13,12 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Общие сведения о решениях идентификации Azure
 Microsoft Azure Active Directory (Azure AD) — это облачное решение по управлению идентификацией и доступом, предоставляющее службы каталогов, функции контроля удостоверений и управления доступом к приложениям. Azure AD позволяет быстро [выполнять единый вход](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) в 1000 предварительно интегрированных пользовательских и коммерческих приложений в [коллекции приложений Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Вы наверняка уже используете многие из этих приложений, например Office 365, Salesforce.com, Box, ServiceNow и Workday.
@@ -128,4 +127,3 @@ Microsoft Azure предоставляет несколько вариантов
 [Дополнительные сведения о среде подтверждения концепции Azure](https://aka.ms/aad-poc)
 
 [Deploy Azure AD in production](https://aka.ms/aad-onboard) (Развертывание Azure AD в рабочей среде)
-

@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 680c1afab1af31cfef51b1c82d2db49f452ba6ab
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visual-studio-code-tools-for-ai"></a>Средства Visual Studio Code для искусственного интеллекта
 Средства Visual Studio Code для искусственного интеллекта — это расширение разработки, тестирования и развертывания решений с использованием глубокого обучения и искусственного интеллекта. Они обеспечивают простую интеграцию со службой "Машинного обучения Azure", в частности, просмотр журнала выполнения, в котором подробно описываются результаты предыдущего обучения и пользовательские метрики. Они предоставляют обозреватель примеров, позволяющий просматривать и загружать новые проекты с помощью [Microsoft Cognitive Toolkit (ранее — CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) и других платформ глубокого обучения. И, наконец они предоставляют обозреватель для целевых объектов вычислений, что дает возможность отправлять задания для обучения моделей в удаленных средах, например, на виртуальных машин Azure или серверах Linux с графическими процессорами. 
  
@@ -83,4 +81,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 > [!div class="nextstepaction"]
 > [How to configure Azure Machine Learning Workbench to work with an IDE](./how-to-configure-your-IDE.md) (Как настроить Azure Machine Learning Workbench для работы с IDE)
-

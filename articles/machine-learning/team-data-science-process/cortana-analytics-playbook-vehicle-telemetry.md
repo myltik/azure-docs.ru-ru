@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: af8b3d5bf891c93c30a05c5f02d86639a466dde5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Сборник решений аналитики телеметрии автомобиля
 Из этого **меню** можно открыть разделы сборника тренировочных заданий. 
@@ -58,5 +57,4 @@ Cortana Intelligence от корпорации Майкрософт — это 
 
 * **Имитированные сигналы автомобиля и диагностики**: имитатор телематики автомобиля выдает диагностическую информацию и сигналы, которые соответствуют состоянию транспортного средства и стилю движения в определенный момент времени. 
 * **Каталог автомобилей**: справочный набор данных для сопоставления VIN с моделью автомобиля.
-
 

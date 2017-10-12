@@ -15,14 +15,12 @@ ms.topic: hero-article
 ms.date: 08/01/2017
 ms.author: owend
 ms.custom: mvc
+ms.openlocfilehash: cb42fd3ed51364cf478848cc51ebbb2f175e96d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 43700de27ca643bd699159b86fe80c2e45e4acc7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>Создание сервера Azure Analysis Services с помощью PowerShell
 
 В этом кратком руководстве объясняется, как с помощью PowerShell и командной строки создать сервер Azure Analysis Services в [группе ресурсов Azure](../azure-resource-manager/resource-group-overview.md) вашей подписки Azure.

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6d00c776da3be0f799b82160c45f4c47a965b4bb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Мониторинг конвейеров фабрики данных Azure и управление ими с помощью приложения для мониторинга и управления
 > [!div class="op_single_selector"]
@@ -334,4 +333,3 @@ ms.lasthandoff: 09/25/2017
 Используйте следующие кнопки (выделены красным цветом), чтобы изменить, удалить или отключить оповещение.
 
 ![Кнопки оповещений](./media/data-factory-monitor-manage-app/AlertButtons.png)
-

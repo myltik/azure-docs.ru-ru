@@ -1,6 +1,6 @@
 ---
 title: "Интеграция пакета SDK Reach для универсальных приложений для Windows"
-description: "Интеграция Azure Mobile Engagement Reach с универсальными приложениями для Windows"
+description: "Интеграция Служб мобильного взаимодействия Azure Reach с универсальными приложениями для Windows"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8fc1faac88cab0e3d3755fdf16fe3d7188169961
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Интеграция пакета SDK Reach для универсальных приложений для Windows
 Перед выполнением действий, описанных в этом руководстве, необходимо выполнить процедуру интеграции, описанную в документе [Интеграция пакета SDK Engagement для универсальных приложений для Windows](mobile-engagement-windows-store-integrate-engagement.md) .
@@ -280,7 +279,7 @@ NotfificationHTML — `ms-appx-web:///Resources/EngagementNotification.html`. П
 > 
 > 
 
-## <a name="a-idpush-channel-sharinga-push-channel-sharing"></a><a id="push-channel-sharing"></a> Общий доступ к каналу push-уведомлений
+## <a id="push-channel-sharing"></a> Общий доступ к каналу push-уведомлений
 При использовании push-уведомлений в других целях в приложении необходимо использовать функцию общего доступа к каналу push-уведомлений из пакета SDK для Engagement. Это позволяет избежать пропуска push-уведомлений.
 
 * Можно предоставить собственный канал push-уведомлений для инициализации Engagement Reach. Пакет SDK будет использовать его вместо запроса нового канала.
@@ -338,5 +337,4 @@ NotfificationHTML — `ms-appx-web:///Resources/EngagementNotification.html`. П
                 }
               }
               #endregion
-
 

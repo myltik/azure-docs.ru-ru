@@ -1,5 +1,4 @@
 ---
-
 title: "Формат файла журнала импорта и экспорта Azure | Документация Майкрософт"
 description: "Изучите формат файлов журналов, созданных при выполнении задания службы импорта и экспорта."
 author: muralikk
@@ -15,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
-ms.lasthandoff: 03/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Формат файла журнала службы импорта и экспорта Azure
 Когда служба импорта и экспорта Microsoft Azure выполняет действия на диске в ходе задания импорта или экспорта, в блочные BLOB-объекты в учетной записи хранения, связанной с этим заданием, записываются журналы.  
@@ -361,4 +359,3 @@ properties-status ::=
 ## <a name="next-steps"></a>Дальнейшие действия
  
 * [Справочник по REST API импорта и экспорта службы хранилища](/rest/api/storageimportexport/)
-

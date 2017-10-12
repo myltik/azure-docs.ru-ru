@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5fb86c60b2d1f258dde5636ff8854b6f30f7f1c8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 995a1f37a3fd68b39c14a95d46109c0f7814018d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advisor-performance-recommendations"></a>Рекомендации Azure Advisor по производительности
 
 Рекомендации по производительности, предложенные Помощником по Azure, помогают улучшить работу, повысить производительность и увеличить скорость реагирования критически важных бизнес-приложений. Получить рекомендации Помощника по производительности можно на вкладке **Производительность** панели мониторинга Помощника.
@@ -78,5 +76,4 @@ Azure Advisor объединяет практические рекомендац
 * [Рекомендации Azure Advisor по затратам](advisor-performance-recommendations.md)
 * [Рекомендации Azure Advisor по высокой доступности](advisor-high-availability-recommendations.md)
 * [Рекомендации Azure Advisor по безопасности](advisor-security-recommendations.md)
-
 

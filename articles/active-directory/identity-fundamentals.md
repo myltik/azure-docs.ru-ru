@@ -13,12 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 52f05ee8a5c07fc008da40aef12d1ad8e8136429
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Основы управления удостоверениями Azure
 Все больше и больше корпоративных цифровых ресурсов размещается за пределами корпоративных сетей — в облачных средах и на мобильных устройствах. В связи с этим появилась необходимость в эффективном облачном решении для управления идентификацией и доступом. Облачные удостоверения на сегодняшний день являются оптимальным способом сохранить возможность контролировать и отслеживать доступ пользователей к корпоративным приложениям и данным.

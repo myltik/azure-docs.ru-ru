@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7b27fc568c77b44ab2366d297ca9e7685439143e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vm-connectivity-after-failover-to-a-secondary-site"></a>Подключение виртуальной машины после отработки отказа на дополнительный сайт
 
@@ -119,7 +118,6 @@ ms.lasthandoff: 09/25/2017
 **После выполнения отработки отказа**
 
 ![Другой IP-адрес — после отработки отказа](./media/vmm-to-vmm-walkthrough-network/network-design11.png)
-
 
 
 

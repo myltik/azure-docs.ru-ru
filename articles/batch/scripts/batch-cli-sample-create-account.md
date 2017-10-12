@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-batch-account-with-the-azure-cli"></a>Создание учетной записи пакетной службы с помощью Azure CLI
 
 С помощью этого скрипта создается учетная запись пакетной службы Azure. Кроме того, в нем показано, как запрашивать и обновлять различные свойства учетной записи.
@@ -34,14 +32,14 @@ ms.lasthandoff: 09/09/2017
 
 Когда вы создаете учетную запись пакетной службы, по умолчанию ее вычислительные узлы назначаются внутри пакетной службы. К выделенным вычислительным узлам будет применяться отдельная квота на ядра, и учетная запись сможет проходить проверку подлинности с помощью учетных данных общего ключа или маркера Azure Active Directory.
 
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Создание учетной записи")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="batch-account-using-user-subscription-sample-script"></a>Учетная запись пакетной службы с использованием примера скрипта подписки пользователя
 
 Вы также можете разрешить пакетной службе создавать вычислительные узлы в вашей подписке Azure.
 Учетные записи, которые выделяют вычислительные узлы в подписке, должны пройти проверку подлинности с помощью маркера Azure Active Directory. Тогда выделенные вычислительные узлы будут учитываться в квоте вашей подписки. Чтобы создать учетную запись в этом режиме, необходимо указать ссылку хранилище ключей при создании учетной записи.
 
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Создание учетной записи с помощью подписки пользователя")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 
@@ -73,4 +71,3 @@ az group delete --name myResourceGroup
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Дополнительные примеры скриптов для интерфейса командной строки пакетной службы см. в [документации по интерфейсу командной строки пакетной службы Azure](../batch-cli-samples.md).
-

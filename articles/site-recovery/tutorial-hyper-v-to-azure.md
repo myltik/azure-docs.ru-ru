@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 96e5027adfb443aba18895213e8d83894e3f060a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Настройка аварийного восстановления локальных виртуальных машин Hyper-V в Azure
 
@@ -279,4 +278,3 @@ Azure Site Recovery извлечет метаданные с сервера Hype
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Run a disaster recovery drill to Azure](tutorial-dr-drill-azure.md) (Выполнение отработки аварийного восстановления в Azure)
-

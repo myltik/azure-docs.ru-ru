@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
 ms.openlocfilehash: 4f73e27c733edae658d1ea3bdabe48076328279b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Начало работы с Azure Data Lake Analytics с помощью Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -30,8 +30,7 @@ ms.lasthandoff: 07/11/2017
 Перед началом работы с этим руководством необходимо иметь следующую информацию:
 
 * **Учетная запись Azure Data Lake Analytics**. См. раздел [Начало работы с Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
-* <seg>
-  **Рабочая станция с Azure PowerShell**.</seg> См. статью [Установка и настройка Azure PowerShell](/powershell/azure/overview).
+* **Рабочая станция с Azure PowerShell**. См. статью [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 

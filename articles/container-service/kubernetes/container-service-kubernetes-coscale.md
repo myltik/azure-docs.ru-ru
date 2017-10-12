@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: f894191baced710fc0f5a8c8692df98033341a48
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>Мониторинг кластера Kubernetes в Службе контейнеров Azure с помощью CoScale
 
 В этой статье показано, как развернуть агент [CoScale](https://www.coscale.com/) для отслеживания всех узлов и контейнеров кластера Kubernetes в Службе контейнеров Azure. Для работы с этой конфигурацией вам понадобится учетная запись с CoScale. 
@@ -89,5 +87,4 @@ Kubernetes использует наборы [DaemonSets](https://kubernetes.io/
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о решениях CoScale для мониторинга см. в [документации по CoScale](http://docs.coscale.com/) и в [блоге](https://www.coscale.com/blog). 
-
 

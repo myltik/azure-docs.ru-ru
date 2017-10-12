@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: e8ca7fdacf8361570d88260b3c359ee6e2fd3e17
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Руководство по настройке Google Apps для автоматической подготовки пользователей
 
@@ -179,4 +178,3 @@ ms.lasthandoff: 09/06/2017
 [26]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-admin.png
 [27]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-admin-privileges.png
 [28]: ./media/active-directory-saas-google-apps-provisioning-tutorial/gapps-auth.png
-

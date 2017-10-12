@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: ae6c92d4f005b389de2d65c30113580190914b42
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: f3a11afd8fbd6a5e6b94cf1ebee7ea20665421bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-powershell"></a>Создание виртуальной машины с несколькими сетевыми интерфейсами с помощью PowerShell
 
@@ -228,8 +227,8 @@ ms.lasthandoff: 02/28/2017
         Tags                         :
         TagsText                     : null
         AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
-        AvailabilitySetReferenceText :     {
-                                     "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Compute/availabilitySets/ASDB"
+        AvailabilitySetReferenceText :  {
+                                    "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Compute/availabilitySets/ASDB"
                                     }
         Extensions                   :
         ExtensionsText               : null
@@ -337,4 +336,3 @@ ms.lasthandoff: 02/28/2017
         TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         StatusCode          : OK
-

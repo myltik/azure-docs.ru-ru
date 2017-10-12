@@ -1,6 +1,6 @@
 ---
 title: "Включение прозрачного шифрования данных в центре безопасности Azure | Документация Майкрософт"
-description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по **включению прозрачного шифрования данных**."
+description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по включению прозрачного шифрования данных."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
 ms.openlocfilehash: 2a2963affdbff3710ad08f86c6ed4e6304335559
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Включение прозрачного шифрования данных в центре безопасности Azure
 Центр безопасности Azure порекомендует включить прозрачное шифрование данных (TDE) для баз данных SQL, если оно еще не включено. Прозрачное шифрование данных обеспечивает защиту данных и помогает соблюдать нормативные требования за счет шифрования базы данных, связанных с ней резервных копий и файлов журнала транзакций в местах хранения без необходимости вносить изменения в приложение. Чтобы узнать больше, ознакомьтесь с разделом [Прозрачное шифрование данных в Базе данных SQL Azure](https://msdn.microsoft.com/library/dn948096).
@@ -64,4 +63,3 @@ ms.lasthandoff: 02/04/2017
 [2]:./media/security-center-enable-tde-on-sql-databases/transparent-data-encryption-blade.png
 [3]: ./media/security-center-enable-tde-on-sql-databases/turn-on-tde.png
 [4]: ./media/security-center-enable-tde-on-sql-databases/encrypted.png
-

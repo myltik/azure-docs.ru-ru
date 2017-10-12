@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: db6f5f95929503e82a529dba26b56af1edb0767f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-vmware-vms-to-azure-with-site-recovery"></a>Репликация виртуальных машин VMware в Azure с помощью Site Recovery
 
@@ -34,7 +33,7 @@ ms.lasthandoff: 06/29/2017
 
 Перед началом развертывания ознакомьтесь с архитектурой сценария и убедитесь, что вам знакомы все компоненты, которые необходимо развернуть.
 
-Перейдите к разделу [Шаг 1. Общие сведения об архитектуре](vmware-walkthrough-architecture.md).
+Перейдите к статье [Шаг 1. Обзор архитектуры репликации физического сервера в Azure](vmware-walkthrough-architecture.md).
 
 
 ## <a name="step-2-review-prerequisites"></a>Шаг 2. Проверка предварительных требований
@@ -52,13 +51,13 @@ ms.lasthandoff: 06/29/2017
 
 При выполнении полного развертывания необходимо выяснить, какие ресурсы требуются для репликации. Доступно несколько инструментов, которые помогут выполнить эту задачу. Перейдите к шагу 2. Если выполняется быстрая настройка для тестирования среды, то этот шаг можно пропустить.
 
-Перейдите к разделу [Шаг 3. Планирование ресурсов](vmware-walkthrough-capacity.md).
+Перейдите к статье [Шаг 3. Планирование ресурсов и масштабирования для репликации физического сервера в Azure](vmware-walkthrough-capacity.md).
 
 ## <a name="step-4-plan-networking"></a>Шаг 4. Планирование сетей
 
 Необходимо выполнить определенное планирование сетей, чтобы обеспечить подключение виртуальных машин Azure к сетям после отработки отказа и правильность их IP-адресов.
 
-Перейдите к разделу [Шаг 4. Планирование сетей](vmware-walkthrough-network.md).
+Перейдите к статье [Шаг 4. Планирование сетей для репликации физического сервера в Azure](vmware-walkthrough-network.md).
 
 ##  <a name="step-5-prepare-azure-resources"></a>Шаг 5. Подготовка ресурсов Azure
 
@@ -111,4 +110,3 @@ ms.lasthandoff: 06/29/2017
 После завершения начальной репликации и запуска репликации разностных изменений можно выполнить тестовую отработку отказа, чтобы убедиться, что все работает правильно.
 
 Перейдите к разделу [Шаг 12. Запуск тестовой отработки отказа](vmware-walkthrough-test-failover.md).
-

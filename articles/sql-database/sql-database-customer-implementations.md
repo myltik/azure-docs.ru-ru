@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 74b04cb7737011423556cbd956ecef770ac82ad4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Специальные исследования реализаций базы данных SQL, выполненных клиентами
 
@@ -39,4 +38,3 @@ ms.lasthandoff: 09/09/2017
 - [Microsoft Dynamics.](https://customers.microsoft.com/story/dynamics365operationsproductteam) Этот краткий пример включает рекомендации и уроки по миграции в базу данных SQL Azure, полученные от команды разработчиков Dynamics 365 for Operations. Миграция выполняется для предоставления пользователям полностью управляемого программного обеспечения как услуги (SaaS). Используя базу данных SQL Azure, команда разработчиков Dynamics 365 for Operations смогла управлять службой со значительно меньшим количеством персонала, а также легко выполнять масштабирование с готовыми функциями управления, такими как автоматическое резервное копирование базы данных, хранение резервных копий и функции высокой доступности и аварийного восстановления. При этом есть возможность подготавливать базы данных с простой автоматизированной передачей базы данных SQL Azure, которая является превосходной платформой для настраиваемых крупномасштабных служб.
 
 - [Microsoft OneDrive и SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states). В этом кратком примере демонстрируется перемещение Microsoft OneDrive и SharePoint Online в базу данных SQL Azure. Также объясняется, как это перемещение обеспечивает управление практически неограниченной эластичностью, а также значительно снижает операционные издержки и затраты на инфраструктуру.
-

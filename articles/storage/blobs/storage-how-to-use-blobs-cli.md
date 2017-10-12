@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: c37fc0b701b668ab6bb9213a487ec8baa33fe663
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Выполнение операций в хранилище BLOB-объектов с помощью Azure CLI
 
 Хранилище BLOB-объектов Azure — это служба хранения большого количества неструктурированных данных объектов, таких как текстовые или двоичные данные, к которым можно получить доступ практически из любой точки мира по протоколу HTTP или HTTPS. В этой статье описываются основные операции в хранилище BLOB-объектов Azure, например отправка, скачивание и удаление больших двоичных объектов. Вы узнаете, как выполнять следующие задачи:
@@ -122,7 +120,7 @@ az storage blob download \
     --file ~/destination/path/for/file
 ```
 
-## <a name="copy-a-blob-between-storage-accounts"></a>Копирование большого двоичного объекта между учетными записями хранения
+## <a name="copy-a-blob-between-storage-accounts"></a>копирование большого двоичного объекта между учетными записями хранения;
 
 Можно асинхронно копировать BLOB-объекты между учетными записями хранения и областями или внутри них.
 
@@ -283,4 +281,3 @@ az group delete --name myResourceGroup
   * [Azure CLI 2.0 command reference](/cli/azure/) (Справочник по командам Azure CLI 2.0)
 * Обозреватель службы хранилища Microsoft Azure
   * [Обозреватель службы хранилища Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) — это бесплатное автономное приложение от Майкрософт, позволяющее визуализировать данные из службы хранилища Azure на платформе Windows, macOS и Linux.
-

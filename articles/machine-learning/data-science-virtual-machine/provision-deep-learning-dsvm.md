@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: db1360fa54d82c50adc04194697d994925338296
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Подготовка виртуальной машины для глубокого обучения в Azure 
 
@@ -87,4 +86,3 @@ ms.lasthandoff: 09/25/2017
 После входа в виртуальную машину с помощью клиента SSH или подключения к рабочему столу XFCE посредством клиента X2Go можно начать использовать инструменты, которые установлены и настроены на виртуальной машине. На рабочем столе XFCE вы видите ярлыки из меню и значки рабочего стола для многих инструментов.
 
 После создания и подготовки виртуальной машины вы можете начать использовать установленные и настроенные на ней средства. Для многих средств предусмотрены значки на рабочем столе и элементы в меню "Пуск". 
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 6c65427fcd18e41a90dfb872aa9525f758b17b87
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: d384a1f6e0f6bf49cf94020265fe5675ffc0029d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Запуск Runbook службы автоматизации Azure с помощью объекта webhook
 *Webhook* позволяет запустить модуль Runbook в службе автоматизации Azure с помощью одного HTTP-запроса. Это позволяет внешним службам, таким как Visual Studio Team Services, GitHub, Microsoft Operations Management Suite Log Analytics, или пользовательским приложениям запускать модули Runbook без реализации полного решения с помощью API службы автоматизации Azure.  
@@ -267,4 +266,3 @@ ms.lasthandoff: 03/18/2017
 * Дополнительные сведения о различных способах запуска модуля Runbook см. в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).
 * Сведения о просмотре состояния задания Runbook см. в статье [Выполнение модуля Runbook в службе автоматизации Azure](automation-runbook-execution.md).
 * Узнать, как использовать службу автоматизации Azure для выполнения действий на основе оповещений Azure, можно в статье [Обработка оповещений виртуальной машины Azure с помощью модулей Runbook службы автоматизации](automation-azure-vm-alert-integration.md).
-

@@ -1,4 +1,3 @@
-
 ---
 title: "Фабрика данных Azure: примеры реальных клиентов | Документация Майкрософт"
 description: "Узнайте о том, как некоторые из наших клиентов используют фабрику данных Azure."
@@ -16,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1868e4b96f3d062de1efb7c56c86aae3b0de9097
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Фабрика данных Azure: примеры реальных клиентов
 Фабрика данных представляет собой облачную службу управления информацией, которая автоматизирует перемещение и преобразование данных. Клиенты из многих отраслей используют фабрику данных и другие службы Azure для построения аналитических конвейеров и решения проблем бизнеса.  Узнайте от самих клиентов, как и почему они используют фабрику данных.
@@ -49,4 +47,3 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="microsoft-studio"></a>Microsoft Studio
 [Предоставление грандиозных возможностей Xbox благодаря анализу сотен миллиардов игровых событий ежедневно](https://customers.microsoft.com/en-us/story/xboxunlimited)
-

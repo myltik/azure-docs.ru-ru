@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 014aa646459cd64fca7c697419324caa3edaeeea
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-performance-traffic-routing-method"></a>Настройка метода маршрутизации трафика по производительности
 
 Метод маршрутизации трафика "Производительность" позволяет направлять трафик к конечной точке из сети клиента с минимальной задержкой. Обычно центр данных с минимальной задержкой является географически ближайшим. Этот метод маршрутизации трафика не учитывает изменения в конфигурации или загрузке сети в режиме реального времени.

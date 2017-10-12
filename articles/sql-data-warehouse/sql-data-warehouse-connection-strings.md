@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: cfdec6b621267d642371104c328f9b5e6fd19c59
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: e71ea1d23f68ed41c03bbce88b08863d2831c1bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>Драйверы для хранилища данных SQL Azure
 К хранилищу данных SQL можно подключиться с помощью различных протоколов, таких как [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] и [JDBC][JDBC]. Ниже приведены некоторые примеры строк подключения для каждого протокола.  Кроме того, для формирования строки подключения можно использовать портал Azure.  Чтобы создать строку подключения с помощью портала Azure, перейдите к колонке своей базы данных и в разделе *Основное* щелкните *Показать строки подключения к базам данных*.
@@ -66,4 +64,3 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 [JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->
-

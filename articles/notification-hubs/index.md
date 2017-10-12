@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 8657415f61d9977ad90883278f8737609248fed6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: f7b8560d4ce7374e36d5f7e8a5d2056396e4f089
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="notification-hubs-documentation"></a>Документация по центрам уведомлений
 
 Узнайте, как использовать центры уведомлений — масштабируемую мультиплатформенную подсистему push-уведомлений, позволяющую быстро отправлять миллионы сообщений. В руководствах, справочниках по API и другой документации показано, как настраивать и отправлять push-уведомления из любого серверного компонента на любое мобильное устройство. 
@@ -212,5 +210,4 @@ ms.lasthandoff: 05/10/2017
         </div>
     </li>
 </ul>
-
 

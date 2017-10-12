@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: 7dafb491cec908ffbb3683991919654f3d3eb452
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-change-or-delete-a-network-interface"></a>Создание, изменение или удаление сетевых интерфейсов
 
 Узнайте, как создать и удалить сетевые интерфейсы, а также изменить их параметры. Сетевой интерфейс позволяет виртуальной машине Azure взаимодействовать с Интернетом, Azure и локальными ресурсами. При создании виртуальной машины с помощью портала Azure создается один сетевой интерфейс с параметрами по умолчанию. Вместо этого можно создать сетевые интерфейсы с пользовательскими параметрами и добавить один или несколько сетевых интерфейсов для виртуальной машины при ее создании. Кроме того, можно изменить параметры имеющегося сетевого интерфейса по умолчанию. В этой статье объясняется, как создавать сетевые интерфейсы с пользовательскими параметрами, изменять имеющиеся параметры, такие как назначенный сетевой фильтр (группы безопасности сети), назначенная подсеть, параметры DNS-сервера и IP-пересылка, и как удалять сетевые интерфейсы.
@@ -191,4 +189,3 @@ DNS-сервер для сетевого интерфейса в ОС вирту
 |Создание виртуальной машины с несколькими сетевыми адаптерами|[Интерфейс командной строки](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Создание виртуальной машины с одним сетевым адаптером, которому назначено несколько IPv4-адресов|[Интерфейс командной строки](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Создание виртуальной машины с одним сетевым адаптером, которому назначен частный IPv6-адрес (обслуживаемый Azure Load Balancer).|[Интерфейс командной строки](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [шаблон Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 8babb0d016729f318442af93596d206c38d91206
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-6-run-a-test-failover-for-azure-vm-replication"></a>Шаг 6. Выполнение тестовой отработки отказа для репликации виртуальной машины Azure
 
 Если для виртуальной машины Azure включена репликация, инструкции из этой статье помогут выполнить тестовую отработку отказа из одного региона Azure в другой с помощью службы [Azure Site Recovery](site-recovery-overview.md) на портале Azure.
@@ -66,5 +64,4 @@ ms.lasthandoff: 08/02/2017
 - Узнайте больше об отработке отказа сразу нескольких виртуальных машин с помощью [плана восстановления](site-recovery-create-recovery-plans.md).
 - Узнайте больше об [использовании планов восстановления](site-recovery-create-recovery-plans.md).
 - Дополнительные сведения о повторной защите виртуальных машин Azure после отработки отказа см.в статье [Повторное включение защиты виртуальных машин, восстанавливаемых из Azure на локальный сайт](site-recovery-how-to-reprotect.md).
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Потоковая передача журналов диагностики Azure в пространство имен концентраторов событий
 **[Журналы диагностики Azure](monitoring-overview-of-diagnostic-logs.md)** можно передавать в близком к реальному времени в любое приложение. Для этого достаточно использовать стандартный параметр Export to Event Hubs (Экспорт в концентраторы событий) на портале или включить идентификатор правила служебной шины в параметрах диагностики с помощью командлетов Azure PowerShell или интерфейса командной строки Azure.
@@ -180,5 +179,4 @@ azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serv
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Дополнительные сведения о журналах диагностики Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Приступая к работе с концентраторами событий](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
 

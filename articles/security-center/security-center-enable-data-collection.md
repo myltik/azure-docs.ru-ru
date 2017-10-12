@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 226fc82abf7aa24a0aa1bd3c21279158e1ce8e95
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-collection-in-azure-security-center"></a>Сбор данных в центре безопасности Azure
 Центр безопасности собирает данные c виртуальных машин Azure и c компьютеров, не относящихся к Azure, чтобы отслеживать уязвимости и угрозы безопасности. Для сбора данных используется агент Microsoft Monitoring Agent, который считывает различные конфигурации, связанные с безопасностью, и журналы событий с компьютера, а также копирует данные в рабочую область для анализа. Примеры таких данных — тип и версия операционной системы, журналы операционной системы (журналы событий Windows), выполняющиеся процессы, имя компьютера, IP-адреса, имя пользователя, выполнившего вход, и идентификатор клиента. Этот агент также копирует файлы аварийных дампов в рабочую область.
@@ -141,4 +140,3 @@ ms.lasthandoff: 09/13/2017
 [4]: ./media/security-center-enable-data-collection/event-id.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
 [6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
-

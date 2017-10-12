@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
-ms.openlocfilehash: 82d5e525859ebe03b152c63e4debbae469049c12
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Обнаружение сетевого вторжения с помощью Наблюдателя за сетями Azure и средств с открытым исходным кодом
 
 Запись пакетов — это ключевой компонент для реализации систем обнаружения сетевых вторжений и для мониторинга безопасности сети. Доступны разные средства с открытым исходным кодом для обнаружения сетевых вторжений, которые обрабатывают запись пакетов для поиска известных сигнатур потенциальных сетевых вторжений и вредоносных действий. Используя функцию записи пакетов службы наблюдения за сетями (Наблюдатель за сетями), вы можете анализировать сеть для поиска вредоносных вторжений и уязвимостей.
@@ -82,8 +80,8 @@ tail -f /var/log/suricata/fast.log
 
 #### <a name="install-elasticsearch"></a>Установка Elasticsearch
 
-1. Для Elastic Stack версии 5.0 и выше требуется Java 8. Выполните команду `java -version`, чтобы проверить установленную версию. Если среда Java у вас не установлена, см. документацию на [веб-сайте компании Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
-1. Скачайте двоичный пакет, соответствующий вашей системе.
+1. Для Elastic Stack версии 5.0 и более поздних версий требуется Java 8. Выполните команду `java -version`, чтобы проверить установленную версию. Если компонент Java не установлен, обратитесь к документации на [веб-сайте компании Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
+1. Скачайте правильный двоичный пакет для своей системы.
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
@@ -91,15 +89,15 @@ tail -f /var/log/suricata/fast.log
     sudo /etc/init.d/elasticsearch start
     ```
 
-    Другие методы установки см. в [документации по установке Elasticsearch](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html).
+    Другие методы установки можно найти в [документации по установке Elasticsearch](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html).
 
-1. Убедитесь, что Elasticsearch выполняется, запустив такую команду:
+1. Убедитесь, что Elasticsearch выполняется, выполнив следующую команду.
 
     ```
     curl http://127.0.0.1:9200
     ```
 
-    Вы должны увидеть примерно такой ответ:
+    Вы должны увидеть ответ следующего вида.
 
     ```
     {
@@ -116,17 +114,17 @@ tail -f /var/log/suricata/fast.log
     }
     ```
 
-Дополнительные инструкции по установке Elastic Search см. на [странице установки](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
+Дополнительные инструкции по установке Elasticsearch можно найти на [странице установки](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
 
 ### <a name="install-logstash"></a>Установка Logstash
 
-1. Введите следующие команды, чтобы установить Logstash:
+1. Введите следующие команды, чтобы установить Logstash.
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Теперь нужно настроить Logstash, чтобы программа могла читать выходной файл eve.json. Создайте файл logstash.conf следующим образом:
+1. Теперь нужно настроить Logstash для чтения выходного файла eve.json. Создайте файл logstash.conf следующим образом:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -220,14 +218,14 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="install-kibana"></a>Установка Kibana
 
-1. Введите следующие команды для установки Kibana:
+1. Введите следующие команды для установки Kibana.
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
     tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
 
     ```
-1. Запустите Kibana, используя следующие команды:
+1. Запустите Kibana, выполнив следующие команды.
 
     ```
     cd kibana-5.2.0-linux-x86_64/
@@ -245,9 +243,9 @@ tail -f /var/log/suricata/fast.log
 
 1. Файл панели мониторинга вы можете скачать [здесь](https://aka.ms/networkwatchersuricatadashboard), файл визуализации — [здесь](https://aka.ms/networkwatchersuricatavisualization), а сохраненный файл поиска — [здесь](https://aka.ms/networkwatchersuricatasavedsearch).
 
-1. На вкладке **Management** (Управление) в Kibana перейдите к элементу **Saved Objects** (Сохраненные объекты) и импортируйте все три файла. Затем откройте вкладку **Dashboard** (Панель мониторинга) и скачайте пример панели мониторинга.
+1. На вкладке **Management** (Управление) в Kibana перейдите к элементу **Saved Objects** (Сохраненные объекты) и импортируйте все три файла. Затем откройте вкладку **Dashboard** (Панель мониторинга) и загрузите пример панели мониторинга.
 
-Вы также можете создать собственные визуализации и панели мониторинга, адаптированные к интересующим вас метрикам. Дополнительные сведения о визуализациях Kibana можно получить в [официальной документации по Kibana](https://www.elastic.co/guide/en/kibana/current/visualize.html).
+Вы можете также создать собственные визуализации и панели мониторинга, адаптированные к интересующим вас метрикам. Дополнительные сведения о визуализациях Kibana можно получить в [официальной документации по Kibana](https://www.elastic.co/guide/en/kibana/current/visualize.html).
 
 ![Панель мониторинга Kibana][2]
 
@@ -297,4 +295,3 @@ tail -f /var/log/suricata/fast.log
 [5]: ./media/network-watcher-intrusion-detection-open-source-tools/figure5.png
 [6]: ./media/network-watcher-intrusion-detection-open-source-tools/figure6.png
 [7]: ./media/network-watcher-intrusion-detection-open-source-tools/figure7.png
-

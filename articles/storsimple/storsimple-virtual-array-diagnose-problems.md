@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: a75e68c84a50977b162ca4d3a4a02936ca78cb6b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Устранение неполадок виртуального массива StorSimple с помощью диспетчера устройств StorSimple
 ## <a name="overview"></a>Обзор
@@ -44,5 +43,4 @@ ms.lasthandoff: 01/26/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Инструкции по регистрации запроса в службу поддержки](storsimple-virtual-array-log-support-ticket.md)
-
 

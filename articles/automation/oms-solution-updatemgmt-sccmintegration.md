@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Интеграция Integrate System Center Configuration Manager с решением "Управление обновлениями OMS" [предварительная версия]
 
 Клиенты, которые инвестировали в System Center Configuration Manager для управления компьютерами, серверами и мобильными устройствами, также полагаются на его надежность и зрелость при управлении обновлениями программного обеспечения в рамках цикла управления обновлениями программного обеспечения (SUM).  
@@ -56,5 +54,4 @@ ms.lasthandoff: 09/25/2017
 Для управления обновлениями виртуальных машин Windows Server, которые являются клиентами Configuration Manager, необходимо настроить клиентскую политику, чтобы отключить компонент управления обновлениями программного обеспечения для всех клиентов под управлением этого решения.  По умолчанию параметры клиента предназначены для всех устройств в иерархии.  Дополнительные сведения о параметре политики и его настройке см. в статье [Настройка параметров клиента в System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
 
 После изменения конфигурации создайте развертывание, выполнив шаги, описанные в разделе [Создание развертывания обновлений](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), и выберите соответствующую коллекцию Configuration Manager в виде группы компьютеров OMS из раскрывающегося списка. 
-
 

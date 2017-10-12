@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2af15189a7c8643d51e8567b4366726b4b8051c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="datasets-in-azure-data-factory"></a>Наборы данных в фабрике данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -452,4 +451,3 @@ structure:
 ## <a name="next-steps"></a>Дальнейшие действия
 - Дополнительные сведения о конвейерах см. в статье [Конвейеры и действия в фабрике данных Azure](data-factory-create-pipelines.md). 
 - Дополнительные сведения о планировании и выполнении конвейеров см. в статье [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md). 
-

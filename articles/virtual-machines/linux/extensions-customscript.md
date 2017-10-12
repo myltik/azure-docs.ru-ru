@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 89001404fa7255efc656b98983502d1f1d84fd73
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 1dde64aac72c11ccfccf4fdb676279692befaadd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Использование расширения пользовательских сценариев Azure на виртуальных машинах Linux
 Расширение пользовательских сценариев загружает и запускает сценарии на виртуальных машинах Azure. Это расширение можно использовать для настройки после развертывания, установки программного обеспечения и других задач настройки или управления. Сценарии можно загрузить из службы хранилища Azure или другого расположения, доступного из Интернета, или передать во время выполнения расширения. Расширение пользовательских сценариев интегрируется с шаблонами Azure Resource Manager, а также его можно запустить с помощью интерфейса командной строки Azure, PowerShell, портала Azure или API REST виртуальной машины Azure.
@@ -235,5 +234,4 @@ info:    vm extension get command OK
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Сведения о других расширениях сценариев для виртуальной машины см. в статье [Обзор расширений и компонентов виртуальной машины](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 

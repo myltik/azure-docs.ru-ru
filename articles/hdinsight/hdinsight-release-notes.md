@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Заметки о выпуске для компонентов Hadoop в Azure HDInsight
 
@@ -103,7 +102,6 @@ ms.lasthandoff: 08/04/2017
 * Подготовка кластеров R Server в HDInsight упрощена.
 * R Server в HDInsight теперь доступен как обычный тип кластера HDInsight "R Server" и больше не устанавливается как отдельное приложение HDInsight. Теперь граничный узел и двоичные файлы R Server подготавливаются в рамках развертывания кластера R Server. Это ускоряет подготовку и повышает ее надежность. Модель ценообразования для R Server обновлена соответствующим образом.
 * Стоимость кластера R Server теперь объединяет цену уровня "Стандартный" и доплату за R Server. Уровень "Премиум" зарезервирован для функций этого уровня, доступных для других типов кластеров, и не используется для кластеров R Server. Это изменение не влияет на действующие цены для R Server. Оно влияет только на то, как платежи будут представлены в счете. Все имеющиеся кластеры R Server по-прежнему поддерживаются, а шаблоны Resource Manager функционируют до уведомления об устаревании. **Мы советуем обновить скрипты развертывания для использования нового шаблона Resource Manager.**
-
 
 
 

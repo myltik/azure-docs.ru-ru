@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: LADocs; klam
 ms.openlocfilehash: 63784c5e3af360b2f3f8cb330a9df8b27a85d859
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="logic-apps-pricing-model"></a>Модель ценообразования приложений логики
 С помощью Azure Logic Apps можно выполнять масштабирование и рабочие процессы интеграции в облаке.  Ниже приведены сведения о планах выставления счетов и тарифных планах Logic Apps.

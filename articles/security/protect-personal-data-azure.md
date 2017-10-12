@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Защита персональных данных в Microsoft Azure
 
@@ -78,4 +77,3 @@ ms.lasthandoff: 08/30/2017
 - [Блог группы безопасности Azure](https://www.azuresecurityorg)
 
 - [Блог Azure.com, посвященный вопросам безопасности](https://azure.microsoft.com/blog/topics/security/)
-

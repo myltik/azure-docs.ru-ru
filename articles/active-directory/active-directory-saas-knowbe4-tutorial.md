@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 2a81495c54cfe293700aa0ef0d82f13933dcc4aa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Руководство по интеграции Azure Active Directory с KnowBe4 Security Awareness Training
 
@@ -127,7 +126,7 @@ ms.lasthandoff: 09/01/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-knowbe4-tutorial/tutorial_general_400.png)
 
-6. В разделе **Настройка KnowBe4 Security Awareness Training** щелкните **Настроить KnowBe4 Security Awareness Training**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+6. В разделе **Настройка KnowBe4 Security Awareness Training** щелкните **Настроить KnowBe4 Security Awareness Training**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
     ![Настройка KnowBe4 Security Awareness Training](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_configure.png) 
 
@@ -232,5 +231,4 @@ ms.lasthandoff: 09/01/2017
 [201]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_203.png
-
 

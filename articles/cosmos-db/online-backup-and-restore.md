@@ -15,12 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raprasa
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 84b26c9ff354adef3f1bc1e61f235c520b63df13
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Автоматическая оперативная архивация и восстановление с помощью Azure Cosmos DB
 Azure Cosmos DB автоматически выполняет архивацию всех ваших данных с регулярными интервалами. Автоматическая архивация не влияет на производительность или доступность операций баз данных. Для обеспечения устойчивости в случае региональной аварии все архивные копии хранятся отдельно в другой службе хранилища, а также глобально реплицируются. Автоматические резервные копии предназначены для решения аварийного восстановления или сценариев, при которых контейнер Cosmos DB случайно удаляется и затем требуется восстановление данных.  
@@ -65,5 +64,4 @@ Azure Cosmos DB сохраняет две последние резервные 
 Чтобы реплицировать базу данных в нескольких центрах обработки данных, ознакомьтесь со статьей [Как работает глобальное распределение данных в Azure Cosmos DB?](distribute-data-globally.md) 
 
 Для обращения в службу поддержки Azure [отправьте запрос с портала Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
 

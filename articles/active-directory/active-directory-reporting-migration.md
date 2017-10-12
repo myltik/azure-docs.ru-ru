@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: f1875582476c3817b9eb0082b6548cc15043cb98
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Поиск отчетов о действиях на портале Azure
 
@@ -156,4 +155,3 @@ ms.lasthandoff: 07/19/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Общие сведения об отчетах Azure Active Directory см. в [этой статье](active-directory-reporting-azure-portal.md).
-

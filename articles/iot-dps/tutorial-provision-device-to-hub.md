@@ -12,20 +12,18 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: bf50699d2dc67294d554ba15713254a8b88d8ade
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Подготовка устройства в Центре Интернета вещей с помощью службы подготовки устройств для Центра Интернета вещей Azure
 
 В предыдущем руководстве вы узнали, как настраивать устройство для подключения к службе подготовки устройств. В этом руководстве описывается, как использовать эту службу для подготовки устройства в одном Центре Интернета вещей с помощью **_списков регистрации_**. В этом учебнике описаны следующие процедуры.
 
 > [!div class="checklist"]
-> * регистрация устройства;
+> * Регистрация устройства
 > * запуск устройства;
 > * проверка регистрации устройства.
 
@@ -98,7 +96,7 @@ ms.lasthandoff: 09/06/2017
 Из этого руководства вы узнали, как выполнять такие задачи:
 
 > [!div class="checklist"]
-> * регистрация устройства;
+> * Регистрация устройства
 > * запуск устройства;
 > * проверка регистрации устройства.
 
@@ -106,4 +104,3 @@ ms.lasthandoff: 09/06/2017
 
 > [!div class="nextstepaction"]
 > [Подготовка устройств в Центрах Интернета вещей с балансировкой нагрузки](./tutorial-provision-multiple-hubs.md)
-

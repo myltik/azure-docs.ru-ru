@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: b67bb30fa259fa08e37e11afec724c8b8c3eb633
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-deployment-errors"></a>Основные сведения об ошибках развертывания Azure
 В этой статье описаны ошибки развертывания и объясняется, как можно получить подробности ошибки. Способы решения распространенных ошибок развертывания см. в статье [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).

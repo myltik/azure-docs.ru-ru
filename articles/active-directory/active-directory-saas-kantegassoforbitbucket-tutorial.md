@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 6656c9abf8483ee98c0cb1a16c06d078e32240f2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Руководство по интеграции Azure Active Directory с Kantega SSO for Bitbucket
 
@@ -344,5 +343,4 @@ ms.lasthandoff: 07/11/2017
 [201]: ./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_general_203.png
-
 

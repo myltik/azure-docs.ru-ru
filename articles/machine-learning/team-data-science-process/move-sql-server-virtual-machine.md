@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
+ms.openlocfilehash: bd9289ea528c3a80f63380daf52161d2477a6771
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 174e06402dce9d1707df5a3b4a9a6087da841f40
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Перемещение данных в SQL Server на виртуальной машине Azure
 В этой статье описаны варианты перемещения данных из неструктурированных файлов (в формате CSV или TSV) или с локального сервера SQL Server на сервер SQL Server на виртуальной машине Azure. Эти задачи перемещения данных в облако являются этапом процесса обработки и анализа данных группы.
@@ -47,8 +46,7 @@ ms.lasthandoff: 09/25/2017
 ## <a name="prereqs"></a>Предварительные требования
 Для выполнения действий, описанных в этом учебнике, вам необходимо следующее.
 
-* <seg>
-  **Подписка Azure**.</seg> Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
+* **Подписка Azure**. Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure storage account**. Учетная запись хранения Azure будет использоваться для хранения данных в этом учебнике. Если у вас ее нет, см. раздел [Создание учетной записи хранения](../../storage/common/storage-create-storage-account.md#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. Ознакомьтесь с разделом [Управление ключами доступа к хранилищу](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Подготовленный **SQL Server на виртуальной машине Azure**. Инструкции см. в статье [Настройка SQL Server на виртуальной машине Azure как сервера IPython Notebook для расширенной аналитики](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azure/overview).
@@ -215,4 +213,3 @@ SQL Server поддерживает:
 
 [1]: ./media/move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/move-sql-server-virtual-machine/database_migration_wizard.png
-

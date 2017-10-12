@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: dharmeshkakadia
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Устранение неполадок в Hive с помощью Azure HDInsight
 
 Ознакомьтесь с основными проблемами и их разрешением при работе с полезными данными Apache Hive в Apache Ambari.
@@ -117,7 +115,7 @@ ms.lasthandoff: 08/23/2017
 
 ### <a name="resolution-steps"></a>Способы устранения
  
-1. Чтобы проанализировать направленный ациклический граф (DAG) Apache Tez по критическому графу кластера, подключитесь к кластеру HDInsight с помощью SSH. Дополнительные сведения см. в разделе [Дополнительные материалы](#additional-reading-end).
+1. Чтобы проанализировать направленный ациклический граф (DAG) Apache Tez по критическому графу кластера, подключитесь к кластеру HDInsight с помощью SSH. Подробные сведения см. в разделе [Дополнительные материалы](#additional-reading-end).
 
 2. В командной строке выполните следующую команду:
    
@@ -177,7 +175,6 @@ ms.lasthandoff: 08/23/2017
 ### <a name="additional-reading-end"></a>Дополнительные материалы
 
 [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 
 
 

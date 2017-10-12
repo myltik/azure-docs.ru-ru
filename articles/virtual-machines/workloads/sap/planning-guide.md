@@ -17,12 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: eabe7f667aab866b8513661110fa416a61988824
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -2048,4 +2047,3 @@ SAProuter позволяет осуществлять взаимодействи
 * Сведения об использовании уровня СУБД SAP в целях архивации см. в [руководстве по СУБД][dbms-guide].
 * Резервное копирование экземпляров диалогов SAP не имеет особого смысла, так как повторное развертывание простых экземпляров диалогов обычно занимает меньше времени.
 * Резервное копирование виртуальной машины, которая содержит глобальный каталог системы SAP и все профили разных экземпляров, имеет смысл и должно выполняться с помощью программы архивации данных (Windows) или архиватора tar (Linux). Так как между Windows Server 2008 (R2) и Windows Server 2012 (R2) существуют различия (в более новой версии Windows Server процесс резервного копирования упрощен), в качестве гостевой ОС мы рекомендуем использовать версию Windows Server 2012 (R2).
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Управление записями и наборами записей DNS с помощью портала Azure
 
 > [!div class="op_single_selector"]
@@ -127,4 +125,3 @@ ms.lasthandoff: 05/31/2017
 * Дополнительные сведения об Azure DNS см. в статье [Обзор Azure DNS](dns-overview.md).
 * Дополнительные сведения об автоматизации DNS см. в статье [Создание зон и наборов записей DNS с помощью пакета SDK для .NET](dns-sdk.md).
 * Дополнительные сведения о записях обратной зоны DNS см. в статье [Основные сведения об обратной зоне DNS и ее поддержке в Azure](dns-reverse-dns-overview.md).
-

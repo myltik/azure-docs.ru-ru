@@ -16,14 +16,12 @@ ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
+ms.openlocfilehash: dd4cf725689739ce4c8b86a4d8203ffc5aff016b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 38e3f71fb4817de7aa95b99e662856f586e72530
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Создание отчетов о снимках для Cloud App Discovery
 
 Перед настройкой автоматического сборщика журналируемых данных отправьте журнал вручную и позвольте Cloud App Security проанализировать его. Если у вас пока нет журнала и вы хотите просмотреть, как именно должен выглядеть подобный журнал, воспользуйтесь описанной ниже процедурой, чтобы скачать пример файла журнала.
@@ -56,4 +54,3 @@ ms.lasthandoff: 09/25/2017
 * [Приступая к работе с Cloud App Discovery в Azure AD](cloudappdiscovery-get-started.md)
 * [Настройка автоматической отправки для непрерывных отчетов](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Использование настраиваемого средства синтаксического анализа журналов](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-

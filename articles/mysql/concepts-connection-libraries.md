@@ -9,14 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/08/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: e746f28829063f8437ad408c4681f90aec6c0e0a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Библиотеки подключений для базы данных Azure для MySQL
 В этом разделе приведены все библиотеки и драйверы, с помощью которых клиентские программы могут подключиться к базе данных Azure для MySQL.
 
@@ -39,4 +37,3 @@ MySQL предлагает возможность подключения к ба
 ## <a name="next-steps"></a>Дальнейшие действия
 [What is Azure Database for MySQL? Service Introduction (Что такое база данных Azure для MySQL? Общие сведения о службе)](./overview.md)
 [Основные понятия работы с сервером в базе данных Azure для MySQL](./concepts-servers.md)
-

@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 411e10367f02846261f9fcc7717b5abb147b2c09
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 32311136a670261952d9bd0cf372e10a83cfe745
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Поиск и диагностика проблем производительности с помощью Azure Application Insights
 
 Azure Application Insights собирает данные телеметрии из приложения для анализа его работы и производительности.  Эти сведения можно использовать, чтобы определить возможные проблемы или улучшить приложения, которые могут повлиять на работу пользователей.  В этом руководстве описан процесс анализа производительности обоих компонентов сервера вашего приложения и перспектива клиента.  Вы узнаете, как выполнять следующие задачи:
@@ -127,4 +125,3 @@ Application Insights собирает данные о производитель
 
 > [!div class="nextstepaction"]
 > [Мониторинг и оповещение о работоспособности приложения с помощью Azure Application Insights](app-insights-tutorial-alert.md)
-

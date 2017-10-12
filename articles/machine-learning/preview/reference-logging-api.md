@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="logging-api-reference"></a>Справочник по API ведения журнала
 
 Библиотека ведения журнала службы "Машинное обучение Azure" позволяет программе выдавать значения метрик и файлы, отслеживаемые службой истории для последующего анализа. Сейчас поддерживается несколько базовых типов метрик и файлов, но их количество будет расти в будущих выпусках пакета Python.
@@ -88,4 +86,3 @@ $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to cr
 ## <a name="next-steps"></a>Дальнейшие действия
 - Чтобы увидеть API ведения журнала в действии, ознакомьтесь со статьей [Часть 2. Классификация цветков ириса: создание модели](tutorial-classifying-iris-part-2.md).
 - Подробные сведения об использовании API ведения журнала в журнале выполнения см. в статье [Как использовать компоненты "Журнал выполнения" и "Метрики модели" в Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).
-

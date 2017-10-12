@@ -13,12 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
+ms.openlocfilehash: 1a6355c18aed8a4040121e5af482328b70294b83
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 581bee11729e6fef5dbe7e752962f7ab9896066b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Подключение компьютеров для управления с помощью Azure Automation DSC
 
@@ -396,4 +395,3 @@ $VM | Update-AzureVM
 * [Обзор Azure Automation DSC](automation-dsc-overview.md)
 * [Командлеты Automation DSC Azure](/powershell/module/azurerm.automation/#automation)
 * [Цены на Automation DSC Azure](https://azure.microsoft.com/pricing/details/automation/)
-

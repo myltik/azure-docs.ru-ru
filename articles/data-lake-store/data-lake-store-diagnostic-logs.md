@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 73d0dabe5b8b179cbc0847c2819947febd6ef4d8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Доступ к журналам диагностики Azure Data Lake Store
 Узнайте, как включить ведение журнала диагностики для учетной записи Data Lake Store и просматривать журналы, собранные для этой учетной записи.
@@ -183,5 +182,4 @@ ms.lasthandoff: 08/29/2017
 ## <a name="see-also"></a>Дополнительные материалы
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
-
 

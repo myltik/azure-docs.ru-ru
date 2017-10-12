@@ -1,6 +1,6 @@
 ---
 title: "Ограничение доступа через конечные веб-точки в центре безопасности Azure | Документация Майкрософт"
-description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure **Ограничить доступ через конечную веб-точку**."
+description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure **Restrict access through Internet facing endpoint** (Ограничение доступа через подключенную к Интернету конечную точку)."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
 ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Ограничение доступа через подключенную к Интернету конечную точку в центре безопасности Azure
 Центр безопасности Azure будет рекомендовать ограничить доступ через подключенную к Интернету конечную точку, если в какой-либо группе безопасности сети есть одно или несколько правил входящего трафика, разрешающих доступ с "любого" исходного IP-адреса. Разрешение доступа с "любого" IP-адреса может позволить злоумышленникам получить доступ к вашим ресурсам. Центр безопасности будет рекомендовать изменить эти правила входящего трафика, чтобы разрешить доступ только с тех исходных IP-адресов, которым он действительно необходим.
@@ -75,4 +74,3 @@ ms.lasthandoff: 02/06/2017
 [4]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/inbound-security-rules.png
 [5]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/default-rules.png
 [6]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/edit-inbound-rule.png
-

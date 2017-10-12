@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e83bc42d658c4d6304f98b99d0e0942595bd65d2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Завершение проверки доступа для участников группы или пользователей с доступом к приложению с помощью Azure AD
 
 Администраторы могут запросить проверку участников группы или пользователей, назначенных для приложения, с помощью [создания проверки доступа](active-directory-azure-ad-controls-create-access-review.md). Azure AD автоматически отправляет проверяющим сообщение, в котором им предлагается проверить доступ. Если пользователь не получил сообщение, ему можно отправить [инструкции по выполнению проверки доступа](active-directory-azure-ad-controls-perform-access-review.md).  По завершении периода проверки доступа или после того, как администратор остановил проверку, нужно следовать инструкциям в этой статье, чтобы просмотреть и применить результаты.
@@ -59,4 +57,3 @@ ms.lasthandoff: 09/20/2017
 - [Управление программами и их элементами управления](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Создание проверки доступа для членства в группе или работы с приложением](active-directory-azure-ad-controls-create-access-review.md)
 - [Создание проверки доступа для пользователей в роли администратора Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
-

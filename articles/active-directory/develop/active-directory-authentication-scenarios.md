@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Сценарии аутентификации в Azure Active Directory
 Azure Active Directory (Azure AD) упрощает процесс проверки подлинности для разработчиков, предоставляя удостоверение как услугу, благодаря поддержке стандартных протоколов, например OAuth 2.0 и OpenID Connect, а также библиотекам с открытым исходным кодом для различных платформ, которые позволяют оперативно приступать к программированию. В данном документе будут рассмотрены различные сценарии, которые поддерживает Azure AD, и показано, как приступить к работе. Он состоит из следующих разделов:
@@ -296,5 +295,4 @@ Azure Active Directory (Azure AD) упрощает процесс проверк
 [Важные сведения о смене ключей подписи в Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Часто задаваемые вопросы по Azure Active Directory Connect
 
@@ -107,5 +106,4 @@ ms.lasthandoff: 09/14/2017
 [Как получить поддержку для Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 * Перейдите по этой ссылке, чтобы получить поддержку на портале Azure.
-
 

@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
+ms.openlocfilehash: 7325d15cc4bec5f0df50be222e1f0988775ded2c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 049478baa108b94c042575a5e29bdc513e527542
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Создание виртуальной машины для обработки и анализа данных и кластера HDInsight Spark как целевых объектов вычислений
 
 Вы можете без труда выполнять увеличение масштаба или развертывание эксперимента машинного обучения, добавляя дополнительные целевые объекты вычислений, такие как виртуальная машина для обработки и анализа данных под управлением Ubuntu и кластер Apache Spark для Azure HDInsight. В этой статье показано, как создать эти целевые объекты вычислений в Azure. Дополнительные сведения о целевых объектах вычислений Машинного обучения Azure см. в статье [Общие сведения о службе выполнения экспериментов в Машинном обучении Azure](experiment-execution-configuration.md).
@@ -187,4 +185,3 @@ $ az ml experiment prepare -c <compute target name>
 - [Файлы конфигурации выполнения Azure Machine Learning Workbench](experiment-execution-configuration-reference.md)
 - [Apache Spark для Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [Виртуальные машины для обработки и анализа данных](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
-

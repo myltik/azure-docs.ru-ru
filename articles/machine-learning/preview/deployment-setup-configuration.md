@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>Установка службы управления моделями
 
@@ -124,7 +123,7 @@ az ml env setup --cluster -n [your environment name] -l [Azure region e.g. eastu
 Команда установки среды кластера создает следующие ресурсы в подписке:
 - группу ресурсов (если не указана или если указанное имя не существует);
 - учетную запись хранения;
-- реестр контейнеров Azure (ACR);
+- Реестр контейнеров Azure (ACR).
 - развертывание Kubernetes в кластере Службы контейнеров Azure (ACS);
 - учетную запись Application Insights.
 
@@ -172,4 +171,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Воспользуйтесь одним из многих примеров в коллекции.
-

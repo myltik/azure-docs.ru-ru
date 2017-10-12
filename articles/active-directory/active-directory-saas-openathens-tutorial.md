@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 2819e300d94a0bc3b0900419218561fc846effcb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Руководство по интеграции Azure Active Directory с OpenAthens
 
@@ -240,5 +239,4 @@ OpenAthens поддерживает JIT-подготовку, и пользов�
 [201]: ./media/active-directory-saas-openathens-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-openathens-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-openathens-tutorial/tutorial_general_203.png
-
 

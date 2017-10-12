@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Основные сведения об обратной зоне DNS и ее поддержке в Azure
 
 Из этой статьи вы узнаете, как работает обратная зона DNS и как ее можно использовать в Azure.
@@ -115,5 +113,4 @@ Azure поддерживает два отдельных сценария, ка�
 Узнайте, как [разместить зону обратного просмотра для диапазона IP-адресов, присвоенного поставщиком услуг Интернета, в службе Azure DNS](dns-reverse-dns-for-azure-services.md).
 <br>
 Узнайте, как [управлять записями обратной зоны DNS для служб Azure](dns-reverse-dns-for-azure-services.md).
-
 

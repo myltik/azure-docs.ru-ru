@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stored-procedures-in-sql-data-warehouse"></a>Хранимые процедуры в хранилище данных SQL
 Хранилище данных SQL поддерживает многие функции Transact-SQL, доступные в SQL Server. Что более важно, в нем есть специальные функции разворачивания, с помощью которых можно максимально увеличить производительность решения.
@@ -102,4 +101,3 @@ EXEC prc_nesting
 [nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
-

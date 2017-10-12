@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: c8f731502d6589bfa908aa26cf418a65b18be635
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Использование службы диспетчера устройств StorSimple для мониторинга устройства StorSimple
 ## <a name="overview"></a>Обзор
@@ -135,5 +134,4 @@ ms.lasthandoff: 08/30/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте об [использовании панели мониторинга устройств службы диспетчера устройств StorSimple](storsimple-device-dashboard.md).
 * Узнайте, как [использовать службу диспетчера устройств StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
 

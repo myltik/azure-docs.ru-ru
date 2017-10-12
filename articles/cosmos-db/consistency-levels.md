@@ -17,10 +17,10 @@ ms.date: 06/16/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Настраиваемые уровни согласованности данных в Azure Cosmos DB
 Служба Azure Cosmos DB была разработана "с нуля", при этом в ее основу заложены возможности глобального распространения данных для всех моделей данных. Она предлагает гарантии прогнозируемой низкой задержки, соглашение об уровне обслуживания, обеспечивающее 99,99 % доступности, и нескольких четко определенных моделей нестрогой согласованности. Сейчас Azure Cosmos DB поддерживает пять уровней согласованности: строгий, с ограниченным устареванием, уровня сеанса, согласованность префиксов и согласованный в конечном счете. 

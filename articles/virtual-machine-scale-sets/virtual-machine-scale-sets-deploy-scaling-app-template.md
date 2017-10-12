@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Развертывание приложения автомасштабирования с помощью шаблона
 
 [Шаблоны Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) прекрасно подходят для развертывания группы связанных ресурсов. В этом руководстве, которое составлено на основе статьи [О данном учебнике](virtual-machine-scale-sets-mvss-start.md), описывается развертывание простого приложения автомасштабирования в масштабируемом наборе с помощью шаблона Azure Resource Manager.  Можно также настроить автомасштабирование с помощью PowerShell, интерфейса командной строки или портала. Дополнительные сведения см. в разделе [Как использовать автомасштабирование и масштабируемые наборы виртуальных машин](virtual-machine-scale-sets-autoscale-overview.md).
@@ -309,4 +307,3 @@ fi
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

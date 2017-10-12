@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: glenga
+ms.openlocfilehash: 71149aaacc940a62e085cf1ce103a0214d05bd1c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 58b6d5c6ef40891e56ea4811f5e778286bdb8bc3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Привязки служебной шины в Функциях Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -302,5 +301,4 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

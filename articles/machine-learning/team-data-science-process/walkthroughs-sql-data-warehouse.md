@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 745701b571a6cfa93798d7536ddb9d28ab45ea73
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Пошаговые руководства обработки и анализа данных хранилища данных SQL с помощью T-SQL и Python в Azure
 
 В этих пошаговых руководствах используется хранилище данных SQL для прогнозной аналитики. Они предусматривают выполнение инструкций, описанных в процессе обработки и анализа данных группы. Процесс обработки и анализа данных группы представлен в статье [Жизненный цикл процесса обработки и анализа данных группы](overview.md). Основные сведения о хранилище данных SQL см. в статье [Что такое хранилище данных SQL Azure?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

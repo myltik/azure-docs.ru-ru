@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: cd6cfe3fde93624faec844f91ea9193527495df4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: c56cefb3c62787f1bc2561aecec719cdbbc3b1c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Шаблоны профилей пользователей в службе управления API Azure
 Служба управления API Azure позволяет настраивать содержимое страниц портала разработчика с помощью набора шаблонов. С помощью этих шаблонов вы можете гибко настраивать содержимое страниц, используя синтаксис [DotLiquid](http://dotliquidmarkup.org/), любой удобный текстовый редактор, например [DotLiquid для разработчиков](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), и предоставленный набор локализованных [строковых ресурсов](api-management-template-resources.md#strings), [ресурсов глифов](api-management-template-resources.md#glyphs), а также [элементов управления страницы](api-management-page-controls.md).  
@@ -102,16 +101,16 @@ ms.lasthandoff: 01/12/2017
 > [!NOTE]
 >  Шаблоны [профиля](#Profile), [приложений](#Applications) и [подписок](#Subscriptions) используют одинаковую модель данных и получают одни и те же данные шаблона.  
   
-|Свойство|При появлении запроса на подтверждение нажмите клавишу |Описание|  
+|Свойство|Тип|Описание|  
 |--------------|----------|-----------------|  
-|firstName|string|Имя текущего пользователя.|  
+|firstName|строка|Имя текущего пользователя.|  
 |lastName|строка|Фамилия текущего пользователя.|  
 |companyName|string|Название компании текущего пользователя.|  
-|addresserEmail|строка|Адрес электронной почты текущего пользователя.|  
-|developersUsageStatisticsLinkk|строка|Относительный URL-адрес для просмотра аналитики по текущему пользователю.|  
+|addresserEmail|string|Адрес электронной почты текущего пользователя.|  
+|developersUsageStatisticsLinkk|string|Относительный URL-адрес для просмотра аналитики по текущему пользователю.|  
 |subscriptions|Коллекция сущностей [Subscription](api-management-template-data-model-reference.md#Subscription) (Подписка).|Подписки текущего пользователя.|  
 |веб-масштабированием;|Коллекция сущностей [Application](api-management-template-data-model-reference.md#Application) (Приложение).|Приложения текущего пользователя.|  
-|changePasswordUrl|string|Относительный URL-адрес для изменения пароля текущего пользователя.|  
+|changePasswordUrl|строка|Относительный URL-адрес для изменения пароля текущего пользователя.|  
 |changeNameOrEmailUrl|строка|Относительный URL-адрес для изменения имени и адреса электронной почты текущего пользователя.|  
 |canChangePassword|Логическое|Определяет, может ли текущий пользователь изменять свой пароль.|  
 |isSystemUser|Логическое|Определяет, входит ли текущий пользователь в одну из встроенных [групп](api-management-key-concepts.md#groups).|  
@@ -323,13 +322,13 @@ ms.lasthandoff: 01/12/2017
 > [!NOTE]
 >  Шаблоны [профиля](#Profile), [приложений](#Applications) и [подписок](#Subscriptions) используют одинаковую модель данных и получают одни и те же данные шаблона.  
   
-|Свойство|При появлении запроса на подтверждение нажмите клавишу |Описание|  
+|Свойство|Тип|Описание|  
 |--------------|----------|-----------------|  
 |firstName|строка|Имя текущего пользователя.|  
 |lastName|строка|Фамилия текущего пользователя.|  
-|companyName|строка|Название компании текущего пользователя.|  
-|addresserEmail|строка|Адрес электронной почты текущего пользователя.|  
-|developersUsageStatisticsLinkk|строка|Относительный URL-адрес для просмотра аналитики по текущему пользователю.|  
+|companyName|string|Название компании текущего пользователя.|  
+|addresserEmail|string|Адрес электронной почты текущего пользователя.|  
+|developersUsageStatisticsLinkk|string|Относительный URL-адрес для просмотра аналитики по текущему пользователю.|  
 |subscriptions|Коллекция сущностей [Subscription](api-management-template-data-model-reference.md#Subscription) (Подписка).|Подписки текущего пользователя.|  
 |веб-масштабированием;|Коллекция сущностей [Application](api-management-template-data-model-reference.md#Application) (Приложение).|Приложения текущего пользователя.|  
 |changePasswordUrl|строка|Относительный URL-адрес для изменения пароля текущего пользователя.|  
@@ -486,7 +485,7 @@ ms.lasthandoff: 01/12/2017
 > [!NOTE]
 >  Шаблоны [профиля](#Profile), [приложений](#Applications) и [подписок](#Subscriptions) используют одинаковую модель данных и получают одни и те же данные шаблона.  
   
-|Свойство|При появлении запроса на подтверждение нажмите клавишу |Описание|  
+|Свойство|Тип|Описание|  
 |--------------|----------|-----------------|  
 |firstName|строка|Имя текущего пользователя.|  
 |lastName|строка|Фамилия текущего пользователя.|  

@@ -14,10 +14,10 @@ ms.technology:
 ms.assetid: 
 ms.custom: it-pro
 ms.openlocfilehash: 5838e3276765f4f074bca2e3cae81b17edfa7c69
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Решения Майкрософт для гибридной идентификации
 Решения для гибридной идентификации [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) позволяют синхронизировать локальные объекты каталогов с Azure AD и дают возможность управлять пользователями в локальной среде. Если планируется синхронизировать Azure AD с Windows Server Active Directory в локальной среде, в первую очередь необходимо решить, какая идентификация будет использоваться — синхронизированная или федеративная. Синхронизированная идентификация и хэширование паролей (необязательно) позволяют использовать один пароль для доступа к локальным и облачным ресурсам организации. Для сценариев с более широкими требованиями, такими как единый вход (SSO) или локальная многофакторная идентификация (MFA), необходимо развернуть службы федерации Active Directory (AD FS), чтобы включить сущности в федерацию. 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 5517581f929ffce9e9184848049ce9832013277e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Выполнение фоновых задач с помощью веб-заданий в службе приложений Azure
 
 ## <a name="overview"></a>Обзор
@@ -216,4 +214,3 @@ when making changes in one don't forget the other two.
 ## <a name="NextSteps"></a> Дальнейшие действия
 
 Пакет SDK веб-заданий Azure может использоваться с веб-заданиями для упрощения многих задач программирования. Дополнительные сведения см. в разделе [Информация о пакете SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk/wiki).
-

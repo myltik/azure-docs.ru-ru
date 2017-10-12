@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 18541c68b02ae1b59ae4a6a85122dff614c9978c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="organize-your-resources-with-azure-management-groups"></a>Упорядочивание ресурсов с помощью групп управления Azure 
 
 При наличии нескольких подписок их можно упорядочить в контейнеры, называемые "группами управления", для управления доступом, политиками, затратами и соответствием между подписками. Например, можно применить политики к группе управления, которые могут ограничить типы создаваемых ресурсов.
@@ -93,6 +90,5 @@ ms.lasthandoff: 09/25/2017
 
 > [!Note]
 > Политика не применяется в каталогах. 
-
 
 

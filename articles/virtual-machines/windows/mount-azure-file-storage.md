@@ -13,14 +13,12 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-file-shares-with-windows-vms"></a>Использование общих файловых ресурсов Azure с виртуальными машинами Windows 
 
 Вы можете использовать общие файловые ресурсы Azure для хранения файлов с вашей виртуальной машины и для доступа к ним. Например, можно сохранить скрипт или файл конфигурации приложения, который требуется использовать на всех виртуальных машинах. В этой статье рассматривается создание и подключение общего ресурса Azure, а также отправка и скачивание файлов.
@@ -76,4 +74,3 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Вы также можете создавать файловые ресурсы и управлять ими с помощью PowerShell. Дополнительные сведения см. в статье [Develop for Azure File storage with .NET](../../storage/files/storage-dotnet-how-to-use-files.md) (Разработка для хранилища файлов Azure с помощью .NET).
-

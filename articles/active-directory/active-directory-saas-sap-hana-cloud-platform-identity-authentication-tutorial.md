@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: e4e7c7273acc216ae82a52b3e6dcd530a6ad1bd7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Руководство по интеграции Azure Active Directory с приложением SAP Cloud Platform Identity Authentication
 
@@ -169,7 +168,7 @@ ms.lasthandoff: 09/21/2017
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_400.png)
 
-9. В разделе **Настройка SAP Cloud Platform Identity Authentication** щелкните **Настроить SAP Cloud Platform Identity Authentication**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+9. В разделе **Настройка SAP Cloud Platform Identity Authentication** щелкните **Настроить SAP Cloud Platform Identity Authentication**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
     ![Настройка SAP Cloud Platform Identity Authentication](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_configure.png) 
 
@@ -289,5 +288,4 @@ ms.lasthandoff: 09/21/2017
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: bdeae5d1440cf8930a9cbc1ddea38ea7754ff7f6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD
  
@@ -154,5 +153,4 @@ API служб мультимедиа Azure — это REST API. Его можн
 
 * Узнайте, как использовать [аутентификацию Azure AD для работы с API служб мультимедиа Azure](media-services-portal-get-started-with-aad.md) с помощью портала Azure.
 * Используйте аутентификацию Azure AD для [доступа к API служб мультимедиа Azure с помощью .NET](media-services-dotnet-get-started-with-aad.md).
-
 

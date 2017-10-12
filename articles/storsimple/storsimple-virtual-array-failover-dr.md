@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
 ms.openlocfilehash: 12079f8dbc409afe5acc274fa08bda878c90b76e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Аварийное восстановление и отработка отказа устройства для виртуального массива StorSimple на портале Azure
 
@@ -181,5 +180,4 @@ ms.lasthandoff: 04/13/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Узнайте, как осуществлять [администрирование виртуального массива StorSimple, используя локальный пользовательский веб-интерфейс](storsimple-ova-web-ui-admin.md).
-
 

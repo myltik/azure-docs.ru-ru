@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: genli
+ms.openlocfilehash: 3fd0beed7fe76d1cd0861cdc278ac66ead2d0bd3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 55c42a91bb1c5fad289b975ffae8ce4d6e7343dd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Устранение неполадок: не удалось удалить виртуальную сеть в Azure
 
 При попытке удаления виртуальной сети в Microsoft Azure могут возникать ошибки. В этой статье приведены действия по устранению этой проблемы. 

@@ -15,14 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 03/30/2017
 ms.author: cakarst;douglasl;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d208f783e5b4e7786350706d8025e6e13f45f0d2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
-
-
+ms.openlocfilehash: 6c9cebdd715b6997d0633bc725a3945ba9e0c357
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-ssis"></a>Загрузка данных из SQL Server в хранилище данных SQL Azure (SSIS)
 > [!div class="op_single_selector"]
@@ -208,4 +205,3 @@ Visual Studio откроется и создаст новый проект сл�
 [SQL Server Evaluations]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
 [Visual Studio Community]: https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
 [AdventureWorks 2014 Sample Databases]: https://msftdbprodsamples.codeplex.com/releases/view/125550
-

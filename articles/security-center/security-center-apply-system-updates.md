@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 9f7924f3f0975dc32fdf5b8e1b89a1fb8e9b7d57
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Применение обновлений системы в центре безопасности Azure
 Центр безопасности Azure ежедневно проверяет наличие обновлений операционной системы виртуальных машин и компьютеров под управлением Windows и Linux. Центр безопасности получает список доступных критических обновлений и обновлений для системы безопасности из Центра обновления Windows или служб Windows Server Update Services в зависимости от того, какая служба настроена для компьютеров под управлением Windows. Центр безопасности также проверяет наличие последних обновлений для систем Linux. Если на виртуальной машине или компьютере отсутствует обновление системы, центр безопасности порекомендует его применить.
@@ -100,4 +99,3 @@ ms.lasthandoff: 09/13/2017
 [5]: ./media/security-center-apply-system-updates/search-details.png
 [6]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [7]: ./media/security-center-apply-system-updates/restart-pending.png
-

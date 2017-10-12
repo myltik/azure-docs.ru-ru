@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
 ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-db2-connector"></a>Приступая к работе с соединителем DB2
 Соединитель DB2 (Майкрософт) подключает приложения логики к ресурсам, хранящимся в базе данных IBM DB2. Этот соединитель включает в себя клиент Майкрософт для взаимодействия с удаленными серверами DB2 по сети TCP/IP. Сюда входят облачные базы данных, например IBM Bluemix dashDB или IBM DB2 для Windows, работающие в среде виртуализации Azure, и локальные базы данных, использующие локальный шлюз данных. Ознакомьтесь со [списком поддерживаемых](connectors-create-api-db2.md#supported-db2-platforms-and-versions) платформ и версий IBM DB2 (в этой статье).

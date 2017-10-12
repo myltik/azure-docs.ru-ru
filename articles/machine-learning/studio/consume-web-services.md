@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fc1152f1431474b6625f389a1290a121e86fbdac
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Как использовать веб-службу машинного обучения Azure
 
@@ -125,5 +124,4 @@ ms.lasthandoff: 09/25/2017
 1. Разверните эксперимент "Sample 1: Download dataset from UCI: Adult 2 class dataset" (Пример 1. Скачивание набора данных из UCI: набор данных для класса Adult 2), входящий в набор примеров машинного обучения.
 2. Назначьте apiKey ключ из веб-службы. См. раздел **Получение ключа авторизации Машинного обучения Azure** в начале этой статьи.
 3. Назначьте serviceUri универсальный код ресурса запроса.
-
 

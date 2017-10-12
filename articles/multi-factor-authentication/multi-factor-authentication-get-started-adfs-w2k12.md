@@ -15,12 +15,11 @@ ms.date: 08/25/2017
 ms.author: kgremban
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 7fc6ad052e4e873be6a3e7009e9739e4a1c9ce03
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Настройка сервера Многофакторной идентификации Azure для работы с AD FS на платформе Windows Server
 Если вы используете службы федерации Active Directory (AD FS) и хотите защитить облачные или локальные ресурсы, вы можете настроить сервер многофакторной идентификации Azure для работы с AD FS. Эта конфигурация активирует двухфакторную проверку подлинности для важных конечных точек.
@@ -145,4 +144,3 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="related-topics"></a>Связанные разделы
 Дополнительные сведения по поиску и устранению ошибок см. в статье [Часто задаваемые вопросы о службе многофакторной идентификации Azure](multi-factor-authentication-faq.md).
-

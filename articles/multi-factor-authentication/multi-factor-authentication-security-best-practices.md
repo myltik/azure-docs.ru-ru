@@ -15,14 +15,12 @@ ms.date: 06/15/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: f43f6e33976325920da9cf0f6aef6decae5bde26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 6166e20a4652379dc9eeffe522feb651f5e57ea2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Рекомендации по безопасности для использования Azure Multi-Factor Authentication с учетными записями Azure AD
 
 Когда требуется усовершенствовать процесс аутентификации, большинство организаций предпочитает двухфакторную проверку подлинности. Многофакторная идентификация Azure(MFA) помогает компаниям соблюдать требования безопасности и соответствия стандартам, обеспечивая для своих пользователей простой вход в систему. В этой статье рассматриваются некоторые рекомендации, которые следует учитывать при планировании внедрения Azure MFA.
@@ -114,5 +112,4 @@ ms.lasthandoff: 09/14/2017
 * [Отчеты в службе Azure Multi-Factor Authentication](multi-factor-authentication-manage-reports.md)
 * [Настройка учетной записи для двухфакторной проверки подлинности](multi-factor-authentication-end-user-first-time.md)
 * [Часто задаваемые вопросы о службе Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
-
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/21/2017
 ms.author: kraigb
 ms.openlocfilehash: 25b3ca9af2639860d9cfcb1492aef745fb47beb9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Использование мастера публикации приложений Azure в Visual Studio
 Разработанное в Visual Studio веб-приложение можно опубликовать в облачной службе Azure, используя мастер **публикации приложений Azure**. 

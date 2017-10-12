@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4890baa4ead3323834a82b3f9340cf751bf0c755
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Использование журнала диагностики производительности Intelligent Insights для базы данных SQL Azure
 
 Эта страница содержит сведения об использовании журнала диагностики производительности базы данных SQL Azure, созданного [Intelligent Insights](sql-database-intelligent-insights.md), его формате и данных для различных задач разработки, которые он содержит. Этот журнал диагностики можно отправить в [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [концентратор событий Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [службу хранилища Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage) или стороннее решение для разработки настраиваемых функций оповещения и создания отчетов в соответствии с процедурами DevOps.
@@ -147,7 +145,6 @@ ms.lasthandoff: 09/25/2017
 - Изучите [устранение проблем с производительностью базы данных SQL Azure с помощью Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Ознакомьтесь с [мониторингом базы данных SQL Azure с помощью службы "Аналитика SQL Azure"](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
 - Изучите [сбор и использование данных журнала из ресурсов Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
-
 
 
 

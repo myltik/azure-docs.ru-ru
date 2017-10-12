@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: eff4add1cb16fe25022787668dc1d2277845dd95
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Автоматическое масштабирование машин Linux в наборе масштабирования виртуальных машин
 Наборы масштабирования виртуальных машин позволяют легко развертывать идентичные виртуальные машины (ВМ) в виде набора и управлять ими. Масштабируемые наборы обеспечивают высокую степень масштабируемости и персонализацию уровня вычислений для гипермасштабируемых приложений. Кроме того, они поддерживают образы платформ Windows и Linux, а также пользовательские образы и расширения. Дополнительные сведения см. в статье [Обзор наборов масштабирования виртуальных машин](virtual-machine-scale-sets-overview.md).
@@ -592,5 +591,4 @@ azure group delete vmsstestrg1
 * Узнайте о возможностях уведомлений в статье [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
 * Узнайте, как [использовать журналы аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
 * Просмотрите пример [автоматического масштабирования приложения на Ubuntu 16.04](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale). В этом примере приложение Python/Bottle использует функцию автоматического масштабирования, которую предлагают масштабируемые наборы виртуальных машин.
-
 

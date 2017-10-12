@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 85911fcc66dcedff0d43bd986bce4500a1a2f00b
-
-
+ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Поддерживаемое оборудование для сетевых интерфейсов 10 GbE на устройстве StorSimple
 ## <a name="overview"></a>Обзор
@@ -57,7 +57,7 @@ ms.openlocfilehash: 85911fcc66dcedff0d43bd986bce4500a1a2f00b
 | Версия операционной системы коммутатора |JunOS 12.3R9.4 |
 | Модель блейд-модуля |Встроенные порты (PIC 0) |
 | Производитель приемопередатчика |Juniper |
-| Модель приемопередатчика |Артикул 740-021308  <br></br>  Артикул 740-030658 |
+| Модель приемопередатчика |Артикул 740-021308  <br></br> Артикул 740-030658 |
 | Версия встроенного ПО приемопередатчика |Редакция 01 версии 0.0 (сообщенная) |
 | Модель кабеля |Дуплекс jumper LC/LC 50/125µ, OM3, LSZH |
 | Модель StorSimple |8600 |
@@ -122,10 +122,4 @@ Mellanox проверила следующие подключаемые прие
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Дополнительные сведения об аппаратных компонентах и состоянии StorSimple](storsimple-monitor-hardware-status.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

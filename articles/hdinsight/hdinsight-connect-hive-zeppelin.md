@@ -16,19 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: b44321619f2aa94a6d98624ab1ee35a598fb6fc8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Выполнение запросов Hive в Azure HDInsight с помощью Zeppelin 
 
 Кластеры Interactive Query HDInsight включают записные книжки Zeppelin, которые можно использовать для выполнения интерактивных запросов Hive. В этой статье вы узнаете, как использовать Zeppelin для выполнения запросов Hive в Azure HDInsight. 
 
 ## <a name="prerequisites"></a>Предварительные требования
-Для выполнения действий, указанных в этой статье, вам потребуется следующее:
+Чтобы выполнить действия, указанные в этой статье, вам потребуется:
 
 * **Кластер Interactive Query HDInsight**. Чтобы создать кластер HDInsight, обратитесь к разделу [Создание кластера](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).  Выберите тип кластера Interactive Query. 
 
@@ -79,8 +78,7 @@ ms.lasthandoff: 09/27/2017
 
 * [Визуализация данных Hive с помощью Microsoft Power BI в Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
 * [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC](./hdinsight-connect-excel-hive-odbc-driver.md).
-* [Подключение Excel к Hadoop с помощью Power Query](./hdinsight-connect-excel-power-query.md).
-* [Подключение к Azure HDInsight и выполнение запросов Hive с помощью средств Data Lake для Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+* [Подключение Excel к Hadoop с помощью Power Query](./hdinsight-connect-excel-power-query.md)
+* [Подключение к Azure HDInsight и выполнение запросов Hive с помощью средств Data Lake для Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)
 * [Использование средств Azure HDInsight для Visual Studio Code](hdinsight-for-vscode.md).
-* [Отправка данных в HDInsight](./hdinsight-upload-data.md).
-
+* [Отправка данных в HDInsight](./hdinsight-upload-data.md)

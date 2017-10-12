@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e5787bed43d8e327774d2cbea7e8875b56903cf6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="collect-data-about-azure-virtual-machines"></a>Сбор данных о виртуальных машинах Azure
 [Azure Log Analytics](log-analytics-overview.md) может собирать данные напрямую c виртуальных машин Azure и других ресурсов в среде в один репозиторий для подробного анализа и корреляции.  В этом кратком руководстве показано, как настроить и собирать данные c виртуальных машин под управлением Linux или Windows с помощью нескольких простых действий.  
  
@@ -97,4 +95,3 @@ Log Analytics может собирать события из журналов �
 
 > [!div class="nextstepaction"]
 > [Просмотр и анализ данных, собранных с помощью поиска по журналам Log Analytics](log-analytics-tutorial-viewdata.md)
-

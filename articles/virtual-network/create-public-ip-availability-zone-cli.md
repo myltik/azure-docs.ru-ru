@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: ef93d43bbd0c58950027810c8c335d9076574326
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-cli"></a>Создание общедоступного IP-адреса в зоне доступности с помощью интерфейса командной строки Azure.
 
 Общедоступный IP-адрес можно развернуть в зоне доступности Azure (предварительная версия). Зона доступности представляет собой физически отдельную зону в регионе Azure. Ниже перечислено, что вы можете узнать.
@@ -61,4 +59,3 @@ az network public-ip show --resource-group myResourceGroup --name myPublicIp
 
 - Дополнительные сведения о [зонах доступности](https://docs.microsoft.com/azure/availability-zones/az-overview)
 - Дополнительные сведения об [общедоступных IP-адресах](../virtual-network/virtual-network-public-ip-address.md) 
-

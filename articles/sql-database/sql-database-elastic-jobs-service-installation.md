@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
+ms.openlocfilehash: 71a5aa4da32e76ff02e4a4dae0d47cf03e323688
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 960e5e311571d1054a2ef5c15c33291de27b0878
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Обзор установки заданий обработки эластичных баз данных
 [**Задания эластичных баз данных**](sql-database-elastic-jobs-overview.md) можно установить с помощью PowerShell или классического портала Azure. Чтобы создавать задания и управлять ими только с помощью API PowerShell, необходимо установить пакет PowerShell. Кроме того, в настоящий момент API-интерфейсы PowerShell предоставляют намного больше возможностей, чем портал.
@@ -183,4 +182,3 @@ ms.lasthandoff: 08/30/2017
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
-

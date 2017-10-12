@@ -8,14 +8,12 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Распределенная настройка гиперпараметров с помощью Azure Machine Learning Workbench
 
 В этом сценарии показано, как с помощью Azure Machine Learning Workbench масштабировать настройку гиперпараметров алгоритмов машинного обучения, реализующих API scikit-learn. Мы покажем, как настроить и использовать удаленный контейнер Docker и кластер Spark в качестве серверной части для выполнения настройки гиперпараметров.
@@ -312,7 +310,6 @@ Xgboost состоит из восьми гиперпараметров:
 ## <a name="references"></a>Ссылки
 
 [1] T. Чен (T. Chen) и К. Гестрин (C. Guestrin). [XGBoost: A Scalable Tree Boosting System](https://arxiv.org/abs/1603.02754) (XGBoost: масштабируемая система бустинга деревьев). Конференция KDD, 2016 г.
-
 
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 24cbe51ef5a453d06e9f70e1e2146479935c5bf5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 4a41e4e0be44e855ead253ad76fe5a3af52070ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Пользовательское кэширование в службе управления API Azure
 В службе управления API Azure есть встроенная поддержка [кэширования ответов HTTP](api-management-howto-cache.md) с помощью URL-адреса ресурса в качестве ключа. Ключ можно изменить с помощью заголовков запроса, используя свойства `vary-by` . Этот способ подходит для кэширования всех ответов HTTP (или представлений), но иногда его можно использовать только для кэширования части представления. Новые политики [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) и [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) позволяют сохранять и извлекать произвольные фрагменты данных из определений политики. Эта возможность также полезна для ранее представленной политики [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) , так как теперь можно кэшировать ответы от внешних служб.
@@ -281,5 +280,4 @@ variable-name="clientversion" />
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Отправьте нам свой отзыв в дискуссию Disqus к данной статье, если эти политики позволяют вам использовать другие сценарии либо если вы хотите, но пока не можете использовать те или иные сценарии.
-
 

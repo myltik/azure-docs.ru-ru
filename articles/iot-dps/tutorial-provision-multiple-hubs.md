@@ -12,15 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Подготовка устройств в Центрах Интернета вещей с балансировкой нагрузки
 
 В этом руководстве показано, как подготавливать устройства для нескольких Центров Интернета вещей с балансировкой нагрузки с помощью службы подготовки устройств (DPS). Из этого руководства вы узнаете, как выполнять такие задачи:
@@ -29,7 +26,7 @@ ms.lasthandoff: 09/06/2017
 > * использовать портал Azure для подготовки второго устройства на втором Центре Интернета вещей; 
 > * добавлять запись списка регистрации на втором устройстве;
 > * устанавливать политику распределения DPS в состояние **равномерного распределения**;
-> * связывать Центр Интернета вещей с DPS.
+> * Связывание Центра Интернета вещей с DPS
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 
@@ -88,4 +85,3 @@ ms.lasthandoff: 09/06/2017
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 -->
-

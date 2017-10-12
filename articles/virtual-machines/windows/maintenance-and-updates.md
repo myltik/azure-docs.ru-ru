@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 97660436d29dd8d9b7547a2bf71e9fc06b09624f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="planned-maintenance-for-virtual-machines-in-azure"></a>Плановое обслуживание виртуальных машин в Azure
 
@@ -29,7 +28,6 @@ ms.lasthandoff: 09/20/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об управлении плановым обслуживанием см. в статье [Handling planned maintenance notifications for Windows virtual machines](maintenance-notifications.md) (Обработка уведомлений о плановом обслуживании для виртуальных машин Windows).
-
 
 
 

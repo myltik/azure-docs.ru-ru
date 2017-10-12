@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="split-column-by-example-transformation"></a>Преобразование "Разделение столбцов по образцу"
 Это преобразование прогнозировано разделяет содержимое столбца на информативные границы без задействования пользователя. Алгоритм разделения выбирает границы после анализа содержимого столбца. Эти границы можно определить с помощью:
 * фиксированного разделителя;
@@ -178,4 +176,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="technical-notes"></a>Технические примечания
 
 Функция преобразования Split (Разделение) основана на методе **прогнозного программного синтеза**. При использовании этого метода программы преобразования данных обучаются автоматически на основе входных данных. Программы синтезируются на предметно-ориентированном языке. Предметно-ориентированный язык основан на разделителях и полях, которые возникают в определенных контекстах регулярных выражений. Дополнительные сведения об этом методе можно найти в [последних публикациях на эту тему](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
-

@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
-ms.openlocfilehash: 6ad91429794e465be7cb26963d032d9357143053
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 2328fe6e6b35ce523f8bf90cbe6159c7ba23d697
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Управление параметрами двухфакторной проверки подлинности
 Эта статья содержит информацию о том, как изменить параметры двухфакторной проверки подлинности или многофакторной идентификации. Если у вас возникают проблемы со входом в учетную запись, см. сведения об устранении неполадок в статье [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) (Трудности с двухфакторной проверкой подлинности).
@@ -71,4 +70,3 @@ ms.lasthandoff: 03/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * См. советы и справочные сведения по устранению неполадок в статье [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) (Трудности с двухфакторной проверкой подлинности).
 * Настройте [пароли приложений](multi-factor-authentication-end-user-app-passwords.md) для всех приложений, которые не поддерживают двухфакторную проверку подлинности.
-

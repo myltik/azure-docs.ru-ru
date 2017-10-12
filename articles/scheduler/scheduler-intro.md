@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-scheduler"></a>Что такое планировщик Azure?
 Планировщик Azure позволяет описывать действия, которые выполняются в облаке. Затем он планирует и выполняет эти действия автоматически.  Планировщик делает это с помощью [портала Azure](scheduler-get-started-portal.md), кода, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) или Azure PowerShell.
@@ -53,5 +52,4 @@ ms.lasthandoff: 12/08/2016
  [Ограничения, значения по умолчанию и коды ошибок планировщика Azure](scheduler-limits-defaults-errors.md)
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
-
 

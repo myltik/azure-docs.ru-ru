@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cefec9c703d3d1544eb7216c97b0a065a39ee2eb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Часто задаваемые вопросы о технологиях с открытым кодом в веб-приложениях Azure
 
 В этой статье содержатся ответы на часто задаваемые вопросы о проблемах, связанных с технологиями с открытым кодом, в [веб-приложениях службы приложений Azure](https://azure.microsoft.com/services/app-service/web/).
@@ -252,4 +249,3 @@ WordPress Buddy+ — это расширение сайта Azure, с помо�
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>При попытке импорта или экспорта базы данных MySQL в приложении с помощью PHPMyadmin произошла ошибка HTTP 403. Как решить эту проблему?
 
 Это известная ошибка в старой версии браузера Chrome. Чтобы устранить эту проблему, обновите браузер Chrome. Кроме того, попробуйте использовать другой браузер, например Internet Explorer или Edge, где эта проблема не возникает.
-

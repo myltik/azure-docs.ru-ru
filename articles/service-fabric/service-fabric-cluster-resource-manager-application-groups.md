@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 3212631ede7125bd849c2d9ba86ba2a0747d69ca
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-application-groups"></a>Введение в группы приложений
 Диспетчер кластерных ресурсов Service Fabric, который управляет ресурсами кластера, обычно равномерно распределяет нагрузку (представленную в [метриках](service-fabric-cluster-resource-manager-metrics.md)) по всему кластеру. Service Fabric управляет емкостью узлов в кластере и [емкостью](service-fabric-cluster-resource-manager-cluster-description.md) кластера в целом. Метрики и емкость отлично работают для большинства рабочих нагрузок, но для структур, активно использующих разные экземпляры приложений Service Fabric, иногда возникают дополнительные требования. Например, может потребоваться следующее.
@@ -217,4 +216,3 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
-

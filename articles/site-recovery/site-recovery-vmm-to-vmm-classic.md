@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 768c2598beccba885dd5e43a59ec4684818ccca3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>Репликация виртуальных машин Hyper-V из облачных сред VMM в дополнительный ЦОД VMM
 > [!div class="op_single_selector"]
@@ -333,4 +332,3 @@ ms.lasthandoff: 09/07/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Протестировав отработку отказа и убедившись, что среда работает так, как нужно, [ознакомьтесь](site-recovery-failover.md) с разными типами отработки отказа.
-

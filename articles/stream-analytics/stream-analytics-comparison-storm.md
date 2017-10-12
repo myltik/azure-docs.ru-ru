@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 06/27/2017
 ms.author: samacha
 ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Выбор платформы потоковой аналитики: сравнение Apache Storm и Azure Stream Analytics
 Azure предоставляет несколько решений для анализа потоковой передачи данных: [Azure Streaming Analytics](https://docs.microsoft.com/azure/stream-analytics/) и [Apache Storm на Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-storm/). Обе эти платформы аналитики предоставляют преимущества решения PaaS. Но платформы имеют ряд существенных отличий в своих возможностях, а также в настройке и управлении. 

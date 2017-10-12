@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 23c159471a6e5a7ad9cb545840e8afd3ac72ecba
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 7b63de2453180e562596c211d40cebe85b95bd54
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advisor-high-availability-recommendations"></a>Рекомендации Azure Advisor по высокой доступности
 
 Помощник по Azure помогает обеспечить работу критически важных бизнес-приложений и их целостность. Рекомендации Advisor по обеспечению высокого уровня доступности можно получить на вкладке **Высокая доступность** панели мониторинга Advisor.
@@ -87,5 +85,4 @@ Advisor выявляет виртуальные машины, которые н�
 * [Рекомендации Azure Advisor по затратам](advisor-performance-recommendations.md)
 * [Рекомендации Azure Advisor по производительности](advisor-performance-recommendations.md)
 * [Рекомендации Azure Advisor по безопасности](advisor-security-recommendations.md)
-
 

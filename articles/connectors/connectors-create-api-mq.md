@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Подключение к серверу IBM MQ из приложения логики с помощью соединителя MQ 
 
 Соединитель с MQ (Microsoft) отправляет и получает сообщения, хранящиеся локально на сервере MQ или в Azure. Этот соединитель включает в себя клиент Microsoft MQ для взаимодействия с удаленным сервером IBM MQ по сети TCP/IP. Этот документ является базовым руководством для использования соединителя MQ. Мы рекомендуем начать с просмотра одного сообщения в очереди, и затем попробовать другие действия.    
@@ -126,4 +124,3 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
-
