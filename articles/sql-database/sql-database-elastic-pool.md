@@ -11,19 +11,17 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 08/25/2017
+ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.openlocfilehash: 38c8c83909fe6a68e8850c9ac9d796784c38c70a
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 2af5be1c2250c3ec363b97c21bc3fa05c8ace984
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
-
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Управление несколькими базами данных SQL Azure и их масштабирование с помощью эластичных пулов
 
 Эластичные пулы баз данных SQL — это простое и экономичное решение для администрирования и масштабирования нескольких баз данных с отличными и непредсказуемыми требованиями к ресурсам. Базы данных в составе эластичного пула размещены на одном сервере базы данных SQL Azure и совместно используют определенный набор ресурсов ([единицы транзакций эластичных баз данных](sql-database-what-is-a-dtu.md) (eDTU)) по фиксированной цене. Пулы эластичных БД в базе данных SQL Azure позволяют разработчикам SaaS оптимизировать соотношение цены и производительности для группы баз данных с назначенным бюджетом и при этом обеспечить эластичность производительности для каждой базы данных. 
@@ -329,12 +327,12 @@ ms.lasthandoff: 09/26/2017
 
 | Командлет | Описание |
 | --- | --- |
-|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#create)|Создает эластичный пул.|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#list)|Возвращает список эластичных пулов на сервере.|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#list-dbs)|Возвращает список баз данных в пуле эластичных баз данных.|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#list-editions)|Также содержит параметры доступных DTU пула, ограничений хранилища и параметры отдельных баз данных. Чтобы снизить уровень детализации, ограничения дополнительного хранилища и параметры каждой базы данных скрыты по умолчанию.|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#update)|Обновляет эластичный пул.|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#delete)|Удаляет эластичный пул.|
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Создает эластичный пул.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Возвращает список эластичных пулов на сервере.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Возвращает список баз данных в пуле эластичных баз данных.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Также содержит параметры доступных DTU пула, ограничений хранилища и параметры отдельных баз данных. Чтобы снизить уровень детализации, ограничения дополнительного хранилища и параметры каждой базы данных скрыты по умолчанию.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Обновляет эластичный пул.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Удаляет эластичный пул.|
 
 ## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>Управление базами данных в эластичных пулах с помощью Transact-SQL
 
@@ -382,4 +380,3 @@ ms.lasthandoff: 09/26/2017
 * Мы рекомендуем просмотреть [видеокурс о возможностях эластичной базы данных SQL Azure на сайте Microsoft Virtual Academy](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554).
 * Дополнительные сведения о шаблонах разработки для приложений SaaS, использующих пулы эластичных БД, см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 * Дополнительные сведения об эластичных пулах см. в статье [Общие сведения о приложении SaaS Wingtip](sql-database-wtp-overview.md).
-

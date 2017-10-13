@@ -13,32 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/20/2017
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: 581948164acef2fe8894e58fb8c8da7772c4cbd9
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: bcb68caa9659dd0e0a04834f3eead955387fdf7d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Ограничения ресурсов базы данных SQL Azure
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Отдельная база данных: размеры хранилища и уровни производительности
 
-В следующих таблицах приведены доступные ресурсы для отдельных баз данных на каждом уровне служб и уровне производительности. Уровень служб, уровень производительности и объем хранилища для отдельной базы данных можно задать с помощью [портала Azure](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli) или [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
+В следующих таблицах приведены доступные ресурсы для отдельных баз данных на каждом уровне служб и уровне производительности. Уровень служб, уровень производительности и объем хранилища для отдельной базы данных можно задать с помощью [портала Azure](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli) или [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 ## <a name="single-database-change-storage-size"></a>Отдельная база данных: изменение размера хранилища
 
 - Цена DTU для отдельной базы данных включает в себя определенный объем хранилища, не требующий дополнительной платы. Дополнительный объем хранилища, сверх включенного, можно подготовить за дополнительную плату в пределах максимального допустимого размера с шагом в 250 ГБ при объеме хранилища до 1 ТБ и с шагом в 256 ГБ — при объеме более 1 ТБ. Сведения о включенном объеме хранилища и ограничениях максимального размера см. в разделе [Отдельная база данных: размеры хранилища и уровни производительности](#single-database-storage-sizes-and-performance-levels).
-- Дополнительное хранилище для отдельной базы данных можно подготовить, увеличив ее максимальный размер с помощью [портала Azure](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#update) или [REST API](/rest/api/sql/databases/update).
+- Дополнительное хранилище для отдельной базы данных можно подготовить, увеличив ее максимальный размер с помощью [портала Azure](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az_sql_db_update) или [REST API](/rest/api/sql/databases/update).
 - Стоимость дополнительного хранилища для отдельной базы данных равна его объему, умноженному на цену единицы хранения этого хранилища для уровня служб. Сведения о цене на дополнительное хранилище см. на [странице цен на Базу данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="single-database-change-dtus"></a>Отдельная база данных: изменение числа DTU
 
-После выбора первоначального уровня служб, уровня производительности и объема хранилища можно масштабировать отдельную базу данных динамически, исходя из ее фактического использования, с помощью [портала Azure](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#update) или [REST API](/rest/api/sql/databases/update). 
+После выбора первоначального уровня служб, уровня производительности и объема хранилища можно масштабировать отдельную базу данных динамически, исходя из ее фактического использования, с помощью [портала Azure](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az_sql_db_update) или [REST API](/rest/api/sql/databases/update). 
 
 В следующем видео показано динамическое изменение уровня производительности для увеличения количества доступных DTU для отдельной базы данных.
 
@@ -101,12 +100,12 @@ ms.lasthandoff: 09/26/2017
 ## <a name="elastic-pool-change-storage-size"></a>Эластичный пул: изменение размера хранилища
 
 - Цена DTU для эластичного пула включает в себя определенный объем хранилища, не требующий дополнительной платы. Дополнительный объем хранилища, сверх включенного, можно подготовить за дополнительную плату в пределах максимального допустимого размера с шагом в 250 ГБ при объеме хранилища до 1 ТБ и с шагом в 256 ГБ — при объеме более 1 ТБ. Сведения о включенном объеме хранилища и ограничениях максимального размера см. в разделе [Эластичный пул: размеры хранилища и уровни производительности](#elastic-pool-storage-sizes-and-performance-levels).
-- Дополнительное хранилище для эластичного пула можно подготовить, увеличив его максимальный размер с помощью [портала Azure](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#update) или [REST API](/rest/api/sql/elasticpools#Update).
+- Дополнительное хранилище для эластичного пула можно подготовить, увеличив его максимальный размер с помощью [портала Azure](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) или [REST API](/rest/api/sql/elasticpools/update).
 - Стоимость дополнительного хранилища для эластичного пула равна его объему, умноженному на цену единицы хранения этого хранилища для уровня служб. Сведения о цене на дополнительное хранилище см. на [странице цен на Базу данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="elastic-pool-change-edtus"></a>Эластичный пул: изменение числа eDTU
 
-Можно увеличить или сократить ресурсы, доступные для эластичного пула, на основе потребностей в ресурсах, с помощью[портала Azure](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#update) или [REST API](/rest/api/sql/elasticpools#Update).
+Можно увеличить или сократить ресурсы, доступные для эластичного пула, на основе потребностей в ресурсах, с помощью[портала Azure](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) или [REST API](/rest/api/sql/elasticpools/update).
 
 - При масштабировании eDTU пула подключения к базе данных на короткое время разрываются. То же самое происходит при масштабировании DTU для отдельной базы данных (не в пуле). Дополнительные сведения о длительности и влиянии разрыва подключений к базе данных во время операций масштабирования см. в разделе [Ограничения ресурсов базы данных SQL Azure](#single-database-change-storage-size). 
 - Время, необходимое для масштабирования eDTU пула, может зависеть от общего объема пространства, используемого всеми базами данных в пуле. Как правило, задержка при изменении масштаба в среднем составляет не более 90 минут на 100 ГБ. Например, если общее пространство, используемое всеми базами данных в пуле, равно 200 ГБ, то ожидаемая задержка при изменении масштаба пула составит до 3 часов. В некоторых случаях в рамках уровней "Стандартный" и "Базовый" задержка при изменении масштаба может составлять меньше пяти минут, вне зависимости от объема используемого пространства.
@@ -148,4 +147,3 @@ ms.lasthandoff: 09/26/2017
 - Сведения об эластичных пулах см. в разделе [Эластичные пулы помогают управлять несколькими базами данных SQL и масштабировать их](sql-database-elastic-pool.md).
 - Сведения об общих ограничениях Azure см. в разделе [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 - Сведения о DTU и eDTU см. в разделе [Общие сведения об обычных единицах передачи данных (DTU) и единицах передачи данных в эластичной базе данных (eDTU)](sql-database-what-is-a-dtu.md).
-

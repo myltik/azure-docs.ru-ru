@@ -1,4 +1,4 @@
-После создания веб-приложения в Azure CLI отобразится примерно следующее:
+Когда веб-приложение будет создано, в Azure CLI отобразится примерно следующее:
 
 ```json
 Local git is configured with url of 'https://<username>@<app name>.scm.azurewebsites.net/<app name>.git'
