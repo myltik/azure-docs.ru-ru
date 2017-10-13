@@ -9,19 +9,21 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc,load & move data
+ms.custom: mvc,migrate
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 09/01/2017
 ms.author: carlrab
-ms.openlocfilehash: 8206cba416df4d43594678428632ff161a9564d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 8206cba416df4d43594678428632ff161a9564d6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 09/07/2017
+
 ---
+
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Перенос базы данных SQL Server в базу данных SQL Azure
 
 Перемещение базы данных SQL Server в базу данных SQL Azure такое же простое, как и создание пустой базы данных SQL в Azure и импорт базы данных в Azure с помощью [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595). Из этого руководства вы узнаете, как выполнять такие задачи.
@@ -278,5 +280,6 @@ ms.lasthandoff: 10/11/2017
 
 > [!div class="nextstepaction"]
 > [Защита базы данных SQL Azure](sql-database-security-tutorial.md)
+
 
 
