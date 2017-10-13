@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 513c98237a322dabd6b2bf13443e8998ca843b1d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-search"></a>Поиск в центре безопасности Azure
 Центр безопасности Azure получает и анализирует данные безопасности с помощью [поиска Log Analytics](../log-analytics/log-analytics-log-searches.md). Служба Log Analytics поддерживает язык запросов для быстрого получения и консолидации данных. В центре безопасности поиск Log Analytics можно использовать для создания запросов и анализа собранных данных.
@@ -67,4 +66,3 @@ ms.lasthandoff: 09/13/2017
 [1]: ./media/security-center-search/search.png
 [2]: ./media/security-center-search/workspace-selector.png
 [3]: ./media/security-center-search/log-search.png
-

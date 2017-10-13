@@ -1,6 +1,6 @@
 ---
 title: "Процедуры обновления пакета SDK для Windows Phone Silverlight"
-description: "Процедуры обновления пакета SDK для Windows Phone Silverlight для Azure Mobile Engagement"
+description: "Процедуры обновления пакета SDK для Windows Phone Silverlight для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f87f65788075c7f4067e77946e1bcbc8f3709317
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Процедуры обновления пакета SDK для Windows Phone Silverlight
 Если вы уже интегрировали в приложение старую версию пакета SDK, при обновлении пакета SDK необходимо учитывать следующее.
@@ -34,10 +33,10 @@ ms.lasthandoff: 11/17/2016
             EngagementAgent.Instance.Init();
 
 ## <a name="from-111-to-200"></a>От версии 1.1.1 до версии 2.0.0
-Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement. 
+Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение Служб мобильного взаимодействия Azure. 
 
 > [!IMPORTANT]
-> Службы Capptain и Azure Mobile Engagement отличаются между собой. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
+> Службы Capptain и Служб мобильного взаимодействия Azure отличаются между собой. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Служб мобильного взаимодействия.
 > 
 > 
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 11/17/2016
 ### <a name="nuget-package"></a>Пакет NuGet
 Замените **Capptain.WindowsPhone** на пакет NuGet **MicrosoftAzure.MobileEngagement**.
 
-### <a name="applying-mobile-engagement"></a>Применение Mobile Engagement
+### <a name="applying-mobile-engagement"></a>Применение Служб мобильного взаимодействия
 В пакете SDK используется термин `Engagement`, поэтому необходимо обновить проект с учетом этого изменения.
 
 Необходимо удалить текущий пакет NuGet Capptain. Советуем удалить все, что было изменено в папке ресурсов Capptain. Если хотите сохранить эти файлы, скопируйте их в другое место.
@@ -112,7 +111,7 @@ ms.lasthandoff: 11/17/2016
 4. Обратите внимание, что для использования Engagement были переименованы и другие ресурсы, такие как изображения Capptain.
 
 ### <a name="application-id--sdk-key"></a>Идентификатор приложения и ключ SDK
-Engagement использует строку подключения. При использовании Mobile Engagement не нужно указывать идентификатор приложения и ключ SDK. Достаточно просто задать строку подключения. Ее можно настроить в файле EngagementConfiguration.
+Engagement использует строку подключения. При использовании Служб мобильного взаимодействия не нужно указывать идентификатор приложения и ключ SDK. Достаточно просто задать строку подключения. Ее можно настроить в файле EngagementConfiguration.
 
 Конфигурацию Engagement можно определить в файле `Resources\EngagementConfiguration.xml` проекта.
 
@@ -143,5 +142,4 @@ Engagement использует строку подключения. При ис
 * GetCapptainPageName теперь называется GetEngagementPageName.
 
 Обратите внимание, что переименование также влияет на переопределенные методы.
-
 

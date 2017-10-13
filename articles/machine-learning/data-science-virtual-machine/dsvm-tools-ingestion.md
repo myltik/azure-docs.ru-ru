@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Средства приема данных виртуальных машин для обработки и анализа данных
 
 Один из первых технических шагов в проекте обработки и анализа данных или AI — это определение наборов данных, которые будут использоваться, и их добавление в среду аналитики. Виртуальная машина для обработки и анализа данных (DSVM) предоставляет средства и библиотеки для локального добавления данных из разных источников в хранилище аналитических данных в DSVM или на платформе данных в облаке или локальной среде. 
@@ -98,4 +96,3 @@ ms.lasthandoff: 09/25/2017
 |  Запуск и использование    |   Запустите шлюз управления данными Майкрософт из меню "Пуск".    |
 | Ссылки на примеры      | [Шлюз управления данными](https://msdn.microsoft.com/library/dn879362.aspx)      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | AzCopy, AdlCopy, BCP    |
-

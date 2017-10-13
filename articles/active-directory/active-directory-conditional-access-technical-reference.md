@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 27ace4e9bc4a1626059fba657dce0c629d52f32d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Техническая информация об условном доступе в Azure Active Directory
 
@@ -104,7 +103,7 @@ ms.lasthandoff: 09/27/2017
 
 При настройке политики условного доступа можно [выбрать клиентские приложения](active-directory-conditional-access-azure-portal.md#client-apps) для условия клиентских приложений. Условие клиентских приложений можно задать, чтобы предоставить или заблокировать доступ, если была предпринята попытка доступа из приведенных ниже типов клиентских приложений:
 
-- браузер;
+- "Обзор"
 - мобильные и классические приложения.
 
 ![Управление доступом к клиентским приложениям](./media/active-directory-conditional-access-technical-reference/03.png)
@@ -218,6 +217,5 @@ ms.lasthandoff: 09/27/2017
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-technical-reference/01.png
-
 
 

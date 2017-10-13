@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 00c5d3781455c80b33bdbb4c872ae354531baf3e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: организация регистрации и входа для потребителей с учетными записями Weibo
 
@@ -64,5 +63,4 @@ ms.lasthandoff: 08/08/2017
 7. Введите **ключ приложения**, скопированный ранее, в поле **Идентификатор клиента**.
 8. Введите **секрет приложения**, скопированный ранее, в поле **Секрет клиента**.
 9. Нажмите кнопку **ОК**, а затем — **Создать**, чтобы сохранить конфигурацию Weibo.
-
 

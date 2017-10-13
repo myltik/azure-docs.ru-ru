@@ -7,14 +7,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-source-wizard"></a>Мастер источников данных #
 
 Мастер источников данных — это быстрый и простой способ переноса набора данных в Azure ML Workbench без кода. Здесь также можно выбрать пример стратегии для набора данных. 
@@ -74,4 +72,3 @@ ms.lasthandoff: 09/25/2017
 ![шаг 7](media/data-source-wizard/step6.png)
 
 Когда вы нажмете кнопку "Готово", новый источник данных будет добавлен в проект. Его можно будет найти в группе "Источники данных" в представлении данных или в DSOURCE-файле в **представлении файлов**.
-

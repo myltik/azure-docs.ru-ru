@@ -15,12 +15,11 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 8e72f2c8095d13c4b6df3c6576bd58806a3c0f2f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 0479f3c4bb65d208cae2424071dface5606a6fa6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Создание пользовательских ролей для управления доступом на основе ролей в Azure
 Если ни одна из встроенных ролей не соответствует вашим требованиям к доступу, создайте пользовательскую роль с помощью механизма RBAC Azure (управление доступом на основе ролей). Настраиваемые роли можно создавать с помощью [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [интерфейса командной строки (CLI) Azure](role-based-access-control-manage-access-azure-cli.md) и интерфейса [REST API](role-based-access-control-manage-access-rest.md). Пользовательские роли, так же как и встроенные, можно назначать пользователям, группам и приложениям в рамках подписки, группы ресурсов или области ресурсов. Пользовательские роли хранятся в клиенте Azure AD и могут использоваться несколькими подписками.
@@ -124,4 +123,3 @@ azure provider operations show "Microsoft.Network/*"
   * [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
   * [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
 * [Встроенные роли.](role-based-access-built-in-roles.md) Сведения о стандартных ролях в RBAC.
-

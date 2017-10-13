@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Масштабируемые наборы виртуальных машин Azure и управляемые диски
 
@@ -52,6 +51,5 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 Дополнительные сведения об использовании управляемых дисков данных с масштабируемыми наборами см. в [этой статье](./virtual-machine-scale-sets-attached-disks.md).
 
 Чтобы начать работу с большими масштабируемыми наборами, ознакомьтесь с [этой статьей](./virtual-machine-scale-sets-placement-groups.md).
-
 
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Устранение неполадок в работе сквозной аутентификации Azure Active Directory
 
 В этой статье вы найдете информацию по устранению распространенных неполадок в работе сквозной аутентификации Azure AD.
@@ -171,4 +169,3 @@ ms.lasthandoff: 09/28/2017
 
 >[!IMPORTANT]
 >Сквозная аутентификация обеспечивает высокий уровень доступности за счет нескольких агентов аутентификации, но _не_ предоставляет возможности балансировки нагрузки. В зависимости от вашей конфигурации _не_ все агенты аутентификации могут получать примерно _одинаковое_ число запросов. Возможно, какой-либо агент аутентификации вообще не получает трафик.
-

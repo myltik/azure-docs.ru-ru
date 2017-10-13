@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 354648461adf77ccf753cf24721ab7dd82b34d3c
-ms.openlocfilehash: ab4f6cf29f03491b117bcf752cb16dc6d48a08c8
-
-
+ms.openlocfilehash: efb0cfa4b7950a2d9418282965a23498a67cbffc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-architecture-overview"></a>Обзор архитектуры безопасности
 Наличие надежной основы архитектуры — один из ключей к успеху, когда дело доходит до защиты решений по развертыванию в Azure. Эти знания помогут вам лучше разобраться в своих требованиях, так как вы поймете, какие вопросы следует ставить, и будете готовы находить правильные ответы на них. Получение правильных ответов на правильные вопросы позволяет оптимизировать безопасность развернутых служб.
@@ -28,10 +28,4 @@ ms.openlocfilehash: ab4f6cf29f03491b117bcf752cb16dc6d48a08c8
 * [Data Classification for Cloud Readiness](azure-security-data-classification.md)
 * [Архитектура приложений в Microsoft Azure](security-application-architecture-on-azure.md)
 * [Рекомендации и шаблоны для обеспечения безопасности в Azure](security-best-practices-and-patterns.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

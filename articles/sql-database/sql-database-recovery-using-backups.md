@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: 3b9be28143060537b1a35004c3b3486b8738e956
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: df6e4bba9290c6129c9cba1440bb0c903aacc3c8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий
 База данных SQL предоставляет такие варианты восстановления базы данных с помощью [создаваемых автоматически резервных копий баз данных](sql-database-automated-backups.md) и [резервных копий в хранилище с включенной функцией долгосрочного хранения](sql-database-long-term-retention.md) Вы можете восстановить из резервной копии базы данных следующее:
@@ -152,4 +151,3 @@ ms.lasthandoff: 08/30/2017
 * Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до 10 лет](sql-database-long-term-retention.md).
 * Сведения о настройке и администрировании долгосрочного хранения создаваемых автоматически резервных копий в хранилище служб восстановления Azure, а также о восстановлении с помощью таких резервных копий на портале Azure см. в статье [Configure and use long-term backup retention](sql-database-long-term-backup-retention-configure.md) (Настройка и использование долгосрочного хранения резервных копий баз данных). 
 * Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь со сведениями об [активной георепликации](sql-database-geo-replication-overview.md).  
-

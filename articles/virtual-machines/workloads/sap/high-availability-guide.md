@@ -17,14 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 65236f527b62b4990b062fb6a54ce13b3c182e93
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Высокий уровень доступности SAP NetWeaver на виртуальных машинах Azure
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1652,4 +1650,3 @@ _**Рис. 62.** SIOS DataKeeper: репликация локального т�
   ![Рис. 64. SIOS DataKeeper: репликация локального тома с узла B на узел A кластера][sap-ha-guide-figure-5003]
 
   _**Рис. 64.** SIOS DataKeeper: репликация локального тома с узла B на узел A кластера_
-

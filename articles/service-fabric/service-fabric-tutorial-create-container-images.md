@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 08b3cc4a52c09ee03818b563794ef9b009d12ef4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e84a0a05cbe1952d8325a9aed1c1df411bfcb877
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-container-images-for-service-fabric"></a>Создание образов контейнеров для Service Fabric
 
 Это руководство представляет собой первую часть цикла руководств, посвященного использованию контейнеров в кластере Service Fabric на платформе Linux. В этом руководстве выполняется подготовка многоконтейнерного приложения к использованию в Service Fabric. В последующих руководствах созданные образы используются как часть приложения Service Fabric. Из этого руководства вы узнаете, как выполнить следующие задачи: 
@@ -57,12 +55,7 @@ ms.lasthandoff: 09/25/2017
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-```
-
-Выполните приведенную ниже команду в клонированном каталоге, чтобы перейти в рабочий каталог. 
-
-```bash 
-cd Linux/container-tutorial/
+cd service-fabric-dotnet-containers/Linux/container-tutorial/
 ```
 
 Каталог container-tutorial содержит папку azure-vote. Папка azure-vote содержит исходный код внешнего интерфейса и файл Dockerfile для создания внешнего интерфейса. Каталог container-tutorial содержит каталог redis с файлом Dockerfile для сборки образа Redis. Эти каталоги содержат необходимые ресурсы для данного руководства. 
@@ -242,4 +235,3 @@ azure-vote-front
 
 > [!div class="nextstepaction"]
 > [Упаковка и развертывание контейнеров в виде приложения Service Fabric](service-fabric-tutorial-package-containers.md)
-

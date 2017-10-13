@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 60f1ec092635910ae8c98cc0197fdfbf358f01be
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 6503034b3f5a17a2a42338c73329eef0b01f2f27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Определение требований к идентификации для решений гибридной идентификации
 При разработке решения гибридной идентификации первым делом необходимо определить потребности организации, которая будет использовать это решение.  Гибридная идентификация прежде всего играет вспомогательную роль (она поддерживает другие облачные решения, обеспечивая для них проверку подлинности), но позволяет пользоваться также и многими новыми интересными возможностями, предоставляя пользователям дополнительные рабочие нагрузки.  Эти рабочие нагрузки или службы, которые вы будете применять для своих пользователей, определяют требования по проектированию гибридной идентификации.  Такие службы и рабочие нагрузки должны использовать гибридную идентификацию как локально, так и в облаке.  
@@ -109,5 +108,4 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Службы синхронизации Azure AD Connect: изменение конфигурации по умолчанию
 В этой статье предоставлены сведения об изменении конфигурации по умолчанию в службах синхронизации Azure AD Connect. Здесь также описываются действия для некоторых стандартных сценариев. Ознакомившись с этими сведениями, вы сможете вносить изменения в конфигурацию в соответствии с собственными бизнес-правилами.

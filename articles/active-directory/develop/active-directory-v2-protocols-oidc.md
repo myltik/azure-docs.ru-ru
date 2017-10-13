@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: d63692f02b3dec50a1e7df034b8915bb450b4cfd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # Azure Active Directory версии 2.0 и протокол OpenID Connect
 OpenID Connect — это протокол аутентификации на основе OAuth 2.0, который можно использовать для безопасного входа пользователей в веб-приложение. С помощью реализации OpenID Connect в конечной точке версии 2.0 можно добавить в веб-приложения функции входа и доступа к API. В этой статье мы покажем, как это сделать независимо от используемого языка. Мы рассмотрим, как отправлять и получать сообщения HTTP, не используя ни одну из библиотек с открытым кодом Майкрософт.

@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 415ceba02eb3c8da3de5ab3aa6980fbe5bae2db9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-exports-for-this-preview"></a>Поддерживаемые форматы экспорта данных в предварительной версии 
 Данные можно экспортировать в нескольких разных форматах. Эти форматы позволяют сохранять промежуточные результаты подготовки данных перед интеграцией в остальную часть рабочего процесса службы машинного обучения.
 
@@ -54,9 +52,8 @@ PARQUET как формат появился относительно недав
 
 ## <a name="locations"></a>Расположения 
 ### <a name="local"></a>Local 
-Локальный жесткий диск или сопоставленное сетевое место хранения
+локального жесткого диска или сопоставленного сетевого расположения для хранения;
 
 ### <a name="azure-blob"></a>Большой двоичный объект Azure 
 Большой двоичный объект Azure (требуется подписка Azure)
-
 

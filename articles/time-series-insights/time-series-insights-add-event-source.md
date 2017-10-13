@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: ffa2eaf3680e68ac14aabf49b6308caeb173fd43
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Создание источника событий для среды Time Series Insights с помощью портала Ibiza
 
 Источник событий Time Series Insights является производным от брокеров событий, таких как концентраторы событий Azure. Time Series Insights подключаются напрямую к источникам событий, принимая поток данных, при этом у пользователей нет необходимости писать код. Сейчас Time Series Insights поддерживает концентраторы событий Azure и Центр Интернета вещей. В дальнейшем будут добавлены дополнительные источники событий.
@@ -55,4 +53,3 @@ ms.lasthandoff: 07/01/2017
 
 * [Отправьте события](time-series-insights-send-events.md) в источник событий.
 * Просмотрите свою среду на [портале Time Series Insights](https://insights.timeseries.azure.com).
-

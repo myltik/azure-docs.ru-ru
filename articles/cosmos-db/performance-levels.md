@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Прекращение использования уровней производительности S1, S2 и S3
 
@@ -179,4 +178,3 @@ ms.lasthandoff: 08/29/2017
 1.  [Секционирование, ключи секции и масштабирование в Cosmos DB](documentdb-partition-data.md). Узнайте, чем отличаются односекционные и секционированные контейнеры. В статье также содержатся советы по реализации стратегии секционирования для удобства масштабирования.
 2.  [Страница цен Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Ознакомьтесь со сведениями о ценах на подготовку пропускной способности и использование хранилища.
 3.  [Единицы запроса в DocumentDB](request-units.md). Узнайте, как потребляется пропускная способность в зависимости от типа операции, например чтение, запись или запрос.
-

@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Понятия устройства в контексте подготовки устройств в Центре Интернета вещей
 
 Служба подготовки устройств для Центра Интернета вещей — это вспомогательная служба, позволяющая настроить полностью автоматическую подготовку устройства в указанном Центре Интернета вещей. Она дает возможность подготавливать миллионы устройств с высоким уровнем безопасности и масштабируемости.
@@ -63,4 +61,3 @@ ms.lasthandoff: 09/06/2017
 
 > [!NOTE]
 > Это важно для длительных операций развертывания и сценариев слияния и приобретения.
-

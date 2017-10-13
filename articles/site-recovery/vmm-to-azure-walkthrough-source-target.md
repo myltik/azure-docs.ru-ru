@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c72f839d0a1288dccb7deb3e44fc2b20d64818f0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-8-set-up-the-source-and-target-for-hyper-v-with-vmm-replication-to-azure"></a>Шаг 8. Настройка исходной и целевой среды для репликации из Hyper-V (с VMM) в Azure
 
 После [создания хранилища](vmm-to-azure-walkthrough-create-vault.md) и указания цели репликации воспользуйтесь сведениями в этой статье для настройки исходных и целевых параметров при репликации локальных виртуальных машин Hyper-V в облаках System Center Virtual Machine Manager (VMM) в Azure с помощью службы [Azure Site Recovery](site-recovery-overview.md) на портале Azure.
@@ -133,4 +131,3 @@ S1. Выберите **Подготовка инфраструктуры** > **�
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 9. Настройка сетевого сопоставления для репликации Hyper-V (с VMM) в Azure](vmm-to-azure-walkthrough-network-mapping.md).
-

@@ -16,12 +16,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 9f03e61e05383c309fb66b67e0641b17df5ab00f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Настройка сервера службы "Многофакторная идентификация Azure" для обеспечения высокой доступности
 
@@ -77,4 +76,3 @@ ms.lasthandoff: 08/28/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Приступая к работе с сервером службы "Многофакторная идентификация Azure"](multi-factor-authentication-get-started-server.md)
-

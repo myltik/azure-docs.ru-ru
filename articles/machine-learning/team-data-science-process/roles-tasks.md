@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="team-data-science-process-roles-and-tasks"></a>Роли и задачи в команде обработки и анализа данных
 
 Командный процесс обработки и анализа данных — это разработанная корпорацией Майкрософт платформа, предоставляющая структурированную методологию для эффективного создания решений прогнозной аналитики и интеллектуальных приложений. В этой статье описываются роли сотрудников и их задачи, которые выполняются в команде обработки и анализа данных, которая стандартизирует этот процесс. 

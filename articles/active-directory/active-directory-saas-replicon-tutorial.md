@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 2aeeceb61191962b62892b8409218684f76c6fa8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Учебник. Интеграция Azure Active Directory с Replicon
 Цель данного учебника — показать интеграцию Azure и Replicon. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
@@ -85,7 +84,7 @@ ms.lasthandoff: 04/03/2017
      > 
      > 
  
-  3. Нажмите кнопку **Далее**.
+  3. Щелкните **Далее**.
 
 4. На странице **Настройка единого входа в Replicon** щелкните **Скачать метаданные**, чтобы скачать метаданные, а затем сохраните файл метаданных на своем компьютере.
    
@@ -153,5 +152,4 @@ ms.lasthandoff: 04/03/2017
     ![Да](./media/active-directory-saas-replicon-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Рекомендации по использованию службы приложений Azure
 В этой статье собраны рекомендации по использованию [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -50,5 +49,4 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="nodejs"></a>Развертывание новых приложений Node.js в службе приложений Azure
 Конфигурация по умолчанию службы приложений Azure для приложений Node.js предназначена для наиболее распространенных из них. Если в конфигурации для приложения Node.js целесообразно использовать персонализированные настройки, чтобы повысить производительность или оптимизировать использование ресурсов ЦП, памяти и сети, то можно ознакомиться с нашими рекомендациями и действиями по устранению неполадок. В статье [Рекомендации и руководство по устранению неполадок приложений Node в веб-приложениях Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md) описаны параметры IISNode, которые может потребоваться настроить для приложения Node.js. В ней также рассмотрены различные сценарии и проблемы, которые могут возникнуть при работе приложения, и показано, как устранить эти проблемы.   
-
 

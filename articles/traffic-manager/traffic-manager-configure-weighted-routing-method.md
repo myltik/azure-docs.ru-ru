@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 7aa4c9120d44ff1b3e59a57090ea04e3f8021fc4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Настройка метода взвешенной маршрутизации трафика в диспетчере трафика
 
 Общепринятый подход к методу маршрутизации трафика состоит в предоставлении набора идентичных конечных точек (облачных служб и веб-сайтов) и отправке трафика в каждую из них по принципу циклического перебора. Ниже приведены инструкции по настройке такого метода маршрутизации трафика.
@@ -57,4 +55,3 @@ ms.lasthandoff: 05/08/2017
 
 <!--Image references-->
 [1]: ./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png
-

@@ -12,14 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-full-text-search-works-in-azure-search"></a>Как работает полнотекстовый поиск в службе поиска Azure
 
 Эта статья предназначена для разработчиков, которым нужно тщательно разобраться с работой полнотекстового поиска Lucene в поиске Azure. Для текстовых запросов служба поиска Azure в большинстве сценариев быстро предоставляет ожидаемые результаты, однако иногда вы можете получить и неточные результаты. В таких ситуациях понимание четырех этапов выполнения запросов Lucene (синтаксический анализ запроса, лексический анализ, поиск соответствующего документа и оценка) помогут определить характерные изменения параметров запроса или конфигурации индекса, которые приведут к желаемому результату. 
@@ -410,4 +408,3 @@ search=Spacious, air-condition* +"Ocean view"
 [2]: ./media/search-lucene-query-architecture/azSearch-queryparsing-should2.png
 [3]: ./media/search-lucene-query-architecture/azSearch-queryparsing-must2.png
 [4]: ./media/search-lucene-query-architecture/azSearch-queryparsing-spacious2.png
-

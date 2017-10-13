@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 53614d4d2e3101e8ea0bfa6a29256cc817055843
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>Развертывание нескольких пользовательских приложений
 В этой статье показано, как упаковать и развернуть несколько гостевых исполняемых файлов в Azure Service Fabric. Чтобы выполнить сборку и развертывание отдельного пакета Service Fabric вручную, ознакомьтесь с [развертыванием гостевого исполняемого файла в Service Fabric](service-fabric-deploy-existing-app.md).
@@ -73,7 +72,7 @@ Visual Studio можно использовать для создания пак
 * **/target** : определяет каталог, в котором должен быть создан пакет. Этот каталог должен отличаться от исходного.
 * **/appname** : определяет имя приложения для существующего приложения. Важно понимать, что это имя преобразуется в имя службы в манифесте, а не в имя приложения Service Fabric.
 * **/exe**: определяет исполняемый файл, который должна запустить платформа Service Fabric, в данном случае `node.exe`.
-* **/ma** : определяет аргумент, который используется для запуска исполняемого файла. Так как Node.js не установлен, Service Fabric необходимо запустить веб-сервер Node.js, выполнив команду `node.exe bin/www`.  `/ma:'bin/www'` указывает инструменту упаковки использовать `bin/ma` в качестве аргумента для node.exe.
+* **/ma** : определяет аргумент, который используется для запуска исполняемого файла. Так как Node.js не установлен, Service Fabric необходимо запустить веб-сервер Node.js, выполнив команду `node.exe bin/www`.  `/ma:'bin/www'` указывает инструменту упаковки использовать `bin/www` в качестве аргумента для node.exe.
 * **/AppType** : определяет имя типа приложения Service Fabric.
 
 Если перейти в каталог, указанный в параметре/target, вы увидите, что средство создания пакетов сформировало полноценный пакет Service Fabric, как показано ниже.
@@ -219,4 +218,3 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 * Узнайте больше о развертывании контейнеров в [обзоре Service Fabric и контейнеров](service-fabric-containers-overview.md).
 * [Пример для упаковки и развертывания гостевого исполняемого файла](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Пример двух гостевых исполняемых файлов (C# и Node.js), которые взаимодействуют через службу именования с помощью REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-

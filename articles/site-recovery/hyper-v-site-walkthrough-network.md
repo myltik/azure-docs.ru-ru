@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 100b9d8a55c2c163e7a04680f0f7d7963315ee73
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-4-plan-networking-for-hyper-v-to-azure-replication"></a>Шаг 4. Планирование сетей для репликации из Hyper-V в Azure
 
 В этой статье собраны рекомендации по планированию сетей при репликации локальных виртуальных машин Hyper-V (без использования System Center VMM) в Azure с помощью службы [Azure Site Recovery](site-recovery-overview.md).
@@ -91,4 +89,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 5. Подготовка ресурсов Azure для репликации Hyper-V в Azure](hyper-v-site-walkthrough-prepare-azure.md).
-

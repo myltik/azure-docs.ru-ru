@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5d5aa67d14d2344c58e67ee78ea3f2b5d8fd415
-
-
+ms.openlocfilehash: 22924da07434a06f4c822d97a2afd02ea982e0e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-device"></a>Использование службы диспетчера StorSimple для администрирования устройства StorSimple
 ## <a name="overview"></a>Обзор
@@ -102,10 +102,4 @@ ms.openlocfilehash: d5d5aa67d14d2344c58e67ee78ea3f2b5d8fd415
 * [Использование индикаторов мониторинга StorSimple](storsimple-monitoring-indicators.md)
 
 Если вы не можете устранить проблемы и необходимо создать запрос на обслуживание, см. статью [Обращение в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

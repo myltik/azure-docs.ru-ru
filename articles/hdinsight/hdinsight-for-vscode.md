@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2017
 ms.author: jejiang
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: fdf1911f4f5b515592b6197ea738d808104cb43e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>Использование средств Azure HDInsight для Visual Studio Code
 
 Сведения об использовании средств Azure HDInsight для Visual Studio Code (VSCode) для создания и отправки пакетных заданий Hive, интерактивных запросов Hive и сценариев pySpark. Средства Azure HDInsight можно устанавливать на всех платформах, поддерживаемых VSCode, включая Windows, Linux и MacOS. Здесь описаны предварительные требования для различных платформ.
@@ -251,7 +249,6 @@ HDInsight для VSCode поддерживает перечисленные ни
 ### <a name="managing-resources"></a>Управление ресурсами
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
-
 
 
 

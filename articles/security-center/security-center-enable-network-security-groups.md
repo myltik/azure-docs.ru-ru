@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
 ms.openlocfilehash: 1e034d59d8847f237fa0d4c772344d45cd618576
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Включение групп безопасности сети в центре безопасности Azure
 Центр безопасности Azure порекомендует вам включить группы безопасности сети (NSG), если они еще не включены. Эти группы содержат перечень правил списка управления доступом (ACL), которые разрешают или запрещают сетевой трафик на экземпляры виртуальных машин в виртуальной сети. Группы безопасности сети можно связать с подсетями или отдельными экземплярами виртуальных машин в одной из подсетей. Когда NSG связана с подсетью, правила списка управления доступом применяются ко всем экземплярам виртуальной машины в этой подсети. Кроме того, трафик на отдельные виртуальные машины можно дополнительно ограничить, связав NSG непосредственно с нужной виртуальной машиной. Дополнительные сведения см. в статье [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md).
@@ -66,4 +65,3 @@ ms.lasthandoff: 02/04/2017
 [2]:./media/security-center-enable-nsg/configure-nsg-for-subnet.png
 [3]: ./media/security-center-enable-nsg/configure-nsg-for-vm.png
 [4]: ./media/security-center-enable-nsg/choose-nsg.png
-

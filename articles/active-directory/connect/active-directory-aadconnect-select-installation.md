@@ -14,19 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 81549c4bc0cabcf46bc7dc66d7e6662d7f787b1e
-ms.openlocfilehash: df6353f84f898a1722e3e985244a90dbd6b22522
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/26/2017
-
+ms.openlocfilehash: a5697686bd1f41d581554b27ce78897963e38c74
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# Выбор типа установки для Azure AD Connect
-<a id="select-which-installation-type-to-use-for-azure-ad-connect" class="xliff"></a>
+# <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Выбор типа установки для Azure AD Connect
 При новой установке Azure AD Connect есть два типа установки: экспресс и пользовательская. Этот раздел поможет вам выбрать оптимальный вариант установки.
 
-## Express
-<a id="express" class="xliff"></a>
+## <a name="express"></a>Express
 Экспресс-установка наиболее распространена и используется в 90 % всех случаев новой установки. Она была разработана для предоставления конфигурации, которая подходит для большинства распространенных сценариев клиентов.
 
 Предполагается следующее:
@@ -47,8 +44,7 @@ ms.lasthandoff: 01/26/2017
 - Если вы не хотите синхронизировать все подразделения, то можно по-прежнему использовать экспресс-установку, но на последней странице снимите флажок **Запустить синхронизацию сразу...***. Затем снова запустите мастер установки, измените подразделения в [параметрах конфигурации](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) и включите запланированную синхронизацию.
 - Когда вы хотите включить один из компонентов службы Azure AD уровня "Премиум", например компонент обратной записи паролей. Сначала пройдите процесс экспресс-установки, чтобы завершить первоначальную установку. Затем снова запустите мастер установки и измените [параметры конфигурации](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
-## Пользовательская
-<a id="custom" class="xliff"></a>
+## <a name="custom"></a>Пользовательская
 Пользовательский тип установки предоставляет намного больше возможностей, чем экспресс. Его следует применять в тех случаях, где описанная в предыдущем разделе конфигурация для экспресс-установки не соответствует потребностям вашей организации.
 
 Используйте в следующих ситуациях:
@@ -60,25 +56,20 @@ ms.lasthandoff: 01/26/2017
 - У вас более 100 000 объектов и необходимо использовать полную версию SQL Server.
 - Вы планируете использовать фильтрацию по группам, а не только по доменам или подразделениям.
 
-## Обновление из DirSync
-<a id="upgrade-from-dirsync" class="xliff"></a>
+## <a name="upgrade-from-dirsync"></a>Обновление из DirSync
 Если вы используете DirSync, то выполните действия, описанные в статье [Azure AD Connect: обновление DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md), чтобы обновить существующую конфигурацию. Есть два различных сценария обновления:
 
 - Обновление на месте, позволяющее установить Connect на том же сервере.
 - Параллельное развертывание для установки Connect на новом сервере. При этом существующий сервер DirSync продолжает работать.
 
-## Обновление из Azure AD Sync
-<a id="upgrade-from-azure-ad-sync" class="xliff"></a>
+## <a name="upgrade-from-azure-ad-sync"></a>Обновление из Azure AD Sync
 Если вы используете Azure AD Sync, то можете выполнить [те же действия](active-directory-aadconnect-upgrade-previous-version.md), что и при обновлении Connect до более новой версии. Есть два различных сценария обновления:
 
 - Обновление на месте, позволяющее установить Connect на том же сервере.
 - Обновление со сменой сервера для установки Connect на новом сервере. При этом существующий сервер Azure AD Sync продолжает работать.
 
-## Миграция с FIM2010 или MIM2016
-<a id="migrate-from-fim2010-or-mim2016" class="xliff"></a>
+## <a name="migrate-from-fim2010-or-mim2016"></a>Миграция с FIM2010 или MIM2016
 Если вы используете Forefront Identity Manager 2010 или Microsoft Identity Manager 2016 с соединителем Azure AD, то единственным вариантом является миграция. Выполните действия, описанные в разделе [Swing migration](active-directory-aadconnect-upgrade-previous-version.md#swing-migration) (Обновление со сменой сервера). При выполнении этих действий замените все упоминания Azure AD Sync на FIM2010 или MIM2016.
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 В зависимости от выбранного варианта используйте оглавление слева, чтобы найти статью с необходимым вам описанием действий.
-

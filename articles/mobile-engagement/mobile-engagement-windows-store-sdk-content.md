@@ -1,6 +1,6 @@
 ---
 title: "Содержимое пакета SDK для универсальных приложений для Windows"
-description: "Изучите содержимое пакета SDK универсальных приложений для Windows для Azure Mobile Engagement"
+description: "Изучите содержимое пакета SDK универсальных приложений для Windows для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,20 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea47cba55c9689e23eb3592ae2559649d3377055
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: b28d525ab16487b963772e23fdecd11f94dcabd1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-sdk-content"></a>Содержимое пакета SDK для универсальных приложений для Windows
 В этом документе перечислено и описано содержимое, которое развертывается в приложении с помощью пакета SDK.
 
 ## <a name="the-resources-folder"></a>Папка `/Resources`
-Эта папка содержит все ресурсы, необходимые для Mobile Engagement. Вы также можете настроить их в соответствии с особенностями своего приложения.
+Эта папка содержит все ресурсы, необходимые для Служб мобильного взаимодействия. Вы также можете настроить их в соответствии с особенностями своего приложения.
 
-* `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Mobile Engagement (строку подключения Mobile Engagement, сообщение о сбое и т. д.).
+* `EngagementConfiguration.xml`: файл конфигурации Служб мобильного взаимодействия, в котором вы можете настроить параметры Служб мобильного взаимодействия (строку подключения Служб мобильного взаимодействия, сообщение о сбое и т. д.).
 
 ### <a name="html-folder"></a>Папка /html
 * `EngagementNotification.html`: HTML-код веб-представления `Notification` для баннеров в приложении.
@@ -41,5 +40,4 @@ ms.lasthandoff: 11/17/2016
 
 ### <a name="overlay-folder"></a>Папка /overlay
 * `EngagementPageOverlay.cs` : страница наложения, ответственная за добавление пользовательского интерфейса Engagement в приложении в дочерний элемент.
-
 

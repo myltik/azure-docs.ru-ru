@@ -15,12 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 6527e624ce9c911b201881ffd409c57b2f065ef3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/22/2017
-
+ms.openlocfilehash: 5b6694afc0bafaf2be5f98c625dd6724b91234fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Что для меня означает Azure Multi-Factor Authentication
 Вы получили сообщение электронной почты от сотрудника ИТ-отдела или даже от самого начальника о том, что для вашей учетной записи будет выполнена дополнительная проверка безопасности.  Так что же это значит?
@@ -48,4 +47,3 @@ ms.lasthandoff: 06/22/2017
 | [Изменение параметров](multi-factor-authentication-end-user-manage-settings.md) |Описание способа изменения параметров, включая номер телефона или предпочтительный метод регистрации. |
 | [Справка о паролях приложений](multi-factor-authentication-end-user-app-passwords.md) |Информация о создании и использовании паролей приложений. |
 | [Использование мобильного приложения](microsoft-authenticator-app-how-to.md) |Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-

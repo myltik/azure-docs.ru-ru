@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Ведение журналов и аудит Azure
 ## <a name="introduction"></a>Введение
@@ -435,6 +434,5 @@ Log Analytics — это служба в [Operations Management Suite (OMS)](htt
 - [Поиск по журналу аудита в Центре безопасности и соответствия требованиям Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US)
 
 Центр безопасности и соответствия требованиям Office 365 можно использовать для поиска в объединенном журнале аудита, чтобы просмотреть действия пользователя и администратора в организации Office 365.
-
 
 

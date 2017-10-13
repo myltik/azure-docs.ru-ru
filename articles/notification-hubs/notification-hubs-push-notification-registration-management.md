@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4d1f02951bf93d59f16173bd021ab9340a425071
-
-
+ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="registration-management"></a>Управление регистрацией
 ## <a name="overview"></a>Обзор
@@ -317,10 +317,4 @@ ms.openlocfilehash: 4d1f02951bf93d59f16173bd021ab9340a425071
 
 
 Серверная часть должна обеспечивать параллельность обновлений регистраций. Служебная шина предоставляет управление оптимистичным параллелизмом для управления регистрациями. На уровне HTTP это реализуется посредством использования ETag в операциях управления регистрацией. Эта функция автоматически используется в пакетах Microsoft SDK, которые выдают исключение, если обновление отклоняется по причинам параллелизма. Серверная часть приложения отвечает за обработку этих исключений и перезапуск обновления в случае необходимости.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

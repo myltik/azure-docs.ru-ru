@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 57f461f9a39e8069654985d86bfe3ae23dd0855a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="expand-json-transformation"></a>Преобразование Expand JSON (Развертывание текста JSON)
 Преобразование **Expand JSON** (Развертывание текста JSON) позволяет развернуть имеющий столбец, содержащий допустимый текст JSON в нескольких столбцах.
 
@@ -39,5 +37,4 @@ ms.lasthandoff: 09/25/2017
 |---------------------------------------------------------|-----------------|----------------|
 | { "Имя" : "Павел Безруков", "Номер_телефона" : "123-4567-890"}   | Павел Безруков   | 123-4567-890   |
 | { "Имя" : "Сергей Зайцев", "Номер_телефона" : "456-7890-123"} | Сергей Зайцев | 456-7890-123   |
-
 

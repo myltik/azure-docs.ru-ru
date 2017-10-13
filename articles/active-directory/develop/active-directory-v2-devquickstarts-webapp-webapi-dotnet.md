@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: dc3162ae8e6ce622139125c2e78fa45d2e90d534
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Вызов веб-API из веб-приложения .NET
 Конечная точка версии 2.0 позволяет быстро реализовать в веб-приложениях и веб-API аутентификацию с поддержкой личных учетных записей Майкрософт, а также рабочих и учебных учетных записей.  Мы создадим веб-приложение MVC, которое поддерживает вход пользователей с помощью OpenID Connect с использованием ПО промежуточного слоя OWIN Майкрософт.  Веб-приложение будет получать маркеры доступа OAuth 2.0 для веб-API, защищенного OAuth 2.0, который позволяет создавать, читать и удалять элементы "списка дел" данного пользователя.

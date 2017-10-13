@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
+ms.openlocfilehash: e2c67bed2162773156ebf1f0f99593aeb2adf019
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: f9f7449fbfc6a1f2fe96e19dd2b13845e602946d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Подписка Azure, границы, квоты и ограничения службы
 В этом документе указаны некоторые из наиболее распространенных ограничений Microsoft Azure, которые иногда называются квотами. Этот документ на текущий момент охватывает не все службы Azure. Со временем список будет расширен и обновлен, чтобы охватить больше платформ.
@@ -71,7 +70,7 @@ ms.lasthandoff: 09/13/2017
 * [хранилище ключей;](#key-vault-limits)
 * [Log Analytics или Operational Insights](#log-analytics-limits)
 * [Службы мультимедиа](#media-services-limits)
-* [Службы мобильного взаимодействия](#mobile-engagement-limits)
+* [Службы мобильного взаимодействия;](#mobile-engagement-limits)
 * [Мобильные службы](#mobile-services-limits)
 * [Мониторинг](#monitor-limits)
 * [Многофакторная идентификация](#multi-factor-authentication)
@@ -290,5 +289,4 @@ Azure Cosmos DB — это глобальная база данных, проп�
 [Размеры виртуальных машин и облачных служб для Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md)
-
 

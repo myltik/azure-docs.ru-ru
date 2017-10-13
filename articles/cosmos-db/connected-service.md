@@ -16,12 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: подключенная служба Visual Studio (предварительная версия)
 
@@ -50,7 +49,7 @@ ms.lasthandoff: 09/25/2017
 
     ![Снимок экрана: диалоговое окно «Новый проект»](./media/connected-service/connected-service-new-project.png)
     
-## <a name="add-connected-service-and-add-account"></a>Добавление подключенной службы и учетной записи
+## <a name="add-connected-service-and-add-account"></a>добавлять подключенную службу и учетную запись;
 1. В обозревателе решений щелкните правой кнопкой мыши узел проекта, а затем выберите **Добавить** / **Подключенная служба**. Или щелкните правой кнопкой мыши меню **Проект** и выберите **Добавить подключенные службы**.
 
     ![Снимок экрана: окно "Добавление подключенной службы"](./media/connected-service/connected-service-add-connectedservice-rightclick.png)
@@ -94,7 +93,7 @@ ms.lasthandoff: 09/25/2017
     ![Страница "Создание учетной записи Azure Cosmos DB"](./media/connected-service/connected-service-create-new-account.png)        
 3. Щелкните **Создать** , чтобы создать учетную запись.
 
-## <a name="use-data-explorer"></a>Использование обозревателя данных
+## <a name="use-data-explorer"></a>использовать обозреватель данных.
 
 В обозревателе данных можно выполнять следующие задачи:
 * создавать и удалять базы данных;
@@ -113,7 +112,7 @@ ms.lasthandoff: 09/25/2017
 Изучив эту статью, вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]
-> * создавать учетную запись Azure Cosmos DB;
+> * создание учетной записи Azure Cosmos DB;
 > * добавлять подключенную службу и учетную запись;
 > * открывать Azure Cosmos DB Explorer;
 > * использовать обозреватель данных.
@@ -124,5 +123,4 @@ ms.lasthandoff: 09/25/2017
 * [Azure Cosmos DB. Приступая к работе с API DocumentDB](documentdb-get-started.md).
 * Хотите выполнять проверку масштабирования и производительности с помощью Azure Cosmos DB? См. инструкции по [проверке производительности и масштабирования с помощью Azure Cosmos DB](performance-testing.md).
 * Узнайте, как выполнять [мониторинг учетной записи Azure Cosmos DB](monitor-accounts.md).
-
 

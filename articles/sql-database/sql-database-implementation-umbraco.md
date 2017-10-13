@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c22cb3a5436daf0296451f1f05a52d315ebc0416
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 6e9c56874bf4bda7f4248a44e274532ed2555153
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco использует Базу данных SQL Azure, чтобы быстро подготавливать и масштабировать службы для тысяч клиентов в облаке
 ![Логотип Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -131,5 +129,4 @@ UaaS позволяет клиентам SaaS использовать возм�
 * Чтобы узнать больше об архивации и восстановлении, ознакомьтесь с [обеспечением непрерывности бизнес-процессов](sql-database-business-continuity.md).    
 * Чтобы узнать больше о мониторинге пулов, ознакомьтесь с [мониторингом пулов](sql-database-elastic-pool-manage-portal.md).    
 * Чтобы узнать больше об Umbraco как службе, ознакомьтесь с [Umbraco](https://umbraco.com/cloud).
-
 

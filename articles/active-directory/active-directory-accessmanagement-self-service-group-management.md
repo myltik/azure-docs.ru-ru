@@ -16,12 +16,11 @@ ms.date: 09/07/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7a7370eb076ba8602a58a260a14bb863c55bc803
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Настройка Azure Active Directory для самостоятельного управления группами
 Пользователи могут создавать свои группы безопасности или группы Office 365 и управлять ими в Azure Active Directory (Azure AD). Таким образом, ежедневный контроль членства в группе можно делегировать другим пользователям, которые понимают бизнес-контекст этого членства. Ежедневное управление членством в группах можно делегировать пользователям, которые понимают значение членства в этих группах для бизнеса. Они недоступны для групп безопасности и списков рассылки, поддерживающих почту.
@@ -51,4 +50,3 @@ ms.lasthandoff: 09/07/2017
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-

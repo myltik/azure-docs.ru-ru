@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 54f62af6abcdd38254fd5379b95baa05656dc90b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Тестовая отработка отказа в Azure в Site Recovery
 
@@ -127,4 +125,3 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После успешной тестовой отработки отказа можно попробовать выполнить [отработку отказа](site-recovery-failover.md).
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5b26aecc7b9797d7bf604ea5e3d8bdece5bea17b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 68ccc1cac22e593b099729fe68c6bee63df44d9b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics"></a>Создание виртуальных машин (классическая модель) с несколькими сетевыми интерфейсами
 Можно создать виртуальные машины в Azure и подключить к каждой из них несколько сетевых карт. Это необходимо для целого ряда сетевых устройств (например, в составе решений для доставки приложений и оптимизации работы глобальной сети). Кроме того, поддержка нескольких сетевых интерфейсов обеспечивает изоляцию трафика между ними.
@@ -228,5 +227,4 @@ ms.lasthandoff: 04/27/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Развертывание [виртуальных машин с несколькими сетевыми картами в сценарии 2-уровневого приложения в развертывании диспетчера ресурсов](virtual-network-deploy-multinic-arm-template.md).
 * Развертывание [виртуальных машин с несколькими сетевыми картами в сценарии 2-уровневого приложения в классическом развертывании](virtual-network-deploy-multinic-classic-ps.md).
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Аналитика журналов для групп безопасности сети
 
@@ -124,4 +123,3 @@ ms.lasthandoff: 08/07/2017
 ## <a name="view-and-analyze-logs"></a>Просмотр и анализ журналов
 
 Методы просмотра журнала действий описаны в [этой статье](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Методы просмотра журнала диагностики описаны в статье [Обзор журналов диагностики Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Если вы отправляете данные диагностики в Log Analytics, то [решение для анализа сетей Azure (предварительная версия) в Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) поможет получить более подробный анализ данных. 
-

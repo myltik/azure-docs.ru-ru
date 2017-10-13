@@ -14,14 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
+ms.openlocfilehash: feaced0d0784b5724fb1e30be5e66cb7c808d77f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a40e26a8681df31fad664e4d1df4c1513311900d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-your-app-to-linux-vms-using-jenkins-and-team-services"></a>Развертывание приложения на виртуальных машинах Linux с помощью Jenkins и Team Services
 
 Непрерывная интеграция (CI) и непрерывное развертывание (CD) представляют собой конвейер, с помощью которого можно выполнить сборку, выпустить и развернуть свой код. Team Services предоставляет полнофункциональный набор инструментов для автоматизации CI и CD для развертывания в Azure. Jenkins — это популярный серверный инструмент CI и CD стороннего поставщика, который также обеспечивает автоматизацию этих процессов. Эти инструменты можно использовать вместе, чтобы настроить способ доставки своего облачного приложения или службы.

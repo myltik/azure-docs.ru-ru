@@ -10,12 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/01/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: a4ddb9d4f672de6cf1ebe137bf06e5e2c8b7796f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 38988fc5c0dc05331ea078534cd1a05e9eca2493
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Ограничения в базе данных Azure для PostgreSQL
 Служба базы данных Azure для PostgreSQL работает в режиме общедоступной предварительной версии. В следующих разделах описываются действующие ограничения емкости и функциональных возможностей в службе базы данных.
@@ -64,4 +63,3 @@ ms.lasthandoff: 06/16/2017
 - Ознакомьтесь со статьей [Параметры и производительность базы данных Azure для MySQL: возможности разных уровней служб](concepts-service-tiers.md).
 - Ознакомьтесь со статьей [Поддерживаемые версии в базе данных Azure для PostgreSQL](concepts-supported-versions.md).
 - Просмотрите статью [How To Backup and Restore a server in Azure Database for PostgreSQL using the Azure portal](howto-restore-server-portal.md) (Архивация и восстановление сервера в базе данных Azure для PostgreSQL с помощью портала Azure).
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
+ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 85ae54f76fff47b16d7a365ccee87866d0424f82
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-standalone-azure-automation-account"></a>Создание автономной учетной записи службы автоматизации Azure
 В этой статье вы узнаете, как создать учетную запись службы автоматизации на портале Azure, если для обеспечения расширенного мониторинга заданий Runbook требуется оценить и изучить службу автоматизации Azure, не включая дополнительные решения по управлению или интеграцию с OMS Log Analytics.  В дальнейшем эти решения по управлению можно добавить или интегрировать с Log Analytics.  С использованием учетной записи службы автоматизации можно проверять подлинность ресурсов управления модулями Runbook в Azure Resource Manager или в классическом развертывании Azure.
 
@@ -92,4 +90,3 @@ ms.lasthandoff: 09/13/2017
 * Сведения о том, как начать работу с модулями Runbook, см. в статье [Мой первый модуль Runbook PowerShell](automation-first-runbook-textual-powershell.md).
 * Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
 * См. дополнительные сведения о начале работы с [модулями runbook Python2](automation-first-runbook-textual-python2.md).
-

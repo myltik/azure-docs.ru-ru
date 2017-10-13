@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Начало работы со Службами мобильного взаимодействия Azure для Cordova (Phonegap)
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -45,12 +45,10 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-## <a id="setup-azme">
-            </a>Настройка Служб мобильного взаимодействия для приложения Cordova
+## <a id="setup-azme"></a>Настройка Служб мобильного взаимодействия для приложения Cordova
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app">
-            </a>Подключение приложения к серверной части Служб мобильного взаимодействия
+## <a id="connecting-app"></a>Подключение приложения к серверной части Служб мобильного взаимодействия
 В этом учебнике описаны действия по базовой интеграции, т. е. минимум, требуемый для сбора данных и отправки push-уведомлений. 
 
 Чтобы продемонстрировать интеграцию, мы создадим простое приложение при помощи Сordova.

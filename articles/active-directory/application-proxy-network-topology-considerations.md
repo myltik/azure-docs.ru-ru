@@ -15,14 +15,12 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
 ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Аспекты топологии сети при использовании прокси приложения Azure Active Directory
 
 В этой статье рассматриваются аспекты топологии сети при использовании прокси приложения Azure Active Directory для публикации и удаленного доступа к приложениям.
@@ -178,4 +176,3 @@ ms.lasthandoff: 08/05/2017
 - [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
 - [Включение условного доступа](active-directory-application-proxy-conditional-access.md)
 - [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
-

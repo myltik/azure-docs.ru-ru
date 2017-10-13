@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
 ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="internet-of-things-security-architecture"></a>Архитектура безопасности "Интернета вещей"
 При разработке системы важно знать угрозы, которым она может подвергаться, а по завершении разработки и создания архитектуры предусмотреть надлежащие средства ее защиты. Особенно важно спланировать стратегию безопасности в самом начале разработки продукта, ведь зная, как злоумышленники могут скомпрометировать систему, можно изначально устранить соответствующие риски. 

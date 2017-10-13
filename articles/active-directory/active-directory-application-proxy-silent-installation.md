@@ -15,14 +15,12 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: cf3058832ba656a1a18aea194bf4e5ce4e800e76
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Создание скрипта автоматической установки для соединителя прокси приложения Azure AD
 
 Эта статья поможет вам создать скрипт Windows PowerShell, позволяющий выполнить автоматическую установку и регистрацию соединителя прокси приложения Azure AD.
@@ -132,6 +130,5 @@ ms.lasthandoff: 09/01/2017
 * [Публикация приложений с помощью доменного имени](active-directory-application-proxy-custom-domains.md)
 * [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
 * [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
-
 
 

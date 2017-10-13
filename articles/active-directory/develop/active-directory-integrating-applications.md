@@ -1,4 +1,4 @@
----
+﻿---
 title: "Интеграция приложений с Azure Active Directory | Документация Майкрософт"
 description: "Сведения о том, как добавить, обновить или удалить приложение в Active Directory (Azure AD)."
 services: active-directory

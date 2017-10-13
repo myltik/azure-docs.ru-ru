@@ -15,12 +15,11 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: c1b3feb79328269f4692d744e7a473397d0328c1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="web-apps-overview"></a>Обзор веб-приложений
 *Веб-приложения службы приложений* — это полностью управляемая вычислительная платформа, оптимизированная для размещения веб-сайтов и веб-приложений. Это предложение Microsoft Azure [платформа как услуга](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) позволяет сосредоточиться на бизнес-логике, так как инфраструктуру для запуска и масштабирования приложений предоставляет среда Azure.
@@ -76,4 +75,3 @@ ms.lasthandoff: 09/28/2017
 > [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
 > 
 > 
-

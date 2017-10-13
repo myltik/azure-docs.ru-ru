@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: danlep
+ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9148ac9646e4e1cfeff8f20c096e390499437e78
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Установка веб-сервера LAMP на виртуальной машине Azure
 Эта статья содержит указания по развертыванию веб-сервера Apache, MySQL и PHP (стека LAMP) на виртуальной машине Ubuntu в Azure. Если вы хотите использовать веб-сервер NGINX, ознакомьтесь с руководством [Install a LEMP web server on an Azure VM](tutorial-lemp-stack.md) (Установка веб-сервера LEMP на виртуальной машине Azure). Если необходимо оценить работу сервера LAMP в действии, вы можете установить и настроить сайт WordPress. Из этого руководства вы узнаете, как выполнить следующие задачи:
@@ -28,7 +27,7 @@ ms.lasthandoff: 08/21/2017
 > [!div class="checklist"]
 > * создание виртуальной машины Ubuntu (L в названии стека LAMP);
 > * Открытие порта 80 для веб-трафика
-> * установка Apache, PHP и MySQL;
+> * Установка Apache, PHP и MySQL
 > * проверка установки и настройки;
 > * установка WordPress на сервере LAMP.
 
@@ -56,7 +55,7 @@ sudo apt update && sudo apt install lamp-server^
 
 ![Страница с паролем привилегированного пользователя MySQL][1]
 
-## <a name="verify-installation-and-configuration"></a>Проверка установки и настройки
+## <a name="verify-installation-and-configuration"></a>Проверка установки и настройки.
 
 
 ### <a name="apache"></a>Apache
@@ -76,7 +75,7 @@ apache2 -v
 Узнайте версию MySQL, выполнив указанную ниже команду. Обратите внимание, что параметр `V` указан с заглавной буквы.
 
 ```bash
-msql -V
+mysql -V
 ```
 
 Чтобы обеспечить безопасную установку MySQL, мы рекомендуем выполнить следующий скрипт:
@@ -121,9 +120,9 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 Из этого руководства вы узнали, как развернуть сервер LAMP в Azure. Вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]
-> * создание виртуальной машины Ubuntu;
+> * Создание виртуальной машины Ubuntu.
 > * Открытие порта 80 для веб-трафика
-> * установка Apache, PHP и MySQL;
+> * Установка Apache, PHP и MySQL
 > * проверка установки и настройки;
 > * установка WordPress на сервере LAMP.
 

@@ -15,14 +15,12 @@ ms.date: 08/04/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 426056d394af0a9ded28202615cb80c7b50e59fc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Как обеспечить безопасный удаленный доступ к локальным приложениям
 
 Сегодня сотрудникам нужно продуктивно работать без привязки к расположению, времени и оборудованию. Они предпочитают использовать собственные устройства — планшеты, телефоны и ноутбуки. Кроме того, они хотят иметь постоянный доступ к своим приложениям, как к приложениям SaaS в облаке, так и к приложениям в корпоративной локальной сети. Традиционно для доступа к локальным приложениям требуются виртуальные частные сети (VPN) или сети периметра. Помимо того, что такие решения довольно сложны и их непросто защитить, на их настройку и управление требуются немалые средства.
@@ -102,5 +100,4 @@ ms.lasthandoff: 09/28/2017
 * [Настройка пользовательской домашней страницы для опубликованных приложений с помощью прокси приложения Azure AD](application-proxy-office365-app-launcher.md)
 
 Последние новости и обновления см. в [блоге, посвященном прокси приложения](http://blogs.technet.com/b/applicationproxyblog/).
-
 

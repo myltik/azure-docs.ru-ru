@@ -15,12 +15,11 @@ ms.devlang: rest-api
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
+ms.openlocfilehash: 16bd85065f77612ac342ae4a8b500e0c7fa2a078
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 160fbc98e0f3dcc7d17cbe0c7f7425811596a896
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Работа с поддержкой веб-канала изменений в Azure Cosmos DB
 [Azure Cosmos DB](../cosmos-db/introduction.md) — это быстрая и гибкая служба глобально реплицируемой базы данных, используемая для хранения большого объема данных транзакций и операционных данных с прогнозируемой задержкой операций чтения и записи менее 10 секунд. Благодаря этому она хорошо подходит для приложений Интернета вещей, розничной торговли, игр и приложений для ведения журнала операций. Распространенный конструктивный шаблон в этих приложениях заключается в отслеживании изменений в данных Azure Cosmos DB и обновлении материализованных представлений, выполнении аналитики в реальном времени, архивировании данных в автономном неструктурированном защищенном хранилище и активировании уведомлений для определенных событий на основе этих изменений. **Поддержка веб-канала изменений** в Azure Cosmos DB дает возможность создавать эффективные и масштабируемые решения для каждого из этих шаблонов.
@@ -532,4 +531,3 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 ## <a name="next-steps"></a>Дальнейшие действия
 * Попробуйте поработать с [примерами кода веб-канала изменений Azure Cosmos DB в GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 * Приступите к созданию кода с помощью [пакетов SDK](documentdb-sdk-dotnet.md) или [REST API](/rest/api/documentdb/) Azure Cosmos DB.
-

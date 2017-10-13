@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Создание лаборатории в лаборатории для разработки и тестирования Azure
 Azure DevTest Labs — это инфраструктура, которая содержит группу ресурсов, таких как виртуальные машины, позволяющую более эффективно управлять этими ресурсами за счет установки ограничений и квот. В этой статье показано, как создать лабораторию с помощью портала Azure.
@@ -65,5 +64,4 @@ Azure DevTest Labs — это инфраструктура, которая со
 * [Создание шаблона лаборатории](devtest-lab-create-template.md).
 * [Создание пользовательских артефактов для виртуальных машин](devtest-lab-artifact-author.md).
 * [Добавление виртуальной машины с артефактами в лабораторию](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/).
-
 

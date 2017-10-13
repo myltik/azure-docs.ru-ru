@@ -1,9 +1,9 @@
---- 
+---
 title: "Создание модуля интеграции службы автоматизации Azure | Документация Майкрософт"
 description: "В этом руководстве приводятся пошаговые инструкции по созданию и тестированию модулей интеграции, а также примеры их использования в службе автоматизации Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: ea2ad80f348c80856c525218aad45a8fcf47bcb8
-ms.openlocfilehash: aeb06276a52e5472667ae0a741fb3007a91910fe
-
+ms.openlocfilehash: 061a9856ef4a9bc4f569b812a061fad98b044f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-automation-integration-modules"></a>Модули интеграции службы автоматизации Azure
 Служба автоматизации Azure создана с использованием технологии PowerShell. Поэтому модули PowerShell — основной компонент для расширения службы автоматизации Azure. В этой статье рассматриваются особенности использования модулей PowerShell (которые называются модулями интеграции) в службе автоматизации Azure и рекомендации по созданию своих модулей PowerShell и обеспечению их работы в качестве модулей интеграции в службе автоматизации Azure. 
 
@@ -173,7 +173,7 @@ ms.openlocfilehash: aeb06276a52e5472667ae0a741fb3007a91910fe
     }
     ``` 
     <br>
-   Нужно принять примитивный тип, который можно использовать в командлете для получения и использования сложного объекта. Так как командлеты выполняются в контексте PowerShell, а не рабочего процесса PowerShell, для параметра $process в командлете указывается правильный тип [System.Diagnostic.Process].  
+    Нужно принять примитивный тип, который можно использовать в командлете для получения и использования сложного объекта. Так как командлеты выполняются в контексте PowerShell, а не рабочего процесса PowerShell, для параметра $process в командлете указывается правильный тип [System.Diagnostic.Process].  
    
     ```
     function Get-ProcessDescription {
@@ -211,10 +211,4 @@ ms.openlocfilehash: aeb06276a52e5472667ae0a741fb3007a91910fe
 
 * Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Мой первый модуль Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
 * Дополнительные сведения о создании модулей PowerShell см. в статье [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) (Написание модуля Windows PowerShell).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

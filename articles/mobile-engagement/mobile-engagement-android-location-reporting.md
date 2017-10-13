@@ -1,6 +1,6 @@
 ---
-title: "Создание отчетов о расположении для пакета SDK для Android в Azure Mobile Engagement"
-description: "Сведения о создании отчетов о расположении для пакета SDK для Android в Azure Mobile Engagement."
+title: "Создание отчетов о расположении для пакета SDK для Android в Службах мобильного взаимодействия"
+description: "Сведения о создании отчетов о расположении для пакета SDK для Android в Службах мобильного взаимодействия Azure."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,14 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Создание отчетов о расположении для пакета SDK для Android в Azure Mobile Engagement
+# <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Создание отчетов о расположении для пакета SDK для Android в Службах мобильного взаимодействия
 > [!div class="op_single_selector"]
 > * [Android](mobile-engagement-android-integrate-engagement.md)
 > 
@@ -118,7 +117,7 @@ ms.lasthandoff: 11/17/2016
 
 Вы можете включить или отключить эти разрешения в меню параметров устройства. Отключение разрешений в системном меню приводит к завершению фоновых процессов приложения. Такое поведение системы не влияет на возможность получения push-уведомлений в фоновом режиме.
 
-В контексте отчетов о расположении Mobile Engagement утверждения в среде выполнения требуют следующие разрешения.
+В контексте отчетов о расположении Служб мобильного взаимодействия утверждения в среде выполнения требуют следующие разрешения.
 
 * `ACCESS_COARSE_LOCATION`
 * `ACCESS_FINE_LOCATION`
@@ -160,4 +159,3 @@ ms.lasthandoff: 11/17/2016
       if (requestCode == 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
         getEngagementAgent().refreshPermissions();
     }
-

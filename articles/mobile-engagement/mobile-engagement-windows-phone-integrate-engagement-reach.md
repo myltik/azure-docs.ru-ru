@@ -1,6 +1,6 @@
 ---
 title: "Интеграция пакета SDK Reach для Windows Phone Silverlight"
-description: "Интеграция Azure Mobile Engagement Reach с приложениями Windows Phone Silverlight"
+description: "Интеграция Служб мобильного взаимодействия Azure Reach с приложениями Windows Phone Silverlight"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 72f69e334172ad69bedb9c8fc4d270a607d1598f
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 0738f33df94d14fbb393bfaaf09e94c6560213cc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-reach-sdk-integration"></a>Интеграция пакета SDK Reach для Windows Phone Silverlight
 Перед выполнением действий, описанных в этом руководстве, необходимо выполнить процедуру интеграции, изложенную в документе [Интеграция пакета SDK Engagement для Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) .
@@ -283,5 +282,4 @@ ms.lasthandoff: 02/16/2017
 [политикам в отношении приложений]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [дополнительным требованиям к приложениям определенных типов]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
-
 

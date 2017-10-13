@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Создание, изменение или удаление виртуальной сети
 
@@ -199,4 +198,3 @@ ms.lasthandoff: 08/15/2017
 - Сведения о фильтрации сетевого трафика между подсетями в виртуальной сети см. статью [Создание групп безопасности сети с помощью портала Azure](virtual-networks-create-nsg-arm-pportal.md).
 - Сведения о том, как настроить пиринговую связь между виртуальными сетями, см. в статье [Create a virtual network peering](virtual-network-create-peering.md#portal) (Создание пиринговой связи между виртуальными сетями).
 - Чтобы узнать о способах подключения виртуальной сети к локальной сети, см. статью [Основные сведения о VPN-шлюзах Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
-

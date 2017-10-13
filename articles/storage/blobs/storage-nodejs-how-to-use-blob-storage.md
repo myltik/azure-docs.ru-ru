@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2858d916e935de618e1b0d5078218aa725275aeb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Использование хранилища больших двоичных объектов из Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -413,8 +412,8 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ## <a name="next-steps"></a>Дальнейшие действия
 Для получения дополнительных сведений см. следующие ресурсы.
 
-* [Справочник по пакету SDK службы хранилища Azure для API Node][Справочник по пакету SDK службы хранилища Azure для API Node]  
-* [Блог рабочей группы службы хранилища Azure][Блог рабочей группы службы хранилища Azure]  
+* [Справочник по пакету SDK службы хранилища Azure для API Node] [Azure Storage SDK for Node API Reference]  
+* [Блог рабочей группы службы хранилища Azure][Azure Storage Team Blog]  
 * Репозиторий [пакета SDK хранилища Azure для Node][Azure Storage SDK for Node] на веб-сайте GitHub.  
 * [Центр разработчиков Node.js.](https://azure.microsoft.com/develop/nodejs/)  
 * [Приступая к работе со служебной программой командной строки AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
@@ -425,6 +424,5 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
 [Построение и развертывание приложения Node.js в облачной службе Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
-[Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
-[Справочник по пакету SDK службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  
-
+[Блог группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
+[Справочник по пакету SDK для службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  

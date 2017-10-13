@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>Сравнение Служб мобильного взаимодействия Azure с другими подобными службами Azure
 Список служб, предоставляемых Microsoft Azure, постоянно расширяется, и в некоторых случаях может возникнуть вопрос, чем Службы мобильного взаимодействия Azure отличаются от какой-то другой службы, о которой вы только что услышали или прочли. В данной статье мы попробуем избавиться от этой неопределенности и сделать так, чтобы вы выбирали Службы мобильного взаимодействия Azure именно в тех случаях, в которых она подходит вам больше всего. 

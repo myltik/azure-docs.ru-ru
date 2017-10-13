@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 902929fba9e2486d97323ab52505ba6db3fe0aab
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d2a03be810bd7f792876607ec735eb578b65a3b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="views-in-sql-data-warehouse"></a>Представления в хранилище данных SQL
 Представления особенно удобны в хранилище данных SQL. Их можно использовать разными способами для повышения качества вашего решения.  В этой статье представлены примеры того, как можно улучшить решение с помощью представлений; кроме того, здесь описаны ограничения, которые следует учитывать.
@@ -80,4 +79,3 @@ RENAME OBJECT DimDate_New TO DimDate;
 [CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
 
 <!--Other Web references-->
-

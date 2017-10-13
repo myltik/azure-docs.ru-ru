@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
+ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 24b2530b23211c654072a6edc8a31e53989bf0a8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Настройка проекта Azure с помощью нескольких конфигураций службы
 Проект облачной службы Azure включает два файла конфигурации: ServiceDefinition.csdef и ServiceConfiguration.cscfg. Эти файлы упаковываются вместе с приложением облачной службы Azure и развертываются в Azure.
@@ -106,5 +105,4 @@ ms.lasthandoff: 08/21/2017
 | События построения |На этой странице можно задать события перед сборкой и после сборки. |
 | Разработка |На этой странице можно указать инструкции конфигурации сборки и условия, при которых будут выполняться любые события после сборки. |
 | Web |На этой странице можно настроить параметры, связанные с веб-сервером. |
-
 

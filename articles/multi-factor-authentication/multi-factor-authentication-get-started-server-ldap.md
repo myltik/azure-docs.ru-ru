@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
 ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Аутентификация LDAP и сервер Многофакторной идентификации Azure
 По умолчанию в сервере Azure Multi-Factor Authentication настроен импорт или синхронизация пользователей из Active Directory. Однако его можно настроить на привязку к другим каталогам LDAP, например к каталогу ADAM или конкретному контроллеру домена Active Directory. При подключении к каталогу по протоколу LDAP сервер Многофакторной идентификации Azure может функционировать в качестве прокси-сервера LDAP и выполнять аутентификацию. Он также позволяет использовать привязку LDAP в качестве целевого объекта RADIUS для предварительной проверки подлинности пользователей при применении проверки подлинности IIS или для основной проверки подлинности на пользовательском портале Многофакторной идентификации Azure.

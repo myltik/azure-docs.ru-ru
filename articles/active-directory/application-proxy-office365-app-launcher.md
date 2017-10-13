@@ -15,14 +15,12 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 811adc81424b8e53a740ec34f77a7610fc2a72a8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Настройка пользовательской домашней страницы для опубликованных приложений с помощью прокси приложения Azure AD
 
 В этой статье описывается настройка приложений для направления пользователей на пользовательскую домашнюю страницу. При публикации приложения с помощью прокси приложения задается внутренний URL-адрес, но иногда он не является той страницей, на которую пользователи должны попадать в первую очередь. Задайте пользовательскую домашнюю страницу, чтобы пользователи переходили на нужную страницу при обращении к приложениям. Пользователи будут видеть эту домашнюю страницу при обращении к приложению из панели доступа Azure Active Directory или средства запуска приложений Office 365.
@@ -144,4 +142,3 @@ ms.lasthandoff: 09/09/2017
 
 - [Настройка удаленного доступа к SharePoint с помощью прокси приложения Azure AD](application-proxy-enable-remote-access-sharepoint.md)
 - [Включение прокси приложения на портале Azure](active-directory-application-proxy-enable.md)
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
+ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: e747d4777bdf515e8b7bd54f44ff48b8539ed765
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Создание шлюза приложений с брандмауэром веб-приложения с помощью портала
 
 > [!div class="op_single_selector"]
@@ -84,7 +82,7 @@ WAF в шлюзе приложений Azure защищает веб-прило�
 * как создать подсеть с именем Appgatewaysubnet и блоком CIDR (10.0.0.0/28);
 * как настроить сертификат для разгрузки SSL.
 
-1. Войдите на [портал Azure](https://portal.azure.com). Если у вас нет учетной записи, вы можете зарегистрироваться для получения [бесплатной пробной версии на один месяц](https://azure.microsoft.com/free).
+1. Выполните вход на [портал Azure](https://portal.azure.com). Если у вас нет учетной записи, вы можете зарегистрироваться для получения [бесплатной пробной версии на один месяц](https://azure.microsoft.com/free).
 
 2. В области **Избранное** портала щелкните **Создать**.
 
@@ -166,4 +164,3 @@ WAF в шлюзе приложений Azure защищает веб-прило�
 [3]: ./media/application-gateway-web-application-firewall-portal/figure3.png
 [10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
 [scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
-

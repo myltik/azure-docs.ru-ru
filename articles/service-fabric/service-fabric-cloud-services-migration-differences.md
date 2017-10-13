@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 56220f357cbb44946d601167234636a1bce03bfa
-ms.openlocfilehash: d0488999f55b7ccc393f4852f22c6adf4a031b1f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/13/2017
-
-
+ms.openlocfilehash: 26c0256f6fa299551d92e9bcd058ca359d8c85b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Узнайте о различиях между облачными службами и Service Fabric перед переносом приложений.
 Microsoft Azure Service Fabric — это платформа облачных приложений следующего поколения для построения масштабируемых и высоконадежных распределенных приложений. Она содержит множество новых функций для упаковки, развертывания, обновления распределенных облачных приложений и управления ими. 
@@ -105,4 +103,3 @@ Service Fabric предоставляет механизм обнаружени�
 [9]: ./media/service-fabric-cloud-services-migration-differences/cloud-services-architecture.png
 [10]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-simple.png
 [11]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-full.png
-

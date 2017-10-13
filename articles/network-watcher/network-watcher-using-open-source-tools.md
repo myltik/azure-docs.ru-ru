@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 50d82847fb629880f298f79f9ab791a13836f01c
-ms.openlocfilehash: e27bb694d0cbcf1ff7c9d8ca4682a79c8b5c5cb1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 61abda6053fe743e294f309df3a6e1041052ec6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Визуализация распределения входящего и исходящего трафика на виртуальных машинах с помощью средств с открытым кодом
 
 Захват пакетов содержит сетевые данные, которые позволяют выполнять экспертизу сети и тщательную проверку пакетов. Есть множество средств с открытым кодом, которые можно использовать для анализа захвата пакетов, чтобы получить ценную информацию о сети. В числе таких средств можно назвать средство с открытым кодом CapAnalysis, предназначенное для визуализации захвата пакетов. Визуализация данных захвата пакетов позволяет быстро получать информацию о тенденциях и аномалиях в сети. Также визуализация позволяет передавать такую информацию другим людям в простом и доступном формате.
@@ -111,4 +109,3 @@ CapAnalysis предлагает много возможностей для ви
 [9]: ./media/network-watcher-using-open-source-tools/figure9.png
 [10]: ./media/network-watcher-using-open-source-tools/figure10.png
 [11]: ./media/network-watcher-using-open-source-tools/figure11.png
-

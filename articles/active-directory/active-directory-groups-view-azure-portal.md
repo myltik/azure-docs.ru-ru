@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 1cc8b9194433840df9ce16baf1a0ec2c3dd08ad9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: 32e34ce0d4d6c12f25fcd4ff2de10809ca7ac361
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Просмотр или поиск групп пользователей в Azure Active Directory
 В этой статье объясняется, как просмотреть все группы в Azure Active Directory (Azure AD). Одной из возможностей управления пользователями Azure AD является использование групп пользователей для выполнения задач управления, например назначение лицензий или разрешений нескольким пользователям одновременно.
@@ -45,4 +44,3 @@ ms.lasthandoff: 05/09/2017
 * [Управление участниками группы](active-directory-groups-members-azure-portal.md)
 * [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
 * [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: d607449a16e886337ab1bd96213fbb4231124353
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-service-fabric-reliable-state-manager-and-reliable-collection-internals"></a>Внутренние компоненты диспетчера надежных состояний и надежных коллекций Azure Service Fabric
 В этом документе рассматриваются диспетчер надежных состояний Reliable State Manager и надежные коллекции Reliable Collections и принципы работы их основных компонентов.
 
@@ -55,5 +53,4 @@ ms.lasthandoff: 05/04/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Транзакции и блокировки](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-
 

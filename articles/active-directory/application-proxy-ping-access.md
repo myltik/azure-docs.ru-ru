@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Аутентификация на основе заголовка для единого входа с использованием прокси приложения и PingAccess
 
 Прокси приложения Active Directory и Azure PingAccess можно использовать для предоставления пользователям Azure Active Directory доступа к разным приложениям. PingAccess позволяет включить в [существующие предложения прокси приложения](active-directory-application-proxy-get-started.md) возможность доступа с единым входом к приложениям, в которых используется аутентификация на основе заголовков.
@@ -163,4 +161,3 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 - [Настройка PingAccess для Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Как прокси приложения Azure AD предоставляет единый вход?](application-proxy-sso-overview.md)
 - [Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md)
-

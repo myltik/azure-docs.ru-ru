@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Анализ тональности в Twitter в режиме реального времени в Azure Stream Analytics
 
 Узнайте, как обеспечить анализ тональности для аналитики социальных сетей путем переноса событий Twitter в концентратор событий Azure в режиме реального времени. Вы узнаете, как составлять запросы Azure Stream Analytics для анализа данных, а затем сохранять результаты или использовать панель мониторинга для получения ценной аналитической информации в режиме реального времени, используя [Power BI](https://powerbi.com/).
@@ -385,4 +383,3 @@ Stream Analytics поддерживает простую декларативн�
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

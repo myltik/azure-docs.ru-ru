@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: b3b4a6df431ccdb882dd354aac9cb86a96a81b11
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Управление проблемами защиты конечных точек с помощью центра безопасности Azure
 Центр безопасности Azure отслеживает состояние защиты от вредоносных программ и предоставляет отчеты в колонке с проблемами защиты конечных точек. Центр безопасности выделяет проблемы, например обнаруженные угрозы и недостаточную защиту, которые могут подвергнуть ваши виртуальные машины и компьютеры угрозам от вредоносных программ. Используя информацию раздела **о проблемах защиты конечных точек**, можно определить план устранения любых обнаруженных проблем.
@@ -114,4 +113,3 @@ ms.lasthandoff: 09/13/2017
 [4]:./media/security-center-install-endpoint-protection/endpoint-protection-issues-computers.png
 [5]:./media/security-center-install-endpoint-protection/log-search.png
 [6]:./media/security-center-install-endpoint-protection/info-filtered-to-computer.png
-

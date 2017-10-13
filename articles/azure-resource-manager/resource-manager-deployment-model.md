@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/09/2017
 ms.author: tomfitz
 ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов
 В этом разделе приводятся сведения о модели развертывания с помощью Azure Resource Manager, классической модели развертывания, состоянии ресурсов и о том, почему для развертывания ресурсов используется тот или иной метод. Модель развертывания с помощью Azure Resource Manager и классическая модель представляют собой два разных способа развертывания решений Azure и управления ими. При работе с ними применяются два разных набора API, и развернутые ресурсы могут содержать важные различия. Две модели не являются полностью совместимыми друг с другом. В данном разделе описываются эти различия.

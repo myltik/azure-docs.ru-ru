@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: a81b956107ef82f40ad5304808068a7573ca7d27
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure
 
@@ -140,5 +139,4 @@ ms.lasthandoff: 09/26/2017
 ### <a name="other-resources"></a>Другие ресурсы:
 * [Установка нового леса Active Directory в виртуальной сети Azure](../../../active-directory/active-directory-new-forest-virtual-machine.md)
 * [Создание отказоустойчивого кластера для групп доступности на виртуальной машине Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
-
 

@@ -1,5 +1,5 @@
 # Обзор
-## [About Azure virtual machines (Сведения о виртуальных машинах Azure)](../../virtual-machines-windows-about.md)
+## [About Azure virtual machines (Сведения о виртуальных машинах Azure)](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Диски и виртуальные жесткие диски](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Виртуальные сети](../../../virtual-network/virtual-networks-overview.md)
 ## [Часто задаваемые вопросы](faq.md)

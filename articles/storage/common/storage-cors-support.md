@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Поддержка общего доступа к ресурсам независимо от источника (CORS) для служб хранилища Azure
 Начиная с версии 2013-08-15, службы хранилища Azure поддерживают общий доступ к ресурсам независимо от источника (CORS) для служб BLOB-объектов, таблиц, очередей и файлов. CORS является функцией HTTP, которая позволяет веб-приложению, работающему в одном домене, обращаться к ресурсам из другого домена. Веб-браузеры реализуют ограничение безопасности под названием [политика одного источника](http://www.w3.org/Security/wiki/Same_Origin_Policy), которое не позволяет веб-странице вызывать интерфейсы API из другого домена; CORS обеспечивает безопасный способ, который разрешает одному домену (исходному домену) вызывать интерфейсы API в другом домене. Дополнительные сведения о спецификации CORS см. на [этом сайте](http://www.w3.org/TR/cors/).
@@ -190,5 +189,4 @@ ms.lasthandoff: 04/06/2017
 [Задание свойств службы таблиц](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [Спецификация общего доступа к ресурсам, независимо от источника W3C](http://www.w3.org/TR/cors/)
-
 

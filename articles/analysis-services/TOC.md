@@ -50,7 +50,7 @@
 ## [Язык TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Ресурсы
-## [Примеры кода Analysis Services на сайте GitHub](https://github.com/Microsoft/Analysis-Services)
+## [Примеры](analysis-services-samples.md)
 ## [Блог команды разработчиков служб Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Форум по службам Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)

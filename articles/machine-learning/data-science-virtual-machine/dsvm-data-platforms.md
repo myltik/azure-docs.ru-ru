@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-platforms"></a>Платформы данных
 
 На виртуальной машине для обработки и анализа данных (DSVM) можно создавать аналитику на множестве платформ данных. Кроме интерфейсов для платформ удаленных данных DSVM предоставляет локальный экземпляр для быстрой разработки и создания прототипов. 
@@ -106,5 +104,4 @@ SQL Server устанавливается обычным образом. Его 
 
 
 Библиотеки для доступа к данным из большого двоичного объекта или хранилища Azure Data Lake (ADLS) и библиотеки с использованием машинного обучения MMLSpark корпорации Майкрософт предварительно установлены в JAR-файлах $SPARK_HOME. Эти JAR-файлы автоматически загружаются при запуске Spark. По умолчанию Spark использует данные на локальном диске. Чтобы экземпляр Spark на DSVM получил доступ к данным, хранящимся в большом двоичном объекте Azure или ADLS, необходимо создать и настроить файл `core-site.xml` на основе шаблона, хранящегося в файле $SPARK_HOME/conf/core-site.xml.template (в котором находятся заполнители для конфигураций большого двоичного объекта и ADLS), с правильными учетными данными для большого двоичного объекта Azure и хранилища Azure Data Lake. Более подробные инструкции по созданию учетных данных службы ADLS можно найти [здесь](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). После ввода учетных данных для большого двоичного объекта Azure или ADLS в файле core-site.xml можно ссылаться на данные, хранящиеся в этих источниках данных, используя префикс универсального кода ресурса wasb:// или adl://. 
-
 

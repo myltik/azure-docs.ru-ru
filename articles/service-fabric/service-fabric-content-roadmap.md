@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3b20583d04a820d925260b4da574a4cb304efbe2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bbad2e501acf024fb5b7f5c62ebe5fa81e19cce7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Что бы вы хотели узнать о Service Fabric?
 Azure Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые и надежные микрослужбы, но и управлять ими.  Service Fabric имеет большую контактную зону и вы можете многому научиться.  Здесь представлен краткий обзор Service Fabric и описаны основные понятия, модели программирования, жизненный цикл приложения, тестирование, кластеры и мониторинг работоспособности. Обзор и сведения о том, как создавать микрослужбы с помощью Service Fabric, см. в статьях [Общие сведения о Service Fabric](service-fabric-overview.md) и [Разработка приложений с использованием микрослужб](service-fabric-overview-microservices.md). Эта статья не содержит полный список связанной документации, но предоставляет ссылки на руководства по началу работы для каждой области Service Fabric. 
@@ -185,7 +184,7 @@ Service Fabric для Linux дает возможность создавать, 
 
 Service Fabric предоставляет несколько способов [просмотра отчетов о работоспособности](service-fabric-view-entities-aggregated-health.md), объединенных в хранилище данных о работоспособности.
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) или другие средства визуализации;
-* запросы о работоспособности (с помощью [PowerShell](/powershell/module/ServiceFabric/), [API-интерфейсов FabricClient C#](/api/system.fabric.fabricclient.healthclient), [API-интерфейсов FabricClient Java](/java/api/system.fabric._health_client) или [интерфейсов REST API](/rest/api/servicefabric));
+* запросы о работоспособности (с помощью [PowerShell](/powershell/module/ServiceFabric/), [API-интерфейсов FabricClient C#](/dotnet/api/system.fabric.fabricclient.healthclient), [API-интерфейсов FabricClient Java](/java/api/system.fabric._health_client) или [интерфейсов REST API](/rest/api/servicefabric));
 * общие запросы, возвращающие перечень сущностей, среди свойств которых есть работоспособность (с помощью PowerShell, API или REST).
 
 В следующем видеоролике Microsoft Virtual Academy рассматривается модель работоспособности Service Fabric и принципы ее использования: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
@@ -206,4 +205,3 @@ Service Fabric предоставляет несколько способов [�
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
-

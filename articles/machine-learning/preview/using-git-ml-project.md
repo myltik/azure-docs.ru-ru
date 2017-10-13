@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 59b07c9834904e01256b75344ba2e6892e56438c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Использование репозитория Git в проекте Azure Machine Learning Workbench
 Этот документ содержит сведения о том, как Azure Machine Learning Workbench использует Git для обеспечения повторяемости эксперимента обработки и анализа данных. Также в ней есть инструкции, позволяющие связать проект с облачным репозиторием Git.
@@ -174,4 +173,3 @@ $ more ~/.ssh/id_rsa.pub
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Сведения об использовании командного процесса обработки и анализа данных для организации структуры проекта см. в статье [о применении TDSP для структурирования проекта](how-to-use-tdsp-in-azure-ml.md).
-

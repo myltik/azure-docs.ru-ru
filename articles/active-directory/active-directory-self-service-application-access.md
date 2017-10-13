@@ -16,12 +16,11 @@ ms.date: 09/06/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: 39c62461c9659b0cb4422de88686283ba462c53b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Самостоятельный доступ к приложениям и делегированное управление приложениями с помощью Azure Active Directory
 Обеспечение возможности самообслуживания для пользователей — это распространенный сценарий в корпоративных ИТ-решениях. При наличии большого количества пользователей и приложений может оказаться, что у администратора каталога нет достаточного количества данных для принятия решений о предоставлении доступа. Часто случается так, что руководитель группы или другой делегированный администратор может лучше других справиться с решением о предоставлении доступа к приложению. Тем не менее именно пользователи работают в приложении, и поэтому им лучше всех известно, какие возможности нужны для выполнения работы.
@@ -109,4 +108,3 @@ ms.lasthandoff: 09/06/2017
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
-

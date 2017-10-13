@@ -15,14 +15,12 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: e1f992aede3af99fa7c2ffa661bccbcac9f52ba9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Включение собственных клиентских приложений для взаимодействия с приложениями прокси
 
 В дополнение к веб-приложениям для публикации собственных клиентских приложений, настроенных с помощью библиотеки ADAL, можно использовать прокси приложения Azure Active Directory. Приложения собственного клиента отличаются от веб-приложений, потому что они устанавливаются на устройство, а веб-приложения предоставляются через браузер. 
@@ -41,7 +39,7 @@ ms.lasthandoff: 09/01/2017
 ## <a name="step-2-configure-your-application"></a>Шаг 2. Настройка приложения
 Настройте собственное приложение, следуя инструкциям ниже.
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Выполните вход на [портал Azure](https://portal.azure.com).
 2. Выберите **Azure Active Directory** > **Регистрация приложений**.
 3. Выберите **Регистрация нового приложения**.
 4. Укажите имя приложения, выберите тип приложения **Машинный код** и укажите универсальный код ресурса (URI)универсальный код ресурса (URI) перенаправления для приложения. 
@@ -100,4 +98,3 @@ HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >"
 Дополнительные сведения о блок-схеме собственного приложения см. в разделе [Из нативного приложения к веб-интерфейсу API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
 
 Дополнительные сведения о настройке см. в статье [Как прокси приложения Azure AD предоставляет единый вход?](application-proxy-sso-overview.md)
-

@@ -12,17 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 06/20/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
 ms.custom: mvc
+ms.openlocfilehash: 8a000d797c3bd10606d297ed8da67229fe0c8a86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 3212944a8bd882ced86e841944ac60bd1845e3d1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Добавление сертификата приложения в кластер Service Fabric
 
 В этом примере сценария создается самозаверяющий сертификат из указанного хранилища ключей Azure. Затем этот сертификат устанавливается на все узлы кластера Service Fabric. Сертификат также скачивается в локальную папку. Имя скачанного сертификата совпадает с именем сертификата в хранилище ключей. Измените параметры, если это необходимо.
@@ -31,7 +29,7 @@ ms.lasthandoff: 07/15/2017
 
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-powershell[главный](../../../powershell_scripts/service-fabric/add-application-certificate/add-new-application-certificate.ps1 "Добавление сертификата приложения в кластер")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/add-application-certificate/add-new-application-certificate.ps1 "Add an application certificate to a cluster")]
 
 ## <a name="script-explanation"></a>Описание скрипта
 
@@ -46,4 +44,3 @@ ms.lasthandoff: 07/15/2017
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
 Дополнительные примеры сценариев Azure PowerShell для Azure Service Fabric см. в разделе [Примеры сценариев Azure PowerShell](../service-fabric-powershell-samples.md).
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Что такое оповещения в Microsoft Azure?
 В этой статье рассматриваются различные источники оповещений в Microsoft Azure, назначение этих оповещений и их преимущества, а также описывается, как приступить к работе с ними. Эта статья посвящена Azure Monitor, но содержит ссылки и на другие службы с оповещениями. Оповещения предоставляют методы мониторинга в Azure, они позволяют настроить условия для данных и получать уведомления, когда последние данные мониторинга соответствуют этим условиям.
@@ -92,4 +91,3 @@ ms.lasthandoff: 09/25/2017
 * Дополнительные сведения об оповещениях на основе метрик практически в реальном времени см. [здесь](monitoring-near-real-time-metric-alerts.md).
 * Узнайте больше об [уведомлениях службы](monitoring-service-notifications.md).
 * Узнайте больше о [группах действий](monitoring-action-groups.md).
-

@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 06/23/2017
 ms.author: joeyong;barbkess
 ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Перенос кода SQL в хранилище данных SQL
 В этой статье поясняются изменения кода, которые, вероятно, потребуется внести при переносе кода в хранилище данных SQL из другой базы данных. Некоторые функции хранилища данных SQL могут значительно повысить производительность, так как они предназначены для работы в распределенной форме. Однако для обеспечения производительности и масштабирования некоторые функции недоступны.
@@ -32,8 +32,7 @@ ms.lasthandoff: 07/11/2017
 * [инструкция merge][merge statement];
 * соединение join между базами данных
 * [курсоры][cursors];
-* <seg>
-  [INSERT..EXEC][INSERT..EXEC];</seg>
+* [INSERT..EXEC][INSERT..EXEC];
 * предложение output
 * встроенные функции, определяемые пользователем
 * функции с несколькими инструкциями

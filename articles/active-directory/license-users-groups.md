@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: c4509cdb003687083d0456c1957b19cf35ee056a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Краткое руководство: лицензированные пользователи в Azure Active Directory
 Службы Azure AD на основе лицензий работают, активируя подписку Azure Active Directory (Azure AD) в клиенте Azure. После активации подписки функциями службы начинают управлять администраторы Azure AD, а лицензированные пользователи могут их использовать. Когда вы покупаете Enterprise Mobility + Security, Azure AD Premium или Azure AD Basic, в клиенте обновляется информация о подписке, в частности срок ее действия и предоплаченные лицензии. Сведения о подписке, включая число назначенных или доступных лицензий, можно просмотреть на портале Azure AD на вкладке **Azure Active Directory**, открыв плитку **Лицензии**. С колонки **Лицензии** лучше всего управлять назначениями лицензий.

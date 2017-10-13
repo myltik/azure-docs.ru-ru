@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 75f2dcb80514105ed663ba1fe5f7adccc05af1fc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Общие сведения о локальном кэше службы приложений Azure
 Содержимое веб-приложения Azure хранится в службе хранилища Azure; оно доступно в долгосрочном режиме в общей папке содержимого. Эта схема рассчитана на работу с различными приложениями и имеет следующие атрибуты:  
@@ -115,4 +114,3 @@ ms.lasthandoff: 09/27/2017
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>Исключается ли при использовании локального кэша копирование каких-либо каталогов на более быстрый локальный диск?
 В рамках операции копирования содержимого хранилища исключаются любые папки с именем repository. Это помогает в ситуациях, когда содержимое узла может содержать репозиторий системы управления версиями, который может быть не нужен для ежедневных операций веб-приложения. 
-

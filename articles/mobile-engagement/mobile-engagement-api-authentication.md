@@ -1,6 +1,6 @@
 ---
-title: "Аутентификация с помощью интерфейсов REST API Mobile Engagement"
-description: "Описывается аутентификация с помощью интерфейсов REST API Azure Mobile Engagement."
+title: "Аутентификация с помощью интерфейсов REST API Служб мобильного взаимодействия"
+description: "Описывается аутентификация с помощью интерфейсов REST API Служб мобильного взаимодействия Azure."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,18 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bf8cd0d645d8a5992864c8a3820ac2049a3ff630
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: b05181d9252c0a804648e01b4058019278ae5abe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis"></a>Аутентификация с помощью интерфейсов REST API Mobile Engagement
+# <a name="authenticate-with-mobile-engagement-rest-apis"></a>Аутентификация с помощью интерфейсов REST API Служб мобильного взаимодействия
 ## <a name="overview"></a>Обзор
-В этом документе описывается, как получить допустимый маркер Oauth AAD для проверки подлинности с помощью интерфейсов REST API Mobile Engagement. 
+В этом документе описывается, как получить допустимый маркер Oauth AAD для проверки подлинности с помощью интерфейсов REST API Служб мобильного взаимодействия. 
 
-Предполагается, что у вас есть действующая подписка Azure и вы создали приложение Mobile Engagement, используя одно из наших [руководств для разработчиков](mobile-engagement-windows-store-dotnet-get-started.md).
+Предполагается, что у вас есть действующая подписка Azure и вы создали приложение Служб мобильного взаимодействия, используя одно из наших [руководств для разработчиков](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="authentication"></a>Аутентификация
 Для проверки подлинности необходимо использовать маркер OAuth на основе Microsoft Azure Active Directory. 
@@ -61,7 +60,7 @@ ms.lasthandoff: 04/27/2017
         Login-AzureRmAccount
 4. Если у вас несколько подписок, следует выполнить следующую команду:
    
-    а. Получите список всех подписок и скопируйте SubscriptionId нужной подписки. Убедитесь, что эта подписка используется с приложением Mobile Engagement, с которым вы будете работать с помощью API. 
+    а. Получите список всех подписок и скопируйте SubscriptionId нужной подписки. Убедитесь, что эта подписка используется с приложением Служб мобильного взаимодействия, с которым вы будете работать с помощью API. 
    
         Get-AzureRmSubscription
    
@@ -134,7 +133,7 @@ ms.lasthandoff: 04/27/2017
    * **3** `{app-resource-name}`
    * **4** Ваша группа ресурсов будет носить имя **MobileEngagement** до тех пор, пока не будет создана новая группа. 
      
-     ![Параметры URI API Mobile Engagement][2]
+     ![Параметры URI API Служб мобильного взаимодействия][2]
 
 > [!NOTE]
 > <br/>
@@ -149,7 +148,6 @@ ms.lasthandoff: 04/27/2017
 [2]: ./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
-
 
 
 

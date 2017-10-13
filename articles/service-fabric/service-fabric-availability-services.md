@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3e46b4bdcf7b55c31afe5e7bc84a1fb95ad98701
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="availability-of-service-fabric-services"></a>Доступность служб структуры служб
 В этой статье представлен обзор способа, который используется в Service Fabric для поддержания доступности службы.
 
@@ -48,4 +46,3 @@ ms.lasthandoff: 09/25/2017
 - [Разделение служб Service Fabric](service-fabric-concepts-partitioning.md)
 - [Определение состояния и управление им](service-fabric-concepts-state.md)
 - [Надежные службы](service-fabric-reliable-services-introduction.md)
-

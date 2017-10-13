@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: darosa
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-grid-message-delivery-and-retry"></a>Доставка и повторные попытки доставки сообщений сетки событий 
 
 В этой статье описывается, как сетка событий Azure обрабатывает события, когда доставка не подтверждена.
@@ -68,5 +66,5 @@ ms.lasthandoff: 08/16/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Общие сведения о сетке событий см. в статье [Сведения о сетке событий](overview.md).
-* Сведения о том, как быстро приступить к использованию сетки событий, см. в разделе [Создание и перенаправление пользовательского события со службой "Сетка событий Azure"](custom-event-quickstart.md).
+* Общие сведения о службе "Сетка событий" см. в разделе [Общие сведения о службе "Сетка событий Azure"](overview.md).
+* Сведения о том, как быстро приступить к использованию службы "Сетка событий", см. в разделе [Создание и перенаправление пользовательского события со службой "Сетка событий Azure"](custom-event-quickstart.md).

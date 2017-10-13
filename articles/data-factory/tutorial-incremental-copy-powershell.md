@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
+ms.openlocfilehash: 91b632b6d2c2917acf17e9d89c1b5a4b0f8b1c33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 6a73e7818edfb796b7294f6794d2652c5feedf5c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure
 Фабрика данных Azure — это облачная служба интеграции данных, которая позволяет создавать управляемые данными рабочие процессы в облаке для оркестрации и автоматизации перемещения и преобразования данных. С помощью фабрики данных Azure можно создавать и включать в расписание управляемые данными рабочие процессы (конвейеры), которые могут принимать данные из разнородных хранилищ данных, обрабатывать и преобразовывать эти данные с помощью служб вычислений (например, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics и машинного обучения Azure), а также публиковать выходные данные в хранилища данных (например, хранилище данных SQL Azure) для использования приложениями бизнес-аналитики. 
 
@@ -36,8 +34,8 @@ ms.lasthandoff: 09/25/2017
 > * создание связанных служб. 
 > * Создадите наборы данных источника, приемника и предела.
 > * Создадите конвейер.
-> * Запустите конвейер.
-> * Выполните мониторинг выполнения конвейера. 
+> * Запустили конвейер.
+> * Выполнение мониторинга выполнения конвейера. 
 
 ## <a name="overview"></a>Обзор
 Ниже приведена общая схема решения: 
@@ -727,7 +725,6 @@ END
 
 > [!div class="nextstepaction"]
 >[Transform data in the cloud by using Spark activity in Azure Data Factory](tutorial-transform-data-spark-powershell.md) (Преобразование данных в облаке с помощью действий Spark в фабрике данных Azure)
-
 
 
 

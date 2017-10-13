@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sizes-for-cloud-services"></a>Размеры для облачных служб
 В этом разделе описаны доступные размеры и параметры для экземпляров ролей облачных служб (веб-ролей и рабочих ролей). Здесь также предоставлены рекомендации по развертыванию, которые нужно учитывать при планировании использования этих ресурсов. Каждому размеру присвоен идентификатор, который вы поместите в [файл определения службы](cloud-services-model-and-package.md#csdef). Цены за каждый размер доступны на [этой](https://azure.microsoft.com/pricing/details/cloud-services/) странице.
@@ -198,4 +197,3 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [лимитах, квотах и ограничениях подписки и службы Azure](../azure-subscription-service-limits.md).
 * Узнайте больше об использовании [размеров виртуальных машин, оптимизированных для высокопроизводительных вычислений,](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) для рабочих нагрузок HPC.
-

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: b2e005d707717a8f6db90b24438527304823a6a8
-ms.openlocfilehash: a0867e97805bbb905d5defa89d13bbb0d4c4aa49
-
-
+ms.openlocfilehash: dad415936280b4af916b8c46df46f6c51ac0bca4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Устранение проблем с маршрутами на портале Azure
 > [!div class="op_single_selector"]
@@ -150,9 +150,3 @@ ms.openlocfilehash: a0867e97805bbb905d5defa89d13bbb0d4c4aa49
 * Для правильной работы пирингового трафика виртуальной сети системный маршрут, в котором для **nextHopType** *VNetPeering* , должен действовать в диапазоне префиксов пиринговой виртуальной сети. Если такого маршрута не существует и пиринговая связь сети действует нормально, возможны два сценария действий.
   * Подождите несколько секунд и повторите попытку, если пиринговая связь установлена недавно. Иногда требуется больше времени, чтобы распространить маршруты для всех сетевых интерфейсов в подсети.
   * Правила групп безопасности сети (NSG) могут влиять на потоки трафика. Дополнительные сведения см. в статье, посвященной [устранению неполадок с группами безопасности сети](virtual-network-nsg-troubleshoot-portal.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

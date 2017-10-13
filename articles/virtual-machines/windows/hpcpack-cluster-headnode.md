@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 ms.openlocfilehash: b2bb9caf82a580dc5f67ea0b0b1c2e9a46363e9c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Создание головного узла кластера пакета HPC на виртуальной машине Azure с помощью образа Marketplace
 Для создания головного узла кластера HPC с помощью портала Azure используйте [образ виртуальной машины пакета Microsoft HPC 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) из Azure Marketplace. Этот образ виртуальной машины пакета HPC основан на ОС Windows Server 2012 R2 Datacenter с предустановленным пакетом HPC 2012 R2 с обновлением 3. Используйте этот головной узел для экспериментального развертывания пакета HPC в Azure. Затем можно добавить к кластеру вычислительные узлы для запуска рабочих нагрузок HPC.

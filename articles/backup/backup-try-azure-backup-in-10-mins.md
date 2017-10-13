@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Первое знакомство. Резервное копирование файлов и папок с использованием модели развертывания с помощью Resource Manager
 В этой статье описывается, как выполнить резервное копирование файлов и папок Windows Server (на компьютере с Windows) в Azure с помощью службы архивации Azure, используя модель развертывания с помощью Resource Manager. В этом руководстве приведены общие сведения, и с помощью него вы сможете опробовать службу архивации Azure.
@@ -229,4 +228,3 @@ ms.lasthandoff: 09/07/2017
 * См. дополнительные сведения об [архивации компьютеров Windows](backup-configure-vault.md).
 * Теперь, когда вы выполнили резервное копирование файлов и папок, вы можете [управлять хранилищами и серверами](backup-azure-manage-windows-server.md).
 * Если необходимо восстановить резервную копию, см. статью о [восстановлении файлов на компьютере Windows](backup-azure-restore-windows-server.md).
-

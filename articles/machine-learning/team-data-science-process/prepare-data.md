@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
 ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Задачи по подготовке данных для расширенного машинного обучения
 Предварительная обработка и очистка данных — это важные этапы, обеспечивающие эффективное использование набора данных для машинного обучения. Необработанные данные зачастую искажены и ненадежны, и в них могут быть пропущены значения. Использование таких данных при моделировании может приводить к неверным результатам. Эти задачи являются частью процесса обработки и анализа данных группы и обычно подразумевают первоначальное изучение набора данных, используемого для определения и планирования необходимой предварительной обработки. Более подробные инструкции по процессу TDSP см. в процедуре, описанной в статье [Процесс обработки и анализа данных группы](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).

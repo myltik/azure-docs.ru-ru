@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
-
-
+ms.openlocfilehash: 9a69253129cdedc4f5d7e736d5bd8d6a68f95a1e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Заметки о выпуске пакета SDK для Azure для .NET 2.7 и .NET 2.7.1
 ## <a name="overview"></a>Обзор
@@ -63,7 +63,7 @@ ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
 #### <a name="known-issues"></a>Известные проблемы
 Узлы слота развертывания веб-приложений не отображаются в узле слотов в обозревателе серверов, а дочерние узлы слота развертывания веб-приложений не загружаются в обозревателе облака. Эта проблема решена; следующая версия пакета SDK будет выпущена с ее учетом. 
 
-### <a name="a-namecloudexploreracloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>Обозреватель облака для Visual Studio 2015
+### <a name="cloud_explorer"></a>Обозреватель облака для Visual Studio 2015
 Пакет Azure SDK 2.7 для Visual Studio 2015 включает обозреватель облака. Этот средство позволяет просматривать ресурсы Azure, проверять их свойства и выполнять основные действия разработчика в среде Visual Studio. 
 
 Обозреватель облака поддерживает следующие возможности.
@@ -136,10 +136,4 @@ ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
 [Объявление о пакете Azure SDK 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
 [Сведения о поддержке и прекращении использования пакета Azure SDK для .NET и API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

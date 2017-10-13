@@ -15,14 +15,12 @@ ms.date: 08/15/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
+ms.openlocfilehash: e1e979319e53d222be33032acd0a79697dd09ab6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 6bcb6d9f7a1e9b241fa70690016b03d6eb5887ab
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Начало работы с приложением Microsoft Authenticator
 Приложение Microsoft Authenticator обеспечивает дополнительный уровень безопасности для рабочей учетной записи (например, bsimon@contoso.com) или для учетной записи Майкрософт (например, bsimon@outlook.com).
 
@@ -53,7 +51,7 @@ Microsoft Authenticator также можно использовать со ст
 
 Чтобы добавить личную учетную запись Майкрософт (используемую для входа в Outlook.com, Xbox, Skype и т. д.), нужно просто войти в нее в приложении Microsoft Authenticator.
 
-### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>Добавление рабочей или учебной учетной записи в приложение с использованием сканера QR-кода
+### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>Добавление рабочей или учебой учетной записи в приложение с использованием сканера QR-кода
 1. Перейдите на страницу параметров проверки безопасности.  Инструкции по переходу на эту страницу см. в статье [Управление параметрами двухфакторной проверки подлинности](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
 2. Установите флажок **Приложение Authenticator** и нажмите кнопку **Настроить**.
 
@@ -109,4 +107,3 @@ Microsoft Authenticator также можно использовать со ст
 После того как учетная запись будет добавлена в приложение, может потребоваться пройти тестовую проверку, чтобы убедиться в правильности настройки всех параметров. После этого все будет готово! Вам не нужно ничего делать вплоть до следующего входа.
 
 Если вы решили использовать коды проверки в приложении, они будут отображаться на домашней странице. Они изменяются каждые 30 секунд, поэтому при необходимости у вас всегда будет новый код. Ничего не делайте с ними до тех пор, пока не выполните вход и не получите запрос на ввод кода проверки.  
-

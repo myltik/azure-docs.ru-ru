@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: ec397eaeda963f257d1bd996f1f57189bcde17ca
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 7a3e1eb129db530295cbf28bbce1dbe48575d50d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-does-azure-vm-replication-work-in-site-recovery"></a>Как работает репликация виртуальной машины в Site Recovery?
 
 
@@ -85,4 +83,3 @@ ms.lasthandoff: 06/15/2017
 
 - Дополнительные сведения о [сети](site-recovery-azure-to-azure-networking-guidance.md) для репликации виртуальной машины Azure.
 - Выполните пошаговое руководство для [репликации виртуальной машины Azure](site-recovery-azure-to-azure.md).
-

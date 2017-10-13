@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="web-application-firewall-waf"></a>Брандмауэр веб-приложения (WAF)
 
 Брандмауэр веб-приложения (WAF) — это компонент шлюза приложений, обеспечивающий централизованную защиту веб-приложений от распространенных эксплойтов и уязвимостей. 
@@ -173,5 +171,4 @@ WAF шлюза приложений предоставляет подробны�
 ## <a name="next-steps"></a>Дальнейшие действия
 
 После изучения возможностей WAF можно ознакомиться с разделом [Создание шлюза приложений с брандмауэром веб-приложения с помощью портала](application-gateway-web-application-firewall-portal.md).
-
 

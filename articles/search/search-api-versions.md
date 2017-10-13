@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
 ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-versions-in-azure-search"></a>Версии API в службе поиска Azure
 Служба поиска Azure развертывает обновления компонентов на регулярной основе. Иногда (но не всегда) для сохранения обратной совместимости после таких обновлений нам приходится публиковать новые версии API. Публикация новой версии позволяет вам выбирать, когда и как интегрировать обновления службы поиска в код.

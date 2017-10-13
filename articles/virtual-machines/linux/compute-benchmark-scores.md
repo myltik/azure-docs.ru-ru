@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 09/25/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0d0bd736ddbdf1c4b4344747130236df2af76138
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 3c7b34652ea4c9340b9fe7f6ada3f9992642aeac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Вычисление результатов теста производительности для виртуальных машин Linux
 Ниже приведены результаты теста производительности CoreMark линейки высокопроизводительных виртуальных машин Azure под управлением Ubuntu. Вы можете также ознакомиться с результатами теста производительности для [виртуальных машин Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -91,5 +89,4 @@ ms.lasthandoff: 04/03/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о емкости хранилища, подробности о дисках и дополнительные рекомендации по выбору размера виртуальной машины см. в статье [Размеры виртуальных машин в Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Чтобы выполнить сценарии CoreMark на виртуальных машинах Linux, скачайте [пакет сценариев CoreMark](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
-
 

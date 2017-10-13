@@ -1,7 +1,7 @@
-### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Предоставьте доступ к сертификату push-уведомлений для Mobile Engagement
-Чтобы разрешить Mobile Engagement отправлять push-уведомления от вашего имени, необходимо предоставить доступ к сертификату. Это можно сделать путем настройки и ввода сертификата на портале Mobile Engagement. Убедитесь, что получили сертификат P12, как описано в [документации Apple](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Предоставьте доступ к сертификату push-уведомлений для Служб мобильного взаимодействия
+Чтобы разрешить Службам мобильного взаимодействия отправлять push-уведомления от вашего имени, необходимо предоставить доступ к сертификату. Это можно сделать путем настройки и ввода сертификата на портале Служб мобильного взаимодействия. Убедитесь, что получили сертификат P12, как описано в [документации Apple](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
-1. Перейдите на портал Mobile Engagement. Убедитесь, что все правильно, и нажмите кнопку **Выполнить охват** внизу.
+1. Перейдите на портал Служб мобильного взаимодействия. Убедитесь, что все правильно, и нажмите кнопку **Выполнить охват** внизу.
    
     ![](./media/mobile-engagement-ios-send-push/engage-button.png)
 2. Щелкните станицу **Параметры** на портале Mobile Engagement. Выберите здесь раздел **Системное push-уведомление** , чтобы передать ваш сертификат P12:
@@ -14,7 +14,7 @@
 ## <a id="send"></a>Отправка уведомления в приложение
 Создадим простую кампанию push-уведомлений, которая отправит push-уведомление в приложение.
 
-1. Перейдите на вкладку **Рекламная кампания** на портале Mobile Engagement.
+1. Перейдите на вкладку **Рекламная кампания** на портале Служб мобильного взаимодействия.
 2. Щелкните **Создать объявление** , чтобы создать кампанию push-уведомлений.
    
     ![](./media/mobile-engagement-ios-send-push/new-announcement.png)

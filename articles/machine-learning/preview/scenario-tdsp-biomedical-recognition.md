@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a13bbd5d32eaab96dfb97e60652dbe9bcbdfb1b1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Распознавание биомедицинских сущностей с помощью шаблона командного процесса обработки и анализа данных (TDSP)
 
 На примере этого реального сценария показано, как использовать Azure Machine Learning Workbench для решения сложной задачи обработки естественного языка (NLP), такой как извлечение сущностей из неструктурированного текста.
@@ -77,7 +75,7 @@ ms.lasthandoff: 09/25/2017
         pubdate: Publication date
         title
 
-### <a name="2-lstm-model-training-data"></a>2) Данные для обучения модели LSTM
+### <a name="2-lstm-model-training-data"></a>2. Данные для обучения модели LSTM
 
 При обучении и оценке нейронной модели для извлечения сущностей использовались общедоступные наборы данных. Подробное описание этих наборов данных см. в следующих источниках:
  * [Report on Bio-Entity Recognition Task at BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html) (Отчет по задаче распознавания биомедицинских сущностей, представленный на семинаре NLPBA в 2004 г.);
@@ -151,7 +149,7 @@ ms.lasthandoff: 09/25/2017
  * [совокупность задач семинара BioCreative V по исследованию связей типа "лекарство — заболевание" (CDR)](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/);
  * [семинар по семантической оценке (SemEval), 2013 г., задача 9.1 (распознавание названий лекарств)](https://www.cs.york.ac.uk/semeval-2013/task9/).
 
-### <a name="2-modeling"></a>2) Моделирование
+### <a name="2-modeling"></a>2. Моделирование
 
 См. раздел о [моделировании](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling).
 
@@ -269,5 +267,4 @@ Word2Vec — это алгоритм обучения векторных пре
 * [Recurrent Neural Networks](https://www.tensorflow.org/tutorials/recurrent) (Рекуррентные нейронные сети).
 * [Problems encountered with Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/) (Проблемы, возникающие с моделью Word2Vec в Spark).
 * [Spark Word2Vec: lessons learned](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/spark-word2vec-lessons-learned/) (Опыт, полученный при работе с Word2Vec в Spark).
-
 

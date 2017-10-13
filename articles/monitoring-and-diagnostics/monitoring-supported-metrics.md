@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 05830547a5b8a24a59571edf6dd44d101b660189
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Метрики, поддерживаемые Azure Monitor
 Azure Monitor обеспечивает несколько способов взаимодействия с метриками, включая создание диаграмм метрик на портале, доступ к метрикам через REST API или запрос метрик с помощью PowerShell или интерфейса командной строки. Ниже приведен полный список метрик, доступных в настоящее время в конвейере метрик Azure Monitor.
@@ -1000,4 +999,3 @@ Azure Monitor обеспечивает несколько способов вз�
 * [Прочитайте о метриках в Azure Monitor](monitoring-overview-metrics.md)
 * [Создайте оповещения на основе метрик](insights-receive-alert-notifications.md)
 * [Экспортируйте метрики в хранилище, концентратор событий или Log Analytics](monitoring-overview-of-diagnostic-logs.md)
-

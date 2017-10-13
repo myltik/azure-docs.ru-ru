@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-devtest-labs-faq"></a>Часто задаваемые вопросы об Azure DevTest Labs
 В этой статье содержатся ответы на некоторые самые распространенные вопросы об Azure DevTest Labs.
@@ -141,7 +140,7 @@ DevTest Labs предусматривает два типа ролей для п
 
 Чтобы найти целевую учетную запись хранения, связанную с лабораторией, сделайте следующее:
 
-1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. В меню слева выберите **Группы ресурсов**.
 3. Найдите и выберите группу ресурсов, связанную с вашей лабораторией.
 4. В разделе **Обзор** выберите одну из учетных записей хранения.
@@ -235,4 +234,3 @@ DevTest Labs предусматривает два типа ролей для п
 В некоторых случаях ошибка развертывания возникает до начала развертывания виртуальной машины. Например, при превышении лимита подписки для ресурса, созданного с помощью виртуальной машины. В таком случае сведения об ошибке регистрируются на уровне журналов действий. Журналы действий находятся под параметрами **конфигурации и политик**. Дополнительные сведения об использовании журналов действий в Azure см. в статье [Просмотр журналов действий для аудита действий с ресурсами](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: sutalasi
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Репликация многоуровневого приложения SharePoint для аварийного восстановления с помощью Azure Site Recovery | Документы Майкрософт
 
@@ -214,4 +213,3 @@ SharePoint можно развертывать на одном или неско
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы можете больше узнать о [репликации других приложений](site-recovery-workload.md) с помощью Site Recovery.
-

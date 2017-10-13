@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Управление потреблением ресурсов и нагрузкой в Service Fabric с помощью метрик
 *Метрики* определяют ресурсы, которые нужны вашим службам и которые предоставляются узлами в кластере. Метрика — это все, чем требуется управлять, чтобы повышать или отслеживать производительность своих служб. Например, можно отслеживать потребление памяти, чтобы знать, не перегружена ли служба. С помощью метрики вы можете определить, можно ли переместить службу в другое расположение, в котором память менее ограничена, чтобы повысить производительность.
@@ -273,4 +272,3 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Подключение продуктов и служб ITSM с помощью соединителя управления ИТ-службами (предварительная версия)
 В этой статье приведены сведения о подключении продуктов и служб ITSM к соединителю управления ИТ-службами в OMS для централизованного управления рабочими элементами. Дополнительные сведения о соединителе управления ИТ-службами см. в [этой обзорной статье](log-analytics-itsmc-overview.md).
@@ -369,4 +368,3 @@ ms.lasthandoff: 09/25/2017
  - [Создание рабочих элементов ITSM из журналов OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
 
 - [Using the solution](log-analytics-itsmc-overview.md#using-the-solution) (Использование решения)
-

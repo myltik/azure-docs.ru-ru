@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 103fd6c3d536bc11f4e39444043a332a1d8f6c01
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-state"></a>Состояние службы
 **Состояние службы** — это данные в памяти или на диске, необходимые службе для функционирования. Например, к ним относятся структуры данных и переменные-члены, которые считываются и записываются работающей службой. В зависимости от архитектуры службы она может также включать в себя файлы и другие ресурсы, которые хранятся на диске. Например, это могут быть файлы, которые база данных будет использовать для хранения данных и журналов транзакций.
@@ -42,4 +41,3 @@ ms.lasthandoff: 08/19/2017
 * [Масштабируемость служб структуры служб](service-fabric-concepts-scalability.md)
 * [Разделение служб Service Fabric](service-fabric-concepts-partitioning.md)
 * [Reliable Services на платформе Service Fabric](service-fabric-reliable-services-introduction.md)
-

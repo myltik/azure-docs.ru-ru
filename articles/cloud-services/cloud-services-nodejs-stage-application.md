@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
 ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Развертывание приложения в промежуточной среде Azure
 Упакованное приложение можно развернуть в промежуточной среде в Azure и протестировать его перед развертыванием в рабочей среде, где оно будет доступно пользователям через Интернет. Промежуточная среда в точности схожа с рабочей средой за исключением того, что доступ к приложению в промежуточной среде возможен только с использованием допустимого URL-адреса, который создается Azure. Убедившись, что приложение работает правильно, вы можете развернуть его в рабочей среде, выполнив переключение виртуальных IP-адресов (VIP).

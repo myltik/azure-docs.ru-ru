@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
+ms.openlocfilehash: c3bd4329e8a22ce8503d6593560d29c2a3135e83
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 8d7b9dc3df9c68a18c95fe71b100b516becd4b5c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Подготовка виртуальной машины SQL Server к работе с помощью Azure PowerShell (классическая модель)
 
@@ -205,4 +204,3 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 Подробнее о создании виртуальных машин SQL на портале Azure см. в статье [Подготовка виртуальной машины SQL Server на портале Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md). Обратите внимание, что в учебнике, описывающем работу с порталом, виртуальные машины создаются с помощью рекомендуемой модели Resource Manager, а не классической модели, используемой в данном разделе PowerShell.
 
 В дополнение к этим ресурсам рекомендуем ознакомиться с [другими статьями, связанными с запуском SQL Server на виртуальных машинах Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-

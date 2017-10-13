@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: 68031d548bdbeda9a83d1bceaaea7c5bbcab3188
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Использование удаленного рабочего стола для подключения к виртуальной машине Microsoft Azure на базе Linux
 > [!IMPORTANT] 
@@ -114,4 +112,3 @@ RDP (протокол удаленного рабочего стола) — э�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об использовании xrdp см. здесь: [http://www.xrdp.org/](http://www.xrdp.org/).
-

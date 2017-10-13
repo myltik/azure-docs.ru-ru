@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Добавление приложения в коллекцию приложений Azure Active Directory
 Чтобы указать приложение, поддерживающее единый вход с Azure Active Directory в [коллекции Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), приложению сначала необходимо реализовать один из следующих режимов интеграции.
@@ -95,5 +94,4 @@ ms.lasthandoff: 07/15/2017
 > Приложите логотип приложения (PNG-файл, 150 x 122 пикселя, сплошной цвет фона):
 > 
 > 
-
 

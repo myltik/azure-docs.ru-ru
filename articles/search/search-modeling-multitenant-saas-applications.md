@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
 ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Шаблоны разработки для мультитенантных приложений SaaS и Поиска Azure
 Мультитенантным называется приложение, предоставляющее одинаковые службы и возможности любому числу клиентов, каждый из которых не может видеть или совместно использовать данные любого другого клиента. В этом документе рассматриваются стратегии изоляции клиентов в мультитенантных приложениях на основе Поиска Azure.

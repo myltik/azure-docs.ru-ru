@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: bc47589ac769d89b2aa7f7565d08555ace3119d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-security-response-center"></a>Центр Microsoft Security Response Center
 Центр Microsoft Security Response Center (MSRC) управляется опытными специалистами в сфере обеспечения безопасности. Эти специалисты с мировым именем круглосуточно работают над обнаружением, мониторингом и решением проблем с безопасностью, а также над устранением локальных и облачных уязвимостей.

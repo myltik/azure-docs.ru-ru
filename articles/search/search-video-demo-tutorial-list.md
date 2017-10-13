@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/06/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Поиск Azure: примеры кода, демоверсии, видео и учебники
 Видео, демоверсии, учебники и примеры приложений для быстрого начала работы.
@@ -101,5 +100,4 @@ ms.lasthandoff: 06/08/2017
 | [Включение предложений в приложения поиска](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |Сведения о реализации функции предложений, также называемой функцией автозаполнения. В этой демонстрации рассматривается ряд следующих тем: создание приложений MVC4, использующих предложения службы поиска Azure; использование библиотеки typeahead.js Twitter для создания компонента эффективного автозаполнения в JavaScript; использование нечетких совпадений для отображения предложения, даже если пользователь вводит слово с ошибкой. |
 | [Виртуальная лаборатория TechNet: создание приложения поиска Microsoft Azure](http://go.microsoft.com/?linkid=9874663) |Виртуальная лаборатория, предоставляющая среду разработки, инструментарий, документацию и данные. Для выполнения лабораторной работы вам потребуется учетная запись Azure (в рамках пробной или персональной подписки Azure). |
 | [Синхронизация данных SQL Server со службой поиска Azure](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Запись в блоге, в которой описывается загрузка данных из реляционных баз данных SQL Server в индекс службы поиска Azure. |
-
 

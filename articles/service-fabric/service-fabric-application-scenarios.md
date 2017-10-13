@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
 ms.author: mfussell
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 471ec6f45f4152fbac56242ef3ce906f8af00b54
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-scenarios"></a>Сценарии приложений Service Fabric
 Azure Service Fabric — это надежная и гибкая платформа, позволяющая создавать и запускать множество типов бизнес-приложений и служб. Эти приложения и микрослужбы могут регистрировать или не регистрировать состояния, при этом для них выполняется балансировка ресурсов на используемых виртуальных машинах для обеспечения максимальной эффективности. Уникальная архитектура структуры служб позволяет выполнять анализ данных в режиме, близком к режиму реального времени, вычисления в памяти, параллельные транзакции и обработку событий для ваших приложений. Вы можете без труда масштабировать (в большей степени горизонтально) приложения в зависимости от изменяющихся требований к ресурсам.
@@ -68,4 +67,3 @@ Azure Service Fabric — это надежная и гибкая платфор
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
-

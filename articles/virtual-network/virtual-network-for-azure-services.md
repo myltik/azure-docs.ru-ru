@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-integration-for-azure-services"></a>Интеграция виртуальной сети для служб Azure
 
 Интеграция служб Azure в виртуальной сети Azure обеспечивает закрытый доступ из экземпляров службы, развернутой в виртуальной сети.
@@ -76,7 +74,6 @@ ms.lasthandoff: 09/29/2017
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>Интеграция виртуальной сети с несколькими службами Azure
 
 Вы можете развернуть службы Azure в подсети в виртуальной сети и защитить в ней важные ресурсы. Например, вы можете развернуть в виртуальной сети службу HDInsight и защитить учетную запись хранения в подсети HDInsight.
-
 
 
 

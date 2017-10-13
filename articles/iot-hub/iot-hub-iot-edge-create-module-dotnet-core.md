@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 06/28/2017
 ms.author: jcline
 ms.openlocfilehash: 7175ffc8de2c043593d61143b402484d33e4a8cc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-cx23"></a>Создание модуля Azure IoT Edge с помощью C&#x23;
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 08/03/2017
     - Введите **dotnet new classlib -o IoTEdgeConverterModule -f netstandard1.3**. 
     - Эта команда создает в каталоге проектов пустой класс с именем `Class1.cs`.
 2. Перейдите к папке, в которой мы только что создали проект библиотеки классов. Для этого введите команду **cd IoTEdgeConverterModule**.
-3. Откройте проект в `Visual Studio Code`, введя команду **code .**.
+3. Откройте проект в `Visual Studio Code`, введя команду **code** .
 4. После открытия проекта в `Visual Studio Code` щелкните **IoTEdgeConverterModule.csproj**, чтобы открыть файл, как показано на следующем изображении:
 
     ![Окно редактирования Visual Studio Code](media/iot-hub-iot-edge-create-module/vscode-edit-csproj.png)

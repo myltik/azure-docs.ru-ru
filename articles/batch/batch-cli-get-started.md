@@ -3,7 +3,7 @@ title: "Начало работы с интерфейсом командной �
 description: "Ознакомьтесь с командами интерфейса командной строки пакетной службы Azure для управления ресурсами пакетной службы Azure."
 services: batch
 documentationcenter: 
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 68a5493282fa4a0b54ba551c48ae963a42b94dca
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Управление ресурсами пакетной службы с помощью Azure CLI
 
@@ -32,7 +31,7 @@ Azure CLI 2.0 — это новый интерфейс командной ст
 
 ## <a name="set-up-the-azure-cli"></a>Настройка Azure CLI
 
-Чтобы установить Azure CLI, используйте указания в [этой статье](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
+Чтобы установить Azure CLI, используйте указания в [этой статье](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!TIP]
 > Рекомендуем регулярно обновлять интерфейс командной строки Azure, чтобы использовать все преимущества обновлений и улучшений службы.
@@ -97,9 +96,7 @@ az login
 
     Преимущество Azure AD заключается в том, что эта служба предоставляет управление доступом на основе ролей (RBAC). При использовании RBAC доступ пользователя зависит от назначенной роли, а не наличия ключей учетной записи. В этом случае управлять ключами не нужно. Вы просто назначаете роли RBAC, и Azure AD управляет параметрами доступа и проверки подлинности вместо вас.  
 
-    Проверка подлинности Azure AD требуется при создании учетной записи пакетной службы с режимом выделения пула "Пользовательская подписка". 
-
-    Чтобы войти в учетную запись пакетной службы с помощью Azure AD, вызовите команду [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login): 
+        To log in to your Batch account using Azure AD, call the [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) command: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -196,4 +193,3 @@ az batch task list --job-id job001
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-

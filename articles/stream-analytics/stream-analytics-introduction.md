@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-stream-analytics"></a>Что такое Stream Analytics?
 
 Azure Stream Analytics — это полностью управляемый модуль обработки событий, который позволяет в режиме реального времени настраивать аналитические вычисления для потоковой передачи данных. Данные могут поступать от устройств, датчиков, веб-сайтов, каналов социальных сетей, приложений, систем инфраструктуры и других источников. 
@@ -99,5 +97,4 @@ Stream Analytics может обрабатывать до 1 ГБ входящи
 * Дополнительные сведения см. в статье [Масштабирование заданий Azure Stream Analytics для повышения пропускной способности базы данных](stream-analytics-scale-jobs.md). 
 * Ознакомьтесь со статьей [Анализ тональности с помощью Azure Stream Analytics и Машинного обучения Azure](stream-analytics-machine-learning-integration-tutorial.md).
 * Найдите ответы на вопросы о Stream Analytics на [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
 ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Мониторинг выполнения приложений логики и получение аналитических сведений о них с помощью Operations Management Suite (OMS) и Log Analytics
 
 Для мониторинга и получения более подробных данных отладки при создании приложения логики можно включить Log Analytics. Служба Log Analytics предоставляет ведение журнала диагностики и мониторинг выполнения приложений логики на портале Operations Management Suite (OMS). При добавлении решения Logic Apps Management в OMS вы получаете обобщенные сведения о выполнении приложений логики, а также некоторые подробные данные, такие как состояние приложения, время выполнения, состояние повторной отправки и идентификаторы корреляции.
@@ -140,4 +138,3 @@ ms.lasthandoff: 09/20/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Мониторинг сообщений B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
-

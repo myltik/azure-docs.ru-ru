@@ -14,13 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Рекомендации по производительности и оптимизации Поиска Azure
 Эффективный поиск является ключом к успеху многих мобильных и веб-приложений. Быстрый поиск и получение соответствующих результатов влияют на качество обслуживания клиентов как в сфере недвижимости или продаж подержанных автомобилей, так и в сфере интернет-каталогов. Этот документ поможет получить рекомендации по эффективному использованию Поиска Azure, особенно для сложных сценариев с расширенными требованиями к масштабируемости, многоязыковой поддержке или пользовательской модели ранжирования.  Кроме того, в этом документе описаны внутренние механизмы и рассмотрены подходы, которые эффективно работают в реальных клиентских приложениях.
@@ -115,4 +113,3 @@ STA является ценным инструментом, позволяющи
 [1]: ./media/search-performance-optimization/geo-redundancy.png
 [2]: ./media/search-performance-optimization/scale-indexers.png
 [3]: ./media/search-performance-optimization/geo-search-traffic-mgr.png
-

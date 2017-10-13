@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/12/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: f471add4f4dee26482e2820fb06d010d6c0c0e88
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-1-review-the-architecture-for-azure-vm-replication-between-azure-regions"></a>Шаг 1. Обзор архитектуры для репликации виртуальных машин Azure между регионами Azure
 
 
@@ -85,4 +83,3 @@ ms.lasthandoff: 08/02/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к разделу [Шаг 2. Проверка предварительных требований для репликации из VMware в Azure](azure-to-azure-walkthrough-prerequisites.md).
-

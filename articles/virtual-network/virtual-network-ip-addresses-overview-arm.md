@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 8ddd582ed159e10add896252c40feb19780c42fb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Типы IP-адресов и методы распределения в Azure
 
@@ -184,7 +183,7 @@ IP-адрес можно выделить ресурсу с общедоступ
 | шлюзом приложений |Конфигурация клиентской части |Да |Да |
 
 ## <a name="limits"></a>Ограничения
-Ограничения IP-адресации указаны в полном списке [сетевых ограничений](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) в Azure. Ограничения указаны по региону и по подписке. Для увеличения ограничений по умолчанию до максимальных ограничений в зависимости от потребностей своего бизнеса вы можете [обратиться в службу поддержки](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Ограничения IP-адресации указаны в полном списке [сетевых ограничений](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) в Azure. Ограничения указаны по региону и по подписке. Для увеличения ограничений по умолчанию до максимальных ограничений в зависимости от потребностей своего бизнеса вы можете [обратиться в службу поддержки](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
 
 ## <a name="pricing"></a>Цены
 За общедоступные IP-адреса взимается номинальная плата. Дополнительные сведения о ценах на IP-адреса в Azure см. на [соответствующей](https://azure.microsoft.com/pricing/details/ip-addresses) странице.
@@ -193,4 +192,3 @@ IP-адрес можно выделить ресурсу с общедоступ
 * [Развертывание виртуальной машины со статическим общедоступным IP-адресом с использованием портала Azure](virtual-network-deploy-static-pip-arm-portal.md)
 * [Развертывание виртуальной машины со статическим общедоступным IP-адресом с помощью шаблона](virtual-network-deploy-static-pip-arm-template.md)
 * [Развертывание виртуальной машины со статическим частным IP-адресом с помощью портала Azure](virtual-networks-static-private-ip-arm-pportal.md)
-

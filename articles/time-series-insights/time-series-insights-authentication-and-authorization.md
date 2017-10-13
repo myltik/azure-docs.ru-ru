@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/24/2017
 ms.author: dmden
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 3b7d0811b718d4702786572b953fb27a9521d390
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Проверка подлинности и авторизация для API Azure Time Series Insights
 
@@ -111,4 +110,3 @@ ms.lasthandoff: 06/10/2017
 
 * Дополнительные сведения об API запроса см. в [этой статье](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
 * [Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-

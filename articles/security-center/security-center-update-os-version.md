@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ce0d178914907750e5da59f223a4b1e04b9bb6fb
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Обновление версии ОС в центре безопасности Azure
 Для виртуальных машин (ВМ) в облачных службах центр безопасности Azure порекомендует обновить версию операционной системы (ОС) на более новую, если она есть.  Мониторинг выполняется только для облачных служб и рабочих ролей, запущенных в слотах рабочей среды.
@@ -52,9 +52,3 @@ ms.openlocfilehash: ce0d178914907750e5da59f223a4b1e04b9bb6fb
 
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

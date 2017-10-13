@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8a643b01057386722aa73df6fa3937c923c378ef
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 75fc134a5535e6113331470cf61df9c06eb8e2ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-universal"></a>Как использовать API Engagement для универсальных приложений для Windows
 Этот документ представляет собой дополнение к документу [Как интегрировать Engagement в универсальные приложения для Windows](mobile-engagement-windows-store-integrate-engagement.md). В нем предоставлены подробные сведения о том, как использовать API Engagement для сообщения статистики приложения.
@@ -33,7 +32,7 @@ API Engagement предоставляется в классе `EngagementAgent` 
 Даже если модуль агента не инициализирован, каждый вызов API откладывается и выполняется повторно, когда агент становится доступен.
 
 ## <a name="engagement-concepts"></a>Основные понятия Engagement
-В следующих подразделах дано более подробное объяснение [общих понятий Mobile Engagement](mobile-engagement-concepts.md) для универсальной платформы для Windows.
+В следующих подразделах дано более подробное объяснение [общих понятий Служб мобильного взаимодействия](mobile-engagement-concepts.md) для универсальной платформы для Windows.
 
 ### <a name="session-and-activity"></a>`Session` и `Activity`
 *Действие*, как правило, связано с одной страницей приложения, т. е. *действие* начинается при отображении страницы и завершается при ее закрытии. Это происходит в том случае, если пакет SDK для Engagement интегрируется с помощью класса `EngagementPage`.
@@ -321,5 +320,4 @@ Engagement также предоставляется метод отправки
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
-
 

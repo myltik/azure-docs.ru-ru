@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
+ms.openlocfilehash: 0d034e2c3827b297173262d294a2e566a6b45fac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: c9333e745c75f134e045ee6d15c3552449d8edc3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-encoder-standard-schema"></a>Схема Media Encoder Standard
 В этой статье описаны некоторые элементы и типы XML-схемы, лежащие в основе [предустановок Media Encoder Standard](media-services-mes-presets-overview.md). Также рассмотрены элементы и их допустимые значения. Полная схема будет опубликована в будущем.  
@@ -30,7 +29,7 @@ ms.lasthandoff: 08/28/2017
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Корневой элемент, который указывает, что источники входных данных должны быть закодированы. |
+| **Кодирование** |[Кодирование](media-services-mes-schema.md#Encoding) |Корневой элемент, который указывает, что источники входных данных должны быть закодированы. |
 | **Outputs** |[Outputs](media-services-mes-schema.md#Output) |Коллекция требуемых выходных файлов. |
 
 ### <a name="attributes"></a>Атрибуты
@@ -274,5 +273,4 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Создание расширенных отчетов для универсальных приложений для Windows с помощью MobileApps Engagement"
-description: "Интеграция Azure Mobile Engagement с универсальными приложениями для Windows"
+description: "Интеграция Служб мобильного взаимодействия Azure с универсальными приложениями для Windows"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Создание расширенных отчетов с помощью пакета SDK службы Engagement для универсальных приложений для Windows
 > [!div class="op_single_selector"]
@@ -160,6 +159,5 @@ ms.lasthandoff: 11/17/2016
 ## <a name="advanced-reporting"></a>Расширенные отчеты
 При желании можно также сообщать об определенных событиях, ошибках и заданиях приложения. Это можно сделать с помощью других методов в классе `EngagementAgent`. Engagement API позволяет использовать все дополнительные возможности Engagement.
 
-Дополнительные сведения см. в статье [Как использовать API Engagement для универсальных приложений для Windows](mobile-engagement-windows-store-use-engagement-api.md).
-
+Дополнительные сведения см. в статье [Как использовать API Служб мобильного взаимодействия для универсальных приложений для Windows](mobile-engagement-windows-store-use-engagement-api.md).
 

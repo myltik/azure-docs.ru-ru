@@ -9,15 +9,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 0dcec61c03a84197e2c351761c743683caa98a06
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Условный доступ (MFA) и база данных SQL Azure и хранилище данных  
 
 База данных SQL и хранилище данных SQL поддерживают условный доступ Майкрософт. Ниже показано, как настроить базу данных SQL для принудительного применения политики условного доступа.  
@@ -51,4 +48,3 @@ ms.lasthandoff: 06/08/2017
 ## <a name="next-steps"></a>Дальнейшие действия  
 
 Ознакомьтесь с руководством [Защита базы данных SQL Azure](sql-database-security-tutorial.md).
-

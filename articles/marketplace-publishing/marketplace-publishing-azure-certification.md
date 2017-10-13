@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
 ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Предварительное утверждение с помощью программы сертификации Microsoft Azure
 В этой статье представлены инструкции о том, как пройти сертификацию Microsoft Azure, чтобы публиковать решение в Azure Marketplace и получать маркетинговые преимущества. Подробный обзор программы сертификации Microsoft Azure и ее преимуществ приведен на странице [http://azure.com/certified](http://azure.com/certified)

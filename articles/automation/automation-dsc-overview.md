@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
 ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-dsc-overview"></a>Обзор DSC службы автоматизации Azure
 
@@ -65,4 +65,4 @@ Azure Automation DSC обеспечивает тот же слой управл�
 * Сведения о компиляции конфигураций DSC, которые затем можно назначить целевым узлам, см. в статье [Компиляция конфигураций в Azure Automation DSC](automation-dsc-compile.md).
 * Справочник по командлетам PowerShell для Azure Automation DSC приводится в статье [Azure​RM.​Automation](/powershell/module/azurerm.automation/#automation).
 * Сведения о ценах см. на [странице с ценами на Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/).
-* Пример использования Azure Automation DSC в конвейере непрерывного развертывания см. в разделе [непрерывного развертывания IaaS виртуальных машин с помощью DSC службы автоматизации Azure и Chocolatey](automation-dsc-cd-chocolatey.md)
+* Пример использования DSC службы автоматизации Azure в конвейере непрерывного развертывания см. в статье [Пример использования. Непрерывное развертывание на виртуальных машинах с помощью Automation DSC и Chocolatey](automation-dsc-cd-chocolatey.md).

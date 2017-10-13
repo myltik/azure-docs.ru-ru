@@ -1,6 +1,6 @@
 ---
 title: "Заметки о выпуске пакета SDK универсальных приложений для Windows для Служб мобильного взаимодействия Azure | Документация Майкрософт"
-description: "Заметки о выпуске SDK для универсальных приложений Windows для Azure Mobile Engagement"
+description: "Заметки о выпуске SDK для универсальных приложений Windows для Служб мобильного взаимодействия Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: dc5529a9e8f4eba867732f719ca8fff718c00d5a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-sdk-release-notes"></a>Заметки о выпуске пакета SDK для универсальных приложений для Windows
 ## <a name="341-11032016"></a>3.4.1 (03.11.2016)
@@ -49,20 +48,19 @@ ms.lasthandoff: 02/09/2017
 * Исправлена проблема сбоев при анализе некоторых необработанных исключений.
 
 ## <a name="310-05212015"></a>3.1.0 (05/21/2015)
-* В основе идентификатора устройства Mobile Engagement теперь используется GUID, генерируемый во время установки.
+* В основе идентификатора устройства Служб мобильного взаимодействия теперь используется GUID, генерируемый во время установки.
 
 ## <a name="301-04292015"></a>3.0.1 (29.04.2015)
 * Исправлена ошибка, влияющая на инициализацию SDK в некоторых приложениях Windows Phone WinRT.
 
 ## <a name="300-04032015"></a>3.0.0 (03.04.2015)
-* Представлен пакет SDK для Mobile Engagement для универсальных приложений (Windows и Windows Phone WinRT).
+* Представлен пакет SDK для Служб мобильного взаимодействия для универсальных приложений (Windows и Windows Phone WinRT).
 * Обновлен стандартный значок уведомления.
 * При щелчке уведомления отправляется отклик на действие с системным уведомлением.
 * Исправлено системное уведомление, которое иногда воспроизводилось в приложении после щелчка.
 
-## <a name="200-02172015"></a>Версия&2;.0.0 (17.02.2015)
-* Первый выпуск Azure Mobile Engagement
+## <a name="200-02172015"></a>Версия 2.0.0 (17.02.2015)
+* Первый выпуск Служб мобильного взаимодействия Azure
 * Конфигурация appId/sdkKey заменена конфигурацией строки подключения.
 * Улучшения безопасности.
-
 

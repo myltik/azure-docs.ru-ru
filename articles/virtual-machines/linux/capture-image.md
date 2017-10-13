@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Создание образа виртуальной машины или виртуального жесткого диска
 
@@ -145,4 +144,3 @@ az vm show \
 - Используйте этот новый образ для будущих развертываний. При необходимости удалите исходный образ.
 
 Чтобы узнать больше об управлении виртуальными машинами с помощью интерфейса командной строки, ознакомьтесь с [Azure CLI 2.0](/cli/azure/overview).
-

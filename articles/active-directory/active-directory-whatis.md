@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
 ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-active-directory"></a>Что такое Microsoft Azure Active Directory
 Azure Active Directory (Azure AD) — мультитенантный облачный каталог и служба управления удостоверениями корпорации Майкрософт. Azure AD объединяет в себе базовые службы каталогов, функции расширенного управления идентификацией и функции управления доступом к приложениям. Кроме того, Azure AD предоставляет разработчикам обширную стандартизированную платформу, которая позволяет им управлять доступом к приложениям с помощью централизованной политики и правил. 

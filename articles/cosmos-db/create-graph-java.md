@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/24/2017
 ms.author: denlee
+ms.openlocfilehash: 090a786b77cbe7b228f42f98dcb5f066b6fe62a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 0273072c7c10e219ab8d6c85eb252badafc17147
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: создание графовой базы данных с помощью Java и портала Azure
 
@@ -204,5 +203,4 @@ Azure Cosmos DB — это глобально распределенная мн�
 
 > [!div class="nextstepaction"]
 > [Как выполнять запросы к данным в базе данных Azure Cosmos DB с помощью API Graph (предварительная версия)](tutorial-query-graph.md)
-
 

@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: c19860c6b5b1c15d1e29ddc67f9cf9ad4618725b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Использование машинного обучения Azure с хранилищем данных SQL
 Машинное обучение Azure — это полностью управляемая служба прогнозной аналитики, которая позволяет создавать прогнозные модели с данными из хранилища данных SQL и публиковать их в виде готовых веб-служб. Ознакомиться с основами прогнозной аналитики и машинного обучения можно в статье [Введение в машинное обучение в облаке][Introduction to Machine Learning on Azure].  Сведения о создании, обучении, оценке и тестировании модели машинного обучения см. в статье [Руководство по машинному обучению. Создание первого эксперимента по обработке и анализу данных в Студии машинного обучения Azure][Create experiment tutorial].

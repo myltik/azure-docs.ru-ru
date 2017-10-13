@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
+ms.openlocfilehash: 6250b73504bec765b8299060a29e84e771791cc9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d1a9328333bb8198d77e4b5d11fd8c6637a9e440
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Спецификация приема фрагментированного MP4 в реальном времени в службах мультимедиа Azure
 Эта спецификация описывает протокол и формат приема потоковой передачи в реальном времени на основе фрагментированного формата MP4 для служб мультимедиа Azure. Службы мультимедиа Azure поддерживают услугу потоковой трансляции, что позволяет клиентам транслировать поток текущих событий и передавать содержимое в реальном времени, используя Azure в качестве облачной платформы. В этом документе также обсуждаются практические рекомендации по созданию механизмов приема прямой трансляции с высокой избыточностью и надежностью.
@@ -27,7 +26,7 @@ ms.lasthandoff: 08/21/2017
 ## <a name="1-conformance-notation"></a>1. Замечание о соответствии
 Ключевые слова "НЕОБХОДИМО", "НЕДОПУСТИМО", "ТРЕБУЕТСЯ", "НУЖНО", "НЕ ПОЗВОЛЯЕТСЯ", "СЛЕДУЕТ", "НЕ СЛЕДУЕТ", "РЕКОМЕНДУЕТСЯ", "ВОЗМОЖНО" и "НЕОБЯЗАТЕЛЬНО" в данном документе интерпретируются согласно описанию в документе RFC 2119.
 
-## <a name="2-service-diagram"></a>2) Схема службы
+## <a name="2-service-diagram"></a>2. Схема службы
 На следующей схеме показана архитектура высокого уровня службы потоковой передачи в реальном времени в службах мультимедиа:
 
 1. Динамический кодировщик отправляет динамические веб-каналы в каналы, которые создаются и подготавливаются с помощью пакета SDK служб мультимедиа Azure.
@@ -202,4 +201,3 @@ ms.lasthandoff: 08/21/2017
 [image5]: ./media/media-services-fmp4-live-ingest-overview/media-services-image5.png
 [image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
 [image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
-

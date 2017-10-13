@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: dca95ad46b8de587140c3573ba6ed5702a122032
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-7-set-up-a-vault-for-vmware-replication-to-azure"></a>Шаг 7. Настройка хранилища для репликации из VMware в Azure
 
@@ -48,5 +47,4 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Перейдите к разделу [Шаг 8. Настройка исходной и целевой среды](vmware-walkthrough-source-target.md).
-
+Перейдите к разделу [Шаг 8. Настройка исходной и целевой среды для репликации физического сервера в Azure](vmware-walkthrough-source-target.md).

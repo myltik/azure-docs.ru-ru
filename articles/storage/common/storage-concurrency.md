@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Управление параллелизмом в службе хранилища Microsoft Azure
 ## <a name="overview"></a>Обзор
@@ -290,5 +289,4 @@ customer.ETag = "*";
 * [Введение в хранилище Azure](storage-introduction.md)
 * Приступая к работе с хранилищем: [большой двоичный объект](../blobs/storage-dotnet-how-to-use-blobs.md), [таблица](../../cosmos-db/table-storage-how-to-use-dotnet.md), [очереди](../storage-dotnet-how-to-use-queues.md) и [файлы](../storage-dotnet-how-to-use-files.md).
 * Архитектура службы хранилища — [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Служба хранилища Azure: высокодоступная облачная служба хранилища со строгой согласованностью).
-
 

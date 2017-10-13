@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 25c8b49401486edfad0a1a60fe2258a586f6adc2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.openlocfilehash: a1b58125dafdf73f245b6a8cd0f4917513b22ea9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-server-administrators"></a>Управление администраторами серверов
 Администраторами сервера должны быть допустимые пользователи или группы в Azure Active Directory (Azure AD) для клиента, в котором размещен сервер. Для управления администраторами сервера можно использовать элемент **Администраторы служб Analysis Services** в колонке управления сервером на портале Azure или свойства сервера в SSMS. 
@@ -43,5 +42,4 @@ ms.lasthandoff: 06/23/2017
 [Аутентификация и пользовательские разрешения](analysis-services-manage-users.md)  
 [Управление ролями и пользователями базы данных](analysis-services-database-users.md)  
 [Контроль доступа на основе ролей](../active-directory/role-based-access-control-what-is.md)  
-
 

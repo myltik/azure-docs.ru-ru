@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: 8f46ff1265d302ab114747b4b45227e58718166b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Руководство по интеграции Azure Active Directory с Bime
 
@@ -203,9 +202,9 @@ ms.lasthandoff: 07/14/2017
    
     ![Сведения о пользователе](./media/active-directory-saas-bime-tutorial/ic775563.png "Сведения о пользователе")
    
-    а. В текстовом поле **First name** (Имя) введите имя, например **Britta**.
+    а. В текстовое поле **First name** (Имя) введите имя пользователя, например **Britta**.
 
-    b. В текстовом поле **Last name** (Фамилия) введите фамилию, например **Simon**.
+    b. В текстовое поле **Last name** (Фамилия) введите фамилию пользователя, например **Simon**.
  
     c. В текстовое поле **Email** (Электронная почта) введите адрес электронной почты пользователя, например **brittasimon@contoso.com**.
 
@@ -271,5 +270,4 @@ ms.lasthandoff: 07/14/2017
 [201]: ./media/active-directory-saas-bime-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-bime-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-bime-tutorial/tutorial_general_203.png
-
 

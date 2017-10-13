@@ -17,10 +17,10 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-in-to-azure-from-the-azure-cli"></a>Войдите в Azure из командной строки Azure
 Интерфейс командной строки Azure представляет собой набор межплатформенных команд с открытым кодом для работы с ресурсами Azure. В этой статье описываются различные способы предоставления учетных данных для подключения к подписке Azure из интерфейса командной строки.

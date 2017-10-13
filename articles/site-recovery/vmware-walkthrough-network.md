@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f164ac68ba6ec650bb3996b4aa870e1b98533a23
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-4-plan-networking-for-vmware-to-azure-replication"></a>Шаг 4. Планирование сетей для репликации из VMware в Azure
 
 В этой статье собраны рекомендации по планированию сетей при репликации виртуальных машин VMware из локальной среды в Azure с помощью службы [Azure Site Recovery](site-recovery-overview.md).
@@ -62,7 +60,7 @@ ms.lasthandoff: 06/29/2017
 2. Azure позволяет добавлять в виртуальные сети, созданные в Azure, VPN-подключения типа "сеть — сеть" в дополнение к подключениям типа "точка — сеть".
 3. При настройке подключения типа "сеть — сеть" в сети Azure можно направить трафик в локальное расположение (локальную сеть) только в том случае, если диапазон IP-адресов отличается от диапазона IP-адресов локальной сети.
     - Это связано с тем, что Azure не поддерживает растянутые подсети. Поэтому при наличии локальной подсети 192.168.1.0/24 невозможно добавить локальную сеть 192.168.1.0/24 в сеть Azure.
-    - Это происходит, поскольку Azure не знает, что в подсети нет активных виртуальных машин и что подсеть создается только в целях аварийного восстановления данных.
+    - Это происходит, так как Azure не знает, что в подсети нет активных виртуальных машин и что подсеть создается только в целях аварийного восстановления данных.
     - Чтобы иметь возможность правильно направлять сетевой трафик из сети Azure, подсети в локальной сети и сети не должны конфликтовать.
 
 ![Перед выполнением отработки отказа подсети](./media/site-recovery-network-design/network-design7.png)
@@ -90,5 +88,4 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Перейдите к разделу [Шаг 5. Подготовка Azure](vmware-walkthrough-prepare-azure.md).
-
+Перейдите к статье [Шаг 5. Подготовка ресурсов Azure для репликации Hyper-V в Azure](vmware-walkthrough-prepare-azure.md).

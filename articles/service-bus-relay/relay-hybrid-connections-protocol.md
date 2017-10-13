@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6b76403ba5fc4d00a625057549c85db59a473898
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # Протокол гибридных подключений ретранслятора Azure
 Ретранслятор Azure является одной из ключевых функций платформы служебной шины Azure. Новая функция ретранслятора, называемая *Гибридные подключения*, представляет собой безопасный открытый протокол нового поколения, основанный на HTTP и WebSockets. Она заменяет собой прошлый компонент, называемый *Службы BizTalk*, основанный на старой версии протокола. Интеграция гибридных подключений со службами приложений Azure будет по-прежнему работать.
@@ -268,5 +267,4 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 * [Создание пространства имен](relay-create-namespace-portal.md)
 * [Приступая к работе с .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Приступая к работе с Node](relay-hybrid-connections-node-get-started.md)
-
 

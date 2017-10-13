@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 635e44a7ec6f9244f5fe75eb5ad947cdd8ae59a4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 69c06c9607e13c2bcffa946d6bbff9bad310ccf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="createuidefinition-elements"></a>Элементы CreateUiDefinition
 В этой статье описывается схема и свойства всех поддерживаемых элементов CreateUiDefinition. Эти элементы используются при [создании управляемого приложения Azure](managed-application-publishing.md). Для большинства элементов схема выглядит следующим образом:
@@ -67,4 +66,3 @@ ms.lasthandoff: 05/12/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Общие сведения об управляемых приложениях Azure см. в [этой статье](managed-application-overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](managed-application-createuidefinition-overview.md).
-

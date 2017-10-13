@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: xibingao;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ac39de97174e58964b48601d559abeba5e624c21
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-an-azure-sql-server-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>Настройка SQL Server на виртуальной машине Azure как сервера IPython Notebook для расширенной аналитики
 В этой статье показано, как подготовить и настроить виртуальную машину SQL Server для использования в качестве части среды обработки облачных данных. Виртуальная машина под управлением Windows настраивается с помощью инструментов поддержки, таких как IPython Notebook, Azure Storage Explorer и AzCopy, а также других служебных программ, подходящих для проектов обработки данных. Обозреватель хранилищ Azure и AzCopy, например, позволяют с легкостью передавать данные в хранилище BLOB-объектов Azure с локального компьютера и наоборот.
@@ -274,5 +273,4 @@ ms.lasthandoff: 09/25/2017
 [12]: ./media/setup-sql-server-virtual-machine/25sysadmin.png
 [13]: ./media/setup-sql-server-virtual-machine/amlreader.png
 [15]: ./media/setup-sql-server-virtual-machine/vmshutdown.png
-
 

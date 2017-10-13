@@ -1,6 +1,6 @@
 ---
-title: "Защита данных с помощью решения &quot;Безопасность и аудит&quot; в Operations Management Suite | Документация Майкрософт"
-description: "В этой статье объясняются методы управления данными и обеспечения их безопасности в решении &quot;Безопасность и аудит&quot; Operations Management Suite."
+title: "Защита данных с помощью решения \"Безопасность и аудит\" в Operations Management Suite | Документация Майкрософт"
+description: "В этой статье объясняются методы управления данными и обеспечения их безопасности в решении \"Безопасность и аудит\" Operations Management Suite."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 6af6c10cef317453131197db74a9380518afadf0
-ms.lasthandoff: 12/02/2016
-
-
+ms.openlocfilehash: 3b6327b1f5150f32afd71639f32c55d823f1d1f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Защита данных с помощью решения "Безопасность и аудит" Operations Management Suite
 Чтобы помочь пользователям предотвращать, выявлять угрозы и реагировать на них, [решение OMS "Безопасность и аудит"](operations-management-suite-overview.md) собирает и обрабатывает следующие данные о ресурсах:
@@ -59,5 +58,4 @@ ms.lasthandoff: 12/02/2016
 * [Общие сведения об Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite](oms-security-responding-alerts.md)
 * [Мониторинг ресурсов в решении "Безопасность и аудит" Operations Management Suite](oms-security-monitoring-resources.md)
-
 

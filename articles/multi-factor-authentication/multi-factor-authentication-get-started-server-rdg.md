@@ -15,12 +15,11 @@ ms.date: 06/27/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Шлюз удаленных рабочих столов и сервер Azure Multi-Factor Authentication, использующие проверку подлинности RADIUS
 Часто шлюз удаленных рабочих столов использует локальные службы политик сети (далее — служба NPS) для аутентификации пользователей. В этой статье объясняется, как перенаправлять RADIUS-запросы из шлюза удаленных рабочих столов (через локальную службу NPS) на сервер Многофакторной идентификации. Сочетание Azure MFA и шлюза удаленных рабочих столов означает, что пользователи могут подключаться к своим рабочим средам из любой точки мира, выполняя строгую аутентификацию. 
@@ -83,4 +82,3 @@ ms.lasthandoff: 09/20/2017
 - Интеграция Многофакторной идентификации Azure и [веб-приложений IIS](multi-factor-authentication-get-started-server-iis.md)
 
 - Ознакомьтесь с ответами в статье [Часто задаваемые вопросы о службе Многофакторной идентификации Azure](multi-factor-authentication-faq.md).
-

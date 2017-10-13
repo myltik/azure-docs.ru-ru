@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 391ea72390c589bf86ed9be58e44ce8b20eab837
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 8b9159b7bc4f7b2dac12d9012c6c903e75a6ac16
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Управление ресурсами данных в каталоге данных Azure
 ## <a name="introduction"></a>Введение
@@ -74,4 +73,3 @@ ms.lasthandoff: 06/05/2017
 
 ## <a name="summary"></a>Сводка
 Каталог данных поддерживает модель совместной работы над метаданными и поиска ресурсов данных, позволяя всем пользователям каталога добавлять и находить данные. В стандартном выпуске каталога данных реализованы возможности владения и управления, благодаря которым пользователи могут ограничивать видимость и использование определенных ресурсов данных.
-

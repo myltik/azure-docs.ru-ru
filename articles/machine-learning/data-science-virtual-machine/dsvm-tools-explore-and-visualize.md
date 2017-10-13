@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d8f0616f17dbaa02082492cc1c68f1d989ea5aae
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Средства исследования и визуализации данных на виртуальной машине для обработки и анализа данных
 
 Ключевым шагом в обработке и анализе данных является их понимание. Средства визуализации и исследования данных позволяют ускорить этот процесс. Ниже приведены некоторые средства, предоставляемые на виртуальной машине для обработки и анализа данных, которая упрощает выполнение этого шага. 
@@ -65,5 +63,4 @@ ms.lasthandoff: 09/25/2017
 | Распространенные способы применения      |  Визуализация данных и создание панелей мониторинга   |
 | Запуск и использование      | С помощью ярлыка на рабочем столе (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      |   Visual Studio 2017, Visual Studio Code, Juno      |
-
 

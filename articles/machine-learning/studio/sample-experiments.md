@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Использование примеров экспериментов для создания новых экспериментов машинного обучения
 Узнайте, как использовать примеры экспериментов машинного обучения из [коллекции Cortana Intelligence](https://gallery.cortanaintelligence.com/), чтобы не создавать собственные решения с нуля. Эти примеры помогут вам создать решение машинного обучения.
@@ -69,4 +68,3 @@ ms.lasthandoff: 09/25/2017
 * [Импорт обучающих данных в Студию машинного обучения Azure из разных источников данных](import-data.md)
 * [Краткое руководство по языку программирования R для службы машинного обучения Azure](r-quickstart.md)
 * [Развертывание веб-службы машинного обучения Azure](publish-a-machine-learning-web-service.md)
-

@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 50406e50363054fb92a1783751ba62ca7b3455e4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Заметки о выпуске шлюза управления данными
 Одной из проблем интеграции данных в наше время является перемещение данных между локальной средой и облаком. Для решения этой проблемы в фабрике данных используется шлюз управления данными. Это агент, который можно установить локально для переноса гибридных данных.
@@ -252,4 +251,3 @@ ms.lasthandoff: 09/25/2017
 ### <a name="1051442"></a>1.0.5144.2
 
 *  Нет изменений, которые влияют на сценарии фабрики данных Azure.
-

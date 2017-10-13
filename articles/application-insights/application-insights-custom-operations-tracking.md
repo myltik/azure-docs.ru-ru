@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
+ms.openlocfilehash: 6412445f4e7a9b639ae9a38a44ff51038c6fcc00
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b31d38fe2f7060597956a1ee9c66f43ce39d7240
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Отслеживание пользовательских операций с помощью пакета SDK Application Insights для .NET
 
 Пакеты SDK Azure Application Insights автоматически отслеживают входящие HTTP-запросы и вызовы зависимых служб, в том числе HTTP-запросы и SQL-запросы. Отслеживание и корреляция запросов и зависимостей позволяет контролировать скорость реагирования приложения в целом, а также надежность всех микрослужб, составляющих это приложение. 
@@ -477,4 +475,3 @@ public async Task RunMyTaskAsync()
 - Передача настраиваемых [событий и метрик](app-insights-api-custom-events-metrics.md) в Application Insights.
 - Изучите стандартную [конфигурацию](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) коллекции свойств контекста.
 - Ознакомьтесь с [руководством пользователя по System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md), чтобы узнать, как осуществляется корреляция данных телеметрии.
-

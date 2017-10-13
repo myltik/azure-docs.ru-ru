@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e81ef1d182108114305291273227ce2ac4dacf3f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: e45936280b51fb2e54012a688fceddcc8dabe984
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Процедуры входа с защитой идентификации Azure AD
 С помощью защиты идентификации Azure Active Directory можно:
@@ -112,5 +111,4 @@ ms.lasthandoff: 12/28/2016
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md) 
-
 

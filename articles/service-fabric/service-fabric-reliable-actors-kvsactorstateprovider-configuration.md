@@ -12,15 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/29/2017
+ms.date: 10/2/2017
 ms.author: sumukhs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 9610c37111bf8fd36c1eaea4f48e46953661aacf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Настройка надежных субъектов — KVSActorStateProvider
 Используемую по умолчанию конфигурацию KVSActorStateProvider можно изменить. Для этого нужно обновить файл settings.xml, созданный в папке Config заданного субъекта в корневом каталоге пакета Microsoft Visual Studio.
@@ -94,5 +92,4 @@ ms.lasthandoff: 01/24/2017
 ## <a name="remarks"></a>Примечания
 Параметр BatchAcknowledgementInterval управляет задержкой репликации. Значение 0 обеспечивает минимальную возможную задержку за счет уменьшения скорости репликации (потому что необходимо отправлять и обрабатывать большее количество сообщений с подтверждениями, каждое из которых содержит меньше подтверждений).
 По мере увеличения значения BatchAcknowledgementInterval увеличивается общая скорость репликации и задержка операций. Это непосредственно перетекает в задержку фиксаций транзакций.
-
 

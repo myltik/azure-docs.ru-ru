@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e1bc68426f93717dcf466652d2481b6ab1db2a18
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-app-for-containers"></a>Разработка веб-приложения на основе Node.js и MongoDB на платформе Azure "Веб-приложение для контейнеров"
 
@@ -480,4 +479,3 @@ git push azure master
 
 > [!div class="nextstepaction"] 
 > [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](../app-service-web-tutorial-custom-domain.md)
-

@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 222cb9629e50e49ce08e0737d7f2570e9187317a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: dbba39f5b9f18aaca6449e08aa584224fc2126d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Контроль безопасности виртуальных машин с помощью центра безопасности Azure
 
@@ -45,7 +44,7 @@ ms.lasthandoff: 05/17/2017
 
 ![Рекомендации](./media/tutorial-azure-security/recommendations.png)
 
-## <a name="set-up-data-collection"></a>Настраивать сбор данных.
+## <a name="set-up-data-collection"></a>Настройка сбора данных
 
 Прежде чем вы сможете просмотреть конфигурации безопасности виртуальных машин, в центре безопасности нужно настроить сбор данных. Для этого следует включить сбор данных и создать учетную запись хранения Azure, чтобы хранить в ней собранные данные. 
 
@@ -149,5 +148,4 @@ ms.lasthandoff: 05/17/2017
 
 > [!div class="nextstepaction"]
 > [Создание конвейера для непрерывной интеграции и доставки с использованием Jenkins, GitHub и Docker](tutorial-jenkins-github-docker-cicd.md)
-
 

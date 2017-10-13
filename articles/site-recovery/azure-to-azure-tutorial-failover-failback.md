@@ -12,12 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6a66528bfeb7249add9f589830293760c238e7db
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Отработка отказа и восстановление размещения виртуальных машин Azure между регионами Azure (предварительная версия)
 
@@ -73,4 +72,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="fail-back-to-the-primary-region"></a>Восстановление размещения в основном регионе
 
 После повторной защиты виртуальной машины вы можете по мере необходимости восстановить размещение в основном регионе. Для этого следуйте инструкциям по [отработке отказа](#run-a-failover).
-

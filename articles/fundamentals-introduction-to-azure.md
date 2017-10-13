@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Введение в Microsoft Azure
 Microsoft Azure — это платформа приложений корпорации Майкрософт для общедоступного облака.  Целью данной статьи является знакомство с основными принципами платформы Azure с учетом возможного отсутствия каких-либо предварительных знаний в сфере облачных вычислений.
@@ -538,4 +537,3 @@ SendGrid — это приложение в Магазине Azure, которо
 Теперь, когда вы получили общее представление, следующим шагом будет написание вашего первого приложения Azure. Выберите язык, [получите соответствующий SDK](/downloads/)и начинайте работу. Облачные вычисления предоставляют новый вариант по умолчанию — начинать работу сразу.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-

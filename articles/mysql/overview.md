@@ -10,15 +10,12 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 3eff97a9e7568566cd01a4eb3c7ee66806eac4cc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="what-is-azure-database-for-mysql-service-introduction"></a>Что такое база данных Azure для MySQL? Общие сведения о службе
 База данных Azure для MySQL — это служба реляционной базы данных в облаке Microsoft на основе ядра СУБД [MySQL Community Edition](https://www.mysql.com/products/community/).  База данных Azure для MySQL обеспечивает:
 
@@ -59,4 +56,3 @@ ms.lasthandoff: 09/14/2017
 - Ознакомьтесь со страницей цен для сравнения цен и доступа к калькуляторам. [Цены](https://azure.microsoft.com/pricing/details/mysql/)
 - Приступите к работе, создав первый сервер. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) (Создание базы данных Azure для сервера MySQL с помощью портала Azure)
 - Создайте первое приложение на Python, PHP, Ruby, C\#, Java, Node.js: [Библиотеки подключений для базы данных Azure для MySQL](concepts-connection-libraries.md).
-

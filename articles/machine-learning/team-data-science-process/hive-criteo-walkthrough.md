@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 13dc1b516946aadc9c8a57a55768113bc925e63e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Процесс обработки и анализа данных группы на практике: использование кластера Azure HDInsight Hadoop с набором данных объемом 1 ТБ
 
@@ -631,5 +630,4 @@ ms.lasthandoff: 09/25/2017
 Мы видим, что ответы для двух запрошенных тестовых примеров (в структуре JSON сценария Python) получены в форме «расчетные метки, расчетные вероятности». Обратите внимание, что в этом случае были выбраны значения по умолчанию кода, поставляемого изготовителем (значение 0 для всех числовых столбцов, строка «Значение» для всех категориальных столбцов).
 
 На этом пошаговое руководство по обработке крупномасштабных наборов данных с помощью Машинного обучения Azure завершается. Мы начали работу с терабайтом данных, построили модель прогнозирования и развернули ее в облаке как веб-службу.
-
 

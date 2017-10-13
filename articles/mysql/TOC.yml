@@ -111,6 +111,8 @@
       items:
         - name: Портал Azure
           href: howto-server-parameters.md
+        - name: Инфраструктура CLI Azure
+          href: howto-configure-server-parameters-using-cli.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure
@@ -119,6 +121,8 @@
       href: /rest/api/mysql
 - name: Ресурсы
   items:
+    - name: Шаблоны развертывания
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Цены

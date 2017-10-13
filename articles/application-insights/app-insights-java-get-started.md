@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: f017b8ca42ff3560e17d8aac303a4f834d298540
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 25d9d914ab27edb548cf6e6139d0d0395208ed24
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Приступая к работе с Application Insights в веб-проекте Java
 
@@ -285,7 +284,7 @@ ms.lasthandoff: 08/21/2017
 * [установить на сервере агент для Java](app-insights-java-agent.md). Необходимо указать методы, которые требуется отслеживать.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Мониторинг вызовов методов и внешних зависимостей.
-[установить агент для Java](app-insights-java-agent.md).
+[установить агент для Java](app-insights-java-agent.md) .
 
 ## <a name="performance-counters"></a>Счетчики производительности
 Чтобы отобразить диапазон счетчиков производительности, щелкните **Параметры**, **Серверы**.
@@ -345,7 +344,7 @@ ms.lasthandoff: 08/21/2017
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 ### <a name="unix-performance-counters"></a>Счетчики производительности Unix
-* [установите collectd с подключаемым модулем Application Insights](app-insights-java-collectd.md).
+* [установите collectd с подключаемым модулем Application Insights](app-insights-java-collectd.md) .
 
 ## <a name="get-user-and-session-data"></a>Получение данных о пользователях и сеансах
 Итак, вы отправляете телеметрию с веб-сервера. Теперь для получения полного представления о приложении можно настроить дополнительные функции мониторинга:
@@ -387,7 +386,7 @@ Application Insights может тестировать ваш веб-сайт ч
 * Пишите [пользовательскую телеметрию](app-insights-api-custom-events-metrics.md) для отслеживания использования в браузере или на сервере.
 * Создавайте [панели мониторинга](app-insights-dashboards.md) для объединения основных диаграмм, позволяющих выполнять мониторинг системы.
 * Используйте [аналитику](app-insights-analytics.md), чтобы выполнять эффективные запросы телеметрии из приложения.
-* Дополнительные сведения см. на странице [Azure for Java developers](/java/azure) (Azure для разработчиков Java).
+* Дополнительные сведения см. в разделе [Azure for Java developers](/java/azure) (Azure для разработчиков Java).
 
 <!--Link references-->
 
@@ -399,4 +398,3 @@ Application Insights может тестировать ваш веб-сайт ч
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md
-

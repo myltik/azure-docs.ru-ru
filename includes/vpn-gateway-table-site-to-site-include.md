@@ -1,9 +1,7 @@
-| **Модель и метод развертывания** | **Портал Azure** | **Классический портал** | **PowerShell** | **Интерфейс командной строки Azure** |
-| --- | --- | --- | --- | --- |
-| **Диспетчер ресурсов** |[Статья](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) |Не поддерживается |[Статья](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) | [Статья](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md) |
-| **Классический** |В [статье**](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) |[Статья*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |[Статья+](../articles/vpn-gateway/vpn-gateway-multi-site.md) | Не поддерживается |
-
-"*" означает, что классический портал поддерживает только одно VPN-подключение типа "сеть — сеть".
+| **Модель и метод развертывания** | **Портал Azure** | **PowerShell** | **Интерфейс командной строки Azure** |
+| --- | --- | --- | --- |
+| Диспетчер ресурсов |[Статья](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) |[Статья](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) | [Статья](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md) |
+| Классический |В [статье**](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) |[Статья+](../articles/vpn-gateway/vpn-gateway-multi-site.md) | Не поддерживается |
 
 (**) говорится, что этот метод содержит действия, необходимые для работы PowerShell.
 

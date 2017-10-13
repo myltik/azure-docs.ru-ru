@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Анализ журналов потоков для групп безопасности сети и управление ими в Azure с помощью Наблюдателя за сетями и Graylog
 
 [Журналы потоков для групп безопасности сети](network-watcher-nsg-flow-logging-overview.md) содержат информацию, которая позволяет анализировать входящий и исходящий IP-трафик сетевых интерфейсов Azure. Журналы потоков предоставляют следующие сведения о входящем и исходящем потоках: правила групп безопасности сети, данные сетевого интерфейса потока, 5 кортежей потока (IP-адрес и порт источника, IP-адрес и порт назначения, протокол) и сведения о разрешении или запрете трафика.
@@ -249,4 +247,3 @@ sudo ./logstash-plugin install logstash-input-azureblob
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в статье [Визуализация журналов потоков для групп безопасности сети с помощью Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: c7891c188c2cecbbf056fa79672a13bb16fa7fcf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-3-plan-capacity-and-scaling-for-hyper-v-to-azure-replication"></a>Шаг 3. Планирование ресурсов и масштабирования для репликации из Hyper-V в Azure
 
 В этой статье вы сможете узнать, как планировать ресурсы и масштабирование при репликации локальных виртуальных машин Hyper-V (без System Center VMM) в Azure с помощью [Azure Site Recovery](site-recovery-overview.md).
@@ -85,4 +83,3 @@ ms.lasthandoff: 06/23/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 4. Планирование сетей для репликации физического сервера в Azure](hyper-v-site-walkthrough-network.md).
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 413f12d301a0e2c47048d23b2d4fb7de6423256d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Создание прогнозирующих конвейеров с помощью машинного обучения Azure и фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +31,7 @@ ms.lasthandoff: 09/25/2017
 3. **Развертывание эксперимента в виде веб-службы**. Оценивающий эксперимент можно опубликовать в виде веб-службы Azure. С помощью конечной точки этой веб-службы вы можете отправлять данные в свою модель и получать из нее результаты прогнозов.  
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Создание прогнозирующих конвейеров с помощью Машинного обучения Azure и фабрики данных Azure](v1/data-factory-azure-ml-batch-execution-activity.md).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Создание прогнозирующих конвейеров с помощью Машинного обучения Azure и фабрики данных Azure](v1/data-factory-azure-ml-batch-execution-activity.md).
 
 
 ### <a name="data-factory-and-machine-learning-together"></a>Фабрика данных и машинное обучение вместе
@@ -239,4 +238,3 @@ ms.lasthandoff: 09/25/2017
 * [Действие Spark](transform-data-using-spark.md)
 * [Настраиваемое действие .NET](transform-data-using-dotnet-custom-activity.md)
 * [Действие хранимой процедуры](transform-data-using-stored-procedure.md)
-

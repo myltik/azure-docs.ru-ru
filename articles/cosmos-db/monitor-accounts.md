@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 2e5cce26bc8bebbe6b9f8ba3c3d03e8c3db8c87c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-cosmos-db"></a>Мониторинг Azure Cosmos DB
 Вы можете отслеживать свои учетные записи Azure DocumentDB на [портале Azure](https://portal.azure.com/). Для каждой учетной записи Azure Cosmos DB доступен полный набор метрик для мониторинга пропускной способности, хранилища, доступности, задержки и согласованности.
@@ -87,5 +86,4 @@ ms.lasthandoff: 09/21/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о планировании ресурсов DocumentDB см. на [странице калькулятора ресурсов Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
-
 

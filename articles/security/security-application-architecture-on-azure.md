@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-architecture-on-azure"></a>Архитектура приложения в Azure
 Для защиты облачных решений на платформе Microsoft Azure крайне важно иметь надежную архитектурную основу. Глубокое понимание архитектуры приложений и служб обеспечит серьезные преимущества архитекторам, проектировщикам и разработчикам программного обеспечения. Эти базовые знания помогут вам понять все компоненты облачных решений и упростить интеграцию решений по обеспечению безопасности на всех этапах разработки и реализации.
@@ -56,4 +55,3 @@ ms.lasthandoff: 03/21/2017
 * [просмотрите обучающее видео](http://aka.ms/3dBlueprintTemplateVideo) , чтобы узнать, что вы можете делать.
 * Скачайте [шаблон трехмерного проекта Майкрософт для Visio](http://aka.ms/3DBlueprintTemplate)
 * Скачайте [символы для корпоративных облачных решений](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) для использования с шаблоном трехмерного проекта.
-

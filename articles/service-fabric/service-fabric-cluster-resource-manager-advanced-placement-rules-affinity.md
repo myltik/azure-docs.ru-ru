@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 8122f1644da25a9a2ab05291dafc33c77a91147f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Настройка и использование сходства служб в Service Fabric
 Сходство — это элемент управления, который применяется в основном для облегчения перевода больших, монолитных приложений в мир микро- и облачных служб. С его помощью можно также повысить производительность служб, хотя и не без возможных побочных эффектов.

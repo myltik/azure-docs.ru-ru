@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="archive-azure-monitoring-data"></a>Архивация данных мониторинга Azure
 
 Несколько слоев среды Azure создают данные журнала и метрик, которые можно архивировать в учетную запись хранения Azure. Делать это лучше в том случае, если необходимо сохранить историю мониторинга данных за определенное время в недорогом и недоступном для поиска хранилище, после того как срок хранения данных в Log Analytics или Azure Monitor истек. В этом руководстве описывается процесс настройки среды Azure для архивирования данных в учетную запись хранения.
@@ -26,7 +24,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="sign-in-to-the-azure-portal"></a>Выполните вход на портал Azure.
 
-Войдите на [портал Azure](https://portal.azure.com/).
+Выполните вход на [портал Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
 
@@ -164,4 +162,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [Начало работы с рабочей областью Log Analytics](../log-analytics/log-analytics-get-started.md)
-

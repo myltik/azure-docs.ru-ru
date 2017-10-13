@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 7ea28b4989ad889ff0427e221cc26ac5ebc41f93
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 450ca10613d137393090578619f3766734d1d493
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Просмотр данных HockeyApp в Application Insights
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) — это рекомендуемая платформа для мониторинга живых классических и мобильных приложений. В HockeyApp можно не только получать данные о сбоях, но и отправлять данные пользовательской телеметрии и телеметрии трассировки, чтобы отслеживать показатели использования и выполнять диагностику. Этот поток телеметрии можно запрашивать с помощью мощной функции [аналитики](app-insights-analytics.md) в [Azure Application Insights](app-insights-overview.md). Кроме того, вы можете [экспортировать данные пользовательской телеметрии и телеметрии трассировки](app-insights-export-telemetry.md). Чтобы включить эти функции, следует настроить мост (связующее приложение), который ретранслирует пользовательские данные HockeyApp в Application Insights.
@@ -66,5 +65,4 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Знакомство с аналитикой в Application Insights](app-insights-analytics-tour.md)
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: e9a3aedfb6e55696e1525e226fada1062fd5eda8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Развертывание модели из SSDT
 После создания сервера в подписке Azure все готово к развертыванию на нем базы данных табличной модели. Для создания и развертывания проекта табличной модели, над которым вы работаете, можно использовать средства SQL Server Data Tools (SSDT). 
@@ -63,5 +62,4 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После развертывания табличной модели на сервере к нему можно подключиться. Чтобы управлять сервером, вы можете [подключиться к нему с помощью SSMS](analysis-services-manage.md). Также вы можете [подключиться к серверу с помощью клиентского средства](analysis-services-connect.md), например Power BI, Power BI Desktop или Excel, и начать создавать отчеты.
-
 

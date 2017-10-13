@@ -9,14 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="document-collection-analysis"></a>Анализ коллекции документов
 
 В этом сценарии показано, как обобщать и анализировать большие коллекции документов, используя такие методы, как изучение фраз, тематическое моделирование и анализ тематических моделей с помощью Azure Machine Learning Workbench. Azure Machine Learning Workbench позволяет легко увеличивать масштаб для очень большой коллекции документов и предоставляет механизмы обучения и настройки моделей в различных контекстах вычислений: от локальных вычислений до виртуальных машин для обработки и анализа данных в кластере Spark. Записные книжки Jupyter в Azure Machine Learning Workbench позволяют упростить процесс разработки.
@@ -246,4 +244,3 @@ perplex = topicmodeler.EvaluatePerplexity(lda)
 * **Тимоти Дж. Хейзен**. [_Latent Topic Modeling for Audio Corpus Summarization_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf) (Моделирование скрытых тем для обобщения совокупности аудиоданных). 12-я ежегодная конференция Международной ассоциации по речевой коммуникации. 2011 г.
 
 * **Майкл Родер (Michael Roder), Андреас Бот (Andreas Both), Александр Хайнбург (Alexander Hinneburg)**. [_Exploring the Space of Topic Coherence Measures_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf) (Исследование пространства измерения степени согласованности тем). Материалы 8-й международной конференции ACM по поиску в Интернете и интеллектуальному анализу данных. ACM, 2015 Г.
-

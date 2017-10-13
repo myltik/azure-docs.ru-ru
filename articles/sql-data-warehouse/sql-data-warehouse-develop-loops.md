@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: d6409f1eb87787e5e023aa53b7b264116c9d8026
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 40a872ff310f48bfd543ac184fe7301b85b50258
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="loops-in-sql-data-warehouse"></a>Циклы в хранилище данных SQL
 Хранилище данных SQL позволяет использовать цикл [WHILE][WHILE] для повторяющихся блоков операторов. Цикл продолжается, пока не будут выполнены указанные условия или пока код не прервет цикл с помощью ключевого слова `BREAK` . Циклы особенно полезны для замены курсоров, определенных в коде SQL. К счастью почти все курсоры, записанные в коде SQL, относятся к разряду перемотки и доступности только для чтения. Циклы [WHILE] станут отличной альтернативой, если вам нужно заменить какой-то курсор.
@@ -86,4 +85,3 @@ DROP TABLE #tbl;
 
 
 <!--Other Web references-->
-

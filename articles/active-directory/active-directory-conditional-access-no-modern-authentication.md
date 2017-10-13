@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 5d09021627ca60a94cb1984b29b8dc7913d093d6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Настройка SharePoint Online и Exchange Online для условного доступа Azure Active Directory 
 
 С помощью [условного доступа Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) можно контролировать доступ пользователей к облачным приложениям. Если вы хотите использовать условный доступ для управления доступом к SharePoint и Exchange Online, необходимо:
@@ -41,7 +39,7 @@ ms.lasthandoff: 09/14/2017
 
 - клиентского приложения, использующего [современную аутентификацию](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a);
 
-- Exchange ActiveSync. 
+- Exchange ActiveSync 
 
 Некоторые облачные приложения также поддерживают устаревшие протоколы аутентификации. Это относится, например, к SharePoint Online и Exchange Online. Когда клиентское приложение может использовать устаревший протокол аутентификации для доступа к облачному приложению, Azure AD не может принудительно применить политику условного доступа к этой попытке получения доступа. Чтобы предотвратить обход применяемых политик клиентским приложением, следует проверить, можно ли включить для затронутых облачных приложений только современную аутентификацию. 
 
@@ -66,9 +64,9 @@ ms.lasthandoff: 09/14/2017
 
 При настройке политики условного доступа для Exchange Online необходимо проверить следующее:
 
-- Exchange ActiveSync;
+- Exchange ActiveSync
 
-- устаревшие протоколы аутентификации.
+- Устаревшие протоколы аутентификации
 
 
 
@@ -183,7 +181,6 @@ ms.lasthandoff: 09/14/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в разделе [Условный доступ в Azure Active Directory](active-directory-conditional-access.md).
-
 
 
 

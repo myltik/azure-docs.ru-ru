@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
+ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 9520e4c2680e1dd0158a35b4ee65496a42a02563
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Виртуальная сеть Azure: часто задаваемые вопросы
 
@@ -216,4 +215,3 @@ DNS, предоставленная Azure, — это мультитенант�
 - Развертывание виртуальных сетей по модели [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) или [классической модели развертывания](virtual-networks-create-vnet-classic-pportal.md) с помощью портала Azure.
 - Управление виртуальными сетями, развернутыми по модели [Azure Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) или [классической модели развертывания](/powershell/module/azure/?view=azuresmps-3.7.0), с помощью PowerShell.
 - Управление виртуальными сетями, развернутыми по любой из двух моделей развертывания, с помощью [интерфейса командной строки Azure](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources).  
-

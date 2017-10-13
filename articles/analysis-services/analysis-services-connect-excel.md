@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: ff96602642c56a3cd02aeada056c059573707731
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: d51b6980120f1cf9bc8d053d463a73ac600b915f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-with-excel"></a>Подключение с помощью Excel
 
@@ -47,6 +46,5 @@ ms.lasthandoff: 06/03/2017
 ## <a name="see-also"></a>См. также
 [Клиентские библиотеки](analysis-services-data-providers.md)   
 [Управление службами Analysis Services](analysis-services-manage.md)     
-
 
 

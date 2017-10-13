@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: ac799d66b5038c207413086b0fa71239ff2a332f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 4cb6ad53b59b81f906a85027f4ff988bbb78706a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Ограничения и известные проблемы при импорте API
 ## <a name="about-this-list"></a>Об этом списке
@@ -81,4 +80,3 @@ WSDL-файлы используются для создания сквозны�
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to cache operation results in Azure API Management]: api-management-howto-cache.md
-

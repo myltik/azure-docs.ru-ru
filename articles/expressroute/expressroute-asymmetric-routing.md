@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
 ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Асимметричная маршрутизация с использованием нескольких сетевых путей
 В этой статье объясняется, как прямой и обратный сетевой трафик может проходить по разным маршрутам, если между исходным и целевым сетевыми расположениями есть несколько путей.
@@ -72,5 +71,4 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="asymmetric-routing-detection"></a>Обнаружение асимметричной маршрутизации
 Лучшим подтверждением того, что сетевой трафик проходит по ожидаемому пути, является трассировка маршрута. Если вы ожидаете, что трафик от вашего локального SMTP-сервера в Майкрософт будет проходить через Интернет, ожидаемым маршрутом при трассировке будет маршрут от SMTP-сервера к Office 365. Ее результат подтвердит, что трафик из вашей сети действительно направляется к Интернету, а не к ExpressRoute.
-
 

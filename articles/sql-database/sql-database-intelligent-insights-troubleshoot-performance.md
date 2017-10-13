@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: edd8c526a681c9cd5226ede6110f21c3362aaef6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Устранение проблем с производительностью базы данных SQL Azure с помощью Intelligent Insights
 
@@ -324,4 +323,3 @@ Intelligent Insights автоматически выявляет проблем�
 - Используйте [журнал диагностики производительности Intelligent Insights для базы данных SQL Azure](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Настройте [мониторинг базы данных SQL Azure с помощью службы "Аналитика SQL Azure"](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
 - Изучите [сбор и использование данных журнала из ресурсов Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
-

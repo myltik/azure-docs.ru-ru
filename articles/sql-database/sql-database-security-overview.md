@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: de2b70a6a6bc557902fbe1fe1391696ec9998d70
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securing-your-sql-database"></a>Защита Базы данных SQL
 
@@ -84,4 +83,3 @@ ms.lasthandoff: 08/31/2017
 - Как пользоваться функциями контроля доступа в базе данных SQL см. в [этой статье](sql-database-control-access.md).
 - Обсуждение аудита баз данных см. в разделе [Аудит базы данных SQL](sql-database-auditing.md).
 - Обсуждение обнаружение угроз см. в разделе [Обнаружение угроз для базы данных SQL](sql-database-threat-detection.md).
-

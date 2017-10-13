@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
 ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Использование API Служб мобильного взаимодействия Azure в веб-приложении
 Этот документ представляет собой дополнение к документу, в котором описывается, [как интегрировать Службы мобильного взаимодействия в веб-приложение](mobile-engagement-web-integrate-engagement.md). В нем подробно рассказывается о том, как с помощью API Служб мобильного взаимодействия Azure предоставлять статистику по приложению.

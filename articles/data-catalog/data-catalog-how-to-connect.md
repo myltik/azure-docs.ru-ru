@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5db1a6f8b3ff0369817e69abaa4d95af843cd7f2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: fd687bb74a22b0483225c509171edaa67f1c49d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-connect-to-data-sources"></a>Подключение к источникам данных
 ## <a name="introduction"></a>Введение
@@ -70,4 +69,3 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="see-also"></a>Дополнительные материалы
 * Пошаговые инструкции по подключению к источникам данных см. в руководстве [Начало работы с каталогом данных Azure](data-catalog-get-started.md).
-

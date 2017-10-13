@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: cc3c705f1c9123de75ced016a5b39eb1a86b0f73
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Экспорт групп ресурсов, которые содержат расширения виртуальной машины
 
 Вы можете экспортировать группы ресурсов Azure в новый шаблон Resource Manager, а затем развернуть этот шаблон. Процесс экспорта оценивает существующие ресурсы и создает шаблон Resource Manager, при развертывании которого создается аналогичная группа ресурсов. Если вы применяете операцию экспорта группы ресурсов к группе ресурсов, содержащей расширения виртуальной машины, важно учитывать несколько дополнительных аспектов, включая совместимость расширений и защищенные параметры.
@@ -166,4 +164,3 @@ ms.lasthandoff: 03/31/2017
 ```
 
 Теперь шаблон можно развернуть с помощью любого удобного метода развертывания.
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-database-security"></a>Безопасность базы данных в Azure Cosmos DB
 
 В этой статье представлены рекомендации по обеспечению безопасности, а также основные возможности, предлагаемые Azure Cosmos DB для предотвращения и обнаружения нарушений в работе баз данных и реагирования на эти нарушения.
@@ -98,4 +96,3 @@ ms.lasthandoff: 09/25/2017
 Дополнительные сведения о ведении журнала аудита см. в разделе [Ведение журнала диагностики Azure Cosmos DB](logging.md).
 
 Дополнительные сведения о сертификатах Майкрософт см. в [центре управления безопасностью Azure](https://azure.microsoft.com/support/trust-center/).
-

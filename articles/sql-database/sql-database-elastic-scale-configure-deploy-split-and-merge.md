@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7a702354de137e1bca033146626dad1ca53fd3ed
-ms.openlocfilehash: b644ef0a8da726b2b23a4bfc81516c112be2de2e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 6e2fea882c248fa095a9d450ed54a7b4e64b45e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-split-merge-service"></a>Развертывание службы разбиения и объединения
 Средство разбиения и объединения перемещает данные между сегментированными базами данных. См. статью [Перемещение данных между масштабируемыми облачными базами данных](sql-database-elastic-scale-overview-split-and-merge.md).
@@ -344,5 +342,4 @@ ms.lasthandoff: 01/13/2017
 [3]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/staging.png
 [4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
-
 

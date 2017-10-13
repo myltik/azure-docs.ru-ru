@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a438a0d83ad4749953297b6481cba9cec5900140
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Подготовка виртуальной машины Windows для обработки и анализа данных в Azure
 Виртуальная машина Майкрософт для обработки и анализа данных — это образ виртуальной машины (VM) Windows Azure, в котором предварительно установлен и настроен ряд распространенных средств, обычно необходимых для анализа данных и машинного обучения. К этим средствам относятся:
@@ -206,5 +205,4 @@ Anaconda Python 2.7 устанавливается в папку C:\Anaconda, а
 * Ознакомьтесь со статьей [10 задач, которые можно выполнить в виртуальной машине для обработки и анализа данных](http://aka.ms/dsvmtenthings).
 * Изучите систематический подход к созданию комплексных аналитических решений с помощью [процесса обработки и анализа данных группы](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
 * Примеры машинного обучения и анализа данных с использованием Cortana Intelligence Suite см. на странице [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com). Мы также добавили значок на рабочий стол и элемент в меню **Пуск** для этой коллекции на виртуальной машине.
-
 

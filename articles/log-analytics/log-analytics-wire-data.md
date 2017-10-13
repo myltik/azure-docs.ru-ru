@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: ce8065d777bb315d4f9589d1b24a5152296facfe
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Решение Wire Data 2.0 (предварительная версия) в Log Analytics
 
 ![Символ Wire Data](./media/log-analytics-wire-data/wire-data2-symbol.png)
@@ -456,4 +454,3 @@ rpm -e dependency-agent dependency-agent-connector
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - [поиск в журналах](log-analytics-log-searches.md) , чтобы просмотреть подробные записи поиска данных передачи.
-

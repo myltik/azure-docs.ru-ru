@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 1d652d562f4c5caffded18d928e2395e537f59f4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Руководство. Интеграция Azure Active Directory с Nomadesk
 
@@ -232,5 +231,4 @@ ms.lasthandoff: 07/04/2017
 [201]: ./media/active-directory-saas-nomadesk-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-nomadesk-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-nomadesk-tutorial/tutorial_general_203.png
-
 

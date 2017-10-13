@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: db8d7b0e117276dd63ee83a1c2337e69253184b8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 8772a9a21a0c99994ac9bcf10ea7b13c35bac6c2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Устранение неполадок, связанных с тем, что в Application Insights для .NET не отображаются данные
 ## <a name="some-of-my-telemetry-is-missing"></a>Некоторая телеметрия отсутствует
@@ -159,11 +158,9 @@ ms.lasthandoff: 03/15/2017
 ## <a name="no-performance-data"></a>Нет данных о производительности
 Данные о производительности (ЦП, скорость ввода-вывода и т. д.) доступны для [веб-служб Java](app-insights-java-collectd.md), [классических приложений Windows](app-insights-windows-desktop.md), [веб-приложений и служб IIS, если установлен монитор состояния](app-insights-monitor-performance-live-website-now.md), а также [облачных служб Azure](app-insights-azure.md). Их можно найти, открыв раздел "Параметры" и выбрав "Серверы".
 
-Такие данные для веб-сайтов Azure недоступны.
-
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>После публикации приложения на сервере данные на нем отсутствуют
 * Проверьте, что вы фактически скопировали все библиотеки DLL Microsoft. ApplicationInsights на сервер вместе с Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
-* В брандмауэре может потребоваться [открыть некоторые порты TCP](app-insights-ip-addresses.md#data-access-api).
+* В брандмауэре может потребоваться [открыть некоторые порты TCP](app-insights-ip-addresses.md).
 * Если для отправки из корпоративной сети необходимо использовать прокси-сервер, установите значение [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) в файле Web.config.
 * Для Windows Server 2008. Убедитесь в том, что установлены следующие обновления: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
@@ -184,5 +181,4 @@ ms.lasthandoff: 03/15/2017
 
 ## <a name="still-not-working"></a>По-прежнему не работает...
 * [Форум Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-
 

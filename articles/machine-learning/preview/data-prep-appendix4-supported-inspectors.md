@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bc14c051fb0f518b1cff2236a61d24cb052700f0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-inspectors-for-this-preview"></a>Поддерживаемые инспекторы в предварительной версии
 В этой статье приведен набор инспекторов, доступных в этой предварительной версии.
 
@@ -113,4 +111,3 @@ ms.lasthandoff: 09/25/2017
 ### <a name="actions"></a>Действия
 Этот инспектор поддерживает фильтрацию по точкам на карте. Нажмите клавишу CTRL, а затем щелкните и перетащите с помощью указателя мыши, чтобы образовать прямоугольник вокруг точки. Примените фильтры, как описано выше.
 Вы можете быстро изменить размер карты, чтобы просмотреть все возможные точки. Для этого нажмите клавишу **E** в левой части окна карты.
-

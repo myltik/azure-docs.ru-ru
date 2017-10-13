@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Шлюз управления данными: высокий уровень доступности и масштабируемость (предварительная версия)
 Эта статья поможет вам настроить решение по обеспечению высокого уровня доступности и масштабируемости с помощью шлюза управления данными.    
@@ -250,4 +249,3 @@ Needs Registration (Требуется регистрация) | В логиче
 Ознакомьтесь со следующими статьями:
 - Статья [Шлюз управления данными](data-factory-data-management-gateway.md) содержит подробный обзор шлюза.
 - Статья [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) содержит пошаговые инструкции по использованию шлюза с одним узлом. 
-

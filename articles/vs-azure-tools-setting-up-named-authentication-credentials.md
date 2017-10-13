@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>Настройка именованных учетных данных для проверки подлинности
 Чтобы опубликовать приложение из Visual Studio в Azure или отслеживать существующую облачную службу, необходимо предоставить учетные данные, которые Visual Studio сможет использовать для проверки подлинности запросов к Azure. Эти учетные данные можно указывать в разных разделах Visual Studio. Например, откройте в обозревателе сервера контекстное меню узла **Azure** и выберите **Подключиться к подписке Microsoft Azure**. Когда вы входите в систему, сведения о подписке, связанные с учетной записью Azure, становятся доступными в Visual Studio. Поэтому больше ничего делать не нужно.

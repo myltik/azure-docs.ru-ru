@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Аудит и получение уведомлений о важных действиях в подписке Azure
 
 **Журнал действий Azure** содержит события на уровне подписки в Azure. Он предоставляет сведения о том, *кто* создал, обновил или удалил *ресурсы*, а также *когда* это было сделано. Вы можете создать **оповещение журнала действий**, чтобы получать электронные сообщения, текстовые сообщения или уведомления веб-перехватчика при возникновении действия, которое соответствует условиям оповещений. Это краткое руководство содержит сведения о том, как создать простую группу безопасности сети, просмотреть журнал действий, чтобы разобраться в возникающих событиях, а затем создать оповещение журнала действий для получения уведомлений о создании групп безопасности сети в дальнейшем.
@@ -101,4 +99,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [Archive Azure monitoring data](./monitor-tutorial-archive-monitoring-data.md) (Архивирование данных мониторинга Azure)
-

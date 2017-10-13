@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: elioda
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: b3ca2ed90dd14350d3962a558aaac41f2e007bbd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Высокая доступность и аварийное восстановление центра IoT
 Будучи службой Azure, центр IoT отличается высоким уровнем доступности, который достигается за счет использования избыточности в одном регионе Azure. При этом к решению не выдвигаются никакие дополнительные требования. Платформа Microsoft Azure также включает в себя ряд возможностей для создания решений с функциями аварийного восстановления или межрегиональной доступностью. Чтобы обеспечить глобальную, межрегиональную высокую доступность для устройств или пользователей, используйте эти функции Azure при разработке и подготовке своих решений. В [техническом руководстве по обеспечению устойчивости в Azure](../resiliency/resiliency-technical-guidance.md) описаны встроенные функции Azure, которые позволяют обеспечить непрерывность бизнес-процессов и возможности аварийного восстановления. В статье [Аварийное восстановление и высокая доступность для приложений на платформе Azure][Disaster recovery and high availability for Azure applications] содержатся требования к архитектуре, которая позволяет обеспечить высокий уровень доступности приложений Azure и реализовать для них возможности аварийного восстановления.
@@ -60,4 +59,3 @@ ms.lasthandoff: 08/30/2017
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
-

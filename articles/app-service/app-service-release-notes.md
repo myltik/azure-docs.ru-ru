@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Заметки о выпуске Azure SDK для .NET 2.5.1
 Этот документ содержит заметки о выпуске для пакета Azure SDK для .NET версии 2.5.1. 
@@ -63,5 +62,4 @@ ms.lasthandoff: 09/07/2017
 * Проекты приложений API невозможно использовать совместно с проектами облачных служб.
 * Шаблоны проектов приложений API доступны только в C#.
 * Использование приложений API в контекстном меню «Добавление клиента приложений API Azure» поддерживается только в C#.
-
 

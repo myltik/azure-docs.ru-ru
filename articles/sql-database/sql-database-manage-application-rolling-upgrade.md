@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 4b59c8aa3dea3e8fba692ab66420295a09210d3b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Управление последовательными обновлениями для облачных приложений с помощью активной георепликации базы данных SQL
 > [!NOTE]
@@ -138,6 +137,5 @@ ms.lasthandoff: 05/18/2017
 * Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь со статьей [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md).
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь со сведениями о [восстановлении базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md).
 * Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь со сведениями об [активной георепликации](sql-database-geo-replication-overview.md).
-
 
 

@@ -3,7 +3,7 @@ title: "Пользовательские проверки балансировщ
 description: "Узнайте, как выполнять мониторинг экземпляров за балансировщиком нагрузки с помощью пользовательских проверок для балансировщика нагрузки Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: ce2550ca8301fd12d61cca143b2851b84f1a0f50
-ms.openlocfilehash: 01afa3a08bbb56d4c6b8b18c5eb07f49706c6482
-
+ms.openlocfilehash: 102c07ff0994b3b411f2a13d7a43c5398d5dfd42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-load-balancer-probes"></a>Проверки балансировщика нагрузки
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Балансировщик нагрузки Azure позволяет отслеживать работоспособность различных экземпляров сервера с помощью проверок. Если проверка не отвечает, балансировщик нагрузки Azure прекращает отправлять новое подключение неработоспособным экземплярам. Существующие подключения не затрагиваются, а новые подключения отправляются в работоспособные экземпляры.
 
@@ -94,9 +96,3 @@ ms.openlocfilehash: 01afa3a08bbb56d4c6b8b18c5eb07f49706c6482
 ## <a name="use-log-analytics-for-load-balancer"></a>Использование службы анализа журналов для балансировщика нагрузки
 
 Для проверки состояния работоспособности проверок и количества проверок можно использовать [службу анализа журналов для балансировщика нагрузки](load-balancer-monitor-log.md) . Функция ведения журналов в Power BI или Azure Operational Insights позволяет получать статистические данные о работоспособности балансировщика нагрузки.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

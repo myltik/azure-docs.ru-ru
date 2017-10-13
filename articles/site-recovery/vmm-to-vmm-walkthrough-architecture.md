@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
 ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>Шаг 1. Обзор архитектуры для репликации Hyper-V на дополнительный сайт
 

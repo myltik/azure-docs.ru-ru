@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Платформы и средства для командных проектов обработки и анализа данных
 
 Корпорация Майкрософт предоставляет широкий спектр служб и ресурсов для получения и анализа данных как для облачных, так и для локальных платформ. Развертывание этих ресурсов повысит эффективность и масштабируемость выполнения проектов по обработке и анализу данных. Для команд, выполняющих проекты по обработке и анализу данных, предлагается [командный процесс обработки и анализа данных](overview.md) (TDSP), который обеспечивает отслеживаемость, контроль версий и совместную работу.  Роли и задачи сотрудников в области стандартизации обработки и анализа данных описаны в статье [Team Data Science Process roles and tasks](roles-tasks.md) (Роли и задачи в командном процессе обработки и анализа данных).

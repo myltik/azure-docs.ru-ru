@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ed6f73d8baea5af0d2aa5f0ae885f305911ccc82
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-9-configure-network-mapping-for-hyper-v-replication-with-vmm-to-azure"></a>Шаг 9. Настройка сетевого сопоставления для репликации Hyper-V (с VMM) в Azure
 
@@ -59,4 +58,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 10. Настройка политики репликации для репликации виртуальной машины Hyper-V (с VMM) в Azure](vmm-to-azure-walkthrough-replication.md).
-

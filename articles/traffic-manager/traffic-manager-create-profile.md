@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-traffic-manager-profile"></a>Создание профиля диспетчера трафика
 
 В этой статье описывается, как создать профиль с маршрутизацией **по приоритету** для направления пользователей к двум конечным точкам веб-приложения Azure. При маршрутизации **по приоритету** весь трафик направляется к первой конечной точке, а вторая остается в резерве. Пользователи могут быть направлены ко второй конечной точке, если первая конечная точка станет неработоспособной.
@@ -73,7 +71,6 @@ ms.lasthandoff: 09/29/2017
 - Узнайте больше о [типах маршрутизации](traffic-manager-routing-methods.md).
 - Узнайте больше о [типах конечных точек](traffic-manager-endpoint-types.md).
 - Узнайте больше о [мониторинге конечных точек](traffic-manager-monitoring.md).
-
 
 
 

@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 09/20/2017
 ms.author: mblythe
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-a-function-from-microsoft-flow"></a>Вызов функции из Microsoft Flow
 
 [Microsoft Flow](https://flow.microsoft.com/) позволяет легко автоматизировать рабочие и бизнес-процессы между избранными приложениями и службами. Профессиональные разработчики могут расширить возможности Microsoft Flow с помощью Функций Azure. Благодаря этому разработчикам последовательностей не нужно вникать в технические детали.
@@ -267,10 +265,10 @@ ms.lasthandoff: 09/25/2017
 В этой статье вы выполнили следующие действия:
 
 > [!div class="checklist"]
-> * создали список в SharePoint;
+> * создавать список в SharePoint;
 > * импортировали определения API;
 > * добавили подключения к API;
-> * создали последовательность для отправки электронной почты, если ремонт экономически оправдан;
+> * создавать последовательность для отправки электронной почты, если ремонт экономически оправдан;
 > * запустили последовательность.
 
 Дополнительные сведения о Microsoft Flow вы найдете в статье [Начало работы с Microsoft Flow](https://flow.microsoft.com/documentation/getting-started/).

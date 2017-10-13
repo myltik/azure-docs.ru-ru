@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/19/2017
 ms.author: jovanpop
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 64abcf680199938c54be5005ee96670a8e580270
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Автоматическая настройка в базе данных SQL Azure
 
@@ -48,4 +47,3 @@ ms.lasthandoff: 09/20/2017
 - Дополнительные сведения о ручной настройке для повышения производительности запросов см. в статье [Использование помощника по базам данных SQL на портале Azure](sql-database-advisor-portal.md).
 - Ознакомьтесь с дополнительными сведениями о встроенной аналитике для настройки [базы данных SQL Azure](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Ознакомьтесь с [автоматической настройкой](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) в базе данных SQL Azure и SQL Server 2017.
-

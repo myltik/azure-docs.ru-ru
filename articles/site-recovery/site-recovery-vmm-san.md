@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 29084a52aca22b31a2fa42660ec2cdf050aec7ca
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 3df38802fcdc86e4553253d38c49faff455f873e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-vms-in-vmm-clouds-to-a-secondary-site-with-azure-site-recovery-by-using-san"></a>Репликация виртуальных машин Hyper-V в облаках VMM на вторичный сайт с помощью службы Azure Site Recovery и сети SAN
 
@@ -350,4 +348,3 @@ Site Recovery, VMM и поставщики SMI-S подготавливают л
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Протестировав отработку отказа и убедившись, что среда работает так, как нужно, [ознакомьтесь с разными типами отработки отказа](site-recovery-failover.md).
-

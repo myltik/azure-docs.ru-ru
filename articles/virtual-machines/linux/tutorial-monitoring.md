@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Мониторинг и обновление виртуальных машин Linux в Azure
 
@@ -34,7 +33,7 @@ ms.lasthandoff: 09/25/2017
 > * Включение расширения системы диагностики на виртуальной машине.
 > * Просмотр метрик виртуальной машины.
 > * Создание оповещений на основе метрик диагностики.
-> * Управление пакетами обновлений.
+> * Управление пакетами обновлений
 > * Настройка расширенного мониторинга.
 
 
@@ -283,11 +282,10 @@ az vm extension set \
 > * Включение расширения системы диагностики на виртуальной машине.
 > * Просмотр метрик виртуальной машины.
 > * Создание оповещений на основе метрик диагностики.
-> * Управление пакетами обновлений.
+> * Управление пакетами обновлений
 > * Настройка расширенного мониторинга.
 
 Перейдите к следующему руководству, чтобы узнать о центре безопасности Azure.
 
 > [!div class="nextstepaction"]
 > [Мониторинг защиты виртуальных машин с помощью центра безопасности Azure](./tutorial-azure-security.md)
-

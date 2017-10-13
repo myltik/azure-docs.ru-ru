@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/04/2017
 ms.author: juliako;anilmur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 38c3637cc477e24ac8d056611e7fda9a4d693cdb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 2a175aed40b9775d9a4de6877eb3467b43819568
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-overview"></a>Общие сведения о службах мультимедиа Azure 
 
@@ -75,7 +74,7 @@ ms.lasthandoff: 07/06/2017
 * Для потоковой передачи мы будем успешно обслуживать запросы с гарантией доступности на уровне 99,9 % для существующего мультимедийного содержимого, если приобретена одна конечная точка потоковой передачи уровня "Стандартный" или "Премиум".
 * для динамических каналов мы гарантируем возможность внешнего подключения запущенных каналов в течение как минимум 99,9 % времени;
 * для защиты содержимого мы гарантируем, что мы будет успешно выполнять ключевые запросы по крайней мере 99,9 % времени;
-* для индексатора мы будет успешно обслуживать запросы задачи индексатора, обработанные с помощью зарезервированный единицы кодирования, в течение 99,9 % времени.
+* для индексатора мы будет успешно обслуживать запросы задачи индексатора, обработанные с помощью зарезервированной единицы кодирования, в течение 99,9 % времени.
 
 Дополнительные сведения можно найти в разделе [Соглашение об уровне обслуживания Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
@@ -88,4 +87,3 @@ ms.lasthandoff: 07/06/2017
 ## <a name="provide-feedback"></a>Отзывы
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

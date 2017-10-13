@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 522e33b399f2648427464b439bc4405e9e8097cd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-azure-hdinsight-hadoop-clusters-for-the-team-data-science-process"></a>Настройка кластеров Azure HDInsight Hadoop для процесса обработки и анализа данных группы
 В этой статье рассказывается о том, как настроить кластер Hadoop под управлением службы HDInsight, установив 64-разрядную версию программы Anaconda (Python 2.7) на каждом узле в процессе подготовки кластера как службы HDInsight. Здесь также приведена информация о том, как получить доступ к головному узлу для отправки пользовательских заданий в кластер. В результате этой настройки многие популярные модули Python, входящие в состав программы Anaconda, станут доступными для использования в определяемых пользователями функциях (UDF), предназначенных для обработки записей Hive в кластере. Инструкции по процедурам, которые используются в этом сценарии, см. в разделе [Отправка запросов Hive](move-hive-tables.md#submit).
@@ -89,5 +88,4 @@ ms.lasthandoff: 09/25/2017
 Дальнейшие действия по подготовке и обработке аналитических данных можно найти в статье [Процесс обработки и анализа данных группы](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/). Они могут включать в себя операции с перемещением данных в HDInsight, их обработкой и выборкой для подготовки к обучению по данным с помощью Машинного обучения Azure.
 
 Инструкции по получению доступа к модулям Python, которые входят в состав программы Anaconda, с головного узла кластера в пользовательских функциях, предназначенных для обработки записей Hive, которые хранятся в кластере, см. в разделе [Отправка запросов Hive](move-hive-tables.md#submit).
-
 

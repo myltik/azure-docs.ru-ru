@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="step-1-review-the-architecture"></a>Шаг 1. Общие сведения об архитектуре
 
 
@@ -63,8 +60,7 @@ ms.lasthandoff: 07/26/2017
 1. После включения защиты для виртуальных машин Hyper-V на портале Azure или локально запустится рабочий процесс **Включение защиты**.
 2. Это задание проверяет, соответствует ли компьютер необходимым требованиям перед вызовом метода [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), который настраивает репликацию, используя определенные вами параметры.
 3. Задание запускает начальную репликацию, вызывая метод [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), чтобы инициализировать полную репликацию виртуальной машины и отправить ее виртуальные диски в Azure.
-4. На вкладке **Задания** можно отслеживать ход выполнения задания.
-        ![Список заданий](media/vmm-to-azure-walkthrough-architecture/image1.png)![Подробные сведения о включении защиты](media/vmm-to-azure-walkthrough-architecture/image2.png)
+4. На вкладке **Задания** можно отслеживать ход выполнения задания.      ![Список заданий](media/vmm-to-azure-walkthrough-architecture/image1.png)![Подробные сведения о включении защиты](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Репликация исходных данных
 
@@ -121,4 +117,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 См. [Шаг 2. Обзор необходимых компонентов для развертывания](vmm-to-azure-walkthrough-prerequisites.md)
-

@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc, devcenter
+ms.openlocfilehash: 8276afd9593b46a08279e9c1d6fe1d07f04273dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 9331039cef4ef047820e088cc84b92655336d12c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Создание веб-приложения Python в Azure
 
@@ -200,4 +199,3 @@ git push azure master
 
 > [!div class="nextstepaction"]
 > [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](app-service-web-tutorial-custom-domain.md)
-

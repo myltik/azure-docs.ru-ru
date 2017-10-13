@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 59a453aab82d2f78bcc04774e26c8a557b8dbb26
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Разработка и развертывание веб-заданий в службе приложений Azure с помощью Visual Studio
 
 ## <a name="overview"></a>Обзор
@@ -169,4 +167,3 @@ ms.lasthandoff: 09/20/2017
 ![Опубликовать как веб-задание Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
 
 Для независимого веб-задания отобразится тот же мастер **веб-публикации** , который использовался для веб-проектов, но некоторые параметры будут недоступны для изменения.
-

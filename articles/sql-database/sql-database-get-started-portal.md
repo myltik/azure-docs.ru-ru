@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: e1e9dcd5b2b58e02b0c320c808f9042f7e032d50
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 6bf1b94b38fffe31dd67a5146c3c9c5e9367084e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Создание базы данных SQL Azure на портале Azure
 
@@ -41,7 +40,7 @@ ms.lasthandoff: 08/30/2017
 
 1. Щелкните **Создать** в верхнем левом углу портала Azure.
 
-2. Выберите **Базы данных** на странице **создания** и щелкните **Создать** в разделе **База данных SQL** страницы **создания нового элемента**.
+2. Выберите **Базы данных** на странице **Создание** и щелкните **Создать** в разделе **База данных SQL** на странице **Создание**.
 
    ![Создание базы данных — 1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -77,7 +76,7 @@ ms.lasthandoff: 08/30/2017
 
 5. Заполнив форму, щелкните **Выбрать**.
 
-6. Щелкните **Ценовая категория**, чтобы указать уровень службы, количество DTU и объем хранилища. Изучите доступные ресурсы для каждого уровня служб (число DTU и объем хранилища). 
+6. Щелкните **Ценовая категория**, чтобы указать уровень службы, число DTU и объем хранилища. Изучите доступные ресурсы для каждого уровня служб (число DTU и объем хранилища). 
 
    > [!IMPORTANT]
    > \* Размеры хранилища, превышающие включенный объем, доступны в предварительной версии. За их использование взимается дополнительная плата. Подробнее об этом можно узнать в статье [Стоимость использования Базы данных SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
@@ -186,4 +185,3 @@ ms.lasthandoff: 08/30/2017
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
-

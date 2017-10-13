@@ -15,14 +15,12 @@ ms.date: 09/06/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 2b4ad3e7bda1346e606b2c185c204154b8f19f87
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Настройка удаленного доступа к SharePoint с помощью прокси приложения Azure AD
 
 В этой статье описывается интеграция локального сервера SharePoint с прокси приложения Azure Active Directory (Azure AD).
@@ -208,5 +206,4 @@ Klist возвращает набор целевых имен субъектов
 
 - [Работа с пользовательскими доменами в прокси приложения Azure AD](active-directory-application-proxy-custom-domains.md)
 - [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md)
-
 

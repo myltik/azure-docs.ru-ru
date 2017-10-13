@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: fbb3bb5f538d1d26b6fe8d653724d80faf96e277
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с использованием собственной аутентификации Azure на основе сертификата и портала Azure
 
@@ -48,7 +47,7 @@ VPN-шлюз типа "точка — сеть" (P2S) позволяет соз
 
 * SSTP представляет собой VPN-туннель на основе SSL, который поддерживается только на клиентских платформах Windows. Этот туннель проходит через брандмауэры и является отличным вариантом для подключения к Azure из любого расположения. На стороне сервера поддерживается SSTP версии 1.0, 1.1 и 1.2. Какую версию использовать, решает клиент. Для Windows 8.1 и более поздних версий по умолчанию используется SSTP версии 1.2.
 
-* IKEv2 VPN — решение VPN на основе стандартов IPsec. IKEv2 VPN можно использовать для подключения с устройств Mac (OSX версии 10.11 и выше). Протокол IKEv2 сейчас используется в предварительной версии.
+* IKEv2 VPN — решение VPN на основе стандартов IPsec. IKEv2 VPN можно использовать для подключения с устройств Mac (OSX версии 10.11 и выше). Протокол IKEv2 сейчас доступен в предварительной версии.
 
 Для собственной аутентификации Azure на основе сертификата при подключениях типа "точка — сеть" необходимо следующее:
 

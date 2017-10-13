@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: sstein
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-recommendations"></a>Рекомендации по производительности
 
@@ -81,6 +80,5 @@ ms.lasthandoff: 09/25/2017
 * В разделе [Использование журнала диагностики производительности Intelligent Insights для базы данных SQL Azure](sql-database-intelligent-insights.md) описывается мониторинг производительности базы данных с помощью автоматической диагностики и анализа первопричин проблем с производительностью.
 * В разделе [Использование помощника по базам данных SQL на портале Azure](sql-database-advisor-portal.md) приведены пошаговые инструкции по использованию рекомендаций по производительности на портале Azure.
 * См. статью [Анализ производительности запросов базы данных Azure SQL](sql-database-query-performance.md), чтобы узнать о том, как просмотреть влияние на производительность основных запросов.
-
 
 

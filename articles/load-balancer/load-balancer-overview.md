@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ecf1fc38d2b9fd54fe5b00db616224a0848179fe
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-load-balancer-overview"></a>Обзор балансировщика нагрузки Azure
 
 Балансировщик нагрузки Azure обеспечивает высокую доступность и производительность сети для приложений. Это балансировщик нагрузки уровня 4 (TCP, UDP), распределяющий входящий трафик между работоспособными экземплярами служб, определенных в наборе балансировки нагрузки.
@@ -103,5 +101,4 @@ ms.lasthandoff: 09/25/2017
 - Создание [подсистемы балансировки нагрузки, подключенной к Интернету](load-balancer-get-started-internet-portal.md)
 
 - Дополнительные сведения о некоторых других ключевых [сетевых возможностях](../networking/networking-overview.md) Azure
-
 

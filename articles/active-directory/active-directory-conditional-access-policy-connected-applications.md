@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: a57edd30975ec0e943fd84b2c66137d328a89b8b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Настройка политик условного доступа на основе устройств для Azure Active Directory
 
@@ -77,5 +76,4 @@ ms.lasthandoff: 09/15/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перед настройкой политики условного доступа на основе устройств в своей среде ознакомьтесь со статей [Рекомендации по работе с условным доступом в Azure Active Directory](active-directory-conditional-access-best-practices.md).
-
 
