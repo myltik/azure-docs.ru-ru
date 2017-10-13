@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: d3de566ff2825ef0c41d88d4a86157dc23d9f46b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-nat-requirements"></a>Требования ExpressRoute к NAT
 Для подключения к облачным службам Майкрософт с помощью ExpressRoute необходима настройка и управление NAT. Некоторые поставщики услуг подключения предлагают настройку NAT как управляемой службы и управление этой службой. Узнайте у поставщика услуг подключения, предоставляет ли он такую услугу. В противном случае необходимо выполнить требования, описанные ниже. 
@@ -27,7 +26,7 @@ ms.lasthandoff: 05/15/2017
 Общие сведения о различных доменах маршрутизации см. в статье [Каналы ExpressRoute и домены маршрутизации](expressroute-circuit-peerings.md). Для выполнения требований об открытых IP-адресах для общедоступного пиринга Azure и пиринга Майкрософт рекомендуем настроить NAT между вашей сетью и Майкрософт. В этом разделе подробно описана инфраструктура NAT, которую вам нужно настроить.
 
 ## <a name="nat-requirements-for-azure-public-peering"></a>Требования к NAT для общедоступного пиринга Azure
-Путь общедоступного пиринга Azure позволяет подключаться ко всем службам, размещенным в Azure, по их открытым IP-адресам. Сюда входят службы, перечисленные в статье [Вопросы и ответы по ExpessRoute](expressroute-faqs.md) , а также все службы, размещенные независимыми поставщиками программного обеспечения в Microsoft Azure. 
+Путь общедоступного пиринга Azure позволяет подключаться ко всем службам, размещенным в Azure, по их открытым IP-адресам. Сюда входят службы, перечисленные в статье [Вопросы и ответы по ExpessRoute](expressroute-faqs.md), а также все службы, размещенные независимыми поставщиками программного обеспечения в Microsoft Azure. 
 
 > [!IMPORTANT]
 > Подключение к службам Microsoft Azure через общедоступный пиринг всегда осуществляется от локальной сети к сети Microsoft. Таким образом, через ExpressRoute невозможно инициировать сеансы из служб Microsoft Azure к вашей сети. При попытке это сделать пакеты, отправляемые по объявленным IP-адресам, вместо ExpressRoute будут использовать Интернет.
@@ -75,5 +74,4 @@ ms.lasthandoff: 05/15/2017
   * [Создайте канал ExpressRoute.](expressroute-howto-circuit-classic.md)
   * [Настройка маршрутизации](expressroute-howto-routing-classic.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
 

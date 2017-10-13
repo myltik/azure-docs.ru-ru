@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Гибкая демонстрация работы с решением "Схема услуги" в Operations Management Suite (OMS).
 В этой демонстрации представлены пошаговые инструкции по определению и диагностике имитации проблемы в веб-приложении с помощью [решения "Схема услуги"](operations-management-suite-service-map.md) в Operations Management Suite (OMS).  Служба схемы услуги автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами.  Здесь также объединяются данные из других служб OMS, которые помогут в анализе производительности и выявлении проблем.  Чтобы определить источник проблемы, вы будете подробно изучать собранные данные, выполнив [поиск по журналам в Log Analytics](../log-analytics/log-analytics-log-searches.md).
