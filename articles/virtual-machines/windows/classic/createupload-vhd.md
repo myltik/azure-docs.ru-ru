@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bc75c8cdd98b0ea0fbff6483c0e3c9d4468d3941
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Создание и передача виртуального жесткого диска Windows Server в Azure
 В этой статье показан процесс передачи собственного универсального образа виртуальной машины как виртуального жесткого диска (VHD-файла) и дальнейшего его использования для создания виртуальных машин. Дополнительные сведения о дисках и виртуальных жестких дисках в Microsoft Azure см. в статье [О дисках и виртуальных жестких дисках для виртуальных машин](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -105,4 +104,3 @@ Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountN
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы можете [создать пользовательскую виртуальную машину](createportal.md) с помощью переданного образа.
-

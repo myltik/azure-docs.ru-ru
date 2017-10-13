@@ -16,10 +16,10 @@ ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
 ms.openlocfilehash: 4f6806cde52ce965a8f78a5cce8a24c3d1248594
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>Рекомендации по фирменной символике для приложений
 В этом разделе рассматриваются рекомендации по фирменной символике, которыми следует пользоваться при разработке приложений в среде Azure Active Directory (Azure AD). Эти рекомендации позволят управлять пользователями, работающими со своей рабочей или учебной учетной записью, управляемой в Azure AD, или личной учетной записью для регистрации или входа в ваше приложение.

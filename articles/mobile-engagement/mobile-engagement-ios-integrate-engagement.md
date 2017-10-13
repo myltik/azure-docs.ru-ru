@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-integrate-engagement-on-ios"></a>Интеграция службы Engagement в iOS
 > [!div class="op_single_selector"]
@@ -39,7 +38,7 @@ ms.lasthandoff: 07/19/2017
 >
 >
 
-Достаточно выполнить следующие шаги, чтобы активировать отчеты по журналам, которые необходимы для вычисления всех статистических данных, касающихся пользователей, сеансов, действий, сбоев и технической информации. Отчеты по журналам, необходимые для вычисления других статистических данных (например, касающихся событий, ошибок и заданий), требуется создавать вручную с помощью API Engagement (см. статью [Как использовать API Engagement в iOS](mobile-engagement-ios-use-engagement-api.md)), так как эти статистические данные зависят от приложения.
+Достаточно выполнить следующие шаги, чтобы активировать отчеты по журналам, которые необходимы для вычисления всех статистических данных, касающихся пользователей, сеансов, действий, сбоев и технической информации. Отчеты по журналам, необходимые для вычисления других статистических данных (например, касающихся событий, ошибок и заданий), требуется создавать вручную с помощью API Служб мобильного взаимодействия (см. статью [Как использовать API Служб мобильного взаимодействия в iOS](mobile-engagement-ios-use-engagement-api.md)), так как эти статистические данные зависят от приложения.
 
 ## <a name="embed-the-engagement-sdk-into-your-ios-project"></a>Внедрение пакета SDK для Engagement в проект iOS
 * Скачайте пакет SDK для iOS [отсюда](http://aka.ms/qk2rnj).
@@ -211,4 +210,3 @@ API службы Engagement позволяет использовать все �
 [NSLocationAlwaysUsageDescription]:https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
 [startMonitoringSignificantLocationChanges]:http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]:https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
-

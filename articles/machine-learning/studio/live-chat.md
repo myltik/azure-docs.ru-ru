@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2bf63d41c9a06e724b971c2edb9e3127fe878b8e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-help-from-machine-learning-live-chat-support"></a>Получение справки с помощью чата в реальном времени, поддерживаемого в машинном обучении
 [Студия машинного обучения Azure](what-is-ml-studio.md) обеспечивает интуитивно понятный интерфейс для построения моделей машинного обучения. В [коллекции](gallery-how-to-use-contribute-publish.md) вы найдете примеры, предоставленные участниками сообщества, которые помогут вам приступить к работе. На [форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) вы можете задавать вопросы, которые позволят найти ответы. 
@@ -39,5 +38,4 @@ ms.lasthandoff: 09/25/2017
 Вы всегда можете задать вопросы на [форуме по машинному обучению](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning), где их увидят члены группы машинного обучения, а также другие опытные специалисты по обработке и анализу данных и разработчики.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

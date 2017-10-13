@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 091f0884417535427c52beee7bcdc5ed1dd83315
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Управление сервером VMware vCenter Server в Azure Site Recovery
 В этой статье рассматриваются различные операции Site Recovery, которые могут выполняться на сервере VMware vCenter Server.
 
@@ -85,4 +83,3 @@ ms.lasthandoff: 06/30/2017
 
 > [!NOTE]
 Если нужно изменить IP-адрес, полное доменное имя или сведения о порте сервера vCenter Server, необходимо удалить этот сервер и добавить его снова.
-

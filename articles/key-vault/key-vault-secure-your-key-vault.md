@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-your-key-vault"></a>Защита хранилища ключей
 Хранилище ключей Azure — это облачная служба, которая обеспечивает защиту ключей шифрования и секретов (например, сертификатов, строк подключения и паролей) для облачных приложений. Так как это критически важные для бизнеса конфиденциальные данные, необходимо обеспечить защиту доступа к хранилищу ключей, чтобы только авторизованные приложения и пользователи могли получить к нему доступ. В этой статье приводится обзор модели доступа к хранилищу ключей, объясняется процесс проверки подлинности и авторизации и описывается, как обеспечить защиту доступа к хранилищу ключей для облачных приложений, а также рассматривается соответствующий пример.
@@ -250,5 +249,4 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 Дополнительные сведения об использовании ключей и секретов с помощью хранилища ключей Azure см. в статье [About keys, secrets, and certificates](https://msdn.microsoft.com/library/azure/dn903623.aspx) (О ключах, секретах и сертификатах).
 
 Если у вас возникли вопросы о хранилище ключей, посетите [форумы хранилища ключей Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
-
 

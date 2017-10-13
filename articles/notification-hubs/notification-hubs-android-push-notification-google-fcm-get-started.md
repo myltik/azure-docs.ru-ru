@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: yuaxu
 ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Отправка push-уведомлений в приложения Android с помощью центров уведомлений Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]

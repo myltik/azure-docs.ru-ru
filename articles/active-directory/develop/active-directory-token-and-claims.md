@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Справочник по токенам в Azure AD
 При обработке каждого потока проверки подлинности Azure Active Directory (Azure AD) создает токены безопасности различных типов. В этом документе описывается формат, характеристики безопасности и содержимое каждого типа маркера.
@@ -304,4 +303,3 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ## <a name="related-content"></a>Связанная информация
 * Чтобы узнать больше об управлении политикой времени существования маркера посредством API Graph Azure AD, ознакомьтесь с [операциями с политиками](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) и [сущностью политики](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) Azure AD Graph.
 * Дополнительные сведения об управлении политиками посредством командлетов PowerShell, включая примеры, см. в разделе [Configurable Token Lifetimes in Azure Active Directory (Public Preview)](../active-directory-configurable-token-lifetimes.md) (Настраиваемое время существования маркеров в Azure Active Directory (общедоступная предварительная версия)). 
-

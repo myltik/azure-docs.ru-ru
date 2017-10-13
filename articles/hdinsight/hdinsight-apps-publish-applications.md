@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: jgao
+ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 9bda115455ff1e122ac2764cec612546c71365c4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Публикация приложения HDInsight в Azure Marketplace
 Вы можете установить приложения Azure HDInsight в кластере HDInsight под управлением Linux. В этой статье описано, как опубликовать приложение HDInsight в Azure Marketplace. Общие сведения о публикации в Azure Marketplace см. в статье [Публикация предложения и управление им в Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -113,5 +112,4 @@ ms.lasthandoff: 09/19/2017
 * Инструкции по [настройке кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md) и добавлению других приложений. 
 * Инструкции по [созданию кластера Hadoop под управлением Linux в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Инструкции по [использованию пустых граничных узлов в HDInsight](hdinsight-apps-use-edge-node.md), чтобы получить доступ к кластеру HDInsight, а также тестировать и разместить приложения HDInsight.
-
 

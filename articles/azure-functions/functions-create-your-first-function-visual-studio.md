@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 09/06/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
+ms.openlocfilehash: 3d9e7a4eb6d94067af6b5c64e71910694d5a6077
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 8baa8e950164de64d1cd91c0c5bb51d324bbc807
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Создание первой функции с помощью Visual Studio
 
@@ -108,5 +107,4 @@ ms.lasthandoff: 09/07/2017
 + Дополнительные сведения о настройке проекта для поддержки других типов триггеров и привязок см. в разделе [Настройка проекта для локальной разработки](functions-develop-vs.md#configure-the-project-for-local-development) в статье [Инструменты Функций Azure для Visual Studio](functions-develop-vs.md).
 + Дополнительные сведения о локальном тестировании и отладке с помощью основных инструментов функций Azure см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md). 
 + Дополнительные сведения о разработке функций, таких как библиотек классов .NET, см. в статье [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (Использование библиотек классов .NET с помощью Функций Azure). 
-
 

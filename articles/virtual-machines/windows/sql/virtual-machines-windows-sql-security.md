@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 4ad9156e481eac0bae32bca35a2b126363e5d8b6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Вопросы безопасности SQL Server на виртуальных машинах Azure
 
@@ -100,5 +99,4 @@ Azure соответствует ряду отраслевых норм и ст�
 Если вам также интересны рекомендации по повышению производительности, ознакомьтесь со статьей [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-performance.md).
 
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [Приступая к работе с SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
 

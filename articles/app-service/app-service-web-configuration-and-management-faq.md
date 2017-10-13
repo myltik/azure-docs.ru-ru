@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cc17196603a5bdcd7f880c3650512846fa0facef
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Часто задаваемые вопросы о настройке и управлении для функции "Веб-приложения" в Azure
 
@@ -321,4 +320,3 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Как мигрировать из локальной среды в службу приложений?
 
 Чтобы перенести сайты с веб-серверов Windows и Linux в службу приложений, можно воспользоваться средством Migration Assistant службы приложений Azure. Средство миграции в соответствии с требованиями создает веб-приложения и базы данных в Azure и публикует содержимое. Дополнительные сведения см. на странице [Azure App Service Migration Assistant](https://www.movemetothecloud.net/) (Средство Migration Assistant службы приложений Azure).
-

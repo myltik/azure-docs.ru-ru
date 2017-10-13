@@ -10,12 +10,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/21/2017
 ms.author: bruceper
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 8cf0674f7eb139e50da4a3c22a8d8376a86b0dcc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Как использовать обратимое удаление в Key Vault с помощью PowerShell
 
@@ -251,5 +250,4 @@ Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 
 - Обзор функции обратимого удаления Key Vault см. в разделе [Общие сведения об обратимом удалении в Azure Key Vault](key-vault-ovw-soft-delete.md).
 - Общие сведения об использовании Azure Key Vault см. в разделе [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md).
-
 

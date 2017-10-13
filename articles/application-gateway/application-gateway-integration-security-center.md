@@ -15,14 +15,12 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 737cdff3140be68cf9d6d396b470dd09c65c52f2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: abed4095bcacac4ca3995acfaafae2f16d5f1532
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Общие сведения об интеграции шлюза приложений с центром безопасности Azure
 
 В этой статье приведены сведения о том, как интеграция шлюза приложений с центром безопасности Azure позволяет обеспечить защиту ресурсов веб-приложений. Брандмауэр веб-приложения (WAF) шлюза приложений можно интегрировать с [центром безопасности](../security-center/security-center-intro.md). Это позволяет обеспечить полный обзор всей среды, благодаря чему вы сможете выявлять и предотвращать угрозы от незащищенных веб-приложений, а также реагировать на них.

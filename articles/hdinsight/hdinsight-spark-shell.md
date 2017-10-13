@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2017
 ms.author: maxluk
+ms.openlocfilehash: 48c6a24f6c820eaf09da6fa3a0a496ddbef1e7a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 108b2e25dee63a15ac703d2a9b617bfb155f95da
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Запуск Spark из оболочки Spark
 
@@ -79,5 +78,4 @@ Spark предоставляет оболочки для Scala (spark-shell), Py
 - Вводную информацию см. в статье [Общие сведения о Spark в Azure HDInsight](hdinsight-apache-spark-overview.md).
 - Сведения о работе со SparkSQL и кластерами Spark см. в статье [Создание кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 - Сведения о создании приложений для обработки потоковых данных с помощью Spark см. в статье [Overview of Spark Streaming](hdinsight-spark-streaming-overview.md) (Обзор потоковой передачи Spark).
-
 

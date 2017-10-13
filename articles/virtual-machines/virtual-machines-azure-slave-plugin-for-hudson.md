@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 0661f26e62a465ccd096773cbabd47268491f22d
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Hudson
 Подчиненный подключаемый модуль Azure для Hudson позволяет подготовить подчиненные узлы в Azure при выполнении распределенных сборок.
@@ -197,5 +196,4 @@ ms.lasthandoff: 02/16/2017
 [add vm template]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addnewvmtemplate.png
 [template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
 [OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
-
 

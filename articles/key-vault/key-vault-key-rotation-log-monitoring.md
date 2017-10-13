@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Настройка полной смены ключей и аудита в хранилище ключей
 ## <a name="introduction"></a>Введение
@@ -438,4 +437,3 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 Для примера создайте действие **Office 365 — отправить электронное письмо**. Заполните поля, чтобы создать электронное письмо, которое будет отправляться, когда определенное условие возвращает значение **false**. Если у вас нет Office 365, можно создать такое же действие для другой службы.
 
 На этом этапе вы создали конвейер, который каждую минуту будет проверять новые записи в журналах аудита для хранилища ключей. Он отправляет обнаруженные записи в очередь служебной шины. Приложение логики запускается каждый раз при появлении в очереди нового сообщения. Если параметр *appid* для нового события не совпадает с идентификатором зарегистрированного приложения, отправляется сообщение электронной почты.
-

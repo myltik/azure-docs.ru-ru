@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d4183b73bcb0441c9ad5f12e7a3a1e4d8e31f4b5
-ms.openlocfilehash: 243fbea75c4ba9b280c65a378d6f2d069add1098
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>Планирование производительности для защиты виртуальных машин и физических серверов в Azure Site Recovery
 
@@ -128,4 +126,3 @@ ms.lasthandoff: 03/01/2017
 2. Чтобы внести изменения, измените данные на листе **Workload Qualification** (Оценка рабочей нагрузки) и нажмите кнопку **Submit data to the planner tool** (Отправить данные в средство планирования) еще раз.  
 
    ![Планировщик ресурсов](./media/site-recovery-capacity-planner/capacity-planner.png)
-

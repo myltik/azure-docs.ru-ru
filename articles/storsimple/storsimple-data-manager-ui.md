@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 692f00bf342e2cd6d3d76754d18751c773aeedc5
 ms.openlocfilehash: 53a8599df2c647613122cd791b680e2e658586b0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/28/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-using-the-storsimple-data-manager-service-ui-private-preview"></a>Использование пользовательского интерфейса для службы диспетчера данных StorSimple (закрытая предварительная версия)
 
 В этой статье объясняется, как использовать пользовательский интерфейс диспетчера данных StorSimple для преобразования данных, хранящихся на устройствах серии StorSimple 8000. Преобразованные данные можно затем использовать в других службах Azure, таких как службы мультимедиа Azure, Azure HDInsight, машинное обучение Azure и Поиск Azure. 

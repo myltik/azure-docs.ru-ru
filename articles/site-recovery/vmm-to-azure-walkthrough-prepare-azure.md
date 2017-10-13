@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 63b005f37ab5e15e8a1b4645446d65f1529f1bbd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-5-prepare-azure-resources-for-hyper-v-replication-with-vmm-to-azure"></a>Шаг 5. Подготовка ресурсов Azure для репликации Hyper-V (с VMM) в Azure
 
 После проверки [требований к сети](vmm-to-azure-walkthrough-network.md) воспользуйтесь инструкциями в этой статье для подготовки ресурсов Azure, чтобы реплицировать локальные виртуальные машины Hyper-V System Center Virtual Machine Manager (VMM) в Azure с помощью службы [Azure Site Recovery](site-recovery-overview.md).
@@ -61,4 +59,3 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 6. Подготовка серверов VMM и узлов Hyper-V к репликации Hyper-V в Azure](vmm-to-azure-walkthrough-vmm-hyper-v.md).
-

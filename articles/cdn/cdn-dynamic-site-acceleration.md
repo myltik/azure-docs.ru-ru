@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: be2719e0e02c8bc69800ef4a3e7da3c3164cb9dd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Динамическое ускорение сайтов с помощью Azure CDN
 
@@ -137,7 +136,6 @@ Azure CDN от Akamai также позволяет настроить пара�
 Например, `mydynamic.azureedge.net/index.html` — это динамическая страница, загружаемая из конечной точки DSA.  HTML-страница ссылается на несколько статических ресурсов, таких как библиотеки JavaScript и изображения, загружаемые из статической конечной точки CDN, например `mystatic.azureedge.net/banner.jpg` и `mystatic.azureedge.net/scripts.js`. 
 
 Пример использования контроллера в веб-приложении ASP.NET для доставки содержимого по определенному URL-адресу CDN см. [здесь](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
-
 
 
 

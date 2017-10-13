@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Загрузка данных в хранилище данных SQL с помощью фабрики данных
 
 Фабрику данных Azure можно использовать для загрузки данных в хранилище данных SQL Azure из любых [поддерживаемых исходных хранилищ данных](../data-factory/copy-activity-overview.md). Например, с помощью фабрики данных можно загрузить данные из базы данных SQL Azure или базы данных Oracle в хранилище данных SQL. В руководстве в этой статье показано, как загрузить данные из локальной базы данных SQL Server в хранилище данных SQL.
@@ -165,4 +163,3 @@ ms.lasthandoff: 09/25/2017
 
 <!-- Azure references -->
 [портал Azure]: https://portal.azure.com
-

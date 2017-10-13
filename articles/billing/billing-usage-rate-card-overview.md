@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 04/18/2017
+ms.date: 10/9/2017
 ms.author: mobandyo;bryanla
+ms.openlocfilehash: 26217d6f4e14166a89fbb561cb12d0af78ae6f4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 85b53620a886625920e8e057a14e1ed5fa3e5333
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Использование API выставления счетов Azure для программного получения ценных сведений об использовании Azure
 Используйте API выставления счетов Azure для извлечения данных об использовании и ресурсах в предпочитаемые средства анализа данных. API использования ресурсов и RateCard в Azure позволяют точно прогнозировать расходы и управлять ими. Интерфейсы API реализованы в виде поставщика ресурсов и относятся к семейству API, предоставляемых Azure Resource Manager.  
 
@@ -63,8 +61,6 @@ ms.lasthandoff: 09/28/2017
   * Вы также можете определить, предоставляет ли другое предложение Azure более выгодный тариф на ресурс Azure.
   
 ## <a name="partner-solutions"></a>Решения партнеров
-В статье [API использования и RateCard Microsoft Azure позволяют Cloudyn предоставлять ITFM-функции своим клиентам](billing-usage-rate-card-partner-solution-cloudyn.md) описывается интеграция механизмов, предоставляемых партнером по API выставления счетов Azure — [Cloudyn](https://www.cloudyn.com/microsoft-azure/). В этой статье содержится описание полученного опыта, а также видео, где показано, как можно использовать API выставления счетов Azure и Cloudyn для извлечения ценных сведений из данных о потреблении Azure.
-
 В статье [Интеграция Cloud Cruiser и API выставления счетов Microsoft Azure](billing-usage-rate-card-partner-solution-cloudcruiser.md) описано, как [пакет Cloud Cruiser Express для Azure](http://www.cloudcruiser.com/partners/microsoft/) работает непосредственно с портала Windows Azure Pack (WAP). Вы можете легко управлять рабочими и финансовыми аспектами частного или общедоступного облака Microsoft Azure из единого пользовательского интерфейса.   
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -78,5 +74,4 @@ ms.lasthandoff: 09/28/2017
 * Дополнительные сведения о Azure Resource Manager см. в статье [Обзор Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
 * Дополнительные сведения о наборе средств, необходимых для получения представления о расходах на облако, см. в статье Gartner [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb) (Руководство по ИТ-средствам финансового управления (ITFM)).
-
 

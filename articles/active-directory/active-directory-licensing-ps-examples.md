@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a322365b2764dc13b5079f2c4c0634c9c950d92
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 6ee08bb48b8612b16a4609570c12363664788f63
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Примеры PowerShell для группового лицензирования в Azure AD
 
 Полный набор функций для группового лицензирования доступен на [портале Azure](https://portal.azure.com), а поддержка PowerShell в настоящее время ограничена. Однако некоторые полезные задачи можно выполнить с помощью существующих [командлетов MSOnline PowerShell](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory). В этом документе приведены примеры того, что можно сделать.
@@ -485,4 +483,3 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 * [Поиск и устранение проблем лицензирования группы в Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Как перевести отдельных лицензированных пользователей на групповое лицензирование в Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Дополнительные сценарии лицензирования на основе группы в Azure Active Directory](active-directory-licensing-group-advanced.md)
-

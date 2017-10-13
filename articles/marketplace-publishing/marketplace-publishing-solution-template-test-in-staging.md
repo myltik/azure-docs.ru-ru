@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/04/2015
 ms.author: hascipio; v-divte
 ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Тестирование предложения шаблона решения в промежуточной среде
 Промежуточное развертывание подразумевает развертывание предложения в частной песочнице, в которой вы можете проверить все его функциональные возможности и убедиться в их работе перед публикацией в рабочей среде. Предложение отображается в промежуточной среде точно так же, как на компьютере выполнившего развертывание клиента. Для промежуточного развертывания предложение должно пройти сертификацию.

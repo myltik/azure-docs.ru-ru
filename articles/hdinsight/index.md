@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7d639ca03261f3a9cad537dd92103c5aa6cd0af9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="azure-hdinsight-documentation"></a>Документация по Azure HDInsight
 
 Узнайте, как использовать Hadoop в облаке в HDInsight для анализа данных потоковой передачи или исторических данных. Руководства и другая документация, в которой показано, как создавать кластеры, обрабатывать и анализировать большие данные, а также разрабатывать решения с помощью Hadoop, Spark, HBase, R-Server, Storm и других технологий в экосистеме Hadoop.
@@ -198,6 +196,5 @@ ms.lasthandoff: 09/07/2017
         </div>
     </li>
 </ul>
-
 
 

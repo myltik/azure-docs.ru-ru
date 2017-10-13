@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/14/2017
 ms.author: jroth
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 67ba43f9456bbeffbf602067586143c4c68af672
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)
 > [!div class="op_single_selector"]

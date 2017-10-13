@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
-ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
-
-
+ms.openlocfilehash: 077710049894d2690299ce0fcb0ead9911aa4bb6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Развертывание AD FS высокого уровня доступности в нескольких регионах Azure с помощью диспетчера трафика Azure
 [развертыванию AD FS в Azure](active-directory-aadconnect-azure-adfs.md) , содержит пошаговые инструкции, с помощью которых вы можете развернуть в Azure простую инфраструктуру AD FS для вашей организации. В этой статье описаны дальнейшие действия по развертыванию AD FS в нескольких регионах Azure с помощью [диспетчера трафика Azure](../traffic-manager/traffic-manager-overview.md). С помощью диспетчера трафика Azure вы можете создать для своей организации географически распространенную и высокопроизводительную инфраструктуру AD FS с высоким уровнем доступности, применяя различные методы маршрутизации в соответствии с требованиями инфраструктуры.
@@ -122,10 +122,4 @@ ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Управление профилем диспетчера трафика Azure](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Добавление, отключение, включение и удаление конечных точек](../traffic-manager/traffic-manager-endpoints.md) 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

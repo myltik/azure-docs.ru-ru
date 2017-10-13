@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3f46d743b85b1133f64309f01074cbc3b430183f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 76606189e7bed1a5179c7486d7c10f3c253884b5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-secure-cluster"></a>Безопасное подключение к кластеру
 
@@ -358,4 +357,3 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Общие сведения о модели работоспособности в Service Fabric](service-fabric-health-introduction.md)
 * [Безопасность приложений и запуск от имени](service-fabric-application-runas-security.md)
 * [Командная строка Azure Service Fabric](service-fabric-cli.md)
-

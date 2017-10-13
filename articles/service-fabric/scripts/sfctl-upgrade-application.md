@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: adegeo
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f91ea8c2f8c6e9a6ce38cf72be2c61d9e5218b23
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Добавление сертификата приложения в кластер Service Fabric
 
 Этот сценарий передает новую версию существующего приложения, а затем обновляет развернутое приложение с ее помощью.
@@ -38,4 +36,3 @@ ms.lasthandoff: 09/25/2017
 Дополнительные сведения см. в [документации интерфейса командной строки Service Fabric](../service-fabric-cli.md).
 
 Дополнительные примеры сценариев интерфейса командной строки Service Fabric для Azure Service Fabric см. в статье [Примеры сценариев Azure PowerShell](../samples-cli.md).
-

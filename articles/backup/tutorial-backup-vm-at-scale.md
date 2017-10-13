@@ -8,14 +8,12 @@ ms.author: markgal
 ms.date: 09/16/2017
 ms.topic: article
 ms.service: backup
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f144db921a8b2d01dbfe883a48574c4fabdae6f7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Архивация нескольких виртуальных машин с помощью портала Azure
 
 При архивации данных в Azure они сохраняются в таком ресурсе Azure, как хранилище служб восстановления. К нему можно получить доступ из меню параметров большинства служб Azure. Благодаря интеграции хранилища в меню параметров большинства служб Azure архивация данных упрощается. Однако работа с каждой корпоративной базой данных или виртуальной машиной утомительна. Что делать, если нужно архивировать данные всех виртуальных машин в одном отделе или в одном расположении? Простой способ архивации нескольких виртуальных машин — создание политики архивации и ее применение к требуемым виртуальным машинам. В этом учебнике объясняется, как выполнить такие задачи:
@@ -187,4 +185,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [Restore a disk and create a recovered VM in Azure](./tutorial-restore-disk.md) (Восстановление диска и создание восстановленной виртуальной машины в Azure)
-

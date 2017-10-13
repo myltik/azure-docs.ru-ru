@@ -16,15 +16,13 @@ ms.date: 04/02/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
+ms.openlocfilehash: f4e67815cfe03c775dae83d214aea4f2ac37fcdc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: d12115be61ca00dfb86dd822ccae9f9096fa796a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Варианты входа с помощью Многофакторной идентификации Azure
+# <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Варианты входа с помощью многофакторной идентификации Azure
 > [!NOTE]
 > В этой статье рассматривается стандартная процедура входа. Если у вас возникают проблемы со входом в систему см. статью [Проблемы с двухфакторной проверкой подлинности](multi-factor-authentication-end-user-troubleshoot.md).
 
@@ -92,4 +90,3 @@ ms.lasthandoff: 08/16/2017
 Узнайте, как [управлять параметрами двухфакторной проверки подлинности](multi-factor-authentication-end-user-manage-settings.md).
 
 Узнайте, как [начать работу с приложением Microsoft Authenticator](microsoft-authenticator-app-how-to.md), чтобы вместо использоваться для входа уведомления вместо текстовых сообщений и звонков.
-

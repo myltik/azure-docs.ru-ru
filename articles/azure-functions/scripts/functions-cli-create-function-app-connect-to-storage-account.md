@@ -16,12 +16,11 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: af90702601d1bd05836dbf2b20cd3e318832b07c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-function-app-into-azure-storage-account"></a>Интеграция приложения-функции в учетную запись хранения Azure
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 09/09/2017
 
 Этот пример создает приложение-функцию Azure и добавляет строку подключения хранилища в параметры приложения.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Интеграция приложения-функции в учетную запись хранения Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
@@ -63,4 +62,3 @@ ms.lasthandoff: 09/09/2017
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Дополнительные примеры сценариев Azure CLI для Функций Azure см. в [документации по Функциям Azure](../functions-cli-samples.md).
-

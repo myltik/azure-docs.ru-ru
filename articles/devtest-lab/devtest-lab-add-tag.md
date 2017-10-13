@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: tarcher
+ms.openlocfilehash: c268c1a10e4a313d0520f96e452ef978b6201115
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: cdf62c2eca23384c4ec5c20547ba7653605f5434
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Добавление тегов в лабораторию в Azure DevTest Labs
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 09/13/2017
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Процедура настройки управления тегами в имеющейся лаборатории
 
-1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. При необходимости щелкните **Больше служб**, а затем выберите в списке **DevTest Labs**. Возможно, лаборатория уже отображается на панели мониторинга в разделе **Все ресурсы**.
 1. Из списка лабораторий выберите ту, в которой необходимо добавить виртуальную машину или управлять ею.  
 1. В области лаборатории **Обзор** выберите **Configuration and policies** (Конфигурация и политики).  
@@ -67,4 +66,3 @@ ms.lasthandoff: 09/13/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * В подписку можно добавить ограничения и соглашения, используя настраиваемые политики. Некоторые политики могут требовать, чтобы для всех ресурсов было задано значение определенного тега. Дополнительные сведения см. в статье [Управление всеми политиками лаборатории в Azure DevTest Labs](devtest-lab-set-lab-policy.md).
 * Изучите [коллекцию шаблонов быстрого запуска Azure Resource Manager для DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
-

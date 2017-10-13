@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
+ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: b273733f545d8d00d0ffaf4d783ba31ec91f1ec8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Иерархия стран и регионов, используемая диспетчером трафика Azure для географической маршрутизации трафика
 
 В этой статье перечислены страны и регионы, используемые для метода **географической** маршрутизации трафика в диспетчере трафика Azure. Эти сведения можно также получить программно, вызвав [REST API диспетчера трафика Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -703,4 +701,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Узнайте больше о [методе географической маршрутизации трафика в диспетчере трафика Azure](traffic-manager-routing-methods.md#geographic).
-

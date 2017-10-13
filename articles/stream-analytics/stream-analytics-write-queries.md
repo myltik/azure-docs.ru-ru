@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 215b774c20d80a67b1cefa2634131bd44860c692
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-write-queries-in-stream-analytics"></a>Написание запросов в Stream Analytics
 Написание запросов для логической схемы обработки потоков в службе Azure Stream Analytics выполняется как "постоянный запрос", определенный до того, как задание было запущено и применено к поступившим данным. Преобразование данных выражается с помощью SQL-подобного языка запросов, который по большом счету представляет собой подмножество T-SQL с рядом дополнительных расширений языка, таких как [Оконное расширение](https://msdn.microsoft.com/library/azure/dn835019.aspx) , которое используется для выражения временной семантики.
@@ -70,5 +69,4 @@ ms.lasthandoff: 08/29/2017
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

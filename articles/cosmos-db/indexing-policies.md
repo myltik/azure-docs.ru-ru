@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Как работает индексирование данных в Azure Cosmos DB?
 
@@ -413,5 +412,4 @@ API DocumentDB предоставляют сведения о метриках �
 1. [Примеры кода управления индексами для API DocumentDB .NET](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Collections](https://msdn.microsoft.com/library/azure/dn782195.aspx) (Коллекции)
 3. [SQL-запросы для API DocumentDB в Azure Cosmos DB](documentdb-sql-query.md)
-
 

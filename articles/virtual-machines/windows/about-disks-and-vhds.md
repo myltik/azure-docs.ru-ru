@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: b1beecf2e4268e358285c1101edcb13f6d592948
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-disks-and-vhds-for-azure-windows-vms"></a>Сведения о дисках и VHD для виртуальных машин Azure под управлением Windows
 Как и любой другой компьютер, виртуальные машины в Azure используют диски как место хранения операционной системы, приложений и данных. Все виртуальные машины Azure имеют как минимум два диска — диск операционной системы Windows и временный диск. Диск операционной системы создается из образа, при этом и диск операционной системы, и образ являются виртуальными жесткими дисками (VHD), расположенными в учетной записи хранения Azure. Кроме того, виртуальные машины могут иметь один или несколько дисков данных, которые также хранятся на виртуальных жестких дисках. 
@@ -82,5 +81,4 @@ fsutil behavior set DisableDeleteNotify 0
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Подключите диск](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , чтобы увеличить емкость хранилища для виртуальной машины.
 * [Измените букву временного диска Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) , чтобы приложение могло использовать диск D для данных.
-
 

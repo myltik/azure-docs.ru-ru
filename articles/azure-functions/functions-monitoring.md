@@ -15,14 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
+ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 90720774f956149dc159de1d5457e556a52ddc82
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-azure-functions"></a>Мониторинг Функций Azure
 
 ## <a name="overview"></a>Обзор 
@@ -456,7 +454,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>Зависимости
 
-Зависимости не отображаются автоматически, но их можно отобразить, написав пользовательский код. Пример такого кода представлен в [разделе о пользовательских данных телеметрии на C#](#create-custom-telemetry-data-in-c-function-code). Этот пример кода создает в Application Insights *карту приложения* следующего вида.
+Зависимости не отображаются автоматически, но их можно отобразить, написав пользовательский код. Пример такого кода представлен в [разделе о пользовательских данных телеметрии на C#](#custom-telemetry-in-c-functions). Этот пример кода создает в Application Insights *карту приложения* следующего вида.
 
 ![Схема сопоставления приложений](media/functions-monitoring/app-map.png)
 
@@ -521,4 +519,3 @@ PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
 > [!div class="nextstepaction"]
 > [Дополнительные сведения о платформе ведения журналов, которую используют Функции](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
-

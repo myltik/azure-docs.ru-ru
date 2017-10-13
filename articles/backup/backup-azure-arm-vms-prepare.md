@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
 ms.openlocfilehash: 3fa6f4f850fc67d41f619d46bd61a19fe890b0fb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Подготовка среды к архивации виртуальных машин, развернутых с помощью Resource Manager
 > [!div class="op_single_selector"]
@@ -315,4 +314,3 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 * [Настройка виртуальных машин](backup-azure-vms.md)
 * [Планирование инфраструктуры резервного копирования виртуальных машин в Azure](backup-azure-vms-introduction.md)
 * [Управление резервными копиями виртуальной машины](backup-azure-manage-vms.md)
-

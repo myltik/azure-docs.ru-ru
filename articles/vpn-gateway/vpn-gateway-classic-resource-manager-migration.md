@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Перенос VPN-шлюза из классической модели развертывания в модель Resource Manager
 VPN-шлюзы теперь можно переносить из классической модели развертывания в модель развертывания Resource Manager. Вы можете узнать больше о [возможностях и преимуществах Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). В этой статье подробно описан переход от классической модели развертывания к новой модели на основе Resource Manager. 
@@ -67,5 +66,4 @@ VPN-шлюзы в топологии можно настроить таким о
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Изучив сведения о поддержке при переносе VPN-шлюза, ознакомьтесь со статьей [Перенос ресурсов IaaS из классической модели в модель Azure Resource Manager с помощью Azure PowerShell](../virtual-machines/windows/migration-classic-resource-manager-ps.md), чтобы приступить к работе.
-
 

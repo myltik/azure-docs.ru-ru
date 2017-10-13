@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Справочник по элементам конструктора представлений Log Analytics
 Конструктор представлений Log Analytics позволяет создавать в консоли OMS пользовательские представления, содержащие различные представления данных репозитория OMS. В этой статье содержится справочник по параметрам всех плиток, которые можно использовать при создании пользовательских представлений.

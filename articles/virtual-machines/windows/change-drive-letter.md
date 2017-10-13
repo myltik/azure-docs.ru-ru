@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Использование диска D в качестве диска данных на виртуальной машине Windows
 Если вашему приложению нужно использовать диск D для хранения данных, следуйте приведенным указаниям, чтобы использовать другой диск в качестве временного. Никогда не используйте временный диск для хранения данных, которые нужно сохранить.
@@ -65,5 +64,4 @@ ms.lasthandoff: 06/01/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Вы можете увеличить объем хранилища, доступный виртуальной машине, [подключив дополнительный диск данных](attach-managed-disk-portal.md).
-
 

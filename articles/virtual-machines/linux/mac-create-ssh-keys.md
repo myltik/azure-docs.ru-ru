@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 6fcdcc96c7762e2362aebf909ef25f4a5ab62f99
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Как создать и использовать пару из открытого и закрытого ключей SSH для виртуальных машин Linux в Azure
 С помощью пары ключей Secure Shell (SSH) в Azure можно создавать виртуальные машины, использующие ключи SSH для проверки подлинности, что позволяет обойтись без использования паролей для входа. В этой статье показано, как быстро создать и использовать пару файлов открытого и закрытого ключей в формате SSH-RSA для виртуальных машин Linux. Подробные инструкции и дополнительные примеры использования см. в [руководстве по созданию пары ключей SSH и сертификатов](create-ssh-keys-detailed.md).
 
@@ -59,4 +57,3 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 * [Создание виртуальной машины Linux в Azure с помощью портала](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Создание виртуальной машины Linux с помощью Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Создание защищенной виртуальной машины Linux с помощью шаблона Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Рекомендации по обеспечению безопасности виртуальных машин Azure
 
@@ -128,4 +127,3 @@ ms.lasthandoff: 08/11/2017
 Для получения сведений о работоспособности ресурсов можно также использовать [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Организации, которые не отслеживают производительность виртуальных машин, не способны определить, являются ли определенные изменения в показателях производительности нормальными или аномальными. Если виртуальная машина потребляет больше ресурсов, чем обычно, это может свидетельствовать о потенциальной атаке, совершаемой с внешнего ресурса, или о скомпрометированном процессе, выполняемом на виртуальной машине.
-

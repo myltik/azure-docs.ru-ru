@@ -9,14 +9,12 @@ ms.service: search
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 15469e8a2d28bdf00d6e8d8c9f823c51975ee90e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="searching-blob-storage-with-azure-search"></a>Поиск в хранилище BLOB-объектов с помощью поиска Azure
 
 Поиск различных типов содержимого в хранилище BLOB-объектов Azure может представлять собой трудную для решения задачу. Тем не менее с помощью поиска Azure можно искать и индексировать содержимое BLOB-объектов несколькими щелчками мыши. Для поиска в хранилище BLOB-объектов необходимо подготовить службу поиска Azure. Ограничения и ценовые категории службы поиска Azure можно найти на [странице цен](https://aka.ms/azspricing).
@@ -55,4 +53,3 @@ ms.lasthandoff: 09/14/2017
 
 ### <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об индексаторе BLOB-объектов поиска Azure см. в [документации](https://aka.ms/azsblobindexer).
-

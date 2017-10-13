@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: chkuhtz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d9e88b859020be2a96a57a01e5624052ed134b64
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 1045a18f5fd9739a6028198deea129e9e621f127
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="multiple-vips-for-azure-load-balancer"></a>Несколько виртуальных IP-адресов для Azure Load Balancer
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -139,4 +137,3 @@ Azure Load Balancer обеспечивает гибкость, позволяя 
 * Если применяется правило с плавающим IP-адресом, то для исходящих потоков в приложении должен использоваться выделенный IP-адрес (DIP). Если приложение имеет привязку к виртуальному IP-адресу, настроенному в интерфейсе замыкания на себя в гостевой ОС, то функция SNAT недоступна для перезаписи исходящего потока, и поэтому поток завершается сбоем.
 * Общедоступные IP-адреса оказывают влияние на выставление счетов. Дополнительные сведения см. в статье [Цены на IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses/).
 * Действуют ограничения подписки. Дополнительные сведения см. в разделе [Ограничения определенных служб](../azure-subscription-service-limits.md#networking-limits).
-

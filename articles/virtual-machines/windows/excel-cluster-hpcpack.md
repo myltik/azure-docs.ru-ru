@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
 ms.openlocfilehash: 63babd94fdab15217cfb0757e4cd6efe458a628d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Приступая к работе с рабочими нагрузками Excel и SOA в кластере пакета HPC в Azure
 В этой статье показано, как развернуть кластер пакета Microsoft HPC 2012 R2 на виртуальных машинах Azure с помощью шаблона быстрого запуска Azure или сценария развертывания Azure PowerShell. В кластере используются образы виртуальных машин из Azure Marketplace, разработанные для выполнения рабочих нагрузок Microsoft Excel или сервисноориентированной архитектуры (SOA) с помощью пакета HPC. Кластер можно использовать для запуска служб HPC Excel и SOA на локальном клиентском компьютере. Службы Excel HPC включают функцию разгрузки книг и пользовательские функции Excel (или UDF).

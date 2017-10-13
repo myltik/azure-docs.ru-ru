@@ -15,14 +15,12 @@ ms.date: 07/02/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: ea97fdc8d146ed524a932018b572ceda0982738b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-application-proxy-in-the-classic-portal-and-download-connectors"></a>Включение прокси приложения на классическом портале и скачивание соединителей
 В этой статье описывается процедура включения прокси приложения Microsoft Azure AD для облачного каталога в Azure AD.
 
@@ -97,4 +95,3 @@ ms.lasthandoff: 08/01/2017
 Теперь вы можете [публиковать приложения с помощью прокси приложения](active-directory-application-proxy-publish.md).
 
 При наличии приложений, находящихся в отдельных сетях или разных расположениях, можно использовать группы соединителей для организации других соединителей в логических устройствах. См. дополнительные сведения о [работе с соединителями прокси приложения](active-directory-application-proxy-connectors.md).
-

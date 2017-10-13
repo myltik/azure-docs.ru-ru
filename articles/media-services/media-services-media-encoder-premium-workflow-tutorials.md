@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 565497bd5a35e3c4d69d29512307cf3ca2364bdd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Руководства по расширенному рабочему процессу кодировщика мультимедиа
 ## <a name="overview"></a>Обзор
@@ -218,7 +217,7 @@ ms.lasthandoff: 08/28/2017
 ## <a id="MXF_to_MP4_with_dyn_packaging"></a>Кодирование файлов MXF в файлы MP4 с разными скоростями со включенной динамической упаковкой
 В этом разделе мы создадим из одного входного файла MXF набор файлов MP4 с несколькими скоростями и аудиокодированием AAC.
 
-Если для конечного ресурса-контейнера с несколькими скоростями вы хотите использовать возможности динамической упаковки (функция службы мультимедиа Azure), вам нужно создать несколько файлов MP4 с одинаковыми группами GOP, но с разной скоростью и разрешением. В качестве отправной точки используйте пошаговую инструкцию по [кодированию файла MXF в файл MP4 с одной скоростью](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4) .
+Если для конечного ресурса-контейнера с несколькими скоростями вы хотите использовать возможности динамической упаковки (функция службы мультимедиа Azure), вам нужно создать несколько файлов MP4 с одинаковыми группами GOP, но с разной скоростью и разрешением. В качестве отправной точки используйте пошаговую инструкцию по [кодированию файла MXF в файл MP4 с одной скоростью](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4).
 
 ![Запуск рабочего процесса](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow.png)
 
@@ -922,9 +921,9 @@ ms.lasthandoff: 08/28/2017
 
 
 ## <a name="also-see"></a>См. также:
-[Знакомство с кодированием Premium в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[Знакомство со Службой кодирования категории "Премиум" в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
-[Использование кодирования Premium в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[Использование Службы кодирования категории "Премиум" в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 [Обзор и сравнение кодировщиков мультимедиа Azure по запросу](media-services-encode-asset.md#media-encoder-premium-workflow)
 
@@ -939,4 +938,3 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

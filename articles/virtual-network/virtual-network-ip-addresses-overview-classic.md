@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Типы IP-адресов и методы распределения (классическая модель) в Azure
 Вы можете назначать IP-адреса ресурсам Azure, чтобы они могли взаимодействовать с другими ресурсами Azure, а также подключаться к вашей локальной сети и Интернету. В Azure можно использовать два типа IP-адресов: общедоступные и частные.
@@ -179,5 +178,4 @@ ms.lasthandoff: 08/21/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Развертывание виртуальной машины со статическим частным IP-адресом](virtual-networks-static-private-ip-classic-pportal.md) с помощью портала Azure.
-
 

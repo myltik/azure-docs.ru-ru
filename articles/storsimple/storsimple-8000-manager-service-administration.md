@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 0e7d7f44a70278a7777ba6c32c8e546074953fdc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Использование службы диспетчера устройств StorSimple для администрирования устройства StorSimple
 
@@ -88,5 +87,4 @@ ms.lasthandoff: 07/13/2017
 * [Использование индикаторов мониторинга StorSimple](storsimple-monitoring-indicators.md)
 
 Если вы не можете устранить проблемы и необходимо создать запрос на обслуживание, см. статью [Обращение в службу поддержки Майкрософт](storsimple-8000-contact-microsoft-support.md).
-
 

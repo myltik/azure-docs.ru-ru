@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Служба метаданных Azure. Запланированные события (предварительная версия) для виртуальных машин Windows
 
@@ -379,5 +378,4 @@ if __name__ == '__main__':
 
 - Дополнительные сведения об API, доступных в [службе метаданных экземпляра](instance-metadata-service.md).
 - Подробнее о [плановом обслуживании виртуальных машин Windows в Azure](planned-maintenance.md).
-
 

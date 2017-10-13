@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 438ec565f3c6e06ab7ec92cf1bbfbdde88f99b6d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Использование ссылочных данных и таблиц подстановки во входном потоке Stream Analytics
 Ссылочные данные (которые также называются таблицами подстановки) — это ограниченный набор данных, являющийся по своей сути статическим или медленно изменяющимся. Такие данные используются для выполнения уточняющего запроса или соотнесения с вашим потоком данных. Для использования ссылочных данных в задании Azure Stream Analytics обычно используется [соединение ссылочных данных](https://msdn.microsoft.com/library/azure/dn949258.aspx) в запросе. Служба Stream Analytics использует хранилище BLOB-объектов Azure как уровень хранилища для ссылочных данных. С помощью фабрики данных Azure ссылочные данные можно преобразовать и (или) скопировать в хранилище BLOB-объектов Azure из [любого числа облачных и локальных хранилищ данных](../data-factory/copy-activity-overview.md) для использования в качестве ссылочных данных. Ссылочные данные моделируются как последовательность больших двоичных объектов (с учетом конфигурации входных данных) в порядке возрастания даты и времени, указанных в имени большого двоичного объекта. Они добавляются **только** в конец последовательности, для чего используется **более поздние** дата и время, чем в последнем большом двоичном объекте в последовательности.
@@ -116,4 +115,3 @@ ms.lasthandoff: 09/25/2017
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

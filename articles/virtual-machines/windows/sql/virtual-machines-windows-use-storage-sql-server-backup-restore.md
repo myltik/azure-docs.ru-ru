@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Использование службы хранилища Azure для архивации и восстановления SQL Server
 ## <a name="overview"></a>Обзор
@@ -77,5 +76,4 @@ SQL Server 2016 содержит новые возможности: можно �
 При наличии проблем ознакомьтесь с разделом [Резервное копирование SQL Server на URL-адрес — рекомендации и устранение неполадок](https://msdn.microsoft.com/library/jj919149.aspx).
 
 С другими вариантами архивации и восстановления SQL Server ознакомьтесь в статье [Резервное копирование и восстановление SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-backup-recovery.md).
-
 

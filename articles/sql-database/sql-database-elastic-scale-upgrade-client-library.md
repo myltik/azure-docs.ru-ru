@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 0bbbc4f61c37fe4d296221c372bfdf6dd429a32b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/07/2017
-
-
+ms.openlocfilehash: 7e28d128645e856c0efa6e4f78d8f9f36982a76c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Обновление приложения для использования новой версии клиентской библиотеки эластичной базы данных
 Новые версии [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md) доступны на сайте NuGet и через интерфейс диспетчера пакетов NuGet в Visual Studio. В обновленных версиях исправлены ошибки и добавлена поддержка новых возможностей клиентской библиотеки.
@@ -80,5 +78,4 @@ ms.lasthandoff: 03/07/2017
 
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
-
 

@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: b094f8338394ef2e84cad3070936d715411326a4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Перемещение (классической) виртуальной машины или экземпляра роли облачных служб в другую подсеть с помощью PowerShell
 С помощью PowerShell можно переместить (классические) виртуальные машины из одной подсети в другую в той же виртуальной сети (VNet). Экземпляры ролей можно перемещать путем редактирования файла CSCFG вместо использования PowerShell.
@@ -59,4 +58,3 @@ ms.lasthandoff: 02/28/2017
            </InstanceAddress>
         </AddressAssignments>
     </NetworkConfiguration> 
-

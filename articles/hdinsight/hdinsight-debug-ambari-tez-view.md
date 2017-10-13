@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 65d89309b9eea8544b85d16687baa90d49688d77
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Отладка заданий Tez в HDInsight с помощью представлений Ambari 
 
@@ -112,4 +111,3 @@ Tez создает направленный ациклический граф (D
 Более подробные технические сведения о Tez см. на [странице Tez на сайте Hortonworks](http://hortonworks.com/hadoop/tez/).
 
 Дополнительные сведения об использовании Ambari в HDInsight см. в статье [Управление кластерами HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md).
-

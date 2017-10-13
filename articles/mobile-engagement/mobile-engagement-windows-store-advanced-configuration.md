@@ -1,6 +1,6 @@
 ---
 title: "Расширенная конфигурация пакета SDK службы Engagement для универсальных приложений для Windows"
-description: "Параметры расширенной конфигурации Azure Mobile Engagement при использовании с универсальными приложениями для Windows"
+description: "Параметры расширенной конфигурации Служб мобильного взаимодействия Azure при использовании с универсальными приложениями для Windows"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Расширенная конфигурация пакета SDK службы Engagement для универсальных приложений для Windows
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-В этой статье описано, как настроить различные параметры конфигурации для приложений Android в службе Azure Mobile Engagement.
+В этой статье описано, как настроить различные параметры конфигурации для приложений Android в Службах мобильного взаимодействия Azure.
 
 ## <a name="prerequisites"></a>Предварительные требования
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
@@ -77,4 +76,3 @@ ms.lasthandoff: 02/16/2017
 
 [here]:http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]:http://docs.nuget.org/docs/start-here/overview
-

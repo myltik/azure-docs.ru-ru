@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 79b215eed38959efd630e21633d235cbc857abd8
 ms.openlocfilehash: dde9d9b8be1faede7d2e9e45597070e6ce51ac02
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="describing-a-service-fabric-cluster"></a>Описание кластера Service Fabric
 Диспетчер Resource Manager кластера Service Fabric предоставляет несколько механизмов для описания кластера. Во время выполнения диспетчер кластерных ресурсов использует эти сведения, чтобы обеспечить высокую доступность служб, функционирующих в кластере. При применении этих важных правил он также пытается оптимизировать потребление ресурсов в кластере.
 
@@ -382,7 +380,7 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 Важно отметить, что диспетчер кластерных ресурсов Service Fabric не понимает, что означают имена метрик (так же как и для ограничений на размещение и свойств узлов). Имена метрик — это просто строки. В случае неоднозначности мы советуем объявлять единицы как часть созданных имен метрик.
 
-## <a name="capacity"></a>Емкость
+## <a name="capacity"></a>Capacity
 При отключении *балансировки* всех ресурсов диспетчер кластерных ресурсов Service Fabric по-прежнему будет следить за тем, чтобы емкость ни одного узла не была превышена. Управление превышением емкости возможно в том случае, если кластер не перегружен и рабочая нагрузка не превышает возможности любого узла. Емкость — это другое *ограничение*, используемое диспетчером кластерных ресурсов, чтобы понять, какая часть ресурса используется на узле. Оставшаяся емкость также отслеживается для кластера в целом. На уровне службы и емкость, и потребление выражаются в виде метрик. Например, метрика может называться ClientConnections, а определенный узел может иметь емкость для ClientConnections, равную 32 768. У остальных узлов могут быть другие ограничения. Если на этом узле выполняется какая-либо служба, это может означать, что в данный момент потребляется 32 256 единиц метрики ClientConnections.
 
 Во время выполнения диспетчер кластерных ресурсов отслеживает оставшуюся емкость в кластере и на узлах. Чтобы отслеживать емкость, диспетчер кластерных ресурсов вычитает емкость, используемую каждой службой, из емкости узла, на котором выполняются эти службы. С помощью этих сведений диспетчер кластерных ресурсов Service Fabric может определить, где следует разместить или куда переместить реплики так, чтобы не была превышена емкость узлов.
@@ -529,4 +527,3 @@ LoadMetricInformation     :
 [Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
 [Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
-

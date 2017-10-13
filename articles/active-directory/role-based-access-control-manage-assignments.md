@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: andredm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 72c695d08bdf5de003d51ffb0768184e1e4d00ba
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Просмотр назначенных прав доступа для пользователей и групп на портале Azure
 > [!div class="op_single_selector"]
@@ -60,5 +59,4 @@ ms.lasthandoff: 08/28/2017
 
 * Приступите к управлению доступом на основе ролей, чтобы [использовать назначение ролей для управления доступом к ресурсам в подписке Azure](role-based-access-control-configure.md)
 * Ознакомьтесь со статьей [RBAC: встроенные роли](role-based-access-built-in-roles.md)
-
 

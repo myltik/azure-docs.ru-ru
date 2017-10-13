@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ccf0bd57b7f54b1d8d57b460df9bb381b29ee381
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="respond-to-events-with-log-analytics-alerts"></a>Реагирование на события с помощью оповещений Log Analytics
 Оповещения в Log Analytics содержат важную информацию о вашем репозитории Log Analytics.  Они создаются правилами генерации оповещений, которые автоматически выполняют поиск по журналам через регулярные интервалы и, если результаты поиска по журналу соответствуют конкретным условиям, создают запись оповещения (для которой можно настроить выполнение автоматического ответного действия).  Это руководство является продолжением руководства по [созданию и совместному использованию панели мониторинга данных Log Analytics](log-analytics-tutorial-dashboards.md).   

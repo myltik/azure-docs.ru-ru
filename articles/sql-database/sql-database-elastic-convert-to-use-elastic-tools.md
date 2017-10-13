@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: 099f40d00753b7c86ba726a818f17d440a125221
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Перенос существующих баз данных для масштабирования
 Вы можете легко управлять существующими масштабируемыми сегментированными базами данных с помощью средств базы данных SQL Azure (таких как [клиентская библиотека для эластичных баз данных](sql-database-elastic-database-client-library.md)). Для использования [диспетчера карты сегментов](sql-database-elastic-scale-shard-map-management.md)следует сначала преобразовать существующий набор баз данных. 

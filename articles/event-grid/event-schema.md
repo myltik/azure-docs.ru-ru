@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-event-grid-event-schema"></a>Схема событий службы "Сетка событий Azure"
 
 В этой статье описаны свойства и схема для событий. События включают пять обязательных свойств строки и обязательный объект данных. Свойства являются общими для всех событий от любого издателя. Объект данных содержит свойства, характерные для каждого издателя. В случае с системными разделами эти свойства относятся к поставщику ресурсов, включая службу хранилища Azure или концентраторы событий Azure.
@@ -235,4 +233,3 @@ ms.lasthandoff: 09/20/2017
 
 * Общие сведения о Сетке событий Azure см. в [этой статье](overview.md).
 * Дополнительные сведения о создании подписки на Сетку событий Azure см. в статье [Схема подписки для службы "Сетка событий"](subscription-creation-schema.md).
-

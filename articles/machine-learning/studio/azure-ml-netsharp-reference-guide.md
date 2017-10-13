@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeannt
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 54bef3e257363300ee1a13f7f45fc983e465ddbf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Руководство по языку спецификаций нейронных сетей Net# для машинного обучения Azure
 ## <a name="overview"></a>Обзор
@@ -415,5 +414,4 @@ Net# дополнительно поддерживает определение 
 Язык Net# для изменения архитектуры нейронных сетей был разработан в корпорации Майкрософт Шоном Катценбергером Shon Katzenberger (архитектор, машинное обучение) и Алексеем Каменевым (разработчик программного обеспечения, Microsoft Research). Он используется внутри компании для проектов машинного обучения и различных приложений от приложений распознавания образов до приложений анализа текста. Дополнительные сведения см. в статье [Neural Nets in Azure ML – Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Нейронные сети в машинном обучении Azure. Введение в Net#)
 
 [1]:./media/azure-ml-netsharp-reference-guide/formula_large.gif
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: magoedte
+ms.openlocfilehash: 2b3ca90382a1c4fb6446799ad539ab8ee603aefc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 62793dcdbbf4c83161e95d1c165d5c231245f7c6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Сценарий службы автоматизации Azure: интеграция системы управления версиями службы автоматизации с GitHub Enterprise
 
 Служба автоматизации сейчас поддерживает интеграцию системы управления версиями. Благодаря этому вы можете связать модули Runbook в своей учетной записи службы автоматизации с репозиторием системы управления версиями GitHub.  Тем не менее клиенты, развернувшие [GitHub Enterprise](https://enterprise.github.com/home) для поддержки своих решений DevOps, также хотят использовать это развертывание для управления жизненным циклом модулей Runbook, разработанных для автоматизации бизнес-процессов и операций управления службами.  
@@ -92,4 +90,3 @@ GitHRWCredential | Создаваемый ресурс учетных данны
 
 -  Чтобы получить дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях, обратитесь к статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md)
 -  Дополнительные сведения о функции поддержки скриптов PowerShell см. в статье [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Встроенная поддержка скриптов PowerShell в службе автоматизации Azure).
-

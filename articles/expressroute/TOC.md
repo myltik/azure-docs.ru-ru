@@ -35,6 +35,7 @@
 ## Настройка фильтров маршрутов для пиринга Майкрософт
 ### [Портал Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Интерфейс командной строки Azure](how-to-routefilter-cli.md)
 ## [Перемещение каналов из классического развертывания в развертывание с помощью Resource Manager](expressroute-howto-move-arm.md)
 ## [Перенос связанных виртуальных сетей из классической модели развертывания в модель развертывания Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Настройка маршрутизатора для ExpressRoute
@@ -45,7 +46,7 @@
 ### [Рекомендации по безопасности сети и облачным службам](../best-practices-network-security.md)
 ### [Оптимизация маршрутизации](expressroute-optimize-routing.md)
 ### [Асимметричная маршрутизация](expressroute-asymmetric-routing.md)
-### [NAT для ExpressRoute](expressroute-routing-nat.md)
+### [NAT для ExpressRoute](expressroute-nat.md)
 
 ## Устранение неполадок
 ### [Проверка подключения ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

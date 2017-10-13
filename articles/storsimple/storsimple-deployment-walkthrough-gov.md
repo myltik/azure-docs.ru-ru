@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/17/2016
 ms.author: v-sharos
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f120caf4ea21299e52782db33994b9bd8f63780d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Развертывание локального устройства StorSimple на портале государственных организаций
 [!INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
@@ -261,5 +260,4 @@ MPIO представляет собой дополнительный компо
 ## <a name="next-steps"></a>Дальнейшие действия
 * Настройте [виртуальное устройство](storsimple-virtual-device-u2.md).
 * Для управления устройством StorSimple используется [служба Диспетчера StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) .
-
 

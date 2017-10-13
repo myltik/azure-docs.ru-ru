@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 596431b7279b753ca4da838eb028cdde2022ce02
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-dashboard"></a>Использование панели мониторинга службы диспетчера StorSimple
 ## <a name="overview"></a>Обзор
@@ -69,5 +68,4 @@ ms.lasthandoff: 11/17/2016
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [устранять неполадки устройства StorSimple](storsimple-troubleshoot-operational-device.md).
 * Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Выполнение действия с Runbook службы автоматизации на основе результатов поиска Log Analytics
 
 В результатах поиска по журналам в Azure Log Analytics теперь можно выбрать пункт **Выполнить действие** для запуска модуля runbook службы автоматизации.  Runbook может использоваться для устранения проблемы или выполнения некоторых других действий, таких как сбор диагностических сведений, отправка сообщения электронной почты или создание запроса на обслуживание. 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric и контейнеры
 > [!NOTE]
@@ -80,7 +79,7 @@ Service Fabric поддерживает развертывание контей�
 * проверка подлинности репозитория;
 * сопоставление порта контейнера с портом узла;
 * межконтейнерное обнаружение и взаимодействие;
-* возможность настройки и установки переменных среды;
+* возможность настройки и установки переменных среды.
 * возможность настроить учетные данные безопасности для контейнера;
 * выбор различных сетевых режимов для контейнеров.
 
@@ -94,4 +93,3 @@ Service Fabric поддерживает развертывание контей�
 [Дополнительные сведения о контейнерах Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="running-jobs-on-azure-batch-with-azure-cli"></a>Выполнение заданий в пакетной службе Azure с помощью Azure CLI
 
 Этот сценарий создает задание пакетной службы и добавляет в него ряд задач. Он также демонстрирует, как отслеживать задание и его задачи. Кроме того, он показывает, как эффективно выполнять запрос к пакетной службе на получение сведений о задачах задания.
@@ -35,7 +33,7 @@ ms.lasthandoff: 09/09/2017
 
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-azurecli[main](../../../cli_scripts/batch/run-job/run-job.sh "Выполнение задания")]
+[!code-azurecli[main](../../../cli_scripts/batch/run-job/run-job.sh "Run Job")]
 
 ## <a name="clean-up-job"></a>Очистка задания
 
@@ -64,4 +62,3 @@ az batch job delete --job-id myjob
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Дополнительные примеры скриптов для интерфейса командной строки пакетной службы см. в [документации по интерфейсу командной строки пакетной службы Azure](../batch-cli-samples.md).
-

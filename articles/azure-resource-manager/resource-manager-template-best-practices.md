@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
 ms.openlocfilehash: a23301ba88279af3f7bf4d353ae808e9eeb0900d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Рекомендации по созданию шаблонов Azure Resource Manager
 Эти рекомендации помогут создавать надежные и удобные в использовании шаблоны Azure Resource Manager. Приведенные здесь указания носят рекомендательный характер и не являются обязательными (если это явно не обозначено). Для вашего сценария может потребоваться использовать один из описанных ниже подходов или примеров.

@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
 ms.openlocfilehash: bb61330ba5511955e0da16dcd5b8b19529d0e44b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Настройка подключения из индексатора Поиска Azure к SQL Server на виртуальной машине Azure
 Как было отмечено в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), служба поиска Azure поддерживает создание индексаторов для **SQL Server на виртуальных машинах Azure** (или **виртуальных машинах SQL Azure** для краткости), но существует несколько требований безопасности, которые необходимо выполнить. 
@@ -88,5 +87,4 @@ ms.lasthandoff: 07/18/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Когда настройка выполнена, SQL Server на виртуальной машине Azure можно указать в качестве источника данных для индексатора службы поиска Azure. Дополнительные сведения см. в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
-
 

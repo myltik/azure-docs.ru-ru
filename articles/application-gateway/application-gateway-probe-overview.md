@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 899115d213e626f17e58c2e5f01313f760f9e7f4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 83a0b1be1aba48146aa1aaedb36ad9d9d23f17d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="application-gateway-health-monitoring-overview"></a>Обзор мониторинга работоспособности шлюза приложений
 
 Шлюз приложений Azure по умолчанию отслеживает работоспособность всех ресурсов в своем пуле внутренних серверов и автоматически удаляет из пула все ресурсы, признанные неработоспособными. Шлюз приложений продолжает отслеживать неисправные экземпляры и добавляет их в пул внутренних серверов, как только они становятся доступными и начинают отвечать на проверку работоспособности. Шлюз приложений отправляет пробы работоспособности с помощью порта, который задан в параметрах HTTP серверной части. Благодаря этой конфигурации проверка тестирует тот же порт, с помощью которого клиенты подключаются к внутренней части.
@@ -82,4 +80,3 @@ ms.lasthandoff: 03/27/2017
 Ознакомившись со сведениями о мониторинге работоспособности шлюза приложений, можно настроить [пользовательскую проверку работоспособности](application-gateway-create-probe-portal.md) на портале Azure либо [пользовательскую проверку работоспособности](application-gateway-create-probe-ps.md) с использованием модели развертывания PowerShell или Azure Resource Manager.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
-

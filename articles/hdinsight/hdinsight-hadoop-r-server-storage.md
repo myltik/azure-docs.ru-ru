@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: aef9c15636ccaecce07d4fa218a40ed26ebad9df
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Решения службы хранилища Azure для R Server в HDInsight
 
@@ -200,5 +199,4 @@ Microsoft R Server в HDInsight включает в себя множество 
 * [Get started with R server on Hadoop (Начало работы с R Server в Hadoop)](hdinsight-hadoop-r-server-get-started.md)
 * [Установка RStudio Server в HDInsight (если установка не была выполнена при создании кластера)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Варианты контекста вычислений для R Server в HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
-
 

@@ -1,6 +1,7 @@
 # Обзор
 ## [Виртуальные машины SQL Server на базе Linux](sql-server-linux-virtual-machines-overview.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+## [Часто задаваемые вопросы](sql-server-linux-faq.md)
 
 # Начало работы
 ## [Подготовка виртуальной машины на портале Azure](provision-sql-server-linux-virtual-machine.md)

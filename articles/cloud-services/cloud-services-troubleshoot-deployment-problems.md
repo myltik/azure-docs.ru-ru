@@ -10,17 +10,16 @@ tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fae727ec3496737fca37236b4f36b4accf0afc63
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 29529978a2f6a1454c7a97b5f5baac214a90d63b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Устранение неполадок, которые могут возникнуть при развертывании облачной службы
 При развертывании пакета приложения облачной службы в Azure сведения о развертывании можно получить на панели **Свойства** портала Azure. Сведения, отображающиеся на этой панели, можно использовать для устранения неполадок в работе облачной службы. Кроме того, вы можете передать эту информацию в службу поддержки Azure при открытии нового запроса на поддержку.
@@ -84,7 +83,6 @@ URL-адрес веб-сайта, отображаемый на портале, 
 >
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Просмотрите дополнительные [статьи об устранении неполадок](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) в облачных службах.
+Просмотрите дополнительные [статьи об устранении неполадок](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) в облачных службах.
 
 Чтобы узнать, как устранять неполадки ролей облачной службы с помощью диагностических данных компьютеров Azure PaaS, см. [серию статей в блоге Кевина Уильямсона](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: magoedte; bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Порталы для создания и изменения запросов к журналу в службе Azure Log Analytics
 
@@ -47,5 +46,4 @@ ms.lasthandoff: 09/27/2017
 
 - Изучите пошаговые руководства по использованию [поиска по журналам](log-analytics-tutorial-viewdata.md), которые помогут вам создавать запросы на языке запросов.
 - Перейдите на [портал расширенной аналитики](https://go.microsoft.com/fwlink/?linkid=856587) для создания сложных запросов. Его можно использовать в качестве среды разработки для запросов поиска по журналам.
-
 

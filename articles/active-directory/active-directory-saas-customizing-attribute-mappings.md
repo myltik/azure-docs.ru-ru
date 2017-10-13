@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 06/17/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 6ca2fdc9c68ea0030d938eeaebd57aafa0e2790f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Настройка сопоставлений атрибутов для подготовки пользователей для приложений SaaS в Azure Active Directory
 Microsoft Azure AD обеспечивает поддержку для подготовки пользователей для сторонних приложений SaaS, например Salesforce, Google Apps и др. При наличии подготовки пользователей для сторонних приложений SaaS портал управления Azure определяет значения их атрибутов в форме настройки "сопоставление атрибутов".
@@ -97,5 +95,4 @@ Microsoft Azure AD обеспечивает поддержку для подг�
 [5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
 [6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
 [7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
-
 

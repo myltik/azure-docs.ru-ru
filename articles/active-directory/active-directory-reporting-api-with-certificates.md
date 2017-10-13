@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2017
 ms.author: ramical
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Получение данных, используя API отчетов Azure AD с сертификатами
 В статье описывается использование API отчетов Azure AD с учетными данными сертификатов для получения данных из каталогов без вмешательства пользователя. 
@@ -91,7 +90,6 @@ ms.lasthandoff: 03/28/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Основы управления удостоверениями Azure](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
-
 
 
 

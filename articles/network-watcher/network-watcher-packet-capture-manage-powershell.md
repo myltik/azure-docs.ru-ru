@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: abd3b3641da80ee835fac85b4bde68594449e451
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 5c6012ffea84c0fb0ffff95978af0145b8d40422
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Управление записью пакетов с помощью Наблюдателя за сетями Azure в PowerShell
 
 > [!div class="op_single_selector"]
@@ -283,7 +281,6 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 Сведения о состоянии (разрешен или запрещен) входящего и исходящего трафика виртуальной машины см. в статье [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md) (Проверка потока IP-адресов).
 
 <!-- Image references -->
-
 
 
 

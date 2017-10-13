@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 706a1151897f50d41ef6690f28a926ad8cb56d4b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Форматы файлов и сжатия данных, поддерживаемые фабрикой данных Azure
 *Этот раздел относится к соединителям для следующих компонентов: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [большой двоичный объект Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [файловая система](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) и [SFTP](data-factory-sftp-connector.md).*
 
@@ -513,4 +511,3 @@ ms.lasthandoff: 09/25/2017
 - [HDFS](data-factory-hdfs-connector.md)
 - [Перемещение данных в локальную файловую систему или из нее с помощью фабрики данных Azure](data-factory-onprem-file-system-connector.md)
 - [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
-

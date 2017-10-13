@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 638ecd5e02889bd8cb6e7429dfcec335feaac4a3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 36b9379f88ce024c1dcbf9977a873d95076d10df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="log-analytics-for-azure-load-balancer"></a>Служба анализа журналов для балансировщика нагрузки Azure
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -150,4 +148,3 @@ ms.lasthandoff: 03/29/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [Проверки балансировщика нагрузки](load-balancer-custom-probe-overview.md)
-

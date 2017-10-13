@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 361e16262e528c7dea1bab4b9d945a28af8be399
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="preparing-hard-drives-for-an-import-job"></a>Подготовка жестких дисков для задания импорта
 Чтобы подготовить один или несколько жестких дисков к заданию импорта, сделайте следующее:
 
@@ -184,4 +182,3 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [Подготовка задания импорта](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Подготовка задания экспорта](storage-import-export-tool-repairing-an-export-job-v1.md)
 * [Устранение неполадок со средством импорта и экспорта Azure](storage-import-export-tool-troubleshooting-v1.md)
-

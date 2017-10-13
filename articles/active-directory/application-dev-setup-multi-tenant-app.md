@@ -13,17 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 68db9635e274d76127021ff95d38570b980048f3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 24e7e0d586dab3f77e643197594c3c4462ff997e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-<a id="how-to-configure-a-new-multi-tenant-application" class="xliff"></a>
-
-# Настройка нового мультитенантного приложения
+# <a name="how-to-configure-a-new-multi-tenant-application"></a>Настройка нового мультитенантного приложения
 
 Ниже приведен список рекомендуемых статей с дополнительными сведениями о мультитенантных приложениях.
 
@@ -32,8 +28,5 @@ ms.lasthandoff: 04/11/2017
 - Ознакомьтесь с пошаговым руководством по [использованию платформы согласия Azure AD для реализации согласия](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework), необходимого для мультитенантных приложений.
 - Узнайте подробнее [о процедуре настройки и кодирования мультитенантного приложения](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), включая регистрацию, использование простой конечной точки, предоставление согласия пользователя и администратора, реализацию более сложных многоуровневых сценариев.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [StackOverflow в AzureAD](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

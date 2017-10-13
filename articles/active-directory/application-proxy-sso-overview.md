@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Как прокси приложения Azure AD предоставляет единый вход?
 
 Единый вход — это ключевой элемент прокси приложения Azure AD.  Он обеспечивает максимальное удобство для пользователей, так как им нужно всего лишь войти в Azure Active Directory в облаке. После аутентификации в Azure Active Directory соединитель прокси приложения осуществляет аутентификацию в локальном приложении. Внутреннее приложение не различает удаленного пользователя, входящего через прокси приложения, и обычного пользователя устройства, присоединенного к домену. 
@@ -81,4 +79,3 @@ ms.lasthandoff: 08/25/2017
 - [Хранение паролей для единого входа с помощью прокси приложения](application-proxy-sso-azure-portal.md)
 - [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
 - [Публикация приложений с поддержкой аутентификации на основе заголовков с использованием прокси приложения Azure AD и PingAccess](application-proxy-ping-access.md) 
-

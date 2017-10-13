@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: aa6b60b799e1e98815cf288d5612f98cd77cc00e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Создание первой виртуальной машины в лаборатории в Azure DevTest Labs
 
@@ -55,4 +53,3 @@ ms.lasthandoff: 04/27/2017
 * После создания виртуальной машины к ней можно подключиться, щелкнув **Подключиться** в колонке виртуальной машины.
 * См. дополнительные сведения о [добавлении виртуальных машин в лабораторию](devtest-lab-add-vm.md).
 * Изучите [коллекцию шаблонов быстрого запуска Azure Resource Manager для DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: a74d767d57eb5ce2b3a716f9ba908a451f25f538
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-features-overview"></a>Обзор функций концентраторов событий
 
 Концентраторы событий Azure — это масштабируемая служба обработки событий, которая принимает и обрабатывает большие объемы событий и данных с низкой задержкой и высокой надежностью. В статье [Что такое концентраторы событий?](event-hubs-what-is-event-hubs.md) представлен общий обзор службы.
@@ -173,4 +171,3 @@ ms.lasthandoff: 08/28/2017
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Примеры концентраторов событий]: https://github.com/Azure/azure-event-hubs/tree/master/samples
-

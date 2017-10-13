@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 8ccb94ea1b415c93d9dc3faefab3cbf8fb075b89
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: d98e403683618ef6115372f99e4949af87af4490
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Анализ журналов телеметрии Application Insights с помощью Spark в HDInsight
 
@@ -380,4 +379,3 @@ Application Insights предоставляет сведения об [эксп�
 
 * [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
-

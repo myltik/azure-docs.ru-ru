@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Автоматическая отработка отказа между регионами для обеспечения непрерывности бизнес-процессов в Azure Cosmos DB
 Azure Cosmos DB упрощает глобальное распространение данных, предлагая полностью управляемые учетные [записи базы данных в нескольких регионах](distribute-data-globally.md), которые обеспечивают четкие компромиссы между согласованностью, доступностью и производительностью с соответствующими гарантиями. Учетные записи Cosmos DB обеспечивают высокий уровень доступности, задержки в единицы миллисекунд, [четко определенные уровни согласованности](consistency-levels.md), прозрачную региональную отработку отказа с API многосетевого подключения, а также возможность эластично масштабировать пропускную способность и хранилище по всему миру. 

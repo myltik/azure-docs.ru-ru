@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 900447ab931f15e4d27aedd525eba7881ba813b2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Настройка Azure Data Lake Store для повышения производительности
 
@@ -146,4 +145,3 @@ Azure Data Lake Store можно масштабировать, чтобы пре
 ## <a name="see-also"></a>Дополнительные материалы
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 * [Начало работы с аналитикой озера данных Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-

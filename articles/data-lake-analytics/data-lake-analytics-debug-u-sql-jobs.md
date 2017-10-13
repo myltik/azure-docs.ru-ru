@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: saveenr
-ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
 ms.openlocfilehash: 2a77c72d3062272305208934d6406d040266c753
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Отладка определяемого пользователем кода C# для заданий U-SQL, завершившихся сбоем
 
@@ -122,4 +121,3 @@ The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
 - [Руководство по программированию U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Разработка определяемых пользователем операторов U-SQL для заданий аналитики озера данных Azure](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 - [Учебник. Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-

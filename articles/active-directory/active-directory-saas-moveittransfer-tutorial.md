@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: d35aceb9be2d0ff49f86a00cc84f5deb198d88f0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Руководство по интеграции Azure Active Directory с MOVEit Transfer - Azure AD integration
 
@@ -122,7 +121,7 @@ ms.lasthandoff: 07/28/2017
 
     ![Ссылка для скачивания сертификата](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_certificate.png) 
 
-5. Нажмите кнопку **Сохранить**.
+5. Нажмите кнопку **Сохранить** .
 
     ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_400.png)
     
@@ -268,5 +267,4 @@ ms.lasthandoff: 07/28/2017
 [201]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_203.png
-
 

@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/11/2017
 ms.author: jgao
+ms.openlocfilehash: 822c5f2302fb32d0d5a05ba69132282c050b7b8b
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 17fac0327c3c454a8ea5c4d91b2d3e23de71f4ce
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Использование Interactive Query в HDInsight
 Interactive Query (также Hive LLAP, или [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) — это новый [тип кластера](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. Interactive Query поддерживает кэширование в памяти, благодаря чему запросы Hive становятся более быстрыми и интерактивными. 
@@ -30,7 +29,6 @@ Interactive Query (также Hive LLAP, или [Live Long and Process](https://
 Кластер Interactive Query отличается от кластера Hadoop. Он содержит только службу Hive. 
 
 > [!NOTE]
-> MapReduce, Pig, Sqoop, Oozie и другие службы скоро будут удалены из кластера этого типа.
 > Получить доступ к службе Hive в кластере Interactive Query можно только с помощью представления Ambari Hive, Beeline и драйвера Microsoft Hive ODBC. Служба недоступна при использовании консоли Hive, Templeton, программы командной строки Azure (Azure CLI) или Azure PowerShell. 
 > 
 > 
@@ -86,5 +84,4 @@ Interactive Query (также Hive LLAP, или [Live Long and Process](https://
 * Узнайте, как [использовать представление Hive с Hadoop в HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
 * Узнайте, как [использовать Beeline для отправки запросов Hive в HDInsight](hdinsight-hadoop-use-hive-beeline.md).
 * Узнайте, как [подключить Excel к Hadoop с помощью драйвера Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md).
-
 

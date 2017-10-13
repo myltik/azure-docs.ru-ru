@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Интеграция хранилища озера данных с другими службами Azure
 Хранилище озера данных Azure можно использовать вместе с другими службами Azure для охвата более широкого диапазона сценариев. В следующей статье перечислены службы, с которыми может интегрироваться хранилище озера данных.
@@ -71,5 +70,4 @@ Azure Data Lake Store можно использовать для архивац�
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 * [Начало работы с хранилищем озера данных с помощью портала](data-lake-store-get-started-portal.md)
 * [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)  
-
 

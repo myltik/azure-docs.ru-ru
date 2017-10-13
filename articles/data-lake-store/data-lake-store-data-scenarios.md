@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Использование хранилища озера данных Azure для потребностей больших данных
 Процесс обработки больших данных состоит из указанных далее четырех ключевых этапов.
@@ -133,4 +132,3 @@ ms.lasthandoff: 09/25/2017
 
 * Сначала с помощью [фабрики данных Azure переместите данные из Data Lake Store в хранилище данных SQL Azure](../data-factory/copy-activity-overview.md).
 * После этого вы можете [интегрировать Power BI с хранилищем данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) для создания визуального представления данных.
-

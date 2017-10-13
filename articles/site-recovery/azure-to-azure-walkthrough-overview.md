@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 9258613161a61e36b1d0c5796d5763c916d66859
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Репликация виртуальных машин Azure между регионами с помощью Azure Site Recovery
 
 >В этой статье представлен обзор процесса репликации виртуальных машин Azure из одного региона Azure на виртуальные машины Azure в другом регионе. 
@@ -74,6 +72,5 @@ ms.lasthandoff: 08/02/2017
 После завершения начальной репликации и запуска репликации разностных изменений можно выполнить тестовую отработку отказа, чтобы убедиться, что все работает правильно.
 
 См. [раздел о выполнении тестовой отработки отказа (шаг 6)](azure-to-azure-walkthrough-test-failover.md).
-
 
 

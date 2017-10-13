@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
 ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Установка MySQL на виртуальной машине Windows Server 2016 R2, созданной с помощью классической модели развертывания
 [MySQL](https://www.mysql.com) является популярной базой данных SQL с открытым исходным кодом. В этом руководстве демонстрируются установка и запуск **версии от сообщества MySQL 5.7.18** в качестве сервера MySQL на виртуальной машине **Windows Server 2016 R2**. Рабочая процедура для других версий MySQL или Windows Server может немного отличаться.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
 ms.openlocfilehash: 770a83131a3e661771db50b22ce7de25b2d541cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk"></a>Веб-пакет SDK для Служб мобильного взаимодействия Azure
 Начните с этой статьи, чтобы получить подробную информацию об интеграции Служб мобильного взаимодействия Azure в веб-приложение. Если вы хотите поэкспериментировать, прежде чем интегрировать свое веб-приложение, ознакомьтесь с нашим [15-минутным руководством](mobile-engagement-web-app-get-started.md).

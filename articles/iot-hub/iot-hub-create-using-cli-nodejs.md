@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 8ac82da36b2edb71fcd0599dac12a3ed18e33b6f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/24/2017
-
+ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Создание Центра Интернета вещей с помощью Azure CLI
 
@@ -135,4 +134,3 @@ azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-

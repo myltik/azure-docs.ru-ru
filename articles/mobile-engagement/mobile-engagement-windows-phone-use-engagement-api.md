@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f8ed91048ecfb1e7d19bb000216618b4e0c4b381
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: ec8b6c13ea052c8063dfde4321cdd286ab6cb817
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-phone-silverlight"></a>Как использовать API Engagement в Windows Phone Silverlight
-Этот документ представляет собой дополнение к документу [Как интегрировать Mobile Engagement в приложение Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). В нем рассказывается о том, как с помощью Engagement API предоставлять статистику по приложению.
+Этот документ представляет собой дополнение к документу [Как интегрировать Службы мобильного взаимодействия в приложение Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). В нем рассказывается о том, как с помощью Engagement API предоставлять статистику по приложению.
 
 Если вам требуется, чтобы служба Engagement сообщала только о сеансах, действиях, сбоях и технической информации приложения, проще всего сделать так, чтобы все подклассы `PhoneApplicationPage` наследовались из класса `EngagementPage`.
 
@@ -33,7 +32,7 @@ API Engagement предоставляется в классе `EngagementAgent` 
 Даже если модуль агента не инициализирован, каждый вызов API откладывается и выполняется повторно, когда агент становится доступен.
 
 ## <a name="engagement-concepts"></a>Основные понятия Engagement
-В следующих подразделах дано более подробное объяснение понятий Mobile Engagement для платформы Windows Phone.
+В следующих подразделах дано более подробное объяснение понятий Служб мобильного взаимодействия для платформы Windows Phone.
 
 ### <a name="session-and-activity"></a>`Session` и `Activity`
 *Действие*, как правило, связано с одной страницей приложения, т. е. *действие* начинается при отображении страницы и завершается при ее закрытии. Это происходит в том случае, если пакет SDK для Engagement интегрируется с помощью класса `EngagementPage`.
@@ -337,4 +336,3 @@ API Engagement предоставляется в классе `EngagementAgent` 
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
-

@@ -13,15 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 08/17/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 2880114bb8f094a70c95fa3117dcfab6711aad9b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="hpc-batch-and-big-compute-solutions-using-azure-vms"></a>Использование HPC, пакетной службы и больших вычислений
 
 [!INCLUDE [virtual-machines-common-high-performance-computing](../../../includes/virtual-machines-common-high-performance-computing.md)]
-

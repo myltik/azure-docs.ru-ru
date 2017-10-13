@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 10a9608bc35d44a800acda9406390c3944a86c2c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Прогнозирование ответа с помощью простой модели
 ## <a name="video-4-data-science-for-beginners-series"></a>Видео 4. Обработка и анализ данных для начинающих
@@ -134,4 +133,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Выполните первый эксперимент по обработке и анализу данных с использованием Студии машинного обучения Microsoft Azure.](create-experiment.md)
 * [Ознакомьтесь с введением в машинное обучение в Microsoft Azure.](what-is-machine-learning.md)
-

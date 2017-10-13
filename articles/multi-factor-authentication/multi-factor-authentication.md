@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: kgremban
+ms.openlocfilehash: 231028a7389dba50efe7d197837855b39826f9b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 6239e0affd778f8f64222abce769841b27d6be1d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Что такое Azure Multi-factor Authentication?
 Двухшаговая проверка — это метод проверки подлинности, который требует применения нескольких методов проверки и добавляет критически важный второй уровень безопасности для операций входа пользователей и транзакций. Во время работы он требует использования двух и более методов проверки следующего характера:
@@ -55,4 +54,3 @@ Azure Multi-Factor Authentication — это простое в использо
 - Узнайте о [принципах работы службы Многофакторной идентификации](multi-factor-authentication-how-it-works.md).
 
 - Ознакомьтесь с разными [версиями и методами использования службы Многофакторной идентификации Azure](multi-factor-authentication-versions-plans.md).
-

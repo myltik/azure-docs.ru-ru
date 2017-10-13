@@ -12,22 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/24/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
+ms.openlocfilehash: a29bc68e966a3706af557af0c626d369d04149aa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 2cc2b63312b331a19c61cd7b59a4cac78edf32e6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>Управление группами в Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-groups-create-azure-portal.md)
-> * [Классический портал Azure](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
@@ -107,4 +105,3 @@ ms.lasthandoff: 07/25/2017
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-

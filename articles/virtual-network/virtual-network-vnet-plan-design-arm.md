@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Планирование и проектирование виртуальных сетей Azure
 Процесс создания виртуальной сети для проведения экспериментов достаточно простой, но, скорее всего, со временем вам понадобится развернуть несколько виртуальных сетей с учетом потребностей вашей организации. Обладая знаниями по планированию и проектированию, вы сможете более эффективно развертывать виртуальные сети и подключать необходимые ресурсы. Если вы не знакомы с работой виртуальных сетей, прежде чем продолжить, рекомендуется прочитать [сведения о виртуальных сетях](virtual-networks-overview.md) и [их развертывании](virtual-networks-create-vnet-arm-pportal.md).
@@ -253,4 +252,3 @@ ms.lasthandoff: 08/16/2017
 * Узнайте, как [балансировать нагрузку](../load-balancer/load-balancer-overview.md) виртуальных машин IaaS и [управлять маршрутизацией в нескольких регионах Azure](../traffic-manager/traffic-manager-overview.md).
 * Узнайте больше о [группах безопасности сети, а также о планировании и проектировании](virtual-networks-nsg.md) решения для групп безопасности сети.
 * Узнайте больше о [возможностях подключений к виртуальной сети и распределенных подключений](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
-

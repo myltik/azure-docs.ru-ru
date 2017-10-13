@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c4f7c829e6fe3890342bd973185e679dd3ea2df5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Использование ReportViewer для веб-сайта, размещенного в Azure
 > [!IMPORTANT] 
@@ -93,5 +92,4 @@ ms.lasthandoff: 09/20/2017
 [SQL Server Business Intelligence на виртуальных машинах Azure](../classic/ps-sql-bi.md)
 
 [Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме](../classic/ps-sql-report.md)
-
 

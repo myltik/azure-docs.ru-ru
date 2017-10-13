@@ -10,17 +10,16 @@ tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b49393ecfb6fe639825107c5f038906a36cde687
-ms.openlocfilehash: 3cddd9f9c4b978dfad7ec727be9f43f6ed7c7c8f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 44d912c8bee1a7c8db79d3626e00108fbcb39352
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Устранение неполадок, если роли облачной службы не запускаются
 Ниже приведены некоторые распространенные проблемы и решения на случай, если роли облачной службы Azure не запускаются.
@@ -127,4 +126,3 @@ ms.lasthandoff: 11/17/2016
 Просмотрите дополнительные [статьи об устранении неполадок](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) в облачных службах.
 
 Чтобы узнать, как устранять неполадки ролей облачной службы с помощью диагностических данных компьютеров Azure PaaS, см. [серию статей в блоге Кевина Уильямсона](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
-

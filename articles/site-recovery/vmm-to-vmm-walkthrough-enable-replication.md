@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 6673d192dbc18bfc955d9e7e3c55893512511ffb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-9-enable-replication-to-a-secondary-site-for-hyper-v-vms"></a>Шаг 9. Включение репликации на дополнительный сайт для виртуальных машин Hyper-V
 
@@ -63,4 +62,3 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к статье [Шаг 10. Запуск тестовой отработки отказа для репликации Hyper-V на дополнительный сайт](vmm-to-vmm-walkthrough-test-failover.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: juliako
+ms.openlocfilehash: 9144407ed530921904458a7249473eaea26c66b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: f992ec4ff2b36208f740320a133b5eece47919bb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Настройка среды разработки для служб мультимедиа
 
@@ -47,5 +46,4 @@ ms.lasthandoff: 07/12/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

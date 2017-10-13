@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 0068aae9d6780aa41a070db0eb191d0d5a165d21
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Диагностика и восстановление после ошибок для заданий импорта и экспорта Azure
 Для каждого обрабатываемого диска служба импорта и экспорта Azure создает журнал ошибок в соответствующей учетной записи хранения. Можно также включить ведение подробного журнала, задав для свойства `LogLevel` значение `Verbose` при вызове операции [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) или [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).

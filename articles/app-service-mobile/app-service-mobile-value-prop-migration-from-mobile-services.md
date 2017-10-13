@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>Если я использую мобильные службы, чем мне может быть полезна служба приложений?
 ## <a name="overview"></a>Обзор
@@ -64,4 +63,3 @@ ms.lasthandoff: 07/11/2017
 С помощью *службы приложений Azure* вы теперь можете создать несколько тестовых и промежуточных сред для своих мобильных приложений. Используйте их, чтобы тестировать приложения перед развертыванием. В производственную стадию вы можете переходить без простоя. Веб-приложения загружаются автоматически, что позволяет обеспечить самые лучшие условия работы клиентов.
 
 Следуя инструкциям этого *учебника* , вы можете начать использовать [службу приложений](app-service-mobile-migrating-from-mobile-services.md)для существующей мобильной службы.
-

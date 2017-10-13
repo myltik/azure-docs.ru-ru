@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>Изменение паролей StorSimple с помощью службы диспетчера StorSimple
 ## <a name="overview"></a>Обзор
@@ -57,5 +56,4 @@ ms.lasthandoff: 01/26/2017
 * Узнайте больше о [безопасности StorSimple](storsimple-security.md).
 * Узнайте больше об [изменении конфигурации устройства](storsimple-modify-device-config.md).
 * Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
 

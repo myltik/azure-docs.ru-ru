@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 88f4a23f89a1c8fd88db1df3a7ff03ae5df64c0f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Мониторинг и диагностика для Azure Service Fabric
 
 Мониторинг и диагностика крайне важны для разработки, тестирования и развертывания приложений и служб в любой среде. Оптимальная работа решений Service Fabric зависит от эффективного планирования и реализации мониторинга и диагностики, которые помогают обеспечить правильную работу приложений и служб в локальной среде разработки или в производственной среде.

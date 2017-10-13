@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Дополнительные возможности использования модели программирования надежных служб
 Приложение Azure Service Fabric упрощает написание надежных служб с отслеживанием или без отслеживания состояния и управление ими. В этом руководстве пойдет речь о расширенном использовании Reliable Services для получения большей управляемости и гибкости служб. Перед чтением этого руководства ознакомьтесь с [моделью программирования надежных служб](service-fabric-reliable-services-introduction.md).
@@ -70,4 +69,3 @@ ms.lasthandoff: 07/01/2017
 * [Общие сведения о работоспособности Service Fabric](service-fabric-health-introduction.md)
 * [Использование отчетов о работоспособности системы для устранения неполадок](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [Настройка служб с помощью диспетчера кластерных ресурсов Service Fabric](service-fabric-cluster-resource-manager-configure-services.md)
-

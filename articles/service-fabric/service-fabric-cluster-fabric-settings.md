@@ -1,4 +1,3 @@
-
 ---
 title: "Изменение параметров кластера Azure Service Fabric | Документация Майкрософт"
 description: "В этой статье описываются параметры структуры и политики обновления структур, которые можно настраивать."
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: cedfba78d8d1186618cf4f61154c5d88a00eb12b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Настройка параметров кластера Service Fabric и политики обновления структур
 В этом документе описывается, как настроить различные параметры структуры и политику обновления структур для кластера Service Fabric. Их можно настроить на [портале Azure](https://portal.azure.com) или с помощью шаблона Azure Resource Manager.
@@ -615,5 +613,4 @@ ms.lasthandoff: 09/28/2017
 Дополнительные сведения об управлении кластерами доступны в следующих статьях.
 
 [Добавление, смена и удаление сертификатов в кластере Azure ](service-fabric-cluster-security-update-certs-azure.md) 
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 88fe9673176cdade92faad4bbdcb2e1bd11f4a55
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>Подготовка виртуальных машин Azure для обработки и анализа данных в качестве серверов IPython Notebook
 Приведенные здесь инструкции касаются настройки виртуальной машины Azure и виртуальной машины Azure со службой SQL в качестве серверов IPython Notebook. Виртуальная машина под управлением Windows настраивается с помощью инструментов поддержки, таких как IPython Notebook, Azure Storage Explorer и AzCopy, а также других служебных программ, подходящих для проектов обработки данных. Обозреватель хранилищ Azure и AzCopy, например, позволяют с легкостью передавать данные в хранилище Azure с локального компьютера и наоборот. 
@@ -44,5 +43,4 @@ ms.lasthandoff: 09/25/2017
 > За виртуальные машины Azure вы **платите только по факту использования**. Чтобы вам не выставляли счета за неиспользуемую виртуальную машину, она должна находиться в состоянии **Остановлено (освобождено)** на [классическом портале Azure](http://manage.windowsazure.com/). Пошаговые указания по отмене распределения памяти для виртуальной машины см. в разделе [Завершение работы и отмена выделения памяти для виртуальной машины, когда она не используется](../data-science-virtual-machine/setup-virtual-machine.md#shutdown).
 > 
 > 
-
 

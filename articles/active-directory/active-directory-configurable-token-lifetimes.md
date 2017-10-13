@@ -16,12 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: d1d72932d8156fdada44ad6f375fe81c0428846c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: d23721eba308096a05211eb6e26e1338a69cae0c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Настройка времени жизни маркеров в Azure Active Directory (общедоступная предварительная версия)
 Вы можете указать время жизни маркера, выданного Azure Active Directory (Azure AD). Время жизни маркеров можно настроить для всех приложений в организации, для многопользовательского приложения (приложения для нескольких организаций) или для определенного субъекта-службы в организации.
@@ -516,4 +515,3 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**Идентификатор объекта** для политики. | `-PolicyId <ObjectId of Policy>` |
-

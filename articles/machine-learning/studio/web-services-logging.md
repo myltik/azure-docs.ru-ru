@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: raymondl;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Включение функции ведения журналов для веб-служб машинного обучения
 В этом документе представлена информация о возможности ведения журналов в веб-службах машинного обучения. Ведение журнала предоставляет дополнительные сведения, помимо номера ошибки и сообщения о ней. Эти сведения могут помочь устранить неполадки, связанные с вызовами интерфейсов API машинного обучения.  
@@ -86,5 +85,4 @@ ms.lasthandoff: 09/25/2017
 * или пакетный  
 * score/requests  
 * score/init  
-
 

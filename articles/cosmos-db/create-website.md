@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 67c11277142d6616fe77179e03b55ed08993b818
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Развертывание Azure Cosmos DB и веб-приложений службы приложений Azure с помощью шаблона Azure Resource Manager
 В этом руководстве показано, как использовать шаблон Azure Resource Manager для развертывания и интеграции [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), веб-приложения [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714), а также примера веб-приложения.
@@ -141,5 +140,4 @@ ms.lasthandoff: 09/29/2017
 > Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1801ef47e5b182e0bcd5b23970a2999633b4a852
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Экспорт шаблона Azure Resource Manager из существующих ресурсов
 В этой статье вы узнаете, как экспортировать шаблон Resource Manager из имеющихся в подписке ресурсов. Вы можете использовать этот готовый шаблон, чтобы лучше понять синтаксис шаблона.
@@ -176,5 +175,4 @@ ms.lasthandoff: 07/08/2017
 * Вы можете развернуть шаблон с помощью [PowerShell](resource-group-template-deploy.md), [интерфейса командной строки Azure](resource-group-template-deploy-cli.md) или [REST API](resource-group-template-deploy-rest.md).
 * Сведения об экспорте шаблона с помощью PowerShell см. в статье [Использование Azure PowerShell с Azure Resource Manager](powershell-azure-resource-manager.md).
 * Сведения об экспорте шаблона с помощью интерфейса командной строки Azure см. в статье [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](xplat-cli-azure-resource-manager.md).
-
 

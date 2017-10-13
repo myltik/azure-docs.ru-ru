@@ -10,14 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4cd77c4ae4d9487aad11ea790c5d88a4eaff6077
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Как выполнить резервное копирование и восстановление сервера в базе данных Azure для PostgreSQL с помощью Azure CLI
 
 Используйте базу данных Azure для PostgreSQL, чтобы восстановить базу данных сервера с более ранней точки во времени за период от 7 до 35 дней.
@@ -71,4 +69,3 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Библиотеки подключений для базы данных Azure для PostgreSQL](concepts-connection-libraries.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: c0cf2805de958c979def3f21eda59ec97fb91d33
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: a28a7679831201fcf3a9d1c15497ff706c2752a1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-data-catalog"></a>Что такое каталог данных Azure?
 Каталог данных Azure — это полностью управляемая облачная служба, пользователи которой могут обнаруживать нужные им источники данных и распознавать их. В то же время каталог данных помогает организациям получать большую отдачу от своих вложений. 
@@ -76,4 +75,3 @@ ms.lasthandoff: 06/05/2017
 Чтобы начать работу с каталогом данных, перейдите к следующим ресурсам:
 * [Каталог данных Microsoft Azure](https://www.azuredatacatalog.com)
 * [Начало работы с каталогом данных Azure](data-catalog-get-started.md)
-

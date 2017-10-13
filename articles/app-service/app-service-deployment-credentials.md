@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Настройка учетных данных развертывания службы приложений Azure
 [Служба приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) поддерживает два типа учетных данных для [развертывания локальной системы Git](app-service-deploy-local-git.md) и [развертывания FTP(S)](app-service-deploy-ftp.md). Это не то же, что учетные данные Azure Active Directory.
@@ -94,4 +93,3 @@ ms.lasthandoff: 09/07/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Узнайте, как использовать эти учетные данные для развертывания приложения из [локального репозитория Git](app-service-deploy-local-git.md) или с помощью [FTP(S)](app-service-deploy-ftp.md).
-

@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 06/29/2016
 ms.author: shigu;jrj
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: c16fef2f302dbc56f257eaf2f0d2b68b6a3c1852
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Общие сведения о таблицах в хранилище данных SQL
 > [!div class="op_single_selector"]
@@ -304,4 +303,3 @@ ORDER BY    distribution_id
 [Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
 
 <!--Other Web references-->
-

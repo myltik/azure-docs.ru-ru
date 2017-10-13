@@ -17,10 +17,10 @@ ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>Настройка частных IP-адресов для виртуальной машины с помощью Azure CLI 2.0
 

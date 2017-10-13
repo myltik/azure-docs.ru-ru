@@ -16,10 +16,10 @@ ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Архитектуры с несколькими глобально реплицированными базами данных master с использованием Azure Cosmos DB
 Azure Cosmos DB поддерживает готовую [глобальную репликацию](distribute-data-globally.md), что позволяет распространять данные в нескольких регионах и обеспечивает доступ с низкой задержкой в любом месте рабочей нагрузки. Эта модель обычно используется для рабочих нагрузок типа "издатель и потребитель", в которых модуль записи находится в одном географическом регионе, а глобально распределенные модули чтения — в других регионах (регионах чтения). 

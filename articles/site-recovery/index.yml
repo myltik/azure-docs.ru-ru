@@ -44,7 +44,7 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="tutorial-prepare-azure">Подготовка Azure</a>
+          - html: <a href="tutorial-prepare-azure">Подготовка Azure</a>.
           - html: <a href="tutorial-prepare-on-premises-vmware">Подготовка локальной среды VMware</a>
           - html: <a href="tutorial-vmware-to-azure">Настройка аварийного восстановления</a>
           - html: <a href="tutorial-dr-drill-azure">Выполнение отработки аварийного восстановления</a>

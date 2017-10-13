@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c2c5aee3db11255be5a6fe405424c2cbb92c5b95
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Создание проверки доступа для участников группы или приложения с помощью Azure AD
 
 Назначения доступа становятся "устаревшими", когда у пользователей имеются права доступа, которые им больше не нужны.  Чтобы уменьшить риск, связанный с назначением доступа, администраторы могут запросить проверку участников группы или пользователей, назначенных для приложения, с помощью создания проверки доступа. Дополнительные сведения об этих сценариях предоставлены в руководствах по [управлению пользовательским доступом](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) и [гостевым доступом](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md).  
@@ -51,6 +49,5 @@ ms.lasthandoff: 09/20/2017
 После запуска проверки доступа Azure AD будет автоматически отправлять проверяющим сообщение, предлагающее им проверить доступ. Если пользователь не получил сообщение, ему можно отправить [инструкции по выполнению проверки доступа](active-directory-azure-ad-controls-perform-access-review.md).  
 
 По завершении периода проверки доступа или после того, как администратор остановил проверку, нужно следовать инструкциям в статье [Complete an access review of members of a group or users access to an application in Azure AD](active-directory-azure-ad-controls-complete-access-review.md) (Завершение проверки доступа участников группы или пользователей к приложению в Azure AD), чтобы просмотреть и применить результаты.
-
 
 

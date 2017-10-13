@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 36de09434ae5082e5f92dcc9a82bba88f5b89c85
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 0c32a6719292aa903aa32dfdc4a31114e7a28346
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Новые возможности управления корпоративными приложениями в Azure Active Directory 
 
@@ -155,7 +154,6 @@ ms.lasthandoff: 05/08/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в статье [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md).
-
 
 
 

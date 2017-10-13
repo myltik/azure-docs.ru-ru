@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Использование социальных сетей с помощью Azure Cosmos DB
 Жизнь в сильно взаимосвязанном обществе означает, что в определенный момент вы присоединяетесь к **социальной сети**. Мы используем социальные сети, чтобы поддерживать связь с друзьями, коллегами и родными, а иногда — чтобы делиться увлечением с теми, кто разделяет ваши интересы.

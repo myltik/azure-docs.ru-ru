@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
+ms.openlocfilehash: 92753860ec820172e46f483831eb0c1cf1acb038
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ba36ad0f46ce681b61acc576448fd36441b43f72
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Использование скриптов Windows PowerShell для публикации в средах разработки и тестирования
 При создании веб-приложения в Visual Studio вы можете создать сценарий Windows PowerShell, который позволит автоматизировать публикацию решения на виртуальной машине или веб-сайте (как веб-приложения в службе приложений Azure). В редакторе Visual Studio этот сценарий можно изменить и расширить в соответствии со своими потребностями или интегрировать его в существующие сценарии сборки, тестирования и публикации.
@@ -344,4 +343,3 @@ return $WebDeployPackage
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о сценариях PowerShell см. в статье [Работа со сценариями в Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx). Рекомендуем также посетить [центр сценариев](https://azure.microsoft.com/documentation/scripts/) и ознакомиться с другими сценариями Azure PowerShell.
-

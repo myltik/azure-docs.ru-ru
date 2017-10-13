@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 5edd37a3a042f710e7d1b9e148c24d9a548a4fea
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 2e6987d30b56407559f54c02817ee94eff8df46b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Заметки о выпуске — средства анализа для разработчиков
 
@@ -295,4 +294,3 @@ Application Insights теперь поддерживает проекты ASP.NE
 HockeyApp поддерживает любую платформу, на которой может быть собрано приложение, будь то iOS, Android, Windows или межплатформенное решение, такое как Xamarin, Cordova или Unity.
 
 В следующие выпуски расширения Application Insights будут добавлены новые возможности, обеспечивающие более интегрированное взаимодействие между HockeyApp и Visual Studio. Сейчас работу с HockeyApp можно начать, просто добавив ссылку на NuGet. Дополнительные сведения см. в [документации](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone).
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9a3a1e1b58dcb828e2d2d09c18f1aab6d46051aa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Просмотр и изменение имен узлов
 Чтобы позволить ссылаться на экземпляры ролей по имени узла, необходимо задать значение имени узла в файле конфигурации службы для каждой роли. Для этого добавьте имя нужного узла в атрибут **vmName** элемента **Role**. Значение атрибута **vmName** используется в качестве основы для имени узла каждого экземпляра роли. Например, если **vmName** имеет значение *webrole* и этот экземпляр имеет три роли, имена узлов экземпляров будут следующими: *webrole0*, *webrole1* и *webrole2*. Вам не нужно указывать имя узла для виртуальных машин в файле конфигурации, так как имя узла виртуальной машины заполняется на основе ее имени. Дополнительные сведения о настройке службы Microsoft Azure см. в статье, посвященной [схеме конфигурации службы Azure (файл CSCFG)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
@@ -66,5 +65,4 @@ ms.lasthandoff: 11/17/2016
 [Схема настройки виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Укажите параметры DNS с помощью файлов конфигурации сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
-
 

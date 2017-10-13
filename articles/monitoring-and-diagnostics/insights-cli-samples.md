@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: ec4512500dc3c77a40d2ebd1e6b460d5bb005811
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Примеры команд для кроссплатформенного интерфейса командной строки 1.0 в Azure Monitor
 В этой статье приведены примеры команд интерфейса командной строки для работы с функциями Azure Monitor. Azure Monitor позволяет выполнять автомасштабирование облачных служб, виртуальных машин и веб-приложений, отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии.
@@ -202,4 +201,3 @@ azure insights autoscale setting list montest2 -n setting2
 ```console
 azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
-

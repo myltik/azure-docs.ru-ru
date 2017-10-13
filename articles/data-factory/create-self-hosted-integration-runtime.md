@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Создание и настройка локальной среды выполнения интеграции
 Среда выполнения интеграции (IR) — это инфраструктура вычислений, которую фабрика данных Azure использует для обеспечения интеграции данных в разных сетевых средах. Дополнительные сведения о среде выполнения интеграции см. [в этом обзоре](concepts-integration-runtime.md). 
@@ -240,5 +239,4 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Выполните пошаговые инструкции, приведенные в [руководстве по копированию локальных данных в облако](tutorial-hybrid-copy-powershell.md).
-
 

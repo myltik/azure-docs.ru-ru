@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Примеры для виртуальных машин для обработки и анализа данных
 
 Виртуальные машины для обработки и анализа данных имеют полностью рабочие примеры в форме записных книжек Jupyter и некоторые, которые не основаны на Jupyter. Доступ к Jupyter можно получить, щелкнув значок `Jupyter` на рабочем столе или в меню приложения.  
@@ -106,5 +103,4 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="xgboost"></a>XGBoost; 
 <br/>![Примеры XGBoost](./media/xgboost-samples.png)<br/>
-
 

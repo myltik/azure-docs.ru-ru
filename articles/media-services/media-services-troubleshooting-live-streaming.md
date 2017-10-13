@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
-ms.openlocfilehash: 69fa0a7802ca39f86ada0af47b7a99e56436f973
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/11/2017
-
+ms.openlocfilehash: fa91baf7c494941fccf0e6ca38b930f3c2a521ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Руководство по устранению неполадок потоковой передачи в реальном времени
 В этом разделе приводятся предложения по решению некоторых проблем потоковой передачи в реальном времени.
@@ -32,7 +31,7 @@ ms.lasthandoff: 02/11/2017
   
   * **Telestream Wirecast**. Обычно журналы можно найти в папке C:\Users\{имя_пользователя}\AppData\Roaming\Wirecast\. 
   * **Elemental Live**. Ссылки на журналы можно найти на портале управления. Щелкните **Статистика**, а затем **Журналы**. На странице **Файлы журналов** вы увидите список журналов для всех элементов LiveEvent. Выберите журнал текущего сеанса. 
-  * **Flash Media Live Encoder**. Каталог **Log Directory** можно найти, перейдя на вкладку **Encoding Log** (Журнал службы кодирования).
+  * **Flash Media Live Encoder**. Каталог **Log Directory** можно найти, перейдя на вкладку **Encoding Log** (Журнал Службы кодирования).
 
 ### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Проблема. Невозможно вывести поток с прогрессивной разверткой
 * **Потенциальная причина**. Используемый кодировщик не выполняет автоматическое устранение чересстрочной развертки. 
@@ -73,5 +72,4 @@ ms.lasthandoff: 02/11/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

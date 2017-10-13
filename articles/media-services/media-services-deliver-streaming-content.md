@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 37f6cd3a25c36fe27c9c711a430a2fc11e50906e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>Публикация содержимого служб мультимедиа Azure с помощью .NET
 > [!div class="op_single_selector"]
@@ -178,5 +177,4 @@ ms.lasthandoff: 04/27/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Скачивание файлов](media-services-deliver-asset-download.md)
 * [Настройка политики доставки для ресурса-контейнера](media-services-dotnet-configure-asset-delivery-policy.md)
-
 

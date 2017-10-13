@@ -13,13 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8340ae1231b7f40f739d7bbb63cee1bf0f095ab5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
---- 
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
+---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Средство оценки решений Cortana Intelligence
 ## <a name="overview"></a>Обзор
 Средство оценки решений Cortana Intelligence можно использовать для проверки расширенных аналитических решений на соответствие рекомендациям Майкрософт. Корпорация Майкрософт с готовностью сотрудничает со своими партнерами (независимыми поставщиками программного обеспечения и системными интеграторами), чтобы предоставить клиентам, торговым посредникам и партнерам внедрения высококачественных решений. В этом руководстве будет рассмотрен процесс использования средства оценки решений с вашим решением и описаны конкретные рекомендации по проверке.
@@ -199,5 +198,4 @@ Azure SQL и хранилище данных SQL Azure поддерживают 
 [Сертификация Microsoft Azure](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
 
 [Сертификация Microsoft Azure: Cortana Intelligence](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
-
 

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Заметки о выпуске служб Azure BizTalk
 
@@ -223,5 +221,4 @@ ms.lasthandoff: 07/11/2017
 
 ### <a name="concepts"></a>Основные понятия
 [Службы BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
 

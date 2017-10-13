@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="controlling-and-granting-database-access"></a>Предоставление доступа к базе данных и управление им
 
@@ -193,4 +192,3 @@ GRANT ALTER ANY USER TO Mary;
 - Ознакомьтесь с руководством [Защита базы данных SQL Azure](sql-database-security-tutorial.md).
 - Сведения о представлениях и хранимых процедурах см. в статье [Создание представлений и хранимых процедур](https://msdn.microsoft.com/library/ms365311.aspx).
 - Сведения о предоставлении доступа к объекту базы данных см. в [этой статье](https://msdn.microsoft.com/library/ms365327.aspx).
-

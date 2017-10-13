@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 62fa6a6d0cccc5545b94d4ae167f2fcc7e4cd0de
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 1ad6ca4abe73336ce9ce3539fdaf2a9d7dd23fa6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="packet-inspection-with-azure-network-watcher"></a>Проверка пакетов в службе наблюдения за сетями Azure
 
 Функция записи пакетов в Наблюдателе за сетями позволяет инициировать и администрировать сеансы записи для виртуальных машин Azure с помощью портала, PowerShell и интерфейса командной строки, а также программно с использованием REST API и пакета SDK. Функция записи пакетов используется в ситуациях, когда для получения информации в удобной для использования форме вам нужны данные на уровне пакетов. Вы можете использовать доступные бесплатные средства для изучения потоков данных, отправляемых и получаемых виртуальными машинами, а также анализа сведений о сетевом трафике. Вот некоторые примеры использования данных о собранных пакетах: анализ проблем с сетью или приложениями, обнаружение попыток вторжения и нарушений в сети, поддержание соответствия нормативным требованиям. В этой статье мы покажем, как использовать популярное средство с открытым исходным кодом для работы с файлом записи пакетов, который создан службой наблюдения за сетями. Также мы продемонстрируем, как вычислить задержку подключения, обнаружить аномальный трафик и проанализировать сетевую статистику.
@@ -136,7 +134,6 @@ tcp.port == 111
 [6]: ./media/network-watcher-deep-packet-inspection/figure6.png
 [7]: ./media/network-watcher-deep-packet-inspection/figure7.png
 [8]: ./media/network-watcher-deep-packet-inspection/figure8.png
-
 
 
 

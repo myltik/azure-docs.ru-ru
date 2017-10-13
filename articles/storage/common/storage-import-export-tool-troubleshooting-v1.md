@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 7bfda602dbc0ea47828a7c9243b8b9b09ec78432
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Устранение неполадок со средством импорта и экспорта Azure
 В случае возникновения проблем инструмент импорта и экспорта Microsoft Azure возвращает сообщения об ошибках. В этом разделе приведены некоторые распространенные проблемы, с которыми могут столкнуться пользователи.  
   
@@ -45,4 +43,3 @@ ms.lasthandoff: 08/21/2017
 * [Просмотр состояния задания с помощью файлов журнала копирования](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Подготовка задания импорта](../storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [Подготовка задания экспорта](../storage-import-export-tool-repairing-an-export-job-v1.md)
-

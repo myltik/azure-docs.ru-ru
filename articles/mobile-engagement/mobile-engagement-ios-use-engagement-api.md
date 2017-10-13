@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf672384407588ddc2c4998f42f6893e2638c592
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>Как использовать API Engagement в iOS
 Этот документ представляет собой дополнение к документу «Как интегрировать Mobile Engagement в iOS». В нем предоставлена подробная информация о том, как использовать API Engagement для сообщения статистики приложения.
@@ -33,7 +32,7 @@ API Engagement предоставляется в классе `EngagementAgent` 
 Перед выполнением вызовов API необходимо инициализировать объект `EngagementAgent`, вызвав метод `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`.
 
 ## <a name="engagement-concepts"></a>Основные понятия Engagement
-В следующих подразделах дано более подробное объяснение [общих понятий Mobile Engagement](mobile-engagement-concepts.md) для платформы iOS.
+В следующих подразделах дано более подробное объяснение [общих понятий Служб мобильного взаимодействия](mobile-engagement-concepts.md) для платформы iOS.
 
 ### <a name="session-and-activity"></a>`Session` и `Activity`
 *Действие*, как правило, связано с одним экраном приложения, т. е. *действие* начинается при отображении экрана и завершается при его закрытии. Именно в таком случае пакет SDK для Engagement интегрируется с помощью класса `EngagementViewController`.
@@ -268,4 +267,3 @@ API Engagement предоставляется в классе `EngagementAgent` 
 В предыдущем примере длина JSON-файла, отправленного на сервер, составляет 44 знаков:
 
     {"birthdate":"1983-12-07","gender":"female"}
-

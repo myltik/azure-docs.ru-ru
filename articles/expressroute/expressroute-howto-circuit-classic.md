@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 93ddc2975db34053c6a776d1c3b931536f3f8ec7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell-classic"></a>Создание и изменение канала ExpressRoute с помощью PowerShell (классическая модель)
 > [!div class="op_single_selector"]
@@ -346,5 +345,4 @@ ms.lasthandoff: 09/06/2017
 
 * [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-classic.md)
 * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
 

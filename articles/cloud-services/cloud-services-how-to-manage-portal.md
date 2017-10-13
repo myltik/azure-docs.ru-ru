@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c4ec436df17926114e3e27eabc8ed12761c9614e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Управление облачными службами
 > [!div class="op_single_selector"]
@@ -128,4 +127,3 @@ ms.lasthandoff: 05/31/2017
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy-portal.md).
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate-portal.md).
-

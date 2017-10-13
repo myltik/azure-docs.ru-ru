@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-overview"></a>Общие сведения о безопасности в Azure
 Сайт со сведениями о безопасности Microsoft Azure по адресу Azure.com содержит ответы на вопросы технического характера о безопасности Azure. Если вас интересует, как Azure обеспечивает соответствие требованиям и защищает собственную инфраструктуру, посетите [центр управления безопасностью Майкрософт](https://www.microsoft.com/TrustCenter/default.aspx).
@@ -52,4 +51,3 @@ ms.lasthandoff: 07/06/2017
 >
 
 Нам важно знать ваше мнение. Если вы можете предложить категории для добавления, сообщите нам! Если имеются статьи, которые можно добавить в существующую категорию, сообщите и о них тоже. Вы можете воспользоваться разделом комментариев ниже или отправить письмо по адресу [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) , и мы включим ваши рекомендации в свои планы.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
+ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: eef0ff164b2857172fc24d8a0af7beddb29b262c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Использование эмулятора хранения Azure для разработки и тестирования
 
@@ -266,4 +265,3 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-
 * Оцените кроссплатформенный эмулятор хранения с открытым кодом [Azurite](https://github.com/arafato/azurite) от сообщества. 
 * Статья [Примеры для службы хранилища Azure с использованием .NET](../storage-samples-dotnet.md) содержит ссылки на несколько примеров кода, которые можно использовать при разработке приложения.
 * Для работы с ресурсами в облачной учетной записи и эмуляторе хранения можно использовать [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com).
-

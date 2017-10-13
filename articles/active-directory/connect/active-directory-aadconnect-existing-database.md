@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: d005042fffcf8f4ff99876961a55d254fd4fb2d5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Установка Azure AD Connect с помощью имеющейся базы данных ADSync
 Azure AD Connect требуется база данных SQL Server для хранения данных. Можно использовать выпуск SQL Server 2012 Express LocalDB по умолчанию, установленный с помощью Azure AD Connect, или полную версию SQL Server. Ранее при установке Azure AD Connect всегда создавалась база данных с именем ADSync. В Azure AD Connect версии 1.1.613.0 (или более поздней) имеется возможность установить Azure AD Connect, указав имеющуюся базу данных ADSync.
 
@@ -92,4 +90,3 @@ Azure AD Connect требуется база данных SQL Server для хр
 - Дополнительные сведения об этих функциях, включенных при установке, см. в следующих статьях: [Синхронизация Azure AD Connect: предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) и [Использование Azure AD Connect Health для синхронизации](../connect-health/active-directory-aadconnect-health-sync.md).
 - Дополнительные сведения см. в статье [Синхронизация Azure AD Connect: планировщик](active-directory-aadconnectsync-feature-scheduler.md).
 - Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-

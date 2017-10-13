@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
 ms.openlocfilehash: 0a248e7c3f39a35ac10dc6ac64e5cef7d152e033
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans-in-the-classic-portal"></a>Добавление модулей Runbook службы автоматизации Azure в планы восстановления на классическом портале
 В этом руководстве описывается, как Azure Site Recovery интегрируется со службой автоматизации Azure для обеспечения расширяемости для планов восстановления. Планы восстановления позволяют управлять восстановлением виртуальных машин, защищенных с помощью Azure Site Recovery, как для репликации в дополнительное облако, так и для репликации в сценарии Azure. Они также помогают реализовать **точное**, **воспроизводимое** и **автоматическое** восстановление. Если выполняется отработка отказа с переносом виртуальных машин в Azure, интеграция со службой автоматизации Azure позволяет расширить планы восстановления и предоставляет возможность выполнять Runbook, а это, в свою очередь, позволяет значительно облегчить выполнение задач автоматизации.

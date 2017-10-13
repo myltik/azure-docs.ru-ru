@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="internet-of-things-security-from-the-ground-up"></a>Комплексная защита в Интернете вещей
 Использование Интернета вещей (IoT) ставит перед предприятиями во всем мире уникальные проблемы безопасности, конфиденциальности и соответствия требованиям. В традиционных виртуальных технологиях эти вопросы связаны с использованием программного обеспечения и способами его внедрения. IoT имеет дело с проблемами, которые возникают на стыке виртуального и физического миров. Чтобы защитить решения IoT, нужно обеспечить безопасность подготовки устройств и их подключения к облаку, а также конфиденциальность данных в облаке во время обработки и хранения. Этому препятствует наличие устройств с ограниченными ресурсами, географическое распределение развертываний и большое количество используемых в решении устройств.
 
@@ -124,4 +122,3 @@ Azure IoT Suite обеспечивает безопасность данных, 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
-

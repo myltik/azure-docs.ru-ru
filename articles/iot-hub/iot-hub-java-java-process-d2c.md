@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: d1aca8f39e305105d4ec9f63fbe7bee95487e294
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>Обработка сообщений Центра Интернета вещей, отправляемых с устройства в облако (Java)
 
@@ -211,4 +210,3 @@ ms.lasthandoff: 07/24/2017
 
 [lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-

@@ -10,14 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/10/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: f806a8c1f06a58d0c8440d54c91ecfa41988d8ef
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Создание базы данных Azure для сервера PostgreSQL на портале Azure
 
 База данных Azure для PostgreSQL — это управляемая служба, с помощью которой можно запускать и масштабировать базы данных PostgreSQL высокой доступности, а также управлять ими в облаке. В этом кратком руководстве описывается, как быстро создать базу данных Azure для сервера PostgreSQL с помощью портала Azure в пределах 5 минут.
@@ -239,4 +237,3 @@ ms.lasthandoff: 08/31/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 > [!div class="nextstepaction"]
 > [Перенос базы данных с помощью экспорта и импорта](./howto-migrate-using-export-and-import.md)
-

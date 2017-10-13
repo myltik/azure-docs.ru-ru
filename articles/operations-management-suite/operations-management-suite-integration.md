@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31291a9b0f452adeae42f744a976c14e61a4b303
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7a24df6f2c3b2c091d1b66b8b9c0a61035ffde11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>Интеграция с Operations Management Suite (OMS)
 Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее.  Вы можете не только пользоваться стандартными функциями консоли OMS, но также интегрировать ее с другими приложениями и службами управления. В результате вы получите гибридную среду управления со сценариями управления, соответствующими вашей среде, или пользовательский интерфейс управления для своих клиентов.  В этой статье описаны разные варианты интеграции со службами OMS и приведены ссылки на статьи с подробными техническими сведениями. 
@@ -106,5 +105,4 @@ OMS может автоматизировать процессы для обра
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Технические сведения об автоматизации службы OMS см. в документации по [пакету SDK для OMS](operations-management-suite-sdk.md).  
-
 

@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0a77b31e07f118155094fab4d3393ffdb37c9c6f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-sources-for-this-release"></a>Поддерживаемые источники данных в этом выпуске 
 В этой статье приведены источники данных, поддерживаемые средством подготовки данных.
 
@@ -86,9 +84,8 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="locations"></a>Расположения
 ### <a name="local"></a>Local
-Локальный жесткий диск или сопоставленное сетевое место хранения
+локального жесткого диска или сопоставленного сетевого расположения для хранения;
 
 ### <a name="azure-blob"></a>Большой двоичный объект Azure
 Большой двоичный объект Azure (требуется подписка Azure)
-
 

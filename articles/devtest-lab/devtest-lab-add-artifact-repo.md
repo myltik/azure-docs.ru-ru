@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Добавление репозитория Git для хранения пользовательских артефактов и шаблонов Resource Manager
 
@@ -71,7 +70,7 @@ ms.lasthandoff: 09/01/2017
 10. Перейдите к разделу [Подключение лаборатории к репозиторию](#connect-your-lab-to-the-repository).
 
 ## <a name="connect-your-lab-to-the-repository"></a>Подключение лаборатории к репозиторию
-1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Щелкните **Больше служб**, а затем выберите в списке служб **DevTest Labs**.
 3. В списке лабораторий выберите свою лабораторию. 
 4. Выберите **Configuration and policies** (Конфигурация и политики) > **Репозитории** > **+ Добавить**.
@@ -99,4 +98,3 @@ ms.lasthandoff: 09/01/2017
 * [Создайте среды со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Resource Manager](devtest-lab-create-environment-from-arm.md). Затем шаблоны можно сохранить в частном репозитории.
 
 При создании виртуальной машины вы можете убедиться, что артефакты или шаблоны добавляются в ваш репозиторий Git. Они немедленно становятся доступными в списке артефактов или шаблонов. Имя частного репозитория отображается в столбце, указывающем источник. 
-

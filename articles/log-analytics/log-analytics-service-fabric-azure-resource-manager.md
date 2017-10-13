@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: nini
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Оценка приложений и микрослужб Azure Service Fabric на портале Azure
 
@@ -165,4 +164,3 @@ ms.lasthandoff: 08/14/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Подробные сведения о данных событий Service Fabric см. в статье [Поиск по журналам в Log Analytics](log-analytics-log-searches.md).
-

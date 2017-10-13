@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2016
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 01b798a25575b66f89057315ce80d6cc0cde53b5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Установка MySQL на виртуальной машине под управлением OpenSUSE Linux в Azure
 [MySQL][MySQL] является популярной базой данных SQL с открытым кодом. В этом учебнике показано, как создать виртуальную машину под управлением OpenSUSE Linux, а затем установить MySQL.
@@ -41,5 +40,4 @@ ms.lasthandoff: 03/27/2017
 
 [MySQLDocs]:http://dev.mysql.com/doc/index-topic.html
 [MySQL]:http://www.mysql.com
-
 

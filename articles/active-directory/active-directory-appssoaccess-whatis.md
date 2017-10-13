@@ -16,12 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: cb41fbd7ca931df52ba8e5304459bb04298a108c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: 97df68d446755414cbd427d59f399d6430580f42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?
 Благодаря единому входу пользователи получают доступ ко всем приложениям и ресурсам, необходимым для работы, выполнив только один вход с использованием одной учетной записи. После входа пользователю доступны все необходимые приложения без повторной проверки подлинности (например, ввода пароля).
@@ -207,4 +206,3 @@ Azure AD также поддерживает ссылки для прямого 
 [4]: ./media/active-directory-appssoaccess-whatis/officeapphub.png
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
-

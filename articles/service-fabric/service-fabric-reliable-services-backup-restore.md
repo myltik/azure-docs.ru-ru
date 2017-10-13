@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: mcoskun
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 8d81abec1c879ac6edbd4610dafdfd43ec7cf903
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Резервное копирование и восстановление служб Reliable Services и субъектов Reliable Actors
 Azure Service Fabric — это платформа высокой доступности, которая реплицирует состояние между несколькими узлами для обеспечения высокой доступности.  Таким образом, даже в случае сбоя одного узла в кластере службы будут оставаться доступными. Хотя иногда предоставленной платформой встроенной избыточности достаточно, в некоторых случаях желательно выполнять резервное копирование данных службы (во внешнее хранилище).
@@ -269,5 +268,4 @@ class MyCustomActorService : ActorService
   - [Уведомления Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Конфигурация Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Справочник разработчика по надежным коллекциям](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
 

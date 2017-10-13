@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 03eeecc575be3073066a203cdd4ec6944bb23afc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 2cb263103da05b10c24aab71d81c43eb25987565
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-your-iot-hub-solution"></a>Масштабирование решения для Центра Интернета вещей
 Центр IoT Azure может поддерживать до миллиона одновременно подключенных устройств. Дополнительные сведения см. на странице с [ценами на Центр Интернета вещей Azure][lnk-pricing]. Каждая единица центра IoT предусматривает определенное количество сообщений в день.
@@ -63,4 +62,3 @@ ms.lasthandoff: 05/16/2017
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

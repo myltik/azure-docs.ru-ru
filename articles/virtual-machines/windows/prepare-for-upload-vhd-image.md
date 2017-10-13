@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2017
 ms.author: genli
+ms.openlocfilehash: 8f3d6fc56b64d81d5f9b73772ddf2a4ab9adf64b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: aa1cec2ef11da6aa8a8c4089be36994ab5f61682
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Подготовка диска VHD или VHDX для Windows к отправке в Azure
 Перед тем как передать виртуальные машины Windows из локальной среды в Microsoft Azure, следует правильно подготовить виртуальный жесткий диск (VHD или VHDX). В Azure поддерживаются только виртуальные машины первого поколения, использующие формат файла VHD и фиксированный размер диска. Максимально допустимый размер виртуального жесткого диска составляет 1023 ГБ. Вы можете преобразовать виртуальную машину первого поколения, заменив файловую систему VHDX на VHD, а динамически расширяемый диск на диск фиксированного размера. Но вы не можете изменить поколение виртуальной машины. Дополнительные сведения см. в статье о том, [как выбрать поколение для виртуальной машины в Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -428,5 +427,4 @@ Sysprep — это процесс, который можно выполнить
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Отправка образа виртуальной машины Windows в Azure для развертываний Resource Manager](upload-generalized-managed.md)
-
 

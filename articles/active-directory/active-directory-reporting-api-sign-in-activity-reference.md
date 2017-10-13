@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Справочник по API отчета о действиях при входе Azure Active Directory
 Эта статья входит в серию статей об API отчетов Azure Active Directory.  
@@ -190,5 +189,4 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## <a name="next-steps"></a>Дальнейшие действия
 * Хотите увидеть примеры отфильтрованных действий при входе? Просмотрите [примеры для API отчета о действиях при входе Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Хотите узнать больше об API отчетов Azure AD? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
 

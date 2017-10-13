@@ -15,14 +15,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: robmcm;yungez;kevinzha
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 273cc750857c5e466882060a38ac0f3475811e98
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-the-spring-boot-starter-with-azure-cosmos-db-documentdb-api"></a>Использование начального приложения Spring Boot с API DocumentDB в Azure Cosmos DB
 
 ## <a name="overview"></a>Обзор
@@ -347,4 +345,3 @@ Azure Cosmos DB — это глобально распределенная сл�
 [JV01]: ./media/documentdb-java-spring-boot-starter-with-cosmos-db/JV01.png
 [JV02]: ./media/documentdb-java-spring-boot-starter-with-cosmos-db/JV02.png
 [JV03]: ./media/documentdb-java-spring-boot-starter-with-cosmos-db/JV03.png
-

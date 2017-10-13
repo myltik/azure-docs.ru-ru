@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
 ms.openlocfilehash: 03e0f5b6fa26806083cd7852e123495c898bcf0c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-oms-sdk"></a>Пакет SDK для Operations Management Suite (OMS)
 [Operations Management Suite (OMS)](operations-management-suite-overview.md) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее.  В этой статье перечислена документация и другие ресурсы для доступа к службам OMS вне порталов OMS и Azure.  Сюда входит REST API для доступа из различных программных интерфейсов и обработчиков сценариев, таких как PowerShell. 
@@ -58,5 +57,4 @@ ms.lasthandoff: 03/03/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Ознакомьтесь с вариантами [интеграции со службами OMS](operations-management-suite-integration.md).
 * Создайте [пользовательское решение в OMS](operations-management-suite-solutions-creating.md).
-
 

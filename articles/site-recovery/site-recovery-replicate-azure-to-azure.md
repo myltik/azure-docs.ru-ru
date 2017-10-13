@@ -14,16 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 5/22/2017
 ms.author: asgang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: f9f97cf840b722c8cfee169dd1640e0682f287ff
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Репликация виртуальных машин Azure в другой регион Azure
 
 
@@ -127,4 +123,3 @@ ms.lasthandoff: 06/20/2017
 - [Узнайте больше](site-recovery-failover.md) о разных типах отработки отказа и способах их выполнения.
 - Узнайте больше об [использовании планов восстановления](site-recovery-create-recovery-plans.md), чтобы снизить значение RTO.
 - Дополнительные сведения о повторной защите виртуальных машин Azure после отработки отказа см.в статье [Повторное включение защиты виртуальных машин, восстанавливаемых из Azure на локальный сайт](site-recovery-how-to-reprotect.md).
-

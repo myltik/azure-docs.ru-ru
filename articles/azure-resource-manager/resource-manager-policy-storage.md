@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/05/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6612ee61f5c50e743241b92030660cea7ae7094d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apply-resource-policies-to-storage-accounts"></a>Применение политик ресурсов к учетным записям хранения
 В этом разделе показано несколько [политик ресурсов](resource-manager-policy.md), которые можно применить к учетным записям хранения Azure. Эти политики обеспечивают согласованность данных в учетных записях хранения, развернутых в организации. 

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 1ecc2bdef5ff7ef8ed8dded7dc12428ce9657821
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Что такое пароли приложений в службе Azure Multi-Factor Authentication
 Сейчас некоторые не использующие браузер приложения, например собственный почтовый клиент Apple, использующий Exchange Active Sync, не поддерживают многофакторную проверку подлинности. Многофакторная проверка подлинности активируется для каждого пользователя.  Это означает, что пользователь не может использовать многофакторную проверку подлинности в таких случаях:
@@ -123,4 +122,3 @@ ms.lasthandoff: 09/20/2017
 - [Управление параметрами двухфакторной проверки подлинности](multi-factor-authentication-end-user-manage-settings.md)
 
 - Попробуйте использовать [приложение Microsoft Authenticator](microsoft-authenticator-app-how-to.md), чтобы входить в систему с помощью уведомлений в приложении вместо текстовых сообщений или звонков. 
-

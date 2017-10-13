@@ -18,10 +18,10 @@ ms.date: 03/23/2017
 ms.author: briar
 ms.custom: mvc
 ms.openlocfilehash: 2078d0694fc4dd6e83ecd2792588b4254980cd78
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="jenkins-integration-with-azure-container-service-and-kubernetes"></a>Интеграция Jenkins со Службой контейнеров Azure и Kubernetes 
 В этом руководстве мы поэтапно рассмотрим процесс настройки непрерывной интеграции многоконтейнерного приложения с кластером Kubernetes в Службе контейнеров Azure с помощью платформы Jenkins. Рабочий процесс обновляет образ контейнера в Docker Hub и модули Kubernetes с помощью развертывания. 

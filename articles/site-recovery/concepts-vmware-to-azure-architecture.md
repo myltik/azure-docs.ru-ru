@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="vmware-to-azure-replication-architecture"></a>Архитектура репликации из VMware в Azure
 
 Эта статья описывает архитектуру и процессы, используемые при репликации, отработке отказа и восстановлении виртуальных машин (ВМ) VMware между локальным сайтом VMware и Azure с помощью службы [Azure Site Recovery](site-recovery-overview.md).

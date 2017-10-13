@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/6/2016
 ms.author: ancav
 ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Общие метрики автомасштабирования Azure Monitor
 Автомасштабирование Azure Monitor позволяет увеличивать или уменьшать количество запущенных экземпляров на основе данных телеметрии (метрик). В этой статье рассматриваются общие метрики, которые вы можете использовать. На портале Azure для облачных служб и ферм серверов можно выбрать метрики ресурсов, по которым будет выполняться масштабирование. Однако вы также можете выбрать любую метрику из другого ресурса.

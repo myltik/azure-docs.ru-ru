@@ -15,14 +15,12 @@ ms.workload: na
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
+ms.openlocfilehash: 99c27c37218a35d2a3416d6edd5e0a871cd5c011
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b6687b4e5df73e61acc599133e53385987742937
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Полный конвейер средств непрерывной интеграции и доставки для развертывания многоконтейнерного приложения в Службе контейнеров Azure с Docker Swarm с использованием Visual Studio Team Services
 
 Одна из основных сложностей при разработке современных приложений для облака — возможность предоставлять эти приложения непрерывно. Из этой статьи вы узнаете, как реализовать полный конвейер непрерывной интеграции и развертывания (CI/CD) с помощью Службы контейнеров Azure с Docker Swarm, реестра контейнеров Azure, а также управления сборками и выпусками Visual Studio Team Services.
@@ -231,4 +229,3 @@ Visual Studio Team Services позволяет [управлять выпуск�
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о CI/CD с Visual Studio Team Services см. в [обзоре сборки VSTS](https://www.visualstudio.com/docs/build/overview).
-

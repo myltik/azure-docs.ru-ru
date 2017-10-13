@@ -1,6 +1,6 @@
 ---
-title: "Расширенная конфигурация для пакета SDK Android для Azure Mobile Engagement"
-description: "Описание дополнительных параметров конфигурации, включая манифест Android, в пакете SDK для Android в службе Azure Mobile Engagement."
+title: "Расширенная конфигурация для пакета SDK Android для Служб мобильного взаимодействия Azure"
+description: "Описание дополнительных параметров конфигурации, включая манифест Android, в пакете SDK для Android в Службах мобильного взаимодействия Azure."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,14 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
 ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Расширенная конфигурация для пакета SDK Android для Azure Mobile Engagement
+# <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Расширенная конфигурация для пакета SDK Android для Служб мобильного взаимодействия Azure
 > [!div class="op_single_selector"]
 > * [Универсальная платформа Windows](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -30,7 +29,7 @@ ms.lasthandoff: 11/17/2016
 >
 >
 
-В этой статье описано, как настроить различные параметры конфигурации для приложений Android в службе Azure Mobile Engagement.
+В этой статье описано, как настроить различные параметры конфигурации для приложений Android в Службах мобильного взаимодействия Azure.
 
 ## <a name="prerequisites"></a>Предварительные требования
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
@@ -118,4 +117,3 @@ ms.lasthandoff: 11/17/2016
       android:title="Use Engagement"
       android:summaryOn="Engagement is enabled."
       android:summaryOff="Engagement is disabled." />
-

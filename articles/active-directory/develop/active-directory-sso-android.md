@@ -16,10 +16,10 @@ ms.date: 04/07/2017
 ms.author: dadobali
 ms.custom: aaddev
 ms.openlocfilehash: 9c7e959530a836fe5ddf74708363a636c39b3cc6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Как включить единый вход для нескольких приложений Android с помощью ADAL
 Сегодня пользователи рассчитывают на возможность единого входа, позволяющую вводить учетные данные только один раз с последующим автоматическим входом в разные приложения. Сложность ввода имени пользователя и пароля на маленьком экране, часто с дополнительной проверкой подлинности, например посредством звонка по телефону или кода в SMS, приводит к неудовлетворенности пользователя, если ему приходится это делать больше одного раза.

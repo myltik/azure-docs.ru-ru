@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: glenga
+ms.openlocfilehash: f2bed0a7124517319cc82405c4ab6b4d79aacfe1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 649535590114920c834ceeac947ee821f476c60d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Включение автономной синхронизации мобильного приложения Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -163,4 +162,3 @@ ms.lasthandoff: 07/19/2017
 [6]: https://www.getpostman.com/
 [7]: http://www.telerik.com/fiddler
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-

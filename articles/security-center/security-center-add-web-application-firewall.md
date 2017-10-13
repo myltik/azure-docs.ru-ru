@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e858db97c3e7a832ad01e16a60d486a758109d7c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Добавление брандмауэра веб-приложения в Центре безопасности Azure
 Центр безопасности Azure может рекомендовать добавить брандмауэр веб-приложения (WAF) от партнера корпорации Майкрософт в целях обеспечения безопасности веб-приложений. В этом документе вы найдете пример применения данной рекомендации.
@@ -87,4 +86,3 @@ ms.lasthandoff: 09/20/2017
 [4]: ./media/security-center-add-web-application-firewall/select-vm-config.png
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
-

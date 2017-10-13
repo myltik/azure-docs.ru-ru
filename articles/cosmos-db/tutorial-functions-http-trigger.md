@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: mvc
 ms.date: 09/25/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 86a660309fd3fd80f10f706ff460af2309c12174
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Создание триггера HTTP в Функциях Azure с помощью входной привязки Azure Cosmos DB
 
 Azure Cosmos DB — это глобально распределенная бессхемная и бессерверная многомодельная база данных. Функции Azure — это бессерверная служба вычислений, которая позволяет выполнять код по требованию. Свяжите эти две службы Azure, и вы получите базу для бессерверной архитектуры, которая позволяет сосредоточиться на создании эффективных приложений, не беспокоясь о подготовке и обслуживании серверов для требований вычислений и баз данных.
@@ -277,4 +275,3 @@ Azure Cosmos DB — это глобально распределенная бе
 > [Глобальное распределение](distribute-data-globally.md) 
 
 Эта статья основана на записи из серии [на тему бессхемных и бессерверных сценариев в блоге Брейди Гестера (Brady Gaster)](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless). Посетите его блог, чтобы ознакомиться с другими записями этой серии.
-

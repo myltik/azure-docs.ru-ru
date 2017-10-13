@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
+ms.openlocfilehash: 5bffea350061231e1dc664b3abcbf79950a54402
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 673647e6bd68d4df49753bf53bcd36f721923c8b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-change-or-delete-a-public-ip-address"></a>Создание, изменение и удаление общедоступного IP-адреса
 
 Общие сведения об общедоступном IP-адресе, а также о его создании, изменении и удалении. Общедоступный IP-адрес — это ресурс с собственными настраиваемыми параметрами. Назначение общедоступного IP-адреса другим ресурсам Azure связано со следующими преимуществами.
@@ -123,4 +121,3 @@ ms.lasthandoff: 09/25/2017
 - [Шлюз приложений Azure](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [подключения типа "сеть — сеть" с помощью VPN-шлюза Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json);
 - [масштабируемого набора виртуальных машин Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-

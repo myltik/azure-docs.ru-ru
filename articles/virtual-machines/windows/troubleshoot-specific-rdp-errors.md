@@ -13,16 +13,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 05/26/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4f2b70b79e52df902e0f659fc97158d446efdf50
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 803ca6cb9e7c5633920ab44e45cf211eca1517a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Устранение некоторых ошибок подключения по протоколу RDP к виртуальной машине Windows в Azure
 При попытке подключиться к удаленному рабочему столу виртуальной машины Windows в Azure могут возникать определенные ошибки. В этой статье описаны некоторые наиболее распространенные сообщения об ошибках, а также действия по их устранению. Если вам не удается подключиться к виртуальной машине по протоколу RDP, но сообщение об ошибке не появляется, см. [руководство по устранению неполадок с подключением к удаленному рабочему столу](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -111,5 +109,4 @@ ms.lasthandoff: 04/03/2017
 
 * Сведения об устранении неполадок с доступом к приложениям, работающим на виртуальной машине, см. в статье [Устранение проблем с подключением к приложениям на виртуальных машинах Linux в Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Если вы подключаетесь к виртуальной машине Linux в Azure по протоколу SSH и у вас возникают проблемы, см. статью [Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 

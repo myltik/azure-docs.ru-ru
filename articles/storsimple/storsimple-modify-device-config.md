@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: v-sharos
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 5bfbeb038dbedae2bf77016abbc19458c3dc22c9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>Использование службы диспетчера StorSimple для изменения конфигурации устройства StorSimple
 ## <a name="overview"></a>Обзор
@@ -119,5 +118,4 @@ DNS-сервер используется, когда устройство пы�
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте о [настройке функции Multipath I/O для устройства StorSimple](storsimple-configure-mpio-windows-server.md).
 * Узнайте об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
 

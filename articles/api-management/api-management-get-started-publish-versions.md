@@ -11,14 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
 ms.openlocfilehash: 7c355e2feb5ebe5971d8391b326422a1abec1497
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="publish-multiple-versions-of-your-api-in-a-predictable-way"></a>Публикация нескольких версий API предсказуемым способом
 В этом руководстве описывается, как настроить версии своего API и выбрать способ их вызова разработчиками API.
 
@@ -75,4 +73,3 @@ ms.lasthandoff: 09/14/2017
 3. Выберите **v1**.
 4. Обратите внимание на **URL-адрес запроса** первой операции в списке. В нем видно, что путь URL-адреса API содержит **v1**.
 ![Версия, отображаемая на портале разработчика](media/api-management-getstarted-publish-versions/VersionDevPortal.PNG)
-

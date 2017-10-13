@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
 ms.openlocfilehash: 73bd1790c56ac52166f638de2e80c2a2cfb87e53
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-4-set-up-vmm-and-hyper-v-for-hyper-v-vm-replication-to-a-secondary-site"></a>Шаг 4. Настройка VMM и Hyper-V для репликации виртуальной машины Hyper-V на дополнительный сайт 
 

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 6738d88d5a0430abaf3855dbf97a618e4c83617f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 342a305a4bbdc1526a9316a35819d06996702a5b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Балансировка нагрузки виртуальных машин Windows в Azure для создания высокодоступного приложения
 Балансировка нагрузки обеспечивает более высокий уровень доступности за счет распределения входящих запросов между несколькими виртуальными машинами. В этом руководстве вы узнаете о различных компонентах балансировщика нагрузки Azure Load Balancer, распределяющего трафик и обеспечивающего высокую доступность. Вы узнаете, как выполнять следующие задачи:
 
@@ -358,4 +356,3 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 > [!div class="nextstepaction"]
 > [Управление виртуальными сетями Azure и виртуальными машинами Windows с помощью Azure PowerShell](./tutorial-virtual-network.md)
-

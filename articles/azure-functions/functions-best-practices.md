@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1e0d4a29f59e48cac675e567fd84384b1b60d35f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Оптимизация производительности и надежности Функций Azure
 
 В этой статье описано, как повысить производительность и надежность приложений-функций. 
@@ -77,7 +75,7 @@ ms.lasthandoff: 08/24/2017
 
 Следите за тем, что вы загружаете в рабочие приложения-функции. Память усредняется для каждой функции в приложении.
 
-При наличии общей сборки, указанной в нескольких функциях .NET, поместите ее в общую папку. Создайте ссылку на сборку с помощью оператора, аналогичного следующему: 
+При наличии общей сборки, указанной в нескольких функциях .Net, поместите ее в общую папку. Создайте ссылку на сборку с помощью оператора, аналогичного следующему: 
 
     #r "..\Shared\MyAssembly.dll". 
 
@@ -99,5 +97,4 @@ ms.lasthandoff: 08/24/2017
 
 Так как Функции Azure используют службу приложений Azure, необходимо также ознакомиться с рекомендациями для нее.
 * [Шаблоны и методики оптимизации производительности HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-
 

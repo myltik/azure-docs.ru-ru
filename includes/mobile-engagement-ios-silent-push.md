@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Чтобы получать push-уведомления от Mobile Engagement, необходимо включить в приложении `Silent Remote Notifications`. Для этого требуется добавить значение remote-notification в массив UIBackgroundModes в файле info.plist.
+> Чтобы получать push-уведомления от Служб мобильного взаимодействия, необходимо включить в приложении `Silent Remote Notifications`. Для этого требуется добавить значение remote-notification в массив UIBackgroundModes в файле info.plist.
 > 
 > 
 

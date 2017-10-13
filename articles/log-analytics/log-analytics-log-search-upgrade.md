@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte;bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>Обновление рабочей области Azure Log Analytics до нового поиска по журналам
 
 > [!NOTE]
@@ -84,4 +82,3 @@ ms.lasthandoff: 08/28/2017
 - Ознакомьтесь с [руководством по новому языку](https://go.microsoft.com/fwlink/?linkid=856078).
 - Изучите [руководство по использованию портала поиска по журналам](log-analytics-log-search-log-search-portal.md) с новым языком запросов.
 - Ознакомьтесь с новым [порталом расширенной аналитики](https://go.microsoft.com/fwlink/?linkid=856587).
-

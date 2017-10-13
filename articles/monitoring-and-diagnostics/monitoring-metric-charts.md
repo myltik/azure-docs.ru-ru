@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 537dd6d64fe49093dd73d8040cde5a9153a7bd5c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-monitor-metrics-explorer"></a>Обозреватель метрик Azure Monitor
 
 В этом руководстве описывается работа с диаграммами метрик Azure Monitor следующего поколения, которые сейчас находятся в предварительной версии. Новый интерфейс поддерживает преобразование для просмотра диаграмм многомерных метрик и основных метрик без измерений. Вы можете графически показать диаграммы, в которых накладываются метрики разных типов ресурсов, нескольких групп ресурсов и подписок. Диаграммы многомерных метрик можно настроить путем применения фильтров измерения, а также группирования. Все диаграммы, включая настраиваемые, можно закрепить на панели мониторинга.

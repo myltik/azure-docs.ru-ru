@@ -12,15 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/29/2017
+ms.date: 10/2/2017
 ms.author: sumukhs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: e787f48f14539dff3035c51e14243c7bd9dcbb73
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 5dcd1b4f5a070e9a09b6f8338928d93d10227d38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Настройка надежных субъектов: ReliableDictionaryActorStateProvider
 Конфигурацию ReliableDictionaryActorStateProvider по умолчанию можно изменить. Для этого нужно обновить файл settings.xml, созданный в папке Config корневого каталога пакета Visual Studio для данного субъекта.
@@ -126,5 +124,4 @@ ms.lasthandoff: 01/24/2017
 Параметр MaxRecordSizeInKB определяет максимальный размер записи, которая может быть записана репликатором в файл журнала. В большинстве случаев размер записи по умолчанию в 1024 КБ является оптимальным. Однако если служба предусматривает запись в сведения о состоянии больших фрагментов данных, может возникнуть необходимость увеличить это значение. Особой пользы от установки значения MaxRecordSizeInKB меньше 1024 нет, так как для меньших записей используется ровно столько места, сколько они занимают. Это значение необходимо изменять лишь в редких случаях.
 
 Параметры SharedLogId и SharedLogPath всегда используются совместно и позволяют службе использовать отдельный общий журнал из установленного по умолчанию общего журнала для узла. Для достижения наилучшей эффективности один и тот же общий журнал следует указывать в как можно большем количестве служб. Общие файлы журналов следует размещать на дисках, которые используются исключительно для хранения общих журналов. Это позволяет уменьшить конфликты перемещения головок. Эти значения необходимо изменять лишь в редких случаях.
-
 

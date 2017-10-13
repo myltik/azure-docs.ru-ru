@@ -3,7 +3,7 @@ title: "Автоматизация удаления групп ресурсов 
 description: "Сценарий службы автоматизации Azure с использованием рабочего процесса PowerShell предусматривает удаление всех групп ресурсов в подписке с помощью модулей Runbook."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
-
-
+ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-automation-scenario-automate-removal-of-resource-groups"></a>Сценарий службы автоматизации Azure: автоматизация удаления групп ресурсов
+# <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Сценарий службы автоматизации Azure: автоматизация удаления групп ресурсов
 Многие клиенты создают несколько групп ресурсов. Одни можно использовать для управления рабочими приложениями, а другие — в качестве промежуточных сред или сред разработки и тестирования. Но автоматизация развертывания этих ресурсов и возможность удалить группу ресурсов с помощью нажатия кнопки — это две разных задачи. С помощью службы автоматизации Azure можно упростить эту распространенную задачу управления. Это будет полезно, если вы работаете с подпиской Azure, для которой настроена предельная сумма расходов, например в рамках предложения для участников MSDN или программы Microsoft Partner Network Cloud Essentials.
 
 В этом сценарии используется модуль Runbook PowerShell, который предназначен для удаления из подписки одной или нескольких выбранных групп ресурсов. Для модуля Runbook по умолчанию настроено тестирование перед выполнением дальнейших действий. Это позволяет предотвратить случайное удаление группы ресурсов.   
@@ -33,7 +33,7 @@ ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
 | Remove-ResourceGroup |Удаляет из подписки одну или несколько групп ресурсов Azure вместе со связанными ресурсами. |
 
 <br>
- Для этого модуля Runbook определены следующие входные параметры.
+Для этого модуля Runbook определены следующие входные параметры.
 
 | Параметр | Описание |
 | --- | --- |
@@ -67,9 +67,3 @@ ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
 ## <a name="next-steps"></a>Дальнейшие действия
 * Инструкции по созданию модулей Runbook см. в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md).
 * Сведения о том, как начать работу с модулями Runbook рабочих процессов PowerShell, см. в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

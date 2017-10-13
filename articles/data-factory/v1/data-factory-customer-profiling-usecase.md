@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e7acb9fbddc59803ed8cf6f1d7dcda0171998f7b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-case---customer-profiling"></a>Вариант использования: профилирование клиентов
 Фабрика данных Azure — одна из многочисленных служб, используемых для внедрения набора аналитических инструментов Cortana Intelligence Suite для ускорителей решений.  Дополнительные сведения см. на сайте [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). В этом документе описан простой вариант использования, позволяющий понять, как фабрика данных Azure помогает решать типичные проблемы аналитики.
@@ -69,5 +68,4 @@ Contoso — это компания, которая создает игры дл
 
 ## <a name="benefits"></a>Преимущества
 Оптимизируя анализ профилей пользователей в соответствии с бизнес-целями, компании-разработчики игр могут быстро собирать статистические показатели использования и анализировать эффективность маркетинговых кампаний.
-
 

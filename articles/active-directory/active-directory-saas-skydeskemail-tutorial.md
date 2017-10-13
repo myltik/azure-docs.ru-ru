@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 0ffcca4161fc836192fc9c9871a905f36ea76b32
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Учебник. Интеграция Azure Active Directory со SkyDesk Email
 
@@ -278,5 +277,4 @@ ms.lasthandoff: 07/13/2017
 [201]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_203.png
-
 

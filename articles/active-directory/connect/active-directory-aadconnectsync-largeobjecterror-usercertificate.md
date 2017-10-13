@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: d15855bb05666961da56ff2dd5e0e473e7f7b123
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 2a5418ff61e07793fceca5a8207c1c5aa18847b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Синхронизация Azure AD Connect: обработка ошибок LargeObject, вызванных атрибутом userCertificate
 
 В Azure AD для атрибута **userCertificate** принудительно применяется ограничение на максимальное число значений сертификата (**15**). Если Azure AD Connect экспортирует объект с более чем 15 значениями в службу Azure AD, она возвратит ошибку **LargeObject** со следующим сообщением:
@@ -181,5 +179,4 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-
 

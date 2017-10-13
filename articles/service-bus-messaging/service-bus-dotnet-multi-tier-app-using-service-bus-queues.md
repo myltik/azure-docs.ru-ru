@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Многоуровневое приложение .NET, использующее очереди служебной шины Azure
 ## <a name="introduction"></a>Введение
@@ -395,4 +394,3 @@ ms.lasthandoff: 04/12/2017
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-

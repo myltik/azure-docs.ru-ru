@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 22389ba85edb119acdd21b63f2deae2d71f31373
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-preparation-user-guide"></a>Руководство по подготовке данных 
 Процесс подготовки данных обеспечивает расширенные возможности, которые подробно описаны в разделах ниже.
@@ -101,13 +100,12 @@ ms.lasthandoff: 09/25/2017
 Чтобы выполнить любую операцию с потоком данных, на который приводится ссылка, родительский поток данных должен обновить образец, используемый из этого потока данных. В этом случае в правом нижнем углу диалоговое окно подтверждения заменит уведомление о ссылке на поток данных. В этом диалоговом окне содержится подтверждение, что вам необходимо обновить поток данных для синхронизации изменений с любыми зависимыми потоками данных.
 
 ### <a name="list-of-appendices"></a>Список приложений 
-[Приложение 2. Поддерживаемые источники данных](data-prep-appendix2-supported-data-sources.md)  
-[Приложение 3. Поддерживаемые трансформации](data-prep-appendix3-supported-transforms.md)  
-[Приложение 4. Поддерживаемые инспекторы](data-prep-appendix4-supported-inspectors.md)  
-[Приложение 5. Поддерживаемые назначения](data-prep-appendix5-supported-destinations.md)  
-[Приложение 6. Примеры выражений фильтра в Python](data-prep-appendix6-sample-filter-expressions-python.md)  
-[Приложение 7. Примеры выражений трансформации потока данных в Python](data-prep-appendix7-sample-transform-data-flow-python.md)  
-[Приложение 8. Примеры источников данных в Python](data-prep-appendix8-sample-source-connections-python.md)  
-[Приложение 9. Примеры подключений к назначению в Python](data-prep-appendix9-sample-destination-connections-python.md)  
+[Supported data sources for this release](data-prep-appendix2-supported-data-sources.md) (Поддерживаемые источники данных в этом выпуске)  
+[Supported Transforms for this release](data-prep-appendix3-supported-transforms.md) (Поддерживаемые типы преобразований в этом выпуске)  
+[Supported Inspectors for this preview](data-prep-appendix4-supported-inspectors.md) (Поддерживаемые инспекторы в этой предварительной версии)  
+[Supported data exports for this preview](data-prep-appendix5-supported-destinations.md) (Поддерживаемые типы экспорта данных в этой предварительной версии)  
+[Sample of filter expressions (Python)](data-prep-appendix6-sample-filter-expressions-python.md) (Примеры выражений фильтра в Python)  
+[Sample of custom data flow transforms (Python)](data-prep-appendix7-sample-transform-data-flow-python.md) (Примеры выражений трансформации потока данных в Python)  
+[Sample of custom source connections (Python)](data-prep-appendix8-sample-source-connections-python.md) (Примеры подключений к пользовательским источникам данных в Python)  
+[Sample of destination connections (Python)](data-prep-appendix9-sample-destination-connections-python.md) (Примеры подключений к назначениям в Python)  
 [Приложение 10. Примеры преобразований столбцов в Python](data-prep-appendix10-sample-custom-column-transforms-python.md)  
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: nitinme
+ms.openlocfilehash: c1c74c797449c2fa6d76438f9ec33eaf0fe51af4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: af5b05a366c1abbe7c91d186358dba2b4a957f92
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Использование Azure Log Analytics для мониторинга кластеров HDInsight (предварительная версия)
 
@@ -43,7 +42,7 @@ Log Analytics — это служба в [Operations Management Suite (OMS)](..
     Инструкции по созданию кластера HDInsight см. в руководстве по [началу работы с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
-* **Рабочая область Log Analytics**. Рабочую область можно представить как уникальную среду Log Analytics с собственным репозиторием данных, источниками данных и решениями. У вас должна быть создана одна такая рабочая область, которую можно связать с кластерами Azure HDInsight. Инструкции см. в руководстве по [созданию рабочей области Log Analytics](../log-analytics/log-analytics-get-started.md#2-create-a-workspace).
+* **Рабочая область Log Analytics**. Рабочую область можно представить как уникальную среду Log Analytics с собственным репозиторием данных, источниками данных и решениями. У вас должна быть создана одна такая рабочая область, которую можно связать с кластерами Azure HDInsight. Инструкции см. в руководстве по [созданию рабочей области Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
 
 ## <a name="configure-hdinsight-cluster-to-use-azure-log-analytics"></a>Настройка кластера HDInsight для использования Azure Log Analytics
 
@@ -67,4 +66,3 @@ Log Analytics — это служба в [Operations Management Suite (OMS)](..
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Добавление решений по управлению кластерами HDInsight в Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
-

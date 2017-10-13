@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Операции с индексаторами (API REST службы "Поиск Azure": версия 2015-02-28-Preview)
 > [!NOTE]
@@ -797,4 +796,3 @@ ms.lasthandoff: 05/10/2017
 <td>Не поддерживаются. В настоящее время служба "Поиск Azure" поддерживает только типы примитивов и коллекции строк.</td>
 </tr>
 </table>
-

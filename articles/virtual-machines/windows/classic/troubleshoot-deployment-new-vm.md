@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/16/2016
 ms.author: cjiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 990914e3d9541e8574ce6ba0bf6c996cb394470a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 29647baeb878f2b85ba45aedd93c57d7db9c2550
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Устранение неполадок в классическом развертывании при создании виртуальной машины Windows в Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -91,5 +90,4 @@ ms.lasthandoff: 03/27/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При возникновении проблем во время запуска остановленной виртуальной машины Windows или в случае изменения размера существующей виртуальной машины Windows в Azure см. раздел [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
-
 

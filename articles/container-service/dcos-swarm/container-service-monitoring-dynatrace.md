@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
+ms.openlocfilehash: 6fa23728680779e33eda7bb9aa8a01b9cad9a82b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a4c44b356ac97f4ee4c1122885d4d13f85c80cbc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Мониторинг кластера DC/OS в Службе контейнеров Azure с помощью Dynatrace SaaS/Managed
 В этой статье мы покажем, как развернуть [Dynatrace](https://www.dynatrace.com/) OneAgent для отслеживания всех агентов узлов в кластере Службы контейнеров Azure. Для работы с этой конфигурацией вам понадобится учетная запись с Dynatrace SaaS/Managed. 

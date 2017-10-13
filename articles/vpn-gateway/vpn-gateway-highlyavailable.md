@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3708a2f7c445a161f02416cf8427b1707e1db8f0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Настройка высокодоступных подключений: распределенных и между виртуальными сетями
 В этой статье рассматриваются параметры высокодоступных подключений (распределенных и между виртуальными сетями), устанавливаемых с помощью VPN-шлюзов Azure.
@@ -84,5 +83,4 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Инструкции по настройке распределенных подключений (локальных и между виртуальными сетями) с конфигурацией "активный — активный" см. в статье [Настройка VPN-подключений типа "сеть — сеть" в режиме "активный — активный" для VPN-шлюзов Azure с помощью Azure Resource Manager и PowerShell](vpn-gateway-activeactive-rm-powershell.md).
-
 

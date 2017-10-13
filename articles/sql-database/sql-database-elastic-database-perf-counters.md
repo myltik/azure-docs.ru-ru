@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e5d43ca318337626734f9460780764150314f9c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 60bb26fe6833998137ede71b363d5d40479a4c60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Счетчики производительности для диспетчера карты сегментов
 Вы можете сохранять данные о производительности [диспетчера карты сегментов](sql-database-elastic-scale-shard-map-management.md), особенно при использовании [маршрутизации, зависящей от данных](sql-database-elastic-scale-data-dependent-routing.md). Счетчики создаются с помощью методов класса Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
@@ -70,5 +68,4 @@ ms.lasthandoff: 11/17/2016
 
 <!--Anchors-->
 <!--Image references-->
-
 

@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
+ms.openlocfilehash: edf15e72c822ea5e045895c6f03477c613c0a6c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 12876bff2de5738068f033ecc4ef14b81a68f0f6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="usage-analysis-for-web-applications-with-application-insights"></a>Анализ использования для веб-приложений с помощью Application Insights
 
 Какие функции веб-приложения наиболее популярны? Достигают ли пользователи своих целей с помощью вашего приложения? Уходят ли они в определенные моменты и возвращаются ли после этого?  [Azure Application Insights](app-insights-overview.md) помогает получить важные сведения о том, как люди используют ваше веб-приложение. Каждый раз, обновив приложение, можно оценить, насколько хорошо оно подходит пользователям. Обладая такими сведениями, можно принять решения на основе данных по дальнейшим циклам разработки.
@@ -176,4 +174,3 @@ ms.lasthandoff: 09/09/2017
    - [Средство "Маршруты пользователей"](app-insights-usage-flows.md)
    - [Книги](app-insights-usage-workbooks.md)
    - [Добавление контекста пользователей](app-insights-usage-send-user-context.md)
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Интеграция учетной записи хранения Azure с Azure CDN
 CDN можно включить для кэширования содержимого из хранилища Azure. Она предоставляет разработчикам глобальное решение для доставки большого объема содержимого с возможностью кэширования больших двоичных объектов и статического содержимого на физических узлах в США, Европе, Азии, Австралии и Южной Америке.

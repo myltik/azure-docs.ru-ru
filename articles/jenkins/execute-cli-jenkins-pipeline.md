@@ -15,14 +15,12 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Развертывание в службу приложений Azure с помощью Jenkins и Azure CLI
 Для развертывания веб-приложения Java в Azure можно использовать Azure CLI в [конвейере Jenkins](https://jenkins.io/doc/book/pipeline/). В этом учебнике мы создадим конвейер CI/CD на виртуальной машине Azure, включая следующие задачи:
 
@@ -93,7 +91,7 @@ az appservice plan create \
 
 ### <a name="create-an-azure-web-app"></a>Создание веб-приложения Azure
 
- С помощью команды CLI [az webapp create](/cli/azure/appservice/web#create) создайте определение веб-приложения в плане службы приложений `myAppServicePlan`. Определение веб-приложения предоставляет URL-адрес для доступа к приложению и настраивает несколько параметров для развертывания кода в Azure. 
+ С помощью команды CLI [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) создайте определение веб-приложения в плане службы приложений `myAppServicePlan`. Определение веб-приложения предоставляет URL-адрес для доступа к приложению и настраивает несколько параметров для развертывания кода в Azure. 
 
 ```azurecli-interactive
 az webapp create \
@@ -233,4 +231,3 @@ withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 > * Подготовка репозитория GitHub
 > * Создание конвейера Jenkins
 > * Запуск конвейера и проверка веб-приложения
-

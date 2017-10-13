@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Выполнение операций в хранилище BLOB-объектов Azure с помощью Azure PowerShell
 
 Хранилище BLOB-объектов Azure — это служба хранения большого количества неструктурированных данных объектов, таких как текстовые или двоичные данные, к которым можно получить доступ практически из любой точки мира по протоколу HTTP или HTTPS. В этой статье описываются основные операции в хранилище BLOB-объектов Azure, например отправка, загрузка и удаление больших двоичных объектов. Вы узнаете, как выполнять следующие задачи:

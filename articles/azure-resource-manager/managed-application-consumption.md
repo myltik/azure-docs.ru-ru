@@ -10,12 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/23/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: ed8fbaf2a4546c8e31eeced11cd0b5627fd62c0c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="consume-an-internal-managed-application"></a>Использование внутреннего управляемого приложения
 
@@ -124,4 +123,3 @@ az managedapp create --name ravtestappliance401 --location "westcentralus"
 * Сведения о публикации управляемых приложений в каталоге услуг см. в разделе [Создание и публикация управляемого приложения Azure](managed-application-publishing.md).
 * Дополнительные сведения о публикации управляемых приложений в Azure Marketplace см. в статье [Управляемые приложения Azure в Marketplace](managed-application-author-marketplace.md).
 * Сведения об использовании управляемого приложения из Marketplace см. в статье [Использование управляемых приложений Azure в Marketplace](managed-application-consume-marketplace.md).
-

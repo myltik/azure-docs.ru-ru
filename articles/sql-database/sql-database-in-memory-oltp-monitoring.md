@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jodebrui
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: e953b60493c5a7c7a7ad74533471bd321d42abef
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Мониторинг хранилища выполняющейся в памяти OLTP
 При использовании [выполняющейся в памяти OLTP](sql-database-in-memory.md) данные в оптимизированных для памяти таблицах и переменные таблиц находятся в выполняющемся в памяти хранилище OLTP. Каждому уровню служб категории "Премиум" выделяется максимальный объем в хранилище выполняющейся в памяти OLTP, который определен [ограничениями ресурсов отдельной базы данных](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) и [ограничениями ресурсов эластичного пула](sql-database-resource-limits.md#elastic-pool-change-storage-size). При превышении этого ограничения операции вставки и обновления могут завершаться сбоем (ошибка 41823). В таком случае вам придется либо удалить данные, чтобы освободить память, либо повысить уровень производительности базы данных.
@@ -56,4 +55,3 @@ ms.lasthandoff: 08/30/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Инструкции по мониторингу см. в разделе [Мониторинг базы данных SQL Azure с помощью динамических представлений управления](sql-database-monitoring-with-dmvs.md).
-

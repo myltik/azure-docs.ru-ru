@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Создание кластера для высокопроизводительных вычислений (HPC) Windows с помощью сценария развертывания пакета HPC в IaaS
 Выполните сценарий PowerShell для развертывания пакета HPC в IaaS, чтобы развернуть полный кластер пакета HPC 2012 R2 для рабочих нагрузок Windows на виртуальных машинах Azure. Кластер состоит из присоединенного к Active Directory головного узла под управлением Windows Server и пакета Microsoft HPC, а также дополнительных вычислительных ресурсов Windows, которые вы указали. Если вы хотите развернуть кластер пакета HPC в Azure для рабочих нагрузок Linux, см. раздел о [создании кластера HPC Linux с помощью сценария развертывания пакета HPC в IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). Вы также можете использовать шаблон диспетчера ресурсов Azure для развертывания HPC-кластера. Примеры см. в статьях [Создание кластера HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) и [Создание кластера HPC с помощью пользовательского образа вычислительного узла](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
@@ -273,5 +272,4 @@ ms.lasthandoff: 03/27/2017
 * Руководство, в котором используется сценарий для развертывания кластера и запуска рабочей нагрузки HPC, см. в статье [Приступая к работе с рабочими нагрузками Excel и SOA в кластере пакета HPC в Azure](../../virtual-machines-windows-excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Поэкспериментируйте со средствами HPC для запуска, остановки, добавления и удаления вычислительных узлов в кластере. См. статью [Управление числом и доступностью вычислительных узлов в кластере пакета HPC в Azure](hpcpack-cluster-node-manage.md).
 * Чтобы выполнить настройку для отправки заданий в кластер с локального компьютера, см. статью [Отправка заданий HPC c локального компьютера в кластер на основе пакета HPC, развернутый в Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

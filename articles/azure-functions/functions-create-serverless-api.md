@@ -11,14 +11,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-serverless-api-using-azure-functions"></a>Создание бессерверного API с помощью Функций Azure
 
 Из этого руководства вы узнаете, как с помощью решения "Функции Azure" создавать высокомасштабируемые API-интерфейсы. Решение "Функции Azure" включает набор встроенных триггеров и привязок HTTP, которые упрощают создание конечных точек на разных языках, включая Node.JS, C# и другие. В этом руководстве вы настроите триггер HTTP, который будет обрабатывать определенные действия в вашем API. Вы также подготовите ваш API к увеличению размеров, интегрировав его с прокси-серверами Функций Azure и установив макет API. Все это будет выполнено в бессерверной вычислительной среде Функций, так что вам не придется беспокоиться о масштабировании ресурсов, вы просто сможете сосредоточиться на логике вашего API.
@@ -195,4 +193,3 @@ ms.lasthandoff: 09/20/2017
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
 [Работа с прокси Функций Azure (предварительная версия)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
-

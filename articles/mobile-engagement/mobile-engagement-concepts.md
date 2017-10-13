@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Основные понятия Служб мобильного взаимодействия Azure
 Службы мобильного взаимодействия определяют несколько основных понятий, общих для всех поддерживаемых платформ. В этой статье кратко описаны эти понятия.

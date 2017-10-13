@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: dbf0a12ec1a5348e7c73248cc389ec1a5a5d4a75
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Системные переменные, поддерживаемые в фабрике данных Azure
 В этой статье описаны системные переменные, поддерживаемые фабрикой данных Azure. Вы можете использовать эти переменные в выражениях при определении сущностей фабрики данных. 
@@ -44,4 +43,3 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Сведения о том, как эти переменные используются в выражениях, см. в статье [Выражения и функции в фабрике данных Azure](control-flow-expression-language-functions.md). 
-

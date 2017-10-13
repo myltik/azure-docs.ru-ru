@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 3ad1bfe2c45fd087f094aad5b2028ab488dbb2a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fb00711c762aa67c632d1cc582741970e3df0ef2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Создание настраиваемых панелей мониторинга ключевых показателей эффективности с помощью Azure Application Insights
 
 Вы можете создать несколько панелей мониторинга на портале Azure, каждая из которых будет включать плитку, визуализирующую данные из нескольких ресурсов Azure в разных группах ресурсов и подписках.  Вы можете закрепить различные диаграммы и представления Azure Application Insights для создания пользовательских панелей мониторинга, предоставляющих полную картину работоспособности и производительности приложения.  В этом руководстве описано создание пользовательской панели мониторинга, которая включает несколько типов данных и визуализации из Azure Application Insights.  Вы узнаете, как выполнять следующие задачи:

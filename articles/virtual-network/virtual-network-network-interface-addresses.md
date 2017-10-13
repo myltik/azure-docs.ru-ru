@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Добавление, изменение и удаление IP-адресов для сетевого интерфейса Azure
 
 Узнайте, как добавлять, изменять и удалять общедоступные и частные IP-адреса для сетевого интерфейса. Частные IP-адреса, назначенные сетевому интерфейсу, позволяют виртуальной машине взаимодействовать с другими ресурсами в виртуальной сети Azure и подключенных к ней сетях. Частный IP-адрес также обеспечивает исходящее подключение к Интернету с использованием непредсказуемого IP-адреса. [Общедоступный IP-адрес](virtual-network-public-ip-address.md), назначенный сетевому интерфейсу, обеспечивает входящее подключение к виртуальной машине из Интернета. Он также обеспечивает исходящее подключение виртуальной машины к Интернету с использованием непредсказуемого IP-адреса. Дополнительные сведения см. в разделе [Общие сведения об исходящих подключениях в Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
@@ -205,4 +203,3 @@ ms.lasthandoff: 09/25/2017
 |Создание виртуальной машины с несколькими сетевыми адаптерами|[Интерфейс командной строки](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Создание виртуальной машины с одним сетевым адаптером, которому назначено несколько IPv4-адресов|[Интерфейс командной строки](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Создание виртуальной машины с одним сетевым адаптером, которому назначен частный IPv6-адрес (обслуживаемый Azure Load Balancer).|[Интерфейс командной строки](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [шаблон Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-

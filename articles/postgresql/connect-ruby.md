@@ -11,14 +11,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/30/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: a04188aed40a46e8cb64dfeb1230fb9b3c6ab679
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 9153a5a843dd5c18f27a3af232fea3b152240fe1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью Ruby
 В этом кратком руководстве описывается, как подключиться к базе данных Azure для PostgreSQL с помощью приложения [Ruby](https://www.ruby-lang.org). Здесь также показано, как использовать инструкции SQL для запроса, вставки, обновления и удаления данных в базе данных. В этой статье предполагается, что у вас уже есть опыт разработки на Ruby, и вы только начали работу с базой данных Azure для PostgreSQL.
 
@@ -214,4 +212,3 @@ end
 ## <a name="next-steps"></a>Дальнейшие действия
 > [!div class="nextstepaction"]
 > [Перенос базы данных с помощью экспорта и импорта](./howto-migrate-using-export-and-import.md)
-

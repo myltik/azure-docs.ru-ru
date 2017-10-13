@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Как просматривать SAML, возвращенный службой Azure Access Control
 В этом руководстве показано, как просмотреть базовый код SAML, который возвращается в ваше приложение службой контроля доступа Azure (ACS). В этом руководстве используются материалы раздела [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md), в частности, код, позволяющий отображать данные SAML. Ниже приводится пример завершенного приложения.

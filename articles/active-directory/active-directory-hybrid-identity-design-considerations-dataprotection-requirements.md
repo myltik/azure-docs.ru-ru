@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Планирование повышения безопасности данных благодаря надежному решению для идентификации
 Первый шаг для защиты данных — определение того, кто должен иметь доступ к этим данным. Для этого необходимо иметь решение для идентификации, которое можно быстро интегрировать в систему для реализации проверки подлинности и авторизации. Проверку подлинности и авторизацию часто путают друг с другом, понимая их роли неправильно. На самом деле между ними есть довольно большие различия, как показано на рисунке ниже:

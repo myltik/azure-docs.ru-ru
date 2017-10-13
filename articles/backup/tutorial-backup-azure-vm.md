@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: db4e1392acaeb2431d29a851113b7bc5a6dc1e9d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Резервное копирование большого числа виртуальных машин Azure в Azure
 
@@ -94,4 +93,3 @@ Remove-AzureRmRecoveryServicesVault -Vault $vault1
 * Сведения об изменении политики резервного копирования см. в описании [командлетов AzureRM.RecoveryServices.Backup для архивации виртуальных машин](backup-azure-vms-automation.md#create-a-protection-policy).
 * [Мониторинг виртуальных машин и управление ими](backup-azure-manage-vms.md)
 * [Восстановление виртуальных машин](backup-azure-arm-restore-vms.md)
-

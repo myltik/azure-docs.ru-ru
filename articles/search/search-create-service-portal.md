@@ -13,13 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Создание службы "Поиск Azure" на портале
 
@@ -112,5 +110,4 @@ ms.lasthandoff: 05/10/2017
 Для доступа к службе из кода или сценария укажите URL-адрес (*имя_службы*.search.windows.net) и ключ. Ключи администратора предоставляют полный доступ. Ключи запроса предоставляют доступ только для чтения. Чтобы приступить к работе, ознакомьтесь с разделом [Использование службы поиска Azure в приложении .NET](search-howto-dotnet-sdk.md).
 
 В разделе [Начало работы со службой поиска Azure на портале](search-get-started-portal.md) представлено краткое руководство по работе с порталом.
-
 

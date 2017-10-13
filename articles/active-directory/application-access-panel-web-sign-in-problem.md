@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 28d91237adf745e591b02322de7881c8122827ac
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Проблема при входе на веб-сайт панели доступа
 
 Панель доступа — это веб-портал, который позволяет пользователям, у которых есть рабочая или учебная учетная запись Azure Active Directory (Azure AD), просматривать и запускать облачные приложения, к которым администратор Azure AD предоставил доступ. Пользователь, у которого есть выпуски Azure AD, также может использовать возможности самостоятельного управления группами и приложениями с помощью панели доступа. Панель доступа отделена от портала Azure, и для нее не требуется подписка Azure.
@@ -292,4 +290,3 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
-

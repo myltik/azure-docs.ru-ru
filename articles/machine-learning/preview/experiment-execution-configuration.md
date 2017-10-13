@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bb1c7d318939c42edb9a51e28dec31593f2485f9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-azure-machine-learning-experiment-execution-service"></a>Общие сведения о службе выполнения экспериментов в Машинном обучении Azure
 Служба выполнения экспериментов в Машинном обучении Azure (Azure ML) позволяет специалистам по обработке и анализу данных выполнять эксперименты с помощью функций Azure ML по выполнению и управлению запусками. Она предоставляет платформу для гибкого экспериментирования и быстрых итераций. Azure ML Workbench позволяет начать выполнение на локальном компьютере, а затем легко увеличить масштаб эксперимента или развернуть его в других средах, например на удаленных виртуальных машинах для обработки и анализа данных с поддержкой графических процессоров или кластерах HDInsight под управлением Spark.
 
@@ -254,4 +252,3 @@ _**Общие сведения о выполнении скриптов PySpark 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench](quickstart-installation.md) (Создание учетных записей для предварительной версии Машинного обучения Azure и установка Azure Machine Learning Workbench).
 * [Управление моделями](model-management-overview.md)
-

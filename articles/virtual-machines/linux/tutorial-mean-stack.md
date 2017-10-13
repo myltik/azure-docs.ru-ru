@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Создание стеков (MEAN) MongoDB, Express, AngularJS и Node.js на виртуальной машине Linux в Azure
 
 В этом руководстве описаны способы реализации стеков (MEAN) MongoDB, Express, AngularJS и Node.js на виртуальной машине Linux в Azure. Созданный вами стек MEAN позволяет добавлять, удалять и перечислять книги в базе данных. Вы узнаете, как выполнять следующие задачи:
@@ -355,4 +353,3 @@ sudo apt-get install -y nodejs
 
 > [!div class="nextstepaction"]
 > [Secure a web server with SSL certificates on a Linux virtual machine in Azure](tutorial-secure-web-server.md) (Защита веб-сервера на виртуальной машине Linux в облаке Azure с помощью SSL-сертификата)
-

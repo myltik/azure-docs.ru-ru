@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
+ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bb2d019a751131e031f244e09b524227348bc190
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Мониторинг учетной записи хранения на портале Azure
 
@@ -159,4 +158,3 @@ ms.lasthandoff: 09/25/2017
 
 * Дополнительные сведения о [метриках, ведении журнала и выставлении счетов](../storage-analytics.md) для аналитики службы хранилища.
 * [Включение метрик службы хранилища Azure и просмотр данных метрик](../storage-enable-and-view-metrics.md) с помощью PowerShell и программно с помощью C#.
-

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/09/2017
 ms.author: ronitr; ronmat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: cf13c0290cc0356db0885d6762a4ebebac304431
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 83deadce3cbdd30aa50d22d99378bd86133677c4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Динамическое маскирование данных базы данных SQL Azure
 
@@ -60,5 +58,4 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Настройка динамической маскировки данных для базы данных с помощью REST API
 См. статью с описанием [операций для баз данных SQL Azure](https://msdn.microsoft.com/library/dn505719.aspx).
-
 

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 09/08/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 228772ff6710596c916165a132db31f449d0a327
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: da4c5cd2c18e62ae40fe1c3f0a7fa014163b351c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Настройка аудита и обнаружения угроз для базы данных SQL с помощью PowerShell
 
 Этот пример сценария Azure PowerShell позволяет настроить аудит и обнаружение угроз для базы данных SQL. 
@@ -32,7 +30,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Включение аудита и обнаружения угроз")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configure auditing and threat detection")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 
@@ -62,4 +60,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 Дополнительные сведения о Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
 Дополнительные примеры сценариев PowerShell для базы данных SQL Azure можно найти [здесь](../sql-database-powershell-samples.md).
-

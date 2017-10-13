@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Использование Azure DNS для указания параметров личного домена для службы Azure
 
 Azure DNS предоставляет DNS для личного домена любому из ресурсов Azure, который поддерживает личные домены или имеет полное доменное имя (FQDN). Например, у вас есть веб-приложение Azure и вы хотите, чтобы пользователи получали к нему доступ, вводя полное доменное имя contoso.com или www.contoso.com. В этой статье описывается настройка службы Azure с Azure DNS для использования личных доменов.

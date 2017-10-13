@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ba4e8fe0d54deb4a980174ff7d0904854c794d3d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-monitor"></a>Приступая к работе с Azure Monitor
 Служба платформы Azure Monitor — это единый источник для мониторинга ресурсов Azure. С помощью Azure Monitor можно визуализировать, запрашивать, маршрутизировать, архивировать метрики и журналы, полученные от ресурсов Azure, а также работать с ними. Эти операции можно выполнять с помощью колонки портала решения, [командлетов Monitor PowerShell](insights-powershell-samples.md), [кроссплатформенного интерфейса командной строки](insights-cli-samples.md) и [интерфейсов REST API Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). В этой статье на примере работы с порталом рассматриваются некоторые ключевые компоненты Azure Monitor.
@@ -103,4 +102,3 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Прочитайте [обзор Azure Monitor](monitoring-overview.md)
-

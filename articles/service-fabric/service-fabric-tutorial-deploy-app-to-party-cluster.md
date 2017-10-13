@@ -15,14 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Развертывание приложения в кластер сообщества в Azure
 Это руководство из цикла. В нем показано, как развернуть приложение Azure Service Fabric в кластер сообщества в Azure.
 

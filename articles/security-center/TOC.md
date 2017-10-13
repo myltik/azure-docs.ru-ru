@@ -19,6 +19,7 @@
 # Практическое руководство
 
 ## Политика безопасности
+### [Обзор](security-center-policies-overview.md)
 ### [Сбор данных](security-center-enable-data-collection.md)
 ### [Политика безопасности](security-center-policies.md)
 ### [Уведомления по почте](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [Установка Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Перезагрузка после завершения обновлений системы](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Исправление уязвимостей ОС](security-center-remediate-os-vulnerabilities.md)
-#### [Разрешение оповещений о работоспособности Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Обновление версии ОС](security-center-update-os-version.md)
 #### [Оценка уязвимостей не установлена](security-center-vulnerability-assessment-recommendations.md)
 ### [Мониторинг состояния системы безопасности](security-center-monitoring.md)

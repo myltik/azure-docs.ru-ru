@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: DavidBosland
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 97cd45563dbd2341620658e05dbbd9ff0519b1aa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 5ac1f509ca90a09d8bd8e67a04df99516a6da072
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>Просмотр и изменение статуса участия в программе поощрения поставщиков облачных решений в Azure Marketplace
 15 марта 2016 г. программа поощрения поставщиков облачных решений (CSP) станет доступной для издателей Marketplace.  По умолчанию статус участия в этой программе имеет значение **Да**.  Как издатель вы можете явно отказаться от участия в программе поощрения.  В этой статье показано, как изменить настройки в профиле издателя, чтобы отказаться от участия в программе.
@@ -46,4 +45,3 @@ ms.lasthandoff: 12/08/2016
 [2]: ./media/marketplace-publishing-csp-incentive/profile-boxes.png
 [3]: ./media/marketplace-publishing-csp-incentive/profile-publishers-boxes.png
 [4]: ./media/marketplace-publishing-csp-incentive/profile-publishers-change-boxes.png
-

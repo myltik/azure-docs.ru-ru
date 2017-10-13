@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-application-proxy-connectors-azure-portal.md)
@@ -133,6 +131,5 @@ ms.lasthandoff: 08/25/2017
 
 * [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md)
 * [Включение единого входа](application-proxy-sso-overview.md)
-
 
 

@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Группировка по параметрам в хранилище данных SQL
 Предложение [GROUP BY][GROUP BY] используется для объединения данных в сводный набор строк. Оно имеет также несколько дополнительных параметров, позволяющих выполнять функции, которые не поддерживаются хранилищем данных SQL Azure напрямую.
@@ -196,4 +195,3 @@ ORDER BY 1,2,3
 
 
 <!--Other Web references-->
-

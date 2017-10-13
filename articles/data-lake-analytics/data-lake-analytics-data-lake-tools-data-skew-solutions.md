@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Решение проблем неравномерного распределения данных с помощью средств Azure Data Lake для Visual Studio
 
 ## <a name="what-is-data-skew"></a>Что такое неравномерное распределение данных?
@@ -191,4 +189,3 @@ ms.lasthandoff: 07/13/2017
         //Your combiner code goes here.
         }
     }
-

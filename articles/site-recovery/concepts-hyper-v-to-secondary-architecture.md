@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Репликация Hyper-V на дополнительный сайт
 
@@ -69,4 +68,3 @@ ms.lasthandoff: 09/25/2017
 
 Ознакомьтесь с таблицей поддержки. Следуйте указаниям руководства, чтобы включить репликацию Hyper-V между облаками VMM.
 Выполните отработку отказа и восстановление размещения.
-

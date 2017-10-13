@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 6fd0e32374827b249f5aba1cbfc39117c88c6272
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Подключение к базе данных SQL Azure с помощью Функций Azure
 В этой статье показано, как с помощью Функций Azure создать запланированное задание, которое очищает строки в таблице базы данных SQL Azure. Новая функция C# создается на основе стандартного шаблона триггера на портале Azure. Для выполнения этого сценария необходимо также задать строку подключения к базе данных как параметр в приложении-функции. В этом сценарии к базе данных применяется массовая операция. Чтобы функция обрабатывала отдельные операции CRUD в таблице мобильных приложений, следует использовать [привязки мобильных приложений](functions-bindings-mobile-apps.md).
@@ -125,4 +124,3 @@ ms.lasthandoff: 05/25/2017
   Справочник программиста по созданию функций, а также определению триггеров и привязок.
 * [Testing Azure Functions](functions-test-a-function.md)  
   (Тестирование функций Azure) Описание различных средств и методов тестирования функций.  
-

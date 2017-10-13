@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: saurabh
 ms.openlocfilehash: 4001ca908ff00b1a40829d687589080e9b07b18a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-cloud-services-using-application-insights"></a>Устранение неполадок облачных служб с помощью Application Insights
 [Пакет Azure SDK 2.8](https://azure.microsoft.com/downloads/) и расширение диагностики Azure 1.5 позволяют отправлять данные диагностики Azure для облачной службы непосредственно в Application Insights. В Application Insights можно отправлять журналы, собранные системой диагностики Azure, &mdash;включая журналы приложений, журналы событий Windows и счетчики производительности&mdash;. Затем эти сведения можно визуализировать в пользовательском интерфейсе портала Application Insights. Используя пакет SDK Application Insights, вы можете получать данные из метрик и журналов, создаваемых вашим приложением, а также данные на уровне системы и инфраструктуры, поступающие из системы диагностики Azure.

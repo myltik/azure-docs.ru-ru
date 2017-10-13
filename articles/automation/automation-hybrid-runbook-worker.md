@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: magoedte;bwren
+ms.openlocfilehash: 5697491ed62a3a2ed5b4762041a683ee97f42b1d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67aa0f407fd669df559ce1a8d411650158462aef
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Автоматизация ресурсов в центре обработки данных или облаке с помощью гибридной рабочей роли Runbook
 Модули runbook в службе автоматизации Azure не могут получить доступ к ресурсам в других облаках или локальной среде, так как они выполняются в облаке Azure.  Гибридная рабочая роль Runbook службы автоматизации Azure позволяет выполнять модули runbook непосредственно на компьютере, размещающем роль, для работы с ресурсами в среде, что позволяет управлять этими локальными ресурсами. Для хранения модулей runbook и управления ими используется служба автоматизации Azure, затем они передаются на один или несколько целевых компьютеров.  
 
@@ -173,4 +171,3 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Ознакомьтесь с [запуском модулей runbook в гибридной рабочей роли Runbook](automation-hrw-run-runbooks.md), чтобы узнать, как настроить модули runbook для автоматизации процессов в локальном центре обработки данных или другой облачной среде.
-

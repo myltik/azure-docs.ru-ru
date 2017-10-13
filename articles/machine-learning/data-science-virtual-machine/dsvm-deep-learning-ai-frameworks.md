@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deep-learning-and-ai-frameworks"></a>Платформы глубокого обучения и искусственного интеллекта
 [Виртуальная машина для обработки и анализа данных](http://aka.ms/dsvm) (DSVM) и [виртуальная машина для глубокого обучения](http://aka.ms/dsvm/deeplearning) поддерживают несколько платформ глубокого обучения для создания приложений искусственного интеллекта (AI) с прогнозной аналитикой и когнитивными возможностями, например понимание изображений и языка. 
 
@@ -190,5 +188,4 @@ jupyter notebook
 | Поддерживаемые выпуски виртуальных машин для обработки и анализа данных (DSVM)      | Linux     |
 | Настройка и установка на DSVM  | Torch устанавливается в `/dsvm/tools/torch`. PyTorch устанавливается в среде Python 2.7 (_корневая среда_), а также в Python 3.5 (_py35_).   |
 | Ссылки на примеры      | Примеры Torch находятся в `/dsvm/samples/torch`. Примеры PyTorch находятся в `/dsvm/samples/pytorch`.      |
-
 

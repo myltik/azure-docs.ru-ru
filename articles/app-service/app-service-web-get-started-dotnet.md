@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
+ms.openlocfilehash: 57b56f417db63f24f09a497fa780c7edda048e56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 107b0a73c7f544aebd0ee685fd1d726d1420495d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>Создание веб-приложения ASP.NET в Azure
 
@@ -168,4 +167,3 @@ ms.lasthandoff: 09/20/2017
 
 > [!div class="nextstepaction"]
 > [Создание приложения ASP.NET в Azure с подключением к базе данных SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
-

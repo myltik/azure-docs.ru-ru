@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 715fca79e488ae3759926181c244a42026f4a554
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Устранение неполадок на устройствах нижнего уровня с гибридным присоединением к Azure Active Directory 
 
@@ -111,4 +110,3 @@ ms.lasthandoff: 08/19/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Ответы на вопросы можно найти в статье [Azure Active Directory device management FAQ](device-management-faq.md) (Часто задаваемые вопросы по управлению устройствами Azure Active Directory).  
-

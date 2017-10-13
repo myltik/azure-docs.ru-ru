@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Архивация Windows Server в Azure
 
@@ -32,7 +31,7 @@ ms.lasthandoff: 09/25/2017
 > [!div class="checklist"]
 > * Скачивание и настройка агента служб восстановления Microsoft Azure.
 > * Настройка времени архивации и расписания хранения для резервных копий сервера.
-> * Выполнение ad-hoc-архивации.
+> * Выполнение ad-hoc-архивации
 
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
@@ -161,5 +160,4 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"] 
 > [Восстановление файлов из Azure в Windows Server](./tutorial-backup-restore-files-windows-server.md) 
-
 

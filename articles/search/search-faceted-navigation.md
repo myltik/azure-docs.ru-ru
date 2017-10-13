@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 3/10/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
 ms.openlocfilehash: 413f498eeb0bbc9a971c7a65200ed2fd8caa9aaf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Как реализовать фасетную навигацию в службе поиска Azure
 Фасетная навигация представляет собой механизм фильтрации, обеспечивающий самоуправляемую детализированную навигацию в приложениях поиска. Термин "фасетная навигация" может быть неизвестен вам, но вы, вероятно, использовали этот механизм ранее. Как показано в следующем примере, фасетная навигации — это не что иное, как категории, с помощью которых фильтруются результаты.
@@ -443,5 +442,4 @@ if (businessTitleFacet != "")
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
-
 

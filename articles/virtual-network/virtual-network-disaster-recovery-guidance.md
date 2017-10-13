@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dbb749b056c36f16e921933fb8345211e3eaa697
-
-
+ms.openlocfilehash: 4e125406d2e798138c45e3fbbf61a610afab69fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network--business-continuity"></a>Виртуальная сеть: непрерывность бизнес-процессов
 ## <a name="overview"></a>Обзор
@@ -46,10 +46,4 @@ ms.openlocfilehash: dbb749b056c36f16e921933fb8345211e3eaa697
 Ответ. Да, можно заранее в двух разных регионах создать две виртуальные сети, использующие одинаковые пространства и ресурсы частных IP-адресов. Если клиент размещал в виртуальной сети службы для Интернета, то он мог настроить диспетчер трафика для географической маршрутизации трафика в активный регион. Однако клиент не может подключить к своей локальной сети две виртуальные сети с одинаковыми адресными пространствами, так как это приведет к проблемам маршрутизации. В случае аварии и потери виртуальной сети в одном регионе клиент может подключить к своей локальной сети другую виртуальную сеть с таким же адресным пространством, размещенную в доступном регионе.
 
 Инструкции по созданию виртуальной сети представлены [здесь](virtual-networks-create-vnet-arm-pportal.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

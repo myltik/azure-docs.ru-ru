@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 94658dfcf93e821e24cabb1f010f8dce0c014700
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Диагностика локальных подключений через VPN-шлюзы
 
 VPN-шлюз Azure позволяет создать гибридное решение, устраняющее необходимость в безопасном подключении между локальной сетью и виртуальной сетью Azure. Ваши требования являются уникальными, как и выбираемое локальное VPN-устройство. В настоящее время Azure поддерживает [несколько VPN-устройств](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable), которые постоянно проверяются совместно с поставщиками устройств. Просмотрите параметры конфигурации устройства перед началом настройки локального VPN-устройства. VPN-шлюз Azure настраивается с помощью набора [поддерживаемых параметров IPsec](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec), которые используются для установления подключений. В данный момент нет какого-либо способа указать или выбрать определенное сочетание параметров IPsec для VPN-шлюза Azure. Для успешного установления подключения между локальной средой и Azure параметры локального VPN-устройства должны соответствовать параметрам IPsec, предписанным VPN-шлюзом Azure. Если параметры неправильные, подключение будет утрачено. Сейчас устранение этих неполадок является нетривиальным, и на выявление и устранение проблемы обычно требуется несколько часов.
@@ -115,4 +113,3 @@ Error: On-premises device rejected Quick Mode settings. Check values.
 Научитесь проверять подключения VPN-шлюза с помощью PowerShell и службы автоматизации Azure, ознакомившись с разделом [Мониторинг VPN-шлюзов с помощью средства устранения неполадок наблюдателя за сетями Azure](network-watcher-monitor-with-azure-automation.md).
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
-

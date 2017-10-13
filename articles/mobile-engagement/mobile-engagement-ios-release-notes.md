@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 9bdaa57f9902373ccf796ff109332b64c66bf9e7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Заметки о выпуске пакета SDK для Служб мобильного взаимодействия Azure (iOS)
 
@@ -63,7 +62,7 @@ ms.lasthandoff: 07/19/2017
 * Прекращена поддержка iOS 4.X. Начиная с этой версии, целевое устройство для развертывания приложения должно быть с версией не ниже iOS 6.
 
 ## <a name="220-05212015"></a>2.2.0 (05/21/2015)
-* В основе идентификатора устройства Служб мобильного взаимодействия для устройств c версией ОС ниже iOS 6 теперь используется GUID, генерируемый во время установки.
+* В основе идентификатора устройства Служб мобильного взаимодействия для устройств c версией ОС ниже iOS 6 теперь используется GUID, генерируемый во время установки.
 
 ## <a name="210-04242015"></a>2.1.0 (24.04.2015)
 * Добавлена поддержка Swift.
@@ -78,4 +77,3 @@ ms.lasthandoff: 07/19/2017
 * Удален API для отправки и получения сообщений между устройствами.
 * Улучшения безопасности.
 * Удалено средство отслеживания SmartAd.
-

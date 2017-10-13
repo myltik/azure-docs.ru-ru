@@ -10,15 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 4440ca81545978ab7438f1684ce71ded24c326e9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="review-usage-and-costs"></a>Просмотр сведений об использовании и затратах
 
 Служба управления затратами Azure, разработанная Cloudyn, отображает сведения об использовании и затратах, позволяя вам отслеживать тенденции, выявлять неэффективное использование и создавать оповещения. Все данные об использовании и затратах отображаются на панелях мониторинга и в отчетах Cloudyn. Примеры в этом руководстве демонстрируют просмотр сведений об использовании и затратах с помощью панели мониторинга и отчетов. Из этого руководства вы узнаете, как выполнять такие задачи:
@@ -101,4 +98,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [Управление доступом к данным](tutorial-user-access.md)
-

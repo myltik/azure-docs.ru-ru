@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/17/2017
 ms.author: bwren
+ms.openlocfilehash: 6f627140e6c5583636f7979889f74e489fe66496
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 14f923e3f08dd3b286218ae56012ce14edcc4058
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Выполнение модуля Runbook в службе автоматизации Azure
 При запуске модуля Runbook в службе автоматизации Azure создается задание. Задание — это одиночный выполняемый экземпляр модуля Runbook. Рабочий процесс службы автоматизации Azure назначается для выполнения каждого задания. Пока рабочие процессы используются несколькими учетными записями Azure, задания от различных учетных записей службы автоматизации изолируются друг от друга. Вы не контролируете, какая рабочая роль обслуживает запрос для вашего задания.  В одном модуле Runbook могут иметься несколько запущенных заданий одновременно. При просмотре списка модулей Runbook на портале Azure в нем отобразится список состояний всех заданий для каждого модуля Runbook. Можно просматривать список заданий для каждого модуля Runbook и отслеживать состояние каждого из них. Описание различных состояний заданий см. в разделе [Состояния заданий](#job-statuses).
@@ -99,5 +98,4 @@ ms.lasthandoff: 08/19/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о разных методах запуска модуля Runbook см. в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).
-
 

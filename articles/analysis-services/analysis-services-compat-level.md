@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: b11ba54c2cdc2675ec535368e7076613a5290212
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Уровень совместимости табличных моделей Analysis Services
 
 *Уровень совместимости* относится к поведению различных выпусков ядра Analysis Services. Изменения уровня совместимости обычно происходят одновременно с выпуском основных версий SQL Server. Эти изменения также реализуются в Azure Analysis Services, чтобы обеспечить функциональную совместимость обеих платформ. Изменения уровня совместимости также влияют на функции, доступные в табличных моделях. Например, DirectQuery и метаданные табличных объектов имеют разные реализации в зависимости от уровня совместимости. 
@@ -58,4 +56,3 @@ ms.lasthandoff: 08/17/2017
 ## <a name="next-steps"></a>Дальнейшие действия
   [Создание модели на портале Azure](analysis-services-create-model-portal.md)   
   [Управление службами Analysis Services](analysis-services-manage.md)  
-

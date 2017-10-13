@@ -15,10 +15,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Мониторинг синхронизации Azure AD Connect с помощью Azure AD Connect Health
 Приведенная ниже документация относится к мониторингу синхронизации Azure AD Connect с помощью Azure AD Connect Health.  Сведения о мониторинге AD FS с помощью Azure AD Connect Health см. в [этой статье](active-directory-aadconnect-health-adfs.md). Кроме того, сведения о мониторинге доменных служб Active Directory с помощью Azure AD Connect Health можно найти [здесь](active-directory-aadconnect-health-adds.md).
@@ -67,8 +67,7 @@ ms.lasthandoff: 08/03/2017
 * В отчете содержатся ошибки, записанные клиентом синхронизации (Azure AD Connect версии 1.1.281.0 или выше).
 * В отчете приводятся ошибки, произошедшие в течение последней операции синхронизации в модуле синхронизации (операция "Экспорт" в соединителе Azure AD).
 * Агент Azure AD Connect Health для синхронизации должен иметь исходящее подключение к необходимым конечным точкам. Таким образом, отчет будет содержать актуальные данные.
-* Отчет **обновляется каждые 30 минут** на основе данных, полученных от агента Azure AD Connect Health для синхронизации.
-  Этот отчет отличается следующими основными преимуществами:
+* Отчет **обновляется каждые 30 минут** на основе данных, полученных от агента Azure AD Connect Health для синхронизации. Этот отчет отличается следующими основными преимуществами:
 
   * классификация ошибок;
   * вывод списка объектов с ошибками по категориям;

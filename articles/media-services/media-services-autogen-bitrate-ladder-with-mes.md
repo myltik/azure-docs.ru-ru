@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
+ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: e4bc03c624c9930d7a9b0bef22d3179633de3365
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Использование стандартной версии кодировщика мультимедиа Azure для автоматического создания схемы скоростей
 
@@ -201,5 +200,4 @@ ms.lasthandoff: 07/24/2017
 
 ## <a name="see-also"></a>См. также
 [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
-
 

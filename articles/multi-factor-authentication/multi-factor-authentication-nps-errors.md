@@ -15,14 +15,12 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 173353d67772c2549aa1b8ec9f2a471bd1c65677
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Устранение ошибок, связанных с расширением NPS для Многофакторной идентификации Azure.
 
 В этой статье приведены способы быстрого устранения ошибок, связанных с расширением NPS для Многофакторной идентификации Azure. 
@@ -134,6 +132,5 @@ ms.lasthandoff: 09/20/2017
    ```
 
 4. Выполните архивацию содержимого папки C:\NPS и прикрепите ZIP-файл к запросу в службу поддержки.
-
 
 

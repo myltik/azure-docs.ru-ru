@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
 ms.openlocfilehash: fac41903c3e5731d17f832ff58145fe74dfa29f1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>Создание индекса службы поиска Azure с помощью пакета SDK для .NET
 > [!div class="op_single_selector"]

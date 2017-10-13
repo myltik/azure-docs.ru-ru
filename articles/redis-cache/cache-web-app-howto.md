@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Как создать веб-приложение с использованием кэша Redis
 > [!div class="op_single_selector"]
@@ -707,7 +706,7 @@ ms.lasthandoff: 09/20/2017
 
 Чтобы развернуть эти службы в выбранной новой или имеющейся группе ресурсов, нажмите кнопку **Deploy to Azure** (Развернуть в Azure).
 
-[![Развернуть в Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+[![Развертывание в Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
 Кнопка **Deploy to Azure** (Развернуть в Azure) использует шаблон [быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates) [Create a Web App plus Redis Cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) (Создание веб-приложения, кэша Redis и базы данных SQL), чтобы подготовить эти службы к работе, а также задать строку подключения для базы данных SQL и параметр приложения для строки подключения кэша Redis для Azure.
 
@@ -867,5 +866,4 @@ ms.lasthandoff: 09/20/2017
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
 

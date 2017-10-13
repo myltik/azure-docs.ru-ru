@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/12/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Создание функции, активируемой универсальным веб-перехватчиком
 
@@ -167,5 +166,4 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Дополнительные сведения см. в статье [Привязки HTTP и веб-перехватчика в функциях Azure](functions-bindings-http-webhook.md). Дополнительные сведения о разработке функций на C# см. в статье [Справочник разработчика скриптов C# по Функциям Azure](functions-reference-csharp.md).
-
 

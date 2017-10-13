@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7946f11d209e6341caa3a11e946fb1596e758277
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Мониторинг AD FS с помощью Azure AD Connect Health
 Приведенная ниже информация относится к мониторингу инфраструктуры AD FS с помощью Azure AD Connect Health. Сведения о мониторинге синхронизации Azure AD Connect с помощью Azure AD Connect Health см. в статье [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md). Кроме того, сведения о мониторинге доменных служб Active Directory с помощью Azure AD Connect Health см. в статье [Использование Azure AD Connect Health с AD DS](active-directory-aadconnect-health-adds.md).

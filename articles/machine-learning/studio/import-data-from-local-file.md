@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 67f66f9b8703f2cab93a2274a90c161a55848c34
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Импорт данных для обучения из файла на жестком диске в Студию машинного обучения
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -44,4 +43,3 @@ ms.lasthandoff: 09/25/2017
 После загрузки данные сохраняются в модуле набора данных и доступны для любого эксперимента в рабочей области.
 
 При редактировании эксперимента вы можете найти ранее созданные наборы данных в списке **My Datasets** (Мои наборы данных), который входит в список **Saved Datasets** (Сохраненные наборы данных), в палитре модулей. Перетащите набор данных на холст эксперимента, где нужно использовать эти данные для последующего анализа и машинного обучения.
-

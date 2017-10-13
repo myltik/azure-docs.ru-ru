@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="threat-modeling-tool-feature-overview"></a>Общие сведения о функциях средства моделирования угроз
 
 Средство моделирования угроз может помочь решить задачи моделирования угроз. Основные сведения об этом средстве приведены в разделе [Начало работы со средством моделирования угроз](./azure-security-threat-modeling-tool-getting-started.md).
@@ -210,4 +208,3 @@ ms.lasthandoff: 09/08/2017
 
 * Чтобы разместить шаблон для сообщества, перейдите на нашу станицу [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
 * Чтобы приступить к работе со средством, перейдите на страницу [скачивания](https://aka.ms/tmtpreview).
-

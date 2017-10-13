@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 849637fb391576954307bc84bb02e1d8579bf1cf
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Защита привилегированного доступа в Azure AD
 Защита привилегированного доступа — исключительно важный первый шаг для защиты корпоративных ресурсов в современных организациях. Привилегированные учетные записи — это учетные записи, которые администрируют ИТ-системы и управляют ими. Злоумышленники в Интернете обычно используют эти учетные записи для доступа к данным и системам организации. Чтобы защитить привилегированный доступ, необходимо исключить риск доступа пользователей-злоумышленников к учетным записям и системам.
@@ -78,4 +77,3 @@ ms.lasthandoff: 09/19/2017
 [2]: ../media/active-directory-privileged-identity-management-configure/PIM_Dash.png
 [3]: ../media/active-directory-identityprotection/29.png
 [4]: ../media/active-directory-conditional-access/conditionalaccess-saas-apps.png
-

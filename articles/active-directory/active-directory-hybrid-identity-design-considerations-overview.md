@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: b22e34f9ad0644def8a344b261077b44c34420cb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: e2a70f2474298618dd8ee11c583f8f445d7eba7d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Рекомендации по разработке архитектуры гибридной идентификации в Azure Active Directory
 Потребительские устройства распространяются в корпоративной среде, и облачные приложения, использующие принцип "Программное обеспечение как услуга" (SaaS), можно легко адаптировать для этих устройств. В результате усложняется управление доступом к приложениям пользователей в различных внутренних центрах обработки данных и облачных платформах.  
@@ -63,5 +62,4 @@ ms.lasthandoff: 03/09/2017
 
 ## <a name="download-this-guide"></a>Загрузка руководства
 Загрузить PDF-версию руководства по разработке архитектуры гибридной идентификации можно из [галереи Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
-
 

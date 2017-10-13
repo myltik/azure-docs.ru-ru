@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
 ms.author: saysa
-ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
 ms.openlocfilehash: 4fa77da8665908553072792d7f2ede47bf5567dd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Подключаемый модуль Service Fabric для разработки приложений Eclipse на Java
 Eclipse является одной из наиболее часто используемых интегрированных сред разработки (IDE) для разработчиков Java. В этой статье описывается, как настроить среду разработки Eclipse для работы с Azure Service Fabric. Вы узнаете, как установить подключаемый модуль Service Fabric, создать приложение Service Fabric и развернуть его в локальный или удаленный кластер Service Fabric в Eclipse Neon.
 
@@ -175,4 +173,3 @@ Eclipse является одной из наиболее часто испол�
 
 <!-- Links -->
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
+ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 918f454784a9676297077c2e94c3e49ab2872d2f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Создание и отправка виртуального жесткого диска FreeBSD в Azure
 В этой статье описывается, как создать и передать виртуальный жесткий диск, содержащий операционную систему FreeBSD. После передачи его можно использовать как свой собственный образ для создания виртуальной машины в Azure.
@@ -164,10 +163,10 @@ ms.lasthandoff: 08/21/2017
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Использование метода сертификата для передачи VHD-файла
 1. Откройте консоль Azure PowerShell.
 2. Введите `Get-AzurePublishSettingsFile`.
-3. В открывшемся окне браузера появится запрос на скачивание файла PUBLISHSETTINGS. Этот файл содержит сведения и сертификат для подписки Azure.
+3. В открывшемся окне браузера появится запрос на скачивание PUBLISHSETTINGS-файла. Этот файл содержит сведения и сертификат для подписки Azure.
 
     ![Страница скачивания браузера](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
-4. Сохраните файл PUBLISHSETTINGS.
+4. Сохраните файл .publishsettings.
 5. Введите `Import-AzurePublishSettingsFile <PathToFile>`, где `<PathToFile>` — это полный путь к файлу PUBLISHSETTINGS.
 
    Дополнительные сведения см. в статье [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) (Начало работы с командлетами Azure).
@@ -207,4 +206,3 @@ ms.lasthandoff: 08/21/2017
 5. После завершения подготовки вы увидите в Azure запущенную виртуальную машину FreeBSD.
 
     ![Образ FreeBSD в Azure](./media/freebsd-create-upload-vhd/freebsdimageinazure.png)
-

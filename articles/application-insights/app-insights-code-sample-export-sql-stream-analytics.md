@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6fc9394cbc60a1ea9bc9989d271f1008acf0379b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: d51e80509ffb63cef0d01133a2295d58757d5b1a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Пошаговое руководство. Экспорт в SQL из Application Insights с использованием Stream Analytics
 В этой статье показано, как переместить данные телеметрии из [Azure Application Insights][start] в базу данных SQL Azure, используя [непрерывный экспорт][export] и [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -274,5 +273,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [start]: app-insights-overview.md
-
 

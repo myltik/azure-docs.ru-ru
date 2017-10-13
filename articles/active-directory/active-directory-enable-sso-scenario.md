@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: b8f0cfdb468094bc761d6b939ca318fcfbea3ea4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Управление приложениями с помощью Azure Active Directory
 Помимо фактического рабочего процесса и содержимого, предприятия выдвигают два основных требования ко всем приложениям.
@@ -113,5 +112,4 @@ Azure AD содержит предварительно интегрирован�
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-
 

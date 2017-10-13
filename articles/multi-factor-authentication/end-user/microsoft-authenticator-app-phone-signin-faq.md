@@ -15,12 +15,11 @@ ms.date: 08/12/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 9fb25f9f26a220c90f82add02fa5bdb954a926c3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Вход с использованием телефона вместо ввода пароля
 
@@ -92,4 +91,3 @@ ms.lasthandoff: 08/29/2017
 Если вы не используете приложение Microsoft Authenticator, узнайте о нем подробнее. Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), а функция входа с помощью телефона — для [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Если у вас есть вопросы о приложении в целом, посетите страницу с [часто задаваемыми вопросами о приложении Microsoft Authenticator](microsoft-authenticator-app-faq.md).
-

@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: asteen
+ms.openlocfilehash: e3cc6bddd67b70f603d5c0d26af6563ae207e3db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ea2dc2762b556da837fa1d6674e01aba32face92
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Указатель статей по управлению приложениями в Azure Active Directory
 В этой статье представлен полный список всех статей о различных функциях приложений в Azure Active Directory (Azure AD).
@@ -213,4 +212,3 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 [Доменные службы Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-

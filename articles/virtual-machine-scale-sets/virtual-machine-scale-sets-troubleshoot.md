@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Устранение неполадок при автомасштабировании масштабируемых наборов виртуальных машин
 **Описание проблемы.** Вы создали в Azure Resource Manager инфраструктуру автоматического масштабирования с помощью масштабируемых наборов виртуальных машин (например, развернув шаблон, похожий на этот: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) и установили определенные правила масштабирования. Все работает великолепно, но независимо от уровня нагрузки на виртуальные машины автомасштабирование не выполняется.
@@ -83,4 +82,3 @@ ms.lasthandoff: 03/31/2017
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
-

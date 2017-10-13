@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
+ms.openlocfilehash: 60139ff36b66432620591ceaf201e046ad30217f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 83cb82b9807718e7a509312d159eb766a5da1d2c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Пример рабочего процесса подготовки жестких дисков для задания импорта
 
 В этой статье рассматривается полный процесс подготовки дисков для задания импорта.
@@ -133,4 +131,3 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 * [Подготовка жестких дисков для задания импорта](../storage-import-export-tool-preparing-hard-drives-import.md)
 * [Краткий справочник по часто используемым командам](../storage-import-export-tool-quick-reference.md)
-

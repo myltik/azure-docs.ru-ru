@@ -16,14 +16,12 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>Интеграция инфраструктуры VPN с Многофакторной идентификацией Azure (MFA) с помощью расширения сервера политики сети (NPS) для Azure
 
 ## <a name="overview"></a>Обзор
@@ -208,7 +206,7 @@ ms.lasthandoff: 09/21/2017
 
  ![Маршрутизация и удаленный доступ](./media/nps-extension-vpn/image14.png)
  
-4. В диалоговом окне **[имя_сервера} (локальный) - свойства** щелкните вкладку **Безопасность**. 
+4. В диалоговом окне **[имя_сервера}(локальный) - свойства** щелкните вкладку **Безопасность**. 
 5. На вкладке **Безопасность** в разделе "Поставщик проверки подлинности" щелкните **Проверка подлинности RADIUS**, а затем — **Настройка**.
 
  ![Проверка подлинности RADIUS](./media/nps-extension-vpn/image15.png)
@@ -237,7 +235,7 @@ ms.lasthandoff: 09/21/2017
 
  ![Добавление VPN-подключения](./media/nps-extension-vpn/image17.png)
  
-6. Откройте **Центр управления сетями и общим доступом** на панели управления.
+6. Откройте **Центр управления сетями и общим доступом**  на панели управления.
 7. Щелкните **Изменение параметров адаптера**.
 
  ![Изменение параметров адаптера](./media/nps-extension-vpn/image18.png)
@@ -476,5 +474,4 @@ ms.lasthandoff: 09/21/2017
 [Шлюз удаленных рабочих столов и сервер Azure Multi-Factor Authentication, использующие проверку подлинности RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
 [Интеграция локальных каталогов с Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
-
 

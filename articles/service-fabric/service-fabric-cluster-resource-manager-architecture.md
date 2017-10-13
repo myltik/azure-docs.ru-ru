@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: f0d2202c17bf4d378a625a61e941edf7f3f24636
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Общие сведения об архитектуре диспетчера кластерных ресурсов
 Диспетчер кластерных ресурсов Service Fabric — это центральная служба, которая работает в кластере. Он управляет требуемым состоянием служб в кластере, в частности потреблением ресурсов и правилами размещения. 
@@ -68,4 +67,3 @@ ms.lasthandoff: 08/19/2017
 
 [Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
 [Image2]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
-

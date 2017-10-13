@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8d4d574dee4b993d8a464482b244e1f63ade8a57
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Введение в фабрику данных Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,4 +129,3 @@ ms.lasthandoff: 09/25/2017
 | [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |В этом руководстве вы создадите фабрику данных с конвейером, который **перемещает данные** из хранилища BLOB-объектов в базу данных SQL. |
 | [Руководство. Создание первого конвейера для обработки данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md) |С помощью этого руководства вы создадите свою первую фабрику данных Azure с конвейером данных, который **обрабатывает данные** путем запуска сценария Hive в кластере Azure HDInsight (Hadoop). |
 | [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) |В этом руководстве вы создадите фабрику данных с конвейером, который **перемещает данные** из **локальной** базы данных SQL Server в большой двоичный объект Azure. В рамках этого пошагового руководства вы установите и настроите шлюз управления данными на своем компьютере. |
-

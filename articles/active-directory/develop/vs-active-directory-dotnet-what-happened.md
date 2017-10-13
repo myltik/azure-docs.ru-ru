@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 72cd94ba16cb4fe234c898b093c7de6a08f71239
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 095411a7fc854f4dce11921adb0f57c5389a8e13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Что произошло с моим проектом MVC в подключенной службе Visual Studio Azure Active Directory?
 > [!div class="op_single_selector"]
@@ -159,5 +158,4 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-
 

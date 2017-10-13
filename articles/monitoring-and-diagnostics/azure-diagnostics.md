@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-diagnostics"></a>Что такое система диагностики Azure
 Система диагностики Azure позволяет выполнять сбор диагностических данных в развернутом приложении. Можно использовать модуль диагностики из различных источников. В настоящее время поддерживаются и веб-роли, и рабочие роли облачной службы Azure, и виртуальные машины Azure под управлением Microsoft Windows и Service Fabric. Другие службы Azure располагают собственной диагностикой.
@@ -79,4 +78,3 @@ ms.lasthandoff: 09/20/2017
 * Узнайте, как [использовать счетчики производительности в Azure](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
 * Узнайте, как [направлять данные диагностики Azure в Application Insights](azure-diagnostics-configure-application-insights.md).
 * Если возникнут проблемы с запуском диагностики или поиском данных в таблицах хранилища Azure, см. статью [Устранение неполадок с помощью системы диагностики Azure](azure-diagnostics-troubleshooting.md).
-

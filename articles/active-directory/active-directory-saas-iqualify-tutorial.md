@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: cab1ce3694372c137667e0179caf8d3523147f7a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Руководство по интеграции Azure Active Directory с iQualify LMS
 
@@ -51,7 +50,7 @@ ms.lasthandoff: 09/01/2017
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. Добавление iQualify LMS из коллекции.
+1. Добавление iQualify LMS из коллекции
 2. Настройка и проверка единого входа в Azure AD
 
 ## <a name="adding-iqualify-lms-from-the-gallery"></a>Добавление iQualify LMS из коллекции
@@ -308,5 +307,4 @@ ms.lasthandoff: 09/01/2017
 [201]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_203.png
-
 

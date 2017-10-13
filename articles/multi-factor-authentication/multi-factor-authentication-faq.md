@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 023dee623ca6ec35ab77578c97e5bf197b4bfe75
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Часто задаваемые вопросы о Многофакторной идентификации Azure
 В этой статье приведены ответы на часто задаваемые вопросы о Многофакторной идентификации Azure и использовании службы MFA. Здесь рассматриваются вопросы о службе в целом, моделях выставления счетов, пользовательских интерфейсах и устранении неполадок.
@@ -208,4 +207,3 @@ ms.lasthandoff: 09/20/2017
 * [На форумах по Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)вы можете искать и просматривать ответы участников сообщества на технические вопросы, а также задавать собственные.
 * Если вы являетесь клиентом устаревшей версии PhoneFactor и у вас есть вопросы по сбросу пароля или вам нужна помощь, используйте ссылку [сброс пароля](mailto:phonefactorsupport@microsoft.com) , чтобы открыть обращение в службу поддержки.
 * Обратитесь в специализированную [службу поддержки клиентов сервера многофакторной идентификации Azure (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). Вы можете облегчить нам задачу, если при обращении предоставите максимально полные сведения о проблеме. Вы можете сообщить нам, на какой странице возникла ошибка, а также какой точный код ошибки, идентификатор сеанса и идентификатор пользователя, получившего эту ошибку.
-

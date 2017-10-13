@@ -3,7 +3,7 @@ title: "Включение автоматической настройки дл�
 description: "Вы можете легко включить автоматическую настройку для базы данных SQL Azure."
 services: sql-database
 documentationcenter: 
-author: veljko-msft
+author: vvasic
 manager: drasumic
 editor: vvasic
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/19/2016
-ms.author: veljko-msft
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.author: vvasic
 ms.openlocfilehash: 378e5a6a8cea80a551666c3692f8aa650620f66d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-automatic-tuning"></a>Включение автоматической настройки
 

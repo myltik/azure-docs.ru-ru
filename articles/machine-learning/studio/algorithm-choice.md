@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/25/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 822bed8ffc43459dd053fda5b68f62f839b7d94b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Выбор алгоритмов машинного обучения Microsoft Azure
 Ответ на вопрос "Какие алгоритмы машинного обучения использовать?" всегда звучит так: "Это зависит от ряда обстоятельств". Это зависит от размера, качества и природы данных. Это зависит от того, что нужно сделать с ответом. Это зависит от того, как математический алгоритм был преобразован в инструкции для вашего компьютера. И это зависит от того, сколько времени у вас есть. Даже самые опытные специалисты по данным не смогут определить наилучший алгоритм, не попробовав его.
@@ -247,4 +246,3 @@ ms.lasthandoff: 09/25/2017
 [8]: ./media/algorithm-choice/image8.png
 [9]: ./media/algorithm-choice/image9.png
 [10]: ./media/algorithm-choice/image10.png
-

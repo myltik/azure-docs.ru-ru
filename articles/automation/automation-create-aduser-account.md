@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
+ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Проверка подлинности модулей Runbook с помощью классического развертывания Azure и Resource Manager
 В этой статье описываются действия по настройке учетной записи пользователя Azure AD для модулей Azure Automation Runbook, запущенных с классической моделью развертывания Azure или с ресурсами Azure Resource Manager.  Несмотря на то что удостоверение проверки подлинности для модулей Runbook на основе Azure Resource Manager по-прежнему поддерживается, мы советуем использовать в Azure учетную запись запуска от имени.       
@@ -91,5 +90,4 @@ ms.lasthandoff: 08/15/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о разных типах модулей Runbook и действиях по созданию собственных модулей Runbook см. в статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md).
-
 

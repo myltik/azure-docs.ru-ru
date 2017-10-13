@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resize-a-windows-vm"></a>Изменение размера виртуальной машины Windows
 В этой статье описано, как изменить размер виртуальной машины Windows, созданной в модели развертывания с помощью Resource Manager, с использованием Azure PowerShell.
@@ -104,5 +103,4 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Для дополнительной масштабируемости запустите несколько экземпляров виртуальных машин и разверните их. Дополнительные сведения см. в разделе [Автоматическое масштабирование ВМ в наборе масштабирования ВМ](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
-
 

@@ -247,7 +247,6 @@
             - name: Установка драйверов NVIDIA для GPU
               href: n-series-driver-setup.md
     - name: Управление хранилищем
-      href: about-disks-and-vhds.md
       items:
         - name: Сведения об управляемых дисках
           href: managed-disks-overview.md

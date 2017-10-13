@@ -14,25 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
+ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 1cadb543660b636ce7f0285973e6fb4141841b99
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-api-management-with-service-fabric"></a>Развертывание службы управления API с помощью Service Fabric
 Это руководство представляет собой вторую часть цикла. В нем показано, как настроить [службу управления API Azure](../api-management/api-management-key-concepts.md) с помощью Service Fabric для перенаправления трафика во внутреннюю службу в Service Fabric.  Выполнив инструкции этого руководства, вы развернете службу управления API в виртуальной сети и настроите API для отправки трафика во внутренние службы без отслеживания состояния. Дополнительные сведения о сценариях службы управления API Azure и Service Fabric см. в [обзорной статье](service-fabric-api-management-overview.md).
 
 Из этого руководства вы узнаете, как выполнять такие задачи:
 
 > [!div class="checklist"]
-> * развертывание управления API;
-> * настройка управления API;
-> * создание операции API;
-> * настройка внутренней политики;
-> * добавление API в продукт.
+> * Развертывание управления API
+> * Настройка управления API
+> * Создание операции API
+> * Настройка внутренней политики
+> * Добавление API в продукт
 
 Из этого цикла руководств вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]

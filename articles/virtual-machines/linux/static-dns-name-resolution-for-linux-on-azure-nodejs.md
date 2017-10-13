@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: bfba2cf38a0624e8480a32bf153f391d820da5a1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Использование внутренней службы DNS для разрешения имен виртуальных машин в Azure
 
 В этой статье показано, как задать статические внутренние имена DNS для виртуальных машин Linux с использованием виртуальных сетевых карт и имен меток DNS. Статические имена DNS используются для постоянных инфраструктурных служб, таких как сервер сборки Jenkins, который используется для этого поддержания документа, или сервер Git.
@@ -185,4 +183,3 @@ azure vm create jenkins \
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Создание полной среды Linux с помощью интерфейса командной строки Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Создание виртуальной машины Linux с помощью шаблона Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

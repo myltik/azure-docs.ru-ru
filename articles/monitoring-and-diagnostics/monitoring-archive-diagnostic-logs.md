@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: dbc5f89001dcb6cd1ab061cb0a9632e4e5d2c1c7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Архивация журналов диагностики Azure
 В этой статье описано, как настроить архивацию [журналов диагностики Azure](monitoring-overview-of-diagnostic-logs.md) в учетной записи хранения с помощью портала Azure, командлетов PowerShell, интерфейса командной строки или REST API. Архивацию целесообразно применять, если вам нужно хранить журналы диагностики с использованием необязательной политики хранения для аудита, статического анализа или резервного копирования. Учетная запись хранения не обязательно должна находиться в той самой подписке, в которой находится ресурс, выдающий журналы, если у пользователя, настраивающего параметр, имеется соответствующий доступ RBAC к обеим подпискам.
@@ -145,4 +144,3 @@ azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-456
 * [Скачивание больших двоичных объектов для анализа](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Потоковая передача журналов диагностики Azure в пространство имен концентраторов событий](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Сбор и использование данных журнала из ресурсов Azure](monitoring-overview-of-diagnostic-logs.md)
-

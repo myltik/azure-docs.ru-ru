@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 34c46fb282ad154225f5ee8ef544bc8da1c50016
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Журнал ведения диагностики Azure Cosmos DB
 
@@ -349,4 +348,3 @@ $blobs | Get-AzureStorageBlobContent `
    - [Что такое концентраторы событий Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Начало работы с концентраторами событий](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Ознакомьтесь с разделом [Скачивание больших двоичных объектов](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
-

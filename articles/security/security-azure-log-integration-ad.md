@@ -15,14 +15,12 @@ ums.workload: na
 ms.date: 08/08/2017
 ms.author: barclayn
 ms.custom: azlog
+ms.openlocfilehash: 8a1295cc86057ed72940e774d0bd423d61142e31
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 4a5c1cf7ee6f9e7ad43bb47f798520384606969c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-azure-active-directory-audit-logs"></a>Интеграция журналов аудита Azure Active Directory
 
 События аудита Azure Active Directory (Azure AD) помогают определить привилегированные действия, выполняемые в Azure Active Directory. Просмотреть типы событий, доступных для отслеживания, можно с помощью [событий отчета об аудите Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
@@ -76,4 +74,3 @@ ms.lasthandoff: 08/23/2017
 * [Интеграция журналов Azure: часто задаваемые вопросы](security-azure-log-integration-faq.md). В этой статье содержатся ответы на часто задаваемые вопросы об интеграции журналов Azure.
 * [Интеграция оповещений центра безопасности Azure с помощью интеграции журналов Azure](../security-center/security-center-integrating-alerts-with-log-integration.md). В этой статье показано, как синхронизировать оповещения центра безопасности, а также события безопасности виртуальных машин, собранные системой диагностики Azure и в журналах аудита Azure, с решением Log Analytics или SIEM.
 * [New features for Azure diagnostics and Azure Audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Новые возможности системы диагностики Azure и журналов аудита Azure). В этой записи блога рассказывается о журналах аудита Azure и других функциях, помогающих лучше понять, как работают ваши ресурсы Azure.
-

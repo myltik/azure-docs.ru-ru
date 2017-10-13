@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/16/2017
 ms.author: xshi
+ms.openlocfilehash: 9b278735ce3af9e6e61a85c5e95ea218622361c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 8eee4b2eea165176bddf0896685636bbac4db321
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Подключение Adafruit Feather M0 WiFi к Центру Интернета вещей Azure в облаке
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
@@ -161,7 +159,7 @@ ms.lasthandoff: 07/13/2017
 1. Щелкните **Файл** > **Параметры** (Windows или Linux) или **Arduino** > **Параметры** (Mac), скопируйте и вставьте ссылку ниже в параметр **Additional Boards Manager URLs** (Дополнительные URL-адреса для менеджера плат) в параметрах Arduino IDE.
    
    ```
-   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
 1. Щелкните **Инструменты** > **Платы** > **Менеджер плат**, а затем установите `Arduino SAMD Boards` версии `1.6.2` или более новой. 
@@ -240,5 +238,4 @@ ms.lasthandoff: 07/13/2017
 Вы успешно подключили плату Feather M0 WiFi к Центру Интернета вещей и отправили в него собранные данные датчика. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-
 

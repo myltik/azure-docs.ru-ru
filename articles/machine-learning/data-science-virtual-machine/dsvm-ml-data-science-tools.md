@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="machine-learning-and-data-science-tools"></a>Средства машинного обучения и обработки и анализа данных
 Виртуальные машины для обработки и анализа данных (DSVM) содержат большой набор средств и библиотек для машинного обучения, доступных в распространенных языках, таких как Python, R, Julia. 
 
@@ -95,4 +93,3 @@ ms.lasthandoff: 09/25/2017
 | Дополнительные средства на виртуальной машине для обработки и анализа данных      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
 
 В DSVM есть несколько других библиотек машинного обучения, например популярный пакет `scikit-learn`, который входит в состав дистрибутива Anaconda Python, установленного на DSVM. Обязательно проверьте список пакетов, доступных в Python, R и Julia, запустив соответствующие диспетчеры пакетов. 
-

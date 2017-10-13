@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 622a26da8b7d5f5c3a242c5c88a4ae479095bf6f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Создание приложения MongoDB с помощью React и Azure Cosmos DB  
 
@@ -116,4 +115,3 @@ ms.lasthandoff: 09/07/2017
 > [!div class="nextstepaction"]
 > [Перенос данных в DocumentDB с помощью mongoimport и mongorestore](mongodb-migrate.md)
  
-

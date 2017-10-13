@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 9ca33057f6030fdcc233f6053fdc392d62f8f9f4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Репликация виртуальных машин Azure между регионами с помощью Azure Site Recovery
 
 >[!NOTE]
@@ -147,4 +145,3 @@ Site Recovery предоставляет простой способ репли�
 
 - [Узнайте больше](site-recovery-failover.md) о разных типах отработки отказа и способах их выполнения.
 - Узнайте больше об [использовании планов восстановления](site-recovery-create-recovery-plans.md), чтобы снизить значение RTO.
-

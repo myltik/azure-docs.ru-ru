@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: beafd2c65b0506844ff9ea152037ed6f2866e650
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Использование кластера HDInsight Spark для анализа данных в Data Lake Store
 
 В этом руководстве для выполнения задания, которое считывает данные из учетной записи Data Lake Store, используется записная книжка Jupyter, доступная в кластерах HDInsight Spark.
@@ -143,4 +141,3 @@ ms.lasthandoff: 08/29/2017
 * [Создание автономного приложения Scala для работы в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-create-standalone-application.md)
 * [Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
-

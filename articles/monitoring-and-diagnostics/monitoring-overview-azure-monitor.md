@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-azure-monitor"></a>Обзор Azure Monitor
 В этой статье приведены общие сведения о службе Azure Monitor в Microsoft Azure. В ней объясняется назначение Azure Monitor, а также содержатся ссылки на дополнительные сведения об использовании этой службы.  Если вы желаете просмотреть видеоролик, ознакомьтесь с разделом "Дальнейшие действия" в конце этой статьи. 
 
@@ -168,4 +166,3 @@ Azure Monitor имеет целевую страницу, которая пом�
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , если вы пытаетесь диагностировать проблемы в работе веб-приложения службы приложений.
 - [Устранении неполадок службы хранилища Azure](../storage/common/storage-e2e-troubleshooting.md) , если вы используете большие двоичные объекты, таблицы или очереди этой службы.
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) и пакет [Operations Management Suite](https://www.microsoft.com/oms/)
-

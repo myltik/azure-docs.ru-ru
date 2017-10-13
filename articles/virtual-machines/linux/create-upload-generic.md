@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Информация о нерекомендованных дистрибутивах
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -187,5 +186,4 @@ ms.lasthandoff: 07/15/2017
   > 
 
 * Затем необходимо завершить работу виртуальной машины и передать виртуальный жесткий диск в Azure.
-
 

@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
 ms.custom: end-user
+ms.openlocfilehash: 87c92265d4f377e76d3697e6957c5f739413f2b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: b701172c2345313e236a037f5aa16939cfaac440
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="register-for-self-service-password-reset"></a>Регистрация для самостоятельного сброса пароля
 
@@ -67,4 +66,3 @@ ms.lasthandoff: 08/08/2017
 * [Не удается войти в учетную запись Майкрософт](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Страница регистрации данных для сброса паролей, на которой отображаются зарегистрированные методы и кнопка "Готово""
-

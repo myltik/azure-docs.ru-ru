@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Общие сведения об управлении устройствами в Azure Active Directory
 
@@ -155,6 +154,5 @@ ms.lasthandoff: 08/30/2017
     - устройства Windows 10, зарегистрированные в Azure Active Directory, ознакомьтесь с разделом [Как настроить устройства Windows 10, зарегистрированные в Azure Active Directory](device-management-azuread-registered-devices-windows10-setup.md);
     - устройства, присоединенные к Azure Active Directory, ознакомьтесь с разделом [Как настроить устройства, присоединенные к Azure Active Directory](device-management-azuread-joined-devices-setup.md);
     - гибридные устройства, присоединенные к Azure AD, ознакомьтесь с разделом [Настройка гибридных устройств, присоединенных к Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
-
 
 

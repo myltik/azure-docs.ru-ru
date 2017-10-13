@@ -1,5 +1,5 @@
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Откройте TCP-порты в брандмауэре Windows для экземпляра ядра СУБД по умолчанию
-1. Подключитесь к виртуальной машине через удаленный рабочий стол. Подробные инструкции по подключению к виртуальной машине см. в разделе [Открывать виртуальные машины с помощью удаленного рабочего стола](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
+1. Подключитесь к виртуальной машине через удаленный рабочий стол. Подробные инструкции по подключению к виртуальной машине см. в разделе [Открывать виртуальные машины с помощью удаленного рабочего стола](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
 2. После входа введите **WF.msc**на начальном экране и нажмите клавишу ВВОД.
    
     ![Запустите программу брандмауэра](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)

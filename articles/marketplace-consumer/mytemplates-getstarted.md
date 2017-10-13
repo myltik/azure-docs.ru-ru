@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
 ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Начало работы с частными шаблонами на портале Azure
 Шаблон [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) — это декларативный шаблон, который используется для определения развертывания. С его помощью можно определить ресурсы для развертывания решения и указать параметры и переменные, позволяющие вводить значения для различных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания.
@@ -133,5 +132,4 @@ ms.lasthandoff: 02/16/2017
 * Сведения о создании шаблонов Resource Manager см. в [этой статье](../azure-resource-manager/resource-group-authoring-templates.md).
 * Функции, которые можно использовать в шаблоне Resource Manager, описаны в статье [Функции шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
 * Рекомендации по разработке шаблонов Azure Resource Manager см. в [этой статье](../azure-resource-manager/best-practices-resource-manager-design-templates.md).
-
 

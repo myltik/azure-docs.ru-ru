@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bf015f8f646ecce6821379affd4d041329967fc8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: b2ad45e76320c59d18dce7b39166679801b4170a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Общие сведения о проверке IP-потока в Наблюдателе за сетями Azure
 
 Функция проверки IP-потока проверяет, разрешена или запрещена передача пакета на виртуальную машину или с нее на основе данных пяти кортежей. Эта информация включает в себя направление, протокол, локальный IP-адрес, удаленный IP-адрес, локальный порт и удаленный порт. Если пакет отклонен группой безопасности, возвращается имя правила, которое запретило этот пакет. Хотя может быть выбран любой исходный или конечный IP-адрес, эта функция помогает администраторам быстро диагностировать проблемы с входящим или исходящим подключением к Интернету и входящим или исходящим подключением к локальной среде.
@@ -37,7 +35,6 @@ ms.lasthandoff: 03/04/2017
 Ознакомьтесь с приведенной статьей, чтобы узнать, как с помощью портала определить, разрешен или запрещен пакет для конкретной виртуальной машины. [Проверка состояния входящего и исходящего трафика виртуальной машины (разрешен или запрещен) путем проверки IP-потока (компонент Наблюдателя за сетями Azure)](network-watcher-check-ip-flow-verify-portal.md)
 
 [1]: ./media/network-watcher-ip-flow-verify-overview/figure1.png
-
 
 
 

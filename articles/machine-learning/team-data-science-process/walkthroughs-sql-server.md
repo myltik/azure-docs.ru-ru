@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Пошаговые руководства по обработке и анализу данных в SQL Server с помощью T-SQL, R и Python
 
 В этих пошаговых руководствах для выполнения прогнозной аналитики используются SQL Server, службы R для SQL Server и службы Python для SQL Server. Код R и Python развертывается в хранимых процедурах. Они предусматривают выполнение инструкций, описанных в процессе обработки и анализа данных группы. Процесс обработки и анализа данных группы представлен в статье [Жизненный цикл процесса обработки и анализа данных группы](overview.md). 

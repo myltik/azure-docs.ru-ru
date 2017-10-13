@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4fdd007c2cfad7b42f26ab2cacfba06d95c8dad3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 152cc8fb61aa6115c7b5863e4d798db9e7aa5b7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Общие сведения о возможностях записи пакетов в Наблюдателе за сетями Azure
 
 Возможности записи пакетов Наблюдателя за сетями позволяют создавать соответствующие сеансы для отслеживания входящего и исходящего трафика виртуальной машины. Функция записи пакетов помогает выявлять аномалии в работе сети по факту или заранее. Она также помогает выполнять сбор сетевой статистики, получать сведения о сетевых вторжениях, выполнять отладку передачи данных между клиентом и сервером и многое другое.
@@ -59,7 +57,6 @@ ms.lasthandoff: 05/26/2017
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png
-
 
 
 

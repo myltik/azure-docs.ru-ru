@@ -1,5 +1,5 @@
 ---
-title: "Состояние пользователей в службе Многофакторной идентификации Microsoft Azure"
+title: "Состояние пользователей в службе Microsoft Azure Multi-Factor Authentication"
 description: "Сведения о состоянии пользователей в Azure MFA."
 services: multi-factor-authentication
 documentationcenter: 
@@ -15,14 +15,12 @@ ms.date: 06/26/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 1869b7a4ef42536a3cd909ba2983ae0fe97185a9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Как настроить требование двухфакторной проверки подлинности пользователя или группы
 
 Существует два подхода, с помощью которых можно требовать двухфакторную проверку подлинности. Первый способ — включить Многофакторную идентификацию Azure (MFA) для каждого отдельного пользователя. В этом случае пользователи всегда выполняют двухфакторную проверку подлинности (за некоторыми исключениями, например, если они входят с доверенных IP-адресов или если включена функция запоминания устройств). Второй способ — настроить политику условного доступа, которая требует прохождения двухфакторной проверки подлинности при определенных условиях.
@@ -40,7 +38,7 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="enable-azure-mfa-by-changing-user-status"></a>Включение Azure MFA путем изменения состояния пользователя
 
-Учетные записи пользователей в службе Многофакторной идентификации Azure имеют три различных состояния:
+Учетные записи пользователей в службе Azure Multi-Factor Authentication имеют три различных состояния:
 
 | Состояние | Описание | Затронутые приложения, не использующие браузер |
 |:---:|:---:|:---:|

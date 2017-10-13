@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 9d6132e1a01be489b8e8e28a0219cf8a0b50b318
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Проверка подлинности с помощью интерфейсов REST API Служб мобильного взаимодействия — настройка вручную
 Это приложение к статье [Проверка подлинности с помощью интерфейсов REST API Служб мобильного взаимодействия](mobile-engagement-api-authentication.md). Сначала следует ознакомиться с данными в статье. Здесь описывается альтернативный способ выполнения однократной настройки для настройки проверки подлинности с помощью интерфейсов REST API Служб мобильного взаимодействия на портале Azure. 
