@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3cf78b59dc2dd010fdf4f480b09b3f80def1e62d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Подключение к хранилищу данных SQL Azure с помощью SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -102,4 +100,3 @@ ms.lasthandoff: 04/03/2017
 [4]: media/sql-data-warehouse-query-ssms/new-query.png
 [5]: media/sql-data-warehouse-query-ssms/execute-query.png
 [6]: media/sql-data-warehouse-query-ssms/results.png
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: b4b9d5d272bdb172f1d40db379a519a4f617550a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Аутентификация и авторизация в служебной шине
 
@@ -54,5 +53,4 @@ ms.lasthandoff: 08/31/2017
 - Дополнительные сведения о SAS см. в статье [Аутентификация служебной шины с помощью подписанных URL-адресов](service-bus-sas.md).
 - [Изменения пространств имен с поддержкой ACS.](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)
 - Соответствующую информацию об аутентификации и авторизации с помощью ретранслятора Azure см. в разделе [Проверка подлинности и авторизация в ретрансляторе Azure](../service-bus-relay/relay-authentication-and-authorization.md). 
-
 

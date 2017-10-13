@@ -15,12 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-backups"></a>Резервные копии хранилища данных SQL
 Хранилище данных SQL предоставляет услуги резервного копирования хранилища данных с созданием как локальных, так и географических резервных копий. Резервное копирование включает в себя создание мгновенных снимков BLOB-объектов службы хранилища Azure и геоизбыточное хранилище. Резервные копии хранилища данных используются для восстановления хранилища данных до точки восстановления в основном регионе или для его восстановления в другом географическом регионе. В этой статье рассматриваются особенности резервных копий хранилища данных SQL.
@@ -119,5 +118,4 @@ order by run_id desc;
 * Восстановление хранилища данных описано в статье [Восстановление хранилища данных SQL Azure (обзор)](sql-data-warehouse-restore-database-overview.md).
 
 <!-- ### Tutorials -->
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
+ms.openlocfilehash: 37436f7be4f09c14febef6174faf956fa07255ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a>Указание подключаемых модулей томов и драйверов ведения журналов для контейнера
 
 Service Fabric поддерживает указание [подключаемых модулей томов Docker](https://docs.docker.com/engine/extend/plugins_volume/) и [драйверов ведения журналов Docker](https://docs.docker.com/engine/admin/logging/overview/) для службы контейнеров. Подключаемые модули указываются в манифесте приложения, как показано в следующем примере:
@@ -76,5 +74,4 @@ Service Fabric поддерживает указание [подключаемы
 
 
 [Развертывание контейнера в Service Fabric](service-fabric-deploy-container.md)
-
 

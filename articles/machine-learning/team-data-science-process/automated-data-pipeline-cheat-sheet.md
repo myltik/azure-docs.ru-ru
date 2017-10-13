@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Памятка по работе с автоматическим конвейером данных для создания прогнозов машинного обучения Azure
 **Памятка по работе с автоматическим конвейером данных машинного обучения Microsoft Azure** поможет вам разобраться в технологии, которую вы можете использовать для передачи данных в веб-службу машинного обучения и их последующей оценки с помощью модели прогнозной аналитики.
@@ -43,5 +42,4 @@ ms.lasthandoff: 09/25/2017
 * Обсуждение работы с веб-службой оценки см. в статье [Как использовать веб-службу машинного обучения Azure](../studio/consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

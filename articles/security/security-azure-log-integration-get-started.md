@@ -15,12 +15,11 @@ ums.workload: na
 ms.date: 07/26/2017
 ms.author: TomSh
 ms.custom: azlog
+ms.openlocfilehash: 9d39ecd513386b75b4b640721f80991caaf9ade8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: a5c51817688140cc2778602b4c1d5184ae4729a0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Интеграция журналов Azure с ведением журнала системы диагностики Azure и пересылкой событий Windows
 Служба интеграции журналов Azure (AzLog) позволяет интегрировать необработанные журналы из ресурсов Azure с локальными системами управления информацией о безопасности и событиями безопасности (SIEM). С помощью такой интеграции можно получить унифицированную панель мониторинга безопасности для всех ресурсов, локальных или облачных, что позволяет выполнять статистическую обработку, сопоставление и анализ, а также оповещать о событиях безопасности, связанных с приложениями.
@@ -185,4 +184,3 @@ ms.lasthandoff: 08/01/2017
 * [Azure log integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md) (Служба интеграции журналов Azure: часто задаваемые вопросы) — эта статья содержит ответы на часто задаваемые вопросы об интеграции журналов Azure.
 * [Интеграция оповещений центра обеспечения безопасности с помощью интеграции журналов Azure (предварительная версия)](../security-center/security-center-integrating-alerts-with-log-integration.md) — в этом документе показано, как синхронизировать оповещения центра безопасности, а также события безопасности виртуальных машин, собранные системой диагностики Azure и в журналах действий Azure, с решением Log Analytics или SIEM.
 * [New features for Azure diagnostics and Azure Audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Новые возможности системы диагностики Azure и журналов аудита Azure) — в этой записи блога рассказывается о журналах аудита Azure и других функциях, которые помогут глубже понять, как работают ваши ресурсы Azure.
-

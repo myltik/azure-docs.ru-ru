@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/18/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Администрирование службы поиска Azure на портале Azure
 > [!div class="op_single_selector"]
@@ -197,7 +196,6 @@ Azure реализует [глобальную модель авторизаци
 [8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
 [9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
-
 
 
 

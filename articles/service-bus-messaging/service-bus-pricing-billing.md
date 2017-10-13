@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>Сведения о расценках и выставлении счетов служебной шины
 Служебная шина доступна на следующих трех уровнях: "Базовый", "Стандартный" и ["Премиум"](service-bus-premium-messaging.md). Уровень обслуживания можно выбрать для каждого пространства имен службы служебной шины, которое вы создаете, и этот уровень применяется ко всем сущностям, создаваемым в этом пространстве имен.
@@ -99,4 +98,3 @@ ms.lasthandoff: 08/30/2017
 * Ответы на некоторые общие вопросы о ценах на служебную шину и выставлении счетов за ее использование приведены в разделе [Часто задаваемые вопросы о служебной шине](service-bus-faq.md#pricing).
 
 [Azure portal]: https://portal.azure.com
-

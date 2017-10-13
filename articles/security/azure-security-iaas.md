@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: f93211d289553b7a8afbe8c17fa4847f3d4585a8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Рекомендации по безопасности для рабочих нагрузок IaaS в Azure
 
@@ -230,4 +229,3 @@ Security Compliance Manager является бесплатным инструм
 * [Блог группы безопасности Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Центр Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 * [Рекомендации и шаблоны для обеспечения безопасности в Azure](security-best-practices-and-patterns.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 581daaaa5cc0cf8be782f834c6bdb3f27ee413fb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-vms-to-azure-with-powershell-in-the-classic-portal"></a>Репликация виртуальных машин Hyper-V в Azure на классическом портале с помощью PowerShell
 > [!div class="op_single_selector"]
@@ -405,4 +404,3 @@ marsagentinstaller.exe /q /nu
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Узнайте больше](/powershell/azure/overview) о командлетах PowerShell для Azure Site Recovery. </a>.
-

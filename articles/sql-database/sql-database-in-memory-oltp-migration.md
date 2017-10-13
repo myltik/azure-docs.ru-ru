@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: db2d6dbdec80e8c443014c72c80172ad3effb82c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: 50eed9aed417778bd497f55e20c8e732fdae9cf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Повышение производительности приложений в базе данных SQL с помощью выполняющейся в памяти OLTP
 [Выполняющуюся в памяти OLTP](sql-database-in-memory.md) можно использовать для повышения производительности обработки транзакций, приема данных и сценариев, связанных с временными данными, в базах данных SQL Azure уровня [Премиум](sql-database-service-tiers.md), не повышая ценовую категорию. 
@@ -175,5 +173,4 @@ CREATE PROCEDURE schemaname.procedurename
 * [In-Memory OLTP (оптимизация в памяти)](http://msdn.microsoft.com/library/dn133186.aspx)
 * [Общие сведения о скомпилированных в собственном коде хранимых процедурах](http://msdn.microsoft.com/library/dn133184.aspx)
 * [Помощник по оптимизации памяти](http://msdn.microsoft.com/library/dn284308.aspx)
-
 

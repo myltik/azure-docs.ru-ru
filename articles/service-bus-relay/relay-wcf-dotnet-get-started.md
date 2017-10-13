@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 1af1ac78398d65e6a87f0d24d6198f3dfbc82ffd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Как использовать ретрансляторы WCF на основе ретранслятора Azure с помощью .NET
 В этой статье описываются методы использования службы ретрансляции Azure. Примеры написаны на языке C# и используют API службы Windows Communication Foundation (WCF) с расширениями, содержащимися в сборке служебной шины. Дополнительные сведения о ретрансляторе Azure см. в статье [Что такое ретранслятор Azure?](relay-what-is-it.md).
 
@@ -227,4 +225,3 @@ using (var ch = cf.CreateChannel())
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
 [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 [overview of Service Bus samples]: ../service-bus-messaging/service-bus-samples.md
-

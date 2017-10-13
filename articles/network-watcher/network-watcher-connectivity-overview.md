@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
+ms.openlocfilehash: 16ceef9c923b6a933a5caf752991b466346e0ebc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: c29f5afe59f57112fe1f115df6bc53645f3c0d34
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-connectivity-check-in-azure-network-watcher"></a>Наблюдатель за сетями Azure: общие сведения о проверке подключения
 
 Функция подключения к сети Наблюдателя за сетями предоставляет возможность проверять прямое подключение TCP от виртуальной машины к виртуальной машине, полное доменное имя, универсальный код ресурса (URI) или адрес IPv4. Сетевые сценарии сложные. Они реализуются с помощью групп безопасности сети, брандмауэров, определяемых пользователем маршрутов и ресурсов, предоставляемых Azure. Сложные конфигурации делают устранение неполадок, связанных с подключением, непростой задачей. Наблюдатель за сетями помогает сократить время поиска и обнаружения проблем с подключением. Полученные результаты могут дать представление о том, с чем связана проблема подключения: с платформой или конфигурацией пользователя. Подключение можно проверить с помощью [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md) и [REST API](network-watcher-connectivity-rest.md).
@@ -90,5 +88,4 @@ ms.lasthandoff: 08/23/2017
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png
-
 

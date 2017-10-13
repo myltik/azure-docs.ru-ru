@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 82b1dc036b53fbc1f0159d77ce102dcd054ea722
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integration-runtime-in-azure-data-factory"></a>Среда выполнения интеграции в фабрике данных Azure
 Среда выполнения интеграции (IR) — это вычислительная инфраструктура, с помощью которой фабрика данных Azure обеспечивает перечисленные ниже возможности интеграции данных в разных сетевых средах.
 
@@ -190,4 +188,3 @@ Azure SSIS IR — это полностью управляемый класте
 
 - [Создание и настройка локальной среды выполнения интеграции](create-self-hosted-integration-runtime.md)
 - [Создание среды выполнения интеграции Azure SSIS в фабрике данных Azure](create-azure-ssis-integration-runtime.md). Эта статья дополняет соответствующее руководство, а также предоставляет инструкции по использованию управляемого экземпляра SQL Azure (закрытая предварительная версия) и присоединению среды выполнения интеграции к виртуальной сети. 
-

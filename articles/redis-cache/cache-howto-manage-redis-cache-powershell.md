@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 0a5c95eab3fd01f611fc049e80c5c506857e0b81
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Управление кэшем Redis для Azure с использованием Azure PowerShell
 > [!div class="op_single_selector"]
@@ -786,5 +785,4 @@ ms.lasthandoff: 07/21/2017
 * [Блог Azure](http://blogs.msdn.com/windowsazure): узнайте о новых возможностях в Azure.
 * [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 * [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
-
 

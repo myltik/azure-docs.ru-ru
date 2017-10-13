@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Исправление уязвимостей ОС в центре безопасности Azure
 Центр безопасности Azure ежедневно анализирует операционную систему виртуальных машин и компьютеров, чтобы определить конфигурацию, повышающую риск атак на них. Центр безопасности Майкрософт рекомендует устранять уязвимости, если конфигурация операционной системы не соответствует правилам рекомендуемой конфигурации, и изменять конфигурацию, чтобы устранить эти уязвимости.
@@ -111,4 +110,3 @@ ms.lasthandoff: 09/13/2017
 [4]: ./media/security-center-remediate-os-vulnerabilities/search.png
 [5]: ./media/security-center-remediate-os-vulnerabilities/log-search.png
 [6]: ./media/security-center-remediate-os-vulnerabilities/search-results.png
-

@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ccfbd45def1ecf036a2464f560aa89817c37b419
-ms.openlocfilehash: 54b3ce2c8c3966ee36350fed71bdc48aa5bffa63
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 12f959376d4923e4e2481e37108ade632ac14902
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Что такое Operations Management Suite (OMS)?
 Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее.  Набор OMS реализован как облачная служба, поэтому время, затрачиваемое на подготовку к работе, минимально, как и вложения в службы инфраструктуры.  Новые возможности предоставляются автоматически, что обеспечивает экономию затрат на текущее обслуживание и обновление.
@@ -53,5 +52,4 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 * Дополнительные сведения о [службе автоматизации Azure](../automation/automation-intro.md)
 * Дополнительные сведения о [службе архивации Azure](http://azure.microsoft.com/documentation/services/backup).
 * Дополнительные сведения об [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
-
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-upgrade-parameters"></a>Параметры обновления приложений
 В настоящей статье описаны различные параметры, которые применяются во время обновления приложения Azure Service Fabric. Параметры включают название и версию приложения. Это элементы управления временем ожидания и проверками работоспособности, которые применяются во время обновления и указывают политики, которые должны применяться при сбое обновления.
