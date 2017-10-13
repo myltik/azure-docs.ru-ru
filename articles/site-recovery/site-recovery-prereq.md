@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
 ms.author: rajanaki
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="prerequisites-for-replication-from-on-premises-to-azure-by-using-site-recovery"></a>Необходимые условия для репликации из локальной среды в Azure с помощью Site Recovery
 
 > [!div class="op_single_selector"]
@@ -130,4 +128,3 @@ ms.lasthandoff: 09/19/2017
 |``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | Не требуется | Не требуется | Не требуется | Разрешение для скачивания SQL |
 |``time.windows.com`` | Разрешение | Разрешение | Разрешение | Разрешение|
 |``time.nist.gov`` | Разрешение | Разрешение | Разрешение | РАЗРЕШИТЬ |
-

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: v-livech
 ms.openlocfilehash: 278bf1785aac71068ab94cf9916af69a204c44be
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-10"></a>Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Linux в Azure с помощью расширения VMAccess и Azure CLI 1.0
 В этой статье показано, как использовать расширение Azure VMAcesss для проверки или восстановления диска, сброса разрешений пользователей на доступ, управления учетными записями пользователей или сброса конфигурации SSHD в Linux. Для работы с этой статьей потребуется:

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Направление Azure Cosmos DB из Stream Analytics в формат JSON
 Stream Analytics позволяет направлять данные из [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) в формат JSON, позволяя архивировать данные и уменьшать задержки запросов в отношении неструктурированных данных JSON. В этом документе представлены некоторые рекомендации по реализации данной конфигурации.
@@ -70,4 +69,3 @@ Stream Analytics использует оптимистичный подход Up
   2\) MyCollection{partition} — должны существовать такие коллекции: MyCollection0, MyCollection1, MyCollection2 и т. д.  
 * **Partition Key** — необязательно. Требуется, только если в шаблоне имени коллекции используется маркер {partition}. Имя поля в выходных событиях, указывающее ключ для разделения выходных данных между коллекциями. Для выходных данных одной коллекции можно использовать любой столбец произвольных выходных данных, например PartitionId.  
 * **Document ID** — необязательно. Имя поля в выходных событиях, используемое для указания первичного ключа, на котором основываются операции вставки или обновления.  
-

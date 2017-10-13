@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Все разделы о службе хранилища данных SQL Azure
 В этом разделе перечислены все разделы, относящиеся к службе **хранилища данных SQL Azure** . На этой веб-странице с помощью клавиш **Ctrl+F**можно искать интересующие вас разделы по ключевым словам.
@@ -165,5 +164,4 @@ ms.lasthandoff: 04/03/2017
 | 85 |[Приступая к работе с системой обнаружения угроз](sql-data-warehouse-security-threat-detection.md) |Как приступить к работе с системой обнаружения угроз |
 | 86 |[Ограничения емкости хранилища данных SQL](sql-data-warehouse-service-capacity-limits.md) |Максимальные значения для подключений, баз данных, таблиц и запросов для хранилища данных SQL. |
 | 87 |[Устранение неполадок хранилища данных SQL Azure](sql-data-warehouse-troubleshoot.md) |Диагностика и устранение неполадок хранилища данных SQL Azure. |
-
 

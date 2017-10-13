@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Обновление набора масштабирования виртуальных машин
 В этой статье объясняется, как без простоев развернуть обновление операционной системы в наборе масштабирования виртуальных машин Azure. Здесь рассматриваются такие обновления ОС, которые изменяют версию или SKU операционной системы, либо изменяют универсальный код ресурса (URI) пользовательского образа. Обновление без простоя означает обновление виртуальных машин по одной или группами (например, по одному домену сбоя), а не всех сразу. В этом случае виртуальные машины, которые не обновляются, могут продолжать работу.
@@ -99,5 +98,4 @@ $vmss.virtualMachineProfile.storageProfile.imageReference.id = $newImageReferenc
 После нажатия кнопки **Обновить** и **Получить сведения** начинается обновление виртуальных машин в домене обновления UD 0.
 
 ![Отображение процесса обновления в Vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
-
 

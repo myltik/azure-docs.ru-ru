@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 456daea494ed1daed9bd809b68ae12fceb800299
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Обзор ресурсов хранилища с помощью обозревателя сервера и управление ими
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -287,5 +286,4 @@ BLOB-объект откроется в редакторе по умолчани
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об использовании служб хранилища Azure см. в статье, посвященной [доступу к службам хранилища Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
-
 

@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a2a6ca04ca8043bc0ed142310ad3e7b55100d228
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 1cd7bd7e32c96398d72c7cd3b51e2b456d60f01d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-powershell-to-manage-traffic-manager"></a>Использование PowerShell для управления диспетчером трафика
 
 Azure Resource Manager представляет собой предпочтительный интерфейс управления для служб в Azure. Профилями диспетчера трафика Azure можно управлять с помощью интерфейсов API и инструментов на основе Azure Resource Manager.
@@ -313,4 +311,3 @@ Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remov
 [Мониторинг диспетчера трафика](traffic-manager-monitoring.md)
 
 [Рекомендации по безопасности для диспетчера трафика](traffic-manager-performance-considerations.md)
-

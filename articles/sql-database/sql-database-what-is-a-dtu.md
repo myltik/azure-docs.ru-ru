@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: da3399b9c6642435dc7b40ed1c843217c984d15e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Единицы транзакций базы данных (DTU) и единицы транзакций эластичной базы данных (eDTU)
 Эта статья содержит информацию об обычных единицах передачи данных (DTU) и единицах передачи данных в эластичной базе данных (eDTU), а также о том, что происходит, когда достигается их максимальное количество.  
@@ -65,4 +64,3 @@ DTU лучше всего помогают определить относите
 * Ознакомьтесь с разделом [Доступные параметры производительности базы данных SQL Azure](sql-database-service-tiers.md), чтобы получить сведения о количестве DTU и eDTU, доступных для отдельных баз данных и эластичных пулов, а также об ограничениях ресурсов, отличных от ресурсов ЦП, памяти, ввода-вывода данных и ввода-вывода журнала транзакций.
 * Чтобы понять, как используются единицы DTU в вашей среде, см. статью [Анализ производительности запросов базы данных SQL Azure](sql-database-query-performance.md).
 * Чтобы понять методологию, лежащую в основе тестовой рабочей нагрузки OLTP, которая определяет наполнение единиц DTU, см. статью [Общие сведения об измерении производительности базы данных SQL Azure](sql-database-benchmark-overview.md).
-
