@@ -118,6 +118,7 @@
 ##### [Настройка веб-прокси](storsimple-8000-configure-web-proxy.md)
 ##### [Изменение параметров DATA 0](storsimple-8000-modify-data-0.md)
 
+#### [Использование примеров скриптов Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
 
 #### [Использование StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [Что такое StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)

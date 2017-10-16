@@ -1,5 +1,5 @@
 # Обзор
-## [Что собой представляет SQL Server на виртуальной машине Azure?](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
+## [Виртуальные машины SQL Server на базе Windows](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ## [Цены](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 ## [Часто задаваемые вопросы](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 

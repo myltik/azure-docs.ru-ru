@@ -91,9 +91,9 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Создание шаблонов Resource Manager](../../../resource-group-authoring-templates.md)
 ## [Шаблоны, созданные сообществом](https://azure.microsoft.com/documentation/templates)
-## [REST для вычислений](/rest/api/compute)
-## [REST для сети](/rest/api)
-## [REST для службы хранилища](/rest/api/storageservices)
+## [REST для вычислений](https://msdn.microsoft.com/library/jj157206.aspx)
+## [REST для сети](https://msdn.microsoft.com/library/jj157182.aspx)
+## [REST для службы хранилища](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=compute)

@@ -145,7 +145,7 @@
           href: prepare-for-upload-vhd-image.md
         - name: Использование универсального образа
           href: create-vm-generalized-managed.md
-        - name: Использование специализированного образа
+        - name: Использование специализированного диска
           href: create-vm-specialized.md
         - name: Запись образа виртуальной машины
           href: capture-image-resource.md

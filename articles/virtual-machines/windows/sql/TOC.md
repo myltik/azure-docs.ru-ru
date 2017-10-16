@@ -1,5 +1,5 @@
 # Обзор
-## [Что собой представляет SQL Server на виртуальной машине Azure?](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [Виртуальные машины SQL Server на базе Windows](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [Цены](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [Часто задаваемые вопросы](virtual-machines-windows-sql-server-iaas-faq.md)
  

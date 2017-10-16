@@ -53,6 +53,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Ресурсы Azure
               href: log-analytics-azure-storage.md
+            - name: Данные диагностики и журнала из службы хранилища Azure
+              href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager
               href: log-analytics-om-agents.md
             - name: Менеджер конфигураций
@@ -92,6 +94,8 @@
           items:
             - name: Регулярные выражения
               href: log-analytics-log-searches-regex.md
+            - name: Поиск между рабочими областями
+              href: log-analytics-cross-workspace-search.md
         - name: Выполнение действий на основе результатов поиска
           href: log-analytics-log-search-takeaction.md
         - name: Группы компьютеров
@@ -229,6 +233,10 @@
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
+    - name: Справочник по плиткам конструктора представлений
+      href: log-analytics-view-designer-tiles.md
+    - name: Справка по элементам визуализации конструктора представлений
+      href: log-analytics-view-designer-parts.md
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

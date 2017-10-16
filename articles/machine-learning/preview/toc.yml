@@ -3,7 +3,7 @@
 - name: Обзор
   expanded: true
   items:
-    - name: Что такое Машинное обучение Azure?
+    - name: Что такое служба "Машинное обучение Microsoft Azure"?
       href: overview-what-is-azure-ml.md
     - name: Обзор службы "Управление моделями"
       href: model-management-overview.md
@@ -27,23 +27,23 @@
       href: overview-general-concepts.md
 - name: Практические руководства
   items:
-    - name: Использование Machine Learning Workbench
+    - name: Использование Workbench
       items:
         - name: Работа с интегрированными средами разработки Python
           href: how-to-configure-your-IDE.md
         - name: Использование записных книжек Jupyter
           href: how-to-use-jupyter-notebooks.md
-        - name: Интеграция с репозиторием Git
+        - name: Интеграция с репозиториями Git
           href: using-git-ml-project.md
-        - name: Структурирование проекта с TDSP
+        - name: Структурирование проектов с помощью процесса обработки и анализа данных группы
           href: how-to-use-tdsp-in-azure-ml.md
-        - name: Как организовать роуминг и совместную работу
+        - name: Роуминг и совместная работа
           href: roaming-and-collaboration.md
-    - name: Использование инструментов Visual Studio
+    - name: Использование средств Visual Studio Code для искусственного интеллекта
       href: quickstart-visual-studio-tools.md
     - name: Настройка вычислительной среды
       items:
-        - name: Настройка целевых объектов выполнения
+        - name: Настройка экспериментирования
           href: experiment-execution-configuration.md
         - name: Создание кластера HDInsight Spark и виртуальной машины для обработки и анализа данных
           href: how-to-create-dsvm-hdi.md
@@ -51,13 +51,14 @@
           href: how-to-use-gpu.md
     - name: Получение и интерпретация данных
       items:
-        - name: Доступ к данным с помощью мастера источников данных
+        - name: Добавление источника данных
           href: data-source-wizard.md
-        - name: Начало работы с подготовкой данных
-          href: data-prep-getting-started.md
         - name: Руководство по подготовке данных
+          href: data-prep-getting-started.md
+        - name: Расширенная подготовка данных
           href: data-prep-user-guide.md
         - name: Преобразование подготовки данных
+          href: data-prep-appendix3-supported-transforms.md
           items:
             - name: Объединение столбцов по образцу
               href: data-prep-combine-columns-by-example.md
@@ -73,22 +74,26 @@
           href: tutorial-iris-azure-cli.md
         - name: Отслеживание журнала выполнения и метрик модели
           href: how-to-use-run-history-model-metrics.md
-        - name: Как найти операции запуска с максимальной точностью и минимальным временем выполнения
+        - name: Поиск операций запуска с максимальной точностью
           href: how-to-find-best-accuracy-cli.md
         - name: Чтение и запись файлов
           href: how-to-read-write-files.md
-        - name: Библиотека MMLSpark
+        - name: Использование библиотеки MMLSpark
           href: how-to-use-mmlspark.md
-    - name: Развертывание моделей
+    - name: Ввод модели в эксплуатацию
       items:
         - name: Настройка службы "Управление моделями"
           href: deployment-setup-configuration.md
+        - name: Масштабирование кластеров и служб
+          href: how-to-scale-clusters.md
         - name: Развертывание веб-службы
           href: model-management-service-deploy.md
         - name: Использование веб-службы
           href: model-management-consumption.md
-        - name: Как использовать сбор данных модели
+        - name: Сбор данных модели
           href: how-to-use-model-data-collection.md
+        - name: Руководство по устранению неполадок с развертыванием
+          href: how-to-deploy-troubleshooting-guide.md
     - name: Реальные примеры
       items:
         - name: Анализ коллекции документов
@@ -121,8 +126,6 @@
           href: data-prep-python-extensibility-overview.md
         - name: Поддерживаемые источники данных
           href: data-prep-appendix2-supported-data-sources.md
-        - name: Поддерживаемые преобразования
-          href: data-prep-appendix3-supported-transforms.md
         - name: Поддерживаемые инспекторы
           href: data-prep-appendix4-supported-inspectors.md
         - name: Поддерживаемые места назначения данных
@@ -143,7 +146,7 @@
           href: data-prep-python-execution-api.md
     - name: Экспериментирование
       items:
-        - name: Конфигурация выполнения
+        - name: Настройка службы "Экспериментирование"
           href: experiment-execution-configuration-reference.md
         - name: API ведения журналов
           href: reference-logging-api.md
@@ -159,7 +162,7 @@
   items:
     - name: Часто задаваемые вопросы
       href: frequently-asked-questions.md
-    - name: Руководство по устранению неполадок и описание известных проблем
+    - name: Устранение неполадок и описание известных проблем
       href: known-issues-and-troubleshooting-guide.md
     - name: Документация по процессу обработки и анализа данных группы
       href: ../team-data-science-process/overview.md
@@ -170,7 +173,7 @@
     - name: Цены
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
     - name: Форум MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning'
+      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Переполнение стека
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Видеоролики

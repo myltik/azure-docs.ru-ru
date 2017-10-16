@@ -59,17 +59,20 @@
 # Практическое руководство
 ## [Мониторинг VPN-шлюза с помощью службы автоматизации Azure](network-watcher-monitor-with-azure-automation.md)
 ## [Диагностика локальных подключений через VPN-шлюз](network-watcher-diagnose-on-premises-connectivity.md)
-## [Анализ захвата пакетов для поиска аномалий](network-watcher-deep-packet-inspection.md)
-## [Использование захвата пакетов для упреждающего мониторинга сети с помощью Функций Azure](network-watcher-alert-triggered-packet-capture.md)
-## [Визуализация журналов потоков с помощью Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-## [Визуализация журналов потоков с помощью средств с открытым кодом](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-## [Визуализация журналов потоков в Azure с помощью Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
-## [Визуализация моделей сетевого трафика с помощью средств с открытым кодом](network-watcher-using-open-source-tools.md)
 ## [Выполнение аудита в сети с помощью PowerShell](network-watcher-nsg-auditing-powershell.md)
-## [Чтение журналов потоков NSG](network-watcher-read-nsg-flow-logs.md)
-## [Обнаружение атак с помощью средств с открытым кодом](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Анализ журналов шлюза приложений в Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
-## [Анализ журналов потоков с помощью службы "Наблюдатель за сетями" и Grafana](network-watcher-nsg-grafana.md)
+## Запись пакетов
+### [Поиск аномалий](network-watcher-deep-packet-inspection.md)
+### [Упреждающий мониторинг сети с помощью Функций Azure](network-watcher-alert-triggered-packet-capture.md)
+### [Обнаружение атак с помощью средств с открытым кодом](network-watcher-intrusion-detection-open-source-tools.md)
+### [Визуализация моделей сетевого трафика с помощью средств с открытым кодом](network-watcher-using-open-source-tools.md)
+## Анализ журналов потоков NSG
+### [Чтение журналов потоков NSG](network-watcher-read-nsg-flow-logs.md)
+### [Использование Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+### [Использование эластичного пула](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+### [Использование Grafana](network-watcher-nsg-grafana.md)
+### [Использование Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+
 # Справочные материалы
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)

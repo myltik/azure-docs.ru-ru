@@ -4,7 +4,7 @@ title: Документация оператора по Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: Документация оператора по Azure Stack. Руководства и справочники по API
-  description: 'Узнайте, как использовать предварительную версию Azure Stack для доставки служб Azure из центра обработки данных. Подробнее изучить и продемонстрировать доступные возможности можно в среде для подтверждения концепции.'
+  description: 'Узнайте, как использовать Azure Stack для доставки служб Azure из центра обработки данных. Описание и демонстрация возможностей комплекта разработки или среды интегрированных систем.'
   services: azure-stack
   author: czeumault
   manager: carolz
@@ -12,32 +12,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: "Microsoft Azure Stack\_― это гибридная облачная платформа, позволяющая предоставлять службы Azure из центра обработки данных. Узнайте, как развернуть Azure Stack и предоставить службы, ознакомившись с нашими руководствами и шаблонами быстрого запуска."
+  description: "Microsoft Azure Stack\_― это гибридная облачная платформа, позволяющая предоставлять службы Azure из центра обработки данных. Узнайте, как развернуть комплект разработки Azure Stack, управлять инфраструктурой для интегрированных систем и комплекта разработки и предложить службы пользователям с помощью наших кратких пособий и руководств.<br/><br/>Если вы используете службы и создаете приложения для Azure Stack, ознакомьтесь с нашей <a href=\"/azure/azure-stack/user\">пользовательской документацией</a>."
 sections:
-  - title: 5-минутные руководства по началу работы
+  - title: Быстрый запуск
     items:
       - type: paragraph
-        text: 'Настройка оборудования и развертывание Azure Stack:'
+        text: Настройте оборудование и разверните комплект разработки Azure Stack.
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: Развертывание Azure Stack
+            text: Развертывание комплекта разработки Azure Stack
             href: azure-stack-deploy-overview.md
   - title: Пошаговые руководства
     items:
       - type: paragraph
-        text: 'Сведения о добавлении служб в развертывание Azure Stack:'
+        text: 'Узнайте, как добавлять службы в развертывание Azure Stack.'
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Make virtual machines available to your Azure Stack users</a> (Предоставление пользователям Azure Stack доступа к виртуальным машинам)
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Make SQL databases available to your Azure Stack users</a> (Предоставление пользователям Azure Stack доступа к базам данных SQL)
-          - html: '<a href="/azure/azure-stack/azure-stack-tutorial-app-service">Make web, mobile, and API apps available to your Azure Stack users</a> (Предоставление пользователям Azure Stack доступа к веб-приложениям, мобильным приложениям и приложениям API)'
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Make virtual machines available to your Azure Stack users</a> (Создание предложения по виртуальным машинам для пользователей Azure Stack)
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Make SQL databases available to your Azure Stack users</a> (Создание предложения по базам данных SQL для пользователей Azure Stack)
+          - html: '<a href="/azure/azure-stack/azure-stack-tutorial-app-service">Make web, mobile, and API apps available to your Azure Stack users</a> (Создание предложения по веб-приложениям, мобильным приложениям и приложениям API для пользователей Azure Stack)'
   - title: Бесплатные видеоуроки PluralSight
     items:
       - type: list
@@ -56,4 +56,4 @@ sections:
         className: cardsD
         items:
           - title: Командная строка
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell для Azure Stack</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">PowerShell для Azure Stack</a></p>

@@ -18,7 +18,6 @@
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Интерфейс командной строки Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Портал Azure (классический)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Классический портал (классическая модель)](vpn-gateway-site-to-site-create.md)
 
 ## Настройка подключений "точка — сеть". Собственная проверка подлинности Azure на основе сертификата
 ### Настройка VPN для подключений "точка — сеть"
@@ -57,6 +56,7 @@
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
 ## Настройка BGP для VPN-шлюза
 ### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+### [Интерфейс командной строки Azure](bgp-how-to-cli.md)
 ## Настройка принудительного туннелирования
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (классическая модель)](vpn-gateway-about-forced-tunneling.md)
@@ -81,6 +81,8 @@
 ### [Проблемы с подключением типа "точка — сеть"](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Периодические разрывы подключения типа "сеть —сеть"](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Сбой подключения типа "сеть — сеть"](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Проблемы сходства сеансов шлюза приложения](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
+### [Настройка и проверка VPN-подключений и подключений между виртуальными сетями](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Справочные материалы
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

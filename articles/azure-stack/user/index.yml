@@ -4,7 +4,7 @@ title: Документация пользователя по Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: Документация по Azure Stack. Руководства и справочники по API
-  description: 'Узнайте, как использовать предварительную версию Azure Stack для доставки служб Azure из центра обработки данных. Подробнее изучить и продемонстрировать доступные возможности можно в среде для подтверждения концепции.'
+  description: Сведения об использовании служб Azure Stack и создании приложений для Azure Stack.
   services: azure-stack
   author: carolz
   manager: carolz
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: "Azure Stack\_― это гибридная облачная платформа, позволяющая использовать службы Azure из центра обработки данных вашей компании или поставщика услуг. Разработчик может создавать приложения, используя Azure Stack. Затем их можно развернуть в Azure Stack или в Azure, либо можно создать действительно гибридные приложения, использующие подключение между облаком Azure Stack и Azure.  Узнайте, как создавать ресурсы и развертывать приложения, изучив наши краткие руководства и руководства."
+  description: "Azure Stack\_― это гибридная облачная платформа, позволяющая использовать службы Azure из центра обработки данных вашей компании или поставщика услуг. Разработчик может создавать приложения, используя Azure Stack. Затем их можно развернуть в Azure Stack или в Azure, либо можно создать действительно гибридные приложения, использующие подключение между облаком Azure Stack и Azure. Узнайте, как создавать ресурсы и развертывать приложения, изучив наши краткие руководства и руководства.<br/><br/>Если вы оператор Azure Stack, который управляет инфраструктурой и предлагает службы, ознакомьтесь с нашей <a href=\"/azure/azure-stack/\">документацией для операторов</a>."
 sections:
-  - title: Быстрый запуск
+  - title: 5-минутные руководства по началу работы
     items:
       - type: paragraph
         text: 'Узнайте, как развернуть виртуальную машину Windows в Azure Stack.'
@@ -56,7 +56,7 @@ sections:
   - title: Пошаговые руководства
     items:
       - type: paragraph
-        text: Развертывание приложений в Azure и Azure Stack.
+        text: Развертывайте приложения в Azure и Azure Stack.
       - type: list
         style: ordered
         items:
@@ -68,4 +68,4 @@ sections:
         className: cardsD
         items:
           - title: Командная строка
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell для Azure Stack</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">PowerShell для Azure Stack</a></p>

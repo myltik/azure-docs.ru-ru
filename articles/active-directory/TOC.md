@@ -7,6 +7,7 @@
 ## [Часто задаваемые вопросы](active-directory-faq.md)
 
 # Начало работы
+## [Приступая к работе с Azure AD](get-started-azure-ad.md)
 ## [Регистрация для использования Azure AD Premium](active-directory-get-started-premium.md)
 ## [Добавление имени личного домена](add-custom-domain.md)
 ## [Настройка фирменной символики компании](customize-branding.md)
@@ -294,7 +295,7 @@
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
-#### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Приступая к работе с условным доступом](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
 #### Задачи

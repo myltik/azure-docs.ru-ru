@@ -57,6 +57,8 @@
           href: concepts-servers.md
         - name: Поддерживаемые версии
           href: concepts-supported-versions.md
+        - name: Журналы сервера
+          href: concepts-server-logs.md
     - name: Ресурсы
       items:
         - name: Ценовые категории
@@ -113,6 +115,10 @@
           href: howto-server-parameters.md
         - name: Инфраструктура CLI Azure
           href: howto-configure-server-parameters-using-cli.md
+    - name: Доступ к журналам сервера
+      items:
+        - name: Инфраструктура CLI Azure
+          href: howto-configure-server-logs-in-cli.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

@@ -40,6 +40,9 @@
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
+## [Настройка самостоятельного сброса пароля](active-directory-b2c-reference-sspr.md)
+## [Настройка пользовательского интерфейса](active-directory-b2c-reference-ui-customization.md)
+### [Вспомогательный инструмент для настройки](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Использование API Graph Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Получение маркеров доступа](active-directory-b2c-access-tokens.md)
 ## [Отключение проверки по электронной почте](active-directory-b2c-reference-disable-ev.md)
@@ -47,30 +50,34 @@
 ## [Включение MFA](active-directory-b2c-reference-mfa.md)
 ## [Использование настраиваемых атрибутов](active-directory-b2c-reference-custom-attr.md)
 ## [Настройка пароля](active-directory-b2c-reference-password-complexity.md)
-## [Настройка пользовательского интерфейса](active-directory-b2c-reference-ui-customization.md)
-### [Вспомогательный инструмент для настройки](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Настройка языка](active-directory-b2c-reference-language-customization.md)
 ## [Использование API отчетов](active-directory-b2c-reference-usage-reporting-api.md)
-## [Настройка самостоятельного сброса пароля](active-directory-b2c-reference-sspr.md)
+## [Перемещение пользователей](active-directory-b2c-user-migration.md)
 
 # Инфраструктура процедур идентификации
 ## [Пользовательские политики](active-directory-b2c-overview-custom.md)
 ## Руководства
-### [Приступая к работе](active-directory-b2c-get-started-custom.md)
-### Настройка поставщиков OIDC/OAUTH2
+### [Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md)
+### Настройка поставщиков OIDC/OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Учетная запись Майкрософт](active-directory-b2c-custom-setup-msa-idp.md)
 #### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
+#### [LinkedIn](active-directory-b2c-custom-setup-li-idp.md)
+#### [Twitter](active-directory-b2c-custom-setup-twitter-idp.md)
 ### Настройка поставщиков SAML
 #### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Интеграции API-интерфейсов RESTful
 #### [Проверка пользовательского ввода](active-directory-b2c-rest-api-validation-custom.md)
 #### [Получение дополнительных утверждений](active-directory-b2c-rest-api-step-custom.md)
+#### [Добавление собственных API-интерфейсов RESTful](active-directory-b2c-custom-rest-api-netfw.md)
+#### [Защита API-интерфейсов RESTful с помощью обычной проверки подлинности](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+#### [Защита API-интерфейсов RESTful с помощью проверки подлинности на основе сертификата](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 ### Маршруты пользователей
 #### [Настройка пользовательского ввода](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Настраиваемые атрибуты](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Настройка пользовательского интерфейса](active-directory-b2c-ui-customization-custom.md)
+#### [Настройка динамического содержимого в пользовательском интерфейсе](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Настройка токенов](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Сложность пароля](active-directory-b2c-reference-password-complexity-custom.md)
 
