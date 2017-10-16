@@ -15,6 +15,8 @@
       href: functions-create-first-azure-function-azure-cli.md
     - name: Создание функций (Visual Studio)
       href: functions-create-your-first-function-visual-studio.md
+    - name: 'Создание функции: Java/Maven'
+      href: functions-create-first-java-maven.md
     - name: триггеры;
       items:
         - name: Хранилище BLOB-объектов
@@ -67,12 +69,46 @@
           href: functions-reference-fsharp.md
         - name: JavaScript
           href: functions-reference-node.md
+        - name: Java
+          href: functions-reference-java.md
     - name: Рекомендации по производительности
       href: functions-best-practices.md
     - name: Прокси функций
       href: functions-proxies.md
     - name: Среда выполнения функций
       href: functions-runtime-overview.md
+    - name: Устойчивые функции
+      items:
+        - name: Обзор
+          href: durable-functions-overview.md
+        - name: Привязки
+          href: durable-functions-bindings.md
+        - name: Контрольные точки и воспроизведение
+          href: durable-functions-checkpointing-and-replay.md
+        - name: Управление экземплярами
+          href: durable-functions-instance-management.md
+        - name: API HTTP
+          href: durable-functions-http-api.md
+        - name: Обработка ошибок
+          href: durable-functions-error-handling.md
+        - name: Диагностика
+          href: durable-functions-diagnostics.md
+        - name: Таймеры
+          href: durable-functions-timers.md
+        - name: Внешние события
+          href: durable-functions-external-events.md
+        - name: Нескончаемые оркестрации
+          href: durable-functions-eternal-orchestrations.md
+        - name: Одноэкземплярные оркестрации
+          href: durable-functions-singletons.md
+        - name: Вложенные оркестрации
+          href: durable-functions-sub-orchestrations.md
+        - name: Центры задач
+          href: durable-functions-task-hubs.md
+        - name: Управление версиями
+          href: durable-functions-versioning.md
+        - name: Производительность и масштаб
+          href: durable-functions-perf-and-scale.md
 - name: Практические руководства
   items:
     - name: Разработка
@@ -94,7 +130,11 @@
         - name: Функции в локальной среде
           href: functions-runtime-install.md
     - name: Настройка
-      href: functions-how-to-use-azure-function-app-settings.md
+      items:
+        - name: Управление приложением-функцией
+          href: functions-how-to-use-azure-function-app-settings.md
+        - name: Установка версии среды выполнения
+          href: functions-versions.md
     - name: Монитор
       href: functions-monitoring.md
     - name: Интеграция
@@ -111,6 +151,18 @@
           href: functions-flow-scenario.md
         - name: Использование удостоверения управляемой службы
           href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Устойчивые функции
+      items:
+        - name: Установить
+          href: durable-functions-install.md
+        - name: Построение цепочек
+          href: durable-functions-sequence.md
+        - name: Развертывание/вход
+          href: durable-functions-cloud-backup.md
+        - name: Экземпляр с отслеживанием состояния
+          href: durable-functions-counter.md
+        - name: Участие пользователя
+          href: durable-functions-phone-verification.md
 - name: Справочные материалы
   items:
     - name: Привязки

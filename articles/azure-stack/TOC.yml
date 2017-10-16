@@ -19,6 +19,8 @@
       href: azure-stack-tutorial-app-service.md
 - name: Основные понятия
   items:
+    - name: Рекомендации относительно планирования
+      href: azure-stack-planning-considerations.md
     - name: Политика обслуживания
       href: azure-stack-servicing-policy.md
     - name: Заметки о выпуске
@@ -37,6 +39,8 @@
           href: azure-stack-deploy.md
         - name: Развернуть
           href: azure-stack-run-powershell-script.md
+        - name: Установка PowerShell
+          href: azure-stack-powershell-configure-quickstart.md
         - name: регистрация;
           href: azure-stack-register.md
         - name: Подключение к Azure Stack
@@ -89,6 +93,8 @@
           href: azure-stack-manage-windows-azure-pack.md
         - name: Замена оборудования
           items:
+            - name: Действия с узлами
+              href: azure-stack-node-actions.md
             - name: Замена диска
               href: azure-stack-replace-disk.md
     - name: 'Безопасность, соответствие требованиям и удостоверения'
@@ -133,10 +139,16 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: Развертывание поставщика ресурсов SQL
               href: azure-stack-sql-resource-provider-deploy.md
+            - name: Создание баз данных SQL
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: Добавление серверов размещения
+              href: azure-stack-sql-resource-provider-hosting-servers.md
         - name: Предложение службы приложений как PaaS
           items:
             - name: Обзор службы приложений в Azure Stack
               href: azure-stack-app-service-overview.md
+            - name: Планирование загрузки
+              href: azure-stack-app-service-capacity-planning.md
             - name: Необходимые условия
               href: azure-stack-app-service-before-you-get-started.md
             - name: Развертывание поставщика ресурсов службы приложений

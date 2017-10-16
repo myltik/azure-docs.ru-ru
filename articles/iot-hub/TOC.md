@@ -114,6 +114,7 @@
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Управление
 ### Создание центра IoT 
 #### [Использование портала Azure](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [Использование портала Azure](iot-hub-configure-file-upload.md)
 #### [Использование Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [Использование Azure CLI](iot-hub-configure-file-upload-cli.md)
-### [Массовое управление удостоверениями устройств Центра Интернета вещей](iot-hub-bulk-identity-mgmt.md)
+### [Мониторинг и диагностика](iot-hub-monitor-resource-health.md)
+#### [Перенос в параметры диагностики](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Мониторинг операций](iot-hub-operations-monitoring.md)
 ### [Метрики использования](iot-hub-metrics.md)
-### [Мониторинг операций](iot-hub-operations-monitoring.md)
+### [Массовое управление удостоверениями устройств Центра Интернета вещей](iot-hub-bulk-identity-mgmt.md)
 ### [Настройка фильтрации IP](iot-hub-ip-filtering.md)
+
 ## Безопасность
 ### [Все аспекты безопасности](iot-hub-security-ground-up.md)
 ### [Рекомендации по обеспечению безопасности](iot-hub-security-best-practices.md)
 ### [Архитектура безопасности](iot-hub-security-architecture.md)
 ### [Защита развернутой службы Интернета вещей](iot-hub-security-deployment.md)
+### Защита с помощью сертификатов X.509 ЦС
+#### [Общие сведения о безопасности, обеспечиваемой сертификатами X.509 ЦС](iot-hub-x509ca-overview.md)
+##### [Понятия безопасности в контексте сертификатов X.509 ЦС](iot-hub-x509ca-concept.md)
+#### [Приступая к работе c защитой с помощью сертификата X.509 ЦС](iot-hub-security-x509-get-started.md)
+##### [Создание сертификатов с помощью PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Edge Интернета вещей Azure
 ### [Обзор](iot-hub-iot-edge-overview.md)
 ### Начало работы

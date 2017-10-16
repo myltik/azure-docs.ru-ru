@@ -117,8 +117,6 @@
               href: app-insights-snapshot-debugger.md
         - name: J2EE
           items:
-            - name: Eclipse
-              href: app-insights-java-eclipse.md
             - name: Трассировки журналов
               href: app-insights-java-trace-logs.md
             - name: Метрики Unix
@@ -140,8 +138,6 @@
               href: app-insights-proactive-failure-diagnostics.md
             - name: Аномалии производительности
               href: app-insights-proactive-performance-diagnostics.md
-        - name: Dynamics CRM
-          href: app-insights-sample-mscrm.md
         - name: Создание ресурса
           href: app-insights-create-new-resource.md
     - name: Анализ
@@ -188,14 +184,8 @@
           items:
             - name: Обзор
               href: app-insights-analytics.md
-            - name: Обзор
-              href: app-insights-analytics-tour.md
-            - name: Использование
-              href: app-insights-analytics-using.md
-            - name: Импорт
+            - name: Импорт пользовательских журналов
               href: app-insights-analytics-import.md
-            - name: Диагностика
-              href: app-insights-analytics-diagnostics.md
     - name: Автоматизация
       items:
         - name: Настройка Azure PowerShell
@@ -259,7 +249,7 @@
           href: app-insights-java-troubleshoot.md
 - name: Справочные материалы
   items:
-    - name: Аналитика
+    - name: Язык запросов Analytics
       href: 'https://docs.loganalytics.io/'
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'
