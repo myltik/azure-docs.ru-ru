@@ -169,8 +169,6 @@
           href: sql-database-operate-query-store.md
         - name: Расширенные события
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: Уровни совместимости
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: Мониторинг в памяти
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Масштабирование
@@ -266,6 +264,12 @@
         - name: Создание правил виртуальной сети с помощью PowerShell
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Непрерывность бизнес-процессов
+      items:
+        - name: Настройка хранилища (резервные копии)
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Георепликация (портал)
+          href: sql-database-geo-replication-portal.md
+    - name: Загрузка и перемещение данных
       items:
         - name: Загрузка данных с помощью BCP
           href: sql-database-load-from-csv-with-bcp.md

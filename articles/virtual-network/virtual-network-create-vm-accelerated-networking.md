@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 2e887230a102f5c6289ca2eec0e4700a0e1fdfde
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c852a1297261504015a3a985fe14a38957d1a64a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Создание виртуальной машины с ускоренной сетью
 
@@ -53,7 +52,7 @@ ms.lasthandoff: 07/21/2017
 * **Размер виртуальной машины.** Экземпляры общего назначения и оптимизированные для вычислений экземпляры с минимум восемью ядрами. Дополнительные сведения см. в статье [Размеры виртуальных машин Windows в Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) или [Размеры виртуальных машин Linux в Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Набор поддерживаемых размеров экземпляров виртуальных машин будет расширяться в будущем.
 * **Развертывание только с помощью Azure Resource Manager (ARM).** Ускоренная сеть недоступна для развертывания с помощью ASM/RDFE.
 
-Сведения об изменениях этих ограничений публикуются на [этой странице](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
+Сведения об изменениях этих ограничений публикуются на [этой странице](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/).
 
 ## <a name="create-a-windows-vm"></a>Создание виртуальной машины Windows
 Виртуальную машину можно создать на портале Azure или с помощью [Azure PowerShell](#windows-powershell).
@@ -450,4 +449,3 @@ ms.lasthandoff: 07/21/2017
     ```
 
 Виртуальная машина должна начать работу с настроенным интерфейсом bond0 и включенным путем ускорения работы в сети.  Для подтверждения выполните команду `ifconfig`.
-
