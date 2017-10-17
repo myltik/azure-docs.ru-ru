@@ -65,7 +65,6 @@
 ### Создание субъекта-службы
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Интерфейс командной строки Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Портал Azure](resource-group-create-service-principal-portal.md)
 ### [API проверки подлинности для доступа к подпискам](resource-manager-api-authentication.md)
 ### [Блокировка ресурсов](resource-group-lock-resources.md)
