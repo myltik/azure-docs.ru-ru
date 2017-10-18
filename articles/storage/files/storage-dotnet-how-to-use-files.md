@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 98e5964f4a2dffd728dae1c452facfa6ea488167
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-net"></a>Разработка для службы файлов Azure с помощью .NET 
 > [!NOTE]
 > Из этой статьи вы узнаете, как управлять службой файлов Azure с помощью кода .NET. Дополнительные сведения о службе файлов Azure см. в статье [Знакомство с хранилищем файлов Azure](storage-files-introduction.md).
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/25/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>О данном учебнике
-В этом руководстве мы рассмотрим основы использования .NET для разработки приложений и служб, использующих службу файлов Azure для хранения данных файлов. В рамках этого руководства мы создадим простое консольное приложение, а также покажем, как выполнять базовые действия с .NET и службой файлов Azure:
+В этом руководстве мы рассмотрим основы использования .NET для разработки приложений и служб, использующих службу файлов Azure для хранения данных файлов. В рамках этого руководства создадим простое консольное приложение, а также покажем, как выполнять базовые действия с .NET и службой файлов Azure:
 
 * Получите содержимое файла.
 * Задайте квоту (максимальный размер) для общей папки
@@ -138,7 +136,7 @@ if (share.Exists())
 Запустите консольное приложение и получите вывод.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Установка максимального размера для файлового ресурса
-Клиентская библиотека хранилища Azure версии 5.x и выше позволяет задавать квоту (или максимальный размер) в файловом ресурсе в гигабайтах. Можно также проверить, какой объем данных хранится в настоящее время в общей папке.
+Клиентская библиотека службы хранилища Azure версии 5.x и выше позволяет задавать квоту (или максимальный размер) в общем файловом ресурсе в гигабайтах. Можно также проверить, какой объем данных хранится в настоящее время в общей папке.
 
 Задав квоту для файлового ресурса, можно ограничить общий размер файлов, хранящихся в общей папке. Если общий размер файлов в файловом ресурсе превышает установленную квоту, клиенты не смогут увеличить размер существующих файлов или создать новые файлы, только если они не являются пустыми.
 
@@ -327,6 +325,80 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Таким же образом можно скопировать BLOB-объект в файл. Если исходным объектом является BLOB-объект, создайте SAS для проверки подлинности доступа к BLOB-объекту во время операции копирования.
 
+## <a name="share-snapshots-preview"></a>Моментальные снимки общих ресурсов (предварительная версия)
+Начиная с версии 8.5 клиентской библиотеки службы хранилища Azure, можно создавать моментальные снимки общих ресурсов (предварительная версия). Можно также получить список моментальных снимков общих ресурсов, просмотреть и удалить их. Моментальные снимки общих ресурсов доступны только для чтения, поэтому для них запрещены операции записи.
+
+**Создание моментальных снимков общих ресурсов**
+
+В следующем примере создается моментальный снимок общего файлового ресурса.
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**Вывод списка моментальных снимков общих ресурсов**
+
+В следующем примере перечисляются моментальные снимки в общем ресурсе.
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**Просмотр файлов и каталогов в моментальных снимках общих ресурсов**
+
+В следующем примере показано, как просмотреть файлы и каталоги в моментальных снимках общих ресурсов.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**Вывод списка общих ресурсов и их моментальных снимков и восстановление общих папок или файлов из моментальных снимков общих ресурсов** 
+
+Создание снимка общего файлового ресурса позволяет в будущем восстановить отдельные файлы или весь файловый ресурс. 
+
+Файл можно восстановить из моментального снимка, сделав запрос на моментальные снимки файлового ресурса. Затем можно извлечь файл, относящийся к моментальному снимку определенного ресурса, и использовать эту версию, чтобы напрямую прочитать, сравнить или восстановить его.
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**Удаление моментальных снимков общих ресурсов**
+
+В следующем примере удаляется моментальный снимок общего файлового ресурса.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
+
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Устранение неполадок службы файлов Azure с помощью метрик
 Аналитика службы хранилища Azure теперь поддерживает метрики для службы файлов Azure. Данные метрик позволяют отслеживать запросы и диагностировать проблемы.
 
@@ -396,7 +468,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ### <a name="tooling-support-for-file-storage"></a>Средства для работы с хранилищем файлов
 * [Использование AzCopy со службой хранилища Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Устранение неполадок хранилища файлов Azure в Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Устранение неполадок в работе хранилища файлов Azure в Linux](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Справочные материалы
 * [Справочник по клиентской библиотеке хранилища для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)

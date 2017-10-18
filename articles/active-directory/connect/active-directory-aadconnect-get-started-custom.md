@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a3a4a90221821de690f72260b2adca07680d30a9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Выборочная установка Azure AD Connect
 **Настраиваемые параметры** в Azure AD Connect используются, когда для установки необходимо указать больше параметров. В частности, если есть несколько лесов или требуется настроить дополнительные компоненты, которые не входят в экспресс-установку. Они также используются в тех случаях, когда [**экспресс-установка**](active-directory-aadconnect-get-started-express.md) не соответствует требованиям развертывания или топологии.
@@ -71,7 +70,7 @@ ms.lasthandoff: 09/28/2017
 
 Если вы получаете сообщение об ошибке и испытываете проблемы с подключением, см. сведения в статье [Устранение неполадок подключения в Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
 
-## <a name="pages-under-the-section-sync"></a>Страницы в разделе "Синхронизация"
+## <a name="pages-under-the-sync-section"></a>Страницы в разделе "Синхронизация"
 
 ### <a name="connect-your-directories"></a>Подключение к каталогам
 Чтобы подключиться к службе домена Active Directory, Azure AD Connect необходимо имя леса и учетные данные учетной записи с достаточными разрешениями.
@@ -232,9 +231,12 @@ ms.lasthandoff: 09/28/2017
 ## <a name="configuring-federation-with-ad-fs"></a>Настройка федерации с AD FS
 Вы можете легко настроить службы федерации Active Directory с Azure AD Connect. Ниже приведены компоненты, требуемые для настройки.
 
-* Сервер Windows Server 2012 R2 с поддержкой удаленного управления для сервера федерации.
-* Сервер Windows Server 2012 R2 с поддержкой удаленного управления для прокси-сервера веб-приложения.
+* Сервер Windows Server 2012 R2 или более поздней версии с поддержкой удаленного управления для сервера федерации.
+* Сервер Windows Server 2012 R2 или более поздней версии с поддержкой удаленного управления для прокси-сервера веб-приложения.
 * Сертификат SSL для имени службы федерации, которое предполагается использовать (например, sts.contoso.com).
+
+>[!NOTE]
+>Вы можете обновить SSL-сертификат фермы AD FS с помощью службы Azure AD Connect, даже если вы не используете эту службу для управления доверием федерации.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Предварительные требования для настройки AD FS
 Чтобы настроить ферму AD FS с помощью Azure AD Connect, обязательно включите WinRM на удаленных серверах. Кроме того, ознакомьтесь с требованиями к портам, перечисленным в разделе [Таблица 3. Azure AD Connect и серверы федерации и WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
@@ -245,6 +247,9 @@ ms.lasthandoff: 09/28/2017
 ![Ферма AD FS](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 Если будет использоваться существующая ферма AD FS, вы сразу перейдете к диалоговому окну настройки отношений доверия между AD FS и Azure AD.
+
+>[!NOTE]
+>Azure AD Connect можно использовать для управления только одной фермой AD FS. Если в выбранной ферме AD FS настроено доверие федерации с Azure AD, доверие будет повторно создано с нуля с помощью Azure AD Connect.
 
 ### <a name="specify-the-ad-fs-servers"></a>Указание серверов AD FS
 Укажите серверы, на которых требуется установить AD FS. Можно добавить один или несколько серверов в зависимости от потребностей запланированной загрузки. Прежде чем выполнить эту настройку, присоедините все серверы к Active Directory. Мы рекомендуем установить одиночный сервер AD FS для тестовых и пилотных развертываний. Добавьте и разверните дополнительные серверы в соответствии с потребностями масштабирования, повторно запустив Azure AD Connect после начальной настройки.
@@ -350,4 +355,3 @@ ms.lasthandoff: 09/28/2017
 Дополнительные сведения см. в статье [Синхронизация Azure AD Connect: планировщик](active-directory-aadconnectsync-feature-scheduler.md).
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-

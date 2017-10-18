@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69296eb9ac2a74a97b632d27733a6a06500b4abd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 8f16f23928977ef6bf53f41c79375290da70a2fa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>Подключение устройства к Центру Интернета вещей с помощью .NET
 
@@ -200,7 +200,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     Console.ReadLine();
     ```
 
-    По умолчанию метод **Create** в приложении .NET Framework создает экземпляр **DeviceClient**, который использует протокол AMQP для связи с Центром Интернета вещей. Для использования протокола MQTT или HTTP используйте переопределение метода **Create**, чтобы указать протокол. Клиенты UWP и PCL по умолчанию используют протокол HTTP. Если вы используете протокол HTTPS, вам также следует добавить в свой проект пакет NuGet **Microsoft.AspNet.WebApi.Client**, чтобы включить пространство имен **System.Net.Http.Formatting**.
+    По умолчанию метод **Create** в приложении .NET Framework создает экземпляр **DeviceClient**, который использует протокол AMQP для связи с Центром Интернета вещей. Для использования протокола MQTT или HTTPS используйте переопределение метода **Create**, чтобы указать протокол. Клиенты UWP и PCL по умолчанию используют протокол HTTPS. Если вы используете протокол HTTPS, вам также следует добавить в свой проект пакет NuGet **Microsoft.AspNet.WebApi.Client**, чтобы включить пространство имен **System.Net.Http.Formatting**.
 
 В этом руководстве описываются шаги по созданию приложения устройства Центра Интернета вещей. Вы также можете использовать расширение [подключенной службы для Центра Интернета вещей Azure][lnk-connected-service] (Visual Studio), чтобы добавить необходимый код в приложение устройства.
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
+ms.openlocfilehash: dd6c2a1acdcd3b933bed536fd2bb1d83e1e593c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 110a4d26e90f46e823a3e1c9ebece3360fbdf0c9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-web-app-performance"></a>Мониторинг производительности веб-приложения Azure
 На [портале Azure](https://portal.azure.com) можно настроить мониторинг производительности [веб-приложений Azure](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) инструментируют ваше приложение для отправки данных телеметрии о действиях в службу Application Insights, где эти данные хранятся и анализируются. В этой службе диаграммы метрик и инструменты поиска могут использоваться для диагностики неисправностей, улучшения производительности и анализа использования приложения.
@@ -50,7 +49,7 @@ ms.lasthandoff: 09/20/2017
     
     Значение: `true`
    * **Сохраните** параметры и **перезапустите** приложение.
-3. **Отслеживайте работу приложения**.  [Изучите данные](#explore-the-data).
+3. **Отслеживайте работу приложения**.  [Просмотрите данные](#explore-the-data).
 
 Позже при необходимости можно создать приложение с помощью Application Insights.
 
@@ -121,5 +120,4 @@ ms.lasthandoff: 09/20/2017
 * [Получайте уведомления](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) при возникновении операционных событий или превышении пороговых значений метрик.
 * Используйте [расширение Application Insights для приложений JavaScript и веб-страниц](app-insights-javascript.md), чтобы получать данные телеметрии клиентов из браузеров, которые используются для открытия веб-страницы.
 * [Настройте веб-тесты доступности](app-insights-monitor-web-app-availability.md), чтобы получать уведомления о сбоях в работе сайта.
-
 

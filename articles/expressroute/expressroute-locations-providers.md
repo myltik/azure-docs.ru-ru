@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: kaanan
+ms.openlocfilehash: 951b8e1dfc86d8fc73cf8d6f596558b73169169c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: bc9803b9ab5c4c6329ffa5933cbc8ff758faa20b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
 
@@ -89,7 +88,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Нью-Йорк** |Coresite, Equinix, Megaport, Zayo Group |
 | **Ньюпорт (Уэльс)** |Next Generation Data |
 | **Осака** |Equinix, Internet Initiative Japan Inc. (IIJ), NTT Communications, NTT SmartConnect, Softbank |
-| **Париж** |Colt, Interxion, Equinix, Orange |
+| **Париж** |Colt, Intercloud, Interxion, Equinix, Orange |
 | **Квебек** | Megaport |
 | **Сан-Антонио** |Megaport |
 | **Сан-Паулу** |Ascenty Data Centers+, Equinix, Level 3 Communications, Neutrona Networks, Telefonica, UOLDIVEO |
@@ -150,7 +149,7 @@ ExpressRoute поддерживается во всех регионах и ра
 ## <a name="c1partners"></a>Подключение через дополнительных поставщиков услуг
 | **Расположение** | **Exchange** | **Поставщики услуг подключения** |
 | --- | --- | --- |
-| **Амстердам** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet |
+| **Амстердам** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet, Telia |
 | **Чикаго** | Equinix | Lightower, Windstream |
 | **Даллас** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Франкфурт** | Telecity | Nianet, QSC AG |
@@ -185,4 +184,3 @@ ExpressRoute поддерживается во всех регионах и ра
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
-

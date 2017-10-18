@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
+ms.openlocfilehash: b49a894365dd344afb2f3cab51e7cfd28d930b1a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: регистрация приложения
 
@@ -50,6 +49,8 @@ ms.lasthandoff: 09/01/2017
 ### <a name="register-a-web-app"></a>Регистрация веб-приложения
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+
+### <a name="create-a-web-app-client-secret"></a>Создание секрета клиента веб-приложения
 
 Если веб-приложение вызовет веб-API, защищенный Azure AD B2C, выполните следующие действия.
    1. Создайте секрет приложения. Для этого перейдите в колонку **Ключи** и нажмите кнопку **Создать ключ**. Запишите значение параметра **Ключ приложения**. Это значение используется в качестве секрета приложения в коде приложения.

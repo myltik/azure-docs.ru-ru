@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: создание веб-API .NET
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 05/03/2017
 * Включите в приложение **веб-приложение** или **веб-API**.
 * Используйте **URI перенаправления** `https://localhost:44332/` для веб-приложения. Это стандартное расположение клиента веб-приложения для этого примера.
 * Скопируйте **идентификатор приложения** , назначенный приложению. Он понадобится вам позднее.
-* Введите идентификатор приложения в поле **URI кода приложения**.
+* Введите идентификатор приложения в поле **URI кода приложения**. Скопируйте полный **URI идентификатора приложения**. Он понадобится вам позднее.
 * Добавьте разрешения с помощью меню **Published scopes** (Опубликованные области).
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -83,6 +82,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     * `ida:SignUpSignInPolicyId` именем политики регистрации и входа в систему;
     * `ida:EditProfilePolicyId` именем политики "Изменение профиля";
     * `ida:ResetPasswordPolicyId` именем политики "Сброс профиля".
+    * `api:ApiIdentifier` URI идентификатора приложения.
 
 
 ## <a name="secure-the-api"></a>Защита API
@@ -212,4 +212,3 @@ public IEnumerable<Models.Task> Get()
 ## <a name="edit-your-policies"></a>Изменение политик
 
 Теперь, когда у вас есть API, защищенный с помощью Azure AD B2C, можно поэкспериментировать с политиками регистрации и входа и понаблюдать, как это влияет (или не влияет) на API. Вы можете управлять утверждениями приложения в политиках и изменять сведения о пользователе, доступные в веб-API. Любые дополнительные утверждения, которые вы добавляете, будут доступны для веб-API .NET MVC в объекте `ClaimsPrincipal` , как описано ранее в этой статье.
-

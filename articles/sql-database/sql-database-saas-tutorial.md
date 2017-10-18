@@ -1,5 +1,5 @@
 ---
-title: "Развертывание и изучение мультитенантного приложения SaaS, использующего базу данных SQL Azure | Документация Майкрософт"
+title: "Руководство по мультитенантному приложению SaaS, использующему базу данных SQL Azure | Документация Майкрософт"
 description: "Разверните и изучите мультитенантное приложение SaaS Wingtip, демонстрирующее шаблоны SaaS с использованием базы данных SQL Azure."
 keywords: "руководство по базе данных sql"
 services: sql-database
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: 2e6816ce2740b0325c6f59338f0365c6b40539f3
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 14d2fd007e88c9cb20cf2b4a24262e2bebc42d63
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Развертывание и изучение мультитенантного приложения, использующего базу данных SQL Azure — SaaS Wingtip
 
@@ -203,4 +202,3 @@ ms.lasthandoff: 09/13/2017
 * Дополнительные сведения об эластичных пулах см. в статье [*Эластичные пулы помогают управлять несколькими базами данных SQL и масштабировать их*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool).
 * Дополнительные сведения об эластичных заданиях см. в статье [*Управление масштабируемыми облачными базами данных*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview).
 * Дополнительные сведения о шаблонах разработки для мультитенантных приложений SaaS и базы данных SQL Azure см. в [*этой статье*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications).
-

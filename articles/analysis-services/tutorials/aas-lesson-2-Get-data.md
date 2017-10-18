@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/19/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 07151fdf79d3b06f3144fbebff9015645b1ed000
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lesson-2-get-data"></a>Занятие 2. Получение данных
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,6 +28,9 @@ ms.lasthandoff: 06/03/2017
 В этом занятии вы используете функцию получения данных в SSDT, чтобы подключиться к примеру базы данных AdventureWorksDW2014, выбрать данные, просмотреть и отфильтровать их, а затем импортировать в рабочую область модели.  
   
 С помощью функции получения данных можно импортировать данные из самых разнообразных источников: базы данных SQL Azure, Oracle, Sybase, канала OData, Teradata, файлов и других. Данные также можно запросить с помощью выражения формулы Power Query M.
+
+> [!NOTE]
+> Для задач и образов в этом руководстве требуется подключение к базе данных AdventureWorksDW2014 на локальном сервере. В некоторых случаях база данных AdventureWorksDW2014 в Azure может отличаться.
   
 Предполагаемое время выполнения этого занятия: **10 минут**  
   
@@ -71,13 +72,19 @@ ms.lasthandoff: 06/03/2017
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Чтобы отфильтровать данные таблицы перед импортом, сделайте следующее:  
   
-1.  В редакторе запросов выберите таблицу **DimCustomer**. Открывается представление таблицы DimCustomer в источнике данных (пример базы данных AdventureWorksDWQ2014). 
+1.  В редакторе запросов выберите таблицу **DimCustomer**. Открывается представление таблицы DimCustomer в источнике данных (пример базы данных AdventureWorksDW2014). 
   
 2.  Выполните множественный выбор (CTRL+щелчок мышью) элементов **SpanishEducation**, **FrenchEducation**, **SpanishOccupation**, **FrenchOccupation**, а затем щелкните правой кнопкой мыши и выберите пункт **Удалить столбцы**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Так как значения для этих столбцов не актуальны для анализа интернет-продаж, импортировать их не требуется. После удаления ненужных столбцов модель становится компактнее и эффективнее.  
+
+    > [!TIP]
+    > Если вы допустили ошибку, вы можете выполнить восстановление, удалив шаг в разделе **Примененные шаги**.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Отфильтруйте оставшиеся таблицы, удалив из них следующие столбцы:  
     
@@ -85,7 +92,7 @@ ms.lasthandoff: 06/03/2017
     
       |столбец|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ ms.lasthandoff: 06/03/2017
   
     **FactInternetSales**
   
-      |столбец|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      Столбцы не удалены.
   
 ## <a name="Import"></a>Импорт данных из выбранных таблиц и столбцов  
 Теперь, когда вы просмотрели и отфильтровали ненужные данные, можно импортировать оставшиеся полезные данные. Мастер импортирует данные таблицы вместе со всеми связями между таблицами. Новые таблицы и столбцы создаются в модели, а отфильтрованные данные не импортируются.  
@@ -160,4 +163,3 @@ ms.lasthandoff: 06/03/2017
 
   
   
-

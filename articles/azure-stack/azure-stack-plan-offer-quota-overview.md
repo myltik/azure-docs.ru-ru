@@ -1,6 +1,6 @@
 ---
-title: Azure Stack plan, offer, quota, and subscription overview | Microsoft Docs
-description: As a cloud operator, I want to understand Azure Stack plans, offers, quotas, and subscriptions.
+title: "Общие сведения о планах, предложениях, квотах и подписках Azure Stack | Документация Майкрософт"
+description: "Сведения о планах, предложениях, квотах и подписках Azure Stack (для операторов облачной среды)."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,69 +14,67 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
 ms.author: erikje
+ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bfed4c557a420eda14cafe5b1cf8ad11476e2d79
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="plan-offer-quota-and-subscription-overview"></a>Plan, offer, quota, and subscription overview
+# <a name="plan-offer-quota-and-subscription-overview"></a>Обзор планов, предложений, квот и подписок
 
-*Applies to: Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
-[Azure Stack](azure-stack-poc.md) lets you deliver a wide variety of services, like virtual machines, SQL Server databases, SharePoint, Exchange, and even [Azure Marketplace items](azure-stack-marketplace-azure-items.md). As a cloud operator, you configure and deliver such services in Azure Stack by using plans, offers, and quotas.
+[Azure Stack](azure-stack-poc.md) позволяет предоставлять широкий набор служб, например виртуальные машины, базы данных SQL Server, SharePoint, Exchange и даже [элементы Azure Marketplace](azure-stack-marketplace-azure-items.md). Оператор среды Azure Stack отвечает за настройку и предоставление таких служб в Azure Stack на основе планов, предложений и квот.
 
-Offers contain one or more plans, and each plan includes one or more services. By creating plans and combining them into different offers, you control
-- which services and resources users can access
-- the amount of those resources that users can consume
-- which regions have access to the resources
+Предложения содержат один или несколько планов, а каждый план содержит одну или несколько служб. Создавая планы и объединяя их в различные предложения, вы управляете следующим:
+- доступом пользователей к службам и ресурсам;
+- объемом потребления этих ресурсов пользователями;
+- доступом к ресурсам из определенных регионов.
 
-When you deliver a service, you'll follow these high-level steps:
+Предоставление службы включает в себя следующие общие действия:
 
-1. Add a service that you want to deliver to your users.
-2. Create a plan that contains one or more services. When creating a plan, you will select or create quotas that define the resource limits of each service in the plan.
-3. Create an offer that contains one or more plans (including base plans and optional add-on plans).
+1. Добавление службы, которую требуется предоставить пользователям.
+2. Создание плана, содержащего одну или несколько служб. При создании плана вы выбираете или создаете квоты, определяющие ограничения ресурсов каждой службы в плане.
+3. Создание предложения, содержащего один или несколько планов (в том числе базовые и дополнительные планы).
 
-After you have created the offer, your users can subscribe to it to access the services and resources it provides. Users can subscribe to as many offers as they want. The following diagram shows a simple example of a user who has subscribed to two offers. Each offer has a plan or two, and each plan gives them access to services.
+После создания предложения пользователи могут подписаться на него и получить доступ к службам и ресурсам, которые он предоставляет. Количество подписок на предложения не ограничено. На схеме ниже приведен простой пример пользователя, подписавшегося на два предложения. Каждое предложение содержит два плана, и каждый план предоставляет доступ к службам.
 
 ![](media/azure-stack-key-features/image4.png)
 
-## <a name="plans"></a>Plans
+## <a name="plans"></a>Планы
 
-Plans are groupings of one or more services. As a cloud operator, you [create plans](azure-stack-create-plan.md) to offer to your users. In turn, your users subscribe to your offers to use the plans and services they include. When creating plans, make sure to set your quotas, define your base plans, and consider including optional add-on plans.
+Планы — это группы, содержащие одну или несколько служб. Оператор Azure Stack создает [планы](azure-stack-create-plan.md) и предлагает их пользователям. В свою очередь, пользователи подписываются на предложения, чтобы использовать содержащиеся в них планы и службы. При создании планов следует задать квоты, определить базовые планы и при необходимости добавить дополнительные планы.
 
-### <a name="quotas"></a>Quotas
+### <a name="quotas"></a>Квоты
 
-To help you manage your cloud capacity, you select or create a quota for each service in a plan. Quotas define the upper resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines. Quotas can limit a variety of resources, like virtual machines, RAM, and CPU limits.
+Чтобы управлять емкостью облака, следует выбрать или создать квоту каждой службы в плане. Квоты определяют верхние границы ресурсов, которые может подготовить или использовать пользователь в рамках подписки. Например, квота может позволить пользователю создавать до пяти виртуальных машин. Кроме того, квота может ограничивать использование разных ресурсов, например виртуальных машин, ОЗУ и ЦП.
 
-Quotas can be configured by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores. In the Azure Stack Development Kit, only one region (named *local*) is available.
+Квоты можно настроить по регионам. Например, план, содержащий службы вычислений из региона А, может иметь квоту в две виртуальные машины, 4 ГБ ОЗУ и 10 ядер ЦП. Каждый комплект разработки Azure Stack имеет один регион (с именем *local*).
 
-### <a name="base-plan"></a>Base plan
+### <a name="base-plan"></a>Базовый план
 
-When creating an offer, the service administrator can include a base plan. These base plans are included by default when a user subscribes to that offer. When a user subscribes, they have access to all the resource providers specified in those base plans (with the corresponding quotas).
+При создании предложения администратор служб может добавить базовый план. Эти базовые планы включаются по умолчанию, когда пользователь подписывается на это предложение. Когда пользователь подписывается, он получает доступ ко всем поставщикам ресурсов, указанным в этих базовых планах (с учетом установленных квот).
 
-### <a name="add-on-plans"></a>Add-on plans
+### <a name="add-on-plans"></a>Дополнительные планы
 
-You can also include optional add-on plans in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (with quotas) available in an offer that a subscriber can add to their subscriptions. For example, you can offer a base plan with limited resources for a trial, and an add-on plan with more substantial resources to customers who decide to adopt the service.
+В предложение можно также добавить дополнительные планы. Дополнительные планы не включаются по умолчанию в подписке. Это дополнительные планы (с квотами), доступные в предложении, которые подписчик может добавить в свою подписку. Например, вы можете создать предложение с базовым планом, ограничивающим доступ к ресурсам в рамках бесплатной пробной версии, и дополнительный план, предоставляющий доступ к большинству ресурсов пользователям, решившим использовать службу.
 
-## <a name="offers"></a>Offers
+## <a name="offers"></a>Предложения
 
-Offers are groups of one or more plans that you create so that users can subscribe to them. For example, Offer Alpha can contain Plan A containing a set of compute services and Plan B containing a set of storage and network services. 
+Предложения — это группы, содержащие один или несколько планов, на которые могут подписаться пользователи. Например, предложение "Альфа" может содержать план A с набором служб вычислений и план Б с набором служб хранения данных и сети. 
 
-When you [create an offer](azure-stack-create-offer.md), you must include at least one base plan, but you can also create add-on plans that users can add to their subscription.
-
-
-## <a name="subscriptions"></a>Subscriptions
-
-A subscription is how users access your offers. If you’re a cloud operator at a service provider, your users (tenants) buy your services by subscribing to your offers. If you’re a cloud operator at an organization, your users (employees) can subscribe to the services you offer without paying. Each combination of a user with an offer is a unique subscription. Thus, a user can have subscriptions to multiple offers, but each subscription applies to only one offer. Plans, offers, and quotas apply only to each unique subscription – they can’t be shared between subscriptions. Each resource that a user creates is associated with one subscription.
+При [создании предложения](azure-stack-create-offer.md) необходимо добавить по крайней мере один базовый план, но вы также можете создать дополнительные планы, которые пользователи могут добавить к подписке.
 
 
-### <a name="default-provider-subscription"></a>Default provider subscription
+## <a name="subscriptions"></a>Подписки
 
-The Default Provider Subscription is automatically created when you deploy the Azure Stack Development Kit. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for users. For security and licensing reasons, it should not be used to run customer workloads and applications. 
+Подписка предоставляет пользователям доступ к предложениям. Если вы оператор Azure Stack у поставщика услуг, пользователи (клиенты) могут купить службы, подписавшись на доступные предложения. Если вы оператор Azure Stack в организации, пользователи (сотрудники) могут бесплатно подписаться на предоставленные службы. Каждое сочетание пользователя и предложения представляет собой уникальную подписку. Таким образом пользователь может подписаться на несколько предложений, но каждая подписка относится только к одному предложению. Планы, предложения и квоты относятся к каждой уникальной подписке. Их нельзя передавать между подписками. Каждый созданный пользователем ресурс связан с одной подпиской.
 
-## <a name="next-steps"></a>Next steps
 
-[Create a plan](azure-stack-create-plan.md)
+### <a name="default-provider-subscription"></a>Подписка поставщика по умолчанию
 
+Подписка поставщика по умолчанию автоматически создается при развертывании комплекта средств Azure Stack. Эта подписка позволяет управлять Azure Stack, развертывать дополнительные поставщики ресурсов, а также создавать планы и предложения для пользователей. В соответствии с требованиями к лицензированию и безопасности выполнять рабочие нагрузки и приложения клиента в рамках подписки нельзя. 
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+[Создание плана](azure-stack-create-plan.md)

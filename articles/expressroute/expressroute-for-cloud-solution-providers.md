@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute для поставщиков облачных решений (CSP)
 Корпорация Майкрософт предоставляет традиционным торговым посредникам и распространителям (CSP) гипермасштабируемые службы, с помощью которых вы сможете быстро подготавливать к работе новые службы и решения для своих клиентов, не вкладывая средства в их разработку. Чтобы разрешить CSP управлять новыми службами напрямую, корпорация Майкрософт предоставляет программы и API, позволяющие CSP управлять ресурсами Microsoft Azure от имени клиентов. Один из этих ресурсов — ExpressRoute. Благодаря ExpressRoute CSP может подключать существующие ресурсы клиента к службам Azure. ExpressRoute представляет собой высокоскоростной частный канал связи со службами в среде Azure. 
@@ -135,8 +134,6 @@ ExpressRoute подключается к сети Azure через шлюз ви
 
 Дополнительные сведения см. по ссылкам ниже:
 
-[Программа Microsoft Cloud Solution Provider](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview)  
+[Azure в программе поставщиков облачных решений](https://docs.microsoft.com/azure/cloud-solution-provider)  
 [Готовность к модели Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch)  
 [Ресурсы по программе Microsoft Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources)
-
-

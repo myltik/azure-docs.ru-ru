@@ -12,23 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: renash
+ms.openlocfilehash: 81de67334f66a61582bb2c5d5a2303cf3a1a086c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5a4a26957c115277e7558c210560777af63d2d0f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-files"></a>Общие сведения о службе файлов Azure
 Служба файлов Azure предоставляет полностью управляемые общие файловые ресурсы в облаке, доступ к которым можно получить с помощью [стандартного отраслевого протокола SMB](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (он также называется Common Internet File System или CIFS). Общие ресурсы службы файлов Azure можно одновременно подключить к облачным или локальным развертываниям Windows, Linux и macOS. Кроме того, общие ресурсы службы файлов Azure можно кэшировать на серверах Windows Server с помощью службы синхронизации файлов Azure (предварительная версия) для быстрого доступа из расположения, где используются данные.
 
 ## <a name="videos"></a>Видеоролики
-| Общие сведения о службе файлов Azure (27 минут) | Руководство по службе файлов Azure (5 минут)  |
+| Общие сведения о службе синхронизации файлов Azure (2 минуты) | Файлы Azure с синхронизацией (Ignite 2017) (85 минут)  |
 |-|-|
-| [![Ознакомительное видео о службе файлов Azure. Щелкните, чтобы воспроизвести.](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Видеоруководство по службе файлов Azure. Щелкните, чтобы воспроизвести.](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Ознакомительное видео о службе синхронизации файлов Azure. Щелкните, чтобы воспроизвести.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Видеоруководство по файлам Azure с синхронизацией. Щелкните, чтобы воспроизвести.](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
 
 ## <a name="why-azure-files-is-useful"></a>Зачем нужна служба файлов Azure
 Файловые ресурсы Azure можно использовать следующим образом:

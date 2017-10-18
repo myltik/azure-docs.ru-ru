@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
+ms.openlocfilehash: bfdcc4aadab18091b2f57e8bc751b37d1bac4d26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 8ef8a1cc2393f0befbf83c3124b67b405ae06898
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Установка агента Azure AD Connect Health
 В этом документе описываются этапы установки и настройки агентов Azure AD Connect Health. Загрузить агенты можно [отсюда](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent):
@@ -37,7 +36,19 @@ ms.lasthandoff: 08/01/2017
 | Проверка SSL для исходящего трафика отфильтрована или отключена | Операции отправки данных или регистрация агента могут завершиться ошибкой в случае проверки SSL или завершения исходящего трафика на уровне сети. |
 | Порты брандмауэра на сервере с агентом. |Агент требует открытия следующих портов брандмауэра для обмена данными с конечными точками службы Azure AD Health.</br></br><li>TCP-порт 443</li><li>TCP-порт 5671</li> |
 | Внесите следующие веб-сайты в список разрешенных, если включена политика усиленной безопасности IE |Если на сервере, на котором будет установлен агент, включена конфигурация усиленной безопасности, потребуется открыть доступ для следующих веб-сайтов:</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Сервер федерации вашей организации должен быть доверенным для Azure Active Directory. (Например, https://sts.contoso.com.)</li> |
+| Установлена служба PowerShell 4.0 или более поздней версии | <li>Windows Server 2008 R2 поставляется вместе с PowerShell версии 2.0, что недостаточно для агента.  Обновите PowerShell, как описано ниже в разделе [Установка агента на серверах Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 поставляется вместе с PowerShell версии 3.0, что недостаточно для агента.  [Обновите](http://www.microsoft.com/en-us/download/details.aspx?id=40855) Windows Management Framework.</li><li>Windows Server 2012 R2 и более поздней версии поставляется с последней версией PowerShell.</li>|
 |Отключение FIPS|FIPS не поддерживается агентами Azure Active Directory Connect Health.|
+
+## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Скачивание и установка агента Azure AD Connect Health
+* Обязательно [выполните требования](active-directory-aadconnect-health-agent-install.md#requirements) для Azure AD Connect Health.
+* Приступая к работе с Azure AD Connect Health для AD FS
+    * [Скачайте агент Azure AD Connect Health для AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Ознакомьтесь с инструкциями по установке.](#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+* Приступая к работе с Azure AD Connect Health для синхронизации
+    * [Скачайте и установите последнюю версию Azure AD Connect.](http://go.microsoft.com/fwlink/?linkid=615771) Агент Azure AD Connect Health для синхронизации будет установлен вместе с Azure AD Connect (версии 1.0.9125.0 или более поздней).
+* Приступая к работе с Azure AD Connect Health для AD DS
+    * [Скачайте агент Azure AD Connect Health для AD FS.](http://go.microsoft.com/fwlink/?LinkID=820540)
+    * [Ознакомьтесь с инструкциями по установке.](#installing-the-azure-ad-connect-health-agent-for-ad-ds)
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Установка агента Azure AD Connect Health для AD FS
 Дважды щелкните скачанный EXE-файл, чтобы начать установку агента. На первом экране щелкните «Установить».
@@ -89,11 +100,11 @@ ms.lasthandoff: 08/01/2017
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Включение аудита для AD FS на Windows Server 2008 R2
 1. Нажиме кнопку **Пуск**, наведите указатель мыши на пункт **Программы**, а затем — на **Администрирование** и выберите **Локальная политика безопасности**.
-2. Перейдите к папке **Параметры безопасности\Локальные политики\Управление правами пользователя**, а затем дважды щелкните "Создание аудитов безопасности".
+2. Перейдите к папке **Параметры безопасности\Локальные политики\Предоставление прав пользователям**, а затем дважды щелкните пункт **Создание аудитов безопасности**.
 3. Убедитесь, что на вкладке **Параметры локальной безопасности** в списке указана учетная запись службы AD FS 2.0. Если она отсутствует, щелкните **Добавить пользователя или группу**, добавьте учетную запись в список и нажмите кнопку **ОК**.
-4. Чтобы включить аудит, откройте командную строку с повышенным уровнем привилегий и выполните следующую команду: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>.
-5. Закройте окно "Локальная политика безопасности" и откройте оснастку управления. Чтобы открыть оснастку управления, нажмите кнопку **Пуск**, наведите указатель мыши на пункт **Программы**, а затем — на **Администрирование** и выберите пункт AD FS 2.0 Management (Управление AD FS 2.0).
-6. На панели действий щелкните "Изменить свойства службы федерации".
+4. Чтобы включить аудит, откройте командную строку с более высоким уровнем привилегий и выполните следующую команду: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>.
+5. Закройте окно **Локальная политика безопасности** и откройте оснастку **управления AD FS**. Чтобы открыть оснастку управления AD FS, нажмите кнопку **Пуск**, наведите указатель мыши на пункт **Программы**, а затем — на **Администрирование** и выберите пункт **AD FS 2.0 Management** (Управление AD FS 2.0).
+6. На панели **действий** выберите действие **Изменить свойства службы федерации**.
 7. В диалоговом окне **Свойства службы федерации** откройте вкладку **События**.
 8. Установите флажки **Success audits** (Успешные события аудита) и **Failure audits** (Неудачные события аудита).
 9. Нажмите кнопку **ОК**.
@@ -303,4 +314,3 @@ ms.lasthandoff: 08/01/2017
 * [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
-

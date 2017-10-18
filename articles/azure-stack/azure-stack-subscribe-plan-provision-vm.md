@@ -1,6 +1,6 @@
 ---
-title: Subscribe to an offer | Microsoft Docs
-description: As a tenant, learn how to subscribe to an offer.
+title: "Подписка на предложение | Документация Майкрософт"
+description: "Узнайте, как пользователи могут подписаться на предложение."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,35 +14,36 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/03/2017
 ms.author: erikje
+ms.openlocfilehash: f70815b5e89753a4b0083ffbe10d9920062d1ff0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 3cd87ebe9827249d32f15b5de0ad8521d0282c47
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/10/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="subscribe-to-an-offer"></a>Subscribe to an offer
-Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can create a subscription.
+# <a name="subscribe-to-an-offer"></a>Подписка на предложение
 
-1. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack tenant portal (https://portal.local.azurestack.external) and click **Get a Subscription**.
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+
+После [создания предложения](azure-stack-create-offer.md) проверьте, могут ли ваши пользователи создать подписку.
+
+1. [Войдите](azure-stack-connect-azure-stack.md) на портал пользователя Azure Stack (https://portal.local.azurestack.external) и щелкните **Получить подписку**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
-2. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
+2. В поле **Отображаемое имя** введите имя подписки, щелкните **Предложение**, выберите одно из предложений в колонке **Choose an offer** (Выбор предложения), а затем нажмите кнопку **Создать**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
-3. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
+3. Чтобы просмотреть созданную подписку, щелкните **Больше служб**, **Подписки**, а затем выберите новую подписку.  
 
-After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
+Подписавшись на предложение, обновите страницу портала, чтобы просмотреть, какие службы входят в новую подписку.
 
-## <a name="subscribe-to-an-add-on-plan"></a>Subscribe to an add-on plan
-If the offer has an add-on plan, tenants can add them to their subscription at any time.  
+## <a name="subscribe-to-an-add-on-plan"></a>Подписка на дополнительный план
+Если предложение имеет дополнительный план, пользователи могут добавить его в свою подписку в любой момент.  
 
-1. In the tenant portal, select **More services** > **Subscriptions**.
+1. На портале пользователя выберите **Больше служб** > **Подписки**.
 
-2. Click on the subscription > **Add Plan** button, and select the add-on plan.
+2. Щелкните подписку, нажмите кнопку **Добавить план** и выберите дополнительный план.
 
 
 
-## <a name="next-steps"></a>Next steps
-[Provision a virtual machine](azure-stack-provision-vm.md)
-
+## <a name="next-steps"></a>Дальнейшие действия
+[Подготовка виртуальной машины](azure-stack-provision-vm.md)

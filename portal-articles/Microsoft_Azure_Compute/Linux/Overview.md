@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о Linux виртуальных машин | Документы Microsoft"
-description: "Справку для Обзор Linux виртуальной машины на портале Azure"
+title: "Обзор виртуальных машин Linux | Документация Майкрософт"
+description: "Содержимое справки об обзоре виртуальных машин Linux на портале Azure"
 services: virtual-machines-linux
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: 0de3fc4cab53564d7d131666e4a8c0ace8a64fb8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="linux-virtual-machines-documentation"></a>Документация по виртуальным машинам Linux
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="step-by-step-tutorials"></a>Пошаговые руководства
 
-Дополнительные сведения о развертывании, управлять и масштабирования виртуальных машин Linux в Azure.
+Сведения о развертывании, администрировании и масштабировании виртуальных машин Linux в Azure.
 
 - [Manage Linux virtual machines with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm) (Управление виртуальными машинами Linux с помощью Azure CLI)
 - [Manage Azure disks with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-disks) (Управление дисками Azure с помощью Azure CLI)
@@ -58,5 +58,5 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="more"></a>Подробнее
 
-- [Обратитесь к документации для получения дополнительных сведений](/azure/virtual-machines/linux/index)
-- [Дополнительные сведения о всех служб Azure](https://aka.ms/j3wr7y)
+- [См. дополнительные сведения в документации](/azure/virtual-machines/linux/index)
+- [Сведения обо всех службах Azure](https://aka.ms/j3wr7y)

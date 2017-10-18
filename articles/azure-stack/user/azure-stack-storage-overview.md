@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Stack storage
-description: Learn about Azure Stack storage
+title: "Общие сведения о хранилище Azure Stack"
+description: "Информация о хранилище Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,80 +14,78 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8777aa486a627cf8b2d8ba443e115638354d10da
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-to-azure-stack-storage"></a>Introduction to Azure Stack storage
+# <a name="introduction-to-azure-stack-storage"></a>Общие сведения о хранилище Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
-## <a name="overview"></a>Overview
-Azure Stack Storage is a set of cloud storage services including Blobs, Tables and Queues which are consistent with Azure Storage services.
+## <a name="overview"></a>Обзор
+Хранилище Azure Stack — это набор служб облачного хранения, включая большие двоичные объекты, таблицы и очереди, согласованные со службами хранилища Azure.
 
-## <a name="azure-stack-storage-services"></a>Azure Stack Storage services
-Azure Stack storage provides the following three services:
+## <a name="azure-stack-storage-services"></a>Службы хранилища Azure Stack
+Хранилище Azure Stack обеспечивает следующие три службы:
 
-* **Blob Storage** 
+* **Хранилище BLOB-объектов** 
 
-    Blob storage stores unstructured object data. A blob can be any type of text or binary data, such as a document, media file, or application installer.
-* **Table Storage** 
+    Хранилище BLOB-объектов хранит объекты с неструктурированными данными. BLOB-объект может представлять собой текстовые или двоичные данные любого типа, такие как документ, файл мультимедиа или установщик приложения.
+* **Хранилище таблиц** 
 
-    Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
-* **Queue Storage** 
+    Табличное хранилище содержит структурированные наборы данных. Табличное хранилище представляет собой хранилище данных NoSQL типа "ключ-атрибут", которое позволяет ускорить разработку и доступ к большим объемам данных.
+* **Хранилище очередей** 
 
-    Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
+    Хранилище очередей обеспечивает надежный обмен сообщениями для обработки рабочего процесса и для взаимодействия между компонентами облачных служб.
 
-An Azure Stack storage account is a secure account that gives you access to services in Azure Stack Storage. Your storage account provides the unique namespace for your storage resources. The following diagram shows the relationships between the Azure Stack storage resources in a storage account:
+Учетная запись хранения Azure Stack — это безопасная учетная запись, которая предоставляет доступ к службам хранилища Azure Stack. Учетная запись хранения предоставляет уникальное пространство имен для хранения ваших ресурсов. На схеме ниже показано взаимодействие ресурсов хранилища Azure Stack в рамках стандартной учетной записи хранения.
 
-![Azure Stack Storage overview](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
-
-
-### <a name="blob-storage"></a>Blob storage
-
-For users with a large amount of unstructured object data to store in the cloud, Blob storage offers an effective and scalable solution. You can use Blob storage to store content such as:
-
-* Documents
-* Social data such as photos, videos, music, and blogs
-* Backups of files, computers, databases, and devices
-* Images and text for web applications
-* Configuration data for cloud applications
-* Big data, such as logs and other large datasets
-
-Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the limit of storage account.
-
-Blob storage offers three types of blobs: 
-* **Block blobs** 
-
-    Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc.
-* **Append blobs** 
-
-    Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob.
-* **Page blobs** 
-
-    Page blobs are optimized for representing IaaS disks and supporting random writes which is up to 1 TB in size. An Azure Stack virtual machine attached IaaS disk is a VHD stored as a page blob.
+![Обзор хранилища Azure Stack](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 
-### <a name="table-storage"></a>Table storage
-Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required. Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft's NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases. With a schemaless data store, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly.
+### <a name="blob-storage"></a>Хранилище BLOB-объектов
 
-Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage is schemaless, two entities in the same table can contain different collections of properties, and those properties can be of different types.
+Хранилище BLOB-объектов предлагает эффективное и масштабируемое решение для пользователей, хранящих большое количество объектов с неструктурированными данными в облаке. Хранилище BLOB-объектов можно использовать для хранения следующего контента:
 
-You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. For today's Internet-based applications, NoSQL databases like Table storage offer a popular alternative to traditional relational databases.
+* Документы
+* Социальные данные, например фотографии, видеозаписи, музыка и блоги
+* Резервные копии файлов, баз данных, компьютеров и устройств
+* Изображения и текст для веб-приложений
+* Данные конфигурации для облачных приложений
+* Данные большого размера, например журналы и другие большие наборы данных
 
-A storage account can contain any number of tables, and a table can contain any number of entities, up to the capacity limit of the storage account.
+Все BLOB-объекты организованы в контейнеры. Контейнеры также предоставляют удобный способ назначения политик безопасности группам объектов. Учетная запись хранения может содержать любое количество контейнеров, а контейнер может содержать любое количество больших двоичных объектов (в рамках ограничения емкости учетной записи хранения).
 
-### <a name="queue-storage"></a>Queue storage
-In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
+В хранилище BLOB-объектов предлагается три типа больших двоичных объектов: 
+* **Блочные BLOB-объекты** 
 
-A storage account can contain any number of queues, and a queue can contain any number of messages, up to the capacity limit of the storage account. Individual messages may be up to 64 KB in size.
+    Блочные BLOB-объекты оптимизированы для потоковой передачи и хранения облачных объектов и отлично подходят для хранения документов, файлов мультимедиа, резервных копий и т. д.
+* **Добавочные большие двоичные объекты** 
 
-## <a name="next-steps"></a>Next steps
-* [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
+    Добавочные большие двоичные объекты схожи с блочными BLOB-объектами, однако они оптимизированы для операций добавления. Добавочный большой двоичный объект можно обновить только путем добавления в его конец нового блока. Эти большие двоичные объекты — хороший вариант для таких сценариев, как ведение журнала, в которых новые данные должны записываться только в конец большого двоичного объекта.
+* **Страничные BLOB-объекты** 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+    Страничные BLOB-объекты оптимизированы для представления дисков IaaS и поддержки произвольных записей (до 1 ТБ). Диск IaaS, присоединенный к виртуальной машине Azure Stack, представляет собой виртуальный жесткий диск (VHD), хранящийся в виде страничного BLOB-объекта.
 
+
+### <a name="table-storage"></a>Хранилище таблиц
+Современным приложениям часто требуются хранилища данных с большей степенью масштабируемости и гибкости, чем предыдущим поколениям программного обеспечения. Табличное хранилище предлагает высокую степень доступности и масштабируемости, позволяя приложению автоматически осуществлять масштабирование в соответствии с пользовательским спросом. Предоставляемое корпорацией Майкрософт табличное хранилище — это хранилище NoSQL типа "ключ-атрибут", имеющее бессхемную конструкцию в отличие от традиционных реляционных баз данных. С помощью бессхемного хранилища данных можно легко адаптировать данные по мере развития потребностей приложения. Простое в использовании табличное хранилище позволяет разработчикам быстро создавать приложения.
+
+Табличное хранилище является хранилищем типа "ключ-атрибут", то есть каждая сущность в таблице хранится вместе с типовым именем свойства. Это имя свойства может использоваться для фильтрации и указания критериев выбора. Коллекция свойств с их значениями представляют собой сущность. Поскольку табличное хранилище является бессхемным, две сущности в одной и той же таблице могут содержать разные коллекции свойств, и эти свойства могут относиться к разным типам.
+
+Табличное хранилище можно использовать для хранения гибких наборов данных, например пользовательских данных для веб-приложений, адресных книг, сведений об устройстве, а также метаданных любого другого типа, которые требуются вашей службе. Для современных интернет-приложений базы данных NoSQL, такие как табличное хранилище, являются распространенной альтернативой традиционным реляционным базам данных.
+
+В учетной записи хранения может содержаться любое количество таблиц, а в таблице может быть любое количество сущностей в пределах емкости учетной записи хранения.
+
+### <a name="queue-storage"></a>Хранилище очередей
+При разработке приложений для масштабирования компоненты приложения часто не связаны между собой, так что они могут масштабироваться независимо друг от друга. Хранилище очередей обеспечивает надежное решение по обмену сообщениями для асинхронного взаимодействия между компонентами приложения, независимо от того, где они выполняются: в облаке, на рабочем столе, локальном сервере или мобильном устройстве. Хранилище очередей также поддерживает управление асинхронными задачами и построение рабочих процессов.
+
+В учетной записи хранения может содержаться любое количество очередей, а в очереди может быть любое количество сообщений в пределах емкости учетной записи. Отдельные сообщения могут иметь размер до 64 КБ.
+
+## <a name="next-steps"></a>Дальнейшие действия
+* [Хранилище Azure Stack. Отличия и рекомендации](azure-stack-acs-differences.md)
+
+* Дополнительные сведения о службе хранилища Azure см. в статье [Введение в хранилище Microsoft Azure](../../storage/common/storage-introduction.md).
 

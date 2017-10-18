@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
-ms.contentlocale: ru-ru
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 956c7a4fb91c1b1a45e24128e92d6a6b1213eeb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-data-lake-store"></a>Обзор хранилища озера данных Azure
 Хранилище озера данных Azure — это крупномасштабный репозиторий корпоративного уровня для рабочих нагрузок анализа больших данных. Озеро данных Azure позволяет сохранять данные с любым размером, типом и скоростью приема в одном месте для эксплуатационной и исследовательской аналитики.
@@ -62,9 +60,9 @@ ms.lasthandoff: 12/08/2016
 
 | Функция | Описание |
 | --- | --- |
-| Аутентификация |Хранилище озера данных Azure интегрируется с Azure Active Directory (AAD) для управления удостоверениями и доступом для всех данных, размещенных в хранилище озера данных Azure. В результате этой интеграции озеро данных Azure получает доступ ко всем функциям AAD, включая многофакторную проверку подлинности, условный доступ, контроль доступа на основе ролей, отслеживание использования приложений, мониторинг безопасности и предупреждения и т. д. Хранилище озера данных Azure поддерживает протокол OAuth 2.0 для проверки подлинности в интерфейсе REST. |
+| Аутентификация |Хранилище озера данных Azure интегрируется с Azure Active Directory (AAD) для управления удостоверениями и доступом для всех данных, размещенных в хранилище озера данных Azure. В результате этой интеграции озеро данных Azure получает доступ ко всем функциям AAD, включая многофакторную проверку подлинности, условный доступ, контроль доступа на основе ролей, отслеживание использования приложений, мониторинг безопасности и предупреждения и т. д. Хранилище озера данных Azure поддерживает протокол OAuth 2.0 для проверки подлинности в интерфейсе REST. Дополнительные сведения см. в статье [Authentication with Data Lake Store using Azure Active Directory](data-lakes-store-authentication-using-azure-active-directory.md) (Проверка подлинности в Data Lake Store с использованием Azure Active Directory).|
 | управление доступом; |Хранилище озера данных Azure обеспечивает контроль доступа за счет поддержки разрешений POSIX, предоставляемых протоколом WebHDFS. В общедоступной предварительной версии Data Lake Store (текущий выпуск) списки управления доступом можно включить в корневой папке, вложенных папках, а также в отдельных файлах. Дополнительные сведения о принципе работы списков управления доступом в контексте Data Lake Store см. в статье [Контроль доступа в Azure Data Lake Store](data-lake-store-access-control.md). |
-| Шифрование |В Data Lake Store можно также включить шифрование данных, хранящихся в учетной записи. Параметры шифрования можно задать во время создания учетной записи Data Lake Store. Шифрование данных можно как включить, так и отключить. Дополнительные сведения о настройке шифрования см. в статье [Начало работы с хранилищем озера данных Azure с помощью портала Azure](data-lake-store-get-started-portal.md). |
+| Шифрование |В Data Lake Store можно также включить шифрование данных, хранящихся в учетной записи. Параметры шифрования можно задать во время создания учетной записи Data Lake Store. Шифрование данных можно как включить, так и отключить. Дополнительные сведения см. в статье [Шифрование данных в Azure Data Lake Store](data-lake-store-encryption.md). Инструкции по настройке шифрования см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md). |
 
 Ссылки на дополнительные сведения о защите данных в хранилище озера данных приведены ниже.
 
@@ -103,5 +101,4 @@ ms.lasthandoff: 12/08/2016
 * [Use Apache Sqoop to move data between relational sources and Azure Data Lake Store (Использование Apache Sqoop для перемещения данных между реляционными источниками и хранилищем озера данных Azure)](https://mix.office.com/watch/1butcdjxmu114)
 * [Data Orchestration using Azure Data Factory for Azure Data Lake Store (Оркестрация данных с помощью фабрики данных Azure для хранилища озера данных Azure)](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Securing Data in the Azure Data Lake Store (Защита данных в хранилище озера данных Azure)](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
 

@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 09/18/2017
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: e8e97f0a0d18bafac581ce0fa31a69e385669bcf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: d8d8ff77f0099185707a0207c4ba6aed190a102e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-service-preview"></a>Создание и подготовка виртуального устройства с помощью службы подготовки устройств Центра Интернета вещей (предварительная версия)
 
 В этом руководстве показано, как создать виртуальное устройство на компьютере разработки под управлением ОС Windows, запустить симулятор доверенного платформенного модуля Windows в качестве [аппаратного модуля безопасности](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) устройства, а также как с помощью примера кода подключить виртуальное устройство к службе подготовки устройств и Центру Интернета вещей. 
@@ -29,7 +27,7 @@ ms.lasthandoff: 09/13/2017
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Подготовка среды разработки 
 
-1. Установите на компьютер Visual Studio 2015 или [Visual Studio 2017](https://www.visualstudio.com/vs/). 
+1. Установите на компьютер Visual Studio 2015 или [Visual Studio 2017](https://www.visualstudio.com/vs/). Для установки Visual Studio требуется включить рабочую нагрузку разработки классических приложений с помощью C++.
 
 2. Скачайте и установите [систему сборки CMake](https://cmake.org/download/).
 
@@ -122,4 +120,3 @@ ms.lasthandoff: 09/13/2017
 
 > [!div class="nextstepaction"]
 > [Руководства по службе подготовки устройств для Центра Интернета вещей Azure](./tutorial-set-up-cloud.md)
-

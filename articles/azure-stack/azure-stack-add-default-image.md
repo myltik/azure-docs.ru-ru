@@ -1,6 +1,6 @@
 ---
-title: Add the default VM image to the Azure Stack marketplace | Microsoft Docs
-description: Add the Windows Server 2016 VM default image to the Azure Stack marketplace.
+title: "Добавление образа виртуальной машины по умолчанию в Azure Stack Marketplace | Документация Майкрософт"
+description: "Добавление образа виртуальной машины Windows Server 2016 по умолчанию в Azure Stack Marketplace."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,48 +14,47 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: sngun
+ms.openlocfilehash: 43781cb025865df1d228376f57412f3d482d3ad0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 62f467f1dae5a2cb04e5230ed43b77ec3ec8c1a1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Add the Windows Server 2016 VM image to the Azure Stack marketplace
+# <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Добавление образа виртуальной машины Windows Server 2016 в Azure Stack Marketplace
 
-By default, there aren’t any virtual machine images available in the Azure Stack marketplace. The Azure Stack operator must add an image to the marketplace before users can use them. You can add the Windows Server 2016 image to the Azure Stack marketplace by using one of the following two methods:
+По умолчанию в Azure Stack Marketplace недоступны никакие образы виртуальных машин. Оператор Azure Stack должен добавить образ в Marketplace, чтобы пользователи могли использовать их. Образ Windows Server 2016 можно добавить в Azure Stack Marketplace с помощью одного из следующих методов:
 
-* [Add the image by downloading it from the Azure Marketplace](#add-the-image-by-downloading-it-from-the-Azure-marketplace) - Use this option if you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure.
+* [Добавить образ, скачав его из Azure Marketplace](#add-the-image-by-downloading-it-from-the-Azure-marketplace). Используйте этот вариант, если вы работаете в сценарии с подключением и если экземпляр Azure Stack зарегистрирован в Azure.
 
-* [Add the image by using PowerShell](#add-the-image-by-using-powershell) - Use this option if you have deployed Azure Stack in a disconnected scenario or in scenarios with limited connectivity.
+* [Добавить образ с помощью PowerShell](#add-the-image-by-using-powershell). Используйте этот вариант, если Azure Stack развернут в сценарии без подключения или в сценариях с ограниченным подключением.
 
-## <a name="add-the-image-by-downloading-it-from-the-azure-marketplace"></a>Add the image by downloading it from the Azure Marketplace
+## <a name="add-the-image-by-downloading-it-from-the-azure-marketplace"></a>Добавление образа путем скачивания его из Azure Marketplace
 
-1. After deploying Azure Stack, sign in to your Azure Stack Development Kit.
+1. После развертывания Azure Stack войдите в комплект разработки Azure Stack.
 
-2. click **More services** > **Marketplace Management** > **Add from Azure** 
+2. Щелкните **Больше служб** > **Marketplace Management** (Управление Marketplace) > **Add from Azure** (Добавить из Azure). 
 
-3. Find or search for the **Windows Server 2016 Datacenter – Eval** image > click **Download**
+3. Найдите образ **Windows Server 2016 Datacenter – Eval** и щелкните **Скачать**.
 
-   ![Download image from Azure](media/azure-stack-add-default-image/download-image.png)
+   ![Скачивание образа из Azure](media/azure-stack-add-default-image/download-image.png)
 
-After the download completes, the image is added to the **Marketplace Management** blade and it is also made available from the **Virtual Machines** blade.
+После завершения скачивания образ будет добавлен в колонку **Marketplace Management** (Управление Marketplace) и также будет доступен в колонке **Виртуальные машины**.
 
-## <a name="add-the-image-by-using-powershell"></a>Add the image by using PowerShell
+## <a name="add-the-image-by-using-powershell"></a>Добавление образа с помощью PowerShell
 
-### <a name="prerequisites"></a>Prerequisites 
+### <a name="prerequisites"></a>Предварительные требования 
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+Выполните следующие предварительные требования из [комплекта разработки](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) или из внешнего клиента для Windows при [подключении через VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
+* Установите [совместимые с Azure Stack модули Azure PowerShell](azure-stack-powershell-install.md).  
 
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+* Скачайте [средства, необходимые для работы с Azure Stack](azure-stack-powershell-download.md).  
 
-* Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps. This step requires internet connectivity.  
+* Перейдите по адресу https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 и скачайте ознакомительную версию Windows Server 2016. При появлении запроса выберите для скачивания версию **ISO**. Запишите путь к расположению скачивания. Он используется далее в этом пошаговом руководстве. На этом шаге необходимо подключение к Интернету.  
 
-Now run the following steps to add the image to the Azure Stack marketplace:
+Теперь выполните следующие действия, чтобы добавить образ в Azure Stack Marketplace:
    
-1. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
+1. Импортируйте модули Azure Stack Connect и ComputeAdmin с помощью следующих команд:
 
    ```powershell
    Set-ExecutionPolicy RemoteSigned
@@ -66,9 +65,9 @@ Now run the following steps to add the image to the Azure Stack marketplace:
 
    ```
 
-2. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenantName, GraphAudience endpoint and ArmEndpoint values as per your environment configuration):  
+2. Войдите в среду Azure Stack. Выполните следующий скрипт в зависимости от того, развертывается ли среда Azure Stack с помощью AAD или AD FS (обязательно замените значения AAD tenantName, GraphAudience и ArmEndpoint в соответствии с конфигурацией среды):  
 
-   a. **Azure Active Directory**, use the following cmdlet:
+   а. **Azure Active Directory**. Используйте следующий командлет:
 
    ```PowerShell
    # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
@@ -95,7 +94,7 @@ Now run the following steps to add the image to the Azure Stack marketplace:
      -TenantId $TenantID 
    ```
 
-   b. **Active Directory Federation Services**, use the following cmdlet:
+   b. **Службы федерации Active Directory (AD FS)**. Используйте следующий командлет:
     
    ```PowerShell
    # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
@@ -123,7 +122,7 @@ Now run the following steps to add the image to the Azure Stack marketplace:
      -TenantId $TenantID 
    ```
    
-3. Add the Windows Server 2016 image to the Azure Stack marketplace (Make sure to replace the *Path_to_ISO* with the path to the WS2016 ISO you downloaded):
+3. Добавьте образ Windows Server 2016 в Azure Stack Marketplace (не забудьте заменить *Path_to_ISO* путем к скачанному ISO WS2016):
 
    ```PowerShell
    $ISOPath = "<Fully_Qualified_Path_to_ISO>"
@@ -134,23 +133,22 @@ Now run the following steps to add the image to the Azure Stack marketplace:
 
    ```
 
-To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the `IncludeLatestCU` parameter when running the `New-AzsServer2016VMImage` cmdlet. See the [Parameters](#parameters) section for information about allowed parameters for the `New-AzsServer2016VMImage` cmdlet. It takes about an hour to publish the image to the Azure Stack marketplace. 
+Чтобы убедиться, что образ виртуальной машины Windows Server 2016 имеет последний накопительный пакет обновления, укажите параметр `IncludeLatestCU` при выполнении командлета `New-AzsServer2016VMImage`. Дополнительные сведения о разрешенных параметрах для командлета `New-AzsServer2016VMImage` см. в разделе [Параметры](#parameters). Публикация образа в Azure Stack Marketplace займет около часа. 
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>Параметры
 
-|New-AzsServer2016VMImage parameters|Required?|Description|
+|Параметры New-AzsServer2016VMImage|Обязательный?|Описание|
 |-----|-----|------|
-|ISOPath|Yes|The fully qualified path to the downloaded Windows Server 2016 ISO.|
-|Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL and MYSQL resource providers. |
-|Version|No|This parameter allows you to choose whether to add a **Core** or **Full** or **Both** Windows Server 2016 images. By default, this value is set to "Full."|
-|VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. By default, this value is set to 40960 MB.|
-|CreateGalleryItem|No|Specifies if a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to true.|
-|location |No |Specifies the location to which the Windows Server 2016 image should be published.|
-|IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
-|CUUri |No |Set this value to choose the Windows Server 2016 cumulative update from a specific URI. |
-|CUPath |No |Set this value to choose the Windows Server 2016 cumulative update from a local path. This option is helpful if you have deployed the Azure Stack instance in a disconnected environment.|
+|ISOPath|Да|Полный путь к скачанному образу ISO Windows Server 2016.|
+|Net35|Нет|Этот параметр позволяет установить среду выполнения .NET 3.5 в образе Windows Server 2016. По умолчанию установлено значение true.|
+|Version (версия)|Нет|Этот параметр позволяет выбрать, следует ли добавлять **базовый**, **полный** или **оба** образа Windows Server 2016. По умолчанию установлено значение Full.|
+|VHDSizeInMB|Нет|Задает размер (в МБ) образа VHD для добавления в среду Azure Stack. По умолчанию установлено значение 40960 МБ.|
+|CreateGalleryItem|Нет|Указывает, следует ли создать элемент Marketplace для образа Windows Server 2016. По умолчанию установлено значение true.|
+|location |Нет |Указывает расположение, в которое должны публиковаться образы Windows Server 2016.|
+|IncludeLatestCU|Нет|Установите этот переключатель, чтобы применить последнее накопительное обновление Windows Server 2016 для нового виртуального жесткого диска.|
+|CUUri |Нет |Установите это значение для выбора накопительного обновления Windows Server 2016 из определенного универсального кода ресурса (URI). |
+|CUPath |Нет |Установите это значение для выбора накопительного обновления Windows Server 2016 из определенного локального пути. Этот вариант целесообразно использовать, если экземпляр Azure Stack развернут в отключенной среде.|
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-[Provision a virtual machine](azure-stack-provision-vm.md)
-
+[Подготовка виртуальной машины](azure-stack-provision-vm.md)

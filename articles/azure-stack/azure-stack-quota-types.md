@@ -1,6 +1,6 @@
 ---
-title: Quota types in Azure Stack | Microsoft Docs
-description: Review the different quota types available for services and resources in Azure Stack.
+title: "Типы квот в Azure Stack | Документация Майкрософт"
+description: "Ознакомьтесь с разными типами квот, доступными для служб и ресурсов в Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,53 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
+ms.openlocfilehash: 33906514955b76a3d6587b19899a0c76a09018a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 9c65abd596b1a67175a4f91558c318f16ddbb11f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="quota-types-in-azure-stack"></a>Quota types in Azure Stack
-[Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
+# <a name="quota-types-in-azure-stack"></a>Типы квот в Azure Stack
 
-## <a name="compute-quota-types"></a>Compute quota types
-| **Type** | **Default value** | **Description** |
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
+
+[Квоты](azure-stack-plan-offer-quota-overview.md#plans) определяют ограничения ресурсов, которые может подготовить или использовать пользователь в рамках подписки. Например, квота может позволить пользователю создавать до пяти виртуальных машин. Каждый ресурс может иметь собственные типы квот.
+
+## <a name="compute-quota-types"></a>Типы квот вычислений
+| **Тип** | **Значение по умолчанию** | **Описание** |
 | --- | --- | --- |
-| Max number of virtual machines |50 | The maximum number of virtual machines that a subscription can create in this location. |
-| Max number of virtual machine cores |100 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
-| Max number of availability sets |10 | The maximum number of availability sets that can be created in this location. |
-| Max number of virtual machine scale sets |100 | The maximum number of virtual machine scale sets that can be created in this location. |
+| Максимальное количество виртуальных машин |50 | Максимальное число виртуальных машин, которые могут быть созданы с помощью подписки в этом расположении. |
+| Максимальное число ядер виртуальной машины |100 | Максимальное количество ядер, которые можно создать в рамках подписки в этом расположении (например, виртуальная машина A3 имеет четыре ядра). |
+| Максимальное число групп доступности |10 | Максимальное количество групп доступности, которые могут быть созданы в этом расположении. |
+| Максимальное число масштабируемых наборов виртуальных машин |100 | Максимальное количество масштабируемых наборов виртуальных машин, которые могут быть созданы в этом расположении. |
 
 > [!NOTE]
-> Compute quotas are not enforced in this technical preview.
+> Квоты вычислений в этой технической предварительной версии не применяются.
 > 
 > 
 
-## <a name="storage-quota-types"></a>Storage quota types
-| **Item** | **Default value** | **Description** |
+## <a name="storage-quota-types"></a>Типы квот хранилища
+| **Элемент** | **Значение по умолчанию** | **Описание** |
 | --- | --- | --- |
-| Maximum capacity (GB) |500 |Total storage capacity that can be consumed by a subscription in this location. |
-| Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
+| Максимальная емкость (ГБ) |500 |Общая емкость хранилища, которая может быть использована в рамках подписки в этом расположении. |
+| Общее количество учетных записей хранения |20 |Максимальное число учетных записей хранения, которые могут быть созданы с помощью подписки в этом расположении. |
 
-## <a name="network-quota-types"></a>Network quota types
-| **Item** | **Default value** | **Description** |
+## <a name="network-quota-types"></a>Типы квот сети
+| **Элемент** | **Значение по умолчанию** | **Описание** |
 | --- | --- | --- |
-| Max public IPs |50 |The maximum number of public IPs that a subscription can create in this location. |
-| Max virtual networks |50 |The maximum number of virtual networks that a subscription can create in this location. |
-| Max virtual network gateways |1 |The maximum number of virtual network gateways (VPN Gateways) that a subscription can create in this location. |
-| Max network connections |2 |The maximum number of network connections (point-to-point or site-to-site) that a subscription can create across all virtual network gateways in this location. |
-| Max load balancers |50 |The maximum number of load balancers that a subscription can create in this location. |
-| Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
-| Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
+| Максимальное количество общедоступных IP-адресов |50 |Максимальное число IP-адресов, которые могут быть созданы с помощью подписки в этом расположении. |
+| Максимальное количество виртуальных сетей |50 |Максимальное число виртуальных сетей, которые могут быть созданы с помощью подписки в этом расположении. |
+| Максимальное количество шлюзов виртуальной сети |1 |Максимальное число шлюзов виртуальной сети (VPN-шлюзов), которые могут быть созданы с помощью подписки в этом расположении. |
+| Максимальное количество сетевых подключений |2 |Максимальное количество сетевых подключений ("точка — точка" или "сеть — сеть"), которые можно создать с помощью подписки для всех шлюзов виртуальной сети в этом расположении. |
+| Максимальное количество балансировщиков нагрузки |50 |Максимальное число балансировщиков нагрузки, которые могут быть созданы с помощью подписки в этом расположении. |
+| Максимальное число сетевых адаптеров |100 |Максимальное число сетевых интерфейсов, которые могут быть созданы с помощью подписки в этом расположении. |
+| Максимальное число групп безопасности сети |50 |Максимальное число групп безопасности сети, которые могут быть созданы с помощью подписки в этом расположении. |
 
-## <a name="view-an-existing-quota"></a>View an existing quota
-1. Click **More services** > **Resource Providers**.
-2. Select the service with the quota that you want to view.
-3. Click **Quotas**, and select the quota you want to view.
+## <a name="view-an-existing-quota"></a>Просмотр имеющихся квот
+1. Щелкните **Больше служб** > **Поставщики ресурсов**.
+2. Выберите службу с квотой, которую необходимо просмотреть.
+3. Щелкните **Квоты** и выберите квоту, которую необходимо просмотреть.
 
-## <a name="next-steps"></a>Next steps
-[Learn more about plans, offers, and quotas.](azure-stack-plan-offer-quota-overview.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Дополнительные сведения о планах, предложениях и квотах.](azure-stack-plan-offer-quota-overview.md)
 
-[Create quotas while creating a plan.](azure-stack-create-plan.md)
-
+[Create a plan in Azure Stack](azure-stack-create-plan.md) (Создание плана в Azure Stack)

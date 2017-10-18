@@ -3,7 +3,7 @@ title: "Настройка проверки подлинности с помощ
 description: "В этой статье описывается создание и проверка учетных данных AWS для модулей Runbook в службе автоматизации Azure, управляющей ресурсами AWS."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "проверка подлинности aws, настройка aws"
@@ -13,20 +13,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 09/29/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 81e5e5d56a7e6149409e11aca2e5fdf28d6a7134
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: 0802bb0f2c4d5b761c5833d7231bd3d2d1002cfc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Проверка подлинности модулей Runbook с помощью Amazon Web Services
 Автоматизацию стандартных задач с использованием ресурсов в Amazon Web Services (AWS) можно выполнить с помощью модулей Runbook службы автоматизации в Azure.  Многие задачи можно автоматизировать в AWS с помощью модулей Runbook службы автоматизации так же, как и с помощью ресурсов в Azure.  Для этого нужны всего две вещи.
 
-* Подписка на AWS и набор учетных данных, а именно — ключ доступа к AWS и секретный ключ.  Дополнительные сведения см.  в статье [Using AWS Credentials](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html)(Использование учетных данных AWS).
-* Подписка Azure и учетная запись службы автоматизации.  Дополнительные сведения о настройке учетной записи службы автоматизации Azure см. в статье [Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени](automation-sec-configure-azure-runas-account.md).  
+* Подписка на AWS и набор учетных данных, а именно — ключ доступа к AWS и секретный ключ.  Дополнительные сведения см.  в статье [Using AWS Credentials](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html) (Использование учетных данных AWS).
+* Подписка Azure и учетная запись службы автоматизации.  Дополнительные сведения о настройке учетной записи службы автоматизации Azure см. в разделе [Планирование проверки подлинности](automation-offering-get-started.md#authentication-planning).  
 
 Чтобы пройти проверку подлинности в AWS, необходимо указать набор учетных данных AWS для проверки подлинности модулей Runbook, запущенных в службе автоматизации Azure. Если вы уже создали учетную запись службы автоматизации и хотите использовать ее для проверки подлинности с помощью AWS, выполните действия, описанные в следующем разделе.  Чтобы выделить отдельную учетную запись для модулей Runbook, предназначенных для ресурсов AWS, сначала создайте [учетную запись в службе автоматизации](automation-offering-get-started.md) (пропустив создание субъекта-службы), а затем выполните действия ниже.
 
@@ -36,9 +35,8 @@ ms.lasthandoff: 04/15/2017
 Создав и скопировав ключи безопасности AWS, нужно создать ресурс учетных данных в учетной записи службы автоматизации Azure, чтобы безопасно хранить их и ссылаться на них с помощью модулей Runbook.  Выполните действия, описанные в разделе **Создание нового ресурса учетных данных на портале Azure** статьи [Ресурсы учетных данных в службе автоматизации Azure](automation-credentials.md#to-create-a-new-credential-asset-with-the-azure-portal), и введите следующее:
 
 1. В поле **Имя** введите **AWScred** или другое значение, соответствующее вашим стандартам именования.  
-2. В поле **Имя пользователя** введите **код доступа**, а в полях **Пароль** и **Подтверждение пароля** — **секретный ключ доступа**.   
+2. В поле **Имя пользователя** введите **идентификатор доступа**, а в полях **Пароль** и **Подтверждение пароля** — **секретный ключ доступа**.   
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о создании модулей Runbook для автоматизации задач в AWS см. в статье [Сценарий службы автоматизации Azure: подготовка виртуальной машины AWS](automation-scenario-aws-deployment.md).
-
 

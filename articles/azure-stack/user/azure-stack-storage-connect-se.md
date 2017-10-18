@@ -1,6 +1,6 @@
 ---
-title: Connect Storage Explorer to an Azure Stack subscription
-description: Learn how to connect Storage Exporer to an  Azure Stack subscription
+title: "Подключение обозревателя службы хранилища к подписке Azure Stack"
+description: "Узнайте, как подключить обозреватель службы хранилища к подписке Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,97 +14,96 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8cd52e9561f2ad92664c01959df8919aa56e8738
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Connect Storage Explorer to an Azure Stack subscription
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Подключение обозревателя службы хранилища к подписке Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
-Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. There are several tools avaialble to move data to and from Azure Stack Storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
+Обозреватель службы хранилища Azure (предварительная версия) — это автономное приложение, позволяющее легко работать с данными из хранилища Azure Stack на платформе Windows, macOS и Linux. Доступно несколько средств для перемещения данных в хранилище Azure Stack и из него. Дополнительные сведения см. в статье [Средства для хранилища Azure Stack](azure-stack-storage-transfer.md).
 
-In this article, you learn how to connect to your Azure Stack storage accounts using Storage Explorer. 
+В этой статье вы узнаете, как подключиться к учетным записям хранения Azure Stack с помощью обозревателя службы хранилища. 
 
-If you haven't installed Storage Explorer yet, [download](http://www.storageexplorer.com/) and and install it.
+Если обозреватель хранилищ еще не установлен на компьютере, [скачайте](http://www.storageexplorer.com/) и установите его.
 
-After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
+Когда вы подключитесь к подписке Azure Stack, для дальнейшей работы с данными Azure Stack можно использовать статьи об [обозревателе службы хранилища Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md). 
 
-## <a name="prepare-an-azure-stack-subscription"></a>Prepare an Azure Stack subscription
+## <a name="prepare-an-azure-stack-subscription"></a>Подготовка подписки Azure Stack
 
-You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Чтобы получить доступ к подписке Azure Stack, обозревателю службы хранилища требуется доступ к рабочему столу хост-компьютера или VPN-подключение. Дополнительные сведения о настройке VPN-подключения в Azure Stack см. в разделе [Подключение c VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
+Для комплекта разработки Azure Stack необходимо экспортировать корневой сертификат центра сертификации Azure Stack.
 
-### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>To export and then import the Azure Stack certificate
+### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>Экспорт и импорт сертификата Azure Stack
 
-1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
+1. Откройте `mmc.exe` на хост-компьютере или локальном компьютере Azure Stack с помощью VPN-подключения к Azure Stack. 
 
-2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
-
-
-
-3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackSelfSignedRootCert**.
-
-    ![Load the Azure Stack root certificate through mmc.exe][25]
-
-4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
-
-    The exported certificate will be used in the next step.
-5. Start Storage Explorer (Preview), and if you see the **Connect to Azure Storage** dialog box, cancel it.
-
-6. On the **Edit** menu, point to **SSL Certificates**, and then click **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
-
-    After importing, you are prompted to restart Storage Explorer.
-
-    ![Import the certificate into Storage Explorer (Preview)][27]
-
-Now you are ready to connect Storage Explorer to an Azure Stack subscription.
-
-### <a name="to-connect-an-azure-stack-subscription"></a>To connect an Azure Stack subscription
+2. В меню **Файл** выберите **Добавить или удалить оснастку**, затем добавьте **сертификаты** для управления **учетной записью** **локального компьютера**.
 
 
-1. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
-    ![Ensure Target Azure Stack is selected][28]
+3. Найдите **AzureStackSelfSignedRootCert** в разделе **Console Root (Корень консоли)\Certificated (Local Computer) (Cертифицированный (локальный компьютер))\Trusted Root Certification Authorities (Доверенные корневые центры сертификации)\Сертификаты**.
 
-7. In the left pane, select **Manage Accounts**.  
-    All the Microsoft accounts that you are signed in to are displayed.
+    ![Загрузка корневого сертификата Azure Stack с помощью mmc.exe][25]
 
-8. To connect to the Azure Stack account, select **Add an account**.
+4. Щелкните правой кнопкой мыши сертификат, выберите **All Tasks** (Все задачи) > **Export** (Экспорт), а затем следуйте инструкциям, чтобы экспортировать сертификат в виде **файла X.509 (CER) в кодировке Base-64**.  
 
-    ![Add an Azure Stack account][29]
+    Экспортированный сертификат будет использоваться на следующем шаге.
+5. Запустите обозреватель службы хранилища (предварительная версия) и закройте диалоговое окно **Connect to Azure Storage** (Подключение к службе хранилища Azure), если оно отобразится.
 
-9. In the **Connect to Azure Storage** dialog box, under **Azure environment**, select **Use Azure Stack Environment**, and then click **Next**.
+6. В меню **Изменить** выберите **SSL-сертификаты**, а затем щелкните **Импорт сертификатов**. Используйте диалоговое окно выбора файла, чтобы найти и открыть сертификат, изученный на предыдущем шаге.
 
-10. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to Azure Stack Environment** dialog box.  
+    После импорта вам будет предложено перезапустить обозреватель хранилищ.
 
-    The details for each field are as follows:
+    ![Импорт сертификата в обозреватель хранилищ (предварительная версия)][27]
 
-    * **Environment name**: The field can be customized by user.
-    * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
+Теперь можно подключать обозреватель службы хранилища к подписке Azure Stack.
 
-        * For cloud operator:<br> https://adminmanagement.local.azurestack.external   
-        * For tenant:<br> https://management.local.azurestack.external
+### <a name="to-connect-an-azure-stack-subscription"></a>Подключение к подписке Azure Stack
+
+
+1. После перезапуска обозревателя хранилищ (предварительная версия) откройте меню **Изменить** и убедитесь, что **Target Azure Stack** (Целевой объект Azure Stack) выбран. В противном случае выберите его и перезапустите обозреватель хранилищ, чтобы изменения вступили в силу. Эта настройка необходима для совместимости со средой Azure Stack.
+
+    ![Проверка установки флажка Target Azure Stack (Целевой объект Azure Stack)][28]
+
+7. На панели слева щелкните **Управление учетными записями**.  
+    Отобразятся все учетные записи Майкрософт, в которые вы вошли.
+
+8. Чтобы подключиться к учетной записи Azure Stack, выберите **Добавить учетную запись**.
+
+    ![Добавление учетной записи Azure Stack][29]
+
+9. В диалоговом окне **Connect to Azure Storage** (Подключение к службе хранилища Azure) в разделе **Azure environment** (Среда Azure) выберите **Use Azure Stack Environment** (Использовать среду Azure Stack), а затем щелкните **Далее**.
+
+10. Заполните диалоговое окно **Sign in to Azure Stack Environment** (Вход в среду Azure Stack), чтобы войти с использованием учетной записи Azure Stack, связанной по крайней мере с одной активной подпиской Azure Stack.  
+
+    Ниже приведены подробные сведения о каждом поле диалогового окна.
+
+    * **Имя среды.** Это поле может настраивать пользователь.
+    * **ARM resource endpoint** (Конечная точка ресурса ARM). Примеры конечной точки ресурсов ARM:
+
+        * Для оператора облака:<br> https://adminmanagement.local.azurestack.external   
+        * Для клиента:<br> https://management.local.azurestack.external
  
-    * **Tenant Id**: Optional. The value is given only when the directory must be specified.
+    * **Идентификатор клиента** — необязательно. Значение задается, только если необходимо указать каталог.
 
-12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box toggles selecting all or none of the listed Azure Stack subscriptions.)
+12. Выполнив вход с помощью учетной записи Azure Stack, на панели слева вы увидите подписки Azure Stack, связанные с этой учетной записью. Выберите подписки Azure Stack, с которыми вы собираетесь работать, а затем щелкните **Применить**. (Чтобы выбрать или очистить все подписки Azure Stack, установите флажок **Все подписки**. Чтобы отменить выбор, снимите флажок.)
 
-    ![Select the Azure Stack subscriptions after filling out the Custom Cloud Environment dialog box][30]  
-    The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
+    ![Выбор подписок Azure Stack после заполнения диалогового окна Custom Cloud Environment (Пользовательская облачная среда)][30]  
+    На панели слева отобразятся все учетные записи хранения, связанные с выбранными подписками Azure Stack.
 
-    ![List of storage accounts including Azure Stack subscription accounts][31]
+    ![Список учетных записей хранения, включая учетные записи подписки Azure Stack][31]
 
-## <a name="next-steps"></a>Next steps
-* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
+## <a name="next-steps"></a>Дальнейшие действия
+* [Приступая к работе с обозревателем службы хранилища (предварительная версия)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Хранилище Azure Stack. Отличия и рекомендации](azure-stack-acs-differences.md)
 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* Дополнительные сведения о службе хранилища Azure см. в статье [Введение в хранилище Microsoft Azure](../../storage/common/storage-introduction.md).
 
 [25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
 [26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png
@@ -113,4 +112,3 @@ Now you are ready to connect Storage Explorer to an Azure Stack subscription.
 [29]: ./media/azure-stack-storage-connect-se/add-azure-stack-account.png
 [30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
 [31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 166cebeb20ecc79b447dac25f243f07163a6d127
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>Компонент "Мобильные приложения" в службе приложений Azure
 Служба приложений Azure — это решение для профессиональных разработчиков на основе полностью управляемой [платформы как услуги](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Эта служба привносит широкий спектр возможностей в сценарии с использованием Интернета, мобильных устройств и интеграции. 
@@ -68,7 +67,7 @@ ms.lasthandoff: 09/07/2017
 
 * **Непрерывное развертывание.** Службу приложений можно интегрировать со стандартными системами управления логистическими цепочками (SCM), чтобы автоматически развертывать новую версию серверной части путем принудительной отправки в ветвь системы SCM.
 
-  Дополнительные сведения см. в статье [Развертывание приложения в службе приложений Azure].
+  Дополнительные сведения см. в статье [Развертывание приложения в службе приложений Azure](../app-service/app-service-deploy-local-git.md).
 
 * **Виртуальные сети.** Службу приложений можно подключать к локальным ресурсам с помощью виртуальной сети, Azure ExpressRoute или гибридных подключений.
 
@@ -83,11 +82,10 @@ ms.lasthandoff: 09/07/2017
 Чтобы приступить к работе с компонентом "Мобильные приложения" службы приложений Azure, изучите руководство [по началу работы]. В этом руководстве приведены общие сведения по созданию серверной части мобильного приложения и мобильного клиента на свой выбор. В нем также рассматривается интеграция проверки подлинности, автономная синхронизация и push-уведомления. Вы можете обращаться к этому руководству каждый раз при создании клиентского приложения.
 
 Перечень дополнительных статей, посвященных компоненту "Мобильные приложения", см. в [карте обучения].
-Дополнительные сведения о платформе службы приложений Azure см. в [этой статье].
+Дополнительные сведения о платформе службы приложений Azure см. в соответствующей статье.
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[этой статье]: ../app-service/app-service-value-prop-what-is.md
 [по началу работы]: app-service-mobile-ios-get-started.md
 [хранилище таблиц Azure]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
@@ -100,12 +98,10 @@ ms.lasthandoff: 09/07/2017
 [Xamarin.iOS и Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[Увеличение масштаба приложения в Azure]: ../app-service-web/web-sites-scale.md
-[Настройка промежуточных сред для веб-приложений в службе приложений Azure]: ../app-service-web/web-sites-staged-publishing.md
-[Развертывание приложения в службе приложений Azure]: ../app-service-web/web-sites-deploy.md
+[Увеличение масштаба приложения в Azure]: ../app-service/web-sites-scale.md
+[Настройка промежуточных сред для веб-приложений в службе приложений Azure]: ../app-service/web-sites-staged-publishing.md
 [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure]: ../biztalk-services/integration-hybrid-connection-overview.md
-[Интеграция приложения с виртуальной сетью Azure]: ../app-service-web/web-sites-integrate-with-vnet.md
-[Сведения о конфигурации сети для сред службы приложений с ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[Введение в среду службы приложения версии 1]: ../app-service-web/app-service-app-service-environment-intro.md
+[Интеграция приложения с виртуальной сетью Azure]: ../app-service/web-sites-integrate-with-vnet.md
+[Сведения о конфигурации сети для сред службы приложений с ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
+[Введение в среду службы приложения версии 1]: ../app-service/environment/intro.md
 [карте обучения]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-

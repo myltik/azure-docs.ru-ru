@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Stack to Azure using VPN
-description: How to connect virtual networks in Azure Stack to virtual networks in Azure using VPN.
+title: "Подключение Azure Stack к Azure с помощью VPN"
+description: "Сведения о подключении виртуальных сетей в Azure Stack к виртуальным сетям в Azure с помощью VPN."
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,220 +14,219 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-azure-stack-to-azure-using-vpn"></a>Connect Azure Stack to Azure using VPN
+# <a name="connect-azure-stack-to-azure-using-vpn"></a>Подключение Azure Stack к Azure с помощью VPN
 
-*Applies to: Azure Stack integrated systems*
+*Область применения: интегрированные системы Azure Stack*
 
-This article shows you how to create a site-to-site VPN to connect a virtual network in Azure Stack to a virtual network in Azure.
+В этой статье показано, как создать подключения VPN типа "сеть — сеть", чтобы подключить виртуальную сеть в Azure Stack к виртуальной сети в Azure.
 
-### <a name="connection-diagram"></a>Connection diagram
-The following diagram shows what the connection configuration should look like when you’re done:
+### <a name="connection-diagram"></a>Схема подключения
+На следующей схеме показано, как должна выглядеть конфигурация подключения после завершения:
 
-![Site-to-site VPN connection configuration](media/azure-stack-connect-vpn/image2.png)
+![Конфигурация подключения VPN типа "сеть — сеть"](media/azure-stack-connect-vpn/image2.png)
 
-### <a name="before-you-begin"></a>Before you begin
-To complete the connection configuration, make sure you have the following items before you begin:
+### <a name="before-you-begin"></a>Перед началом работы
+Чтобы выполнить конфигурацию подключения, перед началом работы убедитесь в наличии следующих компонентов:
 
-* An Azure Stack integrated systems (multi-node) deployment that is directly connected to the Internet. This means that your External Public IP Address range must be directly reachable from the public Internet.
-* A valid Azure subscription.  If you don’t have an Azure subscription, you can create a [free Azure account here](https://azure.microsoft.com/free/?b=17.06).
+* Развертывание (с несколькими узлами) интегрированных систем Azure Stack с прямым соединением с Интернетом. В этом случае доступ к внешнему общедоступному диапазону IP-адресов можно получить напрямую из общедоступного Интернета.
+* Действующая подписка Azure.  Если у вас еще нет ее, создайте [бесплатную учетную запись здесь](https://azure.microsoft.com/free/?b=17.06).
 
-## <a name="network-example-values-table"></a>Network example values table
-The network example values table shows the sample values that are used in this article. You can use these values or you can refer to them to better understand the examples in this article.
+## <a name="network-example-values-table"></a>Таблица примеров значений сети
+В таблице ниже приведены примеры значений сети, используемые в этой статье. Эти значения можно использовать или просто просмотреть, чтобы лучше понимать примеры в этой статье.
 
-**Network example values table**
-|   |Azure Stack|Azure|
+**Таблица примеров значений сети**
+|   |Azure Stack|Таблицы Azure|
 |---------|---------|---------|
-|Virtual network name     |Azs-VNet|AzureVNet |
-|Virtual network address space |10.1.0.0/16|10.100.0.0/16|
-|Subnet name     |FrontEnd|FrontEnd|
-|Subnet address range|10.1.0.0/24 |10.100.0.0/24 |
-|Gateway subnet     |10.1.1.0/24|10.100.1.0/24|
+|Имя виртуальной сети     |Azs-VNet|AzureVNet |
+|Адресное пространство виртуальной сети |10.1.0.0/16|10.100.0.0/16|
+|Имя подсети     |FrontEnd|FrontEnd|
+|Диапазон адресов подсети|10.1.0.0/24 |10.100.0.0/24 |
+|Подсеть шлюза     |10.1.1.0/24|10.100.1.0/24|
 
-## <a name="create-the-network-resources-in-azure"></a>Create the network resources in Azure
+## <a name="create-the-network-resources-in-azure"></a>Создание сетевых ресурсов в Azure
 
-First you create the network resources for Azure. The following instructions show how to create the resources by using the [Azure portal](http://portal.azure.com/).
+Сначала необходимо создать сетевые ресурсы Azure. Ниже показано, как это сделать на [портале Azure](http://portal.azure.com/).
 
-### <a name="create-the-virtual-network-and-vm-subnet"></a>Create the virtual network and VM subnet
+### <a name="create-the-virtual-network-and-vm-subnet"></a>Создание виртуальной сети и подсети виртуальной машины
 
-1. Sign in to the [Azure portal](http://portal.azure.com/) using your Azure account.
-2. In the user portal, select **New**.
-3. Go to **Marketplace**, and then select **Networking**.
-4. Select **Virtual network**.
-5. Use the information from the network configuration table to identify the values for Azure **Name**, **Address space**, **Subnet name**, and **Subnet address range**.
-6. For **Resource Group**, create a new resource group or, if you already have one, select **Use existing**.
-7. Select the **Location** of your VNet.  If you're using the example values, select **East US** or use another location if you prefer.
-8. Select **Pin to dashboard**.
-9. Select **Create**.
+1. Войдите на [портал Azure](http://portal.azure.com/) с помощью учетной записи Azure.
+2. На пользовательском портале щелкните **Создать**.
+3. Щелкните **Marketplace**, а затем выберите **Сети**.
+4. Щелкните **Виртуальная сеть**.
+5. На основе значений из таблицы конфигурации сети определите **имя**, **адресное пространство**, **имя подсети** и **диапазон адресов подсети** Azure.
+6. Создайте **группу ресурсов** или используйте имеющуюся, выбрав **Использовать существующий**.
+7. Выберите **расположение** виртуальной сети.  Если вы используете примеры значений, выберите **Восточная часть США**. При желании укажите другое расположение.
+8. Кроме того, установите флажок **Закрепить на панели мониторинга**.
+9. Нажмите кнопку **Создать**.
 
-### <a name="create-the-gateway-subnet"></a>Create the Gateway Subnet
-1. Open the Virtual network resource you created (**AzureVNet**) from the dashboard.
-2. On the **Settings** section, select **Subnets**.
-3. Select  **Gateway subnet** to add a gateway subnet to the virtual network.
-4. The name of the subnet is set to **GatewaySubnet** by default.
-   Gateway subnets are special and must have this specific name to function properly.
-5. In the **Address range** field, verify the address is **10.100.0.0/24**.
-6. Select **OK** to create the gateway subnet.
+### <a name="create-the-gateway-subnet"></a>Создание подсети шлюза
+1. На панели мониторинга откройте созданный ресурс виртуальной сети (**AzureVNet**).
+2. В разделе **Параметры** выберите **Подсети**.
+3. Щелкните **Подсеть шлюза**, чтобы добавить подсеть шлюза в виртуальную сеть.
+4. Подсети присвоено имя **GatewaySubnet** по умолчанию.
+   Подсети шлюза являются специальными, и для правильной работы им должно быть присвоено конкретное имя.
+5. Проверьте, указан ли в поле **Диапазон адресов** адрес **10.100.0.0/24**.
+6. Нажмите кнопку **ОК**, чтобы создать подсеть шлюза.
 
-### <a name="create-the-virtual-network-gateway"></a>Create the virtual network gateway
-1. In the Azure portal, select **New**.  
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of network resources, select **Virtual network gateway**.
-4. In **Name**, type **Azure-GW**.
-5. To choose a virtual network, select **Virtual network**. Then select **AzureVnet** from the list.
-6. Select **Public IP address**. When the **Choose public IP address** section opens, select **Create new**.
-7. In **Name**, type **Azure-GW-PiP**, and then select **OK**.
-8. By default, for **VPN type**, **Route-based** is selected.
-    Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+### <a name="create-the-virtual-network-gateway"></a>Создание шлюза виртуальной сети
+1. На портале Azure щелкните **Создать**.  
+2. Щелкните **Marketplace**, а затем выберите **Сети**.
+3. В списке сетевых ресурсов выберите **Шлюз виртуальной сети**.
+4. В поле **Имя** введите **Azure-GW**.
+5. Чтобы выбрать виртуальную сеть, щелкните **Виртуальная сеть**. В списке выберите **AzureVnet**.
+6. Выберите **Общедоступный IP-адрес**. В открывшейся колонке **Выбрать общедоступный IP-адрес** щелкните **Создать**.
+7. В поле **Имя** введите **Azure-GW-PiP** и нажмите кнопку **ОК**.
+8. По умолчанию для параметра **VPN type** (Тип VPN) установлено значение **Route-based** (На основе маршрута).
+    **Не изменяйте** это значение.
+9. Убедитесь, что для параметров **Подписка** и **Расположение** выбраны правильные значения. Ресурс можно закрепить на панели мониторинга. Нажмите кнопку **Создать**.
 
-### <a name="create-the-local-network-gateway-resource"></a>Create the local network gateway resource
+### <a name="create-the-local-network-gateway-resource"></a>Создание ресурса шлюза локальной сети
 
-1. In the Azure portal, select **New**. 
-4. Go to **Marketplace**, and then select **Networking**.
-5. From the list of resources, select **Local network gateway**.
-6. In **Name**, type **Azs-GW**.
-7. In **IP address**, type the public IP address for your Azure Stack Virtual Network Gateway that is listed earlier in the network configuration table.
-8. In **Address Space**, from Azure Stack, type the **10.0.10.0/23** address space for **AzureVNet**.
-9. Verify that your **Subscription**, **Resource Group**, and **Location** are correct, and then select **Create**.
+1. На портале Azure щелкните **Создать**. 
+4. Щелкните **Marketplace**, а затем выберите **Сети**.
+5. В списке сетевых ресурсов выберите **Local network gateway** (Шлюз локальной сети).
+6. В поле **Имя** введите **Azs-GW**.
+7. В поле **IP-адрес** введите общедоступный IP-адрес шлюза виртуальной сети Azure Stack, указанный ранее в таблице конфигурации сети.
+8. В поле **Адресное пространство** (из Azure Stack) для ресурса **AzureVNet** введите **10.0.10.0/23**.
+9. Проверьте, выбраны ли правильные значения полей **Подписка**, **Группа ресурсов** и **Расположение**, а затем нажмите кнопку **Создать**.
 
-## <a name="create-the-connection"></a>Create the connection
-1. In the user portal, select **New**. 
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of resources, select **Connection**.
-4. On the **Basic** settings section, for the **Connection type**, choose **Site-to-site (IPSec)**.
-5. Select the **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-6. On the **Settings** section, select **Virtual network gateway**, and then select **Azure-GW**.
-7. Select **Local network gateway**, and then select **Azs-GW**.
-8. In **Connection name**, type **Azure-Azs**.
-9. In **Shared key (PSK)**, type **12345**. If you choose a different value, remember that it *must* match the value for the shared key that you create on the other end of the connection. Select **OK**.
-10. Review the **Summary** section, and then select **OK**.
+## <a name="create-the-connection"></a>Создание подключения
+1. На пользовательском портале щелкните **Создать**. 
+2. Щелкните **Marketplace**, а затем выберите **Сети**.
+3. В списке ресурсов выберите **Подключение**.
+4. В разделе **основных** параметров установите в поле **Тип соединения** значение **Site-to-site (IPSec)** (Сеть — сеть (IPSec)).
+5. Заполните поля **Подписка**, **Группа ресурсов** и **Расположение**, а затем нажмите кнопку **ОК**.
+6. В разделе **Параметры** выберите **Шлюз виртуальной сети**, а затем щелкните **Azure-GW**.
+7. Выберите **Local network gateway** (Шлюз локальной сети), а затем щелкните **Azs-GW**.
+8. В поле **Имя подключения** введите **Azure-Azs**.
+9. В поле **Shared Key (PSK)** (Общий ключ (PSK)) введите **12345**. Если вы хотите использовать другое значение, помните, что оно *должно* совпадать со значением общего ключа, созданного на другом конце подключения. Нажмите кнопку **ОК**.
+10. Просмотрите раздел **Сводка**, а затем нажмите кнопку **ОК**.
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
-Create a virtual machine in Azure now, and put it on your VM subnet in your virtual network.
+## <a name="create-a-virtual-machine"></a>Создание виртуальной машины
+Создайте виртуальную машину в Azure и поместите ее в подсеть виртуальной машины в виртуальной сети.
 
-1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
-4. On the **Basics** section, for **Name**, type **AzureVM**.
-5. Type a valid username and password. You use this account to sign in to the virtual machine after it's created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-7. On the **Size** section, select a virtual machine size for this instance, and then select **Select**.
-8. On the **Settings** section, you can accept the defaults. Make sure that the **AzureVnet** virtual network is selected, and verify that the subnet is set to **10.0.20.0/24**. Select **OK**.
-9. Review the settings on the **Summary** section, and then select **OK**.
+1. На портале Azure щелкните **Создать**.
+2. Щелкните **Marketplace**, а затем выберите **Вычисление**.
+3. В списке образов виртуальных машин выберите образ **Windows Server 2016 Datacenter Eval**.
+4. В разделе **Основные сведения** в поле **Имя** введите **AzureVM**.
+5. Введите допустимое имя пользователя и пароль. С помощью этой учетной записи вы войдете на виртуальную машину после ее создания.
+6. Заполните поля **Подписка**, **Группа ресурсов** и **Расположение**, а затем нажмите кнопку **ОК**.
+7. В разделе **Размер** выберите размер этого экземпляра виртуальной машины, а затем нажмите кнопку **Выбрать**.
+8. В разделе **Параметры** можно принять значения по умолчанию. Проверьте, выбрана ли виртуальная сеть **AzureVnet** и задано ли для подсети значение **10.0.20.0/24**. Нажмите кнопку **ОК**.
+9. Просмотрите параметры в разделе **Сводка**, а затем нажмите кнопку **ОК**.
 
-## <a name="create-the-network-resources-in-azure-stack"></a>Create the network resources in Azure Stack
-Next you create the network resources in Azure Stack.
+## <a name="create-the-network-resources-in-azure-stack"></a>Создание сетевых ресурсов в Azure Stack
+Далее необходимо создать сетевые ресурсы в Azure Stack.
 
-### <a name="sign-in-as-a-user"></a>Sign in as a user
-A service administrator can sign in as a user to test the plans, offers, and subscriptions that their users might use. If you don’t already have one, [create a user account](azure-stack-add-new-user-aad.md) before you sign in.
+### <a name="sign-in-as-a-user"></a>Вход в качестве пользователя
+Администратор служб может войти в систему как пользователь, чтобы протестировать планы, предложения и подписки, которые могут использовать их пользователи. Если вы еще не [создали учетную запись пользователя](azure-stack-add-new-user-aad.md), сделайте это перед входом в систему.
 
-### <a name="create-the-virtual-network-and-vm-subnet"></a>Create the virtual network and VM subnet
-1. Use a user account to sign in to the user portal.
-2. In the user portal, select **New**.
+### <a name="create-the-virtual-network-and-vm-subnet"></a>Создание виртуальной сети и подсети виртуальной машины
+1. Войдите на пользовательский портал с помощью учетной записи пользователя.
+2. На пользовательском портале щелкните **Создать**.
 
-    ![Create new virtual network](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+    ![Создание виртуальной сети](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
-3. Go to **Marketplace**, and then select **Networking**.
-4. Select **Virtual network**.
-5. For **Name**, **Address space**, **Subnet name**, and **Subnet address range**, use the values from the network configuration table.
-6. In **Subscription**, the subscription that you created earlier appears.
-7. For **Resource Group**, you can either create a resource group or if you already have one, select **Use existing**.
-8. Verify the default location.
-9. Select **Pin to dashboard**.
-10. Select **Create**.
+3. Щелкните **Marketplace**, а затем выберите **Сети**.
+4. Щелкните **Виртуальная сеть**.
+5. Определите **имя**, **адресное пространство**, **имя подсети** и **диапазон адресов подсети** на основе значений из таблицы конфигурации сети.
+6. В поле **Подписка** отображается созданная ранее подписка.
+7. Создайте **группу ресурсов** или используйте имеющуюся, щелкнув **Использовать существующий**.
+8. Проверьте значение расположения по умолчанию.
+9. Кроме того, установите флажок **Закрепить на панели мониторинга**.
+10. Нажмите кнопку **Создать**.
 
-### <a name="create-the-gateway-subnet"></a>Create the gateway subnet
-1. On the dashboard, open the Azs-VNet virtual network resource you created.
-2. On the **Settings** section, select **Subnets**.
-3. To add a gateway subnet to the virtual network, select **Gateway Subnet**.
+### <a name="create-the-gateway-subnet"></a>Создание подсети шлюза
+1. На панели мониторинга откройте созданный ресурс виртуальной сети Azs-VNet.
+2. В разделе **Параметры** выберите **Подсети**.
+3. Чтобы добавить подсеть шлюза в виртуальную сеть, щелкните **Подсеть шлюза**.
    
-    ![Add gateway subnet](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![Добавление подсети шлюза](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
-4. By default, the subnet name is set to **GatewaySubnet**.
-   Gateway subnets are special. To function properly, they must use the *GatewaySubnet* name.
-5. In **Address range**, verify that the address is **10.1.1.0/24**.
-6. Select **OK** to create the gateway subnet.
+4. По умолчанию подсети присвоено имя **GatewaySubnet**.
+   Подсети шлюза имеют специальное назначение. Чтобы функционировать должным образом, они должны использовать имя *GatewaySubnet*.
+5. Проверьте, задано ли в поле **Диапазон адресов** значение **10.1.1.0/24**.
+6. Нажмите кнопку **ОК**, чтобы создать подсеть шлюза.
 
-### <a name="create-the-virtual-network-gateway"></a>Create the virtual network gateway
-1. In the Azure Stack portal, select **New**. 
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of network resources, select **Virtual network gateway**.
-4. In **Name**, type **Azs-GW**.
-5. Select the **Virtual network** item to choose a virtual network.
-   Select **Azs-VNet** from the list.
-6. Select the **Public IP address** menu item. When the **Choose public IP address** section opens, select **Create new**.
-7. In **Name**, type **Azs-GW-PiP**, and then select **OK**.
-8.  By default, for **VPN type**, **Route-based** is selected.
-    Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+### <a name="create-the-virtual-network-gateway"></a>Создание шлюза виртуальной сети
+1. На портале Azure Stack щелкните **Создать**. 
+2. Щелкните **Marketplace**, а затем выберите **Сети**.
+3. В списке сетевых ресурсов выберите **Шлюз виртуальной сети**.
+4. В поле **Имя** введите **Azs-GW**.
+5. Выберите пункт **Виртуальная сеть**, чтобы выбрать виртуальную сеть.
+   Выберите **Azs-VNet** в списке.
+6. Выберите пункт меню **Общедоступный IP-адрес**. В открывшейся колонке **Выбрать общедоступный IP-адрес** щелкните **Создать**.
+7. В поле **Имя** введите **Azs-GW-PiP**, а затем нажмите кнопку **ОК**.
+8.  По умолчанию для параметра **VPN type** (Тип VPN) установлено значение **Route-based** (На основе маршрута).
+    **Не изменяйте** это значение.
+9. Убедитесь, что для параметров **Подписка** и **Расположение** выбраны правильные значения. Ресурс можно закрепить на панели мониторинга. Нажмите кнопку **Создать**.
 
-### <a name="create-the-local-network-gateway"></a>Create the local network gateway
-The notion of a *local network gateway* in Azure Stack is a bit different than in an Azure deployment.
+### <a name="create-the-local-network-gateway"></a>Создание шлюза локальной сети
+Понятие *шлюза локальной сети* в Azure Stack и развертывании Azure немного отличается.
 
-In an Azure deployment, a local network gateway represents an on-premises (at the user location) physical device, that you use to connect to a virtual network gateway in Azure. In Azure Stack, both ends of the connection are virtual network gateways!
+В развертывании Azure шлюз локальной сети представляет локальное физическое устройство (в расположении пользователя), с помощью которого выполняется подключение к шлюзу виртуальной сети в Azure. В Azure Stack оба конца подключения являются шлюзами виртуальной сети.
 
-A way to think about this more generically is that the local network gateway resource always indicates the remote gateway at the other end of the connection. 
+Проще говоря, ресурс шлюза локальной сети предназначен для указания удаленного шлюза на другом конце подключения. 
 
-### <a name="create-the-local-network-gateway-resource"></a>Create the local network gateway resource
-1. Sign in to the Azure Stack portal.
-2. In the user portal, select **New**.
-3. Go to **Marketplace**, and then select **Networking**.
-4. From the list of resources, select **local network gateway**.
-5. In **Name**, type **Azure-GW**.
-6. In **IP address**, type the Public IP Address for the virtual network gateway in Azure **Azure-GW-PiP**. This address appears earlier in the network configuration table.
-7. In **Address Space**, for the address space of the Azure VNET that you created, type **10.0.20.0/23**.
-8. Verify that your **Subscription**, **Resource Group**, and **location** are correct, and then select **Create**.
+### <a name="create-the-local-network-gateway-resource"></a>Создание ресурса шлюза локальной сети
+1. Войдите на портал Azure Stack.
+2. На пользовательском портале щелкните **Создать**.
+3. Щелкните **Marketplace**, а затем выберите **Сети**.
+4. В списке сетевых ресурсов выберите **Local network gateway** (Шлюз локальной сети).
+5. В поле **Имя** введите **Azure-GW**.
+6. В поле **IP-адрес** введите общедоступный IP-адрес шлюза виртуальной сети **Azure-GW-PiP**. Этот адрес приведен в таблице конфигурации сети.
+7. В поле **Адресное пространство** созданной виртуальной сети Azure введите **10.0.20.0/23**.
+8. Проверьте, выбраны ли правильные значения полей **Подписка**, **Группа ресурсов** и **Расположение**, а затем нажмите кнопку **Создать**.
 
-### <a name="create-the-connection"></a>Create the connection
-1. In the user portal, select **New**.
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of resources, select **Connection**.
-4. On the **Basics** settings section, for the **Connection type**, select **Site-to-site (IPSec)**.
-5. Select the **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-6. On the **Settings** section,  select **Virtual network gateway**, and then select **Azs-GW**.
-7. Select **Local network gateway**, and then select **Azure-GW**.
-8. In **Connection Name**, type **Azs-Azure**.
-9. In **Shared key (PSK)**, type **12345**, and then select **OK**.
-10. On the **Summary** section, select **OK**.
+### <a name="create-the-connection"></a>Создание подключения
+1. На пользовательском портале щелкните **Создать**.
+2. Щелкните **Marketplace**, а затем выберите **Сети**.
+3. В списке ресурсов выберите **Подключение**.
+4. В разделе **основных** параметров установите в поле **Тип соединения** значение **Site-to-site (IPSec)** (Сеть — сеть (IPSec)).
+5. Заполните поля **Подписка**, **Группа ресурсов** и **Расположение**, а затем нажмите кнопку **ОК**.
+6. В разделе **Параметры** выберите **Шлюз виртуальной сети**, а затем щелкните **Azs-GW**.
+7. Выберите **Local network gateway** (Шлюз локальной сети), а затем щелкните **Azure-GW**.
+8. В поле **Имя подключения** введите **Azs-Azure**.
+9. В поле **Shared Key (PSK)** (Общий ключ (PSK)) введите **12345**, а затем нажмите кнопку **ОК**.
+10. В разделе **Сводка** нажмите кнопку **ОК**.
 
-### <a name="create-a-vm"></a>Create a VM
-To validate the data that travels through the VPN connection, you need to create virtual machines on each end to send and receive data through the VPN tunnel. 
+### <a name="create-a-vm"></a>Создание виртуальной машины
+Чтобы проверять данные, проходящие через VPN-подключение, необходимо создать виртуальные машины на каждом конце, которые отправляют и получают данные через туннель VPN. 
 
-1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
-4. On the **Basics** section, in **Name**, type **Azs-VM**.
-5. Type a valid username and password. You use this account to sign in to the VM after it's created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-7. On the **Size** section, for this instance, select a virtual machine size, and then select **Select**.
-8. On the **Settings** section, accept the defaults. Make sure that the **Azs-VNet** virtual network is selected. Verify that the subnet is set to **10.1.0.0/24**. Then select **OK**.
-9. On the **Summary** section, review the settings, and then select **OK**.
+1. На портале Azure щелкните **Создать**.
+2. Щелкните **Marketplace**, а затем выберите **Вычисление**.
+3. В списке образов виртуальных машин выберите образ **Windows Server 2016 Datacenter Eval**.
+4. В разделе **Основные сведения** в поле **Имя** введите **Azs-VM**.
+5. Введите допустимое имя пользователя и пароль. С помощью этой учетной записи вы войдете на виртуальную машину после ее создания.
+6. Заполните поля **Подписка**, **Группа ресурсов** и **Расположение**, а затем нажмите кнопку **ОК**.
+7. В разделе **Размер** выберите размер этого экземпляра виртуальной машины, а затем нажмите кнопку **Выбрать**.
+8. В разделе **Параметры** примите значения по умолчанию. Проверьте, выбрана ли виртуальная сеть **Azs-VNet** и задано ли для подсети значение **10.1.0.0/24**. Нажмите кнопку **ОК**.
+9. Просмотрите параметры в разделе **Сводка**, а затем нажмите кнопку **ОК**.
 
 
-## <a name="test-the-connection"></a>Test the connection
-Now that the site-to-site connection is established, you should validate that you can get traffic flowing through it. To validate, sign in to one of the virtual machines that you created in Azure Stack. Then, ping the virtual machine that you created in Azure. 
+## <a name="test-the-connection"></a>Проверка подключения
+Теперь, когда подключение типа "сеть —сеть" установлено, необходимо проверить, может ли трафик проходить через него. Чтобы проверить, войдите на одну из виртуальных машин, созданных в Azure Stack. Затем проверьте связь виртуальной машины, созданной в Azure. 
 
-To make sure that you send the traffic through the site-to-site connection, ping the Direct IP (DIP) address of the virtual machine on the remote subnet, not the VIP. To do this, find the DIP address on the other end of the connection. Save the address for later use.
+Чтобы убедиться, что вы передаете трафик через подключение типа "сеть — сеть", проверьте связь через прямой IP-адрес (DIP) виртуальной машины в удаленной подсети, а не виртуальный IP-адрес. Чтобы сделать это, найдите прямой IP-адрес на другом конце подключения. Сохраните этот адрес для последующего использования.
 
-### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Sign in to the user VM in Azure Stack
-1. Sign in to the Azure Stack portal.
-2. In the left navigation bar, select **Virtual Machines**.
-3. In the list of VMs, find **Azs-VM** that you created previously, and then select it.
-4. On the section for the virtual machine, click **Connect**, and then open the Azs-VM.rdp file.
+### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Вход на пользовательскую виртуальную машину в Azure Stack
+1. Войдите на портал Azure Stack.
+2. На панели навигации слева выберите **Виртуальные машины**.
+3. В списке виртуальных машин найдите созданную ранее виртуальную машину **Azs-VM** и выберите ее.
+4. В разделе этой виртуальной машины нажмите кнопку **Подключение**, а затем откройте файл Azs-VM.rdp.
    
-     ![Connect button](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
-5. Sign in with the account that you configured when you created the virtual machine.
-6. Open an elevated **Windows PowerShell** window.
-7. Type **ipconfig /all**.
-8. In the output, find the **IPv4 Address**, and then save the address for later use. This is the address that you will ping from Azure. In the example environment, the address is **10.0.10.4**, but in your environment it might be different. It should fall within the **10.0.10.0/24** subnet that you created previously.
-9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
+     ![Кнопка "Подключение"](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+5. Войдите в систему с помощью учетной записи, настроенной при создании виртуальной машины.
+6. Откройте окно **Windows PowerShell** с повышенными привилегиями.
+7. Введите **ipconfig /all**.
+8. В выходных данных найдите **IPv4-адрес** и сохраните его для дальнейшего использования. Это адрес, с помощью которого вы проверите связь из Azure. В примере среды этот адрес — **10.0.10.4**, но в вашей среде он может быть другим. Он должен находиться в пределах созданной ранее подсети **10.0.10.0/24**.
+9. Чтобы создать правило брандмауэра, позволяющее виртуальной машине реагировать на запросы проверки связи, выполните следующую команду PowerShell:
 
    ```powershell
    New-NetFirewallRule `
@@ -235,16 +234,16 @@ To make sure that you send the traffic through the site-to-site connection, ping
     –Protocol ICMPv4
    ```
 
-### <a name="sign-in-to-the-tenant-vm-in-azure"></a>Sign in to the tenant VM in Azure
-1. Sign in to the Azure portal.
-2. In the left navigation bar, click **Virtual Machines**.
-3. From the list of virtual machines, find **Azure-VM** that you created previously, and then select it.
-4. On the section for the virtual machine, click **Connect**.
-5. Sign in with the account that you configured when you created the virtual machine.
-6. Open an elevated **Windows PowerShell** window.
-7. Type **ipconfig /all**.
-8. You should see an IPv4 address that falls within **10.0.20.0/24**. In the example environment, the address is **10.0.20.4**, but your address might be different.
-9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
+### <a name="sign-in-to-the-tenant-vm-in-azure"></a>Вход на виртуальную машину клиента в Azure
+1. Войдите на портал Azure.
+2. В области навигации слева щелкните **Виртуальные машины**.
+3. В списке виртуальных машин найдите созданную ранее виртуальную машину **Azure-VM** и выберите ее.
+4. В разделе виртуальной машины нажмите кнопку **Подключение**.
+5. Войдите в систему с помощью учетной записи, настроенной при создании виртуальной машины.
+6. Откройте окно **Windows PowerShell** с повышенными привилегиями.
+7. Введите **ipconfig /all**.
+8. Должен отобразиться IPv4-адрес, находящийся в диапазоне **10.0.20.0/24**. В примере среды этот адрес — **10.0.20.4**, но вы можете использовать другой адрес.
+9. Чтобы создать правило брандмауэра, позволяющее виртуальной машине реагировать на запросы проверки связи, выполните следующую команду PowerShell:
 
    ```powershell
    New-NetFirewallRule `
@@ -252,21 +251,21 @@ To make sure that you send the traffic through the site-to-site connection, ping
     –Protocol ICMPv4
    ```
 
-10. From the virtual machine in Azure, ping the virtual machine in Azure Stack, through the tunnel. To do this, you ping the DIP that you recorded from Azs-VM.
-   In the example environment, this is **10.0.10.4**, but be sure to ping the address you noted in your lab. You should see a result that looks like the following screenshot:
+10. На виртуальной машине в Azure проверьте связь с виртуальной машиной в Azure Stack через туннель. Для этого проверьте связь с прямым IP-адресом, записанным из виртуальной машины Azs-VM.
+   В примере среды этот адрес — **10.0.10.4**, но вам следует использовать адрес, записанный в лаборатории. Должен появиться результат, как на следующем снимке экрана:
    
-    ![Successful ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-11. A reply from the remote virtual machine indicates a successful test! You can close the virtual machine window. To test your connection, you can try other kinds of data transfers like a file copy.
+    ![Успешная проверка связи](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
+11. Ответ из удаленной виртуальной машины указывает, что проверка выполнена успешно. Вы можете закрыть окно виртуальной машины. Чтобы проверить подключение, вы можете выполнить другие передачи данных, например копирование файлов.
 
-### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Viewing data transfer statistics through the gateway connection
-If you want to know how much data passes through your site-to-site connection, this information is available on the **Connection** section. This test is also another way to verify that the ping you just sent actually went through the VPN connection.
+### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Просмотр статистики передачи данных через подключение шлюза
+Если вы хотите узнать, какой объем данных передается через подключение типа "сеть — сеть", просмотрите раздел **Подключение**. Эта проверка также позволяет убедиться в том, что проверка связи действительно прошла через VPN-подключение.
 
-1. While you're signed in to the user virtual machine in Azure Stack, use your user account to sign in to the user portal.
-2. Go to **All resources**, and then select the **Azs-Azure** connection. **Connections** appears.
-4. On the **Connection** section, the statistics for **Data in** and **Data out** appear. In the following screenshot, the large numbers are attributed to additional file transfer. You should see some nonzero values there.
+1. На виртуальной машине в Azure Stack войдите на пользовательский портал с помощью учетной записи пользователя.
+2. Щелкните **Все ресурсы**, а затем выберите подключение **Azs-Azure**. После этого отобразятся **подключения**.
+4. В разделе **Подключение** в полях **Входящие данные** и **Исходящие данные** отобразится статистика. На снимке экрана ниже указаны большие числа, что обеспечивает дополнительную передачу файлов. Там будут отображаться ненулевые значения.
    
-    ![Data in and out](media/azure-stack-connect-vpn/Connection.png)
+    ![Входящие и исходящие данные](media/azure-stack-connect-vpn/Connection.png)
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-[Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)
+[Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md) (Развертывание приложений в Azure и Azure Stack)

@@ -17,10 +17,10 @@ ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Создание базы данных хранилища данных SQL с помощью Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/11/2017
 Для начала работы необходимы перечисленные ниже компоненты и данные.
 
 * **Учетная запись Azure.** Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][Azure Free Trial] или [денег на счете в Azure][MSDN Azure Credits] MSDN.
-* **Сервер SQL Azure**: см. раздел [создание логического сервера базы данных SQL Azure с помощью портала Azure] [создание логического сервера базы данных SQL Azure с помощью портала Azure] или [создание логического сервера базы данных SQL Azure с помощью PowerShell] [создание логического сервера базы данных SQL Azure с помощью PowerShell] для получения дополнительных сведений.
+* **Azure SQL Server.** Дополнительные сведения см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure][Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure] или в разделе [Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра][Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра].
 * **Группа ресурсов.** Используйте ту же группу ресурсов, что и для Azure SQL Server, или [создайте группу ресурсов][how to create a resource group].
 * **Среда выполнения T-SQL.** Для выполнения T-SQL можно использовать [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] или [SSMS][SSMS].
 

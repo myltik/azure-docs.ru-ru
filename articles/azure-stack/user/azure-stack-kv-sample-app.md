@@ -1,6 +1,6 @@
 ---
-title: Allow applications to retrieve Azure Stack Key Vault secrets | Microsoft Docs
-description: Use a sample app to work with Azure Stack Key Vault
+title: "Разрешение приложениям получать секреты из хранилища ключей Azure Stack | Документация Майкрософт"
+description: "Использование примера приложения для работы с хранилищем ключей Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,28 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: 9b39c949e33dfbcc75ba8c09d6b38e4bdb243766
 ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Пример приложения, использующего ключи и секретные данные, хранящиеся в хранилище ключей
 
-# <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Sample application that uses keys and secrets stored in a key vault
+В этой статье показано, как запустить пример приложения (HelloKeyVault), которое извлекает ключи и секреты из хранилища ключей в Azure Stack.
 
-In this article, we show you how to run a sample application (HelloKeyVault) that retrieves keys and secrets from a key vault in Azure Stack.
+## <a name="prerequisites"></a>Предварительные требования 
 
-## <a name="prerequisites"></a>Prerequisites 
+Выполните следующие предварительные требования из [комплекта разработки](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) или из внешнего клиента для Windows при [подключении через VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-Run the following prerequisites either from the [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+* Установите [совместимые с Azure Stack модули Azure PowerShell](azure-stack-powershell-install.md).  
+* Скачайте [средства, необходимые для работы с Azure Stack](azure-stack-powershell-download.md). 
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
+## <a name="create-and-get-the-key-vault-and-application-settings"></a>Создание и получение хранилища ключей и параметров приложения
 
-## <a name="create-and-get-the-key-vault-and-application-settings"></a>Create and get the key vault and application settings
-
-First, you should create a key vault in Azure Stack, and register an application in Azure Active Directory (Azure AD). You can create and register the key vaults by using the Azure portal or PowerShell. This article shows you the PowerShell way to do the tasks. By default, this PowerShell script creates a new application in Active Directory. However, you can also use one of your existing applications. Make sure to provide a value for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for the `applicationPassword` variable, this script generates a random password. 
+Сначала необходимо создать хранилище ключей в Azure Stack и зарегистрировать приложение в Azure Active Directory (Azure AD). Вы можете создать и зарегистрировать хранилища ключей с помощью портала Azure или PowerShell. В этой статье используется PowerShell. По умолчанию приведенный ниже скрипт PowerShell создает приложение в Active Directory. Однако можно также использовать одно из имеющихся приложений. Предоставьте значения для переменных `aadTenantName` и `applicationPassword`. Если для переменной `applicationPassword` не указать значение, скрипт создаст случайный пароль. 
 
 ```powershell
 $vaultName           = 'myVault'
@@ -126,28 +124,27 @@ Write-Host
 
 ``` 
 
-The following screenshot shows the output of the previous script:
+На следующем снимке экрана показаны выходные данные предыдущего скрипта:
 
-![App config](media/azure-stack-kv-sample-app/settingsoutput.png)
+![Конфигурация приложения](media/azure-stack-kv-sample-app/settingsoutput.png)
 
-Make a note of the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. You use these values to run the HelloKeyVault application.
+Запишите значения **VaultUrl**, **AuthClientId** и **AuthClientSecret**, возвращенные предыдущим скриптом. Используйте их для запуска приложения HelloKeyVault.
 
-## <a name="download-and-run-the-sample-application"></a>Download and run the sample application
+## <a name="download-and-run-the-sample-application"></a>Скачивание и запуск примера приложения
 
-Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder. We use the HellpKeyVault sample in this topic. Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder and open the HelloKeyVault application in Visual Studio. 
+Скачайте пример хранилища ключей со страницы [примеров клиентов хранилища ключей](https://www.microsoft.com/en-us/download/details.aspx?id=45343) Azure. Извлеките содержимое ZIP-файла на рабочей станции разработки. В папке примеров есть два примера. В этой статье используется пример HelloKeyVault. Перейдите к папке **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** и откройте приложение HelloKeyVault в Visual Studio. 
 
-Open the HelloKeyVault\App.config file and replace the values of the <appSettings> element with the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. Note that by default the App.config contains a placeholder for *AuthCertThumbprint*, but use *AuthClientSecret* instead. After you replace the settings, rebuild the solution and start the application.
+Откройте файл HelloKeyVault\App.config и замените значения элемента <appSettings> значениями **VaultUrl**, **AuthClientId** и **AuthClientSecret**, возвращенными предыдущим скриптом. Обратите внимание, что по умолчанию App.config содержит заполнитель для *AuthCertThumbprint*, но использует вместо него *AuthClientSecret*. После замены параметров перестройте решение и запустите приложение.
 
-![App settings](media/azure-stack-kv-sample-app/appconfig.png)
+![Параметры приложения](media/azure-stack-kv-sample-app/appconfig.png)
  
-The application signs in to Azure AD, and then uses that token to authenticate to the key vault in Azure Stack. The application performs operations like create, encrypt, wrap, and delete on the keys and secrets of the key vault. You can also pass specific parameters such as *encrypt* and *decrypt* to the application, which makes sure that the application executes only those operations against the vault. 
+Приложение входит в Azure AD, а затем использует этот маркер для проверки подлинности в хранилище ключей Azure Stack. Приложение выполняет такие операции, как создание, шифрование, оборачивание и удаление ключей и секретов из хранилища ключей. В приложение можно также передать определенные параметры, такие как *encrypt* и *decrypt*, что гарантирует, что приложение выполнит с хранилищем только эти операции. 
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Развертывание виртуальной машины с помощью пароля из хранилища ключей](azure-stack-kv-deploy-vm-with-secret.md)
 
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
+[Create a virtual machine and include certificate retrieved from a key vault](azure-stack-kv-push-secret-into-vm.md) (Создание виртуальной машины с сертификатом хранилища ключей)
 
 
 

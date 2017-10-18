@@ -1,6 +1,6 @@
 ---
-title: "Подготовка виртуальной машины SQL Server | Документация Майкрософт"
-description: "Создание виртуальной машины SQL Server и подключение к ней с помощью портала Azure. В этом руководстве используется модель Resource Manager."
+title: "Создание виртуальной машины SQL Server 2017 на базе Windows в Azure | Документация Майкрософт"
+description: "Это руководство содержит сведения о создании виртуальной машины SQL Server 2017 на базе Windows на портале Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -12,55 +12,54 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 10/10/2017
 ms.author: jroth
+ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Подготовка виртуальной машины SQL Server на портале Azure
+# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Подготовка виртуальной машины SQL Server на базе Windows на портале Azure
+
 > [!div class="op_single_selector"]
 > * [Портал](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-В этом комплексном руководстве показано, как подготовить виртуальную машину SQL Server на портале Azure.
-
-Коллекция виртуальных машин (VM) в Azure включает в себя несколько образов, содержащих Microsoft SQL Server. Всего за несколько действий вы можете выбрать один из образов виртуальной машины SQL из коллекции и подготовить ее в среде Azure.
+В этом кратком руководстве вы будете использовать портал Azure для создания виртуальной машины Windows с установленным SQL Server.
 
 Изучив данный учебник, вы научитесь:
 
-* [выбирать образ виртуальной машины из коллекции;](#select-a-sql-vm-image-from-the-gallery)
-* [настраивать и создавать виртуальные машины;](#configure-the-vm)
-* [открывать виртуальные машины с помощью удаленного рабочего стола;](#open-the-vm-with-remote-desktop)
-* [удаленно подключаться к SQL Server;](#connect-to-sql-server-remotely)
+* [выбирать образ виртуальной машины из коллекции;](#select)
+* [настраивать и создавать виртуальные машины;](#configure)
+* [открывать виртуальные машины с помощью удаленного рабочего стола;](#remotedesktop)
+* [удаленно подключаться к SQL Server;](#connect)
 
-## <a name="select-a-sql-vm-image-from-the-gallery"></a>выбирать образ виртуальной машины из коллекции;
+## <a id="select"></a> Выбор образа виртуальной машины SQL из коллекции
 
 1. Войдите на [портал Azure](https://portal.azure.com) , используя свою учетную запись.
 
    > [!NOTE]
    > Если у вас нет учетной записи Azure, используйте [бесплатную пробную версию Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2. На портале Azure нажмите кнопку **Создать**. На портале откроется окно **Создать** .
+1. На портале Azure нажмите кнопку **Создать**. На портале откроется окно **Создать** .
 
-3. В окне **Создать** щелкните **Вычисления** и выберите **See all** (Показать все).
+1. В окне **Создать** щелкните **Вычисления** и выберите **See all** (Показать все).
 
    ![Окно "Новое вычисление"](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
-4. В поле поиска введите **SQL Server** и нажмите клавишу ВВОД.
+1. В поле поиска введите **SQL Server 2017** и нажмите клавишу ВВОД.
 
-5. Щелкните значок **Фильтр** и выберите **Майкрософт** в качестве издателя. Щелкните **Готово** в окне фильтра, чтобы отфильтровать результаты и отобразить только образы SQL Server, опубликованные корпорацией Майкрософт.
+1. Щелкните значок **Фильтр**.
+
+1. В окнах фильтра выберите подкатегорию **На основе Windows** и **Microsoft** для издателя. Нажмите кнопку **Готово**, чтобы отфильтровать результаты и отобразить только образы SQL Server на базе Windows, опубликованные корпорацией Майкрософт.
 
    ![Окно "Виртуальные машины Azure"](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Просмотрите доступные образы SQL Server. Каждый образ определяет версию SQL Server и операционную систему.
+1. Просмотрите доступные образы SQL Server. Каждый образ определяет версию SQL Server и операционную систему.
 
-6. Выберите образ с именем **Free License: SQL Server 2016 SP1 Developer on Windows Server 2016**.
+1. Выберите образ с именем **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016**.
 
    > [!TIP]
    > В этом руководстве используется выпуск Developer, так как это полнофункциональный выпуск SQL Server, предоставляемый бесплатно для тестирования в процессе разработки. Вы оплачиваете только стоимость выполнения виртуальной машины. Но вы можете выбрать для использования в этом руководстве любой образ.
@@ -70,13 +69,13 @@ ms.lasthandoff: 08/15/2017
    >
    > Дополнительные сведения об этих параметрах см. в [руководстве по выбору ценовой категории для виртуальных машин Azure SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-7. В разделе **Выбор модели развертывания** выберите **Resource Manager**. Для новых виртуальных машин рекомендуется использовать модель развертывания Resource Manager. 
+1. В разделе **Выбор модели развертывания** выберите **Resource Manager**. Для новых виртуальных машин рекомендуется использовать модель развертывания Resource Manager. 
 
-8. Щелкните **Создать**.
+1. Щелкните **Создать**.
 
     ![Создание виртуальной машины SQL с помощью Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a name="configure-the-vm"></a>Настройка виртуальной машины
+## <a id="configure"></a> Настройка виртуальной машины
 Есть пять окон для настройки виртуальной машины SQL Server.
 
 | Шаг | Описание |
@@ -156,7 +155,7 @@ ms.lasthandoff: 08/15/2017
 | [Автоматическое исправление](#automated-patching) |
 | [Автоматическая архивация](#automated-backup) |
 | [Интеграция с хранилищем ключей Azure](#azure-key-vault-integration) |
-| [Службы R](#r-services) |
+| [Службы машинного обучения SQL Server](#sql-server-machine-learning-services) |
 
 ### <a name="connectivity"></a>Соединение
 
@@ -257,14 +256,11 @@ ms.lasthandoff: 08/15/2017
 
 Дополнительные сведения см. в статье [Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md).
 
-### <a name="r-services"></a>Службы R
+### <a name="sql-server-machine-learning-services"></a>Службы машинного обучения SQL Server
 
-Имеется возможность можно включить [службы R SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Это позволяет использовать в SQL Server 2016 расширенные средства аналитики. Щелкните **Включить** в окне **SQL Server Settings**.
+Вы можете включить [службы машинного обучения SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Это позволяет использовать в SQL Server 2017 расширенные средства аналитики. Щелкните **Включить** в окне **SQL Server Settings**.
 
-> [!NOTE]
-> Для SQL Server 2016 Developer Edition этот параметр отключен порталом по ошибке. Для выпуска Developer Edition необходимо включить службы R вручную после создания виртуальной машины.
-
-![Включение служб R SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![Включение служб машинного обучения SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
 Настроив параметры SQL Server, нажмите кнопку **ОК**.
 
@@ -275,9 +271,9 @@ ms.lasthandoff: 08/15/2017
 Развертывание можно отслеживать на портале Azure. Если нажать кнопку **Уведомления** в верхней части окна, будут показаны основные сведения о состоянии развертывания.
 
 > [!NOTE]
-> Чтобы предоставить вам сведения о времени, необходимом для выполнения развертывания, в нашем сценарии виртуальная машина SQL была развернута в восточной части США с параметрами по умолчанию. На выполнение тестового развертывания понадобилось 26 минут. Время развертывания зависит от региона и выбранных параметров.
+> Чтобы предоставить вам сведения о времени, необходимом для выполнения развертывания, в нашем сценарии виртуальная машина SQL была развернута в восточной части США с параметрами по умолчанию. На выполнение тестового развертывания требуется около 12 минут. Время развертывания зависит от региона и выбранных параметров.
 
-## <a name="open-the-vm-with-remote-desktop"></a>открывать виртуальные машины с помощью удаленного рабочего стола;
+## <a id="remotedesktop"></a> Открытие виртуальных машин с помощью удаленного рабочего стола
 
 Выполните следующие действия, чтобы подключиться к виртуальной машине SQL Server через удаленный рабочий стол.
 
@@ -295,7 +291,7 @@ ms.lasthandoff: 08/15/2017
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## <a name="connect-to-sql-server-remotely"></a>удаленно подключаться к SQL Server;
+## <a id="connect"></a> Удаленное подключение к SQL Server
 
 В рамках этого руководства для виртуальной машины используется **открытый** доступ и **проверка подлинности SQL Server**. Эти параметры позволяют автоматически настроить виртуальную машину для получения доступа к экземпляру SQL Server из любого клиента через Интернет (при условии, что будет использоваться правильное имя пользователя SQL).
 
