@@ -6,8 +6,12 @@
       href: overview.md
 - name: Быстрое начало работы
   items:
-    - name: Создание и маршрутизация пользовательских событий
+    - name: Создание пользовательского события с помощью Azure CLI
       href: custom-event-quickstart.md
+    - name: Создание пользовательского события с помощью Azure PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: Создание пользовательского события с помощью портала Azure
+      href: custom-event-quickstart-portal.md
 - name: Учебники
   items:
     - name: Отслеживание изменений в виртуальных машинах с помощью приложений логики

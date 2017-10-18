@@ -9,6 +9,8 @@
   items:
     - name: Сбор данных виртуальных машин Azure
       href: log-analytics-quick-collect-azurevm.md
+    - name: Сбор. Компьютер Linux
+      href: log-analytics-quick-collect-linux-computer.md
 - name: Учебники
   items:
     - name: 1. Анализ данных

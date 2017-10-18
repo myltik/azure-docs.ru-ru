@@ -158,6 +158,10 @@
           href: model-management-cli-reference.md
         - name: API сбора данных модели
           href: model-data-collection-api-reference.md
+    - name: Заметки о выпуске
+      items:
+        - name: Спринт 0. Октябрь 2017 г.
+          href: release-notes-sprint-0.md
 - name: Ресурсы
   items:
     - name: Часто задаваемые вопросы

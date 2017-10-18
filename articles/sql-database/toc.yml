@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: Выполнение детализации восстановления
           href: sql-database-disaster-recovery-drills.md
-    - name: Загрузка и перемещение данных
+    - name: Переход на базу данных SQL
       items:
         - name: Миграция базы данных SQL Server
           href: sql-database-cloud-migrate.md
         - name: Изменения в T-SQL
           href: sql-database-transact-sql-information.md
+        - name: Управление базой данных после миграции
+          href: sql-database-manage-after-migration.md
+    - name: Загрузка и перемещение данных
+      items:
         - name: Копирование базы данных
           href: sql-database-copy.md
         - name: Импорт базы данных
