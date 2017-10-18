@@ -1,6 +1,6 @@
 ---
-title: 'Azure Stack Storage: Differences and considerations'
-description: Understand the differences between Azure Stack Storage and Azure Storage, along with Azure Stack deployment considerations.
+title: "Хранилище Azure Stack. Отличия и рекомендации"
+description: "Сведения о различиях между хранилищем Azure Stack и службой хранилища Azure, а также рекомендации по развертыванию Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,52 +14,50 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 381950321ac3a5ea8a43b76f3fba868da4be4682
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Differences and considerations
+# <a name="azure-stack-storage-differences-and-considerations"></a>Хранилище Azure Stack. Отличия и рекомендации
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
-Azure Stack Storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
+Хранилище Azure Stack — это набор облачных служб хранилища в Microsoft Azure Stack. Хранилище Azure Stack предоставляет такие согласованные с Azure компоненты и функции: большой двоичный объект, таблицу, очередь и функцию управления учетными записями.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage. It also summarizes other considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+В этой статье перечислены известные различия между хранилищем Azure Stack и службой хранилища Azure. Здесь также содержатся дополнительные рекомендации, которые необходимо учитывать при развертывании Azure Stack. Дополнительные сведения о высокоуровневых различиях между Azure Stack и Azure см. в [этой статье](azure-stack-considerations.md).
 
-## <a name="cheat-sheet-storage-differences"></a>Cheat sheet: Storage differences
+## <a name="cheat-sheet-storage-differences"></a>Памятка. Различия хранилищ
 
-| Feature | Azure (global) | Azure Stack |
+| Функция | Azure (глобальная) | Azure Stack |
 | --- | --- | --- |
-|File storage|Cloud-based SMB file shares supported|Not yet supported
-|Data at rest encryption|256-bit AES encryption|Not yet supported
-|Storage account type|General-purpose and Azure Blob storage accounts|General-purpose only
-|Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage
-|Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee
-|Managed disks|Premium and standard supported|Not yet supported
-|Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
-|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|50,000 X 4 MB (approx. 195 GB)
-|Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported
-|Page blob max size|8 TB|1 TB
-|Page blob page size|512 bytes|4 KB
-|Table partition key and row key size|1,024 characters (2,048 bytes)|400 characters (800 bytes)
+|Хранилище файлов|Поддерживаются облачные общие папки с файлами SMB|Еще не поддерживается
+|Шифрование неактивных данных|256-битное шифрование AES|Еще не поддерживается
+|Тип учетной записи хранения|Учетные записи хранения общего назначения и учетные записи хранения BLOB-объектов Azure|Только общего назначения
+|Варианты репликации|Локально избыточное хранилище, геоизбыточное хранилище, геоизбыточное хранилище с доступом для чтения и хранилище, избыточное в пределах зоны.|Локально избыточное хранилище
+|Хранилище уровня "Премиум"|Полностью поддерживается|Может быть подготовлено, но не имеет ограничений производительности или гарантий
+|Управляемые диски|Поддерживается уровень "Премиум" и "Стандартный"|Еще не поддерживается
+|Имя большого двоичного объекта|1024 символов (2048 байт)|880 символов (1760 байт)
+|Максимальный размер блочного BLOB-объекта|4,75 ТБ (100 МБ х 50 000 блоков)|50 000 x 4 МБ (прибл. 195 ГБ)
+|Копирование добавочных моментальных снимков страничного BLOB-объекта|Поддерживаются страничные BLOB-объекты Azure уровня "Премиум" и "Стандартный"|Еще не поддерживается
+|Максимальный размер страничного BLOB-объекта|8 ТБ|1 TБ
+|Размер страницы страничного BLOB-объекта|512 байт|4 КБ
+|Ключ секции таблицы и размер ключа строки|1024 символов (2048 байт)|400 символов (800 байт)
 
-### <a name="metrics"></a>Metrics
-There are also some differences with storage metrics:
-* The transaction data in storage metrics does not differentiate internal or external network bandwidth.
-* The transaction data in storage metrics does not include virtual machine access to the mounted disks.
+### <a name="metrics"></a>Метрики
+Кроме того, есть некоторые различия в метриках хранилища:
+* Данные транзакций в метриках хранилища не различают внутреннюю или внешнюю пропускную способность сети.
+* Данные транзакции в метриках хранилища не включают доступ виртуальных машин к подключенным дискам.
 
-## <a name="api-version"></a>API version
-The following versions are supported with Azure Stack Storage:
+## <a name="api-version"></a>Версия API
+Хранилище Azure Stack поддерживает следующие версии:
 
-* Azure Storage data services: [2015-04-05 REST API version](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
-* Azure Storage management services: [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
+* Службы данных службы хранилища Azure: [REST API версии 2015-04-05](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN).
+* Службы управления службы хранилища Azure: [2015-05-01-preview, 2015-06-15 и 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN). 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-* [Get started with Azure Stack Storage development tools](azure-stack-storage-dev.md)
-* [Introduction to Azure Stack Storage](azure-stack-storage-overview.md)
-
+* [Приступая к работе со средствами разработки хранилища Azure Stack](azure-stack-storage-dev.md)
+* [Общие сведения о хранилище Azure Stack](azure-stack-storage-overview.md)
 

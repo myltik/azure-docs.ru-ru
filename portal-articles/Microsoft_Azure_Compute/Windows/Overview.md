@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о Windows виртуальных машин | Документы Microsoft"
-description: "Справку для Обзор Windows виртуальной машины на портале Azure"
+title: "Обзор виртуальных машин Windows | Документация Майкрософт"
+description: "Содержимое справки об обзоре виртуальных машин Windows на портале Azure"
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: 03b204d9970a3831543a03dfa08e2a4d8b274034
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-virtual-machines-documentation"></a>Документация по виртуальным машинам Windows
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="step-by-step-tutorials"></a>Пошаговые руководства
 
-Дополнительные сведения о развертывать, управлять и отслеживать виртуальные машины Windows в Azure.
+Сведения о развертывании, администрировании и мониторинге виртуальных машин Windows в Azure.
 
 - [Manage Windows virtual machines with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm) (Управление виртуальными машинами Windows с помощью Azure PowerShell)
 - [Manage Azure disks with the Azure CLI](/azure/virtual-machines/windows/tutorial-manage-data-disk) (Управление дисками Azure с помощью Azure CLI)
@@ -58,5 +58,5 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="more"></a>Подробнее
 
-- [Обратитесь к документации для получения дополнительных сведений](/azure/virtual-machines/windows/index)
-- [Дополнительные сведения о всех служб Azure](https://aka.ms/j3wr7y)
+- [См. дополнительные сведения в документации](/azure/virtual-machines/windows/index)
+- [Сведения обо всех службах Azure](https://aka.ms/j3wr7y)

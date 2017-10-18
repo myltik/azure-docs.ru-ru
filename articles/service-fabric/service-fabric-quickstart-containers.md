@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
+ms.openlocfilehash: bc7bee3caed2eba0a3f49d79241cd8685333ba13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c4f8c94e23a165b22533ffd74e04c9a7310f2d22
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Развертывание приложения-контейнера Service Fabric для Windows в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания масштабируемых надежных микрослужб и контейнеров и управления ими. 
 
@@ -51,7 +49,7 @@ Azure Service Fabric — это платформа распределенных 
 
 В списке **шаблонов служб** выберите значение **Container** (Контейнер).
 
-В поле **Имя образа** укажите nanoserver/iis — [базовый образ Nano Server Windows Server 2016 и IIS](https://hub.docker.com/r/nanoserver/iis/). 
+В поле **Имя образа** укажите microsoft/iis:nanoserver — [базовый образ Nano Server Windows Server и IIS](https://hub.docker.com/r/microsoft/iis/). 
 
 Присвойте службе имя MyContainerService и нажмите кнопку **ОК**.
 
@@ -68,6 +66,7 @@ Azure Service Fabric — это платформа распределенных 
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -94,7 +93,7 @@ Azure Service Fabric — это платформа распределенных 
 
 ![Диалоговое окно "Опубликовать"](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Укажите конечную точку подключения кластера в поле **Конечная точка подключения** и нажмите кнопку **Опубликовать**. При регистрации для доступа к кластеру сообщества конечная точка подключения отображается в браузере, например `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+Укажите конечную точку подключения кластера в поле **Конечная точка подключения**. При регистрации для доступа к кластеру сообщества конечная точка подключения отображается в браузере, например `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Нажмите кнопку **Опубликовать**, чтобы развернуть приложение.
 
 Откройте браузер и перейдите по адресу http://winh1x87d1d.westus.cloudapp.azure.com:80. Откроется веб-страница IIS по умолчанию. ![Веб-страница IIS по умолчанию][iis-default]
 
@@ -120,7 +119,7 @@ Azure Service Fabric — это платформа распределенных 
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -186,10 +185,10 @@ Azure Service Fabric — это платформа распределенных 
 ## <a name="next-steps"></a>Дальнейшие действия
 Из этого руководства вы узнали, как выполнить следующие действия:
 > [!div class="checklist"]
-> * Упаковка контейнера образов Docker
+> * упаковка контейнера образов Docker;
 > * Настройка обмена данными
 > * Создание и упаковка приложений Service Fabric
-> * Развертывание приложения-контейнера в Azure
+> * развертывание приложения-контейнера в Azure.
 
 * Дополнительные сведения о запуске [контейнеров в Service Fabric](service-fabric-containers-overview.md).
 * Ознакомьтесь с руководством [Развертывание приложения-контейнера .NET в Azure Service Fabric](service-fabric-host-app-in-a-container.md).
@@ -198,4 +197,3 @@ Azure Service Fabric — это платформа распределенных 
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
-

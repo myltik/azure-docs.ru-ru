@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3c5a6ec70e1041d43b549c8e5a5416a9a65728bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Создание первого контейнера-приложения Service Fabric в Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
@@ -164,11 +162,11 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 Чтобы создать приложение-контейнер Service Fabric, откройте окно терминала и выполните `yo azuresfcontainer`.  
 
-Укажите имя приложения, например mycontainerap. 
+Присвойте имя приложению, например mycontainer, и службе приложения, например myservice.
 
-Предоставьте URL-адрес для образа контейнеров в реестре контейнеров (например, myregistry.azurecr.io/samples/helloworldapp). 
+В качестве имени образа предоставьте URL-адрес для образа контейнеров в реестре контейнеров (например, myregistry.azurecr.io/samples/helloworldapp). 
 
-В образе определена точка входа рабочей нагрузки, поэтому нужно явно указать входные команды, выполняемые внутри контейнера, которые обеспечат выполнение контейнера после запуска. 
+Так как в образе определена точка входа рабочей нагрузки, вам не нужно явно указывать входные команды, выполняемые внутри контейнера, которые обеспечат выполнение контейнера после запуска. 
 
 Укажите число экземпляров — 1.
 
@@ -391,4 +389,3 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
-

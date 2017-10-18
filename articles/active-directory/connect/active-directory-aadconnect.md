@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Интеграция локальных каталогов с Azure Active Directory
 Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для приложений Office 365, Azure и программного обеспечения как услуги (SaaS), интегрированных с Azure AD. В этом разделе описаны шаги планирования, развертывания и использования. Здесь представлена коллекция ссылок на статьи, относящиеся к этой области.
@@ -127,6 +126,15 @@ Azure AD Connect поставляется с несколькими функци
 |Изменение конфигурации по умолчанию | [Рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Настройка функций федерации
+
+Служба Azure AD Connect предоставляет несколько функций, которые упрощают федерацию с Azure AD с помощью AD FS и управление доверием федерации. Она поддерживает AD FS в Windows Server 2012 R2 или более поздней версии.
+
+[Обновите SSL-сертификат фермы AD FS](active-directory-aadconnectfed-ssl-update.md), даже если вы не используете Azure AD Connect для управления доверием федерации.
+
+[Добавьте сервер AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) в ферму, чтобы расширить ее в соответствии с потребностями.
+
+[Восстановите отношение доверия](active-directory-aadconnect-federation-management.md#repairthetrust) с Azure AD несколькими щелчками мыши.
+
 В AD FS можно настроить поддержку [нескольких доменов](active-directory-aadconnect-multiple-domains.md). Например, у вас может быть несколько доменов верхнего уровня, которые необходимо использовать для федерации.
 
 Если на сервере AD FS не настроено автоматическое обновление сертификатов из Azure AD или используется решение, отличное от AD FS, при необходимости [обновления сертификатов](active-directory-aadconnect-o365-certs.md)появится соответствующее уведомление.
@@ -157,5 +165,4 @@ Azure AD Connect поставляется с несколькими функци
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
 

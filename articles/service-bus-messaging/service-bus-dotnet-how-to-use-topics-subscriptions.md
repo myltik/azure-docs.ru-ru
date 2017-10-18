@@ -12,20 +12,17 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Начало работы с разделами служебной шины
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-## <a name="what-will-be-accomplished"></a>Что будет выполнено
 
 В этом руководстве рассматриваются следующие действия:
 
@@ -83,7 +80,7 @@ ms.lasthandoff: 07/01/2017
 ### <a name="add-the-service-bus-nuget-package"></a>Получение пакета NuGet для служебной шины
 
 1. Щелкните созданный проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
-2. Откройте вкладку **Обзор**, выполните поиск по фразе **служебная шина Microsoft Azure** и выберите элемент **WindowsAzure.ServiceBus**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
+2. Откройте вкладку **Обзор**, выполните поиск по фразе **WindowsAzure.ServiceBus** и выберите элемент **WindowsAzure.ServiceBus**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
    
     ![Установка пакета NuGet][nuget-pkg]
 
@@ -157,7 +154,7 @@ ms.lasthandoff: 07/01/2017
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Добавьте в метод `Main` следующий код. Укажите для переменной `connectionString` строку подключения, полученную при создании пространства имен, и задайте для `topicName` имя раздела, которое использовалось при его создании.
+3. Добавьте в метод `Main` следующий код. Укажите для переменной `connectionString` строку подключения, полученную при создании пространства имен, и задайте для `topicName` имя раздела, которое использовалось при его создании. Не забудьте заменить `<your subscription name>` именем созданной подписки на шаге 3. 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -225,4 +222,3 @@ ms.lasthandoff: 07/01/2017
 [createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 [azure-portal]: https://portal.azure.com
-

@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/28/2017
+ms.openlocfilehash: 975a86c1f9d9692f6eadd232177f33cbbbeeff2f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: d6463c57bdd33434e9f94cfae3b25bac5f6df739
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-1-prepare-data"></a>Часть 1. Классификация цветков ириса: подготовка данных
 Служба "Машинное обучение Azure" (предварительная версия) — это полнофункциональное интегрированное аналитическое решение для специалистов по обработке и анализу данных. Оно помогает подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабе облака.
 
@@ -30,11 +28,14 @@ ms.lasthandoff: 09/29/2017
 
 В этом руководстве для простоты используется классический набор данных — [ирисы Фишера](https://en.wikipedia.org/wiki/Iris_flower_data_set). Снимки экрана представляют среду Windows, но для macOS все процедуры практически идентичны.
 
-## <a name="launch-azure-machine-learning-workbench"></a>Запуск Azure Machine Learning Workbench
-Следуйте инструкциям из статьи [Создание учетной записи для предварительной версии Машинного обучения Azure и установка Azure Machine Learning Workbench](quickstart-installation.md), чтобы установить приложение Azure Machine Learning Workbench. Установка также включает интерфейс командной строки (CLI). Запустите приложение Azure Machine Learning Workbench и при необходимости выполните вход.
+## <a name="prerequisites"></a>Предварительные требования
+- Создайте учетную запись службы "Экспериментирование в Машинном обучении Azure".
+- Установите Azure Machine Learning Workbench.
 
-## <a name="create-a-new-project"></a>Создание нового проекта
-1. В области **ПРОЕКТЫ** щелкните значок **+**, чтобы создать **проект**.
+Вы можете следовать инструкциям из статьи [Создание учетной записи для предварительной версии Машинного обучения Azure и установка Azure Machine Learning Workbench](quickstart-installation.md), чтобы установить приложение Azure Machine Learning Workbench. Установка также включает интерфейс командной строки (CLI).
+
+## <a name="create-a-new-project-in-azure-ml-workbench"></a>Создание проекта в Azure ML Workbench
+1. Запустите приложение Azure Machine Learning Workbench и при необходимости выполните вход. В области **ПРОЕКТЫ** щелкните значок **+**, чтобы создать **проект**.
 
    ![новая рабочая область](media/tutorial-classifying-iris/new_ws.png)
 
@@ -149,4 +150,3 @@ ms.lasthandoff: 09/29/2017
 Вы готовы перейти к следующей части серии для создания модели машинного обучения.
 > [!div class="nextstepaction"]
 > [Classifying Iris part 2: Build a model](tutorial-classifying-iris-part-2.md) (Часть 2. Классификация цветков ириса: создание модели)
-

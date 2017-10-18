@@ -8,26 +8,44 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Интерфейс командной строки Azure Service Fabric
 
 Интерфейс командной строки Azure Service Fabric — это служебная программа командной строки для взаимодействия с сущностями Service Fabric и управления ими. Интерфейс командной строки Service Fabric можно использовать с кластерами Windows и Linux. Он выполняется на любой платформе, поддерживающей Python.
 
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
+
 ## <a name="prerequisites"></a>Предварительные требования
 
 Прежде чем начать установку, убедитесь, что в вашей среде установлены Python и pip. Дополнительные сведения см. в [кратком руководстве по началу работы с pip](https://pip.pypa.io/en/latest/quickstart/) и официальной [документации по установке Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-Хотя поддерживается Python версий 2.7 и 3.6, мы рекомендуем использовать Python 3.6. В следующем разделе показано, как установить все необходимые компоненты и интерфейс командной строки.
+Интерфейс командной строки поддерживает Python версии 2.7, 3.5 и 3.6. Python 3.6 является рекомендуемой версией, так как поддержка Python 2.7 скоро будет прекращена.
+
+### <a name="service-fabric-target-runtime"></a>Целевая среда выполнения Service Fabric
+
+Интерфейс командной строки Service Fabric используется для поддержки последней версии среды выполнения пакета SDK для Service Fabric. Воспользуйтесь следующей таблицей, чтобы определить, какую версию интерфейса командной строки следует установить.
+
+| Версия интерфейса командной строки   | Поддерживаемая версия среды выполнения |
+|---------------|---------------------------|
+| Последняя (~=2)  | Последняя (~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+При необходимости можно указать целевую версию интерфейса командной строки для установки, добавив к команде `pip install` суффикс `==<version>`. Например, для версии 1.1.0 синтаксис будет выглядеть следующим образом:
+
+```
+pip install -I sfctl==1.1.0
+```
+
+При необходимости замените следующую команду `pip install` ранее упомянутой командой.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>Установка pip, Python и интерфейса командной строки Service Fabric
 
- Существует много способов установки pip и Python на вашей платформе. Ниже приведены действия для быстрой установки Python 3.6 и pip, которые подходят для большинства операционных систем.
+Существует много способов установки pip и Python на вашей платформе. Ниже приведены действия для быстрой установки Python 3 и pip, которые подходят для большинства операционных систем.
 
 ### <a name="windows"></a>Windows
 
@@ -50,33 +68,45 @@ pip --version
 
 Затем выполните следующую команду, чтобы установить интерфейс командной строки Service Fabric.
 
-```
+```bat
 pip install sfctl
 sfctl -h
 ```
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-and-windows-subsystem-for-linux"></a>Подсистема Ubuntu и Windows для Linux
 
-В Ubuntu 16.04 Desktop вы можете установить Python 3.6, используя персональные архивы пакетов сторонних разработчиков (PPA).
-
-В окне терминала выполните следующие команды:
+Чтобы установить интерфейс командной строки Service Fabric, выполните следующие команды.
 
 ```bash
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python3-pip
+pip3 install sfctl
 ```
 
-Затем, чтобы установить интерфейс командной строки Service Fabric для только что установленной версии Python 3.6, выполните следующую команду:
+Затем можно проверить установку, выполнив следующую команду.
 
 ```bash
-python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-Эти действия не повлияют на системную установку Python 3.5 или 2.7. Не пытайтесь изменить эти установленные версии, если вы не знакомы с Ubuntu.
+Если вы получили ошибку, что команда не найдена, например:
 
+`sfctl: command not found`
+
+Убедитесь, что `~/.local/bin` доступен из `$PATH`.
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
+Если установка подсистемы Windows для Linux завершается сбоем из-за неверных разрешений папки, может потребоваться повторить попытку с повышенным уровнем разрешений.
+
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
 
 Для MacOS мы рекомендуем использовать [диспетчер пакетов HomeBrew](https://brew.sh). Если диспетчер HomeBrew еще не установлен, установите его, выполнив следующую команду:
@@ -92,8 +122,6 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
-
-Эти действия не повлияют на системную установку Python 2.7.
 
 ## <a name="cli-syntax"></a>Синтаксис CLI
 
@@ -120,10 +148,10 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 Конечная точка кластера должна иметь префикс `http` или `https`. Она должна включать порт для шлюза HTTP. Этот порт и адрес аналогичны URL-адресу Service Fabric Explorer.
 
-Для кластеров, защищенных с помощью сертификата, можно указать сертификат в кодировке PEM. Сертификат можно указать как один файл или как пару "сертификат — ключ".
+Для кластеров, защищенных с помощью сертификата, можно указать сертификат в кодировке PEM. Сертификат можно указать как один файл или как пару "сертификат — ключ". Если это самозаверяющий сертификат, который не подписан центром сертификации (ЦС), вы можете передать параметр `--no-verify` для обхода проверки ЦС.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 Дополнительные сведения см. в статье [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md).
@@ -175,6 +203,12 @@ sfctl cluster health
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+Аналогично, чтобы преобразовать PEM-файл в PFX-файл, можно использовать следующую команду (здесь не нужно вводить пароль):
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 Дополнительные сведения см. в [документации по OpenSSL](https://www.openssl.org/docs/).
 
 ### <a name="connection-problems"></a>Проблемы с подключением
@@ -203,8 +237,16 @@ sfctl application -h
 sfctl application create -h
 ```
 
+## <a name="updating-the-service-fabric-cli"></a>Обновления интерфейса командной строки Service Fabric 
+
+Чтобы обновить интерфейс командной строки Service Fabric, выполните следующие команды (замените параметр `pip` на `pip3` в зависимости от того, какой вы выбрали во время первоначальной установки):
+
+```bash
+pip uninstall sfctl
+pip install sfctl
+```
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Manage an Azure Service Fabric application by using Azure Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md) (Управление приложением Azure Service Fabric с помощью интерфейса командной строки Azure Service Fabric)
 * [Prepare your development environment on Linux](service-fabric-get-started-linux.md) (Подготовка среды разработки в Linux)
-

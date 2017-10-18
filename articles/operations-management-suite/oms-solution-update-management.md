@@ -3,7 +3,7 @@ title: "Решение для управления обновлениями в O
 description: "Цель этой статьи — помочь вам понять, как использовать это решение для управления обновлениями на компьютерах Windows и Linux."
 services: operations-management-suite
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
+ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Решение для управления обновлениями в OMS
 
 ![Символ управления обновлениями](./media/oms-solution-update-management/update-management-symbol.png)
 
 Решение по управлению обновлениями в OMS позволяет управлять обновлениями безопасности операционной системы для компьютеров Windows и Linux, развернутых в Azure, локальных средах или других поставщиках облачных услуг.  Благодаря ему вы сможете быстро оценить состояние доступных обновлений на всех компьютерах агентов и управлять установкой необходимых обновлений на серверах.
+
+## <a name="update-management-in-azure-automation"></a>Управление обновлениями в службе автоматизации Azure
+
+Вы можете включить управление обновлениями для виртуальных машин непосредственно из учетной записи [службы автоматизации Azure](../automation/automation-offering-get-started.md).
+Сведения о включении управления обновлениями для виртуальных машин из учетной записи службы автоматизации см. в статье [Управление обновлениями для нескольких виртуальных машин Azure](../automation/manage-update-multi.md).
 
 
 ## <a name="solution-overview"></a>Обзор решения
@@ -307,11 +311,17 @@ ms.lasthandoff: 07/31/2017
 | Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |List of all packages that have an update available which addresses Critical or Security vulnerability (Список всех пакетов с доступными обновлениями, позволяющими устранить критическую уязвимость или уязвимость системы безопасности) | 
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |Список измененных развертываний обновлений | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Компьютеры, обновленные при этом запуске обновления (замените значение именем развертывания обновлений) | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |List of all the “Ubuntu” machines with any update available (Список всех компьютеров Ubuntu со всеми доступными обновлениями) | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |List of all the “Ubuntu” machines with any update available (Список всех компьютеров Ubuntu со всеми доступными обновлениями) |
+
+## <a name="integrate-with-system-center-configuration-manager"></a>Интеграция с System Center Configuration Manager
+
+Клиенты, которые инвестировали в System Center Configuration Manager для управления компьютерами, серверами и мобильными устройствами, также полагаются на его надежность и зрелость при управлении обновлениями программного обеспечения в рамках цикла управления обновлениями программного обеспечения (SUM).
+
+Сведения об интеграции решения для управления обновлениями OMS с Sytem Center Configuration Manager см. в статье [Интеграция Integrate System Center Configuration Manager с решением "Управление обновлениями OMS" [предварительная версия]](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 
-В этом разделе представлены сведения об устранении неполадок с помощью решения для управления обновлениями.  
+В этом разделе представлены сведения об устранении неполадок с помощью решения для управления обновлениями.
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Как устранить проблемы подключения?
 Если при попытке подключить решение или виртуальную машину возникли проблемы, проверьте журнал событий **журналов приложения и служб Operations Manager** для событий с идентификатором 4502, а также сообщение события, содержащее **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  В таблице ниже выделены отдельные сообщения об ошибках и возможные решения этих ошибок.  
@@ -333,4 +343,3 @@ ms.lasthandoff: 07/31/2017
 * Используйте поиск по журналам в [Log Analytics](../log-analytics/log-analytics-log-searches.md), чтобы просматривать подробные данные об обновлениях.
 * [Создавайте свои панели мониторинга](../log-analytics/log-analytics-dashboards.md), где будут отображаться данные о соответствии обновлений для управляемых компьютеров.
 * [Создавайте оповещения](../log-analytics/log-analytics-alerts.md) об обнаружении важных критических обновлений, отсутствующих на компьютерах, или отключении автоматических обновлений на компьютере.  
-

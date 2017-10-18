@@ -13,12 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: spelluru
+ms.openlocfilehash: 85777e2a4d1dea5d148a543acd068f8aa1a2335c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: c9a825897d631d3030355e179490c861f4b8cefa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure
 Фабрика данных Azure — это облачная служба интеграции данных, которая позволяет создавать управляемые данными рабочие процессы в облаке для оркестрации и автоматизации перемещения и преобразования данных. С помощью фабрики данных Azure можно создавать и включать в расписание управляемые данными рабочие процессы (конвейеры), которые могут принимать данные из разнородных хранилищ данных, обрабатывать и преобразовывать эти данные с помощью служб вычислений (например, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics и машинного обучения Azure), а также публиковать выходные данные в хранилища данных (например, хранилище данных SQL Azure) для использования приложениями бизнес-аналитики. 
@@ -42,7 +41,7 @@ ms.lasthandoff: 09/28/2017
 Откройте **интегрированную среду сценариев Windows PowerShell** с правами администратора. 
 
 ## <a name="create-variables"></a>Создание переменных
-Скопируйте и вставьте следующий скрипт. Укажите значения для переменных. 
+Скопируйте и вставьте следующий скрипт. Укажите значения для переменных. Список поддерживаемых **ценовых категорий** базы данных SQL Azure см. в статье [Ограничения ресурсов базы данных SQL Azure](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
@@ -68,8 +67,9 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Pricing tier of you Azure SQL server. For example S0, S3 etc. 
-$SSISDBPricingTier = "<pricing tier of your Azure SQL server>" 
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
+$SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 ```
 
 ## <a name="validate-the-connection-to-database"></a>Проверьте подключение к базе данных
@@ -182,6 +182,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 > [!NOTE]
 > Скрипт подключается к базе данных SQL Azure для подготовки базы данных каталога SSIS (SSISDB). Скрипт также настраивает разрешения и параметры виртуальной сети, если это указано, и подключает к ней новый экземпляр среды выполнения интеграции Azure SSIS.
 
+Список поддерживаемых **ценовых категорий** базы данных SQL Azure см. в статье [Ограничения ресурсов базы данных SQL Azure](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
@@ -207,8 +208,9 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Pricing tier of you Azure SQL server. For example S0, S3 etc. 
-$SSISDBPricingTier = "<Pricing tier of your Azure SQL server>"
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
+$SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
@@ -284,4 +286,3 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 
 > [!div class="nextstepaction"]
 >[Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure с помощью фабрики данных Azure](tutorial-copy-data-dot-net.md)
-

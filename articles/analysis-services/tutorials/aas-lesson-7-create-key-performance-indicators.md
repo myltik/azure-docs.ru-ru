@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 9671136eea4e390a7763404e402cf94f1d351cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Занятие 7. Создание ключевых показателей эффективности
 
@@ -49,7 +48,7 @@ ms.lasthandoff: 06/03/2017
 
     Эта мера будет использоваться в качестве базовой для ключевого показателя эффективности.  
   
-4.  Щелкните правой кнопкой мыши **InternetCurrentQuarterSalesPerformance** > **Создать ключевой показатель эффективности**.   
+4.  В сетке мер щелкните правой кнопкой мыши **InternetCurrentQuarterSalesPerformance** > **Создать ключевые показатели эффективности**.   
   
 5.  В поле **Цель** диалогового окна "Ключевой показатель эффективности" выберите **Абсолютное значение**, а затем введите **1.1**.  
   
@@ -88,4 +87,3 @@ ms.lasthandoff: 06/03/2017
 [Занятие 8. Создание перспектив](../tutorials/aas-lesson-8-create-perspectives.md).
   
   
-

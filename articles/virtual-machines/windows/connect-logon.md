@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 09/29/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 88431377a36d5bc36220c630f0c8d4a46ab4a434
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 91a437345858cf3a9b00b6b4e8e72cd253f8f069
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Как подключиться к виртуальной машине Azure под управлением Windows и войти на нее
 Чтобы запустить сеанс удаленного рабочего стола, на портале Azure нажмите кнопку **Подключиться** на рабочем столе Windows. Сначала вы подключитесь к виртуальной машине, а затем сможете войти на нее.
@@ -29,9 +28,9 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="connect-to-the-virtual-machine"></a>Подключение к виртуальной машине
 1. Перейдите на [портал Azure](https://portal.azure.com/), если вы еще этого не сделали.
-2. В главном меню щелкните **Виртуальные машины**.
+2. В меню слева щелкните **Виртуальные машины**.
 3. Затем выберите виртуальную машину из списка.
-4. В колонке виртуальной машины щелкните **Подключить**.
+4. На странице виртуальной машины щелкните **Подключить**.
    
     ![Снимок экрана портала Azure: подключение к виртуальной машине](./media/connect-logon/connect.png)
    
@@ -45,5 +44,4 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если при попытке подключения возникает ошибка, см. сведения в статье, посвященной [устранению неполадок с подключением к удаленному рабочему столу](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). В ней описывается процесс диагностики и решения распространенных проблем.
-
 

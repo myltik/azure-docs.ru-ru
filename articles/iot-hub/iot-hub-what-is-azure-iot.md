@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/15/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 417ca4b6ecc39cbdafd8e12b5360b370d0ce79fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
@@ -35,7 +33,7 @@ ms.lasthandoff: 01/24/2017
 
 Вы можете использовать центр IoT для реализации собственной серверной части решения. Кроме того, Центр Интернета вещей включает реестр удостоверений, который используется для подготовки устройств, настройки их учетных данных и прав доступа к этому центру. Дополнительные сведения о Центре Интернета вещей см. в статье [Что такое Центр Интернета вещей в Azure][lnk-iot-hub].
 
-Сведения о том, как в Центре Интернета вещей Azure реализовано стандартизированное управление устройствами для их удаленного администрирования, настройки и обновления, см. в статье [Общие сведения об управлении устройствами с помощью Центра Интернета вещей][lnk-device-management].
+Сведения о том, как в Центре Интернета вещей Azure реализовано стандартизированное управление устройствами для их удаленного администрирования, см. в статье [Общие сведения об управлении устройствами с помощью Центра Интернета вещей][lnk-device-management].
 
 Вы можете внедрить клиентские приложения на различных аппаратных платформах и в операционных системах с помощью пакетов SDK для устройств Azure IoT. Пакеты SDK для устройств включают библиотеки, упрощающие отправку данных телеметрии в Центр Интернета вещей и получение сообщений, отправляемых из облака на устройство. Используя эти пакеты, для взаимодействия с Центром Интернета вещей вы можете выбрать один из нескольких сетевых протоколов. Дополнительные сведения о пакетах SDK для устройств см. [здесь][lnk-device-sdks].
 
@@ -49,4 +47,3 @@ ms.lasthandoff: 01/24/2017
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
-

@@ -1,0 +1,58 @@
+---
+title: "Приступая к работе с Microsoft Power BI Embedded | Документация Майкрософт"
+description: "Добавление элементов в приложение бизнес-аналитики с помощью Power BI Embedded"
+services: power-bi-embedded
+documentationcenter: 
+author: guyinacube
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 09/28/2017
+ms.author: asaxton
+ms.openlocfilehash: b32b06e9d6cbaacdfbdfe92e2c72cb6763c9eb52
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
+---
+# <a name="get-started-with-microsoft-power-bi-embedded"></a>Начало работы с Microsoft Power BI Embedded
+
+С помощью **Power BI Embedded** независимые поставщики программного обеспечения и разработчики могут быстро добавить привлекательные визуальные элементы, отчеты и панели мониторинга в свои приложения, используя модель на основе емкости с оплатой за каждый час.
+
+![Схема потока внедрения](media/get-started/introduction.png)
+
+Power BI Embedded предоставляет преимущества для независимых поставщиков программного обеспечения, их разработчиков и клиентов. Например, независимый поставщик программного обеспечения может начать создавать визуальные элементы бесплатно, используя Power BI Desktop. Независимые поставщики программного обеспечения могут сократить время выхода на рынок, сведя к минимуму усилия на разработку визуальной аналитики, и выделиться на фоне конкурентов благодаря разнообразным представлениям данных. Они также могут повысить уровень оплаты в связи с дополнительными преимуществами, которые предоставляет внедренная аналитика.
+
+Разработчики могут сосредоточиться на создании ключевых функций приложения, вместо того чтобы тратить время на разработку визуальных элементов и аналитики. Они могут быстро удовлетворять требования клиентов к отчетам и панелям мониторинга и легко внедрять новые элементы с помощью полностью документированных API и пакетов SDK. Наконец, обеспечивая в своих приложениях анализ данных с удобной навигацией, независимые поставщики программного обеспечения позволяют своим клиентам быстро и уверенно принимать решения, исходя из данных, в определенном контексте с любого устройства.
+
+## <a name="register-an-application-within-azure-active-directory"></a>Регистрация приложения в Azure Active Directory
+
+Для внедрения элементов в пользовательском приложении требуется приложение, зарегистрированное в Azure Active Directory (AAD). Зарегистрированному приложению требуется, чтобы ваш клиент был клиентом Power BI. Наличие клиента Power BI означает, что по крайней мере один пользователь в организации зарегистрировался в Power BI. Если пользователь зарегистрируется в Power BI, интерфейсы API Power BI будут отображаться в зарегистрированном приложении.
+
+Дополнительные сведения о том, как зарегистрировать приложение в AAD, см. в разделе [Регистрация приложения Azure AD для внедрения содержимого Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/).
+
+## <a name="embed-content-in-your-application"></a>Внедрение содержимого в приложении
+
+Зарегистрировав приложение в Azure Active Directory, вы сможете внедрять содержимое Power BI в приложение. Внедряйте содержимое с помощью REST API, а также API-интерфейсов JavaScript.
+
+У нас есть примеры, которые помогут вам приступить к работе. Пошаговое руководство по работе с образцом см. в разделе [Интеграция в приложение панели мониторинга, плитки или отчета (данные принадлежат приложению)](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/).
+
+## <a name="get-capacity-and-move-to-production"></a>Получение емкости и перенос в рабочую среду
+
+Создайте емкость Power BI Embedded в Microsoft Azure, чтобы перенести приложение в рабочую среду. Сведения о создании емкости см. в статье [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Создание емкости Power BI Embedded на портале Azure).
+
+Управлять емкостью можно на портале администрирования Power BI. Назначьте того, кто будет присваивать рабочие области и, следовательно, помогать вам в работе с рабочими областями приложения. Дополнительные сведения см. в разделе [Управление емкостью в Power BI Premium и Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Сведения о создании емкости Power BI Embedded см. в статье [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Создание емкости Power BI Embedded на портале Azure).
+
+Пошаговое руководство по работе с примером см. в разделе [Интеграция в приложение панели мониторинга, плитки или отчета (данные принадлежат приложению)](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/).
+
+У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)

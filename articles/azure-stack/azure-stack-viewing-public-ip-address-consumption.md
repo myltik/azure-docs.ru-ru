@@ -1,6 +1,6 @@
 ---
-title: View public IP address consumption in Azure Stack | Microsoft Docs
-description: Administrators can view the consumption of public IP addresses in a region
+title: "Просмотр данных об использовании общедоступных IP-адресов в Azure Stack | Документация Майкрософт"
+description: "Администраторы могут просматривать сведения об использовании общедоступных IP-адресов в регионе"
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,55 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7651565eebf6272f307a4ce4790ca19b41bfa826
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="view-public-ip-address-consumption-in-azure-stack"></a>View public IP address consumption in Azure Stack
+# <a name="view-public-ip-address-consumption-in-azure-stack"></a>Просмотр данных об использовании общедоступных IP-адресов в Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
-As a cloud administrator, you can view the number of public IP addresses that have been allocated to tenants, the number of public IP addresses that are still available for allocation, and the percentage of public IP addresses that have been allocated in that location.
+Администратор облака может просматривать количество общедоступных IP-адресов, которые были выделены клиентам, количество общедоступных IP-адресов, которые все еще доступны для выделения, и процент общедоступных IP-адресов, которые были выделены в этом расположении.
 
-The **Public IP pools usage** tile shows the total number of public IP addresses that have been consumed across all public IP address pools on the fabric, whether they have been used for tenant IaaS VM instances, fabric infrastructure services, or public IP address resources that were explicitly created by tenants.
+Плитка **Public IP pools usage** (Использование пулов общедоступных IP-адресов) отражает общее количество общедоступных IP-адресов, которые были использованы во всех пулах общедоступных IP-адресов в структуре, независимо от того, использовались ли они для экземпляров виртуальных машин IaaS, служб инфраструктуры структуры или ресурсов общедоступного IP-адреса, которые были явно созданы клиентами.
 
-The purpose of this tile is to give Azure Stack administrators a sense of the overall number of public IP addresses that have been consumed in this location. This helps administrators determine whether they are running low on this resource.
+Эта плитка предназначена для предоставления администраторам Azure Stack представления об общем количестве общедоступных IP-адресов, которые используются в этом расположении. Это помогает администраторам определить, работают ли они на этом ресурсе.
 
-On the **Resource providers**, **Network** blade, the **Public IP addresses** menu item under **Tenant Resources** lists only those public IP addresses that have been *explicitly created by tenants*. As such, the number of **Used** public IP addresses on the **Public IP pools usage** tile is always different from (larger than) the number on the **Public IP Addresses** tile under **Tenant Resources**.
+Открыв страницу **Поставщики ресурсов**, колонку **Сеть**, раздел **Tenant Resources** (Ресурсы клиента) и выбрав пункт **Общедоступные IP-адреса**, вы увидите только те общедоступные IP-адреса, которые были *явно созданы клиентами*. Таким образом число **использованных** общедоступных IP-адресов на плитке **Public IP pools usage** (Использование пулов общедоступных IP-адресов) всегда отличается от (больше) числа **общедоступных IP-адресов** в разделе **Tenant Resources** (Ресурсы клиента).
 
-## <a name="view-the-public-ip-address-usage-information"></a>View the public IP address usage information
-To view the total number of public IP addresses that have been consumed in the region:
+## <a name="view-the-public-ip-address-usage-information"></a>Просмотр данных об использовании общедоступных IP-адресов
+Чтобы просмотреть количество всех общедоступных IP-адресов, которые были использованы в регионе:
 
-1. In the Azure Stack administrator portal, click **More services**, under **Administrative Resources**, click **Resource providers**.
-2. From the list of **Resource Providers**, select **Network**.
-3. The **Network** blade displays the **Public IP pools usage** tile in the **Overview** section.
+1. На портале администратора Azure Stack в разделе **Administrative Resources** (Административные ресурсы) щелкните **Больше служб**, а затем выберите **Поставщики ресурсов**.
+2. В списке **Поставщики ресурсов** выберите **Сеть**.
+3. В колонке **Сеть** в разделе **Обзор** показана плитка **Public IP pools usage** (Использование пулов общедоступных IP-адресов).
 
-![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+![Колонка "Поставщик сетевых ресурсов"](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
-Keep in mind that the **Used** number represents the number of public IP addresses from all public IP address pools in that location that are assigned. The **Free** number represents the number of public IP addresses from all public IP address pools that have not been assigned and are still available. The **% Used** number represents the number of used or assigned addresses as a percentage of the total number of public IP addresses in all public IP address pools in that location.
+Имейте в виду, что число **используемых адресов** (Used) представляет количество общедоступных IP-адресов из всех пулов присвоенных общедоступных IP-адресов в выбранном расположении. Число **свободных адресов** (Free) представляет число общедоступных IP-адресов из всех пулов общедоступных IP-адресов, которые не были присвоены и все еще доступны. Число **% использованных** (% Used) представляет число использованных или присвоенных адресов в процентах от общего количества общедоступных IP-адресов из всех пулов общедоступных IP-адресов в выбранном расположении.
 
-## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>View the public IP addresses that were created by tenant subscriptions
-To see a list of public IP addresses that were explicitly created by tenant subscriptions in a specific region, click **Public IP addresses** under **Tenant Resources**.
+## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Просмотр общедоступных IP-адресов, созданных подписками клиента
+Чтобы просмотреть список общедоступных IP-адресов, созданных явным образом подписками клиентов в определенном регионе, щелкните **Tenant Resources** (Ресурсы клиента) в разделе **Общедоступные IP-адреса**.
 
-![Tenant public IP addresses](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Общедоступные IP-адреса клиента](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
 
-You might notice that some public IP addresses that have been dynamically allocated appear in the list but do not have an address associated with them yet. This is because the address resource has been created in the Network Resource Provider, but not in the Network Controller yet.
+Обратите внимание, что некоторые общедоступные IP-адреса, которые были динамически выделены, отображаются в списке, но еще не имеют связанного с ними адреса. Это связано с тем, что ресурс адресов был создан в поставщике сетевых ресурсов, а не в сетевом контроллере.
 
-The Network Controller does not assign an address to this resource until it is actually bound to an interface, a network interface card (NIC), a load balancer, or a virtual network gateway. When the public IP address is bound to an interface, the Network Controller allocates an IP address to it, and it appears in the **Address** field.
+Сетевой контроллер не присваивает адрес этому ресурсу, пока он фактически связан с интерфейсом, сетевым адаптером, балансировщиком нагрузки или шлюзом виртуальной сети. Когда общедоступный IP-адрес связан с интерфейсом, сетевой контроллер выделяет IP-адреса для него, и они появляются в поле **Адрес**.
 
-## <a name="view-the-public-ip-address-information-summary-table"></a>View the public IP address information summary table
-There are a number of different cases in which public IP addresses are assigned that determine whether the address appears in one list or another.
+## <a name="view-the-public-ip-address-information-summary-table"></a>Просмотр сводной таблицы данных об общедоступных IP-адресах
+Есть несколько различных случаев, когда от типа общедоступного IP-адреса и объекта, которому он присвоен, зависит, отображается ли адрес в том или ином списке.
 
-| **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
+| **Вариант присвоения общедоступных IP-адресов** | **Отображается в сводке потребления** | **Отображается в списке общедоступных IP-адресов клиентов** |
 | --- | --- | --- |
-| Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) |No |Yes |
-| Dynamic public IP address assigned to an NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a tenant NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a fabric infrastructure service endpoint. |Yes |No |
-| Public IP address implicitly created for IaaS VM instances and used for outbound NAT on the virtual network. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. |Yes |No |
+| Динамический общедоступный IP-адрес еще не присвоен сетевому адаптеру или балансировщику нагрузки (временно). |Нет |Да |
+| Динамический общедоступный IP-адрес присвоен сетевому адаптеру или балансировщику нагрузки. |Да |Да |
+| Статичный общедоступный IP-адрес присвоен сетевому адаптеру или балансировщику нагрузки клиента. |Да |Да |
+| Статический общедоступный IP-адрес присвоен конечной точке службы инфраструктуры. |Да |Нет |
+| Общедоступный IP-адрес неявно создан для экземпляров виртуальных машин IaaS и используется для исходящего подключения NAT в виртуальной сети. Сопутствующие ресурсы создаются в фоновом режиме, когда клиент создает экземпляр виртуальной машины, чтобы виртуальные машины могли отправлять информацию в Интернет. |Да |Нет |
 
-## <a name="next-steps"></a>Next steps
-[Manage Storage Accounts in Azure Stack](azure-stack-manage-storage-accounts.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Управление учетными записями хранения в Azure Stack](azure-stack-manage-storage-accounts.md)

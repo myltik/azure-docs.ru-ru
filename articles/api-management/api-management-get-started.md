@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Начало работы со службой управления Azure API 
 ## <a name="overview"> </a>Содержание раздела
@@ -71,7 +71,7 @@ ms.lasthandoff: 07/11/2017
 
 Выберите необходимые значения в поле **Подписка**, **Группа ресурсов** и **Расположение** для своего экземпляра службы.
 
-Введите **Contoso Ltd.** в поле **Имя организации** и укажите свой электронный адрес в поле **Адрес электронной почты администратора**.
+Введите **Contoso Ltd.** в поле **Название организации** и укажите свой электронный адрес в поле **Адрес электронной почты администратора**.
 
 > [!NOTE]
 > Этот адрес электронный почты используется для получения уведомлений от системы API Management. Дополнительные сведения см. в статье о [настройке уведомлений и почтовых шаблонов в службе управления Azure API][How to configure notifications and email templates in Azure API Management].
