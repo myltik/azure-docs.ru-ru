@@ -44,37 +44,45 @@
       href: msi-how-to-get-access-token-using-msi.md
     - name: Настройка MSI для виртуальной машины Azure
       items:
-        - name: С помощью портала Azure
+        - name: Использование портала Azure
           href: msi-qs-configure-portal-windows-vm.md
-        - name: С помощью PowerShell
+        - name: с использованием PowerShell.
           href: msi-qs-configure-powershell-windows-vm.md
-        - name: С помощью Azure CLI
+        - name: Использование Azure CLI
           href: msi-qs-configure-cli-windows-vm.md
-        - name: С помощью шаблона Azure Resource Manager
+        - name: Использование шаблона Azure Resource Manager
           href: msi-qs-configure-template-windows-vm.md
-        - name: С пакетом Azure SDK
+        - name: Использование пакета Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Назначение прав доступа к ресурсу Azure с помощью MSI
+    - name: Предоставление доступа MSI виртуальной машины для Azure Resource Manager
       items:
-        - name: С помощью портала Azure
+        - name: Использование портала Azure
           href: msi-howto-assign-access-portal.md
-        - name: С помощью PowerShell
+        - name: с использованием PowerShell.
           href: msi-howto-assign-access-powershell.md
-        - name: С помощью Azure CLI
+        - name: Использование Azure CLI
           href: msi-howto-assign-access-cli.md
-    - name: Доступ к Azure Resource Manager с помощью MSI
+    - name: Использование виртуальной машины MSI для доступа к Azure Resource Manager
       items:
         - name: С помощью виртуальной машины Windows
           href: msi-tutorial-windows-vm-access-arm.md
         - name: С помощью виртуальной машины Linux
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: Доступ к хранилищу Azure с помощью MSI
+    - name: Использование виртуальной машины MSI для доступа к Azure SQL
       items:
         - name: С помощью виртуальной машины Windows
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Использование виртуальной машины MSI для доступа к хранилищу Azure
+      items:
+        - name: С помощью виртуальной машины Windows и ключа доступа
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: С помощью виртуальной машины Linux
+        - name: С помощью виртуальной машины Windows и SAS
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: С помощью виртуальной машины Linux и ключа доступа
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: Доступ к ресурсам за пределами Azure AD с помощью MSI
+        - name: С помощью виртуальной машины Linux и SAS
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Использование MSI виртуальной машины для доступа к Azure Key Vault
       items:
         - name: С помощью виртуальной машины Windows
           href: msi-tutorial-windows-vm-access-nonaad.md

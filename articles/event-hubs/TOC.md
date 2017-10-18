@@ -21,7 +21,8 @@
 ## [Руководство по программированию](event-hubs-programming-guide.md)
 
 # Практическое руководство
-## Планирование и проектирование
+## планирование и разработка
+### [Аварийное восстановление и георепликация](event-hubs-geo-dr.md)
 ### [Выделенные концентраторы событий](event-hubs-dedicated-overview.md)
 ### [Обзор модели аутентификации и безопасности](event-hubs-authentication-and-security-model-overview.md)
 ### [Доступность и согласованность](event-hubs-availability-and-consistency.md)

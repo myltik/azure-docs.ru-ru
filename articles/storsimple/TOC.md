@@ -101,6 +101,7 @@
 ##### [Управление контейнерами томов](storsimple-8000-manage-volume-containers.md)
 ##### [Управление томами (текущая версия)](storsimple-8000-manage-volumes-u2.md)
 ###### [Часто задаваемые вопросы: локально закрепленные тома](storsimple-8000-local-volume-faq.md)
+##### [Управление доступом на основе ролей](storsimple-8000-role-based-access-control.md)
 ##### [Управление записями ACR](storsimple-8000-manage-acrs.md)
 ##### [Управление шаблонами пропускной способности](storsimple-8000-manage-bandwidth-templates.md)
 ##### [Просмотр заданий и управление ими](storsimple-8000-manage-jobs-u2.md)
@@ -188,7 +189,7 @@
 #### [Выпуск общедоступной версии](storsimple-july-2014-release-notes.md)
 
 ## Справочные материалы
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell для командлетов StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple серии 8000 (классический портал)

@@ -28,6 +28,8 @@
           href: storage-secure-access-application.md
         - name: 4. Мониторинг и устранение неполадок хранилища
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Поиск неструктурированных данных в облачном хранилище
+      href: storage-unstructured-search.md
 - name: Примеры
   items:
     - name: Azure PowerShell

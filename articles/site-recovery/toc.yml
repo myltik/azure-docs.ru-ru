@@ -51,6 +51,8 @@
       href: concepts-physical-to-azure-architecture.md
     - name: 'Архитектура: репликация Hyper-V на дополнительный сайт'
       href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Матрица Azure — Azure
+      href: site-recovery-support-matrix-azure-to-azure.md
     - name: "Матрица поддержки репликации из локальной среды\_в Azure"
       href: site-recovery-support-matrix-to-azure.md
     - name: "Матрица поддержки репликации из локальной среды\_на дополнительный сайт"

@@ -68,7 +68,7 @@
 ### [Предложения](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Фасетная навигация](search-faceted-navigation.md)
 ### [Предварительный просмотр синонимов](search-synonyms.md)
-
+### [Фильтры системы безопасности](search-security-trimming-for-azure-search.md)
 # Справочные материалы
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)

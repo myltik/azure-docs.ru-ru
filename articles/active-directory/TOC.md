@@ -44,6 +44,7 @@
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 #### [Примеры Azure PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
+#### [Справочник по продуктам и планам службы в Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
 ### [Сброс пароля](active-directory-users-reset-password-azure-portal.md)
 ### [Управление сведениями о работе пользователей](active-directory-users-work-info-azure-portal.md)
@@ -65,6 +66,7 @@
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 #### [Примеры Azure PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
+#### [Справочник по продуктам и планам службы в Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Настройка срока действия групп Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Просмотр всех групп](active-directory-groups-view-azure-portal.md)
 ### [Включение выделенных групп](active-directory-accessmanagement-dedicated-groups.md)
@@ -137,7 +139,7 @@
 ### Задачи
 #### [Настройка устройств Windows 10, зарегистрированных в Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Настройка устройств, присоединенных к Azure AD](device-management-azuread-joined-devices-setup.md)
-#### [Настройка гибридных устройств, присоединенных к Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Настройка гибридных устройств, присоединенных к Azure AD](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Локальное развертывание](active-directory-device-registration-on-premises-setup.md)
 #### [Присоединение к Azure AD во время первого запуска Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Устранение неполадок
@@ -204,6 +206,7 @@
 #### [Управление подготовкой учетной записи пользователя](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Управление параметрами единого входа для корпоративных приложений](active-directory-enterprise-apps-manage-sso.md)
 #### [Расширенные параметры подписи сертификатов для приложений SAML](active-directory-enterprise-apps-advance-certificate-options.md)
+####[Скрытие сведений о работе пользователя в Azure Active Directory](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)
 #### [Самостоятельный доступ к приложениям](active-directory-self-service-application-access.md)
@@ -295,7 +298,7 @@
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
-#### [Приступая к работе с условным доступом](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
 #### Задачи

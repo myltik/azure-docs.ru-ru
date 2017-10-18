@@ -21,6 +21,12 @@
       href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Основные понятия
+  items:
+    - name: Номера SKU реестра контейнеров
+      href: container-registry-skus.md
+    - name: Георепликация (предварительная версия)
+      href: container-registry-geo-replication.md
 - name: Практические руководства
   items:
     - name: Передача и получение образа
@@ -43,8 +49,8 @@
       href: /powershell/module/azurerm.containerregistry
 - name: Ресурсы
   items:
-    - name: Стратегия развития Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Стратегия
+      href: 'https://aka.ms/acr/roadmap'
     - name: Цены
       href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Регионы доступности

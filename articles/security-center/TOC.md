@@ -13,15 +13,13 @@
 ## [Планирование и эксплуатация](security-center-planning-and-operations-guide.md)
 ## [Разрешения](security-center-permissions.md)
 ## [Поддерживаемые платформы](security-center-os-coverage.md)
-## [Интеграция партнеров](security-center-partner-integration.md)
 ## [Часто задаваемые вопросы](security-center-faq.md)
 
 # Практическое руководство
-
-## Политика безопасности
-### [Обзор](security-center-policies-overview.md)
+## [Политика безопасности](security-center-policies-overview.md)
 ### [Сбор данных](security-center-enable-data-collection.md)
 ### [Политика безопасности](security-center-policies.md)
+### [Политики безопасности на основе политики Azure](security-center-azure-policy.md)
 ### [Уведомления по почте](security-center-provide-security-contact-details.md)
 ### [Ценовая категория](security-center-pricing.md)
 
@@ -30,6 +28,10 @@
 ## [Поиск](security-center-search.md)
 
 ## Предотвращение
+### [Решения по обеспечению безопасности](security-center-partner-integration.md)
+#### [Мониторинг подключенных решений](security-center-partner-solutions.md)
+#### [Подключение Microsoft ATA](security-center-ata-integration.md)
+#### [Подключения Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Реализация рекомендаций по безопасности](security-center-recommendations.md)
 ### [Рекомендации по приложениям](security-center-application-recommendations.md)
 #### [Добавление брандмауэра веб-приложения](security-center-add-web-application-firewall.md)
@@ -57,7 +59,6 @@
 #### [Обновление версии ОС](security-center-update-os-version.md)
 #### [Оценка уязвимостей не установлена](security-center-vulnerability-assessment-recommendations.md)
 ### [Мониторинг состояния системы безопасности](security-center-monitoring.md)
-### [Мониторинг партнерских решений](security-center-partner-solutions.md)
 ### [Идентификация и доступ](security-center-identity-access.md)
 
 ## Выявление и реагирование

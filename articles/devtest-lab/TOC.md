@@ -16,6 +16,7 @@
 ### [Создание виртуальных машин](devtest-lab-add-vm.md)
 ### [Создание запрашиваемой виртуальной машины](devtest-lab-add-claimable-vm.md)
 ### [Создание виртуальных машин и управление ими с помощью Azure CLI](devtest-lab-vmcli.md)
+### [Перезапуск виртуальной машины](devtest-lab-restart-vm.md)
 
 ## Использование сред в лаборатории
 ### [Создание среды](devtest-lab-create-environment-from-arm.md)
@@ -28,6 +29,7 @@
 ### [Определение политик и расписаний](devtest-lab-set-lab-policy.md)
 ### [Настройка управления затратами](devtest-lab-configure-cost-management.md)
 ### [Настройка образов Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Активация лицензированных образов](devtest-lab-enable-licensed-images.md)
 ### [Добавление тегов к лаборатории](devtest-lab-add-tag.md)
 
 ## [Выбор пользовательского образа или формулы](devtest-lab-comparing-vm-base-image-types.md)
@@ -56,8 +58,8 @@
 ## [Масштабирование лаборатории](devtest-lab-scale-lab.md)
 
 # Справочные материалы
-## [Интерфейс командной строки Azure](/cli/azure/lab)
-## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Автоматическое создание или изменение лабораторий](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [ИНТЕРФЕЙС REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Шаблоны Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
