@@ -412,8 +412,8 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ## <a name="next-steps"></a>Дальнейшие действия
 Для получения дополнительных сведений см. следующие ресурсы.
 
-* [Справочник по пакету SDK службы хранилища Azure для API Node] [Azure Storage SDK for Node API Reference]  
-* [Блог рабочей группы службы хранилища Azure][Azure Storage Team Blog]  
+* [Справочник по пакету SDK службы хранилища Azure для API Node][Справочник по пакету SDK службы хранилища Azure для API Node]  
+* [Блог рабочей группы службы хранилища Azure][Блог рабочей группы службы хранилища Azure]  
 * Репозиторий [пакета SDK хранилища Azure для Node][Azure Storage SDK for Node] на веб-сайте GitHub.  
 * [Центр разработчиков Node.js.](https://azure.microsoft.com/develop/nodejs/)  
 * [Приступая к работе со служебной программой командной строки AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
@@ -424,5 +424,5 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
 [Построение и развертывание приложения Node.js в облачной службе Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
-[Блог группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
-[Справочник по пакету SDK для службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  
+[Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
+[Справочник по пакету SDK службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  
