@@ -81,7 +81,6 @@
 ### [Проблемы с подключением типа "точка — сеть"](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Периодические разрывы подключения типа "сеть —сеть"](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Сбой подключения типа "сеть — сеть"](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [Проблемы сходства сеансов шлюза приложения](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [Настройка и проверка VPN-подключений и подключений между виртуальными сетями](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Справочные материалы
