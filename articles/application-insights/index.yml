@@ -39,6 +39,10 @@ sections:
               src: 'https://docs.microsoft.com/media/common/java.svg'
             text: Java
             href: app-insights-java-quick-start
+          - image:
+              src: /azure/application-insights/media/index/mobile-center.png
+            text: Мобильные приложения
+            href: app-insights-mobile-center-quickstart
   - title: Пошаговые руководства
     items:
       - type: paragraph

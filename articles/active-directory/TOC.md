@@ -97,6 +97,7 @@
 #### [Задержки](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Коды ошибок входа в систему](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Многофакторная проверка подлинности](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Устранение неполадок
 #### [Отсутствующие данные аудита](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Отсутствующие данные в файлах для скачивания](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -150,8 +151,7 @@
 ### [Обзор](active-directory-enable-sso-scenario.md)
 ### [Приступая к работе](active-directory-integrating-applications-getting-started.md)
 ### [Руководства по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
-### [Обнаружение облачных приложений](cloudappdiscovery-overview.md)
-#### [Настройка безагентного обнаружения](cloudappdiscovery-get-started.md)
+### [Обнаружение облачных приложений](cloudappdiscovery-get-started.md)
 #### [Создание отчетов о моментальных снимках](cloudappdiscovery-set-up-snapshots.md)
 #### [Настройка непрерывного создания отчетов](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Использование настраиваемого средства синтаксического анализа журналов](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
@@ -298,7 +298,7 @@
 ## Защита удостоверений
 ### [Условный доступ](active-directory-conditional-access-azure-portal.md)
 #### [Элементы управления](active-directory-conditional-access-controls.md)
-#### [Начало работы](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Приступая к работе с настраиваемыми политиками](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Рекомендации по использованию хранилища данных SQL Azure](active-directory-conditional-access-best-practices.md)
 #### [Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)
 #### Задачи

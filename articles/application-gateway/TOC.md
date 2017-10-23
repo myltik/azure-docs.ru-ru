@@ -59,6 +59,7 @@
 ## Устранение неполадок
 ### [Устранение ошибок в шлюзе приложений](application-gateway-troubleshooting-502.md)
 ### [Ведение журналов диагностики и метрики](application-gateway-diagnostics.md)
+### [Проблемы сходства сеансов шлюза приложения](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Справочные материалы
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Интерфейс командной строки Azure](/cli/azure/network/application-gateway)

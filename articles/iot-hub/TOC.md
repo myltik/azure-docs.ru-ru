@@ -109,6 +109,7 @@
 ### Использование заданий устройства для обновления встроенного ПО устройства
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-firmware-update.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java: серверный компонент и устройство](iot-hub-java-java-firmware-update.md)
 ### Планирование и трансляция заданий
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-schedule-jobs.md)
