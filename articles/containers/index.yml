@@ -47,10 +47,10 @@ sections:
         className: cardsM
         columns: 2
         items:
-          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
-            title: Создание контейнерного приложения с помощью службы "Экземпляры контейнеров Azure"
+          - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
+            title: Развертывание приложения-контейнера Windows в Service Fabric
             image:
-              src: /azure/media/index/ContainerService.svg
+              src: /azure/media/index/Fabric.svg
           - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
             title: Создание кластера Kubernetes для контейнеров Linux
             image:
@@ -59,12 +59,16 @@ sections:
             title: Развертывание кластера Docker Swarm
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
-          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
-            title: Развертывание кластера DC/OS
+          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+            title: Создание частного реестра Docker в реестре контейнеров Azure
             image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+              src: /azure/media/index/container-registry.svg
           - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
             title: Создание контейнерного приложения с помощью веб-приложений Azure для контейнеров
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+            title: Развертывание кластера DC/OS
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
   - title: Бесплатные видеоуроки Pluralsight. Работа с Azure и контейнерами

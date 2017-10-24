@@ -13,6 +13,7 @@
 # Практическое руководство
 ## Развертывание и использование
 ### [Настройка параметров](multi-factor-authentication-whats-next.md)
+#### [Использование портала PhoneFactor](multi-factor-authentication-whats-next-pfweb.md)
 ### [Отчеты в MFA](multi-factor-authentication-manage-reports.md)
 ### [Использование существующих серверов политики сети](multi-factor-authentication-nps-extension.md)
 #### [Расширенная конфигурация для расширения NPS](nps-extension-advanced-configuration.md)

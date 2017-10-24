@@ -39,7 +39,7 @@
         - name: Репликация
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Целевые показатели масштабируемости и производительности хранилища
-          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+          href: storage-files-scale-targets.md
         - name: Контрольный список производительности и масштабируемости
           href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Параллелизм
@@ -172,6 +172,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=storage'
     - name: Клиентские инструменты службы хранилища Azure
       href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Форум
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
     - name: Цены
@@ -180,8 +182,6 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Обновления службы
       href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Переполнение стека
-      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Видеоролики
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
     - name: обозреватель хранилищ Azure
@@ -224,3 +224,5 @@
           href: 'https://github.com/Azure/azure-storage-ruby'
         - name: iOS
           href: 'https://github.com/Azure/azure-storage-ios'
+    - name: Заметки о выпуске службы "Синхронизация файлов Azure"
+      href: storage-files-release-notes.md

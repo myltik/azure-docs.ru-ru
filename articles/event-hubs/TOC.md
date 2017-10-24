@@ -33,7 +33,8 @@
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Журналы диагностики](event-hubs-diagnostic-logs.md)
 ### [Руководство по использованию протокола AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## управление
+## Управление
+### [Мониторинг концентраторов событий с помощью Azure Monitor](event-hubs-metrics-azure-monitor.md)
 ### [Библиотеки управления концентраторами событий](event-hubs-management-libraries.md)
 ### Регистрация
 #### [Запись концентраторов событий](event-hubs-capture-overview.md)

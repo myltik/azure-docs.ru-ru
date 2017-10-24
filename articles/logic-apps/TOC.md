@@ -5,8 +5,8 @@
 
 # Приступая к работе
 ## [Создание приложения логики](logic-apps-create-a-logic-app.md)
-## [Шаблоны для приложений логики](logic-apps-use-logic-app-templates.md)
-## [Создание приложений логики на основе шаблонов](logic-apps-arm-provision.md)
+## [Создание приложений логики на основе шаблонов](logic-apps-create-logic-apps-from-templates.md)
+## [Создание приложений логики с помощью шаблонов Resource Manager](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Перемещение приложений MABS в приложения логики](logic-apps-move-from-mabs.md)
 
 # Практическое руководство

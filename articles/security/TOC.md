@@ -95,6 +95,7 @@
 ## [Программа специалистов MVP по вопросам обеспечения безопасности в Azure](azure-security-mvp.md)
 ## [Консультация по кибербезопасности](azure-security-cyber-services.md)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
+## [Рекомендации по обеспечению безопасности для образов Azure Marketplace](security-recommendations-azure-marketplace-images.md)
 ## Сценарии
 ### [Управление персональными данными в Azure](manage-personal-data-azure.md)
 ### [Обнаружение, определение и классифицирование персональных данных в Azure](how-to-discover-classify-personal-data-azure.md)

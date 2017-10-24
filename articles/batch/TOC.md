@@ -20,6 +20,7 @@
 ### [Параллельные задачи узла](batch-parallel-node-tasks.md)
 ### [Подсчет задач по состоянию](batch-get-task-counts.md)
 ### [Создание пула с помощью пользовательского образа](batch-custom-images.md)
+### [Создание пула в виртуальной сети](batch-virtual-network.md)
 ### [Эффективные запросы на вывод списка](batch-efficient-list-queries.md)
 ### [Задачи для подготовки и выполнения заданий](batch-job-prep-release.md)
 ### [Вычислительные узлы Linux](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Переменные среды вычислительного узла пакетной службы Azure](batch-compute-node-environment-variables.md)
 
 # Сопутствующие материалы
+## [Искусственный интеллект пакетной службы](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Обработка данных с помощью пакетной службы и фабрики данных](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Решения для пакетной службы и высокопроизводительных вычислений в облаке Azure](batch-hpc-solutions.md)
