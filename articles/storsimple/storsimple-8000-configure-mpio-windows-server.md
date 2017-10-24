@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/05/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Настройка функции Multipath I/O для устройства StorSimple
 
@@ -85,7 +83,7 @@ MPIO представляет собой дополнительный компо
 3. Выберите **Добавить поддержку для iSCSI-устройств** и нажмите кнопку **Добавить**.  
    ![Свойства MPIO. Обнаружение путей](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. При появлении запроса перезагрузите сервер.
-5. В диалоговом окне **MPIO Properties** (Свойства MPIO) перейдите на вкладку **Устройства Multipath I/O**. Щелкните **Добавить**.
+5. В диалоговом окне **MPIO Properties** (Свойства MPIO) перейдите на вкладку **Устройства Multipath I/O**. Нажмите кнопку **Добавить**.
     </br>![Свойства MPIO. Устройства Multipath I/O](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. В диалоговом окне **Добавление поддержки многопутевого ввода-вывода** введите серийный номер устройства в поле **Код оборудования**. Чтобы узнать серийный номер устройства, откройте службу диспетчера устройств StorSimple. Перейдите к разделу **Устройства > Панель мониторинга**. Серийный номер устройства отображается в правой области **Краткий обзор** панели мониторинга устройства.
     </br>
@@ -192,5 +190,4 @@ MPIO представляет собой дополнительный компо
 ## <a name="next-steps"></a>Дальнейшие действия
 
 См. дополнительные сведения об [использовании службы диспетчера устройств StorSimple для изменения конфигурации устройства StorSimple](storsimple-8000-modify-device-config.md).
-
 

@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajanaki
+ms.openlocfilehash: b4bb049577feb416f498a428bae80ecea418180e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 103643ace17961cd4e2e37313f75c775e3dcd8cd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Таблица поддержки Azure Site Recovery для репликации из локальной среды в Azure
 
 
 В этой статье кратко перечислены поддерживаемые конфигурации и компоненты Azure Site Recovery для репликации и восстановления в Azure. Дополнительные сведения о необходимых компонентах Azure Site Recovery см. [здесь](site-recovery-prereq.md).
+
+> [!NOTE]
+> Обновите поставщик и агент Site Recovery до последней версии, чтобы обеспечить совместимость с обновлениями в матрице поддержки.
 
 
 ## <a name="support-for-deployment-options"></a>Поддержка вариантов развертывания
@@ -237,4 +239,3 @@ RA-GRS | Да | Да
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Проверьте, соблюдены ли предварительные требования](site-recovery-prereq.md)
-

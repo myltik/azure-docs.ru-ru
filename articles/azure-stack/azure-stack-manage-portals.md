@@ -1,6 +1,6 @@
 ---
-title: Using the administrator portal in Azure Stack | Microsoft Docs
-description: As an Azure Stack operator, learn how to use the administrator portal.
+title: "Использование портала администрирования в Azure Stack | Документация Майкрософт"
+description: "Информация об использовании портала администрирования для операторов Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,73 +14,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3a1be7a08fab8ad0253f26e6a0683617bff4b7c9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="using-the-administrator-portal-in-azure-stack"></a>Using the administrator portal in Azure Stack
+# <a name="using-the-administrator-portal-in-azure-stack"></a>Использование портала администрирования в Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-There are two portals in Azure Stack; the administrator portal and the user portal (sometimes referred to as the *tenant* portal). As an Azure Stack operator, you can use the administrator portal for day-to-day management and operations of Azure Stack. 
+В Azure Stack доступны два портала: портал администрирования и портал пользователя (иногда называется порталом *клиента*). Оператор Azure Stack может использовать портал администрирования для повседневного управления и эксплуатации Azure Stack. 
 
-## <a name="access-the-administrator-portal"></a>Access the administrator portal
+## <a name="access-the-administrator-portal"></a>Доступ к порталу администрирования
 
-For a development kit environment, you need to first make sure that you can [connect to the development kit host](azure-stack-connect-azure-stack.md) through Remote Desktop Connection or through a virtual private network (VPN).
+В среде пакета SDK важно обеспечить [подключение к узлу пакета SDK](azure-stack-connect-azure-stack.md) по протоколу удаленного рабочего стола или через виртуальную частную сеть (VPN).
 
-To access the administrator portal, browse to the portal URL and sign in by using the credentials of an Azure Stack operator. For an integrated system, the portal URL varies based on the region name and external fully qualified domain name (FQDN) of your Azure Stack deployment.
+Чтобы открыть портал администрирования, введите URL-адрес портала в адресную строку браузера и войдите с учетными данными оператора Azure Stack. В интегрированной системе URL-адрес портала зависит от названия региона и внешнего полного доменного имени (FQDN) для конкретного развертывания Azure Stack.
 
-| Environment | Administrator Portal URL |   
+| Среда | URL-адрес портала администрирования |   
 | -- | -- | 
-| Development kit| https://adminportal.local.azurestack.external  |
-| Integrated systems | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
+| Пакет разработчика| https://adminportal.local.azurestack.external  |
+| Интегрированные системы | https://adminportal.&lt;*регион*&gt;.&lt;*полное_доменное_имя*&gt; | 
 | | |
 
- ![The administrator portal](media/azure-stack-manage-portals/image1.png)
+ ![Портал администрирования](media/azure-stack-manage-portals/image1.png)
 
-In the administrator portal, you can do things such as:
+На портале администрирования доступны следующие операции:
 
-* manage the infrastructure (including system health, updates, capacity, etc.)
-* populate the marketplace
-* create plans and offers
-* create subscriptions for users
+* управление инфраструктурой (работоспособность системы, производительность, обновления и т. д.);
+* заполнение Marketplace;
+* разработка планов и предложений;
+* создание подписок для пользователей.
 
-In the **Quickstart tutorial** tile, there are links to online documentation for the most common tasks.
+На плитке **Краткое руководство** есть несколько ссылок на электронные документы с описанием распространенных задач.
  
-Although there is the ability for an operator to create resources such as virtual machines, virtual networks, and storage accounts in the administrator portal, you should [sign in to the user portal](user/azure-stack-use-portal.md) to create and test resources. (The **Create a virtual machine** link in the quickstart tutorial tile has you create a virtual machine in the administrator portal, but this procedure is only to validate Azure Stack after initial deployment.)
+Оператор может создавать разные ресурсы, например виртуальные машины, виртуальные сети и учетные записи хранения непосредственно на портале администрирования, но для создания и тестирования ресурсов следует [войти на портал пользователя](user/azure-stack-use-portal.md). (Ссылка **Создание виртуальной машины** в кратком руководстве позволяет создать виртуальную машину прямо на портале администратора, но эта процедура предназначена только для проверки работоспособности Azure Stack после первоначального развертывания.)
 
-## <a name="subscription-behavior"></a>Subscription behavior
+## <a name="subscription-behavior"></a>Поведение подписки
  
-There is only one subscription that is available in the administrator portal. This subscription is the *Default Provider Subscription*. You can't add any other subscriptions for use in the administrator portal.
+На портале администрирования доступна только одна подписка. Она называется *Подписка поставщика по умолчанию*. Вы не можете добавлять подписки для портала администрирования.
 
-As an Azure Stack operator, you can add subscriptions for your users (including yourself) from the administrator portal. Users (including yourself) can access and use these subscriptions from the user portal. The user portal does not provide access to any of the administrative or operational capabilities of the administrator portal.
+Оператор Azure Stack может с помощью портала администрирования добавлять подписки для пользователей (в том числе для себя). Для входа и работы с этими учетными данными (включая подписку для оператора) используется портал пользователя. Портал пользователя не предоставляет доступ к административным и функциональным возможностям, доступным на портале администрирования.
 
-The administrator and user portals are backed by separate instances of Azure Resource Manager. Because of the Resource Manager separation, subscriptions do not cross portals. For example, if you as an Azure Stack operator signs in to the user portal, you can't access the Default Provider Subscription. Therefore, you don't have access to any administrative functions. You can create subscriptions for yourself from public offers, but you are considered a tenant user.
+Портал администрирования и портал пользователя размещаются в разных экземплярах Azure Resource Manager. Такое разделение означает, что каждый портал использует только свои подписки. Например, когда оператор Azure Stack входит на портал пользователя, он не может использовать подписку поставщика по умолчанию. Это означает, что ему недоступны функции администрирования. Вы можете создать для себя любую подписку на основе общедоступных предложений, но будете считаться обычным пользователем.
 
   >[!NOTE]
-  In the development kit environment, if a user belongs to the same tenant directory as the Azure Stack operator, they are not blocked from signing in to the administrator portal. However, they can't access any of the administrative functions. Also, from the administrator portal, they can't add subscriptions or access offers that are made available to them in the user portal.
+  В среде пакета разработки вход на портал администрирования могут выполнять все пользователи, связанные с тем же каталогом клиента, что и оператор Azure Stack. Но у них не будет доступа к административным функциям. Также они не смогут добавлять подписки на портале администратора или использовать предложения, доступные для них на портале пользователя.
 
-## <a name="administrator-portal-tips"></a>Administrator portal tips
+## <a name="administrator-portal-tips"></a>Советы по использованию портала администрирования
 
-### <a name="customize-the-dashboard"></a>Customize the dashboard
+### <a name="customize-the-dashboard"></a>Настройка панели мониторинга
 
-The dashboard contains a set of default tiles. You can click **Edit dashboard** to modify the default dashboard, or click **New dashboard** to add custom dashboards. You can easily add tiles to the dashboard. For example, you can click **New**, right-click **Offers + Plans**, and then click **Pin to dashboard**.
+Панель мониторинга содержит стандартный набор плиток. Вы можете **изменить панель мониторинга** или создать**панель мониторинга**. На панель мониторинга можно легко добавить дополнительные плитки. Например, щелкните **Добавить**, затем правой кнопкой мыши щелкните **Предложения и планы** и выберите в контекстном меню элемент **Закрепить на панели мониторинга**.
 
-### <a name="quick-access-to-online-documentation"></a>Quick access to online documentation
+### <a name="quick-access-to-online-documentation"></a>Быстрый доступ к электронной документации
 
-To access the Azure Stack operator documentation, click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **Help + support**.
+Чтобы получить доступ к документации для оператора Azure Stack, щелкните значок справки и поддержки (вопросительный знак) в правом верхнем углу портала администрирования и выберите элемент **Справка и поддержка**.
 
-### <a name="quick-access-to-help-and-support"></a>Quick access to help and support
+### <a name="quick-access-to-help-and-support"></a>Быстрый доступ к справке и поддержке
 
-If you click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **New support request**, this does either of the following:
+Щелкнув значок справки и поддержки (вопросительный знак) в правом верхнем углу портала администрирования, вы можете выбрать элемент **Новый запрос на поддержку**. Будет выполнено следующее:
 
-- If you're using an integrated system, this action opens a site where you can directly open a support ticket with Microsoft Customer Support Services (CSS). Refer to the "Where to get support" section of [Azure Stack administration basics](azure-stack-manage-basics.md) to understand when you should go through Microsoft support or through your original equipment manufacturer (OEM) hardware vendor support.
-- If you’re using the development kit, this action opens the Azure Stack forums site directly. These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft CSS.
+- Если вы используете интегрированную систему, откроется сайт для создания прямого запроса в службу поддержки корпорации Майкрософт. Раздел, посвященный получению поддержки в руководстве по [администрированию Azure Stack](azure-stack-manage-basics.md) поможет вам разобраться, в каких случаях следует обращаться в службу поддержки корпорации Майкрософт или службу поддержки поставщика вычислительной техники.
+- Если вы используете пакет разработки, открывается веб-сайт форумов, посвященных Azure Stack. Эти форумы регулярно отслеживаются. Так как пакет разработки предлагается как среда для оценки, служба поддержки корпорации Майкрософт не предоставляет для него официальную поддержку.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-- [Region management in Azure Stack](azure-stack-region-management.md)
-
+- [Управление регионами в Azure Stack](azure-stack-region-management.md)

@@ -1,6 +1,6 @@
 ---
-title: "Используйте набор средств Marketplace создавать и публиковать элементы marketplace | Документы Microsoft"
-description: "Узнайте, как быстро создать элементы marketplace с публикацией Toolkit"
+title: "Использование набора средств Marketplace для создания и публикации элементов Marketplace | Документация Майкрософт"
+description: "Узнайте, как быстро создать элементы Marketplace с помощью набора средств для публикации"
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -15,83 +15,83 @@ ms.topic: article
 ms.date: 7/14/2017
 ms.author: helaw
 ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
-#  <a name="add-marketplace-items-using-publishing-tool"></a>Добавить элементы marketplace, с помощью средства публикации
-Добавление содержимого к [Azure Marketplace стека](azure-stack-marketplace.md) доступны для вас и ваших клиентов для развертывания решения.  Набор средств Marketplace создает файлы пакетов Azure Marketplace (.azpkg), исходя из расширения виртуальных Машин или шаблонов диспетчера ресурсов Azure IaaS.  Marketplace Toolkit также можно использовать для публикации .azpkg файлы, созданные с помощью программы или с помощью [вручную](azure-stack-create-and-publish-marketplace-item.md) действия.  В этом разделе поможет загрузить средство, создание marketplace элемента на основе шаблона виртуальной Машины и затем публикации этого элемента стек в Azure Marketplace.     
+#  <a name="add-marketplace-items-using-publishing-tool"></a>Добавление элементов Marketplace с помощью средства публикации
+Добавляя содержимое в [Azure Stack Marketplace](azure-stack-marketplace.md), вы предоставляете себе и своим клиентам возможность развертывать ваши решения.  Набор средств Marketplace создает файлы пакетов Azure Marketplace (AZPKG), основанные на шаблонах IaaS Azure Resource Manager или расширениях виртуальных машин.  Также набор средств Marketplace позволяет публиковать AZPKG-файлы, созданные с помощью этого средства или [вручную](azure-stack-create-and-publish-marketplace-item.md).  Из этой статьи вы узнаете, как скачать это средство, как создать элемент Marketplace на основе шаблона виртуальной машины и как опубликовать этот элемент в Azure Stack Marketplace.     
 
 
 ## <a name="prerequisites"></a>Предварительные требования
- - Необходимо выполнить набор средств на узле стек Azure или иметь [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) подключения на машине, где запускается средство.
+ - Для запуска набора средств следует использовать узел Azure Stack или создать [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)-подключение к нему с того компьютера, где будет выполняться набор средств.
 
- - Загрузить [быстрый запуск Azure стека шаблоны](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) и извлечения.
+ - Скачайте [шаблоны быстрого запуска Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) и извлеките их содержимое.
 
- - Загрузить [средство упаковки коллекции Azure](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
+ - Скачайте [средство упаковки для коллекции Azure](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
- - Публикации в Marketplace необходимо значков и эскизов файла.  Можно использовать собственные или сохранить [пример](azure-stack-marketplace-publisher.md#support-files) файлы локально в этом примере.
+ - Для публикации в Marketplace вам потребуется файл значков и эскизов.  Вы можете создать свой файл или использовать [файл из примера](azure-stack-marketplace-publisher.md#support-files).
 
-## <a name="download-the-tool"></a>Загрузите средство
-Может быть Marketplace Toolkit [загружаются из репозитория средства Azure стека](azure-stack-powershell-download.md).
+## <a name="download-the-tool"></a>Скачивание средства
+Набор средств Marketplace можно скачать [из репозитория средств Azure Stack](azure-stack-powershell-download.md).
 
 
-##  <a name="create-marketplace-items"></a>Создание элементов marketplace
-В этом разделе использовать Marketplace набор средств для создания пакета элементов marketplace в формате .azpkg.  
+##  <a name="create-marketplace-items"></a>Создание элементов Marketplace
+В этом разделе вы создадите пакет элементов Marketplace в формате AZPKG с помощью набора средств Marketplace.  
 
-### <a name="provide-marketplace-information-with-wizard"></a>Укажите сведения о marketplace с помощью мастера
-1. Запустите Marketplace Toolkit из сеанса PowerShell:
+### <a name="provide-marketplace-information-with-wizard"></a>Предоставление сведений о Marketplace с помощью мастера
+1. Запустите набор средств Marketplace в сеансе PowerShell:
 ```PowerShell
     .\MarketplaceToolkit.ps1
 ```
 
-2. Нажмите кнопку **решения** вкладки.  Этот экран принимает сведения об элементе marketplace. Введите сведения об элементе, как он отображается на рынке.  Можно также указать [файл параметров](azure-stack-marketplace-publisher.md#use-a-parameters-file) нужно заполнить форму.  
+2. Щелкните вкладку **Решения**.  Этот экран предлагает ввести сведения об элементе Marketplace. Введите данные в том виде, в котором вы хотите опубликовать их в Marketplace.  Вы можете использовать [файл параметров](azure-stack-marketplace-publisher.md#use-a-parameters-file) для предварительного заполнения форм.  
     
-    ![Снимок экрана: первый экран Marketplace Toolkit](./media/azure-stack-marketplace-publisher/image7.png)
-3. Нажмите кнопку **Обзор** и выберите файл изображения для каждого поля, значок и экрана.  Можно использовать собственные значки или значки в образце [файлы поддержки](azure-stack-marketplace-publisher.md#support-files) раздела.
-4. После заполнения всех полей, выберите «Предварительная версия решения» для предварительного просмотра этого решения в Marketplace.  Проверьте и измените текст, изображения и экрана перед нажатием кнопки **Далее**.  
+    ![Снимок экрана: первый экран набора средств Marketplace](./media/azure-stack-marketplace-publisher/image7.png)
+3. Нажмите кнопку **Обзор** и выберите файл изображения для каждого поля со значками и снимками экрана.  Вы можете использовать собственные значки или образцы, предложенные в разделе [файлов поддержки](azure-stack-marketplace-publisher.md#support-files).
+4. Когда вы заполните все поля, выберите действие "Предварительный просмотр решения", чтобы просмотреть страницу решения в Marketplace.  Здесь вы можете проверить и (или) изменить тексты, изображения и снимки экранов. Когда все будет готово, щелкните **Далее**.  
 
-### <a name="import-template-and-create-package"></a>Импорт шаблона и создания пакета
-В этом разделе импортировать шаблон и работать с входными данными для вашего решения.
+### <a name="import-template-and-create-package"></a>Импорт шаблона и создание пакета
+В этом разделе вы импортируете шаблон и опишете входные данные для вашего решения.
 
-1.  Нажмите кнопку **Обзор** и выберите *azuredeploy.json* из папки 101-Simple-Windows-VM в загруженный шаблон.
+1.  Щелкните **Обзор** и выберите файл *azuredeploy.json* из папки 101-Simple-Windows-VM в скачанном ранее шаблоне.
 
-    ![Снимок экрана второй экран Marketplace Toolkit](./media/azure-stack-marketplace-publisher/image8.png)
-2.  Мастер развертывания не будет заполнен *основные* шаг и входных данных элементов для каждого параметра, указанного в шаблоне.  Можно добавить дополнительные шаги и перемещение между шагами входных данных.  В качестве примера можно привести действия «Конфигурация интерфейсный» и «Конфигурация серверной части» для вашего решения.
-3.  Укажите путь к AzureGalleryPackager.exe.  
-4.  Нажмите кнопку **создать** и Marketplace Toolkit упаковывает решение в файл .azpkg.  После завершения мастера отображает путь к файлу решения и дают возможность продолжить публикацию пакета стек Azure.
+    ![Снимок экрана: второй экран набора средств Marketplace](./media/azure-stack-marketplace-publisher/image8.png)
+2.  В мастере развертывания указываются *основные данные* (шаги) и входные данные для каждого параметра, указанного в шаблоне.  Вы можете добавлять дополнительные шаги и перемещать входные данные между ними.  Например, можно создать для решения действия "Настройка интерфейсной части" и "Настройка серверной части".
+3.  Укажите путь к файлу AzureGalleryPackager.exe.  
+4.  Щелкните **Создать**. Набор средств Marketplace упакует предложенное решение в AZPKG-файл.  Когда мастер завершит работу, он отобразит путь к созданному файлу решения и предложит опубликовать этот пакет в Azure Stack.
 
 
-## <a name="publish-marketplace-items"></a>Публикация элементов marketplace
-В этом разделе вы опубликовать элемент marketplace стека в Azure Marketplace.
+## <a name="publish-marketplace-items"></a>Публикация элементов Marketplace
+В этом разделе вы опубликуете элемент Marketplace в Azure Stack Marketplace.
 
-![Снимок экрана: первый экран Marketplace Toolkit](./media/azure-stack-marketplace-publisher/image9.png)
+![Снимок экрана: первый экран набора средств Marketplace](./media/azure-stack-marketplace-publisher/image9.png)
 
-1.  Мастеру необходимы сведения для публикации решения:
+1.  Мастеру нужны следующие сведения для публикации решения:
     
     |Поле|Описание|
     |-----|-----|
-    | Имя администратора службы | Учетная запись администратора службы.  Пример:ServiceAdmin@mydomain.onmicrosoft.com |
+    | Имя администратора службы | Учетная запись администратора службы.  Пример: ServiceAdmin@mydomain.onmicrosoft.com |
     | Пароль | Пароль для учетной записи администратора службы. |
-    | Конечная точка API | Конечная точка Azure стека диспетчера ресурсов Azure.  Пример: management.local.azurestack.external |
-2.  Нажмите кнопку **публикации** и отображается журнал публикации.
-3.  Теперь имеется возможность развернуть опубликованный элемент через портал Azure стека.
+    | Конечная точка API | Конечная тока Azure Resource Manager для Azure Stack.  Пример: management.local.azurestack.external |
+2.  Нажмите кнопку **Опубликовать**. Отобразится журнал публикации.
+3.  Теперь вы можете развертывать опубликованный элемент с помощью портала Azure Stack.
 
 
-## <a name="use-a-parameters-file"></a>Использовать файл параметров
-Также можно использовать файл параметров для выполнения сведения об элементе marketplace.  
+## <a name="use-a-parameters-file"></a>Использование файла параметров
+Вы можете использовать файл параметров для заполнения сведений об элементе Marketplace.  
 
-Включает набор средств Marketplace *solution.parameters.ps1* можно использовать для создания файлов параметров.
+Набор средств Marketplace содержит файл *solution.parameters.ps1*, с помощью которого вы можете создать собственный файл параметров.
 
 
 ## <a name="support-files"></a>Файлы поддержки
 | Описание | Образец |
 | ----- | ----- |
-| значок .png 40 x 40 | ![](./media/azure-stack-marketplace-publisher/image1.png) |
-| значок .png 90 x 90 | ![](./media/azure-stack-marketplace-publisher/image2.png) |
-| значок .png 115 x 115 | ![](./media/azure-stack-marketplace-publisher/image3.png) |
-| значок .png 255 x 115 | ![](./media/azure-stack-marketplace-publisher/image4.png) |
-| эскиз .png 533 х 324 | ![](./media/azure-stack-marketplace-publisher/image5.png) |
+| значок 40×40 в формате PNG | ![](./media/azure-stack-marketplace-publisher/image1.png) |
+| значок 90×90 в формате PNG | ![](./media/azure-stack-marketplace-publisher/image2.png) |
+| значок 115×115 в формате PNG | ![](./media/azure-stack-marketplace-publisher/image3.png) |
+| значок 255×115 в формате PNG | ![](./media/azure-stack-marketplace-publisher/image4.png) |
+| эскиз 533×324 в формате PNG | ![](./media/azure-stack-marketplace-publisher/image5.png) |
 
 

@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: b192b19c27045ab6a98baf382e467a0a74d30861
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 7643050c4ba8929abcf77476970a2f99e992579d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Использование определяемых пользователем функций C# при потоковой передаче Hive и Pig в Hadoop HDInsight.
 
@@ -69,7 +68,7 @@ Hive и Pig могут передавать данные во внешние п�
     > [!IMPORTANT]
     > Если используется кластер HDInsight под управлением Linux, выберите __.NET Framework 4.5__. Дополнительные сведения о совместимости Mono с различными версиями платформы .NET Framework см. в разделе [Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) (Совместимость).
 
-2. Замените содержимое файла **Program.cs** следующим:
+2. Замените содержимое файла **Program.cs** кодом, приведенным ниже.
 
     ```csharp
     using System;
@@ -157,7 +156,7 @@ Hive и Pig могут передавать данные во внешние п�
     }
     ```
 
-    Это приложение анализирует строки, отправленные из Pig, и переформатирует строки, которые начинаются с `java.lang.Exception`.
+    Этот код анализирует строки, отправленные из Pig, и переформатирует строки, которые начинаются с `java.lang.Exception`.
 
 3. Сохраните **Program.cs**, а затем создайте проект.
 
@@ -270,4 +269,3 @@ Hive и Pig могут передавать данные во внешние п�
 * [Использование Hive с HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
-

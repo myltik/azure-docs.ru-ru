@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ebaeee9b68810d0e5d47da20373e7951c57147d4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -126,7 +125,7 @@ ms.lasthandoff: 07/19/2017
 * [Microsoft.Azure.Mobile.Server.Login] предоставляет статический метод AppServiceLoginHandler.CreateToken(), используемый во время пользовательской проверки подлинности.
 
 ## <a name="publish-server-project"></a>Практическое руководство. Публикация серверного проекта
-В этом разделе показано, как опубликовать серверный проект .NET из Visual Studio. Кроме того, для развертывания серверного проекта вы можете использовать Git или любой из методов, описанных в [документации по развертыванию службы приложений Azure](../app-service-web/web-sites-deploy.md).
+В этом разделе показано, как опубликовать серверный проект .NET из Visual Studio. Вы также можете развернуть проект серверной части с помощью [Git](../app-service/app-service-deploy-local-git.md) или любых других доступных методов.
 
 1. В Visual Studio выполните повторную сборку проекта, чтобы восстановить пакеты NuGet.
 2. В Обозревателе решений щелкните проект правой кнопкой мыши и выберите **Опубликовать**. При первой публикации необходимо определить профиль публикации. Если профиль уже определен, выделите его и нажмите кнопку **Опубликовать**.
@@ -413,16 +412,16 @@ SID является производным от идентификатора п
 ## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>Практическое руководство. Отладка и устранение неполадок пакета SDK для сервера .NET
 Служба приложений Azure предоставляет несколько методов отладки и устранения неполадок в приложениях ASP.NET.
 
-* [Мониторинг службы приложений Azure](../app-service-web/web-sites-monitor.md)
-* [Включение ведения журналов диагностики в службе приложений Azure](../app-service-web/web-sites-enable-diagnostic-log.md)
-* [Диагностика службы приложений Azure в Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Мониторинг службы приложений Azure](../app-service/web-sites-monitor.md)
+* [Включение ведения журналов диагностики в службе приложений Azure](../app-service/web-sites-enable-diagnostic-log.md)
+* [Диагностика службы приложений Azure в Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
 
 ### <a name="logging"></a>Ведение журналов
 Журналы диагностики службы приложений вы можете вести с помощью стандартной записи трассировки ASP.NET. Перед записью в журналы необходимо включить диагностику в серверной части мобильного приложения.
 
 Для включения диагностики и записи в журналы сделайте следующее:
 
-1. Следуйте указаниям в разделе [Включение диагностики](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag).
+1. Следуйте указаниям в разделе [Включение диагностики](../app-service/web-sites-enable-diagnostic-log.md#enablediag).
 2. Добавьте в файл с кодом следующую инструкцию using:
 
         using System.Web.Http.Tracing;
@@ -431,7 +430,7 @@ SID является производным от идентификатора п
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Повторно опубликуйте серверный проект и запустите серверную часть мобильного приложения с ведением журнала.
-5. Загрузите и оцените журналы, как описано в разделе [Практическое руководство. Загрузка журналов](../app-service-web/web-sites-enable-diagnostic-log.md#download).
+5. Загрузите и оцените журналы, как описано в разделе [Практическое руководство. Загрузка журналов](../app-service/web-sites-enable-diagnostic-log.md#download).
 
 ### <a name="local-debug"></a>Локальная отладка с проверкой подлинности
 Вы можете запустить приложение локально, чтобы проверить изменения перед их публикацией в облаке. Для большинства серверных систем мобильных приложений Azure нажмите клавишу *F5* во время работы в Visual Studio. Однако при проверке подлинности следует учитывать некоторые дополнительные рекомендации.
@@ -472,4 +471,3 @@ SID является производным от идентификатора п
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
-

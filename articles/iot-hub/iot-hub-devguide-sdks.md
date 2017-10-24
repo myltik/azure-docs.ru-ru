@@ -12,26 +12,24 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/15/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: bcbf4b9633f58293edb19aeb33dec6602ac4ec8f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: e299de0953cefac925b0015a15983d25d456576f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>Общие сведения о пакетах SDK для Azure IoT и их использование
 
-Существуют три категории пакетов SDK для работы с Центром Интернета вещей.
+Есть три категории пакетов средств разработки программного обеспечения для работы с Центром Интернета вещей:
 
 * **Пакеты SDK для устройств** позволяют создавать приложения, работающие на ваших устройствах Интернета вещей. Эти приложения отправляют данные телеметрии в центр Интернета вещей и при необходимости получают из него сообщения.
 
 * **Пакеты SDK для служб** позволяют управлять Центром Интернета вещей и при необходимости отправлять сообщения на устройства Интернета вещей.
 
-* **Edge Интернета вещей Azure** позволяет создавать шлюзы, чтобы подключать устройства, не использующие ни один из поддерживаемых протоколов, или чтобы обрабатывать сообщения на границе, если это необходимо.
+* **Azure IoT Edge** позволяет создавать шлюзы для устройств, которые не используют ни один из поддерживаемых протоколов. Шлюзы также могут обрабатывать сообщения на периферии.
 
 Пакеты SDK предоставляются для поддержки нескольких языков программирования.
 
@@ -41,11 +39,11 @@ ms.lasthandoff: 06/20/2017
 
 В GitHub для скачивания доступны следующие пакеты SDK для устройств Azure IoT:
 
-* [Пакет SDK для устройств Azure IoT для C][lnk-c-device-sdk], написанный в соответствии со стандартом ANSI C (C99) для обеспечения переносимости и совместимости с широким диапазоном платформ. Существуют две клиентские библиотеки устройств для C: низкоуровневая  **iothub_client**  и  **сериализатор**.
 * [Пакет SDK для устройств Azure IoT для .NET][lnk-dotnet-device-sdk]
 * [Пакет SDK для устройств Azure IoT для Java][lnk-java-device-sdk]
 * [Пакет SDK для устройств Azure IoT для Node.js][lnk-node-device-sdk]
 * [Пакет SDK для устройств Azure IoT для Python][lnk-python-device-sdk]
+* [Пакет SDK для устройств Azure IoT для C][lnk-c-device-sdk], написанный в соответствии со стандартом ANSI C (C99) для обеспечения переносимости и совместимости с широким диапазоном платформ. Существуют две клиентские библиотеки устройств для C: низкоуровневая  **iothub_client**  и  **сериализатор**.
 
 > [!NOTE]
 > Сведения об установке двоичных файлов и зависимостей на компьютере для разработки с помощью диспетчера пакетов, зависящего от языка или платформы, см. в файле сведений в репозиториях GitHub.
@@ -63,8 +61,8 @@ ms.lasthandoff: 06/20/2017
 В GitHub для скачивания доступны следующие пакеты SDK для служб Azure IoT:
 
 * [Пакет SDK для служб Azure IoT для .NET][lnk-dotnet-service-sdk]
-* [Пакет SDK для служб Azure IoT для Node.js][lnk-node-service-sdk]
 * [Пакет SDK для служб Azure IoT для Java][lnk-java-service-sdk]
+* [Пакет SDK для служб Azure IoT для Node.js][lnk-node-service-sdk]
 * [Пакет SDK для службы Интернета вещей Azure для Python][lnk-python-service-sdk]
 * [Пакет SDK для служб Azure IoT для .NET][lnk-c-service-sdk].
 
@@ -82,13 +80,13 @@ Edge Интернета вещей Azure содержит инфраструкт
 Ниже приведен список ссылок на электронную справочную документацию по API для библиотек шлюзов, служб и устройств Интернета вещей Azure.
 
 * [Интернет вещей (IoT) .NET][lnk-dotnet-ref]
-* [REST для Центра Интернета вещей][lnk-rest-ref]
-* [Пакет SDK для устройств Azure IoT для C][lnk-c-ref]
 * [Пакет SDK для устройств Azure IoT для Java][lnk-java-ref]
 * [Пакет SDK для служб Azure IoT для Java][lnk-java-service-ref]
 * [Пакет SDK для устройств Azure IoT для Node.js][lnk-node-ref]
 * [Пакет SDK для служб Azure IoT для Node.js][lnk-node-service-ref]
-* [Edge Интернета вещей Azure][lnk-gateway-ref]
+* [Пакет SDK для устройств Azure IoT для C][lnk-c-ref]
+* [REST для Центра Интернета вещей][lnk-rest-ref]
+* [Azure IoT Edge][lnk-gateway-ref] (Edge Интернета вещей Azure).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -97,7 +95,7 @@ Edge Интернета вещей Azure содержит инфраструкт
 * [IoT Hub endpoints][lnk-devguide-endpoints] (Конечные точки Центра Интернета вещей)
 * [Справочник по языку запросов Центра Интернета вещей для двойников устройств и заданий][lnk-devguide-query]
 * [Quotas and throttling][lnk-devguide-quotas] (Квоты и регулирование)
-* [Поддержка MQTT в центре IoT][lnk-devguide-mqtt]
+* [Поддержка MQTT в Центре Интернета вещей][lnk-devguide-mqtt]
 
 <!-- Links and images -->
 
@@ -127,4 +125,3 @@ Edge Интернета вещей Azure содержит инфраструкт
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
+ms.openlocfilehash: ed2266004e60843749233f92c8f4b069e4c17ba5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 926938a8ed20167e1f17a9883007cd993897f14a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Синхронизация данных в нескольких облачных и локальных базах данных с помощью синхронизации данных SQL
 
@@ -98,11 +97,13 @@ ms.lasthandoff: 08/17/2017
 
 ### <a name="requirements"></a>Требования
 
--   Каждая таблица должна иметь первичный ключ.
+-   Каждая таблица должна иметь первичный ключ. Не изменяйте значение первичного ключа ни в какой строке. Если это необходимо сделать, удалите строку и создайте ее повторно с новым значением первичного ключа. 
 
 -   В таблице не должно быть столбцов идентификаторов, которые не являются первичным ключом.
 
 -   Имена объектов (баз данных, таблиц и столбцов) не могут содержать печатаемые символы: точку (.), левую квадратную скобку ([) или правую квадратную скобку (]).
+
+-   Необходимо включить изоляцию моментального снимка. Дополнительные сведения см. в статье [Изоляция моментального снимка в SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="limitations-on-service-and-database-dimensions"></a>Ограничения характеристик служб и баз данных
 
@@ -140,6 +141,11 @@ ms.lasthandoff: 08/17/2017
 ### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Как синхронизация данных обрабатывает циклические ссылки? То есть, когда одни и те же данные синхронизируются в нескольких группах синхронизации и в результате постоянно изменяются?
 Синхронизация данных не обрабатывает циклические ссылки. Не используйте их. 
 
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Как экспортировать и импортировать базу данных с синхронизацией данных?
+После того как вы экспортировали базу данных в виде BACPAC-файла и импортировали ее для создания новой базы данных, нужно выполнить два действия, чтобы использовать синхронизацию данных в новой базе данных.
+1.  Очистите объекты синхронизации данных и вспомогательные таблицы в **новой базе данных** с помощью [этого скрипта](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Этот скрип удаляет все необходимые объекты синхронизации данных из базы данных.
+2.  Повторно создайте группу синхронизации с новой базой данных. Если старая группа синхронизации больше не нужна, удалите ее.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о синхронизации данных SQL:
@@ -159,4 +165,3 @@ ms.lasthandoff: 08/17/2017
 -   [Обзор Базы данных SQL](sql-database-technical-overview.md)
 
 -   [Управление жизненным циклом базы данных](https://msdn.microsoft.com/library/jj907294.aspx)
-

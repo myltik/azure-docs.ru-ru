@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 53059c09d454dedbd65ef188a0dd91d497b0e502
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7326dce288996f0690be3b66882b8b4c21a35348
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Ключевые понятия и иерархическая модель ресурсов в Azure Cosmos DB
 Сущности базы данных, которыми управляет Azure Cosmos DB, называются **ресурсами**. Каждый ресурс однозначно идентифицируется своими логическим URI. Разработчики могут взаимодействовать с ресурсами, используя стандартные команды HTTP, заголовки запросов/ответов и коды состояний. 
@@ -462,5 +461,4 @@ Azure Cosmos DB позволяет хранить большие двоичны�
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
-
 

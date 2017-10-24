@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
+ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 3bc631606afbc93d5bca94f4955fd2ef816fa9fd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Мониторинг и диагностика обработки запросов на обратном прокси-сервере
 
@@ -158,11 +157,11 @@ ms.lasthandoff: 08/09/2017
     
     Если включен сбор только критических событий и событий ошибок, то в журнале вы увидите одно событие со сведениями о времени ожидания и количестве попыток разрешения. 
     
-    Если служба собирается отправить код состояния 404 пользователю, его нужно дополнить заголовком X-ServiceFabric. Исправив это, вы увидите, что обратный прокси-сервер отправляет код состояния обратно клиенту.  
+    Если служба собирается отправить код состояния 404 пользователю, в ответе нужно добавить заголовок X-ServiceFabric. После добавления заголовка в ответ обратный прокси-сервер отправляет код состояния клиенту.  
 
 4. Случаи, когда клиент отключил запрос.
 
-    Приведенное ниже событие записывается, когда обратный прокси-сервер переадресовывает ответ клиенту, но тот отключается.
+    Следующее событие записывается, когда обратный прокси-сервер переадресовывает ответ клиенту, но тот отключается.
 
     ```
     {
@@ -180,6 +179,18 @@ ms.lasthandoff: 08/09/2017
       }
     }
     ```
+5. Обратный прокси-сервер возвращает код состояния 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
+
+    Ошибка FABRIC_E_SERVICE_DOES_NOT_EXIST возвращается, если в манифесте службы не указана схема универсального кода ресурса (URI) для конечной точки службы.
+
+    ```
+    <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
+    ```
+
+    Чтобы устранить эту проблему, укажите схему универсального кода ресурса (URI) в манифесте.
+    ```
+    <Endpoint Name="ServiceEndpointHttp" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
+    ```
 
 > [!NOTE]
 > В настоящее время не регистрируются события, относящиеся к обработке запросов WebSocket. Эта возможность будет добавлена в следующем выпуске.
@@ -189,4 +200,3 @@ ms.lasthandoff: 08/09/2017
 * Чтобы просмотреть события Service Fabric в Visual Studio, ознакомьтесь с разделом [Мониторинг и диагностика состояния служб в локальной среде разработки](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 * Примеры шаблонов Azure Resource Manager для настройки разных параметров проверки сертификата службы для защищенного обратного прокси-сервера см. в разделе [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services).
 * Чтобы узнать больше, прочитайте раздел [Обратный прокси-сервер в Service Fabric](service-fabric-reverseproxy.md).
-

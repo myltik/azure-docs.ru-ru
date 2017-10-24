@@ -12,16 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 10/07/2017
 ms.author: skwan
+ms.openlocfilehash: c091ea7cec35099d8ad2ab47361cd4c1278fdab6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 3cfd1eb55a031696635270a56ed5028e3b249543
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Вопросы и ответы, а также известные проблемы с управляемым удостоверением службы (MSI) для Azure Active Directory
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -58,6 +56,16 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 ## <a name="known-issues"></a>Известные проблемы
 
+### <a name="automation-script-fails-when-attempting-schema-export-for-msi-extension"></a>Использование функции "Скрипт автоматизации" завершается ошибкой при попытке экспорта схемы для расширения MSI.
+
+Если на виртуальной машине включено расширение "Управляемое удостоверение службы", отображается следующая ошибка при попытке использовать функцию "Скрипт автоматизации" для виртуальной машины или ее группы ресурсов:
+
+![Ошибка экспорта скрипта автоматизации MSI](media/msi-known-issues/automation-script-export-error.png)
+
+Расширение виртуальной машины "Управляемое удостоверение службы" в настоящее время не поддерживает возможность экспорта его схемы в шаблон группы ресурсов. Поэтому созданный шаблон не содержит параметры конфигурации для включения расширения "Управляемое удостоверение службы" в ресурсе. Эти разделы можно добавить вручную. Инструкции и примеры см. в статье [Настройка управляемого удостоверения службы (MSI) на виртуальной машине Azure с помощью шаблона](msi-qs-configure-template-windows-vm.md).
+
+Когда функция экспорта схемы станет доступной для расширения виртуальной машины "Управляемое удостоверение службы", оно будет добавлено в раздел [Поддерживаемые расширения виртуальной машины](../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>На портале Azure не отображается колонка "Конфигурация"
 
 Если колонка "Конфигурация виртуальной машины" для виртуальной машины не отображается, значит, функция MSI еще не включена на портале в вашем регионе.  Повторите попытку позже.  Можно также включить MSI для виртуальной машины с помощью [PowerShell](msi-qs-configure-powershell-windows-vm.md) или [Azure CLI](msi-qs-configure-cli-windows-vm.md).
@@ -87,4 +95,3 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-

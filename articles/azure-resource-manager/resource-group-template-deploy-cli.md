@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
+ms.openlocfilehash: 13154e41ebd4867de9af74340a69446400814f5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4f1d5f4cc48470f8906edb28628006dd1996bd3a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI
 
@@ -79,55 +78,11 @@ az group deployment create \
 
 В предыдущем примере для шаблона требуется общедоступный код URI, который подходит для большинства сценариев, так как шаблон не должен содержать конфиденциальные данные. Если необходимо указать конфиденциальные данные (например, пароль администратора), то передайте это значение с помощью безопасного параметра. Но если вы не хотите, чтобы шаблон был общедоступным, то можно защитить его, сохранив в закрытом контейнере хранилища. Сведения о развертывании шаблона, требующего маркер подписанного URL-адреса (SAS), см. в статье [Развертывание частного шаблона Resource Manager с использованием токена SAS и Azure PowerShell](resource-manager-cli-sas-token.md).
 
-## <a name="deploy-template-from-cloud-shell"></a>Развертывание шаблона из Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Можно использовать [Cloud Shell](../cloud-shell/overview.md) для выполнения команд Azure CLI при развертывании шаблона. Однако сначала необходимо загрузить шаблон в файловый ресурс для Cloud Shell. Если вы еще не использовали службу Cloud Shell, то см. статью [Обзор Azure Cloud Shell](../cloud-shell/overview.md), где содержатся сведения о ее настройке.
+В Cloud Shell введите следующие команды:
 
-1. Войдите на [портал Azure](https://portal.azure.com).   
-
-2. Выберите группу ресурсов Cloud Shell. Шаблон имени — `cloud-shell-storage-<region>`.
-
-   ![Выбор группы ресурсов](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
-
-3. Выберите учетную запись хранения для Cloud Shell.
-
-   ![Выбор учетной записи хранения](./media/resource-group-template-deploy-cli/select-storage.png)
-
-4. Выберите **Файлы**.
-
-   ![Выбор файлов](./media/resource-group-template-deploy-cli/select-files.png)
-
-5. Выберите файловый ресурс для Cloud Shell. Шаблон имени — `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Выбор файлового ресурса](./media/resource-group-template-deploy-cli/select-file-share.png)
-
-6. Выберите **Добавить каталог**.
-
-   ![Добавление каталога](./media/resource-group-template-deploy-cli/select-add-directory.png)
-
-7. Назовите его **templates** и нажмите кнопку **ОК**.
-
-   ![Присвоение имени каталогу](./media/resource-group-template-deploy-cli/name-templates.png)
-
-8. Выберите новый каталог.
-
-   ![Выбор каталога](./media/resource-group-template-deploy-cli/select-templates.png)
-
-9. Щелкните **Отправить**.
-
-   ![Выбор "Отправить"](./media/resource-group-template-deploy-cli/select-upload.png)
-
-10. Найдите и отправьте свой шаблон.
-
-   ![Отправка файла](./media/resource-group-template-deploy-cli/upload-files.png)
-
-11. Откройте командную строку.
-
-   ![Открытие Cloud Shell](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
-
-12. В Cloud Shell введите следующие команды:
-
-   ```azurecli
+   ```azurecli-interactive
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
@@ -282,4 +237,3 @@ az group deployment create \
 * Советы по устранению распространенных ошибок развертывания см. в разделе [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Сведения о развертывании шаблона, которому нужен токен SAS, см. в статье [Развертывание частного шаблона с помощью маркера SAS](resource-manager-cli-sas-token.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-

@@ -1,6 +1,6 @@
 ---
-title: Enable Azure CLI for Azure Stack users | Microsoft Docs
-description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
+title: "Применение Azure CLI для пользователей Azure Stack | Документация Майкрософт"
+description: "Узнайте, как использовать межплатформенный интерфейс командной строки (CLI) для развертывания ресурсов и управления ими в Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,28 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d184bb9edbe2542d7321d8b9ccc5d23f2401f8d5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-cli-for-azure-stack-users"></a>Enable Azure CLI for Azure Stack users
+# <a name="enable-azure-cli-for-azure-stack-users"></a>Применение Azure CLI для пользователей Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-There aren't any Azure Stack operator specific tasks that you can perform by using CLI. But before users can manage resources through CLI, Azure Stack operators must provide them with the following:
+Задачи оператора Azure Stack не предусмотрены для выполнения при помощи CLI. Но чтобы пользователи могли использовать CLI для управления ресурсами, оператор Azure Stack должен предоставить следующие артефакты:
 
-* **The Azure Stack CA root certificate** is required if your users are using CLI from a workstation outside the Azure Stack development kit.  
+* **Корневой сертификат ЦС Azure Stack.** Он нужен в том случае, если CLI используется на рабочей станции без пакета SDK для Azure Stack.  
 
-* **The virtual machine aliases endpoint** provides an alias, like "UbuntuLTS" or "Win2012Datacenter", that references an image publisher, offer, SKU, and version as a single parameter when deploying VMs.  
+* **Конечная точка псевдонимов виртуальных машин.** Она предоставляет псевдонимы, например "UbuntuLTS" или "Win2012Datacenter", которые позволяют при развертывании виртуальной машины в одном параметре указать нужного издателя образа, предложение, номер SKU и версию.  
 
-The following sections describe how to get these values.
+В разделах ниже описано, как получить эти значения.
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Export the Azure Stack CA root certificate
+## <a name="export-the-azure-stack-ca-root-certificate"></a>Экспорт корневого сертификата ЦС Azure Stack
 
-The Azure Stack CA root certificate is available on the development kit and on a tenant virtual machine that is running within the development kit environment. Sign in to your development kit or the tenant virtual machine and run the following script to export the Azure Stack root certificate in PEM format:
+Корневой сертификат ЦС Azure Stack входит в состав пакета SDK и размещается на виртуальной машине клиента, где выполняется среда пакета разработки. Войдите в пакет разработки или на виртуальную машину клиента и выполните скрипт ниже, чтобы экспортировать корневой сертификат Azure Stack в PEM-формате.
 
 ```powershell
 $label = "AzureStackSelfSignedRootCert"
@@ -54,25 +53,24 @@ Write-Host "Converting certificate to PEM format"
 certutil -encode root.cer root.pem
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Set up the virtual machine aliases endpoint
+## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Настройка конечной точки псевдонимов виртуальных машин
 
-Azure Stack operators should set up a publicly accessible endpoint that hosts a virtual machine aliases file.  The virtual machine alias file is a JSON file that provides a common name for an image, which is subsequently specified when deploying a VM as an Azure CLI parameter.  
+Оператору Azure Stack следует настроить общедоступную конечную точку с файлом псевдонимов виртуальных машин.  Файл псевдонимов виртуальных машин хранит общее имя для образа в JSON-формате. Имя можно указать в соответствующем параметре команды Azure CLI при развертывании виртуальной машины.  
 
-Before you add an entry to an alias file, make sure that you [download images from the marketplace]((azure-stack-download-azure-marketplace-item.md), or have [published your own custom image](azure-stack-add-vm-image.md).  If you publish a custom image, make note of the publisher, offer, SKU, and version information you specified during publishing.  If it is an image from the marketplace, you can view the information using the ```Get-AzureVMImage``` cmdlet.  
+Прежде чем добавить запись в файл псевдонимов, необходимо [скачать образ из marketplace]((azure-stack-download-azure-marketplace-item.md) или [опубликовать собственный пользовательский образ](azure-stack-add-vm-image.md).  Когда вы публикуете пользовательский образ, запишите сведения об издателе, предложении, номере SKU и версии, которые указываете во время публикации.  Если используется образ из marketplace, эти сведения можно получить с помощью командлета ```Get-AzureVMImage```.  
    
-A [sample alias file](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) with many common image aliases is available, which you can use as a starting point.  You should host this file in a space that your CLI clients can reach it.  One way to do this, is to host in a blob storage account, and share the URL with your users:
+В качестве отправной точки можно использовать предлагаемый [образец файла псевдонимов](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) с несколькими широко используемыми псевдонимами образов.  Этот файл следует располагать так, чтобы все клиенты, использующие CLI, имели к нему доступ.  Например, его можно поместить в учетную запись хранилища BLOB-объектов, а пользователям предоставить соответствующий URL-адрес:
 
-1.  Download the [sample file](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) from GitHub.
-2.  Create a new storage account in Azure Stack.  Once complete, create a new blob container.  Set the access policy to "public".  
-3.  Upload the JSON file to the new container.  Once complete, you can view the URL of the blob by clicking the fblob name, and then selecting the URL from the blob properties.
+1.  Скачайте [образец файла](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) с сайта GitHub.
+2.  Создайте учетную записи хранения в Azure Stack.  После этого создайте новый контейнер BLOB-объектов.  Установите для политики доступа значение public.  
+3.  Отправьте JSON-файл в только что созданный контейнер.  Теперь щелкните имя BLOB-объекта и выберите URL-адрес в разделе его свойств.
 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-[Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
+[Развертывание шаблонов с помощью интерфейса командной строки Azure](azure-stack-deploy-template-command-line.md)
 
-[Connect with PowerShell](azure-stack-connect-powershell.md)
+[Подключение с помощью PowerShell](azure-stack-connect-powershell.md)
 
-[Manage user permissions](azure-stack-manage-permissions.md)
-
+[Управление разрешениями пользователей](azure-stack-manage-permissions.md)
 

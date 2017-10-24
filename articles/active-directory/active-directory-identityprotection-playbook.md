@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Тренировочное задание по защите идентификации Azure Active Directory
 Это тренировочное задание поможет:
@@ -109,7 +109,7 @@ ms.lasthandoff: 08/03/2017
 11. Щелкните **Сохранить**.
 12. Теперь можно протестировать условный доступ на основе рисков. Для этого войдите в учетную запись, используя данные пользователя с уровнем риска, который вы повысили. Если у пользователя уровень риска "Средний", то, в зависимости от настроенной политики, вход будет заблокирован или пароль будет принудительно изменен. 
     <br><br>
-    ![Репертуара](./media/active-directory-identityprotection-playbook/201.png "репертуара")
+    ![Сборник тренировочных заданий](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
 ## <a name="sign-in-risk"></a>Риск при входе
@@ -119,7 +119,7 @@ ms.lasthandoff: 08/03/2017
 2. Перейдите к **Identity Protection**.
 3. В главной колонке **Azure AD Identity Protection** щелкните **Параметры**. 
 4. В колонке **Параметры портала** в разделе **Правила безопасности** щелкните **Риск при входе**.
-5. На ** вход риск ** колонке выберите **на** под **включить правило**. 
+5. В колонке **Риск при входе** установите переключатель **Включить правило** в положение **Вкл.** 
 6. Выберите один из следующих вариантов:
    
    а. Чтобы заблокировать вход, установите переключатель **Заблокировать вход** в положение **Средний**.

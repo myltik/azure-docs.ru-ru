@@ -3,7 +3,7 @@ title: "Приступая к работе с прокси приложения 
 description: "Сведения о включении прокси приложения на портале Azure и установке соединителей для обратного прокси-сервера."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
-ms.author: kgremban
+ms.date: 10/02/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 3b0a3e315ecd98565a852b3a8190d78ccdefe42d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 77acb23f33fd656a12c27107cb159613a8b2aec4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Начало работы с прокси приложения и установка соединителя
 В этой статье описывается процедура включения прокси приложения Microsoft Azure AD для облачного каталога в Azure AD.
 
@@ -63,7 +61,7 @@ ms.lasthandoff: 08/05/2017
    * ocsp.msocsp.com:80
    * www.microsoft.com:80
 
-4. Соединителю требуется доступ к адресам login.windows.net и login.microsoftonline.net для процесса регистрации.
+4. Соединителю требуется доступ к адресам login.windows.net и login.microsoftonline.com для процесса регистрации.
 
 5. Воспользуйтесь [средством проверки портов соединителей прокси-службы приложения Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/), чтобы проверить, сможет ли ваш соединитель подключиться к прокси-службе приложения. Как минимум следует убедиться, что для региона Central US (Центральная часть США) и ближайшего к вам региона отображаются все зеленые флажки. Учитывайте также, что большее число зеленых флажков означает большую устойчивость.
 
@@ -108,4 +106,3 @@ ms.lasthandoff: 08/05/2017
 Теперь вы можете [публиковать приложения с помощью прокси приложения](application-proxy-publish-azure-portal.md).
 
 Если у вас есть приложения, работающие в отдельных сетях или в разных расположениях, используйте группы соединителей для упорядочения нескольких соединителей в логические блоки. См. дополнительные сведения о [работе с соединителями прокси приложения](active-directory-application-proxy-connectors-azure-portal.md).
-

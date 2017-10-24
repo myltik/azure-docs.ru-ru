@@ -1,6 +1,6 @@
 ---
-title: Deploy templates with the command line in Azure Stack | Microsoft Docs
-description: Learn how to use the cross-platform command line interface (CLI) to deploy templates to Azure Stack.
+title: "Развертывание шаблонов в Azure Stack с помощью командной строки | Документация Майкрософт"
+description: "Узнайте, как использовать кроссплатформенный интерфейс командной строки (CLI) для развертывания шаблонов в Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -14,37 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d58d80d89bb2544c4d4a34f608177a96760406ba
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Deploy templates in Azure Stack using the command line
+# <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Развертывание шаблонов в Azure Stack с помощью командной строки
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-Use the command line to deploy Azure Resource Manager templates to the Azure Stack Development Kit. Azure Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation.
+С помощью командной строки можно развертывать шаблоны Azure Resource Manager в пакет средств разработки Azure Stack. Используя шаблоны Azure Resource Manager, можно развернуть и подготовить все ресурсы для приложения в рамках одной скоординированной операции.
 
-## <a name="before-you-begin"></a>Before you begin
- - [Install and connect](azure-stack-connect-cli.md) to Azure Stack with Azure CLI
- - Download the files *azuredeploy.json* and *azuredeploy.parameters.json* from the [create storage account example template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
+## <a name="before-you-begin"></a>Перед началом работы
+ - [Выполните установку и подключение](azure-stack-connect-cli.md) к Azure Stack с помощью Azure CLI.
+ - Скачайте файлы *azuredeploy.json* и *azuredeploy.parameters.json* из [примера шаблона создания учетной записи хранения](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
  
-## <a name="deploy-template"></a>Deploy template
-Navigate to the folder where these files were downloaded and run the following command to deploy the template:
+## <a name="deploy-template"></a>Развертывание шаблона
+Перейдите к папке, в которую скачаны эти файлы, и выполните следующую команду для развертывания шаблона:
 
     azure group create "cliRG" "local" –f azuredeploy.json –d "testDeploy" –e azuredeploy.parameters.json
 
-This command deploys the template to the resource group **cliRG** in the Azure Stack POC’s default location.
+Эта команда развертывает шаблон в группу ресурсов **cliRG** в стандартном расположении подтверждения концепции Azure Stack.
 
-## <a name="validate-template-deployment"></a>Validate template deployment
-To see this resource group and storage account, use the following commands:
+## <a name="validate-template-deployment"></a>Проверка развертывания шаблона
+Чтобы просмотреть эту группу ресурсов и учетную запись хранения, используйте следующие команды.
 
     azure group list
 
     azure storage account list
-
 
 
 

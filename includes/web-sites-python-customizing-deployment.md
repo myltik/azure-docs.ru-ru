@@ -21,10 +21,10 @@ Azure определит, что приложение использует Pytho
     \.deployment
     \deploy.cmd
 
-Для создания этих файлов можно использовать [интерфейс командной строки Azure][интерфейс командной строки Azure].  Используйте эту команду из папки проекта:
+Для создания этих файлов можно использовать [интерфейс командной строки Azure][Azure command-line interface].  Используйте эту команду из папки проекта:
 
     azure site deploymentscript --python
 
 Если эти файлы не существуют, Azure создает временный скрипт развертывания и выполняет его.  Он идентичен созданному с помощью команды выше.
 
-[интерфейс командной строки Azure]: http://azure.microsoft.com/downloads/
+[Azure command-line interface]: http://azure.microsoft.com/downloads/

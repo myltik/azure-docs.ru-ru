@@ -1,4 +1,3 @@
-
 ---
 title: "Создание кластера Service Fabric на портале Azure | Документация Майкрософт"
 description: "В этой статье описывается настройка защищенного кластера Service Fabric в Azure с помощью портала Azure и хранилища ключей Azure."
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
+ms.openlocfilehash: 3dd4f3494bb9ed70549f41e22c58666cada8da07
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3b471fb21cf046417c094552c23c548c9da14fe8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Создание кластера Service Fabric в Azure с помощью портала Azure
 > [!div class="op_single_selector"]
@@ -274,7 +272,6 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 * Установите флажок **Настройка дополнительных параметров**, чтобы ввести сертификаты клиента в поля **Клиент администратора** и **Клиент только для чтения**. В эти поля введите отпечаток сертификата клиента администратора и отпечаток сертификата клиента только для чтения (при наличии). Когда администраторы пытаются подключиться к кластеру, им предоставляется доступ только в том случае, если у них есть сертификат с отпечатком, соответствующим указанным здесь значениям.  
 
 #### <a name="4-summary"></a>4. Сводка
-![Снимок экрана: начальная доска с заголовком "Развертывание кластера Service Fabric". ][Notifications]
 
 Чтобы завершить создание кластера, выберите **Сводка** и проверьте указанные параметры или скачайте шаблон Azure Resource Manager, который используется для развертывания кластера. После указания обязательных параметров активируется кнопка **ОК**. Нажав ее, вы сможете начать процесс создания кластера.
 
@@ -326,4 +323,3 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-

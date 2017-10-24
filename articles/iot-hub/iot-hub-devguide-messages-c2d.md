@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
+ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 706c9650a8deef941f9b39956021456053369e5e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Отправка сообщений, пересылаемых из облака на устройство, из Центра Интернета вещей
 
@@ -43,7 +42,7 @@ ms.lasthandoff: 09/06/2017
 Устройство также может:
 
 * *отклонить* сообщение, в результате чего центр IoT переводит его в состояние **Deadlettered** (Не доставлено); Устройства, подключаемые по протоколу MQTT, не могут отклонять сообщения, передаваемые из облака на устройство.
-* *прервать* сообщение, в результате чего центр IoT помещает его в очередь с состоянием **Enqueued**(Поставлено в очередь).
+* *прервать* сообщение, в результате чего центр IoT помещает его в очередь с состоянием **Enqueued**(Поставлено в очередь). Устройства, подключаемые по протоколу MQTT, не могут сбрасывать сообщения, передаваемые из облака на устройство.
 
 При обработке сообщения потоком может произойти ошибка без уведомления центра IoT. В этом случае состояние сообщения автоматически меняется с **Невидимо** на **Enqueued** (Поставлено в очередь) после *истечения срока видимости (или блокировки)*. Значение по умолчанию — одна минута.
 
@@ -151,4 +150,3 @@ ms.lasthandoff: 09/06/2017
 [lnk-c2d-configuration]: #cloud-to-device-configuration-options
 [lnk-lifecycle]: #message-lifecycle
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-

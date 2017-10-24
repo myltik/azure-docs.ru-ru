@@ -3,7 +3,7 @@ title: "Отчеты о доступе и использовании для Azur
 description: "Эта статья содержит информацию о том, как использовать функцию отчетов службы Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
+ms.author: joflore
+ms.reviewer: alexwe
+ms.openlocfilehash: 77d6742faadfaf3d7afccfbe888b910c80278737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 42a87adef740cc2c1d77c9f02eef8aaa5f207258
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Отчеты в службе Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication предоставляет несколько типов отчетов, которые могут быть полезны для вас и вашей организации. Доступ к этим отчетам можно получить через портал управления Многофакторной идентификации. Ниже приведен список доступных отчетов.
+
+Azure Multi-Factor Authentication предоставляет несколько типов отчетов, которые могут быть полезны для вас и вашей организации. Доступ к этим отчетам можно получить через портал управления Многофакторной идентификации. В следующей таблице перечислены доступные отчеты:
 
 | Отчет | Описание |
 |:--- |:--- |
@@ -34,6 +35,7 @@ Azure Multi-Factor Authentication предоставляет несколько 
 | Поставлено в очередь |Отображается список отчетов, поставленных в очередь для обработки, и их состояние. Ссылка на загрузку или просмотр отчета предоставляется по завершении его составления. |
 
 ## <a name="view-reports"></a>Просмотр отчетов
+
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com).
 2. Выберите слева элемент Active Directory.
 3. Выберите один из описанных ниже вариантов в зависимости от того, используются ли поставщики аутентификации.
@@ -43,9 +45,17 @@ Azure Multi-Factor Authentication предоставляет несколько 
 
 <center>![Облако](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
+## <a name="powershell-reporting"></a>Создание отчетов PowerShell
+
+Определите пользователей, зарегистрированных для многофакторной проверки подлинности с помощью Powershell:
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+
+Определите пользователей, не зарегистрированных для многофакторной проверки подлинности с помощью Powershell:
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
 **Дополнительные ресурсы**
 
 * [Для пользователей](end-user/multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
-

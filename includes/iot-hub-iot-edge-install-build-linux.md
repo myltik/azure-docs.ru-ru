@@ -2,11 +2,11 @@
 
 В этом руководстве предполагается, что вы используете Ubuntu Linux.
 
-Чтобы установить пакеты необходимых компонентов, откройте оболочку и выполните следующие команды:
+Чтобы установить пакеты необходимых компонентов, откройте оболочку и выполните следующие команды.
 
 ```bash
 sudo apt-get update
-sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
+sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake pkg-config libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
 ```
 
 В оболочке выполните следующую команду, чтобы клонировать репозиторий Azure IoT Edge GitHub на локальный компьютер:

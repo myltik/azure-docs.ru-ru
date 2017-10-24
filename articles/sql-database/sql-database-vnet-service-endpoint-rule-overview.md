@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 09/27/2017
+ms.date: 10/09/2017
 ms.author: genemi
+ms.openlocfilehash: f62184d97b18d72b91d63db0e449bbab6c20a179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: e4ee69abe0b3b5d594ee191cc8210d25c325efaa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Использование конечных точек службы и правил виртуальной сети для базы данных SQL Azure
 
@@ -118,16 +117,23 @@ ms.lasthandoff: 09/28/2017
 
 У вас есть возможность использовать [управление доступом на основе ролей (RBAC)][rbac-what-is-813s] в Azure, чтобы создать отдельную настраиваемую роль с необходимыми правами. Эту настраиваемую роль можно использовать вместо роли администратора сети или администратора базы данных. Контактная зона потенциального нарушения безопасности будет меньше при добавлении пользователя в настраиваемую роль, чем при его добавлении в одну из двух основных ролей администратора.
 
-#### <a name="limitations"></a>Ограничения
+
+
+
+
+
+## <a name="limitations"></a>Ограничения
 
 Для базы данных SQL Azure правила виртуальной сети имеют следующие ограничения.
+
+- В брандмауэре для базы данных SQL каждое правило виртуальной сети ссылается на подсеть. Все такие упомянутые подсети должны размещаться в том же географическом регионе, где размещена база данных SQL.
 
 - Каждый сервер базы данных SQL Azure может использовать до 128 записей ACL для любой заданной виртуальной сети.
 
 - Правила виртуальной сети применяются только к виртуальным сетям Azure Resource Manager, но не к сетям на основе [классической модели развертывания][arm-deployment-model-568f].
 
 - К приведенным ниже элементам сети применяются диапазоны IP-адресов в брандмауэре, а правила виртуальной сети — нет:
-    - [виртуальная частная сеть (VPN) типа "сеть — сеть"][vpn-gateway-indexmd-608y];
+    - [виртуальная частная сеть (VPN) типа "сеть — сеть"][vpn-gateway-indexmd-608y].
     - локальная среда с подключением [ExpressRoute][expressroute-indexmd-744v].
 
 #### <a name="expressroute"></a>ExpressRoute
@@ -146,9 +152,36 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 
 
+## <a name="errors-40914-and-40615"></a>Ошибки 40914 и 40615
+
+Ошибка подключения 40914 относится к *правилам виртуальных сетей*, указанным в области "Брандмауэр" на портале Azure. Ошибка 40615 отличается от предыдущей тем, что относится к *правилам IP-адресов* в брандмауэре.
+
+#### <a name="error-40914"></a>Ошибка 40914
+
+*Текст сообщения.* Невозможно открыть сервер *[имя-сервера]*, запрашиваемый именем входа. Клиенту запрещен доступ к серверу.
+
+*Описание ошибки.* Клиент находится в подсети, которая содержит конечные точки сервера виртуальной сети. Но для сервера базы данных SQL Azure не установлено правило виртуальной сети, разрешающее подсети обмениваться данными с базой данных SQL.
+
+*Устранение ошибки.* В области "Брандмауэр" портала Azure с помощью элемента управления правилами виртуальных сетей [добавьте правило виртуальной сети](#anchor-how-to-by-using-firewall-portal-59j) для этой подсети.
+
+#### <a name="error-40615"></a>Ошибка 40615
+
+*Текст сообщения.* Не удается открыть сервер {0}, запрашиваемый при попытке входа. Для клиента с IP-адресом '{1}' доступ к серверу не разрешен.
+
+*Описание ошибки.* Клиент пытается подключиться с IP-адреса, который не авторизован на подключение к серверу базы данных SQL Azure. Брандмауэр сервера не содержит правило IP-адресов, разрешающее клиенту обмениваться данными с базой данных SQL с этого IP-адреса.
+
+*Устранение ошибки.* Введите IP-адрес клиента в качестве правила IP-адреса. Это следует сделать в области "Брандмауэр" на портале Azure.
+
+
+Список сообщений об ошибках базы данных SQL содержится в [этом документе][sql-database-develop-error-messages-419g].
+
+
+
+
+
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
-## <a name="how-to-create-a-virtual-network-rule-by-using-the-portal"></a>Как создать правило виртуальной сети с помощью портала Azure
+## <a name="portal-can-create-a-virtual-network-rule"></a>Портал может создать правило виртуальной сети
 
 В этом разделе показано, как с помощью [портала Azure][http-azure-portal-link-ref-477t] создать *правило виртуальной сети* в базе данных SQL Azure. Правило предписывает базе данных SQL принимать подключения из определенной подсети, которая помечена как *конечная точка службы виртуальной сети*.
 
@@ -232,6 +265,8 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 
+[sql-database-develop-error-messages-419g]: sql-database-develop-error-messages.md
+
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
@@ -262,5 +297,4 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 - ARM templates
 -->
-
 

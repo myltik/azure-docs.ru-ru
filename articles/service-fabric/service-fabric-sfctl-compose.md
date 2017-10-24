@@ -14,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 64852471a848cb42fd8a2e67622d309d5e050cfd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-compose"></a>sfctl compose
-Создание, удаление приложений Docker Compose и управление ими.
+Создание, удаление развертываний Docker Compose и управление ими.
 
 ## <a name="commands"></a>Команды
 
 |Команда|Описание|
 | --- | --- |
-|    create| Создает приложение Service Fabric создает из файла Compose.|
-|    list  | Возвращает список приложений Compose, созданных в кластере Service Fabric.|
-|   remove| Удаляет существующее приложение Compose в Service Fabric из кластера.|
-|   status| Возвращает сведения о приложении Compose в Service Fabric.|
+|    create| Развертывает приложение Service Fabric из файла Compose.|
+|    list  | Возвращает список развертываний Compose, созданных в кластере Service Fabric.|
+|   remove| Удаляет существующее развертывание Compose в Service Fabric из кластера.|
+|   status| Возвращает сведения о развертывании Compose в Service Fabric.|
 |upgrade       | Запускает обновление развертывания Compose в кластере Service Fabric.|
 |    upgrade-status| Возвращает сведения о последнем обновлении данного развертывания Compose в Service Fabric.|
 
@@ -44,11 +43,11 @@ ms.lasthandoff: 09/27/2017
 |Аргумент|Описание|
 | --- | --- |
 | --file-path [обязательный параметр]| Путь к целевому файлу Docker Compose.|
- |   --name [обязательный параметр]| Идентификатор развертывания.|
-|    --encrypted-pass      | Вместо того, чтобы ожидать ввода пароля к реестру контейнера, используется уже зашифрованная парольная фраза.|
-|    --has-pass            | Запрашивает пароль к реестру контейнеров.|
-|    --timeout -t          | Время ожидания сервера в секундах.  Значение по умолчанию: 60.|
- |   --user                | Имя пользователя для подключения к реестру контейнеров.|
+ |   --deployment-name [обязательный параметр]| Имя развертывания.|
+|    --encrypted-pass             | Вместо того, чтобы ожидать ввода пароля к реестру контейнера, используется уже зашифрованная парольная фраза.|
+|    --has-pass                   | Запрашивает пароль к реестру контейнеров.|
+|    --timeout -t                 | Время ожидания сервера в секундах.  Значение по умолчанию: 60.|
+ |   --user                       | Имя пользователя для подключения к реестру контейнеров.|
 
 ### <a name="global-arguments"></a>Глобальные аргументы
 
@@ -136,7 +135,7 @@ ms.lasthandoff: 09/27/2017
 |Аргумент|Описание|
 | --- | --- |
 |    --file-path [обязательный параметр]| Путь к целевому файлу Docker Compose.|
-|    --name [обязательный параметр]| Идентификатор развертывания.|
+|    --deployment-name [обязательный параметр]| Имя развертывания.|
 |    --default-svc-type-health-map| Словарь в формате JSON, который описывает политики работоспособности, используемые для оценки работоспособности служб.|
 |    --encrypted-pass             | Вместо того, чтобы ожидать ввода пароля к реестру контейнера, используется уже зашифрованная парольная фраза.|
  |   --failure-action             | Возможные значения: "Invalid", "Rollback", "Manual".|

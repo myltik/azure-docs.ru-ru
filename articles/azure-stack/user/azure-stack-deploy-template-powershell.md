@@ -1,6 +1,6 @@
 ---
-title: Deploy templates with PowerShell in Azure Stack | Microsoft Docs
-description: Learn how to deploy a virtual machine using a Resource Manager template and PowerShell.
+title: "Развертывание шаблонов в Azure Stack с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте, как развернуть виртуальную машину с помощью шаблона Resource Manager и PowerShell."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -14,26 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e4837be016b569dbd0b4bf8e071e6381b8daa85f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="deploy-templates-in-azure-stack-using-powershell"></a>Deploy templates in Azure Stack using PowerShell
+# <a name="deploy-templates-in-azure-stack-using-powershell"></a>Развертывание шаблонов в Azure Stack с помощью PowerShell
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
 
-Use PowerShell to deploy Azure Resource Manager templates to the Azure Stack Development Kit.  Resource Manager templates deploy and provision all resources for your application in a single, coordinated operation.
+С помощью PowerShell можно развертывать шаблоны Azure Resource Manager в пакет средств разработки Azure Stack.  Используя шаблоны Resource Manager, можно развернуть и подготовить все ресурсы для приложения в рамках одной скоординированной операции.
 
-## <a name="run-azurerm-powershell-cmdlets"></a>Run AzureRM PowerShell cmdlets
-In this example, you run a script to deploy a virtual machine to Azure Stack Development Kit using a Resource Manager template.  Before proceeding, ensure you have [configured PowerShell](azure-stack-powershell-configure-user.md)  
+## <a name="run-azurerm-powershell-cmdlets"></a>Выполнение командлетов PowerShell для AzureRM
+В этом примере вы выполните скрипт для развертывания виртуальной машины в пакет средств разработки Azure Stack с помощью шаблона Resource Manager.  Прежде чем продолжить, [настройте PowerShell](azure-stack-powershell-configure-user.md).  
 
-The VHD used in this example template is WindowsServer-2012-R2-Datacenter.
+В этом примере шаблона в качестве виртуального жесткого диска используется WindowsServer-2012-R2-Datacenter.
 
-1. Go to <http://aka.ms/AzureStackGitHub>, search for the **101-simple-windows-vm** template, and save it to the following location: c:\\templates\\azuredeploy-101-simple-windows-vm.json.
-2. In PowerShell, run the following deployment script. Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter to prevent overwriting your deployment.
+1. Откройте <этот репозиторий>, найдите шаблон **101-simple-windows-vm** и сохраните его в следующее расположение: c:\\templates\\azuredeploy-101-simple-windows-vm.json.
+2. В PowerShell выполните следующий сценарий развертывания. Замените *username* и *password* своими значениями. При последующем использовании увеличивайте значение параметра *$myNum*, чтобы избежать перезаписи развертывания.
    
    ```PowerShell
        # Set Deployment Variables
@@ -56,10 +55,9 @@ The VHD used in this example template is WindowsServer-2012-R2-Datacenter.
            -VmName myVM$myNum `
            -WindowsOSVersion 2012-R2-Datacenter
    ```
-3. Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
+3. Откройте портал Azure Stack, выберите последовательно **Обзор**, **Виртуальные машины** и найдите созданную вами новую виртуальную машину (*myDeployment001*).
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
-
+## <a name="next-steps"></a>Дальнейшие действия
+[Развертывание шаблонов с помощью Visual Studio](azure-stack-deploy-template-visual-studio.md)
 

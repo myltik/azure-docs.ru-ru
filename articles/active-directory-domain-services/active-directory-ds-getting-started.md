@@ -1,6 +1,6 @@
 ---
 title: "Доменные службы Azure Active Directory: начало работы | Документы Майкрософт"
-description: "Включение доменных служб Azure Active Directory с помощью портала Azure (предварительная версия)"
+description: "Включение доменных служб Azure Active Directory с помощью портала Azure."
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,29 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: d86b9e99619dea408e784f32d76ba6296948bdc0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: d2d570bc2bab3bfd28282cd95b0a1be65e96743d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Включение доменных служб Azure Active Directory с помощью портала Azure (предварительная версия)
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Включение доменных служб Azure Active Directory с помощью портала Azure
 В этой статье показано, как включить доменные службы Azure Active Directory (Azure AD DS) с помощью портала Azure.
 
 Чтобы запустить мастер **включения доменных служб Azure AD**, выполните указанные ниже действия.
 
 1. Перейдите на [портал Azure](https://portal.azure.com).
 2. В левой области щелкните **Создать**.
-3. В колонке **Создать** введите в поле поиска текст **Доменные службы**.
+3. На странице **Создать** введите на панели поиска текст **Доменные службы**.
 
     ![Поиск доменных служб](./media/getting-started/search-domain-services.png)
 
-4. В списке результатов поиска выберите **Доменные службы Azure AD**. В колонке **Доменные службы Azure AD** нажмите кнопку **Создать**.
+4. В списке результатов поиска выберите **Доменные службы Azure AD**. На странице **Доменные службы Azure AD** нажмите кнопку **Создать**.
 
-    ![Колонка "Доменные службы"](./media/getting-started/domain-services-blade.png)
+    ![Представление "Доменные службы"](./media/getting-started/domain-services-blade.png)
 
 5. Запустится мастер **включения доменных служб Azure AD**.
 
@@ -65,6 +64,10 @@ ms.lasthandoff: 08/29/2017
 
 3. Выберите **тип виртуальной сети**. По умолчанию выбран тип **Resource Manager**. Мы рекомендуем использовать этот тип виртуальной сети для всех создаваемых управляемых доменов.
 
+    > [!TIP]
+    > **Планируется объявить поддержку классических виртуальных сетей нерекомендуемой.** Выбирайте тип виртуальной сети "Resource Manager" для всех новых развертываний. Скоро классические виртуальные сети больше не будут поддерживаться для новых развертываемых служб. Существующие управляемые домены, развернутые в классических виртуальных сетях, по-прежнему будут поддерживаются.
+    >
+
 4. Выберите **подписку** Azure, в которой следует создать управляемый домен.
 
 5. Выберите **группу ресурсов**, к которой должен относиться управляемый домен. При выборе группы ресурсов можно использовать команду **Создать** или **Использовать существующую**.
@@ -76,4 +79,3 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="next-step"></a>Дальнейшие действия
 [Задача 2. Настройка сетевых параметров](active-directory-ds-getting-started-network.md)
-

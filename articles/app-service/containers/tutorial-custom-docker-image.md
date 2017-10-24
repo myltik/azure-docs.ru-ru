@@ -16,12 +16,11 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 10795d59b019d7c683abfeea611d5909b88891ec
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Применение пользовательского образа Docker для веб-приложений Azure для контейнеров
 
@@ -529,16 +528,16 @@ az acr credential show --name {azure-container-registry-name}
 }
 ```
 
-Теперь, когда у вас есть необходимые учетные данные, войдите в реестр контейнеров Azure с помощью команды `docker login`. Для входа необходим URL-адрес реестра. Используйте формат `http://{azure-container-registry-name>.azurecr.io`.
+Теперь, когда у вас есть необходимые учетные данные, войдите в реестр контейнеров Azure с помощью команды `docker login`. Для входа укажите имя сервера. Используйте формат `{azure-container-registry-name>.azurecr.io`.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
-Убедитесь, что вход выполнен успешно. Передайте образ с помощью команды `docker push` и укажите полный URL-адрес реестра, за которым следует имя и тег образа.
+Убедитесь, что вход выполнен успешно. Передайте образ с помощью команды `docker push` и обозначьте образ именем реестра, за которым следует имя и тег образа.
 
 ```bash
-docker push http://<azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
+docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
 Убедитесь, что контейнер успешно добавлен в реестр, получив список репозиториев ACR. 
@@ -623,4 +622,3 @@ az webapp config container set --name <web-app-name> --resource-group myResource
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [Вопросы и ответы о платформе "Веб-приложения для контейнеров" в службе приложений Azure](app-service-linux-faq.md)
-

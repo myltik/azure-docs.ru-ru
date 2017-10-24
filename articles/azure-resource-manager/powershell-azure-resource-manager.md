@@ -12,25 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: ae5ccb83a0088cb7c9668f18620b74f9f3f1e9b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c201ac12d06ffc8097615517ae09422b037eba6b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>Управление ресурсами с помощью Azure PowerShell и Resource Manager
-> [!div class="op_single_selector"]
-> * [Портал](resource-group-portal.md)
-> * [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
->
->
 
-В этой статье вы узнаете, как управлять решениями с помощью Azure PowerShell и Azure Resource Manager. Если вы не знакомы с Resource Manager, то см. статью [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md). Этот раздел посвящен задачам управления. Вы сможете выполнять следующие задачи:
+В этой статье вы узнаете, как управлять решениями с помощью Azure PowerShell и Azure Resource Manager. Если вы не знакомы с Resource Manager, то см. статью [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md). Эта статья посвящена задачам управления. Вы сможете выполнять следующие задачи:
 
 1. Создание группы ресурсов
 2. Добавление ресурса в группу ресурсов
@@ -53,7 +45,7 @@ ms.lasthandoff: 07/21/2017
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-Этот раздел был обновлен для версии 3.3.0. Если у вас установлена более ранняя версия, то выполняемые действия могут отличаться от шагов, описанных в этом разделе. Документация по командлетам, используемым в этой версии, доступна в [модуле AzureRM.Resources](/powershell/module/azurerm.resources).
+Эта статья обновлена для версии 3.3.0. Если у вас установлена более ранняя версия, то выполняемые действия могут отличаться от шагов, описанных в этой статье. Документация по командлетам, используемым в этой версии, доступна в [модуле AzureRM.Resources](/powershell/module/azurerm.resources).
 
 ## <a name="log-in-to-your-azure-account"></a>Вход в учетную запись Azure
 Прежде чем начать работу над решением, необходимо войти в учетную запись.
@@ -110,6 +102,7 @@ Set-AzureRmContext -SubscriptionName "Example Subscription Two"
 ```
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
+
 Прежде чем развертывать ресурсы в подписке, необходимо создать группу ресурсов, которая будет их содержать.
 
 Чтобы создать группу ресурсов, используйте командлет **New-AzureRmResourceGroup** . В команде используются параметр **Name** для указания имени группы ресурсов и параметр **Location** для указания ее расположения.
@@ -141,6 +134,7 @@ Get-AzureRmResourceGroup
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>Добавление ресурсов в группу ресурсов
+
 Чтобы добавить ресурс в группу ресурсов, можно использовать командлет **New-AzureRmResource** или командлет для конкретного типа создаваемого ресурса (например **New-AzureRmStorageAccount**). Возможно, проще использовать командлет для конкретного типа ресурса, так как он включает в себя параметры для свойств, которые необходимы для нового ресурса. Чтобы использовать командлет **New-AzureRmResource**, необходимо знать все свойства и ввести их без запроса.
 
 Однако добавление ресурса с помощью командлетов может привести к путанице в будущем, потому что новый ресурс не существует в шаблоне Resource Manager. Корпорация Майкрософт рекомендует определять инфраструктуру решения Azure в шаблоне Resource Manager. Шаблоны обеспечивают надежность развертывания и позволяют развернуть решение повторно. В этом примере учетная запись хранения создается с помощью командлета PowerShell, но затем создается шаблон из группы ресурсов.
@@ -203,6 +197,14 @@ Set-AzureRmResource -Tag $tags -ResourceName mystoragename -ResourceGroupName Te
   Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
   ```
 
+## <a name="get-resource-id"></a>Получение идентификатора ресурса
+
+Многие команды принимают в качестве параметра идентификатор ресурса. Чтобы получить идентификатор ресурса и хранилища в переменной, используйте следующую команду:
+
+```powershell
+$webappID = (Get-AzureRmResource -ResourceGroupName exampleGroup -ResourceName exampleSite).ResourceId
+```
+
 ## <a name="lock-a-resource"></a>Блокировка ресурса
 
 Чтобы гарантировать, что критически важный ресурс не будет случайно удален или изменен, примените к нему блокировку ресурса. Можно указать параметр **CanNotDelete** или **ReadOnly**.
@@ -242,7 +244,7 @@ Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -Re
 
 ## <a name="run-resource-manager-scripts-with-azure-automation"></a>Выполнение сценариев Resource Manager со службой автоматизации Azure
 
-В этом разделе показано, как выполнять базовые операции с ресурсами, используя Azure PowerShell. Для расширенного управления обычно требуется создать сценарий, который затем применяется при необходимости или по расписанию. [Служба автоматизации Azure](../automation/automation-intro.md) предоставляет возможность автоматизации часто используемых сценариев, которые управляют решениями Azure.
+В этой статье показано, как выполнять базовые операции с ресурсами, используя Azure PowerShell. Для расширенного управления обычно требуется создать сценарий, который затем применяется при необходимости или по расписанию. [Служба автоматизации Azure](../automation/automation-intro.md) предоставляет возможность автоматизации часто используемых сценариев, которые управляют решениями Azure.
 
 Ниже приведены статьи, в которых показано использование службы автоматизации Azure, Resource Manager и PowerShell для эффективного выполнения задач управления.
 
@@ -256,5 +258,4 @@ Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -Re
 * Сведения о развертывании шаблонов см. в статье [Развертывание приложения с использованием шаблона Azure Resource Manager](resource-group-template-deploy.md).
 * Существующие ресурсы можно переместить в новую группу ресурсов. Примеры см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](resource-group-move-resources.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-
 

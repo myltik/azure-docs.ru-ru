@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/10/2017
 ms.author: nberdy
+ms.openlocfilehash: 3eafa32907c8f68cfc44cb2771d625349ff42003
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: b6de5c5df5f9401a41be152bfa06eb994594e83d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-operations-monitoring"></a>Мониторинг операций центра IoT
 
 Мониторинг операций центра IoT позволяет отслеживать состояние операций в центре IoT в режиме реального времени. Центр Интернета вещей отслеживает события по нескольким категориям операций. Вы можете выбрать отправку событий из одной или нескольких категорий в конечную точку Центра Интернета вещей для обработки. Вы можете отслеживать данные на наличие ошибок или настроить более сложную обработку на основе закономерностей в данных.
+
+>[!NOTE]
+>Функция мониторинга операций Центра Интернета вещей является нерекомендуемой и в будущем будет удалена из Центра Интернета вещей. Сведения о мониторинге операций и работоспособности Центра Интернета вещей см. в статье [Мониторинг работоспособности Центра Интернета вещей Azure и быстрая диагностика неполадок][lnk-monitor]. Дополнительные сведения о временной шкале удаления функции см. в статье [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health][lnk-blog-announcement] (Мониторинг решений Интернета вещей Azure с помощью служб Azure Monitor и "Работоспособность ресурсов Azure").
 
 Центр Интернета вещей отслеживает шесть категорий событий:
 
@@ -33,6 +35,9 @@ ms.lasthandoff: 08/28/2017
 * Подключения
 * Передача файлов
 * Маршрутизация сообщений
+
+> [!IMPORTANT]
+> Мониторинг операций Центра Интернета вещей не гарантирует надежную или упорядоченную доставку событий. В зависимости от базовой инфраструктуры Центра Интернета вещей некоторые события могут быть утеряны или доставлены в неправильном порядке. Используйте мониторинг операций для создания оповещений на основе сигналов об ошибках, таких как сбои при попытке подключения к устройствам или частое отключение устройств. Не следует полагаться на события мониторинга операций при создании согласованного хранилища состояний устройства, например хранилища, отслеживающего состояние подключения устройства. 
 
 ## <a name="how-to-enable-operations-monitoring"></a>Включение мониторинга операций
 
@@ -294,6 +299,8 @@ class Program
 [img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
 [img-service-key]: media/iot-hub-operations-monitoring/service-key.png
 
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-monitor]: iot-hub-monitor-resource-health.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md

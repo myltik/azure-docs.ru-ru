@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a7511a35a7b186fc424088e7ff5cbc933d325712
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 1d5a4c02209fb811f5dd33c26f9936a43372bc4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-disks-with-powershell"></a>Управление дисками Azure с помощью PowerShell
 
 Виртуальные машины Azure хранят операционную систему, приложения и данные на дисках. При создании виртуальной машины важно выбрать размер диска и конфигурацию в соответствии с ожидаемой рабочей нагрузкой. В этом руководстве рассматривается развертывание дисков виртуальных машин и управление ими. Здесь содержатся сведения о:
@@ -31,11 +29,13 @@ ms.lasthandoff: 05/10/2017
 > [!div class="checklist"]
 > * дисках ОС и временных дисках;
 > * Диски данных
-> * дисках уровня "Стандартный" и "Премиум";
-> * производительности дисков;
-> * присоединении и подготовке дисков данных.
+> * дисками уровня "Стандартный" и "Премиум";
+> * производительностью дисков;
+> * присоединением и подготовкой дисков данных;
 
-Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, см. статью [об установке и настройке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Если вы решили установить и использовать PowerShell локально, для работы с этим руководством вам понадобится модуль Azure PowerShell версии 3.6 или более поздней. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). Если модуль PowerShell запущен локально, необходимо также выполнить командлет `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
 
 ## <a name="default-azure-disks"></a>Диски Azure по умолчанию
 
@@ -87,11 +87,11 @@ ms.lasthandoff: 05/10/2017
 
 |Тип диска хранилища уровня "Премиум" | P10 | P20 | P30 |
 | --- | --- | --- | --- |
-| Размер диска (округленный в большую сторону) | 128 ГБ | 512 ГБ | 1024 ГБ (1 ТБ) |
+| Размер диска (округленный в большую сторону) | 128 ГБ | 512 ГБ | 1024 ГБ (1 ТБ) |
 | Количество операций ввода-вывода в секунду на диск | 500 | 2300 | 5 000 |
 Пропускная способность на диск | 100 МБ/с | 150 МБ/с | 200 МБ/с |
 
-Хотя в таблице выше указано максимальное число операций ввода-вывода в секунду на диск, можно обеспечить более высокий уровень производительности, применив чередование нескольких дисков данных. Например, к виртуальной машине Standard_GS5 можно подключить 64 диска данных. Если каждый из этих дисков относится к размеру P30, можно добиться производительности до 80 000 операций ввода-вывода в секунду. Дополнительные сведения о максимальных количествах операций ввода-вывода в секунду для виртуальных машин см. в разделе [Размеры виртуальных машин Linux](./sizes.md).
+Хотя в таблице выше указано максимальное число операций ввода-вывода в секунду на диск, можно обеспечить более высокий уровень производительности, применив чередование нескольких дисков данных. Например, к виртуальной машине Standard_GS5 можно подключить 64 диска данных. Если каждый из этих дисков относится к размеру P30, можно добиться производительности до 80 000 операций ввода-вывода в секунду. Дополнительные сведения о максимальных количествах операций ввода-вывода в секунду для виртуальных машин см. в статье [Размеры виртуальных машин Windows в Azure](./sizes.md).
 
 ## <a name="create-and-attach-disks"></a>Создание и подключение дисков
 
@@ -99,31 +99,31 @@ ms.lasthandoff: 05/10/2017
 
 Создайте начальную конфигурацию, выполнив команду [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). В следующем примере настраивается диск размером 128 ГБ.
 
-```powershell
+```azurepowershell-interactive
 $diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
 ```
 
 Создайте диск данных с помощью команды [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk).
 
-```powershell
+```azurepowershell-interactive
 $dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
 ```
 
 Получите виртуальную машину, в которую вы хотите добавить диск данных, выполнив команду [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm):
 
-```powershell
+```azurepowershell-interactive
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
 Добавьте диск данных в конфигурацию виртуальной машины с помощью команды [Add-AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk).
 
-```powershell
+```azurepowershell-interactive
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
 ```
 
 Обновите виртуальную машину с помощью команды [Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk).
 
-```powershell
+```azurepowershell-interactive
 Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 ```
 
@@ -135,7 +135,7 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 
 Создайте RDP-подключение к виртуальной машине. Откройте PowerShell и выполните этот сценарий.
 
-```powershell
+```azurepowershell-interactive
 Get-Disk | Where partitionstyle -eq 'raw' | `
 Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `
@@ -157,4 +157,3 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 > [!div class="nextstepaction"]
 > [Автоматизация настройки виртуальной машины](./tutorial-automate-vm-deployment.md)
-

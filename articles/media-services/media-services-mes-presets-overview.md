@@ -1,9 +1,9 @@
 ---
-title: "Предустановки задач для Media Encoder Standard | Документация Майкрософт"
-description: "Этот раздел содержит обзор предустановок задач MES (Media Encoder Standard)."
+title: "Предустановки задач для Media Encoder Standard | Документация Майкрософт"
+description: "Эта статья содержит обзор определенных службой примеров предустановок задач Media Encoder Standard (MES)."
 author: Juliako
-manager: cfowler
-editor: 
+manager: cfow
+editor: johndeu
 services: media-services
 documentationcenter: 
 ms.assetid: f243ed1c-ac9c-4300-a5f7-f092cf9853b9
@@ -12,29 +12,29 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/01/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: e9018ffa74c2895560adbd4c0d2b83ee67e9eb1c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/03/2017
-
+ms.openlocfilehash: 5753b1dffe5a1a4ee069b83f58e9c2dac433b89d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="sample-presets-for-media-encoder-standard-mes"></a>Предустановки задач для Media Encoder Standard (MES)
 
-# <a name="task-presets-for-mes-media-encoder-standard"></a>Предустановки задач для Media Encoder Standard
+**Media Encoder Standard** определяет набор определенных системой предустановок кодирования, которые можно использовать при создании заданий кодирования. Рекомендуется использовать предустановку для "адаптивной потоковой передачи" при кодировании видео для потоковой передачи с помощью служб мультимедиа. Если указать эту предустановку, то Media Encoder Standard [автоматически создаст таблицу скоростей и разрешений](media-services-autogen-bitrate-ladder-with-mes.md). 
 
-**Media Encoder Standard** определяет набор предустановок кодирования, которые можно использовать при создании заданий кодирования. Рекомендуется использовать предустановку для "адаптивной потоковой передачи" при кодировании видео для потоковой передачи с помощью служб мультимедиа. Если указать эту предустановку, то Media Encoder Standard [автоматически создаст таблицу скоростей и разрешений](media-services-autogen-bitrate-ladder-with-mes.md). 
-
-Однако, если вам необходимо изменить предустановку кодирования, то используйте одну из предустановок кодирования, заданных в этом разделе, в качестве шаблона для своей настраиваемой конфигурации. Описание каждого элемента в этих предустановках и его допустимых значений см. в разделе [Схема Media Encoder Standard](media-services-mes-schema.md).  
+### <a name="creating-custom-presets-from-samples"></a>Создание пользовательских предустановок из примеров
+Службы мультимедиа полностью поддерживают настройку всех значений в предустановках в соответствии с конкретными требованиями к кодированию. Если вам необходимо изменить предустановку кодирования, используйте одну из предустановок системы, приведенных в этом разделе, в качестве шаблона для своей настраиваемой конфигурации. Описание каждого элемента в этих предустановках и его допустимых значений см. в разделе [Схема Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  При использовании предустановки для кодирования видео в формате 4K необходимо получить зарезервированные единицы типа `S3`. Дополнительные сведения см. в статье [Масштабирование кодирования](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
-  
-При работе с Media Encoder Standard поворот включен по умолчанию. Если видео было записано на смартфон или другое мобильное устройство в книжной ориентации, то по умолчанию эти предустановки повернут изображение, сменив его ориентацию на альбомную, перед кодированием (в отличие от кодировщика мультимедиа Azure, в котором поворот видео нужно выполнять вручную, как описано в [этом](http://azure.microsoft.com/blog/2014/08/21/advanced-encoding-features-in-azure-media-encoder/) блоге, в разделе "Video Rotation" (Поворот видео)).  
-  
-Доступные предустановки:  
-  
+>  При использовании предустановки для кодирования видео в формате 4K необходимо получить зарезервированные единицы типа `S3`. Дополнительные сведения см. в статье [Масштабирование кодирования](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+
+#### <a name="video-rotation-default-setting-in-presets"></a>Настройка по умолчанию в предустановках: поворот видео
+При работе с Media Encoder Standard поворот видео включен по умолчанию. Если видео записано на мобильном устройстве в книжной ориентации, эти предустановки повернут его в альбомную ориентацию до кодирования.
+ 
+## <a name="available-presets"></a>Доступные предустановки: 
+
  [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md). Данная предустановка создает набор из 8 MP4-файлов с одинаковыми группами GOP, скоростями 400–6000 Кбит/с и звуком в формате AAC 5.1.  
   
  [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md). Данная предустановка создает набор из 8 MP4-файлов с одинаковыми группами GOP, скоростями 400–6000 Кбит/с и стереофоническим звуком в формате AAC.  
@@ -86,4 +86,3 @@ ms.lasthandoff: 03/03/2017
  [H264 Single Bitrate Low Quality SD для Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md). Данная предустановка создает отдельный MP4-файл со скоростью 56 Кбит/с и стереофоническим звуком в формате AAC.  
   
  Дополнительные сведения о кодировщиках служб мультимедиа см. в разделе [Обзор и сравнение кодировщиков мультимедиа Azure по запросу](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/).
-

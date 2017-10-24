@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: nickfloyd@newrelic.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f4f13c909a6ff640d403f5264004176c087925dd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="new-relic-application-performance-management-on-azure"></a>Инструмент управления производительностью приложений New Relic для Azure
 Воспользуйтесь инструментом мирового класса New Relic для мониторинга производительности своих приложений, размещенных на платформе Azure. Вместе с широкими возможностями мониторинга, поиска и устранения неисправностей, а также настройки приложений Azure вы получаете специальное предложение о покупке продуктов New Relic со скидкой с помощью Azure.
@@ -30,7 +29,7 @@ ms.lasthandoff: 11/17/2016
 New Relic отслеживает время загрузки и пропускную способность веб-транзакций как через сервер, так и через браузеры пользователей. Он позволяет увидеть, как долго вы пользуетесь базой данных, анализирует медленные запросы и веб-запросы, обеспечивает мониторинг бесперебойной работы и отображает соответствующие предупреждения, отслеживает исключения в приложениях, а также поддерживает множество других функций. 
 
 ## <a name="special-pricing"></a>Специальные цены
-New Relic Standard для пользователей Azure предлагается бесплатно. New Relic Pro предоставляется в зависимости от размера экземпляра для облачных служб Azure. Ознакомьтесь с информацией о ценах на [странице New Relic](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/) в магазине Azure Marketplace либо свяжитесь с сотрудником New Relic ((sales@newrelic.com)), чтобы получить специальное ценовое предложение для корпоративных клиентов.
+New Relic Standard для пользователей Azure предлагается бесплатно. New Relic Pro предоставляется в зависимости от размера экземпляра для облачных служб Azure. Ознакомьтесь с информацией о ценах на [странице New Relic](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/) в магазине Azure Marketplace либо свяжитесь с сотрудником New Relic (sales@newrelic.com), чтобы получить специальное ценовое предложение для корпоративных клиентов.
 
 Клиенты Azure получают пробную двухнедельную подписку на New Relic Pro при развертывании агента New Relic.
 
@@ -52,5 +51,4 @@ New Relic тесно интегрируется с веб-ролями и раб
 * [New Relic for the Microsoft Azure Cloud platform](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-cloud-services)
 * [New Relic for the Microsoft Azure App Services](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-portal)
 * [New Relic/Azure troubleshooting](https://docs.newrelic.com/docs/agents/net-agent/azure-troubleshooting)
-
 

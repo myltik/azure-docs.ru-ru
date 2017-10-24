@@ -1,6 +1,6 @@
 ---
-title: Replace a physical disk in Azure Stack | Microsoft Docs
-description: Outlines the process for how to replace a physical disk in Azure Stack.
+title: "Замена физического диска в Azure Stack | Документация Майкрософт"
+description: "Описание процесса замены физического диска в Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,66 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 26e5e9f8882cc764922a2cbf0f39e7a3d1b6995b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="replace-a-physical-disk-in-azure-stack"></a>Замена физического диска в Azure Stack
 
-# <a name="replace-a-physical-disk-in-azure-stack"></a>Replace a physical disk in Azure Stack
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+В этой статье описывается общий процесс замены физического диска в Azure Stack. Если физический диск выйдет из строя, его следует как можно скорее заменить.
 
-This article describes the general process to replace a physical disk in Azure Stack. If a physical disk fails, you should replace it as soon as possible.
+Эту процедуру можно использовать для интегрированных систем, а также для развертываний пакета SDK, содержащих диски с возможностью оперативной замены.
 
-You can use this procedure for integrated systems, and for development kit deployments that have hot-swappable disks.
+Фактические шаги по замене диска будут варьироваться в зависимости от поставщика изготовителя оборудования (OEM). Подробные инструкции, относящиеся к вашей системе, см. в документации поставщика по элементам, заменяемым в условиях эксплуатации (FRU). 
 
-Actual disk replacement steps will vary based on your original equipment manufacturer (OEM) hardware vendor. See your vendor’s field replaceable unit (FRU) documentation for detailed steps that are specific to your system. 
+## <a name="review-disk-alert-information"></a>Просмотр сведений оповещения о диске
+Когда диск выходит из строя, вы получаете оповещение о том, что соединение с физическим диском потеряно. 
 
-## <a name="review-disk-alert-information"></a>Review disk alert information
-When a disk fails, you receive an alert that tells you that connectivity has been lost to a physical disk. 
+ ![Оповещение, показывающее потерянное соединение с физическим диском](media/azure-stack-replace-disk/DiskAlert.png)
 
- ![Alert showing connectivity lost to physical disk](media/azure-stack-replace-disk/DiskAlert.png)
+Если открыть оповещение, в его описании будет содержаться узел единицы масштабирования и точное расположение физического слота диска, который необходимо заменить. Azure Stack дополнительно помогает идентифицировать неисправный диск, используя возможности светодиодного индикатора.
 
-If you open the alert, the alert description contains the scale unit node and the exact physical slot location for the disk that you must replace. Azure Stack further helps you to identify the failed disk by using LED indicator capabilities.
+ ## <a name="replace-the-disk"></a>Замена диска
 
- ## <a name="replace-the-disk"></a>Replace the disk
+Следуйте инструкциям по FRU вашего поставщика OEM для фактической замены диска.
 
-Follow your OEM hardware vendor’s FRU instructions for actual disk replacement.
+Чтобы предотвратить использование неподдерживаемого диска в интегрированной системе, система блокирует диски, которые не поддерживаются вашим поставщиком. Если вы пытаетесь использовать неподдерживаемый диск, новое предупреждение сообщит вам, что диск был помещен на карантин из-за неподдерживаемой модели или встроенного ПО.
 
-To prevent the use of an unsupported disk in an integrated system, the system blocks disks that are not supported by your vendor. If you try to use an unsupported disk, a new alert tells you that a disk has been quarantined because of an unsupported model or firmware.
-
-After you replace the disk, Azure Stack automatically discovers the new disk and starts the virtual disk repair process.  
+После замены диска Azure Stack автоматически обнаруживает новый диск и начинает процесс восстановления виртуального диска.  
  
- ## <a name="check-the-status-of-virtual-disk-repair"></a>Check the status of virtual disk repair
+ ## <a name="check-the-status-of-virtual-disk-repair"></a>Проверка состояния восстановления виртуального диска
  
- After you replace the disk, you can monitor the virtual disk health status and repair job progress by using the privileged endpoint. Follow these steps from any computer that has network connectivity to the privileged endpoint.
+ После замены диска можно отслеживать состояние работоспособности виртуального диска и ход выполнения задания восстановления с помощью привилегированной конечной точки. Выполните следующие шаги с любого компьютера с сетевым подключением к привилегированной конечной точке.
 
-1. Open a Windows PowerShell session and connect to the privileged endpoint.
+1. Откройте сеанс Windows PowerShell и подключитесь к привилегированной конечной точке.
     ````PowerShell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```` 
   
-2. Run the following command to view virtual disk health:
+2. Выполните следующую команду, чтобы просмотреть состояние работоспособности виртуального диска:
     ````PowerShell
         Get-VirtualDisk -CimSession s-cluster
     ````
-   ![Powershell output of Get-VirtualDisk command](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
+   ![Выходные данные команды PowerShell Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
-3. Run the following command to view current storage job status:
+3. Чтобы просмотреть текущее состояние задания хранилища, выполните следующую команду:
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ````
-      ![Powershell output of Get-StorageJob command](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+      ![Выходные данные команды PowerShell Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-## <a name="troubleshoot-virtual-disk-repair"></a>Troubleshoot virtual disk repair
+## <a name="troubleshoot-virtual-disk-repair"></a>Устранение неисправностей виртуального диска
 
-If the virtual disk repair job appears stuck, run the following command to restart the job:
+Если задание восстановления виртуального диска не отвечает, выполните следующую команду, чтобы перезапустить задание:
   ````PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```` 
-

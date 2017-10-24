@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
+ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 06fbf6019aa4a2ceab99a83efe072fc0b71bfbf4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>Установка службы управления моделями
 
@@ -122,7 +121,7 @@ az ml env set -n [environment name] -g [resource group]
 Чтобы развернуть веб-службу в рабочей среде, сначала настройте среду, используя следующую команду:
 
 ```azurecli
-az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
+az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
 Команда установки среды кластера создает следующие ресурсы в подписке:
@@ -143,6 +142,9 @@ az ml env set -n [environment name] -g [resource group]
 >[!NOTE] 
 > После создания среды для последующих развертываний необходимо использовать только приведенную выше команду set.
 >
+
+>[!NOTE] 
+>Чтобы создать конечную точку HTTPS, укажите SSL-сертификат при создании кластера с помощью параметров --cert-name и --cert-pem в команде az ml env setup. Это позволит настроить кластер для обслуживания HTTPS-запросов, защищенных с помощью указанного сертификата. После завершения настройки создайте запись DNS CNAME, которая указывает на полное доменное имя кластера.
 
 ### <a name="create-an-account"></a>Создание учетной записи
 Учетная запись необходима для развертывания моделей. Вам понадобится создать одну учетную запись, одну и ту же учетную запись можно использовать в нескольких развертываниях.
@@ -167,4 +169,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ### <a name="next-steps"></a>Дальнейшие действия
 Воспользуйтесь одним из многих примеров в коллекции.
-

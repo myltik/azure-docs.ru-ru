@@ -1,27 +1,27 @@
 ---
 title: "Изолирование приложений служебной шины Azure от простоев и аварий | Документация Майкрософт"
-description: "В этой статье описаны методы, которые можно использовать для защиты приложений от возможного простоя служебной шины."
+description: "Методы, которые можно использовать для защиты приложений от возможного простоя служебной шины."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 10/06/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: bc84dbe5c26a834b2cff5f71ba5f541e94ba0b38
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Рекомендации по изолированию приложений от простоев и аварий служебной шины
+
 Критически важные приложения должны работать постоянно, даже при возникновении незапланированных простоев или аварий. В этой статье описаны методы, которые можно использовать для защиты приложений служебной шины от возможного простоя службы или аварии.
 
 Простой определяется как временная недоступность служебной шины Azure. Простой может влиять на некоторые компоненты служебной шины, например на хранилище сообщений или даже на весь центр обработки данных. После устранения проблемы служебная шина снова становится доступной. Как правило, простой не приводит к утрате сообщений или других данных. Примером сбоя компонента является недоступность определенного хранилища сообщений. Примером простоя центра обработки данных является сбой питания центра обработки данных или неисправность сетевого коммутатора центра обработки данных. Простой может длиться от нескольких минут до нескольких дней.
@@ -50,8 +50,6 @@ ms.lasthandoff: 04/13/2017
 Георепликация конечных точек ретрансляции позволяет службе, предоставляющей конечную точку ретрансляции, оставаться доступной при простое служебной шины. Для достижения георепликации служба должна создать две конечные точки ретрансляции в разных пространствах имен. Пространства имен должны находиться в разных центрах обработки данных, а две конечные точки должны иметь разные имена. Например, первичная конечная точка может быть доступна как **contosoPrimary.servicebus.windows.net/myPrimaryService**, а ее вторичный аналог — как **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 Затем служба прослушивает обе конечные точки, и клиент может вызывать службу через любую из них. Клиентское приложение случайным образом выбирает один из ретрансляторов в качестве первичной конечной точки и отправляет свой запрос активной конечной точке. Если операция завершается ошибкой с кодом ошибки, это означает, что конечная точка ретрансляции недоступна. Приложение открывает канал к резервной конечной точке и снова отправляет запрос. В этот момент активная и резервная конечные точки меняются ролями: клиентское приложение считает старую активную конечную точку новой резервной конечной точкой, а старую резервную конечную точку — новой активной конечной точкой. Если обе операции завершаются неудачно, роли двух сущностей не изменяются и возвращается сообщение об ошибке.
-
-В примере [Георепликация с ретрансляцией сообщений служебной шины][Geo-replication with Service Bus relayed Messages] демонстрируется репликация ретрансляторов.
 
 ## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Защита очередей и разделов от простоев или аварий центра обработки данных
 Для обеспечения устойчивости к простоям центра обработки данных при обмене сообщениями через брокер служебная шина поддерживает два подхода: *активную* и *пассивную* репликацию. В каждом из этих подходов, если заданная очередь или раздел должны оставаться доступными при простое центра обработки данных, то эти очередь или раздел можно создать в обоих пространствах имен. Обе сущности могут иметь одно и то же имя. Например, первичная очередь может быть доступна как **contosoPrimary.servicebus.windows.net/myQueue**, а ее вторичный аналог — как **contosoSecondary.servicebus.windows.net/myQueue**.
@@ -93,10 +91,8 @@ ms.lasthandoff: 04/13/2017
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md
 [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
 [BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
 [BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
-[Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
+[Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
-

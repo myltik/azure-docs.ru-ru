@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
+ms.openlocfilehash: 371295efea1eab66361b9aba21a55bbd2826c69b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: fa7d9d3bef4cb326844ede76171e8c566e87116b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Развертывание приложения в масштабируемых наборах виртуальных машин
 
 В этой статье описываются различные способы установки программного обеспечения во время подготовки масштабируемого набора.
@@ -49,7 +47,7 @@ ms.lasthandoff: 08/21/2017
 
 Дополнительные сведения о дисках см. в статьях [Обзор управляемых дисков](../virtual-machines/windows/managed-disks-overview.md) и [Использование подключенных дисков данных](virtual-machine-scale-sets-attached-disks.md).
 
-## <a name="install-when-the-scale-set-is-provisioned"></a>Установка при подготовке масштабируемого набора
+## <a name="already-provisioned"></a>Установка при подготовке масштабируемого набора
 
 Расширения виртуальных машин можно применить к масштабируемому набору виртуальных машин. Используя расширение виртуальной машины, можно настроить виртуальные машины в масштабируемом наборе как целую группу. Дополнительные сведения о расширениях см. в статье, посвященной [расширениям виртуальных машин](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -228,5 +226,4 @@ az vmss create \
 [linux-vm-capture]: ../virtual-machines/linux/capture-image.md
 [windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
 [vmss-create]: virtual-machine-scale-sets-create.md
-
 

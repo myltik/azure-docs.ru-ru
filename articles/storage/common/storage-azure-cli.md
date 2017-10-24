@@ -14,12 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
+ms.openlocfilehash: 69c1d41a4c2dbddd20c0e603ef335f3030a484d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b1f192a935dbf234936690b0d36b6ce708d38b14
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Использование Azure CLI 2.0 со службой хранилища Azure
 
@@ -373,10 +372,146 @@ az storage file copy start \
 --destination-share share2 --destination-path dir2/file.txt     
 ```
 
+## <a name="create-share-snapshot"></a>Создание моментального снимка общей папки
+Вы можете создать моментальный снимок общей папки с помощью команды `az storage share snapshot`:
+
+```cli
+az storage share snapshot -n <share name>
+```
+
+Пример выходных данных
+```json
+{
+  "metadata": {},
+  "name": "<share name>",
+  "properties": {
+    "etag": "\"0x8D50B7F9A8D7F30\"",
+    "lastModified": "2017-10-04T23:28:22+00:00",
+    "quota": null
+  },
+  "snapshot": "2017-10-04T23:28:35.0000000Z"
+}
+```
+
+### <a name="list-share-napshots"></a>Вывод списка моментальных снимков общей папки
+
+Вы можете вывести список моментальных снимков определенной общей папки с помощью команды `az storage share list --include-snapshots`.
+
+```cli
+az storage share list --include-snapshots
+```
+
+**Пример выходных данных**
+```json
+[
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": "2017-10-04T19:44:13.0000000Z"
+  },
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": "2017-10-04T19:45:18.0000000Z"
+  },
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": null
+  }
+]
+```
+
+### <a name="browse-share-snapshots"></a>Просмотр снимков общей папки
+Вы также можете перейти к определенному моментальному снимку общей папки, чтобы просмотреть его содержимое. Для этого используйте команду `az storage file list`. Укажите имя общей папки `--share-name <snare name>` и метку времени `--snapshot '2017-10-04T19:45:18.0000000Z'`.
+
+```azurecli-interactive
+az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
+```
+
+**Пример выходных данных**
+```
+Name            Content Length    Type    Last Modified
+--------------  ----------------  ------  ---------------
+HelloWorldDir/                    dir
+IMG_0966.JPG    533568            file
+IMG_1105.JPG    717711            file
+IMG_1341.JPG    608459            file
+IMG_1405.JPG    652156            file
+IMG_1611.JPG    442671            file
+IMG_1634.JPG    1495999           file
+IMG_1635.JPG    974058            file
+
+```
+### <a name="restore-from-share-snapshots"></a>Восстановление из моментальных снимков общей папки
+
+Вы можете восстановить файл, скопировав или скачав его из моментального снимка общей папки с помощью команды `az storage file download`.
+
+```azurecli-interactive
+az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
+```
+**Пример выходных данных**
+```
+{
+  "content": null,
+  "metadata": {},
+  "name": "IMG_0966.JPG",
+  "properties": {
+    "contentLength": 533568,
+    "contentRange": "bytes 0-533567/533568",
+    "contentSettings": {
+      "cacheControl": null,
+      "contentDisposition": null,
+      "contentEncoding": null,
+      "contentLanguage": null,
+      "contentType": "application/octet-stream"
+    },
+    "copy": {
+      "completionTime": null,
+      "id": null,
+      "progress": null,
+      "source": null,
+      "status": null,
+      "statusDescription": null
+    },
+    "etag": "\"0x8D50B5F49F7ACDF\"",
+    "lastModified": "2017-10-04T19:37:03+00:00",
+    "serverEncrypted": true
+  }
+}
+```
+## <a name="delete-share-snapshot"></a>Удаление моментального снимка общей папки
+Чтобы удалить моментальный снимок общей папки, используйте команду `az storage share delete` и укажите для параметра `--snapshot` метку времени этого снимка.
+
+```cli
+az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
+```
+
+Пример выходных данных
+```json
+{
+  "deleted": true
+}
+```
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с Azure CLI 2.0 см. в следующих ресурсах:
 
 * [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Приступая к работе с Azure CLI 2.0)
 * [Azure CLI 2.0 command reference](/cli/azure) (Справочник по командам Azure CLI 2.0)
 * [Статья об Azure CLI 2.0 на сайте GitHub](https://github.com/Azure/azure-cli)
-

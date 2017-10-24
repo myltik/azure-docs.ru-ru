@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: df82afab2c38431e134146143524edc080ee38f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite
 В этом документе описывается функция "Анализ угроз", доступная в решении OMS "Безопасность и аудит", которая позволяет отслеживать оповещения системы безопасности и реагировать на них.
@@ -55,7 +54,7 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 * определить системы, безопасность которых была нарушена;
 * определить файлы, к которым был получен доступ и степень конфиденциальности этих файлов.
 
-Сведения, предоставленные функцией **Анализ угроз** в решении OMS "Безопасность и аудит", упрощают решение этих задач. Выполните следующие действия, чтобы перейти к элементам представления **Анализ угроз** .
+Сведения, предоставленные функцией **Анализ угроз** в решении OMS "Безопасность и аудит", упрощают решение этих задач. Выполните следующие действия, чтобы перейти к элементам представления **Анализ угроз**.
 
 1. На главной панели мониторинга **Microsoft Operations Management Suite** щелкните элемент **Безопасность и аудит**.
    
@@ -87,7 +86,7 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 ### <a name="responding-to-distinct-malicious-ip-accessed"></a>Реагирование на доступ к отдельным вредоносным IP-адресам
 В некоторых случаях можно заметить потенциально вредоносные IP-адреса, поступившие с одного отслеживаемого компьютера:
 
-![Карта анализа угроз](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+![Карта анализа угроз](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.PNG)
 
 Это и другие предупреждения одной категории создаются системой безопасности OMS с использованием [аналитики угроз корпорации Майкрософт](https://youtu.be/O4WtxgUrDc8). Данные аналитики угроз собираются корпорацией Майкрософт, а также приобретаются у ведущих поставщиков решений по аналитике угроз. Эти данные часто обновляются и адаптируются в соответствии с быстрым изменением угроз. При этом предупреждения системы безопасности следует [анализировать](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) вместе с данными из других источников, поставляющих сведения о безопасности. 
 
@@ -103,5 +102,4 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 * [Общие сведения об Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Приступая к работе с решением "Безопасность и аудит" Operations Management Suite](oms-security-getting-started.md)
 * [Мониторинг ресурсов в решении "Безопасность и аудит" Operations Management Suite](oms-security-monitoring-resources.md)
-
 

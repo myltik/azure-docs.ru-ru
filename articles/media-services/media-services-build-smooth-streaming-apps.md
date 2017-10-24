@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: e9cb2f03600d49123693fcc88742d6fc75d9de16
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: b4f8855fe6480bc58acfbbb53819f6eabe362bdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Создание приложения для магазина Windows с бесперебойной потоковой передачей
 
@@ -33,16 +32,19 @@ ms.lasthandoff: 05/12/2017
 4. Выбор дорожек для бесперебойной потоковой передачи
 
 ## <a name="prerequisites"></a>Предварительные требования
-* Windows 8 (32-разрядная или 64-разрядная). Можно получить [оценку Windows 8 Enterprise](http://msdn.microsoft.com/evalcenter/jj554510.aspx) из MSDN.
-* Visual Studio 2012 или Visual Studio Express 2012 (либо более поздней версии). Пробную версию можно получить [здесь](http://www.microsoft.com/visualstudio/11/downloads).
+> [!NOTE]
+> Проекты для Магазина Windows версии 8.1 и более ранней версии не поддерживаются в Visual Studio 2017.  Дополнительные сведения см. в статье [Целевая платформа и совместимость для Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+
+* Windows 8 (32-разрядная или 64-разрядная).
+* Visual Studio версий 2012–2015.
 * [Клиентский пакет SDK для бесперебойной потоковой передачи Microsoft для Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
 
 Готовое решение для каждого урока можно загрузить из раздела образцов кода для разработчиков MSDN (коллекция кодов): 
 
-* [Урок 1.](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming. 
-* [Урок 2.](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и элементом управления «Ползунок». 
-* [Урок 3.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором потока.  
-* [Урок 4.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) Проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором дорожки.
+* [Урок 1.](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) Простой мультимедиапроигрыватель для Windows 8 с потоковой передачей Smooth Streaming. 
+* [Урок 2.](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) Простой мультимедиапроигрыватель для Windows 8 с потоковой передачей Smooth Streaming и элементом управления «Ползунок». 
+* [Урок 3.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) Простой мультимедиапроигрыватель для Windows 8 с потоковой передачей Smooth Streaming и выбором потока.  
+* [Урок 4.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) Мультимедиапроигрыватель для Windows 8 с потоковой передачей Smooth Streaming и выбором дорожки.
 
 ## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Урок 1. Создание базового приложения для магазина с бесперебойной потоковой передачей
 
@@ -59,7 +61,7 @@ ms.lasthandoff: 05/12/2017
 
 **Создание проекта приложения Магазина Windows**
 
-1. Запустите Visual Studio 2012 или более поздней версии.
+1. Запустите Visual Studio. Поддерживаются Visual Studio версии 2012–2015.
 2. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
 3. В диалоговом окне "Новый проект" введите или выберите следующие значения:
 
@@ -975,5 +977,4 @@ ms.lasthandoff: 05/12/2017
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-
 

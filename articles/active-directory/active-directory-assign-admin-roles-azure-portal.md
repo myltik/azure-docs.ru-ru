@@ -12,25 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
+ms.openlocfilehash: 3cce18d7a5cb67a53a90bd7e13c9f4c7b8c2da89
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: bea45d6ad01c92cf05821da9da8069dd1f667d31
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Назначение ролей администратора в Azure Active Directory
-> [!div class="op_single_selector"]
-> * [Портал Azure](active-directory-assign-admin-roles-azure-portal.md)
-> * [классическом портале Azure](active-directory-assign-admin-roles.md)
->
->
 
-С помощью Azure Active Directory (Azure AD) можно назначить несколько администраторов, которые будут выполнять различные функции. У них будет доступ к различным возможностям на портале Azure (обновленном или классическом) и, в зависимости от их роли, они смогут создавать или изменять пользователей, назначать административные роли другим пользователям, сбрасывать пароли пользователей, управлять лицензиями и доменами. У пользователя, которому назначена роль администратора, будут одинаковые разрешения во всех облачных службах, на которые подписана ваша организация, независимо от того, назначена ли роль на портале Office 365, на классическом портале Azure или с помощью модуля Azure AD для Windows PowerShell.
+С помощью Azure Active Directory (Azure AD) можно назначить несколько администраторов, которые будут выполнять различные функции. У администраторов есть доступ к различным возможностям на портале Azure (обновленном или классическом) и, в зависимости от их роли, они могут создавать или изменять пользователей, назначать административные роли другим пользователям, сбрасывать пароли пользователей, управлять лицензиями и доменами. У пользователя, которому назначена роль администратора, будут одинаковые разрешения во всех облачных службах, на которые подписана ваша организация, независимо от того, назначена ли роль на портале Office 365, на классическом портале Azure или с помощью модуля Azure AD для Windows PowerShell.
 
 Доступны следующие роли администратора.
 
@@ -184,4 +178,3 @@ ms.lasthandoff: 09/09/2017
 * [Управление пользователями](active-directory-create-users.md)
 * [Управление паролями](active-directory-manage-passwords.md)
 * [Управление группами](active-directory-manage-groups.md)
-

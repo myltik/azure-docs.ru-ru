@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/05/2017
+ms.openlocfilehash: 4e18a413a0559b1ddebecf1b29722d21ef35c337
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5fa9926e2230b285a2598e5d43048d6591bd1b03
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>Настройка Azure Machine Learning Workbench для работы с IDE 
 
 Azure Machine Learning Workbench можно настроить для работы с популярными IDE (интегрированная среда разработки) Python. Это позволяет обеспечить беспрепятственную обработку и анализ данных в процессе подготовки данных, разработки кода, отслеживания запуска и эксплуатации. Сейчас поддерживаются следующие интегрированные среды разработки:
@@ -43,8 +41,7 @@ Azure Machine Learning Workbench можно настроить для работ
 * macOS — выберите путь к APP-файлу, например /Applications/PyCharm CE.app, а затем приложение добавит остаток пути. Полный путь к исполняемому файлу по умолчанию — `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`. Кроме того, PyCharm можно найти в папке bin, `/usr/local/bin/charm`.
 
 ## <a name="open-project-in-ide"></a>Открытие проекта в IDE 
-Завершив настройку, откройте проект службы "Машинное обучение Azure" в IDE, открыв меню **Файл** и выбрав **Открыть проект (<имя_IDE>)**.
-
+Завершив настройку, откройте проект службы "Машинное обучение Azure", открыв меню **Файл** в Azure Machine Learning Workbench и выбрав **Открыть проект (<имя_IDE>)**. Откроется текущий активный проект в настроенной среде IDE. _Примечание. Если проект не выбран, параметр **Открыть проект (<имя_IDE>)** будет отключен._
 
 ## <a name="configuring-the-integrated-terminal-in-visual-studio-code"></a>Настройка интегрированного терминала в Visual Studio Code
 
@@ -56,5 +53,4 @@ _Do you allow shell: `C:\windows\System32\cmd.exe` (defined as a workspace setti
 Выберите `yes`, чтобы позволить настроить среду для эффективной работы с интерфейсом командной строки Azure ML Workbench.
 
 ### <a name="mac"></a>Mac
-Для выполнения команды `az` с помощью встроенного терминала Visual Studio Code на компьютере Mac необходимо вручную задать для `PATH` то же значение, что и для `PATH` в файле `.vscode/settings.json` проекта.
-
+Для выполнения команды `az` с помощью встроенного терминала Visual Studio Code на компьютере Mac необходимо вручную задать для `PATH` то же значение, что и для `PATH` в разделе `terminal.integrated.env.osx` файла `.vscode/settings.json` проекта. Для этого выполните следующую команду в окне терминала: `PATH=<PATH in .vscode/settings>`.

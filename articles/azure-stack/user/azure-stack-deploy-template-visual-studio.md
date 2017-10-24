@@ -1,6 +1,6 @@
 ---
-title: Deploy templates with Visual Studio in Azure Stack | Microsoft Docs
-description: Learn how to deploy templates with Visual Studio in Azure Stack.
+title: "Развертывание шаблонов в Azure Stack с помощью Visual Studio | Документация Майкрософт"
+description: "Узнайте, как развертывать шаблоны в Azure Stack с помощью Visual Studio."
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -14,35 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8fc32dc50d96d202dfc982cbdc52d8e479c3a3eb
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Deploy templates in Azure Stack using Visual Studio
+# <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Развертывание шаблонов в Azure Stack с помощью Visual Studio
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
 
-Use Visual Studio to deploy Azure Resource Manager templates to the Azure Stack development kit.
+С помощью Visual Studio можно развертывать шаблоны Azure Resource Manager в пакет средств разработки Azure Stack.
 
-1. [Install and connect](azure-stack-install-visual-studio.md) to Azure Stack with Visual Studio.
-2. Open Visual Studio.
-3. Click **File**, click **New**, and in the **New Project** dialog box click **Azure Resource Group**.
-4. Enter a **Name** for the new project, and then click **OK**.
-5. In the **Select Azure Template** dialog box, change the *Show templates from this location* drop-down to **Azure Stack Quickstart**
-6. Click **101-create-storage-account**, and then click **OK**.  
-7. In your new project, you can see a list of the templates available by expanding the **Templates** node in the **Solution Explorer** pane.
-8. In the **Solution Explorer** pane, right-click the name of your project, click **Deploy**, then click **New Deployment**.
-9. In the **Deploy to Resource Group** dialog box, in the **Subscription** drop-down, select your Microsoft Azure Stack subscription.
-10. In the **Resource Group** list, choose an existing resource group or create a new one.
-11. In the **Resource group location** list, choose a location, and then click **Deploy**.
-12. In the **Edit Parameters** dialog box, enter values for the parameters (which vary by template), and then click **Save**.
+1. [Выполните установку и подключение](azure-stack-install-visual-studio.md) к Azure Stack с помощью Visual Studio.
+2. Откройте Visual Studio.
+3. Щелкните **Файл**, выберите **Создать** и в диалоговом окне **Новый проект** щелкните **Группа ресурсов Azure**.
+4. Введите **имя** нового проекта и нажмите кнопку **ОК**.
+5. В диалоговом окне **Выберите шаблон Azure** измените значение раскрывающегося списка *Показывать шаблоны из этого расположения* на **Azure Stack Quickstart** (Быстрый запуск Azure Stack).
+6. Выберите **101-create-storage-account**, а затем нажмите кнопку **ОК**.  
+7. Вы можете просмотреть список шаблонов, доступных в новом проекте, развернув узел **Шаблоны** в области **обозревателя решений**.
+8. В области **обозревателя решений** щелкните правой кнопкой мыши имя проекта, щелкните **Развернуть**, а затем щелкните **Новое развертывание**.
+9. В диалоговом окне **Развернуть в группе ресурсов** из раскрывающегося списка **Подписки** выберите свою подписку Microsoft Azure Stack.
+10. Выберите существующую группу ресурсов из раскрывающегося списка **Группа ресурсов** или создайте новую.
+11. Из списка **Расположение группы ресурсов** выберите расположение, затем нажмите кнопку **Развернуть**.
+12. В диалоговом окне **Изменить параметры** введите значения параметров (которые зависят от шаблона), а затем нажмите кнопку **Сохранить**.
 
-## <a name="next-steps"></a>Next steps
-[Deploy templates with the command line](azure-stack-deploy-template-command-line.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Развертывание шаблонов с помощью командной строки](azure-stack-deploy-template-command-line.md)
 
-[Develop templates for Azure Stack](azure-stack-develop-templates.md)
-
+[Разработка шаблонов для Azure Stack](azure-stack-develop-templates.md)
 

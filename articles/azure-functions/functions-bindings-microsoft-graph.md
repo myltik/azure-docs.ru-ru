@@ -11,14 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mahender
+ms.openlocfilehash: 8cf2e4e9e9007549dbdc931b4485c4230c536479
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0eb0ac63c7dbb9d6cbba093937231e93670529e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-microsoft-graph-bindings"></a>Привязки Microsoft Graph в решении "Функции Azure"
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
@@ -45,7 +43,11 @@ ms.lasthandoff: 09/25/2017
 
 ### <a name="enabling-functions-20-preview"></a>Включение выпуска 2.0 решения "Функции Azure" (предварительная версия)
 
-Расширения привязок доступны только для выпуска 2.0 решения "Функции Azure" (предварительная версия). Чтобы включить выпуск 2.0 решения "Функции Azure", задайте для параметра приложения `FUNCTIONS_EXTENSION_VERSION` значение beta.  Сведения о том, как настроить параметры приложения, см. в разделе о [параметрах приложения в решении "Функции Azure"](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings).
+Расширения привязок доступны только для выпуска 2.0 решения "Функции Azure" (предварительная версия). 
+
+[!INCLUDE [functions-set-runtime-version](../../includes/functions-set-runtime-version.md)]
+
+Дополнительные сведения см. в инструкциях по [нацеливанию версий среды выполнения службы "Функции Azure"](functions-versions.md).
 
 ### <a name="installing-the-extension"></a>Установка расширения
 
@@ -1060,4 +1062,3 @@ public class UserSubscription {
 
 [триггером HTTP]: functions-bindings-http-webhook.md
 [Работа с веб-перехватчиками в Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
-

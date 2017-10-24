@@ -15,13 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: c4053ded725ad7ab2acc6d5d54e8343ffb961408
-ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 15854aa0f2665f921f3435bc298737671f2e1a6f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Параллельное выполнение задач для эффективного использования вычислительных узлов пакетной службы 
 
@@ -37,7 +35,7 @@ ms.lasthandoff: 02/28/2017
 ## <a name="example-scenario"></a>Пример сценария
 Чтобы продемонстрировать преимущества параллельного выполнения задач, рассмотрим такой пример. Допустим, ваше приложение имеет такие требования к ЦП и памяти, что для его работы достаточно узла размера [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md). Однако для выполнения задачи в заданное время потребуется 1000 таких узлов.
 
-Вместо узлов размера Standard\_D1, каждый из которых содержит одно ядро ЦП, вы можете использовать 16-ядерные узлы [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md), включив на них параллельное выполнение задач. Таким образом, потребуется *в 16 раз меньше узлов* , то есть 63 узла вместо 1000. Кроме того, если каждому узлу требуются большие файлы приложений либо эталонные данные, время выполнения и эффективность будут улучшены, так как данные будут копироваться только на 16 узлов.
+Вместо узлов размера Standard\_D1, каждый из которых содержит одно ядро ЦП, вы можете использовать 16-ядерные узлы [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md), включив на них параллельное выполнение задач. Таким образом, потребуется *в 16 раз меньше узлов* , то есть 63 узла вместо 1000. Кроме того, если каждому узлу требуются большие файлы приложений либо эталонные данные, время выполнения и эффективность будут улучшены, так как данные будут копироваться только на 63 узла.
 
 ## <a name="enable-parallel-task-execution"></a>Включение параллельного выполнения задач
 Настройка параллельного выполнения задач для вычислительных узлов выполняется на уровне пула. С помощью библиотеки .NET пакетной службы задайте свойство [CloudPool.MaxTasksPerComputeNode][maxtasks_net] при создании пула. Если вы используете REST API пакетной службы, включите элемент [maxTasksPerNode][rest_addpool] в текст запроса при создании пула.
@@ -147,4 +145,3 @@ Duration: 00:08:48.2423500
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
-

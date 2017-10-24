@@ -12,20 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 10/05/2017
 ms.author: skwan
+ms.openlocfilehash: e42bbed0a9e37a6632b2a71d2b3546fcbc38cdc7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 17879d69b95186848a81e4ff4afdf8fc0d1a511e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-access-to-azure-resources-with-azure-active-directory"></a>Управление доступом к ресурсам Azure с помощью Azure Active Directory
 
-Управление удостоверениями и доступом в облачных ресурсах является критической функцией в любой организации, использующей облако.  Azure Active Directory (Azure AD) — это система идентификации и доступа в Microsoft Azure.  
+Управление удостоверениями и доступом в облачных ресурсах является критической функцией в любой организации, использующей облако. Azure Active Directory (Azure AD) — это система идентификации и доступа в Microsoft Azure.  
 
+Прежде чем приступить к изучению функциональных областей, поддерживаемых Azure AD, просмотрите видео Locking down access to the Azure Cloud using SSO, Roles Based Access Control, and Conditional (Блокирование доступа к облаку Azure с помощью единого входа, управления доступом на основе ролей и условного доступа). Из этого видео вы узнаете:
+
+- как настраивать единый вход на портал Azure с помощью локальной службы Active Directory;
+- как использовать Azure RBAC для детального управления доступом к ресурсам в подписке;
+- как применять правила строгой аутентификации, используя условный доступ Azure AD;
+- как использовать удостоверения управляемой службы, которые позволяют ресурсам Azure автоматически выполнять аутентификацию в службах Azure, а разработчикам — не использовать ключи API или секреты.
+
+> [!VIDEO https://www.youtube.com/embed/FKBoWWKRnvI]
+
+## <a name="feature-areas"></a>Функциональные области
 Azure AD предоставляет следующие возможности управления доступом к ресурсам Azure:
 
 |||

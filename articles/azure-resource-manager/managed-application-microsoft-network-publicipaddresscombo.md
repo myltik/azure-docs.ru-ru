@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 2eb773f5f0cf389fc39bc3a0f5fbf9ac726d1949
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: c6fb792852f24fd4bf4c634d1c29581e41e17793
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Элемент пользовательского интерфейса Microsoft.Network.PublicIpAddressCombo
 Группа элементов управления для выбора нового или имеющегося общедоступного IP-адреса. Этот элемент используется при [создании управляемого приложения Azure](managed-application-publishing.md).
@@ -84,11 +83,10 @@ ms.lasthandoff: 05/12/2017
   "newOrExistingOrNone": "new"
 }
 ```
-- При указании `options.hideNone` `newOrExistingOrNone` всегда возвращает значение **none**.
-- При указании `options.hideDomainNameLabel` `domainNameLabel` не объявляется.
+- Если для `options.hideNone` указать значение **true**, `newOrExistingOrNone` будет иметь только значения **new** или **existing**.
+- Если для `options.hideDomainNameLabel` указать значение **true**, `domainNameLabel` не объявляется.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Общие сведения об управляемых приложениях Azure см. в [этой статье](managed-application-overview.md).
 * Общие сведения о создании определений пользовательского интерфейса см. в статье [Начало работы с CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Дополнительные сведения об общих свойствах элементов пользовательского интерфейса см. в статье [Элементы CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

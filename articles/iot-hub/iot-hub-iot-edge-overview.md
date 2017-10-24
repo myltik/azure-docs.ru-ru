@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: ecdd56c91a8fc2011b3d7abe93b9d27c1e1e0bef
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/08/2017
-
+ms.openlocfilehash: 11f6375c319c8945b0278003ee08215715f7ac42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-edge-architectural-concepts"></a>Сведения об архитектуре Azure IoT Edge
 
@@ -52,7 +51,7 @@ IoT Edge состоит из следующих компонентов:
 
 Сообщения направляются в нужные модули IoT Edge двумя способами:
 
-* В брокер может передаваться набор ссылок, в котором для брокера указывается источник и приемник для каждого модуля.
+* В брокер можно передать набор ссылок, в котором для брокера указывается источник и приемник для каждого модуля.
 * Модуль может выполнять фильтрацию по свойствам сообщения.
 
 Модуль обрабатывает сообщение, только если оно предназначено для него. Фильтрация ссылок и сообщений создает конвейер сообщений.

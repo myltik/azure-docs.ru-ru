@@ -3,7 +3,7 @@ title: "Как использовать хранилище BLOB-объектов
 description: "Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
 services: storage
 documentationcenter: python
-author: tamram
+author: mmacy
 manager: timlt
 editor: tysonn
 ms.assetid: 0348e360-b24d-41fa-bb12-b8f18990d8bc
@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: tamram
+ms.openlocfilehash: ae5ad68929a6779ed4944de82a609321a5c4b5ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1cab8407be6fc8932b68e50d0c301e8ea37ea3ac
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-blob-storage-from-python"></a>Использование хранилища больших двоичных объектов Azure из Python
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -34,6 +33,26 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
+
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>Скачивание и установка пакета SDK службы хранилища Azure для Python
+
+Для установки пакета SDK службы хранилища Azure для Python потребуется Python 2.7, 3.3, 3.4, 3.5 или 3.6. Как правило, этот пакет бывает 4 видов: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` и `azure-storage-queue`. В этом руководстве мы будем использовать пакет `azure-storage-blob`.
+ 
+### <a name="install-via-pypi"></a>Установка с помощью PyPI
+
+Для установки с помощью индекса пакетов Python (PyPI) введите:
+
+```bash
+pip install azure-storage-blob
+```
+
+
+> [!NOTE]
+> Если вы обновляете пакет SDK службы хранилища Azure для Python с версии 0.36 или более ранней, сначала удалите эту версию с помощью команды `pip uninstall azure-storage`, так как этот пакет больше не выпускается отдельно.
+> 
+> 
+
+Другие методы установки см. в статье [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/) (Пакет SDK службы хранилища Microsoft Azure для Python) на сайте Github.
 
 ## <a name="create-a-container"></a>Создание контейнера
 В зависимости от требуемого типа BLOB-объекта создайте объект **BlockBlobService**, **AppendBlobService** или **PageBlobService**. В следующем коде используется объект **BlockBlobService** . Добавьте следующий код в начало любого файла Python, из которого планируется получать программный доступ к хранилищу блочных BLOB-объектов Azure.
@@ -76,7 +95,7 @@ block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.C
 
 Метод **create\_blob\_from\_path** передает содержимое файла из указанного расположения, а метод **create\_blob\_from\_stream** передает содержимое уже открытого файла или потока. Метод **create\_blob\_from\_bytes** передает массив байтов, а метод **create\_blob\_from\_text** передает заданное текстовое значение, используя указанную кодировку (по умолчанию — UTF-8).
 
-В следующем примере содержимое файла **sunset.png** передается в BLOB-объект **myblob**.
+В следующем примере содержимое файла **sunset.png** передается в большой двоичный объект **myblockblob**.
 
 ```python
 from azure.storage.blob import ContentSettings
@@ -100,7 +119,7 @@ for blob in generator:
 ## <a name="download-blobs"></a>Скачивание больших двоичных объектов
 Чтобы скачать данные из BLOB-объекта, используйте **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes** или **get\_blob\_to\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
 
-В примере ниже показано использование метода **get\_blob\_to\_path** для скачивания содержимого большого двоичного объекта **myblob** и его сохранения в файл **out-sunset.png**.
+В примере ниже показано использование метода **get\_blob\_to\_path** для скачивания содержимого большого двоичного объекта **myblockblob** и его сохранения в файл **out-sunset.png**.
 
 ```python
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
@@ -144,4 +163,3 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
-

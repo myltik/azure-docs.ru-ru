@@ -1,6 +1,6 @@
 ---
-title: Configure the Azure Stack operator's PowerShell environment | Microsoft Docs
-description: Learn how to Configure the Azure Stack operator's PowerShell environment.
+title: "Настройка среды PowerShell оператора Azure Stack | Документация Майкрософт"
+description: "Сведения о том, как настроить среду PowerShell оператора Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,32 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7e912dcbfd1c745df2a0fc8717a075c0476e8d60
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="configure-the-azure-stack-operators-powershell-environment"></a>Настройка среды PowerShell оператора Azure Stack
 
-# <a name="configure-the-azure-stack-operators-powershell-environment"></a>Configure the Azure Stack operator's PowerShell environment
+*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+Как оператор Azure Stack вы можете настроить среду PowerShell для работы с пакетом средств разработки Azure Stack. После настройки среду PowerShell можно использовать для управления ресурсами Azure Stack, например для создания предложений, планов и квот, управления оповещениями и т. д. Эта статья касается работы только с облачными средами оператора. Если нужно настроить PowerShell для пользовательской среды, см. статью [Настройка пользовательской среды PowerShell в Azure Stack](user/azure-stack-powershell-configure-user.md). 
 
-As an Azure Stack operator, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as creating offers, plans, quotas, managing alerts, etc. This topic is scoped to use with the cloud operator environments only, if you want to set up PowerShell for the user environment, refer to [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md) topic. 
+## <a name="prerequisites"></a>Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+Выполните следующие предварительные требования с помощью либо [пакета средств разработки](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), либо внешнего клиента на базе Windows (при [подключении через VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)). 
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn): 
+* Установите [совместимые с Azure Stack модули Azure PowerShell](azure-stack-powershell-install.md).  
+* Скачайте [средства, необходимые для работы с Azure Stack](azure-stack-powershell-download.md).  
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>Настройка среды оператора и вход в Azure Stack
 
-## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>Configure the operator environment and sign in to Azure Stack
+Выполните один из следующих скриптов в зависимости от типа развертывания (Azure AD или AD FS), чтобы настроить среду оператора Azure Stack для работы с PowerShell (обязательно замените значения AAD tenantName, конечной точки GraphAudience и ArmEndpoint в соответствии с конфигурацией своей среды):
 
-Based on the type of deployment (Azure AD or AD FS), run one of the following script to configure the Azure Stack operator environment with PowerShell (Make sure to replace the AAD tenantName, GraphAudience endpoint and ArmEndpoint values as per your environment configuration):
-
-### <a name="azure-active-directory-aad-based-deployments"></a>Azure Active Directory (AAD) based deployments
+### <a name="azure-active-directory-aad-based-deployments"></a>Развертывания на базе Azure Active Directory (AAD)
        
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
@@ -73,7 +71,7 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
   ```
 
-### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Active Directory Federation Services (AD FS) based deployments
+### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Развертывания на базе служб федерации Active Directory (AD FS)
          
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
@@ -108,14 +106,14 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
   ```
 
-## <a name="test-the-connectivity"></a>Test the connectivity
+## <a name="test-the-connectivity"></a>Проверка подключения
 
-Now that we've got everything set up, let's use PowerShell to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
+Теперь, когда все настроено, вы можете создавать ресурсы в Azure Stack с помощью Azure PowerShell. Например, можно создать группу ресурсов для приложения и добавить виртуальную машину. Используйте следующую команду, чтобы создать группу ресурсов с именем MyResourceGroup.
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>Next steps
-* [Develop templates for Azure Stack](user/azure-stack-develop-templates.md)
-* [Deploy templates with PowerShell](user/azure-stack-deploy-template-powershell.md)
+## <a name="next-steps"></a>Дальнейшие действия
+* [Разработка шаблонов для Azure Stack](user/azure-stack-develop-templates.md)
+* [Развертывание шаблонов с помощью PowerShell](user/azure-stack-deploy-template-powershell.md)

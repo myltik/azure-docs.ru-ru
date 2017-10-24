@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
+ms.openlocfilehash: b6e1a305e19415ab1c4b4c208dac98ad1e2689c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4f3ec837588c6e959e82108ca25ab4289e40d3f5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a>Добавление сертификата в хранилище сертификатов ЦС Java
 Ниже показано, как добавить сертификат центра сертификации (ЦС) в хранилище сертификатов (cacerts) центра сертификации Java. Приведен пример использования сертификата ЦС, требуемого службой Twilio. Ниже в этой статье описана установка сертификата ЦС для шины обслуживания Azure. 
@@ -27,7 +26,7 @@ ms.lasthandoff: 08/21/2017
 Чтобы добавить сертификат ЦС перед сжатием JDK и добавлением его в папку **approot** проекта Azure, можно использовать keytool или выполнить задачу запуска Azure, которая использует keytool для добавления сертификата. В этом примере предполагается, что сертификат ЦС будет добавлен перед сжатием JDK. Также в примере будет использоваться конкретный сертификат ЦС, но действия, необходимые для получения различных сертификатов центра сертификации и их импорта в хранилище cacerts, будут такими же.
 
 ## <a name="to-add-a-certificate-to-the-cacerts-store"></a>Добавление сертификата в хранилище cacerts
-1. В командной строке для папки JDK **jdk\jre\lib\security** выполните следующий код, чтобы узнать, какие сертификаты установлены:
+1. В командной строке администратора для папки JDK **jdk\jre\lib\security** выполните следующий код, чтобы узнать, какие сертификаты установлены:
    
     `keytool -list -keystore cacerts`
    
@@ -56,5 +55,4 @@ ms.lasthandoff: 08/21/2017
 Дополнительные сведения об используемых в Azure корневых сертификатах см. в записи блога [Azure Root Certificate Migration](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx) (Перенос корневых сертификатов Azure).
 
 Дополнительные сведения о Java см. в разделе [Azure for Java developers](/java/azure) (Azure для разработчиков Java).
-
 

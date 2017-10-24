@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: 6eb58b31f20f239d310415d44f61e7455918dae9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: c3a2eb3e6e54f952ef963bb2a0292d9ad7b53bc5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Управление приложением Azure Service Fabric с помощью интерфейса командной строки Azure Service Fabric
 
@@ -31,14 +30,14 @@ ms.lasthandoff: 08/24/2017
 
 1. Отправьте пакет приложения в хранилище образов Service Fabric.
 2. Подготовьте тип приложения.
-3. Укажите приложение и создайте его.
-4. Укажите службы и создайте их.
+3. Удалите содержимое из хранилища образов.
+4. Укажите приложение и создайте его.
+5. Укажите службы и создайте их.
 
 Чтобы удалить существующее приложение, выполните следующие действия.
 
 1. Удалите приложение.
 2. Отмените подготовку связанного типа приложения.
-3. Удалите содержимое из хранилища образов.
 
 ## <a name="deploy-a-new-application"></a>Развертывание нового приложения
 
@@ -65,6 +64,18 @@ sfctl application provision --application-type-build-path app_package_dir
 ```
 
 Параметр `application-type-build-path` должен совпадать с именем каталога, содержащего пакет приложения, который был отправлен ранее.
+
+### <a name="delete-the-application-package"></a>Удаление пакета приложения
+
+Рекомендуется удалить пакет приложения после успешной регистрации приложения.  Удаление пакетов приложений из хранилища образов освобождает системные ресурсы.  Если хранить неиспользуемые пакеты, они занимают место на диске и создают проблемы производительности приложения. 
+
+Чтобы удалить пакет приложения из хранилища образов, выполните следующую команду:
+
+```azurecli
+sfctl store delete --content-path app_package_dir
+```
+
+Параметр `content-path` должен совпадать с именем каталога, загруженного при создании приложения.
 
 ### <a name="create-an-application-from-an-application-type"></a>Создание приложения из типа приложения
 
@@ -127,18 +138,6 @@ sfctl application unprovision --application-type-name TestAppTye --application-t
 
 Имя и версия типа должны соответствовать имени и версии в манифесте приложения, который был подготовлен ранее.
 
-### <a name="delete-the-application-package"></a>Удаление пакета приложения
-
-После того как подготовка типа приложения была отменена, пакет приложения можно удалить из хранилища образов (если он больше не требуется). Удалите пакеты приложения, чтобы освободить место на диске. 
-
-Чтобы удалить пакет приложения из хранилища образов, выполните следующую команду:
-
-```azurecli
-sfctl store delete --content-path app_package_dir
-```
-
-Параметр `content-path` должен совпадать с именем каталога, загруженного при создании приложения.
-
 ## <a name="upgrade-application"></a>Обновление приложения
 
 После создания приложения можно повторить тот же набор шагов, чтобы подготовить вторую версию приложения. Затем с помощью функции обновления приложения Service Fabric можно перейти к использованию второй версии приложения. Дополнительные сведения см. в документации по [обновлению приложения Service Fabric](service-fabric-application-upgrade.md).
@@ -148,6 +147,7 @@ sfctl store delete --content-path app_package_dir
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
+sfctl store delete --content-path app_package_dir_2
 ```
 
 Затем рекомендуется выполнить отслеживаемое автоматическое обновление. Запустите обновление, выполнив следующую команду.
@@ -169,4 +169,3 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 * [Azure Service Fabric command line](service-fabric-cli.md) (Командная строка Azure Service Fabric)
 * [Подготовка среды разработки в Linux](service-fabric-get-started-linux.md)
 * [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
-

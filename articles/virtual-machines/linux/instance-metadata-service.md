@@ -1,9 +1,9 @@
 ---
-title: "Служба метаданных экземпляров Azure для виртуальных машин Linux | Документация Майкрософт"
+title: "Служба метаданных экземпляров Azure | Документация Майкрософт"
 description: "Использование интерфейса RESTful для получения сведений о вычислительных ресурсах виртуальной машины Linux, сети и ближайших мероприятиях обслуживания."
 services: virtual-machines-linux
 documentationcenter: 
-author: harijay
+author: harijayms
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/11/2017
-ms.author: harijay
+ms.date: 10/10/2017
+ms.author: harijayms
+ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: a61acbe0532ece3a6a26ceb366c12c69db4c304c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
-
-# <a name="azure-instance-metadata-service-for-linux-vms"></a>Служба метаданных экземпляров Azure для виртуальных машин Linux
+# <a name="azure-instance-metadata-service"></a>Служба метаданных экземпляров Azure
 
 
 Служба метаданных экземпляров Azure предоставляет сведения о выполнении экземпляров виртуальных машин, которые можно использовать для настройки виртуальных машин и управления ими.
@@ -31,31 +29,31 @@ ms.lasthandoff: 08/16/2017
 Служба метаданных экземпляров Azure — это конечная точка REST, доступная для всех виртуальных машин IaaS, созданных с помощью нового [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Конечная точка доступна по известному IP-адресу без поддержки маршрутизации (`169.254.169.254`), к которому можно получить доступ только в пределах виртуальной машины.
 
 > [!IMPORTANT]
-> Эта служба является **общедоступной** в глобальных регионах Azure. Она находится в общедоступной предварительной версии для государственных организаций, облачной службы Azure для Китая и Германии. Она регулярно получает обновления, чтобы предоставлять новые сведения об экземплярах виртуальной машины. На этой странице представлены актуальные сведения о доступных [категориях данных](#instance-metadata-data-categories).
+> Эта служба является **общедоступной** во всех регионах Azure.  Она регулярно получает обновления, чтобы предоставлять новые сведения об экземплярах виртуальной машины. На этой странице представлены актуальные сведения о доступных [категориях данных](#instance-metadata-data-categories).
 
 ## <a name="service-availability"></a>Доступность службы
-Служба доступна во всех общедоступных глобальных регионах Azure. Служба находится в общедоступной предварительной версии в регионах государственных организаций, Китая и Германии.
+Служба доступна во всех общедоступных регионах Azure. Не все версии API-интерфейса могут быть доступны во всех регионах Azure.
 
-регионы                                        | Доступность?
------------------------------------------------|-----------------------------------------------
-[Все общедоступные глобальные регионы Azure](https://azure.microsoft.com/regions/)     | Общедоступная версия 
-[Azure для государственных организаций](https://azure.microsoft.com/overview/clouds/government/)              | В предварительной версии 
-[Azure для Китая](https://www.azure.cn/)                                                           | В предварительной версии
-[Azure для Германии](https://azure.microsoft.com/overview/clouds/germany/)                    | В предварительной версии
+регионы                                        | Доступность?                                 | Поддерживаемые версии
+-----------------------------------------------|-----------------------------------------------|-----------------
+[Все общедоступные глобальные регионы Azure](https://azure.microsoft.com/regions/)     | Общедоступная версия   | 2017-04-02, 2017-08-01
+[Azure для государственных организаций](https://azure.microsoft.com/overview/clouds/government/)              | Общедоступная версия | 2017-04-02
+[Azure для Китая](https://www.azure.cn/)                                                           | Общедоступная версия | 2017-04-02
+[Azure для Германии](https://azure.microsoft.com/overview/clouds/germany/)                    | Общедоступная версия | 2017-04-02
 
-Эта таблица обновляется, когда служба становится доступной в других облачных службах Azure.
+Эта таблица обновляется при наличии обновлений службы, или когда доступны новые поддерживаемые версии.
 
 Чтобы проверить службу метаданных экземпляров, создайте виртуальную машину в [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) или на [портале Azure](http://portal.azure.com) в приведенных выше регионах согласно примерам ниже.
 
 ## <a name="usage"></a>Использование
 
 ### <a name="versioning"></a>Управление версиями
-Для службы метаданных экземпляров включено управление версиями. Версии являются обязательными. На данный момент используется версия от `2017-04-02`.
+Для службы метаданных экземпляров включено управление версиями. Версии являются обязательными. На данный момент используется версия Global Azure `2017-08-01`. Текущими поддерживаемыми версиями являются 2017-04-02 и 2017-08-01.
 
 > [!NOTE] 
 > В предыдущих выпусках предварительной версии в качестве api-version поддерживалось значение {latest}. Этот формат больше не поддерживается и в дальнейшем будет считаться устаревшим.
 
-Так как мы добавляем новые версии, вы все еще можете получить доступ к предыдущим версиям для обеспечения совместимости, если используемый скрипт зависит от конкретных форматов данных. Тем не менее обратите внимание, что текущая предварительная версия (от 01.03.2017) может быть недоступна после выпуска общедоступной службы.
+Так как мы добавляем новые версии, вы все еще можете получить доступ к предыдущим версиям для обеспечения совместимости, если используемый скрипт зависит от конкретных форматов данных. Тем не менее обратите внимание, что предыдущая предварительная версия (2017-03-01) может быть недоступна после выпуска общедоступной службы.
 
 ### <a name="using-headers"></a>Использование заголовков
 При запросе службы метаданных экземпляров необходимо указать заголовок `Metadata: true`, чтобы избежать случайного перенаправления запроса.
@@ -112,7 +110,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 **Запрос**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
 **Ответ**
@@ -159,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Запрос**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 **Ответ**
@@ -170,17 +168,21 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```
 {
   "compute": {
-    "location": "westcentralus",
-    "name": "IMDSSample",
+    "location": "westus",
+    "name": "avset2",
     "offer": "UbuntuServer",
     "osType": "Linux",
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
+    "placementGroupId": "",
+    "platformFaultDomain": "1",
+    "platformUpdateDomain": "1",
     "publisher": "Canonical",
-    "sku": "16.04.0-LTS",
-    "version": "16.04.201610200",
-    "vmId": "5d33a910-a7a0-4443-9f01-6a807801b29b",
-    "vmSize": "Standard_A1"
+    "resourceGroupName": "myrg",
+    "sku": "16.04-LTS",
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "",
+    "version": "16.04.201708030",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmSize": "Standard_D1"
   },
   "network": {
     "interface": [
@@ -188,13 +190,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
         "ipv4": {
           "ipAddress": [
             {
-              "privateIpAddress": "10.1.0.4",
+              "privateIpAddress": "10.1.2.5",
               "publicIpAddress": "X.X.X.X"
             }
           ],
           "subnet": [
             {
-              "address": "10.1.0.0",
+              "address": "10.1.2.0",
               "prefix": "24"
             }
           ]
@@ -202,7 +204,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
         "ipv6": {
           "ipAddress": []
         },
-        "macAddress": "000D3AF806EC"
+        "macAddress": "000D3A36DDED"
       }
     ]
   }
@@ -277,26 +279,30 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>Категории данных метаданных экземпляров
 Следующие категории данных доступны через службу метаданных экземпляров.
 
-Данные | Описание
------|------------
-location | Регион Azure, в котором запущена виртуальная машина
-name | Имя виртуальной машины. 
-offer | Предоставляют сведения об образе виртуальной машины. Это значение доступно только для образов, развернутых из коллекции образов Azure.
-publisher | Издатель образа виртуальной машины
-sku | Определенный номер SKU для образа виртуальной машины  
-версия | Версия образа виртуальной машины 
-osType | Linux или Windows 
-platformUpdateDomain |  [Домен обновления](manage-availability.md), на котором запущена виртуальная машина
-platformFaultDomain | [Домен сбоя](manage-availability.md), на котором запущена виртуальная машина
-vmId | [Уникальный идентификатор](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) для виртуальной машины
-vmSize | [Размер виртуальной машины](sizes.md)
-ipv4/privateIpAddress | Локальный IPv4-адрес виртуальной машины 
-ipv4/publicIpAddress | Общедоступный IPv4-адрес виртуальной машины
-subnet/address | Адрес подсети виртуальной машины
-subnet/prefix | Префикс подсети, пример 24
-ipv6/ipAddress | Локальный IPv6-адрес виртуальной машины
-macAddress | Mac-адрес виртуальной машины 
-scheduledevents | Сейчас в общедоступной предварительной версии. Дополнительные сведения см. в статье [Служба метаданных Azure. Запланированные события (предварительная версия)](scheduled-events.md).
+Данные | Описание | Представленные версии 
+-----|-------------|-----------------------
+location | Регион Azure, в котором запущена виртуальная машина | 2017-04-02 
+name | Имя виртуальной машины. | 2017-04-02
+offer | Предоставляют сведения об образе виртуальной машины. Это значение доступно только для образов, развернутых из коллекции образов Azure. | 2017-04-02
+publisher | Издатель образа виртуальной машины | 2017-04-02
+sku | Определенный номер SKU для образа виртуальной машины | 2017-04-02
+версия | Версия образа виртуальной машины | 2017-04-02
+osType | Linux или Windows | 2017-04-02
+platformUpdateDomain |  [Домен обновления](manage-availability.md), на котором запущена виртуальная машина | 2017-04-02
+platformFaultDomain | [Домен сбоя](manage-availability.md), на котором запущена виртуальная машина | 2017-04-02
+vmId | [Уникальный идентификатор](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) для виртуальной машины | 2017-04-02
+vmSize | [Размер виртуальной машины](sizes.md) | 2017-04-02
+subscriptionId | Подписка Azure для виртуальной машины | 2017-08-01
+tags | [Теги](../../azure-resource-manager/resource-group-using-tags.md) для виртуальной машины  | 2017-08-01
+имя_группы_ресурсов | [Группа ресурсов](../../azure-resource-manager/resource-group-overview.md) для виртуальной машины | 2017-08-01
+placementGroupId | [Группа размещения](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) масштабируемого набора виртуальных машин | 2017-08-01
+ipv4/privateIpAddress | Локальный IPv4-адрес виртуальной машины | 2017-04-02
+ipv4/publicIpAddress | Общедоступный IPv4-адрес виртуальной машины | 2017-04-02
+subnet/address | Адрес подсети виртуальной машины | 2017-04-02 
+subnet/prefix | Префикс подсети, пример 24 | 2017-04-02 
+ipv6/ipAddress | Локальный IPv6-адрес виртуальной машины | 2017-04-02 
+macAddress | Mac-адрес виртуальной машины | 2017-04-02 
+scheduledevents | Сейчас в общедоступной предварительной версии. Дополнительные сведения см. в статье [Служба метаданных Azure. Запланированные события (предварительная версия)](scheduled-events.md). | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Примеры сценариев использования  
 
@@ -371,8 +377,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Язык | Пример 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Перейдите в локальную сеть   | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
-python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
@@ -387,13 +393,15 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
    * Сейчас служба метаданных экземпляров поддерживает только экземпляры, созданные с помощью Azure Resource Manager. В будущем мы добавим поддержку виртуальных машин облачной службы.
 3. Виртуальная машина была недавно создана с помощью Azure Resource Manager. Почему не отображаются сведения о метаданных вычислений?
    * Чтобы отобразить метаданные вычислений для любой виртуальной машины, созданной после сентября 2016 года, необходимо добавить [тег](../../azure-resource-manager/resource-group-using-tags.md). Для обновления метаданных более старых виртуальных машин (созданных до сентября 2016 г.) удалите расширения или диски данных или добавьте их к виртуальной машине.
-4. Почему я получаю ошибку `500 Internal Server Error`?
+4. Отображаются не все данные новой версии 2017-08-01
+   * Чтобы отобразить метаданные вычислений для любой виртуальной машины, созданной после сентября 2016 года, необходимо добавить [тег](../../azure-resource-manager/resource-group-using-tags.md). Для обновления метаданных более старых виртуальных машин (созданных до сентября 2016 г.) удалите расширения или диски данных или добавьте их к виртуальной машине.
+5. Почему я получаю ошибку `500 Internal Server Error`?
    * Повторите запрос в зависимости от экспоненциальной системы. Если проблема не исчезла, обратитесь в службу поддержки Azure.
-5. Где можно задать дополнительные вопросы или оставить комментарии?
+6. Где можно задать дополнительные вопросы или оставить комментарии?
    * Оставьте комментарии на сайте http://feedback.azure.com.
 7. Будет ли это работать для экземпляра масштабируемого набора виртуальных машин?
    * Да, служба метаданных доступна для экземпляров масштабируемого набора. 
-6. Как можно получить поддержку для службы?
+8. Как можно получить поддержку для службы?
    * Чтобы получить поддержку для службы, зарегистрируйте проблему на портале Azure для виртуальной машины, в которой вы не можете получить ответ метаданных после нескольких долгих попыток 
 
    ![Поддержка метаданных экземпляров](./media/instance-metadata-service/InstanceMetadata-support.png)
@@ -401,4 +409,3 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Узнайте больше об API [запланированных событий](scheduled-events.md) **в общедоступной предварительной версии**, предоставляемом службой метаданных экземпляров.
-

@@ -12,29 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 10/06/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: fdf22ff85a3a76be5de50632c4948df44c2312df
-ms.openlocfilehash: b8731e1fe48b7d809b113eb5273e3962542b8f34
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: d6d65480c53f905b393409dfdd9952618ab6cb64
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Добавление действий в правила оповещений в Log Analytics
 При [создании оповещения в Log Analytics](log-analytics-alerts.md) можно [настроить правила оповещений](log-analytics-alerts.md) для выполнения одного или нескольких действий.  В этой статье описываются различные доступные действия и сведения о том, как их настроить.
 
 | Действие | Описание |
 |:--|:--|
-| [Электронная почта](#email-actions) |    Отправка сообщения электронной почты с описанием оповещения одному или нескольким получателям. |
+| [Электронная почта](#email-actions) | Отправка сообщения электронной почты с описанием оповещения одному или нескольким получателям. |
 | [webhook](#webhook-actions) | Вызов внешнего процесса с помощью одного запроса HTTP POST. |
 | [Runbook](#runbook-actions) | Запуск модуля Runbook в службе автоматизации Azure. |
 
 
 ## <a name="email-actions"></a>Действия электронной почты
-Действия электронной почты отправляют сообщение электронной почты с описанием оповещения одному или несколькими получателям.  Вы можете указать тему сообщения, но его содержимое имеет стандартный формат, определяемый службой Log Analytics.  Оно содержит сводные данные, такие как имя оповещения, а также описание до&10; записей, возвращенных в результате поиска журналов.  Он также включает ссылку на поиск журналов в Log Analytics, которая возвращает полный набор записей на основе этого запроса.   Отправителем сообщения является *группа разработчиков Microsoft Operations Management Suite&lt;noreply@oms.microsoft.com&gt;*. 
+Действия электронной почты отправляют сообщение электронной почты с описанием оповещения одному или несколькими получателям.  Вы можете указать тему сообщения, но его содержимое имеет стандартный формат, определяемый службой Log Analytics.  Оно содержит сводные данные, такие как имя оповещения, а также описание до 10 записей, возвращенных в результате поиска журналов.  Он также включает ссылку на поиск журналов в Log Analytics, которая возвращает полный набор записей на основе этого запроса.   Отправителем сообщения является *группа разработчиков Microsoft Operations Management Suite&lt;noreply@oms.microsoft.com&gt;*. 
 
 Для выполнения действий электронной почты требуются свойства, приведенные в таблице ниже.
 
@@ -58,19 +56,22 @@ ms.lasthandoff: 03/01/2017
 
 Действия webhook включают URL-адрес и полезные данные в формате JSON, которые являются данными, отправляемыми во внешнюю службу.  По умолчанию полезные данные включают в себя значения из приведенной ниже таблицы.  Такие полезные данные можно заменить на собственные.  В этом случае можно использовать переменные из таблицы для каждого параметра, чтобы включить их значение в пользовательские полезные данные.
 
+>[!NOTE]
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), полезные данные веб-перехватчика будут работать по-другому.  Подробные сведения о формате см. в документации [API REST Log Analytics Azure](https://aka.ms/loganalyticsapiresponse).  Пример см. в разделе [Пример полезной нагрузки](#sample-payload) ниже.
+
 | Параметр | Переменная | Описание |
 |:--- |:--- |:--- |
-| AlertRuleName |#AlertRuleName |Имя правила генерации оповещений. |
+| AlertRuleName |#alertrulename |Имя правила генерации оповещений. |
 | AlertThresholdOperator |#thresholdoperator |Оператор порога для правила генерации оповещений.  *Больше* или *Меньше*. |
 | AlertThresholdValue |#thresholdvalue |Значение порога для правила генерации оповещений. |
-| LinkToSearchResults |#LinkToSearchResults |Ссылки на поиск журналов Log Analytics, возвращающая записи из запроса, создавшего оповещение. |
+| LinkToSearchResults |#linktosearchresults |Ссылки на поиск журналов Log Analytics, возвращающая записи из запроса, создавшего оповещение. |
 | ResultCount |#searchresultcount |Число записей в результатах поиска. |
-| SearchIntervalEndtimeUtc |#SearchIntervalEndtimeUtc |Время окончания для запроса в формате UTC. |
+| SearchIntervalEndtimeUtc |#searchintervalendtimeutc |Время окончания для запроса в формате UTC. |
 | SearchIntervalInSeconds |#searchinterval |Временное окно для правила генерации оповещений. |
-| SearchIntervalStartTimeUtc |#SearchIntervalStartTimeUtc |Время начала для запроса в формате UTC. |
-| SearchQuery |#SearchQuery |Запрос поиска журналов, используемый правилом генерации оповещений. |
+| SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Время начала для запроса в формате UTC. |
+| SearchQuery |#searchquery |Запрос поиска журналов, используемый правилом генерации оповещений. |
 | SearchResults |См. ниже |Записи, возвращенные запросом в формате JSON.  Только первые 5000 записей. |
-| WorkspaceID |#WorkspaceID |Идентификатор рабочей области OMS |
+| WorkspaceID |#workspaceid |Идентификатор рабочей области OMS |
 
 Например, можно указать следующие пользовательские полезные данные, содержащие один параметр — *text*.  Служба, вызываемая этим действием webhook, будет ожидать этот параметр.
 
@@ -98,6 +99,7 @@ ms.lasthandoff: 03/01/2017
 
 С полным примером создания правила генерации оповещений с помощью webhook для запуска внешней службы можно ознакомиться в статье [Действия webhook в оповещениях Log Analytics](log-analytics-alerts-webhooks.md).
 
+
 ## <a name="runbook-actions"></a>Действия Runbook
 Действия Runbook запускают модуль Runbook в службе автоматизации Azure.  Чтобы использовать этот тип действия, необходимо иметь установленное и настроенное [решение автоматизации](log-analytics-add-solutions.md) в рабочей области OMS.  Можно выбрать один из модулей Runbook в учетной записи автоматизации, настроенной в решении автоматизации.
 
@@ -111,6 +113,9 @@ ms.lasthandoff: 03/01/2017
 Действия Runbook запускают модуль Runbook с помощью [webhook](../automation/automation-webhooks.md).  При создании правила генерации оповещений автоматически создается новое действие webhook для модуля Runbook с именем **OMS Alert Remediation** , за которым следует GUID.  
 
 Нельзя напрямую заполнять параметры Runbook. Однако в [параметре $WebhookData](../automation/automation-webhooks.md) будут содержаться подробные сведения о предупреждении, включая результаты поиска по журналам,из-за которого оно возникло.  Для доступа к свойствам предупреждения модулю Runbook потребуется определить **$WebhookData** в качестве параметра.  Данные предупреждения доступны в формате Json в свойстве **SearchResults** свойства **RequestBody** параметра **$WebhookData**.  Свойства этого параметра приведены в таблице ниже.
+
+>[!NOTE]
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), полезные данные runbook будут работать по-другому.  Подробные сведения о формате см. в документации [API REST Log Analytics Azure](https://aka.ms/loganalyticsapiresponse).  Пример см. в разделе [Пример полезной нагрузки](#sample-payload) ниже.
 
 | Узел | Описание |
 |:--- |:--- |
@@ -146,6 +151,418 @@ ms.lasthandoff: 03/01/2017
             $Value     = $Record.CounterValue
         }
     }
+
+
+## <a name="sample-payload"></a>Пример полезных данных
+В этом разделе показан пример полезных данных для действий веб-перехватчика и runbook в предыдущей и [обновленной рабочей области Log Analytics](log-analytics-log-search-upgrade.md).
+
+### <a name="webhook-actions"></a>Действия webhook
+
+#### <a name="legacy-workspace"></a>Рабочая область прежней версии.
+Ниже приведен пример полезных данных для действия веб-перехватчика в рабочей области прежней версии.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "WebhookAlert",
+    "SearchQuery": "Type=Usage",
+    "SearchResult": {
+        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
+        "__metadata": {
+        "resultType": "raw",
+        "total": 1,
+        "top": 2147483647,
+        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
+        "CoreSummaries": [
+            {
+            "Status": "Successful",
+            "NumberOfDocuments": 135000000
+            }
+        ],
+        "Status": "Successful",
+        "NumberOfDocuments": 135000000,
+        "StartTime": "2017-09-27T10:30:38.9453282Z",
+        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
+        "ETag": "636421050440907473",
+        "sort": [
+            {
+            "name": "TimeGenerated",
+            "order": "desc"
+            }
+        ],
+        "requestTime": 361
+        },
+        "value": [
+        {
+            "Computer": "-",
+            "SourceSystem": "OMS",
+            "TimeGenerated": "2017-09-26T13:59:59Z",
+            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
+            "DataType": "Operation",
+            "StartTime": "2017-09-26T13:00:00Z",
+            "EndTime": "2017-09-26T13:59:59Z",
+            "Solution": "LogManagement",
+            "BatchesWithinSla": 8,
+            "BatchesOutsideSla": 0,
+            "BatchesCapped": 0,
+            "TotalBatches": 8,
+            "AvgLatencyInSeconds": 0.0,
+            "Quantity": 0.002502,
+            "QuantityUnit": "MBytes",
+            "IsBillable": false,
+            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
+            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
+            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
+            "Type": "Usage",
+            "MG": "00000000-0000-0000-0000-000000000000",
+            "__metadata": {
+            "Type": "Usage",
+            "TimeGenerated": "2017-09-26T13:59:59Z"
+            }
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
+    "Description": null,
+    "Severity": "Low"
+    }
+
+
+#### <a name="upgraded-workspace"></a>Обновленная рабочая область.
+Ниже приведен пример полезных данных для действия веб-перехватчика в обновленной рабочей области.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "WebhookAlert",
+    "SearchQuery": "Usage",
+    "SearchResult": {
+        "tables": [
+        {
+            "name": "PrimaryResult",
+            "columns": [
+            {
+                "name": "TenantId",
+                "type": "string"
+            },
+            {
+                "name": "Computer",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            },
+            {
+                "name": "SourceSystem",
+                "type": "string"
+            },
+            {
+                "name": "StartTime",
+                "type": "datetime"
+            },
+            {
+                "name": "EndTime",
+                "type": "datetime"
+            },
+            {
+                "name": "ResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "LinkedResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "DataType",
+                "type": "string"
+            },
+            {
+                "name": "Solution",
+                "type": "string"
+            },
+            {
+                "name": "BatchesWithinSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesOutsideSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesCapped",
+                "type": "long"
+            },
+            {
+                "name": "TotalBatches",
+                "type": "long"
+            },
+            {
+                "name": "AvgLatencyInSeconds",
+                "type": "real"
+            },
+            {
+                "name": "Quantity",
+                "type": "real"
+            },
+            {
+                "name": "QuantityUnit",
+                "type": "string"
+            },
+            {
+                "name": "IsBillable",
+                "type": "bool"
+            },
+            {
+                "name": "MeterId",
+                "type": "string"
+            },
+            {
+                "name": "LinkedMeterId",
+                "type": "string"
+            },
+            {
+                "name": "Type",
+                "type": "string"
+            }
+            ],
+            "rows": [
+            [
+                "workspaceID",
+                "-",
+                "2017-09-26T13:59:59Z",
+                "OMS",
+                "2017-09-26T13:00:00Z",
+                "2017-09-26T13:59:59Z",
+                "/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
+                null,
+                "Operation",
+                "LogManagement",
+                8,
+                0,
+                0,
+                8,
+                0,
+                0.002502,
+                "MBytes",
+                false,
+                "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "00000000-0000-0000-0000-000000000000",
+                "Usage"
+            ]
+            ]
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "Low"
+    }
+
+
+### <a name="runbooks"></a>Модули Runbook
+
+#### <a name="legacy-workspace"></a>Рабочая область прежней версии.
+Ниже приведен пример полезных данных для действия runbook в рабочей области прежней версии.
+
+    {
+        "SearchResults": {
+            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
+            "__metadata": {
+                "resultType": "raw",
+                "total": 1,
+                "top": 2147483647,
+                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
+                "CoreSummaries": [{
+                    "Status": "Successful",
+                    "NumberOfDocuments": 135000000
+                }],
+                "Status": "Successful",
+                "NumberOfDocuments": 135000000,
+                "StartTime": "2017-09-27T10:51:43.3075124Z",
+                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
+                "ETag": "636421063111002092",
+                "sort": [{
+                    "name": "TimeGenerated",
+                    "order": "desc"
+                }],
+                "requestTime": 511
+            },
+            "value": [{
+                "Computer": "-",
+                "SourceSystem": "OMS",
+                "TimeGenerated": "2017-09-26T13:59:59Z",
+                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
+                "DataType": "Operation",
+                "StartTime": "2017-09-26T13:00:00Z",
+                "EndTime": "2017-09-26T13:59:59Z",
+                "Solution": "LogManagement",
+                "BatchesWithinSla": 8,
+                "BatchesOutsideSla": 0,
+                "BatchesCapped": 0,
+                "TotalBatches": 8,
+                "AvgLatencyInSeconds": 0.0,
+                "Quantity": 0.002502,
+                "QuantityUnit": "MBytes",
+                "IsBillable": false,
+                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
+                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
+                "Type": "Usage",
+                "MG": "00000000-0000-0000-0000-000000000000",
+                "__metadata": {
+                    "Type": "Usage",
+                    "TimeGenerated": "2017-09-26T13:59:59Z"
+                }
+            }]
+        }
+    }
+
+#### <a name="upgraded-workspace"></a>Обновленная рабочая область.
+Ниже приведен пример полезных данных для действия runbook в обновленной рабочей области.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "AutomationAlert",
+    "SearchQuery": "Usage",
+    "SearchResult": {
+        "tables": [
+        {
+            "name": "PrimaryResult",
+            "columns": [
+            {
+                "name": "TenantId",
+                "type": "string"
+            },
+            {
+                "name": "Computer",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            },
+            {
+                "name": "SourceSystem",
+                "type": "string"
+            },
+            {
+                "name": "StartTime",
+                "type": "datetime"
+            },
+            {
+                "name": "EndTime",
+                "type": "datetime"
+            },
+            {
+                "name": "ResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "LinkedResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "DataType",
+                "type": "string"
+            },
+            {
+                "name": "Solution",
+                "type": "string"
+            },
+            {
+                "name": "BatchesWithinSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesOutsideSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesCapped",
+                "type": "long"
+            },
+            {
+                "name": "TotalBatches",
+                "type": "long"
+            },
+            {
+                "name": "AvgLatencyInSeconds",
+                "type": "real"
+            },
+            {
+                "name": "Quantity",
+                "type": "real"
+            },
+            {
+                "name": "QuantityUnit",
+                "type": "string"
+            },
+            {
+                "name": "IsBillable",
+                "type": "bool"
+            },
+            {
+                "name": "MeterId",
+                "type": "string"
+            },
+            {
+                "name": "LinkedMeterId",
+                "type": "string"
+            },
+            {
+                "name": "Type",
+                "type": "string"
+            }
+            ],
+            "rows": [
+            [
+                "861bd466-5400-44be-9552-5ba40823c3aa",
+                "-",
+                "2017-09-26T13:59:59Z",
+                "OMS",
+                "2017-09-26T13:00:00Z",
+                "2017-09-26T13:59:59Z",
+            "/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
+                null,
+                "Operation",
+                "LogManagement",
+                8,
+                0,
+                0,
+                8,
+                0,
+                0.002502,
+                "MBytes",
+                false,
+                "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "00000000-0000-0000-0000-000000000000",
+                "Usage"
+            ]
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "Critical"
+    }
+
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

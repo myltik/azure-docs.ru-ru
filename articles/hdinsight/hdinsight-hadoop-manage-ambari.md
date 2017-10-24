@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/11/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0bcf8f0d1c5fc44a31de9be9adbdad3893ff111f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 470ec09d444f93abcd8f0f58fc197474bbb1376e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Управление кластерами HDInsight с помощью веб-интерфейса Ambari
 
@@ -52,6 +51,9 @@ Apache Ambari упрощает управление кластером Hadoop и
 Хотя Ambari для кластера можно использовать непосредственно в Интернете, некоторые ссылки из веб-интерфейса Ambari (например, для JobTracker) не доступны в Интернете. Для доступа к этим службам необходимо создать туннель SSH. Дополнительные сведения см. в статье [Использование туннелирования SSH с для доступа к веб-интерфейсу Ambari, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="ambari-web-ui"></a>Веб-интерфейс Ambari
+
+> [!WARNING]
+> HDInsight поддерживает не все функции веб-интерфейса Ambari. Дополнительные сведения см. в этой статье в разделе [Неподдерживаемые операции](#unsupported-operations).
 
 При подключении к веб-интерфейсу Ambari вам будет предложено ввести учетные данные для доступа к странице. Укажите имя администратора кластера (по умолчанию это Admin) и пароль, которые были указаны при создании кластера.
 
@@ -238,3 +240,12 @@ Apache Ambari упрощает управление кластером Hadoop и
 
 * Представление Tez: представление Tez позволяет лучше понять и оптимизировать задания. Можно просмотреть сведения о том, как выполняются задания Tez и какие ресурсы используются.
 
+## <a name="unsupported-operations"></a>Неподдерживаемые операции
+
+Следующие операции Ambari не поддерживаются в HDInsight:
+
+* __Перемещение службы сборщика метрик__. При просмотре сведений в службе сборщика метрик одно из действий, доступных в меню действий службы, — это __Move Metrics collector__ (Переместить сборщик метрик). В HDInsight это действие не поддерживается.
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Узнайте, как использовать [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) с HDInsight.

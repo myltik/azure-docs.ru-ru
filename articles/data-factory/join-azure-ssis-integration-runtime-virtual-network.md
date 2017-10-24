@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: spelluru
+ms.openlocfilehash: 02d9102bfc9b0d8084988609282f2c78b5789e7e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: ddbba4b45c5c7cd8ee69390581cd78b820d19259
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Присоединение среды выполнения интеграции Azure SSIS к виртуальной сети
 Среду выполнения интеграции (IR) Azure SSIS необходимо присоединить к виртуальной сети, если выполняется хотя бы одно из следующих условий: 
 
@@ -40,8 +38,9 @@ ms.lasthandoff: 09/28/2017
 - Если есть существующая виртуальная сеть Azure Resource Manager, подключенная к локальной сети, то сначала создайте [классическую виртуальную сеть](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) для присоединения своей среды выполнения интеграции Azure SSIS. Затем настройте подключение типа [классическая виртуальная сеть — виртуальная сеть Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ## <a name="domain-name-services-server"></a>Сервер служб доменных имен 
-Если необходимо использовать собственный сервер служб доменных имен (DNS) в виртуальной сети, присоединенной средой выполнения интеграции Azure SSIS, то следуйте инструкциям этого руководства и убедитесь, что узлы вашей среды выполнения интеграции Azure SSIS в виртуальной сети могут разрешать конечные точки Azure.
+Если необходимо использовать собственный сервер служб доменных имен (DNS) в виртуальной сети, присоединенной средой выполнения интеграции Azure SSIS, то следуйте инструкциям этого руководства и [убедитесь, что узлы вашей среды выполнения интеграции Azure SSIS в виртуальной сети могут разрешать конечные точки Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
+## <a name="network-security-group"></a>Группа безопасности сети
 Если необходимо реализовать группу безопасности сети (NSG) в виртуальной сети, присоединенной средой выполнения интеграции Azure SSIS, то разрешите входящий и исходящий трафик через следующие порты:
 
 | порты; | Направление | Транспортный протокол | Назначение | Входящий источник/исходящее назначение |
@@ -94,11 +93,10 @@ ms.lasthandoff: 09/28/2017
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о среде выполнения Azure SSIS см. в следующих статьях: 
+Дополнительные сведения о среде выполнения Azure SSIS см. в следующих разделах: 
 
 - [Среда выполнения интеграции Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). В этой статье содержатся общие сведения о средах выполнения интеграции в целом, включая Azure SSIS IR. 
 - [Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure](tutorial-deploy-ssis-packages-azure.md). Эта статья содержит пошаговые инструкции для создания Azure SSIS IR и использует базу данных SQL Azure для размещения каталога SSIS. 
 - [Создание среды выполнения интеграции Azure SSIS](create-azure-ssis-integration-runtime.md). Эта статья дополняет соответствующее руководство, а также предоставляет инструкции по использованию управляемого экземпляра SQL Azure (закрытая предварительная версия) и присоединению среды выполнения интеграции к виртуальной сети. 
 - [Мониторинг среды выполнения интеграции в фабрике данных Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime). В этом статье показано, как извлечь сведения о среде выполнения интеграции Azure SSIS и описания состояний из возвращаемых данных. 
 - [Управление средой выполнения интеграции Azure SSIS](manage-azure-ssis-integration-runtime.md). В этой статье показано, как остановить, запустить или удалить Azure SSIS IR. В ней также показано, как развернуть Azure SSIS IR путем добавления дополнительных узлов в среду выполнения интеграции. 
-

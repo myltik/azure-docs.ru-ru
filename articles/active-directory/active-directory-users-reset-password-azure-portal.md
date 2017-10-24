@@ -12,36 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e7c38c7f0d40a310dd0b6bd0e866d2d55115550
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: b59f74546e219d45814a1a2e05e59beb0b080f21
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Сброс пароля пользователя в Azure Active Directory
-> [!div class="op_single_selector"]
-> * [Портал Azure](active-directory-users-reset-password-azure-portal.md)
-> * [классическом портале Azure](active-directory-create-users-reset-password.md)
->
->
 
 ## <a name="how-to-reset-the-password-for-a-user"></a>Сброс пароля для пользователя
-1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
-2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
+1. Войдите в [центр администрирования Azure AD](https://aad.portal.azure.com) с помощью учетной записи глобального администратора каталога.
+2. Выберите параметр **Пользователи и группы**.
 
    ![Открытие страницы "Управление пользователями"](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
-3. В колонке **Пользователи и группы** выберите **Пользователи**.
+3. Выберите **Все пользователи**.
 
-   ![Открытие колонки "Пользователи"](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
-4. В колонке **Пользователи и группы — Пользователи** выберите пользователя из списка.
-5. В колонке для выбранного пользователя щелкните **Обзор**, а затем на панели команд щелкните **Сбросить пароль**.
+   ![Открытие группы "Все пользователи"](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
+1. Выберите пользователя из списка.
+2. В колонке выбранного пользователя щелкните **Обзор**, а затем на панели команд щелкните **Сбросить пароль**.
 
     ![Выбор команды "Сбросить пароль"](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
-6. В колонке **Сброс пароля** щелкните **Сбросить пароль**.
+6. В разделе **Сброс пароля** щелкните **Сбросить пароль**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Добавление пользователей](active-directory-users-create-azure-portal.md)

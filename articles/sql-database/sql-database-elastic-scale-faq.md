@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2420d31c73fcb43e680edf2a95995e4ed4969236
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f0a7b5ce61feaead608d457465f64813737fa112
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elastic-database-tools-faq"></a>Вопросы и ответы по инструментам эластичных баз данных
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>На каждый сегмент приходится по одному клиенту, но нет ключа сегментирования. Как заполнить ключ сегментирования для сведений схемы?
@@ -34,7 +32,7 @@ ms.lasthandoff: 11/17/2016
 Плата за использование клиентской библиотеки эластичной базы данных не взимается. Оплачивать нужно только доступ к базам данных SQL Azure, используемым для сегментов и диспетчера сопоставления сегментов, а также для веб-ролей и рабочих ролей, подготовленных для инструмента разбиения и объединения.
 
 #### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Почему мои учетные данные не работают при добавлении сегмента с другого сервера?
-Не используйте учетные данные в формате User ID=username@servername”,. Мы советуем использовать простой формат User ID = username.  Кроме того, убедитесь, что у имени пользователя username есть разрешения на доступ к сегменту.
+Не используйте учетные данные в формате User ID = username@servername. Мы советуем использовать User ID = username.  Кроме того, убедитесь, что у имени пользователя username есть разрешения на доступ к сегменту.
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Нужно ли создавать диспетчер Shard Map Manager и заполнять сегменты при каждом запуске приложений?
 Нет. Диспетчер карты сегментов (например, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) создается только один раз.  Во время запуска приложение должно вызывать диспетчер **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)**.  На один домен приложения должен приходиться один такой вызов.
@@ -52,5 +50,4 @@ ms.lasthandoff: 11/17/2016
 Нет. Для выполнения операций **разбиения** целевая база данных должна существовать в пределах соответствующей схемы и быть зарегистрированной в диспетчере сопоставления сегментов.  Для выполнения операций **объединения** необходимо удалить сегмент из диспетчера сопоставления сегментов, а затем удалить базу данных.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

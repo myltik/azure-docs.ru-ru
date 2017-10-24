@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Вопросы и ответы об управлении паролями
 
@@ -178,7 +177,7 @@ ms.lasthandoff: 08/29/2017
   >
 * **Вопрос. Как долго действует одноразовый секретный код, полученный по электронной почте или в SMS?**
 
-  > **Ответ.** Длительность сеанса сброса пароля — 105 минут. С начала операции сброса пароля у пользователя есть 105 минут на выполнение этой операции. По истечении этого времени одноразовый секретный код, полученный по электронной почте или в SMS, становится недействительным.
+  > **Ответ.** Длительность сеанса сброса пароля — 15 минут. С начала операции сброса пароля у пользователя есть 15 минут на выполнение этой операции. По истечении этого времени одноразовый секретный код, полученный по электронной почте или в SMS, становится недействительным.
   >
   >
 
@@ -280,4 +279,3 @@ ms.lasthandoff: 08/29/2017
 * [**Обзор компонента обратной записи паролей**](active-directory-passwords-writeback.md). Как работает функция обратной записи паролей с вашим локальным каталогом.
 * [**Как работает управление паролями в Azure Active Directory**](active-directory-passwords-how-it-works.md). Сведения о принципе работы управления паролями.
 * [**Устранение неполадок, связанных с управлением паролями**](active-directory-passwords-troubleshoot.md). Сведения об устранении распространенных проблем с SSPR.
-

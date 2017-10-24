@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 09/27/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 70d2550f713ff0e9daed235eb8053589b8682633
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Пакет SDK для Azure Cosmos DB на Python: заметки о выпуске и ресурсы
 > [!div class="op_single_selector"]
@@ -52,6 +51,11 @@ ms.lasthandoff: 08/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Исправление ошибок в статистическом словаре.
+* Исправление ошибок для обрезки символа косой черты в ссылке на ресурс.
+* Добавлены тесты для кодировки Юникод.
+
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * Добавлена поддержка нового уровня согласованности с именем ConsistentPrefix.
 
@@ -127,6 +131,7 @@ ms.lasthandoff: 08/11/2017
 
 | Версия | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |29 сентября 2017 г. |--- |
 | [2.2.0](#2.2.0) |10 мая 2017 г. |--- |
 | [2.1.0](#2.1.0) |1 мая 2017 г. |--- |
 | [2.0.1](#2.0.1) |30 октября 2016 г. |--- |
@@ -154,5 +159,4 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="see-also"></a>См. также
 Дополнительные сведения о Cosmos DB см. на странице службы [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

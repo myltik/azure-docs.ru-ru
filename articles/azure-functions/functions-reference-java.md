@@ -1,0 +1,308 @@
+---
+title: "Справочник разработчика Java по Функциям Azure | Документация Майкрософт"
+description: "Информация о разработке функций на языке Java."
+services: functions
+documentationcenter: na
+author: rloutlaw
+manager: justhe
+keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, java
+ms.service: functions
+ms.devlang: java
+ms.topic: article
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 09/20/2017
+ms.author: routlaw
+ms.openlocfilehash: f8812c2e8ac3398dabd17feaf97897efca5566f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
+---
+# <a name="azure-functions-java-developer-guide"></a>Руководство разработчика Java по Функциям Azure
+> [!div class="op_single_selector"]
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
+
+## <a name="programming-model"></a>Модель программирования 
+
+Функция Azure должна существовать как метод без отслеживания состояния, который обрабатывает входные данные и создает выходные данные. Вы можете создавать методы экземпляра, но функция не должна зависеть от полей экземпляра класса. Все методы функции должны иметь модификатор доступа `public`.
+
+## <a name="triggers-and-annotations"></a>Триггеры и заметки
+
+Обычно функции Azure вызываются по срабатыванию внешних триггеров. Функция должна обработать такой триггер и связанные с ним входные данные, и создать на их основе одно или несколько выходных значений.
+
+Заметки Java включаются в пакет `azure-functions-java-core` для привязки входных и выходных данных к методам. В следующей таблице перечислены поддерживаемые заметки для входных триггеров и выходных данных.
+
+Привязка | Заметка
+---|---
+Cosmos DB | Недоступно
+HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
+Мобильные приложения | Недоступно
+Центры уведомлений | Недоступно
+Большой двоичный объект хранилища | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
+Очередь службы хранилища | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
+Таблица службы хранилища | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
+Таймер | <ul><li>`TimerTrigger`</li></ul>
+Twilio | Недоступно
+
+Входные триггеры и выходные данные для вашего приложения можно также определять в файле [function.json](/azure/azure-functions/functions-reference#function-code).
+
+> [!IMPORTANT] 
+> Чтобы локально выполнять триггеры BLOB-объекта, очереди или таблицы хранилища Azure, необходимо настроить учетную запись хранения Azure в файле [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file).
+
+Пример использования заметок.
+
+```java
+import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
+import com.microsoft.azure.serverless.functions.ExecutionContext;
+
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+        String req, ExecutionContext context) {
+        return String.format(req);
+    }
+}
+```
+
+Та же функция без применения заметок:
+
+```java
+package com.example;
+
+public class MyClass {
+    public static String echo(String in) {
+        return in;
+    }
+}
+```
+
+И соответствующий файл `function.json`:
+
+```json
+{
+  "scriptFile": "azure-functions-example.jar",
+  "entryPoint": "com.example.MyClass.echo",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "name": "req",
+      "direction": "in",
+      "authLevel": "anonymous",
+      "methods": [ "post" ]
+    },
+    {
+      "type": "http",
+      "name": "$return",
+      "direction": "out"
+    }
+  ]
+}
+
+```
+
+## <a name="data-types"></a>Типы данных
+
+Для входных и выходных данных вы можете использовать любые типы данных в Java, в том числе стандартные, пользовательские типы Java или специализированные типы Azure, которые определяются в пакете `azure-functions-java-core`. Среда выполнения Функций Azure попытается преобразовывать полученные входные данные в тот тип, который указан в вашем коде.
+
+### <a name="strings"></a>строк
+
+Значения, передаваемые методам функции, будут приводиться к строковым значениям, если для соответствующего входного параметра функции указан тип `String`. 
+
+### <a name="plain-old-java-objects-pojos"></a>Объекты POJO
+
+Строки в формате JSON будут приводиться к типам Java, если метод функции ожидает входные данные конкретного типа Java. Такая логика преобразования позволяет передавать в функции входные данные в формате JSON и работать в коде с типами Java без создания собственного кода для преобразования.
+
+Типы POJO, используемые как входные данные для функций, должны иметь такой же модификатор доступа `public`, как и соответствующие методы функции. Нет необходимости объявлять модификатор `public`для полей класса POJO. Например, строка JSON `{ "x": 3 }` может быть преобразована в такой тип POJO:
+
+```Java
+public class MyData {
+    private int x;
+}
+```
+
+### <a name="binary-data"></a>Двоичные данные
+
+Двоичные данные представляются в коде функций Azure в формате `byte[]`. Чтобы привязать двоичные входные и выходные данные к функции, в файле function.json задайте для поля `dataType` значение `binary`.
+
+```json
+ {
+  "scriptFile": "azure-functions-example.jar",
+  "entryPoint": "com.example.MyClass.echo",
+  "bindings": [
+    {
+      "type": "blob",
+      "name": "content",
+      "direction": "in",
+      "dataType": "binary",
+      "path": "container/myfile.bin",
+      "connection": "ExampleStorageAccount"
+    },
+  ]
+}
+```
+
+Теперь эти данные можно использовать в коде функции так:
+
+```java
+// Class definition and imports are omitted here
+public static String echoLength(byte[] content) {
+}
+```
+
+Используйте тип `OutputBinding<byte[]>` для привязки выходных двоичных данных.
+
+
+## <a name="function-method-overloading"></a>Перегрузка методов функции
+
+Вы можете использовать перегрузку, создавая несколько методов функции с одним именем и разными типами данных. Например, в одном классе можно создать одновременно `String echo(String s)` и `String echo(MyType s)`. Среда выполнения Функций Azure проанализирует фактический тип входных данных и определит, какой метод следует вызвать (в HTTP-данных MIME-тип `text/plain` соответствует `String`, а `application/json` представляет `MyType`).
+
+## <a name="inputs"></a>Входные данные
+
+Входные данные в Функциях Azure делятся на две категории: входные данные от триггера и дополнительные входные данных. Они по-разному представлены в `function.json`, но использование в коде Java полностью идентично. Давайте рассмотрим в качестве примера следующий фрагмент кода:
+
+```java
+package com.example;
+
+import com.microsoft.azure.serverless.functions.annotation.BindingName;
+
+public class MyClass {
+    public static String echo(String in, @BindingName("item") MyObject obj) {
+        return "Hello, " + in + " and " + obj.getKey() + ".";
+    }
+
+    private static class MyObject {
+        public String getKey() { return this.RowKey; }
+        private String RowKey;
+    }
+}
+```
+
+Заметка `@BindingName` принимает свойство `String`, которое представляет имя привязки или триггера, определенное в `function.json`:
+
+```json
+{
+  "scriptFile": "azure-functions-example.jar",
+  "entryPoint": "com.example.MyClass.echo",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "name": "req",
+      "direction": "in",
+      "authLevel": "anonymous",
+      "methods": [ "put" ],
+      "route": "items/{id}"
+    },
+    {
+      "type": "table",
+      "name": "item",
+      "direction": "in",
+      "tableName": "items",
+      "partitionKey": "Example",
+      "rowKey": "{id}",
+      "connection": "ExampleStorageAccount"
+    },
+    {
+      "type": "http",
+      "name": "$return",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+Поэтому при вызове этой функции HTTP-запрос передает полезные данные типа `String` в аргументе `in`, а табличное хранилище Azure передает данные типа `MyObject` в аргументе `obj`.
+
+## <a name="outputs"></a>outputs
+
+Выходные данные можно выразить как возвращаемое значение или как параметры вывода. Если существует только один выход, мы рекомендуем использовать возвращаемое значение. Для нескольких выходов нужно использовать параметры вывода.
+
+Возвращаемое значение является самым простым форматом вывода. Вы просто возвращаете значение любого типа, а среда выполнения Функций Azure пытается маршалировать его в фактический тип (например, HTTP-ответ). В файле `functions.json` используйте `$return` в качестве имени выходной привязки.
+
+Чтобы вернуть несколько выходных значений, используйте тип `OutputParameter<T>`, который определен в пакете `azure-functions-java-core`. Если вам нужно одновременно создать HTTP-ответ и отправить сообщение в очередь, можно использовать примерно такой код:
+
+```java
+package com.example;
+
+import com.microsoft.azure.serverless.functions.OutputParameter;
+import com.microsoft.azure.serverless.functions.annotation.BindingName;
+
+public class MyClass {
+    public static String echo(String body, @BindingName("message") OutputParameter<String> queue) {
+        String result = "Hello, " + body + ".";
+        queue.setValue(result);
+        return result;
+    }
+}
+```
+
+При этом в файле `function.json` определить выходную привязку так:
+
+```json
+{
+  "scriptFile": "azure-functions-example.jar",
+  "entryPoint": "com.example.MyClass.echo",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "name": "req",
+      "direction": "in",
+      "authLevel": "anonymous",
+      "methods": [ "post" ]
+    },
+    {
+      "type": "queue",
+      "name": "message",
+      "direction": "out",
+      "queueName": "myqueue",
+      "connection": "ExampleStorageAccount"
+    },
+    {
+      "type": "http",
+      "name": "$return",
+      "direction": "out"
+    }
+  ]
+}
+```
+## <a name="specialized-types"></a>Специализированные типы
+
+Иногда функции нужен более точный контроль над входными и выходными данными. В пакете `azure-functions-java-core` предоставляются специализированные типы, которые позволяют управлять сведениями о запросе и изменять возвращаемое состояние триггера HTTP:
+
+| Специализированные типы      |       Цель        | Типичное применение                  |
+| --------------------- | :-----------------: | ------------------------------ |
+| `HttpRequestMessage`  |    Триггер HTTP     | Получение метода, заголовков или запросов |
+| `HttpResponseMessage` | Привязка к выходным данным HTTP | Возврат кодов состояния, отличных от 200   |
+
+> [!NOTE] 
+> Вы также можете использовать заметки `@BindingName` для получения HTTP-заголовков и запросов. Например, `@Bind("name") String query` перебирает все заголовки и запросы из HTTP-запроса и передает эти значения методу. Например, `query` примет значение `"test"`, если будет получен запрос с URL-адресом `http://example.org/api/echo?name=test`.
+
+## <a name="functions-execution-context"></a>Контекст выполнения функций
+
+Взаимодействие со средой выполнения Функций Azure выполняется с помощью объекта `ExecutionContext`, который определен в пакете `azure-functions-java-core`. Используйте объект `ExecutionContext`, чтобы в коде программы получить сведения о вызове и среде выполнения функции.
+
+### <a name="logging"></a>Ведение журналов
+
+Доступ к средству ведения журнала среды выполнения функций выполняется с помощью объекта `ExecutionContext`. Это средство привязано к Azure Monitor и позволяет вам сохранять предупреждения и ошибки, возникшие во время выполнения функции.
+
+Следующий пример кода записывает в журнал предупреждение, если получено пустое тело запроса.
+
+```java
+import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
+import com.microsoft.azure.serverless.functions.ExecutionContext;
+
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+        if (req.isEmpty()) {
+            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+        }
+        return String.format(req);
+    }
+}
+```
+
+## <a name="next-steps"></a>Дальнейшие действия
+Для получения дополнительных сведений см. следующие ресурсы:
+
+* [Рекомендации по функциям Azure](functions-best-practices.md)
+* [Справочник разработчика по функциям Azure](functions-reference.md)
+* [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)

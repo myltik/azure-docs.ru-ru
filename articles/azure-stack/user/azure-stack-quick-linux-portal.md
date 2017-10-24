@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Quick Start - Create VM Portal
-description: Azure Stack Quick Start - Create a Linux VM using the portal
+title: "Краткое руководство по Azure Stack: создание виртуальной машины с помощью портала"
+description: "Краткое руководство по Azure Stack: создание виртуальной машины Linux c помощью портала"
 services: azure-stack
 cloud: azure-stack
 author: vhorne
@@ -10,96 +10,94 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Создание виртуальной машины Linux с помощью портала Azure Stack
 
-# <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Create a Linux virtual machine with the Azure Stack portal
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+Виртуальные машины Azure Stack можно создать на портале Azure Stack. Он предоставляет пользовательский интерфейс в браузере для создания и настройки виртуальной машины и всех связанных с ней ресурсов. Из этого краткого руководства вы узнаете, как быстро создать виртуальную машину Linux и установить на ней веб-сервер.
 
-Azure Stack virtual machines can be created through the Azure Stack portal. This method provides a browser-based user interface to create and configure a virtual machine and all related resources. This Quickstart shows you how to quickly create a Linux virtual machine and install a web server on it.
+## <a name="prerequisites"></a>Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+* **Образ Linux в Azure Stack Marketplace**.
 
-* **A Linux image in the Azure Stack marketplace**
+   По умолчанию Azure Stack Marketplace не содержит образ Linux. Поэтому перед созданием виртуальной машины Linux оператор Azure Stack должен скачать образ **Ubuntu Server 16.04 LT** в соответствии с инструкциями в статье [Скачивание элементов Marketplace из Azure в Azure Stack](../azure-stack-download-azure-marketplace-item.md).
 
-   The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, ensure that the Azure Stack operator has downloaded the **Ubuntu Server 16.04 LT** image by using the steps described in the [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) topic.
+* **Доступ к клиенту SSH**.
 
-* **Access to an SSH client**
+   Если вы используете пакет SDK для Azure Stack, клиент SSH в вашей среде может быть недоступен. В такой ситуации вам нужно выбрать один из пакетов, в которые включен клиент SSH. Например, можно установить программу PuTTY, в состав которой входит клиент SSH и генератор ключа SSH (puttygen.exe). Дополнительные сведения о возможных вариантах см. в статье об [использовании ключей SSH с Windows в Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   If you are using the Azure Stack Development Kit (ASDK), you may not have access to an SSH client in your environment. If this is the case, you can choose among several packages that include an SSH client. For example, you can install PuTTY that includes an SSH client and SSH key generator (puttygen.exe). For more information about possible options, see the following related Azure article: [How to Use SSH keys with Windows on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   В этом кратком руководстве PuTTY используется для создания ключей SSH и подключения к виртуальной машине Linux. Чтобы загрузить и установить PuTTY, откройте страницу [http://www.putty.org/](http://www.putty.org).
 
-   This Quickstart uses PuTTY to generate the SSH keys and to connect to the Linux virtual machine. To download and install PuTTY, go to [http://www.putty.org/](http://www.putty.org).
+## <a name="create-an-ssh-key-pair"></a>Создание пары ключей SSH
 
-## <a name="create-an-ssh-key-pair"></a>Create an SSH key pair
+Для работы с этим руководством вам понадобится пара ключей SSH. Если у вас уже есть пара ключей SSH, этот шаг можно пропустить.
 
-You need an SSH key pair to complete this Quickstart. If you have an existing SSH key pair, this step can be skipped.
-
-1. Navigate to the PuTTY installation folder (the default location is ```C:\Program Files\PuTTY```) and run ```puttygen.exe```.
-2. In the PuTTY Key Generator window, ensure the **Type of key to generate** is set to **RSA**, and the **Number of bits in a generated key** is set to **2048**. When ready, click **Generate**.
+1. Перейдите в папку установки PuTTY (по умолчанию это ```C:\Program Files\PuTTY```) и запустите команду ```puttygen.exe```.
+2. В окне генератора ключей PuTTY выберите для параметра **Type of key to generate** (Тип создаваемого ключа) значение **RSA**, а для **Number of bits in a generated key** (Количество битов в создаваемом ключе) — значение **2048**. Когда все будет готово, нажмите кнопку **Generate** (Создать).
 
    ![puttygen.exe](media/azure-stack-quick-linux-portal/Putty01.PNG)
 
-3. To complete the key generation process, move your mouse cursor within the PuTTY Key Generator window.
-4. When the key generation completes, click **Save public key** and **Save private key** to save your public and private keys to files.
+3. Чтобы завершить процесс создания ключей, активно перемещайте курсор мыши в пределах окна генератора ключей PuTTY.
+4. Когда создание ключа завершится, щелкните **Save public key** (Сохранить открытый ключ) и **Save private key** (Сохранить закрытый ключ), чтобы сохранить файлы открытого и закрытого ключей.
 
-   ![PuTTY keys](media/azure-stack-quick-linux-portal/Putty02.PNG)
-
-
-
-## <a name="sign-in-to-the-azure-stack-portal"></a>Sign in to the Azure Stack portal
-
-Sign in to the Azure Stack portal. The address of the Azure Stack portal depends on which Azure Stack product you are connecting to:
-
-* For Azure Stack Development Kit (ASDK) go to: https://portal.local.azurestack.external.
-* For an Azure Stack integrated system, go to the URL that your Azure Stack operator provided.
-
-## <a name="create-the-virtual-machine"></a>Create the virtual machine
-
-1. Click the **New** button found on the upper left-hand corner of the Azure Stack portal.
-
-2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Click **Create**.
-
-4. Type the virtual machine information. For **Authentication type**, select **SSH public key**. When you paste in your SSH public key (which you saved to a file previously), take care to remove any leading or trailing white space. When complete, click **OK**.
-
-   ![Virtual machine basics](media/azure-stack-quick-linux-portal/linux-01.PNG)
-
-5. Select **D1_V2** for the virtual machine.
-
-   ![Machine size](media/azure-stack-quick-linux-portal/linux-02.PNG)
-
-6. On the **Settings** page, keep the defaults and click **OK**.
-
-7. On the **Summary** page, click **OK** to start the virtual machine deployment.
+   ![Ключи puTTY](media/azure-stack-quick-linux-portal/Putty02.PNG)
 
 
-## <a name="connect-to-the-virtual-machine"></a>Connect to the virtual machine
 
-1. Click **Connect** on the virtual machine page. This displays an SSH connection string that can be used to connect to the virtual machine.
+## <a name="sign-in-to-the-azure-stack-portal"></a>Вход на портал Azure Stack
 
-   ![Connect virtual machine](media/azure-stack-quick-linux-portal/linux-03.PNG)
+Войдите на портал Azure Stack. Адрес портала Azure Stack зависит от того, к какому продукту Azure Stack вы подключаетесь:
 
-2. Open PuTTY.
-3. On the **PuTTY Configuration** screen, under **Category**, expand **SSH** and then click **Auth**. Click **Browse** and select the private key file that you saved previously.
+* При работе с пакетом SDK для Azure Stack (ASDK) перейдите по адресу https://portal.local.azurestack.external.
+* При работе с интегрированной системой Azure Stack используйте URL-адрес, предоставленный оператором Azure Stack.
 
-   ![PuTTY private key](media/azure-stack-quick-linux-portal/Putty03.PNG)
-4. Under **Category**, scroll up and click **Session**.
-5. In the **Host Name (or IP address)** box, paste the connection string from the Azure Stack portal that you saw previously. In this example, the string is ```asadmin@192.168.102.34```.
+## <a name="create-the-virtual-machine"></a>Создание виртуальной машины
+
+1. Щелкните кнопку **Создать** в верхнем левом углу портала Azure Stack.
+
+2. Выберите **Вычисления**, а затем — **Сервер Ubuntu 16.04 LTS**.
+3. Щелкните **Создать**.
+
+4. Введите сведения о виртуальной машине. Для параметра **Тип проверки подлинности** выберите значение **Открытый ключ SSH**. При вставке открытого ключа SSH (который вы ранее сохранили в файл) обязательно удалите все начальные и конечные пробелы. По завершении нажмите кнопку **ОК**.
+
+   ![Основная информация о виртуальной машине](media/azure-stack-quick-linux-portal/linux-01.PNG)
+
+5. Выберите размер **D1_V2** для виртуальной машины.
+
+   ![Размер машины](media/azure-stack-quick-linux-portal/linux-02.PNG)
+
+6. На странице **параметров** оставьте значения по умолчанию и нажмите кнопку **OK**.
+
+7. На странице **сводки** нажмите кнопку **OК**, чтобы начать развертывание виртуальной машины.
+
+
+## <a name="connect-to-the-virtual-machine"></a>Подключение к виртуальной машине
+
+1. На странице виртуальной машины щелкните **Подключить**. Появится строка подключения по протоколу SSH, при помощи которой вы можете подключиться к виртуальной машине.
+
+   ![Подключение к виртуальной машине](media/azure-stack-quick-linux-portal/linux-03.PNG)
+
+2. Откройте PuTTY.
+3. На экране **PuTTY Configuration** (Конфигурация PuTTY) в разделе **Категория** разверните узел **SSH** и щелкните **Проверка подлинности**. Нажмите кнопку **Обзор** и выберите файл закрытого ключа, который вы сохранили ранее.
+
+   ![Закрытый ключ PuTTY](media/azure-stack-quick-linux-portal/Putty03.PNG)
+4. В разделе **Категория** прокрутите окно вверх и щелкните элемент **Сеанс**.
+5. В поле **Host Name (or IP address)** (Имя узла или IP-адрес) вставьте строку подключения, которую вы ранее видели на портале Azure. В нашем примере строка имеет вид ```asadmin@192.168.102.34```.
  
-   ![PuTTY session](media/azure-stack-quick-linux-portal/Putty04.PNG)
-6. Click **Open** to open a session to the virtual machine.
+   ![Сеанс puTTY](media/azure-stack-quick-linux-portal/Putty04.PNG)
+6. Щелкните **Открыть**, чтобы создать сеанс подключения к виртуальной машине.
 
-   ![Linus session](media/azure-stack-quick-linux-portal/Putty05.PNG)
+   ![Сессия Linus](media/azure-stack-quick-linux-portal/Putty05.PNG)
 
-## <a name="install-nginx"></a>Install NGINX
+## <a name="install-nginx"></a>Установка nginx
 
-Use the following bash script to update package sources and install the latest NGINX package on the virtual machine. 
+Чтобы обновить на виртуальной машине источники пакетов и установить последнюю версию пакета nginx, используйте bash-скрипт ниже. 
 
 ```bash 
 #!/bin/bash
@@ -111,36 +109,35 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-When done, exit the SSH session and return the virtual machine Overview page in the Azure Stack portal.
+Когда процесс завершится, закройте сеанс SSH и вернитесь на страницу общей информации о виртуальной машине на портале Azure Stack.
 
 
-## <a name="open-port-80-for-web-traffic"></a>Open port 80 for web traffic 
+## <a name="open-port-80-for-web-traffic"></a>Открытие порта 80 для веб-трафика 
 
-A Network security group (NSG) secures inbound and outbound traffic. When a virtual machine is created from the Azure Stack portal, an inbound rule is created on port 22 for SSH connections. Because this virtual machine hosts a web server, an NSG rule needs to be created for port 80.
+Группа безопасности сети (NSG) защищает входящий и исходящий трафик. При создании виртуальной машины на портале Azure создается правило, разрешающее входящий трафик через порт 22 для SSH-подключений. Так как на этой виртуальной машине размещается веб-сервер, нужно еще и правило NSG для порта 80.
 
-1. On the virtual machine **Overview** page, click the name of the **Resource group**.
-2. Select the **network security group** for the virtual machine. The NSG can be identified using the **Type** column. 
-3. On the left-hand menu, under **Settings**, click **Inbound security rules**.
-4. Click **Add**.
-5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
-6. Click **OK**.
-
-
-## <a name="view-the-nginx-welcome-page"></a>View the NGINX welcome page
-
-With NGINX installed, and port 80 open on your virtual machine, the web server can now be accessed at the virtual machine's public IP address. The public IP address can be found on the virtual machine's Overview page in the Azure Stack portal.
-
-Open a web browser, and browse to ```http://<public IP address>```.
-
-![NGINX default site](media/azure-stack-quick-linux-portal/linux-04.PNG)
+1. На странице **общей информации** о виртуальной машине щелкните имя **группы ресурсов**.
+2. Выберите **группу безопасности сети** для виртуальной машины. NSG можно определить с помощью столбца **Тип**. 
+3. В меню слева в разделе **Параметры** щелкните **Правила безопасности для входящего трафика**.
+4. Щелкните **Добавить**.
+5. В поле **Имя** введите **http**. Убедитесь, что для параметра **Диапазон портов** задано значение 80, а для параметра **Действие** — значение **Разрешить**. 
+6. Нажмите кнопку **ОК**.
 
 
-## <a name="clean-up-resources"></a>Clean up resources
+## <a name="view-the-nginx-welcome-page"></a>Просмотр страницы приветствия nginx
 
-When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine page and click **Delete**.
+Теперь на виртуальной машине установлен NGINX и открыт порт 80, а значит, веб-сервер должен открываться через общедоступный IP-адрес этой виртуальной машины. Общедоступный IP-адрес можно узнать на странице общих сведений о виртуальной машине на портале Azure Stack.
 
-## <a name="next-steps"></a>Next steps
+Откройте окно браузера и перейдите по адресу ```http://<public IP address>```.
 
-In this quick start, you’ve deployed a simple Linux virtual machine, a network security group rule, and installed a web server. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
+![Сайт nginx по умолчанию](media/azure-stack-quick-linux-portal/linux-04.PNG)
 
+
+## <a name="clean-up-resources"></a>Очистка ресурсов
+
+Ставшие ненужными группу ресурсов, виртуальную машину и все связанные ресурсы можно удалить, выполнив следующую команду. Для этого выберите группу ресурсов на странице виртуальной машины и щелкните **Удалить**.
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Из этого краткого руководства вы узнали, как развернуть простую виртуальную машину Linux, ознакомились с правилами групп безопасности сети и особенностями установке веб-сервера. Дополнительные сведения о виртуальных машинах Azure Stack см. в [рекомендациях по работе с виртуальными машинами в Azure Stack](azure-stack-vm-considerations.md).
 

@@ -10,17 +10,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
+ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: fccf0e3d8cb5d0f0adfb53a06b95aa1090451915
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="20-days-of-azure-cosmos-db-tips"></a>Советы по использованию "20 дней с Azure Cosmos DB"
 
 ![Получайте один совет по Azure Cosmos DB ежедневно](./media/20-days-of-tips/20-days-of-azure-cosmos-db-tips-header.png)
@@ -159,9 +157,32 @@ ms.lasthandoff: 09/28/2017
 
 [![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
+## <a name="tip-18-request-units"></a>Совет 18. Единицы запросов
+
+Совет 18. Что такое единицы запроса (ЕЗ) и как их настроить в Azure #CosmosDB. Дополнительные сведения см. в статье [Единицы запросов в базе данных Azure Cosmos DB](https://aka.ms/Kt2nbn) 
+
+Статья: [Единицы запросов в базе данных Azure Cosmos DB](https://aka.ms/Kt2nbn)
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913449916026032128)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319223402796326912)
+
+## <a name="tip-19-partition-partition-partition"></a>Совет 19. Раздел! Раздел! Раздел! 
+
+Совет 19. Раздел! Раздел! Раздел! Ответы на вопросы "зачем" и "как", связанные с Azure #CosmosDB. Документацию см. в статье [Секционирование и масштабирование в Azure Cosmos DB](https://aka.ms/Ts5pon)  
+
+> [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913773131499794433)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319541726637883392)
+
+## <a name="tip-20-cheatsheet"></a>Совет 20. Памятка
+
+Совет 20. Все любят старые добрые памятки В Azure #CosmosDB есть такие. См. статью [Azure Cosmos DB. Памятка по SQL-запросам API DocumentDB в формате PDF](https://aka.ms/Nt01nl)
+
+Памятка: [Azure Cosmos DB. Памятка по SQL-запросам API DocumentDB в формате PDF](https://aka.ms/Nt01nl)
+
+[![Ретвитнуть в Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![Поделиться в LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об Azure Cosmos DB см. в статье [Добро пожаловать в Azure Cosmos DB](introduction.md) и записи блога с [техническим обзором Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/).
-
 
 

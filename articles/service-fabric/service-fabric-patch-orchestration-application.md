@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
+ms.openlocfilehash: c37180262981bbbcdecb0504e2717db27568586d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 6385dd99e3f5d96eee2cf50016e4af599d91b011
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Установка исправлений операционной системы Windows в кластере Service Fabric
 
 Приложение для управления исправлениями — это приложение Azure Service Fabric, которое позволяет автоматизировать установку исправлений операционной системы в кластере Service Fabric и избежать простоев.
@@ -71,7 +69,7 @@ ms.lasthandoff: 09/26/2017
 В кластерах Azure на уровне надежности Silver служба Repair Manager включена по умолчанию. В кластерах Azure на уровне надежности Gold служба Repair Manager может быть не включена в зависимости от того, когда были созданы кластеры. В кластерах Azure на уровне надежности Bronze служба Repair Manager по умолчанию не включена. Если служба уже включена, сведения о ее выполнении отображаются в разделе системных служб в Service Fabric Explorer.
 
 ##### <a name="azure-portal"></a>Портал Azure
-Диспетчер восстановления можно включить на портале Azure при настройке кластера. Выберите параметр `Include Repair Manager` в разделе `Add on features` во время настройки кластера.
+Диспетчер восстановления можно включить на портале Azure при настройке кластера. Выберите параметр **Включить диспетчер восстановления** в разделе **Дополнительные функции** во время настройки кластера.
 ![Снимок экрана с подключением диспетчера восстановления на портале Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-template"></a>Шаблон диспетчера ресурсов Azure
@@ -427,4 +425,3 @@ RebootRequired | true — требовалась перезагрузка<br> f
 - Исправлены ошибки, связанные с рабочим процессом перезапуска системы.
 - Исправлена ошибка при создании задач службы управления правами, из-за которой проверка работоспособности не выполнялась должным образом во время подготовки задач восстановления.
 - Режим автоматического запуска службы POANodeSvc для Windows изменен на отложенный автоматический запуск.
-

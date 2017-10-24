@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: miprasad
+ms.openlocfilehash: 39ae2aa7217b45e8fab77f528b27b77a1b1256bf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6ace1ec1130898d5cdc4e5c8b957e13aecc87174
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Анализ тональности с помощью глубокого обучения в Машинным обучении Azure
+# <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Анализ тональности с помощью глубокого обучения в службе "Машинное обучение Azure"
 
 Анализ тональности — это хорошо известное задание в сфере обработки естественного языка, основной целью которого является определение тональности в заданном наборе текстов. Цель этого решения — использовать CNTK в качестве серверной части для Keras (библиотека на уровне моделей, предоставляющая высокоуровневые стандартные блоки для разработки моделей глубокого обучения) и реализовать анализ тональности на основе обзоров фильмов.
 
 Решение расположено по адресу https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
 ## <a name="link-to-the-gallery-github-repository"></a>Ссылка на репозиторий коллекции на GitHub
+
+Ниже приведена ссылка на общедоступный репозиторий GitHub:
 
 [https://github.com/Azure/MachineLearningSamples-SentimentAnalysis](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis)
 
@@ -48,18 +48,9 @@ ms.lasthandoff: 09/25/2017
 
 * В этом решении предполагается, что Azure Machine Learning Workbench работает в Windows 10 с модулем Docker, установленным на локальном компьютере. В macOS большинство инструкций будут аналогичны.
 
-## <a name="create-a-new-workbench-project"></a>Создание проекта в Workbench
-
-Создайте проект, используя в качестве шаблона следующий пример:
-1.  Откройте Azure Machine Learning Workbench.
-2.  На странице **Projects** (Проекты) щелкните знак **+** и выберите **New Project** (Создать проект).
-3.  В области **Create New Project** (Создание проекта) введите информацию о новом проекте.
-4.  В поле поиска **Search Project Templates** (Поиск шаблонов проектов) введите Sentiment Analysis with Deep Learning (Анализ тональности с помощью глубокого обучения) и выберите шаблон.
-5.  Нажмите кнопку **Создать**
-
 ## <a name="data-description"></a>Описание данных
 
-Для этого примера используется созданный вручную небольшой набор данных, который расположен в папке данных [репозитория GitHub](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/Data).
+Для этого примера используется созданный вручную небольшой набор данных, который расположен в [папке данных](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/tree/master/data).
 
 Первый столбец содержит обзоры фильмов, а второй — их тональность (0 — негативная и 1 — позитивная). Набор данных используется только для демонстрации. Обычно, чтобы получить оценку тональности, необходимо иметь большой набор данных. Например, [модель анализа тональности обзоров фильмов IMDB](https://keras.io/datasets/#datasets ) из Keras состоит из набора данных 25 000 обзоров фильмов из IMDB, которые имеют отметку тональности (позитивную или негативную). Назначение этого практического занятия — показать, как выполнять анализ тональности с помощью глубокого обучения с AMLWorkbench.
 
@@ -67,20 +58,19 @@ ms.lasthandoff: 09/25/2017
 
 Папки упорядочены следующим образом.
 
-1. Code. Содержит весь код, связанный с выполнением анализа тональности с помощью AMLWorkbench.  
-2. Data. Содержит набор данных, используемых в решении.  
-3. Labs. Содержит практические занятия.  
+1. Весь код, связанный с выполнением анализа тональности с помощью AMLWorkbench, расположен в корневой папке.
+2. data: содержит набор данных, используемых в решении.
+3. docs: содержит все практические занятия.
 
 Порядок выполнения практических заданий решения выглядит так:
 
 | Порядок| Имя файла | Связанные файлы |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisDataPreparation.md) | Data/sampleReviews.txt |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisModelingDocker.md) | Code/SentimentExtraction.py |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | Code/SentimentExtractionDocker.py |
-| 4. | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisOperationalization.md) | Code/Operaionalization |
+| 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | data/sampleReviews.txt |
+| 2 | [`SentimentAnalysisModelingKerasWithCNTKBackend.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | SentimentExtraction.py |
+| 3 | [`SentimentAnalysisModelingDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingDocker.md) | SentimentExtractionDocker.py |
+| 4. | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | Operaionalization |
 
 ## <a name="conclusion"></a>Заключение
 
 В заключении это решение описывает, как использовать глубокое обучение для выполнения анализа тональности с помощью Azure Machine Learning Workbench. Указанное решение может использовать CNTK или Tensorflow в качестве серверной части Keras. Кроме того, мы также можем ввести в эксплуатацию модели HDF5.
-

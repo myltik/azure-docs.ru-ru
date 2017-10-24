@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/16/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c70e80c413d0637f956c43686df29b8073daaa3b
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: c4a22b230cd630c413118ab798ff241527465554
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-domain-services"></a>Доменные службы Azure AD
 ## <a name="overview"></a>Обзор
@@ -84,3 +83,13 @@ ms.lasthandoff: 12/28/2016
 * **Совместимость** — доменные службы Azure AD созданы на базе инфраструктуры корпоративного уровня Windows Server Active Directory. Таким образом, приложения получают более полную совместимость с функциями Windows Server Active Directory. Обратите внимание, что не все функции, доступные в среде Windows Server AD, в настоящее время доступны в доменных службах Azure AD. Однако доступные функции совместимы с соответствующими функциями Windows Server AD, которые вы используете в своей локальной инфраструктуре. LDAP, Kerberos, NTLM, использование групповой политики и присоединение к домену — это готовое предложение, протестированное и оптимизированное на различных версиях Windows Server.
 * **Экономия** — используя службы доменов Azure AD, вы можете минимизировать расходы на инфраструктуру и управление инфраструктурой удостоверений для поддержки традиционных приложений с поддержкой каталогов. Такие приложения можно переместить в службы инфраструктуры Azure, что позволит существенно сократить эксплуатационные расходы.
 
+
+## <a name="next-steps"></a>Дальнейшие действия
+### <a name="learn-more-about-azure-ad-domain-services"></a>Дополнительные сведения о доменных службах Azure AD
+* [Функции](active-directory-ds-features.md)
+* [Сценарии развертывания и варианты использования](active-directory-ds-scenarios.md)
+* [Как определить, подходят ли вам доменные службы Azure AD](active-directory-ds-comparison.md)
+* [Синхронизация в управляемом домене доменных служб Azure AD](active-directory-ds-synchronization.md)
+
+### <a name="get-started-with-azure-ad-domain-services"></a>Приступая к работе с доменными службами Azure AD
+* [Включение доменных служб Azure Active Directory с помощью портала Azure (предварительная версия)](active-directory-ds-getting-started.md)

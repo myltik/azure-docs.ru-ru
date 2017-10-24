@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bedcbc3218022b36cc9f961c7621db3c5a639828
-ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (сценарий Windows PowerShell)
 Развертывание веб-приложения на виртуальной машине. и создает необходимые ресурсы в подписке Azure, если они еще не созданы.
@@ -80,7 +79,7 @@ Publish-WebApplicationVM
 | Принимает подстановочные знаки? |нет |
 
 ### <a name="vmpassword"></a>VMPassword
-Данные учетной записи виртуальной машины. Пример: -VMPassword @{Name = "admin"; Password = "password"}
+Данные учетной записи виртуальной машины. Пример: -VMPassword @{Name = admin; Password = password}
 
 | Псевдонимы | Нет |
 | --- | --- |
@@ -91,7 +90,7 @@ Publish-WebApplicationVM
 | Принимает подстановочные знаки? |нет |
 
 ### <a name="databaseserverpassword"></a>Параметр DatabaseServerPassword
-Учетные данные для базы данных SQL в Azure. Пример: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
+Учетные данные для базы данных SQL в Azure. Пример: -DatabaseServerPassword @{Name = admin; Password = password}
 
 | Псевдонимы | Нет |
 | --- | --- |
@@ -185,5 +184,4 @@ Publish-WebApplicationVM
 ```
 
 В файле конфигурации JSON можно изменить объекты, которые подлежат подготовке. Виртуальная машина и облачная служба необходимы, но раздел баз данных является необязательным.
-
 

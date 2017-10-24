@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/30/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: 6e526e10ac5e3307aeefcdd22840a3e6a6ec843d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 895b538680230170cd29817997a7739b1ba89cfc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect. История выпусков версий
 Команда Azure Active Directory (Azure AD) регулярно обновляет службу Azure AD Connect, добавляя новые функции и возможности. Не все эти дополнения применимы для всех пользователей.
 
 Эта статья поможет вам отследить выпущенные версии и понять, требуется ли обновление до последней версии или нет.
+
+>[!IMPORTANT]
+>Начиная со сборки 1.1.484 в Azure AD Connect появилась регрессионная ошибка, которая требует разрешений администратора при обновлении базы данных SQL.  Эта ошибка все еще присутствует в последней сборке 1.1.614.  Если вы обновляете решение до этой сборки, вам потребуются разрешения системного администратора.  Разрешений dbo недостаточно.  При попытке обновления Azure AD Connect без разрешений системного администратора обновление завершится ошибкой, и после обновления Azure AD Connect будет работать неправильно.  Корпорация Майкрософт знает об этой проблеме и работает над ее решением.
 
 Ниже приведен список связанных статей.
 
@@ -779,4 +781,3 @@ Desktop SSO
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-

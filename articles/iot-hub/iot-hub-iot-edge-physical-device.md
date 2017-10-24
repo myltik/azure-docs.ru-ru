@@ -12,16 +12,15 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 09/28/2017
 ms.author: andbuc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 02962a91c739a53dfcf947bcc736e5c293b9384f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: b24828ee1a09ba8e5f657954e11936f124270173
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-azure-iot-edge-on-a-raspberry-pi-to-forward-device-to-cloud-messages-to-iot-hub"></a>Использование Azure IoT Edge в Raspberry Pi для переадресации отправки сообщений с устройства в облако в Центр Интернета вещей
+# <a name="forward-device-to-cloud-messages-to-iot-hub-using-azure-iot-edge-on-a-raspberry-pi"></a>Переадресация отправки сообщений с устройства в облако в Центр Интернета вещей с помощью Azure IoT Edge в Raspberry Pi
 
 В этом пошаговом руководстве по созданию [примера устройства Bluetooth с низким энергопотреблением][lnk-ble-samplecode] показано, как использовать [Edge Интернета вещей Azure][lnk-sdk], чтобы:
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 06/26/2017
 При запуске шлюз Edge Интернета вещей выполняет следующие действия:
 
 * Подключается к устройству SensorTag с помощью протокола низкого энергопотребления Bluetooth (BLE).
-* Подключается к Центру Интернета вещей с помощью протокола HTTP.
+* Подключается к Центру Интернета вещей с помощью протокола HTTPS.
 * Пересылает данные телеметрии с устройства SensorTag в центр IoT.
 * Маршрутизирует команды из центра IoT на устройство SensorTag.
 
@@ -64,7 +63,11 @@ ms.lasthandoff: 06/26/2017
 1. Устройство BLE создает пример данных температуры и отправляет его через Bluetooth на модуль BLE в шлюзе.
 1. Модуль BLE получает этот пример и публикует его в брокер вместе с MAC-адресом устройства.
 1. Модуль сопоставления удостоверений извлекает это сообщение и использует внутреннюю таблицу для преобразования MAC-адреса устройства в удостоверение устройства Центра Интернета вещей. Удостоверение устройства Центра Интернета вещей состоит из идентификатора и ключа устройства.
-1. Модуль сопоставления удостоверений публикует новое сообщение, содержащее пример данных температуры, MAC-адрес, идентификатор и ключ устройства.
+1. Модуль сопоставления удостоверений публикует новое сообщение, содержащее следующие сведения:
+   - образцы данных температуры;
+   - MAC-адрес устройства;
+   - идентификатор устройства;
+   - ключ устройства.  
 1. Модуль Центра Интернета вещей получает это новое сообщение (созданное модулем сопоставления удостоверений) и публикует его в Центре Интернета вещей.
 1. Модуль ведения журнала регистрирует в локальном файле все сообщения из брокера.
 
@@ -134,7 +137,7 @@ ms.lasthandoff: 06/26/2017
 
     ```sh
     sudo apt-get update
-    sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
+    sudo apt-get install bluetooth bluez-tools build-essential autoconf libtool glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
     ```
 
 1. Скачайте исходный код BlueZ с сайта bluez.org:
@@ -203,13 +206,13 @@ ms.lasthandoff: 06/26/2017
     bluetoothctl
     ```
 
-1. Введите команду **power on** , чтобы включить питание контроллера Bluetooth. Команда вернет результат следующего вида:
+1. Введите команду **power on** , чтобы включить питание контроллера Bluetooth. Команда вернет результат, как в следующем примере:
 
     ```sh
     [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
     ```
 
-1. В интерактивной оболочке Bluetooth введите команду **scan on** для поиска устройств Bluetooth. Команда вернет результат следующего вида:
+1. В интерактивной оболочке Bluetooth введите команду **scan on** для поиска устройств Bluetooth. Команда вернет результат, как в следующем примере:
 
     ```sh
     Discovery started
@@ -284,7 +287,7 @@ ms.lasthandoff: 06/26/2017
 Установите зависимые компоненты Edge Интернета вещей Azure:
 
 ```sh
-sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
+sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev libtool
 ```
 
 Выполните следующие команды, чтобы клонировать Edge Интернета вещей и все его подмодули в корневой каталог:
@@ -303,9 +306,9 @@ cd ~/iot-edge
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Настройка и запуск примера BLE на устройстве Raspberry Pi 3
 
-Для начальной загрузки и запуска примера необходимо настроить каждый модуль Edge Интернета вещей, который участвует в шлюзе. Необходимая конфигурация предоставляется в файле JSON. Вам следует настроить все пять участвующих модулей Edge Интернета вещей. В репозитории есть пример JSON-файла с именем **gateway\_sample.json**, на основе которого вы можете создать собственный файл конфигурации. Этот файл находится в папке **samples/ble_gateway/src** в локальной копии репозитория Edge Интернета вещей.
+Для начальной загрузки и запуска примера настройте каждый модуль IoT Edge, который участвует в шлюзе. Необходимая конфигурация предоставляется в файле JSON. Вам следует настроить все пять участвующих модулей Edge Интернета вещей. В репозитории есть пример JSON-файла с именем **gateway\_sample.json**, на основе которого вы можете создать собственный файл конфигурации. Этот файл находится в папке **samples/ble_gateway/src** в локальной копии репозитория Edge Интернета вещей.
 
-В следующих разделах описывается, как изменить этот файл конфигурации для примера BLE. Кроме того, предполагается, что репозиторий Edge Интернета вещей находится в папке **/home/pi/iot-edge/** на устройстве Raspberry Pi 3. Если репозиторий находится в другом месте, измените соответствующим образом пути.
+В следующих разделах описано, как изменить этот файл конфигурации для примера BLE. Предположим, что репозиторий IoT Edge находится в папке **/home/pi/iot-edge /** на Raspberry Pi 3. Если репозиторий находится в другом месте, измените соответствующим образом пути.
 
 #### <a name="logger-configuration"></a>Конфигурация средства ведения журнала
 
@@ -581,4 +584,3 @@ iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devic
 [lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
 [lnk-ssh-windows]: https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md
 [lnk-ssh-linux]: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
-

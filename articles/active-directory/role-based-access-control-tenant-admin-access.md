@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andredm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Повышение прав доступа администратором клиентов с помощью управления доступом на основе ролей
 
@@ -27,7 +26,18 @@ ms.lasthandoff: 05/17/2017
 
 Эта возможность важна, так как она позволяет администратору клиентов видеть все подписки, которые существуют в организации. Она также позволяет приложениям службы автоматизации (например, приложениям для выставления счетов и аудита) обращаться ко всем подпискам и обеспечивать точное представление о состоянии организации с точки зрения выставления счетов или управления ресурсами.  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Как использовать elevateAccess для предоставления доступа клиентам
+## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Как использовать elevateAccess для доступа к клиенту с помощью Центра администрирования Azure AD
+
+В [Центре администрирования Azure Active Directory](https://aad.portal.azure.com) можно вызвать эту функцию в разделе **Свойства**.
+Эта функция называется **Глобальный администратор может управлять подписками Azure**. Вы можете решить, что это глобальное свойство для Azure Active Directory, но оно применимо только к области действий текущего пользователя. Как пользователь с правами глобального администратора в Azure Active Directory вы можете вызывать функцию elevateAccess для пользователя, который вошел в Центр администрирования Active Directory Azure.
+
+Выберите **Да** и **Сохранить**. Так вы **назначите** роль **Администратор доступа пользователей** роли в корневой области (/) для пользователя, который вошел на портал.
+
+Выберите **Нет** и **Сохранить**. Так вы **удалите** роль **Администратор доступа пользователей** роли в корневой области (/) для пользователя, который вошел на портал.
+
+![Снимок экрана: включение управления подпиской Azure для глобального администратора в Центре администрирования Azure AD](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Как использовать elevateAccess для предоставления доступа клиентам с помощью REST API
 
 Базовый процесс состоит из приведенных ниже действий.
 
@@ -56,7 +66,7 @@ ms.lasthandoff: 05/17/2017
 4. Отзовите привилегии администратора доступа пользователей, пока они не понадобятся вновь.
 
 
-## <a name="how-to-undo-the-elevateaccess-action"></a>Как отменить действие elevateAccess
+## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Как отменить действие elevateAccess с помощью REST API
 
 При вызове *elevateAccess* для вас создается назначение роли. Поэтому, чтобы отозвать эти привилегии, необходимо удалить назначение.
 
@@ -107,4 +117,3 @@ ms.lasthandoff: 05/17/2017
 - Узнайте больше об [управлении доступом на основе ролей с помощью REST](role-based-access-control-manage-access-rest.md).
 
 - Изучите [управление правами доступа](role-based-access-control-manage-assignments.md) на портале Azure.
-

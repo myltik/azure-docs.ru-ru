@@ -5,16 +5,16 @@
 ### <a name="request-wheels"></a>Запрос архивов wheel
 Если для установки пакета требуется компилятор, необходимо обратиться к владельцу пакета для получения доступа к wheel для пакета.
 
-Благодаря тому, что недавно стал доступным компилятор [Microsoft Visual C++ для Python 2.7][Microsoft Visual C++ для Python 2.7], теперь проще создавать пакеты с машинным кодом для Python 2.7.
+Благодаря тому, что недавно стал доступным компилятор [Microsoft Visual C++ для Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], теперь проще создавать пакеты с машинным кодом для Python 2.7.
 
 ### <a name="build-wheels-requires-windows"></a>Сборки wheel (требуется Windows)
 Примечание. При использовании этого параметра выполняйте компиляцию пакета с помощью среды Python, совпадающей с платформой, архитектурой или версией, которая использовалась в веб-приложении Azure (Windows, 32-разрядная версия, 2.7 или 3.4).
 
 Если пакет не установился из-за того, что требуется компилятор, можно установить компилятор на локальном компьютере и выполнить сборку wheel для пакета, который потом будет включен в репозиторий.
 
-Пользователи Mac или Linux: если у вас нет доступа к компьютеру под управлением Windows, вы можете создать виртуальную машину в Azure. Сведения о том, как это сделать, см. в статье [Создание первой виртуальной машины Windows на портале Azure][Создание первой виртуальной машины Windows на портале Azure].  С его помощью можно выполнить сборки wheel, добавить их в репозиторий и при необходимости удалить виртуальную машину. 
+Пользователи Mac или Linux: если у вас нет доступа к компьютеру под управлением Windows, вы можете создать виртуальную машину в Azure. Сведения о том, как это сделать, см. в статье [Создание первой виртуальной машины Windows на портале Azure][Create a Virtual Machine Running Windows].  С его помощью можно выполнить сборки wheel, добавить их в репозиторий и при необходимости удалить виртуальную машину. 
 
-Для Python 2.7 можно установить компилятор [Microsoft Visual C++ для Python 2.7][Microsoft Visual C++ для Python 2.7].
+Для Python 2.7 можно установить компилятор [Microsoft Visual C++ для Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
 Для Python 3.4 можно установить [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
@@ -59,6 +59,6 @@
 
 Рекомендуется удалить существующую виртуальную среду в приложении, чтобы при автоматическом управлении виртуальной средой не оставалось лишних файлов.
 
-[Создание первой виртуальной машины Windows на портале Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
-[Microsoft Visual C++ для Python 2.7]: http://aka.ms/vcpython27
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949

@@ -3,7 +3,7 @@ title: "Автоматизация развертывания виртуальн
 description: "В этой статье показано, как автоматизировать создание виртуальной машины Amazon Web Service с помощью службы автоматизации Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
@@ -12,27 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 09/29/2017
 ms.author: tiandert; bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: e0b784006b4933fe986890c09afa965934511784
-ms.contentlocale: ru-ru
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: 828f9e2cc9a39e54933cd0e0db7273efa460d0c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Сценарий службы автоматизации Azure: подготовка виртуальной машины AWS
 В этой статье мы покажем, как с помощью службы автоматизации Azure подготовить виртуальную машину в подписке Amazon Web Service (AWS) и присвоить виртуальной машине конкретное имя, которое в AWS называется "тегом" виртуальной машины.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Для выполнения инструкций из этой статьи вам понадобится учетная запись службы автоматизации Azure и подписка AWS. Дополнительные сведения о настройке учетной записи службы автоматизации Azure и об указании в ней учетных данных подписки AWS см. в статье [Проверка подлинности модулей Runbook с помощью Amazon Web Services](automation-configure-aws-account.md).  Перед выполнением дальнейших действий необходимо создать эту учетную запись с учетными данными подписки AWS или указать в ней эти учетные данные.
+Для выполнения инструкций из этой статьи вам понадобится учетная запись службы автоматизации Azure и подписка AWS. Дополнительные сведения о настройке учетной записи службы автоматизации Azure и об указании в ней учетных данных подписки AWS см. в статье [Проверка подлинности модулей Runbook с помощью Amazon Web Services](automation-config-aws-account.md).  Перед выполнением дальнейших действий необходимо создать эту учетную запись с учетными данными подписки AWS или указать в ней эти учетные данные.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Развертывание модуля PowerShell для Amazon Web Services
 В процессе работы наш модуль Runbook для подготовки виртуальной машины будет использовать модуль PowerShell для AWS. Выполните следующие действия, чтобы добавить в учетную запись службы автоматизации модуль, настроенный с учетными данными подписки AWS.  
 
 1. Откройте браузер и перейдите к [коллекции PowerShell](http://www.powershellgallery.com/packages/AWSPowerShell/), а затем нажмите кнопку **Deploy to Azure Automation** (Развернуть в службе автоматизации Azure).<br><br> ![Импорт модуля AWS PS](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
-2. Вы перейдете на страницу входа в Azure. После аутентификации откроется следующая колонка портала Azure.<br><br> ![Колонка "Импорт модуля"](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
-3. Выберите группу ресурсов из раскрывающегося списка **Группы ресурсов** и в колонке "Параметры" укажите следующие сведения:
+2. Вы перейдете на страницу входа в Azure. После аутентификации откроется следующая страница портала Azure.<br><br> ![Страница импорта модуля](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
+3. Выберите группу ресурсов в раскрывающемся списке **Группы ресурсов** и на странице "Параметры" укажите следующее:
    
    * В раскрывающемся списке **New or Existing Automation Account (string)** (Новая или существующая учетная запись службы автоматизации (строка)) выберите **Existing** (Существующая).  
    * В поле **Имя учетной записи службы автоматизации (строка)** введите точное имя учетной записи службы автоматизации, которая включает учетные данные для подписки AWS.  Например, если вы создали специальную учетную запись с именем **AWSAutomation**, то именно это имя и нужно ввести в поле.
@@ -45,8 +44,8 @@ ms.lasthandoff: 04/15/2017
    > 
    > 
 5. На портале Azure выберите свою учетную запись службы автоматизации, указанную в шаге 3.
-6. Щелкните элемент **Ресурсы** и в колонке **Ресурсы** выберите элемент **Модули**.
-7. В колонке **Модули** вы увидите в списке модуль **AWSPowerShell**.
+6. Щелкните плитку **Ресурсы** и на странице **Ресурсы** выберите плитку **Модули**.
+7. На странице **Модули** вы увидите в списке модуль **AWSPowerShell**.
 
 ## <a name="create-aws-deploy-vm-runbook"></a>Создание модуля Runbook для развертывания виртуальной машины в AWS
 После развертывания модуля AWS PowerShell можно создать модуль Runbook для автоматизации подготовки виртуальной машины в AWS с помощью сценария PowerShell. Приведенные ниже шаги показывают, как использовать собственный сценарий PowerShell в службе автоматизации Azure.  
@@ -60,11 +59,11 @@ ms.lasthandoff: 04/15/2017
    Save-Script -Name New-AwsVM -Path <path>
    ```
    <br>
-2. На портале Azure откройте свою учетную запись службы автоматизации и щелкните элемент **Модули Runbook**.  
-3. В колонке **Модули Runbook** выберите **Добавить Runbook**.
-4. В колонке **Добавить Runbook** выберите **Быстрое создание** (Создание нового модуля Runbook).
-5. В колонке свойств **модуля Runbook** введите имя модуля в поле "Имя" и выберите **PowerShell** в раскрывающемся списке **Тип Runbook**, затем нажмите кнопку **Создать**.<br><br> ![Колонка "Импорт модуля"](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
-6. При появлении колонки "Изменение сценария PowerShell для модуля Runbook" скопируйте и вставьте сценарий PowerShell в область создания модуля Runbook.<br><br> ![Сценарий PowerShell для модуля Runbook](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
+2. На портале Azure в учетной записи автоматизации выберите **Модули runbook** в разделе **Автоматизация процессов** в левой части экрана.  
+3. На странице **Модули Runbook** выберите **Добавить Runbook**.
+4. На странице **Добавить Runbook** выберите **Быстрое создание** (Создание нового модуля Runbook).
+5. На странице свойств **модуля Runbook** введите имя модуля в поле "Имя" и выберите **PowerShell** в раскрывающемся списке **Тип Runbook**, затем нажмите кнопку **Создать**.<br><br> ![Панель создания модуля Runbook](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
+6. При открытии страницы "Изменение сценария PowerShell для модуля Runbook" скопируйте и вставьте сценарий PowerShell в область создания модуля Runbook.<br><br> ![Сценарий PowerShell для модуля Runbook](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
    
     > [!NOTE]
     > При работе с примером сценария PowerShell имейте в виду следующее:
@@ -103,10 +102,10 @@ ms.lasthandoff: 04/15/2017
 * Создан новый модуль Runbook, а значения параметров проверены и при необходимости обновлены.  
 * Для параметров **Подробные записи в журнале** и **Записи ведения журнала** в настройке **Ведение журналов и трассировка** модуля Runbook задано значение **Включено**.<br><br> ![Ведение журнала и трассировка для модуля Runbook](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)  
 
-1. Нам нужно запустить модуль Runbook, поэтому щелкните **Запустить**, а затем, когда откроется колонка "Запуск Runbook", нажмите кнопку **ОК**.
-2. В колонке "Запуск модуля Runbook" укажите **VMname**(имя виртуальной машины).  Примите значения по умолчанию для остальных параметров, которые были ранее указаны в скрипте.  Нажмите кнопку **ОК**, чтобы запустить задание Runbook.<br><br> ![Запуск модуля Runbook: New-AwsVM](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
+1. Нам нужно запустить модуль Runbook, поэтому щелкните **Запустить**, а затем, когда откроется страница "Запуск Runbook", нажмите кнопку **ОК**.
+2. На странице "Запуск модуля Runbook" укажите **имя виртуальной машины**.  Примите значения по умолчанию для остальных параметров, которые были ранее указаны в скрипте.  Нажмите кнопку **ОК**, чтобы запустить задание Runbook.<br><br> ![Запуск модуля Runbook: New-AwsVM](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
 3. Откроется область заданий с созданным нами заданием Runbook. Закройте эту область.
-4. Ход выполнения задания и **Потоки** вывода можно просмотреть, выбрав элемент **Все журналы** в колонке задания Runbook.<br><br> ![Раздел "Поток": выходные данные](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
+4. Ход выполнения задания и **потоки** вывода можно просмотреть, выбрав плитку **Все журналы** на странице задания Runbook.<br><br> ![Раздел "Поток": выходные данные](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 5. Чтобы убедиться, что виртуальная машина подготавливается, войдите в консоль управления AWS, если вы еще не вошли в систему.<br><br> ![Консоль AWS: развернутая виртуальная машина](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -114,5 +113,4 @@ ms.lasthandoff: 04/15/2017
 * Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Мой первый модуль Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
 * Чтобы получить дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях, обратитесь к статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md)
 * Дополнительные сведения о функции поддержки скриптов PowerShell см. в статье [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Встроенная поддержка скриптов PowerShell в службе автоматизации Azure).
-
 

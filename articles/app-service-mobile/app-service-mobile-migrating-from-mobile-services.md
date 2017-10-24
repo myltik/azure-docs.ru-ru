@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
+ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="article-top"></a>Перенос существующей мобильной службы Azure в службу приложений Azure
 Благодаря [общей доступности службы приложений Azure]сайты мобильных служб Azure можно легко переносить на месте, что позволяет пользоваться преимуществами всех компонентов службы приложений Azure.  В этом документе объясняется, что происходит во время переноса сайта из мобильных служб Azure в службу приложений Azure.
@@ -32,7 +31,7 @@ ms.lasthandoff: 09/07/2017
 ## <a name="why-migrate"></a>Зачем переносить сайт
 Корпорация Майкрософт рекомендует перенести мобильную службу Azure, чтобы воспользоваться следующими преимуществами компонентов службы приложений Azure:
 
-* Новые компоненты узла, включая [Веб-задания] и [пользовательские доменные имена].
+* Новые компоненты узла, включая [веб-задания] и [пользовательские доменные имена].
 * Мониторинг и устранение неполадок с помощью New Relic или [Application Insights].
 * Встроенные средства DevOps, включая [промежуточных слотов], откат и тестирование в рабочей среде.
 * [Автоматическое масштабирование], балансировка нагрузки и [мониторинг производительности].
@@ -47,7 +46,7 @@ ms.lasthandoff: 09/07/2017
 
 Чтобы перенести сайт, выполните следующие действия:
 
-1. Войдите на [классический портал Azure].
+1. Войдите на [классическом портале Azure].
 2. В регионе выберите мобильную службу для переноса.
 3. Нажмите кнопку **Перенести в службу приложений**.
 
@@ -134,7 +133,7 @@ ms.lasthandoff: 09/07/2017
 6. Щелкните **Опубликовать**, чтобы опубликовать сайт.
 
 ## <a name="working-with-your-site"></a>Работа с сайтом после переноса
-После переноса вы будете работать с новой службой приложений на [портал Azure].  Ниже приведены некоторые пояснения к конкретным операциям, которые вы обычно выполняли на [классический портал Azure], а также к их эквивалентам в службе приложений.
+После переноса вы будете работать с новой службой приложений на [портал Azure].  Ниже приведены некоторые пояснения к конкретным операциям, которые вы обычно выполняли на [классическом портале Azure], а также к их эквивалентам в службе приложений.
 
 ### <a name="publishing-your-site"></a>Загрузка и публикация перенесенного сайта
 Вы можете получить доступ к своему сайту через GIT или FTP и повторно опубликовать его с помощью разных средств, включая WebDeploy, TFS, Mercurial, GitHub и FTP.  Учетные данные развертывания переносятся со всеми остальными данными сайта.  Если вы не настроили учетные данные развертывания, вы можете сбросить их.
@@ -229,7 +228,7 @@ ms.lasthandoff: 09/07/2017
 3. Щелкните **Параметры**, а затем — **Расписание**.
 4. Выберите для повторения значение **Один раз**, а затем нажмите кнопку **Сохранить**.
 
-Ваши задания по требованию находятся в папке `App_Data/config/scripts/scheduler post-migration`.  Мы рекомендуем преобразовывать все задания по требованию в [Веб-задания] или [функции].  Новые задания планировщика необходимо записывать как [Веб-задания] или [функции].
+Ваши задания по требованию находятся в папке `App_Data/config/scripts/scheduler post-migration`.  Мы рекомендуем преобразовывать все задания по требованию в [веб-задания] или [функции].  Новые задания планировщика необходимо записывать как [веб-задания] или [функции].
 
 ### <a name="notification-hubs"></a>Центры уведомлений
 Мобильные службы используют центры уведомлений для push-уведомлений.  Следующие параметры приложений используются для связывания центра уведомлений с мобильной службой после переноса.
@@ -255,7 +254,7 @@ ms.lasthandoff: 09/07/2017
 Дополнительную информацию см. в документации по [центрам уведомлений].
 
 > [!TIP]
-> Компоненты управления центрами уведомлений на [портал Azure] все еще доступны в режиме предварительной версии.  [классический портал Azure] остается доступным для управления всеми центрами уведомлений.
+> Компоненты управления центрами уведомлений на [портал Azure] все еще доступны в режиме предварительной версии.  [классическом портале Azure] остается доступным для управления всеми центрами уведомлений.
 >
 >
 
@@ -375,29 +374,26 @@ ms.lasthandoff: 09/07/2017
 <!-- Links -->
 [Цены службы приложений]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
-[Автоматическое масштабирование]: ../app-service-web/web-sites-scale.md
-[службы приложений Azure]: ../app-service/app-service-value-prop-what-is.md
-[документации по развертыванию службы приложений Azure]: ../app-service-web/web-sites-deploy.md
-[классический портал Azure]: https://manage.windowsazure.com
+[Автоматическое масштабирование]: ../app-service/web-sites-scale.md
+[службы приложений Azure]: ../app-service/app-service-web-overview.md
+[классическом портале Azure]: https://manage.windowsazure.com
 [портал Azure]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [планы планировщика Azure]: ../scheduler/scheduler-plans-billing.md
-[непрерывно развертывать]: ../app-service-web/app-service-continuous-deployment.md
+[непрерывно развертывать]: ../app-service/app-service-continuous-deployment.md
 [преобразовать смешанные пространства имен]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
-[пользовательские доменные имена]: ../app-service-web/web-sites-custom-domain-name.md
+[пользовательские доменные имена]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler
 [общей доступности службы приложений Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[ведению журналов]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[ведению журналов]: ../app-service/web-sites-enable-diagnostic-log.md
 [пакет SDK Node.js для мобильных приложений]: https://github.com/azure/azure-mobile-apps-node
 [сравнению мобильных служб и службы приложений]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [центрам уведомлений]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[мониторинг производительности]: ../app-service-web/web-sites-monitor.md
+[мониторинг производительности]: ../app-service/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[промежуточных слотов]: ../app-service-web/web-sites-staged-publishing.md
-[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
-[Веб-задания]: ../app-service-web/websites-webjobs-resources.md
+[промежуточных слотов]: ../app-service/web-sites-staged-publishing.md
+[VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [примерами преобразования XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [функции]: ../azure-functions/functions-overview.md
-
