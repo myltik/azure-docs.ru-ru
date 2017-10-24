@@ -53,6 +53,8 @@
           href: concepts-extensions.md
         - name: Журналы сервера
           href: concepts-server-logs.md
+        - name: высокую доступность;
+          href: concepts-high-availability.md
     - name: Ресурсы
       items:
         - name: Ценовые категории
@@ -67,6 +69,8 @@
           href: concepts-firewall-rules.md
         - name: Настройка SSL
           href: concepts-ssl-connection-security.md
+    - name: Монитор
+      href: concepts-monitoring.md
     - name: Разработка
       items:
         - name: Библиотеки подключений
@@ -91,14 +95,20 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Импорт и экспорт
           href: howto-migrate-using-export-and-import.md
-    - name: Настройка параметров конфигурации сервера
+    - name: Настройка параметров сервера
       items:
         - name: Инфраструктура CLI Azure
           href: howto-configure-server-parameters-using-cli.md
-    - name: Журналы сервера
+    - name: Доступ к журналам сервера
       items:
+        - name: Портал Azure
+          href: howto-configure-server-logs-in-portal.md
         - name: Инфраструктура CLI Azure
           href: howto-configure-server-logs-using-cli.md
+    - name: Монитор
+      items:
+        - name: Создание оповещений на основе метрик
+          href: howto-alert-on-metric.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

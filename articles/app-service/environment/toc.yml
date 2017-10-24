@@ -34,6 +34,8 @@
   items:
     - name: Использование ASE
       href: using-an-ase.md
+    - name: Интеграция со шлюзом приложений
+      href: integrate-with-application-gateway.md
     - name: Создание среды ASE с помощью шаблона
       href: create-from-template.md
 - name: Справочные материалы

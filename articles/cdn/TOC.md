@@ -10,7 +10,7 @@
 ### [Облачные службы](cdn-cloud-service-with-cdn.md)
 ### [Хранилище](cdn-create-a-storage-account-with-cdn.md)
 ### [Общий доступ к ресурсам независимо от источника](cdn-cors.md)
-### [Сопоставление личного домена с CDN](cdn-map-content-to-custom-domain.md)
+### [Добавление личного домена к конечной точке CDN](cdn-map-content-to-custom-domain.md)
 ### [Включение HTTPS для пользовательского домена](cdn-custom-ssl.md)
 ## Оптимизация содержимого
 ### [Общие сведения об оптимизации](cdn-optimization-overview.md)
@@ -39,6 +39,7 @@
 ## Анализ
 ### [Анализ вариантов использования CDN Azure](cdn-log-analysis.md)
 #### [Основные отчеты из Verizon](cdn-analyze-usage-patterns.md)
+#### [Настраиваемые отчеты из Verizon](cdn-verizon-custom-reports.md)
 #### [Журналы диагностики Azure](cdn-azure-diagnostic-logs.md)
 ### Средства аналитики для Azure CDN от Verizon
 #### [Создание расширенных отчетов HTTP](cdn-advanced-http-reports.md)

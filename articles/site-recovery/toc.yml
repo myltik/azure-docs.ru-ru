@@ -73,26 +73,19 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: Часто задаваемые вопросы
       href: site-recovery-faq.md
-    - name: Планирование емкости для репликации VMware в Azure
-      href: site-recovery-plan-capacity-vmware.md
-      items:
-        - name: Планировщик развертывания для репликации VMware в Azure
-          href: site-recovery-deployment-planner.md
-    - name: Планировщик ресурсов для репликации Hyper-V
-      href: site-recovery-capacity-planner.md
 - name: Пошаговые руководства
   items:
     - name: Аварийное восстановление
       items:
-        - name: Восстановление виртуальных машин VMware с поддержкой мультитенантности для репликации в Azure
+        - name: Виртуальных машин VMware с поддержкой мультитенантности в Azure
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
-        - name: В Azure для виртуальных машин Hyper-V
+        - name: Виртуальных машин Hyper-V в Azure
           href: tutorial-hyper-v-to-azure.md
-        - name: В Azure для физических серверов
+        - name: Физических серверов в Azure
           href: tutorial-physical-to-azure.md
-        - name: На дополнительный сайт для виртуальных машин Hyper-V
+        - name: Виртуальных машин Hyper-V на дополнительный сайт
           href: tutorial-vmm-to-vmm.md
-        - name: На дополнительный сайт для виртуальных машин VMware и физических серверов
+        - name: Виртуальных машин и физических серверов VMware на дополнительный сайт
           href: tutorial-vmware-to-vmware.md
         - name: Выполнение отработки аварийного восстановления в Azure
           href: tutorial-dr-drill-azure.md
@@ -104,6 +97,20 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Выполнение отработки отказа и восстановления размещения между локальными сайтами
           href: tutorial-vmm-to-vmm-failover-failback.md
+    - name: Емкость и масштабирование
+      items:
+        - name: Планирование емкости для репликации VMware в Azure
+          href: site-recovery-plan-capacity-vmware.md
+        - name: Планировщик развертывания для репликации VMware в Azure
+          href: site-recovery-deployment-planner.md
+        - name: Планирование емкости для репликации Hyper-V в Azure
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+        - name: Планировщик ресурсов для репликации Hyper-V в Azure
+          href: site-recovery-capacity-planner.md
+        - name: Масштабирование серверов обработки для репликации VMware
+          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: Тесты по шкале производительности для репликации Hyper-V между локальными сайтами
+          href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Настройка
       items:
         - name: Настройка исходной среды
@@ -120,6 +127,8 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: Настройка параметров репликации
           href: site-recovery-setup-replication-settings-vmware.md
+        - name: Исключение дисков из репликации
+          href: site-recovery-exclude-disk.md
         - name: Развертывание службы Mobility Service для репликации VMware
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:
@@ -157,9 +166,11 @@
         - name: Восстановление размещения из Azure
           items:
             - name: Восстановление размещения из Azure в VMware
-              href: site-recovery-failback-azure-to-vmware.md
+              href: site-recovery-how-to-failback-azure-to-vmware.md
             - name: Восстановление размещения из Azure в Hyper-V
               href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: Настройка главного целевого сервера Linux для восстановления размещения
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: Автоматизация
       items:
         - name: Настройка репликации Hyper-V в Azure (без VMM) с помощью PowerShell
@@ -202,8 +213,6 @@
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Управление сервером конфигурации
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
-        - name: Управление развернутыми серверами обработки
-          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: Управление серверами vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Удаление серверов и отключение защиты

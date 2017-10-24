@@ -21,19 +21,20 @@
 ### [Создание с помощью Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Создание с помощью Azure PowerShell или Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Масштабируемый набор с управляемыми дисками](virtual-machine-scale-sets-managed-disks.md)
-### [Масштабируемый набор Linux с автомасштабированием](virtual-machine-scale-sets-linux-autoscale.md)
-### [Масштабируемый набор Windows с автомасштабированием](virtual-machine-scale-sets-windows-autoscale.md)
+### [Автоматическое масштабирование масштабируемого набора](virtual-machine-scale-sets-autoscale-overview.md)
+#### [Использование портала Azure](virtual-machine-scale-sets-autoscale-portal.md)
+#### [Использование Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+#### [Использование Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Расширенное автомасштабирование](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Приложения в масштабируемых наборах](virtual-machine-scale-sets-deploy-app.md)
 ### [Использование дисков данных с масштабируемыми наборами](virtual-machine-scale-sets-attached-disks.md)
 ### [Работа с большими масштабируемыми наборами](virtual-machine-scale-sets-placement-groups.md)
 ### [Преобразование шаблона масштабируемого набора для использования управляемого диска](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Управление
-### [Масштабируемый набор Windows с помощью Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
-### [Автомасштабирование и масштабируемые наборы](virtual-machine-scale-sets-autoscale-overview.md)
-### [Расширенное автомасштабирование](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### Общие задачи управления
+#### [Использование Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
+#### [Использование Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Вертикальное масштабирование в масштабируемом наборе](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Обновления для масштабируемых наборов](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Использование DSC и масштабируемых наборов](virtual-machine-scale-sets-dsc.md)

@@ -20,9 +20,25 @@
 ## [Руководство по развертыванию интегрированных сред разработки SAP и SAP CAL в Windows или SQL Server](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver на виртуальных машинах Azure под управлением Linux](suse-quickstart.md)
 ## [SAP NetWeaver в Azure: планирование и реализация](planning-guide.md)
-## [Высокий уровень доступности в Windows](high-availability-guide.md)
-## [Высокий уровень доступности в SUSE Linux](high-availability-guide-suse.md)
-## [Конфигурации с несколькими идентификаторами безопасности](high-availability-multi-sid.md)
+## Высокий уровень доступности в Windows и Linux
+### [Обзор](sap-high-availability-guide-start.md)
+### Архитектура высокого уровня доступности
+#### [Архитектура и сценарии высокого уровня доступности](sap-high-availability-architecture-scenarios.md)
+#### [Повышение уровня доступности архитектуры и сценариев](sap-higher-availability-architecture-scenarios.md)
+#### [Высокий уровень доступности в Windows с общим диском для экземпляра (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
+#### [Высокий уровень доступности в Windows с общей папкой SOFS для экземпляра (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
+#### [Высокий уровень доступности в SUSE Linux для экземпляра (A)SCS](high-availability-guide-suse.md)
+### Подготовка инфраструктуры Azure
+#### [В Windows с общим диском для экземпляра (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
+#### [В Windows с общей папкой SOFS для экземпляра (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)
+#### [В SUSE Linux с NFS для экземпляра (A)SCS](high-availability-guide-suse.md)
+### Установка SAP
+#### [В Windows с общим диском для экземпляра (A)SCS](sap-high-availability-installation-wsfc-shared-disk.md)
+#### [В Windows с общей папкой SOFS для экземпляра (A)SCS](sap-high-availability-installation-wsfc-file-share.md)
+#### [В SUSE Linux с NFS для экземпляра (A)SCS](high-availability-guide-suse.md)
+### Использование нескольких SID в SAP
+#### [В Windows с общим диском для экземпляра (A)SCS](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
+#### [В Windows с общей папкой SOFS для экземпляра (A)SCS](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [Руководство по развертыванию](deployment-guide.md)
 ## [Руководство по развертыванию СУБД](dbms-guide.md)
 ## [Azure Site Recovery для аварийного восстановления SAP](../../../site-recovery/site-recovery-workload.md#protect-sap)

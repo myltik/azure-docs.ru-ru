@@ -11,6 +11,8 @@
       href: log-analytics-quick-collect-azurevm.md
     - name: Сбор. Компьютер Linux
       href: log-analytics-quick-collect-linux-computer.md
+    - name: Сбор данных на компьютере Windows
+      href: log-analytics-quick-collect-windows-computer.md
 - name: Учебники
   items:
     - name: 1. Анализ данных
@@ -25,6 +27,8 @@
       href: powershell-samples.md
 - name: Основные понятия
   items:
+    - name: Обновление рабочей области
+      href: log-analytics-log-search-upgrade.md
     - name: Часто задаваемые вопросы по Log Analytics
       href: log-analytics-faq.md
     - name: Использование данных
@@ -35,10 +39,10 @@
       href: log-analytics-service-providers.md
     - name: Поиск по журналам
       items:
-        - name: Часто задаваемые вопросы о поиске по журналам
-          href: log-analytics-log-search-faq.md
         - name: Обзор поиска по журналу
           href: log-analytics-log-search-new.md
+        - name: Часто задаваемые вопросы о поиске по журналам
+          href: log-analytics-log-search-faq.md
         - name: Порталы поиска по журналам
           href: log-analytics-log-search-portals.md
 - name: Практическое руководство
@@ -89,6 +93,20 @@
               href: log-analytics-custom-fields.md
     - name: Запрос данных
       items:
+        - name: Документация по языкам
+          href: 'https://docs.loganalytics.io'
+        - name: Переход от устаревшего языка
+          href: log-analytics-log-search-transition.md
+        - name: Поиск между рабочими областями
+          href: log-analytics-cross-workspace-search.md
+        - name: Выполнение действий на основе результатов поиска
+          href: log-analytics-log-search-takeaction.md
+        - name: Использование групп компьютеров
+          href: log-analytics-computer-groups.md
+        - name: Соединитель для Microsoft Flow
+          href: log-analytics-flow-tutorial.md
+    - name: Поиск по журналам прежних версий
+      items:
         - name: Обзор поиска по журналу
           href: log-analytics-log-searches.md
         - name: Справочник по поиску
@@ -96,26 +114,18 @@
           items:
             - name: Регулярные выражения
               href: log-analytics-log-searches-regex.md
-            - name: Поиск между рабочими областями
-              href: log-analytics-cross-workspace-search.md
-        - name: Выполнение действий на основе результатов поиска
-          href: log-analytics-log-search-takeaction.md
-        - name: Группы компьютеров
-          href: log-analytics-computer-groups.md
-    - name: Новый поиск по журналам
-      items:
-        - name: Обновление рабочей области
-          href: log-analytics-log-search-upgrade.md
-        - name: Переход от устаревшего языка
-          href: log-analytics-log-search-transition.md
-        - name: Соединитель для Microsoft Flow
-          href: log-analytics-flow-tutorial.md
     - name: Анализ данных
       items:
         - name: Панели мониторинга
           href: log-analytics-dashboards.md
         - name: «Просмотреть конструктор»
-          href: log-analytics-view-designer.md
+          items:
+            - name: Обзор
+              href: log-analytics-view-designer.md
+            - name: Справочник по плиткам
+              href: log-analytics-view-designer-tiles.md
+            - name: Справочник по элементам визуализации
+              href: log-analytics-view-designer-parts.md
         - name: Power BI
           href: log-analytics-powerbi.md
     - name: Создание оповещений
@@ -231,14 +241,12 @@
           href: log-analytics-api-alerts.md
 - name: Справочные материалы
   items:
+    - name: Справочник по языку
+      href: 'https://docs.loganalytics.io/docs/Language-Reference'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
-    - name: Справочник по плиткам конструктора представлений
-      href: log-analytics-view-designer-tiles.md
-    - name: Справка по элементам визуализации конструктора представлений
-      href: log-analytics-view-designer-parts.md
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

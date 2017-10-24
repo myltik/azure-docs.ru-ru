@@ -1,3 +1,5 @@
+- name: Документация по службе хранилища Azure
+  href: /azure/storage/
 - name: Обзор
   items:
     - name: Введение
@@ -16,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Работа с большими двоичными объектами с помощью .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Работа с большими двоичными объектами с помощью Python
+      href: storage-quickstart-blobs-python.md
 - name: Учебники
   items:
     - name: Передача и обработка изображения
@@ -28,6 +32,12 @@
           href: storage-secure-access-application.md
         - name: 4. Мониторинг и устранение неполадок хранилища
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Проектирование высокого уровня доступности в облачном хранилище
+      items:
+        - name: Обеспечение высокого уровня доступности для приложения
+          href: storage-create-geo-redundant-storage.md
+        - name: Имитация сбоя в хранилище RA-GRS
+          href: storage-simulate-failure-ragrs-account-app.md
     - name: Поиск неструктурированных данных в облачном хранилище
       href: storage-unstructured-search.md
 - name: Примеры

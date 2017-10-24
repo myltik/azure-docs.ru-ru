@@ -37,7 +37,7 @@
 ## [Сведения об устройстве в решении для удаленного мониторинга](iot-suite-remote-monitoring-device-info.md)
 ## [Развертывание шлюза для подключенного производства](iot-suite-connected-factory-gateway-deployment.md)
 ## [Настройка подключенной фабрики](iot-suite-connected-factory-customize.md)
-
+## [Использование издателя OPC для подключенной фабрики](iot-suite-connected-factory-publisher.md)
 # Справочные материалы
 ## [Архитектура безопасности](iot-security-architecture.md)
 ## [Рекомендации по обеспечению безопасности](iot-security-best-practices.md)
