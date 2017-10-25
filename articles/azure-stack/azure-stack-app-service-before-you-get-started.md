@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 430101c398eff85b330d15242ed1e396a277a93a
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 8ebac8ca3bed6825ff9170a305a44ad58ec0da31
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Подготовка к работе со службой приложений в Azure Stack
 
 Служба приложений Azure в Azure Stack имеет ряд предварительных шагов, которые необходимо выполнить перед развертыванием:
 
 - скачать службу приложений Azure во вспомогательных скриптах Azure Stack;
-- получить сертификаты, необходимые для службы приложений Azure в Azure Stack;
+- высокую доступность;
+- Получение сертификатов, необходимых для службы приложений Azure в Azure Stack
 - подготовить файловый сервер;
 - подготовить SQL Server;
 - Создание приложения Azure Active Directory
-- создать приложение служб федерации Active Directory (AD FS).
+- Создание приложения служб федерации Active Directory (AD FS)
 
 ## <a name="download-the-azure-app-service-on-azure-stack-helper-scripts"></a>Скачивание службы приложений Azure во вспомогательных скриптах Azure Stack
 
@@ -42,6 +43,13 @@ ms.lasthandoff: 10/11/2017
     - AzureStack.Identity.psm1
     - GraphAPI.psm1
     
+## <a name="high-availability"></a>высокую доступность;
+
+Сейчас служба приложений Azure в Azure Stack не может обеспечить высокий уровень доступности, так как Azure Stack развертывает рабочие нагрузки в один домен сбоя.
+
+Чтобы обеспечить для службы приложений Azure в Azure Stack высокий уровень доступности, разверните необходимый файловый сервер и SQL Server в соответствующей конфигурации. Когда Azure Stack будет поддерживать несколько доменов сбоя, мы предоставим рекомендации по включению службы приложений Azure в Azure Stack в конфигурации, обеспечивающей высокий уровень доступности.
+
+
 ## <a name="certificates-required-for-azure-app-service-on-azure-stack"></a>Получение сертификатов, необходимых для службы приложений Azure в Azure Stack
 
 ### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Сертификаты, необходимые для комплекта разработки Azure Stack
@@ -193,7 +201,9 @@ net localgroup Administrators %DOMAIN%\FileShareOwners /add
 
 Выполните следующую команду в командной строке с повышенными привилегиями на файловом сервере.
 
+```powershell
 net localgroup Administrators FileShareOwners /add
+```
 
 ### <a name="configure-access-control-to-the-shares"></a>Настройка управления доступом к общим папкам
 
@@ -224,12 +234,14 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 ## <a name="prepare-the-sql-server"></a>Подготовка SQL Server
 
-Для службы приложений Azure в базах данных размещения и экспозамеров Azure Stack необходимо подготовить SQL Server, чтобы разместить базу данных среды выполнения веб-сайтов Windows Azure Pack.
+Для службы приложений Azure в базах данных размещения и экспозамеров Azure Stack необходимо подготовить SQL Server, чтобы разместить базы данных службы приложений Azure.
 
-Для комплекта разработки Azure Stack можно использовать SQL Express 2012 с пакетом обновления 1 или более позднюю версию. Сведения о скачивании см. в статье [Download SQL Server 2012 Express with SP1](https://msdn.microsoft.com/evalcenter/hh230763.aspx) (Скачивание SQL Server 2012 Express с пакетом обновления 1).
-Для рабочих сред и обеспечения высокого уровня доступности следует использовать полную версию SQL 2012 с пакетом обновления 1 или более позднюю версию. Сведения об установке SQL Server см. в статье [Установка SQL Server](http://go.microsoft.com/fwlink/?LinkId=322141).
-Включите проверку подлинности в смешанном режиме.
-Служба приложений Azure на SQL Server Azure Stack должна быть доступна из всех ролей службы приложений.
+Для комплекта разработки Azure Stack можно использовать SQL Express 2014 с пакетом обновления 2 (SP2) или более поздней версии.
+
+Для рабочих сред и с целью обеспечения высокого уровня доступности следует использовать полную версию SQL 2014 с пакетом обновления 2 (SP2) или более поздней версии, включить аутентификацию в смешанном режиме и выполнить развертывание в [конфигурации, обеспечивающей высокий уровень доступности](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+
+Служба приложений Azure на SQL Server Azure Stack должна быть доступна из всех ролей службы приложений. SQL Server можно развернуть в стандартной подписке поставщика в Azure Stack. Либо можно использовать существующую инфраструктуру в организации (при наличии подключения к Azure Stack).
+
 Для любой роли SQL Server можно использовать экземпляр по умолчанию или именованный экземпляр. Однако, если используется именованный экземпляр, вручную запустите службу обозревателя SQL и откройте порт 1434.
 
 ## <a name="create-an-azure-active-directory-application"></a>Создание приложения Azure Active Directory
@@ -249,7 +261,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 1. Откройте экземпляр PowerShell с правами azurestack\azurestackadmin.
 2. Перейдите к расположению скриптов, скачанных и извлеченных на [этапе подготовки](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy#download-required-components).
 3. [Установите](azure-stack-powershell-install.md) и [настройте среду Azure Stack PowerShell](azure-stack-powershell-configure-admin.md).
-4. В том же сеансе PowerShell запустите скрипт **CreateIdentityApp.ps1**. Когда появится запрос на ввод идентификатора клиента Azure AD, введите идентификатор клиента Azure AD, используемый для развертывания Azure Stack, например myazurestack.onmicrosoft.com.
+4. В том же сеансе PowerShell запустите скрипт **Create-AADIdentityApp.ps1**. Когда появится запрос на ввод идентификатора клиента Azure AD, введите идентификатор клиента Azure AD, используемый для развертывания Azure Stack, например myazurestack.onmicrosoft.com.
 5. В окне **Учетные данные** введите учетную запись администратора службы Azure AD и пароль. Нажмите кнопку **ОК**.
 6. Введите путь к файлу сертификата и пароль для [сертификата, созданного ранее](azure-stack-app-service-deploy.md). Для этого шага по умолчанию создается сертификат sso.appservice.local.azurestack.external.pfx.
 7. Этот скрипт создает новое приложение в Azure AD клиента и создает скрипт PowerShell с именем **UpdateConfigOnController.ps1**. Запишите идентификатор приложения, который возвращается в выходных данных PowerShell. Эта информация нужна для выполнения поиска на шаге 11.
@@ -267,8 +279,6 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 | AzureStackCredential | Обязательно | Null | Администратор Azure AD |
 | CertificateFilePath | Обязательно | Null | Путь к файлу сертификата приложения идентификации, созданному ранее. |
 | CertificatePassword | Обязательно | Null | Пароль, используемый для защиты закрытого ключа сертификата. |
-| DomainName | Обязательно | local.azurestack.external | Суффикс региона и домена для Azure Stack. |
-| AdfsMachineName | Необязательно | Имя компьютера AD FS, например AzS ADFS01.azurestack.local. | Требуется при развертывании AD FS. Игнорируйте при развертывании Azure AD. |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Создание приложения служб федерации Active Directory (AD FS)
 
@@ -286,19 +296,17 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 1. Откройте экземпляр PowerShell с правами azurestack\azurestackadmin.
 2. Перейдите к расположению скриптов, скачанных и извлеченных на [этапе подготовки](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy#download-required-components).
 3. [Установите](azure-stack-powershell-install.md) и [настройте среду Azure Stack PowerShell](azure-stack-powershell-configure-admin.md).
-4.  В том же сеансе PowerShell запустите скрипт **CreateIdentityApp.ps1**. Когда появится запрос на ввод идентификатора клиента Azure AD, введите AD FS.
-5.  В окне **Учетные данные** введите учетную запись администратора службы AD FS и пароль. Нажмите кнопку **ОК**.
+4.  В том же сеансе PowerShell запустите скрипт **Create-ADFSIdentityApp.ps1**.
+5.  В окне **Учетные данные** укажите учетную запись администратора облака AD FS и пароль. Нажмите кнопку **ОК**.
 6.  Предоставьте путь к файлу сертификата и пароль для [сертификата, созданного ранее](azure-stack-app-service-deploy.md). Для этого шага по умолчанию создается сертификат sso.appservice.local.azurestack.external.pfx.
 
 | Параметр CreateIdentityApp.ps1 | Обязательный/необязательный | Значение по умолчанию | Описание |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Обязательно | Null | Используйте AD FS в среде AD FS. |
-| TenantAzure Resource ManagerEndpoint | Обязательно | management.local.azurestack.external | Конечная точка Azure Resource Manager клиента. |
-| AzureStackCredential | Обязательно | Null | Администратор Azure AD |
-| CertificateFilePath | Обязательно | Null | Путь к файлу сертификата приложения идентификации, созданному ранее. |
+| AdminARMEndpoint | Обязательно | Null | Конечная точка Azure Resource Manager администратора. Например, adminmanagement.local.azurestack.external. |
+| PrivilegedEndpoint | Обязательно | Null | Привилегированная конечная точка аварийной консоли. Например, AzD-ERCS01. |
+| CloudAdminCredential | Обязательно | Null | Учетные данные домена администратора облака Azure Stack. Например, Azurestack\CloudAdmin. |
+| CertificateFilePath | Обязательно | Null | Путь к PFX-файлу сертификата приложения идентификации. |
 | CertificatePassword | Обязательно | Null | Пароль, используемый для защиты закрытого ключа сертификата. |
-| DomainName | Обязательно | local.azurestack.external | Суффикс региона и домена для Azure Stack. |
-| AdfsMachineName | Необязательно | Имя компьютера AD FS, например AzS ADFS01.azurestack.local. | Требуется при развертывании AD FS. Игнорируйте при развертывании Azure AD. |
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: c962af0977a09655d36d1c5dc3a948bb9278e6f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Обзор службы приложений в Azure Stack
 
@@ -39,6 +39,7 @@ ms.lasthandoff: 10/11/2017
 
 - [Веб-приложения](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) — для размещения веб-сайтов и веб-приложений.
 - [Приложения API](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) — для размещения API RESTful.
+- Функции Azure — для размещения управляемых событиями бессерверных рабочих нагрузок.
 
 Термин "приложение" обозначает здесь ресурсы размещения, выделенные для выполнения рабочей нагрузки. Большинство пользователей думают, что для функционирования веб-приложения в браузере требуются вычислительные ресурсы и код приложения. Но в службе приложений веб-приложением называются вычислительные ресурсы, которые Azure Stack предоставляет для размещения кода приложения.
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 
-- [Before you get started with App Service on Azure Stack](azure-stack-app-service-before-you-get-started.md) (Подготовка к работе со службой приложений в Azure Stack).
+- [Подготовка к работе со службой приложений в Azure Stack](azure-stack-app-service-before-you-get-started.md)
 - [Установка поставщика ресурсов службы приложений](azure-stack-app-service-deploy.md).
 
 Также вы может поработать с другими [службами PaaS (платформа как услуга)](azure-stack-tools-paas-services.md), такими как [поставщик ресурсов SQL Server](azure-stack-sql-resource-provider-deploy.md) или [поставщик ресурсов MySQL](azure-stack-mysql-resource-provider-deploy.md).

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dekapur
+ms.openlocfilehash: 660e7b59ae0e92692121620341562e412a6e8eae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 30fadddabf89d379beffdf214cfe8a8145d7a29b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Параметры конфигурации для автономного кластера Windows
 В этой статье описывается настройка автономного кластера Service Fabric с помощью файла ***ClusterConfig.JSON***. С помощью этого файла можно указать для изолированного кластера сведения об узлах Service Fabric и их IP-адресах, о различных типах узлов кластера, настройках безопасности, а также о топологии сети с точки зрения доменов сбоя и доменов обновления.
 
-Несколько примеров файла ClusterConfig.JSON скачиваются на ваш рабочий компьютер при [скачивании автономного пакета Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). Примеры с *DevCluster* в имени помогут вам создать кластер с тремя узлами на одном и том же компьютере (например, это могут быть логические узлы). По крайней мере один узел должен быть помечен как первичный. Данный кластер удобен для среды разработки или тестирования, но не предназначен для использования в качестве рабочего кластера. Примеры с *MultiMachine* в имени помогут вам создать кластер рабочего уровня, каждый узел которого размещен на отдельном компьютере.
+Несколько примеров файла ClusterConfig.JSON скачиваются на ваш рабочий компьютер при [скачивании автономного пакета Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). Примеры с *DevCluster* в имени помогут вам создать кластер с тремя узлами на одном и том же компьютере (например, это могут быть логические узлы). По крайней мере один узел должен быть помечен как первичный. Данный кластер удобен для среды разработки или тестирования, но не предназначен для использования в качестве рабочего кластера. Примеры с *MultiMachine* в имени помогут вам создать кластер рабочего уровня, каждый узел которого размещен на отдельном компьютере. Число первичных узлов такого кластера будет основано на [уровне надежности](#reliability). В версии 05-2017 выпуска 5.7 API мы удалили свойство уровня надежности. Вместо этого код вычисляет наиболее оптимизированный уровень надежности для кластера. Не используйте это свойство в коде версии 5.7 или более поздней версии.
+
 
 1. Примеры *ClusterConfig.Unsecure.DevCluster.JSON* и *ClusterConfig.Unsecure.MultiMachine.JSON* показывают, как создать незащищенный тестовый или рабочий кластер, соответственно. 
 2. Примеры *ClusterConfig.Windows.DevCluster.JSON* и  *ClusterConfig.Windows.MultiMachine.JSON* показывают, как создать тестовый или рабочий кластер, защищенный с помощью [системы безопасности Windows](service-fabric-windows-cluster-windows-security.md).
@@ -197,5 +197,4 @@ ms.lasthandoff: 08/12/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Завершив настройку файла ClusterConfig.JSON в соответствии с конфигурацией изолированного кластера, вы можете развернуть этот кластер, следуя указаниям в статье [Создание кластера под управлением Windows Server и управление им](service-fabric-cluster-creation-for-windows-server.md), а затем перейти к [визуализации кластера с помощью Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-
 
