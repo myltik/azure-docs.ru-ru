@@ -1,0 +1,61 @@
+- name: Служба контейнеров Azure (AKS)
+  href: ./index.yml
+- name: Обзор
+  items:
+    - name: Сведения об AKS
+      href: intro-kubernetes.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Создание кластера AKS
+      href: kubernetes-walkthrough.md
+- name: Учебники
+  items:
+    - name: 1. Подготовка приложения для AKS
+      href: tutorial-kubernetes-prepare-app.md
+    - name: 2. Создание реестра контейнеров
+      href: tutorial-kubernetes-prepare-acr.md
+    - name: 3. Создание кластера Kubernetes
+      href: tutorial-kubernetes-deploy-cluster.md
+    - name: 4. Запуск приложения
+      href: tutorial-kubernetes-deploy-application.md
+    - name: 5. Масштабирование приложения
+      href: tutorial-kubernetes-scale.md
+    - name: 6. Обновление приложения
+      href: tutorial-kubernetes-app-update.md
+    - name: 7. Мониторинг с помощью Log Analytics
+      href: tutorial-kubernetes-monitor.md
+    - name: 8. Обновление кластера
+      href: tutorial-kubernetes-upgrade-cluster.md
+- name: Практические руководства
+  items:
+    - name: Масштабирование кластера AKS
+      href: scale-cluster.md
+    - name: Обновление кластера AKS
+      href: upgrade-cluster.md
+    - name: Запуск приложений с помощью Helm
+      href: kubernetes-helm.md
+    - name: Разработка приложений с помощью Draft
+      href: kubernetes-draft.md
+    - name: Использование панели мониторинга Kubernetes
+      href: kubernetes-dashboard.md
+    - name: Создание субъекта-службы
+      href: kubernetes-service-principal.md
+- name: Справочные материалы
+  items:
+    - name: Инфраструктура CLI Azure
+      href: /cli/azure/aks
+    - name: REST
+      href: /rest/api/container-service
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Регионы доступности
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

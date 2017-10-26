@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aac9c9bcc609a91415438279419d4cc8e237fcb
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>Копирование данных между локальной средой и облаком
-Фабрика данных Azure — это облачная служба интеграции данных, которая позволяет создавать управляемые данными рабочие процессы в облаке для оркестрации и автоматизации перемещения и преобразования данных. С помощью фабрики данных Azure можно создавать и включать в расписание управляемые данными рабочие процессы (конвейеры), которые могут принимать данные из разнородных хранилищ данных, обрабатывать и преобразовывать эти данные с помощью служб вычислений (например, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics и машинного обучения Azure), а также публиковать выходные данные в хранилища данных (например, хранилище данных SQL Azure) для использования приложениями бизнес-аналитики. 
+Фабрика данных Azure — это облачная служба интеграции данных, которая позволяет создавать управляемые данными рабочие процессы в облаке для оркестрации и автоматизации перемещения и преобразования данных. С помощью фабрики данных Azure можно создавать и включать в расписание управляемые данными рабочие процессы (конвейеры), которые могут принимать данные из разнородных хранилищ данных, обрабатывать и преобразовывать эти данные с помощью служб вычислений (например, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics и машинного обучения Azure), а также публиковать выходные данные в хранилища данных (например, хранилище данных SQL Azure) для использования приложениями бизнес-аналитики.
 
-В этом руководстве будет использоваться Azure PowerShell для создания конвейера фабрики данных, который копирует данные из локальной базы данных SQL Server в хранилище BLOB-объектов Azure. Вы создадите и будете использовать локальную среду выполнения интеграции (IR) фабрики данных Azure, которая обеспечивает интеграцию локальных и облачных хранилищ данных.  Сведения об использовании других средств или пакетов SDK для создания фабрики данных см. в [этом кратком руководстве](quickstart-create-data-factory-dot-net.md). 
+В этом руководстве будет использоваться Azure PowerShell для создания конвейера фабрики данных, который копирует данные из локальной базы данных SQL Server в хранилище BLOB-объектов Azure. Вы создадите и будете использовать локальную среду выполнения интеграции (IR) фабрики данных Azure, которая обеспечивает интеграцию локальных и облачных хранилищ данных.  Сведения об использовании других средств или пакетов SDK для создания фабрики данных см. в [этом кратком руководстве](quickstart-create-data-factory-dot-net.md).
 
 В этом руководстве вы выполните следующие шаги:
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* **SQL Server.** В этом руководстве используйте локальную базу данных SQL Server в качестве **исходного** хранилища данных. 
+* **SQL Server.** В этом руководстве используйте локальную базу данных SQL Server в качестве **исходного** хранилища данных.
 * **Учетная запись хранения Azure.** В этом руководстве в качестве **места назначения и приемника** будет использоваться хранилище BLOB-объектов Azure. в статье [Об учетных записях хранения Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) .
 * **Azure PowerShell**. Следуйте инструкциям по [установке и настройке Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -115,13 +115,13 @@ ms.lasthandoff: 10/11/2017
    ```json
    Nodes                     : {}
    CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption : 
-   Version                   : 
+   InternalChannelEncryption :
+   Version                   :
    Capabilities              : {}
-   ScheduledUpdateDate       : 
-   UpdateDelayOffset         : 
-   LocalTimeZoneOffset       : 
-   AutoUpdate                : 
+   ScheduledUpdateDate       :
+   UpdateDelayOffset         :
+   LocalTimeZoneOffset       :
+   AutoUpdate                :
    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
@@ -135,7 +135,7 @@ ms.lasthandoff: 10/11/2017
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
-   Пример выходных данных: 
+   Пример выходных данных:
 
    ```json
    {
@@ -144,19 +144,19 @@ ms.lasthandoff: 10/11/2017
    }
    ```
 
-4. [Скачайте](https://www.microsoft.com/download/details.aspx?id=39717) локальную среду выполнения интеграции на локальный компьютер Windows и используйте ключ проверки подлинности, полученный на предыдущем шаге, чтобы зарегистрировать локальную среду выполнения интеграции вручную. 
+4. [Скачайте](https://www.microsoft.com/download/details.aspx?id=39717) локальную среду выполнения интеграции на локальный компьютер Windows и используйте ключ проверки подлинности, полученный на предыдущем шаге, чтобы зарегистрировать локальную среду выполнения интеграции вручную.
 
    ![Регистрация среды выполнения интеграции](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-   Когда локальная среда выполнения интеграции будет успешно зарегистрирована, вы увидите следующее сообщение: 
+   Когда локальная среда выполнения интеграции будет успешно зарегистрирована, вы увидите следующее сообщение:
 
    ![Успешно зарегистрирована](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-   Когда узел будет подключен к облачной службе, отобразится следующая страница: 
-    
+   Когда узел будет подключен к облачной службе, отобразится следующая страница:
+
    ![Узел подключен](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-## <a name="create-linked-services"></a>Создание связанных служб 
+## <a name="create-linked-services"></a>Создание связанных служб
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Создание связанных служб хранилища Azure (место назначения и приемник)
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 10/11/2017
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": { 
+                "connectionString": {
                     "type": "SecureString",
                     "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
                 }
@@ -196,7 +196,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Создание и шифрование связанной службы SQL Server (источник)
 
-1. Создайте JSON-файл с именем **SqlServerLinkedService.json** в папке **C:\ADFv2Tutorial** с указанным ниже содержимым. Замените **&lt;servername>**, **&lt;databasename>**, **&lt;username>** и **&lt;password>** собственными именами сервера, базы данных, пользователя и пароля SQL Server, прежде чем сохранить файл. Замените **&lt;integration** **runtime** **name>** именем своей среды выполнения интеграции. 
+1. Создайте JSON-файл с именем **SqlServerLinkedService.json** в папке **C:\ADFv2Tutorial** с указанным ниже содержимым. Замените **&lt;servername>**, **&lt;databasename>**, **&lt;username>** и **&lt;password>** собственными именами сервера, базы данных, пользователя и пароля SQL Server, прежде чем сохранить файл. Замените **&lt;integration** **runtime** **name>** именем своей среды выполнения интеграции.
 
     ```json
     {
@@ -216,7 +216,7 @@ ms.lasthandoff: 10/11/2017
         "name": "SqlServerLinkedService"
     }
    ```
-2. Чтобы зашифровать конфиденциальные данные в полезных данных JSON в локальной среде выполнения интеграции, можно выполнить командлет **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** и передать указанные выше полезные данные JSON. Шифрование гарантирует, что учетные данные будут зашифрованы с помощью программного интерфейса защиты данных (API защиты данных) и сохранены локально в узле локальной среды выполнения интеграции. Полезные выходные данные можно перенаправить в другой JSON-файл (в этом случае encryptedLinkedService.json), содержащий зашифрованные учетные данные. 
+2. Чтобы зашифровать конфиденциальные данные в полезных данных JSON в локальной среде выполнения интеграции, можно выполнить командлет **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** и передать указанные выше полезные данные JSON. Шифрование гарантирует, что учетные данные будут зашифрованы с помощью программного интерфейса защиты данных (API защиты данных) и сохранены локально в узле локальной среды выполнения интеграции. Полезные выходные данные можно перенаправить в другой JSON-файл (в этом случае encryptedLinkedService.json), содержащий зашифрованные учетные данные.
 
     Замените **&lt;integration runtime name&gt;** именем собственной среды выполнения интеграции, прежде чем выполнить команду.
 
@@ -227,7 +227,7 @@ ms.lasthandoff: 10/11/2017
 3. Выполните следующую команду с помощью JSON-файла из предыдущего шага для создания **SqlServerLinkedService**:
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
+   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="create-a-dataset-for-sink-azure-blob-storage"></a>Создание набора данных для хранилища BLOB-объектов Azure (приемника)
 
-1. Создайте JSON-файл с именем **AzureBlobDataset.json** в папке **C:\ADFv2Tutorial** со следующим содержимым: 
+1. Создайте JSON-файл с именем **AzureBlobDataset.json** в папке **C:\ADFv2Tutorial** со следующим содержимым:
 
     > [!IMPORTANT]
     > В этом образце кода предполагается, что у вас есть контейнер с именем **adftutorial** в хранилище BLOB-объектов Azure.
@@ -436,7 +436,7 @@ ms.lasthandoff: 10/11/2017
             $result
             break
         }
-    } 
+    }
     ```
 
     Вот результат примера выполнения:
@@ -449,7 +449,7 @@ ms.lasthandoff: 10/11/2017
     PipelineName      : SQLServerToBlobPipeline
     Input             :  
     Output            :  
-    LinkedServiceName : 
+    LinkedServiceName :
     ActivityRunStart  : 9/13/2017 1:35:22 PM
     ActivityRunEnd    : 9/13/2017 1:35:42 PM
     DurationInMs      : 20824
@@ -479,7 +479,7 @@ ms.lasthandoff: 10/11/2017
 4. Подключитесь к хранилищу BLOB-объектов Azure (приемнику) и подтвердите, что данные из базы данных SQL Azure были скопированы надлежащим образом.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Вы научились выполнять следующие задачи: 
+В этом примере конвейер копирует данные из одного расположения в другое в хранилище BLOB-объектов Azure. Вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]
 > * Создадите фабрику данных.

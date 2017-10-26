@@ -2,8 +2,6 @@
 
 ## [Что такое хранилище данных SQL?](sql-data-warehouse-overview-what-is.md)
 ## [Рабочая нагрузка хранилища данных](sql-data-warehouse-overview-workload.md)
-## [Распределенные данные](sql-data-warehouse-distributed-data.md)
-## [Часто задаваемые вопросы](sql-data-warehouse-overview-faq.md)
 
 # Начало работы
 
@@ -12,9 +10,13 @@
 ## [Рекомендации по использованию хранилища данных SQL Azure](sql-data-warehouse-best-practices.md)
 ## [Управление](sql-data-warehouse-overview-manage.md)
 
-
-
 # Практическое руководство
+
+## Функции службы
+### [Архитектура MPP](massively-parallel-processing-mpp-architecture.md)
+### [Уровни производительности](performance-tiers.md)
+### [Единицы использования хранилища данных](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Часто задаваемые вопросы](sql-data-warehouse-overview-faq.md)
 
 ## Архивация и восстановление
 
@@ -118,13 +120,15 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### Классы ресурсов
+#### [Рекомендации](resource-classes-for-workload-management.md)
+#### [Анализ рабочей нагрузки](analyze-your-workload.md)
 
 ## Производительность
 
 ### [Обзор](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Сжатие ColumnStore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Мониторинг](sql-data-warehouse-manage-monitor.md)
-### [Рабочая нагрузка](sql-data-warehouse-develop-concurrency.md)
 
 ## Безопасность
 

@@ -1,0 +1,35 @@
+- name: Обзор
+  items:
+    - name: Сведения о Terraform в Azure
+      href: terraform-overview.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+    - name: Установка и настройка Terraform
+      href: /azure/virtual-machines/linux/terraform-install-configure
+      maintainContext: true
+    - name: Создание виртуальной машины Linux
+      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      maintainContext: true
+- name: Учебники
+  items:
+    - name: Создание кластера виртуальных машин с помощью модулей Terraform
+      href: terraform-create-vm-cluster-module.md
+    - name: Создание кластера виртуальных машин с помощью Cloud Shell
+      href: terraform-create-vm-cluster-with-infrastructure.md
+    - name: Подготовка масштабируемого набора виртуальных машин с инфраструктурой
+      href: terraform-create-vm-scaleset-network-disks-hcl.md
+- name: Основные понятия
+  items:
+    - name: Интеграция Cloud Shell
+      href: terraform-cloud-shell.md
+- name: Примеры
+  items:
+    - name: Шаблоны конфигурации
+      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
+- name: Справочные материалы
+  items:
+    - name: Реестр модулей Azure
+      href: 'https://registry.terraform.io/modules/Azure'
+    - name: Справочник по Terraform
+      href: 'http://aka.ms/terraform'

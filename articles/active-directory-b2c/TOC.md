@@ -57,7 +57,7 @@
 # Инфраструктура процедур идентификации
 ## [Пользовательские политики](active-directory-b2c-overview-custom.md)
 ## Руководства
-### [Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md)
+### [Начало работы](active-directory-b2c-get-started-custom.md)
 ### Настройка поставщиков OIDC/OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Учетная запись Майкрософт](active-directory-b2c-custom-setup-msa-idp.md)
@@ -80,16 +80,15 @@
 #### [Настройка динамического содержимого в пользовательском интерфейсе](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Настройка токенов](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Сложность пароля](active-directory-b2c-reference-password-complexity-custom.md)
-
 #### [Изменение пароля](active-directory-b2c-reference-password-change-custom.md)
-
 #### [Включение возможности оставаться в системе](active-directory-b2c-reference-kmsi-custom.md)
-
 ### Устранение неполадок
 #### [Сбор журналов с помощью Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Справочные материалы
 ### [Заметки о выпуске](active-directory-b2c-developer-notes-custom.md)
+### [Поставщики сеансов единого входа](active-directory-b2c-reference-sso-custom.md)
 ### [Определение инфраструктуры доверия](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # Справочные материалы
 ## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Глоссарий

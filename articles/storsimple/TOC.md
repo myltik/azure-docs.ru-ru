@@ -119,7 +119,7 @@
 ##### [Настройка веб-прокси](storsimple-8000-configure-web-proxy.md)
 ##### [Изменение параметров DATA 0](storsimple-8000-modify-data-0.md)
 
-#### [Использование примеров скриптов Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
+
 
 #### [Использование StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [Что такое StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
@@ -131,6 +131,11 @@
 ##### [Управление заданиями архивации с помощью StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [Управление томами с помощью StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
 ##### [Использование действий MMC в StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+
+### Автоматизация
+
+#### [Использование примеров скриптов Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
+#### [Использование модулей Runbook со службой автоматизации Azure](storsimple-8000-automation-azurerm-runbook.md)
 
 ### Создание решений
 #### [StorSimple с Veeam](storsimple-configure-backup-target-veeam.md)
@@ -189,7 +194,7 @@
 #### [Выпуск общедоступной версии](storsimple-july-2014-release-notes.md)
 
 ## Справочные материалы
-### [REST API](https://docs.microsoft.com/rest/api/storsimple)
+### [ИНТЕРФЕЙС REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell для командлетов StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple серии 8000 (классический портал)
