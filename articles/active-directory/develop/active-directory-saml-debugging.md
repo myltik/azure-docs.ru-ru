@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: 31447d597296bac57481dc2acb4a95ee3a104161
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 246709effcff1c38d14db3848fe2fad836ad90da
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Отладка единого входа на основе SAML в приложения в Azure Active Directory
 При отладке интеграции приложений на основе SAML часто бывает полезно использовать такой инструмент, как [Fiddler](http://www.telerik.com/fiddler) , чтобы просмотреть запрос SAML, ответ SAML и фактический токен SAML, выданный приложению. Проверив токен SAML, можно убедиться, что все необходимые атрибуты, имя пользователя в теме SAML и универсальный код ресурса (URI) издателя поступают должным образом.
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="related-articles"></a>Связанные статьи
 * [Указатель статьей по управлению приложениями в Azure Active Directory](../active-directory-apps-index.md)
-* [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](../active-directory-saas-custom-apps.md)
+* [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений](active-directory-saml-claims-customization.md)
 
 <!--Image references-->

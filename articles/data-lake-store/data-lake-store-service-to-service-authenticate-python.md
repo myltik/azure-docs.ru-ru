@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: d884e3ab71ae1967d1676bc0591ef86f64da6c5b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f23a5e24067dab29a21a44404a912588b46d3b0
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Аутентификация между службами в Data Lake Store с помощью Python
 > [!div class="op_single_selector"]
@@ -90,23 +90,23 @@ pip install azure-datalake-store
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
     authority_uri = authority_host_uri + '/' + tenant
-    resource_uri = 'https://management.core.windows.net/'
+    RESOURCE = 'https://management.core.windows.net/'
     client_id = '<CLIENT_ID>'
     client_secret = '<CLIENT_SECRET>'
-
+    
     context = adal.AuthenticationContext(authority_uri, api_version=None)
-    mgmt_token = context.acquire_token_with_client_credentials(resource_uri, client_id, client_secret)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
+    armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
 
 ## <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>Проверка подлинности между службами через секрет клиента для операций файловой системы
 
 Следующий фрагмент используется для проверки подлинности в Azure AD для операций файловой системы в Data Lake Store (создание папки, отправка файла и т. д.). Следующий фрагмент можно использовать для проверки подлинности приложения в неинтерактивном режиме с помощью секрета клиента или субъекта-службы. Примените этот фрагмент кода к существующему веб-приложению Azure AD.
 
-    token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
+    adlCreds = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
-## <a name="service-to-service-authentication-with-certificate-for-account-management"></a>Проверка подлинности через сертификат со взаимодействием между службами для управления учетными записями
+<!-- ## Service-to-service authentication with certificate for account management
 
-Используйте этот фрагмент кода для проверки подлинности в Azure AD для операций управления учетными записями в Data Lake Store, таких как создание или удаление учетной записи Data Lake Store. Приведенный ниже фрагмент можно использовать для проверки подлинности приложения в неинтерактивном режиме с помощью сертификата существующего веб-приложения Azure AD. Инструкции по созданию приложения Azure AD см. в руководстве по [созданию субъекта-службы с помощью сертификатов](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+Use this snippet to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. The following snippet can be used to authenticate your application non-interactively, using the certificate of an existing Azure AD "Web App" application. For instructions on how to create an Azure AD application, see [Create service principal with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
@@ -118,7 +118,7 @@ pip install azure-datalake-store
 
     context = adal.AuthenticationContext(authority_uri, api_version=None)
     mgmt_token = context.acquire_token_with_client_certificate(resource_uri, client_id, client_cert, client_cert_thumbprint)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    credentials = AADTokenCredentials(mgmt_token, client_id) -->
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье описывается, как использовать аутентификацию между службами, чтобы реализовать аутентификацию с помощью Azure Data Lake Store и Python. Дополнительные сведения об использовании Python для работы с Azure Data Lake Store см. в следующих статьях.
