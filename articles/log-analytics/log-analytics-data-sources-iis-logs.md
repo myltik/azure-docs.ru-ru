@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: bwren
-ms.openlocfilehash: 2114bdafb3b9fe2eb0632271840b8b70a76d10f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="iis-logs-in-log-analytics"></a>Журналы IIS в службе Log Analytics
 Службы IIS (Internet Information Services) хранят данные об активности пользователей в файлах журналов, собираемых службой Log Analytics.  
@@ -69,17 +69,6 @@ Log Analytics собирает записи в журналах IIS из каж�
 В следующей таблице представлены различные примеры запросов к журналу, извлекающих записи из журналов IIS.
 
 | Запрос | Описание |
-|:--- |:--- |
-| Type=W3CIISLog |Все записи в журнале IIS. |
-| Type=W3CIISLog scStatus=500 |Все записи журнала IIS с состоянием возврата 500. |
-| Type=W3CIISLog &#124; Measure count() by cIP |Число записей в журнале IIS по IP-адресу клиента. |
-| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Число записей в журнале IIS по URL-адресу для узла www.contoso.com. |
-| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Общее количество байтов, полученных каждым компьютером IIS. |
-
->[!NOTE]
-> Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
-
-> | Запрос | Описание |
 |:--- |:--- |
 | W3CIISLog |Все записи в журнале IIS. |
 | W3CIISLog &#124; where scStatus==500 |Все записи журнала IIS с состоянием возврата 500. |

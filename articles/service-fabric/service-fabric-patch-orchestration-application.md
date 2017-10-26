@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: c37180262981bbbcdecb0504e2717db27568586d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Установка исправлений операционной системы Windows в кластере Service Fabric
 
@@ -94,10 +94,10 @@ ms.lasthandoff: 10/11/2017
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. После обновления шаблона кластера примените изменения и дождитесь завершения обновления. Теперь отображаются сведения о выполнении службы Repair Manager в кластере. Он указан в разделе системных служб в Service Fabric Explorer под названием `fabric:/System/RepairManagerService`. 
@@ -119,15 +119,15 @@ ms.lasthandoff: 10/11/2017
     }
     ```
 
-2. Включите службу Repair Manager, добавив раздел `addonFeaturres` после раздела `fabricSettings`, как показано ниже.
+2. Включите службу Repair Manager, добавив раздел `addonFeatures` после раздела `fabricSettings`, как показано ниже.
 
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. Обновите манифест кластера, добавив эти изменения с помощью манифеста обновления кластера [Создание кластера](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) или [Обновление конфигурации кластера](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Как только кластер запустится с обновленным манифестом, вы увидите, что системная служба Repair Manager выполняется в кластере, который называется `fabric:/System/RepairManagerService`, в разделе системных служб в Service Fabric Explorer.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: 1af7e1d40a0eb129875dd6a30ac899f2025bee13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Разработка базы данных Oracle и ее реализация в Azure
 
@@ -113,9 +113,9 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 ![Снимок экрана страницы отчета AWR](./media/oracle-design/io_info.png)
 
-#### <a name="2-choose-a-vm"></a>2. Выбор виртуальной машины
+#### <a name="2-choose-a-vm"></a>2) Выбор виртуальной машины
 
-Далее на основе данных из отчета AWR следует выбрать размер виртуальной машины, который соответствует вашим требованиям. Список доступных виртуальных машин см. в статье об [оптимизации для памяти](https://docs.microsoft.com/azure/virtual-machinFine tune es/virtual-machines-windows-sizes-memory).
+Далее на основе данных из отчета AWR следует выбрать размер виртуальной машины, который соответствует вашим требованиям. Список доступных виртуальных машин см. в статье об [оптимизации для памяти](../../linux/sizes-memory.md).
 
 #### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. Выбор размера виртуальных машин аналогичной серии на основе ACU
 

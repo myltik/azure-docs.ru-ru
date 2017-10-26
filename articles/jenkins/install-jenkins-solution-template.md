@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea281e9c83bb37f78c248c6c4011a7da60b45c01
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Создание сервера Jenkins на виртуальной машине Azure под управлением Linux на портале Azure
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 * Введите данные в поле **Имя пользователя**. Имя пользователя должно соответствовать [особым требованиям](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
 * Установите значение **Пароль** для параметра **Тип проверки подлинности** и введите пароль. Пароль должен содержать прописную букву, цифру и один специальный символ.
 * Установите значение **myJenkinsResourceGroup** для параметра **Группа ресурсов**.
-* Выберите значение **Восток США** для параметра [Регион Azure](https://azure.microsoft.com/regions/) из раскрывающегося списка **Расположение**.
+* Выберите значение **Восток США** для параметра [Регион Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) из раскрывающегося списка **Расположение**.
 
 Нажмите **ОК**, чтобы перейти к вкладке **Настройка дополнительных параметров**. Введите уникальное доменное имя для идентификации сервера Jenkins и нажмите **ОК**.
 

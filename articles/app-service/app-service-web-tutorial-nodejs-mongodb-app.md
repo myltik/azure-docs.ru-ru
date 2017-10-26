@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d5b41faa28d9181b957ce346e25804e16d9303d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d4ef794106b27b812bfc0c5a7975fad23da1898
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Разработка веб-приложения на основе Node.js и MongoDB в Azure
 
@@ -312,12 +312,12 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 
 Ранее в этом руководстве вы жестко запрограммировали строку подключения в файле _config/env/production.js_. По соображениям безопасности конфиденциальные данные не следует хранить в репозитории Git. При запуске приложения в Azure строка подключения будет храниться в переменной среды.
 
-В Cloud Shell переменные среды устанавливаются как _параметры приложения_ с помощью команды [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update). 
+В Cloud Shell переменные среды устанавливаются как _параметры приложения_ с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set). 
 
 В следующем примере настраивается параметр приложения `MONGODB_URI` в веб-приложении Azure. Замените заполнители *\<app_name>*, *\<cosmosdb_name>* и *\<primary_master_key>*.
 
 ```azurecli-interactive
-az webapp config appsettings update --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
 В коде Node.js для доступа к этому параметру приложения, как и к любой переменной среды, используется `process.env.MONGODB_URI`. 
@@ -346,7 +346,7 @@ db: {
 В следующей команде замените *\<имя_пользователя>* и *\<пароль>* новым именем пользователя и паролем. Имя пользователя должно быть уникальным. Пароль должен содержать не менее восьми символов и включать два из трех следующих элементов: буквы, цифры и символы. Если появляется сообщение об ошибке ` 'Conflict'. Details: 409`, измените имя пользователя. Если появляется сообщение об ошибке ` 'Bad Request'. Details: 400`, используйте более надежный пароль.
 
 ```azurecli-interactive
-az appservice web deployment user set --user-name <username> --password <password>
+az webapp deployment user set --user-name <username> --password <password>
 ```
 
 Запишите имя пользователя и пароль, так как эти данные потребуются при развертывании приложения.

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: kgremban
+ms.date: 10/11/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c15808a97d4efa5f9453f33d9ac70ebde5288201
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Работа с пользовательскими доменами в прокси приложения Azure AD
 
@@ -69,8 +69,6 @@ ms.lasthandoff: 10/11/2017
 На методы подписки сертификатов нет никаких ограничений. Поддерживается шифрование на основе эллиптических кривых (ECC), альтернативное имя субъекта (SAN) и другие стандартные типы сертификатов. 
 
 Можно использовать групповой сертификат, если он соответствует требуемому внешнему URL-адресу. 
-
-Можно также использовать самозаверяющие сертификаты. При использовании частного центра сертификации CDP (точка распространения точки отзыва сертификата) для сертификата должна быть общедоступной.
 
 ### <a name="changing-the-domain"></a>Изменение домена
 Все проверенные домены отображаются в раскрывающемся списке внешних URL-адресов для вашего приложения. Чтобы изменить домен, просто обновите поле приложения. Если в списке нет нужного домена, [добавьте его в качестве проверенного домена](active-directory-domains-add-azure-portal.md). Если вы выбрали домен без связанного сертификата, выполните шаги 5–7, чтобы добавить сертификат. Затем убедитесь, что обновили запись DNS для перенаправления из нового внешнего URL-адреса. 

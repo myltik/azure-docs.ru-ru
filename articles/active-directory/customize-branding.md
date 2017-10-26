@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41f4ceea4842303760c5b156e90bd9e0746a7825
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Краткое руководство по добавлению фирменной символики организации на страницу входа в Azure Active Directory
 Чтобы избежать путаницы, многие компании используют единый стиль оформления всех веб-сайтов и служб, которыми они управляют. Azure Active Directory (Azure AD) предоставляет такую возможность, позволяя настроить внешний вид страницы входа, добавив на нее логотип организации и цветовые схемы. Страница входа: эта страница отображается при входе в Office 365 или другие веб-приложения, использующие Azure AD в качестве поставщика удостоверений. На этой странице вводятся учетные данные.
@@ -82,11 +82,11 @@ ms.lasthandoff: 10/11/2017
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
 
-   ![Открытие страницы "Управление пользователями"](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
+   ![Открытие страницы "Управление пользователями"](./media/customize-branding/user-management.png)
 3. В колонке **Пользователи и группы** выберите **Корпоративная фирменная символика**.
 4. В колонке **Корпоративная фирменная символика** щелкните **Изменить**.
 
-    ![Изменение пользовательской фирменной символики](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
+    ![Изменение пользовательской фирменной символики](./media/customize-branding/edit-branding.png)
 5. Измените элементы, которые нужно настроить. Все элементы необязательные.
 6. Щелкните **Сохранить**.
 
@@ -97,11 +97,11 @@ ms.lasthandoff: 10/11/2017
 1. Войдите в [центр администрирования Azure AD](https://aad.portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
 
-   ![Открытие страницы "Управление пользователями"](./media/active-directory-branding-localize-azure-portal/user-management.png)
+   ![Открытие страницы "Управление пользователями"](./media/customize-branding/user-management.png)
 3. В колонке **Пользователи и группы** выберите **Корпоративная фирменная символика**.
 4. В колонке **Пользователи и группы — корпоративная фирменная символика** щелкните **Добавить язык**.
 
-    ![Добавление элементов фирменной символики для определенного языка](./media/active-directory-branding-localize-azure-portal/add-language.png)
+    ![Добавление элементов фирменной символики для определенного языка](./media/customize-branding/add-language.png)
 5. Измените элементы, которые нужно настроить. Все элементы необязательные.
 6. Щелкните **Сохранить**.
 

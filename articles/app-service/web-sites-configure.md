@@ -3,7 +3,7 @@ title: "Настройка веб-приложений в службе прил�
 description: "Настройка веб-приложения в службе приложений Azure"
 services: app-service\web
 documentationcenter: 
-author: rmcmurray
+author: cephalin
 manager: erikre
 editor: 
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: robmcm
-ms.openlocfilehash: bb1144519db84e5685fbae1a2f55854e1102120a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cephalin
+ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Настройка веб-приложений в службе приложений Azure
 В этом разделе рассматривается настройка веб-приложения с помощью [портале Azure].
@@ -27,7 +27,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="application-settings"></a>Параметры приложения
 1. На [портале Azure]откройте колонку для веб-приложения.
-2. Щелкните **Все параметры**.
 3. Щелкните **Параметры приложения**.
 
 ![Параметры приложения][configure01]

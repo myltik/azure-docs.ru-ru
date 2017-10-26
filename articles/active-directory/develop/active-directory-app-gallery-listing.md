@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d315cf63bcbf37b6b03b5a965ac615282526682
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Добавление приложения в коллекцию приложений Azure Active Directory
 Чтобы указать приложение, поддерживающее единый вход с Azure Active Directory в [коллекции Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), приложению сначала необходимо реализовать один из следующих режимов интеграции.
@@ -64,10 +64,10 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="saml-integration"></a>Интеграция SAML
-Любое приложение, которое поддерживает SAML 2.0, можно интегрировать непосредственно с помощью клиента Azure AD, используя [эти инструкции по добавлению настраиваемого приложения](../active-directory-saas-custom-apps.md). После проверки поддержки интеграции приложения с Azure AD отправьте следующие сведения в <mailto:waadpartners@microsoft.com>.
+Любое приложение, которое поддерживает SAML 2.0, можно интегрировать непосредственно с помощью клиента Azure AD, используя [эти инструкции по добавлению настраиваемого приложения](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). После проверки поддержки интеграции приложения с Azure AD отправьте следующие сведения в <mailto:waadpartners@microsoft.com>.
 
 * Укажите учетные данные для тестового клиента или учетной записи с приложением, которое команда Azure AD может использовать для тестирования интеграции.  
-* Укажите URL-адрес единого входа SAML, URL-адрес издателя (идентификатор сущности) и URL-адрес ответа (служба обработчика утверждений) для вашего приложения, как описано [здесь](../active-directory-saas-custom-apps.md). Если вы обычно предоставляете эти значения как часть файла метаданных SAML, отправьте и его.
+* Укажите URL-адрес единого входа SAML, URL-адрес издателя (идентификатор сущности) и URL-адрес ответа (служба обработчика утверждений) для вашего приложения, как описано [здесь](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Если вы обычно предоставляете эти значения как часть файла метаданных SAML, отправьте и его.
 * Дайте краткое описание способов настройки Azure AD в качестве поставщика удостоверений в приложении с помощью SAML 2.0. Если ваше приложение поддерживает настройку Azure AD как поставщика удостоверений с помощью портала самообслуживания, убедитесь, что указанные выше учетные данные позволяют выполнить такую настройку.
 * Укажите следующие сведения.
 

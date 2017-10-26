@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 09/28/2017
 ms.author: bwren
-ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Источники данных для журнала событий Windows в Log Analytics
 Журналы событий Windows — это один из самых распространенных [источников данных](log-analytics-data-sources.md), используемый для сбора данных агентами Windows, так как он применяется большинством приложений для записи сведений.  События можно собирать из стандартных журналов, таких как журналы системы и приложений, а также указывать пользовательские журналы приложений, которые необходимо отслеживать.
@@ -65,17 +65,6 @@ Log Analytics собирает события только из журналов
 Ниже приведены различные примеры запросов поиска по журналу, которые извлекают записи событий Windows.
 
 | Запрос | Описание |
-|:--- |:--- |
-| Type=Event |Все события Windows. |
-| Type=Event EventLevelName=error |Все события Windows с указанием серьезности ошибки. |
-| Type=Event &#124; Measure count() by Source |Число событий Windows по источникам. |
-| Type=Event EventLevelName=error &#124; Measure count() by Source |Число событий ошибок Windows по источникам. |
-
-
->[!NOTE]
-> Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
->
->| Запрос | Описание |
 |:---|:---|
 | Событие |Все события Windows. |
 | Event &#124; where EventLevelName == "error" |Все события Windows с указанием серьезности ошибки. |

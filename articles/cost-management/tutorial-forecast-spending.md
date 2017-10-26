@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/29/2017
-ms.topic: article
+ms.date: 10/11/2017
+ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: decae695544e8b9e0ff48cca32a38f533a86a563
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b4bc196786ca4dfa3d57f3e89dd36ddc32acbc
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="forecast-future-spending"></a>Прогнозирование будущих затрат
 
@@ -54,7 +54,7 @@ Cloudyn включает в себя отчеты о прогнозирован�
 Из этого руководства вы узнали, как выполнять такие задачи:
 
 > [!div class="checklist"]
-> * Прогнозирование будущих затрат
+> * Прогнозирование будущих затрат.
 
 
 Ознакомьтесь с документацией Cloudyn, чтобы получить дополнительные сведения о работе с Cloudyn и возможностях этого решения.

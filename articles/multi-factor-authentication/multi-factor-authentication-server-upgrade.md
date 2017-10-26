@@ -15,11 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a2fb7413fa1391969d00ad281fd1ade3e0f40a8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Обновление сервера Многофакторной идентификации Azure до последней версии
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Установка последней версии сервера Azure MFA
 
-1. Следуйте указаниям в разделе [Загрузка сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server), чтобы скачать последнюю версию сервера Azure MFA.
+1. Следуйте указаниям в разделе [Загрузка сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-mfa-server), чтобы скачать последнюю версию сервера Azure MFA.
 2. Создайте резервную копию файла данных сервера MFA, который находится в расположении C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (если расположение по умолчанию не было изменено при установке) на главном сервере MFA.
 3. Если для обеспечения высокой доступности работает несколько серверов, то измените клиентские системы, которые выполняют аутентификацию на сервере Mногофакторной идентификации, чтобы они прекратили отправлять трафик на обновляемые серверы Mногофакторной идентификации. При использовании подсистемы балансировки нагрузки удалите из нее сервер Mногофакторной идентификации, выполните обновление, а затем снова добавьте сервер в ферму.
 4. Запустите новый установщик на каждом сервере MFA. Сначала обновите подчиненные серверы, так как они смогут считывать устаревший файл данных, реплицируемый главным сервером. 

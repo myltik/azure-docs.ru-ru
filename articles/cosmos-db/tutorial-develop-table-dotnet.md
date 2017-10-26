@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: c969696b7489a9a8c45e10428cdeaa833f63d6d2
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Разработка с помощью API таблицы базы данных Azure Cosmos DB на языке .NET
 
@@ -52,7 +52,7 @@ Azure Cosmos DB — это глобально распределенная мн
 - поддержка [независимого масштабирования хранилища и пропускной способности](partition-data.md) в любом количестве регионов;
 - поддержка [выделения пропускной способности на таблицу](request-units.md) с возможностью масштабирования числа запросов в секунду от нескольких сотен до миллионов;
 - поддержка [пяти настраиваемых уровней согласованности](consistency-levels.md) с возможностью изменять показатели доступности, задержки и согласованности в соответствии с требованиями приложений;
-- доступность уровня 99,99 % в отдельном регионе и возможность добавлять дополнительные регионы для более высокого уровня доступности, а также [ведущие в отрасли исчерпывающие Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db/) в общедоступной версии;
+- доступность уровня 99,99 % в отдельном регионе и возможность добавлять дополнительные регионы для более высокого уровня доступности, а также [ведущие в отрасли исчерпывающие Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) в общедоступной версии;
 - поддержка имеющегося пакета SDK .NET для службы хранилища Azure и устранение необходимости изменять код приложения.
 
 В предварительной версии поддержка API таблицы в базе данных Azure Cosmos DB реализуется за счет пакета SDK для .NET. Вы можете скачать [пакет SDK предварительной версии для службы хранилища Azure](https://aka.ms/premiumtablenuget) на сайте NuGet. Он имеет те же классы и подписи метода, что и [пакет SDK для службы хранилища Azure](https://www.nuget.org/packages/WindowsAzure.Storage), но также может подключаться к учетным записям базы данных Azure Cosmos DB через API таблицы.

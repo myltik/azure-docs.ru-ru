@@ -9,16 +9,17 @@ ms.reviewer: jsnow
 ms.date: 10/04/2017
 ms.topic: article
 ms.prod: 
-ms.service: azure
+ms.service: active-directory
+ms.workload: identity
 ms.technology: 
 ms.assetid: 
-service: active-directory
+services: active-directory
 custom: it-pro
-ms.openlocfilehash: 2e9d9955810c01eb916df2580f623373aebb9d1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 714f90155dbf53c5728e27995cee95f132fa452b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Начало работы с Azure AD
 Современная система управления удостоверениями должна быть масштабируемой, стабильной и надежной, чтобы приложения и службы гарантированно были доступны только аутентифицированным пользователям. Чтобы обеспечить все потребности пользователей по управлению удостоверениями, ИТ-специалисты должны предоставить доступ к проверенному и общедоступному приложению формата SaaS (программное обеспечение как услуга), а также метод размещения внутренних бизнес-приложений и даже дополнительные возможности по разработке и использованию локальных приложений. Все эти требования приводят к необходимости использовать облачное решение по управлению удостоверениями.      

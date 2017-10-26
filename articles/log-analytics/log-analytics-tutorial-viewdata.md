@@ -2,7 +2,7 @@
 title: "Просмотр и анализ собранных данных Azure Log Analytics | Документация Майкрософт"
 description: "Эта статья содержит руководство, в котором описывается, как создать поиски по журналам и анализировать данные, хранящиеся в ресурсе Log Analytics, с помощью портала поиска по журналам.  Это руководство включает в себя выполнение некоторых простых запросов с целью возврата различных типов данных и анализа результатов."
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
 editor: 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
-ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Просмотр и анализ данных, собранных с помощью поиска по журналам Log Analytics
 
