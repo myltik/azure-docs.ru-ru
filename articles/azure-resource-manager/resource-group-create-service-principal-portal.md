@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 56b73ff30e7fdaa3c21bc1e5528e2f6118597ef1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Создание приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала
 
@@ -187,7 +187,7 @@ ms.lasthandoff: 10/11/2017
 Настройка приложения в Azure Active Directory завершена. У вас есть идентификатор и ключ для входа от имени приложения. Приложению назначена роль, которая разрешает выполнять определенные действия. Сведения о входе в систему в качестве приложения с помощью различных платформ см. в следующих разделах:
 
 * [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
-* [Интерфейс командной строки Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [Интерфейс командной строки Azure](resource-group-authenticate-service-principal-cli.md)
 * [REST](/rest/api/#create-the-request)
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)
