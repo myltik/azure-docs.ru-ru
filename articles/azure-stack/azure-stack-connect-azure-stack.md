@@ -1,6 +1,6 @@
 ---
 title: "Подключение к Azure Stack | Документация Майкрософт"
-description: "Узнайте, как подключиться к Azure Stack"
+description: "Узнайте, как подключиться к Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,56 +14,58 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 09c626e97832821009ce2da360ceea2b54273ffa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba2359739b1d9cd265879227a499c94f93d8e4c6
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="connect-to-azure-stack"></a>Подключение к Azure Stack
 
-*Область применения: комплект разработки Azure Stack*
+*Область применения: пакет SDK для Azure Stack*
 
-Для управления ресурсами необходимо подключиться к комплекту разработки Azure Stack. В этой статье описаны действия, требуемые для подключения к комплекту разработки. Можно использовать один из следующих вариантов подключения:
+Для управления ресурсами сначала необходимо подключиться к пакету средств разработки Azure Stack. В этой статье описаны действия, выполнив которые вы сможете подключиться к пакету средств разработки. Вы можете использовать один из следующих вариантов подключения:
 
-* [Удаленный рабочий стол](#connect-with-remote-desktop). Позволяет быстро выполнить параллельное подключение одного пользователя из комплекта разработки.
-* [Виртуальная частная сеть](#connect-with-vpn). Позволяет выполнить параллельное подключение нескольких пользователей из клиентов за пределами инфраструктуры Azure Stack (требует настройки).
+* [Подключение к удаленному рабочему столу.](#connect-with-remote-desktop) При подключении с помощью удаленного рабочего стола один пользователь может быстро выполнить подключение из пакета средств разработки.
+* [Виртуальная частная сеть (VPN).](#connect-with-vpn) При подключении с помощью VPN несколько пользователей могут одновременно подключаться с использованием клиентов за пределами инфраструктуры Azure Stack (требует установки).
 
-## <a name="connect-to-azure-stack-with-remote-desktop"></a>Подключение к Azure Stack с помощью удаленного рабочего стола
-С помощью подключения удаленного рабочего стола один пользователь может работать с порталом для управления ресурсами.
+<a name="connect-to-azure-stack-with-remote-desktop"></a>
+##  <a name="connect-to-azure-stack-by-using-remote-desktop-connection"></a>Подключение к Azure Stack с помощью удаленного рабочего стола
+С помощью подключения удаленного рабочего стола один пользователь может управлять ресурсами на портале оператора или пользовательском портале.
 
-1. Откройте подключение к удаленному рабочему столу и подключитесь к комплекту разработки. Введите **AzureStack\AzureStackAdmin** в качестве имени пользователя и пароль оператора, указанный во время настройки Azure Stack.  
+1. Откройте подключение к удаленному рабочему столу и подключитесь к пакету средств разработки. В качестве имени пользователя введите **AzureStack\AzureStackAdmin**. Используйте пароль оператора, указанный при настройке Azure Stack.  
 
-2. На компьютере с комплектом разработки откройте диспетчер сервера, щелкните **Локальный сервер**, отключите усиленную безопасность Internet Explorer и закройте диспетчер сервера.
+2. Откройте диспетчер сервера на компьютере с пакетом средств разработки. Выберите **Локальный сервер**, снимите флажок **Internet Explorer Enhanced Security** (Усиленная безопасность Internet Explorer), а затем закройте диспетчер сервера.
 
-3. Чтобы открыть пользовательский [портал](azure-stack-key-features.md#portal), перейдите по адресу https://portal.local.azurestack.external/ и выполните вход с помощью учетных данных пользователя. Чтобы открыть [портал](azure-stack-key-features.md#portal) оператора Azure Stack, перейдите по адресу https://adminportal.local.azurestack.external/ и выполните вход с помощью учетных данных Azure Active Directory, указанных во время установки.
+3. Чтобы открыть [пользовательский портал](azure-stack-key-features.md#portal), перейдите к сайту https://portal.local.azurestack.external/. Войдите, используя учетные данные пользователя. Чтобы открыть [портал оператора](azure-stack-key-features.md#portal) Azure Stack, перейдите на сайт https://adminportal.local.azurestack.external/. Войдите, используя учетные данные Azure Active Directory (Azure AD), указанные во время установки.
 
-## <a name="connect-to-azure-stack-with-vpn"></a>Подключение к Azure Stack с помощью VPN
+<a name="connect-to-azure-stack-with-vpn"></a>
+## <a name="connect-to-azure-stack-by-using-vpn"></a>Подключение к Azure Stack с помощью VPN
 
-Можно установить VPN-подключение с разделенным туннелем к комплекту разработки Azure Stack. Через VPN-подключение можно получить доступ к порталу оператора Azure Stack, порталу пользователя и установленным локально средствам, таким как Visual Studio и PowerShell, для управления ресурсами Azure Stack. VPN-подключение поддерживается в развертываниях на базе Azure Active Directory и служб федерации Active Directory (AD FS). VPN-подключения позволяют нескольким клиентам одновременно подключаться к Azure Stack. 
+Вы можете установить VPN-подключение с разделенным туннелем к пакету средств разработки Azure Stack. Через VPN-подключение можно получить доступ к порталу оператора Azure Stack, порталу пользователя и установленным локально средствам, таким как Visual Studio и PowerShell, для управления ресурсами Azure Stack. VPN-подключение поддерживается в развертывании Azure AD и служб федерации Active Directory (AD FS). VPN-подключения позволяют нескольким клиентам одновременно подключаться к Azure Stack. 
 
 > [!NOTE] 
-> Это VPN-подключение не предоставляет возможность подключения к виртуальным машинам инфраструктуры Azure Stack. 
+> VPN-подключение не предоставляет возможность подключения к виртуальным машинам инфраструктуры Azure Stack. 
 
 ### <a name="prerequisites"></a>Предварительные требования
 
-* Установите [Azure PowerShell, совместимый с Azure Stack](azure-stack-powershell-install.md), на своем локальном компьютере.  
-* Скачайте [средства, необходимые для работы с Azure Stack](azure-stack-powershell-download.md). 
+1. Установите [Azure PowerShell, совместимый с Azure Stack](azure-stack-powershell-install.md), на своем локальном компьютере.  
+2. Скачайте [средства, необходимые для работы с Azure Stack](azure-stack-powershell-download.md). 
 
-### <a name="configure-vpn-connectivity"></a>Настройка подключения VPN
+### <a name="set-up-vpn-connectivity"></a>Настройка VPN-подключения
 
-Чтобы создать VPN-подключение к комплекту разработки, откройте сеанс PowerShell с повышенными привилегиями на локальном компьютере с Windows и запустите следующий скрипт (укажите значения IP-адреса и пароля для своей среды):
+Чтобы создать VPN-подключение к пакету средств разработки, откройте Windows PowerShell с правами администратора на локальном компьютере под управлением Windows. Затем выполните следующий скрипт (обновите значения IP-адреса и пароля для своей среды):
 
 ```PowerShell 
-# Configure winrm if it's not already configured
+# Configure Windows Remote Management (WinRM), if it's not already configured.
 winrm quickconfig  
 
 Set-ExecutionPolicy RemoteSigned
 
-# Import the Connect module
+# Import the Connect module.
 Import-Module .\Connect\AzureStack.Connect.psm1 
 
-# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the the IP address and password values for your environment. 
+# Add the development kit computer’s host IP address and certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment. 
 
 $hostIP = "<Azure Stack host IP address>"
 
@@ -76,35 +78,35 @@ Set-Item wsman:\localhost\Client\TrustedHosts `
   -Value $hostIP `
   -Concatenate
 
-# Create a VPN connection entry for the local user
+# Create a VPN connection entry for the local user.
 Add-AzsVpnConnection `
   -ServerAddress $hostIP `
   -Password $Password
 
 ```
 
-Если настройка выполнена успешно, **azurestack** появится в списке VPN-подключений.
+Если программа установки завершается успешно, **azurestack** появится в списке VPN-подключений.
 
 ![Сетевые подключения](media/azure-stack-connect-azure-stack/image3.png)  
 
 ### <a name="connect-to-azure-stack"></a>Подключение к Azure Stack
 
-Подключитесь к экземпляру Azure Stack, используя один из двух способов:  
+Подключитесь к экземпляру Azure Stack, используя один из следующих двух способов:  
 
-* С помощью команды `Connect-AzsVpn `: 
+* Использование команды `Connect-AzsVpn `: 
     
   ```PowerShell
   Connect-AzsVpn `
     -Password $Password
   ```
 
-  При появлении запроса обозначьте узел Azure Stack как доверенный и установите сертификат из **AzureStackCertificateAuthority** в хранилище сертификатов на локальном компьютере (запрос может появиться вне окна сеанса PowerShell). 
+  При появлении запроса обозначьте узел Azure Stack как доверенный и установите сертификат из **AzureStackCertificateAuthority** в хранилище сертификатов на локальном компьютере (Запрос может быть скрыт окном PowerShell.) 
 
-* На своем локальном компьютере откройте **Параметры сети** > **VPN** и щелкните **azurestack** > **Подключение**. При запросе на вход введите имя пользователя (AzureStack\AzureStackAdmin) и пароль.
+* На локальном компьютере выберите **Параметры сети** > **VPN** > **azurestack** > **Подключиться**. При запросе на вход введите имя пользователя (**AzureStack\AzureStackAdmin**) и пароль.
 
-### <a name="test-the-vpn-connectivity"></a>Проверка VPN-подключения
+### <a name="test-vpn-connectivity"></a>Проверка VPN-подключения
 
-Чтобы проверить подключение портала, откройте браузер и перейдите на портал пользователя (https://portal.local.azurestack.external/) или портал оператора (https://adminportal.local.azurestack.external/), войдите и создайте ресурсы.  
+Чтобы проверить подключение портала, откройте веб-браузер и перейдите на портал пользователя (https://portal.local.azurestack.external/) или портал оператора (https://adminportal.local.azurestack.external/). Войдите и создайте ресурсы.  
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -46,7 +46,7 @@
     - name: Инфраструктура CLI Azure
       href: /cli/azure/aks
     - name: REST
-      href: /rest/api/container-service
+      href: /rest/api/aks
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure

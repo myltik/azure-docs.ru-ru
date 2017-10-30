@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Начало работы с очередями служебной шины
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="add-the-service-bus-nuget-package"></a>Получение пакета NuGet для служебной шины
 1. Щелкните созданный проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
-2. Откройте вкладку **Обзор**, выполните поиск по фразе **служебная шина Microsoft Azure** и выберите элемент **WindowsAzure.ServiceBus**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
+2. Откройте вкладку **Обзор**, выполните поиск по фразе **WindowsAzure.ServiceBus** и выберите элемент **WindowsAzure.ServiceBus**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
    
     ![Установка пакета NuGet][nuget-pkg]
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 10/11/2017
         }
     }
     ```
-3. Запустите программу и перейдите на портал Azure. В колонке **Обзор** пространства имен щелкните имя очереди. Отобразится колонка очереди **Основные компоненты**. Обратите внимание, что значение параметра **Количество активных сообщений** должно равняться единице. Каждый раз при запуске приложения отправителя без получения сообщений это значение увеличивается на 1. Также обратите внимание, что текущий размер очереди увеличивается каждый раз, когда приложение добавляет сообщение в очередь.
+3. Запустите программу и перейдите на портал Azure. В окне **Обзор** пространства имен щелкните имя очереди. Откроется окно очереди **Основное**. Обратите внимание, что значение параметра **Количество активных сообщений** должно равняться единице. Каждый раз при запуске приложения отправителя без получения сообщений это значение увеличивается на 1. Также обратите внимание, что текущий размер очереди увеличивается каждый раз, когда приложение добавляет сообщение в очередь.
    
       ![Размер сообщения][queue-message]
 
@@ -178,7 +178,7 @@ ms.lasthandoff: 10/11/2017
    
     ![Длина очереди][queue-message-receive]
 
-Поздравляем! Вы создали очередь, а также отправили и получили сообщение.
+Поздравляем! Теперь вы создали очередь, отправили в нее сообщения и получили сообщение из нее.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -189,4 +189,4 @@ ms.lasthandoff: 10/11/2017
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+

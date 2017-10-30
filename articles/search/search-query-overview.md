@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="query-your-azure-search-index"></a>Отправка запросов в индекс службы поиска Azure
 > [!div class="op_single_selector"]
@@ -66,4 +66,4 @@ ms.lasthandoff: 10/11/2017
 
 + Используйте [обозреватель поиска](search-explorer.md) на портале Azure. Развернув [индекс образцов](search-get-started-portal.md) и используя средства на портале, можно быстро создать запрос индекса.
 
-+ Используйте [Fiddler](search-fiddler.md) или Chrome Postman для отправки запросов индекса, переданного в службу поиска. Оба средства поддерживают вызовы REST к конечной точке HTTP. 
++ Используйте Telerik Fiddler или Chrome Postman для отправки запросов индекса, переданного в службу поиска. Оба средства поддерживают вызовы REST к конечной точке HTTP. 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2017
+ms.date: 10/19/2017
 ms.author: cherylmc,yushwang
-ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8af984a7321d99faecb9d79903a442c938460919
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="vpn-gateway-faq"></a>VPN-шлюз: вопросы и ответы
 
@@ -70,6 +70,15 @@ VPN-шлюз — это тип шлюза виртуальной сети. Он
 
 Шлюзы на основе маршрутов реализуют VPN на основе маршрутов. VPN на основе маршрутов используют «маршруты» в таблице маршрутизации и переадресации для направления пакетов в интерфейсы соответствующих туннелей. Затем интерфейсы туннелей шифруют пакеты в туннели или расшифровывают их из туннелей. Политика или селектор трафика для VPN на основе маршрутов настроены как «любой — к — любому» (или подстановочные знаки).
 
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Можно ли поменять тип VPN-шлюза со шлюза на основе политик на шлюз на основе маршрутов?
+Нет. Тип шлюза виртуальной сети Azure нельзя изменить со шлюза на основе политик или наоборот. Шлюз необходимо удалить и создать заново, процесс занимает около 60 минут. IP-адрес шлюза и общий ключ не сохранится.
+1. Удалите все подключения, связанные с удаляемым шлюзом.
+2. Удалите шлюз:
+* [Портал Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+* [Удаление шлюза виртуальной сети с помощью PowerShell (классическая модель)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+3. [Создание VPN-шлюза](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+
 ### <a name="do-i-need-a-gatewaysubnet"></a>Требуется ли параметр GatewaySubnet?
 
 Да. Подсеть шлюза содержит IP-адреса, которые используют службы шлюза виртуальной сети. Чтобы настроить шлюз виртуальной сети, сначала нужно создать подсеть шлюза для виртуальной сети. Чтобы подсети шлюзов работали надлежащим образом, каждую из них нужно назвать GatewaySubnet. Не следует называть подсеть шлюза по-другому. Кроме того, не следует развертывать в подсети шлюза виртуальные машины или что-либо другое.
@@ -110,7 +119,6 @@ VPN Azure использует проверку подлинности с пом
 #### <a name="classic-deployment-model"></a>Классическая модель развертывания
 
 * Портал Azure: перейдите к классической виртуальной сети и последовательно выберите "VPN-подключения" > "VPN-подключения типа "сеть — сеть" > Local site name (Имя локального сайта) > "Локальный сайт" > Client address space (Адресное пространство клиента). 
-* Классический портал: на странице "Сети" в разделе локальных сетей добавьте все диапазоны, которые нужно отправить через шлюз виртуальной сети. 
 
 ### <a name="can-i-configure-force-tunneling"></a>Можно ли настроить принудительное туннелирование?
 
@@ -160,9 +168,13 @@ VPN Azure использует проверку подлинности с пом
 
 ## <a name="P2S"></a>Собственная аутентификация Azure на основе сертификата при подключениях типа "точка — сеть"
 
+Этот раздел посвящен модели развертывания с помощью Resource Manager.
+
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="P2SRADIUS"></a>Аутентификация RADIUS при подключениях типа "точка — сеть"
+
+Этот раздел посвящен модели развертывания с помощью Resource Manager.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

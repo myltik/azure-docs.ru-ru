@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 42a2542b7564f1692146b3e3927792ac339f30be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Развертывание приложения-контейнера Azure Service Fabric для Linux в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания масштабируемых надежных микрослужб и контейнеров и управления ими. 
@@ -29,7 +29,7 @@ Azure Service Fabric — это платформа распределенных 
 
 Из этого краткого руководства вы узнаете, как выполнять следующие задачи:
 > [!div class="checklist"]
-> * Развертывание контейнеров Linux в Service Fabric
+> * Развертывание контейнеров в кластере Service Fabric под управлением Azure Linux
 > * Масштабирование и отработка отказа контейнеров в Service Fabric
 
 ## <a name="prerequisite"></a>Предварительные требования
@@ -52,6 +52,10 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Развертывание контейнеров в кластер Service Fabric в Azure
 Для развертывания приложения в кластере Azure можно использовать собственный кластер или кластер сообщества.
+
+> [!Note]
+> Приложения должны быть развернуты в кластере Azure, а не в кластере Service Fabric на локальном компьютере для разработки. 
+>
 
 Кластеры сообщества — это бесплатные временные кластеры Service Fabric, размещенные в Azure. Их обслуживает команда Service Fabric. Любой пользователь может развертывать приложения в этих кластерах и изучать платформу. Чтобы получить доступ к кластеру сообщества, следуйте инструкциям на [этом сайте](http://aka.ms/tryservicefabric). 
 

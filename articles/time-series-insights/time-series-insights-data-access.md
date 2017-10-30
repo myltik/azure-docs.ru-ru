@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 5258bf5de6f7aa1ea246f1235e7d362b1b7d0181
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Предоставление доступа к данным для среды Time Series Insights с помощью портала Azure
 
@@ -42,12 +42,13 @@ ms.lasthandoff: 10/11/2017
 Ниже показано, как предоставить доступ к данным для участника-пользователя.
 
 1.  Выполните вход на [портал Azure](https://portal.azure.com).
-2.  Щелкните "Все ресурсы" в меню слева на портале Azure.
-3.  Выберите среду Time Series Insights.
+2.  Введите Time Series в окне поиска.
+3.  Выбор среды Time Series
+4.  Выберите среду Time Series Insights в списке.
 
   ![Управление исходной средой Time Series Insights](media/data-access/getstarted-grant-data-access1.png)
 
-4.  Выберите Data Plane Access (Доступ к плоскости данных) и щелкните "Добавить".
+4.  Выберите "Политики доступа к данным", а затем нажмите кнопку "Добавить".
 
   ![Управление источником Time Series Insights — "Добавить"](media/data-access/getstarted-grant-data-access2.png)
 
