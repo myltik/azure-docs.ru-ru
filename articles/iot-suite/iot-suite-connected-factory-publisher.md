@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: dobett
-ms.openlocfilehash: 86ffacae9265b68e8adfeb8f7d8c72626f872dba
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: fd823194f6e51600b9d4ca1daa053db837871fef
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>Издатель OPC для Azure IoT Edge
 
@@ -382,7 +382,14 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>Использование подключения привязки (общая файловая система)
 
-В некоторых сценариях требуется считать данные о конфигурации с узла или записать на него файлы журнала, вместо использования файловой системы контейнера. Чтобы настроить такое поведение, используйте параметр `-v` команды `docker run` в режиме подключения привязки.
+В некоторых сценариях требуется считать данные о конфигурации с узла или записать на него файлы журнала, вместо использования файловой системы контейнера. Чтобы настроить такое поведение, используйте параметр `-v` команды `docker run` в режиме подключения привязки. Например:
+
+```cmd/sh
+-v //D/docker:/build/out/Logs
+-v //D/docker:/build/out/CertificateStores
+-v //D/docker:/shared
+-v //D/docker:/root/.dotnet/corefx/cryptography/x509stores
+```
 
 #### <a name="store-for-x509-certificates"></a>Хранилище для сертификатов X509
 

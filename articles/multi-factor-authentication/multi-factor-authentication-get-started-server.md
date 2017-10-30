@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a0eec19eea1a75b67f314f204fb769e6eff162
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Приступая к работе с сервером Azure Multi-Factor Authentication
 
@@ -89,26 +89,42 @@ ms.lasthandoff: 10/11/2017
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72–134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201–70.37.154.206 |
 
-## <a name="download-the-azure-multi-factor-authentication-server"></a>Загрузка сервера Azure Multi-Factor Authentication
+## <a name="download-the-mfa-server---public-preview"></a>Скачивание сервера Многофакторной идентификации (общедоступная предварительная версия)
+
+Чтобы скачать сервер Многофакторной идентификации Azure с портала Azure, сделайте следующее:
+
+1. Войдите на [портал Azure](https://portal.azure.com) с использованием учетной записи администратора.
+2. Выберите **Active Directory** > **Multi-Factor Authentication**.
+3. Выберите **Параметры сервера**.
+4. Выберите **Загрузить** и следуйте инструкциям на странице скачивания, чтобы сохранить установщик. 
+
+   ![Скачивание сервера MFA](./media/multi-factor-authentication-get-started-server/downloadportal.png)
+
+5. Не закрывайте эту страницу — мы вернемся к ней после запуска установщика.
+
+
+## <a name="download-the-mfa-server"></a>Скачивание сервера Многофакторной идентификации
+
+Чтобы скачать сервер Многофакторной идентификации pfweb с портала Azure, сделайте следующее:
 
 1. Войдите на [портал Azure](https://portal.azure.com) с использованием учетной записи администратора.
 2. Выберите **Active Directory** слева.
-3. Выберите пункт **Пользователи и группы**.
-4. Щелкните **Все пользователи**.
-5. Выберите **Многофакторная проверка подлинности**.
+3. Выберите параметр **Пользователи и группы**.
+4. Выберите **Все пользователи**.
+5. Выберите **Multi-Factor Authentication**.
 6. В разделе **многофакторной проверки подлинности** выберите **Параметры службы**.
 
    ![Страница параметров службы](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 
 6. На странице параметров службы в нижней части экрана щелкните ссылку **Перейти на портал**. Откроется новая страница.
-7. Щелкните **Загрузки**.
+7. Выберите **Загрузки**.
 8. Щелкните ссылку **для скачивания** и сохраните файл установщика.
 
    ![Скачивание сервера MFA](./media/multi-factor-authentication-get-started-server/download4.png)
 
 9. Не закрывайте эту страницу — мы вернемся к ней после запуска установщика.
 
-## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>Установка и настройка сервера Многофакторной идентификации Azure
+## <a name="install-and-configure-the-mfa-server"></a>Установка и настройка сервера Многофакторной идентификации
 
 Загрузив сервер, установите и настройте его. Убедитесь, что компьютер, на который вы устанавливаете сервер, соответствует требованиям, перечисленным в разделе планирования.
 
@@ -119,7 +135,7 @@ ms.lasthandoff: 10/11/2017
 
    ![Облако](./media/multi-factor-authentication-get-started-server/skip2.png)
 
-5. На странице, с которой вы загрузили сервер, нажмите кнопку **Создать учетные данные для активации** . Скопируйте эти данные в соответствующие поля на сервере Azure MFA и нажмите кнопку **Activate**(Активировать).
+5. На странице, с которой вы скачали сервер, нажмите кнопку **Создать учетные данные для активации**. Скопируйте эти данные в соответствующие поля на сервере Azure MFA и нажмите кнопку **Activate**(Активировать).
 
 ## <a name="send-users-an-email"></a>Отправка электронного письма пользователям
 

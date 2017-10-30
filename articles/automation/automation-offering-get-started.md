@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Приступая к работе со службой автоматизации Azure
 
@@ -59,6 +59,7 @@ ms.lasthandoff: 10/11/2017
 
 * Windows Server 2012 или более поздней версии;
 * Windows PowerShell, начиная с версии 4.0.  Для повышения надежности работы мы советуем установить на компьютерах Windows PowerShell версии 5.0. Новую версию можно скачать в [Центре загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=50395).
+* .NET Framework 4.6.2 или более поздней версии.
 * Как минимум два ядра.
 * Не менее 4 ГБ ОЗУ.
 

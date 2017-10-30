@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Подключение общей папки Azure и получение доступа к этой папке в Windows
 [Файлы Azure](storage-files-introduction.md) — это простая в использовании облачная файловая система от Майкрософт. Файловые ресурсы Azure можно подключить в Windows и Windows Server. В этой статье описывается три разных способа подключения общей папки Azure в Windows: с помощью пользовательского интерфейса проводника, PowerShell, а также командной строки. 
@@ -29,7 +29,8 @@ ms.lasthandoff: 10/11/2017
 
 | Версия Windows        | Версия SMB | Возможность подключения на виртуальной машине Azure | Возможность подключения в локальной среде |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | Да | Да |
+| Windows Server Semi-Annual Channel<sup>1</sup> | SMB 3.0 | Да | Да |
+| Windows 10<sup>2</sup>  | SMB 3.0 | Да | Да |
 | Windows Server 2016    | SMB 3.0     | Да                   | Да                  |
 | Windows 8.1            | SMB 3.0     | Да                   | Да                  |
 | Windows Server 2012 R2 | SMB 3.0     | Да                   | Да                  |
@@ -37,7 +38,8 @@ ms.lasthandoff: 10/11/2017
 | Windows 7              | SMB 2.1     | Да                   | Нет                   |
 | Windows Server 2008 R2 | SMB 2.1     | Да                   | Нет                   |
 
-<sup>1</sup>Windows 10 версии 1507, 1511, 1607, 1703 и 1709.
+<sup>1</sup>Windows Server версии 1709.  
+<sup>2</sup>Windows 10 версии 1507, 1607, 1703 и 1709.
 
 > [!Note]  
 > Мы всегда рекомендуем использовать последнюю версию KB для своей версии Windows.

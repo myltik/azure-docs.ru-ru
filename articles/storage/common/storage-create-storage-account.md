@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
-ms.date: 01/23/2017
+ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: cdca35f8ae339d02b44490cd61e2684d81d88365
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Об учетных записях хранения Azure
+
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -32,6 +33,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ## <a name="storage-account-billing"></a>Выставление счетов за использование учетной записи хранения
+
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -60,8 +62,8 @@ URL-адрес для доступа к объекту в учетной зап�
 
 
 ## <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
-1. Войдите на [портал Azure](https://portal.azure.com).
-2. В меню концентратора выберите **Создать** -> **Хранилище** -> **Учетная запись хранения**.
+1. Выполните вход на [портал Azure](https://portal.azure.com).
+2. На портале Azure разверните меню слева, чтобы открыть меню служб, и выберите **Больше служб**. Прокрутите вниз до пункта **Хранилище** и выберите **Учетные записи хранения**. В появившемся окне **Учетные записи хранения** выберите **добавить**.
 3. Выберите имя для своей учетной записи хранения. Сведения об использовании имени учетной записи хранения для доступа к объектам в службе хранилища Azure см. в разделе [Конечные точки учетной записи хранения](#storage-account-endpoints).
    
    > [!NOTE]

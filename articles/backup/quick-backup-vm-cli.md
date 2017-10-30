@@ -16,11 +16,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b0820613e5b08895148391837c1d7b28cb207128
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6aac8a6adc2a59a54222fbe47587cd9187a0e79
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Резервное копирование виртуальной машины в Azure с помощью интерфейса командной строки
 Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. Для защиты данных можно создавать архивы с регулярным интервалом. Служба Azure Backup создает точки восстановления, которые могут храниться в геоизбыточных хранилищах служб восстановления. В этой статье объясняется, как создать резервную копию виртуальной машины в Azure с помощью Azure CLI. Эти действия также можно выполнить с помощью [Azure PowerShell](quick-backup-vm-powershell.md) или [портала Azure](quick-backup-vm-portal.md).
@@ -29,7 +29,7 @@ Azure CLI используется для создания ресурсов Azur
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Чтобы установить и использовать интерфейс командной строки локально, необходимо использовать Azure CLI версии 2.0.18 или более поздней. Запустите ༖༗, чтобы получить необходимую версию. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Чтобы установить и использовать интерфейс командной строки локально, необходимо использовать Azure CLI версии 2.0.18 или более поздней. Чтобы получить необходимую версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-recovery-services-vault"></a>Создание хранилища служб восстановления

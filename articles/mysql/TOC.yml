@@ -105,6 +105,8 @@
       items:
         - name: Портал Azure
           href: howto-restore-server-portal.md
+        - name: Инфраструктура CLI Azure
+          href: howto-restore-server-cli.md
     - name: Подключение приложений
       items:
         - name: Строки подключения

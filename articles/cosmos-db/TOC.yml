@@ -139,6 +139,7 @@
     - name: Разработка
       items:
         - name: API DocumentDB
+          href: documentdb-index.md
           items:
             - name: Ресурсы
               href: documentdb-resources.md
@@ -213,6 +214,7 @@
                 - name: 'Снятие с учета S1, S2, S3'
                   href: performance-levels.md
         - name: API MongoDB
+          href: mongodb-index.md
           items:
             - name: Подключение к учетной записи MongoDB
               href: connect-mongodb-account.md

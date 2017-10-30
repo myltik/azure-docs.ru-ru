@@ -44,7 +44,7 @@
     - name: Настройка вычислительной среды
       items:
         - name: Настройка экспериментирования
-          href: experiment-execution-configuration.md
+          href: experimentation-service-configuration.md
         - name: Создание кластера HDInsight Spark и виртуальной машины для обработки и анализа данных
           href: how-to-create-dsvm-hdi.md
         - name: Обучение с помощью графических процессоров
@@ -147,7 +147,7 @@
     - name: Экспериментирование
       items:
         - name: Настройка службы "Экспериментирование"
-          href: experiment-execution-configuration-reference.md
+          href: experimentation-service-configuration-reference.md
         - name: API ведения журналов
           href: reference-logging-api.md
     - name: Управление моделями
@@ -175,7 +175,7 @@
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Цены
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Форум MSDN
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Переполнение стека

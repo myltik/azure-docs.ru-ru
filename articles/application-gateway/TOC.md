@@ -14,16 +14,10 @@
 ## [Ограничения служб](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Начало работы
 ## Создание шлюза приложений
-### Для общего доступа
-#### [Портал Azure](application-gateway-create-gateway-portal.md)
-#### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-#### [Шаблон Resource Manager](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
-#### [Azure PowerShell (классическая модель)](application-gateway-create-gateway.md)
-### Для Интернета
-#### [Azure PowerShell](application-gateway-ilb-arm.md)
-#### [Azure PowerShell (классическая модель)](application-gateway-ilb.md)
+### [Портал Azure](application-gateway-create-gateway-portal.md)
+### [Azure PowerShell](application-gateway-create-gateway-arm.md)
+### [Шаблон Resource Manager](application-gateway-create-gateway-arm-template.md)
+### [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
 # Практическое руководство
 ## Настройка брандмауэра веб-приложения
 ### [Портал Azure](application-gateway-web-application-firewall-portal.md)
@@ -35,9 +29,7 @@
 ## Настройка SSL
 ### [Портал Azure](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
-### [Azure PowerShell (классическая модель)](application-gateway-ssl.md)
-### [Интерфейс командной строки Azure](application-gateway-ssl.md)
-### [Сквозное шифрование](application-gateway-end-to-end-ssl-powershell.md)
+### [Интерфейс командной строки Azure](application-gateway-ssl-cli.md)
 ### [Политика SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Настройка маршрутизации на основе URL-путей
 ### [Портал Azure](application-gateway-create-url-route-portal.md)
@@ -53,7 +45,6 @@
 ## Настройка проб работоспособности
 ### [Портал Azure](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
-### [Azure PowerShell (классическая модель)](application-gateway-create-probe-classic-ps.md)
 ## [Интеграция центра безопасности Azure](application-gateway-integration-security-center.md)
 ## [Комбинирование служб балансировки нагрузки](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Устранение неполадок
@@ -69,7 +60,6 @@
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
-## [REST (классическая модель)](https://msdn.microsoft.com/library/azure/mt299393)
 # Сопутствующие материалы
 ## [ExpressRoute](/azure/expressroute/)
 ## [Виртуальная сеть](/azure/virtual-network/)

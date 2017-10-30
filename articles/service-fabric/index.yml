@@ -42,7 +42,7 @@ sections:
       - type: paragraph
         text: 'Сведения о развертывании, администрировании и мониторинге защищенных веб-приложений на платформе Azure'
       - type: list
-        style: ordered
+        style: unordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">Развертывание приложения .NET</a>
           - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Контейнеризация существующего приложения .NET</a>
@@ -96,7 +96,7 @@ sections:
         className: cardsD
         items:
           - title: Командная строка
-            html: <p><a href="/cli/azure/sf">Интерфейс командной строки Azure</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+            html: '<p><a href="/cli/azure/sf">Интерфейс командной строки Azure</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Интерфейс командной строки Service Fabric</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
           - title: Языки
             html: <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
           - title: REST

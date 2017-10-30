@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 861f6b54130f9954c5e565346afd9a8f8e034b3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9be26d3affe898bbbb66ead242dbdb59436bb6
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Операции управления учетными записями в Azure Data Lake Store с использованием пакета SDK для .NET
 > [!div class="op_single_selector"]
 > * [ПАКЕТ SDK .NET](data-lake-store-get-started-net-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
+> * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
@@ -63,13 +63,17 @@ ms.lasthandoff: 10/11/2017
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
 
 7. Объявите переменные и укажите значения вместо заполнителей. Кроме того, убедитесь, что локальный путь и имя файла, которые вы указываете, имеются на компьютере.
 
@@ -105,7 +109,7 @@ ms.lasthandoff: 10/11/2017
 В следующем фрагменте кода создается объект клиента учетной записи Data Lake Store, который используется для выдачи запросов управления учетной записью для службы, таких как создание учетной записи, удаление учетной записи и т. д.
 
     // Create client objects and set the subscription ID
-    _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
+    _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
 ## <a name="create-a-data-lake-store-account"></a>Создание учетной записи хранения озера данных
 В следующем фрагменте кода создается учетная запись Data Lake Store в подписке Azure, предоставленной при создании объекта клиента учетной записи Data Lake Store.

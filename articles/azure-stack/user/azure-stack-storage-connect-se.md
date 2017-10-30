@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.openlocfilehash: 8cd52e9561f2ad92664c01959df8919aa56e8738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Подключение обозревателя службы хранилища к подписке Azure Stack
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Откройте `mmc.exe` на хост-компьютере или локальном компьютере Azure Stack с помощью VPN-подключения к Azure Stack. 
 
-2. В меню **Файл** выберите **Добавить или удалить оснастку**, затем добавьте **сертификаты** для управления **учетной записью** **локального компьютера**.
+2. В меню **Файл** выберите **Добавить или удалить оснастку**, затем добавьте **сертификаты** для управления **своей учетной записью пользователя**.
 
 
 

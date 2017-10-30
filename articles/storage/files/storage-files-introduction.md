@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: renash
-ms.openlocfilehash: 81de67334f66a61582bb2c5d5a2303cf3a1a086c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 712f66ade5709311721e5a4a8416f305f2e16e6b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="introduction-to-azure-files"></a>Общие сведения о службе файлов Azure
 Служба файлов Azure предоставляет полностью управляемые общие файловые ресурсы в облаке, доступ к которым можно получить с помощью [стандартного отраслевого протокола SMB](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (он также называется Common Internet File System или CIFS). Общие ресурсы службы файлов Azure можно одновременно подключить к облачным или локальным развертываниям Windows, Linux и macOS. Кроме того, общие ресурсы службы файлов Azure можно кэшировать на серверах Windows Server с помощью службы синхронизации файлов Azure (предварительная версия) для быстрого доступа из расположения, где используются данные.
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 * **Замена или дополнение локальных файловых серверов**  
     Службу файлов Azure можно использовать для полной замены или дополнения традиционных локальных файловых серверов или устройств NAS. Общие ресурсы службы файлов Azure можно легко подключать к распространенным операционным системам, включая Windows, Linux и macOS, независимо от их расположения. Общие ресурсы службы файлов Azure также можно реплицировать с помощью службы синхронизации файлов Azure на локальные или облачные серверы Windows Server для высокопроизводительного и распределенного кэширования данных в месте их использования.
 
-* **Для приложений Lift-and-Shift.**  
+* **Для переноса приложений по методике lift-and-shift.**  
     Служба файлов Azure также позволяет быстро выполнять процедуру lift-and-shift для приложений в облаке, которым нужен общий ресурс для хранения данных пользователя или приложения. Служба файлов Azure позволяет выполнять не только стандартную процедуру lift-and-shift, которая переносит в Azure и приложение, и его данные, но и гибридную версию это процедуры, которая переносит данные приложения в службу файлов Azure, а приложение при этом продолжает работать в локальной среде. 
 
 * **Для упрощения разработки в облаке.**  
@@ -57,6 +57,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Create a File Share in Azure File storage](storage-how-to-create-file-share.md) (Создание файлового ресурса в хранилище файлов Azure)
-* [Mount an Azure File share and access the share in Windows](storage-how-to-use-files-windows.md) (Подключение файлового ресурса Azure и доступ к нему в Windows)
-* [Использование хранилища файлов Azure в Linux](storage-how-to-use-files-linux.md)
-* [Mount Azure File share over SMB with macOS](storage-how-to-use-files-mac.md) (Использование хранилища файлов Azure с помощью протокола SMB в macOS)
+* [Подключение общей папки Azure и получение доступа к этой папке в Windows](storage-how-to-use-files-windows.md)
+* [Использование файлов Azure в Linux](storage-how-to-use-files-linux.md)
+* [Подключение общей папки Azure через протокол SMB с помощью macOS](storage-how-to-use-files-mac.md)

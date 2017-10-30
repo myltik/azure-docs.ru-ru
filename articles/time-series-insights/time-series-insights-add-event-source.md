@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 123ecca28f0d970851487827d0d18e244ce6d98e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Создание источника событий для среды Time Series Insights с помощью портала Ibiza
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-azure-portal"></a>Создание источника событий для среды Time Series Insights с помощью портала Azure
 
 Источник событий Time Series Insights является производным от брокеров событий, таких как концентраторы событий Azure. Time Series Insights подключаются напрямую к источникам событий, принимая поток данных, при этом у пользователей нет необходимости писать код. Сейчас Time Series Insights поддерживает концентраторы событий Azure и Центр Интернета вещей. В дальнейшем будут добавлены дополнительные источники событий.
 
 ## <a name="steps-to-add-an-event-source-to-your-environment"></a>Процедура добавления источника событий в среду
 
-1.  Войдите на [портал Ibiza](https://portal.azure.com).
-2.  В меню слева на портале Ibiza щелкните "Все ресурсы".
+1.  Войдите на [портал Azure](https://portal.azure.com).
+2.  Щелкните "Все ресурсы" в меню слева на портале Azure.
 3.  Выберите среду Time Series Insights.
 
   ![Создание источника событий Time Series Insights](media/add-event-source/getstarted-create-event-source-1.png)
