@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/21/2017
 ms.author: maheshu
+ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 72514dabf3af0b282d1bb49c542c13f7095e03d8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Сценарии развертывания и варианты использования
 В этом разделе мы рассмотрим некоторые сценарии и варианты использования, демонстрирующие преимущества работы с доменными службами Azure Active Directory (AD).
@@ -82,3 +81,8 @@ ms.lasthandoff: 08/24/2017
 
 Дополнительные сведения об этом сценарии развертывания см. в разделе [Integrate Azure AD Domain Services with your RDS deployment](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds) (Интеграция доменных служб Azure AD с вашим развертыванием RDS).
 
+
+## <a name="domain-joined-hdinsight-clusters-preview"></a>Присоединенные к домену кластеры HDInsight (предварительная версия)
+Можно настроить кластер Azure HDInsight, который присоединен к управляемому домену доменных служб Azure AD с поддержкой Apache Ranger. Создайте и примените политики Hive с помощью Apache Ranger и разрешите пользователям (например, специалистам по обработке и анализу данных) подключиться к Hive с помощью средств на основе ODBC, например Excel, Tableau и т. д. Корпорация Майкрософт планирует в скором времени добавить другие рабочие нагрузки в присоединенный к домену кластер HDInsight, такие как HBase, Spark и Storm.
+
+Дополнительные сведения об этом сценарии развертывания см. в инструкциях по [настройке кластеров HDInsight, присоединенных к домену](../hdinsight/hdinsight-domain-joined-configure.md).

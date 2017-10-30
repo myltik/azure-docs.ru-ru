@@ -1,6 +1,6 @@
 ---
-title: Azure Stack servicing policy | Microsoft Docs
-description: Learn about the Azure Stack servicing policy, and how to keep an integrated system in a supported state.
+title: "Политика обслуживания Azure Stack | Документация Майкрософт"
+description: "Информация о политике обслуживания Azure Stack и рекомендации по сохранению поддерживаемого состояния для интегрированной системы."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,49 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2c99f19b30d2cdfdf65dea6dd3909b88ffc15dd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-servicing-policy"></a>Azure Stack servicing policy
+# <a name="azure-stack-servicing-policy"></a>Политика обслуживания Azure Stack
 
-*Applies to: Azure Stack integrated systems*
+*Область применения: интегрированные системы Azure Stack*
 
-This article describes the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state. 
+В этой статье описаны политика обслуживания для интегрированных систем Azure Stack и действия, необходимые для сохранения поддерживаемого состояния системы. 
 
-## <a name="update-package-types"></a>Update package types
+## <a name="update-package-types"></a>Типы пакетов обновления
 
-There are two types of update packages for integrated systems; Microsoft software updates, and updates that are specific to your original equipment manufacturer (OEM) hardware vendor, such as drivers and firmware. These updates are delivered as separate Azure Stack update packages, and are independently managed.
+Есть два типа пакетов обновлений для интегрированных систем: обновления программного обеспечения корпорации Майкрософт и обновления от поставщиков вычислительной техники (OEM), например, обновления драйверов и встроенного ПО. Эти обновления предоставляются в отдельных пакетах обновления для Azure Stack и управляются независимо друг от друга.
 
-- **Microsoft software updates**. Microsoft is responsible for the end-to-end servicing lifecycle for the Microsoft software update packages. These packages can include the latest Windows Server security updates, non-security updates, and Azure Stack feature updates. You can download theses update packages directly from Microsoft.
-- **OEM hardware vendor-provided updates**. Azure Stack hardware partners are responsible for the end-to-end servicing lifecycle (including guidance) for the hardware-related firmware and driver update packages. In addition, Azure Stack hardware partners own and maintain guidance for all software and hardware on the hardware lifecycle host. The OEM hardware vendor hosts these update packages on their own download site.
+- **Обновления программных продуктов корпорации Майкрософт.** Корпорация Майкрософт отвечает за весь жизненный цикл пакетов обновлений для программного обеспечения корпорации Майкрософт. Такие пакеты могут включать свежие обновления безопасности для Windows Server, не связанные с безопасностью обновления или обновления компонентов Azure Stack. Эти пакеты обновления вы можете получить непосредственно от корпорации Майкрософт.
+- **Обновления, предоставленные производителями оборудования OEM.** Партнеры по оборудованию Azure Stack отвечают за весь жизненный цикл пакетов обновлений (и рекомендаций по их применению) для встроенного ПО оборудования и драйверов устройств. Кроме того, партнеры по оборудованию Azure Stack самостоятельно контролируют и обслуживают программное и аппаратное обеспечение на узле поддержки жизненного цикла оборудования. Поставщики оборудования OEM размещают свои пакеты обновления на собственных сайтах для загрузки обновлений.
 
-## <a name="update-package-release-cadence"></a>Update package release cadence
+## <a name="update-package-release-cadence"></a>Последовательность выпуска пакетов обновления
 
-Microsoft expects to release software update packages on a monthly cadence. However, it’s possible to have multiple, or no update releases in a month. OEM hardware vendors release their updates on an as-needed basis.
+Корпорация Майкрософт планирует выпускать обновления программного обеспечения ежемесячно. Но в некоторые месяцы будет выпускаться несколько обновлений (или ни одного). Поставщики оборудования OEM выпускают обновления по мере необходимости.
 
-A Microsoft update package has the following naming convention to help you easily identify the release date:
+Для пакетов обновления корпорации Майкрософт используется следующее соглашение об именовании, которое позволяет легко определять дату выпуска:
 
-*MajorProductVersion.MinorProductVersion.YYMMDD.BuildNumber*
+*основной_номер_версии.дополнительный_номер_версии.ГГММДД.номер_сборки*
 
-For example, a Microsoft software update released on June 15, 2017 would have the version "1.0.170615.1".
+Например, пакет обновления программного обеспечения корпорации Майкрософт от 15 июня 2017 г. будет иметь версию "1.0.170615.1".
 
-## <a name="keep-your-system-under-support"></a>Keep your system under support
+## <a name="keep-your-system-under-support"></a>Сохранение поддержки для вашей системы
 
-To receive support for your system, you must keep your Azure Stack updated within a specific time interval. Our policy for deferral of Microsoft software updates is three months. If your system is more than three months out of date, you’re considered out of compliance. You must update the system to at least the minimum supported version to receive support. 
+Чтобы сохранить поддержку для вашей системы, необходимо применять обновления для Azure Stack с определенной периодичностью. Наша политика позволяет откладывать установку обновлений программного обеспечения корпорации Майкрософт на срок до трех месяцев. Если для вашей системы отсрочка превышает три месяца, она считается не соответствующей требованиям. Чтобы получить поддержку, необходимо обновить систему по крайней мере до минимальной поддерживаемой версии. 
 
-Microsoft software update packages are non-cumulative, and require the previous update package as a prerequisite. If you decide to defer one or more updates, consider the overall runtime if you want to get to the latest version.
+Пакеты обновления для программного обеспечения корпорации Майкрософт не являются накопительными. Обязательное предварительное условие для каждого из них — установка всех предыдущих пакетов обновления. Если вы откладываете применение одного или нескольких обновлений, учитывайте общее время обновления до последней версии.
 
-The following table shows example update package releases, their prerequisite, and the minimum supported version that your system must be at to maintain support. The table is based on the initial release of Azure Stack integrated systems (build 1708), with the first update package release (1709) in September 2017. 
+В таблице ниже представлены примеры выпусков пакета обновлений, предварительных требований и минимальных поддерживаемых версий для сохранения поддержки системы. Данные в этой таблице основаны на сведениях о первоначальном выпуске интегрированных систем Azure Stack (сборка 1708), первый пакет обновлений для которой (1709) был выпущен в сентябре 2017 г. 
 
-| Latest Update Package (*example*) | Prerequisite | Minimum Supported Version |
+| Последний пакет обновления (*пример*) | Предварительные требования | Минимальная поддерживаемая версия |
 | -- | -- | -- |
-| 1709 | Build 1708 | N/A |
-| 1710 | 1709 | N/A |
-| 1711 | 1710 | N/A |
+| 1709 | Сборка 1708 | Недоступно |
+| 1710 | 1709 | Недоступно |
+| 1711 | 1710 | Недоступно |
 | 1712 | 1711 | 1709 |
 | 1801 | 1712 | 1710 |
 | 1802 | 1801 | 1711 |
@@ -64,9 +63,8 @@ The following table shows example update package releases, their prerequisite, a
 | 1804 | 1803 | 1801 |
 | | | 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-- [Manage updates in Azure Stack](azure-stack-updates.md)
-
+- [Manage updates in Azure Stack overview](azure-stack-updates.md) (Обзор управления обновлениями в Azure Stack).
 
 

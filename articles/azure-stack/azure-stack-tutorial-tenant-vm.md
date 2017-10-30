@@ -1,6 +1,6 @@
 ---
-title: Make virtual machines available to your Azure Stack users| Microsoft Docs
-description: Tutorial to make virtual machines available on Azure Stack
+title: "Предоставление виртуальных машин для пользователей Azure Stack | Документация Майкрософт"
+description: "Руководство по предоставлению виртуальных машин для пользователей Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: vhorne
@@ -15,148 +15,147 @@ ms.topic: tutorial
 ms.date: 9/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: afeec92c40262903e6cfd3c6d75a595fead616e3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Make virtual machines available to your Azure Stack users
+# <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Предоставление виртуальных машин для пользователей Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-As an Azure Stack cloud administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consume Azure Stack services.
+Администратор облака Azure Stack может создавать предложения для пользователей (клиентов), на которые они смогут подписаться. Подписка позволяет пользователям работать со службами Azure Stack.
 
-This article shows you how to create an offer, and then test it. For the test, you will log in to the portal as a user, subscribe to the offer, and then create a virtual machine using the subscription.
+Из этой статьи вы узнаете, как создать и протестировать такое предложение. Для проверки нужно войти на портал от имени пользователя, подписаться на предложение и создать виртуальную машину с использованием этой подписки.
 
-What you will learn:
+Освещаются следующие темы:
 
 > [!div class="checklist"]
-> * Create an offer
-> * Add an image
-> * Test the offer
+> * Создание предложения
+> * Добавление образа.
+> * Тестирование предложения.
 
 
-In Azure Stack, services are delivered to users using subscriptions, offers, and plans. Users can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
+В Azure Stack службы доставляются пользователям с помощью подписок, предложений и планов. Пользователи могут подписаться на несколько предложений. В предложении может быть один или несколько планов, а в плане может быть одна или несколько служб.
 
-![Subscriptions, offers, and plans](media/azure-stack-key-features/image4.png)
+![Подписки, предложения и планы](media/azure-stack-key-features/image4.png)
 
-To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-features.md).
+Подробнее см. в [описании основных возможностей и концепций Azure Stack](azure-stack-key-features.md).
 
-## <a name="create-an-offer"></a>Create an offer
+## <a name="create-an-offer"></a>Создание предложения
 
-Now you can get things ready for your users. When you start the process, you are first prompted to create the offer, then a plan, and finally quotas.
+Теперь мы подготовим ресурсы для пользователей. Сначала создается предложение, затем определяются план и квоты.
 
-3. **Create an offer**
+3. **Создание предложения**
 
-   Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
+   Предложения — это группы, содержащие один или несколько планов, которые поставщики предлагают пользователям купить (подписаться на них).
 
-   a. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
-   ![New offer](media/azure-stack-tutorial-tenant-vm/image01.png)
+   а. [Войдите](azure-stack-connect-azure-stack.md) на портал в качестве администратора облака и последовательно выберите элементы **Создать** > **Предложения и планы клиента** > **Предложение**.
+   ![Новое предложение](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-   b. In the **New Offer** section, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
+   b. В разделе **Новое предложение** заполните поля **Отображаемое имя** и **Имя ресурса**, а затем выберите новую или существующую **группу ресурсов**. Отображаемое имя — это понятное имя предложения. Имя ресурса отображается только для оператора облака. Это имя, которое администраторы используют для работы с предложением в качестве ресурса диспетчера ресурсов Azure.
 
-   ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
+   ![Отображаемое имя](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-   c. Click **Base plans**, and in the **Plan** section, click **Add** to add a new plan to the offer.
+   c. Выберите **Базовые планы**, а затем в разделе **План** щелкните **Добавить**, чтобы добавить в предложение новый план.
 
-   ![Add a plan](media/azure-stack-tutorial-tenant-vm/image03.png)
+   ![Добавление плана](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-   d. In the **New Plan** section, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the cloud operator can see the Resource Name. It's the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
+   d. В колонке **Создать план** заполните поля **Отображаемое имя** и **Имя ресурса**. Отображаемое имя — это понятное имя плана, которое отображается для пользователей. Имя ресурса отображается только для оператора облака. Это имя, которое операторы облака используют для работы с планом в качестве ресурса Azure Resource Manager.
 
-   ![Plan display name](media/azure-stack-tutorial-tenant-vm/image04.png)
+   ![Отображаемое имя плана](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-   e. Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
+   д. Щелкните **Службы**, выберите **Microsoft.Compute**, **Microsoft.Network** и **Microsoft.Storage**, а затем нажмите кнопку **Выбрать**.
 
-   ![Plan services](media/azure-stack-tutorial-tenant-vm/image05.png)
+   ![Службы плана](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-   f. Click **Quotas**, and then select the first service for which you want to create a quota. For an IaaS quota, follow these steps for the Compute, Network, and Storage services.
+   f. Щелкните **Квоты** и выберите первую службу, для которой нужно создать квоту. Чтобы создать квоту IaaS, выполните инструкции ниже для служб вычисления, сети и хранилища.
 
-   In this example, we first create a quota for the Compute service. In the namespace list, select the **Microsoft.Compute** namespace and then click **Create new quota**.
+   В этом примере сначала мы создадим квоту для службы вычислений. В списке пространств имен выберите **Microsoft.Compute** и щелкните **Создание квоты**.
    
-   ![Create new quota](media/azure-stack-tutorial-tenant-vm/image06.png)
+   ![Создание квоты](media/azure-stack-tutorial-tenant-vm/image06.png)
 
-   g. On the **Create quota** section, type a name for the quota and set the desired parameters for the quota and click **OK**.
+   ж. В разделе **Создание квоты** введите для квоты имя и настройте параметры, затем нажмите **ОК**.
 
-   ![Quota name](media/azure-stack-tutorial-tenant-vm/image07.png)
+   ![Имя квоты](media/azure-stack-tutorial-tenant-vm/image07.png)
 
-   h. Now, for **Microsoft.Compute**, select the quota that you created.
+   h. Теперь выберите созданную квоту для службы **Microsoft.Compute**.
 
-   ![Select quota](media/azure-stack-tutorial-tenant-vm/image08.png)
+   ![Выбор квоты](media/azure-stack-tutorial-tenant-vm/image08.png)
 
-   Repeat these steps for the Network and Storage services, and then click **OK** on the **Quotas** section.
+   Повторите эти шаги для сетевой службы и службы хранилища, затем нажмите **ОК** в разделе **Квоты**.
 
-   i. Click **OK** on the **New plan** section.
+   i. Нажмите **ОК** в разделе **Создать план**.
 
-   j. On the **Plan** section, select the new plan and click **Select**.
+   j. В разделе **План** выберите созданный план и щелкните **Выбрать**.
 
-   k. On the **New offer** section, click **Create**. You see a notification when the offer has been created.
+   k. В разделе **Новое предложение** щелкните **Создать**. Отобразится уведомление о создании предложения.
 
-   l. On the dashboard menu, click **Offers** and then click the offer you created.
+   l. В меню панели мониторинга щелкните **Предложения** и выберите только что созданное предложение.
 
-   m. Click **Change State**, and then click **Public**.
+   m. Щелкните **Изменить состояние** и выберите вариант **Общедоступно**.
 
-   ![Public state](media/azure-stack-tutorial-tenant-vm/image09.png)
+   ![Общедоступное состояние](media/azure-stack-tutorial-tenant-vm/image09.png)
 
-## <a name="add-an-image"></a>Add an image
+## <a name="add-an-image"></a>Добавление образа.
 
-Before you can provision virtual machines, you must add an image to the Azure Stack marketplace. You can add the image of your choice, including Linux images, from the Azure Marketplace.
+Прежде чем подготовить виртуальные машины, необходимо добавить образ в Azure Stack Marketplace. Вы можете добавить любые образы из Azure Marketplace, в том числе образы Linux.
 
-If you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure, then you can download the Windows Server 2016 VM image from the Azure Marketplace by using the steps described in the [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md) topic.
+Если вы работаете в гибридной среде и уже зарегистрировали экземпляр Azure Stack в Azure, то можете скачать образ виртуальной машины Windows Server 2016 из Azure Marketplace. Для этого выполните инструкции в статье [Скачивание элементов Marketplace из Azure в Azure Stack](azure-stack-download-azure-marketplace-item.md).
 
-For information about adding different items to the marketplace, see [The Azure Stack Marketplace](azure-stack-marketplace.md).
+Сведения о том, как добавлять разные элементы в Marketplace, вы найдете в статье об[Azure Stack Marketplace](azure-stack-marketplace.md).
 
-## <a name="test-the-offer"></a>Test the offer
+## <a name="test-the-offer"></a>Тестирование предложения.
 
-Now that you’ve created an offer, you can test it. Log in as a user and subscribe to the offer and then add a virtual machine.
+Когда предложение будет готово, его можно проверить. Войдите в систему как пользователь и подпишитесь на это предложение, затем добавьте виртуальную машину.
 
-1. **Subscribe to an offer**
+1. **Подписка на предложение**
 
-   Now you can log in to the portal as a user to subscribe to an offer.
+   Теперь вам нужно войти на портал от имени пользователя, чтобы подписаться на предложение.
 
-   a. Log in to the user portal as a user and click **Get a Subscription**.
-   - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-   - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
+   а. Войдите на пользовательский портал от имени пользователя и щелкните **Get a Subscription** (Получить подписку).
+   - В интегрированной системе URL-адрес зависит от региона оператора и внешнего доменного имени. Он будет иметь формат https://portal.&lt;*регион*&gt;.&lt;*полное_доменное_имя*&gt;.
+   - При работе с пакетом SDK для Azure Stack портал можно найти по адресу https://portal.local.azurestack.external.
 
-   ![Get a subscription](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Получение подписки](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   b. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** section, and then click **Create**.
+   b. В поле **Отображаемое имя** введите имя подписки, щелкните **Предложение**, выберите одно из предложений в разделе **Выбор предложения** и щелкните **Создать**.
 
-   ![Create an offer](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Создание предложения](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
+   c. Чтобы просмотреть созданную подписку, выберите **More services** (Больше служб), щелкните **Подписки** и выберите новую подписку.  
 
-   After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
+   Подписавшись на предложение, обновите страницу портала, чтобы узнать, какие службы входят в новую подписку.
 
-2. **Provision a virtual machine**
+2. **Подготовка виртуальной машины**
 
-   Now you can log in to the portal as a user to provision a virtual machine using the subscription. 
+   Теперь вы можете войти на портал от имени пользователя, чтобы подготовить виртуальную машину с использованием подписки. 
 
-   a. Log in to the user portal as a user, and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval**.
-      - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-   - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
+   а. Войдите на пользовательский портал от имени пользователя и выберите элементы **Создать** > **Вычисления** > **Windows Server 2016 Datacenter Eval**.
+      - В интегрированной системе URL-адрес зависит от региона оператора и внешнего доменного имени. Он будет иметь формат https://portal.&lt;*регион*&gt;.&lt;*полное_доменное_имя*&gt;.
+   - При работе с пакетом SDK для Azure Stack портал можно найти по адресу https://portal.local.azurestack.external.
 
-   b. In the **Basics** section, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
+   b. В разделе **Основные сведения** введите **имя**, **имя пользователя** и **пароль**. Для параметра **тип диска виртуальной машины** выберите вариант **HDD**. Выберите **подписку**. **Создайте группу ресурсов** или выберите имеющуюся, а затем нажмите кнопку **ОК**.  
 
-   c. In the **Choose a size** section, click **A1 Basic**, and then click **Select**.  
+   c. В разделе **Выбор размера** выберите **A1 Standard** и щелкните **Выбрать**.  
 
-   d. In the **Settings** section, click **Virtual network**. In the **Choose virtual network** section, click **Create new**. In the **Create virtual network** section, accept all the defaults, and click **OK**. In the **Settings** section, click **OK**.
+   d. В разделе **Параметры** выберите **Виртуальная сеть**. В разделе **Выбор виртуальной сети** щелкните **Создать**. В разделе **Создание виртуальной сети** подтвердите значения по умолчанию и щелкните **ОК**. В разделе **Параметры** щелкните **OK**.
 
-   ![Create virtual network](media/azure-stack-provision-vm/image04.png)
+   ![Создание виртуальной сети](media/azure-stack-provision-vm/image04.png)
 
-   e. In the **Summary** section, click **OK** to create the virtual machine.  
+   д. В разделе **Сводка** щелкните **ОК**, чтобы создать виртуальную машину.  
 
-   f. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
+   f. Чтобы просмотреть новую виртуальную машину, щелкните **All resources** (Все ресурсы), а затем найдите виртуальную машину и щелкните ее имя.
 
-    ![All resources](media/azure-stack-provision-vm/image06.png)
+    ![All resources (Все ресурсы)](media/azure-stack-provision-vm/image06.png)
 
-What you learned in this tutorial:
+Из этого руководства вы узнали, как выполнять:
 
 > [!div class="checklist"]
-> * Create an offer
-> * Add an image
-> * Test the offer
+> * Создание предложения
+> * Добавление образа.
+> * Тестирование предложения.
 
 > [!div class="nextstepaction"]
-> [Make web, mobile, and API apps available to your Azure Stack users](azure-stack-tutorial-app-service.md)
+> [Make web, mobile, and API apps available to your Azure Stack users](azure-stack-tutorial-app-service.md) (Предоставление веб-приложений, мобильных приложений и приложений API для пользователей Azure Stack)

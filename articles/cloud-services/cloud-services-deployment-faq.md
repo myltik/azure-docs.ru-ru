@@ -13,15 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 9b788b1d95c821a4bb76cd4dea1d689d36e2f92b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
-
-
+ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Проблемы развертывания для облачных служб Azure. Вопросы и ответы (FAQ)
 
@@ -56,7 +54,7 @@ ms.lasthandoff: 06/15/2017
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Почему развертывание облачной службы иногда завершается неудачно из-за ограничений или квот для моей подписки или службы?
 Развертывание облачной службы может завершиться неудачно, если ресурсы, которые требуется выделить, превышают квоту по умолчанию или максимальную квоту, разрешенную для вашей службы на уровне региона или центра обработки данных. Дополнительные сведения см. в статье [Ограничения облачных служб](../azure-subscription-service-limits.md#cloud-services-limits).
 
-Вы также можете отслеживать текущую квоту и использование для своей подписки на портале: Портал Azure = > Подписки = > \<соответствующая подписка> = > "Использование + квота".
+Вы также можете отслеживать текущую квоту и использование для своей подписки на портале: портал Azure = > "Подписки" = > \<соответствующая подписка> = > "Использование + квота".
 
 Информацию об использовании ресурсов можно также получить через API выставления счетов Azure. См. раздел [API использования ресурсов Azure (предварительная версия)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
@@ -65,5 +63,15 @@ ms.lasthandoff: 06/15/2017
 
 Дополнительные сведения см. в разделе [Как обновить облачную службу](cloud-services-update-azure-service.md).
 
- 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Почему я не могу развернуть облачные службы с помощью API управления службами или PowerShell, когда я использую учетную запись хранения Azure Resource Manager? 
 
+Облачная служба является классическим ресурсом, который напрямую несовместим с моделью Azure Resource Manager. Поэтому ее нельзя связать с учетной записью хранения Azure Resource Manager. Возможные сценарии: 
+ 
+- Развертывание с помощью REST API.
+
+    Чтобы обойти это ограничение при развертывании с помощью API REST управления службами, укажите URL-адрес SAS хранилища больших двоичных объектов, которое будет работать с классической учетной записью хранения и учетной записью хранения Azure Resource Manager. Дополнительные сведения о свойстве PackageUrl см. [здесь](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+  
+- Развертывание с помощью [портала Azure](https://portal.azure.com).
+
+    Развертывание удастся выполнить с [портала Azure](https://portal.azure.com), так как вызов идет через прокси-сервер или оболочку совместимости, которые обеспечивают взаимодействие между классическими ресурсами и ресурсами Azure Resource Manager. 
+ 

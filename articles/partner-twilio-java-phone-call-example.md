@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 04ecb80a2a9e15b549b47138caf71c7e64bda500
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Осуществление телефонных звонков с использованием Twilio в Java-приложении Azure
 В следующем примере показано, как выполнить звонок с веб-страницы, размещенной в Azure, с помощью службы Twilio. В полученном приложении вам будет предложено ввести нужные данные для телефонного звонка, как показано на следующем снимке экрана.
@@ -27,14 +27,14 @@ ms.openlocfilehash: 04ecb80a2a9e15b549b47138caf71c7e64bda500
 
 Чтобы использовать код, представленный в этом разделе, выполните следующие действия:
 
-1. Получение учетной записи Twilio и токена подтверждения подлинности. Прежде чем приступить к работе с Twilio, ознакомьтесь с ценами на странице [http://www.twilio.com/pricing][twilio_pricing]. Вы можете зарегистрироваться на странице [https://www.twilio.com/try-twilio][try_twilio]. Сведения о предоставляемых службой Twilio API см. на странице [http://www.twilio.com/api][twilio_api].
-2. Получите JAR-файл Twilio. Вы можете скачать исходные коды с GitHub по адресу [https://github.com/twilio/twilio-java][twilio_java_github] и создать собственный файл JAR, либо скачать уже готовый файл JAR (вместе с зависимостями или без них).
+1. Получение учетной записи Twilio и токена подтверждения подлинности. Чтобы приступить к работе с Twilio, изучите цены на сайте [http://www.twilio.com/pricing][twilio_pricing]. Вы можете зарегистрироваться на странице [https://www.twilio.com/try-twilio][try_twilio]. Дополнительные сведения о предоставляемых службой Twilio интерфейсах API см. на странице [http://www.twilio.com/api][twilio_api].
+2. Получите JAR-файл Twilio. На сайте [https://github.com/twilio/twilio-java][twilio_java_github] можно скачать исходные файлы GitHub и создать свои собственные JAR-файлы или загрузить готовый JAR-файл (с зависимостями или без них).
    В этом разделе приводится код, написанный с использованием стандартного JAR-файла TwilioJava-3.3.8-with-dependencies.
 3. Добавьте JAR-файл в путь построения Java.
 4. Если вы используете Eclipse для создания Java-приложения, включите JAR-файл Twilio в файл развертывания приложения (WAR) с помощью компонента сборки развертывания Eclipse. Если среда Eclipse не используется, включите JAR-файл Twilio в ту же роль Azure, которой принадлежит ваше Java-приложение, после чего добавьте в приложение путь к классу.
 5. Убедитесь, что в хранилище ключей cacerts содержится сертификат Equifax Secure Certificate Authority с отпечатком MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (серийный номер 35:DE:F4:CF, отпечаток SHA1 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Это сертификат центра сертификации (ЦС) для службы [https://api.twilio.com][twilio_api_service], которая вызывается при использовании интерфейсов API Twilio. Дополнительные сведения о том, как добавить этот сертификат ЦС в хранилище cacert JDK, см. в статье [Добавление сертификата в хранилище сертификатов ЦС Java][add_ca_cert].
 
-Кроме того, если вы не используете среду Eclipse, мы настоятельно рекомендуем вам ознакомиться со статьей [Создание приложения Hello World для Azure в Eclipse][azure_java_eclipse_hello_world], а также другими способами размещения приложений Java в Azure.
+Кроме того, если вы не используете среду Eclipse, мы настоятельно рекомендуем вам ознакомиться с разделом [Создание приложения Hello World для Azure в Eclipse][azure_java_eclipse_hello_world], а также другими способами размещения приложений Java в Azure.
 
 ## <a name="create-a-web-form-for-making-a-call"></a>Создание веб-формы для выполнения звонка
 В следующем коде показано, как создать веб-форму, позволяющую извлечь данные пользователя для выполнения звонка. В этом примере создается динамический веб-проект **TwilioCloud**, в который в качестве JSP-файла добавляется файл **callform.jsp**.
@@ -180,12 +180,12 @@ ms.openlocfilehash: 04ecb80a2a9e15b549b47138caf71c7e64bda500
 ## <a name="next-steps"></a>Дальнейшие действия
 В этом коде демонстрируются базовые функциональные возможности службы Twilio в Java в Azure. Возможно, перед развертыванием в рабочей среде Azure потребуется добавить в него дополнительные обработчики ошибок и другие функции. Например:
 
-* Вместо использования веб-формы для хранения телефонных номеров и текста вызова можно применить большие двоичные объекты хранилища Azure или SQL Database. Сведения об использовании больших двоичных объектов хранилища Azure в Java см. в статье [Использование хранилища BLOB-объектов из Java][howto_blob_storage_java]. Сведения об использовании Базы данных SQL в Java см. в [этой статье][howto_sql_azure_java].
-* Вы можете использовать **RoleEnvironment.getConfigurationSettings** для получения идентификатора учетной записи Twilio и маркера проверки подлинности из параметров конфигурации вашего развертывания вместо того, чтобы жестко программировать значения в файле makecall.jsp. Сведения о **RoleEnvironment** см. в статье [Использование библиотеки среды выполнения служб Azure в JSP][azure_runtime_jsp] и документации пакета среды выполнения служб Azure на странице [http://dl.windowsazure.com/javadoc][azure_javadoc].
-* Код makecall.jsp назначает предоставляемый Twilio URL-адрес, [http://twimlets.com/message][twimlet_message_url] переменой **Url** (URL-адрес). Этот URL-адрес представляет собой ответ в формате языка разметки Twilio (TwiML), содержащий инструкции по обработке звонка в Twilio. Например, возвращаемый ответ TwiML может содержать команду **&lt;Say&gt;**, которая задает голосовое воспроизведение текста вызываемому абоненту. Вместо использования предоставляемого Twilio URL-адреса можно создать собственную службу, которая будет отвечать на запросы Twilio. Дополнительные сведения см. в статье [Использование Twilio для поддержки голосовых возможностей и SMS в Java][howto_twilio_voice_sms_java]. Дополнительные сведения о TwiML можно найти на странице [http://www.twilio.com/docs/api/twiml][twiml], дополнительные сведения о **&lt;Say&gt;** и прочих командах Twilio можно найти на странице [http://www.twilio.com/docs/api/twiml/say][twilio_say].
-* Прочитайте рекомендации по безопасности Twilio на странице [https://www.twilio.com/docs/security][twilio_docs_security].
+* Вместо использования веб-формы для хранения телефонных номеров и текста вызова можно применить большие двоичные объекты хранилища Azure или SQL Database. Дополнительные сведения об использовании больших двоичных объектов службы хранилища Azure в Java см. в разделе [Как использовать службу хранилища BLOB-объектов из Java][howto_blob_storage_java]. Дополнительные сведения об использовании базы данных SQL в Java см. в разделе [Использование базы данных SQL в Java][howto_sql_azure_java].
+* Вы можете использовать **RoleEnvironment.getConfigurationSettings** для получения идентификатора учетной записи Twilio и маркера проверки подлинности из параметров конфигурации вашего развертывания вместо того, чтобы жестко программировать значения в файле makecall.jsp. Дополнительную информацию о классе **RoleEnvironment** см. в разделе [Использование библиотеки среды выполнения служб Azure в JSP][azure_runtime_jsp], а также в документации по пакету среды выполнения служб Azure по адресу [http://dl.windowsazure.com/javadoc][azure_javadoc].
+* Код makecall.jsp присваивает предоставляемый Twilio URL-адрес, [http://twimlets.com/message][twimlet_message_url], переменой **Url**. Этот URL-адрес представляет собой ответ в формате языка разметки Twilio (TwiML), содержащий инструкции по обработке звонка в Twilio. Например, возвращаемый ответ TwiML может содержать команду **&lt;Say&gt;**, которая задает голосовое воспроизведение текста вызываемому абоненту. Вместо предоставляемого Twilio URL-адреса вы можете построить собственную службу, отвечающую на запросы Twilio. Дополнительные сведения см. в разделе [Использование Twilio для поддержки голосовых возможностей и SMS в Java][howto_twilio_voice_sms_java]. Дополнительные сведения о TwiML можно найти на сайте [http://www.twilio.com/docs/api/twiml][twiml]. Дополнительные сведения о **&lt;Say&gt;** и других командах Twilio можно найти на сайте [http://www.twilio.com/docs/api/twiml/say][twilio_say].
+* Руководства по безопасности работы с Twilio приведены по адресу [https://www.twilio.com/docs/security][twilio_docs_security].
 
-Дополнительные сведения о Twilio см. на странице [https://www.twilio.com/docs][twilio_docs].
+Дополнительные сведения о Twilio см. на сайте [https://www.twilio.com/docs][twilio_docs].
 
 ## <a name="see-also"></a>См. также
 * [Использование Twilio для поддержки голосовых возможностей и SMS в Java][howto_twilio_voice_sms_java]
@@ -211,9 +211,3 @@ ms.openlocfilehash: 04ecb80a2a9e15b549b47138caf71c7e64bda500
 [twilio_say]: http://www.twilio.com/docs/api/twiml/say
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

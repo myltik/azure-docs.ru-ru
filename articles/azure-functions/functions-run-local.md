@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: glenga
+ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 38f6f5ebe0c53bc4314fa11f0f8d4f00af6086dd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Как программировать и тестировать Функции Azure в локальной среде
 
@@ -49,7 +48,7 @@ npm install -g azure-functions-core-tools
 >[!IMPORTANT]   
 > Прежде чем устанавливать основные инструменты службы "Функции Azure", [установите NET Core 2.0](https://www.microsoft.com/net/core).  
 >
-> Среда выполнения Функций Azure версии 2.0 доступна в предварительной версии, и в настоящее время поддерживаются не все возможности Функций Azure. Дополнительные сведения см. в статье [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) (Известные проблемы в среде выполнения Функций Azure версии 2.0). 
+> Среда выполнения Функций Azure версии 2.0 доступна в предварительной версии. Сейчас поддерживаются не все возможности Функций Azure. Дополнительные сведения см. в статье [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) (Известные проблемы в среде выполнения Функций Azure версии 2.0). 
 
  Чтобы установить инструменты версии 2.0, используйте следующую команду:
 
@@ -161,6 +160,7 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
     ```
     Обе команды требуют сначала выполнить вход в Azure.
 
+<a name="create-func"></a>
 ## <a name="create-a-function"></a>Создание функции
 
 Чтобы создать функцию, выполните следующую команду:
@@ -187,7 +187,7 @@ func new --language JavaScript --template HttpTrigger --name MyHttpTrigger
 ```
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
-
+<a name="start"></a>
 ## <a name="run-functions-locally"></a>Запуск функций в локальной среде
 
 Чтобы запустить проект службы "Функции", запустите узел этой службы. Узел включает триггеры для всех функций в проекте.
@@ -237,7 +237,60 @@ func host start --debug vscode
 
 ### <a name="passing-test-data-to-a-function"></a>Передача тестовых данных в функцию
 
-Вы также можете вызвать функцию напрямую с помощью `func run <FunctionName>` и предоставить входные данные для нее. Эта команда аналогична выполнению функции с помощью вкладки **Тест** на портале Azure. Эта команда запускает весь узел службы "Функции".
+Чтобы протестировать функции в локальной среде, [запустите узел службы "Функции"](#start) и вызовите конечные точки на локальном сервере, используя HTTP-запросы. Вызываемая конечная точка зависит от типа функции. 
+
+>[!NOTE]  
+> В примерах в этой статье используется инструмент cURL для отправки HTTP-запросов из терминала или командной строки. Вы можете использовать любой инструмент для отправки HTTP-запросов к локальному серверу. Инструмент cURL доступен по умолчанию в системах на основе Linux. При использовании Windows [инструмент cURL](https://curl.haxx.se/) необходимо сначала скачать и установить.
+
+Дополнительные сведения о тестировании функций см. в статье [Методика тестирования кода с помощью Функций Azure](functions-test-a-function.md).
+
+#### <a name="http-and-webhook-triggered-functions"></a>Функции, активируемые по протоколу HTTP или с помощью веб-перехватчика
+
+Вызовите следующую конечную точку, чтобы запустить в локальной среде функции, активируемые по протоколу HTTP или с помощью веб-перехватчика.
+
+    http://localhost:{port}/api/{function_name}
+
+Используйте то же имя сервера и порт, прослушиваемый узлом службы "Функции". Их можно найти в выходных данных, полученных при запуске узла службы "Функции". Этот URL-адрес можно вызвать с помощью любого метода HTTP с поддержкой триггера. 
+
+Следующая команда cURL активирует функцию быстрого запуска `MyHttpTrigger` из запроса GET с параметром _name_, который передается в строке запроса. 
+
+```
+curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
+```
+В следующем примере представлена та же функция, вызываемая из запроса POST с передачей параметра _name_ в тексте запроса:
+
+```
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
+```
+
+Обратите внимание, что запросы GET можно выполнять из браузера, передавая данные в строке запроса. Для всех остальных методов HTTP необходимо использовать cURL, Fiddler, Postman или аналогичный инструмент тестирования HTTP.  
+
+#### <a name="non-http-triggered-functions"></a>Функции, не активируемые по протоколу HTTP
+Все виды функций, кроме триггеров HTTP и веб-перехватчиков, можно тестировать в локальной среде путем вызова конечной точки администрирования. Вызов этой конечной точки на локальном сервере активирует функцию. При необходимости можно передать тестовые данные в среду выполнения. Это аналогично выполнению функции с помощью вкладки **Тест** на портале Azure.  
+
+Вызовите следующую конечную точку администрирования, чтобы активировать функции, отличные от HTTP, с помощью запроса HTTP POST.
+
+    http://localhost:{port}/admin/functions/{function_name}
+
+Чтобы передать тестовые данные в конечную точку администрирования функции, укажите данные в тексте сообщения запроса POST. Текст сообщения должен иметь следующий формат JSON:
+
+```JSON
+{
+    "input": "<trigger_input>"
+}
+```` 
+Значение `<trigger_input>` содержит данные в формате, ожидаемом функцией. В следующем примере представлен запрос POST к функции `QueueTriggerJS`. В этом случае входные данные представляют собой строку, соответствующую сообщению, которое нужно найти в очереди.      
+
+```
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+```
+
+#### <a name="using-the-func-run-command-in-version-1x"></a>Использование команды `func run` в версии 1.x
+
+>[!IMPORTANT]  
+> Команда `func run` не поддерживается в версии 2.x инструментов. Дополнительные сведения см. в статье [Выбор целевых версий среды выполнения Функций Azure](functions-versions.md).
+
+Вы также можете вызвать функцию напрямую с помощью `func run <FunctionName>` и предоставить входные данные для нее. Эта команда аналогична выполнению функции с помощью вкладки **Тест** на портале Azure. 
 
 `func run` имеет указанные ниже параметры.
 
@@ -292,4 +345,3 @@ az functionapp config appsettings set --name <function_app> \
 
 [Основные инструменты службы "Функции Azure"]: https://www.npmjs.com/package/azure-functions-core-tools
 [портале Azure]: https://portal.azure.com 
-

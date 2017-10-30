@@ -14,33 +14,40 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 10/10/2017
 ms.author: rclaus
 ms.custom: 
+ms.openlocfilehash: e1d1d984aa821bf891d83b3c4a053ba82811ba5e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: e4d5c78299903659a18aa9b8d04495e215bcca0d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Сертификаты и конфигурации SAP на платформе Microsoft Azure
 
 Компания SAP и корпорация Майкрософт имеют долгую историю плодотворного сотрудничества, которое обеспечивает взаимные преимущества для их клиентов. Корпорация Майкрософт регулярно обновляет свою платформу и отправляет компании SAP сведения о новых сертификатах. Тем самым гарантируется, что Microsoft Azure остается лучшей платформой для выполнения рабочих нагрузок SAP. В следующих таблицах представлены поддерживаемые конфигурации и список сертификатов, который регулярно пополняется. 
 
 ## <a name="sap-hana-certifications"></a>Сертификаты SAP HANA
+Справочные материалы:
+
+- [Примечание SAP № 2316233. SAP HANA в Microsoft Azure (крупные экземпляры)](https://launchpad.support.sap.com/#/notes/2316233) содержит сведения о поддержке SAP HANA крупных экземпляров HANA.
+- Сведения о поддержке SAP HANA для собственных виртуальных машин Azure см. в [списке сертифицированных платформ IaaS для SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Amazon%20Web%20Services%2CMicrosoft%20Azure).
 
 | Продукт SAP | Поддерживаемая ОС | Предложения Azure |
 | --- | --- | --- |
-| SAP HANA, версия для разработчиков (включая клиентское ПО HANA с драйверами SQLODBC, ODBO (только для ОС Windows), ODBC и JDBC, среду разработки HANA Studio и базу данных HANA) |Red Hat Enterprise Linux, SUSE Linux Enterprise | Семейство виртуальных машин серии D |
-| HANA One |Red Hat Enterprise Linux, SUSE Linux Enterprise |DS14_v2 (для общедоступной версии) |
-| SAP S/4 HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |Управляемая доступность для GS5, SAP HANA в Azure (крупные экземпляры) |
-| Suite on HANA, OLTP |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 для развертывания на одном узле для нерабочих сценариев, SAP HANA в Azure (крупные экземпляры) |
-| HANA Enterprise для BW, OLAP |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 для развертывания на одном узле, SAP HANA в Azure (крупные экземпляры) |
-| SAP BW/4 HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 для развертывания на одном узле, SAP HANA в Azure (крупные экземпляры) |
+| SAP HANA, версия для разработчиков (включая клиентское ПО HANA с драйверами SQLODBC, ODBO (только для ОС Windows), ODBC и JDBC, среду разработки HANA Studio и базу данных HANA) | Red Hat Enterprise Linux, SUSE Linux Enterprise | Семейство виртуальных машин серии D |
+| Business One в HANA | SUSE Linux Enterprise | DS14_v2 |
+| SAP S/4 HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise | Управляемая доступность для GS5, SAP HANA в Azure (крупные экземпляры) |
+| Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 для развертывания на одном узле для нерабочих сценариев, SAP HANA в Azure (крупные экземпляры) |
+| HANA Enterprise для BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 для развертывания на одном узле, SAP HANA в Azure (крупные экземпляры) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 для развертывания на одном узле, SAP HANA в Azure (крупные экземпляры) |
 
 ## <a name="sap-netweaver-certifications"></a>Сертификация SAP NetWeaver
 Платформа Microsoft Azure сертифицирована для следующих продуктов SAP при полной поддержке Майкрософт и SAP.
+Справочные материалы:
+
+- Список всех приложений на основе SAP NetWeaver, включая SAP TREX, SAP LiveCache и сервер содержимого SAP, см. в [примечании SAP № 1928533 о поддерживаемых продуктах и типах виртуальных машин Azure.](https://launchpad.support.sap.com/#/notes/1928533). Здесь также содержится список всех баз данных, кроме SAP HANA.
+
 
 | Продукт SAP | Гостевая ОС | Реляционная СУБД | Типы виртуальных машин |
 | --- | --- | --- | --- |
@@ -49,3 +56,11 @@ ms.lasthandoff: 08/10/2017
 | Бизнес-аналитика SAP BusinessObjects |Windows |Недоступно |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
 | SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (только Windows и Oracle Linux), DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
 
+## <a name="other-sap-workload-supported-on-azure"></a>Другие рабочие нагрузки SAP, поддерживаемые в Azure
+
+| Продукт SAP | Гостевая ОС | Реляционная СУБД | Типы виртуальных машин |
+| --- | --- | --- | --- |
+| SAP Business One на SQL Server | Windows  | SQL Server | Все типы виртуальных машин, сертифицированные NetWeaver |
+| SAP BPC 10.01 MS SP08 | Windows | | Все типы виртуальных машин, сертифицированные NetWeaver<br /> Примечание к SAP № 2451795 |
+| Платформа SAP BusinessObjects BI | Windows | | Примечание к SAP № 2145537 |
+| SAP Data Services 4.2 | | | Примечание к SAP № 2288344 |

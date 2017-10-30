@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 3c1e558c9d41e385f80939203a3457b74e30973b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>Вход в веб-приложение ASP.NET и выход из него с помощью Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +109,7 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 ## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Шаг 3. Использование OWIN для выдачи запросов входа и выхода в Azure AD
 Теперь приложение правильно настроено для взаимодействия с Azure AD с использованием протокола проверки подлинности OpenID Connect. OWIN полностью возьмет на себя выполнение процессов создания сообщений аутентификации, проверки маркеров из Azure AD и поддержки сеансов пользователя. Остается лишь предоставить пользователям возможность выполнять вход и выход.
 
-1. Вы можете использовать теги авторизации в своих контроллерах, чтобы обязать пользователей выполнять вход перед доступом к конкретным страницам. Для этого откройте файл Controllers\HomeController.cs и добавьте тег `[Authorize]` в контроллер About.
+1. Вы можете использовать теги авторизации в своих контроллерах, чтобы обязать пользователей выполнять вход перед доступом к конкретным страницам. Для этого откройте файл Controllers\HomeController.cs и добавьте тег `[Authorize]` в действие About.
 
      ```C#
      [Authorize]
@@ -195,4 +193,3 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 Теперь можно перейти к более сложным темам. Например, попробуйте использовать [защиту веб-API с помощью Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

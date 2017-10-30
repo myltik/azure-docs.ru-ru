@@ -11,18 +11,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 2e3fdf06316bbf68abefe06024f63668bdf07b05
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure
 
-В этой статье вы узнаете, как управлять решениями с помощью Azure CLI и Azure Resource Manager. Если вы не знакомы с Resource Manager, то см. статью [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md). Этот раздел посвящен задачам управления. Вы сможете выполнять следующие задачи:
+В этой статье вы узнаете, как управлять решениями с помощью Azure CLI и Azure Resource Manager. Если вы не знакомы с Resource Manager, то см. статью [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md). Эта статья посвящена задачам управления. Вы сможете выполнять следующие задачи:
 
 1. Создание группы ресурсов
 2. Добавление ресурса в группу ресурсов
@@ -79,6 +78,7 @@ az account show
 ```
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
+
 Прежде чем развертывать ресурсы в подписке, необходимо создать группу ресурсов, которая будет их содержать.
 
 Чтобы создать группу ресурсов, используйте команду **az group create**. В команде используются параметр **name** для указания имени группы ресурсов и параметр **location** для указания ее расположения.
@@ -115,6 +115,7 @@ az group list
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>Добавление ресурсов в группу ресурсов
+
 Чтобы добавить ресурс в группу ресурсов, можно использовать команду **az resource create** или команду для конкретного типа создаваемого ресурса (например **az storage account create**). Возможно, проще использовать команду для конкретного типа ресурса, так как она включает в себя параметры для свойств, которые необходимы для нового ресурса. Чтобы использовать команду **az resource create**, необходимо знать все свойства и ввести их без запроса.
 
 Однако добавление ресурса с помощью сценария может привести к путанице в будущем, потому что новый ресурс не существует в шаблоне Resource Manager. Шаблоны обеспечивают надежность развертывания и позволяют развернуть решение повторно.
@@ -176,6 +177,14 @@ az resource tag --tags $rt Project=Redesign -g TestRG1 -n myuniquestorage --reso
   ```azurecli-interactive
   az resource list --resource-type "Microsoft.Storage/storageAccounts"
   ```
+
+## <a name="get-resource-id"></a>Получение идентификатора ресурса
+
+Многие команды принимают в качестве параметра идентификатор ресурса. Чтобы получить идентификатор ресурса и хранилища в переменной, используйте следующую команду:
+
+```azurecli-interactive
+webappID=$(az resource show -g exampleGroup -n exampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+```
 
 ## <a name="lock-a-resource"></a>Блокировка ресурса
 

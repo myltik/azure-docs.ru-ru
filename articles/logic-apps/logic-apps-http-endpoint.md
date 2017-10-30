@@ -16,14 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Вызовы, срабатывания триггеров и создание вложенных рабочих процессов в приложениях логики
 
 Вы можете предоставлять доступ к синхронным конечным точкам HTTP, выступающим в качестве триггеров в приложениях логики, с помощью которых можно активировать или вызвать приложение логики через URL-адрес. Также вы можете создавать вложенные рабочие процессы в приложениях логики с помощью шаблона вызываемых конечных точек.
@@ -86,7 +84,7 @@ ms.lasthandoff: 05/31/2017
     создает эту схему:
 
     ```json
-    }
+    {
        "type": "object",
        "properties": {
           "address": {
@@ -147,8 +145,7 @@ ms.lasthandoff: 05/31/2017
 5. В **тексте** ответа добавьте токен для параметра, который вы указали в относительном пути триггера.
 
     Например, чтобы вернуть `Hello {customerID}`, добавьте в **текст** ответа `Hello {customerID token}`. 
-    Появится список динамического содержимого с токеном `customerID` 
-   , который нужно выбрать.
+    Появится список динамического содержимого с токеном `customerID`, который нужно выбрать.
 
     ![Добавление параметра в текст ответа](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
@@ -320,4 +317,3 @@ ms.lasthandoff: 05/31/2017
 [1]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-

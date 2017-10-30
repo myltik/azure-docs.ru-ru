@@ -1,5 +1,5 @@
---- 
-title: "Копирование виртуальной машины Linux с помощью Azure CLI 2.0 | Документация Майкрософт"
+---
+title: "Копирование виртуальной машины Linux с помощью Azure CLI 2.0 | Документация Майкрософт"
 description: "Узнайте, как создать копию виртуальной машины Linux в Azure с помощью Azure CLI 2.0 и Управляемых дисков."
 services: virtual-machines-linux
 documentationcenter: 
@@ -12,16 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 09/25/2017
 ms.author: cynthn
+ms.openlocfilehash: 98b27f5f86cdb17893a5c98950a2299f8aa30105
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7983061a933370803669480296d7625106e1360c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
----                    
-               
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
+---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>Создание копии виртуальной машины Linux с помощью Azure CLI 2.0 и Управляемых дисков
 
 
@@ -45,7 +43,9 @@ ms.lasthandoff: 08/21/2017
 В следующем примере отменяется распределение виртуальной машины **myVM**, входящей в группу ресурсов **myResourceGroup**.
 
 ```azurecli
-az vm deallocate --resource-group myResourceGroup --name myVM
+az vm deallocate \
+    --resource-group myResourceGroup \
+    --name myVM
 ```
 
 ## <a name="step-2-copy-the-source-vm"></a>Шаг 2. Копирование исходной виртуальной машины
@@ -58,7 +58,9 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 1.  Получите список виртуальных машин и имен их дисков ОС, выполнив команду [az vm list](/cli/azure/vm#list). В следующем примере создается список виртуальных машин, входящих в группу ресурсов **myResourceGroup**.
     
     ```azurecli
-    az vm list -g myTestRG --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
+    az vm list -g myResourceGroup \
+         --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' \
+         --output table
     ```
 
     Вы должны увидеть результат, аналогичный приведенному ниже.
@@ -72,7 +74,8 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 1.  Скопируйте диск, создав управляемый диск с помощью команды [az disk create](/cli/azure/disk#create). В следующем примере создается диск **myCopiedDisk** на основе управляемого диска **myDisk**.
 
     ```azurecli
-    az disk create --resource-group myResourceGroup --name myCopiedDisk --source myDisk
+    az disk create --resource-group myResourceGroup \
+         --name myCopiedDisk --source myDisk
     ``` 
 
 1.  Убедитесь, что этот управляемый диск теперь входит в нужную группу ресурсов, выполнив команду [az disk list](/cli/azure/disk#list). В следующем примере выводится список управляемых дисков, входящих в группу ресурсов **myResourceGroup**.
@@ -80,8 +83,6 @@ az vm deallocate --resource-group myResourceGroup --name myVM
     ```azurecli
     az disk list --resource-group myResourceGroup --output table
     ```
-
-1.  Перейдите к разделу [Шаг 3. Настройка виртуальной сети](#step-3-set-up-a-virtual-network).
 
 
 ## <a name="step-3-set-up-a-virtual-network"></a>Шаг 3. Настройка виртуальной сети
@@ -96,23 +97,29 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 1.  Создайте виртуальную сеть, выполнив команду [az network vnet create](/cli/azure/network/vnet#create). В следующем примере создаются виртуальная сеть **myVnet** и подсеть **mySubnet**.
 
     ```azurecli
-    az network vnet create --resource-group myResourceGroup --location westus --name myVnet \
-        --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
+    az network vnet create --resource-group myResourceGroup \
+        --location eastus --name myVnet \
+        --address-prefix 192.168.0.0/16 \
+        --subnet-name mySubnet \
+        --subnet-prefix 192.168.1.0/24
     ```
 
 1.  Создайте общедоступный IP-адрес, выполнив команду [az network public-ip create](/cli/azure/network/public-ip#create). В следующем примере создается общедоступный IP-адрес **myPublicIP** с DNS-именем **mypublicdns**. (DNS-имя должно быть уникальным, поэтому укажите уникальное имя.)
 
     ```azurecli
-    az network public-ip create --resource-group myResourceGroup --location westus \
-        --name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
+    az network public-ip create --resource-group myResourceGroup \
+        --location eastus --name myPublicIP --dns-name mypublicdns \
+        --allocation-method static --idle-timeout 4
     ```
 
 1.  Создайте сетевую карту, выполнив команду [az network nic create](/cli/azure/network/nic#create).
     В следующем примере создается сетевая карта **myNic**, подключенная к подсети **mySubnet**.
 
     ```azurecli
-    az network nic create --resource-group myResourceGroup --location westus --name myNic \
-        --vnet-name myVnet --subnet mySubnet --public-ip-address myPublicIP
+    az network nic create --resource-group myResourceGroup \
+        --location eastus --name myNic \
+        --vnet-name myVnet --subnet mySubnet \
+        --public-ip-address myPublicIP
     ```
 
 ## <a name="step-4-create-a-vm"></a>Шаг 4. Создание виртуальной машины
@@ -122,13 +129,12 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 Укажите скопированный управляемый диск в качестве диска ОС (--attach-os-disk) следующим образом.
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myCopiedVM \
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic --size Standard_DS1_v2 --os-type Linux \
+az vm create --resource-group myResourceGroup \
+    --name myCopiedVM --nics myNic \
+    --size Standard_DS1_v2 --os-type Linux \
     --attach-os-disk myCopiedDisk
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Чтобы узнать, как управлять виртуальной машиной с помощью Azure CLI, прочитайте статью [Команды Azure CLI в режиме Resource Manager](../azure-cli-arm-commands.md).
-

@@ -1,6 +1,6 @@
 ---
-title: Monitor health and alerts in Azure Stack | Microsoft Docs
-description: Learn how to monitor health and alerts in Azure Stack.
+title: "Мониторинг работоспособности и оповещений в Azure Stack | Документация Майкрософт"
+description: "Узнайте, как контролировать работоспособность и отслеживать оповещения в Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,66 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitor health and alerts in Azure Stack
+# <a name="monitor-health-and-alerts-in-azure-stack"></a>Мониторинг работоспособности и оповещений в Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-Azure Stack includes infrastructure monitoring capabilities that enable you to view health and alerts for an Azure Stack region. The **Region management** tile, pinned by default in the administrator portal for the Default Provider Subscription, lists all the deployed regions of Azure Stack. The tile shows the number of active critical and warning alerts for each region, and is your entry point into the health and alert functionality of Azure Stack.
+Azure Stack предоставляет ряд возможностей для мониторинга, которые позволяют контролировать работоспособность и просматривать оповещения для региона Azure Stack. На плитке **Region management** (Управление регионами), которая закреплена на портале администратора для подписки поставщика по умолчанию, отображается список всех развернутых регионов Azure Stack. Также здесь указано количество активных критических и предупреждающих оповещений для каждого региона. Она служит точкой входа в режим проверки работоспособности и просмотра оповещений в Azure Stack.
 
- ![The Region Management tile](media/azure-stack-monitor-health/image1.png)
+ ![Плитка управления регионами](media/azure-stack-monitor-health/image1.png)
 
- ## <a name="understand-health-in-azure-stack"></a>Understand health in Azure Stack
+ ## <a name="understand-health-in-azure-stack"></a>Концепция работоспособности в Azure Stack
 
- Health and alerts are managed by the Health resource provider. Azure Stack infrastructure components register with the Health resource provider during Azure Stack deployment and configuration. This registration enables the display of health and alerts for each component. Health in Azure Stack is a simple concept. If alerts for a registered instance of a component exist, the health state of that component reflects the worst active alert severity; warning, or critical.
+ За контроль работоспособности и оповещения отвечает поставщик ресурсов работоспособности. В процессе развертывания и настройки Azure Stack компоненты инфраструктуры Azure Stack регистрируются в поставщике ресурсов работоспособности. Такая регистрация позволяет отображать сведения о работоспособности и оповещения для каждого компонента. В Azure Stack используется очень простое определение работоспособности. Если для зарегистрированного экземпляра компонента существуют оповещения, состояние работоспособности этого компонента определяется по наивысшему уровню серьезности активных оповещений: предупреждающее или критическое.
  
- ## <a name="view-and-manage-component-health-state"></a>View and manage component health state
+ ## <a name="view-and-manage-component-health-state"></a>Просмотр состояния работоспособности компонента и управление им
  
- As an Azure Stack operator, you can view the health state of components in the administrator portal and through REST API and PowerShell.
+ Оператор Azure Stack позволяет просматривать состояние работоспособности компонентов на портале администратора или с помощью REST API и PowerShell.
  
-To view the health state in the portal, click the region that you want to view in the **Region management** tile. You can view the health state of infrastructure roles and of resource providers. In this release, the Compute resource provider does not report health state.
+Чтобы просмотреть состояние работоспособности на портале, щелкните нужный регион на плитке **Region management** (Управление регионами). Вы можете просмотреть состояние работоспособности для инфраструктурных ролей и поставщиков ресурсов. В этом выпуске поставщик вычислительных ресурсов не предоставляет сведения о состоянии работоспособности.
 
-![List of infrastructure roles](media/azure-stack-monitor-health/image2.png)
+![Список инфраструктурных ролей](media/azure-stack-monitor-health/image2.png)
 
-You can click a resource provider or infrastructure role to view more detailed information.
+Щелкните поставщик ресурсов или инфраструктурную роль, чтобы просмотреть подробные сведения.
 
 > [!WARNING]
->If you click an infrastructure role, and then click the role instance, there are options to Start, Restart, or Shutdown. Do not use these actions when you apply updates to an integrated system. Also, do **not** use these options in an Azure Stack Development Kit environment. These options are designed only for an integrated systems environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability. For troubleshooting assistance, post your issue to the [Azure Stack forum](https://aka.ms/azurestackforum).
+>Если вы щелкнете инфраструктурную роль, а затем выберете экземпляр роли, отобразится меню с действиями запуска, перезапуска и завершения работы. Не используйте эти действия при установке обновлений в интегрированной системе. Кроме того, их **не** следует применять в среде SDK для Azure Stack. Эти элементы предназначены только для интегрированной среды, в которой каждая инфраструктурная роль выполняется в нескольких экземплярах роли. Перезапуск экземпляра роли (особенно AzS-Xrp01) в среде пакета SDK приводит к дестабилизации системы. Чтобы получить помощь в устранении неполадок, опубликуйте свою проблему на [форуме по Azure Stack](https://aka.ms/azurestackforum).
 >
  
-## <a name="view-alerts"></a>View alerts
+## <a name="view-alerts"></a>Просмотр оповещений
 
-The list of active alerts for each Azure Stack region is available directly from the **Region management** blade. The first tile in the default configuration is the **Alerts** tile, which displays a summary of the critical and warning alerts for the region. You can pin the Alerts tile, like any other tile on this blade, to the dashboard for quick access.   
+Список активных оповещений для каждого региона Azure Stack можно открыть непосредственно из колонки **Region management** (Управление регионами). В конфигурации по умолчанию первой располагается плитка **Оповещения**, которая содержит сводку по критическим и предупреждающим оповещениям для этого региона. Вы можете закрепить плитку оповещений, как и любую другую плитку из этой колонки, на панели мониторинга для быстрого доступа.   
 
-![Alerts tile that shows a warning](media/azure-stack-monitor-health/image3.png)
+![Плитка оповещений с одним предупреждающим оповещением](media/azure-stack-monitor-health/image3.png)
 
-By selecting the top part of the **Alerts** tile, you navigate to the list of all active alerts for the region. If you select either the **Critical** or **Warning** line item within the tile, you navigate to a filtered list of alerts (Critical or Warning). 
+Выберите верхнюю часть плитки **Оповещения**, чтобы перейти к списку всех активных оповещений для этого региона. Если вы выберете любой из элементов на этой плитке (**критический** или **предупреждающий**), откроется отфильтрованный список оповещений (только критические или только предупреждающие). 
 
-![Filtered warning alerts](media/azure-stack-monitor-health/image4.png)
+![Отфильтрованные предупреждающие оповещения](media/azure-stack-monitor-health/image4.png)
   
-The **Alerts** blade supports the ability to filter both on status (Active or Closed) and severity (Critical or Warning). The default view displays all active alerts. All closed alerts are removed from the system after seven days.
+Колонка **Оповещения** поддерживает фильтрацию по состоянию (активные или закрытые) и серьезности (критические или предупреждающие). В представлении по умолчанию отображаются все активные оповещения. Все закрытые оповещения удаляются из системы через семь дней.
 
-![Filter pane to filter by critical or warning status](media/azure-stack-monitor-health/image5.png)
+![Панель фильтрации для выбора критических или предупреждающих оповещений](media/azure-stack-monitor-health/image5.png)
 
-The **View API** action displays the REST API that was used to generate the list view. This action provides a quick way to become familiar with the REST API syntax that you can use to query alerts. You can use this API in automation or for integration with your existing datacenter monitoring, reporting, and ticketing solutions. 
+Действие **View API** (Показать API) позволяет открыть REST API, который использовался для создания представления списка. Эта дает возможность быстро ознакомиться с синтаксисом REST API, чтобы применять его для получения сведений об оповещениях. Этот API можно использовать в службе автоматизации или для интеграции с существующими решениями мониторинга центра обработки данных, подготовки отчетов или отслеживания проблем. 
 
-![The View API option that shows the REST API](media/azure-stack-monitor-health/image6.png)
+![Действие просмотра API, при выполнении которого отображается REST API](media/azure-stack-monitor-health/image6.png)
 
-You can click a specific alert to view the alert details. The alert details show all fields that are associated with the alert, and enable quick navigation to the affected component and source of the alert. For example, the following alert occurs if one of the infrastructure role instances goes offline or is not accessible.  
+Вы можете щелкнуть любое оповещение, чтобы просмотреть сведения о нем. Сведения об оповещении содержат все поля, связанные с этим оповещением. Отсюда вы можете быстро перейти к затронутым компонентам и (или) к источнику оповещения. Например, указанное ниже оповещение возникает при отключении или недоступности одного из экземпляров инфраструктурной роли.  
 
-![The Alert details blade](media/azure-stack-monitor-health/image7.png)
+![Колонка с информацией об оповещении](media/azure-stack-monitor-health/image7.png)
 
-After the infrastructure role instance is back online, this alert automatically closes. Many, but not every alert automatically closes when the underlying issue is resolved. We recommend that you select **Close Alert** after you perform remediation steps. If the issue persists, Azure Stack generates a new alert. If you resolve the issue, the alert remains closed and requires no additional action.
+Когда экземпляр инфраструктурной роли вернется в оперативный режим, оповещение автоматически закроется. Многие (но не все) оповещения автоматически закрываются после устранения проблемы. Рекомендуем всегда нажимать **Закрыть оповещение** после того, как вы выполните действия по исправлению. Если проблема сохранится, Azure Stack создаст новое оповещение. Если же проблема решена успешно, оповещение остается закрытым и не требует дополнительных действий.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-[Manage updates in Azure Stack](azure-stack-updates.md)
+[Управления обновлениями в Azure Stack](azure-stack-updates.md)
 
-[Region management in Azure Stack](azure-stack-region-management.md)
-
+[Region management in Azure Stack](azure-stack-region-management.md) (Управление регионами в Azure Stack)

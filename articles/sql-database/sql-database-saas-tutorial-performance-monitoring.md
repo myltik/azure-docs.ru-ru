@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Мониторинг производительности баз данных и пулов SQL Azure в мультитенантном приложении SaaS и управление ею
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 09/13/2017
 
 Управление производительностью базы данных состоит из следующих этапов: компиляция и анализ данных о производительности с последующей настройкой параметров для обеспечения допустимого времени отклика приложения на основе полученных данных. При размещении нескольких клиентов пулы эластичных баз данных позволяют предоставлять ресурсы группам баз данных с непредсказуемыми рабочими нагрузками, а также управления этими ресурсами без лишних затрат. Используя определенные шаблоны рабочей нагрузки, средства можно сэкономить при наличии всего лишь двух баз данных уровня S3.
 
-![Схема](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
+![Схема приложения](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
 
 Пулы и содержащиеся в них базы данных необходимо отслеживать. Это позволит убедиться, что они имеют нужную производительность. Настройте конфигурацию пула в соответствии с требованиями общей рабочей нагрузки всех баз данных и предоставьте необходимое число единиц eDTU. Укажите максимальное и минимальное значение единиц eDTU на каждую базу данных в соответствии с конкретными требованиями приложения.
 
@@ -115,11 +114,11 @@ Wingtip является приложением SaaS, а реальная наг
 
 Значения на диаграмме использования ресурсов пула основаны на совокупном использовании ресурсов всеми находящимися в нем базами данных. На диаграмме базы данных показаны пять наиболее активных баз данных.
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
+![диаграмма базы данных](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
 Так как в пуле есть и другие базы данных, на этой диаграмме также показана активность без учета этих 5 баз данных. Чтобы просмотреть дополнительные сведения, щелкните **Использование ресурсов базы данных**:
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
+![использование ресурсов базы данных](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
 
 ## <a name="set-performance-alerts-on-the-pool"></a>Настройка оповещений производительности в пуле
@@ -249,4 +248,3 @@ Wingtip является приложением SaaS, а реальная наг
 * [Когда следует использовать эластичный пул?](sql-database-elastic-pool.md)
 * [Служба автоматизации Azure](../automation/automation-intro.md)
 * [Настройка и использование Log Analytics (OMS) с примером приложения SaaS WTP](sql-database-saas-tutorial-log-analytics.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
+ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: bef3e7bf8b1fd9199d0c8a083d94660b8eed3365
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Устранение неполадок службы файлов Azure в Linux
 
@@ -83,7 +82,7 @@ ms.lasthandoff: 09/28/2017
 
 ### <a name="cause"></a>Причина:
 
-Некоторые дистрибутивы Linux не поддерживают функции шифрования в SMB 3.0. Поэтому при попытке подключения службы файлов Azure с помощью SMB 3.0. пользователь может получить сообщение об ошибке с кодом состояния 115.
+Некоторые дистрибутивы Linux не поддерживают функции шифрования в SMB 3.0. Поэтому при попытке подключения службы файлов Azure с помощью SMB 3.0. пользователь может получить сообщение об ошибке с кодом состояния 115. Сейчас SMB 3.0 с полным шифрованием поддерживается только при использовании Ubuntu 16.04 или более поздней версии.
 
 ### <a name="solution"></a>Решение
 
@@ -104,11 +103,11 @@ ms.lasthandoff: 09/28/2017
 
 В некоторых сценариях параметр подключения **serverino** может привести к тому, что команда **ls** формирует статистику для каждой записи каталога. Это приводит к снижению производительности при выводе содержимого больших каталогов. Параметры подключения можно просмотреть в записи **/etc/fstab**.
 
-`//azureuser.file.core.windows.net/cifs /cifs cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 Можно также проверить, правильные ли параметры используются, выполнив команду **sudo mount | grep cifs** и проверив ее выходные данные. Пример выходных данных этой команды приведен ниже.
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Если параметр **cache=strict** или **serverino** отсутствует, отключите и повторно подключите службу файлов Azure, выполнив команду mount из [этой статьи](../storage-how-to-use-files-linux.md). Затем еще раз проверьте наличие правильных параметров в записи **/etc/fstab**.
 
@@ -159,4 +158,3 @@ ms.lasthandoff: 09/28/2017
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 
 Если вам все еще нужна помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
-

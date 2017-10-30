@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: c6cfca299dabba253757d959411c0cac8f90fa2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Масштабирование развертываний Jenkins в соответствии с требованиями агентов виртуальных машин Azure
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 10/11/2017
 1. Выберите **Add** (Добавить) рядом с параметром **Add Azure Virtual Machine Template** (Добавить шаблон виртуальной машины Azure).
 2. В поле **Name** (Имя) введите `defaulttemplate`.
 3. В поле **Label** (Метка) введите `ubuntu`.
-4. Выберите нужный [регион Azure](https://azure.microsoft.com/regions/) в поле со списком.
+4. Выберите нужный [регион Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) в поле со списком.
 5. Выберите [размер виртуальной машины](/azure/virtual-machines/linux/sizes) в раскрывающемся списке в разделе **Virtual Machine Size** (Размер виртуальной машины). В этом руководстве используется размер общего назначения `Standard_DS1_v2`.   
 6. Для параметра **Retention time** (Время хранения) задайте значение `60`. Этот параметр определяет время ожидания (в минутах) Jenkins перед его освобождением от неактивных агентов. Укажите 0, если не хотите, чтобы неактивные агенты удалялись автоматически.
 

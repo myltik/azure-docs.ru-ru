@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: fdd90721b6823c20c1ff27383769bfff24e80eae
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: учетные записи и разрешения
 Мастер установки Azure AD Connect предлагает два разных варианта.
@@ -97,6 +96,10 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="upgrade"></a>Обновление
 При обновлении с одной версии Azure AD Connect до нового выпуска требуются следующие разрешения:
+
+>[!IMPORTANT]
+>Начиная со сборки 1.1.484 в Azure AD Connect появилась регрессионная ошибка, из-за которой требуются разрешения администратора для обновления базы данных SQL.  Эта ошибка по-прежнему присутствует в последней сборке 1.1.614.  При обновлении до этой сборки вам потребуются разрешения системного администратора.  Разрешений владельца базы данных недостаточно.  Если вы попытаетесь обновить Azure AD Connect без разрешений системного администратора, обновление завершится ошибкой, а Azure AD Connect будет работать неправильно.  Корпорация Майкрософт знает о наличии этой ошибки и работает над ее устранением.
+
 
 | Субъект | Необходимые разрешения | Область использования |
 | --- | --- | --- |
@@ -194,4 +197,3 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](../active-directory-aadconnect.md).
-

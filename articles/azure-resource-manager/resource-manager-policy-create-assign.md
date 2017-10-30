@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/19/2017
 ms.author: tomfitz
+ms.openlocfilehash: 64bdd6ed41e98079c8d4112e895aaeddcd629282
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f461efbc2a23f85e8b6d3fdec156a0df1636708a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>Назначение политик ресурсов и управление ими
 
@@ -31,6 +30,23 @@ ms.lasthandoff: 07/28/2017
 4. В любом случае назначьте политику какой-либо области (например, подписке или группе ресурсов). После этого правила политики будут применены.
 
 В этой статье рассматриваются действия, необходимые для создания определения политики и назначения его области с помощью REST API, PowerShell или Azure CLI. Если вы предпочитаете назначать политики с помощью портала, то см. статью [Назначение политик ресурсов и управление ими с помощью портала Azure](resource-manager-policy-portal.md). В этой статье не рассматривается синтаксис, используемый для создания определения политики. Сведения о синтаксисе политики см. в разделе [Общие сведения о политике ресурсов](resource-manager-policy.md).
+
+## <a name="exclusion-scopes"></a>Области исключения
+
+При назначении политики можно исключить область. Благодаря этому назначать политики становится проще, так как назначая политику на уровне подписки, вы можете указать, где эта политика не будет применяться. Например, в вашей подписке может содержаться группа ресурсов, предназначенная для сетевой инфраструктуры. Отделы по работе с приложениями развертывают свои ресурсы в другие группы ресурсов. Вы не хотите, чтобы эти отделы создавали сетевые ресурсы, так как это может привести к проблемам безопасности. При этом вы хотите разрешить сетевые ресурсы в группе ресурсов сети. Вам следует назначить политику на уровне подписки, но исключить группу сетевых ресурсов. Вы можете определить несколько вложенных областей.
+
+```json
+{
+    "properties":{
+        "policyDefinitionId":"<ID for policy definition>",
+        "notScopes":[
+            "/subscriptions/<subid>/resourceGroups/networkresourceGroup1"
+        ]
+    }
+}
+```
+
+Если вы указываете область исключения в назначении, используйте API версии **2017-06-01-preview**.
 
 ## <a name="rest-api"></a>Интерфейс REST API
 
@@ -168,8 +184,28 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 ### <a name="create-policy-definition"></a>Создание определения политики
 Определение политики можно создать с помощью командлета `New-AzureRmPolicyDefinition`.
 
+Чтобы создать определение политики из файла, передайте путь в файл. Для внешнего файла:
+
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Для локального файла:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Для создания определения политики с помощью встроенных правил:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
   "if": {
     "allOf": [
       {
@@ -195,12 +231,6 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 ```            
 
 Выходные данные сохраняются в объекте `$definition`, который используется при назначении политики. 
-
-Вместо ввода JSON в качестве параметра можно указать путь к JSON-файлу, содержащему правило политики.
-
-```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
-```
 
 В следующем примере создается определение политики, которое включает параметры:
 
@@ -319,8 +349,10 @@ az policy definition list
 
 Определение политики можно создать с помощью Azure CLI, выполнив в нем команду определения политики.
 
+Для создания определения политики с помощью встроенных правил:
+
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
   "if": {
     "allOf": [
       {
@@ -371,5 +403,4 @@ az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscr
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-
 

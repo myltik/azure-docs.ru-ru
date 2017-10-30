@@ -12,20 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/29/2017
 ms.author: juliako
+ms.openlocfilehash: e2a580b835496c677f048599ae83287dbb61621d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 1f0c5cf93b44433aab2163548de916626a7fa480
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 
 В этой статье рассматриваются часто задаваемые вопросы сообщества пользователей служб мультимедиа Azure (AMS).
 
 ## <a name="general-ams-faqs"></a>Общие часто задаваемые вопросы об AMS и ответы на них
+
+Вопрос. Как осуществляется потоковая передача на устройства Apple iOS?
+
+Ответ. Добавьте путь (format=m3u8-aapl) в часть /Manifest URL-адреса, чтобы сообщить серверу-источнику потоковой передачи о необходимости возврата содержимого HLS для использования на собственных устройствах Apple iOS. (Дополнительные сведения см. в разделе о (доставке содержимого)[media-services-deliver-content-overview.md].)
+
 Вопрос. Как осуществляется масштабирование индексирования?
 
 Ответ. Зарезервированные единицы одинаковы для задач кодирования и индексирования. Следуйте инструкциям в разделе о [масштабировании зарезервированных единиц кодирования](media-services-scale-media-processing-overview.md). **Обратите внимание**, что производительность индексирования не зависит от типа зарезервированных единиц.
@@ -81,4 +85,3 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

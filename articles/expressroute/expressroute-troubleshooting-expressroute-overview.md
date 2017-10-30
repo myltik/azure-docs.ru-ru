@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 09/26/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2bcd95da36cd577ece8ad87d00c3e276f28ad340
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>Проверка подключения ExpressRoute
 Подключение ExpressRoute, расширяющее локальную сеть в Microsoft Cloud посредством частного подключения, которое обеспечивает поставщик услуг подключения, включает в себя следующие три различные сетевые зоны:
@@ -97,7 +96,7 @@ ms.lasthandoff: 08/02/2017
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->Имя группы ресурсов можно получить на портале Azure. Перейдите к предыдущему подразделу этого документа и обратите внимание, что имя группы ресурсов указано на снимке экрана.
+>Имя группы ресурсов можно получить с помощью Azure. Перейдите к предыдущему подразделу этого документа и обратите внимание, что имя группы ресурсов указано на снимке экрана.
 >
 >
 
@@ -172,14 +171,9 @@ ms.lasthandoff: 08/02/2017
 Когда поставщик услуг завершит подготовку канала, можно создать конфигурацию маршрутизации через канал ExpressRoute между маршрутизаторами MSEE-PR (4) и MSEE (5). Каждый канал ExpressRoute может иметь включенными один, два или три контекста маршрутизации: частный пиринг Azure (трафик к частным виртуальным сетям в Azure), общедоступный пиринг Azure (трафик к общедоступным IP-адресам в Azure) и пиринг Майкрософт (трафик к Office 365 и Dynamics 365). Дополнительные сведения о создании и изменении настроек маршрутизации см. в статье [Создание и изменение маршрутизации для канала ExpressRoute][CreatePeering].
 
 ###<a name="verification-via-the-azure-portal"></a>Проверка на портале Azure
->[!IMPORTANT]
->На портале Azure есть известная ошибка: если пиринговую связь ExpressRoute настроил поставщик услуг связи, она *не* отображается на портале. Добавление пиринга ExpressRoute с помощью портала или PowerShell *перезаписывает параметры поставщика услуг связи*. При этом маршрутизация к каналу ExpressRoute прерывается. Для возобновления нормальной маршрутизации необходимо обратиться к поставщику услуг связи, чтобы восстановить параметры. Изменяйте сеансы пиринга ExpressRoute, только если известно, что поставщик услуг связи предлагает только услуги уровня 2.
->
->
 
-<p/>
 >[!NOTE]
->Если поставщик услуг связи предлагает услуги уровня 3 и сеансы пиринга на портале пусты, можно использовать PowerShell для просмотра параметров настройки поставщика услуг.
+>Если поставщик услуг предоставляет уровень 3, а пиринги на портале пусты, обновите конфигурацию схемы с помощью кнопки "Обновить" на портале. Эта операция применит правильную конфигурацию маршрутизации в вашей схеме. 
 >
 >
 
@@ -410,7 +404,6 @@ ms.lasthandoff: 08/02/2017
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
 [OldPortal]: https://manage.windowsazure.com
 [ARP]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-
 
 
 

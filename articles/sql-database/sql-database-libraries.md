@@ -1,6 +1,6 @@
 ---
 title: "Библиотеки подключений для базы данных SQL | Документация Майкрософт"
-description: "Ссылки для скачивания модулей, которые обеспечивают подключение к SQL Server и базам данных SQL с использованием разных языков программирования клиента. Модули выпускаются сообществом или корпорацией Майкрософт."
+description: "Ссылки для скачивания модулей, которые обеспечивают подключение к SQL Server и базам данных SQL с использованием разных языков программирования клиента."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: genemi
-ms.openlocfilehash: 082abf57b139b9f7d44774dce3a80e20b97f0e3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6232877abc1e98b565abee8bf87505fe8edc7791
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Библиотеки подключений и платформы для Microsoft SQL Server
 

@@ -24,10 +24,16 @@
     - name: Политика обслуживания
       href: azure-stack-servicing-policy.md
     - name: Заметки о выпуске
-      href: azure-stack-asdk-release-notes.md
+      items:
+        - name: Заметки к выпуску пакета SDK
+          href: azure-stack-asdk-release-notes.md
+        - name: Заметки к выпуску интегрированных систем
+          items:
+            - name: Обновление 1710
+              href: azure-stack-update-1710.md
     - name: Основные возможности и концепции
       href: azure-stack-key-features.md
-    - name: Архитектура пакета SDK для Azure Stack
+    - name: Архитектура пакета SDK
       href: azure-stack-architecture.md
     - name: Основы администрирования
       href: azure-stack-manage-basics.md
@@ -51,10 +57,14 @@
           href: azure-stack-provision-vm.md
     - name: Интеграция центра обработки данных
       items:
-        - name: Интеграция DNS
+        - name: DNS
           href: azure-stack-integrate-dns.md
+        - name: Удостоверение
+          href: azure-stack-integrate-identity.md
         - name: Публикации конечных точек
           href: azure-stack-integrate-endpoints.md
+        - name: Безопасность
+          href: azure-stack-integrate-security.md
     - name: Управление
       items:
         - name: Управление регионами
@@ -83,6 +93,8 @@
               href: azure-stack-updates.md
             - name: установка обновлений;
               href: azure-stack-apply-updates.md
+            - name: Мониторинг состояния обновления
+              href: azure-stack-monitor-update.md
         - name: Мониторинг работоспособности и оповещений
           href: azure-stack-monitor-health.md
         - name: Управление сетевыми ресурсами
@@ -95,8 +107,12 @@
           items:
             - name: Действия с узлами
               href: azure-stack-node-actions.md
+            - name: Замена узла
+              href: azure-stack-replace-node.md
             - name: Замена диска
               href: azure-stack-replace-disk.md
+            - name: Замена компонента
+              href: azure-stack-replace-component.md
     - name: 'Безопасность, соответствие требованиям и удостоверения'
       items:
         - name: Обзор безопасности

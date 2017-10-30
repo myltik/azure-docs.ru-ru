@@ -1,6 +1,6 @@
 ---
-title: Manage Key Vault in Azure Stack using PowerShell | Microsoft Docs
-description: Learn how to manage Key Vault in Azure Stack using PowerShell.
+title: "Управление Key Vault в Azure Stack с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте, как управлять Key Vault в Azure Stack с помощью PowerShell."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,93 +14,90 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 41cbe1526368dd88fe98f92937c6ef2b65f24682
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Управление Key Vault в Azure Stack с помощью портала
 
-# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Manage Key Vault in Azure Stack using the portal
+Вы можете использовать портал Azure Stack для управления Key Vault в Azure Stack. Эта статья поможет приступить к созданию хранилища Key Vault в Azure Stack и управлению им. 
 
-You can manage Key Vault in Azure Stack by using the Azure Stack portal. This article helps you get started to create and manage Key Vault in Azure Stack. 
+## <a name="prerequisites"></a>Предварительные требования  
 
-## <a name="prerequisites"></a>Prerequisites  
-
-* You must must subscribe to an offer that includes the Key Vault service.  
+* Необходимо подписаться на предложение, включающее службу Key Vault.  
  
-## <a name="create-a-key-vault"></a>Create a key vault 
+## <a name="create-a-key-vault"></a>Создайте хранилище ключей. 
 
-1. Sign in to the user portal(https://portal.local.azurestack.external).  
+1. Войдите на пользовательский портал по адресу https://portal.local.azurestack.external.  
 
-2. From the dashboard, click **New > Security + Identity > Key Vault**.  
+2. На панели мониторинга щелкните **Создать > Безопасность и идентификация > Key Vault**.  
 
-    ![KV screen](media/azure-stack-kv-manage-portal/image1.png)  
+    ![Экран Key Vault](media/azure-stack-kv-manage-portal/image1.png)  
 
-3. On the **Create Key Vault** blade, assign a **Name** for your vault. Vault name can contain only alphanumeric characters, the special character hyphen (-), and it shouldn’t start with a number.  
+3. В колонке **создания Key Vault** назначьте **Имя** для хранилища. Имя хранилища может содержать только буквы, цифры или дефис (-) и не может начинаться с цифры.  
 
-4. Choose a **Subscription** from the list of available subscriptions. All subscriptions that offer the Key Vault service are displayed in the drop-down.  
+4. Выберите **подписку** из списка доступных подписок. В раскрывающемся списке отображаются все подписки, которые содержат службу Key Vault.  
 
-5. Select an existing **Resource Group** or create a new one.  
+5. Выберите существующую **группу ресурсов** или создайте новую.  
 
-6. Select the **Pricing tier**.  
+6. Выберите **ценовую категорию**.  
     >[!NOTE]
-    > Key vaults in Azure Stack Development Kit support **Standard** SKU only.
+    > Хранилища ключей в пакете SDK для Azure Stack поддерживают только номер SKU уровня **Стандартный**.
 
-7. Choose an existing **Access policies** or create a new one. Access policy allows you to grant permissions for a user, application, or a security group to perform operations with this vault.  
+7. Выберите существующую **политику доступа** или создайте новую. Политика доступа позволяет предоставлять права на операции с хранилищем для пользователя, приложения или группы безопасности.  
 
-8. Optionally, choose an **Advanced access policy** to enable the features like access to Virtual Machines for deployment, access to Resource Manager for template deployment and access to Azure Disk Encryption for volume encryption. 
+8. При желании вы можете выбрать **расширенную политику доступа**, чтобы использовать такие функции, как доступ к виртуальным машинам для развертывания, доступ к Resource Manager для развертывания шаблонов или доступ к службе "Шифрование дисков Azure" для шифрования тома. 
   
-9.  After configuring the settings, click **OK** and then **Create**. This starts the key vault deployment. 
+9.  Завершив настройку параметров, щелкните **ОК** и **Создать**. Начнется развертывание хранилища ключей. 
 
-## <a name="manage-keys-and-secrets"></a>Manage keys and secrets
+## <a name="manage-keys-and-secrets"></a>Управление ключами и секретами
 
-After you create a vault, use the following steps to create and manage keys and secrets within the vault.
+После создания хранилища выполните инструкции ниже, чтобы создать в хранилище ключи и секреты и управлять ими.
 
-## <a name="create-a-key"></a>Create a key
+## <a name="create-a-key"></a>Создание ключа
 
-1. Sign in to the user portal (https://portal.local.azurestack.external).  
+1. Войдите на пользовательский портал по адресу https://portal.local.azurestack.external.  
 
-2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Keys** tile.  
+2. На панели мониторинга щелкните **All resources** (Все ресурсы), выберите созданное хранилище ключей и щелкните плитку **Ключи**.  
 
-3. From the **Keys** blade, click **Add**. 
+3. В колонке **Ключи** щелкните **Добавить**. 
 
-4. On the **Create a key** blade, form the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload** an existing key, or **Restore Backup** key.  
+4. В колонке **Создание ключа** откройте список **Параметры** и выберите метод, который нужно использовать для создания ключа. Вы можете **создать** новый ключ, **отправить** существующий или **восстановить резервную копию** ключа.  
 
-5. Enter a **Name** for your key. The key name can contain only alphanumeric characters and the special character hyphen (-).  
+5. Введите **имя** ключа. Имя ключа может содержать только буквы, цифры и дефис (-).  
 
-6. Optionally, configure **Set activation date** and **Set expiration date** values for your key.  
+6. Кроме того, вы можете установить для ключа **дату активации** и **дату окончания срока действия**.  
 
-7. Click **Create** to start the deployment.  
+7. Нажмите кнопку **Создать**, чтобы начать развертывание.  
 
-After the key is successfully created, you can select it from the **Keys** blade and view or modify its properties. The properties section contains the **Key Identifier**, a URI by which external applications can access this key. To limit operations on this key, configure settings under **Permitted operations**.
+Когда ключ будет создан, его можно выбрать в колонке **Ключи**, чтобы просмотреть или изменить свойства. В разделе свойств содержится **идентификатор ключа**: это URI, по которому внешние приложения могут обращаться к этому ключу. Чтобы установить ограничения для операций с ключом, настройте параметры в разделе **Разрешенные операции**.
 
-![URI key](media/azure-stack-kv-manage-portal/image4.png)  
+![URI ключа](media/azure-stack-kv-manage-portal/image4.png)  
 
-## <a name="create-a-secret"></a>Create a secret 
+## <a name="create-a-secret"></a>Создание секрета 
 
-1. Sign in to the user portal (https://portal.local.azurestack.external).  
-2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Secrets** tile.  
+1. Войдите на пользовательский портал по адресу https://portal.local.azurestack.external.  
+2. На панели мониторинга щелкните **All resources** (Все ресурсы), выберите созданное хранилище ключей и щелкните плитку **Секреты**.  
 
-3. From the **Secrets** blade, click **Add**.  
+3. В колонке **Секреты** щелкните **Добавить**.  
 
-4. On the **Create a secret** blade, from the list of **Upload options**, choose an option by which you want to create a secret. You can create a secret **Manually** by entering a value for the secret, or by uploading a **Certificate** from your local machine.  
+4. В колонке **Создание секрета** откройте список **Параметры отправки** и выберите нужный метод создания секрета. Секрет можно создать **вручную**, введя для него значение, или загрузить **сертификат** с локального компьютера.  
 
-5. Enter a **Name** for the secret. The secret name can contain only alphanumeric characters and the special character hyphen (-).  
+5. Введите **имя** секрета. Имя секрета может содержать только буквы, цифры и дефис (-).  
 
-6. Optionally, specify the **Content type**, and configure values for **Set activation date** and **Set expiration date** values for the secret.  
+6. Кроме того, вы можете указать **Тип контента** и установить для секрета **дату активации** и **дату окончания срока действия**.  
 
-7. Click Create to start the deployment.  
+7. Нажмите кнопку "Создать", чтобы начать развертывание.  
 
-After the secret is successfully created, you can select it from the **Secrets** blade and view or modify its properties. The properties section contains **Secret Identifier**, a URI by which external applications can access this secret. 
+Когда секрет будет создан, его можно выбрать в колонке **Секреты**, чтобы просмотреть или изменить свойства. В разделе свойств содержится **идентификатор секрета**: это URI, по которому внешние приложения могут обращаться к этому секрету. 
 
-![URI secret](media/azure-stack-kv-manage-portal/image5.png) 
+![URI секрета](media/azure-stack-kv-manage-portal/image5.png) 
 
 
-## <a name="next-steps"></a>Next Steps
-* [Deploy a VM by retrieving the password stored in a key vault](azure-stack-kv-deploy-vm-with-secret.md)  
-* [Deploy a VM with certificate stored in a key vault](azure-stack-kv-push-secret-into-vm.md)     
-
+## <a name="next-steps"></a>Дальнейшие действия
+* [Развертывание виртуальной машины с извлечением пароля, хранящегося в хранилище ключей](azure-stack-kv-deploy-vm-with-secret.md).  
+* [Развертывание виртуальной машины с помощью сертификата, хранящегося в хранилище ключей](azure-stack-kv-push-secret-into-vm.md).     
 
 

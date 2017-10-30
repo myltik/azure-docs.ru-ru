@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
+ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Шифрование дисков Azure: часто задаваемые вопросы
 
@@ -122,6 +121,12 @@ ms.lasthandoff: 09/02/2017
 
 Если эти действия невозможно выполнить, в качестве альтернативы шифрованию всего диска с помощью dm-crypt можно воспользоваться [шифрованием службы хранилища](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) на уровне учетной записи хранения платформы.
 
+**Вопрос.** Что такое диск "том Bek" или /mnt/azure_bek_disk?
+
+**Ответ.** "Том Bek" для Windows или /mnt/azure_bek_disk для Linux — это том локальных данных, который надежно хранит ключи шифрования для зашифрованных виртуальных машин IaaS Azure.
+> [!NOTE]
+> Не удаляйте и не изменяйте содержимое на этом диске. Не отключайте диск, так как ключ шифрования необходим для любой операции шифрования на виртуальной машине IaaS.
+
 **Вопрос.** Где можно задать вопрос или оставить отзыв?
 
 **Ответ.** Задать вопрос или оставить отзыв можно на [форуме шифрования дисков Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
@@ -132,4 +137,3 @@ ms.lasthandoff: 09/02/2017
 - [Шифрование диска в центре безопасности Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Шифрование виртуальной машины Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Шифрование неактивных данных в Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
-

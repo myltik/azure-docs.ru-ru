@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Пример 2. Построение сети периметра для защиты приложений с брандмауэром и группами безопасности сети
 [Вернуться на страницу с советами и рекомендациями по построению периметра безопасности][HOME]
@@ -94,7 +94,7 @@ ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
 
 Создайте новое правило и укажите имя правила, например WebTraffic. 
 
-Значок правила назначения NAT выглядит следующим образом:  ![Значок правила назначения NAT][2]
+Значок правила назначения NAT выглядит следующим образом: ![Значок назначения NAT][2].
 
 Само правило должно выглядеть примерно так:
 
@@ -579,9 +579,3 @@ ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

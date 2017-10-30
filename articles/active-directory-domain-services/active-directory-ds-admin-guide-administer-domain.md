@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d215fd31ca4652437783ad630aee532a17cda611
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 8edf01d994e54a8f1af98861cb445a5909b6a1df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Администрирование управляемого домена доменных служб Azure Active Directory
 В этой статье показано, как администрировать управляемый домен доменных служб Azure Active Directory (AD).
@@ -65,11 +64,11 @@ ms.lasthandoff: 11/17/2016
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Задача 2. Установка средств администрирования Active Directory на виртуальную машину
 Чтобы установить средства администрирования Active Directory на присоединенную к домену виртуальную машину, выполните следующие действия. Для получения дополнительных сведений об [установке и использовании средств удаленного администрирования сервера](https://technet.microsoft.com/library/hh831501.aspx) перейдите на сайт TechNet.
 
-1. На классическом портале Azure перейдите к узлу **Виртуальные машины** . Выберите созданную на шаге 1 виртуальную машину и нажмите кнопку **Подключиться** на панели команд в нижней части окна.
+1. Перейдите на портал Azure. Выберите **Все ресурсы** на панели слева. Найдите и выберите виртуальную машину, созданную в задаче 1.
+2. Нажмите кнопку **Подключиться** на вкладке "Обзор". Будет создан и скачан файл протокола удаленного рабочего стола (RDP-файл).
 
     ![Подключение к виртуальной машине Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. На классическом портале появится предложение открыть или сохранить файл с расширением RDP, который используется для подключения к виртуальной машине. Скачайте файл, а затем щелкните его, чтобы открыть.
-3. При запросе имени пользователя и пароля укажите учетные данные пользователя, принадлежащего к группе "Администраторы контроллера домена AAD". В нашем примере мы используем 'bob@domainservicespreview.onmicrosoft.com'.
+3. Чтобы подключиться к виртуальной машине, откройте скачанный RDP-файл. При появлении запроса нажмите кнопку **Подключиться**. При запросе имени пользователя и пароля укажите учетные данные пользователя, принадлежащего к группе "Администраторы контроллера домена AAD". В нашем примере мы используем bob@domainservicespreview.onmicrosoft.com. При входе в систему может появиться предупреждение о сертификате. Чтобы продолжить процесс подключения, нажмите кнопку "Да" или "Продолжить".
 4. На начальном экране откройте **диспетчер серверов**. На центральной панели окна диспетчера серверов щелкните **Добавить роли и компоненты** .
 
     ![Запуск диспетчера серверов на виртуальной машине](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -120,4 +119,3 @@ ms.lasthandoff: 11/17/2016
 * [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)
 * [Присоединение виртуальной машины Windows Server к управляемому домену](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Развертывание средств удаленного администрирования сервера](https://technet.microsoft.com/library/hh831501.aspx)
-

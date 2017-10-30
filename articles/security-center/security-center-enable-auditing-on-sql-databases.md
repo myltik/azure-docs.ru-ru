@@ -1,6 +1,6 @@
 ---
 title: "Включение аудита и обнаружения угроз для баз данных SQL в центре безопасности Azure | Документация Майкрософт"
-description: "В этом документе показано, как реализовать рекомендацию центра безопасности Azure ** включить обнаружение аудита и угроз для базы данных SQL **."
+description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по **включению аудита и обнаружения угроз для баз данных SQL**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: terrylan
 ms.openlocfilehash: 8f4febdaa4497fee0dc690b59cd6eaa415c5e5cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-databases-in-azure-security-center"></a>Включение аудита и обнаружения угроз для баз данных SQL в центре безопасности Azure
 Центр безопасности Azure порекомендует включить аудит и обнаружение угроз для всех баз данных SQL, если эти функции еще не включены. Аудит и обнаружение угроз могут помочь вам соблюсти стандарты, проанализировать работу с базой данных и получить представление о расхождениях и аномалиях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности.

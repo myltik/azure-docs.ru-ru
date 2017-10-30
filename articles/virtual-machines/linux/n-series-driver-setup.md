@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bdeb4d5ca1d9ff4d7dfd0961690412dd7530572a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 3f8cd4fc37caca7fa6094a4780078d9ed882ba3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Установка драйверов GPU NVIDIA на виртуальные машины серии N под управлением Linux
 
@@ -95,6 +95,9 @@ ms.lasthandoff: 08/03/2017
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 или Red Hat Enterprise Linux 7.3
 
+> [!IMPORTANT]
+> Не выполняйте команду `sudo yum update` для обновления версии ядра в CentOS 7.3 или Red Hat Enterprise Linux 7.3. Сейчас установка и обновления драйверов не выполняются в случае обновления ядра.
+>
 
 1. Обновите ядро и DKMS.
  
@@ -119,15 +122,16 @@ ms.lasthandoff: 08/03/2017
 3. Перезагрузите виртуальную машину, повторно подключитесь и установите последнюю версию служб интеграции Linux для Hyper-v.
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
- 
-  tar xvzf lis-rpms-4.2.2-2.tar.gz
- 
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+
+  tar xvzf lis-rpms-4.2.3.tar.gz
+
   cd LISISO
- 
+
   sudo ./install.sh
- 
+
   sudo reboot
+
   ```
  
 4. Повторно подключитесь к виртуальной машине и выполните команду `lspci`. Убедитесь, что карта или карты NVIDIA M60 отображаются как устройства PCI.
@@ -225,11 +229,13 @@ lspci | grep -i NVIDIA
 
 1. Скачайте и установите драйверы CUDA.
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
 
   rm -f /tmp/${CUDA_REPO_PKG}
 
@@ -249,25 +255,38 @@ lspci | grep -i NVIDIA
 
 3. Перезапустите виртуальную машину и приступите к проверке установки.
 
+#### <a name="cuda-driver-updates"></a>Обновления драйверов CUDA
+
+Рекомендуется периодически обновлять драйверы CUDA после развертывания.
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 или Red Hat Enterprise Linux 7.3
 
-1. Получите обновления. 
+> [!IMPORTANT]
+> Не выполняйте команду `sudo yum update` для обновления версии ядра в CentOS 7.3 или Red Hat Enterprise Linux 7.3. Сейчас установка и обновления драйверов не выполняются в случае обновления ядра.
+>
 
-  ```bash
-  sudo yum update
-
-  sudo reboot
-  ```
-2. Подключитесь к виртуальной машине и установите последнюю версию Linux Integration Services для Hyper-V.
+1. Установите последнюю версию Linux Integration Services для Hyper-V.
 
   > [!IMPORTANT]
   > Если вы установили на виртуальную машину NC24r образ HPC на основе CentOS, перейдите к шагу 3. Поскольку драйверы Azure RDMA и службы интеграции Linux предварительно установлены в образ, служба интеграции Linux не обновляется и обновления ядра отключены по умолчанию.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
  
-  tar xvzf lis-rpms-4.2.1.tar.gz
+  tar xvzf lis-rpms-4.2.3.tar.gz
  
   cd LISISO
  
@@ -285,7 +304,7 @@ lspci | grep -i NVIDIA
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -317,33 +336,20 @@ lspci | grep -i NVIDIA
 ![Состояние устройства NVIDIA](./media/n-series-driver-setup/smi.png)
 
 
-### <a name="cuda-driver-updates"></a>Обновления драйверов CUDA
 
-Рекомендуется периодически обновлять драйверы CUDA после развертывания.
+## <a name="rdma-network-for-nc24r-vms"></a>Сеть RDMA для виртуальных машин NC24r
 
-#### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+Можно включить сетевое подключение RDMA на виртуальных машинах NC24r, развернутых в одной группе доступности. Сеть RDMA поддерживает трафик MPI (Message Passing Interface) для приложений, использующих Intel MPI 5.x или более поздней версии. Дополнительные требования приведены ниже.
 
-```bash
-sudo apt-get update
+### <a name="distributions"></a>Дистрибутивы
 
-sudo apt-get upgrade -y
+Разверните виртуальные машины NC24r из одного из следующих образов, поддерживающих подключение RDMA, в Azure Marketplace:
+  
+* **Ubuntu** — Ubuntu Server 16.04 LTS. Настройте драйверы RDMA на виртуальной машине и выполните регистрацию на сайте Intel, чтобы скачать Intel MPI.
 
-sudo apt-get dist-upgrade -y
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-
-#### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 или Red Hat Enterprise Linux 7.3
-
-```bash
-sudo yum update
-
-sudo reboot
-```
-
+* **HPC на основе CentOS** — HPC на основе CentOS 7.3. Драйверы RDMA и Intel MPI 5.1 будут установлены на виртуальной машине. 
 
 
 ## <a name="troubleshooting"></a>Устранение неполадок

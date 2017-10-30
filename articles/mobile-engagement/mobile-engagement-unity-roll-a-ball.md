@@ -1,6 +1,6 @@
 ---
 title: "Учебник по Unity. Игра Roll a Ball"
-description: "Шаги по созданию классической игры Roll a Ball на платформе Unity, что является необходимым условием для всех учебников по Mobile Engagement для Unity."
+description: "Шаги по созданию классической игры Roll a Ball на платформе Unity, что является необходимым условием для всех руководств по Службам мобильного взаимодействия для Unity."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="a-idunity-roll-a-ballacreate-unity-roll-a-ball-game"></a><a id="unity-roll-a-ball"></a>Создание игры Roll a Ball на платформе Unity
+# <a id="unity-roll-a-ball"></a>Создание игры Roll a Ball на платформе Unity
 В этом руководстве рассматриваются основные шаги для слегка измененного [руководства по игре Roll a Ball на Unity](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial). Этот пример игры содержит шарообразный объект "игрок", которым управляет пользователь приложения. Цель игры — "собрать" подбираемые объекты, сталкивая объект игрока с ними. Для работы с примером предполагается знакомство со средой редактора Unity. Если вы столкнетесь с проблемами, обращайтесь к полному учебнику. 
 
 ### <a name="setting-up-the-game"></a>Настройка игры
@@ -329,11 +329,5 @@ ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
 
 
 
-
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

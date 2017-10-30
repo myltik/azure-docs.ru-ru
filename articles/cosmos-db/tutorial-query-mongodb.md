@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: feffc553a9aa931d96cec71c101674fce08a466b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Как выполнять запросы к данным в базе данных Azure Cosmos DB с помощью API для MongoDB
 
 [API для MongoDB](mongodb-introduction.md) базы данных Azure Cosmos DB поддерживает [запросы оболочки MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
@@ -155,8 +152,7 @@ ms.lasthandoff: 05/31/2017
 **Запрос**
     
     db.families.find( { "isRegistered" : true })
-**Результаты**
-: документ не будет возвращен. 
+**Результаты**: документ не будет возвращен. 
 
 ## <a id="examplequery4"></a> Пример запроса 4
 
@@ -316,5 +312,4 @@ ms.lasthandoff: 05/31/2017
 
 > [!div class="nextstepaction"]
 > [Глобальное распределение данных](tutorial-global-distribution-documentdb.md)
-
 

@@ -21,6 +21,8 @@
 ### [Доступные интерфейсы API](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Управление
+### [Мониторинг ретранслятора Azure с помощью Azure Monitor](relay-metrics-azure-monitor.md)
 
 # Справочные материалы
 ## .NET

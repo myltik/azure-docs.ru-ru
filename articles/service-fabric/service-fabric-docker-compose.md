@@ -1,5 +1,5 @@
 ---
-title: "Docker Compose для Azure Service Fabric (предварительная версия)"
+title: "Развертывание Docker Compose для Azure Service Fabric (предварительная версия)"
 description: "Azure Service Fabric принимает формат Docker Compose для упрощения управления существующими контейнерами с помощью Service Fabric. Сейчас эта возможность доступна в предварительной версии."
 services: service-fabric
 documentationcenter: .net
@@ -14,16 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: subramar
+ms.openlocfilehash: 92d1951de8c8c80f7b47033dc751cd65a63c43f6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 519bab9d226f9d00ae0fa21348823d2d6b6cd2c9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="docker-compose-application-support-in-azure-service-fabric-preview"></a>Поддержка приложения Docker Compose в Azure Service Fabric (предварительная версия)
+# <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Поддержка развертывания Docker Compose в Azure Service Fabric (предварительная версия)
 
-Средство Docker использует файл [docker-compose.yml](https://docs.docker.com/compose) для определения приложений с несколькими контейнерами. Чтобы пользователи могли ознакомиться с инструментом Docker, который позволяет организовать существующие приложения-контейнеры в Azure Service Fabric, мы изначально добавили в платформу поддержку предварительной версии Docker Compose. Платформа Service Fabric может принять файлы `docker-compose.yml` версии 3 и более поздней. 
+Средство Docker использует файл [docker-compose.yml](https://docs.docker.com/compose) для определения приложений с несколькими контейнерами. Чтобы пользователи могли ознакомиться с инструментом Docker, который позволяет организовать существующие приложения-контейнеры в Azure Service Fabric, мы изначально добавили в платформу предварительную версию поддержки развертывания Docker Compose. Платформа Service Fabric может принять файлы `docker-compose.yml` версии 3 и более поздней. 
 
 Так как эта поддержка доступна в режиме предварительной версии, поддерживается только подмножество директив Compose. Например, обновления приложений не поддерживаются. Но вы всегда можете вместо обновления приложений удалить и развернуть их.
 
@@ -31,10 +30,12 @@ ms.lasthandoff: 09/26/2017
 
 > [!NOTE]
 > Эта функция доступна в режиме предварительной версии и не поддерживается в рабочей среде.
+> Приведенные ниже примеры основаны на среде выполнения версии 6.0 и пакете SDK версии 2.8.
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Развертывание файла Docker Compose в Service Fabric
 
-Приведенные ниже команды создают приложение Service Fabric (`TestContainerApp`), которое можно отслеживать и которым можно управлять, как и любым приложением Service Fabric. Указанное имя приложения можно использовать для запросов работоспособности.
+Приведенные ниже команды создают приложение Service Fabric (`fabric:/TestContainerApp`), которое можно отслеживать и которым можно управлять, как и любым приложением Service Fabric. Указанное имя приложения можно использовать для запросов работоспособности.
+Service Fabric распознает DeploymentName как идентификатор развертывания Compose.
 
 ### <a name="use-powershell"></a>Использование PowerShell
 
@@ -47,7 +48,7 @@ New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose doc
 `RegistryUserName` и `RegistryPassword` задают имя пользователя и пароль реестра контейнеров. После завершения развертывания можно проверить его состояние с помощью следующей команды.
 
 ```powershell
-Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp -GetAllPages
+Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp
 ```
 
 Чтобы удалить развертывание Compose с помощью PowerShell, используйте следующую команду.
@@ -56,24 +57,48 @@ Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp -GetAl
 Remove-ServiceFabricComposeDeployment  -DeploymentName TestContainerApp
 ```
 
+Чтобы запустить обновление развертывания Compose с помощью PowerShell, используйте следующую команду.
+
+```powershell
+Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
+```
+
+После согласия на обновление ход его выполнения можно отслеживать с помощью следующей команды.
+
+```powershell
+Get-ServiceFabricComposeDeploymentUpgrade -Deployment TestContainerApp
+```
+
 ### <a name="use-azure-service-fabric-cli-sfctl"></a>Использование интерфейса командной строки Service Fabric (sfctl)
 
 Можно также выполнить следующую команду интерфейса командной строки Service Fabric.
 
 ```azurecli
-sfctl compose create --application-id TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+sfctl compose create --deployment-name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
 ```
 
-После создания приложения можно проверить его состояние с помощью следующей команды:
+После создания развертывания можно проверить его состояние с помощью следующей команды.
 
 ```azurecli
-sfctl compose status --application-id TestContainerApp [ --timeout ]
+sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
-Чтобы удалить приложение Compose, выполните следующую команду:
+Чтобы удалить развертывание Compose, выполните следующую команду.
 
 ```azurecli
-sfctl compose remove  --application-id TestContainerApp [ --timeout ]
+sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
+```
+
+Чтобы начать обновление развертывания Compose, выполните следующую команду.
+
+```powershell
+sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
+```
+
+После согласия на обновление ход его выполнения можно отслеживать с помощью следующей команды.
+
+```powershell
+sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
 ## <a name="supported-compose-directives"></a>Поддерживаемые директивы Compose
@@ -103,7 +128,7 @@ sfctl compose remove  --application-id TestContainerApp [ --timeout ]
 
 Например, если в качестве имени приложения указано `fabric:/SampleApp/MyComposeApp`, то `<ServiceName>.MyComposeApp.SampleApp` будет зарегистрированным DNS-именем.
 
-## <a name="differences-between-compose-instance-definition-and-service-fabric-application-model-type-definition"></a>Различия между моделью приложений Compose (определение экземпляра) и Service Fabric (определение типа)
+## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>Сравнение развертывания Compose (определение экземпляра) и модели приложения Service Fabric (определение типа)
 
 Файл docker-compose.yml описывает набор контейнеров, доступных для развертывания, в том числе их свойства и конфигурации.
 Например, файл может содержать переменные среды и порты. В файле docker-compose.yml также указываются параметры развертывания, такие как ограничения размещения, ограничения ресурсов и DNS-имена.
@@ -118,4 +143,3 @@ sfctl compose remove  --application-id TestContainerApp [ --timeout ]
 
 * Ознакомьтесь со статьей [Моделирование приложения в структуре службы](service-fabric-application-model.md).
 * [Azure Service Fabric command line](service-fabric-cli.md) (Интерфейс командной строки Azure Service Fabric)
-

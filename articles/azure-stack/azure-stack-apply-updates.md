@@ -1,6 +1,6 @@
 ---
-title: Apply updates in Azure Stack | Microsoft Docs
-description: Learn how to import and install Microsoft update packages for an Azure Stack integrated system.
+title: "Применение обновлений в Azure Stack | Документация Майкрософт"
+description: "Узнайте, как импортировать и устанавливать пакеты обновлений Майкрософт для интегрированной системы Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,65 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8fbed3c15b385e385e64093331df37363a558185
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="apply-updates-in-azure-stack"></a>Применение обновлений в Azure Stack
 
-# <a name="apply-updates-in-azure-stack"></a>Apply updates in Azure Stack
+*Область применения: интегрированные системы Azure Stack*
 
-*Applies to: Azure Stack integrated systems*
+Оператор Azure Stack может применять пакеты обновлений Майкрософт для Azure Stack, используя плитку обновления на портале администратора. Для этого нужно скачать пакет обновления Майкрософт, импортировать файлы пакета в Azure Stack и установить этот пакет обновления. 
 
-As an Azure Stack operator, you can apply Microsoft updates packages for Azure Stack by using the Update tile in the administrator portal. You must download the Microsoft update package, import the package files to Azure Stack, and then install the update package. 
+## <a name="download-the-update-package"></a>Скачивание пакета обновлений
 
-## <a name="download-the-update-package"></a>Download the update package
+Когда появится доступный пакет обновлений Майкрософт для Azure Stack, скачайте этот пакет в любое расположение, доступное из Azure Stack, и просмотрите содержимое пакета. Обычно пакет обновлений содержит следующие файлы:
 
-When a Microsoft update package for Azure Stack is available, download the package to a location that's reachable from Azure Stack, and review the package contents. An update package typically consists of the following files:
+- Самораспаковывающийся файл *PackageName.exe*. Этот файл содержит полезные данные для обновления, например новейшее накопительное обновление для Windows Server.   
+- Соответствующие файлы *PackageName.bin*. Эти файлы обеспечивают сжатие полезных данных, с которыми связан файл *PackageName.exe*. 
+- Файл Metadata.xml. Этот файл содержит важные сведения об обновлении, например название издателя, имя пакета, необходимые компоненты, размер и URL-адрес для поддержки.
 
-- A self-extracting *PackageName*.exe file. This file contains the payload for the update, for example the latest cumulative update for Windows Server.   
-- Corresponding *PackageName*.bin files. These files provide compression for the payload that's associated with the *PackageName*.exe file. 
-- A Metadata.xml file. This file contains essential information about the update, for example the publisher, name, prerequisite, size, and support path URL.
+## <a name="import-and-install-updates"></a>Импорт и установка обновлений
 
-## <a name="import-and-install-updates"></a>Import and install updates
+Ниже описано, как импортировать и устанавливать пакеты обновления на портале администратора.
 
-The following procedure shows how to import and install update packages in the administrator portal.
+1. На портале администратора щелкните **Другие службы**. После этого в категории **Данные + хранилище** выберите **Учетные записи хранения**. (Или начните вводить текст **учетные записи хранения** в поле ввода и выберите найденный элемент.)
 
-1. In the administrator portal, select **More services**. Then, under the **Data + Storage** category, select **Storage accounts**. (Or, in the filter box, start typing **storage accounts**, and select it.)
+    ![Где найти учетные записи хранения на портале](media/azure-stack-apply-updates/ApplyUpdates1.png)
 
-    ![Shows where to find storage accounts in the portal](media/azure-stack-apply-updates/ApplyUpdates1.png)
+2. В поле фильтра введите текст **update** и выберите учетную запись хранения **updateadminaccount**.
 
-2. In the filter box, type **update**, and select the **updateadminaccount** storage account.
+    ![Как найти updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
 
-    ![Shows how to search for updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
-
-3. In the storage account details, under **Services**, select **Blobs**.
+3. В разделе **Службы** сведений об учетной записи хранения выберите **BLOB-объекты**.
  
-    ![Shows how to get to Blobs for the storage account](media/azure-stack-apply-updates/ApplyUpdates3.png) 
+    ![Как найти BLOB-объекты для учетной записи хранения](media/azure-stack-apply-updates/ApplyUpdates3.png) 
  
-4. Under **Blob service**, select **+ Container** to create a  container. Enter a name (for example *Update-1709*), and then select **OK**.
+4. В разделе **Служба BLOB-объектов** выберите **+ Контейнер**, чтобы создать контейнер. Введите имя (например, *обновление 1709*) и выберите **ОК**.
  
-     ![Shows how to add a container in the storage account](media/azure-stack-apply-updates/ApplyUpdates4.png)
+     ![Как добавить контейнер в учетную запись хранения](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
-5. After the container is created, click the container name, and then click **Upload** to upload the package files to the container.
+5. После создания контейнера щелкните его имя и нажмите кнопку **Отправить**, чтобы отправить в контейнер файлы пакета.
  
-    ![Shows how to upload the package files](media/azure-stack-apply-updates/ApplyUpdates5.png)
+    ![Как отправить файлы пакета](media/azure-stack-apply-updates/ApplyUpdates5.png)
 
-6. Under **Upload blob**, click the folder icon, browse to the update package's .exe file, and then click **Open** in the file explorer window.
+6. В разделе **Отправка большого двоичного объекта** щелкните значок папки, найдите файл .exe из пакета обновлений и щелкните **Открыть** в окне обозревателя файлов.
   
-7. Under **Upload blob**, click **Upload**. 
+7. В разделе **Отправка большого двоичного объекта** щелкните **Отправить**. 
  
-    ![Shows where to upload each package file](media/azure-stack-apply-updates/ApplyUpdates6.png)
+    ![Расположение, в которое нужно передать каждый файл пакета](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. 
-9. When done, you can review the notifications (bell icon in the top-right corner of the portal). The notifications should indicate that the upload has completed. 
-10. Navigate back to the Update tile on the dashboard. The tile should indicate that an update is available. Click the tile to review the newly added update package.
-11. To install the update, select the package that's marked as **Ready** and either right-click the package and select **Update now**, or click the **Update now** action near the top.
-12. When you click the installing update package, you can view the status in the **Update run details** area. From here, you can also click **Download full logs** to download the log files.
-13. When the update completes, the Update tile shows the updated Azure Stack version.
+8. Повторите шаги 6 и 7 для файлов *PackageName*.bin и Metadata.xml. 
+9. Когда все будет готово, просмотрите уведомления (значок колокольчика в правом верхнем углу окна портала). В списке уведомлений должно быть сообщение о завершении отправки. 
+10. Вернитесь к плитке обновления на панели мониторинга. Теперь эта плитка должна демонстрировать доступность обновления. Щелкните плитку, чтобы просмотреть только что добавленный пакет обновлений.
+11. Чтобы установить обновления, выберите пакет с пометкой **Ready** (Готов), а затем щелкните его правой кнопкой мыши и выберите действие **Update now** (Обновить сейчас) или нажмите кнопку **Update now** (Обновить сейчас) в верхней части экрана.
+12. Щелкнув пакет обновления, вы можете просмотреть его состояние в области **Update run details** (Сведения о выполнении обновления). Также вы можете выбрать здесь действие **Download full logs** (Скачать журналы полностью).
+13. Когда обновление завершится, на плитке обновлений отобразится номер новой версии Azure Stack.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-- [Azure Stack servicing policy](azure-stack-servicing-policy.md)
+- [Azure Stack servicing policy](azure-stack-servicing-policy.md) (Политика обслуживания Azure Stack).

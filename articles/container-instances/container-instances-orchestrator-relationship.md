@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: b960d56188abf102cf4a8894582203205eaa9a03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 6f0a1e5263a034e825d4c12860fd6f97a4c556c6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-container-instances-and-container-orchestrators"></a>Экземпляры контейнеров Azure и оркестраторы контейнеров
 
 Благодаря небольшому размеру и ориентации приложения контейнеры хорошо подходят для эластичных сред доставки и архитектур на основе микрослужб. Задача автоматизации большого числа контейнеров, управления ими, а также способом их взаимодействия называется *оркестрацией*. В число популярных оркестраторов контейнеров входят Kubernetes, DC/OS и Docker Swarm, каждый из которых доступен в [службе контейнеров Azure](https://docs.microsoft.com/azure/container-service/).
@@ -66,9 +64,9 @@ ms.lasthandoff: 07/26/2017
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Пример реализации: соединитель экземпляров контейнеров Azure для Kubernetes
 
-Чтобы показать, как можно интегрировать платформы оркестрации контейнеров с экземплярами контейнеров Azure, мы приступили к созданию [примера соединителя для Kubernetes][aci-connector-k8s]. 
+Чтобы показать, как можно интегрировать платформы оркестрации контейнеров с экземплярами контейнеров Azure, мы приступили к созданию [примера соединителя для Kubernetes][aci-connector-k8s].
 
-Соединитель для Kubernetes имитирует [kubelet][kubelet-doc], выполняя регистрацию в качестве узла с неограниченной емкостью, а также подготавливает создание модулей [pod][pod-doc] в качестве групп контейнеров в экземплярах контейнеров Azure. 
+Соединитель для Kubernetes имитирует [kubelet][kubelet-doc], выполняя регистрацию в качестве узла с неограниченной емкостью, а также подготавливает создание модулей [pod][pod-doc] в качестве групп контейнеров в экземплярах контейнеров Azure.
 
 <!-- ![ACI Connector for Kubernetes][aci-connector-k8s-gif] -->
 
@@ -79,7 +77,7 @@ ms.lasthandoff: 07/26/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Создайте свой первый контейнер с использованием экземпляров контейнеров Azure, используя [краткое руководство](container-instances-quickstart.md).
+Создайте свой первый контейнер с использованием службы "Экземпляры контейнеров Azure", используя [краткое руководство](container-instances-quickstart.md).
 
 <!-- IMAGES -->
 [aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif

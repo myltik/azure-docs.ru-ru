@@ -17,21 +17,18 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 9d7d2ae0e9b1f7850332d151d78a4a5fdb013777
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 75c5f00255e1a55dd84ba0cf17dbef56b0253334
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Аутентификация с помощью частного реестра контейнеров Docker
 Чтобы приступить к работе с образами контейнеров в реестре контейнеров Azure, нужно войти в систему, выполнив команду `docker login`. Вы можете войти, используя **[субъект-службу Azure Active Directory](../active-directory/active-directory-application-objects.md)** или специальную **учетную запись администратора**. В этой статье содержатся подробные сведения об этих удостоверениях.
 
-
-
 ## <a name="service-principal"></a>Субъект-служба
 
-Вы можете [назначить своему реестру субъект-службу](container-registry-get-started-azure-cli.md#assign-a-service-principal) и использовать ее для базовой проверки подлинности Docker. Мы рекомендуем использовать субъект-службу в большинстве сценариев. Укажите идентификатор и пароль приложения для субъекта-службы в команде `docker login`, как показано в следующем примере.
+Вы можете назначить своему реестру субъект-службу и использовать ее для базовой проверки подлинности Docker. Мы рекомендуем использовать субъект-службу в большинстве сценариев. Укажите идентификатор и пароль приложения для субъекта-службы в команде `docker login`, как показано в следующем примере.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -42,7 +39,6 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 > [!TIP]
 > При необходимости пароль субъекта-службы можно создать повторно, выполнив команду `az ad sp reset-credentials`.
 >
-
 
 Субъекты-службы поддерживают [доступ на основе ролей](../active-directory/role-based-access-control-configure.md) к реестру. Доступные роли:
   * Читатель (доступ только для получения).
@@ -58,11 +54,8 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
   * Решения непрерывной интеграции и развертывания (например, Visual Studio Team Services или Jenkins), создающие образы контейнеров и отправляющие их в реестр.
 
 
-
-
-
 ## <a name="admin-account"></a>Учетная запись администратора
-При создании реестра вместе с ним автоматически создается учетная запись администратора. По умолчанию эта учетная запись отключена, но ее можно включить, а также можно настроить учетные данные, например на [портале](container-registry-get-started-portal.md#manage-registry-settings) или с помощью [команд Azure CLI 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Каждой учетной записи администратора предоставляются два пароля, каждый из которых можно создать повторно. Благодаря этому вы можете подключаться к реестру, используя один пароль, пока второй создается повторно. Если учетная запись включена, вы можете указать в команде `docker login` имя пользователя и пароль для обычной проверки подлинности в реестре. Например:
+При создании реестра вместе с ним автоматически создается учетная запись администратора. По умолчанию эта учетная запись отключена, но ее можно включить, а также можно настроить учетные данные, например на [портале](container-registry-get-started-portal.md#create-a-container-registry) или с помощью [команд Azure CLI 2.0](container-registry-get-started-azure-cli.md#create-a-container-registry). Каждой учетной записи администратора предоставляются два пароля, каждый из которых можно создать повторно. Благодаря этому вы можете подключаться к реестру, используя один пароль, пока второй создается повторно. Если учетная запись включена, вы можете указать в команде `docker login` имя пользователя и пароль для обычной проверки подлинности в реестре. Например:
 
 ```
 docker login myregistry.azurecr.io -u myAdminName -p myPassword1
@@ -72,8 +65,6 @@ docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 > Учетная запись администратора предоставляет доступ к реестру одному пользователю. Она предназначена, главным образом, для тестирования. Мы не рекомендуем обмениваться учетными данными учетной записи администратора с другими пользователями. В реестре все пользователи отображаются как один пользователь. Изменив или отключив эту учетную запись, вы ограничите доступ к реестру для пользователей, использующих эти учетные данные.
 >
 
-
 ### <a name="next-steps"></a>Дальнейшие действия
 * [Отправьте свой первый образ с помощью интерфейса командной строки Docker.](container-registry-get-started-docker-cli.md)
 * Дополнительные сведения о проверке подлинности в предварительной версии реестра контейнеров см. в [этой записи блога](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/).
-

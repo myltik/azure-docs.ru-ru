@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ce6b2805e7281dff7752a73ada86be11d7e01fc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0bef2fa17474298f36f360efa49922f5f85b21a1
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Защита идентификации Azure Active Directory. Разблокирование пользователей
 С помощью защиты идентификации Azure Active Directory можно настроить политики для блокирования пользователей при выполнении заданных условий. Как правило, заблокированный пользователь обращается в службу технической поддержки, чтобы его разблокировали. В этой статье показано, как разблокировать заблокированного пользователя.

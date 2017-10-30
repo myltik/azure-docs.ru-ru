@@ -15,19 +15,18 @@ ms.workload: identity
 ms.date: 09/26/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: b409aa762b60c6bed0ee26f4b9fa7c347d9eb997
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения
 Если вы предлагаете приложение "программное обеспечение как сервис" для многих организаций, то можете настроить приложение таким образом, чтобы оно поддерживало вход из любого клиента Azure AD.  В Azure AD такое приложение называется "мультитенантным".  Пользователи из любого клиента Azure AD смогут входить в приложение после того, как согласятся использовать свою учетную запись с вашим приложением.  
 
 Если у вас есть приложение, которое имеет собственную систему учетных записей или поддерживает виды входа от других поставщиков облачных служб, добавить вход в Azure AD с любого клиента не составит труда. Просто зарегистрируйте свое приложение, добавьте код входа через OAuth2, OpenID Connect или SAML и поместите кнопку "Вход с учетной записью Майкрософт" в свое приложение. Чтобы узнать больше о добавлении фирменной символики в приложение, нажмите кнопку ниже.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![Кнопка "Войти"][AAD-Sign-In]][AAD-App-Branding]
 
 В этой статье предполагается, что вы уже знакомы с процессом создания однотенантного приложения для Azure AD.  Если это не так, вернитесь на страницу [Руководство разработчика по Azure Active Directory][AAD-Dev-Guide] и ознакомьтесь с одним из кратких руководств, указанных в разделе "Приступая к работе".
 
@@ -62,7 +61,7 @@ ms.lasthandoff: 09/25/2017
 
 Как упоминалось ранее, мультитенантные приложения также должны предоставлять согласованную процедуру входа для пользователей. Эта процедура должна соответствовать рекомендациям по фирменной символике приложений Azure AD. Чтобы узнать больше о добавлении фирменной символики в приложение, нажмите кнопку ниже.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![Кнопка "Войти"][AAD-Sign-In]][AAD-App-Branding]
 
 Рассмотрим подробнее реализацию вашего кода и использование конечной точки /common.
 
@@ -240,7 +239,6 @@ ms.lasthandoff: 09/25/2017
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
 
 
 

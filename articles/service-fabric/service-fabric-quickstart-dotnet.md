@@ -12,17 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 10/02/2017
 ms.author: mikhegn
-ms.custom: mvc
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d11b9af982112db8ba94b62110c18be843f1abb1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Создание приложения .NET Service Fabric в Azure
 Azure Service Fabric — это платформа распределенных систем для развертывания масштабируемых надежных микрослужб и контейнеров и управления ими. 
 
@@ -135,7 +133,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 2. Укажите конечную точку подключения кластера в поле **Конечная точка подключения** и нажмите кнопку **Опубликовать**. При регистрации для доступа к кластеру сообщества конечная точка подключения отображается в браузере. Например, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
-3. Откройте браузер и введите в адрес кластера, например `http://winh1x87d1d.westus.cloudapp.azure.com`. Вы увидите приложения, выполняющиеся в кластере Azure.
+3. Откройте браузер и введите в адрес кластера и порт ":8080", чтобы получить приложение в кластере. Пример: `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Вы увидите приложения, выполняющиеся в кластере Azure.
 
 ![Клиентская часть приложения](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Примеры сопоставления существующей веб-службы OData через CSDL
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-post"></a>Пример: FunctionImport для "необработанных" данных, возвращаемых с помощью "POST"
-Используйте "POST" для необработанных данных, чтобы создать новый подчиненный элемент и вернуть определенный сервером URL-адрес (расположение) или обновить часть подчиненного элемента по определенному сервером URL-адресу.  Где подчиненный элемент — поток, т. е. неструктурированный, например текстовый файл.  Имейте в виду, что "POST" не идемпотентен без местоположения.
+Используйте "POST" для необработанных данных, чтобы создать новый подчиненный элемент и вернуть определенный сервером URL-адрес (расположение) или обновить часть подчиненного элемента по определенному сервером URL-адресу.  Где подчиненный элемент — поток (неструктурированный), например текстовый файл.  Имейте в виду, что "POST" не идемпотентен без местоположения.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -106,7 +106,7 @@ ms.lasthandoff: 07/11/2017
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-put"></a>Пример: FunctionImport для "необработанных" данных, возвращаемых с помощью "PUT"
-Используйте "PUT" для необработанных данных, чтобы создать новый подчиненный элемент или обновить весь подчиненный элемент по определенному сервером URL-адресу.  Где подчиненный элемент — поток, т. е. неструктурированный, например текстовый файл.  Метод PUT обладает свойством идемпотентности, поэтому несколько вхождений дадут одно состояние, т. е. x = 5.  "PUT" следует использовать с полным содержимым указанного ресурса.
+Используйте "PUT" для необработанных данных, чтобы создать новый подчиненный элемент или обновить весь подчиненный элемент по определенному сервером URL-адресу.  Где подчиненный элемент — поток (неструктурированный), например текстовый файл.  Метод PUT обладает свойством идемпотентности, поэтому несколько вхождений дадут одно состояние, т. е. x = 5.  "PUT" следует использовать с полным содержимым указанного ресурса.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">

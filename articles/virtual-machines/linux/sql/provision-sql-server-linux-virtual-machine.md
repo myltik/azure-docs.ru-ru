@@ -5,18 +5,18 @@ services: virtual-machines-linux
 author: rothja
 ms.author: jroth
 manager: jhubbard
-ms.date: 10/04/2017
+ms.date: 10/25/2017
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 5a00bd2f40024aa6fd352a839f9136f90bfd46d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54cb1e11e82c7a9be82252a0b93277353c5005e2
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Подготовка виртуальной машины SQL Server на базе Linux на портале Azure
 
@@ -171,7 +171,7 @@ IP-адрес виртуальной машины можно найти на п�
 
    ```bash
    sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
-   sudo firewall-cmd –reload
+   sudo firewall-cmd –-reload
    ```
 
 ## <a name="next-steps"></a>Дальнейшие действия

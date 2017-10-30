@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.lasthandoff: 04/18/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Команды Azure CLI в режиме Resource Manager
 В этой статье приводится синтаксис и параметры команд интерфейса командной строки (CLI) Azure, которые обычно используется для создания ресурсов Azure и управления ими в модели развертывания с помощью Azure Resource Manager. Для доступа к этим командам следует запустить CLI в режиме Resource Manager (ARM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры. Общие сведения о ресурсах и группах ресурсов Azure см. в статье [Общие сведения о диспетчере ресурсов Azure](../azure-resource-manager/resource-group-overview.md).  
@@ -969,7 +968,7 @@ ms.lasthandoff: 04/18/2017
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
- network lb address-pool delete [параметры] <группа_ресурсов> <имя_балансировщика_нагрузки> <name>
+    network lb address-pool delete [параметры] <группа_ресурсов> <имя_балансировщика_нагрузки> <name>
 
 Удаляет ресурс диапазона пула IP-адресов из подсистемы балансировки нагрузки.
 
@@ -1333,7 +1332,7 @@ ms.lasthandoff: 04/18/2017
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    network public-ip list [параметры] <группа_ресурсов> выводит список всех общедоступных IP-ресурсов в группе ресурсов.
+    network public-ip list [параметры] &lt;группа_ресурсов&gt; Вывод списка всех общедоступных IP-ресурсов в группе ресурсов.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1784,4 +1783,3 @@ ms.lasthandoff: 04/18/2017
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
-

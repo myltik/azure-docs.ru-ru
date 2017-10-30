@@ -14,12 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 8a6fd3711bf273d7035587d3731a334fd2268c32
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: 8265aaa275b3f6e528ec729ff1325200e9ead524
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Использование пакета SDK Node.js для мобильных приложений Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -37,7 +36,7 @@ ms.lasthandoff: 03/09/2017
 Примеры для каждого варианта использования можно найти в [каталоге примеров на сайте GitHub].
 
 ## <a name="supported-platforms"></a>Поддерживаемые платформы
-Пакет SDK Node для мобильных приложений Azure поддерживает текущий выпуск LTS Node и более поздние версии.  На момент написания статьи последней версией LTS является Node&4;.5.0.  Другие версии Node могут также работать, но они не поддерживаются.
+Пакет SDK Node для мобильных приложений Azure поддерживает текущий выпуск LTS Node и более поздние версии.  На момент написания статьи последней версией LTS является Node 4.5.0.  Другие версии Node могут также работать, но они не поддерживаются.
 
 Пакет SDK Node для мобильных приложений Azure поддерживает два драйвера базы данных. Драйвер node-mssql поддерживает SQL Azure и локальные экземпляры SQL Server.  Драйвер sqlite3 поддерживает базы данных SQLite только в отдельном экземпляре.
 
@@ -131,7 +130,7 @@ ms.lasthandoff: 03/09/2017
 Когда вы создаете серверную часть мобильного приложения Node.js с помощью колонки портала **Быстрый запуск**, для вас будет создан и развернут на сайте проект Node.js. На портале вы сможете добавлять таблицы и API-интерфейсы, а также изменять файлы кода серверной части Node.js. С помощью различных инструментов развертывания вы можете скачать проект серверной части, чтобы добавить или изменить таблицы и интерфейсы API, а затем повторно опубликовать этот проект. Дополнительные сведения см. в [руководстве по развертыванию службы приложений Azure]. В следующей процедуре используется репозиторий Git для скачивания кода проекта быстрого запуска.
 
 1. Установите Git, если его у вас еще нет. Действия, необходимые для установки Git, отличаются в разных операционных системах. Сведения о дистрибутивах для разных операционных систем и руководство по установке см. в разделе [Установка Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Выполните инструкции из раздела [Включение репозитория для приложения службы приложений](../app-service-web/app-service-deploy-local-git.md#Step3), чтобы включить репозиторий Git для сайта серверной части. Запишите имя пользователя и пароль для развертывания.
+2. Выполните инструкции из раздела [Включение репозитория для приложения службы приложений](../app-service/app-service-deploy-local-git.md#Step3), чтобы включить репозиторий Git для сайта серверной части. Запишите имя пользователя и пароль для развертывания.
 3. В колонке для серверной части мобильного приложения найдите параметр **URL-адрес клона Git** и запишите его.
 4. Выполните команду `git clone`, указав URL-адрес клона Git, и введите пароль в ответ на запрос, как показано в следующем примере.
 
@@ -348,7 +347,7 @@ Microsoft Azure предоставляет множество механизмо
 Порядок использования базы данных SQL в качестве хранилища данных идентичен для всех типов приложений службы приложений Azure. Если вы этого еще не сделали, создайте серверную часть мобильного приложения, выполнив указанные ниже действия.
 
 1. Войдите на [портале Azure].
-2. В верхнем левом углу окна нажмите кнопку **+СОЗДАТЬ**, выберите **Интернет+мобильные устройства** > **Мобильное приложение**, а затем введите имя для серверной части мобильного приложения.
+2. В верхнем левом углу окна нажмите кнопку **+Создать**, выберите **Интернет+мобильные устройства** > **Мобильное приложение**, а затем введите имя для серверной части мобильного приложения.
 3. В окне **Группа ресурсов** введите имя своего приложения.
 4. Будет выбран план службы приложений по умолчанию.  Если вы хотите изменить план службы приложений, выберите "План службы приложений" > **+ Создать**.  Введите имя нового плана службы приложений и выберите подходящее расположение.  Щелкните "Ценовая категория" и выберите соответствующую категорию для своей службы. Щелкните **Просмотреть все**, чтобы просмотреть другие варианты тарификации, например **Бесплатный** и **Общий**.  Выберите ценовую категорию и нажмите кнопку **Выбрать** .  В колонке **План службы приложений** нажмите кнопку **ОК**.
 5. Щелкните **Создать**. Подготовка серверной части мобильного приложения может занять несколько минут.  Когда серверная часть мобильного приложения будет подготовлена, на портале для нее откроется колонка **Параметры**.
@@ -844,20 +843,19 @@ Microsoft Azure предоставляет множество механизмо
 [Быстрый запуск клиента Xamarin.Android.]: app-service-mobile-xamarin-android-get-started.md
 [Быстрый запуск клиента Xamarin.Forms.]: app-service-mobile-xamarin-forms-get-started.md
 [Быстрый запуск клиента Магазина Windows Phone.]: app-service-mobile-windows-store-dotnet-get-started.md
-[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [автономной синхронизации данных]: app-service-mobile-offline-data-sync.md
-[Настройка проверки подлинности в Azure Active Directory.]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Настройка проверки подлинности в Facebook.]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Настройка проверки подлинности в Google.]: app-service-mobile-how-to-configure-google-authentication.md
-[Настройка проверки подлинности в Microsoft.]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Настройка проверки подлинности в Twitter.]: app-service-mobile-how-to-configure-twitter-authentication.md
-[руководстве по развертыванию службы приложений Azure]: ../app-service-web/web-sites-deploy.md
-[Мониторинг службы приложений Azure]: ../app-service-web/web-sites-monitor.md
-[Включение ведения журналов диагностики в службе приложений Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Диагностика службы приложений Azure в Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[Настройка проверки подлинности в Azure Active Directory.]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Настройка проверки подлинности в Facebook.]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[Настройка проверки подлинности в Google.]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[Настройка проверки подлинности в Microsoft.]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Настройка проверки подлинности в Twitter.]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[руководстве по развертыванию службы приложений Azure]: ../app-service/app-service-deploy-local-git.md
+[Мониторинг службы приложений Azure]: ../app-service/web-sites-monitor.md
+[Включение ведения журналов диагностики в службе приложений Azure]: ../app-service/web-sites-enable-diagnostic-log.md
+[Диагностика службы приложений Azure в Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [Указание версии Node]: ../nodejs-specify-node-version-azure-apps.md
 [Использование модулей Node]: ../nodejs-use-node-modules-azure-apps.md
-[Create a new Azure App Service]: ../app-service-web/
+[Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
@@ -875,4 +873,3 @@ Microsoft Azure предоставляет множество механизмо
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [промежуточного слоя ExpressJS]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
-

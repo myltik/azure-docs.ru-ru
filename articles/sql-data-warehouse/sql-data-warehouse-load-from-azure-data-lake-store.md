@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 09/06/2017
+ms.date: 09/15/2017
 ms.author: cakarst;barbkess
+ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: c58aec1ea9bc79b335a115007500d77f8e752850
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Загрузка данных из Azure Data Lake Store в хранилище данных SQL
 В этой статье описываются все шаги, которые необходимо выполнить для загрузки данных из Azure Data Lake Store (ADLS) в хранилище данных SQL с использованием PolyBase.
@@ -170,7 +169,7 @@ WITH
 Например, если для столбца в схеме ошибочно указан формат int (целое число), а сами данные в файле имеют строковый формат, будут отклонены все строки.
 
 Параметр Location указывает самый вышестоящий каталог, из которого будут считываться данные.
-В нашем примере будут импортированы все данные из подкаталогов в каталоге /DimProduct/PolyBase, если они существуют.
+В нашем примере будут импортированы все данные из подкаталогов в каталоге /DimProduct/PolyBase, если они существуют. Хранилище Azure Data Lake использует управление доступом на основе ролей (RBAC) для управления доступом к данным. Это означает, что субъект-служба должна иметь разрешения на чтение для каталогов, указанных в параметре расположения, и для дочерних элементов конечного каталога и файлов. Это позволяет PolyBase проводить аутентификацию и загружать чтение данных. 
 
 ## <a name="load-the-data"></a>Загрузка данных
 Чтобы загрузить данные из Azure Data Lake Store, используйте инструкцию [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Эта инструкция (CTAS) использует строго типизированную внешнюю таблицу, которую вы создали.
@@ -238,4 +237,3 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
-

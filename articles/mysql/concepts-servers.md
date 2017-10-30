@@ -8,13 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 07/06/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a2556206ac53829fcd6ab92ffe292859349790d7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.date: 10/03/2017
+ms.openlocfilehash: 17f045f516792e50f7349805ec9f7a01e3f9d5b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Основные понятия работы с сервером в базе данных Azure для MySQL
 В этой статье приведены рекомендации и указания по работе с серверами базы данных Azure для MySQL.
@@ -56,4 +55,3 @@ ms.lasthandoff: 07/08/2017
 - Обзор службы содержится в статье [What is Azure Database for MySQL? Service Introduction](./overview.md) (Что такое база данных Azure для MySQL? Общие сведения о службе).
 - Сведения о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб** представлены в статье [Уровни служб в базе данных Azure для MySQL](./concepts-service-tiers.md).
 - Сведения о подключении к службе см. в статье [Библиотеки подключений для базы данных Azure для MySQL](./concepts-connection-libraries.md).
-

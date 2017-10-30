@@ -1,6 +1,6 @@
 ---
-title: 'Azure Stack Networking: Differences and considerations'
-description: Learn about differences and considerations when working with networking in Azure Stack.
+title: "Сети Azure Stack. Различия и рекомендации"
+description: "Дополнительные сведения о различиях и рекомендациях при работе с сетями в Azure Stack."
 services: azure-stack
 keywords: 
 author: ScottNapolitan
@@ -8,46 +8,43 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="considerations-for-azure-stack-networking"></a>Рекомендации по работе с сетями Azure Stack
 
-# <a name="considerations-for-azure-stack-networking"></a>Considerations for Azure Stack networking
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
-Networking in Azure Stack provides many of the features you find in Azure, with some differences you should understand before you start deploying.
-
-
-This article provides an overview of the unique considerations for Networking and its features in Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+Возможности работы с сетями в Azure Stack позволяют использовать многие функции, доступные в Azure. Но есть и некоторые отличия, о которых следует помнить, прежде чем приступать к развертыванию.
 
 
-## <a name="cheat-sheet-networking-differences"></a>Cheat sheet: Networking differences
+В этой статье представлены рекомендации по работе с сетями и их компонентами в Azure Stack. См. дополнительные сведения о [ключевых различиях](azure-stack-considerations.md) между Azure Stack и Azure.
 
-|Service | Feature | Azure (global) | Azure Stack |
+
+## <a name="cheat-sheet-networking-differences"></a>Памятка. Различия между сетевыми службами
+
+|Служба | Функция | Azure (глобальная) | Azure Stack |
 | --- | --- | --- | --- |
-| DNS | Multi-tenant DNS | Supported| Not yet supported|
-| |DNS AAAA records|Supported|Not supported|
-| |DNS zones per subscription|100 (default)<br>Can be increased on request.|100|
-| |DNS record sets per zone|5000 (default)<br>Can be increased on request.|5000|
-||Name servers for zone delegation|Azure provide four name servers for each user (tenant) zone that is created.|Azure Stack provides two name servers for each user (tenant) zone that is created.|
-| Virtual network|Virtual network peering|Connect two virtual networks in the same region through the Azure backbone network.|Not yet supported|
-| |IPv6 addresses|You can assign an IPv6 address as part of the [Network Interface Configuration](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Only IPv4 is supported.|
-|VPN gateways|Point-to-Site VPN Gateway|Supported|Not yet supported|
-| |Vnet-to-Vnet Gateway|Supported|Not yet supported|
-| |VPN Gateway SKUs|Support for Basic, GW1, GW2, GW3, Standard High Performance, Ultra-High Performance. |Support for Basic, Standard, and High-Performance SKUs.|
-|Load balancer|IPv6 public IP addresses|Support for assigning an IPv6 public IP address to a load balancer.|Only IPv4 is supported.|
-|Network Watcher|Network Watcher tenant network monitoring capabilities|Supported|Not yet supported|
-|CDN|Content Delivery Network profiles|Supported|Not yet supported|
-|Application gateway|Layer-7 load balancing|Supported|Not yet supported|
-|Traffic Manager|Route incoming traffic for optimal application performance and reliability.|Supported|Not yet supported|
-|Express Route|Set up a fast, private connection to Microsoft cloud services from your on-premises infrastructure or colocation facility.|Supported|Support for connecting Azure Stack to an Express Route circuit.|
+| DNS | DNS (мультитенантная) | Поддерживается| Еще не поддерживается|
+| |Записи DNS AAAA|Поддерживается|Не поддерживается|
+| |Зон DNS на подписку|100 (по умолчанию)<br>Можно увеличить по запросу.|100|
+| |Наборов записей DNS на зону|5000 (по умолчанию)<br>Можно увеличить по запросу.|5000|
+||Серверы доменных имен для делегирования зон|Azure предоставляет четыре сервера имен для каждой создаваемой зоны пользователя (клиента).|Azure Stack предоставляет два сервера имен для каждой создаваемой зоны пользователя (клиента).|
+| Виртуальная сеть|Пиринг между виртуальными сетями|Подключение между двумя виртуальными сетями, находящимися в одном регионе, через магистральную сеть Azure.|Еще не поддерживается|
+| |IPv6-адреса|IPv6-адрес можно назначить как часть [конфигурации сетевого интерфейса](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Поддерживается только протокол IPv4.|
+|VPN-шлюзы|VPN-шлюз типа "точка — сеть"|Поддерживается|Еще не поддерживается|
+| |Шлюз типа "виртуальная сеть — виртуальная сеть"|Поддерживается|Еще не поддерживается|
+| |SKU VPN-шлюзов|Поддерживаемые SKU: Basic, GW1, GW2, GW3, Standard High Performance, Ultra-High Performance. |Поддерживаемые SKU: Basic, Standard и High-Performance.|
+|Подсистема балансировки нагрузки|Общедоступные IP-адреса IPv6|Поддержка назначения общедоступных IP-адресов IPv6 для подсистемы балансировки нагрузки.|Поддерживается только протокол IPv4.|
+|Наблюдатель за сетями|Возможности мониторинга сети клиента службы "Наблюдатель за сетями"|Поддерживаются|Еще не поддерживается|
+|CDN|Профили сети доставки содержимого|Поддерживаются|Еще не поддерживается|
+|Шлюз приложений|Балансировка нагрузки уровня 7|Поддерживаются|Еще не поддерживается|
+|Диспетчер трафика|Маршрутизация входящего трафика для обеспечения надежности и оптимальной производительности приложений.|Поддерживаются|Еще не поддерживается|
+|ExpressRoute|Настройка быстрого частного подключения к облачным службам Майкрософт из локальной инфраструктуры или среды для совместной работы.|Поддерживаются|Поддержка подключения Azure Stack к каналу Express Route.|
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-[DNS in Azure Stack](azure-stack-dns.md)
-
+[DNS в Azure Stack](azure-stack-dns.md)

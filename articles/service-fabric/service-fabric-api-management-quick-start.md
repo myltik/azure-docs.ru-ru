@@ -14,15 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/01/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 2160e2e65de5c65df8a13248bad4f626def86e49
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
-
+ms.openlocfilehash: 2969834713fc7c2f1a2e281a6c988158d803dc45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-fabric-with-azure-api-management-quick-start"></a>Краткое руководство по Service Fabric со службой управления API Azure
 
 С помощью этого руководства вы узнаете, как настроить службу управления API Azure с Service Fabric, а также как настроить первую операцию API для отправки трафика к службам серверной части в Service Fabric. Дополнительные сведения о сценариях службы управления API Azure и Service Fabric см. в [обзорной статье](service-fabric-api-management-overview.md). 
@@ -56,14 +53,14 @@ ms.lasthandoff: 06/28/2017
 Вход в учетную запись Azure:
 
 ```powershell
-PS > Login-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 Выберите свою подписку.
 
 ```powershell
-PS > Get-AzureRmSubscription
-PS > Set-AzureRmContext -SubscriptionId <guid>
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
@@ -71,7 +68,7 @@ PS > Set-AzureRmContext -SubscriptionId <guid>
 Создайте новую группу ресурсов для развертывания. Назначьте ей имя и расположение.
 
 ```powershell
-PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
+New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
 ```
 
 ### <a name="deploy-the-network-topology"></a>Развертывание топологии сети
@@ -88,7 +85,7 @@ PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
  2. Используйте следующую команду PowerShell для развертывания шаблона Resource Manager и файла параметров для настройки сети:
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
     ```
 
 ### <a name="deploy-the-service-fabric-cluster"></a>Развертывание кластера Service Fabric
@@ -112,7 +109,7 @@ PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
  3. Используйте следующую команду PowerShell для развертывания шаблона Resource Manager и файла параметров для создания кластера Service Fabric:
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
     ```
 
 ### <a name="deploy-api-management"></a>Развертывание управления API
@@ -131,7 +128,7 @@ PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
  3. Используйте следующую команду PowerShell для развертывания шаблона Resource Manager и файла параметров для управления API:
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
     ```
 
 ## <a name="configure-api-management"></a>Настройка управления API
@@ -203,7 +200,7 @@ Content-Type: application/json
 }
 ```
 
-Параметр **URL-адреса** здесь представляет полное доменное имя службы в кластере, куда все запросы направляются по умолчанию, если во внутренней политике не указано имя службы. Вы можете использовать фиктивное имя службы, например "fabric:/fake/service", если вам не нужна резервная служба.
+Параметр **URL-адреса** здесь представляет полное доменное имя службы в кластере, куда все запросы направляются по умолчанию, если во внутренней политике не указано имя службы. Вы можете использовать фиктивное имя службы, например "fabric:/fake/service", если вам не нужна резервная служба. Имейте в виду, что **URL-адрес** должен быть в формате "fabric:/<приложение>/<служба>", даже если это фиктивная резервная служба.
 
 Дополнительные сведения о каждом свойстве серверной части см. в [справочной документации по API для серверной части](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend).
 
@@ -370,4 +367,3 @@ Content-Type: application/json
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-api-management-quickstart/sf-apim-topology-overview.png
-

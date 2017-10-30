@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Добавление подключения типа "сеть — сеть" к виртуальной сети с помощью существующего подключения VPN-шлюза
 
@@ -56,7 +55,7 @@ ms.lasthandoff: 06/17/2017
 2. Щелкните **Все ресурсы**, а затем найдите в списке ресурсов **Шлюз виртуальной сети** и щелкните его.
 3. В колонке **шлюза виртуальной сети** щелкните **Подключения**.
    
-    ![Колонка "Подключения"](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Connections blade")<br>
+    ![Колонка подключений](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Колонка подключений")<br>
 4. В колонке **Подключения** нажмите кнопку **Добавить**.
    
     ![Кнопка "Добавить подключение"](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Add connection button")<br>
@@ -65,7 +64,7 @@ ms.lasthandoff: 06/17/2017
    * **Имя.** Имя, назначаемое сайту, к которому создается подключение.
    * **Тип подключения.** Выберите **Сеть — сеть (IPSec)**.
      
-     ![Колонка "Добавление подключения"](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
+     ![Колона "Добавление подключения"](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
 
 ## <a name="part2"></a>Часть 2. Добавление шлюза локальной сети
 1. Щелкните **Шлюз локальной сети**, а затем ***Выберите шлюз локальной сети***. Откроется колонка **Выберите шлюз локальной сети**.
@@ -73,7 +72,7 @@ ms.lasthandoff: 06/17/2017
     ![Выбор шлюза локальной сети](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choose local network gateway")<br>
 2. Щелкните **Создать**, чтобы открыть колонку **Создание шлюза локальной сети**.
    
-    ![Колонка "Создание шлюза локальной сети"](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
+    ![Создание шлюза локальной сети](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
 3. В колонке **Создание шлюза локальной сети** заполните следующие поля.
    
    * **Имя.** Имя, которое будет использоваться для шлюза локальной сети.
@@ -84,7 +83,7 @@ ms.lasthandoff: 06/17/2017
 ## <a name="part3"></a>Часть 3. Добавление общего ключа и создание подключения
 1. В колонке **Добавление подключения** добавьте общий ключ, который будет использоваться для создания подключения. Можно получить общий ключ из VPN-устройства или создать его в этой колонке, а затем настроить использование этого ключа для VPN-устройства. Важно, чтобы ключи полностью совпадали.
    
-    ![Общий ключ](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Shared key")<br>
+    ![Общий ключ](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Общий ключ")<br>
 2. В нижней части колонки нажмите кнопку **ОК**, чтобы создать подключение.
 
 ## <a name="part4"></a>Часть 4. Проверка VPN-подключения
@@ -95,4 +94,3 @@ ms.lasthandoff: 06/17/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительную информацию о виртуальных машинах см. в [схеме обучения](https://azure.microsoft.com/documentation/learning-paths/virtual-machines).
-

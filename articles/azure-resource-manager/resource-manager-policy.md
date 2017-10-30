@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2017
+ms.date: 10/09/2017
 ms.author: tomfitz
+ms.openlocfilehash: cfdbf35b76b6a7f3cddb2deb35dfc475e0fc600f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0ee2624f45a1de0c23cae4538a38ae3e302eedd3
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-policy-overview"></a>Общие сведения о политике ресурсов
 Политики ресурсов позволяют настроить определенные соглашения для ресурсов в организации. Это соглашения помогут вам контролировать расходы и управлять ресурсами. Например, можно указать, что разрешены только определенные типы виртуальных машин. Кроме того, можно требовать наличие определенного тега для каждого ресурса. Политики наследуются всеми дочерними ресурсами. Это значит, что политики, применяемые к группе ресурсов, применяются также ко всем ресурсам в этой группе.
@@ -32,11 +31,6 @@ ms.lasthandoff: 08/04/2017
 В этой статье рассматривается только определение политики. Сведения о назначении политик см. в статьях [Назначение политик ресурсов и управление ими с помощью портала Azure](resource-manager-policy-portal.md) и [Назначение политик ресурсов и управление ими](resource-manager-policy-create-assign.md).
 
 Политики оцениваются при создании и обновлении ресурсов (операции PUT и PATCH).
-
-> [!NOTE]
-> Сейчас политика не вычисляет типы ресурсов, которые не поддерживают теги, вид и расположение, например тип ресурса Microsoft.Resources/deployments. Их поддержка будет добавлена в будущем. Чтобы избежать проблем с обратной совместимостью, необходимо явно указывать тип при создании политик. Например, политика тегов, которая не указывает типы, применяется для всех типов. В этом случае может произойти ошибка развертывания шаблона, если существует вложенный ресурс, который не поддерживает тег, и в вычисление политики был добавлен тип ресурса развертывания. 
-> 
-> 
 
 ## <a name="how-is-it-different-from-rbac"></a>Чем это отличается от управления доступом на основе ролей?
 Существует ряд ключевых различий между политиками и управлением доступом на основе ролей (RBAC). RBAC определяет действия **пользователя** в различных областях. Например, если вам назначена роль участника для группы ресурсов в требуемой области, вы можете вносить изменения в эту группу ресурсов. Политика определяет свойства **ресурсов** во время их развертывания. Например, с помощью политик можно управлять типами ресурсов, которые можно подготовить, или ограничить расположения, в которых можно подготовить ресурсы. В отличие от RBAC, политика представляет собой систему разрешения по умолчанию и явного запрета. 
@@ -67,6 +61,7 @@ ms.lasthandoff: 08/04/2017
 ## <a name="policy-definition-structure"></a>Структура определения политики
 Для создания определения политики используется JSON. Определение политики содержит следующие элементы:
 
+* mode;
 * parameters
 * display name
 * description
@@ -79,6 +74,7 @@ ms.lasthandoff: 08/04/2017
 ```json
 {
   "properties": {
+    "mode": "all",
     "parameters": {
       "allowedLocations": {
         "type": "array",
@@ -105,6 +101,12 @@ ms.lasthandoff: 08/04/2017
   }
 }
 ```
+
+## <a name="mode"></a>Режим
+
+Рекомендуется задать для параметра `mode` значение `all`. Если задать значение **all**, группы ресурсов и все типы ресурсов будут оцениваться в соответствии с политикой. На портале используется значение **all** для всех политик. Если используется PowerShell или Azure CLI, необходимо указать параметр `mode` и присвоить ему значение **all**.
+ 
+Ранее политика оценивалась только для тех типов ресурсов, которые поддерживали теги и расположение. Режим `indexed` продолжает это поведение. Если используется режим **all**, политики также оцениваются для типов ресурсов, которые не поддерживают теги и расположение. [Подсеть виртуальной сети](https://github.com/Azure/azure-policy-samples/tree/master/samples/Network/enforce-nsg-on-subnet) — пример нового добавленного типа. Кроме того, при заданном режиме **all** оцениваются группы ресурсов. Например, можно [принудительно применять теги в группе ресурсов](https://github.com/Azure/azure-policy-samples/tree/master/samples/ResourceGroup/enforce-resourceGroup-tags). 
 
 ## <a name="parameters"></a>Параметры
 Использование параметров помогает упростить управление политиками за счет сокращения числа определений политики. Вы можете определить политику для свойства ресурса (например, чтобы ограничить набор расположений для развертывания этих ресурсов), включив в определение параметры. Затем это определение политики можно неоднократно использовать в разных сценариях, передавая в него разные значения (например, набор расположений для определенной подписки) при назначении политики.
@@ -210,11 +212,13 @@ ms.lasthandoff: 08/04/2017
 * Список псевдонимов свойств указан в разделе [Псевдонимы](#aliases).
 
 ### <a name="effect"></a>Результат
-Политика поддерживает три типа результатов — `deny`, `audit` и `append`. 
+Политика поддерживает три типа результатов — `deny`, `audit`, `append`, `AuditIfNotExists` и `DeployIfNotExists`. 
 
 * **deny** создает событие в журнале аудита и отклоняет запрос.
 * **audit** создает событие в журнале аудита, но выполняет запрос.
 * **append** добавляет в запрос некоторый набор полей. 
+* **AuditIfNotExists** включает аудит, если ресурс не существует.
+* **DeployIfNotExists** развертывает ресурс, если он еще не существует. Сейчас этот эффект поддерживается только с помощью встроенных политик.
 
 Для типа **append**необходимо указать следующие сведения:
 
@@ -229,6 +233,10 @@ ms.lasthandoff: 08/04/2017
 ```
 
 Значением может быть строка или объект формата JSON. 
+
+С помощью параметров **AuditIfNotExists** и **DeployIfNotExists** можно проверить существование дочернего ресурса и применить правило, если этот ресурс не существует. Например можно потребовать, чтобы наблюдатель за сетями был развернут для всех виртуальных сетей.
+
+Пример аудита при отсутствии развернутого расширения для виртуальных машин см. в разделе, посвященном [аудиту расширений виртуальных машин](https://github.com/Azure/azure-policy-samples/blob/master/samples/Compute/audit-vm-extension/azurepolicy.json).
 
 ## <a name="aliases"></a>Псевдонимы
 
@@ -347,20 +355,96 @@ ms.lasthandoff: 08/04/2017
 | Microsoft.Storage/storageAccounts/sku.name | Задает имя SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Позволяет разрешить только передачу трафика HTTPS в службу хранилища. |
 
+## <a name="policy-sets"></a>Наборы политик
 
-## <a name="policy-examples"></a>Примеры политик
+Наборы политик позволяют сгруппировать несколько связанных определений политик. Набор политик упрощает назначение и управление, потому что с группой можно работать как с единым элементом. Например, можно сгруппировать все связанные политики тегов в одном наборе политик. Вместо назначения каждой политики по отдельности применяется весь набор.
+ 
+В следующем примере показано, как создать набор политик для обработки двух тегов (costCenter и productName). В нем используются две встроенные политики для применения значения тега по умолчанию и принудительной установки значения тега. Набор политик объявляет два параметра для многократного использования: costCenterValue и productNameValue. Он ссылается на два встроенных определения политик множество раз с различными параметрами. Для каждого параметра можно указать либо фиксированное значение, как показано для tagName, либо значение параметра из набора политик, как показано для tagValue.
 
-Следующие статьи содержат примеры политик.
+```json
+{
+    "properties": {
+        "displayName": "Billing Tags Policy",
+        "policyType": "Custom",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    },
+    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "name": "billingTagsPolicy"
+}
+```
 
-* Примеры политик для тегов см. в статье [Apply resource policies for tags](resource-manager-policy-tags.md) (Применение политик ресурсов для тегов).
-* Примеры именования и шаблоны текста приведены в разделе [Применение политик ресурсов для имен и текста](resource-manager-policy-naming-convention.md).
-* Примеры политик для хранения см. в статье [Применение политик ресурсов Azure для учетных записей хранения](resource-manager-policy-storage.md).
-* Примеры политик для виртуальных машин есть в статьях о применении политик к виртуальным машинам Azure Resource Manager [для Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) и [для Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
+Набор политик можно добавить с помощью команды PowerShell **New-AzureRMPolicySetDefinition**.
 
+Для операций REST следует использовать версию API **2017-06-01-preview**, как показано в следующем примере:
+
+```
+PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicySet?api-version=2017-06-01-preview
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Определив правило политики, назначьте эту политику для области. Сведения о назначении политик с помощью портала см. в статье [Назначение политик ресурсов и управление ими с помощью портала Azure](resource-manager-policy-portal.md). Сведения о назначении политик с помощью REST API, PowerShell или Azure CLI см. в статье [Назначение политик ресурсов и управление ими](resource-manager-policy-create-assign.md).
+* Примеры политик см. в [репозитории GitHub для политик ресурсов Azure](https://github.com/Azure/azure-policy-samples).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
 * Схема политики опубликована на странице [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
 

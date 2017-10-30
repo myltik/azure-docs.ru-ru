@@ -1,6 +1,6 @@
 ---
-title: Add Linux images to Azure Stack
-description: Learn how add Linux images to Azure Stack.
+title: "Добавление образов Linux в Azure Stack"
+description: "Сведения о том, как добавлять образы Linux в Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: anjayajodha
@@ -13,63 +13,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: anajod
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a8763c01cba4e5a9eaa3b7842b627d6eb9661a95
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="add-linux-images-to-azure-stack"></a>Add Linux images to Azure Stack
+# <a name="add-linux-images-to-azure-stack"></a>Добавление образов Linux в Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit* 
+*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack* 
 
-You can deploy Linux virtual machines on Azure Stack by adding a Linux-based image into the Azure Stack Marketplace. The easiest way to add a Linux image to Azure Stack is through Marketplace Management.
+Виртуальные машины Linux можно развернуть в Azure Stack, добавив образ на базе Linux в Azure Stack Marketplace. Проще всего добавить образ Linux в Azure Stack с помощью управления Marketplace.
 
-## <a name="marketplace-management"></a>Marketplace Management
+## <a name="marketplace-management"></a>Управление Marketplace
 
-To download Linux images from the Azure Marketplace, use the procedures in the following article. Select the Linux images that you want to offer users on your Azure Stack.
+Для загрузки образов Linux из Azure Marketplace используйте процедуры, приведенные в следующей статье. Выберите образы Linux, которые вы хотите предложить пользователям в Azure Stack.
 
-[Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md).
+[Скачайте элементы Marketplace из Azure в Azure Stack](azure-stack-download-azure-marketplace-item.md).
 
-## <a name="download-an-image"></a>Download an image
+## <a name="download-an-image"></a>Скачивание образа
 
-You can download and extract Azure Stack-compatible Linux images using the following links:
+Образы Linux, совместимые с Azure Stack, можно скачать и извлечь, используя следующие ссылки:
 
 
-   * [Bitnami](https://bitnami.com/azure-stack)
+   * [Bitnami](https://bitnami.com/azure-stack);
    * [CentOS](http://olstacks.cloudapp.net/latest/)
    * [CoreOS](https://stable.release.core-os.net/amd64-usr/current/coreos_production_azure_image.vhd.bz2)
-   * [SuSE](https://download.suse.com/Download?buildid=VCFi7y7MsFQ~)
-   * [Ubuntu 14.04 LTS](https://partner-images.canonical.com/azure/azure_stack/) / [Ubuntu 16.04 LTS](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
+   * [SUSE](https://download.suse.com/Download?buildid=VCFi7y7MsFQ~);
+   * [Ubuntu 14.04 LTS](https://partner-images.canonical.com/azure/azure_stack/) / [Ubuntu 16.04 LTS](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip).
 
-1. Extract the image VHD if necessary and [add the image to the Marketplace](azure-stack-add-vm-image.md). Make sure that the `OSType` parameter is set to `Linux`.
-2. After you've added the image to the Marketplace, a Marketplace item is created and users can deploy a Linux virtual machine.
+1. Извлеките виртуальный жесткий диск образа (при необходимости) и [добавьте образ в Marketplace](azure-stack-add-vm-image.md). Убедитесь, что для параметра `OSType` задано значение `Linux`.
+2. После добавления образа в Marketplace создается элемент Marketplace, и пользователи могут развернуть виртуальную машину Linux.
 
-## <a name="prepare-your-own-image"></a>Prepare your own image
+## <a name="prepare-your-own-image"></a>Подготовка собственного образа
 
-You can prepare your own Linux image using one of the following instructions:
+Можно подготовить свой собственный образ Linux с помощью одной из следующих инструкций:
    
-   * [CentOS-based Distributions](../virtual-machines/linux/create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   * [Debian Linux](../virtual-machines/linux/debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+   * [Подготовка виртуальной машины на основе CentOS для Azure](../virtual-machines/linux/create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+   * [Подготовка виртуального жесткого диска Debian для Azure](../virtual-machines/linux/debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
    * [Oracle Linux](../virtual-machines/linux/oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   * [Red Hat Enterprise Linux](../virtual-machines/linux/redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   * [SLES & openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+   * [Подготовка виртуальной машины на основе Red Hat для Azure](../virtual-machines/linux/redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+   * [Подготовка виртуальной машины SLES или openSUSE для Azure](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
    * [Ubuntu](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-1. Download and install the [Azure Linux Agent](https://github.com/Azure/WALinuxAgent/).
+1. Скачайте и установите [агент Linux для Azure](https://github.com/Azure/WALinuxAgent/).
    
-    The Azure Linux Agent version 2.1.3 or higher is required to provision your Linux VM on Azure Stack. Many of the distributions listed previously already include this version of the agent or higher as a package in their repositories (typically called `WALinuxAgent` or `walinuxagent`). However, if the version of the Azure agent package is less than 2.1.3 (for example, 2.0.18 or lower), then you must install the agent manually. The installed version can be determined either from the package name or by running `/usr/sbin/waagent -version` on the VM.
+    Агент Linux для Azure версии 2.1.3 или выше необходим для подготовки виртуальной машины Linux в Azure Stack. Многие из перечисленных ранее дистрибутивов уже содержат эту или более позднюю версию агента в виде пакета в репозиториях (обычно под именем `WALinuxAgent` или `walinuxagent`). Однако если версия пакета агента Azure меньше 2.1.3 (например, 2.0.18 или ниже), то агент необходимо установить вручную. Установленную версию можно определить либо по имени пакета, либо с помощью запуска `/usr/sbin/waagent -version` на виртуальной машине.
    
-    Follow the instructions below to install the Azure Linux agent manually -
+    Выполните приведенные ниже инструкции, чтобы установить агент Linux для Azure вручную.
    
-   a. First, download the latest Azure Linux agent from [GitHub](https://github.com/Azure/WALinuxAgent/releases), example:
+   а. Сначала скачайте последнюю версию агента Linux для Azure с сайта [GitHub](https://github.com/Azure/WALinuxAgent/releases), например:
      
             # wget https://github.com/Azure/WALinuxAgent/archive/v2.2.16.tar.gz
-   b. Unpack the Azure agent:
+   b. Распакуйте агент для Azure:
      
             # tar -vzxf v2.2.16.tar.gz
-   c. Install python-setuptools
+   c. Установите python-setuptools.
      
         **Debian / Ubuntu**
      
@@ -83,19 +82,18 @@ You can prepare your own Linux image using one of the following instructions:
         **RHEL / CentOS / Oracle Linux**
      
             # sudo yum install python-setuptools
-   d. Install the Azure agent:
+   d. Установите агент для Azure:
      
             # cd WALinuxAgent-2.2.16
             # sudo python3 setup.py install --register-service
      
-     Systems with Python 2.x and Python 3.x installed side-by-side may need to run the following command:
+     В системах с параллельно установленными Python 2.x и Python 3.x может потребоваться выполнить следующую команду:
      
          sudo python3 setup.py install --register-service
-     For more information, see the Azure Linux Agent [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
-2. [Add the image to the Marketplace](azure-stack-add-vm-image.md). Make sure that the `OSType` parameter is set to `Linux`.
-3. After you've added the image to the Marketplace, a Marketplace item is created and users can deploy a Linux virtual machine.
+     Дополнительные сведения см. в файле [сведений](https://github.com/Azure/WALinuxAgent/blob/master/README.md) агента Linux для Azure.
+2. [Добавьте образ в Marketplace](azure-stack-add-vm-image.md). Убедитесь, что для параметра `OSType` задано значение `Linux`.
+3. После добавления образа в Marketplace создается элемент Marketplace, и пользователи могут развернуть виртуальную машину Linux.
 
-## <a name="next-steps"></a>Next steps
-[Overview of offering services in Azure Stack](azure-stack-offer-services-overview.md)
-
+## <a name="next-steps"></a>Дальнейшие действия
+[Общие сведения о предложении служб в Azure Stack](azure-stack-offer-services-overview.md)
 

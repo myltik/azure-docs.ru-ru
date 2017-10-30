@@ -1,6 +1,6 @@
 ---
-title: Manage Windows Azure Pack virtual machines from Azure Stack | Microsoft Docs
-description: Learn how to manage Windows Azure Pack (WAP) VMs from the user portal in Azure Stack.
+title: "Управление виртуальными машинами Windows Azure Pack из Azure Stack | Документация Майкрософт"
+description: "Узнайте, как управлять виртуальными машинами Windows Azure Pack (WAP) с пользовательского портала Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: walterov
@@ -14,96 +14,95 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: walterov
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Manage Windows Azure Pack virtual machines from Azure Stack
+# <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Управление виртуальными машинами Windows Azure Pack из Azure Stack
 
-*Applies to: Azure Stack Development Kit*
+*Область применения: комплект разработки Azure Stack*
 
-In the Azure Stack Development Kit, you can enable access from the Azure Stack user portal to tenant virtual machines running on Windows Azure Pack. Users can use the Azure Stack portal to manage their existing IaaS virtual machines and virtual networks. These resources are made available on Windows Azure Pack through the underlying Service Provider Foundation (SPF) and Virtual Machine Manager (VMM) components. Specifically, users can:
+В комплекте разработки Azure Stack можно активировать доступ из пользовательского портала Azure Stack к виртуальным машинам клиента, работающим в Windows Azure Pack. Пользователи могут использовать портал Azure Stack, чтобы управлять имеющимися виртуальными машинами IaaS и виртуальными сетями. Эти ресурсы доступны в Windows Azure Pack с помощью базовых компонентов Service Provider Foundation (SPF) и Virtual Machine Manager (VMM). В частности, пользователям доступно следующее:
 
-* Browse resources
-* Examine configuration values
-* Stop or start a virtual machine
-* Connect to a virtual machine through Remote Desktop Protocol (RDP)
-* Create and manage checkpoints
-* Delete virtual machines and virtual networks
+* поиск ресурсов;
+* анализ значений конфигурации;
+* запуск виртуальной машины или остановка ее работы;
+* подключение к виртуальной машине с помощью протокола удаленного рабочего стола (RDP);
+* создание контрольных точек и управление ими;
+* удаление виртуальных машин и сетей.
 
-This functionality is provided by the Windows Azure Pack Connector for Azure Stack (Preview). This article shows how to configure the connector for a single-node Azure Stack environment.
+Эти функции обеспечиваются соединителем Windows Azure Pack для Azure Stack (предварительная версия). Из этой статьи вы узнаете, как настроить соединитель для среды Azure Stack с одним узлом.
 
-For this preview release of the connector, be aware of the following:
-* Use the Windows Azure Pack Connector only in test environments (for both Azure Stack and Windows Azure Pack), and not in production deployments.
-* You must have Windows Azure Pack Update Rollup (UR) 9.1 or later and System Center SPF and VMM UR 9 or later.
-* The VMM and SPF components can be either System Center 2012 R2 or System Center 2016.
-* You must perform configuration steps on both Azure Stack and on Windows Azure Pack.
-* The instructions apply to non-Cloud Platform System (CPS) environments.
-* To review the known issues, see [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md).
-
-
-## <a name="architecture"></a>Architecture
-The following diagram shows the main components of the Windows Azure Pack Connector.
-
-![The Windows Azure Pack Connector components](media/azure-stack-manage-wap/image1.png)
-
-Notice the following details:
-* The Azure Stack user portal accesses the resource information from both clouds (Azure Stack and Windows Azure Pack).
-* The user must have an account that is valid in both environments.
-* The Azure Stack user portal must have network access to the components running on Windows Azure Pack.
-* In the **WAP** section of the diagram, you can see the new Windows Azure Pack Connector modules (WAP Extension and Connector) and the existing Windows Azure Pack Tenant API with SPF and VMM components.
+Для этого соединителя (предварительный выпуск) учтите такие рекомендации:
+* используйте соединитель Windows Azure Pack только в средах тестирования (для Azure Stack и Windows Azure Pack), а не рабочих развертываниях;
+* необходимо использовать накопительный пакет обновления (UR) Windows Azure Pack версии 9.1 или более поздней, а также накопительный пакет обновления VMM и System Center SPF версии 9 или более поздней;
+* компоненты VMM и SPF, которые можно использовать, включают System Center 2012 R2 или System Center 2016;
+* обязательно выполните этапы настройки Azure Stack и Windows Azure Pack;
+* эти инструкции применимы к средам необлачной системы платформы (CPS);
+* чтобы узнать об известных проблемах, ознакомьтесь со статьей [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md) (Устранение неполадок, связанных с Microsoft Azure Stack).
 
 
-## <a name="identity-management"></a>Identity management
-The Windows Azure Pack Tenant API must trust the Azure Stack security token service (STS).
+## <a name="architecture"></a>Архитектура
+На схеме ниже показаны основные компоненты соединителя Windows Azure Pack.
 
-When a user performs an action through the Azure Stack portal that targets Windows Azure Pack resources, the portal uses the Windows Azure Pack Tenant API. Therefore, the provided user authentication token must come from a trusted STS. See the following diagram:
+![Компоненты соединителя Windows Azure Pack](media/azure-stack-manage-wap/image1.png)
 
-![Diagram of Windows Azure Pack Connector authentication](media/azure-stack-manage-wap/image2.png)
+Обратите внимание на следующее:
+* пользовательский портал Azure Stack получает сведения о ресурсах из двух облаков (Azure Stack и Windows Azure Pack);
+* у пользователя должна быть учетная запись, которую можно использовать в обеих средах;
+* у пользовательского портала Azure Stack должен быть сетевой доступ к компонентам, работающим в Windows Azure Pack;
+* в разделе **WAP** схемы находятся новые модули соединителя Windows Azure Pack (расширение WAP и соединитель) и имеющийся API клиента Windows Azure Pack с компонентами SPF и VMM.
 
-In the development kit environment, Windows Azure Pack and Azure Stack have independent identity providers. Users who access both environments from the Azure Stack portal must have the same user principal name (UPN) name in both identity providers. For example, the account *azurestackadmin@azurestack.local* should also exist in the STS for Windows Azure Pack. Where AD FS is not set up to support outbound trust relationships, you will establish trust from the Windows Azure Pack components (Tenant API) to the Azure Stack instance of AD FS.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="identity-management"></a>Управление удостоверениями
+API клиента Windows Azure Pack должен доверять службе маркеров безопасности (STS) Azure Stack.
 
-### <a name="download-the-windows-azure-pack-connector"></a>Download the Windows Azure Pack Connector
-On the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), download the .exe file and extract it to your local computer. Later, you copy the contents to a computer that can access your Windows Azure Pack environment.
+Когда пользователь выполняет действие на портале Azure Stack, который предоставляет доступ к ресурсам Windows Azure Pack, портал использует API клиента Windows Azure Pack. Поэтому соответствующий маркер проверки подлинности пользователя должен предоставляться доверенной службой маркеров безопасности (STS). Рассмотрим схему ниже.
 
-### <a name="deployment-option-requirement"></a>Deployment option requirement
-To integrate with Windows Azure Pack, you can deploy Azure Stack by using the AD FS option or the Azure Active Directory option.
+![Схема проверки подлинности соединителя Windows Azure Pack](media/azure-stack-manage-wap/image2.png)
 
-### <a name="connectivity-requirements"></a>Connectivity requirements
-1. From the computer on which you access the Azure Stack user portal, make sure that you can access the Windows Azure Pack tenant portal through the web browser.
-2. The AzS-WASP01 virtual machine on Azure Stack must be able to connect to the Windows Azure Pack tenant portal computer. Use Ping.exe to verify network connectivity. 
-3.  You must have valid certificates for the new Connector services. These SSL certificates must be issued by a trusted certification authority (CA). You can't use self-signed certificates. The SSL certificates must be trusted by Azure Stack (specifically the AzS-WASP01 VM) and any other computer that the tenant may use to access the Azure Stack user portal.
+В среде комплекта разработки Windows Azure Pack и Azure Stack используют независимые поставщики удостоверений. Пользователи, которые получают доступ к двум средам с портала Azure Stack, должны использовать одно имя участника-пользователя (UPN) для двух поставщиков удостоверений. Например, учетная запись *azurestackadmin@azurestack.local* также должна присутствовать в службе STS для Windows Azure Pack. Если AD FS не настроены на поддержку исходящих отношений доверия, необходимо установить доверие из компонентов Windows Azure Pack (API клиента) для экземпляра Azure Stack AD FS.
+
+## <a name="prerequisites"></a>Предварительные требования
+
+### <a name="download-the-windows-azure-pack-connector"></a>Загрузка соединителя Windows Azure Pack
+В [Центре загрузки Майкрософт](https://aka.ms/wapconnectorazurestackdlc) загрузите EXE-файл и извлеките его на локальный компьютер. Позже вы скопируете его содержимое на компьютер, у которого есть доступ к среде Windows Azure Pack.
+
+### <a name="deployment-option-requirement"></a>Требования для развертывания
+Для интеграции с Windows Azure Pack вы можете развернуть Azure Stack с помощью AD FS или Azure Active Directory.
+
+### <a name="connectivity-requirements"></a>Требования к подключению
+1. У компьютера, который вы используете для доступа к порталу Azure Stack, должен также быть доступ к порталу клиента Windows Azure Pack через веб-браузер.
+2. Виртуальная машина AzS-WASP01 в Azure Stack должна подключаться к компьютеру, у которого есть доступ к порталу клиента Windows Azure Pack. Используйте Ping.exe, чтобы проверить подключение к сети. 
+3.  У вас должны быть действительные сертификаты для новых служб соединителя. Эти SSL-сертификаты должны выдаваться доверенным центром сертификации (ЦС). Вы не можете использовать самозаверяющие сертификаты. Среда Azure Stack должна доверять SSL-сертификатам (особенно для виртуальной машины AzS-WASP01). Этим сертификатам также должен доверять любой компьютер, который клиент может использовать для доступа к пользовательскому порталу Azure Stack.
  
     >[!NOTE]
-    Because AzS-WASP01 runs Windows Server with the Server Core installation option, you can use a command-line tool such as Certutil.ext to import the certificate. For example, you could copy the .cer file to c:\temp on AzS-WASP01, and then run the command **certutil -addstore "CA" "c:\temp\certname.cer"**.
+    Так как AzS-WASP01 запускает Windows Server с параметром установки основных серверных компонентов, для импорта сертификата можно использовать программу командной строки, например Certutil.ext. Например, вы можете скопировать CER-файл в каталог c:\temp на виртуальной машине AzS-WASP01, а затем запустить команду **certutil -addstore "CA" "c:\temp\certname.cer"**.
 
-4.  To establish RDP connectivity to Windows Azure Pack tenant virtual machines through the Azure Stack portal, the Windows Azure Pack environment must allow Remote Desktop traffic to the tenant VMs.
-5.  For connectivity between Azure Stack tenant virtual machines and Windows Azure Pack tenant virtual machines, their external IP addresses must be routable across the two environments. This connectivity could also include associating a DNS server to resolve virtual machine names between the environments.
+4.  Чтобы установить RDP-подключение к виртуальным машинам клиента Windows Azure Pack через портал Azure Stack, в среде Windows Azure Pack должна разрешаться передача трафика с удаленного рабочего стола на виртуальные машины клиента.
+5.  Чтобы установить подключение между виртуальными машинами клиента Azure Stack и Windows Azure Pack, их внешние IP-адреса должны маршрутизироваться в двух средах. Это подключение может также включать связывание DNS-сервера для разрешения имен виртуальных машин между разными средами.
 
-### <a name="iis-requirements"></a>IIS requirements
-The computer that hosts the Windows Azure Pack tenant portal (which may be a physical host, a virtual machine, or multiple virtual machines) must have the URL Rewrite IIS extension installed. If it is not already installed, you can download it from [here](https://www.iis.net/downloads/microsoft/url-rewrite). If multiple virtual machines host the tenant portal, install the extension on each virtual machine.
+### <a name="iis-requirements"></a>Установка расширения IIS
+На компьютере, на котором размещается портал клиента Windows Azure Pack (может представлять собой физический узел, виртуальную машину или несколько виртуальных машин), должно быть установлено расширение IIS переопределения URL-адресов. Если оно еще не установлено, вы можете скачать его [здесь](https://www.iis.net/downloads/microsoft/url-rewrite). Если портал клиента размещается на нескольких виртуальных машинах, установите расширение на каждой из них.
 
-## <a name="configure-azure-stack"></a>Configure Azure Stack
-Before you configure the Windows Azure Pack Connector, you must enable multi-cloud mode in the Azure Stack user portal. This mode enables users to select from which cloud to access resources.
+## <a name="configure-azure-stack"></a>Настройка Azure Stack
+Активируйте на портале Azure Stack многооблачный режим, а затем настройте соединитель Windows Azure Pack. Этот режим позволит пользователям выбрать облако для доступа к ресурсам.
 
-To enable multi-cloud mode, you must run the Add-AzurePackConnector.ps1 script after Azure Stack deployment. The following table describes the script parameters.
+Чтобы активировать многооблачный режим, запустите командлет Add-AzurePackConnector.ps1 после развертывания Azure Stack. В таблице ниже приведены параметры сценария.
 
 
-|  Parameter | Description | Example |   
+|  Параметр | Описание | Пример |   
 | -------- | ------------- | ------- |  
-| AzurePackClouds | URIs of the Windows Azure Pack Connectors. These URIs should correspond to the Windows Azure Pack tenant portals. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (By default, the port value is 40005.) |  
-| AzureStackCloudName | Label to represent the local Azure Stack cloud.| "AzureStack" |
-| DisableMultiCloud | A switch to disable multi-cloud mode.| N/A |
+| AzurePackClouds | URI-адреса соединителей Windows Azure Pack. Эти адреса должны соответствовать порталам клиента Windows Azure Pack. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (По умолчанию используется значение порта 40005.) |  
+| AzureStackCloudName | Метка для представления локального облака Azure Stack.| "AzureStack" |
+| DisableMultiCloud | Переключатель, чтобы отключить многооблачный режим.| Недоступно |
 | | |
 
-You can run the Add-AzurePackConnector.ps1 script immediately after deployment, or later. To run the script immediately after deployment, use the same Windows PowerShell session where Azure Stack deployment completed. Otherwise, you can open a new Windows PowerShell session as an administrator (signed in as the azurestackadmin account).
+Вы можете запустить сценарий Add-AzurePackConnector.ps1 сразу же после развертывания или позже. Чтобы запустить его сразу после развертывания, используйте тот же сеанс Windows PowerShell, в котором было выполнено развертывание Azure Stack. В противном случае вы можете открыть новый сеанс Windows PowerShell от имени администратора (используя для входа учетную запись azurestackadmin).
 
-1. Run the Add-AzurePackConnector.ps1 script by using the following commands (with values specific to your environment). Notice that the Add-AzurePackConnector script enables you to add more than one Windows Azure Pack Connector endpoint.
+1. Запустите сценарий Add-AzurePackConnector.ps1 с помощью команд ниже (заменив приведенные значения значениями для своей среды). Обратите внимание, что сценарий Add-AzurePackConnector позволяет добавить несколько конечных точек соединителя Windows Azure Pack.
  
  ```powershell
     $cred = New-Object System.Management.Automation.PSCredential("cloudadmin@azurestack.local", `
@@ -121,48 +120,48 @@ You can run the Add-AzurePackConnector.ps1 script immediately after deployment, 
 
  ```
 > [!NOTE]
-> In the current build there is an issue where after the Add-AzurePackConnector script ends, it remains in a polling loop for an extended period of time (several minutes) until it ends. After you see the message **VERBOSE: Step 'Configure Azure Pack Connector' status: 'Success'**, you can stop the script or wait until it stops by itself. It won’t make a difference because the configuration has already succeeded.
+> В текущей сборке имеется проблема, когда после завершения сценария Add-AzurePackConnector он продолжает выполняться в опрашивающем цикле в течение длительного времени (несколько минут). Когда вы увидите сообщение **VERBOSE: Step 'Configure Azure Pack Connector' status: 'Success'** (ПОДРОБНО: состояние "Успешно" для действия "Настройка соединителя Azure Pack"), завершите выполнение сценария или подождите, когда он завершится сам. Принципиальной разницы нет, так как в любом случае настройка завершилась успешно.
 
-2. Make note of the output files that are produced by this script, one for each Windows Azure Pack environment that you specified. The files are located at:  \\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput. These files contain the information that is required to configure the target Windows Azure Pack environments. You pass this file as a parameter to a script later in these instructions. This file contains the following information:
+2. Запишите значения созданных выходных файлов для каждой указанной среды Windows Azure Pack. Они находятся в папке: \\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput. Эти файлы содержат сведения, необходимые для настройки целевых сред Windows Azure Pack. Вы передадите этот файл в сценарий в качестве параметра далее в инструкциях. В нем содержится следующее:
 
-    * **AzurePackConnectorEndpoint**: Contains the endpoint to the Windows Azure Pack Connector service.
-    * **AuthenticationIdentityProviderPartner**: Contains the following value pair:
-        * Authentication Token signing certificate that the Windows Azure Pack Tenant API needs to trust to accept calls from the Azure Stack portal extension.
+    * **AzurePackConnectorEndpoint**. Содержит конечную точку к службе соединителя Windows Azure Pack.
+    * **AuthenticationIdentityProviderPartner**. Содержит следующие значения:
+        * сертификат для подписи маркера проверки подлинности, которому должен доверять API клиента Windows Azure Pack, чтобы принимать вызовы из расширения портала Azure Stack;
 
-        * The "Realm" associated with the signing certificate. For example: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
+        * область, связанная с сертификатом для подписи. Например, https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
 
-3.  Browse to the folder that contains the output files (\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput), and copy the files to your local computer. The files will look similar to this: AzurePack-06-27-15-50.txt.
+3.  Перейдите в папку, в которой содержатся выходные файлы (\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput), а затем скопируйте их на локальный компьютер. Файлы будут выглядеть примерно так: AzurePack-06-27-15-50.txt.
 
-4.  Test the configuration.
+4.  Выполните проверку настройки.
 
-    a. Open your browser and sign in to the Azure Stack user portal (https://portal.local.azurestack.external/).
+    а. Откройте браузер и войдите на пользовательский портал Azure Stack (https://portal.local.azurestack.external/).
     
-    b. After you sign in as a tenant and the portal loads, you'll see errors about not being able to fetch subscriptions or extensions from the Azure Pack cloud. Click **OK** to close these messages. (These error messages will go away after you configure Windows Azure Pack.)
+    b. После входа от имени клиента и загрузки портала вы увидите ошибки получения подписок или расширений из облака Azure Pack. Нажмите кнопку **ОК**, чтобы закрыть эти сообщения. (Сообщения об ошибках исчезнут после настройки Windows Azure Pack.)
 
-    c. Notice the **Cloud** drop-down list in the upper-left corner of the portal.
+    c. Обратите внимание на раскрывающийся список **облаков** в верхнем левом углу портала.
 
-    ![The cloud selector in the Azure Stack user interface](media/azure-stack-manage-wap/image3.png)
+    ![Выбор облака в пользовательском интерфейсе Azure Stack](media/azure-stack-manage-wap/image3.png)
 
-## <a name="configure-windows-azure-pack"></a>Configure Windows Azure Pack
-For this Connector preview release only, Windows Azure Pack requires manual configuration.
+## <a name="configure-windows-azure-pack"></a>Настройка Windows Azure Pack
+Только в предварительной версии этого соединителя необходимо настроить Windows Azure Pack вручную.
 
 >[!IMPORTANT]
-For this preview release, use the Windows Azure Pack Connector only in test environments, and not in production deployments.
+В рамках этой предварительной версии используйте соединитель Windows Azure Pack только в средах тестирования, а не рабочих развертываниях.
 
-1.  Install Connector MSI files on the Windows Azure Pack tenant portal virtual machine, and install certificates. (If you have multiple tenant portal virtual machines, you must complete this step on each virtual machine.)
+1.  Установите MSI-файлы соединителя на виртуальной машине для портала клиента Windows Azure Pack, а затем установите сертификаты. (Если у вас несколько виртуальных машин для портала клиента, выполните это действие на каждой из них.)
 
-    a. In File Explorer, copy the **WAPConnector** folder (what you downloaded earlier) to a folder named **c:\temp** in the tenant portal virtual machine.
+    а. В проводнике скопируйте папку **WAPConnector** (которую вы загрузили ранее) в папку с именем **c:\temp** на виртуальной машине для портала клиента.
 
-    b. Open a Console or RDP connection to the tenant portal virtual machine.
+    b. Откройте консоль или RDP-подключение к виртуальной машине портала клиента.
 
-    c. Change directories to **c:\temp\wapconnector\setup\scripts**, and run the **Install-Connector.ps1** script to install three MSI files. No parameters are required.
+    c. Перейдите в каталог **c:\temp\wapconnector\setup\scripts**, а затем запустите сценарий **Install-Connector.ps1**, чтобы установить три MSI-файла. Никакие параметры больше не требуются.
 
      ```powershell
     cd C:\temp\wapconnector\setup\scripts\
 
     .\Install-Connector.ps1
     ```
-     d. Change directories to **c:\inetpub** and verify that the three new sites are installed:
+     d. Перейдите в каталог **c:\inetpub**. Должны быть установлены три новых файла:
 
        * MgmtSvc-Connector
 
@@ -170,7 +169,7 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
 
        * MgmtSvc-ConnectorController
 
-    e. From the same **c:\temp\wapconnector\setup\scripts** folder, run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack AzS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.)
+    д. В той же папке **c:\temp\wapconnector\setup\scripts** запустите сценарий **Configure-Certificates.ps1**, чтобы установить сертификаты. По умолчанию будет использоваться тот же сертификат, доступный для сайта портала клиента на портале Windows Azure Pack. Сертификат должен быть действительным (доверенным для виртуальной машины AzS-WASP01 Azure Stack и любого клиентского компьютера, у которого есть доступ к порталу Azure Stack). В противном случае подключения не произойдет. (Кроме того, можно явно передать отпечаток сертификата как параметр с помощью параметра -Thumbprint.)
 
      ```powershell
         cd C:\temp\wapconnector\setup\scripts\
@@ -178,13 +177,13 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
         .\Configure-Certificates.ps1
     ```
 
-    f. To finish the configuration of these three services, run the **Configure-WapConnector.ps1** script to update the Web.config file parameters.
+    f. Чтобы завершить настройку этих трех служб, запустите сценарий **Configure-WapConnector.ps1**, чтобы обновить параметры файла Web.config.
 
-    |  Parameter | Description | Example |   
+    |  Параметр | Описание | Пример |   
     | -------- | ------------- | ------- |  
-    | TenantPortalFQDN | The Windows Azure Pack tenant portal FQDN. | tenant.contoso.com | 
-    | TenantAPIFQDN | The Windows Azure Pack Tenant API FQDN. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | The Azure Stack user portal FQDN. | portal.local.azurestack.external |
+    | TenantPortalFQDN | Полное доменное имя портала клиента Windows Azure Pack. | tenant.contoso.com | 
+    | TenantAPIFQDN | Полное доменное имя API клиента Windows Azure Pack. | tenantapi.contoso.com  |
+    | AzureStackPortalFQDN | Полное доменное имя портала пользователя Azure Stack. | portal.local.azurestack.external |
     | | |
     
      ```powershell
@@ -192,19 +191,19 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
          -TenantAPIFQDN "tenantapi.contoso.com" `
          -AzureStackPortalFQDN "portal.local.azurestack.external"
     ```
-    g. If you have multiple tenant portal virtual machines, repeat step 1 for each of these virtual machines.
+    ж. Если у вас несколько виртуальных машин для портала клиента, выполните шаг 1 для каждой из них.
 
-2. Install the new Tenant API MSI on each Windows Azure Pack Tenant API virtual machine.
+2. Установите новый MSI-файл API клиента на каждой виртуальной машине API клиента Windows Azure Pack.
 
-    a. If a load balancer is in use, you may want to mark the virtual machine as offline.
+    а. Если используется подсистема балансировки нагрузки, виртуальную машину можно пометить как автономную.
 
-    b. In File Explorer, copy the **WAPConnector** folder to a folder named **c:\temp** on each Tenant API machine.
+    b. В проводнике скопируйте папку **WAPConnector** в папку с именем **c:\temp** на каждой виртуальной машине API клиента.
 
-    c. Copy the AzurePackConnectorOutput.txt file that you saved earlier, to **c:\temp\WAPConnector**.
+    c. Скопируйте файл AzurePackConnectorOutput.txt, сохраненный ранее, в папку **c:\temp\WAPConnector**.
 
-    d. Open a Console or RDP connection to the Tenant API VM you copied the files to.
+    d. Откройте консоль или RDP-подключение к виртуальной машине API клиента, на которую вы скопировали файлы.
     
-    e. Change directories to **c:\temp\wapconnector\setup\scripts**, and run **Update-TenantAPI.ps1**. This new version of the WAP Tenant API contains a change to enable a trust relationship not only with the current STS, but also with the instance of AD FS in Azure Stack.
+    д. Перейдите в каталог **c:\temp\wapconnector\setup\scripts** и запустите сценарий **Update-TenantAPI.ps1**. Эта новая версия API клиента WAP содержит изменение, чтобы активировать отношение доверия не только с текущей службой маркеров безопасности, но и с экземпляром AD FS на портале Azure Stack.
 
      ```powershell
     cd C:\temp\wapconnector\setup\packages\
@@ -212,17 +211,17 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     .\Update-TenantAPI.ps1
     ```
 
-    f.  Repeat step 2 on any other virtual machine running the Tenant API.
-3. From **only one** of the Tenant API VMs, run the Configure-TrustAzureStack.ps1 script to add a trust relationship between the Tenant API and the AD FS instance on Azure Stack. You must use an account with sysadmin access to the Microsoft.MgmtSvc.Store database. This script has the following parameters:
+    f.  Повторите шаг 2 на любой виртуальной машине, на которой запущен API клиента.
+3. Запустите сценарий Configure-TrustAzureStack.ps1 только на **одной** из виртуальных машин API клиента, чтобы добавить отношение доверия между API клиента и экземпляром AD FS на портале Azure Stack. Используйте учетную запись с правами системного администратора, чтобы получить доступ к базе данных Microsoft.MgmtSvc.Store. В этом сценарии используются следующие параметры.
 
-    | Parameter | Description | Example |
+    | Параметр | Описание | Пример |
     | --------- | ------------| ------- |
-   | SqlServer | The name of the SQL Server that contains the Microsoft.MgmtSvc.Store database. This parameter is required. | SQLServer | 
-   | DataFile | The output file that was generated during the configuration of the Azure Stack multi-cloud mode earlier. This parameter is required. | AzurePack-06-27-15-50.txt | 
-   | PromptForSqlCredential | Indicates that the script should prompt you interactively for a SQL Authentication credential to use when connecting to the SQL Server instance. The given credential must have sufficient permissions to uninstall databases, schemas, and delete user logins. If none is provided, the script assumes that current user context has access. | No value is needed. |
+   | SqlServer | Имя SQL Server, который содержит базу данных Microsoft.MgmtSvc.Store. Этот параметр является обязательным. | SQLServer | 
+   | DataFile | Выходной файл, созданный во время настройки многооблачного режима Azure Stack ранее. Этот параметр является обязательным. | AzurePack-06-27-15-50.txt | 
+   | PromptForSqlCredential | Указывает, что сценарий должен запросить учетные данные для проверки подлинности SQL, которые будут использоваться при подключении к экземпляру SQL Server. Указанным учетным данным должны быть назначены необходимые разрешения для удаления баз данных, схем и имен для входа пользователей. Если не указать учетные данные, сценарий предположит, что у текущего контекста пользователя есть доступ. | Значение не требуется. |
    |  |  |
 
-    If you don't know the SQL Server to use, you can discover it. Connect to the Tenant API computer, use the Unprotect-MgmtSvc command to unprotect the Tenant API Web.config file, and look for the server name in the connection string. Remember to run Protect-MgmtSvc again to protect the Tenant API Web.config file.
+    Если вы не знаете, какой SQL Server используется, это можно узнать. Подключитесь к компьютеру, на котором расположен API клиента, используйте команду Unprotect-MgmtSvc, чтобы снять защиту с файла Web.config API клиента, и выполните поиск имени сервера в строке подключения. После получения имени выполните команду Protect-MgmtSvc, чтобы защитить файл Web.config API клиента.
 
   ```powershell
   cd C:\temp\wapconnector\setup\scripts\
@@ -231,8 +230,8 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
        -DataFile "C:\temp\wapconnector\AzurePackConnectorOutput.txt"
   ```
 
-## <a name="example"></a>Example
-The following example shows a complete Windows Azure Pack Connector deployment on a single-node Azure Stack configuration and two Windows Azure Pack Express installations. (Each Express installation is on a single computer, with the example names *wapcomputer1* and*wapcomputer2*.)
+## <a name="example"></a>Пример
+В примере ниже показано полное развертывание соединителя Windows Azure Pack в конфигурации Azure Stack с одним узлом и две быстрые установки Windows Azure Pack. (Для каждого комплекта Windows Azure Pack быстрая установка выполняется на отдельном компьютере. В примере ниже используются имена *wapcomputer1* и *wapcomputer2*.)
 
 ```powershell
 # Run the following script on the Azure Stack host
@@ -248,7 +247,7 @@ invoke-command -Session $session -ScriptBlock { Add-AzurePackConnector -AzurePac
      -AzureStackCloudName "AzureStack" }  
 
 ```
-Download the .exe file from the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), extract it, and copy the WAPConnector folder to a **c:\temp** folder on the Windows Azure Pack computer. Copy the files that were generated as output in the previous script (located at \\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput) to the **c:\temp\WAPConnector** folder. (The files will looks similar to this: AzurePack-06-27-15-50.txt.) Then, run the following script, once per instance of Windows Azure Pack:
+Загрузите EXE-файл из [Центра загрузки Майкрософт](https://aka.ms/wapconnectorazurestackdlc), извлеките его и скопируйте папку WAPConnector в папку **c:\temp** на компьютере с Windows Azure Pack. Скопируйте файлы, созданные как выходные данные в сценарии выше (расположенные в папке \\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput), в папку **c:\temp\WAPConnector**. (Файлы будут выглядеть примерно так: AzurePack-06-27-15-50.txt.) Затем запустите сценарий ниже — по одному разу для каждого экземпляра Windows Azure Pack:
 
  ```powershell
 # Install Connector components
@@ -271,13 +270,12 @@ cd C:\temp\WAPConnector\Setup\Scripts
      -DataFile "C:\temp\wapconnector\AzurePack-06-27-15-50.txt" 
 
 ```
-## <a name="troubleshooting-tips"></a>Troubleshooting tips
-1.  Ensure there is network connectivity between Azure Stack and Windows Azure Pack. This connectivity should be between any tenant computer that accesses the Azure Stack portal and the Windows Azure Pack tenant portal virtual machine where the new Connector services are running.
-2.  Ensure that all specified FQDNs are correct.
-3.  Ensure that the SSL certificates used in the new Connector services are trusted by Azure Stack (specifically the AzS-WASP01 VM) and any other computer the tenant may use to access the Azure Stack user portal.
-4. For known issues, see [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md).
+## <a name="troubleshooting-tips"></a>Советы по устранению неполадок
+1.  Проверьте наличие подключения между Azure Stack и Windows Azure Pack. Это подключение должно быть установлено между любым компьютером клиента, у которого есть доступ к порталу Azure Stack, и виртуальной машиной портала клиента Windows Azure Pack, на которой запущены новые службы соединителя.
+2.  Все указанные полные доменные имена не должны содержать ошибок.
+3.  Среда Azure Stack должна доверять SSL-сертификатам (особенно для виртуальной машины AzS-WASP01), используемым в новых службах соединителя. Этим сертификатам также должен доверять любой компьютер, который клиент может использовать для доступа к пользовательскому порталу Azure Stack.
+4. Чтобы узнать об известных проблемах, ознакомьтесь со статьей [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md) (Устранение неполадок, связанных с Microsoft Azure Stack).
 
 
-## <a name="next-steps"></a>Next steps
-[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
-
+## <a name="next-steps"></a>Дальнейшие действия
+[Using the administrator portal in Azure Stack](azure-stack-manage-portals.md) (Использование портала администрирования в Azure Stack)

@@ -1,6 +1,6 @@
 ---
-title: Manage updates in Azure Stack overview | Microsoft Docs
-description: Learn about update management for Azure Stack integrated systems.
+title: "Общие сведения об управлении обновлениями в Azure Stack | Документация Майкрософт"
+description: "Сведения об управлении обновлениями для интегрированных систем Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,57 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-updates-in-azure-stack-overview"></a>Manage updates in Azure Stack overview
+# <a name="manage-updates-in-azure-stack-overview"></a>Общие сведения об управлении обновлениями в Azure Stack
 
-*Applies to: Azure Stack integrated systems*
+*Область применения: интегрированные системы Azure Stack*
 
-Microsoft will release update packages for Azure Stack integrated systems on a regular basis. Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
+Корпорация Майкрософт регулярно выпускает пакеты обновления для интегрированных систем Azure Stack. Каждый выпуск обновлений программного обеспечения Майкрософт оформляется в виде отдельного пакета обновления. Как оператор Azure Stack вы можете легко импортировать, устанавливать и отслеживать ход установки этих пакетов обновления на портале администрирования. 
 
-Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. These updates are delivered as separate packages by your OEM hardware vendor, and are managed separately from Microsoft updates.
+Поставщик от изготовителя оборудования (OEM) также будет выпускать обновления, например для драйверов и встроенного ПО. Эти обновления доставляются отдельными пакетами поставщиком оборудования OEM и управляются отдельно от обновлений Майкрософт.
 
-To keep your system under support, you must keep Azure Stack updated to a specific version level. Make sure that you review the [Azure Stack servicing policy](azure-stack-servicing-policy.md).
+Для обеспечения поддержки системы необходимо всегда использовать обновленную версию Azure Stack. Обязательно ознакомьтесь с [политикой обслуживания Azure Stack](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> You can't apply Azure Stack update packages to Azure Stack Development Kit. The update packages are designed for integrated systems.
+> Пакеты обновления Azure Stack нельзя применить к пакету средств разработки Azure Stack. Пакеты обновления предназначены для интегрированных систем.
 
-## <a name="the-update-resource-provider"></a>The Update resource provider
+## <a name="the-update-resource-provider"></a>Поставщик ресурсов "Обновление"
 
-Azure Stack includes an Update resource provider that orchestrates the application of Microsoft software updates. This resource provider ensures that updates are applied across all physical hosts, Service Fabric applications and runtimes, and all infrastructure virtual machines and their associated services.
+Azure Stack включает в себя поставщик ресурсов "Обновление", который координирует применение обновлений программного обеспечения Майкрософт. Этот поставщик ресурсов гарантирует, что обновления будут применяться ко всем физическим узлам, средам выполнения и приложениям Service Fabric, а также ко всем виртуальным машинам инфраструктуры и связанным с ними службам.
 
-As updates install, you can easily view high-level status as the update process targets the various subsystems in Azure Stack (for example, physical hosts, and infrastructure virtual machines).
+По мере установки обновлений можно легко просмотреть общее состояние, так как процесс обновления направлен на различные подсистемы Azure Stack (например, физические узлы и виртуальные машины инфраструктуры).
 
-## <a name="plan-for-updates"></a>Plan for updates
+## <a name="plan-for-updates"></a>Планирование обновлений
 
-We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both tenant workloads and portal operations.
+Настоятельно рекомендуем уведомлять пользователей о любых операциях технического обслуживания и планировать стандартные окна обслуживания по возможности в нерабочее время. Операции технического обслуживания могут влиять как на рабочие нагрузки клиентов, так и на операции портала.
 
-## <a name="using-the-update-tile-to-manage-updates"></a>Using the Update tile to manage updates
-Managing updates from the administrator portal is a simple process. An Azure Stack operator can navigate to the Update tile in the dashboard to:
+## <a name="using-the-update-tile-to-manage-updates"></a>Управление обновлениями с помощью плитки "Обновление"
+Управлять обновлениями на портале администрирования довольно просто. Оператор Azure Stack может перейти к плитке "Обновление" на панели мониторинга для того, чтобы:
 
-- view important information such as the current version.
-- install updates, and monitor progress.
-- review update history for previously installed updates.
+- просмотреть важные сведения, такие как текущая версия;
+- установить обновления и отслеживать ход их выполнения;
+- просмотреть журнал ранее установленных обновлений.
  
-## <a name="determine-the-current-version"></a>Determine the current version
+## <a name="determine-the-current-version"></a>Определение текущей версии
 
-The Update tile shows the current version of Azure Stack. You can get to the Update tile by using either of the following methods in the administrator portal:
+На плитке "Обновление" отображается текущая версия Azure Stack. Перейти к плитке "Обновление" на портале администрирования можно одним из следующих способов.
 
-- On the dashboard, view the current version in the **Update** tile.
+- На панели мониторинга просмотрите текущую версию на плитке **Обновление**.
  
-   ![Updates tile on default dashboard](./media/azure-stack-updates/image1.png)
+   ![Плитка обновлений на панели мониторинга по умолчанию](./media/azure-stack-updates/image1.png)
  
-- On the **Region management** tile, click the region name. View the current version in the **Update** tile.
+- На плитке **Управление регионами** щелкните название региона. Просмотрите текущую версию на плитке **Обновление**.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-- [Azure Stack servicing policy](azure-stack-servicing-policy.md) 
-- [Region management in Azure Stack](azure-stack-region-management.md)     
-
+- [Политика обслуживания Azure Stack](azure-stack-servicing-policy.md) 
+- [Управление регионами в Azure Stack](azure-stack-region-management.md)     
 
 

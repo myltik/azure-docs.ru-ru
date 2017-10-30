@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
+ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: acb6052343acc34eb2365017ac2a49f9a4af51a2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-f-developer-reference"></a>Справочник разработчика F# по Функциям Azure
-> [!div class="op_single_selector"]
-> * [Сценарий C#](functions-reference-csharp.md)
-> * [Скрипт F#](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
-> 
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 F# для Функций Azure — это решение для быстрого запуска фрагментов кода (функций) в облаке. Данные поступают в функцию F# через аргументы функции. Имена аргументов указываются в `function.json`, и есть предварительно определенные имена для доступа к таким объектам, как средство ведения журнала функций и маркеры отмены.
 
@@ -133,7 +127,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## <a name="referencing-external-assemblies"></a>Ссылки на внешние сборки
-Аналогичным образом ссылки на сборку платформы можно добавить с помощью директивы `#r "AssemblyName"` .
+Ссылки на сборку платформы можно добавить с помощью директивы `#r "AssemblyName"`.
 
 ```fsharp
 #r "System.Web.Http"
@@ -276,10 +270,7 @@ let mylog(log: TraceWriter, text: string) =
 * [Руководство по F#](/dotnet/articles/fsharp/index)
 * [Best Practices for Azure Functions](functions-best-practices.md) (Рекомендации по Функциям Azure)
 * [Справочник разработчика по функциям Azure](functions-reference.md)
-* [Справочник разработчика C# по функциям Azure](functions-reference-csharp.md)
-* [Справочник разработчика NodeJS по функциям Azure](functions-reference-node.md)
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
 * [Тестирование Функций Azure](functions-test-a-function.md)
 * [Масштабирование Функций Azure](functions-scale.md)
-
 

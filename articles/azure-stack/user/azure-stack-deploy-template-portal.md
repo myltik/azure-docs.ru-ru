@@ -1,6 +1,6 @@
 ---
-title: Deploy templates with the portal in Azure Stack | Microsoft Docs
-description: Learn how to use the Azure Stack portal to deploy templates.
+title: "Развертывание шаблонов в Azure Stack с помощью портала | Документация Майкрософт"
+description: "Узнайте, как использовать портал Azure Stack для развертывания шаблонов."
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -14,29 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 630d86ed7e3558ae2c8a62f4e1a94f10ca11812d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="deploy-templates-using-the-azure-stack-portal"></a>Deploy templates using the Azure Stack portal
+# <a name="deploy-templates-using-the-azure-stack-portal"></a>Развертывание шаблонов с помощью портала Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-Use the portal to deploy Azure Resource Manager templates to the Azure Stack development kit.
+С помощью портала можно развертывать шаблоны Azure Resource Manager в пакет SDK для Azure Stack.
 
-Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation.
+Используя шаблоны Resource Manager, можно развернуть и подготовить все ресурсы для приложения в рамках одной согласованной операции.
 
-1. Log in to the portal, click **New**, click **Custom**, and then click **Template deployment**.
-2. Click **Edit template**, then paste your JSON template code into the blade, and then click **Save**.
-3. Click **Edit parameters**, type values for the parameters listed, and then click **OK**.
-4. Click **Subscription**, choose the subscription you want to use, and then click **OK**.
-5. Click **Resource group**, choose an existing resource group or create a new one, and then click **OK**.
-6. Click **Create**. A new tile on the dashboard tracks the progress of your template deployment.
+1. Войдите на портал и нажмите кнопку **Создать**, а затем щелкните **Настраиваемый** и **Развертывание шаблона**.
+2. Нажмите **Изменить шаблон**, вставьте JSON-код шаблона в колонке и нажмите кнопку **Сохранить**.
+3. Щелкните **Изменить параметры**, введите значения для указанных параметров и нажмите кнопку **ОК**.
+4. Щелкните **Подписка**, выберите необходимую подписку, а затем нажмите кнопку **ОК**.
+5. Щелкните **Группа ресурсов**, выберите существующую группу ресурсов или создайте новую и нажмите кнопку **ОК**.
+6. Щелкните **Создать**. Новый элемент на панели мониторинга отслеживает ход выполнения развертывания вашего шаблона.
 
-## <a name="next-steps"></a>Next steps
-[Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
-
+## <a name="next-steps"></a>Дальнейшие действия
+[Развертывание шаблонов с помощью PowerShell](azure-stack-deploy-template-powershell.md)
 

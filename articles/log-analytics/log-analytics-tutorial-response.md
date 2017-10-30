@@ -2,7 +2,7 @@
 title: "Реагирование на события с помощью оповещений Azure Log Analytics | Документы Майкрософт"
 description: "Это руководство знакомит вас с основными принципами оповещений в Log Analytics, которые идентифицируют важную информацию в репозитории OMS и заранее уведомляют вас о возникших проблемах или выполняют действия в попытке устранить их."
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: 
@@ -11,14 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.openlocfilehash: ccf0bd57b7f54b1d8d57b460df9bb381b29ee381
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 3ab8d32eb4b3f2748249f40139de76c8e7f4d971
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="respond-to-events-with-log-analytics-alerts"></a>Реагирование на события с помощью оповещений Log Analytics
 Оповещения в Log Analytics содержат важную информацию о вашем репозитории Log Analytics.  Они создаются правилами генерации оповещений, которые автоматически выполняют поиск по журналам через регулярные интервалы и, если результаты поиска по журналу соответствуют конкретным условиям, создают запись оповещения (для которой можно настроить выполнение автоматического ответного действия).  Это руководство является продолжением руководства по [созданию и совместному использованию панели мониторинга данных Log Analytics](log-analytics-tutorial-dashboards.md).   

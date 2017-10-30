@@ -12,18 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/02/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
+ms.openlocfilehash: 168829494de33a21df68d3fc5e2a174f435c5ad5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: f2541b906a2c3a5bbdd384476ce99cad766a6c09
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="populate-groups-dynamically-based-on-object-attributes"></a>Динамическое заполнение групп на основе атрибутов объекта
 Классический портал Azure предоставляет возможность поддержки более сложного динамического членства в группах Azure Active Directory (Azure AD) на основе атрибутов.  
 
@@ -266,26 +264,26 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Создание правил для объектов устройств с помощью атрибутов
 Можно также создать правило, которое выбирает объекты устройств для членства в группе. Можно использовать следующие атрибуты устройства:
 
-| Свойства              | Допустимые значения                  | Использование                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| AccountEnabled          | true, false                      | (device.accountEnabled -eq true)                            |
-| displayName             | Любое строковое значение                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | Любое строковое значение                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | Любое строковое значение                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | Допустимое имя категории устройств.    | (device.deviceCategory -eq "BYOD")                          |
-| deviceManufacturer      | Любое строковое значение.                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | Любое строковое значение.                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Personal или Company.               | (device.deviceOwnership -eq "Company")                      |
-| domainName              | Любое строковое значение.                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | Любое строковое значение.                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true, false                      | (device.deviceOSType -eq true)                              |
-| managementType          | Любое строковое значение.                | (device.managementType -eq "")                              |
-| organizationalUnit      | Любое строковое значение.                | (device.organizationalUnit -eq "")                          |
-| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | Допустимый идентификатор objectId в AAD            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+| Свойства              | Допустимые значения                     | Использование                                                       |
+|-------------------------|------------------------------------|-------------------------------------------------------------|
+| AccountEnabled          | true, false                         | (device.accountEnabled -eq true)                            |
+| displayName             | Любое строковое значение                   | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | Любое строковое значение.                   | (device.deviceOSType -eq "Android")                         |
+| deviceOSVersion         | Любое строковое значение                   | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | Допустимое имя категории устройств.       | (device.deviceCategory -eq "BYOD")                          |
+| deviceManufacturer      | Любое строковое значение.                   | (device.deviceManufacturer -eq "Samsung")                   |
+| deviceModel             | Любое строковое значение.                   | (device.deviceModel -eq "iPad Air”)                         |
+| deviceOwnership         | Personal или Company.                  | (device.deviceOwnership -eq "Company")                      |
+| domainName              | Любое строковое значение.                   | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Имя профиля регистрации устройства Apple.    | (device.enrollmentProfileName -eq "DEP iPhones")       |
+| isRooted                | true, false                         | (device.isRooted -eq true)                              |
+| managementType          | MDM для мобильных устройств, PC для компьютеров, управляемых с помощью агента Intune PC.    | (device.managementType -eq "MDM")                  |
+| organizationalUnit      | Любое строковое значение, соответствующее имени подразделения, заданному в локальном каталоге Active Directory. | (device.organizationalUnit -eq "US PCs")      |
+| deviceId                | Допустимый идентификатор устройства Intune.                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | Допустимый идентификатор объекта Azure AD.            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
-> Эти правила устройств невозможно создать с помощью раскрывающегося списка "Простое правило" на классическом портале Azure.
+> Правила устройств невозможно создать с помощью раскрывающегося списка "Простое правило" на классическом портале Azure.
 >
 >
 
@@ -310,4 +308,3 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-

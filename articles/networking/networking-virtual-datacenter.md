@@ -11,14 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
+ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: fd656c68b5c3b6858b0aa04c51bdd28f3f0adc24
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-azure-virtual-data-center"></a>Виртуальный центр обработки данных Microsoft Azure
 **Microsoft Azure**: ускоренное перемещение, оптимальные затраты, интеграция локальных приложений и данных
 
@@ -346,17 +344,17 @@ OMS Log Analytics — это компонент платформы OMS, кот�
  - Разработайте модель управления ресурсами и подпиской, а также модель RBAC для обеспечения необходимой структуры, требований и политик организации. Планирование является самым важным действием: для реорганизации, слияния, новых разработок и т. д.
 
 <!--Image References-->
-[0]: ./media/networking-virtual-datacenter/redundant-equipment.png "Примеры перекрытия компонента" 
+[0]: ./media/networking-virtual-datacenter/redundant-equipment.png "Примеры совмещения компонентов" 
 [1]: ./media/networking-virtual-datacenter/vdc-high-level.png "Подробный пример звездообразной топологии в виртуальном центре обработки данных"
-[2]: ./media/networking-virtual-datacenter/hub-spokes-cluster.png "Кластер концентраторов и периферийных зон"
-[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "Связь между периферийными зонами"
+[2]: ./media/networking-virtual-datacenter/hub-spokes-cluster.png "Кластер со звездообразной топологией"
+[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "Подключение типа "луч — луч" в звездообразной топологии"
 [4]: ./media/networking-virtual-datacenter/vdc-block-level-diagram.png "Схема виртуального центра обработки данных на уровне блоков"
 [5]: ./media/networking-virtual-datacenter/users-groups-subsciptions.png "Пользователи, группы, подписки и проекты"
-[6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "Высокоуровневая схема инфраструктуры"
-[7]: ./media/networking-virtual-datacenter/highlevel-perimeter-networks.png "Высокоуровневая схема инфраструктуры"
-[8]: ./media/networking-virtual-datacenter/vnet-peering-perimeter-neworks.png "Пиринг виртуальных сетей и сети периметра"
-[9]: ./media/networking-virtual-datacenter/high-level-diagram-monitoring.png "Схема высокого уровня для мониторинга"
-[10]: ./media/networking-virtual-datacenter/high-level-workloads.png "Схема высокого уровня для рабочих нагрузок"
+[6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "Общая схема инфраструктуры"
+[7]: ./media/networking-virtual-datacenter/highlevel-perimeter-networks.png "Общая схема инфраструктуры"
+[8]: ./media/networking-virtual-datacenter/vnet-peering-perimeter-neworks.png "Пиринг виртуальных сетей и сетей периметра"
+[9]: ./media/networking-virtual-datacenter/high-level-diagram-monitoring.png "Общая схема мониторинга"
+[10]: ./media/networking-virtual-datacenter/high-level-workloads.png "Общая схема рабочих нагрузок"
 
 <!--Link References-->
 [Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
@@ -382,9 +380,8 @@ OMS Log Analytics — это компонент платформы OMS, кот�
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
 [OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
-[WebApps]: https://docs.microsoft.com/azure/app-service-web/
+[WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 
 [ServiceBus]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview
 [TM]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview
-

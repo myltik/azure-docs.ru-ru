@@ -63,6 +63,7 @@
 #### [Обработка транзакций](service-bus-transactions.md)
 #### [Реализация сопряженных пространств имен](service-bus-paired-namespaces.md)
 ## Управление
+### [Мониторинг служебной шины с помощью Azure Monitor](service-bus-metrics-azure-monitor.md)
 ### [Библиотеки управления служебной шиной](service-bus-management-libraries.md)
 ### [Журналы диагностики](service-bus-diagnostic-logs.md)
 ### [Приостановка и повторная активация сущностей обмена сообщениями](entity-suspend.md)

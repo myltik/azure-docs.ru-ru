@@ -1,6 +1,6 @@
 ---
-title: "Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений в Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как настроить утверждения, выпущенные в токене SAML для предварительно интегрированных приложений в Azure Active Directory."
+title: "Настройка утверждений, выпущенных в токене SAML для корпоративных приложений в Azure Active Directory | Документация Майкрософт"
+description: "Узнайте, как настроить утверждения, выпущенные в токене SAML для корпоративных приложений в Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -15,15 +15,14 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
+ms.openlocfilehash: a1a33705648a982631315439f99425bab59ad1d1
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 6d232759630fcc567788a8326b566b659f89d17a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений в Azure Active Directory
-На сегодняшний день Azure Active Directory поддерживает тысячи предварительно интегрированных приложений в коллекции приложений Azure AD, включая более 360 приложений, поддерживающих единый вход по протоколу SAML 2.0. Когда пользователь проходит аутентификацию для приложения в Azure AD с помощью SAML, Azure AD отправляет токен в приложение (через запрос HTTP POST). Затем приложение проверяет и использует маркер для входа пользователя вместо запроса имени пользователя и пароля. Эти маркеры SAML содержат элементы информации о пользователе, которые называются "утверждениями".
+# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Настройка утверждений, выпущенных в токене SAML для корпоративных приложений в Azure Active Directory
+Сегодня Azure Active Directory поддерживает единый вход в большинстве корпоративных приложений, включая предварительно интегрированные приложения в коллекции приложений Azure AD, а также пользовательских приложениях. Когда пользователь проходит аутентификацию для приложения в Azure AD с помощью протокола SAML 2.0, Azure AD отправляет токен в приложение (через запрос HTTP POST). Затем приложение проверяет и использует маркер для входа пользователя вместо запроса имени пользователя и пароля. Эти маркеры SAML содержат элементы информации о пользователе, которые называются "утверждениями".
 
 С точки зрения удостоверений "утверждение" представляет собой информацию, предложенную поставщиком удостоверений о пользователе в составе маркера, выпущенного для этого пользователя. В [токене SAML](http://en.wikipedia.org/wiki/SAML_2.0)эти данные обычно содержит оператор атрибута SAML. А уникальный идентификатор пользователя, как правило, представлен в субъекте SAML, который также называют идентификатором имени.
 
@@ -128,7 +127,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Указатель статьей по управлению приложениями в Azure Active Directory](../active-directory-apps-index.md)
-* [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](../active-directory-saas-custom-apps.md)
+* [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Устранение неполадок единого входа на основе SAML](active-directory-saml-debugging.md)
 
 <!--Image references-->

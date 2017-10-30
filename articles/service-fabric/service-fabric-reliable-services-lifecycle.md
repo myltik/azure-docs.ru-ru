@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
+ms.openlocfilehash: d5977a79cfe4016d6bd943cecb22edadc0eaec6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6cfdeacb788db2e2f940ef1100eb03dc7e496ea6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="reliable-services-lifecycle-overview"></a>Жизненный цикл Reliable Services
 > [!div class="op_single_selector"]
 > * [C# в Windows](service-fabric-reliable-services-lifecycle.md)
@@ -77,7 +75,7 @@ ms.lasthandoff: 09/25/2017
     - Вызывается метод `StatefulServiceBase.CreateServiceReplicaListeners()`. 
       - Если служба является первичной репликой, открываются все возвращенные прослушиватели. Для каждого прослушивателя вызывается метод `ICommunicationListener.OpenAsync()`.
       - Если служба является вторичной репликой, то открываются только прослушиватели, помеченные как `ListenOnSecondary = true`. Открытые прослушиватели для вторичных реплик используются реже.
-    - Если служба в настоящий момент является первичной репликой, то вызывается метод `StatefulServiceBase.RunAsync()` службы.
+    - Если служба в настоящий момент является первичной репликой, вызывается метод `StatefulServiceBase.RunAsync()` службы.
 4. После завершения всех вызовов `OpenAsync()` прослушивателя реплик и вызова `RunAsync()` вызывается метод `StatefulServiceBase.OnChangeRoleAsync()`. Он редко переопределяется в службе.
 
 Как и в случае со службами без отслеживания состояния, между порядком, в котором прослушиватели создаются и открываются, а также вызовом RunAsync отсутствует координация. Если требуется координация, то решение будет во многом схожим. Есть лишь одно дополнение. Предположим, что для вызовов, поступающих в прослушиватели связи, требуется наличие сведений в некоторых [надежных коллекциях](service-fabric-reliable-services-reliable-collections.md). Так как прослушиватели связи могут быть открыты до того, как надежные коллекции станут доступны для чтения или записи, а также до запуска RunAsync, потребуется дополнительная координация. Простейшее и самое распространенное решение для прослушивателей связи — вернуть код ошибки, который клиент использует для повторного запроса.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: bwren
+ms.openlocfilehash: e03911d589aaab0d0e80da5d58f14d6df417f4be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 951e76d3fb18d9e433b148e82d4d6cee9417ce6d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Общие сведения об оповещениях в Log Analytics
 
@@ -144,6 +143,5 @@ ms.lasthandoff: 09/20/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Установите [решение для управления оповещениями](log-analytics-solution-alert-management.md), чтобы анализировать предупреждения, создаваемые в Log Analytics, вместе с оповещениями, полученными от System Center Operations Manager.
 * Вы можете ознакомиться с дополнительными сведениями о [поисках журналов](log-analytics-log-searches.md) , которые могут создавать оповещения.
-* Вы можете выполнить пошаговое руководство по [настройке webook](log-analytics-alerts-webhooks.md) с использованием правила генерации оповещений.  
+* Вы можете выполнить задачи в пошаговом руководстве по [настройке веб-перехватчика](log-analytics-alerts-webhooks.md) с использованием правила генерации оповещений.  
 * Вы можете научиться писать [модули Runbook в службе автоматизации Azure](https://azure.microsoft.com/documentation/services/automation) для устранения проблем, обозначенных в оповещениях.
-

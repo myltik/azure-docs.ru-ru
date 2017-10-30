@@ -4,8 +4,8 @@ description: "Узнайте, как настроить брандмауэр б�
 keywords: "брандмауэр базы данных"
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: craigg
+author: CarlRabeler
+manager: jhubbard
 editor: cgronlun
 tags: 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
@@ -15,20 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/15/2017
-ms.author: rickbyh
+ms.date: 10/11/2017
+ms.author: carlrab
+ms.openlocfilehash: a99ef3117cba8fea6a69e8f5cef15cf8fe711715
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a683481c9ebcdb8be6f9fefe442541e222482823
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Правила брандмауэра уровня сервера и уровня базы данных SQL Azure 
 
 База данных SQL Microsoft Azure предоставляет службу реляционных баз данных для Azure и других интернет-приложений. Чтобы защитить ваши данные, брандмауэр запрещает любой доступ к серверу базы данных, пока вы не укажете компьютеры, у которых есть разрешение на доступ. Брандмауэр предоставляет доступ к базам данным на основе исходного IP-адреса каждого запроса.
 
-#### <a name="virtual-netowrk-rules-as-alternatives-to-ip-rules"></a>Правила виртуальной сети как альтернатива правилам фильтрации IP-адресов
+#### <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Правила виртуальной сети как альтернатива правилам фильтрации IP-адресов
 
 Помимо правил фильтрации IP-адресов брандмауэр также управляет *правилами виртуальной сети*. Правила виртуальной сети основаны на конечных точках службы виртуальной сети. В некоторых случаях предпочтительнее использовать правила виртуальной сети, а не правила фильтрации IP-адресов. Чтобы узнать больше, ознакомьтесь с разделом [Использование конечных точек службы и правил виртуальной сети для базы данных SQL Azure](sql-database-vnet-service-endpoint-rule-overview.md).
 
@@ -71,7 +70,7 @@ ms.lasthandoff: 09/28/2017
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Создание правил брандмауэра и управление ими
-Первый параметр брандмауэра уровня сервера можно создать на [портале Azure](https://portal.azure.com/) или программным путем с помощью [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#create) или [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules). Последующие правила брандмауэра уровня сервера можно создавать и контролировать с помощью этих методов и Transact-SQL. 
+Первый параметр брандмауэра уровня сервера можно создать на [портале Azure](https://portal.azure.com/) или программным путем с помощью [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) или [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules). Последующие правила брандмауэра уровня сервера можно создавать и контролировать с помощью этих методов и Transact-SQL. 
 
 > [!IMPORTANT]
 > Правила брандмауэра уровня базы данных можно создавать только с помощью Transact-SQL. То же самое касается и управления ими. 
@@ -163,11 +162,11 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Управление правилами брандмауэра с помощью Azure CLI
 | Командлет | Уровень | Описание |
 | --- | --- | --- |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Создает правило брандмауэра, чтобы разрешить доступ ко всем базам данных SQL на сервере по введенному диапазону IP-адресов.|
-| [az sql server firewall delete](/cli/azure/sql/server/firewall-rule#delete)| Удаляет правило брандмауэра.|
-| [az sql server firewall list](/cli/azure/sql/server/firewall-rule#list)| Выводит список правил брандмауэра.|
-| [az sql server firewall rule show](/cli/azure/sql/server/firewall-rule#show)| Отображает сведения о правиле брандмауэра.|
-| [ax sql server firewall rule update](/cli/azure/sql/server/firewall-rule#update)| Обновляет правило брандмауэра.
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|сервер;|Создает правило брандмауэра для сервера.|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|сервер;|Выводит список правил брандмауэра на сервере.|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|сервер;|Отображает сведения о правиле брандмауэра.|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|сервер;|Обновляет правило брандмауэра.|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|сервер;|Удаляет правило брандмауэра.|
 
 Приведенный ниже пример задает правило брандмауэра уровня сервера с помощью Azure CLI. 
 
@@ -227,4 +226,3 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
-

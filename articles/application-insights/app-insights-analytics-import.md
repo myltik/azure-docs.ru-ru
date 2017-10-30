@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 10/04/2017
 ms.author: bwren
+ms.openlocfilehash: 5786ac45b3459e813b1716a3c408db47b393b6ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-data-into-analytics"></a>Импорт данных в инструмент аналитики
 
@@ -367,5 +366,4 @@ namespace IngestionClient
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Знакомство с аналитикой в Application Insights](app-insights-analytics-tour.md)
-* [Использование *Logstash* для отправки данных в Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
-
+* Если вы используете Logstash, используйте [подключаемый модуль Logstash для отправки данных в Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

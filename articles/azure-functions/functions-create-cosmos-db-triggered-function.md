@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 10/02/2017
 ms.author: glenga
 ms.custom: 
+ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 04da2dda961eb2c6bc53f0aed1c0cd12372a2332
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Создание функции, активируемой с помощью Azure Cosmos DB
 
@@ -66,11 +65,11 @@ ms.lasthandoff: 09/25/2017
     | **Имя коллекции** | Items | Имя коллекции для отслеживания. |
     | **Create lease collection if it doesn't exist** (Создать коллекцию аренд, если она не существует) | Флажок установлен | Коллекция не существует, создайте ее. |
 
-4. Выберите **Создать** рядом с надписью **Azure Cosmos DB account connection** (Подключение к учетной записи Azure Cosmos DB) и выберите **+ Create new** (+ Создать). 
+4. Выберите **Создать** рядом с надписью **Azure Cosmos DB account connection** (Подключение к учетной записи Azure Cosmos DB). Затем выберите существующую учетную запись или **+ Создать**. 
  
     ![Настройка подключения к Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
-6. Используйте параметры **Новая учетная запись**, как указано в таблице.
+6. При создании новой учетной записи Cosmos DB используйте параметры **новой учетной записи**, указанные в таблице.
 
     | Настройка      | Рекомендуемое значение  | Описание                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -151,4 +150,3 @@ ms.lasthandoff: 09/25/2017
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Дополнительные сведения о триггерах хранилища очередей см. в статье [Привязки очередей службы хранилища для Функций Azure](functions-bindings-storage-queue.md).
-

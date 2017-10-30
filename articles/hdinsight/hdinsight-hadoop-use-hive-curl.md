@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: afd0bc8c19456fd123f53de7d1704619405bed67
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: 8c6877b923c6000abe3aece37a24b275462ba378
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Выполнение запросов Hive с Hadoop в HDInsight с помощью REST
 
@@ -39,14 +38,14 @@ ms.lasthandoff: 06/10/2017
 > [!NOTE]
 > При использовании Curl или любых других средств связи REST с WebHCat нужно выполнять аутентификацию запросов с помощью пароля и имени пользователя администратора кластера HDInsight.
 >
-> В командах, описанных в этом разделе, замените **USERNAME** на имя пользователя для выполнения проверки подлинности в кластере, а **PASSWORD** — на пароль учетной записи пользователя. Замените **CLUSTERNAME** именем кластера.
+> В командах в этом разделе замените **admin** именем пользователя, используемым для аутентификации в кластере. Замените **CLUSTERNAME** именем кластера. При появлении запроса введите пароль для учетной записи пользователя.
 >
 > REST API защищен с помощью [обычной проверки подлинности](http://en.wikipedia.org/wiki/Basic_access_authentication). Чтобы обеспечить безопасную отправку учетных данных на сервер, все запросы следует отправлять с помощью протокола HTTPS.
 
 1. Используйте следующую команду в командной строке, чтобы проверить возможность подключения к кластеру HDInsight:
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
     Вы должны получить ответ, аналогичный показанному ниже тексту.
@@ -55,23 +54,23 @@ ms.lasthandoff: 06/10/2017
 
     Ниже приведены параметры, используемые в этой команде:
 
-   * **-u** — имя пользователя и пароль, используемый для аутентификации запроса.
-   * **-G** — указывает, что это запрос, являющийся операцией GET.
+    * **-u** — имя пользователя и пароль, используемый для аутентификации запроса.
+    * **-G** — указывает, что это запрос, являющийся операцией GET.
 
-     Начало URL-адреса **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** одинаковое для всех запросов. Путь **/status** указывает, что по запросу серверу должно быть возвращено состояние WebHCat (другое название — Templeton). Используя следующую команду, можно также запросить версию Hive:
+   Начало URL-адреса **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** одинаковое для всех запросов. Путь **/status** указывает, что по запросу серверу должно быть возвращено состояние WebHCat (другое название — Templeton). Используя следующую команду, можно также запросить версию Hive:
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
     ```
 
-     Этот запрос возвращает ответ, аналогичный показанному ниже тексту.
+    Этот запрос возвращает ответ, аналогичный показанному ниже тексту.
 
-       {"module":"hive","version":"0.13.0.2.1.6.0-2103"}.
+        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
 
 2. Используйте следующую команду, чтобы создать таблицу **log4jLogs**.
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
     Ниже приведены параметры, используемые в запросе.
@@ -82,7 +81,8 @@ ms.lasthandoff: 06/10/2017
      * **execute** — операторы HiveQL, которые необходимо выполнить.
      * **statusdir** — каталог, в который будет записано состояние этого задания.
 
-     Эти операторы выполняют следующие действия:
+   Эти операторы выполняют следующие действия:
+   
    * **DROP TABLE** — если таблица уже существует, она будет удалена.
    * **CREATE EXTERNAL TABLE** : создание новой "внешней" таблицы в Hive. Внешние таблицы хранят только определение таблицы в Hive. Данные остаются в исходном расположении.
 
@@ -103,14 +103,14 @@ ms.lasthandoff: 06/10/2017
      > [!NOTE]
      > Обратите внимание, что `%25` — это % в кодировке URL-адреса, поэтому фактическим условием является `like '%.log'`. Символ % должен быть в кодировке URL, поскольку в URL-адресах он рассматривается как специальный символ.
 
-     Эта команда должна возвращать идентификатор задания, который может использоваться для проверки состояния задания.
+   Эта команда возвращает идентификатор задания, который может использоваться для проверки состояния задания.
 
        {"id":"job_1415651640909_0026"}
 
 3. Чтобы проверить состояние задания, используйте следующую команду.
 
     ```bash
-    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
     Замените **JOBID** значением, возвращенным на предыдущем шаге. Например, если возвращено значение `{"id":"job_1415651640909_0026"}`, то **JOBID** будет `job_1415651640909_0026`.
@@ -127,12 +127,12 @@ ms.lasthandoff: 06/10/2017
 5. Используйте следующие операторы, чтобы создать новую "внутреннюю" таблицу с именем **errorLogs**:
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
     Эти операторы выполняют следующие действия:
 
-   * **CREATE TABLE IF NOT EXISTS** : создание таблицы, если она до этого не существовала. Эта инструкция создает внутреннюю таблицу, которая хранится в хранилище данных Hive и полностью обслуживается Hive.
+   * **CREATE TABLE IF NOT EXISTS** : создание таблицы, если она до этого не существовала. Эта инструкция создает внутреннюю таблицу, которая хранится в хранилище данных Hive. Она полностью обслуживается Hive.
 
      > [!NOTE]
      > В отличие от внешних таблиц, удаление внутренней таблицы приводит к удалению базовых данных.
@@ -184,6 +184,5 @@ ms.lasthandoff: 06/10/2017
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
 
 

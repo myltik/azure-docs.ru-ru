@@ -1,6 +1,6 @@
 ---
-title: Usage API related FAQs | Microsoft Docs
-description: List of Azure Stack meters, comparison to Azure usage API, Usage Time and Reported Time, error codes.
+title: "Часто задаваемые вопросы об API использования | Документация Майкрософт"
+description: "Список средств измерения в Azure Stack, сравнение с API использования в Azure, время использования и время сообщения, коды ошибок."
 services: azure-stack
 documentationcenter: 
 author: AlfredoPizzirani
@@ -14,72 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 166147c8cb4949be1b23e0a06868e66c8a5844f4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Frequently asked questions in Azure Stack usage API 
-This article answers some frequently asked questions about the Azure Stack Usage API.
+# <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Часто задаваемые вопросы об API использования в Azure Stack 
+В этой статье содержатся ответы на некоторые часто задаваемые вопросы об API использования в Azure Stack.
 
-## <a name="what-meter-ids-can-i-see"></a>What meter IDs can I see?
-Currently, usage is reported for the network, storage, and compute resource providers.
+## <a name="what-meter-ids-can-i-see"></a>Какие доступны идентификаторы средств измерения?
+В настоящее время передается информация об использовании поставщиков ресурсов сети, хранилища и вычислений.
 
-| **Resource provider** | **Meter ID** | **Meter name** | **Unit** | **Additional info** |
+| **Поставщик ресурсов** | **Идентификатор средства измерения** | **Имя средства измерения** | **Единица измерения** | **Дополнительная информация** |
 | --- | --- | --- | --- | --- | 
-| **Network** |F271A8A388C44D93956A063E1D2FA80B |Static IP Address Usage |IP addresses|Count of IP addressess used | 
-| |9E2739BA86744796B465F64674B822BA |Dynamic IP Address Usage |IP addresses|Count of IP addressess used | 
-| **Storage** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*hours |Total capacity consumed by tables |
-| | B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*hours |Total capacity consumed by page blobs |
-| | B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*hours |Total capacity consumed by queue |
-| | 09F8879E-87E9-4305-A572-4B7BE209F857 |BlockBlobCapacity |GB\*hours |Total capacity consumed by block blobs |
-| | B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90 |TableTransactions |Request count in 10,000s |Table service requests (in 10,000s) |
-| | 50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D |TableDataTransIn |Ingress data in GB |Table service data ingress in GB |
-| | 1B8C1DEC-EE42-414B-AA36-6229CF199370 |TableDataTransOut |Outgress in GB |Table service data egress in GB |
-| | 43DAF82B-4618-444A-B994-40C23F7CD438 |BlobTransactions |Requests count in 10,000s |Blob service requests (in 10,000s) |
-| | 9764F92C-E44A-498E-8DC1-AAD66587A810 |BlobDataTransIn |Ingress data in GB |Blob service data ingress in GB |
-| | 3023FEF4-ECA5-4D7B-87B3-CFBC061931E8 |BlobDataTransOut |Outgress in GB |Blob service data egress in GB |
-| | EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Requests count in 10,000s |Queue service requests (in 10,000s) |
-| | E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Ingress data in GB |Queue service data ingress in GB | 
-| | DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Outgress in GB |Queue service data egress in GB |
-| **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Base VM Size Hours |Virtual core minutes | Number of vcores times minutes the VM ran |
-| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM Size Hours |Virtual core minutes | Number of vcores times minutes the VM ran |
-| |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM size hours |VM hours |Captures both Base and Windows VM. Does not adjust for vcores |
-| **Key Vault** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Key Vault transactions | Request count in 10000s| Number of REST API requests received by Key Vault data plane |
+| **Сеть** |F271A8A388C44D93956A063E1D2FA80B |Использование статических IP-адресов |IP-адреса;|Число используемых IP-адресов | 
+| |9E2739BA86744796B465F64674B822BA |Использование динамических IP-адресов |IP-адреса;|Число используемых IP-адресов | 
+| **Хранилище** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |ГБ\*ч |Общая емкость, потребляемая таблицами |
+| | B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |ГБ\*ч |Общая емкость, потребляемая страничными BLOB-объектами |
+| | B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |ГБ\*ч |Общая емкость, потребляемая очередью |
+| | 09F8879E-87E9-4305-A572-4B7BE209F857 |BlockBlobCapacity |ГБ\*ч |Общая емкость, потребляемая блочными BLOB-объектами |
+| | B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90 |TableTransactions |Количество запросов в десятках тысяч |Запросы к службе таблиц (в десятках тысяч) |
+| | 50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D |TableDataTransIn |Объем входящих данных, ГБ |Объем входящих данных службы таблиц, ГБ |
+| | 1B8C1DEC-EE42-414B-AA36-6229CF199370 |TableDataTransOut |Объем исходящих данных, ГБ |Объем исходящих данных службы таблиц, ГБ |
+| | 43DAF82B-4618-444A-B994-40C23F7CD438 |BlobTransactions |Количество запросов в десятках тысяч |Запросы к службе BLOB-объектов (в десятках тысяч) |
+| | 9764F92C-E44A-498E-8DC1-AAD66587A810 |BlobDataTransIn |Объем входящих данных, ГБ |Объем входящих данных службы BLOB-объектов, ГБ |
+| | 3023FEF4-ECA5-4D7B-87B3-CFBC061931E8 |BlobDataTransOut |Объем исходящих данных, ГБ |Объем исходящих данных службы BLOB-объектов, ГБ |
+| | EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Количество запросов в десятках тысяч |Запросы к службе очередей (в десятках тысяч) |
+| | E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Объем входящих данных, ГБ |Объем входящих данных службы очередей, ГБ | 
+| | DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Объем исходящих данных, ГБ |Объем исходящих данных службы очередей, ГБ |
+| **Среда выполнения приложений** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Base VM Size Hours |Виртуальные ядра, в минутах | Результат от умножения количества виртуальных ядер на минуты работы виртуальной машины |
+| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM Size Hours |Виртуальные ядра, в минутах | Результат от умножения количества виртуальных ядер на минуты работы виртуальной машины |
+| |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM size hours |Виртуальные машины, в часах |С учетом виртуальных машин Base и Windows. Корректировка по виртуальным ядрам не учитывается |
+| **хранилище ключей;** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Key Vault transactions | Количество запросов в десятках тысяч| Число запросов, полученных REST API для плоскости данных хранилища ключей |
 
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>How do the Azure Stack usage APIs compare to the [Azure usage API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (currently in public preview)?
-* The Tenant Usage API is consistent with the Azure API, with one exception: the *showDetails* flag currently is not supported in Azure Stack.
-* The Provider Usage API applies only to Azure Stack.
-* Currently, the [RateCard API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx) that is available in Azure is not available in Azure Stack.
+## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Какие различия между API использования в Azure Stack и [API использования в Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (в настоящее время в общедоступной предварительной версии)?
+* API использования для клиента полностью совпадает с аналогичным API в Azure, за одним исключением: в настоящее время флаг *showDetails* для Azure Stack не поддерживается.
+* API использования для поставщика относится только к Azure Stack.
+* В настоящее время в Azure Stack недоступен [API RateCard](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx), который используется в Azure.
 
-## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>What is the difference between usage time and reported time?
-Usage data reports have two main time values:
+## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>В чем различия между временем использования и временем сообщения?
+В отчетах об использовании учитываются два показателя времени:
 
-* **Reported Time**. The time when the usage event entered the usage system
-* **Usage Time**. The time when the Azure Stack resource was consumed
+* **Время сообщения**. Время, когда информация о событии использования поступила в систему учета использования.
+* **Время использования**. Время, когда происходило использование ресурса Azure Stack.
 
-You might see a discrepancy in values for Usage Time and Reported Time for a specific usage event. The delay can be as long as multiple hours in any environment.
+Для некоторых событий использования вы можете заметить расхождения между временем использования временем сообщения. Задержка в любой среде может длиться до нескольких часов.
 
-Currently, you can query *only by Reported Time*.
+В настоящее время запросы можно создавать *только по времени сообщения*.
 
-## <a name="what-do-these-usage-api-error-codes-mean"></a>What do these usage API error codes mean?
-| **HTTP status code** | **Error code** | **Description** |
+## <a name="what-do-these-usage-api-error-codes-mean"></a>Что означают коды ошибок в API использования?
+| **Код состояния HTTP** | **Код ошибки** | **Описание** |
 | --- | --- | --- |
-| 400/Bad Request |*NoApiVersion* |The *api-version* query parameter is missing. |
-| 400/Bad Request |*InvalidProperty* |A property is missing or has an invalid value. The message in the error code in the response body identifies the missing property. |
-| 400/Bad Request |*RequestEndTimeIsInFuture* |The value for *ReportedEndTime* is in the future. Values in the future are not allowed for this argument. |
-| 400/Bad Request |*SubscriberIdIsNotDirectTenant* |A provider API call used a subscription ID that is not a valid tenant of the caller. |
-| 400/Bad Request |*SubscriptionIdMissingInRequest* |The subscription ID of the caller is missing. |
-| 400/Bad Request |*InvalidAggregationGranularity* |An invalid aggregation granularity was requested. Valid values are daily and hourly. |
-| 503 |*ServiceUnavailable* |A retryable error occurred because the service is busy or the call is being throttled. |
+| 400/Bad Request |*NoApiVersion* |Не указан параметр запроса *api-version* (версия API). |
+| 400/Bad Request |*InvalidProperty* |Свойство отсутствует или имеет недопустимое значение. Сообщение об ошибке определяет недостающее свойство в тексте ответа. |
+| 400/Bad Request |*RequestEndTimeIsInFuture* |Значение *reportedEndTime* относится к будущему. Для этого аргумента не допускаются значения в будущем. |
+| 400/Bad Request |*SubscriberIdIsNotDirectTenant* |В вызове к API-интерфейсу для поставщика используется идентификатор подписки, который указывает на недопустимый клиент вызывающего объекта. |
+| 400/Bad Request |*SubscriptionIdMissingInRequest* |Отсутствует идентификатор подписки вызывающего объекта. |
+| 400/Bad Request |*InvalidAggregationGranularity* |В запросе указано недопустимое значение для степени детализации статистической обработки. Допустимые значения: daily (ежедневно) и hourly (каждый час). |
+| 503 |*ServiceUnavailable* |Произошла повторяемая ошибка из-за перегрузки службы или регулирования запросов. |
 
-## <a name="next-steps"></a>Next Steps
-[Customer billing and chargeback in Azure Stack](azure-stack-billing-and-chargeback.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Выставление счетов клиентам и начисление платы за использование Azure Stack](azure-stack-billing-and-chargeback.md)
 
-[Provider Resource Usage API](azure-stack-provider-resource-api.md)
+[Provider Resource Usage API](azure-stack-provider-resource-api.md) (API использования ресурсов для поставщиков)
 
-[Tenant Resource Usage API](azure-stack-tenant-resource-usage-api.md)
-
+[Tenant Resource Usage API](azure-stack-tenant-resource-usage-api.md) (API использования ресурсов для клиентов)
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
+ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 55298a7ff96bd9662310fa6b5d1764370f500be5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Прогнозирование оттока клиентов с помощью Машинного обучения Azure
 
 В среднем сохранение имеющихся клиентов обходится в пять раз дешевле, чем поиск новых. В результате менеджеры по маркетингу часто пытаются оценить вероятность оттока клиентов и найти необходимые меры для минимизации оттока.
@@ -77,7 +75,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="data-description"></a>Описание данных
 
-Набор данных, используемый в решении, взят с конкурса SIDKDD 2009. Он вызывается с помощью `CATelcoCustomerChurnTrainingSample.csv` и находится в папке [`Data`](https://github.com/mezmicrosoft/MachineLearningSamples-ChurnPrediction/tree/master/Data). Набор данных состоит из необработанных разнородных анонимных данных (числовые или категориальные переменные) французской телекоммуникационной компании Orange.
+Набор данных, используемый в решении, взят с конкурса SIDKDD 2009. Он вызывается с помощью `CATelcoCustomerChurnTrainingSample.csv` и находится в папке [`data`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/tree/master/data). Набор данных состоит из необработанных разнородных анонимных данных (числовые или категориальные переменные) французской телекоммуникационной компании Orange.
 
 Переменные фиксируют демографическую информацию клиента, статистику звонков (например, среднюю продолжительность звонка, частоту сбоя вызовов и т. д.), информацию о контракте, статистику жалоб. Обработка переменной является двоичной (0 — не было оттока, 1 — отток).
 
@@ -85,27 +83,24 @@ ms.lasthandoff: 09/25/2017
 
 Папки упорядочены следующим образом.
 
-__Code__. Содержит весь код, относящийся к прогнозированию оттока с помощью Azure Machine Learning Workbench.
+__data__: содержит набор данных, используемых в решении.  
 
-__Data__. Содержит набор данных, используемых в решении.  
-
-__Labs__. Содержит практические занятия.
+__docs__: содержит все практические занятия.
 
 Порядок выполнения практических заданий решения выглядит так:
-1. Подготовка данных. Файлы, относящиеся к подготовке данных, находятся в папке code и называются `CATelcoCustomerChurnTrainingSample.dprep`, `CATelcoCustomerChurnTrainingSample.dconn` и `CATelcoCustomerChurnTrainingSample.csv`.
-2. Моделирование и оценка. Основной файл, относящийся к моделированию и вычислениям, находится в папке code и называется `CATelcoCustomerChurnModeling.py`.
-3. Моделирование и оценка в Docker. Основной файл для выполнения этой задачи находится в папке code и называется `CATelcoCustomerChurnModelingDocker.py`.
+1. Подготовка данных. Основной файл, относящийся к подготовке данных, находится в папке data и называется `CATelcoCustomerChurnTrainingSample.csv`.
+2. Моделирование и оценка. Основной файл, относящийся к моделированию и вычислениям, находится в корневой папке и называется `CATelcoCustomerChurnModeling.py`.
+3. Моделирование и оценка в Docker. Основной файл для выполнения этой задачи находится в корневой папке и называется `CATelcoCustomerChurnModelingDocker.py`.
 4. Ввод в эксплуатацию. Основные файлы для развертывания — это файлы модели (`model.pkl`) и `churn_schema_gen.py`.
 
 | Порядок| Имя файла | Связанные файлы |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/DataPreparation.md) | "Data/CATelcoCustomerChurnTrainingSample.csv" |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluation.md) | "Code/CATelcoCustomerChurnModeling.py" |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluationDocker.md) | "Code/CATelcoCustomerChurnModelingDocker.py" |
-| 4. | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/Operationalization.md) | "Code/model.pkl"<br>"Code/churn_schema_gen.py" |
+| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | data/CATelcoCustomerChurnTrainingSample.csv |
+| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | CATelcoCustomerChurnModeling.py |
+| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | CATelcoCustomerChurnModelingDocker.py |
+| 4. | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | model.pkl<br>churn_schema_gen.py |
 
 Выполняйте практические задания в последовательном режиме, описанном выше.
 
 ## <a name="conclusion"></a>Заключение
 В этом практическом сценарии показано, как выполнять прогнозирование оттока с использованием Azure Machine Learning Workbench. Сначала необходимо очистить данные для обработки необработанных и разнородных данных, а затем спроектировать признаки с помощью средств подготовки данных. Затем нужно создать и оценить модель классификации, используя средства машинного обучения с открытым исходным кодом, и с помощью локального контейнера Docker развернуть модель. После этого она готова к работе.
-

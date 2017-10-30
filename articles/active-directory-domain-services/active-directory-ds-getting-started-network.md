@@ -1,6 +1,6 @@
 ---
 title: "Доменные службы Azure Active Directory: начало работы | Документы Майкрософт"
-description: "Включение доменных служб Azure Active Directory с помощью портала Azure (предварительная версия)"
+description: "Включение доменных служб Azure Active Directory с помощью портала Azure"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 26fa86d166c54f48621ccbab13d1d17f465b7568
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: dd4a45c4eae6832026bce82670e914f5a02bbff7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Включение доменных служб Azure Active Directory с помощью портала Azure (предварительная версия)
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Включение доменных служб Azure Active Directory с помощью портала Azure
 
 
 ## <a name="before-you-begin"></a>Перед началом работы
@@ -34,6 +33,11 @@ ms.lasthandoff: 08/29/2017
 1. Щелкните **Виртуальная сеть**, чтобы выбрать виртуальную сеть.
 2. В колонке **Выбор виртуальной сети** представлены все имеющиеся виртуальные сети. Отображаются только виртуальные сети, принадлежащие к группе ресурсов и расположению Azure, которые выбраны странице **Основное** мастера.
 3. Выберите виртуальную сеть, в которой следует включить доменные службы Azure AD. Можно выбрать существующую учетную запись хранения или создать новую.
+
+  > [!TIP]
+  > **После включения доменных служб Azure AD невозможно переместить управляемый домен в другую виртуальную сеть.** Выберите нужную виртуальную сеть для включения управляемого домена. Вы не сможете переместить созданный управляемый домен в другую виртуальную сеть, не удалив его. Мы рекомендуем ознакомиться со статьей [Рекомендации по сетям для доменных служб Azure AD](active-directory-ds-networking.md), прежде чем продолжить.  
+  >
+
 4. **Создание виртуальной сети**. Нажмите кнопку **Создать**. Для доменных служб Azure Active Directory настоятельно рекомендуется использовать выделенную подсеть. Например, можно создать подсеть с именем "DomainServices", чтобы другие администраторы смогли с легкостью понять, что развернуто в подсети. По завершении нажмите кнопку **ОК**.
 
     ![Выбор виртуальной сети](./media/getting-started/domain-services-blade-network-pick-vnet.png)
@@ -49,9 +53,8 @@ ms.lasthandoff: 08/29/2017
   3. Убедитесь в том, что в выбранной подсети имеется достаточное доступное адресное пространство — не менее 3–5 доступных IP-адресов.
   >
 
-6. По завершении нажмите **ОК** для перехода на страницу **Группа администраторов** в мастере.
+6. По завершении нажмите **ОК**, чтобы перейти к странице **Группа администраторов** в мастере.
 
 
 ## <a name="next-step"></a>Дальнейшие действия
 [Задача 3. Настройка административной группы и включение доменных служб Azure AD](active-directory-ds-getting-started-admingroup.md)
-

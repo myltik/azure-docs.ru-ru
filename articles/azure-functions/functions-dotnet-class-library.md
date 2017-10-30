@@ -3,7 +3,7 @@ title: "Использование библиотек классов .NET с п�
 description: "Узнайте, как создавать библиотеки классов .NET, которые можно использовать с Функциями Azure."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -14,14 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/09/2017
-ms.author: donnam
+ms.date: 10/10/2017
+ms.author: glenga
+ms.openlocfilehash: e55af617236f3c36da161158a10b26f2f8f30224
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Использование библиотек классов .NET с помощью Функций Azure
 
@@ -31,8 +30,8 @@ ms.lasthandoff: 09/29/2017
 
 Для работы с этой статьей необходимы следующие компоненты:
 
-- [Предварительная версия Visual Studio 2017 15.3](https://www.visualstudio.com/vs/preview/). Установите рабочие нагрузки **ASP.NET и веб-разработки**, а также **разработки Azure**.
-- [Инструменты Функций Azure для Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=AndrewBHall-MSFT.AzureFunctionToolsforVisualStudio2017).
+- [Visual Studio 2017 версии 15.3](https://www.visualstudio.com/vs/) или более поздней.
+- Установка рабочей нагрузки **разработки Azure**.
 
 ## <a name="functions-class-library-project"></a>Проект библиотеки классов функций
 
@@ -50,14 +49,15 @@ ms.lasthandoff: 09/29/2017
 
 Это преобразование выполняется с помощью пакета NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Источник доступен в репозитории GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## <a name="triggers-and-bindings"></a>Триггеры и привязки
+## <a name="triggers-and-bindings"></a>Триггеры и привязки 
 
 В таблице ниже перечислены триггеры и привязки, доступные в проекте библиотеки классов Функций Azure. Все атрибуты находятся в пространстве имен `Microsoft.Azure.WebJobs`.
 
 | Привязка | Атрибут | Пакет NuGet |
 |------   | ------    | ------        |
 | [Привязки триггера, входные и выходные привязки для хранилища BLOB-объектов](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Хранилище BLOB-объектов] |
-| [Входная и выходная привязка для Cosmos DB](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Триггер Cosmos DB](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Входные и выходные данные Cosmos DB](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
 | [Привязки триггера и выходные привязки для концентраторов событий](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
 | [Входная и выходная привязка для внешнего файла](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
 | [Триггер HTTP и веб-перехватчика](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
@@ -72,11 +72,11 @@ ms.lasthandoff: 09/29/2017
 
 <a name="blob-storage"></a>
 
-### <a name="blob-storage-trigger-input-and-output-bindings"></a>Привязки триггера, входные и выходные привязки для хранилища BLOB-объектов
+### <a name="blob-storage-trigger-input-bindings-and-output-bindings"></a>Привязки триггера, входные и выходные привязки для хранилища BLOB-объектов
 
 Функции Azure поддерживают привязки триггера, а также входные и выходные привязки для хранилища BLOB-объектов Azure. Дополнительные сведения о выражениях привязки и метаданных см. в статье [Привязки хранилища BLOB-объектов для Функций Azure](functions-bindings-storage-blob.md).
 
-Триггер большого двоичного объекта определяется с помощью атрибута `[BlobTrigger]`. Используйте атрибут `[StorageAccount]`, чтобы определить учетную запись хранения, используемую функцией или классом.
+Триггер большого двоичного объекта определяется с помощью атрибута `[BlobTrigger]`. Используйте атрибут `[StorageAccount]`, чтобы определить имя параметра приложения, которое содержит строку подключения к учетной записи хранения, которая используется целой функцией или классом.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -121,9 +121,22 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 <a name="cosmos-db"></a>
 
-### <a name="cosmos-db-input-and-output-bindings"></a>Входная и выходная привязка для Cosmos DB
+### <a name="cosmos-db-trigger-input-bindings-and-output-bindings"></a>Привязки триггера, входные и выходные привязки Cosmos DB
 
-Функции Azure поддерживают входные и выходные привязки для Cosmos DB. Дополнительные сведения о возможностях привязки Cosmos DB см. в статье [Привязки Cosmos DB в Функциях Azure](functions-bindings-documentdb.md).
+Служба "Функции Azure" поддерживает привязки триггера, входные и выходные привязки для Cosmos DB. Дополнительные сведения о возможностях привязки Cosmos DB см. в статье [Привязки Cosmos DB в Функциях Azure](functions-bindings-documentdb.md).
+
+Чтобы использовать триггер из документа Cosmos DB, используйте атрибут `[CosmosDBTrigger]` в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. Далее приведены примеры триггеров из определенных `database` и `collection`. Параметр `myCosmosDB` содержит подключение к экземпляру Cosmos DB. 
+
+```csharp
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents, TraceWriter log)
+{
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
+}
+```
 
 Чтобы привязать документ Cosmos DB, используйте атрибут `[DocumentDB]` в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. В следующем примере используется привязка триггера очереди и выходная привязка API DocumentDB:
 
@@ -131,7 +144,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "DocDBConnection")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }
@@ -232,7 +245,7 @@ public static object Run([QueueTrigger("myqueue-items", Connection = "AzureWebJo
 
 Функции Azure поддерживают привязки триггера и выходные привязки для очередей Azure. Дополнительные сведения см. в статье [Привязки очередей службы хранилища для Функций Azure](functions-bindings-storage-queue.md).
 
-В указанном ниже примере показано, как использовать возвращаемый функцией тип с выходной привязкой очереди с помощью атрибута `[Queue]`. Чтобы определить триггер очереди, используйте атрибут `[QueueTrigger]`.
+В указанном ниже примере показано, как использовать возвращаемый функцией тип с выходной привязкой очереди с помощью атрибута `[Queue]`. 
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -246,7 +259,15 @@ public static class QueueFunctions
         log.Info($"C# function processed: {input.Text}");
         return input.Text;
     }
+}
 
+```
+
+Чтобы определить триггер очереди, используйте атрибут `[QueueTrigger]`.
+```csharp
+[StorageAccount("AzureWebJobsStorage")]
+public static class QueueFunctions
+{
     // Queue trigger
     [FunctionName("QueueTrigger")]
     [StorageAccount("AzureWebJobsStorage")]
@@ -258,13 +279,16 @@ public static class QueueFunctions
 
 ```
 
+
 <a name="sendgrid"></a>
 
 ### <a name="sendgrid-output"></a>Выходные привязки SendGrid
 
 Функции Azure поддерживают выходную привязку SendGrid для отправки электронных сообщений программным способом. Дополнительные сведения см. в статье [Привязки SendGrid для Функций Azure](functions-bindings-sendgrid.md).
 
-Атрибут `[SendGrid]` определен в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid].
+Атрибут `[SendGrid]` определен в пакете NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid]. Привязка SendGrid требует параметр приложения `AzureWebJobsSendGridApiKey`, которое содержит ключ API SendGrid. Это имя параметра по умолчанию вашего ключа API SendGrid. Если нужно несколько ключей SendGrid или требуется выбрать другое имя параметра, вы можете установить это имя, используя свойство `ApiKey` атрибута привязки `SendGrid`, как показано в следующем примере:
+
+    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
 
 Ниже приведен пример использования триггера очереди служебной шины и привязки выходных данных SendGrid с помощью `SendGridMessage`:
 
@@ -289,6 +313,7 @@ public class OutgoingEmail
     public string Body { get; set; }
 }
 ```
+Обратите внимание, что в этом примере требуется ключ API SendGrid хранилища в параметре приложения с именем `AzureWebJobsSendGridApiKey`.
 
 <a name="service-bus"></a>
 
@@ -411,7 +436,7 @@ public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureW
 
 <!-- NuGet packages --> 
 [Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta1
+[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta4
 [Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.MobileApps]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/1.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs/1.1.0-beta1
@@ -426,6 +451,7 @@ public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureW
 
 <!-- Links to source --> 
 [DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
+[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
 [EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
 [EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
 [MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
@@ -441,4 +467,3 @@ public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureW
 [HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
 [ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
 [TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
-

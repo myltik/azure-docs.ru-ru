@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Подключение диска данных к виртуальной машине Linux
 > [!IMPORTANT] 
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/11/2017
    
     ИЛИ
    
-    б) Используйте команду `lsscsi` , чтобы узнать идентификатор устройства. Вы можете установить `lsscsi` с помощью `yum install lsscsi` (в дистрибутивах на основе Red Hat) или `apt-get install lsscsi` (в дистрибутивах на основе Debian). Нужный вам диск вы можете найти по его *LUN* ( **логическому номеру устройства**). Например, для подключенных вами дисков *LUN* можно легко получить, выполнив команду `azure vm disk list <virtual-machine>`.
+    б) С помощью команды `lsscsi` можно найти идентификатор устройства. `lsscsi` можно установить с помощью `yum install lsscsi` (в дистрибутивах на основе Red Hat) или `apt-get install lsscsi` (в дистрибутивах на основе Debian). Нужный вам диск вы можете найти по его *LUN* ( **логическому номеру устройства**). Например, для подключенных вами дисков *LUN* можно легко получить, выполнив команду `azure vm disk list <virtual-machine>`.
 
     ```azurecli
     azure vm disk list myVM
@@ -89,7 +89,7 @@ ms.lasthandoff: 07/11/2017
     sudo fdisk /dev/sdc
     ```
 
-4. При появлении запроса введите  **n**  для создания секции.
+4. При появлении запроса введите **n**, чтобы создать секцию.
 
     ![Создание устройства](./media/attach-disk/fdisknewpartition.png)
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 07/11/2017
     > [!NOTE]
     > Параметр `nofail` гарантирует, что виртуальная машина запустится, даже если файловая система повреждена или отсутствует диск во время загрузки. Без этого параметра может возникнуть ситуация, описанная в записи блога [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (Не удается подключиться к виртуальной машине Linux по протоколу SSH из-за ошибок FSTAB).
 
-    Теперь можно проверить, правильно ли подключена файловая система, отключив и повторно подключив файловую систему, т. е. используя типовую точку подключения `/datadrive`, созданную на предыдущих этапах:
+    Теперь можно проверить, правильно ли подключена файловая система, отключив и повторно подключив файловую систему, т.е. используя типовую точку подключения `/datadrive`, созданную на предыдущих этапах:
 
     ```bash
     sudo umount /datadrive

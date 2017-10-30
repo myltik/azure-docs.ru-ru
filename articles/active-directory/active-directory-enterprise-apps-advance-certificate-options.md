@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 42da703203fbd4c9225b82d119b53e5d03c63aba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4fb4e220d03533bd73a663d12e2639e664b4dba
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Расширенные параметры подписи сертификата в маркере SAML для приложений коллекции в Azure Active Directory
 На сегодняшний день Azure Active Directory (Azure AD) поддерживает тысячи предварительно интегрированных приложений, доступных в коллекции приложений Azure Active Directory. В это число входят более 500 приложений, которые поддерживают единый вход с использованием протокола SAML 2.0. Когда пользователь проходит аутентификацию для приложения в Azure AD с помощью SAML, Azure AD отправляет токен в приложение (через HTTP-запрос POST). Затем приложение проверяет и использует этот токен для входа пользователя вместо запроса имени пользователя и пароля. Данные токены SAML подписываются с помощью уникального сертификата, который создается в Azure AD, а также определенных стандартных алгоритмов.
@@ -58,7 +58,7 @@ Azure AD поддерживает два алгоритма подписыван
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Указатель статей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-* [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](active-directory-saas-custom-apps.md)
+* [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Устранение неполадок единого входа на основе SAML](develop/active-directory-saml-debugging.md)
 
 <!--Image references-->

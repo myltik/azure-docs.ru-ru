@@ -9,11 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 38e68712699b3e89a10c3d44d8ec313f531fcbdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 079bb22aa76b8354f79400ced4e04dc971ea249a
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Настройка SSL-подключений в приложении для безопасного подключения к базе данных Azure для MySQL
 База данных Azure для MySQL поддерживает подключение сервера базы данных Azure для MySQL к клиентским приложениям с помощью протокола SSL (Secure Sockets Layer). Применение SSL-соединений между сервером базы данных и клиентскими приложениями обеспечивает защиту от атак "злоумышленник в середине" за счет шифрования потока данных между сервером и приложением.
@@ -24,11 +24,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="step-2-bind-ssl"></a>Шаг 2. Привязка SSL
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Подключение к серверу с помощью MySQL Workbench по протоколу SSL
-Настройте MySQL Workbench, чтобы безопасно подключаться по протоколу SSL. В MySQL Workbench в диалоговом окне Setup New Connection (Настройка нового подключения) перейдите на вкладку **SSL**. Введите расположение файла **BaltimoreCyberTrustRoot.crt.pem** в поле **SSL CA File:** (Файл центра сертификации SSL-сертификата).
-![Сохранение настроенного элемента](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+Настройте MySQL Workbench, чтобы безопасно подключаться по протоколу SSL. В диалоговом окне Setup New Connection (Настройка нового подключения) откройте вкладку **SSL**. Введите расположение файла **BaltimoreCyberTrustRoot.crt.pem** в поле **SSL CA File:** (Файл центра сертификации SSL-сертификата). 
+![сохранение настроенной плитки](./media/howto-configure-ssl/mysql-workbench-ssl.png) Для существующих подключений можно привязать SSL, щелкнув правой кнопкой мыши значок подключения и нажав кнопку "Изменить". Откройте вкладку **SSL** и привяжите файл сертификата.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Подключение к серверу с помощью интерфейса командной строки MySQL по протоколу SSL
-С помощью интерфейса командной строки MySQL выполните следующую команду.
+Кроме того, можно привязать SSL-сертификат при помощи интерфейса командной строки MySQL, выполнив следующую команду:
 ```dos
 mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
@@ -52,6 +52,7 @@ mysql> status
 Убедитесь, что соединение зашифровано, просмотрев выходные данные, в которых должно отображаться следующее: **SSL: используемый шифр — AES256 SHA**. 
 
 ## <a name="sample-code"></a>Пример кода
+Чтобы установить безопасное подключение приложения к Базе данных Azure для MySQL по протоколу SSL, см. приведенные ниже примеры кода.
 ### <a name="php"></a>PHP
 ```
 $conn = mysqli_init();

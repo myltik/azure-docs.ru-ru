@@ -1,18 +1,6 @@
-Версия 3.0 модуля AzureRm.Resources содержит значительные изменения, касающиеся работы с тегами. Прежде чем продолжить, проверьте версию:
+Для работы примеров в этой статье требуется Azure PowerShell 3.0 или более поздней версии. Если у вас более старая версия, [обновите ее](/powershell/azureps-cmdlets-docs/) с помощью коллекции PowerShell или установщика веб-платформы.
 
-```powershell
-Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
-```
-
-Если результаты показывают версию 3.0 и выше, примеры из этой статьи будут работать в вашей среде. Если у вас более старая версия, [обновите ее](/powershell/azureps-cmdlets-docs/), используя коллекцию PowerShell или установщик веб-платформы, прежде чем продолжать работу с этой статьей.
-
-```powershell
-Version
--------
-3.5.0
-```
-
-Чтобы просмотреть имеющиеся теги для *группы ресурсов*, используйте:
+Чтобы просмотреть существующие теги для *группы ресурсов*, используйте этот командлет:
 
 ```powershell
 (Get-AzureRmResourceGroup -Name examplegroup).Tags
@@ -42,7 +30,7 @@ Environment                    Test
 Чтобы получить *группы ресурсов с определенным тегом*, используйте:
 
 ```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
 ```
 
 Чтобы получить *ресурсы с определенным тегом*, используйте:
@@ -51,7 +39,7 @@ Environment                    Test
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
 
-Каждый раз, когда вы добавляете теги к ресурсу или группе ресурсов, вы перезаписываете существующие теги в этом ресурсе или группе. Поэтому необходимо использовать другой подход, исходя из того, имеются ли теги в ресурсе или в группе ресурсов. 
+Каждый раз, когда вы добавляете теги к ресурсу или группе ресурсов, вы перезаписываете существующие теги в этом ресурсе или группе. Поэтому необходимо использовать другой подход, исходя из того, имеются ли теги в ресурсе или в группе ресурсов.
 
 Чтобы добавить теги в *группу ресурсов без тегов*, используйте:
 
@@ -70,24 +58,25 @@ Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 Чтобы добавить теги в *ресурс без тегов*, используйте:
 
 ```powershell
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName examplegroup
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
 Чтобы добавить теги в *ресурс с существующими тегами*, используйте:
 
 ```powershell
-$tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
-$tags += @{Status="Approved"}
-Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+$r.tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
 Чтобы добавить все теги из группы ресурсов к ресурсам в этой группе, *не сохраняя существующие теги ресурсов*, используйте следующий сценарий.
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
-foreach ($g in $groups) 
+foreach ($g in $groups)
 {
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force } 
+    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
@@ -95,10 +84,10 @@ foreach ($g in $groups)
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
-foreach ($g in $groups) 
+foreach ($g in $groups)
 {
     if ($g.Tags -ne $null) {
-        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName 
+        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName
         foreach ($r in $resources)
         {
             $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
@@ -118,6 +107,3 @@ foreach ($g in $groups)
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
-
-
-

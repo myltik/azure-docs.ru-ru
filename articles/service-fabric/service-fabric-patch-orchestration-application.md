@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
+ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 6385dd99e3f5d96eee2cf50016e4af599d91b011
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Установка исправлений операционной системы Windows в кластере Service Fabric
 
 Приложение для управления исправлениями — это приложение Azure Service Fabric, которое позволяет автоматизировать установку исправлений операционной системы в кластере Service Fabric и избежать простоев.
@@ -71,7 +69,7 @@ ms.lasthandoff: 09/26/2017
 В кластерах Azure на уровне надежности Silver служба Repair Manager включена по умолчанию. В кластерах Azure на уровне надежности Gold служба Repair Manager может быть не включена в зависимости от того, когда были созданы кластеры. В кластерах Azure на уровне надежности Bronze служба Repair Manager по умолчанию не включена. Если служба уже включена, сведения о ее выполнении отображаются в разделе системных служб в Service Fabric Explorer.
 
 ##### <a name="azure-portal"></a>Портал Azure
-Диспетчер восстановления можно включить на портале Azure при настройке кластера. Выберите параметр `Include Repair Manager` в разделе `Add on features` во время настройки кластера.
+Диспетчер восстановления можно включить на портале Azure при настройке кластера. Выберите параметр **Включить диспетчер восстановления** в разделе **Дополнительные функции** во время настройки кластера.
 ![Снимок экрана с подключением диспетчера восстановления на портале Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-template"></a>Шаблон диспетчера ресурсов Azure
@@ -96,10 +94,10 @@ ms.lasthandoff: 09/26/2017
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. После обновления шаблона кластера примените изменения и дождитесь завершения обновления. Теперь отображаются сведения о выполнении службы Repair Manager в кластере. Он указан в разделе системных служб в Service Fabric Explorer под названием `fabric:/System/RepairManagerService`. 
@@ -121,15 +119,15 @@ ms.lasthandoff: 09/26/2017
     }
     ```
 
-2. Включите службу Repair Manager, добавив раздел `addonFeaturres` после раздела `fabricSettings`, как показано ниже.
+2. Включите службу Repair Manager, добавив раздел `addonFeatures` после раздела `fabricSettings`, как показано ниже.
 
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. Обновите манифест кластера, добавив эти изменения с помощью манифеста обновления кластера [Создание кластера](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) или [Обновление конфигурации кластера](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Как только кластер запустится с обновленным манифестом, вы увидите, что системная служба Repair Manager выполняется в кластере, который называется `fabric:/System/RepairManagerService`, в разделе системных служб в Service Fabric Explorer.
@@ -427,4 +425,3 @@ RebootRequired | true — требовалась перезагрузка<br> f
 - Исправлены ошибки, связанные с рабочим процессом перезапуска системы.
 - Исправлена ошибка при создании задач службы управления правами, из-за которой проверка работоспособности не выполнялась должным образом во время подготовки задач восстановления.
 - Режим автоматического запуска службы POANodeSvc для Windows изменен на отложенный автоматический запуск.
-
