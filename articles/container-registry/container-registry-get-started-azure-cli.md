@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06967315dfa43e791e662a689ceb993c4af1c1e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91f0aa093e0a1f7ed4d54a0cdf5ef53bc41cb6be
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Создание реестра контейнеров с помощью Azure CLI
 
@@ -43,21 +43,26 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Создание реестра контейнеров
 
-Реестр контейнеров Azure доступен в нескольких номерах SKU: `Basic`, `Managed_Basic`, `Managed_Standard` и `Managed_Premium`. Хотя номера `Managed_*` предоставляют такие расширенные возможности, как управляемое хранилище и веб-перехватчики, сейчас они предоставляются в режиме предварительной версии и недоступны в некоторых регионах Azure. В этом кратком руководстве мы выберем номер SKU `Basic` из-за его доступности во всех регионах.
+В этом кратком руководстве мы создадим реестр уровня *Базовый*. Реестр контейнеров Azure доступен в нескольких номерах SKU, которые кратко описаны в следующей таблице. См. дополнительные сведения о [номерах SKU реестра контейнеров](container-registry-skus.md).
+
+Реестр контейнеров Azure доступен в нескольких номерах SKU: `Basic`, `Managed_Basic`, `Managed_Standard` и `Managed_Premium`. Хотя номера SKU `Managed_*` предоставляют такие расширенные возможности, как управляемое хранилище и веб-перехватчики, сейчас они недоступны в некоторых регионах Azure при использовании Azure CLI. В этом кратком руководстве мы выберем номер SKU `Basic` из-за его доступности во всех регионах.
+
+>[!NOTE]
+> Управляемые реестры сейчас доступны во всех регионах. Но текущая версия Azure CLI еще не поддерживает создание управляемых реестров во всех регионах. Поддержка будет реализована в следующей версии Azure CLI. До ее выпуска используйте [портал Azure](container-registry-get-started-portal.md) для создания управляемых реестров.
 
 Создайте экземпляр ACR с помощью команды [az acr create](/cli/azure/acr#create).
 
 Имя реестра **должно быть уникальным**. В следующем примере используется имя *myContainerRegistry007*. Замените его уникальным значением.
 
 ```azurecli
-az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
 ```
 
 При создании реестра выходные данные выглядят так:
 
-```azurecli
+```json
 {
-  "adminUserEnabled": true,
+  "adminUserEnabled": false,
   "creationDate": "2017-09-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
@@ -83,7 +88,7 @@ az acr create --name myContainerRegistry007 --resource-group myResourceGroup --a
 
 Перед отправкой и извлечением образов контейнеров необходимо войти в экземпляр ACR. Чтобы сделать это, используйте команду [az acr login](/cli/azure/acr#login).
 
-```azurecli-interactive
+```azurecli
 az acr login --name <acrname>
 ```
 
@@ -99,19 +104,19 @@ docker pull microsoft/aci-helloworld
 
 Образу должен быть присвоен тег имени сервера для входа в ACR. Выполните следующую команду, чтобы получить имя сервера входа для экземпляра ACR.
 
-```bash
+```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
 Присвойте образу тег с помощью команды [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Замените значение *<acrLoginServer>* именем сервера входа для вашего экземпляра ACR.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
 Наконец, воспользуйтесь командой [docker push](https://docs.docker.com/engine/reference/commandline/push/) для отправки образа в экземпляр ACR. Замените значение *<acrLoginServer>* именем сервера входа для вашего экземпляра ACR.
 
-```
+```bash
 docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
@@ -125,7 +130,7 @@ az acr repository list -n <acrname> -o table
 
 Выходные данные:
 
-```json
+```bash
 Result
 ----------------
 aci-helloworld
@@ -139,7 +144,8 @@ az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
 
 Выходные данные:
 
-```Result
+```bash
+Result
 --------
 v1
 ```
