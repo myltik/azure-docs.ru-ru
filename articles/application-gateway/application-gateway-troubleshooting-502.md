@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Устранение ошибок "Недопустимый шлюз" в шлюзе приложений
 
 В этой статье приведены сведения об устранении ошибок "Недопустимый шлюз (502)" шлюза приложений.
@@ -31,63 +29,48 @@ ms.lasthandoff: 06/07/2017
 
 После настройки шлюза приложений может появиться сообщение об ошибке "Ошибка сервера 502: веб-сервер, выполняющий роль шлюза или прокси-сервера, получил недопустимый ответ". Такая ошибка происходит по следующим причинам:
 
+* NSG, UDR или пользовательская служба DNS блокирует доступ к участникам серверного пула;
+* серверные виртуальные машины или экземпляры масштабируемого набора виртуальных машин [не отвечают на стандартную пробу работоспособности](#problems-with-default-health-probe.md);
+* недопустимая или неправильная [конфигурация пользовательских проб работоспособности](#problems-with-custom-health-probe.md);
 * [серверный пул шлюза приложений Azure не настроен или пуст](#empty-backendaddresspool);
 * в [наборе масштабирования виртуальных машин нет работоспособных](#unhealthy-instances-in-backendaddresspool) экземпляров или виртуальных машин;
-* серверные виртуальные машины или экземпляры набора масштабирования виртуальных машин [не отвечают на стандартную пробу работоспособности](#problems-with-default-health-probe.md);
-* недопустимая или неправильная [конфигурация пользовательских проб работоспособности](#problems-with-custom-health-probe.md);
-* [истекло время запроса или при его обработке возникли проблемы с подключением](#request-time-out).
+* для пользовательских запросов [истекло время ожидания или возникли проблемы с подключением](#request-time-out).
 
-## <a name="empty-backendaddresspool"></a>Пустой серверный пул адресов
+## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>Проблема группы безопасности сети, определенного пользователем маршрута или пользовательской службы DNS
 
 ### <a name="cause"></a>Причина:
 
-Если для шлюза приложений в серверном пуле адресов не настроены виртуальные машины или масштабируемый набор виртуальных машин, шлюз не сможет отправлять запросы клиентов, выдавая ошибку недопустимого шлюза.
+Если доступ к серверной части заблокирован из-за наличия NSG, UDR или пользовательской службы DNS, экземпляры шлюза приложений не смогут подключиться к серверному пулу. Это приведет к сбоям проверки, вызывающим ошибки 502. Обратите внимание, что NSG/UDR может присутствовать либо в подсети шлюза приложений, либо в той подсети, где развернуты виртуальные машины приложений. Аналогично, наличие пользовательской службы DNS в виртуальной сети может также вызывать проблемы, если полное доменное имя используется для участников серверного пула, и настроенный пользователем DNS-сервер для виртуальной сети не разрешает его правильно.
 
 ### <a name="solution"></a>Решение
 
-Убедитесь, что серверный пул адресов не пуст. Это можно сделать с помощью PowerShell, интерфейса командной строки или на портале.
+Проверьте конфигурацию NSG, UDR и DNS, сделав следующее:
+* Проверьте группы безопасности сети (NSG), связанные с подсетью шлюза приложений. Убедиться, что связь с серверной частью не заблокирована.
+* Проверьте определенный пользователем маршрут (UDR), связанный с подсетью шлюза приложений. Убедитесь, что UDR не направляет трафик в сторону от серверной подсети. Например, проверьте маршрутизацию к виртуальным устройствам сети или маршруты по умолчанию, объявляемые для подсети шлюза приложений через ExpressRoute или VPN.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
-Выходные данные командлета, приведенного выше, должны содержать непустой серверный пул адресов. В примере ниже возвращаются два пула, в которых для серверных виртуальных машин указано полное доменное имя или IP-адрес. Состояние подготовки серверного пула адресов должно быть "Выполнено".
+* Проверьте действующую NSG и маршрут с серверной виртуальной машиной.
 
-BackendAddressPoolsText:
+```powershell
+Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+```
+
+* Проверьте наличие пользовательской службы DNS в виртуальной сети. Службу DNS можно проверить, просмотрев подробности свойств виртуальной сети в выходных данных.
 
 ```json
-[{
-    "BackendAddresses": [{
-        "ipAddress": "10.0.0.10",
-        "ipAddress": "10.0.0.11"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool01",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-}, {
-    "BackendAddresses": [{
-        "Fqdn": "xyx.cloudapp.net",
-        "Fqdn": "abc.cloudapp.net"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool02",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-}]
+Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+DhcpOptions            : {
+                           "DnsServers": [
+                             "x.x.x.x"
+                           ]
+                         }
 ```
-
-## <a name="unhealthy-instances-in-backendaddresspool"></a>Неработоспособные экземпляры в серверном пуле адресов
-
-### <a name="cause"></a>Причина:
-
-Если неработоспособными являются все экземпляры серверного пула адресов, шлюзу приложений некуда отправлять запросы пользователей. То же самое происходит, когда серверные экземпляры работоспособны, но в них не развернуто требуемое приложение.
-
-### <a name="solution"></a>Решение
-
-Сделайте экземпляры работоспособными и правильно настройте приложение. Проверьте, могут ли серверные экземпляры отвечать на запрос при проверке связи от другой виртуальной машины в виртуальной сети. Если настроена общая конечная точка, убедитесь, что запрос браузера к веб-приложению подлежит обслуживанию.
+При ее наличии убедитесь, что DNS-сервер способен правильно разрешить полное доменное имя участника серверного пула.
 
 ## <a name="problems-with-default-health-probe"></a>Проблемы со стандартной пробой работоспособности
 
@@ -146,14 +129,65 @@ BackendAddressPoolsText:
 
 ### <a name="solution"></a>Решение
 
-Шлюз приложений позволяет пользователям настроить этот параметр с помощью параметра BackendHttpSetting, который затем можно применить к разным пулам. Для разных серверных пулов параметр BackendHttpSetting и время ожидания запроса можно настроить по-разному.
+Шлюз приложений позволяет пользователям настроить этот параметр с помощью параметра BackendHttpSetting, который затем можно применить к разным пулам. Для разных серверных пулов могут быть установлены разные настройки BackendHttpSetting, следовательно, — и разное время ожидания запроса.
 
 ```powershell
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
+## <a name="empty-backendaddresspool"></a>Пустой серверный пул адресов
+
+### <a name="cause"></a>Причина:
+
+Если для шлюза приложений в серверном пуле адресов не настроены виртуальные машины или масштабируемый набор виртуальных машин, шлюз не сможет отправлять запросы клиентов, выдавая ошибку недопустимого шлюза.
+
+### <a name="solution"></a>Решение
+
+Убедитесь, что серверный пул адресов не пуст. Это можно сделать с помощью PowerShell, интерфейса командной строки или на портале.
+
+```powershell
+Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```
+
+Выходные данные командлета, приведенного выше, должны содержать непустой серверный пул адресов. В примере ниже возвращаются два пула, в которых для серверных виртуальных машин указано полное доменное имя или IP-адрес. Состояние подготовки серверного пула адресов должно быть "Выполнено".
+
+BackendAddressPoolsText:
+
+```json
+[{
+    "BackendAddresses": [{
+        "ipAddress": "10.0.0.10",
+        "ipAddress": "10.0.0.11"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool01",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+}, {
+    "BackendAddresses": [{
+        "Fqdn": "xyx.cloudapp.net",
+        "Fqdn": "abc.cloudapp.net"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool02",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+}]
+```
+
+## <a name="unhealthy-instances-in-backendaddresspool"></a>Неработоспособные экземпляры в серверном пуле адресов
+
+### <a name="cause"></a>Причина:
+
+Если неработоспособными являются все экземпляры серверного пула адресов, шлюзу приложений некуда отправлять запросы пользователей. То же самое происходит, когда серверные экземпляры работоспособны, но в них не развернуто требуемое приложение.
+
+### <a name="solution"></a>Решение
+
+Сделайте экземпляры работоспособными и правильно настройте приложение. Проверьте, могут ли серверные экземпляры отвечать на запрос при проверке связи от другой виртуальной машины в виртуальной сети. Если настроена общая конечная точка, убедитесь, что запрос браузера к веб-приложению подлежит обслуживанию.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Если описанные выше шаги не устранят проблему, отправьте [запрос в службу поддержки](https://azure.microsoft.com/support/options/).
-
 

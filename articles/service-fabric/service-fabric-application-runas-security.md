@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>Настройка политик безопасности для приложения
 Платформа Azure Service Fabric помогает защищать приложения, работающие в кластере под разными учетными записями. Кроме того, платформа помогает защищать ресурсы, используемые приложениями при развертывании с помощью учетных записей, например файлы, каталоги и сертификаты. Это позволяет изолировать друг от друга выполняемые приложения, даже если они запущены в общей среде.
@@ -139,6 +138,8 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
    </Principals>
 </ApplicationManifest>
 ```
+
+Чтобы запустить службу или точку входа установки в качестве **корня** на кластерах Linux, можно указать для **AccountType** значение **LocalSystem**.
 
 ## <a name="start-powershell-commands-from-a-setup-entry-point"></a>Запуск команд PowerShell из точки входа настройки
 Чтобы запустить PowerShell из точки входа **SetupEntryPoint**, запустите **PowerShell.exe** в пакетном файле, который указывает на файл PowerShell. Сначала добавьте файл PowerShell в проект службы, например с именем **MySetup.ps1**. Не забудьте указать свойство *Копировать, если новее* , чтобы включить этот файл в состав пакета службы. В следующем примере показан пакетный файл для запуска файла PowerShell с именем MySetup.ps1, который задает системную переменную среды с именем **TestVariable**.
@@ -422,4 +423,3 @@ Test-AdServiceAccount svc-Test$
 * [Развертывание приложения](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 09/15/2017
 ms.author: maheshu
+ms.openlocfilehash: ad25663f97b83f11f14eeb8bb07dac46f6c080d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: e8c2a8a7c3b5d61b2524eecceeaa4638fada78b8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Доменные службы Azure Active Directory: часто задаваемые вопросы
 На этой странице вы найдете ответы на часто задаваемые вопросы о доменных службах Azure Active Directory. Следите за обновлениями.
@@ -28,14 +27,17 @@ ms.lasthandoff: 09/06/2017
 Обратитесь к нашему [Руководству по устранению неполадок](active-directory-ds-troubleshooting.md) для решения распространенных проблем при настройке или администрировании доменных служб Azure AD.
 
 ### <a name="configuration"></a>Конфигурация
-#### <a name="can-i-create-multiple-domains-for-a-single-azure-ad-directory"></a>Можно ли создать несколько доменов для одного каталога Azure AD?
-Нет. Для одного каталога Azure AD можно создать только один домен, поддерживаемый доменными службами Azure AD.  
+#### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Можно ли создать несколько управляемых доменов для одного каталога Azure AD?
+Нет. Для одного каталога Azure AD можно создать только один управляемый домен, поддерживаемый доменными службами Azure AD.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Можно ли включить доменные службы Azure AD в виртуальной сети Azure Resource Manager?
 Да. Доменные службы Azure AD можно включить в виртуальной сети Azure Resource Manager. Сейчас эта функциональность доступна в режиме предварительной версии.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Можно ли перенести мой существующий управляемый домен из классической виртуальной сети в виртуальную сеть Azure Resource Manager?
-В настоящее время нет. В будущем мы предоставим механизм переноса существующего управляемого домена из классической виртуальной сети в виртуальную сеть Azure Resource Manager. Следите за новостями.
+В настоящее время нет. В будущем мы предоставим механизм переноса существующего управляемого домена из классической виртуальной сети в виртуальную сеть Azure Resource Manager.
+
+#### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Можно ли включить доменные службы Azure AD в подписку Azure CSP (поставщик облачных решений)?
+Нет. Мы работаем над поддержкой этой функции в подписках CSP.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Можно ли включить доменные службы Azure AD в федеративном каталоге Azure AD? Я использую AD FS при проверке подлинности пользователей для доступа к Office 365 и не выполняю синхронизацию хэшей паролей в Azure AD. Можно включить доменные службы Azure AD для этого каталога?
 Нет. Доменным службам Azure AD необходим доступ к хэшам паролей учетных записей пользователей для аутентификации пользователей с помощью NTLM или Kerberos. При использовании федеративного каталога хэши паролей не хранятся в каталоге Azure AD. Поэтому доменные службы Azure AD не работает с такими каталогами Azure AD.
@@ -48,6 +50,9 @@ ms.lasthandoff: 09/06/2017
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Доступны ли доменные службы Azure AD на новом портале Azure?
 Да. Доменные службы Azure AD можно настроить на [портале Azure](https://portal.azure.com). В будущем поддержка [классического портала Azure](https://manage.windowsazure.com) будет прекращена.
+
+#### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Можно ли включить доменные службы Azure AD с помощью шаблона Resource Manager?
+Нет. Некоторые задачи должны быть выполнены во время включения доменных служб Azure AD. Эти задачи невозможно выполнить с помощью шаблона Resource Manager. Включите доменные службы для своего каталога на новом портале Azure.
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Могу ли я добавить контроллеры домена в управляемый домен доменных служб Azure AD?
 Нет. Домен, предоставленный доменными службами Azure AD — это управляемый домен. Вам не нужно подготавливать, настраивать или иным образом обрабатывать контроллеры домена для этого домена. Корпорация Майкрософт предоставляет эти операции управления как услугу. Поэтому вы не можете добавить дополнительные контроллеры домена (ни контроллеры чтения и записи, ни контроллеры только для чтения) для управляемого домена.
@@ -82,11 +87,10 @@ ms.lasthandoff: 09/06/2017
 Эта служба включена в бесплатную пробную версию Azure. Вы можете зарегистрировать [бесплатную пробную версию Azure на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Можно ли приостановить управляемый домен доменных служб Azure AD? 
-Нет. Когда вы включите управляемый домен доменных служб Azure AD, служба будет доступной в пределах выбранной виртуальной сети, пока не отключите или удалите управляемый домен. Приостановить работу службы нельзя. Счета будут выставляться на почасовой основе, пока вы не удалите управляемый домен.
+Нет. Когда вы включите управляемый домен доменных служб Azure AD, служба будет доступной в пределах выбранной виртуальной сети, пока не отключите или удалите управляемый домен. Приостановить работу службы нельзя. Счета выставляются на почасовой основе, пока вы не удалите управляемый домен.
 
 #### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Можно ли получить доменные службы Azure AD в составе Enterprise Mobility Suite (EMS)? Требуется ли Azure AD Premium для использования доменных служб Azure AD?
 Нет. Доменные службы Azure — это служба Azure с оплатой по мере использования, не входящая в предложение EMS. Доменные службы Azure AD можно использовать со всеми выпусками Azure AD ("Бесплатный", "Базовый" и "Премиум"). Счет выставляется каждый час в зависимости от использования.
 
 #### <a name="what-azure-regions-is-the-service-available-in"></a>В каких регионах Azure доступна служба?
 Перейдите на страницу [служб Azure по регионам](https://azure.microsoft.com/regions/#services/), чтобы просмотреть список регионов Azure, в которых доступны доменные службы Azure AD.
-

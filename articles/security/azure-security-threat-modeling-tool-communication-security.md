@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
+ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: b85003a94df3b97f5c64eb3b7e62071f07674c5e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-communication-security--mitigations"></a>Механизм безопасности. Безопасность обмена данными | Устранение угроз 
 | Продукт или служба | Статья |
 | --------------- | ------- |
@@ -102,7 +100,7 @@ ms.lasthandoff: 08/23/2017
 | **Этап SDL**               | Создание |  
 | **Применимые технологии** | Универсальный |
 | **Атрибуты**              | EnvironmentType: Azure |
-| **Справочные материалы**              | [Включение протокола HTTPS для приложения в службе приложений Azure](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/) |
+| **Справочные материалы**              | [Включение протокола HTTPS для приложения в службе приложений Azure](../app-service/app-service-web-tutorial-custom-ssl.md) |
 | **Действия** | По умолчанию служба Azure включает протокол HTTPS для каждого приложения с помощью группового сертификата домена *.azurewebsites.net. Однако, как и все домены с подстановочными знаками, он не так безопасен, как личный домен с собственным сертификатом. Дополнительные сведения см. в [этой статье](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). Мы рекомендуем включить SSL для личного домена, через который будет осуществляться доступ к развернутому приложению.|
 
 ## <a id="appservice-https"></a>Настройте принудительную передачу всего трафика к службе приложений Azure через HTTPS-подключение
@@ -113,7 +111,7 @@ ms.lasthandoff: 08/23/2017
 | **Этап SDL**               | Создание |  
 | **Применимые технологии** | Универсальный |
 | **Атрибуты**              | EnvironmentType: Azure |
-| **Справочные материалы**              | [Защита личного домена приложения с помощью протокола HTTPS]https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/#4-enforce-https-on-your-app) |
+| **Справочные материалы**              | [Принудительное использование HTTPS в службе приложений Azure](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
 | **Действия** | <p>По умолчанию Azure включает протокол HTTPS для службы приложений Azure с помощью группового сертификата домена *.azurewebsites.net. Поэтому этот протокол принудительно применять не нужно. Посетители по-прежнему могут получить доступ к приложению, используя протокол HTTP, что может поставить под угрозу безопасность приложения, и следовательно, владелец приложения должен явным образом применить протокол HTTPS. В приложения ASP.NET MVC необходимо добавить [фильтр RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx), который принудительно пересылает незащищенные HTTP-запросы по протоколу HTTPS.</p><p>Кроме того, чтобы применить HTTPS, вы можете использовать модуль переопределения URL-адресов, входящий в состав службы приложений Azure. Модуль переопределения URL-адресов позволяет разработчикам определять правила, применяемые к входящим запросам перед их обработкой и отправкой в приложение. Правила этого модуля задаются в файле web.config, который хранится в корневом каталоге приложения.</p>|
 
 ### <a name="example"></a>Пример
@@ -407,4 +405,3 @@ public class ValuesController : ApiController
 | **Атрибуты**              | Недоступно  |
 | **Справочные материалы**              | [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
 | **Действия** | Защитите протоколы HTTP/AMQP или MQTT с помощью SSL/TLS. |
-

@@ -1,6 +1,6 @@
 ---
-title: Manage permissions to resources per user in Azure Stack | Microsoft Docs
-description: As a service administrator or tenant, learn how to manage RBAC permissions.
+title: "Управление доступом к ресурсам каждого пользователя в Azure Stack | Документация Майкрософт"
+description: "Узнайте, как администратор служб или клиент может управлять доступом на основе ролей."
 services: azure-stack
 documentationcenter: 
 author: Heathl17
@@ -14,30 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e0ced4b2d65456034ba3f8543152702c089a0b0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-role-based-access-control"></a>Manage Role-Based Access Control
+# <a name="manage-role-based-access-control"></a>Управление доступом на основе ролей
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
 
-A user in Azure Stack can be a reader, owner, or contributor for each instance of a subscription, resource group, or service. For example, User A might have reader permissions to Subscription 1, but have owner permissions to Virtual Machine 7.
+Пользователь в Azure Stack может быть читателем, владельцем или участником каждого экземпляра подписки, группы ресурсов или службы. Например, пользователь A может иметь разрешения на чтение подписки 1, но иметь права владельца виртуальной машины 7.
 
-* Reader: User can view everything, but can’t make any changes.
-* Contributor: User can manage everything except access to resources.
-* Owner: User can manage everything, including access to resources.
+* Читатель: пользователь может все просматривать, но не может вносить изменения.
+* Участник: пользователь может управлять всем, кроме доступа к ресурсам.
+* Владелец: пользователь может управлять всем, включая доступ к ресурсам.
 
-## <a name="set-access-permissions-for-a-user"></a>Set access permissions for a user
-1. Sign in with an account that has owner permissions to the resource you want to manage.
-2. In the blade for the resource, click the **Access** icon ![](media/azure-stack-manage-permissions/image1.png).
-3. In the **Users** blade, click **Roles**.
-4. In the **Roles** blade, click **Add** to add permissions for the user.
+## <a name="set-access-permissions-for-a-user"></a>Настройка прав доступа для пользователя
+1. Выполните вход с помощью с учетной записью с разрешениями владельца ресурса, которым вы хотите управлять.
+2. В колонке ресурса щелкните значок **Доступ** ![](media/azure-stack-manage-permissions/image1.png).
+3. В колонке **Пользователи** щелкните **Роли**.
+4. В колонке **Роли** выберите **Добавить**, чтобы добавить разрешения для пользователя.
 
-## <a name="next-steps"></a>Next steps
-
+## <a name="next-steps"></a>Дальнейшие действия
 
 

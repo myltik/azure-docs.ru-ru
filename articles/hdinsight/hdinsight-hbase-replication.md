@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 10/09/2017
 ms.author: jgao
+ms.openlocfilehash: fbd6ff573a1d4f7fe2754935dd8c199092076725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 9d1b629ad05f45efc8d01799616c82b4a11ecaab
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Настройка репликации кластера HBase в виртуальных сетях Azure
 
@@ -57,7 +56,7 @@ ms.lasthandoff: 09/28/2017
 
 Чтобы помочь вам в настройке сред мы создали некоторые [шаблоны Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Если вы предпочитаете настраивать среды с помощью других методов, см. следующие статьи:
 
-- [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Создание кластеров Hadoop в HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Создание кластеров HBase в виртуальной сети Azure](hdinsight-hbase-provision-vnet.md)
 
 ### <a name="set-up-one-virtual-network"></a>Настройка одной виртуальной сети
@@ -80,7 +79,7 @@ ms.lasthandoff: 09/28/2017
 
 **Настройка статических IP-адресов**
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Выполните вход на [портал Azure](https://portal.azure.com).
 2. В меню слева выберите **Группы ресурсов**.
 3. Выберите группу ресурсов, содержащую кластер назначения HBase. Это группа ресурсов, указанная при использовании шаблона Resource Manager для создания среды. Для сужения списка можно использовать фильтр. Вы увидите список ресурсов, содержащий две виртуальные сети.
 4. Выберите виртуальную сеть, содержащую кластер назначения HBase. Например, **xxxx-vnet2**. Появится три устройства с именами, которые начинаются с **nic-zookeepermode-**. Это три виртуальные машины ZooKeeper.
@@ -97,11 +96,54 @@ ms.lasthandoff: 09/28/2017
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Настройка двух виртуальных сетей в двух разных регионах
 
-Чтобы создать две виртуальные сети в двух разных регионах, нажмите расположенную ниже кнопку. Шаблон хранится в общедоступном контейнере больших двоичных объектов.
+Чтобы создать две виртуальные сети в двух разных регионах и соединить их с помощью VPN-подключение, щелкните расположенное ниже изображение. Шаблон хранится среди [шаблонов быстрого запуска Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-Создайте VPN-шлюз между двумя виртуальными сетями. Инструкции см. в статье [Создание подключения типа "сеть — сеть" на портале Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Ниже приведены некоторые жестко заданные значения в шаблоне.
+
+**VNet 1**
+
+| Свойство | Значение |
+|----------|-------|
+| Расположение | Запад США |
+| Имя виртуальной сети | &lt;префикс_имени_кластера>-vnet1 |
+| Address space prefix | 10.1.0.0/16 |
+| Имя подсети | subnet 1 |
+| Subnet prefix | 10.1.0.0/24 |
+| Subnet (gateway) name | GatewaySubnet (не может быть изменено) |
+| Префикс подсети (шлюза). | 10.1.255.0/27 |
+| Имя шлюза. | vnet1gw |
+| Тип шлюза | Vpn |
+| Тип VPN шлюза. | RouteBased |
+| Gateway SKU | Basic |
+| Gateway IP | vnet1gwip |
+| Имя кластера, | &lt;префикс_имени_кластера>1 |
+| Cluster version | 3.6 |
+| Cluster kind | hbase |
+| Cluster worker node count | 2 |
+
+
+**VNet 2**
+
+| Свойство | Значение |
+|----------|-------|
+| Расположение | Восток США |
+| Имя виртуальной сети | &lt;префикс_имени_кластера>-vnet2 |
+| Address space prefix | 10.2.0.0/16 |
+| Имя подсети | subnet 1 |
+| Subnet prefix | 10.2.0.0/24 |
+| Subnet (gateway) name | GatewaySubnet (не может быть изменено) |
+| Префикс подсети (шлюза). | 10.2.255.0/27 |
+| Имя шлюза. | vnet2gw |
+| Тип шлюза | Vpn |
+| Тип VPN шлюза. | RouteBased |
+| Gateway SKU | Basic |
+| Gateway IP | vnet1gwip |
+| Имя кластера, | &lt;префикс_имени_кластера>2 |
+| Cluster version | 3.6 |
+| Cluster kind | hbase |
+| Cluster worker node count | 2 |
 
 Репликация HBase использует IP-адреса виртуальных машин ZooKeeper. Необходимо настроить статические IP-адреса для узлов назначения ZooKeeper HBase. Сведения о настройке статического IP-адреса см. в разделе [Настройка двух виртуальных сетей в одном регионе](#set-up-two-virtual-networks-in-the-same-region) в этой статье.
 
@@ -111,7 +153,7 @@ ms.lasthandoff: 09/28/2017
 
 При репликации кластера необходимо указать реплицируемые таблицы. В этом разделе вы загрузите данные в исходный кластер. В следующем разделе вы включите репликацию между двумя кластерами.
 
-Чтобы создать таблицу [Контакты](hdinsight-hbase-tutorial-get-started-linux.md) и вставить в нее некоторые данные, следуйте инструкциям, приведенным в статье **Начало работы с примером Apache HBase в HDInsight**.
+Чтобы создать таблицу [Contacts](hdinsight-hbase-tutorial-get-started-linux.md) и вставить в нее некоторые данные, следуйте инструкциям, приведенным в статье **Начало работы с примером Apache HBase в HDInsight**.
 
 ## <a name="enable-replication"></a>Включение репликации
 
@@ -241,7 +283,6 @@ ms.lasthandoff: 09/28/2017
 * [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Windows в HDInsight][hdinsight-hbase-get-started]
 * [Что такое HBase в HDInsight: база данных NoSQL, которая предоставляет возможности, схожие с BigTable, для Hadoop][hdinsight-hbase-overview]
 * [Создание кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]
-* [Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight][hdinsight-hbase-twitter-sentiment]
 * [Анализ полученных с датчиков данных с использованием Apache Storm, концентратора событий и базы данных HBase в службе HDInsight (Hadoop)][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
@@ -254,8 +295,6 @@ ms.lasthandoff: 09/28/2017
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-

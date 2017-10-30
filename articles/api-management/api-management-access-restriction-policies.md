@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
+ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 70cccd5ac7fbea36f02150e3da319a043c22c677
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>Политики ограничения доступа в службе управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -387,7 +386,7 @@ ms.lasthandoff: 08/31/2017
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
+    <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
       <value>claim value as it is expected to appear in the token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
@@ -517,6 +516,7 @@ ms.lasthandoff: 08/31/2017
 |require-expiration-time|Логическое значение. Указывает, требуется ли утверждение истечения срока действия для маркера.|Нет|Да|
 |require-scheme|Имя схемы маркера, например "Bearer". Когда задан этот атрибут, политики обеспечивают присутствие указанной схемы в значении заголовка Authorization.|Нет|Недоступно|
 |require-signed-tokens|Логическое значение. Указывает, должен ли быть подписан маркер.|Нет|Да|  
+|Разделитель|Строка. Указывает разделитель (например, ",") для извлечения набора значений из многозначного утверждения.|Нет|Недоступно| 
 |url|URL-адрес конечной точки конфигурации Open ID, по которому можно получить метаданные конфигурации Open ID. Для Azure Active Directory используйте URL-адрес `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`, подставив необходимое имя клиента каталога, например `contoso.onmicrosoft.com`.|Да|Недоступно|  
   
 ### <a name="usage"></a>Использование  
@@ -528,4 +528,3 @@ ms.lasthandoff: 08/31/2017
   
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
-

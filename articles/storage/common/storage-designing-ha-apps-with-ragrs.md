@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: tamram
+ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 57f458770ea5d57b4c155adf4fa793867f392c3b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Проектирование высокодоступных приложений с использованием RA-GRS
 
@@ -244,4 +243,3 @@ static function OnBeforeResponse(oSession: Session) {
 * Дополнительные сведения о геоизбыточном хранилище с доступом на чтение, включая еще один пример настройки LastSyncTime, см. в записи блога [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Варианты обеспечения избыточности службы хранилища Microsoft Azure и геоизбыточное хранилище с доступом на чтение).
 
 * Полный пример, демонстрирующий, как переключаться между основной и дополнительной конечными точками, см. в разделе [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs) (Примеры Azure. Использование шаблона автоматического выключения с хранилищем RA-GRS).
-

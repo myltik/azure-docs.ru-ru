@@ -1,6 +1,6 @@
 ---
 title: "Доменные службы Azure Active Directory: начало работы | Документы Майкрософт"
-description: "Включение доменных служб Azure Active Directory с помощью портала Azure (предварительная версия)"
+description: "Включение доменных служб Azure Active Directory с помощью портала Azure"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 32d51f883ad92b5be6b1f455dfb1a865748f3102
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: f87bcf33d3b1eb21c7d84814e4c4086f664e293d
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Включение доменных служб Azure Active Directory с помощью портала Azure (предварительная версия)
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Включение доменных служб Azure Active Directory с помощью портала Azure
 
 
 ## <a name="task-3-configure-administrative-group"></a>Задача 3. Настройка административной группы
@@ -57,11 +56,11 @@ ms.lasthandoff: 07/17/2017
 
     ![Поиск подготавливаемого управляемого домена](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. Щелкните имя управляемого домена (например, "contoso100.com") для получения дополнительных сведений о домене.
+2. Щелкните имя управляемого домена (например, contoso100.com) для получения дополнительных сведений об управляемом домене.
 
     ![Доменные службы — состояние подготовки](./media/getting-started/domain-services-provisioning-state.png)
 
-3. На вкладке **Обзор** можно увидеть, что в настоящее время идет подготовка домена. Настроить управляемый домен можно только после его полной подготовки. Полная подготовка управляемого домена может длиться до часа.
+3. На вкладке **Обзор** можно увидеть, что в настоящее время идет подготовка управляемого домена. Настроить управляемый домен можно только после его полной подготовки. Полная подготовка управляемого домена может длиться до часа.
 
     ![Доменные службы — вкладка "Обзор" во время состояния подготовки ](./media/getting-started/domain-services-provisioning-state-details.png)
 
@@ -74,6 +73,9 @@ ms.lasthandoff: 07/17/2017
     ![Доменные службы — вкладка "Свойства" после полной подготовки](./media/getting-started/domain-services-provisioned-properties.png)
 
 
+## <a name="need-help"></a>Требуется помощь?
+Обоим контроллерам домена может понадобиться час или два для подготовки управляемого домена. Если развертывание закончилось ошибкой или в течение нескольких часов находится в состоянии "Ожидание", [обратитесь за помощью к команде разработчиков](active-directory-ds-contact-us.md).
+
+
 ## <a name="next-step"></a>Дальнейшие действия
 [Задача 4. Обновление настроек DNS для виртуальной сети Azure](active-directory-ds-getting-started-dns.md)
-

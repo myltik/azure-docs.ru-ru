@@ -12,45 +12,42 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 09/19/2017
 ms.author: andbuc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e7eb2931993daf3f0aecbd4a43d27ebd5adc10b0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 0aa1836ee1445894022b95fefc2338ef53698240
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Отправка сообщений с устройства в облако с помощью имитации устройства (Windows) с использованием Edge Интернета вещей Azure
 
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## <a name="how-to-run-the-sample"></a>Запуск примера
+## <a name="run-the-sample"></a>Запуск примера
 
 Скрипт **build.cmd** создает выходные данные в папке **build** локальной копии репозитория **iot-edge**. Выходные данные содержат четыре модуля IoT Edge, которые используются в данном примере.
 
-Сценарий сборки помещает:
+Сценарий сборки создает следующие файлы:
 
 * **logger.dll** в папку **build\\modules\\logger\\Debug**;
 * **iothub.dll** в папку **build\\modules\\iothub\\Debug**;
 * **identity\_map.dll** в папку **build\\modules\\identitymap\\Debug**;
 * **simulated\_device.dll** в папку **build\\modules\\simulated\_device\\Debug**.
 
-Используйте эти пути для настройки значений **module path**, как указано в приведенном ниже файле параметров JSON.
+Использовать эти пути для значений **пути модуля**, как показано в файле параметров JSON simulated\_device\_cloud\_upload\_win.
 
-Процесс simulated\_device\_cloud\_upload\_sample принимает путь к JSON-файлу конфигурации в качестве аргумента командной строки. Следующий пример файла JSON предоставляется в репозитории SDK в расположении **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_sample\_win.json**. Этот файл конфигурации работает так, как если бы вы не модифицировали сценарий сборки, чтобы разместить модули IoT Edge или образцы исполняемых файлов в местах, отличных от настроек по умолчанию.
+Процесс simulated\_device\_cloud\_upload sample принимает путь к JSON-файлу конфигурации в качестве аргумента командной строки. Следующий пример файла JSON предоставляется в репозитории SDK в расположении **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json**. Этот файл конфигурации работает так, как если бы вы не модифицировали сценарий сборки, чтобы разместить модули IoT Edge или образцы исполняемых файлов в местах, отличных от настроек по умолчанию.
 
 > [!NOTE]
 > Пути к модулям зависят от каталога, в котором находится файл simulated\_device\_cloud\_upload\_sample.exe. Образец файла конфигурации JSON по умолчанию используется для записи в deviceCloudUploadGatewaylog.log в вашей текущей рабочей папке.
 
-В текстовом редакторе откройте файл **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json** в локальной копии репозитория **iot-edge**. Этот файл настраивает модули Edge Интернета вещей в примере шлюза:
+В текстовом редакторе откройте файл **samples\\simulated\_device\_cloud\_upload\\src\\simulated\_device\_cloud\_upload\_win.json** в локальной копии репозитория **iot-edge**. Этот файл настраивает модули Edge Интернета вещей в примере шлюза:
 
 * Модуль **IoTHub** подключается к центру IoT. Его необходимо настроить для отправки данных в центр IoT. В частности, укажите в качестве значения **IoTHubName** имя своего Центра Интернета вещей, а в качестве значения **IoTHubSuffix** — **azure-devices.net**. Для параметра **Transport** задайте одно из следующих значений: **HTTP**, **AMQP** или **MQTT**. В настоящее время только **HTTP** использует одно TCP-подключение для всех сообщений с устройства. Если задать значение **AMQP** или **MQTT**, то шлюз будет поддерживать отдельное TCP-подключение к Центру Интернета вещей для каждого устройства.
-* Модуль **mapping** сопоставляет MAC-адреса имитаций устройств с идентификаторами устройств Центра Интернета вещей. Убедитесь в том, что значения **deviceId** совпадают с идентификаторами двух устройств, добавленных в Центр Интернета вещей, а значения **deviceKey** содержат ключи этих двух устройств.
+* Модуль **mapping** сопоставляет MAC-адреса имитаций устройств с идентификаторами устройств Центра Интернета вещей. Задайте значения **deviceId** для идентификаторов двух устройств, добавленных в Центр Интернета вещей. Задайте значения **deviceKey** для ключей двух устройств.
 * Модули **BLE1** и **BLE2** — это имитации устройств. Обратите внимание, что MAC-адреса модулей совпадают с адресами в модуле **mapping**.
 * Модуль **Logger** регистрирует активность вашего шлюза в файл.
 * Значения **путей модуля** в следующем примере зависят от каталога, в котором находится файл simulated\_device\_cloud\_upload\_sample.exe.
@@ -104,7 +101,8 @@ ms.lasthandoff: 06/17/2017
           }
           },
           "args": {
-            "macAddress": "01:01:01:01:01:01"
+            "macAddress": "01:01:01:01:01:01",
+            "messagePeriod" : 2000
           }
         },
       {
@@ -116,7 +114,8 @@ ms.lasthandoff: 06/17/2017
           }
           },
           "args": {
-            "macAddress": "02:02:02:02:02:02"
+            "macAddress": "02:02:02:02:02:02",
+            "messagePeriod" : 2000
           }
         },
       {

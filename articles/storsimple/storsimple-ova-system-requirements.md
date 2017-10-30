@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/10/2017
 ms.author: alkohli
-ms.openlocfilehash: 178bdfd7bf2eb162e7a94f3eef9c44c5ff646fb9
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Системные требования для виртуального массива StorSimple
 ## <a name="overview"></a>Обзор
@@ -119,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 
 | Шаблон URL-адреса | Компонент или функция |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |Служба диспетчера устройств StorSimple<br>Служба контроля доступа<br>Azure Service Bus |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Служба диспетчера устройств StorSimple<br>Служба контроля доступа<br>Azure Service Bus<br>Служба проверки подлинности|
 | `http://*.backup.windowsazure.com` |Регистрация устройства |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Отзыв сертификатов |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Учетные записи хранения Azure и мониторинг |

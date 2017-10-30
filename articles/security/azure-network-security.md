@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="azure-network-security"></a>Сетевая безопасность Azure
 
 Мы понимаем, что в облаке безопасность имеет наивысший приоритет и вам крайне важно получать точные и своевременные сведения о безопасности Azure. Одним из наиболее весомых доводов в пользу использования Azure для приложений и служб является доступ к обширному ассортименту различных инструментов и функций обеспечения безопасности Azure. Эти средства и возможности мы предлагаем вам для создания безопасных решений на платформе Azure.
@@ -78,7 +75,7 @@ Azure поддерживает подключение к локальной се
 
 ### <a name="basic-network-connectivity"></a>Базовое сетевое подключение
 
-Служба [виртуальной сети Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) позволяет безопасно подключать ресурсы Azure между собой с помощью виртуальных сетей. Виртуальная сеть — это представление вашей собственной сети в облаке. Это логическая изоляция сетевой инфраструктуры Azure, выделенной для вашей подписки. Кроме того, виртуальные сети можно подключать между собой и к локальным сетям с помощью VPN-подключений типа "сеть-сеть" и выделенных [каналов WAN](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+Служба [виртуальной сети Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) позволяет безопасно подключать ресурсы Azure между собой с помощью виртуальных сетей. Виртуальная сеть — это представление вашей собственной сети в облаке. Это логическая изоляция сетевой инфраструктуры Azure, выделенной для вашей подписки. Кроме того, виртуальные сети можно подключать между собой и к локальным сетям с помощью VPN-подключений типа "сеть — сеть" и выделенных [каналов WAN](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Базовое сетевое подключение](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -665,4 +662,3 @@ Log Analytics предлагает следующие решения для мо
 -   [Как корпорация Майкрософт создает свою быструю и надежную глобальную сеть](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 
 -   [Внедрение сетевых инноваций](https://azure.microsoft.com/blog/lighting-up-network-innovation/)
-

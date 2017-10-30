@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/10/2017
 ms.author: johnkem
+ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 23da12e518d88109fd7271fd363b6c1f099c5ab6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Поддерживаемые службы, схемы и категории для журналов диагностики Azure
 
@@ -30,22 +29,22 @@ ms.lasthandoff: 09/25/2017
 
 | служба | Схемы и документы |
 | --- | --- |
-| Управление API | Схема недоступна. |
+| Управление API | [Журналы диагностики управления API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Шлюзы приложений |[Ведение журнала диагностики для шлюза приложений](../application-gateway/application-gateway-diagnostics.md) |
 | Служба автоматизации Azure |[Log Analytics для службы автоматизации Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Пакетная служба Azure |[Ведение журналов диагностики пакетной службы Azure](../batch/batch-diagnostics.md) |
 | Customer Insights | Схема недоступна. |
 | Сеть доставки содержимого | Схема недоступна. |
-| Cosmos DB | Схема недоступна. |
-| Аналитика озера данных |[Доступ к журналам диагностики для Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Cosmos DB | [Журнал ведения диагностики Azure Cosmos DB](../cosmos-db/logging.md) |
+| Data Lake Analytics |[Доступ к журналам диагностики для Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Хранилище озера данных |[Доступ к журналам диагностики Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Концентраторы событий |[Журналы диагностики концентраторов событий Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
-| Служба подготовки Центра Интернета вещей | Схема недоступна. |
+| Центр IoT | [Использование Azure Monitor](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Хранилище ключей |[Ведение журнала хранилища ключей Azure](../key-vault/key-vault-logging.md) |
 | Балансировщик нагрузки |[Log Analytics для Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Приложения логики |[Настраиваемая схема отслеживания сообщений B2B для приложений логики](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | группы сетевой безопасности; |[Аналитика журналов для групп безопасности сети](../virtual-network/virtual-network-nsg-manage-log.md) |
-| Защита общедоступного IP-адреса от атак DDoS | Схема недоступна. |
+| Защита от атак DDoS | Схема недоступна. |
 | Службы восстановления | Схема недоступна.|
 | Поиск |[Включение и использование аналитики поискового трафика](../search/search-traffic-analytics.md) |
 | Управление сервером | Схема недоступна. |
@@ -99,8 +98,8 @@ ms.lasthandoff: 09/25/2017
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Статистика времени ожидания хранилища запросов|
 |Microsoft.Sql/servers/databases|Errors|Errors|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Статистика времени ожидания базы данных|
-|Microsoft.Sql/servers/databases|Timeouts|Время ожидания|
-|Microsoft.Sql/servers/databases|Blocks|Блоки|
+|Microsoft.Sql/servers/databases|Время ожидания|Время ожидания|
+|Microsoft.Sql/servers/databases|Блоки|Блоки|
 |Microsoft.Sql/servers/databases|SQLInsights|Аналитика SQL|
 |Microsoft.StreamAnalytics/streamingjobs|Выполнение|Выполнение|
 |Microsoft.StreamAnalytics/streamingjobs|Разработка|Разработка|
@@ -111,4 +110,3 @@ ms.lasthandoff: 09/25/2017
 * [Потоковая передача журналов диагностики Azure в **концентраторы событий**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Создание или обновление диагностического параметра](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Сбор журналов и метрик для служб Azure для использования в Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-

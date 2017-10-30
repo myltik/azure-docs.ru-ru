@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
+ms.openlocfilehash: 0514710606b74db7c13f04e961347d215d2d283d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 00673cac31eb25bb8dd8228d6a36617c3812f5db
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Вопросы безопасности при перемещении данных в фабрике данных Azure
 В этой статье описывается базовая инфраструктура безопасности, используемая службами перемещения данных в фабрике данных Azure для защиты данных. Ресурсы управления фабрики данных Azure созданы на основе инфраструктуры безопасности Azure и используют все возможные меры безопасности, предлагаемые Azure.
 
@@ -97,9 +95,9 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
 
 1. Вы можете **хранить учетные данные локально**. Чтобы зашифровать и сохранить учетные данные в локальной среде выполнения интеграции, выполните инструкции по [шифрованию учетных данных в локальной среде выполнения интеграции](encrypt-credentials-self-hosted-integration-runtime.md). Этот вариант поддерживают все соединители. Локальная среда выполнения интеграции использует [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) Windows для шифрования конфиденциальных данных и учетных данных. 
 
-   Используйте командлет **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** для шифрования учетных данных связанной службы и конфиденциальных данных в связанной службе. Затем можно использовать возвращаемое значение JSON (с элементом **EncryptedCredential** в **connectionString**) для создания связанной службы с помощью командлета **Set-AzureRmDataFactoryV2LinkedSevrice**.  
+   Используйте командлет **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** для шифрования учетных данных связанной службы и конфиденциальных данных в связанной службе. Затем можно использовать возвращаемое значение JSON (с элементом **EncryptedCredential** в **connectionString**) для создания связанной службы с помощью командлета **Set-AzureRmDataFactoryV2LinkedSevrice**.  
 
-2. Если не использовать командлет **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential**, как описано на предыдущем шаге, а вместо этого выполнить командлет **Set-AzureRmDataFactoryV2LinkedSevrice** с JSON-файлом, содержащим строки подключения и учетные данные, то связанная служба будет **зашифрована и сохранена в управляемом хранилище фабрики данных Azure**. Конфиденциальная информация по-прежнему шифруется сертификатом, и этими сертификатами управляет корпорация Майкрософт.
+2. Если не использовать командлет **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**, как описано на предыдущем шаге, а вместо этого выполнить командлет **Set-AzureRmDataFactoryV2LinkedSevrice** с JSON-файлом, содержащим строки подключения и учетные данные, связанная служба будет **зашифрована и сохранена в управляемом хранилище фабрики данных Azure**. Конфиденциальная информация по-прежнему шифруется сертификатом, и этими сертификатами управляет корпорация Майкрософт.
 
 
 
@@ -186,4 +184,3 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
 Дополнительные сведения о производительности действия копирования см. в [руководстве о производительности действия копирования и его настройке](copy-activity-performance.md).
 
  
-

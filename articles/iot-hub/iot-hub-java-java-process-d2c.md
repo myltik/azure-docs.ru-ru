@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: d1aca8f39e305105d4ec9f63fbe7bee95487e294
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0fb3e9012ae88112515ebb552e49fa463a087f54
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>Обработка сообщений Центра Интернета вещей, отправляемых с устройства в облако (Java)
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 * Полная рабочая версия приведена в учебнике [Приступая к работе с Центром Интернета вещей Azure (Java)].
 * Последняя версия [пакета SDK для Java SE 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
-* Активная учетная запись Azure. (Если ее нет, можно создать [бесплатную учетную запись] [lnk-free-trial] всего за несколько минут.)
+* Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
 Кроме того, у вас должны быть базовые знания о [службе хранилища Azure] и [служебной шине Azure].
 
@@ -210,3 +210,4 @@ ms.lasthandoff: 10/11/2017
 
 [lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-free-trial]: https://azure.microsoft.com/free/

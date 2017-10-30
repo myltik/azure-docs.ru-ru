@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 9af6c0fc3df2863c8e7b9a6a62acf5ba6b7d2d0a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 4c5c8aacd2d104b8d6074b90eeffc32b29fc50f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Настройка схемы услуги в Operations Management Suite
 Служба схемы услуги автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами. Она позволяет рассматривать серверы как взаимосвязанные системы, предоставляющие важные службы. Схема услуги отображает сведения о подключениях между серверами, процессами и портами в любой подключенной по протоколу TCP архитектуре без дополнительной настройки. Пользователям требуется только установить агент.
@@ -138,6 +137,55 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
 sh InstallDependencyAgent-Linux64.bin -s
 ```
+
+## <a name="azure-vm-extension"></a>Расширение виртуальной машины Azure
+Можно легко развернуть агент зависимостей на виртуальных машинах Azure с помощью [расширений виртуальной машины Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Расширение виртуальной машины Azure позволяет развернуть агент зависимостей на виртуальных машинах с помощью сценария PowerShell или шаблона виртуальной машины Azure Resource Manager.  Расширение доступно для Windows (DependencyAgentWindows) и Linux (DependencyAgentLinux).  При развертывании с помощью расширения виртуальных машин Azure агенты могут быть автоматически обновлены до последних версий.
+
+Чтобы развернуть расширение виртуальной машины Azure с помощью PowerShell, можно использовать приведенный ниже пример.
+```PowerShell
+#
+# Deploy the Dependency Agent to every VM in a Resource Group
+#
+
+$version = "9.1"
+$ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
+$OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
+$rmgroup = "<Your Resource Group Here>"
+
+Get-AzureRmVM -ResourceGroupName $rmgroup |
+ForEach-Object {
+    ""
+    $name = $_.Name
+    $os = $_.StorageProfile.OsDisk.OsType
+    $location = $_.Location
+    $vmRmGroup = $_.ResourceGroupName
+    "${name}: ${os} (${location})"
+    Date -Format o
+    $ext = $OsExtensionMap.($os.ToString())
+    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
+    $result.IsSuccessStatusCode
+}
+```
+
+Более простой способ обеспечить установку агента зависимостей на каждой виртуальной машине — добавить этот агент в шаблон Azure Resource Manager.  Обратите внимание на то, что агент зависимостей по-прежнему зависит от агента OMS, поэтому сначала нужно развернуть [расширение виртуальной машины для агента OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension).  Приведенный ниже фрагмент JSON можно добавить в раздел *resources* шаблона.
+```JSON
+"type": "Microsoft.Compute/virtualMachines/extensions",
+"name": "[concat(parameters('vmName'), '/DependencyAgent')]",
+"apiVersion": "2017-03-30",
+"location": "[resourceGroup().location]",
+"dependsOn": [
+"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+],
+"properties": {
+    "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+    "type": "DependencyAgentWindows",
+    "typeHandlerVersion": "9.1",
+    "autoUpgradeMinorVersion": true
+}
+
+```
+
 
 ## <a name="desired-state-configuration"></a>Настройка требуемого состояния
 Чтобы развернуть агент зависимостей посредством Desired State Configuration, можно использовать модуль xPSDesiredStateConfiguration и небольшой фрагмент кода, как показано ниже.
@@ -334,4 +382,3 @@ Node localhost
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - Узнайте, как [использовать схему услуги](operations-management-suite-service-map.md) после ее развертывания и настройки.
-

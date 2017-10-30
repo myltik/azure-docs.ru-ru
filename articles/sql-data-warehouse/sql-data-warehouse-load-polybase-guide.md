@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
+ms.openlocfilehash: e8ae0eb96200c167a8758df4ce20b51452cc59a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 7594a0730477fe3f3bd34b0b6207478de70c7595
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Руководство по использованию PolyBase в хранилище данных SQL
 Это руководство содержит практические сведения об использовании PolyBase в хранилище данных SQL.
@@ -134,7 +133,7 @@ WHERE
 
 ## <a name="polybase-limitations"></a>Ограничения PolyBase
 Для PolyBase в хранилище данных SQL действуют следующие ограничения, которые нужно учитывать при разработке задания загрузки:
-- Ширина одной строки не должна превышать 1 000 000 байт. Это требование не зависит от определенной схемы таблицы, включая столбцы (n)varchar(max). Это означает, что для внешних таблиц максимальная ширина столбцов (n)varchar(max) составляет 1 000 000 байт, а не 2 ГБ (ограничение, определенное для типа данных).
+- Ширина одной строки не должна превышать 1 000 000 байт. Это требование не зависит от определенной схемы таблицы.
 - При экспорте данных в формат файлов ORC из SQL Server или хранилища данных SQL Azure число текстовых столбцов большого объема может быть ограничено до 50 из-за ошибок нехватки памяти в Java. Чтобы решить эту проблему, экспортируйте только подмножество столбцов.
 
 
@@ -174,4 +173,3 @@ WHERE
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
 <!-- External Links -->
-

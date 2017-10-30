@@ -1,6 +1,6 @@
 ---
-title: Offering services in Azure Stack | Microsoft Docs
-description: As a cloud operator, you can offer services to your users.
+title: "Предложение служб в Azure Stack | Документация Майкрософт"
+description: "Как оператор облака вы можете предлагать своим пользователям службы."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,36 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a54771d99f2719fcc345496b152a5d3acc02121
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-offering-services-in-azure-stack"></a>Overview of offering services in Azure Stack
+# <a name="overview-of-offering-services-in-azure-stack"></a>Общие сведения о предложении служб в Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
 
-[Microsoft Azure Stack](azure-stack-poc.md) is a hybrid cloud platform that lets you deliver services from your datacenter. As a service provider, you can offer services to your tenants. Within a business or government agency, you can offer on-premises services to your employees. The services that you can deliver include, but are not limited to:
+[Microsoft Azure Stack](azure-stack-poc.md) ― это гибридная облачная платформа, позволяющая доставлять службы из центра обработки данных. Как поставщик услуг вы можете предлагать службы своим клиентам. В коммерческой компании или государственном учреждении можно предоставлять локальные службы сотрудникам. К службам, которые можно доставлять, помимо прочего, относятся следующие:
 
-- Platform as a Service (PaaS) services like App Services, Mobile Apps, API Apps, API Functions, SQL, MySQL.
+- службы PaaS (платформа как услуга), например службы приложений, мобильные приложения, приложения API, функции API, SQL, MySQL.
 
-You can even combine services to integrate and build complex solutions for different users.
+Можно даже комбинировать службы для интеграции и создания сложных решений для различных пользователей.
 
-To deliver these services to your users, you must create [plans, offers, and quotas](azure-stack-plan-offer-quota-overview.md). Your users can then subscribe to your offers to use the services.
+Для доставки этих служб пользователям вам необходимо создавать [планы, предложения и квоты](azure-stack-plan-offer-quota-overview.md). Затем пользователи смогут подписываться на ваши предложения и использовать службы.
 
-## <a name="plan-your-service-offers"></a>Plan your service offers
+## <a name="plan-your-service-offers"></a>Планирование предложений служб
 
-When you’re planning your offers, keep the following points in mind:
+При планировании предложений необходимо учитывать следующие моменты.
 
-**Trial offers**: You can use trial offers to attract new users, who can then upgrade to additional services. To create a trial offer, create a small [base plan](azure-stack-plan-offer-quota-overview.md#base-plan) with an optional larger add-on plan.
+**Пробные предложения.** С помощью пробных предложений можно привлечь новых пользователей, которые затем перейдут на полноценное использование дополнительных служб. Чтобы создать пробное предложение, создайте небольшой [базовый план](azure-stack-plan-offer-quota-overview.md#base-plan) с необязательным дополнительным планом более крупного масштаба.
 
-**Capacity planning**: You might be concerned about users grabbing large amounts of resources and clogging the system for all users. To help performance, you can [configure your plans with quotas](azure-stack-plan-offer-quota-overview.md#plans) to cap usage.
+**Планирование мощности.** У вас может возникнуть проблема с пользователями, которые задействуют большие объемы ресурсов и затрудняют работу системы для остальных пользователей. Для улучшения производительности можно [настроить планы с квотами](azure-stack-plan-offer-quota-overview.md#plans) для ограничения нагрузки.
 
-**Delegated providers**: You can grant others the ability to create offers in your environment. For example, if you’re a service provider, you can [delegate](azure-stack-delegated-provider.md) this ability to your resellers. Or, if you’re an organization, you can delegate to other divisions/subsidiaries.
+**Делегируемые поставщики.** Вы можете предоставить другим возможность создавать предложения в вашей среде. Например, если вы поставщик услуг, вы можете [делегировать](azure-stack-delegated-provider.md) эту возможность торговым посредникам. Или, если вы представляете организацию, вы можете делегировать полномочия другим подразделениям и филиалам.
 
-## <a name="next-steps"></a>Next steps
-[Learn more about offers, plans, quotas, and subscriptions](azure-stack-plan-offer-quota-overview.md)
-
+## <a name="next-steps"></a>Дальнейшие действия
+[Дополнительные сведения о предложениях, планах, квотах и подписках](azure-stack-plan-offer-quota-overview.md)
 

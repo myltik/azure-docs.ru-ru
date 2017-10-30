@@ -38,13 +38,15 @@ sections:
   - title: Пошаговые руководства
     items:
       - type: paragraph
-        text: 'Узнайте, как использовать реестр контейнеров Azure со службой "Экземпляры контейнеров Azure" и Службой контейнеров Azure.'
+        text: 'Узнайте из этих руководств, как использовать реестр контейнеров Azure.'
       - type: list
         style: unordered
         className: spaced noBullet
         items:
+          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Георепликация реестра контейнеров</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Использование реестра контейнеров со службой "Экземпляры контейнеров Azure"</a>
           - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Использование реестра контейнеров со Службой контейнеров Azure</a>
+          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Реестр контейнеров с Service Fabric</a>
   - title: Справочные материалы
     items:
       - type: list

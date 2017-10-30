@@ -9,21 +9,20 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9a575148a05843bef7524eff61407b377292ca3b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.date: 10/05/2017
+ms.openlocfilehash: 96c5ab5caa4fea178a3108947fa858d395650e08
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Настройка параметров конфигурации сервера с помощью Azure CLI
-С помощью интерфейса командной строки (Azure CLI) можно вывести список параметров конфигурации для сервера Azure PostgreSQL, а также отобразить и обновить их. Однако только подмножество конфигураций ядра предоставляется на уровне сервера и может быть изменено. 
+С помощью интерфейса командной строки (Azure CLI) можно вывести список параметров конфигурации для сервера Azure PostgreSQL, а также отобразить и обновить их. Только подмножество конфигураций ядра предоставляется на уровне сервера и может быть изменено. 
 
 ## <a name="prerequisites"></a>Предварительные требования
-Прежде чем приступить к выполнению этого руководства, необходимы следующие компоненты:
-- [сервер и база данных Azure для PostgreSQL](quickstart-create-server-database-azure-cli.md);
-- Установите служебную программу командной строки [Azure CLI 2.0](/cli/azure/install-azure-cli) или используйте Azure Cloud Shell в браузере.
+Прежде чем приступить к выполнению этого руководства, необходимо сделать следующее:
+- создайте базу данных и сервер базы данных Azure для PostgreSQL, выполнив инструкции из раздела [Создание базы данных Azure для PostgreSQL](quickstart-create-server-database-azure-cli.md);
+- установите интерфейс командной строки [Azure CLI 2.0](/cli/azure/install-azure-cli) на компьютере или используйте [Azure Cloud Shell](../cloud-shell/overview.md) на портале Azure с помощью браузера.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>Получение списка параметров конфигурации сервера для базы данных Azure для сервера PostgreSQL
 Чтобы перечислить все изменяемые параметры на сервере и их значения, выполните команду [az postgres server configuration list](/cli/azure/postgres/server/configuration#list).
@@ -54,4 +53,3 @@ az postgres server configuration set --name log_min_messages --resource-group my
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - Чтобы настроить журналы сервера и получать к ним доступ, ознакомьтесь с разделом [Журналы сервера в базе данных Azure для PostgreSQL](concepts-server-logs.md).
-

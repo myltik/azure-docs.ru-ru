@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
+ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 28e8b0be0b69f279685109d611fbfb369b96101a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Обновление резервного хранилища до хранилища служб восстановления
 
@@ -70,6 +69,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 > Имена групп ресурсов имеют ограничения. Обязательно следуйте рекомендациям. Их несоблюдение может привести к сбою обновления хранилищ.
 >
 >При выполнении сценария клиентам **Azure для государственных организаций США** требуется задать для среды значение AzureUSGovernment.
+>При выполнении сценария клиенты **Azure Китай** должны задать для среды значение AzureChinaCloud.
 
 В следующем фрагменте кода приведен пример команды PowerShell.
 
@@ -159,4 +159,3 @@ RecoveryServicesVaultUpgrade.ps1 -SubscriptionID 53a3c692-5283-4f0a-baf6-49412f5
 [Архивация виртуальной машины IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Архивация сервера резервного копирования Azure](backup-azure-microsoft-azure-backup.md)</br>
 [Архивация Windows Server](backup-configure-vault.md)
-

@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
 ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Настройка группы доступности AlwaysOn на виртуальной машине Azure вручную
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 07/11/2017
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-##Создание кластера
+## Создание кластера
 
 Первым шагом после выполнения предварительных условий является создание отказоустойчивого кластера Windows Server, включающего в себя два сервера SQL Server и следящий сервер.  
 

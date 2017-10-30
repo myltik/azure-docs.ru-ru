@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Источники данных системного журнала в Log Analytics
 Системный журнал (Syslog) — это протокол ведения журнала событий, который обычно используется в Linux.  Приложения отправляют сообщения, которые могут храниться на локальном компьютере или передаваться в сборщик системного журнала.  При установке агента OMS для Linux он настраивает локальную управляющую программу системного журнала для пересылки сообщений в агент.  Затем агент отправляет сообщение в службу Log Analytics, где в репозитории OMS создается соответствующая запись.  
@@ -198,16 +198,6 @@ ms.lasthandoff: 10/11/2017
 В следующей таблице представлены различные примеры запросов к журналу, извлекающих записи из системного журнала.
 
 | Запрос | Описание |
-|:--- |:--- |
-| Type=Syslog |Все записи системного журнала. |
-| Type=Syslog SeverityLevel=error |Все записи системного журнала с уровнем серьезности "ошибка". |
-| Type=Syslog &#124; measure count() by Computer |Число записей системного журнала по компьютеру. |
-| Type=Syslog &#124; measure count() by Facility |Число записей системного журнала по устройству. |
-
->[!NOTE]
-> Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
-
-> | Запрос | Описание |
 |:--- |:--- |
 | syslog |Все записи системного журнала. |
 | Syslog &#124; where SeverityLevel == "error" |Все записи системного журнала с уровнем серьезности "ошибка". |

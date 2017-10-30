@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5785c81fb597e7d30eb7d3a880e7194d8358ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2c2213f663f539e123f70028fd70bedb1cb6511d
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Работа с геопространственными данными и данными расположений GeoJSON в Azure Cosmos DB
 Эта статья содержит вводную информацию о геопространственной функциональности [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). После прочтения этой статьи вы сможете ответить на следующие вопросы:
@@ -79,13 +79,13 @@ Azure Cosmos DB поддерживает индексацию и запросы 
 ```json
 {
     "type":"Polygon",
-    "coordinates":[
+    "coordinates":[ [
         [ 31.8, -5 ],
         [ 31.8, -4.7 ],
         [ 32, -4.7 ],
         [ 32, -5 ],
         [ 31.8, -5 ]
-    ]
+    ] ]
 }
 ```
 

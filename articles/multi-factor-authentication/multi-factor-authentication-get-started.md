@@ -3,29 +3,29 @@ title: "Выбор между облаком и сервером Azure MFA | Д
 description: "Выберите подходящее решение многофакторной проверки подлинности, выяснив, что является объектом защиты и где находятся пользователи.  После этого выберите облако, сервер службы MFA или службы AD FS."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
 ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/25/2017
-ms.author: kgremban
-ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/02/2017
+ms.author: joflore
+ms.reviewer: alexwe
+ms.openlocfilehash: 266985c5602b835c710a74f1736fb51eade5c707
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Выберите для себя решение "Многофакторная идентификация Microsoft Azure".
 Так как существует несколько вариантов использования службы "Многофакторная идентификация Microsoft Azure" (MFA), для определения наиболее подходящей версии следует ответить на некоторые вопросы.  Эти вопросы приведены ниже.
 
 * [Что я пытаюсь защитить?](#what-am-i-trying-to-secure)
 * [Где находятся пользователи?](#where-are-the-users-located)
-* [Какие функции мне нужны?](#what-featured-do-i-need)
+* [Какие функции мне нужны?](#what-features-do-i-need)
 
 В разделах этой статьи представлены рекомендации, которые помогут найти ответы на эти вопросы.
 

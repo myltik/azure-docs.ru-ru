@@ -1,6 +1,6 @@
 ---
 title: "Поддержка нескольких доменов в Azure AD Connect"
-description: "В этом документе описываются процедуры установки и настройки нескольких доменов верхнего уровня в Office&365; и Azure AD."
+description: "В этом документе описываются процедуры установки и настройки нескольких доменов верхнего уровня в Office 365 и Azure AD."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
-ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-ms.contentlocale: ru-ru
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 8e3f496c2868cc3430e0efd47805aec2205168aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Поддержка нескольких доменов для федерации с Azure AD
 В следующей документации представлено руководство по использованию нескольких доменов верхнего уровня и поддоменов в федерации с Office 365 или доменами Azure AD.
@@ -67,7 +66,7 @@ ms.lasthandoff: 01/12/2017
 
 Таким образом, при проверке подлинности в Azure AD или Office 365 для обнаружения домена в Azure AD используется элемент IssuerUri в маркере пользователя.  Если совпадение не найдено, проверка подлинности завершится ошибкой. 
 
-Например, если UPN пользователя имеет значение bsimon@bmcontoso.com,, то элементу IssuerUri в маркере, который выпускается AD FS, будет присвоено значение http://bmcontoso.com/adfs/services/trust. Это будет соответствовать конфигурации Azure AD, и проверка подлинности пройдет успешно.
+Например, если UPN пользователя имеет значение bsimon@bmcontoso.com, элементу IssuerUri в маркере, который выпускается AD FS, будет присвоено значение http://bmcontoso.com/adfs/services/trust. Это будет соответствовать конфигурации Azure AD, и проверка подлинности пройдет успешно.
 
 Ниже приведено пользовательское правило утверждения, которое реализует эту логику.
 
@@ -163,5 +162,4 @@ ms.lasthandoff: 01/12/2017
     ![Заменить утверждение](./media/active-directory-multiple-domains/sub2.png)
 
 5. Нажмите кнопку "ОК".  Нажмите кнопку "Применить".  Нажмите кнопку "ОК".  Откройте оснастку управления AD FS.
-
 

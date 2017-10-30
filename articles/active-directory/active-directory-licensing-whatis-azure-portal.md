@@ -17,14 +17,12 @@ ms.date: 06/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 52dd48ce4e4acaf48f31edc51bbb657f8cd249cd
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: d6c76af713a73b965e87a2f470125f2e65565975
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Основы группового лицензирования в Azure Active Directory
 
 Использование платных облачных служб Майкрософт, таких как Office 365, Enterprise Mobility + Security, Dynamics CRM и других аналогичных продуктов, требует лицензий. Эти лицензии назначаются каждому пользователю, которому нужен доступ к этим службам. Для управления лицензиями администраторы используют один из порталов управления (Office или Azure) и командлеты PowerShell. Azure Active Directory (Azure AD) — это базовая инфраструктура, обеспечивающая управление удостоверениями для всех облачных служб Майкрософт. Azure AD хранит сведения о состоянии назначения лицензии для пользователей.
@@ -53,6 +51,10 @@ ms.lasthandoff: 06/30/2017
 
 - На этапе общедоступной предварительной версии для использования управления лицензиями групп для клиента требуется платная или пробная подписка Azure AD уровня "Базовый" или "Премиум".
 
+## <a name="your-feedback-is-welcome"></a>Будем рады вашим отзывам!
+
+Если вы хотите оставить отзыв или запрос на создание функции, это можно сделать на [форуме](https://feedback.azure.com/forums/169401-azure-active-directory/category/317677-group-based-licensing).
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о других сценариях управления лицензиями на основе группы см. в следующих статьях:
@@ -62,4 +64,3 @@ ms.lasthandoff: 06/30/2017
 * [Поиск и устранение проблем лицензирования группы в Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Как перевести отдельных лицензированных пользователей на групповое лицензирование в Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Дополнительные сценарии лицензирования на основе группы в Azure Active Directory](active-directory-licensing-group-advanced.md)
-

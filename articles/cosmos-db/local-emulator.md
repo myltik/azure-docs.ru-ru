@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: arramac
+ms.openlocfilehash: 1e23fa988952f2515d82d4d043c390c263959ccc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: a0f6a845a345ebd4ef0a58abf4934ce400103109
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Использование эмулятора Azure Cosmos DB для разработки и тестирования в локальной среде
 
@@ -85,7 +84,7 @@ ms.lasthandoff: 08/24/2017
 
 Эмулятор Azure Cosmos DB может выполняться в Docker для Windows. Этот эмулятор не работает в Docker для Oracle Linux.
 
-Если установлен [Docker для Windows](https://www.docker.com/docker-windows), вы можете извлечь образ эмулятора из Docker Hub, выполнив следующую команду из любой оболочки по своему усмотрению (cmd.exe, PowerShell и т. д.).
+Если [Docker для Windows](https://www.docker.com/docker-windows) установлен и переключен на контейнеры Windows, вы можете извлечь образ эмулятора из Docker Hub, выполнив следующую команду из любой оболочки по своему усмотрению (cmd.exe, PowerShell и т. д.).
 
 ```      
 docker pull microsoft/azure-cosmosdb-emulator 
@@ -94,7 +93,7 @@ docker pull microsoft/azure-cosmosdb-emulator
 
 ``` 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 Ответ выглядит примерно так:
@@ -409,4 +408,3 @@ powershell .\importcert.ps1
 
 > [!div class="nextstepaction"]
 > [Экспорт сертификатов эмулятора Azure Cosmos DB для использования с Java, Python и Node.js](local-emulator-export-ssl-certificates.md)
-

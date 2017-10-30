@@ -9,14 +9,14 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 358015d6cfd9961508b209f628b2d648a75e3c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 709d23ab590c06d5da9b03e2767bc0be5905355b
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Автоматическое изменение размера переданных изображений с помощью службы "Сетка событий"
 
@@ -25,8 +25,6 @@ ms.lasthandoff: 10/11/2017
 Это руководство — вторая часть из цикла руководств по службе хранилища. Оно дополняет [предыдущее руководство по службе хранилища][previous-tutorial] и содержит сведения о том, как добавить автоматическое бессерверное создание эскизов с помощью служб "Функции Azure" и "Сетка событий Azure". Служба "Сетка событий" позволяет службе [Функции Azure](..\azure-functions\functions-overview.md) реагировать на события [хранилища BLOB-объектов Azure](..\storage\blobs\storage-blobs-introduction.md) и создавать эскизы передаваемых изображений. Подписка на событие создается для события создания хранилища BLOB-объектов. При добавлении большого двоичного объекта в конкретный контейнер хранилища BLOB-объектов вызывается конечная точка функции. Данные, передаваемые посредством привязки функции из службы "Сетка событий", используются для доступа к большому двоичному объекту и создания эскизов. 
 
 Для добавления возможностей изменения размера в существующее приложение для передачи изображений можно использовать Azure CLI и портал Azure.
-
-[!INCLUDE [storage-events-note.md](../../includes/storage-events-note.md)]
 
 ![Опубликованное веб-приложение в браузере Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -42,7 +40,6 @@ ms.lasthandoff: 10/11/2017
 Для работы с этим руководством:
 
 + Необходимо выполнить инструкции из предыдущего руководства по хранилищу BLOB-объектов: [Upload image data in the cloud with Azure Storage][previous-tutorial] (Передача данных изображений в облако с помощью службы хранилища Azure). 
-+ Необходимо отправить заявку на доступ к функциям событий службы хранилища BLOB-объектов и получить соответствующие права доступа. [Запросите доступ к событиям хранилища BLOB-объектов](#request-storage-access), прежде чем продолжить выполнение каких-либо инструкций данного раздела.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,32 +48,6 @@ ms.lasthandoff: 10/11/2017
 Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.14 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 Если вы не используете Cloud Shell, сначала выполните вход с помощью `az login`.
-
-## <a name="enable-blob-storage-events"></a>Включение событий хранилища BLOB-объектов
-
-В настоящее время необходимо запросить доступ к функциям событий хранилища BLOB-объектов.  
-
-### <a name="request-storage-access"></a>Запрос доступа к событиям хранилища BLOB-объектов
-
-Запросить доступ можно командой `az feature register`.
-
-> [!IMPORTANT]  
-> Мы принимаем пользователей предварительной версии функции событий хранилища BLOB-объектов в порядке, в котором они запрашивают присоединение к данной программе. На предоставление доступа к данной функции может потребоваться 1–2 рабочих дня. 
-
-```azurecli-interactive
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-
-### <a name="check-access-status"></a>Проверка состояния утверждения
-
-Вы получите электронное сообщение от корпорации Майкрософт, уведомляющее о том, что вам был предоставлен доступ к событиям хранилища BLOB-объектов. Можно проверить состояние запроса на доступ в любое время, выполнив команду `az feature show`.
-
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
-```
-После получения доступа к функции событий хранилища BLOB-объектов эта команда возвращает значение `"Registered"`. 
- 
-После регистрации можно будет продолжить работу с данным руководством.
 
 ## <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure
 

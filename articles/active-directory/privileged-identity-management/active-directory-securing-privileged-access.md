@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 849637fb391576954307bc84bb02e1d8579bf1cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Защита привилегированного доступа в Azure AD
 Защита привилегированного доступа — исключительно важный первый шаг для защиты корпоративных ресурсов в современных организациях. Привилегированные учетные записи — это учетные записи, которые администрируют ИТ-системы и управляют ими. Злоумышленники в Интернете обычно используют эти учетные записи для доступа к данным и системам организации. Чтобы защитить привилегированный доступ, необходимо исключить риск доступа пользователей-злоумышленников к учетным записям и системам.
@@ -62,8 +62,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="conditional-access"></a>Условный доступ
 С условным контролем доступа Azure Active Directory проверяет определенные условия проверки подлинности пользователя, которые вы можете выбрать. Если эти условия выполняются, пользователь проходит проверку подлинности, и ему дается доступ к приложению.
 
-![Настройка правил условного доступа с использованием многофакторной проверки подлинности][4]
-
 ## <a name="related-articles"></a>Связанные статьи
 * Включение [многофакторной идентификации Azure](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Включение [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
@@ -76,4 +74,3 @@ ms.lasthandoff: 10/11/2017
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png
 [2]: ../media/active-directory-privileged-identity-management-configure/PIM_Dash.png
 [3]: ../media/active-directory-identityprotection/29.png
-[4]: ../media/active-directory-conditional-access/conditionalaccess-saas-apps.png

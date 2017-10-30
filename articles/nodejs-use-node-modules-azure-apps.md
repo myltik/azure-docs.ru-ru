@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
+ms.openlocfilehash: 76679ea0ff2c1e88d1923488717a245351437165
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 13feb95a24add7823feae9fe0abd89e59934255c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Использование модулей Node.js с приложениями Azure
 Этот документ содержит указания по использованию модулей Node.js с приложениями, размещенными в Azure. В нем описывается, как обеспечить использование конкретной версии модуля приложением и как использовать собственные модули вместе с Azure.
@@ -54,7 +53,8 @@ ms.lasthandoff: 09/20/2017
 * Службу приложений Azure можно настроить для выполнения пользовательских сценариев Bash или сценариев оболочки во время развертывания, что дает возможность выполнять пользовательские команды и точно настроить способ выполнения **npm install** . Видео о том, как настроить такую среду, см. по этой ссылке: [Custom Web Site Deployment Scripts with Kudu] (Пользовательские сценарии развертывания веб-сайтов с использованием Kudu).
 
 ### <a name="using-a-packagejson-file"></a>Использование файла package.json
-Файл **package.json** — это способ указать зависимости верхнего уровня, необходимые вашему приложению для того, чтобы платформа размещения могла установить зависимости, а не требовать от вас включить папку **node\_packages** в состав развертывания. После развертывания приложения используется команда **npm install**, чтобы проанализировать файл **package.json** и установить все указанные зависимости.
+
+С помощью файла **package.json** можно указать зависимости верхнего уровня, необходимые вашему приложению, чтобы платформа размещения могла установить зависимости, а не требовать от вас включить папку **node\_modules** в состав развертывания. После развертывания приложения используется команда **npm install**, чтобы проанализировать файл **package.json** и установить все указанные зависимости.
 
 Во время разработки можно использовать параметры **--save**, **--save-dev** или **--save-optional** при установке модулей, чтобы автоматически добавить запись для модуля в файл **package.json**. Дополнительные сведения см. в разделе с описанием [npm-install](https://docs.npmjs.com/cli/install).
 
@@ -91,4 +91,3 @@ ms.lasthandoff: 09/20/2017
 [указать версию Node.js]: nodejs-specify-node-version-azure-apps.md
 [использовать интерфейс командной строки Azure для Mac и Linux]:cli-install-nodejs.md
 [Custom Web Site Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
-

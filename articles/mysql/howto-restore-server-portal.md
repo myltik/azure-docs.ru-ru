@@ -8,18 +8,16 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0603119da20e74b423072ce6afdb8c9f20830383
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: 6c1c0f8a0c0e59661b70b787b551b8cfdb024cda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Как выполнить резервное копирование и восстановление сервера в базе данных Azure для MySQL с помощью портала Azure
 
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Как заархивировать и восстановить сервер в базе данных Azure для MySQL с помощью портала Azure
-
-## <a name="backup-happens-automatically"></a>Архивация выполняется автоматически
+## <a name="backup-happens-automatically"></a>Резервное копирование выполняется автоматически
 При использовании базы данных Azure для MySQL служба базы данных автоматически создает резервную копию службы каждые 5 минут. 
 
 Для уровня "Базовый" доступны резервные копии за 7 дней, а для уровня "Стандартный" — за 35 дней. Дополнительные сведения см. в разделе [Параметры и производительность базы данных Azure для MySQL: возможности разных уровней служб](concepts-service-tiers.md).
@@ -33,7 +31,7 @@ ms.lasthandoff: 05/10/2017
 
 Указанные ниже шаги позволяют восстановить пример сервера до определенной точки во времени.
 
-1. Войдите на [портал Azure](https://portal.azure.com/).
+1. Войдите на [портал Azure](https://portal.azure.com/)
 
 2. Найдите сервер базы данных Azure для MySQL. В левой области выберите **Все ресурсы**, затем выберите свой сервер из списка.
 
@@ -48,9 +46,9 @@ ms.lasthandoff: 05/10/2017
 - **Ценовая категория**: после выбора ценовой категории для исходного сервера автоматически указывается та же ценовая категория, и здесь ее невозможно изменить. 
 ![Восстановление до точки во времени](./media/howto-restore-server-portal/pitr-restore.png)
 
-5. Чтобы восстановить сервер до выбранной точки во времени, нажмите кнопку **OК**. 
+5. Чтобы восстановить сервер до указанной точки во времени, нажмите кнопку **OК**. 
 
 6. После завершения восстановления найдите созданный сервер, чтобы убедиться, что базы данных были восстановлены, как и ожидалось.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- [Библиотеки подключений для базы данных Azure для MySQL](concepts-connection-libraries.md)
+- [Библиотеки подключений для базы данных Azure для MySQL](concepts-connection-libraries.md).

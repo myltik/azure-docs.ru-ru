@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/18/2017
 ms.author: sethm
-ms.openlocfilehash: 1db00dc1f91e8976b622030450445babbe547ad8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b7096a073b509217a6ed29b53f88f912e6613f6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="service-bus-management-libraries"></a>Библиотеки управления служебной шины
 
@@ -51,8 +51,7 @@ ms.lasthandoff: 10/11/2017
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
-
-1. Создание объекта `ServiceBusManagementClient`.
+2. Создание объекта `ServiceBusManagementClient`.
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -61,8 +60,7 @@ ms.lasthandoff: 10/11/2017
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-
-1. Присвоение параметрам `CreateOrUpdate` указанных значений.
+3. Присвоение параметрам `CreateOrUpdate` указанных значений.
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -71,8 +69,7 @@ ms.lasthandoff: 10/11/2017
        EnablePartitioning = true
    };
    ```
-
-1. Выполнение вызова.
+4. Выполнение вызова.
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);

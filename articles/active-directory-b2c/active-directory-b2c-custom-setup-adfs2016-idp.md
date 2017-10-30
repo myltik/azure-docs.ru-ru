@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
+ms.openlocfilehash: 8713fc7dd27023e1244ccb00673dd1652689baf5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 6cd0d19e5fd90cb9fb6d3fc4c17119476d7b4f62
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C. Добавление ADFS в качестве поставщика удостоверений SAML с помощью пользовательских политик
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -155,8 +153,10 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="register-the-adfs-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Регистрация поставщика утверждений учетной записи ADFS для пути взаимодействия пользователя "Регистрация" или "Вход"
 На этом этапе поставщик удостоверений настроен.  Однако он недоступен ни на одном из экранов регистрации или входа. Теперь необходимо добавить поставщик удостоверений учетной записи ADFS для пути взаимодействия пользователя `SignUpOrSignIn`. Чтобы сделать его доступным, необходимо создать дубликат имеющегося шаблона пути взаимодействия пользователя,  а затем изменить его таким образом, чтобы он содержал поставщик удостоверений ADFS.
-    >[!NOTE]
-    >If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml) you can skip this section.
+
+>[!NOTE]
+>Если ранее вы скопировали элемент `<UserJourneys>` из основного файла политики в файл расширения (TrustFrameworkExtensions.xml), можно пропустить этот раздел.
+
 1.  Откройте базовый файл политики (например, TrustFrameworkBase.xml).
 2.  Найдите элемент `<UserJourneys>` и скопируйте все содержимое узла `<UserJourneys>`.
 3.  Откройте файл расширения (например, TrustFrameworkExtensions.xml) и найдите элемент `<UserJourneys>`. Если элемент не существует, добавьте его.
@@ -228,4 +228,3 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="download-the-complete-policy-files"></a>Загрузка завершенных файлов политики
 Необязательно. Мы советуем создать свой сценарий, используя собственные файлы пользовательской политики, после того как вы ознакомитесь с пошаговым руководством по началу работы с пользовательскими политиками. [Файлы примеров политики, предназначенные только для справки](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app)
-

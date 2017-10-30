@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: c56a9b06a11d25cf046a0faeb29af1d78d9a4a89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7d2dbff4bcd0d76b56c6f142afae4ce8359bb37
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Создание и установка файлов конфигурации VPN-клиента для аутентификации при подключениях типа "точка — сеть" с использованием RADIUS (предварительная версия)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 Создайте конфигурацию VPN-клиента с помощью следующей команды:
 
 ```powershell 
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapMSChapv2"
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
 Выполненная команда возвращает ссылку. Скопируйте и вставьте ссылку в веб-браузер, чтобы скачать ZIP-файл с именем VpnClientConfiguration.zip. Распакуйте файл. Отобразятся следующие папки: 
@@ -63,7 +63,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGat
 Чтобы получить созданные файлы конфигурации, используйте следующую команду:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
 ### <a name="adwincli"></a>Настройка VPN-клиента Windows
@@ -122,7 +122,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGat
 Создайте конфигурацию VPN-клиента с помощью следующей команды:
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
 ```
 
 Выполненный командлет возвращает ссылку. Скопируйте и вставьте ссылку в веб-браузер, чтобы скачать ZIP-файл с именем VpnClientConfiguration.zip. Распакуйте файл. Отобразятся следующие папки:
@@ -135,7 +135,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGat
 Чтобы получить созданные файлы конфигурации, используйте следующую команду:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
 ### <a name="certwincli"></a>Настройка VPN-клиента Windows

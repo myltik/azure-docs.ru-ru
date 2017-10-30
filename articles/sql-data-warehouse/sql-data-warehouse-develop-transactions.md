@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Транзакции в хранилище данных SQL
 Как и следовало ожидать, хранилище данных SQL поддерживает транзакции как часть своей рабочей нагрузки. Однако, чтобы производительность хранилища данных SQL оставалась на уровне, по сравнению с SQL Server некоторые возможности ограничены. Эта статья посвящена отличиям этого продукта от аналогичных систем. 
@@ -191,4 +190,3 @@ THROW — это более современная реализация вызо
 <!--MSDN references-->
 
 <!--Other Web references-->
-

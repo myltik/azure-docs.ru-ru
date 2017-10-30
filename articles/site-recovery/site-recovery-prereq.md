@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
-ms.author: rajanaki
-ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/19/2017
+ms.author: raynew
+ms.openlocfilehash: d070fffd398a9a0ed6549b134ecbd1415baf2273
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 #  <a name="prerequisites-for-replication-from-on-premises-to-azure-by-using-site-recovery"></a>Необходимые условия для репликации из локальной среды в Azure с помощью Site Recovery
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 
 | **Компонент** | **Дополнительные сведения** |
 | --- | --- |
-| **Virtual Machine Manager** |  Рекомендуется развернуть по серверу VMM на первичном и вторичном сайтах.<br/><br/> Вы можете [выполнять репликацию между облаками на одном сервере VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). Чтобы выполнять репликацию между облаками с помощью одного сервера VMM, вам потребуется как минимум два облака, настроенных на сервере VMM.<br/><br/> На серверах VMM должен выполняться как минимум System Center 2012 с пакетом обновления SP1 с последними обновлениями.<br/><br/> Каждый сервер VMM должен содержать одно или несколько облаков. Для всех облаков необходимо настроить профиль емкости Hyper-V. <br/><br/>Облака должны содержать одну или несколько групп узлов VMM. Дополнительные сведения о настройке облаков VMM см. в статье [Таблица поддержки Azure Site Recovery для репликации из локальной среды в Azure](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
+| **Virtual Machine Manager** |  Рекомендуется развернуть по серверу VMM на первичном и вторичном сайтах.<br/><br/> Чтобы выполнять репликацию между облаками с помощью одного сервера VMM, вам потребуется как минимум два облака, настроенных на сервере VMM.<br/><br/> На серверах VMM должен выполняться как минимум System Center 2012 с пакетом обновления SP1 с последними обновлениями.<br/><br/> Каждый сервер VMM должен содержать одно или несколько облаков. Для всех облаков необходимо настроить профиль емкости Hyper-V. <br/><br/>Облака должны содержать одну или несколько групп узлов VMM. Дополнительные сведения о настройке облаков VMM см. в статье [Таблица поддержки Azure Site Recovery для репликации из локальной среды в Azure](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | Серверы Hyper-V должны работать под управлением Windows Server 2012 (или более поздних версий), на них должна быть настроена роль Hyper-V и установлены все последние обновления.<br/><br/> Сервер Hyper-V должен содержать одну или несколько виртуальных машин.<br/><br/>  Серверы узлов Hyper-V должны быть размещены в первичном и вторичном облаках VMM.<br/><br/> Если вы выполняете Hyper-V в кластере на платформе Windows Server 2012 R2, то необходимо установить обновление, описанное в статье базы знаний [2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Брокер кластера не создается автоматически, если вы выполняете Hyper-V в кластере на платформе Windows Server 2012 на основе статических IP-адресов. Необходимо вручную настроить брокер кластера. Дополнительные сведения о брокере кластера см. в статье [Configure Replica Broker Role (Cluster to Cluster Replication)](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx) (Настройка роли брокера реплики. Репликация "кластер — кластер"). |
 | **Поставщик** | Во время развертывания службы Site Recovery установите на серверы VMM поставщик Azure Site Recovery. Поставщик обменивается данными со службой Site Recovery по протоколу HTTPS(порт 443) для управления репликацией. Репликация данных осуществляется между сервером-источником и сервером-приемником Hyper-V через локальную сеть или VPN-подключение.<br/><br/> Поставщик, запущенный на сервере VMM, должен иметь доступ к следующим URL-адресам:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>Поставщик Site Recovery должен разрешить в брандмауэре обмен данными между серверами VMM и [диапазонами IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), а также разрешить использовать протокол HTTPS (порт 443). |
 

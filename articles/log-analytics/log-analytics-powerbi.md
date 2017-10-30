@@ -14,19 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: bwren
+ms.openlocfilehash: 271747e25f319c76195ec643025d24c6b7cdc9c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 98befb16d27387e8f65a27771a2a32c264119d74
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Экспорт данных Log Analytics в Power BI
 
 >[!NOTE]
-> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), этот процесс экспорта данных Log Analytics в Power BI больше не будет работать.  Все существующие расписания, созданные перед обновлением, будут отключены. 
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), этот процесс экспорта данных Log Analytics в Power BI больше не будет работать.  Все существующие расписания, созданные перед обновлением, будут отключены. Также исчезнет возможность включения экспорта в Power BI в параметрах в разделе "Предварительная версия функций", так как эта функция доступна в обновленных рабочих областях. 
 >
 > После обновления в Azure Log Analytics работает та же платформа, что и в Application Insights, и вы можете использовать для экспорта запросов Log Analytics в Power BI тот же процесс, что и для [экспорта запросов Application Insights в Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Чтобы экспортировать запрос, можно воспользоваться консолью Analytics, как описано в этой статье, или нажать кнопку **Power BI** в верхней части экрана на портале поиска по журналам.
+>
+> Пользователям потребуется доступ к ресурсу рабочей области в Azure, чтобы использовать экспорт в Power BI в обновленных рабочих областях. Если у них не будет доступа, при импорте запроса в Power BI Desktop появится сообщение об ошибке, связанной с отсутствием доступа.
 
 
 
@@ -126,4 +127,3 @@ ms.lasthandoff: 07/28/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [запросах поиска по журналам](log-analytics-log-searches.md) , чтобы создавать запросы, которые можно экспортировать в Power BI.
 * Узнайте больше о [Power BI](http://powerbi.microsoft.com), чтобы создавать визуализации на основе экспорта Log Analytics.
-

@@ -3,7 +3,7 @@ title: "Дочерние модули Runbook в службе автоматиз
 description: "Описывает различные методы запуска Runbook в службе автоматизации Azure из другого Runbook и обмена информацией между ними."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Дочерние модули Runbook в службе автоматизации Azure
 Рекомендуется создавать в службе автоматизации Azure повторно используемые модульные Runbook с отдельной функцией, которую могут использовать другие Runbook. Родительский Runbook часто будет вызывать один или несколько дочерних Runbook для выполнения требуемых функций. Существует два способа вызвать дочерний Runbook, и у каждого из них есть определенные отличия, которые следует понимать, чтобы определить, какой способ наилучшим образом подходит для тех или иных сценариев.
@@ -44,7 +43,7 @@ ms.lasthandoff: 11/17/2016
 
 * Порядок публикации модулей Runbook имеет значение только для модулей Runbook рабочего процесса PowerShell и графических модулей Runbook рабочего процесса PowerShell.
 
-При вызове графического Runbook и Runbook рабочего процесса PowerShell с помощью встроенного выполнения просто используйте имя необходимого Runbook.  При вызове дочернего Runbook PowerShell необходимо перед его именем использовать сочетание символов *.\\* , чтобы указать, что сценарий находится в локальном каталоге. 
+При вызове графического Runbook и Runbook рабочего процесса PowerShell с помощью встроенного выполнения просто используйте имя необходимого Runbook.  При вызове дочернего модуля runbook PowerShell необходимо поставить перед его именем символ *.\\*, чтобы указать, что скрипт находится в локальном каталоге. 
 
 ### <a name="example"></a>Пример
 В следующем примере вызывается тестовый дочерний Runbook, который принимает три параметра: сложный объект, целое число и логическое значение. Выходные данные дочернего Runbook присваиваются переменной.  В этом случае дочерний Runbook представляет собой Runbook рабочего процесса PowerShell.
@@ -87,5 +86,4 @@ ms.lasthandoff: 11/17/2016
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md)
 * [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
-
 

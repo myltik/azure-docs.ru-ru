@@ -1,6 +1,6 @@
 ---
-title: Use Azure Resource Manager templates in Azure Stack | Microsoft Docs
-description: Learn how to use Azure Resource Manager templates in Azure Stack to provision resources.
+title: "Использование шаблонов Azure Resource Manager в Azure Stack | Документация Майкрософт"
+description: "Узнайте, как использовать шаблоны Azure Resource Manager в Azure Stack для подготовки ресурсов."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -14,65 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7648855011e8f77c35713d2d2ae50f2e474a08a6
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Use Azure Resource Manager templates in Azure Stack
+# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Использование шаблонов диспетчера ресурсов Azure в Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
 
-Azure Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation. You can also redeploy templates to make changes to the resources in the resource group.
+Используя шаблоны Azure Resource Manager, можно развернуть и подготовить все ресурсы для приложения в рамках одной скоординированной операции. Кроме того, можно повторно развернуть шаблоны, чтобы внести изменения в ресурсы в группе ресурсов.
 
-These templates can be deployed with the Microsoft Azure Stack portal, PowerShell, the command line, and Visual Studio.
+Эти шаблоны можно развертывать с помощью портала Microsoft Azure Stack, PowerShell, командной строки и Visual Studio.
 
-The following quickstart templates are available on [GitHub](http://aka.ms/azurestackgithub):
+В [GitHub](http://aka.ms/azurestackgithub) доступны следующие шаблоны быстрого запуска.
 
-## <a name="deploy-sharepoint-non-high-availability"></a>Deploy SharePoint (non-high availability)
-Use the PowerShell DSC extension to create a SharePoint 2013 farm that includes the following resources:
+## <a name="deploy-sharepoint-non-high-availability"></a>Развертывание SharePoint (с обычным уровнем доступности)
+Используйте расширение PowerShell DSC для создания фермы SharePoint 2013, которая включает в себя следующие ресурсы:
 
-* A virtual network
-* Three storage accounts
-* Two external load balancers
-* One VM configured as a domain controller for a new forest with a single domain
-* One VM configured as a SQL Server 2014 stand-alone server
-* One VM configured as a one machine SharePoint 2013 farm
+* виртуальную сеть;
+* три учетные записи хранения;
+* два внешних балансировщика нагрузки;
+* одну виртуальную машину, настроенную в качестве контроллера домена для нового леса с одним доменом;
+* одну виртуальную машину, настроенную в качестве изолированного сервера SQL Server 2014;
+* одну виртуальную машину, настроенную в качестве фермы SharePoint 2013 с одним компьютером.
 
-## <a name="deploy-ad-non-high-availability"></a>Deploy AD (non-high availability)
-Use the PowerShell DSC extension to create an AD domain controller server that includes the following resources:
+## <a name="deploy-ad-non-high-availability"></a>Развертывание AD (с обычным уровнем доступности)
+Используйте расширение PowerShell DSC для создания сервера контроллера домена AD, который включает в себя следующие ресурсы:
 
-* A virtual network
-* One storage account
-* One external load balancer
-* One VM configured as a domain controller for a new forest with a single domain
+* виртуальную сеть;
+* одна учетная запись хранения;
+* один внешний балансировщик нагрузки;
+* одну виртуальную машину, настроенную в качестве контроллера домена для нового леса с одним доменом;
 
-## <a name="deploy-adsql-non-high-availability"></a>Deploy AD/SQL (non-high availability)
-Use the PowerShell DSC extension to create a SQL Server 2014 stand-alone server that includes the following resources:
+## <a name="deploy-adsql-non-high-availability"></a>Развертывание AD или SQL (с обычным уровнем доступности)
+Используйте расширение PowerShell DSC для создания изолированного сервера SQL Server 2014, который включает в себя следующие ресурсы:
 
-* A virtual network
-* Two storage accounts
-* One external load balancer
-* One VM configured as a domain controller for a new forest with a single domain
-* One VM configured as a SQL Server 2014 stand-alone server
+* виртуальную сеть;
+* две учетные записи хранения;
+* один внешний балансировщик нагрузки;
+* одну виртуальную машину, настроенную в качестве контроллера домена для нового леса с одним доменом;
+* одну виртуальную машину, настроенную в качестве изолированного сервера SQL Server 2014;
 
 ## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-Extension-Azure-Automation-Pull-Server
-Use the PowerShell DSC extension to configure an existing virtual machine Local Configuration Manager (LCM) and register it to an Azure Automation Account DSC Pull Server.
+Используйте расширение PowerShell DSC, чтобы настроить локальный диспетчер конфигурации (LCM) существующей виртуальной машины и зарегистрировать ее на опрашивающем сервере DSC учетных записей службы автоматизации Azure.
 
-## <a name="create-a-virtual-machine-from-a-user-image"></a>Create a virtual machine from a user image
-Create a virtual machine from a custom user image. This template also deploys a virtual network (with DNS), public IP address, and a network interface.
+## <a name="create-a-virtual-machine-from-a-user-image"></a>Создание виртуальной машины из пользовательского образа
+Можно создать виртуальную машину из настраиваемого пользовательского образа. Этот шаблон также развертывает виртуальную сеть (с DNS), общедоступный IP-адрес и сетевой интерфейс.
 
-## <a name="simple-vm"></a>Simple VM
-Deploy a Windows VM that includes a virtual network (with DNS), public IP address, and a network interface.
+## <a name="simple-vm"></a>Простая виртуальная машина
+Этот шаблон развертывает виртуальную машину Windows с виртуальной сетью (с DNS), общедоступным IP-адресом и сетевым интерфейсом.
 
-## <a name="cancel-a-running-template-deployment"></a>Cancel a running template deployment
-To cancel a running template deployment, use the `Stop-AzureRmResourceGroupDeployment` PowerShell cmdlet.
+## <a name="cancel-a-running-template-deployment"></a>Отмена выполняющегося развертывания шаблона
+Чтобы отменить выполняющееся развертывание шаблона, используйте командлет PowerShell `Stop-AzureRmResourceGroupDeployment`.
 
-## <a name="next-steps"></a>Next steps
-[Deploy templates with the portal](azure-stack-deploy-template-portal.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Развертывание шаблонов с помощью портала](azure-stack-deploy-template-portal.md)
 
-[Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
-
+[Общие сведения об Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 7118ec3f5aeae40fa7ecc592309a28b585c651a1
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Запуск и остановка службы хаотического тестирования, а также вывод отчета о ее работе.
@@ -43,11 +42,9 @@ ms.lasthandoff: 09/26/2017
 |Аргумент|Описание|
 | --- | --- |
 | --continuation-token| Параметр маркера продолжения используется для получения следующего набора результатов. Маркер продолжения с непустым значением добавляется в ответ API, когда результаты из системы не помещаются в одном ответе. Когда это значение передается в следующем вызове API, API возвращает следующий набор результатов. Если следующий набор результатов отсутствует, маркер продолжения не содержит значения. Значение этого параметра не должно быть указано в формате URL-адреса.|
-| --end-time-utc   | Количество тактов, представляющее время окончания периода, за который создается отчет Chaos.
-                          Chaos report is to be generated. Please consult [DateTime.Ticks
-                          Property](https://msdn.microsoft.com/en-
-                          us/library/system.datetime.ticks%28v=vs.110%29) for details about tick.|
-| --start-time-utc | Количество тактов, представляющее время окончания периода, за который создается отчет Chaos. Чтобы получить дополнительные сведения о такте, ознакомьтесь со [свойством DateTime.Ticks] (https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29).| | --timeout -t     | Время ожидания сервера в секундах.  Значение по умолчанию: 60.|
+| --end-time-utc   | Количество тактов, представляющее время окончания периода, за который создается отчет Chaos. Дополнительные сведения см. в документации по [свойству DateTime.Ticks](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29).|
+| --start-time-utc | Количество тактов, представляющее время начала периода, за который создается отчет Chaos. Дополнительные сведения см. в документации по [свойству DateTime.Ticks](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29).|
+| --timeout -t     | Время ожидания сервера в секундах.  Значение по умолчанию: 60.|
 
 ### <a name="global-arguments"></a>Глобальные аргументы
 

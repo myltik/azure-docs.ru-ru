@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/17/2017
+ms.date: 09/27/2017
 ms.author: rickbyh
+ms.openlocfilehash: f244fc5dada77d6601710b374aa6edeb607b11d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: fd78b34e8bbefdaa79a73d69ff2a0e3c1c342e98
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Настройка Многофакторной идентификации для SQL Server Management Studio и Azure AD
 
@@ -65,9 +64,10 @@ ms.lasthandoff: 08/08/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Обзор Многофакторной идентификации базы данных SQL Azure приведен в разделе [Универсальная проверка подлинности для Базы данных SQL и хранилища данных SQL (поддержка SSMS для MFA)](sql-database-ssms-mfa-authentication.md).
-* Предоставьте другим пользователям доступ к своей базе данных: [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](sql-database-manage-logins.md).  
-Предоставьте другим пользователям возможность подключаться через брандмауэр: [Настройка правила брандмауэра уровня сервера базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md).
+- Обзор Многофакторной идентификации базы данных SQL Azure приведен в разделе [Универсальная проверка подлинности для Базы данных SQL и хранилища данных SQL (поддержка SSMS для MFA)](sql-database-ssms-mfa-authentication.md).  
+- Предоставьте другим пользователям доступ к своей базе данных: [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](sql-database-manage-logins.md).  
+- Предоставьте другим пользователям возможность подключаться через брандмауэр: [Настройка правила брандмауэра уровня сервера базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md).  
+- При использовании универсальной аутентификации **Active Directory с многофакторной проверкой подлинности** трассировка ADAL доступна начиная с версии [SSMS 17.3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Трассировка ADAL по умолчанию отключена. Включите ее в меню**Средства**, **Параметры** в разделе **Службы Azure**, **Облако Azure**, **Уровень трассировки для окна вывода ADAL** после включения **Вывод** в меню **Представление**. Эти трассировки доступны в окне вывода при выборе **параметра Azure Active Directory**.   
 
 
 [1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png
@@ -75,5 +75,4 @@ ms.lasthandoff: 08/08/2017
 [3]: ./media/sql-database-ssms-mfa-auth/3mfa-setup.png
 [4]: ./media/sql-database-ssms-mfa-auth/4mfa-verify-1.png
 [5]: ./media/sql-database-ssms-mfa-auth/5mfa-verify-2.png
-
 

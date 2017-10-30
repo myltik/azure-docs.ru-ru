@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/10/2017
 ms.author: denlee
+ms.openlocfilehash: 9d83e392774b60b795b7027188ef22d0a8e1b71d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 3f2d2af1d6be41d98f9780b4cf9ca4cd79de0fd7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Поддержка графа Gremlin в базе данных Azure Cosmos DB
 Azure Cosmos DB поддерживает [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) — язык обхода графов [Apache TinkerpPop](http://tinkerpop.apache.org), предназначенный для создания сущностей графа и выполнения операций запросов графов Graph API. Вы можете использовать язык Gremlin, чтобы создать сущности графа (вершины и ребра), изменить свойства в этих сущностях, выполнить запросы и обходы графа, а также удалить сущности. 
 
@@ -171,7 +169,7 @@ TinkerPop — это стандартная платформа, которая 
 | --- | --- | --- | --- |
 | `addE` | Добавляет ребро между двумя вершинами. | [Шаг addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Добавляет вершину в граф. | [Шаг addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
-| `and` | Обеспечивает возвращение значения для всех обходов | [Шаг and](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
+| `and` | Обеспечивает возвращение значения для всех обходов. | [Шаг and](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | Модулятор шага для назначения переменной выходным данным шага. | [Шаг as](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | Модулятор шага, используемый с `group` и `order`. | [Шаг by](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Возвращает первый обход, который возвращает результат. | [Шаг coalesce](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
@@ -209,4 +207,3 @@ TinkerPop — это стандартная платформа, которая 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Создайте приложение графа [с использованием пакетов SDK](create-graph-dotnet.md). 
 * Ознакомьтесь с [поддержкой графов в базе данных Azure Cosmos DB](graph-introduction.md).
-

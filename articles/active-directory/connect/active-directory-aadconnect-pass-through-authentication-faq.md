@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: billmath
+ms.openlocfilehash: e0c93cefb135d3ea1c5f0a3797602124aed85c5c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 79d2f5265c05a1e5f83325295d3d750e1796e1cc
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Сквозная проверка подлинности Azure Active: ответы на часто задаваемые вопросы
 
 В этой статье приводятся ответы на часто задаваемые вопросы о сквозной проверке подлинности Azure Active Directory (Azure AD). Следите за новым содержимым.
@@ -131,8 +129,9 @@ ms.lasthandoff: 09/28/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 - [**Текущие ограничения**](active-directory-aadconnect-pass-through-authentication-current-limitations.md). Сведения о том, какие сценарии поддерживаются, а какие нет.
 - [**Краткое руководство по сквозной проверке подлинности Azure Active Directory**](active-directory-aadconnect-pass-through-authentication-quick-start.md). Настройка и подготовка к работе сквозной проверки подлинности Azure Active Directory.
+- [**Интеллектуальная блокировка.**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) Настройте возможность интеллектуальной блокировки в клиенте для защиты учетных записей пользователей.
 - [**Техническое руководство по сквозной проверке подлинности Azure Active Directory**](active-directory-aadconnect-pass-through-authentication-how-it-works.md). Сведения о том, как работает эта функция.
 - [**Устранение неполадок**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md). Узнайте, как устранить самые распространенные проблемы с этой функцией.
+- [**Руководство по безопасности**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md). Дополнительные технические сведения об этом компоненте.
 - [**Простой единый вход Azure Active Directory**](active-directory-aadconnect-sso.md). Дополнительные сведения об этой дополнительной функции.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect). Отправка запросов новых функций.
-

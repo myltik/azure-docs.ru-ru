@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 32a693c059a1b4261f33a3d6f50f397365e9dac4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Службы синхронизации Azure AD Connect: рекомендации по изменению конфигурации по умолчанию
 В этой статье описываются стандартные правила конфигурации и то, как они влияют на конфигурацию. Кроме того, здесь содержится информация о конфигурации по умолчанию службы синхронизации Azure AD Connect. Статья на реальном примере познакомит читателя с тем, как работает модель конфигурации, именуемая "декларативной подготовкой". Для работы с этой статьей нужно установить и настроить службу Azure AD Connect Sync с помощью мастера установки.
@@ -75,9 +75,9 @@ ms.lasthandoff: 08/03/2017
 
 * Контакт должен поддерживать электронную почту. Проверка выполняется в соответствии со следующими правилами:
   * `IsPresent([proxyAddresses]) = True)`. Атрибут proxyAddresses должен быть заполнен.
-  * Основной адрес электронной почты можно найти в атрибуте proxyAddresses или в атрибуте mail. Наличие @ используется для проверки, что содержимое будет адрес электронной почты. Одно из этих двух правил должно иметь значение True.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Существует ли запись с «SMTP:» и если нет, можно @ быть найдено в строке?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Атрибут mail заполняется и если да, можно @ быть найдено в строке?
+  * Основной адрес электронной почты можно найти в атрибуте proxyAddresses или в атрибуте mail. Символ @ подтверждает, что содержимое является адресом электронной почты. Одно из этих двух правил должно иметь значение True.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Есть ли запись с "SMTP:"? Если да, есть ли в строке символ "@"?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Заполнен ли атрибут mail? Если да, есть ли в строке символ "@"?
 
 Следующие объекты-контакты **не** синхронизируются с Azure AD:
 

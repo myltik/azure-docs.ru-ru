@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 757429aa187e6536489b6636a0a11d122c7f9378
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 19948f1e2e77c78b7ce8aed66a7bdb74ba8640dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Учебник. Интеграция Azure Active Directory с Trakstar
 
@@ -38,6 +37,7 @@ ms.lasthandoff: 06/16/2017
 
 - подписка Azure AD;
 - подписка Trakstar с поддержкой единого входа.
+    - Единый вход — это платная функция в Trakstar. Чтобы включить ее для организации, обратитесь в [службу поддержки клиентов Trakstar](mailto:support@trakstar.com).
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
@@ -111,12 +111,13 @@ ms.lasthandoff: 06/16/2017
 
     ![Настройка единого входа](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://app.trakstar.com/auth/saml/callback?namespace=<NAMESPACE>`
+    а. Вставьте в текстовое поле **URL-адрес входа** значение, скопированное в Trakstar в поле **URL-адреса службы обработчика утверждений** в настройках параметров, аутентификации и единого входа, в следующем формате: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.trakstar.com`
+    b. В текстовом поле **Идентификатор** оставьте значение по умолчанию: `https://app.trakstar.com`.
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Trakstar](mailto:integrations@trakstar.com). 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Войдите в Trakstar от имени администратора, чтобы получить эти значения.
+    > Если в параметрах не отображается вкладка с настройками аутентификации и единого входа, значит функция недоступна.
  
 4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 
@@ -130,7 +131,7 @@ ms.lasthandoff: 06/16/2017
 
     ![Настройка единого входа](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_configure.png) 
 
-7. Чтобы настроить единый вход на стороне **Trakstar**, нужно отправить скачанный **сертификат (Base64)**, **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** в [службу поддержки Trakstar](mailto:integrations@trakstar.com). 
+7. Чтобы настроить единый вход на стороне **Trakstar**, нужно выполнить вход от имени администратора и предоставить **сертификат (Base64)**, **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**. 
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -169,7 +170,7 @@ ms.lasthandoff: 06/16/2017
  
 ### <a name="creating-a-trakstar-test-user"></a>Создание тестового пользователя Trakstar
 
-Цель этого раздела — создать пользователя с именем Britta Simon в Trakstar. Обратитесь в [службу поддержки Trakstar](mailto:integrations@trakstar.com), чтобы добавить пользователей в учетную запись Trakstar. 
+Цель этого раздела — создать пользователя с именем Britta Simon в Trakstar.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
@@ -227,5 +228,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_203.png
-
 

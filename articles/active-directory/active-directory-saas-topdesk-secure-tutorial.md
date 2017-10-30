@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Учебник. Интеграция Azure Active Directory с TOPdesk — Secure
 Цель данного учебника — показать интеграцию Azure и TOPdesk — Secure.  
@@ -104,7 +104,7 @@ ms.lasthandoff: 07/11/2017
 
 6. В другом окне веб-браузера войдите на **классический портал Azure** в качестве администратора.
 
-7. На **безопасной версии TOPdesk** странице интеграции приложения щелкните **настроить единый вход** Открытие ** Настройка единого входа ** диалогового окна.
+7. На странице интеграции с приложением **TOPdesk — Secure** нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
     ![Настройка единого входа](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Настройка единого входа")
 
@@ -205,7 +205,7 @@ ms.lasthandoff: 07/11/2017
 
 ### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Чтобы назначить пользователей TOPdesk — Secure, выполните следующие действия:
 1. На классическом портале Azure создайте тестовую учетную запись.
-2. На ** безопасной версии TOPdesk ** странице интеграции приложения щелкните **назначить пользователей**.
+2. На странице интеграции с приложением **TOPdesk — Secure** нажмите кнопку **Назначить пользователей**.
    
     ![Назначение пользователей](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Назначение пользователей")
 

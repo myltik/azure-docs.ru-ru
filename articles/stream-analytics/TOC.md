@@ -20,6 +20,7 @@
 ### [Образец входных данных](stream-analytics-sample-data-input.md)
 ### [Стандартные шаблоны запросов](stream-analytics-stream-analytics-query-patterns.md)
 ### [Оконные функции](stream-analytics-window-functions.md)
+
 ### [Использование эталонных данных](stream-analytics-use-reference-data.md)
 ### [Тестовые запросы](stream-analytics-test-query.md)
 ### [Интеграция определяемых пользователем функций JavaScript](stream-analytics-javascript-user-defined-functions.md)
@@ -53,6 +54,7 @@
 ### [Схемы и метрики заданий](stream-analytics-job-diagram-with-metrics.md)
 ### [Отладка SELECT INTO](stream-analytics-select-into.md)
 ### [Обработка порядка событий](stream-analytics-out-of-order-and-late-events.md)
+### [Рекомендации по упорядочиванию событий](stream-analytics-out-of-order-and-late-events.md)
 ### [Ограничения на чтение в концентраторе событий](stream-analytics-event-hub-consumer-groups.md)
 ### [Журналы диагностики](stream-analytics-job-diagnostic-logs.md)
 

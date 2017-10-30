@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
+ms.openlocfilehash: 5c9225212e51d03ae40e3a55a6b9e6c0e74b5ced
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: d25d2c731034d0785bbd404ec693c4c41d913d01
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Сведения о взаимодействии нескольких клиентов Azure Active Directory
 
 В Azure Active Directory (Azure AD) каждый клиент является полностью независимым ресурсом: равноправным, полнофункциональным и логически независимым от других клиентов, которыми вы управляете. Между клиентами нет связи типа "родительский объект — дочерний объект". Такая независимость клиентов подразумевает и независимость ресурсов, административную независимость и независимость синхронизации.
@@ -49,9 +47,8 @@ ms.lasthandoff: 07/28/2017
 Чтобы добавить клиент Azure AD на портале Azure, войдите на [портал Azure](https://portal.azure.com) под учетной записью глобального администратора Azure AD, а затем щелкните слева **Создать**.
 
 > [!NOTE]
-> В отличие от других ресурсов Azure, клиенты не являются дочерними ресурсами подписки Azure. Если подписка Azure будет отменена или срок ее действия истечет, вы по-прежнему сможете работать с данными клиента с помощью Azure PowerShell, API Azure Graph или Центра администрирования Office 365. Можно также связать другую подписку с клиентом.
+> В отличие от других ресурсов Azure, клиенты не являются дочерними ресурсами подписки Azure. Если подписка Azure будет отменена или срок ее действия истечет, вы по-прежнему сможете работать с данными клиента с помощью Azure PowerShell, API Azure Graph или Центра администрирования Office 365. Можно также [связать другую подписку с клиентом](active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Общие сведения о лицензировании Azure AD и рекомендации по работе с этой службой см. в статье [Основы группового лицензирования в Azure Active Directory](active-directory-licensing-whatis-azure-portal.md).
-

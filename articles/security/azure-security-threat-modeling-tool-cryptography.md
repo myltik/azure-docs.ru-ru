@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-cryptography--mitigations"></a>Механизм безопасности. Шифрование | Устранение угроз 
 | Продукт или служба | Статья |
 | --------------- | ------- |

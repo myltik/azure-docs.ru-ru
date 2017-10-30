@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 3325aa48db36426a8cf1c9859390c357267ee5fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 4580075df9fce74664b22aa24065ba1885692384
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Настройка гибридных устройств, присоединенных к Azure Active Directory
 
@@ -133,8 +132,9 @@ Azure AD Connect выполняет следующие функции:
 
 Командлет `Initialize-ADSyncDomainJoinedComputerSync`:
 
-- В этом командлете используется модуль PowerShell для Active Directory, который использует веб-службы Active Directory в контроллере домена. Поддержку веб-служб Active Directory выполняют контроллеры домена под управлением Windows Server 2008 R2 и более поздних версий.
+- В этом командлете используется модуль PowerShell и средства AD DS, которые используют веб-службы Active Directory в контроллере домена. Поддержку веб-служб Active Directory выполняют контроллеры домена под управлением Windows Server 2008 R2 и более поздних версий.
 - Он поддерживается только **модулем MSOnline PowerShell версии 1.1.166.0**. Чтобы скачать этот модуль, используйте эту [ссылку](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Если не установить средства AD DS, выполнение командлета `Initialize-ADSyncDomainJoinedComputerSync` завершится ошибкой.  Средства AD DS можно установить с помощью диспетчера сервера в разделе "Компоненты" — "Средства удаленного администрирования сервера" — "Средства администрирования ролей".
 
 Если вы используете контроллер домена под управлением Windows Server 2008 или более ранних версий, для создания точки подключения службы используйте приведенный ниже скрипт.
 
@@ -583,4 +583,3 @@ Azure AD Connect выполняет следующие функции:
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
-

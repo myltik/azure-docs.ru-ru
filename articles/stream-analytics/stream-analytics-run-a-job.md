@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: bd252d7df2fc15aaa24d1a1ed7aaf6e00d301410
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 03d43476c1946221538acccd1251c64ed3f02e13
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-run-a-streaming-job-in-azure-stream-analytics"></a>Выполнение задания потоковой передачи в Azure Stream Analytics
 После указания входных данных, запроса и выходных данных вы можете запустить задание Stream Analytics.
@@ -35,6 +34,7 @@ ms.lasthandoff: 08/29/2017
    
    ![Кнопка запуска задания на портале Azure](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)  
 2. Укажите значение параметра **Начало передачи выходных данных** , чтобы определить время, когда задание начнет выдавать выходные данные. Для заданий, которые не были запущены ранее, значение по умолчанию — **Время начала задания**, то есть задание начнет обработку данных немедленно. Вы также можете указать **Настраиваемое** время в прошлом (для использования данных за прошедший период) или в будущем (для задержки обработки до будущего времени). В случаях, когда задание было запущено и остановлено ранее, становится доступен параметр **Время последней остановки** , который позволяет возобновить задание с момента последнего вывода и избежать потери данных.  
+Примечание. При использовании разделов время последней остановки представляет собой самое раннее время последнего вывода во всех разделах.
    
    ![Время запуска задания потоковой передачи](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)  
    
@@ -54,5 +54,4 @@ ms.lasthandoff: 08/29/2017
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

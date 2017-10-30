@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: 3ff347ab23c9150246940f563e562c8de92be45d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 44748f3152718f3cec348d7e2bdccdbe0f79091e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Создание правил на основе атрибутов для динамического членства в группах в Azure Active Directory
 В Azure Active Directory (Azure AD) можно создать дополнительные правила для включения сложного, основанного на атрибутах динамического членства в группах. В этой статье подробно описываются атрибуты и синтаксис для создания правил динамического членства пользователей или устройств.
@@ -40,17 +39,19 @@ ms.lasthandoff: 09/28/2017
 ## <a name="to-create-an-advanced-rule"></a>Создание расширенного правила
 1. Войдите в [центр администрирования Azure AD](https://aad.portal.azure.com) с помощью учетной записи глобального администратора или администратора учетных записей пользователей.
 2. Выберите **Пользователи и группы**.
-3. Выберите **Все группы**.
+3. Выберите **Все группы**, а затем — **Новая группа**.
 
-   ![Открытие колонки группы](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. В разделе **Все группы** выберите **Новая группа**.
+   ![Добавление новой группы](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
 
-   ![Добавление новой группы](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
-5. В колонке **Группа** введите имя и описание новой группы. Для параметра **Тип членства** выберите значение **Динамический пользователь** или **Динамическое устройство** в зависимости от того, требуется создать правило для пользователей либо устройств, а затем щелкните **Добавить динамический запрос**. Атрибуты, используемые для правил устройств, описаны в разделе [Создание правил для объектов устройств с помощью атрибутов](#using-attributes-to-create-rules-for-device-objects).
+4. В колонке **Группа** введите имя и описание новой группы. Для параметра **Тип членства** выберите значение **Динамический пользователь** или **Динамическое устройство** в зависимости от того, требуется создать правило для пользователей либо устройств, а затем щелкните **Добавить динамический запрос**. Вы можете использовать конструктор правил, чтобы создать простое правило, или самостоятельно создать расширенное правило. Эта статья содержит дополнительные сведения о доступных атрибутах пользователей и устройств, а также примеры расширенных правил.
 
    ![Добавление правила динамического членства](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
-6. В колонке **Правила динамического членства** введите правило в поле **Добавить расширенное правило динамического членства** и нажмите клавишу ВВОД. Затем щелкните **Создать** в нижней части колонки.
-7. Щелкните **Создать** в колонке **Группа**, чтобы создать группу.
+
+5. После создания правила выберите **Добавить запрос** в нижней части колонки.
+6. Щелкните **Создать** в колонке **Группа**, чтобы создать группу.
+
+> [!TIP]
+> Создание группы может завершиться ошибкой, если введено неверное расширенное правило. Уведомление будет отображаться в правом верхнем углу портала. В нем содержится объяснение, почему правило не принято системой. Внимательно прочите его, чтобы понять, как нужно изменить правило, чтобы оно стало допустимым.
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>Создание текста расширенного правила
 Расширенное правило, которое можно создать для динамического членства в группах, является по сути бинарным выражением из трех частей, результат которого — значение true или false. Вот эти три части:
@@ -276,7 +277,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
  ----- | ----- | ----------------
  AccountEnabled | true, false | (device.accountEnabled -eq true)
  displayName | Любое строковое значение |(device.displayName -eq "Rob Iphone”)
- deviceOSType | Любое строковое значение | (device.deviceOSType -eq "IOS")
+ deviceOSType | Любое строковое значение. | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
  deviceOSVersion | Любое строковое значение | (device.OSVersion -eq "9.1")
  deviceCategory | Допустимое имя категории устройств. | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Любое строковое значение. | (device.deviceManufacturer -eq "Samsung")
@@ -305,9 +306,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 **Использование PowerShell для изменения управления членством в группе**
 
 > [!NOTE]
-> Для изменения свойств динамической группы будет необходимо использовать командлеты [PowerShell версии 2 для Azure AD](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
->
-> На данный момент только последняя предварительная версия библиотеки содержит необходимые командлеты. Его можно установить [отсюда](https://www.powershellgallery.com/packages/AzureADPreview).
+> Для изменения свойств динамической группы будет необходимо использовать командлеты [PowerShell версии 2 для Azure AD](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Его можно установить [отсюда](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Ниже приведен пример функций, которые переключают управление членством для существующей группы. Обратите внимание на то, что следует внимательно управлять свойством GroupTypes и сохранить все его существующие значения, вне зависимости от использования динамического членства.
 
@@ -369,4 +368,3 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 * [Управление параметрами группы](active-directory-groups-settings-azure-portal.md)
 * [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
 * [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
-

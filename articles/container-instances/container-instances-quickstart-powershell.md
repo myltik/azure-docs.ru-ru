@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/26/2017
 ms.author: marsma
 ms.custom: mvc
+ms.openlocfilehash: fbd1bee04c5180beda23c04607b313eec9edcab4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 8b499bbbe5f30e5bf0f0cde5882ae17d5ade3cc9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-container-in-azure-container-instances"></a>Создание первого контейнера в службе "Экземпляры контейнеров Azure"
 
 Служба "Экземпляры контейнеров Azure" упрощает создание контейнеров Docker и управление ими в Azure, избавляя от необходимости подготавливать виртуальные машины или применять службу более высокого уровня.
@@ -35,7 +33,7 @@ ms.lasthandoff: 09/27/2017
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-Для работы с этим кратким руководством требуется модуль Azure PowerShell 4.4 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Для работы с этим кратким руководством требуется модуль Azure PowerShell 4.4 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 

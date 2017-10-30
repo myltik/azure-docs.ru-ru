@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Использование API аутентификации Resource Manager для доступа к подпискам
 ## <a name="introduction"></a>Введение
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="optional-configuration---certificate-credential"></a>Дополнительная настройка. Учетные данные сертификата
 Azure AD также поддерживает учетные данные сертификата для приложения. При этом вам нужно создать самозаверяющий сертификат, сохранить закрытый ключ и добавить открытый ключ для регистрации приложения Azure AD. Для проверки подлинности приложение отправляет в Azure AD небольшой объем полезных данных, подписанных с помощью закрытого ключа, а Azure AD проверяет подпись, используя зарегистрированный открытый ключ.
 
-Дополнительные сведения о создании приложения AD с использованием сертификата см. в статье [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурса](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) или [Использование интерфейса командной строки Azure для создания субъекта-службы и доступа к ресурсам](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
+Дополнительные сведения о создании приложения AD с использованием сертификата см. в статье [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурса](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) или [Использование интерфейса командной строки Azure для создания субъекта-службы и доступа к ресурсам](resource-group-authenticate-service-principal-cli.md).
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Получение идентификатора клиента из идентификатора подписки
 Чтобы получить маркер, используемый для вызова Resource Manager, в приложении необходимо указать идентификатор клиента Azure AD, в котором находится подписка Azure. Скорее всего, пользователи знают идентификаторы подписок, но идентификаторы клиентов Azure Active Directory знает не каждый. Чтобы получить идентификатор клиента, необходимо знать идентификатор подписки пользователя. Укажите этот идентификатор подписки при отправке запроса о подписке.

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/19/2017
+ms.date: 10/11/2017
 ms.author: larryfr
+ms.openlocfilehash: d1f629ffb4ec3e6473e0a9a87c4e397d63310e9a
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 10dc8789e8f4a2b27fd3a4c6fec2ab28c674170a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Запись данных в HDFS из Apache Storm в HDInsight
 
@@ -35,7 +34,7 @@ ms.lasthandoff: 07/19/2017
 
 Чтобы скомпилировать этот проект, требуется следующая конфигурация среды разработки:
 
-* Пакет [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 1.8 или более поздней версии. Для HDInsight 3.5 или более поздней версии требуется Java 8.
+* Пакет [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 1.8 или более поздней версии. Для HDInsight 3.5 или более поздней версии требуется Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -80,8 +79,12 @@ components:
     constructorArgs:
       - 1000
 
+  # Rotate files when they hit 5 MB
   - id: "rotationPolicy"
-    className: "org.apache.storm.hdfs.bolt.rotation.NoRotationPolicy"
+    className: "org.apache.storm.hdfs.bolt.rotation.FileSizeRotationPolicy"
+    constructorArgs:
+      - 5
+      - "MB"
 
   - id: "fileNameFormat"
     className: "org.apache.storm.hdfs.bolt.format.DefaultFileNameFormat"
@@ -137,7 +140,9 @@ bolts:
 
 По умолчанию Storm в HDInsight не содержит компоненты, которые HdfsBolt использует для взаимодействия с хранилищем Azure или Data Lake Store в пути к классу Storm. Используйте следующее действие скрипта, чтобы добавить эти компоненты в каталог `extlib` для Storm в кластере:
 
-| URI скрипта | узлы, к которым нужно применить | параметры | | `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh` | узлы Nimbus, Supervisor | None |
+* URI-адрес сценария: `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* Узлы, к которым применяется: Nimbus, Supervisor
+* Параметры: нет
 
 Сведения об использовании этого скрипта с кластером см. в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](./hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -201,13 +206,11 @@ bolts:
 Ниже приведен пример списка, возвращаемого предыдущими командами.
 
     Found 30 items
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-1-1488568404567.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-10-1488568408678.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-11-1488568411636.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-12-1488568411884.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-13-1488568412603.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-14-1488568415055.txt
+    -rw-r-----+  1 sshuser sshuser       488000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt
+    -rw-r-----+  1 sshuser sshuser       444000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-1-1488568404567.txt
+    -rw-r-----+  1 sshuser sshuser       502000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-10-1488568408678.txt
+    -rw-r-----+  1 sshuser sshuser       582000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-11-1488568411636.txt
+    -rw-r-----+  1 sshuser sshuser       464000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-12-1488568411884.txt
 
 ## <a name="stop-the-topology"></a>Остановка топологии
 
@@ -222,5 +225,4 @@ bolts:
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Теперь, когда вы узнали, как применять Storm для записи в хранилище Azure и Azure Data Lake Store, изучите другие [примеры Storm для HDInsight](hdinsight-storm-example-topology.md).
-
 

@@ -12,26 +12,24 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 06/20/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
 ms.custom: mvc
+ms.openlocfilehash: 5f65d7ea40be56280ba41255d1a005506bd2810a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 951c9a014f587ce53450dd705fc478da625b1e6b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>Удаление приложения из кластера Service Fabric
 
-Этот сценарий удаляет запущенный экземпляр приложения Service Fabric, отменяет регистрацию типа и версии приложения в кластере и удаляет пакет приложения из хранилища образов кластера.  При удалении экземпляра приложения также удаляются все выполняющиеся экземпляры службы, связанные с этим приложением. Измените параметры, если это необходимо. 
+Этот скрипт удаляет запущенный экземпляр приложения Service Fabric и отменяет регистрацию типа и версии приложения.  При удалении экземпляра приложения также удаляются все выполняющиеся экземпляры службы, связанные с этим приложением. Измените параметры, если это необходимо. 
 
 При необходимости установите модуль PowerShell ServiceFabric вместе с [пакетом SDK для Service Fabric](../service-fabric-get-started.md). 
 
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-powershell[главный](../../../powershell_scripts/service-fabric/remove-application/remove-application.ps1 "Удаление приложения из кластера")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/remove-application/remove-application.ps1 "Remove an application from a cluster")]
 
 ## <a name="script-explanation"></a>Описание скрипта
 
@@ -41,11 +39,9 @@ ms.lasthandoff: 07/15/2017
 |---|---|
 | [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) | Удаляет запущенный экземпляр приложения Service Fabric из кластера.  |
 | [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | Отменяет регистрацию версии и типа приложения Service Fabric в кластере. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Удаляет пакет приложения Service Fabric из хранилища образов.|
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о модуле Service Fabric PowerShell см. в [документации по Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
 
 Дополнительные примеры сценариев PowerShell для Azure Service Fabric см. в разделе [Примеры сценариев Azure PowerShell](../service-fabric-powershell-samples.md).
-

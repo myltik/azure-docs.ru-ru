@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
 ms.openlocfilehash: 660b537aef8d175a478ff93d60b8391d55fc92ad
-ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Включение аудита и обнаружения угроз для серверов SQL в центре безопасности Azure
 Центр безопасности Azure порекомендует включить аудит и обнаружение угроз для всех баз данных на всех серверах SQL Azure, если аудит еще не включен. Аудит и обнаружение угроз могут помочь вам соблюсти стандарты, проанализировать работу с базой данных и получить представление о расхождениях и аномалиях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности.
@@ -63,4 +62,3 @@ ms.lasthandoff: 03/31/2017
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
 [2]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
-

@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 10/09/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: e428b755f6696bd6d4047ad77579a8e9665dfbd8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: d6409ac490f530d49f82c93b07b0fd22adbec4de
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Создание управляемого образа универсальной виртуальной машины в Azure
 
@@ -51,32 +50,24 @@ ms.lasthandoff: 06/09/2017
 ## <a name="create-a-managed-image-in-the-portal"></a>Создание управляемого образа на портале 
 
 1. Откройте [портал](https://portal.azure.com).
-2. Нажмите знак "плюс" (+), чтобы создать ресурс.
-3. В поле фильтрации поиска введите **Image**.
-4. Выберите **Image** (Образ) из результатов.
-5. В колонке **Image** (Образ) нажмите кнопку **Создать**.
-6. В поле **Имя** введите имя образа.
-7. При наличии нескольких подписок выберите подписку, которую вы хотите использовать, из раскрывающегося списка **Подписка**.
-7. В поле **Группа ресурсов** выберите **Создать** и введите имя или выберите **From existing** (Из существующего) и выберите из раскрывающегося списка используемую группу ресурсов.
-8. В поле **Расположение** выберите расположение группы ресурсов.
-9. В поле **Тип ОС** выберите тип операционной системы: Windows или Linux.
-11. В разделе **Большой двоичный объект хранилища** нажмите кнопку **Обзор**, чтобы найти виртуальный жесткий диск в службе хранилища Azure.
-12. В поле **Тип учетной записи** выберите Standard_LRS или Premium_LRS. Для уровня "Стандартный" используются жесткие диски, а для уровня "Премиум" — твердотельные накопители. Для обоих уровней используется локально избыточное хранилище.
-13. Из списка **Disk caching** (Кэширование дисков) выберите соответствующий параметр кэширования дисков. Возможные параметры: **None** (Нет), **Read-only** (Только чтение) и **Read\write** (Чтение и запись).
-14. (Необязательно.) В образ можно добавить существующий диск данных, щелкнув **+ Добавить диск данных**.  
-15. Завершив настройку параметров, нажмите кнопку **Создать**.
-16. После создания образа вы увидите его в виде ресурса **Image** в списке ресурсов группы ресурсов, которую вы выбрали.
+2. В меню слева щелкните "Виртуальные машины" и выберите виртуальную машину из списка.
+3. На странице виртуальной машины в верхнем меню щелкните **Запись**.
+3. В поле **Имя** введите имя, которое вы хотите использовать для образа.
+4. В поле **Группа ресурсов** выберите **Создать** и введите имя или выберите **Использовать существующую** и выберите из раскрывающегося списка используемую группу ресурсов.
+5. Если вы хотите удалить исходную виртуальную машину после создания образа, выберите **Automatically delete this virtual machine after creating the image** (Автоматически удалить эту виртуальную машину после создания образа).
+6. Закончив, щелкните **Создать**.
+16. После создания образа вы увидите его в виде ресурса **Image** в списке ресурсов группы ресурсов.
 
 
 
-## <a name="create-a-managed-image-of-a-vm-using-powershell"></a>Создание управляемого образа виртуальной машины с помощью PowerShell
+## <a name="create-an-image-of-a-vm-using-powershell"></a>Создание образа виртуальной машины с помощью PowerShell
 
-Создание образа непосредственно из виртуальной машины гарантирует, что он будет содержать все ее диски, включая диск ОС и диски данных.
+Создание образа непосредственно из виртуальной машины гарантирует, что он будет содержать все ее диски, включая диск ОС и диски данных. В этом примере показано, как создать управляемый образ из виртуальной машины,которая использует управляемые диски.
 
 
 Прежде чем начать, убедитесь, что у вас установлена последняя версия модуля PowerShell AzureRM.Compute. Выполните следующую команду, чтобы установить ее.
 
-```powershell
+```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](/powershell/azure/overview).
@@ -84,7 +75,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 1. Создайте несколько переменных.
 
-    ```powershell
+    ```azurepowershell-interactive
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "EastUS"
@@ -92,77 +83,81 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     ```
 2. Убедитесь, что виртуальная машина была освобождена.
 
-    ```powershell
+    ```azurepowershell-interactive
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Теперь задайте для виртуальной машины состояние **Generalized**(Универсальная). 
    
-    ```powershell
+    ```azurepowershell-interactive
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
 4. Получите виртуальную машину. 
 
-    ```powershell
+    ```azurepowershell-interactive
     $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
     ```
 
 5. Создайте конфигурацию образа.
 
-    ```powershell
+    ```azurepowershell-interactive
     $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.ID 
     ```
 6. Создайте образ.
 
-    ```powershell
+    ```azurepowershell-interactive
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
+## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Создание образа из управляемого диска с помощью PowerShell
 
-
-
-## <a name="create-a-managed-image-of-a-vhd-in-powershell"></a>Создание управляемого образа виртуального жесткого диска с помощью PowerShell
-
-Создайте управляемый образ с помощью универсального виртуального жесткого диска ОС.
-
-
-1.  Сначала задайте общие параметры.
-
-    ```powershell
-    $rgName = "myResourceGroupName"
-    $vmName = "myVM"
-    $location = "West Central US" 
-    $imageName = "yourImageName"
-    $osVhdUri = "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
-    ```
-2. Остановите и освободите виртуальную машину.
-
-    ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
-    ```
-    
-3. Пометьте виртуальную машину как универсальную.
-
-    ```powershell
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
-    ```
-4.  Создайте образ с помощью универсального виртуального жесткого диска ОС.
-
-    ```powershell
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```
-
-
-## <a name="create-a-managed-image-from-a-snapshot-using-powershell"></a>Создание управляемого образа из моментального снимка с помощью PowerShell
-
-Можно создать управляемый образ из моментального снимка виртуального жесткого диска универсальной виртуальной машины.
+Если требуется только создать образ диска ОС, это можно сделать, указав идентификатор управляемого диска в качестве диска операционной системы.
 
     
 1. Создайте несколько переменных. 
 
-    ```powershell
+    ```azurepowershell-interactive
+    $vmName = "myVM"
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $snapshotName = "mySnapshot"
+    $imageName = "myImage"
+    ```
+
+2. Получите виртуальную машину.
+
+   ```azurepowershell-interactive
+   $vm = Get-AzureRmVm -Name myVM -ResourceGroupName $rgName
+   ```
+
+3. Получите идентификатор управляемого диска.
+
+    ```azurepowershell-interactive
+    $diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
+    ```
+   
+3. Создайте конфигурацию образа.
+
+    ```azurepowershell-interactive
+    $imageConfig = New-AzureRmImageConfig -Location $location
+    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
+    ```
+    
+4. Создайте образ.
+
+    ```azurepowershell-interactive
+    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    ``` 
+
+
+## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Создание образа из моментального снимка с помощью PowerShell
+
+Вы можете создать управляемый образ из моментального снимка универсальной виртуальной машины.
+
+    
+1. Создайте несколько переменных. 
+
+    ```azurepowershell-interactive
     $rgName = "myResourceGroup"
     $location = "EastUS"
     $snapshotName = "mySnapshot"
@@ -171,24 +166,57 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 2. Получите моментальный снимок.
 
-   ```powershell
+   ```azurepowershell-interactive
    $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
 3. Создайте конфигурацию образа.
 
-    ```powershell
+    ```azurepowershell-interactive
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
 4. Создайте образ.
 
-    ```powershell
+    ```azurepowershell-interactive
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
-    
 
+
+## <a name="create-image-from-a-vhd-in-a-storage-account"></a>Создание образа из VHD в учетной записи хранения
+
+Создайте управляемый образ с помощью универсального виртуального жесткого диска операционной системы в учетной записи хранения. Вам потребуется URI виртуального жесткого диска в учетной записи хранения в формате https://*mystorageaccount*.blob.core.windows.net/*container*/*vhd_filename.vhd*. В этом примере мы используем VHD, который находится в *mystorageaccount* в контейнере с именем *vhdcontainer*, а имя файла VHD — *osdisk.vhd*.
+
+
+1.  Сначала задайте общие параметры.
+
+    ```azurepowershell-interactive
+    $vmName = "myVM"
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $imageName = "myImage"
+    $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
+    ```
+2. Остановите и освободите виртуальную машину.
+
+    ```azurepowershell-interactive
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    ```
+    
+3. Пометьте виртуальную машину как универсальную.
+
+    ```azurepowershell-interactive
+    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
+    ```
+4.  Создайте образ с помощью универсального виртуального жесткого диска ОС.
+
+    ```azurepowershell-interactive
+    $imageConfig = New-AzureRmImageConfig -Location $location
+    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    ```
+
+    
 ## <a name="next-steps"></a>Дальнейшие действия
 - Теперь вы можете [создать виртуальную машину из универсального управляемого образа](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
-
 

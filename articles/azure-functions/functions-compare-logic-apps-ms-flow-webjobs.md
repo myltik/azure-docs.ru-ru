@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/11/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: bc801ed3dac213dacac5ee14e1b4e73b87ecc7bd
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: cec9660ee068b33a114748813f0c7ffa3821d973
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure
 В этой статье сравниваются следующие службы Microsoft Cloud, используемые для настройки интеграции и автоматизации бизнес-процессов:
@@ -82,15 +81,17 @@ ms.lasthandoff: 09/28/2017
 | Цены |Оплата за использование или в рамках плана службы приложений |В рамках плана службы приложений |
 | Тип запуска |Активация, по расписанию (с помощью триггера таймера) |Активация, непрерывная работа, по расписанию |
 | События триггера |[Таймер](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [HTTP или Webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [мобильные приложения службы приложений Azure](functions-bindings-mobile-apps.md), [центры уведомлений Azure](functions-bindings-notification-hubs.md), [служебная шина Azure](functions-bindings-service-bus.md), [служба хранилища Azure](functions-bindings-storage-blob.md) |[Служба хранилища Azure](functions-bindings-storage-blob.md), [служебная шина Azure](functions-bindings-service-bus.md) |
-| Разработка в браузере |Поддерживается | Не поддерживается |
-| Написание скриптов Windows (.cmd, .bat) |Экспериментальная возможность |Поддерживается |
-| PowerShell |Экспериментальная возможность |Поддерживается |
-| C# |Поддерживается |Поддерживается |
-| F# |Поддерживается |Не поддерживается |
-| Bash |Экспериментальная возможность |Поддерживается |
-| PHP |Экспериментальная возможность |Поддерживается |
-| Python |Экспериментальная возможность |Поддерживается |
-| JavaScript |Поддерживается |Поддерживается |
+| Разработка в браузере |Поддерживаются |Не поддерживается |
+| C# |Поддерживаются |Поддерживаются |
+| F# |Поддерживаются |Не поддерживается |
+| JavaScript |Поддерживаются |Поддерживаются |
+| Java |Поддерживаются | Не поддерживается |
+| Bash |Экспериментальная возможность |Поддерживаются |
+| Написание скриптов Windows (.cmd, .bat) |Экспериментальная возможность |Поддерживаются |
+| PowerShell |Экспериментальная возможность |Поддерживаются |
+| PHP |Экспериментальная возможность |Поддерживаются |
+| Python |Экспериментальная возможность |Поддерживаются |
+| TypeScript |Экспериментальная возможность |Не поддерживается |
 
 Выбор между функциями и веб-заданиями зависит от того, какие процессы уже выполнялись в службе приложений. Если для службы приложений необходимо выполнить фрагменты кода и управлять ими совместно в среде разработки и операций, следует использовать веб-задания. Используйте функции в следующих сценариях.
 
@@ -123,5 +124,4 @@ ms.lasthandoff: 09/28/2017
 * [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/) (Упрощенные возможности интеграции. Автор: Чарльз Ламанна (Charles Lamanna))
 * [Logic Apps Live Webcast](http://aka.ms/logicappslive)
 * [Часто задаваемые вопросы о Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-
 

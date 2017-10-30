@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: tamram
+ms.openlocfilehash: a3eb598b2dabd4986c72b8814926eb0944707050
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 6fe7d46e39de204874c8bc91a0101b9e0541539b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Задание и получение свойств и метаданных
 
@@ -29,16 +28,16 @@ ms.lasthandoff: 09/29/2017
 
 * **Определяемые пользователем метаданные.** Метаданные, которые можно указать для определенного ресурса в виде пары "имя — значение". Вы можете использовать метаданные для хранения дополнительных значений с использованием ресурса хранилища. Эти значения являются пользовательскими и не влияют на поведение ресурса.
 
-Получение значений свойств и метаданных ресурса хранилища выполняется в два этапа. Прежде чем считывать эти значения, необходимо получить их, вызвав метод **FetchAttributes** .
+Получение значений свойств и метаданных ресурса хранилища выполняется в два этапа. Прежде чем считывать эти значения, необходимо получить их, вызвав метод **FetchAttributesAsync**.
 
 > [!IMPORTANT]
-> Значения свойств и метаданных для ресурса хранилища заполняются только при вызове одного из методов **FetchAttributes** .
+> Значения свойств и метаданных для ресурса хранилища заполняются только при вызове одного из методов **FetchAttributesAsync**.
 >
 > Если любая из пар имен и значений содержит знаки не из набора ASCII, возвратится ошибка с кодом `400 Bad Request`. Пары имен и значений метаданных являются действительными HTTP-заголовками, поэтому они должны соответствовать всем ограничениям для HTTP-заголовков. Для имен и значений, содержащих знаки не из набора ASCII, мы рекомендуем использовать кодировку URL или кодировку Base64.
 >
 
 ## <a name="setting-and-retrieving-properties"></a>Установка и получение свойств
-Чтобы получить значения свойств, вызовите метод **FetchAttributes** для BLOB-объекта или контейнера, а затем считайте значения.
+Чтобы получить значения свойств, вызовите метод **FetchAttributesAsync** для BLOB-объекта или контейнера, а затем считайте значения.
 
 Чтобы задать свойства объекта, укажите значение свойства, а затем вызовите метод **SetProperties** .
 
@@ -59,7 +58,7 @@ CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 container.CreateIfNotExists();
 
 // Fetch container properties and write out their values.
-container.FetchAttributes();
+await container.FetchAttributesAsync();
 Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
 Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
 Console.WriteLine("ETag: {0}", container.Properties.ETag);
@@ -77,26 +76,26 @@ Console.WriteLine();
 В следующем примере кода задаются метаданные для контейнера. Одно значение задается с помощью метода коллекции **Add** . Другое значение задается с помощью неявного синтаксиса «ключ/значение». Можно использовать любой из способов.
 
 ```csharp
-public static void AddContainerMetadata(CloudBlobContainer container)
+public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 {
-    //Add some metadata to the container.
+    // Add some metadata to the container.
     container.Metadata.Add("docType", "textDocuments");
     container.Metadata["category"] = "guidance";
 
-    //Set the container's metadata.
-    container.SetMetadata();
+    // Set the container's metadata.
+    await container.SetMetadataAsync();
 }
 ```
 
 Чтобы получить метаданные, вызовите метод **FetchAttributes** для BLOB-объекта или контейнера (для заполнения коллекции **Metadata**), а затем считайте значения, как показано в примере ниже.
 
 ```csharp
-public static void ListContainerMetadata(CloudBlobContainer container)
+public static async Task ListContainerMetadataAsync(CloudBlobContainer container)
 {
-    //Fetch container attributes in order to populate the container's properties and metadata.
-    container.FetchAttributes();
+    // Fetch container attributes in order to populate the container's properties and metadata.
+    await container.FetchAttributesAsync();
 
-    //Enumerate the container's metadata.
+    // Enumerate the container's metadata.
     Console.WriteLine("Container metadata:");
     foreach (var metadataItem in container.Metadata)
     {
@@ -109,4 +108,3 @@ public static void ListContainerMetadata(CloudBlobContainer container)
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Справочные материалы клиентской библиотеки хранилища Azure для .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
 * [Клиентская библиотека хранилища Azure для пакетов NuGet .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-

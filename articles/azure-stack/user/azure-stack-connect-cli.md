@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Stack with CLI | Microsoft Docs
-description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
+title: "Подключение к Azure Stack при помощи интерфейса командной строки | Документация Майкрософт"
+description: "Узнайте, как использовать межплатформенный интерфейс командной строки (CLI) для развертывания ресурсов и управления ими в Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,22 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bd731c32d32063b54d5899db3b3a13a911ca79be
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Install and configure CLI for use with Azure Stack
+# <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Установка и настройка интерфейса командной строки для работы с Azure Stack
 
-In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
+В этом документе мы расскажем вам о процессе использование интерфейса командной строки (CLI) Azure для управления ресурсами пакета SDK для Azure Stack на клиентских платформах Linux и Mac. 
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Export the Azure Stack CA root certificate
+## <a name="export-the-azure-stack-ca-root-certificate"></a>Экспорт корневого сертификата ЦС Azure Stack
 
-If you are using CLI from a virtual machine that is running within the Azure Stack Development Kit environment, the Azure Stack root certificate is already installed within the virtual machine so you can directly retrieve. Whereas if you are use CLI from a workstation outside the development kit, you must export the Azure Stack CA root certificate from the development kit and add it to the Python certificate store of your development workstation(external Linux or Mac platform). 
+Если вы используете CLI на виртуальной машине, на которой выполняется среда пакета SDK для Azure Stack, значит, корневой сертификат Azure Stack уже установлен на ней и вы можете его получить напрямую. Если же CLI выполняется на рабочей станции за пределами пакета SDK, необходимо экспортировать корневой сертификат ЦС Azure Stack из пакета SDK и добавить его в хранилище сертификатов Python на рабочей станции разработки (внешний компьютер на платформе Mac или Linux). 
 
-Sign in to your development kit and run the following script to export the Azure Stack root certificate in PEM format:
+Войдите в пакет разработки и выполните приведенный ниже скрипт, чтобы экспортировать корневой сертификат Azure Stack в PEM-формате.
 
 ```powershell
    $label = "AzureStackSelfSignedRootCert"
@@ -48,25 +47,25 @@ Sign in to your development kit and run the following script to export the Azure
    certutil -encode root.cer root.pem
 ```
 
-## <a name="install-cli"></a>Install CLI
+## <a name="install-cli"></a>Установка CLI
 
-Next you should sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
+Теперь войдите на рабочую станцию разработки и установите CLI. Для Azure Stack требуется Azure CLI версии 2.0, для установки которой можно использовать инструкции в статье [Установка Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Чтобы проверить успешность установки, откройте окно терминала или командной строки и выполните следующую команду:
 
 ```azurecli
 az --version
 ```
 
-You should see the version of Azure CLI and other dependent libraries that are installed on your computer.
+Отобразятся номера версий Azure CLI и зависимых библиотек, установленных на этом компьютере.
 
-## <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
+## <a name="trust-the-azure-stack-ca-root-certificate"></a>Доверие для корневого сертификата ЦС Azure Stack
 
-To trust the Azure Stack CA root certificate, you should append it to the existing python certificate. If you are running CLI from a Linux machine that is created within the Azure Stack environment, run the following bash command:
+Чтобы настроить доверие для корневого сертификата ЦС Azure Stack, добавьте его после существующего сертификата Python. Если вы используете CLI на компьютере Linux, который создан в среде Azure Stack, выполните следующую команду bash:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
 ```
 
-If you are running CLI from a machine outside the Azure Sack environment, you must first set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md). Now copy the PEM certificate that you exported earlier onto your development workstation and run the following commands depending on your development workstation's OS,:
+Если вы используете CLI на компьютере, расположенном за пределами среды Azure Stack, сначала нужно настроить [VPN-подключение к Azure Stack](azure-stack-connect-azure-stack.md). После этого скопируйте PEM-файл сертификата, который вы ранее экспортировали на рабочую станцию разработки, и выполните следующие команды в зависимости от ОС на рабочей станции разработки:
 
 ### <a name="linux"></a>Linux
 
@@ -111,19 +110,19 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Set up the virtual machine aliases endpoint
+## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Настройка конечной точки псевдонимов для виртуальных машин
 
-Before users can create virtual machines by using CLI, the cloud administrator should set up a publicly accessible endpoint that contains virtual machine image aliases and register this endpoint with the cloud. The `endpoint-vm-image-alias-doc` parameter in the `az cloud register` command is used for this purpose. Cloud administrators must download the image to the Azure Stack marketplace before they add it to image aliases endpoint.
+Чтобы пользователи могли создавать виртуальные машины с помощью CLI, администратору облака следует настроить общедоступную конечную точку для хранения псевдонимов образов виртуальных машин и зарегистрировать эту конечную точку в облаке. Для этого используется параметр `endpoint-vm-image-alias-doc` в команде `az cloud register`. Прежде чем добавлять образ на конечной точке псевдонимов образов, администратор облака должен передать его в Azure Stack Marketplace.
    
-For example, Azure contains uses following URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The cloud administrator should set up a similar endpoint for Azure Stack with the images that are available in the Azure Stack marketplace.
+Например, Azure использует следующий адрес URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Администратор облака создает аналогичную конечную точку для Azure Stack с информацией об образах, которые доступны в Azure Stack Marketplace.
 
-## <a name="connect-to-azure-stack"></a>Connect to Azure Stack
+## <a name="connect-to-azure-stack"></a>Подключение к Azure Stack
 
-Use the following steps to connect to Azure Stack:
+Для подключения к Azure Stack выполните следующие действия:
 
-1. Register your Azure Stack environment by running the az cloud register command.
+1. Зарегистрируйте среду Azure Stack, выполнив команду az cloud register.
    
-   a. To register the **cloud administrative** environment, use:
+   а. Чтобы зарегистрировать среду **администратора облака**, используйте следующую команду:
 
    ```azurecli
    az cloud register \ 
@@ -135,7 +134,7 @@ Use the following steps to connect to Azure Stack:
      --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
-   b. To register the **user** environment, use:
+   b. Чтобы зарегистрировать среду **пользователя**, используйте команду:
 
    ```azurecli
    az cloud register \ 
@@ -147,32 +146,32 @@ Use the following steps to connect to Azure Stack:
      --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
-2. Set the active environment by using the following commands:
+2. Следующие команды позволяют выбрать активную среду:
 
-   a. For the **cloud administrative** environment, use:
+   а. В среде **администратора облака** используйте такую команду:
 
    ```azurecli
    az cloud set \
      -n AzureStackAdmin
    ```
 
-   b. For the **user** environment, use:
+   b. В среде **пользователя** используйте команду:
 
    ```azurecli
    az cloud set \
      -n AzureStackUser
    ```
 
-3. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
+3. Укажите в конфигурации среды версию API-интерфейса, специально предназначенную для Azure Stack. Чтобы изменить эту конфигурацию, выполните следующую команду:
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Войдите в среду Azure Stack с помощью команды **az login**. Вы можете войти в среду Azure Stack от имени пользователя или [субъекта-службы](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Sign in as a **user**: You can either specify the username and password directly within the az login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
+   * Для входа от имени **пользователя** можно указать имя пользователя и пароль непосредственно в команде az login или выполнить аутентификацию в браузере. Если для вашей учетной записи включена многофакторная идентификация, возможным будет только второй вариант.
 
    ```azurecli
    az login \
@@ -181,9 +180,9 @@ Use the following steps to connect to Azure Stack:
    ```
 
    > [!NOTE]
-   > If your user account has Multi factor authentication enabled, you can use the az login command without providing the -u parameter. Running the command gives you a URL and a code that you must use to authenticate.
+   > Если в учетной записи пользователя используется многофакторная идентификация, команду az login можно выполнять без параметра -u. При отсутствии этого параметра команда возвращает URL-адрес и код, которые следует использовать для аутентификации.
    
-   * Sign in as a **service principal**: Before you sign in, [Create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, log in by using the following command:
+   * Для входа от имени **субъекты-службы** следует заранее [создать субъект-службу с помощью портала Azure](azure-stack-create-service-principals.md) или CLI, а также назначить ему роль. После этого выполните такую команду для входа:
 
    ```azurecli
    az login \
@@ -193,23 +192,22 @@ Use the following steps to connect to Azure Stack:
      -p <Key generated for the Service Principal>
    ```
 
-## <a name="test-the-connectivity"></a>Test the connectivity
+## <a name="test-the-connectivity"></a>Проверка подключения
 
-Now that we've got everything setup, let's use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
+После установки всех настроек можно приступить к созданию ресурсов в Azure Stack с помощью CLI. Например, можно создать группу ресурсов для приложения и добавить виртуальную машину. Используйте команду ниже, чтобы создать группу ресурсов с именем MyResourceGroup.
 
 ```azurecli
 az group create \
   -n MyResourceGroup -l local
 ```
 
-If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
+Если группа ресурсов будет успешно создана, команда выше возвратит следующие свойства созданного ресурса:
 
-![resource group create output](media/azure-stack-connect-cli/image1.png)
+![выходные данные при создании группы ресурсов](media/azure-stack-connect-cli/image1.png)
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-[Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
+[Развертывание шаблонов с помощью интерфейса командной строки Azure](azure-stack-deploy-template-command-line.md)
 
-[Manage user permissions](azure-stack-manage-permissions.md)
-
+[Управление разрешениями пользователей](azure-stack-manage-permissions.md)
 

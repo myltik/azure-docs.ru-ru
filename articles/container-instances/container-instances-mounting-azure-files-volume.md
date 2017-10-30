@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: c68f0239bcb95aa5e9d8194f7b358f30588ea600
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/12/2017
 ---
-
 # <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Подключение файлового ресурса Azure с помощью Экземпляров контейнеров Azure
 
 По умолчанию в Экземплярах контейнеров Azure не отслеживается состояние. Если происходит сбой в контейнере или он завершает работу, все сведения о состоянии будут утеряны. Чтобы сохранить состояние после истечения времени существования контейнера, необходимо подключить том из внешнего хранилища. В этой статье показано, как подключить файловый ресурс Azure для использования с Экземплярами контейнеров Azure.
@@ -57,14 +55,14 @@ az storage share create -n $ACI_PERS_SHARE_NAME
 Если вы использовали сценарий выше, имя учетной записи хранения создано со случайным значением в конце. Для выполнения запроса к последней строке (включая часть со случайным значением) используйте следующие команды:
 
 ```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
+STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
 echo $STORAGE_ACCOUNT
 ```
 
 Имя общего ресурса уже известно (это *acishare* в сценарии выше), так что остается только ключ учетной записи хранения, который можно найти с помощью следующей команды:
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
@@ -76,7 +74,7 @@ echo $STORAGE_KEY
 
 ```azurecli-interactive
 KEYVAULT_NAME=aci-keyvault
-az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g myResourceGroup
+az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g $ACI_PERS_RESOURCE_GROUP
 ```
 
 Параметр `enabled-for-template-deployment` позволяет Azure Resource Manager извлекать секреты из хранилища ключей во время развертывания.
@@ -203,6 +201,5 @@ az container show --resource-group myResourceGroup --name hellofiles -o table
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Разверните первый контейнер, используя сведения из руководства по[быстрому запуску](container-instances-quickstart.md) для Экземпляров контейнеров Azure.
+- Разверните первый контейнер, используя сведения из [краткого руководства](container-instances-quickstart.md) по службе "Экземпляры контейнеров Azure".
 - Дополнительные сведения о [связи между Экземплярами контейнеров Azure и оркестраторам контейнеров](container-instances-orchestrator-relationship.md).
-

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Назначение виртуальным машинам нескольких IP-адресов с помощью Azure CLI 2.0
 
@@ -216,7 +216,7 @@ az vm create \
         --public-ip-address myPublicIP3
         ```
 
-    - **Свяжите ресурс к существующей конфигурации IP** открытого ресурса IP-адреса может быть связан только на IP-конфигурацию, в котором уже не связан. Чтобы определить, связан ли с конкретной IP-конфигурацией какой-либо общедоступный IP-адрес, выполните следующую команду:
+    - **Связывание ресурса с имеющейся IP-конфигурацией** Ресурс общедоступного IP-адреса может быть связан только с IP-конфигурацией, у которой еще нет такого ресурса. Чтобы определить, связан ли с конкретной IP-конфигурацией какой-либо общедоступный IP-адрес, выполните следующую команду:
 
         ```bash
         az network nic ip-config list \

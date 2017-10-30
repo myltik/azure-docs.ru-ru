@@ -3,7 +3,7 @@ title: "Общие сведения о поддержке Azure MQTT в Цент
 description: "Руководство разработчика: поддержка устройств, подключающихся к конечной точке для устройств Центра Интернета вещей по протоколу MQTT. Содержит сведения о встроенной поддержке MQTT в пакетах SDK для устройств Azure IoT."
 services: iot-hub
 documentationcenter: .net
-author: kdotchkoff
+author: fsautomata
 manager: timlt
 editor: 
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2017
-ms.author: kdotchko
+ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 886bf3ce3979b7ef52ca29b7731562c5768596a2
-ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 11c35e895d061e6876ac18814025c814449351af
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Взаимодействие с Центром Интернета вещей с помощью протокола MQTT
 
@@ -62,7 +61,7 @@ ms.lasthandoff: 05/31/2017
 * В поле **Имя пользователя** укажите значение `{iothubhostname}/{device_id}/api-version=2016-11-14`, где {iothubhostname} — это полная запись CName Центра Интернета вещей.
 
     Например, если имя Центра Интернета вещей — **contoso.azure-devices.net**, а имя устройства — **MyDevice01**, то полное поле **Имя пользователя** должно содержать `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
-* В поле **Пароль** укажите маркер SAS. Формат маркера SAS аналогичен описанному для протоколов HTTP и AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
+* В поле **Пароль** укажите маркер SAS. Формат маркера SAS аналогичен описанному для протоколов HTTPS и AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
     Дополнительные сведения о способах создания маркеров SAS см. в соответствующем разделе статьи [Управление доступом к Центру Интернета вещей][lnk-sas-tokens].
 
@@ -88,7 +87,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 ```
 
 > [!NOTE]
-> В этом элементе `{property_bag}` используется та же кодировка, что и для строк запросов в протоколе HTTP.
+> В этом элементе `{property_bag}` используется та же кодировка, что и для строк запросов в протоколе HTTPS.
 >
 >
 
@@ -221,7 +220,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
-[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
+[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
@@ -242,4 +241,3 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-twin-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 [lnk-devguide-twin]: iot-hub-devguide-device-twins.md
-

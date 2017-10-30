@@ -10,15 +10,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: support-article
 ms.date: 07/12/2017
 ms.author: genli
+ms.openlocfilehash: 3b11dc6afac716ef391976093839547e8fd37a91
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 182a27e444c2f5db66d518a1a0c608d3e319d553
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Ошибка RequestDisallowedByPolicy с политикой ресурсов Azure
 
@@ -26,9 +25,9 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="symptom"></a>Симптом
 
-Когда вы пытаетесь выполнить действие во время развертывания, может появиться ошибка **RequestDisallowedByPolicy**, которая блокирует выполнение этого действия. Вот пример такой ошибки:
+Когда вы пытаетесь выполнить действие во время развертывания, может появиться ошибка **RequestDisallowedByPolicy**, которая блокирует выполнение этого действия. В следующем примере показана эта ошибка:
 
-```
+```json
 {
   "statusCode": "Forbidden",
   "serviceRequestId": null,
@@ -43,7 +42,7 @@ ms.lasthandoff: 07/13/2017
 
 ### <a name="method-1"></a>Метод 1
 
-В PowerShell укажите идентификатор политики в качестве значения для параметра **Id**, чтобы получить сведения о политике, заблокировавшей развертывание.
+В PowerShell укажите идентификатор политики как параметр `Id`, чтобы получить сведения о политике, заблокировавшей развертывание.
 
 ```PowerShell
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
@@ -59,16 +58,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Решение
 
-Возможно, ваш ИТ-отдел для обеспечения безопасности или соответствия применяет некоторые политики ресурсов, например такие, которые запрещают создавать общедоступные IP-адреса, сетевые группы безопасности, определяемые пользователем маршруты или таблицы маршрутизации. В нашем примере ошибки, представленном в разделе "Проблема", проблемная политика имеет имя **regionPolicyDefinition**. Это имя может быть любым.
+Возможно, ваш ИТ-отдел для обеспечения безопасности или соответствия применяет некоторые политики ресурсов, например такие, которые запрещают создавать общедоступные IP-адреса, сетевые группы безопасности, определяемые пользователем маршруты или таблицы маршрутизации. Сообщение об ошибке в разделе **Симптомы** отображает политику с именем **regionPolicyDefinition**. Политика может иметь другое имя.
 Чтобы устранить такую проблему, свяжитесь с ИТ-отделом, совместно оцените политики ресурсов и определите приемлемый метод выполнить нужное действие, не нарушая политики организации.
-
 
 Дополнительные сведения см. в следующих статьях:
 
 - [Общие сведения о политике ресурсов](resource-manager-policy.md)
-- [Описание для RequestDisallowedByPolicy в статье о распространенных ошибках развертывания](resource-manager-common-deployment-errors.md#requestdisallowedbypolicy)
-
- 
-
-
-
+- [Просмотр назначенных политик на портале](resource-manager-policy-portal.md#view-policy-assignments)

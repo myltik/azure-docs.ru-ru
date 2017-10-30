@@ -14,42 +14,36 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: pkc
+ms.openlocfilehash: cd01d79c83749b38cc72a468e167ade5e264e1c4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 78e68cff3a757cbbcd8dc6f53120e6a4af54591a
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Варианты поддержки Azure Service Fabric
 
 Чтобы обеспечить надлежащую поддержку кластеров Service Fabric, выполняющих рабочие нагрузки ваших приложений, мы подготовили для вас различные варианты. Вы можете выбрать соответствующие варианты в зависимости от нужного уровня поддержки и серьезности проблемы. 
 
+## <a name="report-production-issues-or-request-paid-support-for-azure"></a>Сообщение о проблемах рабочей среды или запрос платной поддержки для Azure
 
-<a id="getlivesitesupportonazure"></a>
-
-## <a name="report-production-or-live-site-issues-or-request-paid-support-for-azure"></a>Сообщение о проблемах рабочей среды или активного сайта либо запрос платной поддержки для Azure
-
-Чтобы сообщить о проблемах активного сайта в кластере Service Fabric, развернутом в Azure, откройте запрос в профессиональную службу поддержки [на портале Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) или [портале службы поддержки Майкрософт](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Чтобы сообщить о проблемах в кластере Service Fabric, развернутом в Azure, откройте запрос в службу поддержки [на портале Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) или [портале службы поддержки Майкрософт](http://support.microsoft.com/oas/default.aspx?prid=16146).
 
 См. также:
  
-- [Поддержка Azure для клиентов](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
+- [Поддержка корпорации Майкрософт для клиентов Azure](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
 - [Поддержка Premier](https://support.microsoft.com/en-us/premier).
 
 <a id="getlivesitesupportonprem"></a>
 
-## <a name="report-production-or-live-site-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Сообщение о проблемах рабочей среды или активного сайта либо запрос платной поддержки для изолированных кластеров Service Fabric
+## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Сообщение о проблемах рабочей среды или запрос платной поддержки для изолированных кластеров Service Fabric
 
-Чтобы сообщить о проблемах активного сайта в кластере Service Fabric, развернутом в локальной среде или облаке стороннего производителя, откройте запрос в профессиональную службу поддержки на [портале службы поддержки Майкрософт](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Чтобы сообщить о проблемах в кластере Service Fabric, развернутом в локальной среде или облаке стороннего производителя, откройте запрос в профессиональную службу поддержки на [портале службы поддержки Майкрософт](http://support.microsoft.com/oas/default.aspx?prid=16146).
 
 См. также:
 
 - [Professional Support Options](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0) (Варианты профессиональной поддержки).
 - [Поддержка Premier](https://support.microsoft.com/en-us/premier).
 
-
-<a id="getsupportonissues"></a>
 ## <a name="report-azure-service-fabric-issues"></a>Сообщение о проблемах Azure Service Fabric 
 Мы настроили репозиторий GitHub для сообщения о проблемах Service Fabric.  Кроме того, мы активно наблюдаем за приведенными ниже форумами.
 
@@ -57,15 +51,12 @@ ms.lasthandoff: 08/12/2017
 Сообщайте о проблемах Azure Service Fabric посредством [репозитория GitHub Service-Fabric-issues](https://github.com/Azure/service-fabric-issues). Этот репозиторий предназначен для сообщения о проблемах в Azure Service Fabric и их отслеживания, а также для выполнения запросов небольших функций. **Не используйте его для сообщения о проблемах в работе активных сайтов**.
 
 ### <a name="stackoverflow-and-msdn-forums"></a>Сайт StackOverflow и форум MSDN
-
 [Тег Service Fabric на сайте StackOverflow][stackoverflow] и [форум MSDN по Service Fabric][msdn-forum] очень удобно использовать, чтобы задавать вопросы о принципах работы платформы и о том, как выполнять различные задачи с ее помощью.
 
 ### <a name="azure-feedback-forum"></a>Форум отзывов и предложений по Azure
-
 [Форум отзывов и предложений по Azure по Service Fabric][uservoice-forum] — лучший форум, на котором можно поделиться идеями о важных функциях для продукта, так как мы рассматриваем наиболее популярные запросы в процессе среднесрочного и долгосрочного планирования. Мы рекомендуем вам обращаться с предложениями в службу поддержки в этом сообществе.
 
 
-<a id="releasesuport"></a>
 ## <a name="supported-service-fabric-versions"></a>Поддерживаемые версии Service Fabric
 
 Обязательно следите за тем, чтобы кластер всегда работал под управлением поддерживаемой версии Service Fabric. Когда мы объявляем о выпуске новой версии Service Fabric, для предыдущей версии определяется срок завершения жизненного цикла. Этот срок составляет по меньшей мере 60 дней. О доступности новых выпусков сообщается в [блоге группы разработчиков Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/),
@@ -86,7 +77,6 @@ ms.lasthandoff: 08/12/2017
 | 5.6.* |Не выше версии 2.6 |13 октября 2017 г.    |
 | 5.7.* |Не выше версии 2.7 |Текущая версия, дата окончания поддержки не определена.
 
-<a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Предварительные версии Service Fabric не поддерживаются для использования в рабочей среде.
 Время от времени мы выпускаем версии с важными функциями, доступными в виде предварительных версий, отзывы по которым мы хотим получить. Эти предварительные версии следует использовать только для целей тестирования. На производственном кластере всегда должна быть запущена поддерживаемая стабильная версия Service Fabric. Предварительная версия всегда начинается с номера основной и вспомогательной версии, равного 255. Например, если отображается версия Service Fabric 255.255.5703.949, она является предварительной и ее следует использовать в тестовых кластерах. О выходе этих предварительных выпусков также объявляется в [блоге группы Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) и приводятся сведения о функциях, включенных в их состав.
 
@@ -103,4 +93,3 @@ ms.lasthandoff: 08/12/2017
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: http://aka.ms/servicefabricdocs
 [sample-repos]: http://aka.ms/servicefabricsamples
-

@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Руководство по интеграции Azure Active Directory с Halosys
 
@@ -168,7 +168,7 @@ ms.lasthandoff: 07/11/2017
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. На **сообщите нам об этом пользователе** диалогового окна выполните следующие действия: ![Создание тестового пользователя Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 

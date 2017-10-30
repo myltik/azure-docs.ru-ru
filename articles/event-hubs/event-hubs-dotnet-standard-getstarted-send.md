@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.openlocfilehash: 8af9d70965c1c9ad8c49b7d2bb04244fc207058d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 5cf01580b53b551064a46282b9005ade6afe9604
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Приступая к отправке событий в концентраторы событий Azure на платформе .NET Standard
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 07/11/2017
     using System.Threading.Tasks;
     ```
 
-2. Добавьте в класс `Program` константы для строки подключения концентраторов событий и пути сущности (имя отдельного концентратора событий). Замените заполнители в скобках соответствующими значениями, которые были получены при создании концентратора событий.
+2. Добавьте в класс `Program` константы для строки подключения концентраторов событий и пути сущности (имя отдельного концентратора событий). Замените заполнители в скобках соответствующими значениями, которые были получены при создании концентратора событий. Убедитесь, что `{Event Hubs connection string}` — это строка подключения на уровне пространства имен, а не концентратора событий. 
 
     ```csharp
     private static EventHubClient eventHubClient;

@@ -1,5 +1,5 @@
 ---
-title: "Кто использует службы поиска Azure: примеры использования и описания функциональности пользователей | Документы Microsoft"
+title: "Служба \"Поиск Azure\": примеры использования и истории клиентов | Документация Майкрософт"
 description: "Примеры использования и истории клиентов о Поиске Azure, размещенной облачной службы поиска в Microsoft Azure."
 services: search
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Служба поиска Azure: примеры использования и истории клиентов
 Узнайте, как указанные ниже организации смогли улучшить свой бизнес за счет интеграции широких возможностей поиска в онлайн-приложениях.

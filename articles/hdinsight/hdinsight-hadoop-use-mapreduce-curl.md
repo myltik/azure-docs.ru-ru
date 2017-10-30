@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/03/2017
 ms.author: larryfr
+ms.openlocfilehash: 28d23cf397db204a22fea785521ea6a164d84374
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 8238bb829df95dcb8c99c0b7fff53c627a56f47c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Выполнение заданий MapReduce с помощью REST в Hadoop в HDInsight
 
@@ -42,7 +41,7 @@ ms.lasthandoff: 08/21/2017
 > [!NOTE]
 > При использовании Curl или любых других средств связи REST с WebHCat нужно проводить аутентификацию запросов с помощью пароля и имени пользователя администратора кластера HDInsight. Имя кластера необходимо использовать в составе универсального кода ресурса (URI), используемого для отправки запросов на сервер.
 >
-> В командах, описанных в этом разделе, **USERNAME** нужно заменить именем пользователя для аутентификации в кластере, а **PASSWORD** — паролем учетной записи пользователя. Замените **CLUSTERNAME** именем кластера.
+> В командах в этом разделе замените **admin** именем пользователя, используемым для аутентификации в кластере. Замените **CLUSTERNAME** именем кластера. При появлении запроса укажите пароль для учетной записи пользователя.
 >
 > API-интерфейс REST защищается с помощью [обычной проверки подлинности доступа](http://en.wikipedia.org/wiki/Basic_access_authentication). Чтобы обеспечить безопасную отправку учетных данных на сервер, все запросы следует отправлять с помощью протокола HTTPS.
 
@@ -50,10 +49,10 @@ ms.lasthandoff: 08/21/2017
 1. Используйте следующую команду в командной строке, чтобы проверить возможность подключения к кластеру HDInsight:
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    Вы должны получить ответ, аналогичный показанному ниже фрагменту JSON.
+    Вы должны получить ответ, аналогичный показанному ниже коду JSON.
 
         {"status":"ok","version":"v1"}
 
@@ -62,12 +61,12 @@ ms.lasthandoff: 08/21/2017
    * **-u**: имя пользователя и пароль, используемые для аутентификации запроса.
    * **-G**: указывает, что это запрос GET.
 
-     Начало URI **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** одинаковое для всех запросов.
+   Начало URI **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** одинаковое для всех запросов.
 
 2. Чтобы отправить задание MapReduce, используйте следующую команду:
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
     ```
 
     Конец универсального кода ресурса (/mapreduce/jar) сообщает WebHCat, что этот запрос запускает задание MapReduce из класса в JAR-файле. Ниже приведены параметры, используемые в этой команде:
@@ -78,14 +77,14 @@ ms.lasthandoff: 08/21/2017
     * **class**: класс, содержащий логику MapReduce.
     * **arg**: аргументы, передаваемые в задание MapReduce. В данном случае это входной текстовый файл и каталог, который используется для вывода.
 
-     Эта команда должна возвращать идентификатор задания, который может использоваться для проверки состояния задания:
+   Эта команда должна возвращать идентификатор задания, который может использоваться для проверки состояния задания:
 
        {"id":"job_1415651640909_0026"}
 
 3. Чтобы проверить состояние задания, используйте следующую команду.
 
     ```bash
-    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
     Замените **JOBID** значением, возвращенным на предыдущем шаге. Например, если возвращено значение `{"id":"job_1415651640909_0026"}`, то JOBID будет `job_1415651640909_0026`.

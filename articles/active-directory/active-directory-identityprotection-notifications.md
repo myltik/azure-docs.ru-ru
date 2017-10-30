@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 079d16bbf75cd2b3b94269d684e1ae1a0e6aa967
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: abc0f3926905295a9cf239146cce7fc57da7eb29
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Уведомления защиты идентификации Azure Active Directory
 Служба защиты идентификации Azure AD отправляет по электронной почте два типа автоматических уведомлений, что упрощает управление рисками для пользователей и событиями риска:
@@ -41,23 +41,23 @@ ms.lasthandoff: 08/03/2017
 * ссылки на связанные отчеты в службе защиты идентификации.
 
 <br>
-![Исправления](./media/active-directory-identityprotection-notifications/400.png "исправления")
+![Исправление](./media/active-directory-identityprotection-notifications/400.png "Remediation")
 <br>
 
 Можно отключить отправку еженедельных дайджестов по электронной почте.
 <br><br>
-![Рисков для пользователя](./media/active-directory-identityprotection-notifications/62.png "рисков для пользователя")
+![Риски для пользователя](./media/active-directory-identityprotection-notifications/62.png "User risks")
 <br>
 
 **Вот как можно открыть диалоговое окно настройки**.
 
 1. В колонке **Защита идентификации Azure AD** щелкните **Параметры**.
    <br><br>
-   ![Политика пользователя риск](./media/active-directory-identityprotection-notifications/401.png "риск политика пользователя")
+   ![Политика риска для пользователя](./media/active-directory-identityprotection-notifications/401.png "User risk policy")
    <br>
 2. В разделе **Общие** щелкните **Уведомления**.
    <br><br>
-   ![Политика пользователя риск](./media/active-directory-identityprotection-notifications/405.png "риск политика пользователя")
+   ![Политика риска для пользователя](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
    <br>
 
 ## <a name="see-also"></a>См. также

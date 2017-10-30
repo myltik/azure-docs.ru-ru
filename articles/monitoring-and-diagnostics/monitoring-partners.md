@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 8/16/2017
 ms.author: johnkem
 ms.openlocfilehash: 46b6ec12655b64b8fce6e103d5d71a4e8021890e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-partner-integrations"></a>Интеграция Azure Monitor с продуктами партнеров
 | Партнеры |  |  |
 | --- | --- | --- |
-| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![логотип партнера][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
-| [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
-| [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
-| [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
+| [![Логотип партнера][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Логотип партнера][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Логотип партнера][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![Логотип партнера][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Логотип партнера][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Логотип партнера][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
+| [![Логотип партнера][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Логотип партнера][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Логотип партнера][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
+| [![Логотип партнера][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Логотип партнера][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Логотип партнера][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![Логотип партнера][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Логотип партнера][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Логотип партнера][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 Диспетчер журнала логики предупреждений собирает журналы виртуальных машин, приложений и платформы Azure для анализа безопасности и хранения, включая журнал действий Azure через API Azure Monitor.  Эта информация используется для обнаружения несанкционированных операций и соответствия нормативным требованиям.

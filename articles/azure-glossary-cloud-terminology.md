@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
+ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Словарь терминов Microsoft Azure: словарь терминов, связанных с облаком на платформе Azure
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 08/24/2017
 Другое название [приложения службы приложений](#app-service-app).
 
 ## <a name="app-service-app"></a>Приложение службы приложений
-Вычислительные ресурсы, предоставляемые [службой приложений Azure](app-service/app-service-value-prop-what-is.md) для размещения [веб-сайта или веб-приложения](app-service-web/app-service-web-overview.md), [веб-API](app-service-api/app-service-api-apps-why-best-platform.md) или [внутренней службы мобильного приложения](app-service-mobile/app-service-mobile-value-prop.md). Приложения службы приложений также называются *приложениями службы*, *веб-приложениями*, *приложениями API* и *мобильными приложениями*.
+Вычислительные ресурсы, предоставляемые [службой приложений Azure](app-service/app-service-web-overview.md) для размещения веб-сайта или веб-приложения, веб-API или [серверной части мобильного приложения](app-service-mobile/app-service-mobile-value-prop.md). Приложения службы приложений также называются *приложениями службы*, *веб-приложениями*, *приложениями API* и *мобильными приложениями*.
 
 ## <a name="availability-set"></a>группа доступности
 Коллекция виртуальных машин, которые находятся под общим управлением для обеспечения избыточности и надежности приложений. Во время планового или внепланового обслуживания группы доступности обеспечивают доступность как минимум одной виртуальной машины.  
@@ -159,5 +158,4 @@ JSON-файл, который декларативно определяет од
 * [Центр облачных ресурсов](https://azure.microsoft.com/resources/)  
 * [Azure для бизнес-приложений](https://azure.microsoft.com/overview/business-apps-on-azure/)
 * [Azure в вашем центре обработки данных](https://azure.microsoft.com/overview/business-apps-on-azure/)
-
 

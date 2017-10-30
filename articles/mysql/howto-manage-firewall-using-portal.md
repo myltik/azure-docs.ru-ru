@@ -1,6 +1,6 @@
 ---
 title: "Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью портала Azure | Документация Майкрософт"
-description: "Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью портала Azure."
+description: "Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью портала Azure"
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -8,15 +8,14 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 33198e5a6e11df2db3a17fc96a0b3cd4b1a284e8
-ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: 0604b29fcd9849545886a783ae5bbb2cbb72f2ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-using-the-azure-portal"></a>Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью портала Azure
+# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Создание правил брандмауэра базы данных Azure для MySQL и управление ими с помощью портала Azure
 Правила брандмауэра уровня сервера позволяют администраторам обращаться к серверу базы данных Azure для MySQL с указанного IP-адреса или диапазона IP-адресов. 
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Создание правила брандмауэра на уровне сервера с помощью портала Azure
@@ -44,14 +43,13 @@ ms.lasthandoff: 06/17/2017
 
    ![Портал Azure: нажатие кнопки "Сохранить"](./media/howto-manage-firewall-using-portal/4-save-firewall-rule.png)
 
-## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Управление существующими правилами брандмауэра с помощью портала Azure
+## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Управление существующими правилами брандмауэра уровня сервера с помощью портала Azure
 Повторите действия для управлению правилами брандмауэра.
 * Чтобы добавить текущий компьютер, нажмите кнопку **Добавить мой IP-адрес**.
 * Чтобы добавить дополнительные IP-адреса, введите **имя правила**, **начальный IP-адрес** и **конечный IP-адрес** в соответствующих полях.
-* Чтобы изменить существующее правило, измените значения во всех полях в данном правиле.
+* Чтобы изменить существующее правило, щелкните любое поле в нем и внесите необходимые изменения.
 * Чтобы удалить существующее правило, щелкните многоточие [...] и выберите **Удалить**.
 * Щелкните **Сохранить** , чтобы сохранить изменения.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - Справка по подключению к серверу базы данных Azure для MySQL доступна в разделе [Библиотеки подключений для базы данных Azure для MySQL](./concepts-connection-libraries.md).
-

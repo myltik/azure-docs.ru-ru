@@ -10,22 +10,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 329f3c66bc131a9555f1778acfcae5dd9c761f56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9884b97aad8f022e6bc20b2a630ccdd07ebc64db
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Автоматизация процессов Log Analytics с помощью соединителя для Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) позволяет создавать автоматизированные рабочие процессы, используя сотни действий для различных служб. Выходные данные одного действия могут использоваться в качестве входных данных другого действия, что позволяет интегрировать различные службы.  Соединитель Azure Log Analytics для Microsoft Flow позволяет создавать рабочие процессы, которые включают данные, полученные при поиске по журналам в Log Analytics.
 
 Например, с помощью Microsoft Flow можно использовать данные Log Analytics в уведомлении по электронной почте от Office 365, создать ошибку в Visual Studio Team Services или отправить сообщение Slack.  Вы можете запускать рабочие процессы с помощью простого расписания или какого-либо действия в подключенной службе, например при получении почты или твита.  
-
-
-> [!NOTE]
-> Чтобы использовать соединитель Azure Log Analytics для Microsoft Flow, необходимо переключить рабочую область на новый язык запросов Log Analytics. Дополнительные сведения о новом языке и процедурах обновления рабочей области см. в [этой статье](log-analytics-log-search-upgrade.md).  
 
 В руководстве в этой статье показано, как создать последовательность, которая автоматически отправляет по электронной почте результаты поиска по журналам Log Analytics. Это лишь один из примеров того, как можно использовать Log Analytics в Microsoft Flow. 
 

@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/05/2017
+ms.date: 09/20/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: 6785194dc4db8378ad7eeb0f86f656901c2f36af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ff8b741b04ff37fa1a5fbaddabdd588ab43f19c5
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Примеры PowerShell для виртуальной машины Azure
 
@@ -37,6 +36,10 @@ ms.lasthandoff: 08/21/2017
 | [Sample script to upload a VHD to Azure and create a new VM](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) (Пример скрипта для передачи VHD в Azure и создания виртуальной машины) | Передача локального файла VHD в Azure. Создание образа на основе VHD. Создание виртуальной машины на основе этого образа. |
 | [Создание виртуальной машины с помощью существующего управляемого диска ОС с использованием PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает виртуальную машину путем подключения имеющегося управляемого диска как диска ОС. |
 | [Создание виртуальной машины из моментального снимка с помощью PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает виртуальную машину из моментального снимка, сначала создав из него управляемый диск, а затем подключив этот диск как диск ОС. |
+|**Создание виртуальных машин с помощью командлета New-AzVM**||
+| [Создание полностью настроенной виртуальной машины](./../scripts/virtual-machines-windows-powershell-sample-create-vm-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает группу ресурсов, виртуальную машину и все связанные ресурсы.|
+| [Создание виртуальной машины с помощью NGINX](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает виртуальную машину и использует расширение пользовательских скриптов Azure для установки IIS. |
+| [Создание виртуальной машины с IIS с помощью DSC](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает виртуальную машину и использует расширение настройки требуемого состояния (DSC) для установки IIS. |
 |**Управление хранилищем**||
 | [Create a managed disk from a VHD file in a storage account in same or different subscription with PowerShell](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Создание управляемого диска на основе VHD-файла в учетной записи хранения в той же или другой подписке с помощью PowerShell) | Создание управляемого диска из специализированного VHD в качестве диска ОС или из VHD данных в качестве диска данных в той же или в другой подписке.  |
 | [Create a managed disk from a snapshot with PowerShell](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Создание управляемого диска из моментального снимка с помощью PowerShell) | Создание управляемого диска из моментального снимка. |
@@ -49,5 +52,4 @@ ms.lasthandoff: 08/21/2017
 |**Мониторинг виртуальных машин**||
 | [Мониторинг виртуальной машины с помощью Operations Management Suite](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает виртуальную машину, устанавливает агент Operations Management Suite и регистрирует виртуальную машину в рабочей области OMS.  |
 | | |
-
 

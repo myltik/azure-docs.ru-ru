@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 52408184c8cff53f8bb7006fa940b0db4b900db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 84bddd0cb6e53786d3aafb3f7acde34b7e19f83b
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Как создать инфраструктуру непрерывной интеграции и непрерывного развертывания на виртуальной машине Linux в Azure с помощью Jenkins, GitHub и Docker
 Чтобы автоматизировать этапы создания и тестирования приложения, вы можете использовать конвейер непрерывной интеграции и развертывания (CI/CD). В этом учебнике мы создадим конвейер CI/CD на виртуальной машине Azure, включая следующие задачи:
 
@@ -41,7 +39,7 @@ ms.lasthandoff: 09/27/2017
 Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Создание экземпляра Jenkins
-В предыдущем руководстве [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md) вы узнали, как автоматизировать настройку виртуальной машины с помощью cloud-init. В этом учебнике используется файл cloud-init для установки Jenkins и Docker на виртуальной машине. 
+В предыдущем руководстве [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md) вы узнали, как автоматизировать настройку виртуальной машины с помощью cloud-init. В этом учебнике используется файл cloud-init для установки Jenkins и Docker на виртуальной машине. Jenkins — это популярный сервер автоматизации с открытым исходным кодом, который легко интегрируется с Azure для обеспечения непрерывной интеграции и непрерывной поставки (CI/CD). Другие руководства по использованию Jenkins см. в документации [Jenkins® в Azure](https://docs.microsoft.com/azure/jenkins/).
 
 В текущей оболочке создайте файл *cloud-init.txt* и вставьте в него следующую конфигурацию. Например, создайте файл в Cloud Shell, не на локальном компьютере. Введите `sensible-editor cloud-init-jenkins.txt`, чтобы создать файл и просмотреть список доступных редакторов. Убедитесь, что весь файл cloud-init скопирован правильно, особенно первая строка:
 

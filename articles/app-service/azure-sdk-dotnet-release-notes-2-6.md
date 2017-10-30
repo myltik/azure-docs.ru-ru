@@ -14,10 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
 ms.openlocfilehash: 21817b09440fc98a54dc45c9129d104b01fa387d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Заметки о выпуске пакета SDK для Azure для .NET 2.6
 Этот документ содержит заметки о выпуске для пакета SDK для Azure для .NET версии 2.6. 
@@ -34,7 +34,7 @@ ms.lasthandoff: 07/11/2017
 ## <a name="hdinsight-tools-for-visual-studio-updates"></a>Средства HDInsight для обновлений Visual Studio
 * **Расширение IntelliSense**: предложение удаленных метаданных
   
-    Теперь средства HDInsight для Visual Studio поддерживают получение удаленных метаданных при редактировании сценария Hive. Например, можно ввести **ВЫБЕРИТЕ * FROM** отображаются все имена таблиц и. Кроме того, после указания таблицы будут показаны имена столбцов.
+    Теперь средства HDInsight для Visual Studio поддерживают получение удаленных метаданных при редактировании сценария Hive. Например, вы можете ввести **SELECT * FROM**, чтобы отобразились все имена таблиц. Кроме того, после указания таблицы будут показаны имена столбцов.
 * **Поддержка эмулятора HDInsight**
   
     Теперь средства HDInsight для Visual Studio поддерживают соединение с эмулятором HDInsight, и вы можете разрабатывать сценарии Hive локально, не внося никаких затрат, а затем выполнять эти сценарии с использованием кластеров HDInsight. 

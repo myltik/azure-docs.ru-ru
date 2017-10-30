@@ -11,12 +11,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: junyi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 682feb4d889ecd881abe1a70d36e0a5a4df3d910
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: eddeb5cc13aac7ab33305adcd266465a5b143462
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>Создание модуля Azure IoT Edge с помощью Java
 
@@ -128,7 +127,7 @@ ms.lasthandoff: 07/04/2017
 
 Выходные данные похожи на входные. Они могут быть триггером каких-либо действий оборудования (например, мигание светодиодного индикатора), сообщениями для других модулей или чем-то другим (например, вывод данных в консоль).
 
-Модули взаимодействуют друг с другом с помощью класса `com.microsoft.azure.gateway.messaging.Message`. **Содержимым** `Message` является массив байтов, который может представлять любой необходимый тип данных. В `Message` также доступны **Свойства**, которые являются просто сопоставлением строк. **Свойства** можно сравнить с заголовками в HTTP-запросе или метаданными файла.
+Модули взаимодействуют друг с другом с помощью класса `com.microsoft.azure.gateway.messaging.Message`. **Содержимым** `Message` является массив байтов, который может представлять любой необходимый тип данных. В `Message` также доступны **Свойства**, которые являются просто сопоставлением строк. **Свойства** можно сравнить с заголовками в HTTPS-запросе или метаданными файла.
 
 Чтобы разработать модуль Azure IoT Edge в Java, необходимо создать класс модуля, который наследуется из `com.microsoft.azure.gateway.core.GatewayModule`, и реализовать необходимые абстрактные методы `receive()` и `destroy()`. На этом этапе также можно реализовать дополнительные методы `start()` и `create()`. В следующем фрагменте кода показано, как приступить к разработке модуля Azure IoT Edge.
 
@@ -299,5 +298,4 @@ public void receive(Message message) {
 
 > [!IMPORTANT]
 > Не рекомендуется использовать сочетание клавиш Ctrl + C для завершения работы приложения шлюза IoT Edge. Это действие может вызвать аварийное завершение процесса.
-
 

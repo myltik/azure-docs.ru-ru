@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 212aa4ede83b7c9f3240f8f32073bb7b87bda06d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0948f25cbb4f661cee4611fb5f7d4d22c9eeec1
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Выходные данные и сообщения Runbook в службе автоматизации Azure
 У большинства Runbook службы автоматизации Azure будут выходные данные какого-либо вида, например сообщение об ошибке для пользователя или сложный объект, предназначенный для использования другим рабочим процессом. Windows PowerShell предоставляет [несколько потоков](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) для отправки выходных данных из сценария или рабочего процесса. Служба автоматизации Azure по-разному работает с каждым из этих потоков, и необходимо следовать рекомендациям по их использованию при создании Runbook.
@@ -182,7 +182,7 @@ Windows PowerShell использует [привилегированные пе
        $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
        –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
        $status = $job.Status
-       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
+       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
     }
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `

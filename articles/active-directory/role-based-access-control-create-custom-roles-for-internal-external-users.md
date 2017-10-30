@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: cccd0af0c991efe330567c2459717798d116e68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb9b89d087cfb62efe63cf0ff600d7faa58a7b8b
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 ## <a name="intro-on-role-based-access-control"></a>Общие сведения об управлении доступом на основе ролей
 
@@ -33,7 +33,7 @@ RBAC предоставляет расширенные возможности у
 * роль владельца подписки Azure;
 * доступ к [порталу Azure](https://portal.azure.com);
 * поставщики ресурсов **Microsoft.Authorization**, зарегистрированные в подписке пользователя. Дополнительные сведения о регистрации поставщиков ресурсов см. в статье [Поставщики диспетчера ресурсов, регионы, версии API и схемы](/azure-resource-manager/resource-manager-supported-services.md).
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
 
 > [!NOTE]
 > Подписки Office 365 или лицензии Azure Active Directory (например, доступ к Azure Active Directory), подготовленные на портале O365, не поддерживают RBAC.
@@ -77,7 +77,7 @@ RBAC можно применять в трех различных областя
 ![Параметр "Добавить новую роль" в области "Управление доступом (IAM)" на портале Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
 Далее необходимо выбрать роль RBAC и пользователя, которому ее нужно назначить. В раскрывающемся меню **Роль** для администратора отображаются только встроенные роли RBAC, доступные в Azure. Подробное описание каждой роли и их назначаемых областей см. в статье [Встроенные роли для управления доступом на основе ролей в Azure](/active-directory/role-based-access-built-in-roles.md).
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
 
 Затем необходимо добавить адрес электронной почты внешнего пользователя. Этот внешний пользователь не должен отображаться в имеющемся клиенте. Приглашенные пользователи, а также все текущие пользователи с ролью RBAC в области действия подписки отображаются в области **"Подписки > Управление доступом (IAM)"**.
 

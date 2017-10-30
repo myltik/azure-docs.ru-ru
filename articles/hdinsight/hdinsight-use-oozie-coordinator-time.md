@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 14cd30f4f9ed77dca369452a680d621eb81d5a4e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1f6285dd230afd6d4de202a0cb25e5097e378f2
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Используйте учитывающий время координатор Oozie с Hadoop в HDInsight для определения рабочих процессов и координации заданий
 Узнайте, как определять рабочие процессы и координаторы, а также как по времени запускать задания координатора. Перед чтением этой статьи рекомендуется изучить [Использование Oozie с HDInsight][hdinsight-use-oozie]. Помимо Oozie, задания можно планировать с помощью фабрики данных Azure. Для получения сведений о фабрике данных Azure см. статью [Преобразование данных в фабрике данных Azure](../data-factory/transform-data.md).
@@ -662,7 +662,8 @@ HDInsight использует для хранения данных хранил
     # killOozieJob($oozieJobId)
     ```
 
-    Удалите значки #, если нужно выполнить дополнительные функции.
+Удалите значки #, если нужно выполнить дополнительные функции.
+
 9. При наличии кластера HDinsight версии 2.1 замените "https://$clusterName.azurehdinsight.net:443/oozie/v2/" на "https://$clusterName.azurehdinsight.net:443/oozie/v1/". Кластер HDInsight версии 2.1 не поддерживает веб-службы версии 2.
 10. Для выполнения скрипта щелкните **Run Script** (Выполнить скрипт) или нажмите клавишу **F5**. Результат должен быть аналогичен приведенному ниже:
 

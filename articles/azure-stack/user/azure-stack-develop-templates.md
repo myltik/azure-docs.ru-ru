@@ -1,6 +1,6 @@
 ---
-title: Develop templates for Azure Stack | Microsoft Docs
-description: Learn Azure Stack template best practices
+title: "Разработка шаблонов для Azure Stack | Документация Майкрософт"
+description: "Ознакомьтесь с рекомендациями по использованию шаблона Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -14,53 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager template considerations
+# <a name="azure-resource-manager-template-considerations"></a>Рекомендации по использованию шаблона Azure Resource Manager
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
 
-As you develop your application, it is important to ensure template portability between Azure and Azure Stack.  This topic provides considerations for developing Azure Resource Manager [templates](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), so you can prototype your application and test deployment in Azure without access to an Azure Stack environment.
+При разработке приложения очень важно обеспечить мобильность шаблона в контексте взаимодействия Azure и Azure Stack.  Эта статья содержит рекомендации по разработке [шаблонов](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) Azure Resource Manager. С ее помощью вы сможете создать прототип приложения и протестировать развертывание в Azure без доступа к среде Azure Stack.
 
-## <a name="public-namespaces"></a>Public namespaces
-Because Azure Stack is hosted in your datacenter, it has different service endpoint namespaces than the Azure public cloud. As a result, hardcoded public endpoints in Resource Manager templates fail when you try to deploy them to Azure Stack. Instead, you can use the *reference* and *concatenate* function to dynamically build the service endpoint based on values retrieved from the resource provider during deployment. For example, rather than specifying *blob.core.windows.net* in your template, retrieve the [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) to dynamically set the *osDisk.URI* endpoint:
+## <a name="public-namespaces"></a>Общедоступные пространства имен
+Так как среда Azure Stack размещена в центре обработки данных, она использует собственные пространства имен конечных точек службы, а не пространства общедоступного облака Azure. Поэтому при попытке развернуть в Azure Stack встроенные общедоступные конечные точки в шаблонах Resource Manager происходит ошибка. Вместо этого можно использовать функцию *создания ссылки* и *объединения*, чтобы динамически создать конечную точку службы на основе значений, полученных от поставщика ресурсов во время развертывания. Например, чтобы не указывать *blob.core.windows.net* в шаблоне, получите [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) для динамической настройки конечной точки *osDisk.URI*.
 
      "osDisk": {"name": "osdisk","vhd": {"uri": 
      "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
       '/',variables('OSDiskName'),'.vhd')]"}}
 
-## <a name="api-versioning"></a>API versioning
-Azure service versions may differ between Azure and Azure Stack. Each resource requires the apiVersion attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack, the following are valid API versions for each Resource Provider:
+## <a name="api-versioning"></a>Управление версиями API
+В Azure и Azure Stack могут быть разные версии служб Azure. Для каждого ресурса требуется атрибут apiVersion, который определяет доступные возможности. Чтобы вы могли обеспечить совместимость версий API в Azure Stack, ниже приведены допустимые версии API для каждого поставщика ресурсов.
 
-| Resource Provider | apiVersion |
+| Поставщик ресурсов | версия_API |
 | --- | --- |
-| Compute |`'2015-06-15'` |
-| Network |`'2015-06-15'`, `'2015-05-01-preview'` |
-| Storage |`'2016-01-01'`, `'2015-06-15'`, `'2015-05-01-preview'` |
-| KeyVault | `'2015-06-01'` |
-| App Service |`'2015-08-01'` |
+| Среда выполнения приложений |`'2015-06-15'` |
+| Сеть |`'2015-06-15'`, `'2015-05-01-preview'` |
+| Хранилище |`'2016-01-01'`, `'2015-06-15'`, `'2015-05-01-preview'` |
+| Хранилище ключей | `'2015-06-01'` |
+| Служба приложений |`'2015-08-01'` |
 | MySQL |`'2015-09-01'` |
 | SQL |`'2014-04-01-preview'` |
 
-## <a name="template-functions"></a>Template functions
-Resource Manager [functions](../../azure-resource-manager/resource-group-template-functions.md) provide capabilities required to build dynamic templates. As an example, you can use functions for tasks like:
+## <a name="template-functions"></a>Функции шаблонов
+[Функции](../../azure-resource-manager/resource-group-template-functions.md) Resource Manager позволяют создавать динамические шаблоны. Например, можно использовать функции для выполнения следующих задач.
 
-* Concatenating or trimming strings 
-* Reference values from other resources
-* Iterating on resources to deploy multiple instances 
+* Объединение или обрезание строк. 
+* Создание ссылок на значения других ресурсов.
+* Итерация по ресурсам для развертывания нескольких экземпляров. 
 
-As you build your templates, some functions are not available in Azure Stack Development Kit, and should not be used. These functions are:
+При создании шаблонов некоторые функции не доступны в пакете средств разработки Azure Stack и не должны использоваться. Это следующие функции:
 
 * Skip
 * Take
 
-## <a name="resource-location"></a>Resource location
-Resource Manager templates use a location attribute to place resources during deployment. In Azure, locations refer to a region like West US or South America. In Azure Stack, locations are different because Azure Stack is in your datacenter.  To ensure templates are transferrable between Azure and Azure Stack, you should reference the resource group location as you deploy individual resources. You can do this using `[resourceGroup().Location]` to ensure all resources inherit the resource group location.  The following Resource Manager template excerpt is an example of using this function while deploying a storage account:
+## <a name="resource-location"></a>Расположение ресурса
+Шаблоны Resource Manager используют атрибут расположения для размещения ресурсов во время развертывания. В Azure расположения называются регионами, например "западная часть США"или "Южная Америка". В Azure Stack используются другие расположения, так как Azure Stack находится в вашем центре обработки данных.  Чтобы шаблоны можно было передавать между Azure и Azure Stack, необходимо указать расположение группы ресурсов при развертывании отдельных ресурсов. Для этого используйте функцию `[resourceGroup().Location]`, чтобы ресурсы наследовали расположение группы ресурсов.  В следующем фрагменте кода шаблона Resource Manager приведен пример использования этой функции при развертывании учетной записи хранения.
 
     "resources": [
     {
@@ -76,9 +75,8 @@ Resource Manager templates use a location attribute to place resources during de
     ]
 
 
-## <a name="next-steps"></a>Next steps
-* [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
-* [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
-* [Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
-
+## <a name="next-steps"></a>Дальнейшие действия
+* [Развертывание шаблонов с помощью PowerShell](azure-stack-deploy-template-powershell.md)
+* [Развертывание шаблонов с помощью интерфейса командной строки Azure](azure-stack-deploy-template-command-line.md)
+* [Развертывание шаблонов с помощью Visual Studio](azure-stack-deploy-template-visual-studio.md)
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1923a145d258e558811b610be9a6bb8ea0e4c933
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d9f5950f7e692181e59870e6e508486131517ce
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure
 
@@ -279,7 +279,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 Следующая команда передает экспортированный PFX-файл и возвращает отпечаток.
 
 ```bash
-thumbprint=$(az appservice web config ssl upload \
+thumbprint=$(az webapp config ssl upload \
     --name <app_name> \
     --resource-group <resource_group_name> \
     --certificate-file <path_to_PFX_file> \
@@ -291,7 +291,7 @@ thumbprint=$(az appservice web config ssl upload \
 Следующая команда добавляет привязку SSL на основе SNI с помощью отпечатка из предыдущей команды.
 
 ```bash
-az appservice web config ssl bind \
+az webapp config ssl bind \
     --name <app_name> \
     --resource-group <resource_group_name>
     --certificate-thumbprint $thumbprint \

@@ -13,15 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: e4e298475d7be7d51c8bd55be498371ed6ce77a9
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
-
+ms.openlocfilehash: db49780e359258898a62f3b95e87f54b78055c86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="u-sql-programmability-guide"></a>Руководство по программированию U-SQL
 
 U-SQL — это специальный язык запросов для рабочих нагрузок, обрабатывающих большие данные. U-SQL отличается использованием SQL-подобного декларативного синтаксиса, а также расширяемостью и удобством программирования, характерными для C#. В этом руководстве мы рассмотрим расширяемость и программируемость языка U-SQL на основе C#.
@@ -2123,7 +2120,7 @@ public class EmptyUserReducer : IReducer
 **SqlUserDefinedReducer** — это необязательный атрибут для определения пользовательских средств редукции. Он используется для определения свойства IsRecursive.
 
 * bool IsRecursive.    
-* **true** — указывает, что это средство редукции является идемпотентным.
+* Значение **true** указывает, является ли это средство редукции ассоциативным и коммуникативным.
 
 Основные объекты, поддерживающие программирование, — это **input** (ввод) и **output** (вывод). Объект input используется для перечисления входных строк, а output — для вывода строк, полученных в результате действий по редукции.
 
@@ -2220,4 +2217,3 @@ OUTPUT @rs2
     TO @output_file 
     USING Outputters.Text();
 ```
-

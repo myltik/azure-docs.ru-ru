@@ -12,16 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 10/12/2017
 ms.author: tdykstra
+ms.openlocfilehash: b3e5976a84e0ec91a41d683a426b58635fd5abd6
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: e836ccd204ff06e1eb0494cb392e781f29fdf421
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="hostjson-reference-for-azure-functions"></a>Справочник по файлу host.json для Функций Azure
 
 Файл метаданных *host.json* содержит параметры глобальной конфигурации, влияющие на все функции приложения-функции. В этой статье перечислены параметры, которые доступны. Схема JSON находится по адресу http://json.schemastore.org/host.
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/29/2017
 
 В приведенном ниже примере файла *host.json* указаны все возможные параметры.
 
-```javascript
+```json
 {
     "aggregator": {
         "batchSize": 1000,
@@ -49,12 +47,12 @@ ms.lasthandoff: 09/29/2017
       "prefetchCount": 256,
       "batchCheckpointFrequency": 1
     },
-    "functions": [ "QueueProcessor", "GitHubWebHook" ]
+    "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 
+        "maxConcurrentRequests": 10,
         "dynamicThrottlesEnabled": false
     },
     "id": "9f4ea53c5136457d883d685e57164f08",
@@ -101,7 +99,7 @@ ms.lasthandoff: 09/29/2017
 
 Указывает, сколько вызовов функций обрабатывается при [расчете метрик для Application Insights](functions-monitoring.md#configure-the-aggregator). 
 
-```javascript
+```json
 {
     "aggregator": {
         "batchSize": 1000,
@@ -121,7 +119,7 @@ ms.lasthandoff: 09/29/2017
 
 Управляет [функцией выборки в Application Insights](functions-monitoring.md#configure-sampling).
 
-```javascript
+```json
 {
     "applicationInsights": {
         "sampling": {
@@ -141,7 +139,7 @@ ms.lasthandoff: 09/29/2017
 
 Параметр конфигурации для [триггеров и привязок концентратора событий](functions-bindings-event-hubs.md).
 
-```javascript
+```json
 {
     "eventHub": {
       "maxBatchSize": 64,
@@ -161,7 +159,7 @@ ms.lasthandoff: 09/29/2017
 
 Список функций, которые будет выполнять узел заданий.  Пустой массив означает выполнение всех функций.  Предназначен для использования только при [локальном выполнении](functions-run-local.md). В приложениях-функциях используйте свойство `disabled` в *function.json*, а не это свойство в *host.json*.
 
-```javascript
+```json
 {
     "functions": [ "QueueProcessor", "GitHubWebHook" ]
 }
@@ -171,7 +169,7 @@ ms.lasthandoff: 09/29/2017
 
 Указывает время ожидания для всех функций. В планах потребления допускается диапазон от 1 секунды до 10 минут, а значение по умолчанию — 5 минут. В планах службы приложений время не ограничено, а значение по умолчанию — null, что означает отсутствие времени ожидания.
 
-```javascript
+```json
 {
     "functionTimeout": "00:05:00"
 }
@@ -181,12 +179,12 @@ ms.lasthandoff: 09/29/2017
 
 Параметры конфигурации для [триггеров и привязок http](functions-bindings-http-webhook.md).
 
-```javascript
+```json
 {
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 
+        "maxConcurrentRequests": 10,
         "dynamicThrottlesEnabled": false
     }
 }
@@ -203,7 +201,7 @@ ms.lasthandoff: 09/29/2017
 
 Уникальный идентификатор для узла заданий. Это может быть глобальный уникальный идентификатор (GUID), вводимый в нижнем регистре с удаленными дефисами. Необходим при локальном выполнении. При запуске в Функциях Azure идентификатор создается автоматически, если параметр `id` не указан.
 
-```javascript
+```json
 {
     "id": "9f4ea53c5136457d883d685e57164f08"
 }
@@ -213,7 +211,7 @@ ms.lasthandoff: 09/29/2017
 
 Управляет фильтрацией журналов, которые создаются [объектом ILogger](functions-monitoring.md#write-logs-in-c-functions) или [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
-```javascript
+```json
 {
     "logger": {
         "categoryFilter": {
@@ -238,7 +236,7 @@ ms.lasthandoff: 09/29/2017
 
 Параметры конфигурации для [триггеров и привязок очереди хранилища](functions-bindings-storage-queue.md).
 
-```javascript
+```json
 {
     "queues": {
       "maxPollingInterval": 2000,
@@ -262,7 +260,7 @@ ms.lasthandoff: 09/29/2017
 
 Параметр конфигурации для [триггеров и привязок служебной шины](functions-bindings-service-bus.md).
 
-```javascript
+```json
 {
     "serviceBus": {
       "maxConcurrentCalls": 16,
@@ -282,7 +280,7 @@ ms.lasthandoff: 09/29/2017
 
 Параметры конфигурации для одноэлементной блокировки. Дополнительные сведения см. в [проблеме, посвященной одноэлементной блокировке, на портале GitHub](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
-```javascript
+```json
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -305,7 +303,7 @@ ms.lasthandoff: 09/29/2017
 
 Параметры конфигурации для журналов, создаваемых с помощью объекта `TraceWriter`. Ознакомьтесь с разделами, посвященными ведению журналов, для [C#](functions-reference-csharp.md#logging) и [Node.js](functions-reference-node.md#writing-trace-output-to-the-console). 
 
-```javascript
+```json
 {
     "tracing": {
       "consoleLevel": "verbose",
@@ -323,11 +321,26 @@ ms.lasthandoff: 09/29/2017
 
 Набор [каталогов общего кода](functions-reference-csharp.md#watched-directories), изменения которого должны отслеживаться.  Гарантирует, что если код в этих каталогах изменится, то эти изменения будут применены вашими функциями.
 
-```javascript
+```json
 {
     "watchDirectories": [ "Shared" ]
 }
 ```
+
+## <a name="durabletask"></a>durableTask
+
+[Центр задач](durable-functions-task-hubs.md) для [устойчивых функций](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub"
+  }
+}
+```
+
+Имена центра задач должны начинаться с буквы и содержать только буквы и цифры. Если имя не указано, центру задач в приложении-функции назначается имя по умолчанию **DurableFunctionsHub**. Дополнительные сведения см. в статье о [центрах задач](durable-functions-task-hubs.md).
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -336,4 +349,3 @@ ms.lasthandoff: 09/29/2017
 
 > [!div class="nextstepaction"]
 > [Ознакомьтесь с глобальными параметрами в переменных среды](functions-app-settings.md)
-

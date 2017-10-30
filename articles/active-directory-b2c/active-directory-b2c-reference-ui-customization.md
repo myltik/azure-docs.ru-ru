@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 122fa997ea11b369aae3c59edf0043ab19d21aea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: настройка пользовательского интерфейса Azure AD B2C
 
@@ -27,6 +27,7 @@ ms.lasthandoff: 08/29/2017
 > [!NOTE]
 > Возможность настройки пользовательского интерфейса страницы, описанная в этой статье, не применяется к политике только для входа, связанной странице сброса пароля и проверочным сообщениям электронной почты.  Вместо этого в ней используется [функция настройки фирменной символики компании](../active-directory/active-directory-add-company-branding.md).
 >
+> Как и при инициировании политики изменения профиля *перед* входом, пользователь будет перенаправлен на страницу, которую можно настраивать с помощью [функции настройки фирменной символики компании](../active-directory/active-directory-add-company-branding.md).
 
 В этой статье рассматриваются следующие темы:
 

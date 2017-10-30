@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
+ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 0b6417b616a9e4e74b5fb8a67e1414ad74e8f258
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Перенос данных с помощью AzCopy для Linux
 AzCopy для Linux — это служебная программа командной строки. Она предназначена для копирования данных из хранилища BLOB-объектов и хранилища файлов Microsoft Azure (и обратно) с помощью простых команд, обеспечивающих оптимальную производительность. Кроме того, она позволяет копировать данные из одного объекта в другой в пределах одной учетной записи хранения или из одной такой записи в другую.
@@ -497,7 +496,7 @@ azcopy \
     --sync-copy
 ```
 
-При копировании из хранилища файлов в хранилище BLOB-объектов пользователь может указать параметр `/BlobType:page` для изменения типа большого двоичного объекта назначения.
+При копировании из хранилища файлов в хранилище BLOB-объектов пользователь может указать параметр `--blob-type page` для изменения типа большого двоичного объекта назначения. Доступные типы — `page | block | append`.
 
 Обратите внимание на то, что параметр `--sync-copy` может повлечь дополнительные затраты на исходящий трафик по сравнению с асинхронным копированием. Во избежание таких затрат мы советуем использовать данный режим в виртуальных машинах Azure, которые находятся в одном регионе с вашей исходной учетной записью хранения.
 
@@ -691,5 +690,4 @@ AzCopy предназначен для максимального использ
 * [AzCopy – Transfer data with re-startable mode and SAS Token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx) (AzCopy: передача данных с использованием перезапускаемого режима и маркера SAS)
 * [AzCopy: использование копирования больших двоичных объектов между разными учетными записями](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: отправка и скачивание файлов для больших двоичных объектов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
 

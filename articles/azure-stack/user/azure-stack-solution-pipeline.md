@@ -1,6 +1,6 @@
 ---
-title: Deploy your app to Azure and Azure Stack | Microsoft Docs
-description: Learn how to deploy apps to Azure and Azure Stack with a hybrid CI/CD pipeline.
+title: "Развертывание приложения в Azure и Azure Stack | Документация Майкрософт"
+description: "Узнайте, как развертывать приложения в Azure и Azure Stack с помощью гибридного конвейера CI/CD."
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -14,204 +14,201 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: helaw
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="deploy-apps-to-azure-and-azure-stack"></a>Развертывание приложений в Azure и Azure Stack
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
-# <a name="deploy-apps-to-azure-and-azure-stack"></a>Deploy apps to Azure and Azure Stack
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
-A hybrid [continuous integration](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[continuous delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/)(CI/CD) pipeline enables you to build, test, and deploy your app to multiple clouds.  In this tutorial, you build a sample environment to learn how a hybrid CI/CD pipeline can help you:
+Гибридный конвейер [непрерывной интеграции](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[непрерывной поставки](https://www.visualstudio.com/learn/what-is-continuous-delivery/) (CI/CD) позволяет создавать, тестировать и развертывать приложение в различные облака.  В этом руководстве создается пример среды, чтобы узнать, как с помощью гибридного конвейера CI/CD можно:
  
 > [!div class="checklist"]
-> * Initiate a new build based on code commits to your Visual Studio Team Services (VSTS) repository.
-> * Automatically deploy your newly built code to Azure for user acceptance testing.
-> * Once your code has passed testing, automatically deploy to Azure Stack. 
+> * Запустить новую сборку на основе зафиксированного кода из репозитория Visual Studio Team Services (VSTS).
+> * Автоматически развернуть созданный код в Azure для пользовательского приемочного тестирования.
+> * Как только ваш код прошел тестирование, автоматически развернуть его в Azure Stack. 
 
 
-## <a name="prerequisites"></a>Prerequisites
-A few components are required to build a hybrid CI/CD pipeline, and may take some time to prepare.  If you already have some of these components, make sure they meet the requirements before beginning.
+## <a name="prerequisites"></a>Предварительные требования
+Для создания гибридного конвейера CI/CD требуется несколько компонентов, а для подготовки может потребоваться некоторое время.  Если у вас уже есть некоторые из этих компонентов, перед началом убедитесь, что они отвечают требованиям.
 
-This topic also assumes that you have some knowledge of Azure and Azure Stack. If you want to learn more before proceeding, be sure to start with these topics:
+В этой статье также предполагается, что у вас есть определенный набор знаний об Azure и Azure Stack. Если вы хотите узнать больше, прежде чем продолжить, ознакомьтесь с такими статьями:
 
-- [Introduction to Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-- [Azure Stack Key Concepts](../azure-stack-key-features.md)
+- [Введение в Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure).
+- [Основные понятия Azure Stack](../azure-stack-key-features.md).
 
-### <a name="azure"></a>Azure
- - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
- - Create a [Web App](../../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md), and configure it for [FTP publishing](../../app-service/app-service-deploy-ftp.md).  Make note of the new Web App URL, as it is used later.
+### <a name="azure"></a>Таблицы Azure
+ - Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
+ - Создайте [веб-приложение](../../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md) и настройте его для [публикации по FTP](../../app-service/app-service-deploy-ftp.md).  Запишите новый URL-адрес веб-приложения, так как он будет использоваться позднее.
 
 
 ### <a name="azure-stack"></a>Azure Stack
- - [Deploy Azure Stack](../azure-stack-run-powershell-script.md).  The installation usually takes a few hours to complete, so plan accordingly.
- - Deploy [App Service](../azure-stack-app-service-deploy.md) PaaS services to Azure Stack.
- - Create a Web App and configure it for [FTP publishing](../azure-stack-app-service-enable-ftp.md).  Make note of the new Web App URL, as it is used later.  
+ - [Разверните Azure Stack](../azure-stack-run-powershell-script.md).  Обычно установка занимает несколько часов, поэтому планируйте ее соответствующим образом.
+ - Разверните службы PaaS [службы приложений](../azure-stack-app-service-deploy.md) в Azure Stack.
+ - Создайте веб-приложение и настройте его для [публикации по FTP](../azure-stack-app-service-enable-ftp.md).  Запишите новый URL-адрес веб-приложения, так как он будет использоваться позднее.  
 
-### <a name="developer-tools"></a>Developer tools
- - Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  The sign-up process creates a project named "MyFirstProject."  
- - [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
- - Connect to the project and [clone locally](https://www.visualstudio.com/docs/git/gitquickstart).
- - Create an [agent pool](https://www.visualstudio.com/docs/build/concepts/agents/pools-queues#creating-agent-pools-and-queues) in VSTS.
- - Install Visual Studio and deploy a [VSTS build agent](https://www.visualstudio.com/docs/build/actions/agents/v2-windows) to a virtual machine on Azure Stack. 
+### <a name="developer-tools"></a>Инструменты для разработчиков
+ - Создайте [рабочую область VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  Во время процесса регистрации создается проект с именем MyFirstProject.  
+ - [Установите Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) и [войдите в VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio).
+ - Подключитесь к проекту и [локально клонируйте](https://www.visualstudio.com/docs/git/gitquickstart) его.
+ - Создайте [пул агентов](https://www.visualstudio.com/docs/build/concepts/agents/pools-queues#creating-agent-pools-and-queues) в VSTS.
+ - Установите Visual Studio и разверните [агент сборки VSTS](https://www.visualstudio.com/docs/build/actions/agents/v2-windows) на виртуальную машину в Azure Stack. 
  
 
-## <a name="create-app--push-to-vsts"></a>Create app & push to VSTS
+## <a name="create-app--push-to-vsts"></a>Создание приложения и отправка его в VSTS
 
-### <a name="create-application"></a>Create application
-In this section, you create a simple ASP.NET application and push it to VSTS.  These steps represent the normal developer workflow, and could be adapted for developer tools and languages. 
+### <a name="create-application"></a>Создание приложения
+В этом разделе создается простое приложение ASP.NET, которое затем отправляется в VSTS.  Эти шаги представляют обычный рабочий процесс разработчики, который может быть адаптирован для средств и языков разработки. 
 
-1.  Open Visual Studio.
-2.  From the Team Explorer space and **Solutions...** area, click **New**.
-3.  Select **Visual C#** > **Web** > **ASP.NET Web Application (.NET Framework)**.
-4.  Provide a name for the application and click **OK**.
-5.  On the next screen, keep the defaults (Web forms) and click **OK**.
+1.  Откройте Visual Studio.
+2.  В Team Explorer в области **Решения...** щелкните **Создать**.
+3.  Выберите **Visual C#** > **Интернет** > **Веб-приложение ASP.NET (.NET Framework)**.
+4.  Укажите имя приложения и нажмите кнопку **ОК**.
+5.  На следующем экране оставьте значения по умолчанию (веб-формы), а затем нажмите кнопку **ОК**.
 
-### <a name="commit-and-push-changes-to-vsts"></a>Commit and push changes to VSTS
-1.  Using Team Explorer in Visual Studio, select the dropdown and click **Changes**.
-2.  Provide a commit message and select **Commit all**. You may be prompted to save the solution file, click yes to save all.
-3.  Once committed, Visual Studio offers to sync changes to your project. Select **Sync**.
+### <a name="commit-and-push-changes-to-vsts"></a>Фиксирование и отправка изменений в VSTS
+1.  С помощью Team Explorer в Visual Studio выберите раскрывающийся список и щелкните **Изменения**.
+2.  Введите сообщение о фиксации и выберите **Зафиксировать все**. Вам будет предложено сохранить файл решения, щелкните "Да", чтобы сохранить все.
+3.  После фиксации Visual Studio предлагает синхронизировать изменения в проект. Выберите **Синхронизация**.
 
-    ![image showing the commit screen once commit is completed](./media/azure-stack-solution-pipeline/image1.png)
+    ![Изображение, где показан экран фиксации после фиксации](./media/azure-stack-solution-pipeline/image1.png)
 
-4.  In the synchronization tab, under *Outgoing*, you see your new commit.  Select **Push** to synchronize the change to VSTS.
+4.  На вкладке "Синхронизация" в разделе *исходящих фиксаций* вы увидите новые фиксации.  Выберите **Отправить** для синхронизации изменений в VSTS.
 
-    ![image showing sync steps](./media/azure-stack-solution-pipeline/image2.png)
+    ![Изображение, отображающее шаги синхронизации](./media/azure-stack-solution-pipeline/image2.png)
 
-### <a name="review-code-in-vsts"></a>Review code in VSTS
-Once you've committed a change and pushed to VSTS, check your code from the VSTS portal.  Select **Code**, and then **Files** from the dropdown menu.  You can see the solution you created.
+### <a name="review-code-in-vsts"></a>Проверка кода в VSTS
+После фиксации изменения и отправки в VSTS проверьте код на портале VSTS.  Выберите **Код**, а затем в раскрывающемся меню щелкните **Файлы**.  Вы увидите созданное решение.
 
-## <a name="create-build-definition"></a>Create build definition
-The build process defines how your application is built and packaged for deployment on each commit of code changes. In our example, we use the included template to configure the build process for an ASP.NET app, though this configuration could be adapted depending on your application.
+## <a name="create-build-definition"></a>Создание определения сборки
+Процесс сборки определяет, как приложение создается и упаковывается для развертывания при каждой фиксации изменений кода. В нашем примере используется включенный шаблон для настройки процесса сборки приложения ASP.NET, хотя эту конфигурацию можно адаптировать в зависимости от приложения.
 
-1.  Sign in to your VSTS workspace from a web browser.
-2.  From the banner, select **Build & Release**  and then **Builds**.
-3.  Click **+ New definition**.
-4.  From the list of templates, select **ASP.NET (Preview)** and select **Apply**.
-5.  Modify the *MSBuild Arguments* field in *Build Solution* step to:
+1.  Войдите в рабочую область VSTS в веб-браузере.
+2.  В баннере выберите **Build & Release** (Сборка и выпуск), а затем — **Сборки**.
+3.  Выберите **+ Новое определение**.
+4.  В списке шаблонов выберите **ASP.NET (предварительная версия)**, а затем **Применить**.
+5.  На шаге *Построить решение* измените поле *Аргументы MSBuild*:
 
     `/p:DeployOnBuild=True /p:WebPublishMethod=FileSystem /p:DeployDefaultTarget=WebPublish /p:publishUrl="$(build.artifactstagingdirectory)\\"`
 
-6.  Select the **Options** tab, and select the agent queue for the build agent you deployed to a virtual machine on Azure Stack. 
-7.  Select the **Triggers** tab, and enable **Continuous Integration**.
-7.  Click **Save & queue** and then select **Save** from the dropdown. 
+6.  Выберите вкладку **Параметры**, а затем выберите очередь агента для агента сборки, развернутого на виртуальной машине в Azure Stack. 
+7.  Выберите вкладку **Триггеры** и включите **Непрерывная интеграция**.
+7.  Щелкните **Сохранить и поместить в очередь**, а затем в раскрывающемся списке выберите **Сохранить**. 
 
-## <a name="create-release-definition"></a>Create release definition
-The release process defines how builds from the previous step are deployed to an environment.  In this tutorial, we publish our ASP.NET app with FTP to an Azure Web App. To configure a release to Azure, use the following steps:
+## <a name="create-release-definition"></a>Создание определения выпуска
+Процесс выпуска определяет, как сборки из предыдущего шага развертываются в среде.  В этом руководстве мы публикуем приложение ASP.NET с помощью FTP в веб-приложение Azure. Чтобы настроить выпуск в Azure, сделайте следующее:
 
-1.  From the VSTS banner, select **Build & Release**  and then **Releases**.
-2.  Click the green **+ New definition**.
-3.  Select **Empty** and click **Next**.
-4.  Check the box for *Continuous deployment*, and then click **Create**.
+1.  В баннере VSTS выберите **Build & Release** (Сборка и выпуск), а затем — **Выпуски**.
+2.  Щелкните зеленую кнопку **+ Новое определение**.
+3.  Выберите **Пусто** и нажмите кнопку **Далее**.
+4.  Установите флажок *Непрерывное развертывание* и щелкните **Создать**.
 
-Now that you've created an empty release definition and tied it to the build, we add steps for the Azure environment:
+Теперь, когда вы создали пустое определение выпуска и связали его со сборкой, добавьте шаги для среды Azure:
 
-1.  Click the green **+** to add tasks.
-2.  Select **All**, and then from the list, add **FTP Upload** and select **Close**.
-3.  Select the **FTP Upload** task you just added, and configure the following parameters:
+1.  Нажмите зеленую кнопку **+**, чтобы добавить задачи.
+2.  Выберите **Все**, а затем из списка добавьте **Отправка по FTP** и выберите **Закрыть**.
+3.  Выберите задание **Отправка по FTP**, которое было только что добавлено, и настройте следующие параметры:
     
-    | Parameter | Value |
+    | Параметр | Значение |
     | ----- | ----- |
-    |Authentication Method| Enter Credentials|
-    |Server URL | Web App FTP URL retrieved from Azure portal |
-    |Username | Username you configured when creating FTP Credentials for Web App |
-    |Password | Password you created when establishing FTP credentials for Web App|
-    |Source Directory | $(System.DefaultWorkingDirectory)\**\ |
-    |Remote Directory | /site/wwwroot/ |
-    |Preserve file paths | Enabled (checked)|
+    |Метод проверки подлинности| Введите учетные данные.|
+    |URL-адрес сервера | URL-адрес FTP веб-приложения, полученный с портала Azure. |
+    |Имя пользователя | Имя пользователя, настроенное при создании учетных данных FTP для веб-приложения. |
+    |Пароль | Пароль, созданный при установке учетных данных FTP для веб-приложения.|
+    |Исходный каталог | $(System.DefaultWorkingDirectory)\**\ |
+    |Удаленный каталог | /site/wwwroot/ |
+    |Сохранять пути к файлам | Включено (флажок установлен).|
 
-4.  Click **Save**
+4.  Нажмите кнопку **Сохранить**
 
-Finally, you configure the release definition to use the agent pool containing the agent deployed using the following steps:
-1.  Select the release definition and click **Edit**.
-2.  Select **Run on agent** from the middle column.  In the right column, select the agent queue containing the build agent running on Azure Stack.  
-    ![image showing configuration of release definition to use specific queue](./media/azure-stack-solution-pipeline/image3.png)
-
-
-## <a name="deploy-your-app-to-azure"></a>Deploy your app to Azure
-This step uses your newly built CI/CD pipeline to deploy the ASP.NET app to a Web App on Azure. 
-
-1.  From the banner in VSTS, select **Build & Release**, and then select **Builds**.
-2.  Click **...** on the build definition previously created, and select **Queue new build**.
-3.  Accept the defaults and click **Ok**.  The build begins and displays progress.
-4.  Once the build is complete, you can track the status by selecting **Build & Release** and selecting **Releases**.
-5.  After the build is complete, visit the website using the URL noted when creating the Web App.    
+Наконец, настройте определение выпуска для использования пула агентов, содержащего развернутый агент, выполнив следующие действия:
+1.  Выберите определение выпуска и нажмите кнопку **Изменить**.
+2.  Выберите **Выполнение в агенте** в центральном столбце.  В столбце справа выберите очередь агента, содержащую агент сборки, выполняющийся в Azure Stack.  
+    ![Изображение, отображающее конфигурацию определения выпуска для использования конкретной очереди](./media/azure-stack-solution-pipeline/image3.png)
 
 
-## <a name="add-azure-stack-to-pipeline"></a>Add Azure Stack to pipeline
-Now that you've tested your CI/CD pipeline by deploying to Azure, it's time to add Azure Stack to the pipeline.  In the following steps, you create a new environment and add an FTP Upload task to deploy your app to Azure Stack.  You also add a release approver, which serves as a way to simulate "signing off" on a code release to Azure Stack.  
+## <a name="deploy-your-app-to-azure"></a>Развертывание приложения в Azure
+На этом шаге используется созданный конвейер CI/CD для развертывания приложения ASP.NET в веб-приложение в Azure. 
 
-1.  In the Release definition, select **+ Add Environment** and **Create new environment**.
-2.  Select **Empty**, click **Next**.
-3.  Select **Specific users** and specify your account.  Select **Create**.
-4.  Rename the environment by selecting the existing name and typing *Azure Stack*.
-5.  Now, selection the Azure Stack environment, then select **Add tasks**.
-6.  Select the **FTP Upload** task and select **Add**, then select **Close**.
+1.  В баннере в VSTS выберите **Build & Release** (Сборка и выпуск), а затем — **Сборки**.
+2.  Щелкните **...** в ранее созданном определении сборки и выберите **Поставить новую сборку в очередь**.
+3.  Примите значения по умолчанию и нажмите кнопку **ОК**.  Сборка начинается, и отображается прогресс.
+4.  После завершения сборки можно отслеживать состояние, выбрав **Build & Release** (Сборка и выпуск), а затем — **Выпуски**.
+5.  После завершения сборки посетите веб-сайт, используя URL-адрес, записанный при создании веб-приложения.    
 
 
-### <a name="configure-ftp-task"></a>Configure FTP task
-Now that you've created a release, you'll configure the steps required for publishing to the Web App on Azure Stack.  Just like you configured the FTP Upload task for Azure, you configure the task for Azure Stack:
+## <a name="add-azure-stack-to-pipeline"></a>Добавление Azure Stack в конвейер
+Теперь, когда вы протестировали конвейер CI/CD, выполнив развертывание в Azure, пришло время добавить Azure Stack в конвейер.  На следующих шагах создается новая среда и добавляется задание отправки по FTP для развертывания приложения в Azure Stack.  Также добавляется подтверждение выпуска, которое служит способом имитации выхода в выпуске кода в Azure Stack.  
 
-1.  Select the **FTP Upload** task you just added, and configure the following parameters:
+1.  В определении выпуска выберите **+Добавить окружение** и **Создать среду**.
+2.  Выберите **Пусто** и нажмите кнопку **Далее**.
+3.  Выберите **Конкретные пользователи** и укажите учетную запись.  Нажмите кнопку **Создать**.
+4.  Переименуйте среду, выбрав имеющееся имя и введя *Azure Stack*.
+5.  Теперь выделите среду Azure Stack, а затем выберите **Добавить задачи**.
+6.  Выберите задачу **Отправка по FTP**, а затем щелкните **Добавить** и **Закрыть**.
+
+
+### <a name="configure-ftp-task"></a>Настройка задачи FTP
+После создания выпуска нужно настроить шаги, необходимые для публикации в веб-приложении в Azure Stack.  Настройте задачу для Azure Stack также, как была настроена задача отправки по FTP в Azure:
+
+1.  Выберите задание **Отправка по FTP**, которое было только что добавлено, и настройте следующие параметры:
     
-    | Parameter | Value |
+    | Параметр | Значение |
     | -----     | ----- |
-    |Authentication Method| Enter Credentials|
-    |Server URL | Web App FTP URL retrieved from Azure Stack portal |
-    |Username | Username you configured when creating FTP Credentials for Web App |
-    |Password | Password you created when establishing FTP credentials for Web App|
-    |Source Directory | $(System.DefaultWorkingDirectory)\**\ |
-    |Remote Directory | /site/wwwroot/|
-    |Preserve file paths | Enabled (checked)|
+    |Метод проверки подлинности| Введите учетные данные.|
+    |URL-адрес сервера | URL-адрес FTP веб-приложения, полученный с портала Azure Stack. |
+    |Имя пользователя | Имя пользователя, настроенное при создании учетных данных FTP для веб-приложения. |
+    |Пароль | Пароль, созданный при установке учетных данных FTP для веб-приложения.|
+    |Исходный каталог | $(System.DefaultWorkingDirectory)\**\ |
+    |Удаленный каталог | /site/wwwroot/|
+    |Сохранять пути к файлам | Включено (флажок установлен).|
 
-2.  Click **Save**
+2.  Нажмите кнопку **Сохранить**
 
-Finally, configure the release definition to use the agent pool containing the agent deployed using the following steps:
-1.  Select the release definition and click **Edit**
-2.  Select **Run on agent** from the middle column. In the right column, select the agent queue containing the build agent running on Azure Stack.  
-    ![image showing configuration of release definition to use specific queue](./media/azure-stack-solution-pipeline/image3.png)
+Наконец, настройте определение выпуска для использования пула агентов, содержащего развернутый агент, выполнив следующие действия:
+1.  Выберите определение выпуска и нажмите кнопку **Изменить**.
+2.  Выберите **Выполнение в агенте** в центральном столбце. В столбце справа выберите очередь агента, содержащую агент сборки, выполняющийся в Azure Stack.  
+    ![Изображение, отображающее конфигурацию определения выпуска для использования конкретной очереди](./media/azure-stack-solution-pipeline/image3.png)
 
-## <a name="deploy-new-code"></a>Deploy new code
-You can now test the hybrid CI/CD pipeline, with the final step publishing to Azure Stack.  In this section, you modify the site's footer and start deployment through the pipeline.  Once complete, you will see your changes deployed to Azure for review, then once you approve the release, they are published to Azure Stack.
+## <a name="deploy-new-code"></a>Развертывание нового кода
+Теперь можно протестировать конвейер CI/CD, выполнив последний шаг — публикацию в Azure Stack.  В этом разделе изменяется нижний колонтитул сайта и запускается развертывание по конвейеру.  Затем изменения будут развернуты в Azure для проверки. После утверждения выпуска они будут опубликованы в Azure Stack.
 
-1. In Visual Studio, open the *site.master* file and change this line:
+1. В Visual Studio откройте файл *site.master* и измените следующую строку:
     
     `
         <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
     `
 
-    to this:
+    на такой:
 
     `
         <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application delivered by VSTS, Azure, and Azure Stack</p>
     `
-3.  Commit the changes and sync to VSTS.  
-4.  From the VSTS workspace, check the build status by selecting **Build & Release** > **Build**
-5.  You will see a build in progress.  Double-click the status, and you can watch the build progress.  Once you see "Finished build" in the console, move on to check the release from **Build & Release** > **Release**.  Double-click the release.
-6.  You will receive notification that a release requires review. Check the Web App URL and verify the new changes are present.  Approve the release in VSTS.
-    ![image showing configuration of release definition to use specific queue](./media/azure-stack-solution-pipeline/image4.png)
+3.  Зафиксируйте изменения и выполните синхронизацию с VSTS.  
+4.  В рабочей области VSTS проверьте состояние сборки, выбрав **Build & Release** (Сборка и выпуск) > **Сборка**.
+5.  Вы увидите выполнение сборки.  Дважды щелкните состояние, чтобы отслеживать ход выполнения сборки.  После появления в консоли сообщения "Готовая сборка" перейдите к проверке выпуска в разделе **Build & Release** (Сборка и выпуск) > **Выпуск**.  Дважды щелкните выпуск.
+6.  Появится уведомление о том, что выпуск необходимо проверить. Проверьте URL-адрес веб-приложения и убедитесь, что новые изменения присутствуют.  Утвердите выпуск в VSTS.
+    ![Изображение, отображающее конфигурацию определения выпуска для использования конкретной очереди](./media/azure-stack-solution-pipeline/image4.png)
     
-7.  Verify publishing to Azure Stack is complete by visiting the website using the URL noted when creating the Web App.
-    ![image showing ASP.NEt app with footer changed](./media/azure-stack-solution-pipeline/image5.png)
+7.  Убедитесь, что публикация в Azure Stack завершена, посетив веб-сайт, используя URL-адрес, указанный при создании веб-приложения.
+    ![Изображение, показывающее приложение ASP.NET с измененным нижним колонтитулом](./media/azure-stack-solution-pipeline/image5.png)
 
 
-You can now use your new hybrid CI/CD pipeline as a building block for other hybrid cloud patterns.
+Теперь новый гибридный конвейер CI/CD можно использовать в качестве строительного блока для других шаблонов гибридных облаков.
 
-## <a name="next-steps"></a>Next steps
-In this tutorial, you learned how to build a hybrid CI/CD pipeline that:
+## <a name="next-steps"></a>Дальнейшие действия
+Из этого руководства вы узнали, как создавать гибридные конвейеры CI/CD, которые:
 
 > [!div class="checklist"]
-> * Initiates a new build based on code commits to your Visual Studio Team Services (VSTS) repository.
-> * Automatically deploys your newly built code to Azure for user acceptance testing.
-> * Once your code has passed testing, automatically deploys to Azure Stack. 
+> * запускают новую сборку на основе зафиксированного кода из репозитория Visual Studio Team Services (VSTS);
+> * автоматически развертывают созданный код в Azure для пользовательского приемочного тестирования;
+> * после тестирования кода автоматически развертывают его в Azure Stack. 
 
-Now that you have a hybrid CI/CD pipeline, continue by learning how to develop apps for Azure Stack.
+Теперь, когда у вас есть гибридный конвейер CI/CD, вы можете изучить разработку приложений для Azure Stack.
 
 > [!div class="nextstepaction"]
-> [Develop for Azure Stack](azure-stack-developer.md)
-
+> [Разработка для Azure Stack](azure-stack-developer.md)
 
 

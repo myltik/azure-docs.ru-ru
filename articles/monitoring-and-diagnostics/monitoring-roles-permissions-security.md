@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 10/09/2017
 ms.author: johnkem
+ms.openlocfilehash: 31c4fc5b606bf96cec8c508f4a0ff7ecbaeae38a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: a28f971ae898ffdd1168550a909f2a48e1b3b652
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/07/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Приступая к работе с ролями, разрешениями и системой безопасности с помощью Azure Monitor
 Многим командам необходимо строго регулировать доступ к данным и параметрам мониторинга. Например, если какие-либо участники команды работают исключительно с мониторингом (инженеры службы поддержки, инженеры по разработке и операциям) или вы пользуетесь услугами поставщика управляемых служб, то может потребоваться предоставить им доступ только к данным мониторинга, ограничив возможности для создания, изменения или удаления ресурсов. В этой статье показано, как быстро применить к пользователю в Azure встроенные роли RBAC для мониторинга или создать собственную настраиваемую роль для пользователя, которому нужен ограниченный набор разрешений для мониторинга. Далее в статье рассматриваются вопросы безопасности ресурсов, связанных с Azure Monitor, и способы ограничения доступа к данным, которые они содержат.
@@ -75,15 +74,23 @@ ms.lasthandoff: 08/07/2017
 
 | Операция | Описание |
 | --- | --- |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Чтение, запись и удаление правила генерации оповещений. |
+| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Чтение, запись и удаление групп действий. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Чтение, запись и удаление оповещений журнала действий. |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Чтение, запись и удаление правил генерации оповещений (оповещений на основе метрик). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Вывод списка инцидентов (журнала активации правила генерации оповещений) для правила генерации оповещений. Это относится только к порталу. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Чтение, запись и удаление параметров автомасштабирования. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Чтение, запись и удаление параметров диагностики. |
+| Microsoft.Insights/EventCategories/Read |Перечисление всех возможных категорий в журнале действий. Используется на портале Azure. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Это разрешение необходимо пользователям, которым требуется доступ к журналам действия на портале. |
 | Microsoft.Insights/eventtypes/values/Read |Вывод списка событий журнала действий (событий управления) в подписке. Это разрешение применяется для доступа к журналу действий посредством кода или портала. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Чтение, запись и удаление параметров диагностики для журналов сетевого потока. |
 | Microsoft.Insights/LogDefinitions/Read |Это разрешение необходимо пользователям, которым требуется доступ к журналам действия на портале. |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Чтение, запись и удаление профилей журналов (потоковая передача журнала действий в концентратор событий или учетную запись хранения). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Чтение, запись и удаление оповещений на основе метрик практически в реальном времени (общедоступная версия). |
 | Microsoft.Insights/MetricDefinitions/Read |Чтение определений метрик (вывод списка доступных типов метрик для ресурса). |
 | Microsoft.Insights/Metrics/Read |Чтение метрик для ресурса. |
+| Microsoft.Insights/Register/Action |Регистрация поставщика ресурсов Azure Monitor. |
+
 
 > [!NOTE]
 > Для доступа к оповещениям, параметрам диагностики и метрикам для ресурса пользователь должен иметь доступ на чтение к типу этого ресурса и его области применения. Для создания ("записи") параметра диагностики или профиля журнала, который архивирует данные в учетную запись хранения или передает их в потоковом режиме в концентраторы событий, у пользователя должно быть также разрешение ListKeys для целевого ресурса.
@@ -170,5 +177,4 @@ New-AzureRmRoleDefinition -Role $role
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Прочитайте о RBAC и разрешениях в Resource Manager](../active-directory/role-based-access-control-what-is.md)
 * [Прочитайте общие сведения о мониторинге в Azure](monitoring-overview.md)
-
 

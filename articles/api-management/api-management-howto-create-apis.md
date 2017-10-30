@@ -3,7 +3,7 @@ title: "Как создавать интерфейсы API в Azure API Manageme
 description: "Сведения о создании и настройке API в службе управления API Azure."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 14c20da4-f29f-4b28-bec7-3d4c50b734da
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: ab08256fbc3caca05bf23a12016ad2acf4fc7412
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79630fb8998d47aab8eed38daf7d5fcef3d870d7
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>Как создавать интерфейсы API в Azure API Management
 API в API Management представляет набор операций, которые могут быть вызваны клиентскими приложениями. Новые интерфейсы API создаются на портале издателя, после чего добавляются требуемые операции. После добавления операций интерфейс API добавляется к продукту и может быть опубликован. После публикации API на него могут подписаться разработчики для дальнейшего использования.

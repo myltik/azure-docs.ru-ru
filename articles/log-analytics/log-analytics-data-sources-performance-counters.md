@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte
-ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Источники данных о производительности Windows и Linux в Log Analytics
 Счетчики производительности в Windows и Linux позволяют получить представление о производительности компонентов оборудования, операционных систем и приложений.  Log Analytics может собирать счетчики производительности с высокой частотой для анализа данных практически в режиме реального времени, а также данные о производительности для более долгосрочного анализа и формирования отчетов.
@@ -207,23 +207,6 @@ ms.lasthandoff: 10/11/2017
 Ниже приведены различные примеры запросов поиска по журналу, которые извлекают записи о производительности.
 
 | Запрос | Описание |
-|:--- |:--- |
-| Type=Perf |Все данные о производительности. |
-| Type=Perf Computer="MyComputer" |Все данные о производительности с определенного компьютера |
-| Type=Perf CounterName="Current Disk Queue Length" |Все данные о производительности с определенного счетчика |
-| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=_Total &#124; measure Avg(Average) as AVGCPU by Computer |Средний объем использования ЦП на всех компьютерах |
-| Type=Perf (CounterName="% Processor Time") &#124; measure max(Max) by Computer |Максимальный объем использования ЦП на всех компьютерах |
-| Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName |Средняя длина текущей дисковой очереди по всем экземплярам заданного компьютера |
-| Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer |95-й процентиль для обращений к диску/с на всех компьютерах |
-| Type=Perf CounterName="% Processor Time" InstanceName="_Total" &#124; measure avg(CounterValue) by Computer Interval 1HOUR |Средняя почасовая нагрузка на ЦП по всем компьютерам |
-| Type=Perf Computer="MyComputer" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |Почасовые 70-е процентили по каждому процентному счетчику для конкретного компьютера |
-| Type=Perf CounterName="% Processor Time" InstanceName="_Total" (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Почасовые средние, минимальные, максимальные значения и 75-е процентили по загрузке ЦП для конкретного компьютера |
-| Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | Все данные производительности из объекта производительности базы данных master именованного экземпляра SQL Server (INST2).  
-
->[!NOTE]
-> Если для рабочей области обновлен [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
-
-> | Запрос | Описание |
 |:--- |:--- |
 | Perf |Все данные о производительности. |
 | Perf &#124; where Computer == "MyComputer" |Все данные о производительности с определенного компьютера |

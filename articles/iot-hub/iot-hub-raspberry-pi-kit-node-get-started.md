@@ -13,17 +13,15 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2017
+ms.date: 9/14/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 7bf423fd05d6651bf16693e6d6930fada8b5da70
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: f48c4bd27b1df1d02090ed51172f943e50c76c3e
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Подключение Raspberry Pi к Центру Интернета вещей Azure (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -39,8 +37,6 @@ ms.lasthandoff: 08/23/2017
 * Зарегистрируем устройство для Pi в Центре Интернета вещей.
 * Настроим Raspberry Pi.
 * Мы запустим пример приложения на Pi для отправки данных в Центр Интернета вещей.
-
-Подключим Raspberry Pi к созданному Центру Интернета вещей. Затем запустим пример приложения на Pi, чтобы собрать данные о температуре и влажности, полученные с датчика BME280. После этого отправим данные с датчика в Центр Интернета вещей.
 
 ## <a name="what-you-learn"></a>Что вы узнаете
 
@@ -71,30 +67,35 @@ ms.lasthandoff: 08/23/2017
 
 
 > [!NOTE] 
-Эти компоненты необязательны, поскольку пример кода поддерживает использование смоделированных данных датчиков.
+Если у вас нет дополнительных элементов, можно использовать имитацию датчиков.
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="setup-raspberry-pi"></a>Настройка Raspberry Pi
+## <a name="set-up-raspberry-pi"></a>Настройка Raspberry Pi
 
 ### <a name="install-the-raspbian-operating-system-for-pi"></a>Установка операционной системы Raspbian на Pi
 
 Подготовьте карту microSD для установки образа ОС Raspbian.
 
 1. Скачайте ОС Raspbian.
-   1. [Скачайте Raspbian Jessie with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (ZIP-файл).
+   1. [Скачайте Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (ZIP-файл).
+
+   > [!WARNING]
+   > Используйте ссылку выше, чтобы скачать ZIP-файл образа `raspbian-2017-07-5`. Последняя версия образа Raspbian имеет некоторые известные проблемы с Wiring-Pi Node, которые могут привести к сбою при выполнении дальнейших шагов.
    1. Извлеките образ ОС Raspbian в папку на компьютере.
+
 1. Установите ОС Raspbian на карту microSD.
    1. [Скачайте и установите служебную программу Etcher для записи данных на карты SD](https://etcher.io/).
    1. Запустите Etcher и выберите образ Raspbian, извлеченный на шаге 1.
-   1. Выберите устройство для чтения карт microSD. Обратите внимание, что в программе Etcher уже может быть выбрано правильное устройство для чтения.
+   1. Выберите устройство для чтения карт microSD. В программе Etcher уже может быть выбрано правильное устройство для чтения.
    1. Щелкните Flash (Переключиться), чтобы установить ОС Raspbian на карту microSD.
    1. По завершении установки удалите карту microSD из компьютера. Удалять карту microSD напрямую безопасно, так как программа Etcher автоматически извлекает или отключает карту microSD после завершения.
    1. Вставьте карту microSD в устройство Pi.
 
 ### <a name="enable-ssh-and-i2c"></a>Включение SSH и I2C
 
-1. Подключите Pi к монитору, клавиатуре и мыши, запустите Pi, а затем войдите в Raspbian, используя `pi` в качестве имени пользователя и `raspberry` в качестве пароля.
+1. Подключите Pi к монитору, клавиатуре и мыши. 
+1. Запустите Pi, а затем войдите в Raspbian, используя `pi` в качестве имени пользователя и `raspberry` в качестве пароля.
 1. Щелкните значок Raspberry и выберите **Preferences** (Параметры) > **Raspberry Pi Configuration** (Конфигурация Raspberry Pi).
 
    ![Меню параметров Raspbian](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
@@ -112,7 +113,7 @@ ms.lasthandoff: 08/23/2017
 
 ![Подключение Raspberry Pi и датчика](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
-Датчик BME280 может собирать данные о температуре и влажности. Светодиодный индикатор мигает при обмене данными между устройством и облаком. 
+Датчик BME280 может собирать данные о температуре и влажности. Светодиодный индикатор мигает, когда устройство отправляет сообщение в облако. 
 
 Чтобы подключить выводы датчика, используйте следующие кабели:
 
@@ -144,7 +145,7 @@ ms.lasthandoff: 08/23/2017
 
 ### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>Клонирование примера приложения и установка пакетов необходимых компонентов
 
-1. Используйте один из следующих SSH-клиентов для подключения к Raspberry Pi с главного компьютера.
+1. Используйте один из следующих SSH-клиентов для подключения к Raspberry Pi с главного компьютера:
    
    **Пользователи Windows**
    1. Скачайте и установите [PuTTY](http://www.putty.org/) для Windows. 
@@ -160,26 +161,26 @@ ms.lasthandoff: 08/23/2017
 
 1. Установите Node.js и NPM на устройстве Pi.
    
-   Сначала следует проверить версию Node.js с помощью следующей команды. 
+   Сначала проверьте версии Node.js. 
    
    ```bash
    node -v
    ```
 
-   Если версия меньше 4.x или на устройстве Pi отсутствует Node.js, выполните следующую команду для установки или обновления Node.js.
+   Если версия ниже, чем 4.x, или если платформа Node.js не установлена на Pi, установите последнюю версию.
 
    ```bash
    curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
-1. Создайте клон примера приложения, выполнив следующую команду:
+1. Клонируйте пример приложения.
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
    ```
 
-1. Установите все пакеты, в том числе пакет SDK для устройств Azure IoT, библиотеку датчика BME280 и библиотеку Wiring Pi, выполнив следующую команду:
+1. Установите все пакеты для примера, в том числе пакет SDK для устройств Azure IoT, библиотеку датчика BME280 и библиотеку Wiring Pi.
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
@@ -198,11 +199,11 @@ ms.lasthandoff: 08/23/2017
 
    ![Файл конфигурации](media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
 
-   В этом файле можно настроить два элемента. Первый из них — `interval`. Он определяет время (в миллисекундах) между отправкой двух сообщений в облако. Второй — `simulatedData`, который представляет собой логическое значение, определяющее, будут ли использоваться смоделированные данные датчика.
+   В этом файле можно настроить два элемента. Первый — `interval`. Он определяет время (в миллисекундах) между отправкой двух сообщений в облако. Второй — `simulatedData`. Он представляет логическое значение, определяющее, будут ли использоваться смоделированные данные датчика.
 
    Если у вас **нет датчика**, задайте для параметра `simulatedData` значение `true`, чтобы пример приложения создал и использовал смоделированные данные датчика.
 
-1. Сохраните изменения и закройте окно, нажав клавиши Control-O > ВВОД > Control-X.
+1. Сохраните изменения и закройте окно, нажав клавиши CTRL+O > ВВОД > CTRL+X.
 
 ### <a name="run-the-sample-application"></a>Запуск примера приложения
 
@@ -222,7 +223,6 @@ ms.lasthandoff: 08/23/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей. Сведения о том, как просматривать сообщения, отправляемые устройством Raspberry Pi в Центр Интернета вещей, а также как отправлять сообщения на устройство Raspberry Pi в интерфейсе командной строки, см. в руководстве по [управлению обменом сообщениями между облаком и устройством с помощью обозревателя Центра Интернета вещей](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей. Сведения о том, как просматривать сообщения, отправляемые устройством Raspberry Pi в Центр Интернета вещей, а также как отправлять сообщения на устройство Raspberry Pi в интерфейсе командной строки, см. в руководстве по [управлению обменом сообщениями между облаком и устройством с помощью обозревателя Центра Интернета вещей](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

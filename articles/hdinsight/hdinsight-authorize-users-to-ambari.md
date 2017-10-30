@@ -1,0 +1,150 @@
+---
+title: "Разрешение пользователям доступа к Ambari Views: Azure HDInsight | Документация Майкрософт"
+description: "Как управлять разрешениями пользователей и групп Ambari для кластеров HDInsight, присоединенных к домену."
+services: hdinsight
+documentationcenter: 
+tags: azure-portal
+author: maxluk
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 
+ms.service: hdinsight
+ms.custom: hdinsightactive
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2017
+ms.author: maxluk
+ms.openlocfilehash: ad9aa6aee0a9f6407da6e9f45df71f8feb8b1500
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
+---
+# <a name="authorize-users-for-ambari-views"></a>Разрешение пользователям доступа к Ambari Views
+
+[Кластеры HDInsight, присоединенные к домену](hdinsight-domain-joined-introduction.md), обеспечивают возможности корпоративного уровня, включая аутентификацию на основе Azure Active Directory. Вы можете синхронизировать новых пользователей.
+<!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Currently, working with users, groups, and permissions in Ambari is only supported when using a domain-joined HDInsight cluster.
+
+Пользователи Active Directory могут входить на узлы кластера с использованием своих учетных данных домена. Кроме того, эти учетные данные можно использовать для аутентификации в других утвержденных конечных точках, например Hue, Ambari Views, ODBC, JDBC, PowerShell и интерфейсах REST API.
+
+> [!WARNING]
+> Не изменяйте пароль модуля наблюдения Ambari (hdinsightwatchdog) в кластере HDInsight под управлением Linux. Это не позволит выполнять действия сценария или операции масштабирования в кластере.
+
+Если вы этого еще не сделали, выполните [эти инструкции](hdinsight-domain-joined-configure.md), чтобы подготовить новый кластер, присоединенный к домену.
+
+## <a name="access-the-ambari-management-page"></a>Переход на страницу управления Ambari
+
+Чтобы открыть **страницу управления Ambari** в [пользовательском веб-интерфейсе Ambari](hdinsight-hadoop-manage-ambari.md), перейдите по адресу **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Введите имя пользователя и пароль администратора кластера, определенные при создании кластера. Затем на панели мониторинга Ambari выберите **Manage Ambari** (Управление Ambari) в меню **admin** (Администрирование).
+
+![Управление Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
+
+## <a name="grant-permissions-to-hive-views"></a>Предоставление разрешений для представлений Hive
+
+В Ambari доступны экземпляры представлений для Hive и Tez, среди прочих. Чтобы предоставить доступ к одному или нескольким экземплярам представлений Hive, перейдите на **страницу управления Ambari**.
+
+1. На странице управления щелкните ссылку **Views** (Представления) под заголовком меню **Views** (Представления) в левой части экрана.
+
+    ![Ссылка "Views" (Представления)](./media/hdinsight-authorize-users-to-ambari/views-link.png)
+
+2. На странице "Views" (Представления) разверните строку **HIVE**. При добавлении службы Hive в кластер создается представление по умолчанию Hive. При необходимости можно также создать дополнительные экземпляры представлений Hive. Выберите представление Hive.
+
+    ![Представление Hive на странице "Views" (Представления)](./media/hdinsight-authorize-users-to-ambari/views-hive-view.png)
+
+3. Прокрутите страницу "Views" (Представления) вниз. В разделе *Permissions* (Разрешения) доступно два параметра для предоставления разрешений на представление пользователям домена:
+
+**Grant permission to these users** ![Grant permission to these users](./media/hdinsight-authorize-users-to-ambari/add-user-to-view.png) (Предоставить разрешение данным пользователям)
+
+**Grant permission to these groups** ![Grant permission to these groups](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png) (Предоставить разрешение данным группам)
+
+4. Чтобы добавить пользователя, нажмите кнопку **Add User** (Добавить пользователя).
+
+    * Начните вводить имя пользователя, и вы увидите раскрывающийся список ранее определенных имен.
+
+    ![Автозаполнение имени пользователя](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+
+    * Выберите имя пользователя из списка или завершите его ввод. Чтобы добавить нового пользователя с этим именем, нажмите кнопку **New** (Создать).
+
+    * Чтобы сохранить изменения, щелкните **синий флажок**.
+
+    ![Пользователь введен](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+
+5. Чтобы добавить группу, нажмите кнопку **Add Group** (Добавить группу).
+
+    * Начните вводить имя группы. Процедура выбора существующего имени группы или добавления новой группы выполняется так же, как и добавление пользователей.
+    * Чтобы сохранить изменения, щелкните **синий флажок**.
+
+    ![Группа введена](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+
+Непосредственное добавление пользователей для представления удобно, когда пользователю нужно назначить разрешения для использования этого представления, но вы не хотите добавлять его в группу, имеющую дополнительные разрешения. Чтобы уменьшить объем административных операций, может оказаться проще назначать разрешения группам.
+
+## <a name="grant-permissions-to-tez-views"></a>Предоставление разрешений для представлений Tez
+
+С помощью экземпляров представлений Tez пользователи могут отслеживать и отлаживать все задания Tez, отправляемые запросами Hive и сценариями Pig. Доступен один экземпляр представления по умолчанию Tez, создаваемый при подготовке кластера.
+
+Чтобы назначить пользователей и группы для экземпляра представления Tez, разверните строку **TEZ** на странице "Views" (Представления), как было описано выше.
+
+![Представление Tez на странице "Views" (Представления)](./media/hdinsight-authorize-users-to-ambari/views-tez-view.png)
+
+Чтобы добавить пользователей или группы, повторите шаги 3–5 из предыдущего раздела.
+
+## <a name="assign-users-to-roles"></a>Назначение пользователей ролям
+
+Существуют пять ролей безопасности для пользователей и групп, которые приведены ниже в порядке убывания уровня разрешений на доступ:
+
+* администратор кластера;
+* оператор кластера;
+* администратора служб;
+* оператор службы;
+* пользователь кластера.
+
+Для управления ролями перейдите на **страницу управления Ambari**, а затем щелкните ссылку **Roles** (Роли) в группе меню *Clusters* (Кластеры) в левой части экрана.
+
+![Ссылка "Roles" (Роли) в меню](./media/hdinsight-authorize-users-to-ambari/roles-link.png)
+
+Чтобы просмотреть список разрешений, предоставляемых каждой роли, щелкните синий вопросительный знак рядом с заголовком таблицы **Roles** (Роли) на странице "Roles" (Роли).
+
+![Ссылка "Roles" (Роли) в меню](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
+
+На этой странице размещены два разных представления, которые можно использовать для управления ролями пользователей и групп: "Block" (Блок) и "List" (Список).
+
+### <a name="block-view"></a>Представление "Block" (Блок)
+
+Представление "Block" (Блок) отображает каждую роль в отдельной строке, а также содержит параметры **Assign roles to these users** (Назначить роли этим пользователям) и **Assign roles to these groups** (Назначить роли этим группам), как описано выше.
+
+![Представление "Block" (Блок) ролей](./media/hdinsight-authorize-users-to-ambari/roles-block-view.png)
+
+### <a name="list-view"></a>Представление "List" (Список)
+
+Представление "List" (Список) предоставляет возможности быстрого редактирования в двух категориях: "Users" (Пользователи) и "Groups" (Группы).
+
+* В категории "Users" (Пользователи) представления "List" (Список) отображается список всех пользователей, в котором из раскрывающегося списка можно выбрать роль для каждого пользователя.
+
+    ![Категория "Users" (Пользователи) представления "List" (Список)](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
+
+* Категория "Groups" (Группы) представления "List" (Список) содержит все группы, а также роли, назначенные каждой группе. В нашем примере список групп синхронизирован с группами Azure AD, указанными в свойстве **Access user group** (Группа доступа пользователей) параметров домена кластера. Ознакомьтесь с разделом [Создание кластера HDInsight](hdinsight-domain-joined-configure.md#create-hdinsight-cluster).
+
+    ![Категория "Groups" (Группы) представления "List" (Список)](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
+
+    На приведенном выше рисунке группе hiveusers назначена роль *Cluster User* (Пользователь кластера). Это роль только для чтения, которая позволяет пользователям в группе просматривать, но не изменять конфигурации службы и метрики кластера.
+
+## <a name="log-in-to-ambari-as-a-view-only-user"></a>Вход в Ambari от имени пользователя с доступом только к представлениям
+
+Мы назначили пользователю домена Azure AD hiveuser1 разрешения для представлений Hive и Tez. После запуска пользовательского веб-интерфейса Ambari и ввода учетных данных домена пользователя (имя пользователя Azure AD в формате электронного адреса и пароль) выполняется перенаправление на страницу Ambari Views. Здесь пользователь сможет выбрать любое доступное представление. Пользователь не может посетить какую-либо другую часть сайта, включая страницы панели мониторинга, служб, узлов, предупреждений или администрирования.
+
+![Пользователь с доступом только к представлениям](./media/hdinsight-authorize-users-to-ambari/user-views-only.png)
+
+## <a name="log-in-to-ambari-as-a-cluster-user"></a>Вход в Ambari от имени пользователя кластера
+
+Мы назначили пользователю домена Azure AD hiveuser2 роль *Cluster User* (Пользователь кластера). Эта роль предоставляет доступ к панели мониторинга и всем пунктам меню. Пользователю кластера доступно меньше параметров, чем администратору. Например, пользователь hiveuser2 может просмотреть конфигурации для каждой из служб, но не может их изменить.
+
+![Пользователь с ролью "Cluster User" (Пользователь кластера)](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+* [Настройка политик Hive в присоединенном к домену кластере HDInsight](hdinsight-domain-joined-run-hive.md)
+* [Управление присоединенными к домену кластерами HDInsight](hdinsight-domain-joined-manage.md)
+* [Использование представления Hive с Hadoop в HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+
+<!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->

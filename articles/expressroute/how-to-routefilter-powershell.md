@@ -3,8 +3,8 @@ title: "Настройка фильтров маршрутов для пирин
 description: "В этой статье описывается, как настраивать фильтры маршрутов для пиринга Майкрософт с помощью PowerShell."
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
+author: ganesr
+manager: rossort
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2017
-ms.author: ganesr;cherylmc
+ms.date: 09/26/2017
+ms.author: ganesr
+ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: de3550c20439fa809869d98b8a57ea3be9c03e7c
-ms.contentlocale: ru-ru
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="configure-route-filters-for-microsoft-peering"></a>Настройка фильтров маршрутов для пиринга Майкрософт
+# <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Настройка фильтров маршрутов для пиринга Майкрософт с помощью PowerShell
+> [!div class="op_single_selector"]
+> * [Портал Azure](how-to-routefilter-portal.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
+> * [Интерфейс командной строки Azure](how-to-routefilter-cli.md)
+> 
 
 Фильтры маршрутов — это способ использовать подмножество поддерживаемых служб через пиринг Майкрософт. Действия, описанные в этой статье, помогут настроить фильтры маршрутов для каналов ExpressRoute и управлять ими.
 
-Службы Dynamics 365 и службы Office 365, такие как Exchange Online, SharePoint Online и Skype для бизнеса, доступны через пиринг Майкрософт. При настройке пиринга Майкрософт в канале ExpressRoute все префиксы, которые относятся к этим службам, объявляются через установленные сеансы BGP. Значение сообщества BGP подключается к каждому префиксу для идентификации службы, предлагаемой через него. Список значений сообщества BGP и служб, с которыми они сопоставляются, см. в разделе [Поддержка сообществ BGP](expressroute-routing.md#bgp).
+Службы Dynamics 365 и службы Office 365, такие как Exchange Online, SharePoint Online и Skype для бизнеса, а также службы Azure, такие как служба хранилища и база данных SQL, доступны через пиринг Майкрософт. При настройке пиринга Майкрософт в канале ExpressRoute все префиксы, которые относятся к этим службам, объявляются через установленные сеансы BGP. Значение сообщества BGP подключается к каждому префиксу для идентификации службы, предлагаемой через него. Список значений сообщества BGP и служб, с которыми они сопоставляются, см. в разделе [Поддержка сообществ BGP](expressroute-routing.md#bgp).
 
 Если требуется подключение ко всем службам, большое число префиксов объявляется через BGP. Это значительно увеличивает размер таблиц маршрутов, которые обслуживают маршрутизаторы в вашей сети. Если вы планируете использовать только подмножество служб, предлагаемых через пиринг Майкрософт, размер таблиц маршрутизации можно уменьшить двумя способами. Вы можете:
 
@@ -100,7 +104,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="prefixes"></a>Шаг 1. Получение списка префиксов и значений сообщества BGP
+## <a name="prefixes"></a>Шаг 1. Получение списка префиксов и значений сообщества BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Получение списка значений сообщества BGP
 
@@ -113,7 +117,7 @@ Get-AzureRmBgpServiceCommunity
 
 Создайте список значений сообщества BGP, которые нужно использовать в фильтре маршрута. Например, значение сообщества BGP для службы Dynamics 365 — 12076:5040.
 
-## <a name="filter"></a>Шаг 2. Создание фильтра маршрута и правила фильтрации
+## <a name="filter"></a>Шаг 2. Создание фильтра маршрутов и правила фильтрации
 
 Фильтр может иметь только одно правило, и оно должно иметь тип "Разрешить". С этим правилом может быть связан список значений сообщества BGP.
 
@@ -125,7 +129,7 @@ Get-AzureRmBgpServiceCommunity
 New-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
 ```
 
-### <a name="2-create-a-filter-rule"></a>2) Создание правила фильтрации
+### <a name="2-create-a-filter-rule"></a>2. Создание правила фильтрации
 
 Можно указать набор сообществ BGP в виде разделенного запятыми списка, как показано в примере. Чтобы создать новое правило, выполните следующую команду:
  
@@ -143,7 +147,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>Шаг 3. Подключения фильтра маршрута к каналу ExpressRoute
+## <a name="attach"></a>Шаг 3. Подключение фильтра маршрутов к каналу ExpressRoute
 
 Чтобы подключить фильтр маршрутов к каналу ExpressRoute, выполните следующую команду, если вы установили только пиринг Майкрософт:
 
@@ -152,7 +156,9 @@ $ckt.Peerings[0].RouteFilter = $routefilter
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="getproperties"></a>Получение свойств фильтра маршрута
+## <a name="tasks"></a>Стандартные задачи
+
+### <a name="getproperties"></a>Получение свойств фильтра маршрута
 
 Чтобы получить свойства фильтра маршрута, выполните следующие действия:
 
@@ -168,7 +174,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   $rule = $routefilter.Rules[0]
   ```
 
-## <a name="updateproperties"></a>Обновление свойств фильтра маршрутов
+### <a name="updateproperties"></a>Обновление свойств фильтра маршрутов
 
 Если фильтр маршрутов уже подключен к каналу, обновления в списке сообщества BGP автоматически распространяют соответствующие изменения объявлений префикса через установленные сеансы BGP. Вы можете обновить список сообщества BGP вашего фильтра маршрута с помощью следующей команды:
 
@@ -178,7 +184,7 @@ $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="detach"></a>Отсоединение фильтра маршрутов от канала ExpressRoute
+### <a name="detach"></a>Отсоединение фильтра маршрутов от канала ExpressRoute
 
 Как только фильтр маршрутов отсоединяется от канала ExpressRoute, префиксы перестают объявляться через сеанс BGP. Фильтр маршрутов можно отсоединить от канала ExpressRoute с помощью следующей команды:
   
@@ -187,7 +193,7 @@ $ckt.Peerings[0].RouteFilter = $null
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="delete"></a>Удаление фильтра маршрутов
+### <a name="delete"></a>Удаление фильтра маршрутов
 
 Фильтр маршрутов можно удалить только, если он не подключен к каналу. Убедитесь, фильтр маршрутов не подключен к каналу, прежде чем пытаться удалить его. Фильтр маршрутов можно удалить, используя следующую команду:
 

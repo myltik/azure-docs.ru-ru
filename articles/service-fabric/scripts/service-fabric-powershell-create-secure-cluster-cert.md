@@ -1,5 +1,5 @@
 ---
-title: "Пример сценария Azure PowerShell — создание кластера Service Fabric | Документы Майкрософт"
+title: "Пример сценария Azure PowerShell. Создание кластера Service Fabric | Документы Майкрософт"
 description: "Пример сценария Azure PowerShell — создание кластера Service Fabric."
 services: service-fabric
 documentationcenter: 
@@ -12,17 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 06/20/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
 ms.custom: mvc
+ms.openlocfilehash: a6d44d810fa9f9a4660afbaa4cbb0af37c5e0d13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 7322570c90b3c83fc79d428a7ac0b57ecb2e4b75
-ms.contentlocale: ru-ru
-ms.lasthandoff: 07/15/2017
-
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-service-fabric-cluster"></a>Создание кластера Service Fabric
 
 В этом примере сценария создается кластер Service Fabric из пяти узлов, защищенный с помощью сертификата X.509.  Команда создает самозаверяющий сертификат и отправляет его в новое хранилище ключей. Сертификат также копируется в локальный каталог.  Укажите параметр *-OS* для выбора версии Windows или Linux, которая запущена на узлах кластера.  Измените параметры, если это необходимо.
@@ -31,7 +29,7 @@ ms.lasthandoff: 07/15/2017
 
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-powershell[главный](../../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Создание кластера Service Fabric")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания 
 
@@ -55,4 +53,3 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](/powershell/azure/overview).
 
 Дополнительные примеры сценариев Azure PowerShell для Azure Service Fabric см. в разделе [Примеры сценариев Azure PowerShell](../service-fabric-powershell-samples.md).
-

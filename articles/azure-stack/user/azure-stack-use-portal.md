@@ -1,6 +1,6 @@
 ---
-title: Using the Azure Stack portal | Microsoft Docs
-description: Learn how to access and use the user portal in Azure Stack.
+title: "Использование портала Azure Stack | Документация Майкрософт"
+description: "Узнайте, как открыть и использовать пользовательский портал Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,64 +14,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 63c270affca31d3db7e03116f5e287d8569b0dae
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="using-the-azure-stack-portal"></a>Using the Azure Stack portal
+# <a name="using-the-azure-stack-portal"></a>Использование портала Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-As a consumer of Azure Stack services, you can use the Azure Stack portal to subscribe to public offers, and use the services that are made available through those offers. If you’ve used the Azure portal before, you’re already familiar with the user interface.
+Как пользователь служб Azure Stack, вы можете с помощью портала Azure Stack подписаться на открытые предложения и использовать службы, которые предоставляются в составе этих предложений. Если вы уже работали с порталом Azure, пользовательский интерфейс будет вам знаком.
 
-## <a name="access-the-portal"></a>Access the portal
+## <a name="access-the-portal"></a>Доступ к порталу
 
-Your Azure Stack operator (either a service provider or an administrator in your organization), will let you know the correct URL to access the portal. 
+Оператор Azure Stack (поставщик службы или администратор в вашей организации) сообщит вам правильный URL-адрес для доступа к порталу. 
 
-- For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-- If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
+- В интегрированной системе URL-адрес зависит от региона оператора и внешнего доменного имени. Он будет иметь формат https://portal. &lt; *регион*&gt;.&lt;*полное_доменное_имя*&gt;.
+- При работе с пакетом SDK для Azure Stack портал находится по адресу https://portal.local.azurestack.external.
 
-![Screenshot of the Azure Stack user portal](media/azure-stack-use-portal/UserPortal.png)
+![Снимок экрана пользовательского портала Azure Stack](media/azure-stack-use-portal/UserPortal.png)
 
-## <a name="customize-the-dashboard"></a>Customize the dashboard
+## <a name="customize-the-dashboard"></a>Настройка панели мониторинга
 
-The dashboard contains a set of default tiles. You can click **Edit dashboard** to modify the default dashboard, or click **New dashboard** to add custom dashboards. You can easily add tiles to the dashboard. For example, you can click **New**, right-click **Compute**, and then click **Pin to dashboard**.
+Панель мониторинга содержит стандартный набор плиток. Вы можете **изменить панель мониторинга** или создать **панель мониторинга**. На панель мониторинга можно легко добавить дополнительные плитки. Например, щелкните **Добавить**, затем правой кнопкой мыши щелкните **Вычисления** и выберите в контекстном меню элемент **Закрепить на панели мониторинга**.
 
-## <a name="create-subscription-and-browse-available-resources"></a>Create subscription and browse available resources
+## <a name="create-subscription-and-browse-available-resources"></a>Создание подписки и просмотр доступных ресурсов
  
-If you don’t already have a subscription, the first thing you need to do is subscribe to an offer. After that, you can browse which resources are available to you. To browse and create resources, do any of the following:
+Если у вас еще нет подписки, сначала ее нужно получить, подписавшись на предложение. После этого вы сможете просматривать доступные ресурсы. Чтобы просматривать и создавать ресурсы, воспользуйтесь любым из следующих методов.
 
-- Click the **Marketplace** tile on the dashboard. 
-- On the **All resources** tile, click **Create resources**.
-- On the left navigation pane, click **New**.
+- Щелкните плитку **Marketplace** на панели мониторинга. 
+- На плитке **Все ресурсы** щелкните **Создать ресурсы**.
+- В левой панели навигации щелкните **Создать**.
 
-## <a name="learn-how-to-use-available-services"></a>Learn how to use available services
+## <a name="learn-how-to-use-available-services"></a>Узнайте, как использовать доступные службы
 
-If you need guidance for how to use available services, there may be different options available to you.
+Если вам нужны инструкции по использованию доступных ресурсов, их можно получить несколькими способами.
 
-- Your organization or service provider may provide their own documentation. This is especially true if they offer customized services or apps.
-- Third-party apps have their own documentation.
-- For Azure-consistent services, we strongly recommend that you first review the Azure Stack documentation. To access the Azure Stack user documentation, click the Help icon, and then click **Help + support**.
+- Возможно, ваша организация или поставщик услуг поддерживают собственную документацию. Это почти наверняка так, если они предлагают настраиваемые службы или приложения.
+- Приложения сторонних разработчиков также комплектуются документацией.
+- Для согласованных с Azure служб настоятельно рекомендуем изучить документацию по Azure Stack. Чтобы получить доступ к пользовательской документации Azure Stack, щелкните значок справки и выберите элемент **Справка и поддержка**.
  
-    ![Screenshot of the Help and support option in the UI](media/azure-stack-use-portal/HelpAndSupport.png)
+    ![Снимок экрана с открытым элементом "Справка и поддержка" в пользовательском интерфейсе](media/azure-stack-use-portal/HelpAndSupport.png)
 
-    In particular, we suggest that you review the following articles to get started:
+    Рекомендуем перед началом работы изучить следующие статьи.
 
-    - [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md)
-    - In the “Use services” section of the documentation, you’ll see each Azure-consistent service listed. There is a “considerations” topic for each service, which describes the deltas between the service offered in Azure, and the same service offered in Azure Stack. For an example, see [VM considerations](azure-stack-vm-considerations.md). There may be other information in the “Use services” section that’s unique to Azure Stack. 
+    - [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md) (Важные аспекты использования служб и создания приложений в Azure Stack)
+    - В разделе документации "Использование служб" вы найдете список всех служб, аналогичных службам Azure. Для каждой службы предлагается статья с "рекомендациями", в которой описаны различия между службой в Azure и ее аналогом в Azure Stack. Например, см. [статью с рекомендациями по виртуальным машинам](azure-stack-vm-considerations.md). Также в разделе "Использование служб" вы найдете дополнительные сведения, которые относятся исключительно к Azure Stack. 
      
-      You can use the Azure documentation as general reference for a service, but you must be aware of these differences. Understand that the documentation links on the **Quickstart tutorials** tile point to Azure documentation.
+      Документацию по Azure можно использовать как источник общих сведений о службе, но всегда нужно учитывать существующие различия. Не забывайте, что ссылки на документацию, размещенные на плитке **Краткие руководства**, ведут к документации по Azure.
 
-## <a name="get-support"></a>Get support
+## <a name="get-support"></a>Получение поддержки
 
-If you need additional support, please contact your organization or service provider for assistance. 
+Если вам нужна дополнительная помощь, обратитесь к поставщику услуг или ответственному лицу в вашей организации. 
 
-If you’re using the Azure Stack Development Kit, the [Azure Stack forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) is the only method of support.
+Если вы используете пакет SDK для Azure Stack, поддержку вы сможете получить только на [форуме по Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-[Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md)
-
+[Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md) (Важные аспекты использования служб и создания приложений в Azure Stack)

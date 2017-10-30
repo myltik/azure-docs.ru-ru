@@ -1,6 +1,6 @@
 ---
-title: Add users for Azure Stack ADFS | Microsoft Docs
-description: Learn how to add users for ADFS deployments of Azure Stack
+title: "Добавление пользователей для работы с ADFS в Azure Stack | Документация Майкрософт"
+description: "Сведения о добавлении пользователей для работы с развертываниями Azure Stack с помощью служб федерации Active Directory"
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -13,24 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2cad56caa182a9abdca02944000b1506953af3f4
-ms.contentlocale: ru-ru
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="add-users-in-the-azure-stack-development-kit"></a>Add users in the Azure Stack Development Kit
+# <a name="add-users-in-the-azure-stack-development-kit"></a>Добавление пользователей в пакет SDK для Azure Stack
 
-*Applies to: Azure Stack Development Kit*
+*Область применения: пакет SDK для Azure Stack*
 
-To add additional users to the Development Kit deployment, you must add them to the Azure Stack Development Kit directory using Microsoft Management Console from the Azure Stack host computer.
-1.  On the Azure Stack host computer, open Microsoft Management Console.
-2.  Click **File > Add or remove snap-in**.
-3.  Select **Active Directory Users and Computers** > **AzureStack.local** > **Users**.
-4.  Click **Action** > **New** > **User**.
-5.  In the New Object – User window, provide and confirm a password
-6.  Click **Next** to finalize the values and click Finish to create the user.
-
+Чтобы добавить дополнительных пользователей в среду развертывания пакета SDK, добавьте их в каталог пакета SDK для Azure Stack, используя консоль управления (MMC) на хост-компьютере Azure Stack.
+1.  Откройте консоль MMC на хост-компьютере Azure Stack.
+2.  Щелкните **Файл > Добавить или удалить оснастку**.
+3.  Выберите **Active Directory — пользователи и компьютеры** > **AzureStack.local** > **Пользователи**.
+4.  Щелкните **Действия** > **Создать** > **Пользователь**.
+5.  В окне "Новый объект — пользователь", укажите и подтвердите пароль.
+6.  Нажмите кнопку **Далее**, чтобы подтвердить значения, и кнопку "Готово", чтобы создать пользователя.
 
 
