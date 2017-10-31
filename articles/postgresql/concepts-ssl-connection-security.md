@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
-ms.openlocfilehash: 685aa4c2f75b7c3260ca737f7c786157480b2d90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa14d4d0115ecc5cf416918f6bdb0d29345e4f83
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Настройка SSL-соединения в базе данных Azure для PostgreSQL
 База данных Azure для PostgreSQL предпочитает подключать клиентские приложения к службе PostgreSQL с помощью SSL (Secure Sockets Layer). Применение SSL-соединений между сервером базы данных и клиентскими приложениями обеспечивает защиту от атак "злоумышленник в середине" за счет шифрования потока данных между сервером и приложением.
@@ -59,7 +59,7 @@ az postgres server update --resource-group myresourcegroup --name mypgserver-201
 #### <a name="for-linux-os-x-or-unix"></a>Для Linux, OS X или Unix
 Библиотеки OpenSSL предоставляются в виде исходного кода непосредственно от [OpenSSL Software Foundation](http://www.openssl.org). Приведенные ниже инструкции помогут вам установить OpenSSL на компьютер под управлением Linux. В этой статье используются команды, которые гарантированно поддерживают работу с Ubuntu 12.04 и более поздних версий.
 
-Откройте сеанс терминала и установите OpenSSL.
+Откройте сеанс терминала и скачайте OpenSSL.
 ```bash
 wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
 ``` 
@@ -113,7 +113,7 @@ OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.crt
 
 > [!NOTE]
 > Сейчас при подключении к службе с использованием sslmode=verify-full может возникать известная проблема, из-за которой происходит сбой подключения со следующей ошибкой: _server certificate for "&lt;region&gt;.control.database.windows.net" (and 7 other names) does not match host name "&lt;servername&gt;.postgres.database.azure.com"_ (Сертификат сервера для "Регион.control.database.windows.net" (и 7 других имен) не соответствует имени узла "Имя_узла.postgres.database.azure.com").
-> Если параметр sslmode=verify-full требуется, используйте соглашение об именовании серверов (**&lt;Имя_сервера&gt;.database.windows.net**) в качестве имени узла строки подключения. Мы планируем устранить это ограничение в будущем. Для подключений, использующих другие [режимы SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS), по прежнему используйте предпочитаемое соглашение об именовании узла (**&lt;Имя_узла&gt;.postgres.database.azure.com**).
+> Если требуется параметр sslmode=verify-full, используйте соглашение об именовании серверов (**&lt;Имя_сервера&gt;.database.windows.net**) в качестве имени узла строки подключения. Мы планируем устранить это ограничение в будущем. Для подключений, использующих другие [режимы SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS), по прежнему используйте предпочитаемое соглашение об именовании узла (**&lt;Имя_узла&gt;.postgres.database.azure.com**).
 
 #### <a name="using-psql-command-line-utility"></a>Использование служебной программы командной строки psql
 В следующем примере показано, как подключиться к серверу PostgreSQL с помощью служебной программы командной строки psql, используя созданный файл `root.crt` и параметр `sslmode=verify-ca` или `sslmode=verify-full`.

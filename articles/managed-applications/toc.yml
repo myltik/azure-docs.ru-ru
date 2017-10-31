@@ -1,0 +1,88 @@
+- name: Управляемые приложения Azure
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Сведения об управляемых приложениях Azure
+      href: overview.md
+- name: Быстрое начало работы
+  items:
+    - name: Создание управляемого приложения с помощью Azure CLI
+      href: managed-apps-quickstart-cli.md
+- name: Учебники
+  items:
+    - name: Создание приложения из каталога служб
+      href: publish-service-catalog-app.md
+    - name: Создание приложения для Marketplace
+      href: publish-marketplace-app.md
+- name: Примеры
+  items:
+    - name: Инфраструктура CLI Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+    - name: Решения для управляемых приложений
+      href: sample-projects.md
+- name: Практические руководства
+  items:
+    - name: Определение пользовательского интерфейса
+      href: create-uidefinition-overview.md
+    - name: Обновление управляемых ресурсов
+      href: update-managed-resources.md
+    - name: Публикация приложения из каталога служб с помощью портала
+      href: publish-portal.md
+- name: Справочные материалы
+  items:
+    - name: Инфраструктура CLI Azure
+      href: /cli/azure/managedapp
+    - name: PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: REST
+      href: /rest/api/resources/
+    - name: Функции пользовательского интерфейса
+      href: create-uidefinition-functions.md
+    - name: Элементы пользовательского интерфейса
+      href: create-uidefinition-elements.md
+      items:
+        - name: Common
+          items:
+            - name: DropDown
+              href: microsoft-common-dropdown.md
+            - name: FileUpload
+              href: microsoft-common-fileupload.md
+            - name: OptionsGroup
+              href: microsoft-common-optionsgroup.md
+            - name: PasswordBox
+              href: microsoft-common-passwordbox.md
+            - name: Раздел
+              href: microsoft-common-section.md
+            - name: TextBox
+              href: microsoft-common-textbox.md
+        - name: Среда выполнения приложений
+          items:
+            - name: CredentialsCombo
+              href: microsoft-compute-credentialscombo.md
+            - name: SizeSelector
+              href: microsoft-compute-sizeselector.md
+            - name: UserNameTextBox
+              href: microsoft-compute-usernametextbox.md
+        - name: Сеть
+          items:
+            - name: PublicIPAddressCombo
+              href: microsoft-network-publicipaddresscombo.md
+            - name: VirtualNetworkCombo
+              href: microsoft-network-virtualnetworkcombo.md
+        - name: Хранилище
+          items:
+            - name: MultiStorageAccountCombo
+              href: microsoft-storage-multistorageaccountcombo.md
+            - name: StorageAccountSelector
+              href: microsoft-storage-storageaccountselector.md
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'

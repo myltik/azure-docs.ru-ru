@@ -208,7 +208,7 @@
 #### [Управление подготовкой учетной записи пользователя](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Управление параметрами единого входа для корпоративных приложений](active-directory-enterprise-apps-manage-sso.md)
 #### [Расширенные параметры подписи сертификатов для приложений SAML](active-directory-enterprise-apps-advance-certificate-options.md)
-####[Скрытие сведений о работе пользователя в Azure Active Directory](active-directory-coreapps-hide-third-party-app.md)
+#### [Скрытие сторонних приложений в пользовательском интерфейсе](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)
 #### [Самостоятельный доступ к приложениям](active-directory-self-service-application-access.md)

@@ -3,7 +3,6 @@
 ## [Поставщики и типы ресурсов](resource-manager-supported-services.md)
 ## [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](resource-manager-deployment-model.md)
 ## [Корпоративный каркас Azure: рекомендуемая система управления подписками](resource-manager-subscription-governance.md)
-## [Обзор управляемых приложений Azure](managed-application-overview.md)
 
 # Начало работы
 ## [Создание и развертывание шаблона](resource-manager-create-first-template.md)
@@ -46,7 +45,7 @@
 ### Портал Azure
 #### [Развертывание ресурсов](resource-group-template-deploy-portal.md)
 #### [Экспорт шаблона](resource-manager-export-template.md)
-### [REST API](resource-group-template-deploy-rest.md)
+### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
 ### [Развертывание в нескольких группах ресурсов](resource-manager-cross-resource-group-deployment.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
@@ -60,6 +59,7 @@
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ### [Упорядочение подписок с помощью групп управления](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Примеры реализации корпоративного каркаса Azure](resource-manager-subscription-examples.md)
+### [Управляемые приложения](../managed-applications/overview.md)
 
 ## Контроль доступа
 ### Создание субъекта-службы
@@ -80,13 +80,6 @@
 #### [Хранилище](resource-manager-policy-storage.md)
 #### [Виртуальные машины Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Виртуальные машины Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-## Использование управляемых приложений
-### [Публикация приложения из каталога служб](managed-application-publishing.md)
-### [Использование приложения из каталога служб](managed-application-consumption.md)
-### [Публикация приложения из Marketplace](managed-application-author-marketplace.md)
-### [Использование приложения из Marketplace](managed-application-consume-marketplace.md)
-### [Создание определений пользовательского интерфейса](managed-application-createuidefinition-overview.md)
 
 ## Аудит
 ### [Просмотр журналов действий](resource-group-audit.md)
@@ -124,21 +117,6 @@
 ### [Числовые функции](resource-group-template-functions-numeric.md)
 ### [Функции для работы с ресурсами](resource-group-template-functions-resource.md)
 ### [Строковые функции](resource-group-template-functions-string.md)
-## [Функции определения пользовательского интерфейса](managed-application-createuidefinition-functions.md)
-## [Элементы CreateUiDefinition](managed-application-createuidefinition-elements.md)
-### [Элемент пользовательского интерфейса Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
-### [Элемент пользовательского интерфейса Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
-### [Элемент пользовательского интерфейса Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
-### [Элемент пользовательского интерфейса Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
-### [Элемент пользовательского интерфейса Microsoft.Common.Section](managed-application-microsoft-common-section.md)
-### [Элемент пользовательского интерфейса Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
-### [Элемент пользовательского интерфейса Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
-### [Элемент пользовательского интерфейса Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
-### [Элемент пользовательского интерфейса Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
-### [Элемент пользовательского интерфейса Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
-### [Элемент пользовательского интерфейса Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
-### [Элемент пользовательского интерфейса Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
-### [Элемент пользовательского интерфейса Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Интерфейс командной строки Azure](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

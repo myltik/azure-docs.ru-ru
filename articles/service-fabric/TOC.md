@@ -358,6 +358,7 @@
 ## [API Java](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
+## [Схема XML для модели службы](service-fabric-service-model-schema.md)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
