@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c7cb5353585373af8de0d30b06bcfa49a3278c17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cee283268057a407003a38f8db5af8cac151439f
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>Создание пользовательского образа виртуальной машины Azure с помощью PowerShell
 
@@ -98,7 +98,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Создание виртуальных машин из образа
 
-Теперь, когда образ готов, из него можно создать одну или несколько виртуальных машин. Создание виртуальной машины из образа очень похоже на создание виртуальной машины с помощью образа Marketplace. При использовании образа Marketplace требуются сведения об образе, его поставщике, предложении, номере SKU и версии. В случае пользовательского образа необходимо просто указать идентификатор его ресурса. 
+Теперь, когда образ готов, из него можно создать одну или несколько виртуальных машин. Создание виртуальной машины из образа очень похоже на создание виртуальной машины с помощью образа Marketplace. При использовании образа Marketplace требуется указать сведения об образе, его поставщике, предложении, номере SKU и версии. В случае пользовательского образа необходимо просто указать идентификатор его ресурса. 
 
 В следующем сценарии создается переменная *$image* для сохранения сведений о пользовательском образе с помощью командлета [Get-AzureRmImage](/powershell/module/azurerm.compute/get-azurermimage), затем выполняется командлет [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) и указывается идентификатор с помощью только что созданной переменной *$image*. 
 
