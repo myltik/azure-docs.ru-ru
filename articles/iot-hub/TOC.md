@@ -86,6 +86,7 @@
 ### Передача файлов с устройств
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### Приступая к работе с двойниками устройств
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-getstarted.md)

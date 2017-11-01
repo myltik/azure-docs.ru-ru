@@ -15,7 +15,7 @@
       href: container-registry-get-started-powershell.md
 - name: Учебники
   items:
-    - name: Георепликация
+    - name: Георепликация (предварительная версия)
       items:
         - name: 1. Подготовка реестра контейнеров
           href: container-registry-tutorial-prepare-registry.md
