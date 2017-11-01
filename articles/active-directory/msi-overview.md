@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 10/17/2017
 ms.author: skwan
-ms.openlocfilehash: 3974c3b0e22e95b8dd4a07a923fbbfc2fe7f8961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Управляемое удостоверение службы (MSI) для ресурсов Azure
 
@@ -51,11 +51,14 @@ ms.lasthandoff: 10/11/2017
 | Из ресурса, поддерживающего MSI | Сценарий для ознакомления |
 | ------- | -------- |
 | Виртуальная машина Azure (Windows) | [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-arm.md) |
-|                    | [Получение доступа к службе хранилища Azure с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Получение доступа к службе хранилища Azure с ключом доступа при помощи управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Получение доступа к службе хранилища Azure с SAS при помощи управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-storage-sas.md) |
+|                    | [Получение доступа к Azure SQL с помощью управляемого удостоверения службы виртуальной машины Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Windows и Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
 | Виртуальная машина Azure (Linux)   | [Получение доступа к Azure Resource Manager с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-arm.md) |
-|                    | [Получение доступа к службе хранилища Azure с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-storage.md) |
-|                    | [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-nonaad.md) |
+|                    | [Получение доступа к службе хранилища Azure с ключом доступа при помощи управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Получение доступа к службе хранилища Azure с SAS при помощи управляемого удостоверения службы виртуальной машины Linux](msi-tutorial-linux-vm-access-storage-sas.md) |
+|                    | [Получение доступа к ресурсу, размещенному не в Azure AD, с помощью управляемого удостоверения службы виртуальной машины Linux и Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Служба приложений Azure  | [Использование управляемого удостоверения службы со службой приложений Azure или службой "Функции Azure"](/azure/app-service/app-service-managed-service-identity) |
 | функции Azure;     | [Использование управляемого удостоверения службы со службой приложений Azure или службой "Функции Azure"](/azure/app-service/app-service-managed-service-identity) |
 
@@ -82,6 +85,7 @@ ms.lasthandoff: 10/11/2017
 | Диспетчер ресурсов Azure | https://management.azure.com/ | Доступна | Сентябрь 2017 г. | [Портал Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Интерфейс командной строки Azure](msi-howto-assign-access-CLI.md) |
 | Хранилище ключей Azure | https://vault.azure.net/ | Доступна | Сентябрь 2017 г. | |
 | Озеро данных Azure | https://datalake.azure.net/ | Доступна | Сентябрь 2017 г. | |
+| Azure SQL | https://database.windows.net/ | Доступна | Октябрь 2017 г. | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Сколько стоит использование управляемого удостоверения службы?
 

@@ -1,6 +1,6 @@
 ---
 title: "Настройка параметров безопасности для службы разбиения и объединения | Документация Майкрософт"
-description: "Настройка сертификатов x409 для шифрования"
+description: "Настройка сертификатов x409 для шифрования с помощью службы разделения или слияния для гибкого масштабирования."
 metakeywords: Elastic Database certificates security
 services: sql-database
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 7e6ccf51a4b75eef16a7df5c1a1018954af8e5dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ffd0f1ab8694a0397dceca5dfabbe7a9bdd9a387
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="split-merge-security-configuration"></a>Настройка параметров безопасности для службы разделения и объединения
 Для использования службы разделения и объединения необходимо правильно настроить параметры безопасности. Эта служба является частью компонента эластичного масштабирования базы данных Microsoft Azure SQL. Дополнительные сведения см. в [руководстве по эластичному масштабированию службы разбиения и объединения](sql-database-elastic-scale-configure-deploy-split-and-merge.md).

@@ -10,28 +10,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 10/13/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e423ee6818c50775aa604891951c7ded2a84eb3
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Приступая к работе с аутентификацией на основе сертификата в Azure Active Directory
 
-Аутентификация на основе сертификата позволяет Azure Active Directory выполнять аутентификацию с помощью сертификата клиента на устройстве Windows, Android или iOS при подключении учетной записи Exchange Online к: 
+Аутентификация на основе сертификата позволяет Azure Active Directory выполнять аутентификацию с помощью сертификата клиента на устройстве Windows, Android или iOS при подключении учетной записи Exchange Online к:
 
-- мобильным приложениям Office, таким как Microsoft Outlook и Microsoft Word;   
+- мобильным приложениям Microsoft, таким как Microsoft Outlook и Microsoft Word;   
 
-- клиентам Exchange ActiveSync (EAS). 
+- клиентам Exchange ActiveSync (EAS).
 
-Настройка данной функции избавляет от необходимости ввода имени пользователя и пароля в определенных почтовых клиентах и приложениях Microsoft Office на мобильных устройствах. 
+Настройка данной функции избавляет от необходимости ввода имени пользователя и пароля в определенных почтовых клиентах и приложениях Microsoft Office на мобильных устройствах.
 
 В этой статье:
 
-- Показано, как настроить и использовать аутентификацию на основе сертификата для пользователей клиентов в тарифных планах Office 365 корпоративный, бизнес, для образования и для государственных организаций США. В тарифных планах Office 365 China, US Government Defense и US Government Federal доступна предварительная версия этой функции. 
+- Показано, как настроить и использовать аутентификацию на основе сертификата для пользователей клиентов в тарифных планах Office 365 корпоративный, бизнес, для образования и для государственных организаций США. В тарифных планах Office 365 China, US Government Defense и US Government Federal доступна предварительная версия этой функции.
 
 - Предполагается, что у вас уже настроены [инфраструктура открытых ключей (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) и [AD FS](connect/active-directory-aadconnectfed-whatis.md).    
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 Для настройки аутентификации на основе сертификата должны выполняться следующие условия:  
 
-- Аутентификация на основе сертификата (CBA) поддерживается только для браузерных приложений и собственных клиентов в федеративных средах, использующих современную аутентификацию (ADAL). Единственным исключением является решение Exchange Active (EAS) для EXO, которое можно использовать для федеративных и управляемых учетных записей. 
+- Аутентификация на основе сертификата (CBA) поддерживается только для браузерных приложений и собственных клиентов в федеративных средах, использующих современную аутентификацию (ADAL). Единственным исключением является решение Exchange Active (EAS) для EXO, которое можно использовать для федеративных и управляемых учетных записей.
 
 - Корневой центр сертификации и все промежуточные центры сертификации должны быть настроены в Azure Active Directory.  
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
 При выборе платформы устройства для начала необходимо ознакомиться со следующими сведениями:
 
-- Поддержка мобильных приложений Office 
+- Поддержка мобильных приложений Office
 - Особые требования к реализации  
 
 Эта информация доступна для следующих платформ устройств:
@@ -70,87 +70,87 @@ ms.lasthandoff: 10/11/2017
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
 
-## <a name="step-2-configure-the-certificate-authorities"></a>Шаг 2. Настройка центров сертификации 
+## <a name="step-2-configure-the-certificate-authorities"></a>Шаг 2. Настройка центров сертификации
 
-Чтобы настроить в Azure Active Directory центры сертификации, для каждого центра сертификации отправьте следующие данные: 
+Чтобы настроить в Azure Active Directory центры сертификации, для каждого центра сертификации отправьте следующие данные:
 
-* открытую часть сертификата в формате *CER* ; 
+* открытую часть сертификата в формате *CER* ;
 * URL-адреса для Интернета, где находятся списки отзыва сертификатов (CRL).
 
-Схема для центра сертификации выглядит следующим образом: 
+Схема для центра сертификации выглядит следующим образом:
 
-    class TrustedCAsForPasswordlessAuth 
-    { 
+    class TrustedCAsForPasswordlessAuth
+    {
        CertificateAuthorityInformation[] certificateAuthorities;    
-    } 
+    }
 
-    class CertificateAuthorityInformation 
+    class CertificateAuthorityInformation
 
-    { 
-        CertAuthorityType authorityType; 
-        X509Certificate trustedCertificate; 
-        string crlDistributionPoint; 
-        string deltaCrlDistributionPoint; 
-        string trustedIssuer; 
-        string trustedIssuerSKI; 
+    {
+        CertAuthorityType authorityType;
+        X509Certificate trustedCertificate;
+        string crlDistributionPoint;
+        string deltaCrlDistributionPoint;
+        string trustedIssuer;
+        string trustedIssuerSKI;
     }                
 
-    enum CertAuthorityType 
-    { 
-        RootAuthority = 0, 
-        IntermediateAuthority = 1 
-    } 
+    enum CertAuthorityType
+    {
+        RootAuthority = 0,
+        IntermediateAuthority = 1
+    }
 
 Для настройки можно использовать [Azure Active Directory PowerShell версии 2](/powershell/azure/install-adv2?view=azureadps-2.0):  
 
-1. Запустите Windows PowerShell с правами администратора. 
+1. Запустите Windows PowerShell с правами администратора.
 2. Установите модуль Azure AD. Необходимо установить версию [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) или более позднюю.  
-   
-        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 
-В качестве первого шага настройки необходимо установить подключение к клиенту. Как только установлено подключение к клиенту, вы можете просмотреть, добавить, удалить или изменить доверенные центры сертификации, определенные в каталоге. 
+        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+
+В качестве первого шага настройки необходимо установить подключение к клиенту. Как только установлено подключение к клиенту, вы можете просмотреть, добавить, удалить или изменить доверенные центры сертификации, определенные в каталоге.
 
 ### <a name="connect"></a>Подключение
 
 Чтобы установить подключение к клиенту, используйте командлет [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
-    Connect-AzureAD 
+    Connect-AzureAD
 
 
-### <a name="retrieve"></a>Получение 
+### <a name="retrieve"></a>Получение
 
-Чтобы получить доверенные центры сертификации, определенные в каталоге, используйте командлет [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0): 
+Чтобы получить доверенные центры сертификации, определенные в каталоге, используйте командлет [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
-    Get-AzureADTrustedCertificateAuthority 
- 
+    Get-AzureADTrustedCertificateAuthority
+
 
 ### <a name="add"></a>Добавить
 
-Чтобы создать доверенный центр сертификации, используйте командлет [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) и задайте правильное значение атрибута **crlDistributionPoint**. 
-   
-    $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
-    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
-    $new_ca.AuthorityType=0 
-    $new_ca.TrustedCertificate=$cert 
+Чтобы создать доверенный центр сертификации, используйте командлет [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) и задайте правильное значение атрибута **crlDistributionPoint**.
+
+    $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
+    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
+    $new_ca.AuthorityType=0
+    $new_ca.TrustedCertificate=$cert
     $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
-    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
+    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
 
 ### <a name="remove"></a>Удалить
 
 Чтобы удалить доверенный центр сертификации, используйте командлет [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
-   
-    $c=Get-AzureADTrustedCertificateAuthority 
-    Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
+
+    $c=Get-AzureADTrustedCertificateAuthority
+    Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
 
 
 ### <a name="modfiy"></a>Изменение
 
 Чтобы изменить доверенный центр сертификации, используйте командлет [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
-    $c=Get-AzureADTrustedCertificateAuthority 
-    $c[0].AuthorityType=1 
-    Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
+    $c=Get-AzureADTrustedCertificateAuthority
+    $c[0].AuthorityType=1
+    Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
 
 ## <a name="step-3-configure-revocation"></a>Шаг 3. Настройка отзыва
@@ -161,25 +161,25 @@ ms.lasthandoff: 10/11/2017
 
 Чтобы отзыв оставался в силе, для свойства **Дата вступления в силу** списка отзыва сертификатов необходимо указать дату, которая наступит после даты, заданной в поле **StsRefreshTokenValidFrom**, а также убедиться, что этот сертификат есть в списке отзыва сертификатов.
 
-Ниже описан процесс обновления и аннулирования маркера авторизации с помощью поля **StsRefreshTokenValidFrom** . 
+Ниже описан процесс обновления и аннулирования маркера авторизации с помощью поля **StsRefreshTokenValidFrom** .
 
-**Чтобы настроить отзыв сертификата, выполните следующие действия:** 
+**Чтобы настроить отзыв сертификата, выполните следующие действия:**
 
-1. Используя учетные данные администратора, подключитесь к службе MSOL: 
-   
-        $msolcred = get-credential 
-        connect-msolservice -credential $msolcred 
+1. Используя учетные данные администратора, подключитесь к службе MSOL:
 
-2. Получите текущее значение StsRefreshTokensValidFrom для пользователя: 
-   
-        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-        $user.StsRefreshTokensValidFrom 
+        $msolcred = get-credential
+        connect-msolservice -credential $msolcred
 
-3. Настройте новое значение StsRefreshTokensValidFrom для пользователя, равное текущей метке времени: 
-   
+2. Получите текущее значение StsRefreshTokensValidFrom для пользователя:
+
+        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
+        $user.StsRefreshTokensValidFrom
+
+3. Настройте новое значение StsRefreshTokensValidFrom для пользователя, равное текущей метке времени:
+
         Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
-Задаваемая дата должна быть в будущем. Если дата не в будущем, свойство **StsRefreshTokensValidFrom** не будет задано. Если дата в будущем, для **StsRefreshTokensValidFrom** задается актуальное время (не дата, указанная командой Set-MsolUser). 
+Задаваемая дата должна быть в будущем. Если дата не в будущем, свойство **StsRefreshTokensValidFrom** не будет задано. Если дата в будущем, для **StsRefreshTokensValidFrom** задается актуальное время (не дата, указанная командой Set-MsolUser).
 
 
 ## <a name="step-4-test-your-configuration"></a>Шаг 4. Тестирование конфигурации
@@ -196,21 +196,21 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="testing-office-mobile-applications"></a>Тестирование мобильных приложений Office
 
-**Чтобы протестировать аутентификацию на основе сертификата в мобильном приложении Office, выполните следующие действия:** 
+**Чтобы протестировать аутентификацию на основе сертификата в мобильном приложении Office, выполните следующие действия:**
 
 1. На тестируемом устройстве установите мобильное приложение Office (например, OneDrive).
-3. Запустите приложение. 
-4. Введите имя пользователя, а затем выберите сертификат пользователя, который хотите использовать. 
+3. Запустите приложение.
+4. Введите имя пользователя, а затем выберите сертификат пользователя, который хотите использовать.
 
-Вы должны без проблем войти в систему. 
+Вы должны без проблем войти в систему.
 
 ### <a name="testing-exchange-activesync-client-applications"></a>Тестирование клиентских приложений Exchange ActiveSync
 
-Для доступа к Exchange ActiveSync (EAS) с использованием аутентификации на основе сертификата приложению должен быть доступен профиль EAS, содержащий сертификат клиента. 
+Для доступа к Exchange ActiveSync (EAS) с использованием аутентификации на основе сертификата приложению должен быть доступен профиль EAS, содержащий сертификат клиента.
 
 В профиле EAS должны содержаться следующие сведения:
 
-- сертификат пользователя, который будет использоваться для аутентификации; 
+- сертификат пользователя, который будет использоваться для аутентификации;
 
 - конечная точка EAS (например, outlook.office365.com).
 
@@ -221,5 +221,4 @@ ms.lasthandoff: 10/11/2017
 **Чтобы протестировать аутентификацию на основе сертификата, выполните следующие действия:**  
 
 1. Настройте профиль EAS в приложении, удовлетворяющем изложенным выше требованиям.  
-2. Откройте приложение и убедитесь, что почта синхронизируется. 
-
+2. Откройте приложение и убедитесь, что почта синхронизируется.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 675f5b31eb60a75e060a397f01777e427c068c64
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Обновление сертификатов федерации для Office 365 и Azure AD
 ## <a name="overview"></a>Обзор
@@ -158,9 +158,18 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 > [!NOTE]
 > Если требуется поддержка нескольких доменов верхнего уровня, например contoso.com и fabrikam.com, то необходимо использовать параметр **SupportMultipleDomain** с любыми командлетами. Дополнительные сведения см. в статье [Поддержка нескольких доменов для федерации с Azure AD](active-directory-aadconnect-multiple-domains.md).
 >
->
+
 
 ## Восстановление доверия Azure AD с помощью Azure AD Connect <a name="connectrenew"></a>
 Если вы настроили ферму AD FS и доверие Azure AD, используя Azure AD Connect, то с помощью Azure AD Connect можно определить, нужно ли выполнять какие-либо действия с сертификатами для подписи маркеров. Если требуется обновить сертификаты, используйте Azure AD Connect.
 
 Дополнительные сведения см. в разделе [Восстановление доверия](active-directory-aadconnect-federation-management.md).
+
+## <a name="ad-fs-and-azure-ad-certificate-update-steps"></a>Действия по обновлению сертификата в AD FS и Azure AD
+Сертификаты для подписи маркеров — это стандартные сертификаты X509, которые используются для безопасного подписания всех маркеров, издаваемых сервером федерации. Сертификаты для расшифровки маркеров — это стандартные сертификаты X509, которые используются для расшифровки любых входящих маркеров. 
+
+По умолчанию в AD FS автоматически создаются сертификаты для подписи и расшифровки маркеров, когда выполняется начальная настройка и приближается дата окончания срока действия.
+
+За 30 дней до истечения срока действия текущего сертификата в Azure AD выполняется попытка получить новый сертификат из метаданных службы федерации. Если новый сертификат в этот момент недоступен, Azure AD будет постоянно отслеживать метаданные с интервалом в сутки. Когда новый сертификат станет доступен в метаданных, параметры федерации домена обновятся с учетом данных нового сертификата. Вы можете воспользоваться командой `Get-MsolDomainFederationSettings`, чтобы проверить наличие нового сертификата в NextSigningCertificate / SigningCertificate.
+
+Дополнительные сведения о сертификатах для подписи маркеров в AD FS см. в статье [Obtain and Configure TS and TD Certificates for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs) (Получение и настройка сертификатов для подписи и расшифровки маркеров для AD FS).

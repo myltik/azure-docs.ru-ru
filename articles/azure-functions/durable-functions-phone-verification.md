@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1dacbc59704d16451a5268c0aa4df2ab4e5b3112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Участие пользователя в устойчивых функциях. Пример проверки номера телефона
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 > [!WARNING]
 > Если таймеры вам больше не нужны, как показано в примере выше, когда принимается ответ на запрос, [отключите их с помощью CancellationTokenSource](durable-functions-timers.md).
 
-## <a name="sending-the-sms-message"></a>Отправка SMS-сообщения
+## <a name="send-the-sms-message"></a>Отправка SMS-сообщения
 
 Функция **E4_SendSmsChallenge** использует привязку Twilio для отправки SMS-сообщения с 4-значным кодом пользователю. Файл *function.json* выглядит следующим образом:
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 
 Функция **E4_SendSmsChallenge** вызывается только один раз, даже когда процесс завершается сбоем или воспроизводится повторно. Это удобно, так как пользователь не должен получать несколько SMS-сообщений. Возвращаемое значение `challengeCode` автоматически сохраняется, поэтому функция оркестратора всегда знает правильный код.
 
-## <a name="running-the-sample"></a>Выполнение примера
+## <a name="run-the-sample"></a>Запуск примера
 
 С помощью функций, активируемых по HTTP (перечисленных в примере), можно запустить оркестрацию, отправив следующий запрос HTTP POST.
 
@@ -152,10 +152,6 @@ Content-Length: 145
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2017-06-29T19:20:49Z","lastUpdatedTime":"2017-06-29T19:22:23Z"}
 ```
 
-## <a name="wrapping-up"></a>Резюме
-
-Теперь у вас есть представление о некоторых дополнительных возможностях устойчивых функций, в частности `WaitForExternalEvent` и `CreateTimer`. Вы узнали, как их можно использовать совместно с `Task.WaitAny`, чтобы реализовать надежную систему времени ожидания, которая часто полезна для взаимодействия с реальными людьми.
-
 ## <a name="visual-studio-sample-code"></a>Пример кода для Visual Studio
 
 Пример описанной оркестрации, реализованной в одном файле C# в проекте Visual Studio:
@@ -164,6 +160,7 @@ Content-Length: 145
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-> [!div class="nextstepaction"]
-> [Узнайте больше о привязках устойчивых функций](durable-functions-bindings.md)
+В этом примере показаны некоторые расширенные возможности устойчивых функций, в частности `WaitForExternalEvent` и `CreateTimer`. Вы узнали, как их можно использовать совместно с `Task.WaitAny`, чтобы реализовать надежную систему времени ожидания, которая часто полезна для взаимодействия с реальными людьми. Дополнительные сведения об использовании устойчивых функций см. в серии статей, где подробно рассматриваются определенные темы.
 
+> [!div class="nextstepaction"]
+> [Перейти к первой статье из серии](durable-functions-bindings.md)

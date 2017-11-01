@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6e6bb39164f9b3dea206ebcf850ee98e2506dcf
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Аутентификация на основе заголовка для единого входа с использованием прокси приложения и PingAccess
 
@@ -108,6 +108,9 @@ PingAccess для Azure Active Directory — предложение PingAccess, 
 
   ![Выбор разрешений](./media/application-proxy-ping-access/select-permissions.png)
 
+17. Предоставьте разрешения, прежде чем закрыть окно разрешений. 
+![Предоставление разрешений](media/application-proxy-ping-access/grantperms.png)
+
 ### <a name="collect-information-for-the-pingaccess-steps"></a>Сбор сведений об этапах PingAccess
 
 1. В колонке параметров приложения щелкните **Свойства**. 
@@ -132,7 +135,7 @@ PingAccess для Azure Active Directory — предложение PingAccess, 
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Необязательно. Обновление API Graph для отправки настраиваемых полей
 
-Список маркеров безопасности, отправляемых Azure AD для проверки подлинности, см. в [справочнике по маркерам Azure AD](./develop/active-directory-token-and-claims.md). Чтобы получить пользовательское утверждение, отправляющее другие маркеры, используйте API Graph, указав для параметра поля приложения *acceptMappedClaims* значение **True**. Чтобы настроить эту конфигурацию, можно использовать Azure AD Graph Explorer или Microsoft Graph. 
+Список маркеров безопасности, отправляемых Azure AD для проверки подлинности, см. в [справочнике по маркерам Azure AD](./develop/active-directory-token-and-claims.md). Чтобы получить пользовательское утверждение, отправляющее другие маркеры, используйте API Graph, указав для параметра поля приложения *acceptMappedClaims* значение **True**. Эту конфигурацию можно настроить только с помощью песочницы Graph в Azure AD. 
 
 В этом примере используется Graph Explorer.
 
@@ -143,6 +146,14 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+
+>[!NOTE]
+>Чтобы использовать настраиваемое утверждение, также необходимо определить настраиваемую политику и назначить ее приложению.  Эта политика должна включать все обязательные настраиваемые атрибуты.
+>
+>Определить и назначить политику можно с помощью PowerShell, песочницы Graph в Azure AD или Microsoft Graph.  Если вы выполняете эти действия в PowerShell, возможно, сначала потребуется использовать `New-AzureADPolicy ` и назначить политику приложению с помощью `Set-AzureADServicePrincipalPolicy`.  Дополнительные сведения см. в [документации о политике Azure AD](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+### <a name="optional---use-a-custom-claim"></a>Использование настраиваемого утверждения (необязательно)
+Чтобы использовать в приложении настраиваемое утверждение и включить в него дополнительные поля, также необходимо [создать политику сопоставления настраиваемых утверждений и назначить ее приложению](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Скачивание PingAccess и настройка приложения
 

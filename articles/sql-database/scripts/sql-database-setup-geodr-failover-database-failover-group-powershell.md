@@ -1,6 +1,6 @@
 ---
 title: "Пример для PowerShell. Группа отработки отказа георепликации для отдельной базы данных SQL Azure | Документация Майкрософт"
-description: "Пример сценария Azure PowerShell для настройки активной георепликации отдельной базы данных SQL Azure"
+description: "Пример скрипта Azure PowerShell для настройки группы отработки отказа активной георепликации отдельной базы данных SQL Azure и выполнения отработки отказа."
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 50d1c0827ee7efac2b0f16a44705030184a3c07e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5824199850645d8d85b85209b34bdf088de90009
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>Использование PowerShell для настройки группы отработки отказа активной георепликации для отдельной базы данных SQL Azure
 

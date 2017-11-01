@@ -14,14 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3bb2883257896c72cc616ea7476f3d25ee6aa4b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Устранение неполадок синхронизации паролей с помощью службы синхронизации Azure AD Connect
-В этой статье приводятся пошаговые инструкции для устранения неполадок, связанных с синхронизацией паролей. Неполадки синхронизации паролей могут возникать либо в подмножестве пользователей, либо у всех. Для развертывания Azure Active Directory (Azure AD) Connect версии 1.1.524.0 или более поздних теперь есть командлет диагностики, который вы можете использовать для устранения неполадок синхронизации паролей.
+В этой статье приводятся пошаговые инструкции для устранения неполадок, связанных с синхронизацией паролей. Неполадки синхронизации паролей могут возникать либо в подмножестве пользователей, либо у всех.
+
+Чтобы устранить неполадки синхронизации паролей в развертывании Azure Active Directory (Azure AD) Connect 1.1.614.0 или более поздней версии, используйте задачу устранения неполадок в мастере.
+
+* Если пароли не синхронизируются, перейдите к разделу [Пароли не синхронизируются: устранение неполадок с помощью задачи устранения неполадок](#no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task).
+
+* Если возникла проблема с отдельными объектами, перейдите к разделу [Пароли не синхронизируются одним объектом: устранение неполадок с помощью задачи устранения неполадок](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task).
+
+Для развертываний версии 1.1.524.0 и выше мы создали командлет диагностики, который вы можете использовать для устранения неполадок с синхронизацией паролей.
 
 * Если пароли не синхронизируются, перейдите к разделу [Пароли не синхронизируются: устранение неполадок с помощью командлета диагностики](#no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet).
 
@@ -33,25 +41,33 @@ ms.lasthandoff: 10/11/2017
 
 * Если возникла проблема с отдельными объектами, перейдите к разделу [Пароли не синхронизируются одним объектом: шаги по устранению неполадок вручную](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps).
 
-## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Пароли не синхронизируются: устранение неполадок с помощью командлета диагностики
-Вы можете использовать командлет `Invoke-ADSyncDiagnostics`, чтобы выяснить, почему не происходит синхронизация паролей.
+
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>Пароли не синхронизируются: устранение неполадок с помощью задачи устранения неполадок
+Вы можете использовать задачу устранения неполадок, чтобы выяснить, почему пароли не синхронизируются.
 
 > [!NOTE]
-> Командлет `Invoke-ADSyncDiagnostics` доступен только для Azure AD Connect версии 1.1.524.0 или более поздней.
+> Эта задача доступна только для Azure AD Connect версии 1.1.614.0 и выше.
 
-### <a name="run-the-diagnostics-cmdlet"></a>Запуск командлета диагностики
+### <a name="run-the-troubleshooting-task"></a>Запуск задачи устранения неполадок
 Чтобы устранить неполадки, связанные с синхронизацией паролей, сделайте следующее:
 
 1. Откройте новый сеанс Windows PowerShell на сервере Azure AD Connect с помощью параметра **Запуск от имени администратора**.
 
 2. Запустите `Set-ExecutionPolicy RemoteSigned` или `Set-ExecutionPolicy Unrestricted`.
 
-3. Запустите `Import-Module ADSyncDiagnostics`.
+3. Откройте мастер Azure AD Connect.
 
-4. Запустите `Invoke-ADSyncDiagnostics -PasswordSync`.
+4. Перейдите к странице **Дополнительные задачи**, выберите **Устранение неполадок** и щелкните **Далее**.
 
-### <a name="understand-the-results-of-the-cmdlet"></a>Изучение результатов выполнения командлета
-Командлет диагностики выполняет следующие проверки.
+5. На странице "Устранение неполадок" щелкните **Запуск**, чтобы открыть меню устранения неполадок в PowerShell.
+
+6. В главном меню выберите **Устранение неполадок с синхронизацией паролей**.
+
+7. В открывшемся подменю выберите **Синхронизация паролей не выполняется**.
+
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Изучение результатов задачи устранения неполадок
+Задача устранения неполадок выполняет следующие проверки.
 
 * Проверяет, чтобы для вашего клиента Azure AD была включена функция синхронизации паролей.
 
@@ -73,7 +89,7 @@ ms.lasthandoff: 10/11/2017
 
 ![Диагностические выходные данные для синхронизации паролей](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
 
-В оставшейся части этого раздела описываются определенные результаты, возвращенные командлетом, и соответствующие неполадки.
+В оставшейся части этого раздела описаны возможные результаты, возвращаемые задачей, и соответствующие неполадки.
 
 #### <a name="password-synchronization-feature-isnt-enabled"></a>Отключена функция синхронизации паролей
 Если вы не включили синхронизацию паролей с помощью мастера Azure AD Connect, возвращается следующая ошибка:
@@ -100,32 +116,34 @@ ms.lasthandoff: 10/11/2017
 
 ![Неверные учетные данные](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
 
-## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Пароли не синхронизируются одним объектом: устранение неполадок с помощью командлета диагностики
-Вы можете использовать командлет `Invoke-ADSyncDiagnostics`, чтобы определить, почему пароли не синхронизируются одним объектом.
+
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task"></a>Пароли не синхронизируются одним объектом: устранение неполадок с помощью задачи устранения неполадок
+
+Вы можете использовать задачу устранения неполадок, чтобы определить, почему определенный объект не синхронизирует пароли.
 
 > [!NOTE]
-> Командлет `Invoke-ADSyncDiagnostics` доступен только для Azure AD Connect версии 1.1.524.0 или более поздней.
+> Эта задача доступна только для Azure AD Connect версии 1.1.614.0 и выше.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>Запуск командлета диагностики
-Чтобы устранить неполадки, связанные с синхронизацией паролей, сделайте следующее:
+Чтобы устранить неполадки для определенного объекта пользователя, сделайте следующее:
 
 1. Откройте новый сеанс Windows PowerShell на сервере Azure AD Connect с помощью параметра **Запуск от имени администратора**.
 
 2. Запустите `Set-ExecutionPolicy RemoteSigned` или `Set-ExecutionPolicy Unrestricted`.
 
-3. Запустите `Import-Module ADSyncDiagnostics`.
+3. Откройте мастер Azure AD Connect.
 
-4. Выполните следующий командлет:
-   ```
-   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
-   ```
-   Например:
-   ```
-   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
-   ```
+4. Перейдите к странице **Дополнительные задачи**, выберите **Устранение неполадок** и щелкните **Далее**.
 
-### <a name="understand-the-results-of-the-cmdlet"></a>Изучение результатов выполнения командлета
-Командлет диагностики выполняет следующие проверки.
+5. На странице "Устранение неполадок" щелкните **Запуск**, чтобы открыть меню устранения неполадок в PowerShell.
+
+6. В главном меню выберите **Устранение неполадок с синхронизацией паролей**.
+
+7. Выберите в подменю **Пароль не синхронизируется для определенной учетной записи пользователя**.
+
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Изучение результатов задачи устранения неполадок
+Задача устранения неполадок выполняет следующие проверки.
 
 * Проверяет состояние объекта Active Directory в пространстве соединителя Active Directory, метавселенной и пространстве соединителя Azure AD.
 
@@ -153,6 +171,52 @@ ms.lasthandoff: 10/11/2017
 По умолчанию Azure AD Connect хранит результаты синхронизации паролей семь дней. Если для выбранного объекта Active Directory результаты недоступны, возвращается следующее предупреждение:
 
 ![Диагностические выходные данные для одного объекта: отсутствует история синхронизации паролей](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnohistory.png)
+
+
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Пароли не синхронизируются: устранение неполадок с помощью командлета диагностики
+Вы можете использовать командлет `Invoke-ADSyncDiagnostics`, чтобы выяснить, почему не происходит синхронизация паролей.
+
+> [!NOTE]
+> Командлет `Invoke-ADSyncDiagnostics` доступен только для Azure AD Connect версии 1.1.524.0 или более поздней.
+
+### <a name="run-the-diagnostics-cmdlet"></a>Запуск командлета диагностики
+Чтобы устранить неполадки, связанные с синхронизацией паролей, сделайте следующее:
+
+1. Откройте новый сеанс Windows PowerShell на сервере Azure AD Connect с помощью параметра **Запуск от имени администратора**.
+
+2. Запустите `Set-ExecutionPolicy RemoteSigned` или `Set-ExecutionPolicy Unrestricted`.
+
+3. Запустите `Import-Module ADSyncDiagnostics`.
+
+4. Запустите `Invoke-ADSyncDiagnostics -PasswordSync`.
+
+
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Пароли не синхронизируются одним объектом: устранение неполадок с помощью командлета диагностики
+Вы можете использовать командлет `Invoke-ADSyncDiagnostics`, чтобы определить, почему пароли не синхронизируются одним объектом.
+
+> [!NOTE]
+> Командлет `Invoke-ADSyncDiagnostics` доступен только для Azure AD Connect версии 1.1.524.0 или более поздней.
+
+### <a name="run-the-diagnostics-cmdlet"></a>Запуск командлета диагностики
+Чтобы устранить неполадки с синхронизацией паролей определенного пользователя, сделайте следующее:
+
+1. Откройте новый сеанс Windows PowerShell на сервере Azure AD Connect с помощью параметра **Запуск от имени администратора**.
+
+2. Запустите `Set-ExecutionPolicy RemoteSigned` или `Set-ExecutionPolicy Unrestricted`.
+
+3. Запустите `Import-Module ADSyncDiagnostics`.
+
+4. Выполните следующий командлет:
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
+   ```
+   Например:
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
+   ```
+
 
 
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Пароли не синхронизируются: шаги по устранению неполадок вручную

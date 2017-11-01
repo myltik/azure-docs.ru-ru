@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
+ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 2f6cf4709c77ca1bb051b7d5c9e7d1d5d125c343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>Использование управляемых удостоверений служб виртуальной машины Azure (MSI) для входа и получения маркеров 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)] После включения MSI на виртуальной машине Azure его можно использовать для входа в систему и запроса маркера доступа. В этой статье показаны различные способы использования [субъекта-службы](develop/active-directory-dev-glossary.md#service-principal-object) MSI для входа в систему и получения [маркера доступа только для приложений](develop/active-directory-dev-glossary.md#access-token) для доступа к другим ресурсам, включая:
@@ -183,14 +183,14 @@ Content-Type: application/json
 | `resource` | Ресурс, для которого был запрошен маркер доступа, соответствует параметру строки запроса `resource`. |
 | `token_type` | Тип маркера, который является маркером доступа носителя, что значит, что ресурс может предоставлять доступ носителю этого маркера. |
 
-## <a name="how-to-sign-in-with-azure-sdk-libraries-using-msi"></a>Как выполнять вход в библиотеки пакета SDK для Azure с помощью MSI
+## <a name="how-to-use-msi-with-azure-sdk-libraries"></a>Как использовать MSI-файл с библиотеками пакетов Azure SDK
 
 Благодаря [пакетам SDK Azure](https://azure.microsoft.com/downloads) в Azure реализована поддержка разных платформ программирования. Некоторые из них обновлены для поддержки входа в систему с помощью MSI. Для них предоставляются соответствующие примеры для демонстрации использования. Этот список обновляется по мере добавления поддержки дополнительных платформ:
 
 | SDK | Образец |
 | --- | ------ | 
-| .NET   | [Управление ресурсами из виртуальных машин с поддержкой MSI](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [Управление хранилищем из виртуальных машин с поддержкой MSI](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| .NET | [Развертывание шаблона ARM с виртуальной машины Windows с помощью управляемого удостоверения службы](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
+| .NET Core | [Вызов служб Azure с виртуальной машины Linux с помощью управляемого удостоверения службы](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Node.js| [Manage resources using Managed Service Identity using node.js](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) (Управление ресурсами, используя управляемое удостоверение службы с помощью Node.js) |
 | Python | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) (Использование MSI для простой проверки подлинности внутри виртуальной машины) |
 | Ruby   | [Управление ресурсами из виртуальных машин с поддержкой MSI](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) | 

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5bc6f90100e5c09eac2b6e5d0e114d4445daa7c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5eb16a92feee0937edeff1c00e0babe85176a79f
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Условный доступ к Azure Active Directory: часто задаваемые вопросы
 
@@ -56,8 +56,8 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Как работают политики условного доступа для Microsoft Teams?
 
-Microsoft Teams в значительной степени зависит от Exchange Online и SharePoint Online в основных сценариях производительности, таких как собрания, календари и совместное использование файлов. Политики условного доступа, заданные для этих облачных приложений, применяются к Microsoft Teams при входе в систему пользователя.
+Microsoft Teams в значительной степени зависит от Exchange Online и SharePoint Online в основных сценариях производительности, таких как собрания, календари и совместное использование файлов. Политики условного доступа, заданные для этих облачных приложений, применяются к Microsoft Teams при входе пользователя непосредственно в эту рабочую область.
 
-Microsoft Teams также поддерживается отдельно в качестве облачного приложения в политиках условного доступа Azure Active Directory. Политики условного доступа, заданные для этих облачных приложений, применяются к Microsoft Teams при входе в систему пользователя.
+Microsoft Teams также поддерживается отдельно в качестве облачного приложения в политиках условного доступа Azure Active Directory. Политики условного доступа, заданные для этих облачных приложений, применяются к Microsoft Teams при входе в систему пользователя. Однако без правильных политик для других приложений, таких как Exchange Online и SharePoint Online, пользователям по-прежнему может предоставляться к ним прямой доступ.
 
-Клиенты рабочего стола Microsoft Teams для Windows и Mac поддерживают современные методы проверки подлинности. Современные методы проверки подлинности используют вход на основе библиотеки проверки подлинности Active Directory (ADAL) для клиентских приложений Microsoft Office на всех платформах. 
+Клиенты рабочего стола Microsoft Teams для Windows и Mac поддерживают современные методы проверки подлинности. Современные методы проверки подлинности используют вход на основе библиотеки проверки подлинности Active Directory (ADAL) для клиентских приложений Microsoft Office на всех платформах.

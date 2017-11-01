@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Устранение неполадок в работе сквозной аутентификации Azure Active Directory
 
@@ -127,6 +127,10 @@ ms.lasthandoff: 10/11/2017
 
 Журналы агента сквозной аутентификации будут находиться в разных расположениях в зависимости от типа возникшей проблемы.
 
+### <a name="azure-ad-connect-logs"></a>Журналы Azure AD Connect
+
+Ошибки, связанные с установкой, можно проверить в журналах Azure AD Connect здесь: **%ProgramData%\AADConnect\trace-\*.log**.
+
 ### <a name="authentication-agent-event-logs"></a>Журналы событий агента аутентификации
 
 Чтобы посмотреть ошибки, связанные с агентом проверки подлинности, откройте на сервере приложение "Просмотр событий" и проверьте расположение **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
@@ -135,7 +139,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="detailed-trace-logs"></a>Подробные журналы трассировки
 
-Для диагностики и устранения неполадок при входе пользователей найдите журналы трассировки в папке **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. В этих журналах содержатся причины сбоев, возникших при входе пользователей с помощью сквозной аутентификации. Эти ошибки также сопоставляются с причинами ошибок входа, показанными в предыдущей [таблице](#sign-in-failure-reasons-on-the-Azure-portal). Ниже приведен пример записи в журнале.
+Для диагностики и устранения неполадок при входе пользователей найдите журналы трассировки в папке **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. В этих журналах содержатся причины сбоев, возникших при входе пользователей с помощью сквозной аутентификации. Эти ошибки также сопоставляются с причинами ошибок входа, показанными в предыдущей [таблице](#sign-in-failure-reasons-on-the-Azure-portal). Ниже приведен пример записи в журнале.
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

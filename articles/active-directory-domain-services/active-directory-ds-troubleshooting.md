@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Доменные службы Azure AD: руководство по устранению неполадок
 В этой статье приводятся советы по устранению проблем, с которыми вы можете столкнуться при настройке или администрировании доменных служб Azure Active Directory (AD).
@@ -141,7 +141,7 @@ if ($sp -ne $null)
 
   * Вы развернули или установили [последнюю рекомендуемую версию Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
   * Вы включили в Azure AD Connect [выполнение полной синхронизации](active-directory-ds-getting-started-password-sync.md).
-  * В зависимости от размера каталога на доступность учетных записей пользователей и хэшей учетных данных в доменных службах Azure AD может потребоваться некоторое время. Убедитесь, что вы подождали достаточно долго перед повторной попыткой аутентификации (в зависимости от размера каталога — от нескольких часов до одного-двух дней).
+  * В зависимости от размера каталога на доступность учетных записей пользователей и хэшей учетных данных в доменных службах Azure AD может потребоваться некоторое время. Подождите, прежде чем повторять проверку подлинности.
   * Если проблема повторится после выполнения описанных выше действий, попытайтесь перезапустить службу Microsoft Azure AD Sync. На компьютере синхронизации откройте командную строку и выполните следующие команды.
 
     1. net stop 'Microsoft Azure AD Sync'

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4f4fa884694dc8dad6349e3835e7c7ba2c4d2bdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Краткое руководство по сквозной проверке подлинности Azure Active Directory
 
@@ -43,7 +43,11 @@ ms.lasthandoff: 10/11/2017
 ### <a name="in-your-on-premises-environment"></a>В локальной среде
 
 1. Укажите сервер под управлением Windows Server 2012 R2 или более поздней версии для запуска Azure AD Connect. Добавьте сервер в тот же лес AD, что и пользователей, пароли которых требуется проверить.
-2. Установите [последнюю версию Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) на сервер, указанный на предыдущем шаге. Если у вас уже работает Azure AD Connect, убедитесь, что установлена версия 1.1.557.0 или более поздняя.
+2. Установите [последнюю версию Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) на сервер, указанный на предыдущем шаге. Если вы уже используете Azure AD Connect, убедитесь, что установлена версия 1.1.644.0 или выше.
+
+    >[!NOTE]
+    >В Azure AD Connect версий 1.1.557.0, 1.1.558.0, 1.1.561.0 и 1.1.614.0 есть проблема, связанная с **синхронизацией хэшей паролей**. Если вы _не_ собираетесь использовать синхронизацию хэшей паролей в сочетании со сквозной проверкой подлинности, см. дополнительные сведения в разделе с [заметками о выпуске Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
+
 3. Укажите дополнительный сервер под управлением Windows Server 2012 R2 или более поздней версии, на котором необходимо запустить автономный агент проверки подлинности. Версия агента аутентификации должна быть не ниже 1.5.193.0. Этот сервер нужен для обеспечения высокой доступности запросов на вход. Добавьте сервер в тот же лес AD, что и пользователей, пароли которых требуется проверить.
 4. Если между серверами и Azure AD настроен брандмауэр, необходимо настроить указанные ниже элементы.
    - Убедитесь, что агенты аутентификации могут передавать **исходящие** запросы в Azure AD через приведенные ниже порты.
@@ -87,7 +91,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 
 ![Azure AD Connect: страница "Вход пользователя"](./media/active-directory-aadconnect-sso/sso3.png)
 
-Если вы уже установили экземпляр Azure AD Connect (используя [экспресс-установку](active-directory-aadconnect-get-started-express.md) или [пользовательский путь установки](active-directory-aadconnect-get-started-custom.md)), выберите страницу **Смена имени пользователя для входа** в Azure AD Connect и щелкните **Далее**. Затем выберите **Сквозная проверка подлинности** в качестве метода входа. После успешного завершения на том же сервере, где находится Azure AD Connect, будет установлен агент сквозной проверки подлинности. Кроме того, эта функция будет включена в клиенте.
+Если вы уже установили экземпляр Azure AD Connect (используя [экспресс-установку](active-directory-aadconnect-get-started-express.md) или [пользовательский путь установки](active-directory-aadconnect-get-started-custom.md)), выберите задачу **Смена имени пользователя для входа** в Azure AD Connect и нажмите кнопку **Далее**. Затем выберите **Сквозная проверка подлинности** в качестве метода входа. После успешного завершения на том же сервере, где находится Azure AD Connect, будет установлен агент сквозной проверки подлинности. Кроме того, эта функция будет включена в клиенте.
 
 ![Azure AD Connect: страница "Смена имени пользователя для входа"](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

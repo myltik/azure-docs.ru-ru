@@ -1,6 +1,6 @@
 ---
 title: "Управление масштабируемыми облачными базами данных | Документация Майкрософт"
-description: "Описание службы заданий обработки эластичных баз данных"
+description: "Использование службы заданий эластичной базы данных для выполнения скрипта в группе баз данных."
 metakeywords: azure sql database elastic databases
 services: sql-database
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 8e84562115a866c0df5e0dee6c7f66c036a74737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74618179fe169b968e822cd9c563410560244848
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Управление масштабируемыми облачными базами данных
 Для управления масштабируемыми сегментированными базами данных можно воспользоваться функцией **заданий обработки для эластичных баз данных** (предварительная версия). Она позволяет надежно выполнить скрипт Transact-SQL (T-SQL) для группы баз данных, включая:

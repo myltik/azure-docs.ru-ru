@@ -1,6 +1,6 @@
 ---
 title: "Условный доступ Azure Active Directory для подключения к виртуальной частной сети (предварительная версия) | Документация Майкрософт"
-description: "Узнайте больше о том, как работает условный доступ Azure Active Directory для подключения к виртуальной частной сети. "
+description: "Узнайте, как работает условный доступ Azure Active Directory для подключения к виртуальной частной сети. "
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,81 +14,79 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 540d8974ee2c02f80bccf28764b4d0d243e98d85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9dadb3291ee760e7b05caedfa6b4128be77aa7d
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
-# <a name="azure-active-directory-conditional-access-for-virtual-private-network-connectivity-preview"></a>Условный доступ Azure Active Directory для подключения к виртуальной частной сети (предварительная версия)
+# <a name="azure-active-directory-conditional-access-for-vpn-connectivity-preview"></a>Условный доступ Azure Active Directory для подключения к виртуальной частной сети (предварительная версия)
 
-Благодаря [условному доступу Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) можно настроить доступ авторизованных пользователей к вашим ресурсам. Условный доступ Azure AD для подключения к виртуальной частной сети (VPN) позволяет использовать условный доступ для защиты VPN-подключений.
+[Условный доступ Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) предоставляет широкие возможности для настройки доступа авторизованных пользователей к ресурсам. Условный доступ Azure AD для подключения к виртуальной частной сети (VPN) помогает защитить VPN-подключения.
 
 
-Чтобы настроить условный доступ Azure AD для VPN-подключений, необходимо выполнить следующие действия: 
+Чтобы настроить условный доступ для VPN-подключений, необходимо выполнить следующие действия. 
 
 1.  Настройка VPN-сервера.
-2.  Настройка VPN-клиента 
+2.  Настройка VPN-клиента.
 3.  Настройка политики условного доступа.
-4.  Проверка
 
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-В этой статье предполагается, что вы знакомы со следующими статьями:
+В этой статье предполагается, что вы знакомы со следующими темами:
 
 - [Условный доступ в Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 - [VPN и условный доступ](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access)
 
-Вы также можете ознакомиться со статьей [Enhancing remote access in Windows 10 with an automatic VPN profile](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile) (Усовершенствование удаленного доступа в Windows 10 с помощью автоматического VPN-профиля), чтобы узнать, как корпорация Майкрософт реализовала эту функцию.   
+Чтобы узнать, как корпорация Майкрософт реализовала эту функцию, ознакомьтесь со статьей [Enhancing remote access in Windows 10 with an automatic VPN profile](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile) (Расширение возможностей удаленного доступа в Windows 10 с помощью автоматического VPN-профиля).   
 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Чтобы настроить условный доступ Azure Active Directory для подключения к виртуальной частной сети, необходимо настроить VPN-сервер. 
+Чтобы настроить условный доступ Azure Active Directory для VPN-подключения, сначала следует настроить VPN-сервер. 
 
 
 
-## <a name="step-1---configure-your-vpn-server"></a>Шаг 1. Настройка VPN-сервера 
+## <a name="step-1-configure-your-vpn-server"></a>Шаг 1. Настройка VPN-сервера 
 
-Цель этого шага — настройка корневых сертификатов для проверки подлинности VPN с помощью Azure AD. Чтобы настроить условный доступ для подключения к виртуальной частной сети, необходимо:
+На этом шаге вы настроите корневые сертификаты для аутентификации VPN-подключения через Azure AD. Чтобы настроить условный доступ для VPN-подключения, выполните следующие действия:
 
-1. Создать VPN-сертификат на портале Azure.
-2. Загрузить VPN-сертификат.
-2. Развернуть сертификат на VPN-сервере.
+1. Создайте VPN-сертификат на портале Azure.
+2. Скачайте этот VPN-сертификат.
+2. Разверните сертификат на VPN-сервере.
 
-VPN-сертификат выступает в качестве издателя, используемого Azure AD для подписывания сертификатов, выпущенных для клиентов Windows 10, при проверке подлинности в Azure AD для VPN-подключения. Представьте, что запрашиваемый клиентом Windows 10 маркер — это сертификат,предоставляемый приложению, которое в данном случае является VPN-сервером.
+Azure AD использует VPN-сертификат для подписывания сертификатов, выдаваемых клиентам Windows 10 при аутентификации VPN-подключения через Azure AD. Клиент Windows 10 запрашивает маркер, который выполняет роль сертификата и предъявляется приложению, в нашем примере — VPN-серверу.
 
-![Условный доступ](./media/active-directory-conditional-access-vpn-connectivity-windows10/06.png)
+![Скачивание сертификата для условного доступа](./media/active-directory-conditional-access-vpn-connectivity-windows10/06.png)
 
-На портале Azure можно создать два сертификата: для управления переходами, когда срок действия сертификата заканчивается. При создании сертификата можно выбрать, является ли он основным. Именно основной сертификат используется во время проверки подлинности для подписания сертификата для подключения.
+На портале Azure можно создать два сертификата, чтобы переключаться между ними по истечении срока действия одного из них. При создании сертификата вы можете указать, будет ли он считаться основным, то есть использоваться при аутентификации для подписывания сертификата подключения.
 
+Процесс создания VPN-сертификата выглядит так:
 
-**Чтобы создать VPN-сертификат:**
+1. Войдите на [портал Azure](https://portal.azure.com) как глобальный администратор.
 
-1. Войдите на [портал Azure](https://portal.azure.com) с правами глобального администратора.
+2. В меню слева щелкните **Azure Active Directory**. 
 
-2. На панели навигации слева щелкните **Azure Active Directory**. 
-
-    ![VPN-подключение](./media/active-directory-conditional-access-vpn-connectivity-windows10/01.png)
+    ![Выберите Azure Active Directory.](./media/active-directory-conditional-access-vpn-connectivity-windows10/01.png)
 
 3. На странице **Azure Active Directory** в разделе **Управление** щелкните **Условный доступ**.
 
-    ![VPN-подключение](./media/active-directory-conditional-access-azure-portal-get-started/02.png)
+    ![Выбор элемента "Условный доступ"](./media/active-directory-conditional-access-azure-portal-get-started/02.png)
 
 4. На странице **Условный доступ** в разделе **Управление** щелкните **VPN connectivity (preview)** (VPN-подключение (предварительная версия)).
 
-    ![VPN-подключение](./media/active-directory-conditional-access-vpn-connectivity-windows10/03.png)
+    ![Выбор элемента "VPN-подключение"](./media/active-directory-conditional-access-vpn-connectivity-windows10/03.png)
 
 5. На странице **VPN connectivity** (VPN-подключение) щелкните **Новый сертификат**.
 
-    ![VPN-подключение](./media/active-directory-conditional-access-vpn-connectivity-windows10/04.png)
+    ![Выбор элемента "Новый сертификат"](./media/active-directory-conditional-access-vpn-connectivity-windows10/04.png)
 
 6. На странице **Создать** выполните следующие действия:
 
-    ![VPN-подключение](./media/active-directory-conditional-access-vpn-connectivity-windows10/05.png)
+    ![Выбор срока действия и статуса основного сертификата](./media/active-directory-conditional-access-vpn-connectivity-windows10/05.png)
 
-    а. Для параметра **срока действия** выберите **1 год**.
+    а. Для параметра **Срок действия** выберите значение **1 год**.
 
     b. Для параметра **Основной** выберите **Да**.
 
@@ -97,41 +95,40 @@ VPN-сертификат выступает в качестве издателя
 7. На странице VPN connectivity (VPN-подключение) нажмите кнопку **Скачать сертификат**.
 
 
-На этом этапе вы готовы развернуть созданный сертификат на VPN-сервере. На VPN-сервере необходимо добавить загруженный сертификат как *сертификат доверенного корневого ЦС для проверки подлинности VPN*.
+Итак, теперь вы можете развернуть созданный сертификат на VPN-сервере. На VPN-сервере добавьте скачанный сертификат как *сертификат доверенного корневого ЦС для проверки подлинности VPN*.
 
-Для развертываний на основе Windows RRAS на NPS-сервере необходимо добавить корневой сертификат в хранилище *Enterprise NTauth*, выполнив следующие команды:
+Если вы используете развертывание на основе Windows RRAS, добавьте корневой сертификат в хранилище *Enterprise NTauth* на NPS-сервере, выполнив следующие команды:
 
 1. `certutil -dspublish <CACERT> RootCA`
 2. `certutil -dspublish <CACERT> NtAuthCA`
 
 
 
-## <a name="step-2---configure-your-vpn-client"></a>Шаг 2. Настройка VPN-клиента 
+## <a name="step-2-configure-your-vpn-client"></a>Шаг 2. Настройка VPN-клиента 
 
-На этом шаге необходимо настроить профиль подключения VPN-клиента, как описано в статье [VPN и условный доступ](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access).
+На этом шаге вы настроите профиль подключения для VPN-клиента, как описано в статье [VPN, и условный доступ](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access).
 
 
-## <a name="step-3---configure-your-conditional-access-policy"></a>Шаг 3. Настройка политики условного доступа
+## <a name="step-3-configure-your-conditional-access-policy"></a>Шаг 3. Настройка политики условного доступа
 
 В этом разделе приводятся инструкции по настройке политики условного доступа для VPN-подключения.
 
-**Чтобы настроить политику условного доступа:** 
 
 1. На странице **Условный доступ** на панели инструментов сверху нажмите кнопку **Добавить**.
 
-    ![Условный доступ](./media/active-directory-conditional-access-vpn-connectivity-windows10/07.png)
+    ![Выбор элемента "Добавить" на странице условного доступа](./media/active-directory-conditional-access-vpn-connectivity-windows10/07.png)
 
-2. На странице **Создать** в текстовом поле **Имя** введите имя политики, например **Политика VPN**.
+2. На странице **Создать** в текстовом поле **Имя** введите имя политики. Например, **Политика VPN**.
 
-    ![Условный доступ](./media/active-directory-conditional-access-vpn-connectivity-windows10/08.png)
+    ![Добавление имени политики на странице условного доступа](./media/active-directory-conditional-access-vpn-connectivity-windows10/08.png)
 
 5. В разделе **Назначение** щелкните **Пользователи и группы**.
 
-    ![Условный доступ](./media/active-directory-conditional-access-vpn-connectivity-windows10/09.png)
+    ![Выбор элемента "Пользователи и группы"](./media/active-directory-conditional-access-vpn-connectivity-windows10/09.png)
 
 6. На странице **Пользователи и группы** выполните следующие действия:
 
-    ![Условный доступ](./media/active-directory-conditional-access-vpn-connectivity-windows10/10.png)
+    ![Выбор тестового пользователя](./media/active-directory-conditional-access-vpn-connectivity-windows10/10.png)
 
     а. Щелкните **Выбрать пользователей и группы**.
 
@@ -141,15 +138,15 @@ VPN-сертификат выступает в качестве издателя
 
     d. На странице **Пользователи и группы** нажмите кнопку **Готово**.
 
-7. На странице **Создать** выполните следующие действия.
+7. На странице **Создать** выполните следующие действия:
 
-    ![Условный доступ](./media/active-directory-conditional-access-vpn-connectivity-windows10/11.png)
+    ![Выбор облачных приложений](./media/active-directory-conditional-access-vpn-connectivity-windows10/11.png)
 
     а. В разделе **Назначения** щелкните **Облачные приложения**.
 
     b. На странице **Облачные приложения** щелкните **Выбрать приложения**, а затем нажмите кнопку **Выбрать**.
 
-    c. На странице **Выбор** в текстовом поле **Приложения** введите **vpn**.
+    c. На странице **Выбор** в поле **Приложения** введите **vpn**.
 
     d. Выберите **VPN-сервер**.
 
@@ -158,11 +155,11 @@ VPN-сертификат выступает в качестве издателя
 
 13. На странице **Создать** в разделе **Элементы управления** щелкните **Предоставить**, чтобы открыть страницу **Предоставить**.
 
-    ![Условный доступ](./media/active-directory-conditional-access-azure-portal-get-started/13.png)
+    ![Выбор элемента "Предоставить"](./media/active-directory-conditional-access-azure-portal-get-started/13.png)
 
 14. На странице **Предоставить** выполните следующие действия:
 
-    ![Условный доступ](./media/active-directory-conditional-access-azure-portal-get-started/14.png)
+    ![Выбор элемента "Требовать многофакторную проверку подлинности"](./media/active-directory-conditional-access-azure-portal-get-started/14.png)
 
     а. Выберите **Требовать многофакторную проверку подлинности**.
 
@@ -170,7 +167,7 @@ VPN-сертификат выступает в качестве издателя
 
 15. На странице **Создать** в разделе **Включить политику** нажмите кнопку **Вкл**.
 
-    ![Условный доступ](./media/active-directory-conditional-access-azure-portal-get-started/15.png)
+    ![Включение политики](./media/active-directory-conditional-access-azure-portal-get-started/15.png)
 
 16. На странице **Создать** щелкните **Создать**.
 
@@ -178,5 +175,5 @@ VPN-сертификат выступает в качестве издателя
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Чтобы узнать, как корпорация Майкрософт реализовала эту функцию, ознакомьтесь со статьей [Enhancing remote access in Windows 10 with an automatic VPN profile](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile) (Усовершенствование удаленного доступа в Windows 10 с помощью автоматического VPN-профиля).    
+Чтобы узнать, как корпорация Майкрософт реализовала эту функцию, ознакомьтесь со статьей [Enhancing remote access in Windows 10 with an automatic VPN profile](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile) (Расширение возможностей удаленного доступа в Windows 10 с помощью автоматического VPN-профиля).    
 

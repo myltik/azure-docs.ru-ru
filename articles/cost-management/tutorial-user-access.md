@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: aca9f0b3320f298987cf39172fd4b043326a2f4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="assign-access-to-cost-management-data"></a>Назначение доступа к данным службы управления затратами
 
@@ -49,6 +49,8 @@ ms.lasthandoff: 10/11/2017
 
 ![добавление нового пользователя с правами пользователя](.\media\tutorial-user-access\new-user-access.png)
 
+Просмотрите видеоруководство по [добавлению пользователей в службу "Управление затратами Azure" от Cloudyn](https://youtu.be/Nzn7GLahx30).
+
 ## <a name="create-entities"></a>Создание сущностей
 
 При построении иерархии сущностей затрат рекомендуется определить структуру организации.
@@ -67,6 +69,10 @@ ms.lasthandoff: 10/11/2017
 
 Не забудьте **сохранить** сущность, когда закончите работу над ней.
 
+
+Просмотрите видеоруководство по [созданию иерархии сущностей затрат в службе "Управление затратами Azure" от Cloudyn](https://youtu.be/dAd9G7u0FmU).
+
+Если вы работаете на условиях соглашения Enterprise Azure, ознакомьтесь со сведениями о связывании учетных записей и подписок с сущностями в видеоруководстве по [подключению к Azure Resource Manager при помощи службы "Управление затратами Azure" от Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

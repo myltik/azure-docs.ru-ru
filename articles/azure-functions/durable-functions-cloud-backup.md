@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: aa7c0738120ecda8d43669725748585e1ad5a581
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Сценарии развертывания и объединения в устойчивых функциях. Пример резервного копирования в облако
 
@@ -97,12 +97,12 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Это отличный пример перемещения операций ввода-вывода в функцию `activityTrigger`. Можно не только распределить работу между многими виртуальными машинами, но и получить преимущества создания контрольных точек этапов выполнения. Если хост-процесс по какой-либо причине завершится, вы будете знать, какие передачи уже выполнены.
 
-## <a name="running-the-sample"></a>Выполнение примера
+## <a name="run-the-sample"></a>Запуск примера
 
-С помощью функций, активируемых по HTTP (перечисленных в примере), можно запустить оркестрацию с помощью следующего запроса HTTP POST.
+Можно начать оркестрацию, отправив приведенный ниже запрос HTTP POST.
 
 ```
-POST http://{host}/orchestrators/E2_BackupSiteContent HTTP/1.1
+POST http://{host}/orchestrators/E2_BackupSiteContent
 Content-Type: application/json
 Content-Length: 20
 
@@ -112,7 +112,7 @@ Content-Length: 20
 > [!NOTE]
 > Вызываемая функция `HttpStart` работает только с содержимым в формате JSON. По этой причине требуется заголовок `Content-Type: application/json` и путь к каталогу кодируется в виде строки JSON.
 
-Это приведет к активации оркестратора `E2_BackupSiteContent` и передаче строки `D:\home\LogFiles` в качестве параметра. В ответе содержится ссылка на получение информации о состоянии данной операции резервного копирования:
+Этот запрос HTTP активирует оркестратор `E2_BackupSiteContent` и передает строку `D:\home\LogFiles` в качестве параметра. В ответе содержится ссылка на получение информации о состоянии операции резервного копирования:
 
 ```
 HTTP/1.1 202 Accepted
@@ -158,9 +158,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Теперь у вас есть представление об основных возможностях оркестрации устойчивых функций. В следующих примерах рассматриваются более сложные функции и сценарии.
+В этом примере показано, как реализовать шаблон развертывания и объединения. В приведенном ниже примере показано, как реализовать шаблон [одноэлементного экземпляра с отслеживанием состояния](durable-functions-singletons.md) при [нескончаемой оркестрации](durable-functions-eternal-orchestrations.md).
 
 > [!div class="nextstepaction"]
 > [Одноэлементные экземпляры с отслеживанием состояния в устойчивых функциях. Пример функции счетчика](durable-functions-counter.md)
-
-

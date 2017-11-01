@@ -1,6 +1,6 @@
 ---
 title: "Проектирование первой базы данных SQL Azure | Документация Майкрософт"
-description: "Проектирование первой базы данных SQL Azure."
+description: "Узнайте, как разработать первую базу данных Azure SQL на портале Azure с помощью SQL Server Management Studio."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: 3a58c50d1187b9cca9490ad725b14617b4a98efe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb8bf2569f17bf6eef9f45255bbdda440e6afef5
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="design-your-first-azure-sql-database"></a>Проектирование первой базы данных SQL Azure
 

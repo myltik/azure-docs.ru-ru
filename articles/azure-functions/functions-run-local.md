@@ -3,7 +3,7 @@ title: "Разработка и выполнение Функций Azure лок
 description: "Узнайте, как программировать и тестировать функции Azure на локальном компьютере перед их запуском в Функциях Azure."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Как программировать и тестировать Функции Azure в локальной среде
 
@@ -142,7 +142,7 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 
 Если для **AzureWebJobsStorage** не задана допустимая строка подключения к хранилищу, выводится следующее сообщение об ошибке:  
 
->Отсутствует значение AzureWebJobsStorage в local.settings.json. This is required for all triggers other than HTTP. Выполните команду "func azure functionary fetch-app-settings <functionAppName>" или укажите строку подключения в файле local.settings.json.
+>Отсутствует значение AzureWebJobsStorage в local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json (Отсутствует значение AzureWebJobsStorage в local.settings.json. Оно требуется для всех триггеров, отличных от HTTP. Выполните команду func azure functionapp fetch-app-settings или укажите строку подключения в файле local.settings.json).
   
 [!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
@@ -266,13 +266,13 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 Обратите внимание, что запросы GET можно выполнять из браузера, передавая данные в строке запроса. Для всех остальных методов HTTP необходимо использовать cURL, Fiddler, Postman или аналогичный инструмент тестирования HTTP.  
 
 #### <a name="non-http-triggered-functions"></a>Функции, не активируемые по протоколу HTTP
-Все виды функций, кроме триггеров HTTP и веб-перехватчиков, можно тестировать в локальной среде путем вызова конечной точки администрирования. Вызов этой конечной точки на локальном сервере активирует функцию. При необходимости можно передать тестовые данные в среду выполнения. Это аналогично выполнению функции с помощью вкладки **Тест** на портале Azure.  
+Все виды функций, кроме триггеров HTTP и веб-перехватчиков, можно тестировать в локальной среде путем вызова конечной точки администрирования. Вызов этой конечной точки при помощи запроса HTTP POST на локальном сервере активирует функцию. При необходимости можно передать тестовые данные в среду выполнения в тексте запроса POST. Это аналогично выполнению функции с помощью вкладки **Тест** на портале Azure.  
 
-Вызовите следующую конечную точку администрирования, чтобы активировать функции, отличные от HTTP, с помощью запроса HTTP POST.
+Вызовите следующую конечную точку администрирования, чтобы активировать функции, отличные от HTTP:
 
     http://localhost:{port}/admin/functions/{function_name}
 
-Чтобы передать тестовые данные в конечную точку администрирования функции, укажите данные в тексте сообщения запроса POST. Текст сообщения должен иметь следующий формат JSON:
+Чтобы передать тестовые данные в конечную точку администрирования функции, укажите данные в тексте запроса POST. Текст сообщения должен иметь следующий формат JSON:
 
 ```JSON
 {

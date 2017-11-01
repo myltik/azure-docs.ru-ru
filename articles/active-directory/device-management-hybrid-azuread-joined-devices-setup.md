@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3325aa48db36426a8cf1c9859390c357267ee5fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c43d6bcd62690fe41599888b06ee9828c8e40fc0
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Настройка гибридных устройств, присоединенных к Azure Active Directory
 
@@ -294,8 +294,7 @@ Azure AD Connect выполняет следующие функции:
 
 В приведенном выше утверждении
 
-- `$<domain>` — URL-адрес службы AD FS,
-- `<verified-domain-name>` — заполнитель, который необходимо заменить одним из проверенных доменных имен в Azure AD.
+- `<verified-domain-name>` — заполнитель, который необходимо заменить одним из проверенных доменных имен в Azure AD. Например, значение = http://contoso.com/adfs/services/trust/
 
 
 

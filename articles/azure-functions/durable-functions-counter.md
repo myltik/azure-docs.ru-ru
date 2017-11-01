@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d62bc24a0439aa8c11ced9d5f42917f9b6de1f24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Одноэлементные экземпляры с отслеживанием состояния в устойчивых функциях — пример функции счетчика
 
@@ -67,12 +67,12 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Метод `ContinueAsNew` полезен и в других случаях, помимо внешних оркестраций. Дополнительные сведения см. в статье [о внешних оркестрациях](durable-functions-eternal-orchestrations.md).
 
-## <a name="running-the-sample"></a>Выполнение примера
+## <a name="run-the-sample"></a>Запуск примера
 
-С помощью функций, активируемых по HTTP (перечисленных в примере), можно запустить оркестрацию с помощью следующего запроса HTTP POST. Чтобы начать работу с нулевым значением `counterState` (это значение по умолчанию для `int`), запрос не должен иметь содержимого.
+Можно начать оркестрацию, отправив приведенный ниже запрос HTTP POST. Чтобы начать работу с нулевым значением `counterState` (это значение по умолчанию для `int`), запрос не должен иметь содержимого.
 
 ```
-POST http://{host}/orchestrators/E3_Counter HTTP/1.1
+POST http://{host}/orchestrators/E3_Counter
 Content-Length: 0
 ```
 
@@ -82,13 +82,17 @@ Content-Length: 719
 Content-Type: application/json; charset=utf-8
 Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"id":"bcf6fb5067b046fbb021b52ba7deae5a","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
+{
+  "id":"bcf6fb5067b046fbb021b52ba7deae5a",
+  "statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+  "sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+  "terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
 Экземпляр **E3_Counter** запускается и переходит в режим ожидания событий, которые в него можно отправить с помощью `RaiseEventAsync` или веб-перехватчика HTTP POST **sendEventUrl**, ссылка на который передается в HTTP-ответе 202. Для `eventName` поддерживаются значения *incr*, *decr* и *end*.
 
 ```
-POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey} HTTP/1.1
+POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 Content-Type: application/json
 Content-Length: 6
 
@@ -128,14 +132,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb50
 > [!WARNING]
 > На момент написания этой статьи существовала известная проблема с состоянием гонки, которое возникало при вызове метода `ContinueAsNew` одновременно с обработкой сообщений, например, внешних событий или запросов на прекращение. Последние сведения об этом состоянии гонки вы найдете в [описании проблемы на GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/67).
 
-## <a name="wrapping-up"></a>Резюме
-
-Теперь вы составили представление о некоторых дополнительных возможностях устойчивых функций, например `WaitForExternalEvent` и `ContinueAsNew`. Эти средства позволяют выполнять разные виды одноэлементных экземпляров с отслеживанием состояния, таких как счетчики и объединители.
-
 ## <a name="next-steps"></a>Дальнейшие действия
+
+В этом примере показано, как обрабатывать [внешние события](durable-functions-external-events.md) и реализовать [нескончаемую оркестрацию](durable-functions-eternal-orchestrations.md) в [одноэлементных экземплярах с отслеживанием состояния](durable-functions-singletons.md). В приведенном ниже примере показано, как использовать внешние события и [устойчивые таймеры](durable-functions-timers.md) для обработки действий человека.
 
 > [!div class="nextstepaction"]
 > Выполните [пример взаимодействия с пользователем](durable-functions-phone-verification.md)
-
-
-

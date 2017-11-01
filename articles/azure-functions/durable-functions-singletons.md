@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: e82cc53d53a6d0296aaab2c3a76ad4e2f6c12c54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8384d17405653a29207cdfa4f6143504d0db2022
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Одноэлементные экземпляры в устойчивых функциях (Функции Azure)
 
@@ -26,36 +26,40 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="singleton-example"></a>Пример одноэлементного экземпляра
 
-В следующем примере C# показана функция HTTP-триггера, которая создает одноэлементный экземпляр оркестрации фонового задания. При этом используется известный идентификатор экземпляра, чтобы обеспечить наличие только одного экземпляра.
+В следующем примере C# показана функция HTTP-триггера, которая создает одноэлементный экземпляр оркестрации фонового задания. Код обеспечивает наличие только одного экземпляра с указанным идентификатором.
 
 ```cs
-[FunctionName("EnsureSingletonTrigger")]
-public static async Task<HttpResponseMessage> Ensure(
-    [HttpTrigger(AuthorizationLevel.Function, methods: "post")] HttpRequestMessage req,
+[FunctionName("HttpStartSingle")]
+public static async Task<HttpResponseMessage> RunSingle(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/{instanceId}")] HttpRequestMessage req,
     [OrchestrationClient] DurableOrchestrationClient starter,
+    string functionName,
+    string instanceId,
     TraceWriter log)
 {
-    // Ensure only one instance is ever running at a time
-    const string OrchestratorName = "MySingletonOrchestrator";
-    const string InstanceId = "MySingletonInstanceId";
-
-    var existingInstance = await starter.GetStatusAsync(InstanceId);
+    // Check if an instance with the specified ID already exists.
+    var existingInstance = await starter.GetStatusAsync(instanceId);
     if (existingInstance == null)
     {
-        log.Info($"Creating singleton instance with ID = {InstanceId}...");
-        await starter.StartNewAsync(OrchestratorName, InstanceId, input: null);
+        // An instance with the specified ID doesn't exist, create one.
+        dynamic eventData = await req.Content.ReadAsAsync<object>();
+        await starter.StartNewAsync(functionName, instanceId, eventData);
+        log.Info($"Started orchestration with ID = '{instanceId}'.");
+        return starter.CreateCheckStatusResponse(req, instanceId);
     }
-
-    return starter.CreateCheckStatusResponse(req, InstanceId);
+    else
+    {
+        // An instance with the specified ID exists, don't create one.
+        return req.CreateErrorResponse(
+            HttpStatusCode.Conflict,
+            $"An instance with ID '{instanceId}' already exists.");
+    }
 }
 ```
 
-По умолчанию идентификаторы экземпляров — это случайным образом сгенерированные GUID. Но обратите внимание, что в нашем примере функция-триггер использует заранее определенную переменную `InstanceId` со значением `MySingletonInstanceId`, чтобы предварительно назначить идентификатор экземпляра функции оркестратора. Так триггер может проверить, запущен ли уже известный экземпляр, вызвав [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_).
+По умолчанию идентификаторы экземпляров — это случайным образом сгенерированные GUID. Но в этом случае идентификатор экземпляра передается в данных маршрута с URL-адреса. Этот код вызывает [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_), чтобы проверить, запущен ли экземпляр с указанным идентификатором. Если нет, такой экземпляр создается.
 
 На самом деле подробности реализации функции оркестратора не имеют значения. Это может быть обычная функция оркестратора, которая начинает и завершает работу, или же выполняющаяся бесконечно (т. е. [вечная оркестрация](durable-functions-eternal-orchestrations.md)). Важно то, что в любой момент времени выполняется только один экземпляр.
-
-> [!NOTE]
-> Если одноэлементный экземпляр оркестрации будет остановлен, подвергнется сбою или завершит работу, его невозможно будет создать повторно с тем же идентификатором. В таких случаях следует подготовиться к повторному его созданию с новым идентификатором экземпляра.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

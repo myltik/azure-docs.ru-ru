@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: 24f15168fd716cf317087b8a2ad19b66574ce569
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e470071ca0ff45fce0a410b18ea9a91e1925af4b
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Использование настраиваемых действий в конвейере фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 Чтобы переместить данные в хранилище данных, которое не поддерживает фабрика данных, и обратно, или чтобы преобразовать или обработать данные способом, который не поддерживается фабрикой данных Azure, создайте **пользовательское действие** с собственной логикой перемещения или преобразования данных и используйте это действие в конвейере. Настраиваемые действия запускают настраиваемую логику кода в пуле **пакетной службы Azure** виртуальных машин.
 
 > [!NOTE]
-> Эта статья относится к версии 2 фабрики данных, которая сейчас доступна в предварительной версии. Если используется служба фабрики данных версии 1, которая является общедоступной версией, ознакомьтесь со статьей [Использование настраиваемых действий в конвейере фабрики данных Azure](v1/data-factory-use-custom-activities.md).
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете службу фабрики данных версии 1 (общедоступная версия), перейдите к статье [Использование настраиваемых действий в конвейере фабрики данных Azure](v1/data-factory-use-custom-activities.md).
  
 
 Если вы еще не знакомы с пакетной службой Azure, см. следующие статьи.
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) со сведениями о создании пула пакетной службы Azure.
 
 ## <a name="azure-batch-linked-service"></a>Связанная пакетная служба Azure 
-Ниже приведен фрагмент кода JSON, определяющий пример связанной пакетной службы Azure. Дополнительные сведения см. в статье [Вычислительные среды, поддерживаемые фабрикой данных Azure](compute-linked-services.md).
+Ниже приведен фрагмент кода JSON, который определяет пример связанной пакетной службы Azure. Дополнительные сведения см. в статье [Вычислительные среды, поддерживаемые фабрикой данных Azure](compute-linked-services.md).
 
 ```json
 {
@@ -117,6 +117,30 @@ ms.lasthandoff: 10/11/2017
 | referenceObjects      | Массив имеющихся связанных служб и наборов данных. Указанные связанные службы и наборы данных передаются в пользовательское приложение в формате JSON. Пользовательский код может использовать ресурсы фабрики данных. | Нет       |
 | extendedProperties    | Определенные пользователем свойства, которые могут быть переданы в пользовательское приложение в формате JSON. Пользовательский код может использовать дополнительные свойства. | Нет       |
 
+## <a name="executing-commands"></a>Выполнение команд
+
+Вы можете непосредственно выполнить команду, используя настраиваемое действие. В приведенном ниже примере мы выполняем команду "echo hello world" на целевых узлах пула пакетной службы Azure, которая выводит выходные данные в stdout. 
+
+  ```json
+  {
+    "name": "MyCustomActivity",
+    "properties": {
+      "description": "Custom activity sample",
+      "activities": [{
+        "type": "Custom",
+        "name": "MyCustomActivity",
+        "linkedServiceName": {
+          "referenceName": "AzureBatchLinkedService",
+          "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+          "command": "cmd /c echo hello world"
+        }
+      }]
+    }
+  } 
+  ```
+
 ## <a name="passing-objects-and-properties"></a>Передача объектов и свойств
 
 В этом примере показано, как использовать свойства referenceObjects и extendedProperties для передачи объектов фабрики данных и определенных пользователем свойств в пользовательское приложение. 
@@ -151,7 +175,10 @@ ms.lasthandoff: 10/11/2017
             "connectionString": {
                 "type": "SecureString",
                 "value": "aSampleSecureString"
-            }           
+            },
+            "PropertyBagPropertyName1": "PropertyBagValue1",
+            "propertyBagPropertyName2": "PropertyBagValue2",
+            "dateTime1": "2015-04-12T12:13:14Z"              
         }
       }
     }]
@@ -198,36 +225,97 @@ namespace SampleApp
 }
 ```
 
-####<a name="retrieve-execution-outputs"></a>Извлечение выходных данных выполнения
+## <a name="retrieve-execution-outputs"></a>Извлечение выходных данных выполнения
 
-Вы можете запустить выполнение примера конвейера и отслеживать его результат, выполнив следующие команды PowerShell: 
+  Чтобы запустить выполнение конвейера, выполните следующую команду PowerShell: 
 
-```powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -dataFactoryName "factoryName" -PipelineName "pipelineName" 
-$result = Get-AzureRmDataFactoryV2ActivityRun -dataFactoryName "factoryName" -PipelineRunId $runId -RunStartedAfter "2017-09-06" -RunStartedBefore "2017-12-31"
-$result.output -join "`r`n" 
-$result.Error -join "`r`n" 
-```
+  ```.powershell
+  $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+  ```
+  Во время выполнения конвейера его текущие выходные данные можно проверить с помощью следующих команд: 
 
-Свойства **stdout** и **stderr** пользовательского приложения сохраняются в контейнер **adfjobs** в связанной службе хранилища Azure, определенной при создании связанной пакетной службы Azure с помощью GUID задания. Вы можете получить подробный путь из выходных данных выполнения действия, как показано в следующем фрагменте кода: 
+  ```.powershell
+  while ($True) {
+      $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
-```shell
-"exitcode": 0
-"outputs": [
-    "https://adfv2storage.blob.core.windows.net/adfjobs/097235ff-2c65-4d50-9770-29c029cbafbb/output/stdout.txt",
-    "https://adfv2storage.blob.core.windows.net/adfjobs/097235ff-2c65-4d50-9770-29c029cbafbb/output/stderr.txt"
-]
-"errorCode": ""
-"message": ""
-"failureType": ""
-"target": "MyCustomActivity"
-```
+      if(!$result) {
+          Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
+      }
+      elseif (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
+          Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
+      }
+      else {
+          Write-Host "Pipeline '"$pipelineName"' run finished. Result:" -foregroundcolor "Yellow"
+          $result
+          break
+      }
+      ($result | Format-List | Out-String)
+      Start-Sleep -Seconds 15
+  }
 
-> [!IMPORTANT]
-> - Свойства activity.json, linkedServices.json и datasets.json хранятся в папке среды выполнения пакетной задачи. Для этого примера свойства activity.json, linkedServices.json и datasets.json хранятся по адресу https://adfv2storage.blob.core.windows.net/adfjobs/097235ff-2c65-4d50-9770-29c029cbafbb/runtime/. При необходимости их можно очистить отдельно. 
-> - Для связанных служб, использующих локальную среду выполнения интеграции, конфиденциальная информация, например ключи или пароли, шифруется локальной средой выполнения интеграции. Это гарантирует, что учетные данные останутся в пределах частных сетевых сред, определенных клиентами. Некоторые поля с конфиденциальными данными, на которые таким образом ссылается пользовательский код приложения, могут отсутствовать. При необходимости в extendedProperties используйте SecureString, а не ссылку на связанную службу. 
+  Write-Host "Activity `Output` section:" -foregroundcolor "Yellow"
+  $result.Output -join "`r`n"
 
+  Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
+  $result.Error -join "`r`n"
+  ```
 
+  Свойства **stdout** и **stderr** пользовательского приложения сохраняются в контейнер **adfjobs** в связанной службе хранилища Azure, определенной при создании связанной пакетной службы Azure с помощью GUID задания. Вы можете получить подробный путь из выходных данных выполнения действия, как показано в следующем фрагменте кода: 
+
+  ```shell
+  Pipeline ' MyCustomActivity' run finished. Result:
+
+  ResourceGroupName : resourcegroupname
+  DataFactoryName   : datafactoryname
+  ActivityName      : MyCustomActivity
+  PipelineRunId     : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  PipelineName      : MyCustomActivity
+  Input             : {command}
+  Output            : {exitcode, outputs, effectiveIntegrationRuntime}
+  LinkedServiceName : 
+  ActivityRunStart  : 10/5/2017 3:33:06 PM
+  ActivityRunEnd    : 10/5/2017 3:33:28 PM
+  DurationInMs      : 21203
+  Status            : Succeeded
+  Error             : {errorCode, message, failureType, target}
+
+  Activity Output section:
+  "exitcode": 0
+  "outputs": [
+    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
+    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
+  ]
+  "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
+  Activity Error section:
+  "errorCode": ""
+  "message": ""
+  "failureType": ""
+  "target": "MyCustomActivity"
+  ```
+Если вы хотите использовать содержимое stdout.txt в последующих действиях, путь к файлу stdout.txt можно получить в значении выражения "@activity('MyCustomActivity').output.outputs[0]". 
+
+  > [!IMPORTANT]
+  > - Свойства activity.json, linkedServices.json и datasets.json хранятся в папке среды выполнения пакетной задачи. Для этого примера файлы activity.json, linkedServices.json и datasets.json хранятся по адресу https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/. При необходимости их следует очищать отдельно. 
+  > - Для связанных служб, использующих локальную среду выполнения интеграции, конфиденциальная информация, например ключи или пароли, шифруется локальной средой выполнения интеграции. Это гарантирует, что учетные данные останутся в пределах частных сетевых сред, определенных клиентами. Некоторые поля с конфиденциальными данными, на которые таким образом ссылается пользовательский код приложения, могут отсутствовать. При необходимости в extendedProperties используйте SecureString, а не ссылку на связанную службу. 
+
+## <a name="difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1"></a>Различия между настраиваемым действием в фабрике данных Azure версии 2 и (настраиваемым) действием DotNet в фабрике данных Azure версии 1 
+
+  В фабрике данных Azure версии 1 вы создавали код (настраиваемого) действия DotNet в отдельном проекте библиотеки классов .Net, используя класс, который реализует метод Execute в интерфейсе IDotNetActivity. Связанные службы, наборы данных и расширенные свойства, входящие в полезные данные JSON для (настраиваемого) действия DotNet, передавались в метод выполнения в виде строго типизированных объектов. Подробнее это описано в статье [о (настраиваемых) действиях DotNet в фабрике данных версии 1](v1/data-factory-use-custom-activities.md). По этой причине пользовательский код нужно писать на .Net Framework 4.5.2 и выполнять на узлах пула пакетной службы Azure под управлением Windows. 
+
+  В настраиваемых действиях фабрики данных Azure версии 2 не нужно реализовать интерфейс .Net. Теперь все команды, скрипты и пользовательский код можно компилировать и выполнять в виде исполняемого файла. Для этого следует указать свойство Command вместе со свойством folderPath. Настраиваемое действие передает указанный исполняемый файл и зависимости в каталог folderPath и выполняет нужную команду. 
+
+  Связанные службы, наборы данных (определенные в объектах referenceObjects) и расширенные свойства, входящие в полезные данные JSON для настраиваемого действия, доступны для исполняемого файла в виде файлов JSON. Вы можете обратиться к нужным свойствам с помощью сериализатора JSON, как показано в предыдущем примере кода SampleApp.exe. 
+
+  Изменения, внесенные в реализацию настраиваемых действий в фабрике данных Azure версии 2, позволяют реализовать логику кода на любом языке и выполнять этот код в любых операционных системах Windows и Linux, которые поддерживает пакетная служба Azure. 
+
+  Если у вас есть код .Net, написанный для (настраиваемого) действия DotNet версии 1, вы можете использовать его в настраиваемом действии версии 2. Для этого следует внести некоторые правки в соответствии со следующими рекомендациями:  
+
+  > - Преобразуйте проект из библиотеки классов .Net в консольное приложение. 
+  > - Перенесите приложение в метод Main; метод Execute из интерфейса IDotNetActivity больше не используется. 
+  > - Примените сериализатор JSON ко всем связанным службам, наборам данных и действиям, которые ранее существовали в виде строго типизированных объектов, и передайте значения нужных свойств в главный код логики вашего приложения. В качестве примера воспользуйтесь представленным выше кодом SampleApp.exe. 
+  > - Объект средства ведения журнала теперь не поддерживается, а выходные данные исполняемого файла можно вывести в консоль и сохранить в файле stdout.txt. 
+  > - Пакет NuGet Microsoft.Azure.Management.DataFactories больше не требуется. 
+  > - Скомпилируйте код, передайте исполняемый файл и зависимости в хранилище Azure и укажите путь к ним в свойстве folderPath. 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Автомасштабирование пакетной службы Azure
 Можно также создать пул пакетной службы Azure с использованием функции **автомасштабирования** . Например, можно создать пул пакетной службы Azure с нулем выделенных виртуальных машин и формулой автоматического масштабирования на основе числа ожидающих задач. 
