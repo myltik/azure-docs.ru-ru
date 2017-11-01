@@ -1,6 +1,6 @@
 ---
 title: "Настройка изолированного кластера Azure Service Fabric | Документация Майкрософт"
-description: "Узнайте, как настраивать автономный или частный кластер Service Fabric."
+description: "Узнайте, как настраивать автономный или локальный кластер Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 660e7b59ae0e92692121620341562e412a6e8eae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aeb4be94ea12c01f4ecd5652fa3b3243351e4853
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Параметры конфигурации для автономного кластера Windows
 В этой статье описывается настройка автономного кластера Service Fabric с помощью файла ***ClusterConfig.JSON***. С помощью этого файла можно указать для изолированного кластера сведения об узлах Service Fabric и их IP-адресах, о различных типах узлов кластера, настройках безопасности, а также о топологии сети с точки зрения доменов сбоя и доменов обновления.
@@ -26,9 +26,9 @@ ms.lasthandoff: 10/11/2017
 Несколько примеров файла ClusterConfig.JSON скачиваются на ваш рабочий компьютер при [скачивании автономного пакета Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). Примеры с *DevCluster* в имени помогут вам создать кластер с тремя узлами на одном и том же компьютере (например, это могут быть логические узлы). По крайней мере один узел должен быть помечен как первичный. Данный кластер удобен для среды разработки или тестирования, но не предназначен для использования в качестве рабочего кластера. Примеры с *MultiMachine* в имени помогут вам создать кластер рабочего уровня, каждый узел которого размещен на отдельном компьютере. Число первичных узлов такого кластера будет основано на [уровне надежности](#reliability). В версии 05-2017 выпуска 5.7 API мы удалили свойство уровня надежности. Вместо этого код вычисляет наиболее оптимизированный уровень надежности для кластера. Не используйте это свойство в коде версии 5.7 или более поздней версии.
 
 
-1. Примеры *ClusterConfig.Unsecure.DevCluster.JSON* и *ClusterConfig.Unsecure.MultiMachine.JSON* показывают, как создать незащищенный тестовый или рабочий кластер, соответственно. 
+1. Примеры *ClusterConfig.Unsecure.DevCluster.JSON* и *ClusterConfig.Unsecure.MultiMachine.JSON* показывают, как создать незащищенный тестовый или рабочий кластер, соответственно.
 2. Примеры *ClusterConfig.Windows.DevCluster.JSON* и  *ClusterConfig.Windows.MultiMachine.JSON* показывают, как создать тестовый или рабочий кластер, защищенный с помощью [системы безопасности Windows](service-fabric-windows-cluster-windows-security.md).
-3. Примеры *ClusterConfig.X509.DevCluster.JSON* и *ClusterConfig.X509.MultiMachine.JSON* показывают, как создать тестовый или рабочий кластер, защищенный с помощью [системы безопасности на основе сертификатов X509](service-fabric-windows-cluster-x509-security.md). 
+3. Примеры *ClusterConfig.X509.DevCluster.JSON* и *ClusterConfig.X509.MultiMachine.JSON* показывают, как создать тестовый или рабочий кластер, защищенный с помощью [системы безопасности на основе сертификатов X509](service-fabric-windows-cluster-x509-security.md).
 
 Теперь рассмотрим различные разделы файла ***ClusterConfig.JSON***, приведенные ниже.
 

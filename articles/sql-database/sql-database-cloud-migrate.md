@@ -1,6 +1,6 @@
 ---
 title: "Перенос базы данных SQL Server в базу данных SQL Azure | Документация Майкрософт"
-description: "Сведения о том, как выполнить миграцию базы данных SQL Server в базу данных SQL Azure в облаке. Используйте средства миграции баз данных для проверки совместимости перед миграцией базы данных."
+description: "Сведения о том, как выполнить миграцию базы данных SQL Server в базу данных SQL Azure в облаке."
 keywords: "миграция базы данных, миграция базы данных SQL Server, средства миграции базы данных, миграция базы данных, миграция базы данных SQL"
 services: sql-database
 documentationcenter: 
@@ -9,18 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6147c5d24214933566e0a909ac99c817350578c7
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Миграция базы данных SQL Server в базу данных SQL в облаке
 В этой статье вы узнаете о двух основных методах миграции базы данных SQL Server 2005 или более поздней версии в базу данных SQL Azure. Первый метод проще, но миграция происходит с простоем, который может длиться достаточно долго. Второй метод более сложен, но значительно сокращает время простоя при выполнении миграции.

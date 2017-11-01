@@ -1,6 +1,6 @@
 ---
 title: "Защита кластера Azure Service Fabric в Windows с использованием сертификатов | Документация Майкрософт"
-description: "В этой статье описывается, как защитить связь в автономном или частном кластере, а также между клиентами и кластером."
+description: "Безопасный обмен данными в автономном или частном кластере Azure Service Fabric, а также между клиентами и кластером."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: d66f02051279d1cfe685fdae6aa8a035f4edd5aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3715b9dfaa98b83bbb8efffbe5db0090ea5fabe0
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>Защита автономного кластера под управлением Windows с помощью сертификатов X.509
 В этой статье описывается, как защитить обмен данными между различными узлами автономного кластера под управлением Windows, а также как аутентифицировать клиентов, подключающихся к этому кластеру, с помощью сертификатов X.509. Это гарантирует, что только авторизованные пользователи могут получить доступ к кластеру для развертывания приложений и выполнения задач управления.  Безопасность на основе сертификатов необходимо включить в кластере при его создании.  

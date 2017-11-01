@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/13/2017
 ms.author: helaw
-ms.openlocfilehash: b3f8768b612f476485cb45cfc47b8b7ab0f00e96
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 5ee2f8164d13e61f9a43abcbda729298f2168518
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Заметки к выпуску пакета SDK для Azure Stack
 
 *Область применения: пакет SDK для Azure Stack*
 
-Этот документ содержит сведения о новых функциях и известных проблемах в пакете SDK для Azure Stack.  Если вы не знаете, какая версия используется, проверьте ее [с помощью портала](azure-stack-updates.md#determine-the-current-version).
+Этот документ содержит сведения о новых функциях и известных проблемах в пакете SDK для Azure Stack. Если вы не знаете, какая версия используется, проверьте ее [с помощью портала](azure-stack-updates.md#determine-the-current-version).
 
 ## <a name="release-build-201709283"></a>Конечная сборка 20170928.3
 
@@ -32,16 +32,12 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="powershell"></a>PowerShell
 
-Версия Azure PowerShell 1.2.11 пока не доступна, но ее выпуск намечен в конце этой недели. До этого выпуска нужно учитывать следующее.
-* Поставщики ресурсов службы приложений, адаптеров SQL и MYSQL требуют наличия PowerShell 1.2.11. Поэтому их выпуск откладывается до появления новой версии Azure PowerShell.
-* Версия Azure PowerShell 1.2.11 уже упоминается в документации, но пока недоступна.
-* Средства AzureStack по-прежнему ссылаются на Azure PowerShell 1.2.10 и это состояние сохранится до выпуска версии 1.2.11.
-* Пока можно продолжать использовать Azure PS 1.2.10 в пакете SDK для разных целей. Версию придется обновить при выходе Azure PS 1.2.11.
-
+- Выпуск модуля AzureRM 1.2.11 PowerShell поставляется со списком критически важных изменений. Дополнительные сведения об обновлении с версии 1.2.10, см. в [руководстве по миграции](https://aka.ms/azspowershellmigration).
 
 
 #### <a name="deployment"></a>Развертывание
 * Во время развертывания для сервера времени необходимо указать IP-адрес.  
+
 
 #### <a name="portal"></a>Microsoft Azure
 * На портале может появиться пустая панель мониторинга.  Чтобы восстановить панель мониторинга, щелкните значок шестеренки в правом верхнем углу портала и выберите действие "Восстановить параметры по умолчанию".

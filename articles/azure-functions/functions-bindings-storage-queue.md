@@ -3,7 +3,7 @@ title: "Привязки хранилища очередей для Функци
 description: "Узнайте, как использовать триггеры и привязки службы хранилища Azure в функциях Azure."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 8f7227071edc519e588d55a9f06b77aeaf31aa37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b68ce106ceb25d19ee0bbde287891d553a448560
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Привязки хранилища очередей для Функций Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -285,7 +285,7 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Пример функции, которая использует триггеры и привязки хранилища очередей, доступен в разделе [Создание функции Azure, подключенной к службе Azure](functions-create-an-azure-connected-function.md).
+Пример функции, которая использует триггеры и привязки хранилища очередей, доступен в статье [Создание функции, активируемой хранилищем очередей Azure](functions-create-storage-queue-triggered-function.md).
 
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

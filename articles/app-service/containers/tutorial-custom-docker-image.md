@@ -1,6 +1,6 @@
 ---
-title: "Применение пользовательского образа Docker для веб-приложений Azure для контейнеров | Документация Майкрософт"
-description: "Как применять пользовательский образ Docker для веб-приложений Azure для контейнеров."
+title: "Применение пользовательского образа Docker для платформы \"Веб-приложения для контейнеров\" (Azure) | Документация Майкрософт"
+description: "Использование пользовательского образа Docker для платформы \"Веб-приложения для контейнеров\"."
 keywords: "служба приложений azure, веб-приложение, docker, контейнер"
 services: app-service
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc268bce48a42607d4404758e744a006dfbd6c19
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Применение пользовательского образа Docker для веб-приложений Azure для контейнеров
+# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Использование пользовательского образа Docker для платформы "Веб-приложения для контейнеров".
 
 Платформа [Веб-приложения для контейнеров](app-service-linux-intro.md) предоставляет встроенные образы Docker на базе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Платформа "Веб-приложения для контейнеров" использует технологию контейнеров Docker для размещения встроенных образов и пользовательских образов в качестве платформы как услуги. В этом руководстве описано, как создать пользовательский образ Docker для веб-приложений для контейнеров, если нет встроенного образа для нужного языка или в случае, если для приложения требуется определенная конфигурация, которую не предоставляет встроенный образ.
 
@@ -210,7 +210,7 @@ v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59
 
 ## <a name="create-web-app-for-containers"></a>Создание веб-приложения для контейнеров
 
-С помощью веб-приложения Azure можно разместить собственные приложения Linux в облаке. Чтобы создать веб-приложение для контейнеров, выполните команды Azure CLI, которые создают группу, план обслуживания, а затем само веб-приложение. Сначала запустите команду [​​az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) и передайте расположение и уникальное имя.
+С помощью службы приложений Azure на платформе Linux можно разместить собственные приложения Linux в облаке. Чтобы создать веб-приложение для контейнеров, выполните команды Azure CLI, которые создают группу, план обслуживания, а затем само веб-приложение. Сначала запустите команду [​​az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) и передайте расположение и уникальное имя.
 
 ```azurecli-interactive
 az group create --location "West Europe" --name myResourceGroup
@@ -220,7 +220,7 @@ az group create --location "West Europe" --name myResourceGroup
 
 ```json
 {
-  "id": "/subscriptions/432849d3e4-4f90-a782-87c11e-5e59d6dd/resourceGroups/myResourceGroup",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup",
   "location": "westeurope",
   "managedBy": null,
   "name": "myResourceGroup",
@@ -245,8 +245,7 @@ az appservice plan create --name myServicePlan --resource-group myResourceGroup 
   "appServicePlanName": "myServicePlan",
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/resourceGroups/myResourceGroup/provide
-rs/Microsoft.Web/serverfarms/myServicePlan",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myServicePlan",
   "kind": "linux",
   "location": "West Europe", 
   "resourceGroup": "myResourceGroup",
@@ -292,7 +291,7 @@ az webapp create -g myResourceGroup -p myServicePlan -n <web-app-name> --runtime
   ],
   "hostNamesDisabled": false,
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/5e59d6dd-d3e4-4f90-a782-43284987c11e/resourceGroups/myResourceGroup/providers/Microsoft.
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.
 Web/sites/<web-app-name>",
   "lastModifiedTimeUtc": "2017-08-08T21:09:33.693333",
   "location": "West Europe",
@@ -462,7 +461,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Поздравляем! Вы настроили пользовательский образ Docker для веб-приложения Azure для контейнеров.
+Поздравляем! Вы настроили пользовательский образ Docker для платформы "Веб-приложения для контейнеров".
 
 ## <a name="push-a-docker-image-to-private-registry-optional"></a>Передача образа Docker в частный реестр (необязательно)
 
@@ -486,7 +485,7 @@ Use an existing service principal and assign access:
 {
   "adminUserEnabled": false,
   "creationDate": "2017-08-09T04:21:09.654153+00:00",
-  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/{azure-container-registry-name>",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name>",
   "location": "westeurope",
   "loginServer": "<azure-container-registry-name>.azurecr.io",
   "name": "<azure-container-registry-name>",
@@ -621,4 +620,4 @@ az webapp config container set --name <web-app-name> --resource-group myResource
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Вопросы и ответы о платформе "Веб-приложения для контейнеров" в службе приложений Azure](app-service-linux-faq.md)
+[Служба приложений Azure на платформе Linux: вопросы и ответы](app-service-linux-faq.md)

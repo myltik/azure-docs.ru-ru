@@ -7,13 +7,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 10/12/2017
 ms.author: bruceper
-ms.openlocfilehash: fec4769c0bd571edea84dd2f766bb907d8819be5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d617726a4ee9335728ab82104efbd845e3b0d05
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Руководство разработчика хранилища ключей Azure
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="public-previews"></a>Общедоступные предварительные версии
 
-Периодически мы выпускаем общедоступные предварительные версии нового компонента Key Vault. Мы предлагаем вам испытать их и отправить отзыв на наш адрес электронной почты для обратной связи: azurekeyvault@microsoft.com.
+Периодически мы выпускаем общедоступные предварительные версии нового компонента Key Vault. Предлагаем вам протестировать их и отправить отзыв по нашему адресу электронной почты для обратной связи: azurekeyvault@microsoft.com.
 
 ### <a name="storage-account-keys---july-10-2017"></a>Ключи учетной записи хранения — 10 июля 2017 г.
 
@@ -52,40 +52,61 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="creating-and-managing-key-vaults"></a>Создание хранилищ ключей и управление ими
 
-Прежде чем приступить к работе с хранилищем ключей Azure в коде, можно создать и контролировать хранилища с помощью REST, шаблонов диспетчера ресурсов, PowerShell или интерфейса командной строки, как описано в следующих статьях:
+Azure Key Vault позволяет обеспечить безопасное хранение учетных данных, а также других ключей и секретов, но для их получения код должен выполнять аутентификацию в Key Vault. Управляемое удостоверение службы (MSI) упрощает решение этой задачи, предоставляя службам Azure автоматически управляемое удостоверение в Azure Active Directory (Azure AD). Это удостоверение можно использовать для аутентификации в любой службе, которая поддерживает аутентификацию Azure AD, включая Key Vault, не храня какие-либо учетные данные в коде. 
 
-- [Создание хранилищ ключей и управление ими с помощью REST](https://docs.microsoft.com/rest/api/keyvault/)
-- [Создание хранилищей ключей и управление ими с помощью PowerShell](key-vault-get-started.md)
-- [Создание хранилищей ключей и управление ими с помощью CLI](key-vault-manage-with-cli2.md)
+Дополнительные сведения об MSI см. в статье [Управляемое удостоверение службы (MSI) для ресурсов Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
+
+Дополнительные сведения о работе с AAD см. в статье [Интеграция приложений с Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
+
+Прежде чем приступить к работе с ключами, секретами и сертификатами в хранилище ключей, нужно создать его. Вы можете создать хранилище ключей и управлять им с помощью интерфейса командной строки (CLI), PowerShell, шаблонов Resource Manager или REST, как описано в следующих статьях:
+
+- [Создание хранилищ ключей и управление ими с помощью CLI](key-vault-manage-with-cli2.md).
+- [Создание хранилищ ключей и управление ими с помощью PowerShell](key-vault-get-started.md).
 - [Create a key vault and add a secret via an Azure Resource Manager template](../azure-resource-manager/resource-manager-template-keyvault.md) (Создание хранилища ключей и добавление секрета с помощью шаблона Azure Resource Manager)
+- [Создание хранилищ ключей и управление ими с помощью REST](https://docs.microsoft.com/rest/api/keyvault/).
 
-> [!NOTE]
-> Операции с хранилищами ключей проходят проверку подлинности в AAD и авторизуются с помощью собственной политики доступа хранилища ключей, определенной для каждого хранилища.
 
 ## <a name="coding-with-key-vault"></a>Программирование с помощью хранилища ключей
 
-Система управления Key Vault для программистов включает несколько интерфейсов на основе REST. Интерфейс REST предоставляет доступ ко всем ресурсам хранилищ ключей: ключам, секретам и сертификатам. [Справочник по REST API для Key Vault](https://docs.microsoft.com/rest/api/keyvault/) 
+Система управления Key Vault для программистов включает несколько интерфейсов. В этом разделе содержится несколько примеров кода и ссылки на все языки. 
 
-### <a name="supported-programming-languages"></a>Поддерживаемые языки программирования
+### <a name="supported-programming-and-scripting-languages"></a>Поддерживаемые языки программирования и написания сценариев
+
+#### <a name="rest"></a>REST
+
+Интерфейс REST предоставляет доступ ко всем ресурсам Key Vault: хранилищам, ключам, секретам и т. д. 
+
+[Справочник по REST API для Key Vault](https://docs.microsoft.com/rest/api/keyvault/) 
 
 #### <a name="net"></a>.NET
 
-- [Справочник по API .NET для Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+[Справочник по API .NET для Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
 
 Дополнительные сведения о версии 2.x пакета SDK для .NET см. в [заметках о выпуске](key-vault-dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
-- [Пакет Java SDK для Key Vault](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
+[Пакет Java SDK для Key Vault](https://docs.microsoft.com/java/api/overview/azure/keyvault)
 
 #### <a name="nodejs"></a>Node.js
 
-В Node.js API функции управления хранилищем не включены в API объекта хранилища. Управление Key Vault позволяет создавать и обновлять хранилище ключей. API операций Key Vault предназначен для работы с такими объектами хранилища, как ключи, секреты и сертификаты. 
+В Node.js API управления Key Vault не включен в API объекта Key Vault. В следующей обзорной статье объясняется, как получить доступ к этим API. 
 
-- [Справочник по API Node.js для управления Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-- [Справочник по API Node.js для операций Key Vault](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
+[Модули Azure Key Vault для Node.js](https://docs.microsoft.com/nodejs/api/overview/azure/key-vault)
 
-### <a name="quick-start"></a>Быстрый запуск
+#### <a name="python"></a>Python
+
+[Библиотеки Azure Key Vault для Python](https://docs.microsoft.com/python/api/overview/azure/key-vault)
+
+#### <a name="azure-cli-2"></a>Azure CLI 2
+
+[Azure CLI для Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
+
+#### <a name="azure-powershell"></a>Azure PowerShell 
+
+[Azure PowerShell для Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+
+### <a name="quick-start-guides"></a>Краткие руководства по началу работы
 
 - [Создание хранилища ключей](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Приступая к работе с Key Vault в Node.js](https://azure.microsoft.com/en-us/resources/samples/key-vault-node-getting-started/)

@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 10/12/2017
 ms.author: rclaus
 ms.custom: 
-ms.openlocfilehash: e1d1d984aa821bf891d83b3c4a053ba82811ba5e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 1bfc95977634a41a23fc8bcfee22c44849a9cf04
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Сертификаты и конфигурации SAP на платформе Microsoft Azure
 
@@ -46,15 +46,15 @@ ms.lasthandoff: 10/11/2017
 Платформа Microsoft Azure сертифицирована для следующих продуктов SAP при полной поддержке Майкрософт и SAP.
 Справочные материалы:
 
-- Список всех приложений на основе SAP NetWeaver, включая SAP TREX, SAP LiveCache и сервер содержимого SAP, см. в [примечании SAP № 1928533 о поддерживаемых продуктах и типах виртуальных машин Azure.](https://launchpad.support.sap.com/#/notes/1928533). Здесь также содержится список всех баз данных, кроме SAP HANA.
+- Список всех приложений на основе SAP NetWeaver, включая SAP TREX, SAP LiveCache и сервер содержимого SAP, см. в [примечании SAP № 1928533 о поддерживаемых продуктах и типах виртуальных машин Azure.](https://launchpad.support.sap.com/#/notes/1928533) Здесь также содержится список всех баз данных, кроме SAP HANA.
 
 
 | Продукт SAP | Гостевая ОС | Реляционная СУБД | Типы виртуальных машин |
 | --- | --- | --- | --- |
-| ПО SAP Business Suite |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (только Windows и Oracle Linux), DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
-| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (только Windows и Oracle Linux), DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
-| Бизнес-аналитика SAP BusinessObjects |Windows |Недоступно |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
-| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (только Windows и Oracle Linux), DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, DS11_v2–DS15_v2, GS1–GS5 |
+| ПО SAP Business Suite |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (только Windows и Oracle Linux), DB2, SAP ASE |От A5 до A11, от D11 до D14, от DS11 до DS14, от DS11_v2 до DS15_v2, от GS1 до GS5, серия M |
+| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (только Windows и Oracle Linux), DB2, SAP ASE |От A5 до A11, от D11 до D14, от DS11 до DS14, от DS11_v2 до DS15_v2, от GS1 до GS5, серия M |
+| Бизнес-аналитика SAP BusinessObjects |Windows |Недоступно |От A5 до A11, от D11 до D14, от DS11 до DS14, от DS11_v2 до DS15_v2, от GS1 до GS5, серия M |
+| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (только Windows и Oracle Linux), DB2, SAP ASE |От A5 до A11, от D11 до D14, от DS11 до DS14, от DS11_v2 до DS15_v2, от GS1 до GS5, серия M |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Другие рабочие нагрузки SAP, поддерживаемые в Azure
 

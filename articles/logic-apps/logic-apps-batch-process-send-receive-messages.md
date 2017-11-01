@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: c58cf6485a8a7248e5b8ffce0d279485a80f36ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Отправка, получение и пакетная обработка сообщений в приложениях логики
 
@@ -115,6 +115,10 @@ ms.lasthandoff: 10/11/2017
 7.  Когда приложение логики для получения пакета создано, сохраните это приложение.
 
     ![Сохранение приложения логики](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > Раздел имеет ограничение в 5000 сообщений или 80 МБ. При выполнении хотя бы одного условия пакет может быть отправлен, даже если не выполняется условие, определенное пользователем.
+
 
 <a name="batch-sender"></a>
 

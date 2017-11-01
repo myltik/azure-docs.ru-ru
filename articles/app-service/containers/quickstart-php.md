@@ -1,6 +1,6 @@
 ---
-title: "Создание веб-приложения PHP в контейнере Linux в Azure | Документация Майкрософт"
-description: "Разверните свое первое приложение Hello World на языке PHP в веб-приложении службы приложений Azure за считаные минуты."
+title: "Создание и развертывание веб-приложения PHP в службе приложений Azure на платформе Linux | Документация Майкрософт"
+description: "Разверните первое приложение PHP Hello World в службе приложений на платформе Linux в считанные минуты."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ff1b0bdd2397387910c31e25ddbc50ffc0bd1c4
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Создание веб-приложения PHP в контейнере Linux в Azure
+# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Создание веб-приложения PHP в службе приложений на платформе Linux
 
-Платформа [Веб-приложение для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом кратком руководстве объясняется, как развернуть приложение PHP на платформе "Веб-приложения для контейнеров". Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) в Cloud Shell и разверните пример кода PHP в веб-приложении с помощью Git.
+[Служба приложений на платформе Linux](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. Из этого краткого руководства вы узнаете, как развернуть приложение PHP в службе приложений Azure на платформе Linux. Создайте веб-приложение со встроенным образом при помощи [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) в Cloud Shell и разверните пример кода PHP в веб-приложении с помощью Git.
 
 ![Пример приложения, выполняющегося в Azure]](media/quickstart-php/hello-world-in-browser.png)
 
-Выполните действия, приведенные ниже, с помощью компьютера Mac, Windows или Linux. 
+Выполните действия, приведенные ниже, с помощью компьютера Mac, Windows или Linux.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -71,11 +71,11 @@ php -S localhost:8080
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Создание веб-приложения
+## <a name="create-a-web-app-with-built-in-image"></a>Создание веб-приложения со встроенным образом
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
 
-Перейдите на сайт, чтобы просмотреть только что созданное веб-приложение. Замените _&lt;app name>_ уникальным именем приложения.
+Перейдите на сайт, чтобы просмотреть созданное веб-приложение со встроенным образом. Замените _&lt;app name>_ уникальным именем приложения.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -83,9 +83,9 @@ http://<app name>.azurewebsites.net
 
 ![Пустая страница веб-приложения](media/quickstart-php/app-service-web-service-created.png)
 
-Вы создали пустое веб-приложение в контейнере Linux со включенным развертыванием Git.
+Вы создали пустое веб-приложение со встроенным образом и включенным развертыванием Git.
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
 ```bash
 Counting objects: 2, done.
@@ -120,11 +120,11 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 http://<app_name>.azurewebsites.net
 ```
 
-Пример кода PHP выполняется в веб-приложении службы приложений Azure.
+Пример кода PHP выполняется в веб-приложении со встроенным образом.
 
 ![Пример приложения, выполняющегося в Azure](media/quickstart-php/hello-world-in-browser.png)
 
-**Поздравляем!** Вы развернули свое первое приложение PHP в службе приложений.
+**Поздравляем!** Вы развернули свое первое приложение PHP в службе приложений на платформе Linux.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Обновление на локальном компьютере и повторное развертывание кода
 

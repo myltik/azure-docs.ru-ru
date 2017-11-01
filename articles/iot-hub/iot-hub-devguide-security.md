@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: 91b2e72b9cc5f7b52dde09fb837cbc994d52a26c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="control-access-to-iot-hub"></a>Управление доступом к Центру Интернета вещей
 
@@ -31,8 +31,6 @@ ms.lasthandoff: 10/11/2017
 * Определение области действия учетных данных для ограничения доступа к определенным ресурсам.
 * Поддержка сертификатов X.509 в Центре Интернета вещей.
 * Механизмы настраиваемой аутентификации устройства, использующие существующие реестры удостоверений устройств или схемы аутентификации.
-
-### <a name="when-to-use"></a>Сценарии использования
 
 Для доступа к любой конечной точке Центра Интернета вещей необходимы соответствующие разрешения. Например, устройство должно содержать маркер с учетными данными безопасности, а также все сообщения, отправленные в Центр Интернета вещей.
 
@@ -193,6 +191,39 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
 
+Принцип создания маркера безопасности в C#:
+
+```C#
+using System;
+using System.Globalization;
+using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
+
+public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+{
+    TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
+
+    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+
+    HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
+    string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+
+    if (!String.IsNullOrEmpty(policyName))
+    {
+        token += "&skn=" + policyName;
+    }
+
+    return token;
+}
+
+```
+
+
 > [!NOTE]
 > Так как срок действия маркера проверяется на компьютерах Центра Интернета вещей, нужно обеспечить минимальное смещение на часах компьютера, где создается маркер.
 
@@ -210,7 +241,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 | Конечная точка | Функции |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Отправка сообщений с устройства в облако. |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |Получение сообщений из облака на устройство. |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Получение сообщений из облака на устройство. |
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Использование симметричного ключа в реестре удостоверений
 
@@ -383,7 +414,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ### <a name="comparison-with-a-custom-gateway"></a>Сравнение с настраиваемым шлюзом
 
-Вариант со службой маркеров является рекомендованным способом внедрения настраиваемого реестра удостоверений или схемы проверки подлинности с использованием Центра Интернета вещей. Этот вариант рекомендуется, так как Центр Интернета вещей продолжает обрабатывать большую часть трафика решения. Однако, если настраиваемая схема аутентификации настолько тесно переплетена с протоколом, то для обработки всего трафика может потребоваться *настраиваемый шлюз*. В качестве примера сценария можно привести использование [протокола TLS и общих ключей][lnk-tls-psk]. Дополнительные сведения см. в разделе о [шлюзе протокола][lnk-protocols].
+Вариант со службой маркеров является рекомендованным способом внедрения настраиваемого реестра удостоверений или схемы проверки подлинности с использованием Центра Интернета вещей. Этот вариант рекомендуется, так как Центр Интернета вещей продолжает обрабатывать большую часть трафика решения. Однако, если настраиваемая схема аутентификации настолько тесно переплетена с протоколом, то для обработки всего трафика может потребоваться *настраиваемый шлюз*. В качестве примера сценария можно привести использование [протокола TLS и общих ключей][lnk-tls-psk]. Дополнительные сведения см. в статье о [шлюзе протокола][lnk-protocols].
 
 ## <a name="reference-topics"></a>Справочные материалы
 
@@ -418,7 +449,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 * [Вызов прямого метода на устройстве (предварительная версия)][lnk-devguide-directmethods]
 * [Schedule jobs on multiple devices][lnk-devguide-jobs] (Планирование заданий на нескольких устройствах)
 
-Если вы хотели бы применить на практике некоторые основные понятия, описанные в этой статье, можно просмотреть следующие руководства по Центру Интернета вещей:
+Чтобы применить на практике некоторые основные понятия, описанные в этой статье, просмотрите следующие руководства по Центру Интернета вещей:
 
 * [Приступая к работе с Центром Интернета вещей Azure][lnk-getstarted-tutorial]
 * [Учебник: как отправлять сообщения из облака на устройства с помощью центра IoT и .Net][lnk-c2d-tutorial]

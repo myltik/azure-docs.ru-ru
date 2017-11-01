@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f85f7077e5227818d062d114370e7344601a998e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95ef2099cb16bcfd550ce2799428f1a16031f535
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="security-policies-overview"></a>Обзор политик безопасности
 В этом документе представлен обзор политик безопасности в центре безопасности.
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 Политики центра безопасности содержат следующие компоненты:
 
 - Сбор данных: настройки подготовки агента и [сбора данных](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- Политика безопасности: [политика Azure](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction), которая определяет, какие элементы управления отслеживаются и рекомендуются центром безопасности. Можно изменить политику в центре безопасности или использовать политику Azure для создания определений, определения дополнительных политик и назначения политик в группах управления.
+- Политика безопасности: определяет, какие элементы управления отслеживаются и рекомендуются центром безопасности. Можно изменить [политику безопасности](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) в центре безопасности или использовать [политику Azure](security-center-azure-policy.md) в ограниченной предварительной версии для создания определений, определения дополнительных политик и назначения политик в группах управления.
 - Уведомления по электронной почте: контакты безопасности и параметры [уведомлений по электронной почте](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 - Ценовая категория: выбор бесплатной или стандартной [ценовой категории](https://docs.microsoft.com/azure/security-center/security-center-pricing), который определяет, какие функции центра безопасности доступны для ресурсов в области применения (может быть указана для подписки, групп ресурсов и рабочих областей). 
 

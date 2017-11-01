@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 1e23fa988952f2515d82d4d043c390c263959ccc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6124a8fa630424558c0812edbf12d5ad25d6bf6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Использование эмулятора Azure Cosmos DB для разработки и тестирования в локальной среде
 
@@ -44,12 +44,13 @@ ms.lasthandoff: 10/11/2017
 
 > [!div class="checklist"]
 > * Установка эмулятора
-> * Запуск эмулятора в Docker для Windows
 > * Выполнение проверки подлинности запросов
 > * Использование обозревателя данных в эмуляторе
 > * Экспорт сертификатов SSL
 > * Вызов эмулятора из командной строки
+> * Запуск эмулятора в Docker для Windows
 > * Сбор файлов трассировки
+> * Устранение неполадок
 
 Рекомендуем просмотреть следующий видеоролик, в котором Кирилл Гаврилюк покажет, как начать работу с эмулятором Azure Cosmos DB. Обратите внимание, что в видео эмулятор называется эмулятором DocumentDB, но с момента съемки видео сам инструмент переименован в эмулятор Azure Cosmos DB с момента записи видео. Все данные в видео актуальны для эмулятора Azure Cosmos DB. 
 
@@ -65,6 +66,16 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Сейчас обозреватель данных в эмуляторе поддерживает создание коллекций API DocumentDB и MongoDB. Сейчас обозреватель данных в эмуляторе не поддерживает создание таблиц и графов. 
 
+## <a name="differences-between-the-emulator-and-the-service"></a>Различия между эмулятором и службой 
+Эмулятор Azure Cosmos DB обеспечивает эмулированную среду, выполняемую на локальном компьютере разработчика. Поэтому возможности эмулятора и облачной учетной записи Azure Cosmos DB несколько отличаются.
+
+* Эмулятор Azure Cosmos DB поддерживает только одну предопределенную учетную запись и известный главный ключ.  Повторное создание ключей в эмуляторе Azure Cosmos DB не поддерживается.
+* Эмулятор Azure Cosmos DB не поддерживает масштабирование и не может работать с большим числом коллекций.
+* Эмулятор Azure Cosmos DB не поддерживает [уровни согласованности Azure Cosmos DB](consistency-levels.md).
+* Эмулятор Azure Cosmos DB не поддерживает [репликацию между несколькими регионами](distribute-data-globally.md).
+* Эмулятор Azure Cosmos DB не поддерживает переопределение квот для службы, которое возможно в службе Azure Cosmos DB (например, ограничения на размер документа, увеличение хранилища для секционированных коллекций).
+* Локальная версия эмулятора Azure Cosmos DB может не всегда отражать свежие изменения в службе Azure Cosmos DB. Поэтому, чтобы точно оценить необходимую пропускную способность для приложения, используйте [планировщик ресурсов Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
+
 ## <a name="system-requirements"></a>Требования к системе
 Эмулятор Azure Cosmos DB имеет следующие требования к оборудованию и программному обеспечению.
 
@@ -75,52 +86,12 @@ ms.lasthandoff: 10/11/2017
   * 10 ГБ свободного дискового пространства.
 
 ## <a name="installation"></a>Установка
-Эмулятор Azure Cosmos DB можно скачать и установить из [центра загрузки Майкрософт](https://aka.ms/cosmosdb-emulator). 
+Эмулятор Azure Cosmos DB можно скачать и установить из [центра загрузки Майкрософт](https://aka.ms/cosmosdb-emulator). Вы также можете запустить эмулятор в Docker для Windows. Инструкции по использованию эмулятора в Docker для Windows см. в статье [Использование эмулятора Azure Cosmos DB для разработки и тестирования в локальной среде](#running-on-docer). 
 
 > [!NOTE]
 > Чтобы установить, настроить и запустить эмулятор Azure Cosmos DB, нужны права администратора на локальном компьютере.
 
-## <a name="running-on-docker-for-windows"></a>Выполнение в Docker для Windows
-
-Эмулятор Azure Cosmos DB может выполняться в Docker для Windows. Этот эмулятор не работает в Docker для Oracle Linux.
-
-Если [Docker для Windows](https://www.docker.com/docker-windows) установлен и переключен на контейнеры Windows, вы можете извлечь образ эмулятора из Docker Hub, выполнив следующую команду из любой оболочки по своему усмотрению (cmd.exe, PowerShell и т. д.).
-
-```      
-docker pull microsoft/azure-cosmosdb-emulator 
-```
-Чтобы запустить образ, выполните следующие команды:
-
-``` 
-md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
-```
-
-Ответ выглядит примерно так:
-
-```
-Starting Emulator
-Emulator Endpoint: https://172.20.229.193:8081/
-Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
-Exporting SSL Certificate
-You can import the SSL certificate from an administrator command prompt on the host by running:
-cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
-powershell .\importcert.ps1
---------------------------------------------------------------------------------------------------
-Starting interactive shell
-``` 
-
-Если закрыть интерактивную оболочку после запуска эмулятора, его контейнер завершит работу.
-
-Воспользуйтесь конечной точкой и главным ключом из ответа в клиенте и импортируйте SSL-сертификат в узел. Чтобы импортировать SSL-сертификат, выполните следующие действия из командной строки с правами администратора.
-
-```
-cd %LOCALAPPDATA%\CosmosDBEmulatorCert
-powershell .\importcert.ps1
-```
-
-
-## <a name="start-the-emulator"></a>Запуск эмулятора
+## <a name="running-on-windows"></a>Запуск в Windows
 
 Чтобы запустить эмулятор Azure Cosmos DB, нажмите кнопку "Пуск" или клавишу Windows. Начните вводить текст **Эмулятор Azure Cosmos DB** и выберите эмулятор в списке приложений. 
 
@@ -134,7 +105,7 @@ powershell .\importcert.ps1
 
 ## <a name="start-data-explorer"></a>Запуск обозревателя данных
 
-При запуске эмулятор Azure Cosmos DB автоматически откроет в браузере страницу обозревателя данных Azure Cosmos DB. В адресной строке вы увидите адрес [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Чтобы позднее открыть страницу обозревателя данных, вы можете ввести в браузере этот URL-адрес или запустить обозреватель из эмулятора Azure Cosmos DB, используя значок в области уведомлений Windows, как показано ниже.
+При запуске эмулятор Azure Cosmos DB автоматически откроет в браузере страницу обозревателя данных Azure Cosmos DB. В адресной строке отобразится адрес [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Чтобы позднее открыть страницу обозревателя данных, вы можете ввести в браузере этот URL-адрес или запустить обозреватель из эмулятора Azure Cosmos DB, используя значок в области уведомлений Windows, как показано ниже.
 
 ![Запуск обозревателя данных из локального эмулятора Azure Cosmos DB](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -158,7 +129,7 @@ powershell .\importcert.ps1
 
 Кроме того, как и настоящая служба Azure Cosmos DB, эмулятор Azure Cosmos DB поддерживает только безопасное подключение по протоколу SSL.
 
-## <a name="running-the-emulator-on-a-local-network"></a>Запуск эмулятора в локальной сети
+## <a name="running-on-a-local-network"></a>Запуск в локальной сети
 
 Вы можете запустить эмулятор в локальной сети. Чтобы разрешить доступ к сети, укажите параметр /AllowNetworkAccess в [командной строке](#command-line-syntax), а также один из обязательных дополнительных параметров /Key=key_string или /KeyFile=file_name. Можно также применить параметр GenKeyFile=file_name, чтобы заранее создать случайный ключ.  Затем передайте этот ключ в параметре /KeyFile=file_name или /Key=contents_of_file.
 
@@ -327,16 +298,6 @@ powershell .\importcert.ps1
 </tr>
 </table>
 
-## <a name="differences-between-the-azure-cosmos-db-emulator-and-azure-cosmos-db"></a>Различия между эмулятором Azure Cosmos DB и службой Azure Cosmos DB 
-Эмулятор Azure Cosmos DB обеспечивает эмулированную среду, выполняемую на локальном компьютере разработчика. Поэтому возможности эмулятора и облачной учетной записи Azure Cosmos DB несколько отличаются.
-
-* Эмулятор Azure Cosmos DB поддерживает только одну предопределенную учетную запись и известный главный ключ.  Повторное создание ключей в эмуляторе Azure Cosmos DB не поддерживается.
-* Эмулятор Azure Cosmos DB не поддерживает масштабирование и не может работать с большим числом коллекций.
-* Эмулятор Azure Cosmos DB не поддерживает [уровни согласованности Azure Cosmos DB](consistency-levels.md).
-* Эмулятор Azure Cosmos DB не поддерживает [репликацию между несколькими регионами](distribute-data-globally.md).
-* Эмулятор Azure Cosmos DB не поддерживает переопределение квот для службы, которое возможно в службе Azure Cosmos DB (например, ограничения на размер документа, увеличение хранилища для секционированных коллекций).
-* Локальная версия эмулятора Azure Cosmos DB может не всегда отражать свежие изменения в службе Azure Cosmos DB. Поэтому, чтобы точно оценить необходимую пропускную способность для приложения, используйте [планировщик ресурсов Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
-
 ## <a id="set-partitioncount"></a>Изменение количества коллекций
 
 По умолчанию с помощью эмулятора Azure Cosmos DB можно создать до 25 односекционных коллекций или одну секционированную коллекцию. Изменив значение **PartitionCount**, можно создать до 250 односекционных или 10 секционированных коллекций. А также можно комбинировать оба типа коллекций, при этом количество отдельных секций не должно превышать 250 (из расчета, что 1 секционированная коллекция = 25 односекционных коллекций).
@@ -356,6 +317,59 @@ powershell .\importcert.ps1
 3. Выйдите из всех открытых экземпляров, щелкнув правой кнопкой мыши значок **эмулятора Azure Cosmos DB** в области уведомлений и выбрав **Выход**. Выход из всех экземпляров может занять около минуты.
 4. Установите последнюю версию [эмулятора Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 5. Запустите эмулятор с флагом PartitionCount, задав значение <= 250. Например, `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
+
+## <a name="running-on-docker"></a>Запуск в Docker
+
+Эмулятор Azure Cosmos DB может выполняться в Docker для Windows. Этот эмулятор не работает в Docker для Oracle Linux.
+
+Установив [Docker для Windows](https://www.docker.com/docker-windows), переключитесь на контейнеры Windows. Для этого на панели инструментов щелкните правой кнопкой мыши значок Docker и выберите **Switch to Windows containers** (Переключиться на контейнеры Windows).
+
+Затем извлеките образ эмулятора из Docker Hub, выполнив следующую команду из любой оболочки.
+
+```     
+docker pull microsoft/azure-cosmosdb-emulator 
+```
+Чтобы запустить образ, выполните следующие команды:
+
+Из командной строки.
+```cmd 
+md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+```
+
+Из PowerShell:
+```powershell
+md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+```
+
+Ответ выглядит примерно так:
+
+```
+Starting Emulator
+Emulator Endpoint: https://172.20.229.193:8081/
+Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+Exporting SSL Certificate
+You can import the SSL certificate from an administrator command prompt on the host by running:
+cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
+powershell .\importcert.ps1
+--------------------------------------------------------------------------------------------------
+Starting interactive shell
+``` 
+
+Теперь воспользуйтесь конечной точкой и главным ключом из ответа в клиенте и импортируйте SSL-сертификат в узел. Чтобы импортировать SSL-сертификат, выполните следующие действия из командной строки с правами администратора.
+
+```
+cd %LOCALAPPDATA%\CosmosDBEmulatorCert
+powershell .\importcert.ps1
+```
+
+Если закрыть интерактивную оболочку после запуска эмулятора, его контейнер завершит работу.
+
+Чтобы открыть обозреватель данных, перейдите по приведенному ниже URL-адресу в браузере. Конечная точка эмулятора отобразится в сообщении ответа, приведенном выше.
+
+    https://<emulator endpoint provided in response>/_explorer/index.html
+
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 

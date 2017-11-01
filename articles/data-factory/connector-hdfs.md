@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 8db368017ef25603598ec92e8bbbb1fc69230145
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d28b82f892ac88c32ab3e04df19143d69a5a05b
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Копирование данных из HDFS и обратно с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 | type | Для свойства type необходимо задать значение **Hdfs** | Да |
 | url |URL-адрес в HDFS |Да |
 | authenticationType | Допустимые значения — **Анонимная** или **Windows**. <br><br> Чтобы использовать **аутентификацию Kerberos** для соединителя HDFS, настройте локальную среду, как описано [здесь](#use-kerberos-authentication-for-hdfs-connector). |Да |
-| userName |Имя пользователя для проверки подлинности Windows. |Да (для проверки подлинности Windows) |
+| userName |Имя пользователя для проверки подлинности Windows. Для проверки подлинности Kerberos укажите `<username>@<domain>.com`. |Да (для проверки подлинности Windows) |
 | пароль |Пароль для проверки подлинности Windows. Пометьте это поле в качестве SecureString. |Да (для проверки подлинности Windows) |
 | connectVia | [Среда выполнения интеграции](concepts-integration-runtime.md), используемая для подключения к хранилищу данных. Вы можете использовать локальную среду выполнения интеграции или среду выполнения интеграции Azure (если хранилище данных является общедоступным). Если не указано другое, по умолчанию используется интегрированная среда выполнения Azure. |Нет |
 

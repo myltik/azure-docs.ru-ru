@@ -5,20 +5,22 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/29/2017
+ms.date: 10/11/2017
 ms.topic: overview
-ms.service: Cost Management
+ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 9edcfa20b25d7048c2066fba86203a29ba1f84fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 969340080bfe2b04704367c2225895728773119e
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="what-is-azure-cost-management"></a>Что такое Azure Cost Management?
 
 Azure Cost Management от Cloudyn позволяет отслеживать использование облака и затраты для ресурсов Azure и других поставщиков облачных услуг, включая AWS и Google. Простые для понимания отчеты панели мониторинга помогают с распределением затрат, а также с виртуальными счетами и возвратными платежами. Cost Management помогает оптимизировать расходы на облако, выявляя недостаточно нагруженные ресурсы, которые затем можно настроить.
+
+См. ознакомительное видео [Introduction to Azure Cost Management by Cloudyn](https://youtu.be/NWIRny6Wpsk) (Общие сведения о службе управления затратами Azure от Cloudyn).
 
 ## <a name="monitor-usage-and-spending"></a>Отслеживание использования и расходов
 

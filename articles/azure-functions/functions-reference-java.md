@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: routlaw
-ms.openlocfilehash: f8812c2e8ac3398dabd17feaf97897efca5566f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Руководство разработчика Java по Функциям Azure
 > [!div class="op_single_selector"]
@@ -218,16 +218,17 @@ public class MyClass {
 
 Возвращаемое значение является самым простым форматом вывода. Вы просто возвращаете значение любого типа, а среда выполнения Функций Azure пытается маршалировать его в фактический тип (например, HTTP-ответ). В файле `functions.json` используйте `$return` в качестве имени выходной привязки.
 
-Чтобы вернуть несколько выходных значений, используйте тип `OutputParameter<T>`, который определен в пакете `azure-functions-java-core`. Если вам нужно одновременно создать HTTP-ответ и отправить сообщение в очередь, можно использовать примерно такой код:
+Чтобы вернуть несколько выходных значений, используйте тип `OutputBinding<T>`, который определен в пакете `azure-functions-java-core`. Если вам нужно одновременно создать HTTP-ответ и отправить сообщение в очередь, можно использовать примерно такой код:
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputParameter;
+import com.microsoft.azure.serverless.functions.OutputBinding;
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
 
 public class MyClass {
-    public static String echo(String body, @BindingName("message") OutputParameter<String> queue) {
+    public static String echo(String body, 
+    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
         String result = "Hello, " + body + ".";
         queue.setValue(result);
         return result;
@@ -235,7 +236,7 @@ public class MyClass {
 }
 ```
 
-При этом в файле `function.json` определить выходную привязку так:
+При этом в файле `function.json` будет определена выходная привязка:
 
 ```json
 {
@@ -251,10 +252,10 @@ public class MyClass {
     },
     {
       "type": "queue",
-      "name": "message",
+      "name": "queue",
       "direction": "out",
-      "queueName": "myqueue",
-      "connection": "ExampleStorageAccount"
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
     },
     {
       "type": "http",

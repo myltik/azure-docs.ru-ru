@@ -8,12 +8,12 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 09/14/2017
-ms.openlocfilehash: 83bcb339c16b8a1be15773ba35208461ecf8120e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/12/2017
+ms.openlocfilehash: 1d92ffc03b60695c5ff7b6c3d2ac54808c527efd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Ключи учетной записи хранения Azure Key Vault
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="supporting-interfaces"></a>Поддержка интерфейсов
 
-Функция ключей учетной записи хранения Azure изначально доступна через интерфейсы REST, .NET, C# и PowerShell. Дополнительные сведения см. в разделе [Документация по хранилищу ключей](https://docs.microsoft.com/azure/key-vault/).
+Полный список наших интерфейсов программирования и сценариев, а также ссылки на них см. в [руководстве разработчика Key Vault](key-vault-developers-guide.md#coding-with-key-vault).
 
 
 ## <a name="what-key-vault-manages"></a>Чем управляет Key Vault
@@ -99,15 +99,11 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ### <a name="setup-for-role-based-access-control-rbac-permissions"></a>Настройка разрешений для управления доступом на основе ролей (RBAC)
 
-Для Key Vault необходимы разрешения для *вывода списка* и *повторного создания* ключей учетной записи хранения. Настройте эти разрешения, выполнив следующие действия:
+Для удостоверения приложения Azure Key Vault необходимы разрешения на *вывод списка* и *повторное создание* ключей учетной записи хранения. Настройте эти разрешения, выполнив следующие действия:
 
-- Получите ObjectId хранилища Key Vault: 
+- Получите ObjectId удостоверения Azure Key Vault: 
 
     `Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093`
-    
-     или
-     
-    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
 - Присвойте идентификатору Azure Key Vault роль оператора учетной записи хранения: 
 
@@ -131,14 +127,14 @@ accountSasCredential.UpdateSASToken(sasToken);
 ### <a name="get-a-service-principal"></a>Получение субъекта-службы
 
 ```powershell
-Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+$yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
 ```
 
-Выходные данные предыдущей команды будут содержать параметр ServicePrincipal, который мы будем называть *yourServicePrincipalId*. 
+Выходные данные предыдущей команды будут содержать параметр ServicePrincipal, который мы будем называть *yourKeyVaultServicePrincipalId*. 
 
 ### <a name="set-permissions"></a>Установка разрешений
 
-Убедитесь, что для разрешений хранилища задано значение *Все*. Вы можете получить yourUserPrincipalId и задать разрешения для хранилищ, выполнив указанные ниже команды.
+Убедитесь, что для разрешений хранилища задано значение *Все*. Вы можете получить yourKeyVaultServicePrincipalId и задать разрешения для хранилищ, выполнив указанные ниже команды.
 
 ```powershell
 Get-AzureRmADUser -SearchString "your name"
@@ -146,7 +142,7 @@ Get-AzureRmADUser -SearchString "your name"
 Теперь найдите свое имя и получите связанный ObjectId, который будет использоваться при настройке разрешений в хранилище.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $yourKeyVaultServicePrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>Разрешить доступ
@@ -154,7 +150,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincip
 Прежде чем вы сможете создавать управляемую учетную запись хранения и определения SAS, службе Key Vault необходимо предоставить доступ к учетными записями хранения.
 
 ```powershell
-New-AzureRmRoleAssignment -ObjectId yourServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
+New-AzureRmRoleAssignment -ObjectId $yourKeyVaultServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
 ```
 
 ### <a name="create-storage-account"></a>Создать учетную запись хранения

@@ -17,17 +17,17 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91f0aa093e0a1f7ed4d54a0cdf5ef53bc41cb6be
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Создание реестра контейнеров с помощью Azure CLI
 
 Реестр контейнеров Azure — это управляемая служба реестра контейнеров Docker, используемая для хранения частных образов контейнеров Docker. В этом руководстве рассматривается создание экземпляра реестра контейнеров Azure с помощью Azure CLI.
 
-Для этого руководства требуется Azure CLI версии 2.0.12 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli).
+Для этого руководства требуется Azure CLI 2.0.20 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 Также необходим локально установленный модуль Docker. Docker содержит пакеты, которые позволяют быстро настроить Docker в любой системе [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) или [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
@@ -45,10 +45,7 @@ az group create --name myResourceGroup --location eastus
 
 В этом кратком руководстве мы создадим реестр уровня *Базовый*. Реестр контейнеров Azure доступен в нескольких номерах SKU, которые кратко описаны в следующей таблице. См. дополнительные сведения о [номерах SKU реестра контейнеров](container-registry-skus.md).
 
-Реестр контейнеров Azure доступен в нескольких номерах SKU: `Basic`, `Managed_Basic`, `Managed_Standard` и `Managed_Premium`. Хотя номера SKU `Managed_*` предоставляют такие расширенные возможности, как управляемое хранилище и веб-перехватчики, сейчас они недоступны в некоторых регионах Azure при использовании Azure CLI. В этом кратком руководстве мы выберем номер SKU `Basic` из-за его доступности во всех регионах.
-
->[!NOTE]
-> Управляемые реестры сейчас доступны во всех регионах. Но текущая версия Azure CLI еще не поддерживает создание управляемых реестров во всех регионах. Поддержка будет реализована в следующей версии Azure CLI. До ее выпуска используйте [портал Azure](container-registry-get-started-portal.md) для создания управляемых реестров.
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 Создайте экземпляр ACR с помощью команды [az acr create](/cli/azure/acr#create).
 

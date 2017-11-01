@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 10/11/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc9c9b0a6292dab256997a86a6db16367fc48cd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 264ea071dc0b15964af07c68cbf0dee896b07a3e
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="log-analytics-search-reference"></a>Справочник по поиску в Log Analytics
 
 >[!NOTE]
-> В этой статье описывается поиск по журналам с использованием текущего языка запросов в Log Analytics.  Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), ознакомьтесь со [справочником по новому языку](https://go.microsoft.com/fwlink/?linkid=856079).
+> В этой статье описана функция поиска по журналам с использованием языка запросов прежней версии в Log Analytics.  Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), ознакомьтесь со [справочником по новому языку](https://go.microsoft.com/fwlink/?linkid=856079).
 
 В следующем справочном разделе о языке поиска описываются общие варианты синтаксиса запросов, которые можно использовать при поиске данных и фильтрации выражений для сужения области поиска. В нем также описываются команды, которые можно использовать для выполнения действий с полученными данными.
 

@@ -9,19 +9,19 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Развертывание службы управления API с помощью Service Fabric
-Это руководство представляет собой вторую часть цикла. В нем показано, как настроить [службу управления API Azure](../api-management/api-management-key-concepts.md) с помощью Service Fabric для перенаправления трафика во внутреннюю службу в Service Fabric.  Выполнив инструкции этого руководства, вы развернете службу управления API в виртуальной сети и настроите API для отправки трафика во внутренние службы без отслеживания состояния. Дополнительные сведения о сценариях службы управления API Azure и Service Fabric см. в [обзорной статье](service-fabric-api-management-overview.md).
+Это руководство представляет собой вторую часть цикла. В нем показано, как настроить [службу управления API Azure](../api-management/api-management-key-concepts.md) с помощью Service Fabric для перенаправления трафика во внутреннюю службу в Service Fabric.  Выполнив инструкции из этого руководства, вы развернете службу управления API в виртуальной сети и настроите API для отправки трафика во внутренние службы без отслеживания состояния. Дополнительные сведения о сценариях службы управления API Azure и Service Fabric см. в [обзорной статье](service-fabric-api-management-overview.md).
 
 Из этого руководства вы узнаете, как выполнять такие задачи:
 
@@ -42,11 +42,11 @@ ms.lasthandoff: 10/11/2017
 - Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Установите [модуль Azure PowerShell версии 4.1 или более поздней версии](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) либо [Azure CLI 2.0](/cli/azure/install-azure-cli).
 - Создайте защищенный [кластер Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) или [кластер Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) в Azure.
+- Если вы развертываете кластер Windows, настройте среду разработки Windows. [Установите Visual Studio 2017](http://www.visualstudio.com), а также рабочие нагрузки **разработка Azure**, **ASP.NET и веб-разработка** и **кроссплатформенная разработка .NET Core**.  Теперь настройте [среду разработки .NET](service-fabric-get-started.md).
+- Если вы развертываете кластер Linux, настройте среду разработки Java в [Linux](service-fabric-get-started-linux.md) или [MacOS](service-fabric-get-started-mac.md).  Установите [интерфейс командной строки Service Fabric](service-fabric-cli.md). 
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Вход в Azure и выбор подписки
-В этом руководстве используется [Azure PowerShell][azure-powershell]. При запуске нового сеанса PowerShell войдите в свою учетную запись Azure и выберите подписку перед выполнением команд Azure.
- 
-Войдите в свою учетную запись Azure и выберите подписку.
+Войдите в учетную запись Azure и выберите подписку, прежде чем выполнять команды Azure.
 
 ```powershell
 Login-AzureRmAccount
@@ -99,7 +99,7 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
  2. Установите флажок для параметра **включения REST API службы управления API**.
  3. Запишите **URL-адрес API управления**. Мы используем его позже для настройки серверной части Service Fabric.
  4. Создайте **маркер доступа**, выбрав дату окончания действия и ключ, а затем нажмите кнопку **Создать** внизу страницы.
- 5. Скопируйте **маркер доступа** и сохраните его.  Он понадобится нам позже. Обратите внимание, что он отличается от первичного и вторичного ключа.
+ 5. Скопируйте **маркер доступа** и сохраните его.  Этот маркер доступа понадобится нам на следующих шагах. Обратите внимание, что он отличается от первичного и вторичного ключа.
 
 #### <a name="upload-a-service-fabric-client-certificate"></a>Отправка клиентского сертификата Service Fabric
 
@@ -152,7 +152,7 @@ Content-Type: application/json
 }
 ```
 
-Параметр **URL-адреса** здесь представляет полное доменное имя службы в кластере, куда все запросы направляются по умолчанию, если во внутренней политике не указано имя службы. Вы можете использовать фиктивное имя службы, например "fabric:/fake/service", если вам не нужна резервная служба.
+Параметр **url** здесь представляет полное доменное имя службы в кластере, на которое по умолчанию направляются все запросы, для которых во внутренней политике не указано имя службы. Вы можете использовать фиктивное имя службы, например "fabric:/fake/service", если вам не нужна резервная служба.
 
 Дополнительные сведения о каждом свойстве серверной части см. в [справочной документации по API для серверной части](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend).
 
@@ -193,19 +193,17 @@ print(response.text)
 
 ## <a name="deploy-a-service-fabric-back-end-service"></a>Развертывание внутренней службы Service Fabric
 
-Теперь, когда Service Fabric настроена в качестве серверной части управления API, можно создать внутренние политики для API-интерфейсов, отправляющие трафик в службы Service Fabric. Но сначала вам потребуется служба, работающая в Service Fabric, чтобы принимать запросы.
+Теперь, когда Service Fabric настроена в качестве серверной части управления API, можно создать внутренние политики для API-интерфейсов, отправляющие трафик в службы Service Fabric. Но сначала вам потребуется служба, работающая в Service Fabric, чтобы принимать запросы.  Если вы ранее создали [кластер Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md), разверните службу .NET Service Fabric.  Если вы ранее создали [кластер Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md), разверните службу Java Service Fabric.
 
-### <a name="create-a-service-fabric-service-with-an-http-endpoint"></a>Создание службы Service Fabric с конечной точкой HTTP
+### <a name="deploy-a-net-service-fabric-service"></a>Развертывание службы .NET Service Fabric
 
-В рамках этого руководства мы создадим базовую надежную службу ASP.NET Core без отслеживания состояния с помощью шаблона проекта веб-API по умолчанию. Так мы получим конечную точку HTTP для службы, которую можно будет использовать через службу управления API Azure:
+В рамках этого руководства мы создаем базовую надежную службу ASP.NET Core без отслеживания состояния с помощью стандартного шаблона проекта веб-API. Так мы получим конечную точку HTTP для службы, которую вы позднее предоставите через службу управления API Azure.
 
 ```
 /api/values
 ```
 
-Ознакомьтесь с разделом о [настройке среды разработки для разработки ASP.NET Core](service-fabric-add-a-web-frontend.md#set-up-your-environment-for-aspnet-core).
-
-После настройки среды разработки запустите Visual Studio от имени администратора и создайте службу ASP.NET Core:
+Запустите Visual Studio от имени администратора и создайте службу ASP.NET Core:
 
  1. В Visual Studio выберите последовательно «Файл» -> «Создать проект».
  2. Выберите шаблон приложения Service Fabric в облаке и присвойте ему имя **ApiApplication**.
@@ -231,11 +229,47 @@ print(response.text)
     ["value1", "value2"]`
     ```
 
-    Это конечная точка, которую вы предоставите через службу управления API в Azure.
+    Эту конечную точку вы предоставите через службу управления API в Azure.
 
- 7. Теперь вы можете развернуть приложение в кластере в Azure. **В Visual Studio** щелкните правой кнопкой мыши проект приложения и выберите [Опубликовать](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box). Укажите конечную точку кластера (например, `mycluster.westus.cloudapp.azure.com:19000`) для развертывания приложения в кластер Service Fabric в Azure.
+ 7. Теперь вы можете развернуть приложение в кластере в Azure. **В Visual Studio** щелкните правой кнопкой мыши проект приложения и выберите [Опубликовать](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box). Укажите конечную точку кластера (например, `mycluster.southcentralus.cloudapp.azure.com:19000`) для развертывания приложения в кластер Service Fabric в Azure.
 
 В кластере Service Fabric в Azure должна запуститься служба ASP.NET Core без отслеживания состояния с именем `fabric:/ApiApplication/WebApiService`.
+
+### <a name="create-a-java-service-fabric-service"></a>Создание службы Java Service Fabric
+В рамках этого руководства мы развертываем базовый веб-сервер, который возвращает пользователю сообщения. Приложение сервера, возвращающего сообщения, содержит конечную точку HTTP для службы, которую вы позднее предоставите через службу управления API Azure.
+
+1. Клонируйте примеры Java для начала работы.
+
+   ```bash
+   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+   cd service-fabric-java-getting-started
+   ```
+
+2. Измените файл *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Измените параметры конечной точки, чтобы служба прослушивала порт 8081.
+
+   ```xml
+   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
+   ```
+
+3. Сохраните *ServiceManifest.xml*, затем выполните сборку приложения EchoServer1.0.
+
+   ```bash
+   cd Services/EchoServer/EchoServer1.0/
+   gradle
+   ```
+
+4. Разверните приложение в кластере.
+
+   ```bash
+   cd Scripts
+   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   ./install.sh
+   ```
+
+   В кластере Service Fabric в Azure должна запуститься служба Java без отслеживания состояния с именем `fabric:/EchoServerApplication/EchoServerService`.
+
+5. Откройте браузер и введите в адресной строке http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Вы увидите сообщение "[version 1.0] Hello World!!!" .
+
 
 ## <a name="create-an-api-operation"></a>Создание операции API
 
@@ -253,7 +287,7 @@ print(response.text)
  
 4. Выберите **Service Fabric App** из списка интерфейсов API и щелкните **+ Add operation** (+ Добавить операцию), чтобы добавить операцию внешнего API. Заполните следующие значения:
     
-    - **URL-адрес**: выберите **GET** и укажите URL-путь для API. В этом руководстве введите путь /api/values.  По умолчанию указанный здесь URL-адрес представляет собой URL-адрес, отправленный во внутреннюю службу Service Fabric. Если вы здесь используете тот же URL-адрес, что и служба (в этом случае /api/values), то операция будет работать без изменений. Вы также можете указать здесь URL-адрес, отличный от URL-адреса, используемого внутренней службой Service Fabric. В этом случае вам позже нужно будет указать перезапись пути в политике операции.
+    - **URL-адрес**: выберите **GET** и укажите URL-путь для API. В этом руководстве введите путь /api/values.  По умолчанию указанный здесь URL-адрес представляет собой URL-адрес, отправленный во внутреннюю службу Service Fabric. Если вы здесь используете тот же URL-адрес, что и служба (в этом случае /api/values), то операция будет работать без изменений. Вы также можете указать здесь URL-адрес, отличный от URL-адреса, используемого внутренней службой Service Fabric. В этом случае следует настроить перезапись пути в политике работы.
     - **Отображаемое имя**: укажите любое имя для API. В этом руководстве введите Values.
 
 5. Щелкните **Сохранить**.
@@ -306,7 +340,7 @@ print(response.text)
 
  1. В службе управления API выберите **API**.
  2. В API **Service Fabric App**, созданном на предыдущих шагах, перейдите на вкладку **Тест** и выберите операцию **Values**.
- 3. Нажмите кнопку **Отправка**, чтобы отправить тестовый запрос во внутреннюю службу.  Вы должны увидеть ответ HTTP следующего вида.
+ 3. Нажмите кнопку **Отправка**, чтобы отправить тестовый запрос во внутреннюю службу.  Ответ HTTP будет выглядеть следующим образом:
 
     ```http
     HTTP/1.1 200 OK

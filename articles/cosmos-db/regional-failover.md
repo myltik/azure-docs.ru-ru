@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Автоматическая отработка отказа между регионами для обеспечения непрерывности бизнес-процессов в Azure Cosmos DB
 Azure Cosmos DB упрощает глобальное распространение данных, предлагая полностью управляемые учетные [записи базы данных в нескольких регионах](distribute-data-globally.md), которые обеспечивают четкие компромиссы между согласованностью, доступностью и производительностью с соответствующими гарантиями. Учетные записи Cosmos DB обеспечивают высокий уровень доступности, задержки в единицы миллисекунд, [четко определенные уровни согласованности](consistency-levels.md), прозрачную региональную отработку отказа с API многосетевого подключения, а также возможность эластично масштабировать пропускную способность и хранилище по всему миру. 
@@ -85,19 +85,40 @@ DocumentClient usClient = new DocumentClient(
 
 **Что произойдет в случае сбоя региона записи?**
 
-Если пострадавший регион является текущим регионом записи для указанной учетной записи Cosmos DB, он автоматически помечается как отключенный. Затем альтернативный регион повышается до региона записи каждой учетной записи Cosmos DB. Вы можете полностью контролировать порядок выбора регионов для учетных записей Cosmos DB на портале Azure или [программным способом](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Если пострадавший регион является текущим регионом записи и для учетной записи Azure Cosmos DB включен автоматический переход на другой ресурс, регион автоматически помечается как отключенный. Затем альтернативный регион повышается до региона записи для пострадавшей учетной записи Azure Cosmos DB. Вы можете включить автоматический переход на другой ресурс и полностью контролировать порядок выбора регионов для учетных записей Azure Cosmos DB на портале Azure или [программными средствами](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Приоритеты при отработке отказа для Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
-Во время автоматической отработки отказа Cosmos DB автоматически выбирает следующий регион записи для указанной учетной записи Cosmos DB на основе указанного порядка приоритета. 
+Во время автоматического перехода на другой ресурс Azure Cosmos DB автоматически выбирает следующий регион записи для указанной учетной записи Azure Cosmos DB на основе заданного порядка приоритетности. Приложения могут использовать свойство WriteEndpoint класса DocumentClient для обнаружения изменений в регионе записи.
 
 ![Сбои региона записи в Azure Cosmos DB](./media/regional-failover/write-region-failures.png)
 
 После восстановления пострадавшего региона служба автоматически восстанавливает все пострадавшие учетные записи Cosmos DB в регионе. 
 
-* Учетные записи Cosmos DB вместе с предыдущим регионом записи, который находился в пострадавшем регионе, даже после восстановления региона остаются в автономном режиме с доступностью для чтения. 
-* Можно запросить этот регион для вычисления нереплицированных записей во время сбоя путем сравнения с данными, доступными в текущем регионе записи. В зависимости от потребностей приложения можно выполнить слияние и (или) разрешение конфликтов и записать последний набор изменений обратно в текущий регион записи. 
-* После завершения слияния изменений пострадавший регион можно вернуть обратно в оперативный режим, удалив и повторно добавив регион в учетную запись Cosmos DB. После того как регион будет добавлен обратно, можно снова настроить его в качестве региона записи путем выполнения ручного перехода на другой ресурс на портале Azure или [программно](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Данные, хранящиеся в предыдущем регионе записи, которые не были реплицированы в регионы чтения во время простоя, публикуются как конфликтующий канал. Приложения могут считать конфликтующий канал, устранить конфликты на основе логики приложения и записать обновленные данные обратно в учетную запись Azure Cosmos DB соответствующим образом. 
+* Предыдущий регион записи повторно создается в качестве региона чтения, и его работа возобновляется автоматически. 
+* Вы можете снова заново настроить регион чтения, возобновленный автоматически, в качестве региона записи, выполнив переход на другой ресурс вручную на портале Azure или с помощью [программных средств](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+
+В следующем фрагменте кода показано, как обрабатывать конфликты, когда пострадавший регион восстанавливается после сбоя.
+
+```cs
+string conflictsFeedContinuationToken = null;
+do
+{
+    FeedResponse<Conflict> conflictsFeed = client.ReadConflictFeedAsync(collectionLink,
+        new FeedOptions { RequestContinuation = conflictsFeedContinuationToken }).Result;
+
+    foreach (Conflict conflict in conflictsFeed)
+    {
+        Document doc = conflict.GetResource<Document>();
+        Console.WriteLine("Conflict record ResourceId = {0} ResourceType= {1}", conflict.ResourceId, conflict.ResourceType);
+
+        // Perform application specific logic to process the conflict record / resource
+    }
+
+    conflictsFeedContinuationToken = conflictsFeed.ResponseContinuation;
+} while (conflictsFeedContinuationToken != null);
+```
 
 ## <a id="ManualFailovers"></a>Ручной переход на другой ресурс
 

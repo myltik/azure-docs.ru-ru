@@ -1,6 +1,6 @@
 ---
 title: "Порты для базы данных SQL помимо 1433 | Документация Майкрософт"
-description: "Иногда взаимодействие с базой данных при клиентских подключениях из ADO.NET к Базе данных SQL Azure происходит напрямую, без прокси-сервера. Порты, отличные от 1433, становятся важными."
+description: "Взаимодействие с базой данных при клиентских подключениях из ADO.NET к Базе данных SQL Azure может происходить напрямую, без прокси-сервера, если база данных не использует порт 1433."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: d47ee8c794d1e231507dae6bb4aa88bf19ce6418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7900a81c61ceeb9009f5671cef717a6d95cbe20
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Порты для ADO.NET 4.5, отличные от порта 1433
 В этом разделе описывается поведение подключения к Базе данных SQL Azure клиентов, использующих ADO.NET 4.5 или более поздней версии. 

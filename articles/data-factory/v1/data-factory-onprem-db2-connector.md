@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/17/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eacecb9f084ead76633cf802751d3a603cb2f0d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Перемещение данных из DB2 с помощью действия копирования в фабрике данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -110,11 +110,7 @@ ms.lasthandoff: 10/11/2017
 | **query** |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Например: `"query": "select * from "MySchema"."MyTable""` |Нет (если для свойства **tableName** задано значение dataset). |
 
 > [!NOTE]
-> В именах схем и таблиц учитывается регистр. В инструкции запроса заключите имена свойств в двойные кавычки (""). Например:
->
-> ```sql
-> "query": "select * from "DB2ADMIN"."Customers""
-> ```
+> В именах схем и таблиц учитывается регистр. В инструкции запроса заключите имена свойств в двойные кавычки ("").
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Пример JSON. Копирование данных из DB2 в хранилище BLOB-объектов Azure
 Ниже приведены примеры определений JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). В примере показано, как скопировать данные из базы данных DB2 в хранилище BLOB-объектов. Тем не менее данные можно скопировать в [любой поддерживаемый тип хранилища-приемника данных](data-factory-data-movement-activities.md#supported-data-stores-and-formats) с помощью действия копирования в фабрике данных Azure.

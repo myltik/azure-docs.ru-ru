@@ -1,10 +1,10 @@
 ---
-title: "Создание веб-приложения .NET Core в контейнере Linux в Azure | Документация Майкрософт"
-description: "Разверните первое приложение .NET Core Hello World на платформе \"Веб-приложения для контейнеров\" всего за несколько минут."
+title: "Создание приложения .NET Core и его развертывание в службе приложений Azure на платформе Linux | Документация Майкрософт"
+description: "Быстрое развертывание первого приложения Hello World на .NET Core в службе приложений на платформе Linux."
 keywords: "служба приложений azure, веб-приложение, dotnet, core, linux, oss"
 services: app-service
 documentationCenter: 
-authors: cephalin
+author: cephalin
 manager: syntaxc4
 editor: 
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
@@ -16,19 +16,19 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 47e7db5462ecf3a2211538b1f46ed0571980b15b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95383554d3fd8a1770a37a5396224c39b4f34c81
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>Создание веб-приложения .NET Core в контейнере Linux в Azure
+# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Создание веб-приложения .NET Core в службе приложений на платформе Linux
 
-Платформа [Веб-приложение для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом кратком руководстве показано, как создать приложение [.NET Core](https://docs.microsoft.com/aspnet/core/) на платформе Azure "Веб-приложения для контейнеров". Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) и разверните код .NET Core в веб-приложении с помощью Git.
+[Служба приложений на платформе Linux](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом кратком руководстве показано, как создать приложение [.NET Core](https://docs.microsoft.com/aspnet/core/) в службе приложений на платформе Linux. Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) и разверните код .NET Core в веб-приложении с помощью Git.
 
 ![Пример приложения, выполняющегося в Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-Выполните действия, приведенные ниже, с помощью компьютера Mac, Windows или Linux. 
+Выполните действия, приведенные ниже, с помощью компьютера Mac, Windows или Linux.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -39,20 +39,20 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-app-locally"></a>Локальное создание приложения ##
+## <a name="create-the-app-locally"></a>Локальное создание приложения
 
-В окне терминала на компьютере создайте каталог `hellodotnetcore` и перейдите в него. 
+В окне терминала на компьютере создайте каталог `hellodotnetcore` и перейдите в него.
 
 ```bash
 md hellodotnetcore
 cd hellodotnetcore
-``` 
+```
 
 Создайте веб-приложение .NET Core.
 
 ```bash
 dotnet new web
-``` 
+```
 
 ## <a name="run-the-app-locally"></a>Локальный запуск приложения
 
@@ -79,13 +79,13 @@ git commit -m "first commit"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Создание веб-приложения
+## <a name="create-a-web-app-with-built-in-image"></a>Создание веб-приложения со встроенным образом
 
 Создайте [веб-приложение](../app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). Не забудьте указать уникальное имя приложения вместо `<app name>`.
 
@@ -95,11 +95,11 @@ git commit -m "first commit"
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1" --deployment-local-git
 ```
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)]
 
 ![Пустая страница веб-приложения](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
-Вы создали пустое веб-приложение в контейнере Linux со включенным развертыванием Git.
+Вы создали пустое веб-приложение со встроенным образом и включенным развертыванием Git.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -140,11 +140,11 @@ To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
 http://<app_name>.azurewebsites.net
 ```
 
-Пример кода Node.js выполняется в веб-приложении службы приложений Azure.
+Пример кода Node.js выполняется в веб-приложении со встроенным образом.
 
 ![Пример приложения, выполняющегося в Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Поздравляем!** Вы развернули свое первое приложение Node.js в службе приложений.
+**Поздравляем!** Вы развернули свое первое приложение Node.js в службе приложений в Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Обновление и повторное развертывание кода
 
@@ -184,4 +184,4 @@ git push azure master
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Создание веб-приложения .NET Core с базой данных SQL на платформе Azure "Веб-приложение для контейнеров"](tutorial-dotnetcore-sqldb-app.md)
+> [Создание веб-приложения .NET Core с базой данных SQL в службе приложений Azure в Linux](tutorial-dotnetcore-sqldb-app.md)

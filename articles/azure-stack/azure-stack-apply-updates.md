@@ -9,16 +9,16 @@ editor:
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/20/2017
 ms.author: twooley
-ms.openlocfilehash: 8fbed3c15b385e385e64093331df37363a558185
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00bd606faaffaad30ff6cea3bcf47dc85282f69
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="apply-updates-in-azure-stack"></a>Применение обновлений в Azure Stack
 
@@ -37,6 +37,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="import-and-install-updates"></a>Импорт и установка обновлений
 
 Ниже описано, как импортировать и устанавливать пакеты обновления на портале администратора.
+
+> [!IMPORTANT]
+> Настоятельно рекомендуем уведомлять пользователей о любых операциях технического обслуживания и планировать стандартные окна обслуживания по возможности в нерабочее время. Операции технического обслуживания могут влиять на рабочие нагрузки пользователей и на операции портала.
 
 1. На портале администратора щелкните **Другие службы**. После этого в категории **Данные + хранилище** выберите **Учетные записи хранения**. (Или начните вводить текст **учетные записи хранения** в поле ввода и выберите найденный элемент.)
 
@@ -73,4 +76,5 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
+- [Общие сведения об управлении обновлениями в Azure Stack](azure-stack-updates.md)
 - [Azure Stack servicing policy](azure-stack-servicing-policy.md) (Политика обслуживания Azure Stack).

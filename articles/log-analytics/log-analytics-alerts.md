@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: e03911d589aaab0d0e80da5d58f14d6df417f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Общие сведения об оповещениях в Log Analytics
 
@@ -76,15 +76,18 @@ ms.lasthandoff: 10/11/2017
 
 Например, если бы вам было нужно получать оповещения, когда процессор нагружен более чем на 90 %, то вы могли бы использовать запрос с пороговым значением для правила генерации оповещений **Больше 0**. Пример такого запроса приведен ниже.
 
-    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90
+
+    
 
 Если бы вам было нужно получать оповещения, когда средняя нагрузка процессора превышает 90 % в определенном временном окне, то вы могли бы использовать запрос с [командой measure](log-analytics-search-reference.md#commands) и пороговым значением для правила генерации оповещений **Больше 0**. Ниже приведен пример такого запроса.
 
-    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
 
+    
 >[!NOTE]
-> Если для рабочей области обновлен [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом: `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
-> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`.
+> Если ваша рабочая область еще не переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом: `Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
 ## <a name="metric-measurement-alert-rules"></a>Metric measurement alert rules (Измерение метрики для правила генерации оповещений)
@@ -107,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 #### <a name="example"></a>Пример
 Рассмотрим ситуацию, где оповещение должно создаваться, когда использование процессора на компьютере превышает 90 % три раза в течение 30 минут.  Вы должны создать правило генерации оповещений с приведенными ниже сведениями.  
 
-**Запрос:** Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute.<br>
+**Запрос:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 **Временное окно:** 30 минут.<br>
 **Периодичность предупреждений:** 5 минут.<br>
 **Объединенное значение:** больше 90.<br>

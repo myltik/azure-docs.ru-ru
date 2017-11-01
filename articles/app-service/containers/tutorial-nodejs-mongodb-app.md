@@ -1,6 +1,6 @@
 ---
-title: "Разработка веб-приложения на основе Node.js и MongoDB на платформе Azure \"Веб-приложение для контейнеров\" | Документация Майкрософт"
-description: "Узнайте, как создать приложение Node.js с подключением к базе данных Cosmos DB и строкой подключения MongoDB на платформе Azure \"Веб-приложение для контейнеров\"."
+title: "Разработка веб-приложения на основе Node.js и MongoDB в службе приложений Azure на платформе Linux | Документация Майкрософт"
+description: "Узнайте, как разработать приложение Node.js с подключением к базе данных Cosmos DB и строкой подключения MongoDB в службе приложений Azure на платформе Linux."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -12,25 +12,25 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/31/2017
+ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e1bc68426f93717dcf466652d2481b6ab1db2a18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a92b2875df3ceaeb4de21f24aa484196a82d825d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-app-for-containers"></a>Разработка веб-приложения на основе Node.js и MongoDB на платформе Azure "Веб-приложение для контейнеров"
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Разработка веб-приложения на основе Node.js и MongoDB в службе приложений Azure на платформе Linux
 
-Платформа [Веб-приложение для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом руководстве показано, как создать веб-приложение Node.js и подключить его к базе данных MongoDB. Выполнив действия, описанные в этом руководстве, вы создадите приложение MEAN (MongoDB, Express, AngularJS и Node.js), выполняющееся на платформе "Веб-приложения для контейнеров". Для простоты в примере приложения используется [веб-платформа MEAN.js](http://meanjs.org/).
+[Служба приложений на платформе Linux](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом руководстве показано, как создать веб-приложение Node.js, подключить его локально к базе данных MongoDB, а затем развернуть в службе приложений Azure, подключенной к базе данных CosmosDB, с помощью API MongoDB. Выполнив действия, описанные в этом руководстве, вы получите приложение MEAN (MongoDB, Express, AngularJS и Node.js), работающее в службе приложений на платформе Linux. Для простоты в примере приложения используется [веб-платформа MEAN.js](http://meanjs.org/).
 
 ![Приложение MEAN.js, которое запущено в службе приложений Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 Вы узнаете, как выполнять следующие задачи:
 
 > [!div class="checklist"]
-> * Создание базы данных MongoDB в Azure.
+> * Создание базы данных CosmosDB с помощью API MongoDB в Azure.
 > * Подключение приложения Node.js к базе данных MongoDB.
 > * Развертывание приложения в Azure
 > * Обновление модели данных и повторное развертывание приложения.
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 1. [установите Git](https://git-scm.com/);
 1. [установите Node.js 6.0 или более поздней версии и NPM](https://nodejs.org/);
 1. [Gulp.js](http://gulpjs.com/) (требуется для [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started));
-1. [Установите и запустите MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). 
+1. [Установите и запустите MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,9 +58,9 @@ ms.lasthandoff: 10/11/2017
 mongo
 ```
 
-Если подключение успешно установлено, это означает, что локальная база данных MongoDB запущена. Если это не так, запустите локальную базу данных MongoDB, выполнив инструкции, описанные в статье [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) (Установка MongoDB Community Edition). Часто база данных MongoDB установлена, но ее необходимо запустить, выполнив команду `mongod`. 
+Если подключение успешно установлено, это означает, что локальная база данных MongoDB запущена. Если это не так, запустите локальную базу данных MongoDB, выполнив инструкции, описанные в статье [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) (Установка MongoDB Community Edition). Часто база данных MongoDB установлена, но ее необходимо запустить, выполнив команду `mongod`.
 
-Закончив проверку базы данных MongoDB, введите команду `Ctrl+C` в окне терминала. 
+Закончив проверку базы данных MongoDB, введите команду `Ctrl+C` в окне терминала.
 
 ## <a name="create-local-nodejs-app"></a>Создание локального приложения Node.js
 
@@ -68,9 +68,9 @@ mongo
 
 ### <a name="clone-the-sample-application"></a>Клонирование примера приложения
 
-Откройте окно терминала и c помощью команды `cd` перейдите в рабочий каталог.  
+Откройте окно терминала и c помощью команды `cd` перейдите в рабочий каталог.
 
-Выполните команду ниже, чтобы клонировать репозиторий с примером. 
+Выполните команду ниже, чтобы клонировать репозиторий с примером.
 
 ```bash
 git clone https://github.com/Azure-Samples/meanjs.git
@@ -90,7 +90,7 @@ npm start
 
 Игнорируйте это предупреждение config.domain. После полной загрузки приложения вы увидите следующее сообщение:
 
-```
+```txt
 --
 MEAN.JS - Development Environment
 
@@ -110,7 +110,7 @@ MEAN.JS version: 0.5.0
 
 Чтобы добавить несколько статей, выберите **Администрирование > Manage Articles** (Управление статьями).
 
-Чтобы остановить Node.js в любое время, введите `Ctrl+C` в окне терминала. 
+Чтобы остановить Node.js в любое время, введите `Ctrl+C` в окне терминала.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -122,7 +122,7 @@ MEAN.JS version: 0.5.0
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### <a name="create-a-cosmos-db-account"></a>Создание учетной записи Cosmos DB
 
@@ -148,7 +148,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
   },
   "databaseAccountOfferType": "Standard",
   "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
-  "failoverPolicies": 
+  "failoverPolicies":
   ...
   < Output truncated for readability >
 }
@@ -156,7 +156,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
 
 ## <a name="connect-app-to-production-mongodb"></a>Подключение приложения к рабочей базе данных MongoDB
 
-На этом шаге вы подключите пример приложения MEAN.js к только что созданной базе данных Cosmos DB с помощью строки подключения MongoDB. 
+На этом шаге вы подключите пример приложения MEAN.js к только что созданной базе данных Cosmos DB с помощью строки подключения MongoDB.
 
 ### <a name="retrieve-the-database-key"></a>Получение ключа базы данных
 
@@ -180,9 +180,10 @@ az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 Скопируйте значение `primaryMasterKey`. Эти сведения потребуются на следующем шаге.
 
 <a name="devconfig"></a>
+
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Настройка строки подключения в приложении Node.js
 
-В локальном репозитории MEAN.js создайте файл с именем _local-production.js_ в папке _config/env/_. Чтобы этот файл хранился вне репозитория, настраивается _.gitignore_. 
+В локальном репозитории MEAN.js создайте файл с именем _local-production.js_ в папке _config/env/_. Чтобы этот файл хранился вне репозитория, настраивается _.gitignore_.
 
 Скопируйте в него следующий код: Замените два заполнителя *\<cosmosdb_name>* именем базы данных Cosmos DB, а заполнитель *\<primary_master_key>* — ключом, скопированным на предыдущем шаге.
 
@@ -194,11 +195,11 @@ module.exports = {
 };
 ```
 
-Параметр `ssl=true` обязателен, так как для [Cosmos DB требуется протокол SSL](../../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+Параметр `ssl=true` обязателен, так как для [Cosmos DB требуется протокол SSL](../../cosmos-db/connect-mongodb-account.md#connection-string-requirements).
 
 Сохраните изменения.
 
-### <a name="test-the-application-in-production-mode"></a>Тестирование приложения в рабочем режиме 
+### <a name="test-the-application-in-production-mode"></a>Тестирование приложения в рабочем режиме
 
 В окне терминала на локальном компьютере выполните команду ниже, чтобы уменьшить размер скриптов и объединить их в пакет для рабочей среды. При этом создаются файлы, необходимые для рабочей среды.
 
@@ -212,7 +213,7 @@ gulp prod
 NODE_ENV=production node server.js
 ```
 
-`NODE_ENV=production` устанавливает переменную среды, указывающую, что Node.js необходимо запустить в рабочей среде.  `node server.js` запускает сервер Node.js с `server.js` в корневой папке репозитория. Так приложение Node.js загружается в Azure. 
+`NODE_ENV=production` устанавливает переменную среды, указывающую, что Node.js необходимо запустить в рабочей среде.  `node server.js` запускает сервер Node.js с `server.js` в корневой папке репозитория. Так приложение Node.js загружается в Azure.
 
 Когда приложение будет загружено, убедитесь, что оно запущено в рабочей среде:
 
@@ -227,31 +228,31 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Откройте браузер и перейдите по адресу `http://localhost:8443`. В верхнем меню щелкните **Зарегистрироваться** и создайте тестового пользователя. Если вы создали пользователя и вошли в приложение, это означает, что приложение записывает данные в локальную базу данных Cosmos DB в Azure. 
+Откройте браузер и перейдите по адресу `http://localhost:8443`. В верхнем меню щелкните **Зарегистрироваться** и создайте тестового пользователя. Если вы создали пользователя и вошли в приложение, это означает, что приложение записывает данные в локальную базу данных Cosmos DB в Azure.
 
-Чтобы остановить Node.js, введите `Ctrl+C` в окне терминала. 
+Чтобы остановить Node.js, введите `Ctrl+C` в окне терминала.
 
 ## <a name="deploy-app-to-azure"></a>Развертывание приложения в Azure
 
 На этом шаге вы развернете приложение Node.js, подключенное к MongoDB, в службе приложений Azure.
 
-### <a name="configure-local-git-deployment"></a>Настройка локального развертывания Git 
+### <a name="configure-local-git-deployment"></a>Настройка локального развертывания Git
 
 [!INCLUDE [Configure a deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="create-an-app-service-plan"></a>Создание плана службы приложений
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>Создание веб-приложения
+### <a name="create-a-linux-based-web-app"></a>Создание веб-приложения на основе Linux
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)] 
+[!INCLUDE [Create a linux based web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
 
 ### <a name="configure-an-environment-variable"></a>Настройка переменной среды
 
 Файл _config/env/local-production.js_ не находится в репозитории Git. Поэтому для веб-приложения Azure вам нужно использовать параметры приложения, чтобы определить строку подключения MongoDB.
 
-Чтобы задать параметры приложения, используйте команду [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) в Cloud Shell. 
+Чтобы задать параметры приложения, используйте команду [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) в Cloud Shell.
 
 В следующем примере настраивается параметр приложения `MONGODB_URI` в веб-приложении Azure. Замените заполнители *\<app_name>*, *\<cosmosdb_name>* и *\<primary_master_key>*.
 
@@ -292,32 +293,32 @@ remote: Handling node.js deployment.
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
-``` 
+```
 
-Вы можете заметить, что в ходе развертывания после `npm install` запускается [Gulp](http://gulpjs.com/). Служба приложений не запускает задачи Gulp или Grunt во время развертывания, поэтому для запуска скрипта в этом примере в корневом каталоге репозитория расположены два дополнительных файла: 
+Вы можете заметить, что в ходе развертывания после `npm install` запускается [Gulp](http://gulpjs.com/). Служба приложений не запускает задачи Gulp или Grunt во время развертывания, поэтому для запуска скрипта в этом примере в корневом каталоге репозитория расположены два дополнительных файла:
 
 - _.deployment_ — этот файл указывает службе приложений запустить `bash deploy.sh` как пользовательский сценарий развертывания.
-- _deploy.sh_ — пользовательский сценарий развертывания. Если открыть этот файл, вы увидите, что он запускает `gulp prod` после `npm install` и `bower install`. 
+- _deploy.sh_ — пользовательский сценарий развертывания. Если открыть этот файл, вы увидите, что он запускает `gulp prod` после `npm install` и `bower install`.
 
 Точно так же можно добавить любые действия в развертывание на основе Git. При перезапуске веб-приложения Azure в любой момент времени служба приложений не перезапускает эти задачи автоматизации.
 
-### <a name="browse-to-the-azure-web-app"></a>Переход к веб-приложению Azure 
+### <a name="browse-to-the-azure-web-app"></a>Переход к веб-приложению Azure
 
-Откройте развертываемое веб-приложение в веб-браузере. 
+Откройте развертываемое веб-приложение в веб-браузере.
 
-```bash 
-http://<app_name>.azurewebsites.net 
-``` 
+```bash
+http://<app_name>.azurewebsites.net
+```
 
-Щелкните **Зарегистрироваться** в верхнем меню и создайте фиктивного пользователя. 
+Щелкните **Зарегистрироваться** в верхнем меню и создайте фиктивного пользователя.
 
-Если все прошло успешно и вы автоматически вошли в приложение с созданным пользователем, это означает, что приложение MEAN.js в Azure подключено к базе данных MongoDB (Cosmos DB). 
+Если все прошло успешно и вы автоматически вошли в приложение от имени созданного пользователя, это означает, что приложение MEAN.js в Azure подключено к API MongoDB базы данных Cosmos DB.
 
 ![Приложение MEAN.js, которое запущено в службе приложений Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Чтобы добавить несколько статей, выберите **Администрирование > Manage Articles** (Управление статьями). 
+Чтобы добавить несколько статей, выберите **Администрирование > Manage Articles** (Управление статьями).
 
-**Поздравляем!** Вы запустили управляемое данными приложение Node.js в службе приложений Azure.
+**Поздравляем!** Вы запустили управляемое данными приложение Node.js в службе приложений Azure на платформе Linux.
 
 ## <a name="update-data-model-and-redeploy"></a>Обновление модели данных и повторное развертывание
 
@@ -431,7 +432,7 @@ NODE_ENV=production node server.js
 
 ![В статьи добавлено поле комментария](./media/tutorial-nodejs-mongodb-app/added-comment-field.png)
 
-Чтобы остановить Node.js, введите `Ctrl+C` в окне терминала. 
+Чтобы остановить Node.js, введите `Ctrl+C` в окне терминала.
 
 ### <a name="publish-changes-to-azure"></a>Публикация изменений в Azure
 
@@ -463,12 +464,13 @@ git push azure master
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Вы научились выполнять следующие задачи:
 
 > [!div class="checklist"]
-> * Создание базы данных MongoDB в Azure.
+> * Создание базы данных CosmosDB с помощью API MongoDB в Azure.
 > * Подключение приложения Node.js к базе данных MongoDB.
 > * Развертывание приложения в Azure
 > * Обновление модели данных и повторное развертывание приложения.
@@ -477,5 +479,5 @@ git push azure master
 
 Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена с веб-приложением.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](../app-service-web-tutorial-custom-domain.md)
