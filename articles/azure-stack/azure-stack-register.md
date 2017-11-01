@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: erikje
-ms.openlocfilehash: b5f112f2d5b96843e7863aa664eec4847c58e950
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3282b9d4cdf67035d966cf934a7d8574eae6ae34
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Регистрация Azure Stack в подписке Azure
 
-*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
-В развертываниях Azure Active Directory вы можете зарегистрировать [Azure Stack](azure-stack-poc.md) в Azure, чтобы скачивать элементы marketplace из Azure и настраивать передачу коммерческих данных в корпорацию Майкрософт. 
+Вы можете зарегистрировать [Azure Stack](azure-stack-poc.md) в Azure, чтобы скачивать элементы marketplace из Azure и настраивать передачу коммерческих данных в корпорацию Майкрософт. 
 
 > [!NOTE]
 >Мы рекомендуем использовать регистрацию, так как она позволяет проверить важные функции Azure Stack, например синдикацию marketplace и отчеты о потреблении. После регистрации Azure Stack данные о потреблении передаются в коммерческий отдел Azure. Вы сможете увидеть их в той подписке, которую использовали для регистрации. С пользователей пакетов SDK для Azure Stack плата за передаваемые данные о потреблении не взимается.
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 Пример: 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
 
@@ -73,22 +73,21 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
     - *YourCloudAdminCredential* — обозначает объект PowerShell, который содержит учетные данные в локальном домене для domain\cloudadmin (для пакета разработки это azurestack\cloudadmin).
     - *YourAzureSubscriptionID* — обозначает идентификатор подписки Azure, которую вы намерены использовать для регистрации Azure Stack.
     - *YourAzureDirectoryTenantName* — обозначает имя каталога клиента Azure, в котором вы создаете ресурс регистрации.
-    - *YourPrivilegedEndpoint* — обозначает имя компьютера с минимальным уровнем доступа ( также называется виртуальной машиной аварийной консоли).
+    - *YourPrivilegedEndpoint* — это имя [привилегированной конечной точки](azure-stack-privileged-endpoint.md).
 
     ```powershell
     Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
     ```
- 
-5. Нажмите клавишу ВВОД для каждого из двух запросов на подтверждение.
-6. Во всплывающем окне введите учетные данные подписки Azure.
-
-
+5. Во всплывающем окне введите учетные данные подписки Azure.
 
 ## <a name="verify-the-registration"></a>Проверка регистрации
 
 1. Войдите на портал администратора Azure Stack (https://adminportal.local.azurestack.external).
 2. Щелкните **Дополнительные службы** > **Marketplace Management** (Управление Marketplace) > **Add from Azure** (Добавить из Azure).
 3. Если отобразится список элементов, доступных в Azure (например, WordPress), значит, активация прошла успешно.
+
+> [!NOTE]
+> По завершении регистрации активное предупреждение об отсутствии регистрации больше не будет отображаться.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15e3f7ef3bfd6b1f61fe6081a378bdb29e0a1aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7de7c5e366d1f7da73eabfa889a3b43fb0403438
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: заметки о выпуске и материалы по пакету SDK Java для DocumentDB
 > [!div class="op_single_selector"]
@@ -47,10 +47,15 @@ ms.lasthandoff: 10/11/2017
 
 <tr><td>**Учебник по веб-приложениям**</td><td>[Руководство по ASP.NET MVC. Разработка веб-приложений в Azure Cosmos DB](documentdb-java-application.md)</td></tr>
 
-<tr><td>**Текущая поддерживаемая среда выполнения**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Минимальная поддерживаемая среда выполнения**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
+* Устранена проблема при считывании диапазонов односекционных ключей.
+* Устранена проблема с синтаксическим анализом в ResourceID, которая затрагивала базы данных с сокращенными именами.
+* Исправлена проблема, вызванная кодированием ключа секции.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
 * Важные исправления для обработки запросов во время разбиения на секции.
@@ -169,6 +174,7 @@ ms.lasthandoff: 10/11/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.13.0](#1.13.0) |25 августа 2017 г. |--- |
 | [1.12.0](#1.12.0) |11 июля 2017 г. |--- |
 | [1.11.0](#1.11.0) |10 мая 2017 г. |--- |
 | [1.10.0](#1.10.0) |11 марта 2017 г. |--- |

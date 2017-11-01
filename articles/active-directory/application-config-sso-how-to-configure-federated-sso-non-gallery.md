@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: da7bc05c6452cde4d0236806f249559f178dd4e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781d06d2a8234d4cedf546ef059d49b7ece8783d
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Настройка федеративного единого входа для приложения не из коллекции
 
-Чтобы настроить приложение не из коллекции, вам потребуется Azure AD Premium, а приложение должно поддерживать SAML 2.0. Дополнительные сведения о версиях Azure AD см. в разделе [Цены на Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Чтобы настроить единый вход для приложения не из коллекции *без написания кода*, необходима подписка или Azure AD Premium. Кроме того, приложение должно поддерживать SAML 2.0. Дополнительные сведения о версиях Azure AD см. в разделе [Цены на Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="overview-of-steps-required"></a>Обзор необходимых действий
-Ниже приведен общий обзор действий, необходимых для настройки федеративного единого входа для приложения не из коллекции (например, пользовательского приложения).
+Ниже приведен общий обзор действий для настройки федеративного единого входа с помощью SAML 2.0 для приложения не из коллекции (например, пользовательского приложения).
 
 -   [Указание значений метаданных приложения в Azure AD (URL-адрес для входа, идентификатор, URL-адрес ответа)](#_Configuring_single_sign-on)
 

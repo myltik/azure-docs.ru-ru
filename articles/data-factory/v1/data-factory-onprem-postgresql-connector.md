@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/12/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f35030b90cbd854512fb6b9a8ef564584fc101b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Перемещение данных из PostgreSQL с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 Вы можете скопировать данные из локального хранилища данных PostgreSQL в любой поддерживаемый приемник данных. Список хранилищ данных, которые поддерживаются в качестве приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Сейчас фабрика данных поддерживает перемещение данных из базы данных PostgreSQL в другие хранилища данных, но не наоборот. 
 
-## <a name="prerequisites"></a>Необходимые компоненты
+## <a name="prerequisites"></a>Предварительные требования
 
 Служба фабрики данных поддерживает подключение к локальным источникам PostgreSQL с помощью шлюза управления данными. В статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md) приведены сведения о шлюзе управления данными и пошаговые инструкции по его настройке.
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 > Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок в работе шлюза](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).
 
 ## <a name="supported-versions-and-installation"></a>Поддерживаемые версии и установка
-Для подключения шлюза управления данными к базе данных PostgreSQL необходимо установить [поставщик данных Ngpsql для PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) версии 2.0.12 и более в одной системе со шлюзом управления данными. Поддерживается PostgreSQL версии 7.4 и более.
+Для подключения шлюза управления данными к базе данных PostgreSQL необходимо установить [поставщик данных Ngpsql для PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) версии 2.0.12—3.1.9 в одной системе со шлюзом управления данными. Поддерживается PostgreSQL версии 7.4 и более.
 
 ## <a name="getting-started"></a>Приступая к работе
 Создать конвейер с действием копирования, который перемещает данные из локального хранилища данных PostgreSQL, можно с помощью различных инструментов и интерфейсов API. 
@@ -102,7 +102,7 @@ ms.lasthandoff: 10/11/2017
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | --- | --- | --- | --- |
-| query |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Например, "query": "select * from \"MySchema\".\"MyTable\"". |Нет (если для свойства **tableName** задано значение **dataset**). |
+| query |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Например, `"query": "select * from \"MySchema\".\"MyTable\""`. |Нет (если для свойства **tableName** задано значение **dataset**). |
 
 > [!NOTE]
 > В именах схем и таблиц учитывается регистр. Заключите имя в `""` (двойные кавычки) в запросе.  
@@ -310,13 +310,13 @@ ms.lasthandoff: 10/11/2017
 | abstime | |Datetime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [ (n) ] | |Byte[], String | &nbsp;
+| bit [(n)] | |Byte[], String | &nbsp;
 | bit varying [ (n) ] |varbit |Byte[], String |
 | Логическое |bool |Логическое |
 | box | |Byte[], String |&nbsp;
 | bytea | |Byte[], String |&nbsp;
-| character [ (n) ] |char [ (n) ] |Строка |
-| character varying [ (n) ] |varchar [ (n) ] |Строка |
+| character [(n)] |char [(n)] |Строка |
+| character varying [(n)] |varchar [(n)] |Строка |
 | cid | |Строка |&nbsp;
 | cidr | |Строка |&nbsp;
 | circle | |Byte[], String |&nbsp;
@@ -328,14 +328,14 @@ ms.lasthandoff: 10/11/2017
 | int4range | |Строка |&nbsp;
 | int8range | |Строка |&nbsp;
 | целое число |int, int4 |Int32 |
-| interval [ fields ] [ (p) ] | |Timespan |&nbsp;
+| interval [fields] [(p)] | |Timespan |&nbsp;
 | json | |Строка |&nbsp;
 | jsonb | |Byte[] |&nbsp;
 | line | |Byte[], String |&nbsp;
 | lseg | |Byte[], String |&nbsp;
 | macaddr | |Byte[], String |&nbsp;
 | money; | |Decimal |&nbsp;
-| numeric [ (p, s) ] |decimal [ (p, s) ] |Decimal |
+| numeric [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Строка |&nbsp;
 | oid | |Int32 |&nbsp;
 | path | |Byte[], String |&nbsp;

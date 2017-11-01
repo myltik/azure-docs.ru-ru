@@ -1,6 +1,6 @@
 ---
 title: "Обзор эластичных запросов к базе данных SQL Azure | Документация Майкрософт"
-description: "Обзор функции эластичных запросов\L"
+description: "Эластичный запрос позволяет выполнять запросы Transact-SQL, охватывающие несколько баз данных."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 0130b1d4f3ee7b27786764a275ce4e3c0ee93b2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e245cf1fb28eef26739b55967de3f05128f38c6
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Обзор эластичных запросов к базе данных SQL Azure (предварительная версия)
 Функция эластичных запросов (предварительная версия) дает возможность выполнять запросы Transact-SQL, охватывающие сразу несколько баз данных в Базе данных SQL Azure. Эта возможность позволяет создавать межбазовые запросы для доступа к удаленным таблицам. Также вы можете подключать средства Майкрософт и сторонних производителей (Excel, PowerBI, Tableau и т. д.) для выполнения запросов на разных уровнях данных со множеством баз данных. С помощью этой функции можно разворачивать запросы до уровней большого объема данных в базе данных SQL и визуализировать результаты в отчетах по бизнес-аналитике (BI).

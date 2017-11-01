@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 3fa6f4f850fc67d41f619d46bd61a19fe890b0fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Подготовка среды к архивации виртуальных машин, развернутых с помощью Resource Manager
 > [!div class="op_single_selector"]
@@ -204,7 +204,13 @@ ms.lasthandoff: 10/11/2017
 | Прокси-сервер HTTP |Точное управление разрешенными URL-адресами хранилища в прокси-сервере.<br>Единая точка доступа к виртуальным машинам через Интернет.<br>Не подвергается влиянию изменений IP-адресов Azure. |Дополнительные затраты для работы виртуальной машины с программным обеспечением прокси-сервера. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Добавьте диапазоны IP-адресов центра обработки данных Azure в список разрешений.
-Чтобы добавить диапазоны IP-адресов центра обработки данных Azure в список разрешений, ознакомьтесь с дополнительными сведениями о диапазонах IP-адресов и указаниями на [веб-сайте Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) .
+* Чтобы добавить диапазоны IP-адресов центра обработки данных Azure в список разрешений, ознакомьтесь с дополнительными сведениями о диапазонах IP-адресов и указаниями на [веб-сайте Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) .
+* Для разрешения подключений к хранилищу из определенного региона можно использовать [теги службы](../virtual-network/security-overview.md#service-tags). Приоритет правила, которое разрешает доступ к учетной записи хранения, должен быть выше, чем приоритет правила, которое блокирует доступ к Интернету. 
+
+  ![NSG с тегами хранилища для региона](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Теги хранилища доступны только в определенных регионах и находятся на этапе предварительной версии. Список регионов см. в разделе о[тегах служб для хранилища](../virtual-network/security-overview.md#service-tags)
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>Использование прокси-сервера HTTP для архивации виртуальных машин
 Во время архивации виртуальных машин команды управления моментальными снимками отправляются из расширения архивации в службу хранилища Azure с помощью API HTTPS. Направьте трафик расширения архивации через прокси-сервер HTTP, потому что это единственный компонент, который настроен для общего доступа в Интернете.

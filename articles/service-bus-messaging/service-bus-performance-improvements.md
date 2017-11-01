@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: e6a0e480f7748f12f5e566cf4059b5b2c4242c09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f57fbb8e2a86b744808ee844e5f853bdb587a5d
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Рекомендации по повышению производительности с помощью обмена сообщениями через служебную шину
 
-В этой статье описывается использование [обмена данными через служебную шину Azure](https://azure.microsoft.com/services/service-bus/) для оптимизации производительности при обмене сообщениями в брокере. В первой части статьи описываются различные механизмы, которые можно использовать для повышения производительности. Во второй части приведены инструкции по эффективному использованию служебной шины для достижения максимальной производительности при определенных условиях.
+В этой статье описано использование [служебной шины Azure](https://azure.microsoft.com/services/service-bus/) для оптимизации производительности при обмене сообщениями через брокер. В первой части статьи рассматриваются различные механизмы, которые можно использовать для повышения производительности. Во второй части приведены инструкции по эффективному использованию служебной шины для достижения максимальной производительности при определенных условиях.
 
-В этой статье термин "клиент" означает любую сущность, которая обращается к служебной шине. Клиент может быть как отправителем, так и получателем. Термин "отправитель" используется в отношении клиента очереди или раздела служебной шины, который отправляет сообщения в очередь или раздел. Термин "получатель" используется в отношении клиента очереди или подписки служебной шины, который получает сообщения из очереди или подписки.
+В этой статье термин "клиент" означает любую сущность, которая обращается к служебной шине. Клиент может быть как отправителем, так и получателем. Термин "отправитель" используется для клиента очереди или раздела служебной шины, который отправляет сообщения в очередь или подписку на раздел. Термин "получатель" используется в отношении клиента очереди или подписки служебной шины, который получает сообщения из очереди или подписки.
 
 В разделах ниже описывается ряд способов, которые используются служебной шиной для повышения производительности.
 
@@ -117,7 +117,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 Пакетный доступ к хранилищу не влияет на количество оплачиваемых операций обмена сообщениями и является свойством очереди, раздела или подписки. Он не зависит от режима получения и протокола, используемого для подключения между клиентом и службой служебной шины.
 
 ## <a name="prefetching"></a>Предварительная выборка
-Предварительная выборка позволяет клиенту очереди или подписки загружать дополнительные сообщения из службы при выполнении операции получения. Клиент сохраняет эти сообщения в локальном кэше. Размер кэша определяется свойствами [QueueClient.PrefetchCount][QueueClient.PrefetchCount] или [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]. В каждом клиенте с включенной предварительной выборкой создается собственный кэш. Кэш не может использоваться одновременно несколькими клиентами. Если клиент инициирует операцию получения и его кэш пуст, служба передает пакет сообщений. Размер пакета равен размеру кэша или 256 КБ (в зависимости от того, какое значение меньше). Если клиент инициирует операцию получения и в кэше имеется сообщение, это сообщение извлекается из кэша.
+[Предварительная выборка](service-bus-prefetch.md) позволяет клиенту очереди или подписки загружать из службы дополнительные сообщения при выполнении операции получения. Клиент сохраняет эти сообщения в локальном кэше. Размер кэша определяется свойствами [QueueClient.PrefetchCount][QueueClient.PrefetchCount] или [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]. В каждом клиенте с включенной предварительной выборкой создается собственный кэш. Кэш не может использоваться одновременно несколькими клиентами. Если клиент инициирует операцию получения и его кэш пуст, служба передает пакет сообщений. Размер пакета равен размеру кэша или 256 КБ (в зависимости от того, какое значение меньше). Если клиент инициирует операцию получения и в кэше имеется сообщение, это сообщение извлекается из кэша.
 
 При использовании предварительной выборки сообщений служба блокирует выбранное сообщение. В результате это сообщение не может быть получено другим получателем. Если получатель не может завершить сообщение до истечения периода блокировки, сообщение станет доступным другим получателям. Копия предварительно выбранного сообщения остается в кэше. Если получатель обратится к кэшированной копии, срок действия которой истек, то при попытке завершить это сообщение будет создано исключение. По умолчанию период блокировки сообщения составляет 60 секунд. Это значение можно увеличить до 5 минут. Во избежание использования сообщений с истекшим сроком действия размер кэша всегда должен быть меньше, чем количество сообщений, которые могут быть использованы клиентом в течение периода блокировки.
 
@@ -145,7 +145,7 @@ namespaceManager.CreateTopic(td);
 > Транзакции не поддерживаются экспресс-сущностями.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>Использование секционированных очередей или разделов
-Для обработки и хранения всех сообщений для сущности сообщений (очереди или раздела) внутри служебной шины используется один узел и хранилище обмена сообщениями. С другой стороны, секционирование очередей или разделов позволяет распределять их между несколькими узлами и хранилищами обмена сообщениями. Секционированные очереди и разделы не только повышают пропускную способность в сравнении с обычными очередями и разделами, но также обеспечивают высочайший уровень доступности. Чтобы создать секционированную сущность, задайте для свойства [EnablePartitioning][EnablePartitioning] значение **true**, как показано в следующем примере. Дополнительные сведения о секционированных сущностях см. в статье [Секционированные сущности обмена сообщениями][Partitioned messaging entities].
+Для обработки и хранения всех сообщений для сущности сообщений (очереди или раздела) внутри служебной шины используется один узел и хранилище обмена сообщениями. С другой стороны, [секционирование очередей или разделов](service-bus-partitioning.md) позволяет распределять их между несколькими узлами и хранилищами обмена сообщениями. Секционированные очереди и разделы не только повышают пропускную способность в сравнении с обычными очередями и разделами, но также обеспечивают высочайший уровень доступности. Чтобы создать секционированную сущность, задайте для свойства [EnablePartitioning][EnablePartitioning] значение **true**, как показано в следующем примере. Дополнительные сведения о секционированных сущностях см. в статье [Секционированные сущности обмена сообщениями][Partitioned messaging entities].
 
 ```csharp
 // Create partitioned queue.
@@ -248,16 +248,16 @@ namespaceManager.CreateQueue(qd);
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об оптимизации производительности служебной шины см. в статье [Секционированные сущности обмена сообщениями][Partitioned messaging entities].
 
-[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
-[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
+[MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
 [MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
-[ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
-[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
-[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
-[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
-[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
-[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
-[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
+[PeekLock]: /dotnet/api/microsoft.azure.servicebus.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.azure.servicebus.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.messagesender.batchflushinterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
-[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing

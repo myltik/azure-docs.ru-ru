@@ -1,6 +1,6 @@
 ---
 title: "Приступая к работе с аудитом баз данных SQL Azure | Документация Майкрософт"
-description: "Приступая к работе с аудитом баз данных SQL Azure"
+description: "Используйте аудит базы данных Azure SQL для отслеживания событий базы данных в журнале аудита."
 services: sql-database
 documentationcenter: 
 author: giladm
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 04c402709560775592e5500362b0d9a4ccbf5a6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95ec35a2b8d557401822bb0e8c888e954c71b386
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Приступая к работе с аудитом базы данных SQL
 Аудит базы данных SQL Azure позволяет отслеживать события базы данных и записывать их в журнал аудита в учетной записи хранения Azure. Аудит также дает следующие возможности:

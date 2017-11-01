@@ -1,6 +1,6 @@
 ---
-title: "Развертывание приложения Spring Boot в Azure с помощью подключаемого модуля Maven для веб-приложений Azure"
-description: "Сведения о развертываний приложения Spring Boot в Azure с помощью подключаемого модуля Maven для веб-приложений Azure."
+title: "Как развернуть контейнерное приложение Spring Boot в Azure с помощью подключаемого модуля Maven для платформы \"Веб-приложения для контейнеров\""
+description: "Узнайте, как развертывать приложения Spring Boot в Azure с помощью подключаемого модуля Maven для платформы \"Веб-приложения для контейнеров\"."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -14,21 +14,21 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
-ms.openlocfilehash: b2de785746c8598d9d6954487b06018af3cfcc52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0329aa9b88c7542ab3235a104a0652cd217ff872
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="how-to-use-the-maven-plugin-for-azure-web-apps-to-deploy-a-containerized-spring-boot-app-to-azure"></a>Развертывание приложения Spring Boot в Azure с помощью подключаемого модуля Maven для веб-приложений Azure
+# <a name="how-to-use-the-maven-plugin-for-web-app-for-containers-to-deploy-a-containerized-spring-boot-app-to-azure"></a>Как развернуть контейнерное приложение Spring Boot в Azure с помощью подключаемого модуля Maven для платформы "Веб-приложения для контейнеров"
 
-[Подключаемый модуль Maven для веб-приложений Azure](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) для [Apache Maven](http://maven.apache.org/) обеспечивает эффективную интеграцию службы приложений Azure в проекты Maven и упрощает процесс развертывания веб-приложений в службе приложений Azure.
+[Подключаемый модуль Maven для платформы "Веб-приложения для контейнеров"](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) для [Apache Maven](http://maven.apache.org/) обеспечивает эффективную интеграцию службы приложений Azure в проекты Maven и упрощает развертывание веб-приложений в службе приложений Azure.
 
-В этой статье демонстрируется использование подключаемого модуля Maven для веб-приложений Azure с целью развертывания примера приложения Spring Boot в контейнере Docker в службах приложений Azure.
+Из этой статьи вы узнаете, как использовать подключаемый модуль Maven для платформы "Веб-приложения для контейнеров", чтобы развернуть пример приложения Spring Boot в контейнере Docker на платформе "Веб-приложения для контейнеров".
 
 > [!NOTE]
 >
-> Подключаемый модуль Maven для веб-приложений Azure в настоящее время доступен в предварительной версии. Сейчас поддерживается только FTP-публикация, но на будущее запланированы дополнительные функции.
+> Подключаемый модуль Maven для платформы "Веб-приложения для контейнеров" сейчас доступен в режиме предварительной версии. Сейчас поддерживается только FTP-публикация, но на будущее запланированы дополнительные функции.
 >
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 > С учетом требований виртуализации для этого руководства изложенные здесь инструкции нельзя выполнять на виртуальной машине. Необходимо использовать физический компьютер с включенными функциями виртуализации.
 >
 
-## <a name="clone-the-sample-spring-boot-on-docker-web-app"></a>Клонирование примера "Приложение Spring Boot в веб-приложении Docker"
+## <a name="clone-the-sample-spring-boot-application"></a>Клонирование примера приложения Spring Boot
 
 В этом разделе представлены сведения о клонировании контейнерного приложения Spring Boot и его тестировании на локальном компьютере.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
    cd /users/robert/SpringBoot
    ```
 
-1. Клонируйте образец проекта [Spring Boot on Docker Getting Started] (Запуск Spring Boot в Docker) в созданный каталог, например:
+1. Клонируйте пример проекта [Spring Boot with Docker] (Spring Boot с Docker) в созданный каталог, например:
    ```shell
    git clone https://github.com/microsoft/gs-spring-boot-docker
    ```
@@ -155,7 +155,7 @@ ms.lasthandoff: 10/11/2017
    `<client>` | Содержит значение `appId` из субъекта-службы.
    `<tenant>` | Содержит значение `tenant` из субъекта-службы.
    `<key>` | Содержит значение `password` из субъекта-службы.
-   `<environment>` | Определяет целевую облачную среду Azure, которой в этом примере является `AZURE`. (Полный список сред см. в документации по [подключаемому модулю Maven для веб-приложений Azure].)
+   `<environment>` | Определяет целевую облачную среду Azure, которой в этом примере является `AZURE`. (Полный список сред см. в документации по [подключаемому модулю Maven для платформы "Веб-приложения для контейнеров"].)
 
 1. Сохраните и закройте файл *settings.xml*.
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 10/11/2017
       mvn clean package docker:build
       docker push
       ```
-   
+
    * Если установлен [подключаемый модуль Docker для Maven], можно автоматически создать и отправить образа контейнера в центр Docker с помощью параметра `-DpushImage`.
       ```shell
       mvn clean package docker:build -DpushImage
@@ -216,15 +216,15 @@ ms.lasthandoff: 10/11/2017
    </plugin>
    ```
 
-Существует несколько значений, которые можно изменить для подключаемого модуля Maven. Подробное описание каждого из этих элементов см. в документации по [подключаемому модулю Maven для веб-приложений Azure]. Существует ряд значений, на которые следует обратить внимание в этой статье.
+Есть несколько значений, которые можно изменить для подключаемого модуля Maven. Подробное описание каждого из этих элементов см. в документации по [подключаемому модулю Maven для платформы "Веб-приложения для контейнеров"]. Существует ряд значений, на которые следует обратить внимание в этой статье.
 
 Элемент | Описание
 ---|---|---
-`<version>` | Версия [подключаемому модулю Maven для веб-приложений Azure]. Обратитесь к списку версий в [центральном репозитории Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22), чтобы убедиться, что вы используете актуальную версию.
+`<version>` | Версия [подключаемому модулю Maven для платформы "Веб-приложения для контейнеров"]. Обратитесь к списку версий в [центральном репозитории Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22), чтобы убедиться, что вы используете актуальную версию.
 `<authentication>` | Сведения для проверки подлинности для Azure, в которых в данном примере содержится элемент `<serverId>`, который, в свою очередь, содержит `azure-auth`; Maven использует это значение для поиска значений субъекта-службы Azure в файле Maven *settings.xml*, который вы определили в предыдущем разделе этой статьи.
 `<resourceGroup>` | Целевая группа ресурсов, которой в этом примере является `maven-plugin`. Если эта группа ресурсов не существует, она будет создана во время развертывания.
 `<appName>` | Целевое имя веб-приложения. В этом примере целевое имя — `maven-linux-app-${maven.build.timestamp}`, к которому в этом примере добавлен суффикс `${maven.build.timestamp}`, чтобы избежать конфликтов. (Метку времени добавлять необязательно; можно указать любую уникальную строку для имени приложения.)
-`<region>` | Целевой регион, которым в данном примере является `westus`. (Полный список см. в документации по [подключаемому модулю Maven для веб-приложений Azure].)
+`<region>` | Целевой регион, которым в данном примере является `westus`. (Полный список см. в документации по [подключаемому модулю Maven для платформы "Веб-приложения для контейнеров"].)
 `<appSettings>` | Любые уникальные настройки для Maven, которые следует использовать при развертывании веб-приложения в Azure. В этом примере элемент `<property>` содержит пару "имя/значение" дочерних элементов, которая задает порт для вашего приложения.
 
 > [!NOTE]
@@ -252,7 +252,7 @@ Maven выполнит развертывание веб-приложения в
 >
 > Если при запуске развертывания в регионе, который задан в элементе `<region>` в файле *pom.xml*, нет достаточного количества доступных серверов, может появиться сообщение об ошибке, аналогичное приведенному ниже.
 >
-> ```
+> ```bash
 > [INFO] Start deploying to Web App maven-linux-app-20170804...
 > [INFO] ------------------------------------------------------------------------
 > [INFO] BUILD FAILURE
@@ -303,11 +303,11 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 Дополнительные сведения о различных технологиях, рассматриваемых в данной статье, см. в следующих статьях.
 
-* [подключаемому модулю Maven для веб-приложений Azure]
+* [подключаемому модулю Maven для платформы "Веб-приложения для контейнеров"]
 
 * [Вход в Azure из интерфейса командной строки Azure](/azure/xplat-cli-connect)
 
-* [Развертывание приложения Spring Boot в Azure с помощью подключаемого модуля Maven для веб-приложений Azure в службе приложений Azure](../app-service-web-deploy-spring-boot-app-with-maven-plugin.md)
+* [Как развернуть приложение Spring Boot в службе приложений Azure на платформе Linux с помощью подключаемого модуля Maven для платформы "Веб-приложения для контейнеров"](../app-service-web-deploy-spring-boot-app-with-maven-plugin.md)
 
 * [Создание субъекта-службы Azure с помощью Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
 
@@ -331,7 +331,7 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Boot on Docker Getting Started]: https://github.com/spring-guides/gs-spring-boot-docker
 [Spring Framework]: https://spring.io/
-[подключаемому модулю Maven для веб-приложений Azure]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
+[подключаемому модулю Maven для платформы "Веб-приложения для контейнеров"]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 

@@ -1,35 +1,35 @@
 ---
-title: "Настройка Cloud App Discovery в Azure Active Directory | Документация Майкрософт"
-description: "Содержит сведения о поиске приложений и управлении ими с помощью Cloud App Discovery, а также преимуществах и принципах работы Cloud App Discovery."
+title: "Настройка службы Cloud App Discovery в Azure Active Directory | Документация Майкрософт"
+description: "Поиск и администрирование приложений с помощью Cloud App Discovery для предоставления ценных сведений об использовании облачных и теневых ИТ."
 services: active-directory
 keywords: "cloud app discovery, управление приложениями"
 documentationcenter: 
 author: curtand
 manager: femila
+tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Настройка Cloud App Discovery в Azure AD
 
-Новые усовершенствования для Cloud App Discovery в Azure AD теперь доступны по лицензии Azure Active Directory Premium P1. Эти усовершенствования основаны на интеграции с Microsoft Cloud App Security. Cloud App Discovery сравнивает журналы трафика с каталогом Cloud App Security из более чем 15 000 облачных приложений, чтобы предоставить вам актуальные сведения об использовании облака и теневых ИТ. 
+В основе Cloud App Discovery в Azure AD теперь лежит интеграция с данными, доступными в Microsoft Cloud App Security. Чтобы предоставить вам актуальные сведения об использовании облачных и теневых ИТ, Cloud App Discovery сравнивает журналы трафика с каталогом Cloud App Security из более чем 15 000 облачных приложений. В этой статье описывается процедура настройки и содержатся ссылки на подробные сведения о каждом шаге. Здесь также предоставлены сведения о реализации поддержки данных брандмауэра и прокси-сервера, а также файлов журнала.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Для использования этого продукта ваша организация должна иметь лицензию Azure AD Premium P1. Дополнительные сведения см. в разделе [Цены на Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
-
-Для настройки Cloud App Discovery вам нужно быть глобальным администратором или читателем безопасности в Azure Active Directory. Пользователь, которому назначена роль администратора, имеет одни и те же разрешения во всех облачных приложениях, на которые подписана ваша организация.
+* Для использования этого продукта ваша организация должна иметь лицензию Azure AD Premium P1. Дополнительные сведения см. в разделе [Цены на Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+* Для настройки Cloud App Discovery вам нужно быть глобальным администратором или читателем безопасности в Azure Active Directory.
 
 ## <a name="setup-steps"></a>Процедура настройки
 
@@ -65,7 +65,7 @@ Cloud App Discovery использует данные из журналов тр
 * Объем отправленных или скачанных данных для получения сведений о характере использования облачных приложений
 * Предпринятое действие (разрешено/заблокировано)
 
-Cloud App Discovery не может показать или проанализировать атрибуты, не включенные в журналы. Например, стандартный формат журнала у **брандмауэра Cisco ASA** не содержит **объем переданных байтов за одну транзакцию**, **имя пользователя** или **конечный URL-адрес** , а только конечный IP-адрес. Таким образом, в вашем распоряжении может быть меньше сведений об облачных приложениях из этого источника данных. Для брандмауэров Cisco ASA установите уровень информации 6.1.
+Cloud App Discovery не может отображать или анализировать атрибуты, не включенные в журналы. Например, стандартный формат журнала у **брандмауэра Cisco ASA** не содержит **объем переданных байтов за одну транзакцию**, **имя пользователя** или **конечный URL-адрес** , а только конечный IP-адрес. Таким образом, в вашем распоряжении может быть меньше сведений об облачных приложениях из этого источника данных. Для брандмауэров Cisco ASA установите уровень информации 6.1.
 
 Чтобы создать отчет Cloud App Discovery, журналы трафика должны соответствовать следующим условиям:
 

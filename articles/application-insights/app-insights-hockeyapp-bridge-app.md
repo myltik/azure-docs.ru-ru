@@ -13,14 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: bwren
-ms.openlocfilehash: 450ca10613d137393090578619f3766734d1d493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e26e52252a070ea4130a94e02432c7ef500f62d
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Просмотр данных HockeyApp в Application Insights
-[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) — это рекомендуемая платформа для мониторинга живых классических и мобильных приложений. В HockeyApp можно не только получать данные о сбоях, но и отправлять данные пользовательской телеметрии и телеметрии трассировки, чтобы отслеживать показатели использования и выполнять диагностику. Этот поток телеметрии можно запрашивать с помощью мощной функции [аналитики](app-insights-analytics.md) в [Azure Application Insights](app-insights-overview.md). Кроме того, вы можете [экспортировать данные пользовательской телеметрии и телеметрии трассировки](app-insights-export-telemetry.md). Чтобы включить эти функции, следует настроить мост (связующее приложение), который ретранслирует пользовательские данные HockeyApp в Application Insights.
+
+> [!NOTE]
+> Теперь рекомендуемой службой корпорации Майкрософт для мониторинга новых мобильных приложений является Visual Studio Mobile Center. [Узнайте, как настраивать приложения при помощи Mobile Center и Application Insights](app-insights-mobile-center-quickstart.md).
+> 
+> 
+
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) — это служба мониторинга живых классических и мобильных приложений. В HockeyApp можно не только получать данные о сбоях, но и отправлять данные пользовательской телеметрии и телеметрии трассировки, чтобы отслеживать показатели использования и выполнять диагностику. Этот поток телеметрии можно запрашивать с помощью мощной функции [аналитики](app-insights-analytics.md) в [Azure Application Insights](app-insights-overview.md). Кроме того, вы можете [экспортировать данные пользовательской телеметрии и телеметрии трассировки](app-insights-export-telemetry.md). Чтобы включить эти функции, следует настроить мост (связующее приложение), который ретранслирует пользовательские данные HockeyApp в Application Insights.
 
 ## <a name="the-hockeyapp-bridge-app"></a>Связующее приложение HockeyApp
 Связующее приложение HockeyApp — это основной компонент, предоставляющий доступ к пользовательским данным и телеметрии трассировки HockeyApp в Application Insights с помощью функций анализа и непрерывного экспорта. Пользовательские события и события трассировки, собранные HockeyApp после создания связующего приложения HockeyApp, доступны в этих компонентах. Давайте посмотрим, как настроить такое связующее приложение.

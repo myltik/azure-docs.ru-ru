@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: 5/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77d12d6d48b22dfb3e7f09f273dffc11401bb15f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Использование задач с несколькими экземплярами для запуска приложений с интерфейсом передачи сообщений в пакетной службе
 
@@ -285,7 +285,7 @@ await subtasks.ForEachAsync(async (subtask) =>
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Введите данные своей учетной записи пакетной службы и учетной записи хранения в `AccountSettings.settings` в проекте **Microsoft.Azure.Batch.Samples.Common**.
 4. **Создайте и запустите** решение MultiInstanceTasks, чтобы выполнить пример приложения MPI на вычислительных узлах в пуле пакетной службы.
-5. *Необязательно.* Используйте [портал Azure][portal] портал или [обозреватель пакетной службы][batch_explorer], чтобы проверить пример пула, задания и задачи (MultiInstanceSamplePool, MultiInstanceSampleJob, MultiInstanceSampleTask), прежде чем удалить ресурсы.
+5. *Необязательно.* Используйте [портал Azure][portal] или [BatchLabs][batch_labs], чтобы проверить пример пула, задания и задачи (MultiInstanceSamplePool, MultiInstanceSampleJob, MultiInstanceSampleTask), прежде чем удалить ресурсы.
 
 > [!TIP]
 > Вы можете скачать [Visual Studio Community][visual_studio] бесплатно, если у вас нет Visual Studio.
@@ -335,7 +335,7 @@ Sample complete, hit ENTER to exit...
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd

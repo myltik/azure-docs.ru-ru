@@ -1,11 +1,11 @@
 ---
-title: "Непрерывное развертывание с использованием платформы Azure \"Веб-приложения для контейнеров\" | Документация Майкрософт"
-description: "Как настроить непрерывное развертывание с использованием платформы Azure \"Веб-приложения для контейнеров\"."
-keywords: "служба приложений azure, linux, oss, acr"
+title: "Непрерывное развертывание из реестра контейнеров Docker при помощи платформы \"Веб-приложения для контейнеров\" (Azure) | Документация Майкрософт"
+description: "Как настроить непрерывное развертывание из реестра контейнеров Docker на платформе \"Веб-приложения для контейнеров\"."
+keywords: azure app service, linux, docker, acr,oss
 services: app-service
 documentationcenter: 
 author: ahmedelnably
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 27a2c95c09197b3439d3fac7c74d253df2b32b1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="continuous-deployment-with-azure-web-app-for-containers"></a>Непрерывное развертывание с использованием платформы Azure "Веб-приложения для контейнеров"
+# <a name="continuous-deployment-with-web-app-for-containers"></a>Непрерывное развертывание с использованием платформы Azure "Веб-приложения для контейнеров"
 
-В этом руководстве описывается настройка непрерывного развертывания для настраиваемого образа контейнера из управляемых репозиториев [реестра контейнеров Azure](https://azure.microsoft.com/en-us/services/container-registry/) или [Docker Hub](https://hub.docker.com).
+В этом руководстве описывается настройка непрерывного развертывания для настраиваемого образа контейнера из управляемых репозиториев [реестра контейнеров Azure](https://azure.microsoft.com/services/container-registry/) или [Docker Hub](https://hub.docker.com).
 
-## <a name="step-1---sign-in-to-azure"></a>Шаг 1. Вход в Azure
+## <a name="sign-in-to-azure"></a>Вход в Azure
 
-Войдите на портал Azure по адресу http://portal.azure.com.
+Войдите на [портал Azure](https://portal.azure.com)
 
-## <a name="step-2---enable-container-continuous-deployment-feature"></a>Шаг 2. Включение функции непрерывного развертывания контейнера
+## <a name="enable-container-continuous-deployment-feature"></a>Включение функции непрерывного развертывания контейнера
 
-Включить функцию непрерывного развертывания можно с помощью [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) и выполнив следующую команду:
+Включить функцию непрерывного развертывания можно с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) и выполнив следующую команду:
 
 ```azurecli-interactive
 az webapp deployment container config -n sname -g rgname -e true
-``` 
+```
 
 На **[портале Azure](https://portal.azure.com/)** щелкните **Служба приложений** в левой части страницы.
 
@@ -45,13 +45,13 @@ az webapp deployment container config -n sname -g rgname -e true
 
 ![Изображение добавления параметра приложения](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
-## <a name="step-3---prepare-webhook-url"></a>Шаг 3 . Подготовка URL-адреса Webhook
+## <a name="prepare-webhook-url"></a>Подготовка URL-адреса веб-перехватчика
 
-Получить URL-адрес можно с помощью [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) и выполнив следующую команду:
+Получить URL-адрес можно с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) и выполнив следующую команду:
 
 ```azurecli-interactive
 az webapp deployment container show-cd-url -n sname1 -g rgname
-``` 
+```
 
 Для URL-адреса webhook необходима следующая конечная точка: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
@@ -59,7 +59,7 @@ az webapp deployment container show-cd-url -n sname1 -g rgname
 
 ![Изображение добавления webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
 
-## <a name="step-4---add-a-web-hook"></a>Шаг 4. Добавление webhook
+## <a name="add-a-web-hook"></a>Добавление веб-перехватчика
 
 ### <a name="azure-container-registry"></a>Реестр контейнеров Azure
 
@@ -85,10 +85,10 @@ az webapp deployment container show-cd-url -n sname1 -g rgname
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Сведения о платформе Azure "Веб-приложения для контейнеров"](./app-service-linux-intro.md)
-* [Реестр контейнеров Azure](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Создание веб-приложения .NET Core в контейнере Linux в Azure](quickstart-dotnetcore.md)
-* [Создание приложения Ruby с помощью веб-приложений на платформе Linux](quickstart-ruby.md)
-* [Использование пользовательского образа Docker Hub для веб-приложений Azure для контейнеров](quickstart-custom-docker-image.md)
-* [Вопросы и ответы о платформе "Веб-приложения для контейнеров" в службе приложений Azure](./app-service-linux-faq.md) 
+* [Общие сведения о службе приложений на платформе Linux](./app-service-linux-intro.md).
+* [Реестр контейнеров Azure](https://azure.microsoft.com/services/container-registry/)
+* [Использование .NET Core в службе приложений Azure на платформе Linux](quickstart-dotnetcore.md)
+* [Использование Ruby в службе приложений Azure на платформе Linux](quickstart-ruby.md)
+* [Использование пользовательского образа Docker для платформы "Веб-приложения для контейнеров"](quickstart-custom-docker-image.md).
+* [Вопросы и ответы о платформе "Веб-приложения для контейнеров" в службе приложений Azure](./app-service-linux-faq.md)
 * [Управление веб-приложениями для контейнеров с помощью Azure CLI 2.0](./app-service-linux-cli.md)

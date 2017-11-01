@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0eb031893d53f09097b696e18f6c129be061136a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 913805901bf8131e4908be03e9213539a26205ed
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Цепочки функций в устойчивых функциях — пример последовательности Hello
 
@@ -71,13 +71,16 @@ ms.lasthandoff: 10/11/2017
 
 Эта функция принимает параметр [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), при помощи которого она получает входные данные, переданные ранее при вызове функции оркестратора [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)>.
 
-## <a name="running-the-orchestration"></a>Выполнение оркестрации
+## <a name="run-the-sample"></a>Запуск примера
 
-Чтобы выполнить функцию оркестратора `E1_HelloSequence`, используйте указанный ниже вызов HTTP.
+Чтобы выполнить функцию оркестратора `E1_HelloSequence`, отправьте указанный ниже запрос HTTP POST.
 
 ```
-POST http://{app-name}.azurewebsites.net/orchestrators/E1_HelloSequence
+POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+Скажем, если пример выполняется в приложении-функции с именем myfunctionapp, замените {host} значением myfunctionapp.azurewebsites.net.
+
 Вы получите примерно такой ответ HTTP с кодом 202 (фрагмент ответа):
 
 ```
@@ -120,7 +123,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Теперь у вас есть базовое представление об основных механизмах, которые применяются для устойчивых функций. В этом простом примере показана лишь небольшая часть доступных возможностей. Следующие примеры будут ближе к реальным условиям, и вы найдете в них больше разных возможностей.
+В этом примере показана простая оркестрация с цепочкой функций. В приведенном ниже примере кода показана реализация шаблона развертывания и объединения. 
 
 > [!div class="nextstepaction"]
 > [Выполните пример с размножением и разветвлением](durable-functions-cloud-backup.md)

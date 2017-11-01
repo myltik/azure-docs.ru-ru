@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 77d5e04b2e4606cdeb79de12b7c5a0b0cc8f5c25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c5f9f813a3bf1f041b4cd6979b9615e46be5cfb
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Создание веб-приложения PHP в Azure с подключением к базе данных MySQL
 
-Платформа [Веб-приложение для контейнеров](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом руководстве показано, как создать веб-приложение PHP и подключить его к базе данных MySQL. По завершении вы получите приложение [Laravel](https://laravel.com/), работающее на платформе "Веб-приложение для контейнеров".
+[Служба приложений на платформе Linux](app-service-linux-intro.md) — это высокомасштабируемая служба размещения с самостоятельной установкой исправлений на основе операционной системы Linux. В этом руководстве показано, как создать веб-приложение PHP и подключить его к базе данных MySQL. По завершении вы получите приложение [Laravel](https://laravel.com/), работающее в службе приложений под управлением Linux.
 
 ![Приложение PHP, работающее в службе приложений Azure](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -192,7 +192,6 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 > [!NOTE]
 > База данных Azure для MySQL (предварительная версия) пока еще не ограничивает подключения только к службам Azure. Так как IP-адреса в Azure назначаются динамически, мы рекомендуем включить все IP-адреса. Служба находится на этапе предварительной версии. В ближайшем будущем будут добавлены более надежные методы защиты базы данных.
 >
->
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Локальное подключение к серверу рабочей базы данных MySQL
 
@@ -327,7 +326,7 @@ git commit -m "database.php updates"
 
 ### <a name="create-an-app-service-plan"></a>Создание плана службы приложений
 
-[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-no-h.md)]
+[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### <a name="create-a-web-app"></a>Создание веб-приложения
 

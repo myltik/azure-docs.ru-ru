@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: v-semcev
-ms.openlocfilehash: af396e9f8847421d529c32956216cfc47294edb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04e5499011e72dfcc20dff370d5d837227ed29b6
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Анализ вариантов использования CDN Azure
 
@@ -26,7 +26,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="verizon-core-reports"></a>С помощью базовых отчетов Verizon
 
-Как пользователь с Azure CDN с профилем Verizon "Стандартный" или "Премиум" вы можете просматривать базовые отчеты Verizon на вспомогательном портале Verizon. На портале Verizon доступно множество графиков и представлений. Перейти на него можно с помощью параметра **Управление** на портале Azure. См. дополнительные сведения о [базовых отчетах Verizon](cdn-analyze-usage-patterns.md).
+Как пользователь с Azure CDN с профилем Verizon "Стандартный" или "Премиум" вы можете просматривать базовые отчеты Verizon на вспомогательном портале Verizon. На портале Azure доступны базовые отчеты Verizon со множеством графиков и представлений. Их можно открыть с помощью параметра **Управление**. См. дополнительные сведения о [базовых отчетах Verizon](cdn-analyze-usage-patterns.md).
+
+## <a name="verizon-custom-reports"></a>Настраиваемые отчеты Verizon
+
+Как пользователь с Azure CDN с профилем Verizon "Стандартный" или "Премиум", вы можете просматривать настраиваемые отчеты Verizon на вспомогательном портале Verizon. Доступ к настраиваемым отчетам Verizon можно получить на портале Azure с помощью параметра **Управление**. На странице настраиваемых отчетов Verizon отображается число попаданий или данных, передаваемых для каждой граничной записи CName, принадлежащей профилю Azure CDN. Данные можно группировать по HTTP-коду ответа или состоянию кэша за любой период времени. См. дополнительные сведения о [настраиваемых отчетах Verizon](cdn-verizon-custom-reports.md).
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Базовая аналитика с использованием журналов диагностики Azure
 

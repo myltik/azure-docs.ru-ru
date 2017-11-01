@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 10/17/2017
 ms.author: mimig
-ms.openlocfilehash: b84fe1036a50b5672f5b5f4d6df2f67a25a1be4e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d6ba5794e4a3e431abd72a780b60b9e59e9f4db
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>API Graph .NET для базы данных Azure Cosmos DB. Скачивание и заметки о выпуске
 
@@ -32,6 +32,15 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-preview
+
+#### <a name="bug-fixes"></a>Исправления ошибок
+* Исправлена необязательная загрузка `appsettings.json` (`netstandard1.6`)
+
+#### <a name="whats-new"></a>Новые возможности
+* Переключение Microsoft.Azure.Graphs на целевую платформу AnyCPU.
+* Удаление сборки Mono из пакета манифеста `net461`.
 
 ### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-preview
 
@@ -74,6 +83,7 @@ ms.lasthandoff: 10/11/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [0.3.1-Preview](#0.3.1-preview) |17 октября 2017 г. |--- |
 | [0.3.0-preview](#0.3.0-preview) |2 октября 2017 г. |--- |
 | [0.2.4-preview](#0.2.4-preview) |4 августа 2017 г. |--- |
 | [0.2.2-preview](#0.2.2-preview) |23 июня 2017 г. |--- |

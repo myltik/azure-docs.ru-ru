@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: f57c915dd566e9da9b751bb776a1170842d87297
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Агрегирование и сбор событий с помощью EventFlow
 
 [EventFlow службы диагностики Microsoft](https://github.com/Azure/diagnostics-eventflow) позволяет направлять события от узла к одному или нескольким целевым объектам для мониторинга. Так как это решение включается в проект службы как пакет NuGet, код и конфигурация EventFlow перемещаются вместе со службой, устраняя необходимость отдельной настройки каждого узла для системы диагностики Azure, которую мы обсуждали выше. EventFlow выполняется внутри процесса службы и напрямую подключается к настроенным потокам вывода. Прямое подключение позволяет использовать EventFlow для служб, развернутых в Azure, с помощью контейнера или в локальной среде. Соблюдайте осторожность при выполнении EventFlow в сценариях с высокой плотностью, например в контейнере, так как каждый конвейер EventFlow создает внешнее соединение. Если вы разместите несколько процессов, то получите несколько исходящих подключений. Об этом можно не беспокоиться при использовании приложений Service Fabric, так как все реплики `ServiceType` выполняются в одном процессе, что ограничивает число исходящих подключений. EventFlow также поддерживает фильтрацию событий, то есть позволяет отправлять только события, соответствующие указанному фильтру.
 
-## <a name="setting-up-eventflow"></a>Настройка EventFlow
+## <a name="set-up-eventflow"></a>Настройка EventFlow
 
 Двоичные файлы EventFlow предоставляются как набор пакетов NuGet. Чтобы добавить библиотеку EventFlow в проект службы Service Fabric, щелкните его правой кнопкой мыши в обозревателе решений и выберите "Управление пакетами NuGet". Перейдите на вкладку "Обзор" и найдите `Diagnostics.EventFlow`.
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 После установки всех пакетов следующим шагом является настройка и включение EventFlow в службе.
 
-## <a name="configuring-and-enabling-log-collection"></a>Настройка и включение сбора журналов
+## <a name="configure-and-enable-log-collection"></a>Настройка и включение сбора журналов
 Конвейер EventFlow, отвечающий за отправку журналов, создается на основе спецификации, хранящейся в файле конфигурации. Пакет `Microsoft.Diagnostics.EventFlow.ServiceFabric` устанавливает начальный файл конфигурации EventFlow в паку решения `PackageRoot\Config` с именем `eventFlowConfig.json`. Этот файл конфигурации нужно изменить, чтобы собирать данные из класса `EventSource` службы по умолчанию, а также другие входные данные, которые вы хотите настроить, и отправлять их в соответствующее место.
 
 Вот пример файла *eventFlowConfig.json* на основе упомянутых выше пакетов NuGet:
@@ -136,13 +136,13 @@ namespace Stateless1
 
 Имя, переданное в качестве параметра в метод `CreatePipeline` класса `ServiceFabricDiagnosticsPipelineFactory`, — это имя *сущности работоспособности*, представляющей конвейер EventFlow для сбора журналов. Это имя используется в том случае, если EventFlow обнаруживает ошибку и сообщает о ней через подсистему работоспособности Service Fabric.
 
-### <a name="using-service-fabric-settings-and-application-parameters-to-in-eventflowconfig"></a>Использование параметров Service Fabric и параметров приложений в eventFlowConfig
+### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>Использование параметров Service Fabric и параметров приложений в eventFlowConfig
 
 EventFlow поддерживает использование параметров Service Fabric и параметров приложений для настройки параметров EventFlow. На параметры Service Fabric можно ссылаться с помощью специального синтаксиса для значений:
 
 ```json
 servicefabric:/<section-name>/<setting-name>
-``` 
+```
 
 `<section-name>` — это имя раздела конфигурации Service Fabric, а `<setting-name>` — это параметр конфигурации, предоставляющий значение, которое будет использоваться для настройки параметра EventFlow. Дополнительные сведения см. в статье [Поддержка параметров Service Fabric и параметров приложений](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 

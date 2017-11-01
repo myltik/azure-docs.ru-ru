@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 10/22/2017
 ms.author: raiye
-ms.openlocfilehash: 7d3541e6c437212139553d975fa756084da4f757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Таблица совместимости выпусков гостевых ОС Azure и пакетов SDK
 В данном разделе предоставляются новейшие сведения о последних выпусках гостевых ОС Azure для облачных служб. Эта информация поможет вам спланировать обновление до того, как гостевая ОС будет отключена. Если роли настроены для *автоматического* обновления гостевой ОС, как описано в разделе [Параметры обновления гостевой ОС Azure][Azure Guest OS Update Settings], ознакомление с этой страницей необязательно.
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="family-4-releases"></a>Выпуски семейства 4
 **Windows Server 2012 R2**
 
-Поддерживает .NET 4.0, 4.5, 4.5.1, 4.5.2
+Версии установленной платформы .NET Framework: 4.0, 4.5, 4.5.1, 4.5.2.
 
 > [!NOTE]
 > Даты, отмеченные *, могут измениться
@@ -133,7 +133,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="family-3-releases"></a>Выпуски семейства 3
 **Windows Server 2012**
 
-Поддерживает .NET 4.0, 4.5, 4.5.1, 4.5.2
+Версии установленной платформы .NET Framework: 4.0, 4.5, 4.5.1, 4.5.2.
 
 > [!NOTE]
 > Даты, отмеченные *, могут измениться
@@ -160,7 +160,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="family-2-releases"></a>Выпуски семейства 2
 **Windows Server 2008 R2 с пакетом обновления 1**
 
-Поддерживает .NET 3.5, 4.0, 4.5, 4.5.1 и 4.5.2.
+Версии установленной платформы .NET Framework: 3.5, 4.0, 4.5, 4.5.1, 4.5.2.
 
 > [!NOTE]
 > Даты, отмеченные *, могут измениться

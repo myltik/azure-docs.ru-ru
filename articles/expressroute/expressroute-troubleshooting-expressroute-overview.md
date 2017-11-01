@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2bcd95da36cd577ece8ad87d00c3e276f28ad340
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 960ea1540d644b6f41b95ab7df61cf91adcbb4ad
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>Проверка подключения ExpressRoute
 Подключение ExpressRoute, расширяющее локальную сеть в Microsoft Cloud посредством частного подключения, которое обеспечивает поставщик услуг подключения, включает в себя следующие три различные сетевые зоны:
@@ -281,7 +281,7 @@ ms.lasthandoff: 10/11/2017
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Проверка ARP между корпорацией Майкрософт и поставщиком услуг связи
-В этом разделе используются классические команды PowerShell. Если вы использовали команды PowerShell для Azure Resource Manager, убедитесь, что у вас есть доступ администратора или соадминистратора к подписке с помощью [классического портала Azure][OldPortal]. Сведения об устранении неполадок с помощью команд Azure Resource Manager см. в документе [Получение таблиц ARP в модели развертывания с помощью Resource Manager][ARP].
+В этом разделе используются классические команды PowerShell. Если вы использовали команды PowerShell для Azure Resource Manager, убедитесь, что у вас есть права администратора или соадминистратора для доступа к подписке. Сведения об устранении неполадок с помощью команд Azure Resource Manager см. в документе [Получение таблиц ARP в модели развертывания с помощью Resource Manager][ARP].
 
 >[!NOTE]
 >Чтобы получить ARP, можно использовать команды PowerShell для Azure Resource Manager и портал Azure. Если при использовании команд PowerShell для Azure Resource Manager возникают ошибки, должны работать классические команды PowerShell так же, как классические команды PowerShell работают с каналами ExpressRoute в Azure Resource Manager.
@@ -314,7 +314,7 @@ ms.lasthandoff: 10/11/2017
 >
 
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>Проверка BGP и маршрутов MSEE
-В этом разделе используются классические команды PowerShell. Если вы использовали команды PowerShell для Azure Resource Manager, убедитесь, что у вас есть доступ администратора или соадминистратора к подписке с помощью [классического портала Azure][OldPortal].
+В этом разделе используются классические команды PowerShell. Если вы использовали команды PowerShell для Azure Resource Manager, убедитесь, что у вас есть права администратора или соадминистратора для доступа к подписке.
 
 >[!NOTE]
 >Чтобы получить сведения о BGP, можно использовать команды PowerShell для Azure Resource Manager и портала Azure. Если при использовании команд PowerShell для Azure Resource Manager возникают ошибки, должны работать классические команды PowerShell так же, как классические команды PowerShell работают с каналами ExpressRoute в Azure Resource Manager.

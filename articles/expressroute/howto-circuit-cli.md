@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 1a1c9a96b772868e2c832e9ff57874038c0db2d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Создание и изменение канала ExpressRoute с помощью CLI
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 * Перед началом работы установите последнюю версию команд интерфейса командной строки (версию 2.0 или более позднюю). Сведения об установке команд интерфейса командной строки см. в статьях [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Установка Azure CLI 2.0) и [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Приступая к работе с Azure CLI 2.0).
 * Изучите [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.
 
-## <a name="create-and-provision-an-expressroute-circuit"></a>Создание и предоставление канала ExpressRoute
+## <a name="create"></a>Создание и подготовка канала ExpressRoute
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Войдите в учетную запись Azure и выберите подписку.
 
@@ -351,7 +351,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 Инструкции см. в статье [Перемещение каналов ExpressRoute из классической модели развертывания в модель Resource Manager](expressroute-howto-move-arm.md).
 
-## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Отзыв и удаление канала ExpressRoute
+## <a name="delete"></a>Отзыв и удаление канала ExpressRoute
 
 Чтобы отменить подготовку и удалить канал ExpressRoute, ознакомьтесь со следующими требованиями:
 

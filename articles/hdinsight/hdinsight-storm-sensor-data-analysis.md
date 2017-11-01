@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/09/2017
+ms.date: 10/19/2017
 ms.author: larryfr
-ms.openlocfilehash: 3c66f9ea025a2d245cdf907be9f3c586f1ed45ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f08835d73cba6b8047381846c341e4517414d4a0
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Анализ полученных с датчиков данных с использованием Apache Storm, концентратора событий и базы данных HBase в службе HDInsight (Hadoop)
 
@@ -31,24 +31,6 @@ ms.lasthandoff: 10/11/2017
 > Для работы с этим документом требуется HDInsight версии 3.6.
 >
 > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-## <a name="prerequisites"></a>Предварительные требования
-
-* Подписка Azure.
-* [Node.js](http://nodejs.org/): используется для локального предварительного просмотра веб-панели мониторинга в среде разработки.
-* [Java и пакет JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): используется для разработки топологии Storm.
-* [Maven](http://maven.apache.org/what-is-maven.html): используется для создания и компиляции проекта.
-* [Git](http://git-scm.com/): используется для скачивания проекта с сайта GitHub.
-* Клиент **SSH**: используется для подключения к кластерам HDInsight под управлением Linux. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-
-> [!IMPORTANT]
-> Вам не нужен существующий кластер HDInsight. В этом документе описаны действия по созданию следующие ресурсов:
-> 
-> * виртуальная сеть Azure;
-> * кластер Storm в HDInsight (под управлением Linux, с двумя рабочими узлами);
-> * кластер HBase в HDInsight (под управлением Linux, с двумя рабочими узлами);
-> * веб-приложение Azure, в котором размещается панель мониторинга.
 
 ## <a name="architecture"></a>Архитектура
 
@@ -77,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 > [!IMPORTANT]
 > Требуются два кластера, так как метода для создания одного кластера HDInsight для Storm и для HBase не существует.
 
-Топология считывает данные из концентратора событий с помощью класса [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) и записывает их в HBase с помощью класса [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/releases/1.0.1/javadocs/org/apache/storm/hbase/bolt/HBaseBolt.html). Связь с веб-сайтом реализована с использованием библиотеки [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
+Топология считывает данные из концентратора событий с помощью класса `org.apache.storm.eventhubs.spout.EventHubSpout` и записывает данные в HBase с помощью класса `org.apache.storm.hbase.bolt.HBaseBolt`. Связь с веб-сайтом реализована с использованием библиотеки [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
 
 На следующей схеме поясняется структура топологии.
 
@@ -104,32 +86,27 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prepare-your-environment"></a>Подготовка среды
 
-Прежде чем использовать этот пример, необходимо создать концентратор событий Azure, из которого топология Storm будет считывать данные.
+Прежде чем использовать этот пример, необходимо подготовить среду разработки. Также необходимо создать концентратор событий Azure, который используется в этом примере.
 
-### <a name="configure-event-hub"></a>Настройка концентраторов Event Hub
+Вам потребуется установить в среде разработки следующие элементы:
 
-В этом примере концентратор событий выступает в роли источника данных. Чтобы создать концентратор событий, выполните следующие действия.
+* [Node.js](http://nodejs.org/): используется для локального предварительного просмотра веб-панели мониторинга в среде разработки.
+* [Java и пакет JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): используется для разработки топологии Storm.
+* [Maven](http://maven.apache.org/what-is-maven.html): используется для создания и компиляции проекта.
+* [Git](http://git-scm.com/): используется для скачивания проекта с сайта GitHub.
+* Клиент **SSH**: используется для подключения к кластерам HDInsight под управлением Linux. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. На [портале Azure](https://portal.azure.com) выберите **+ Создать** -> **Интернет вещей** -> **Концентраторы событий**.
-2. В колонке **Создание пространства имен** сделайте следующее:
-   
-   1. В поле **Имя** введите имя для пространства имен.
-   2. Выберите ценовую категорию. **Базовый** подойдет для этого примера.
-   3. В поле **Подписка** выберите подписку Azure, которую нужно использовать.
-   4. Создайте группу ресурсов или выберите имеющуюся.
-   5. В поле **Расположение** выберите расположение для концентратора событий.
-   6. Выберите **Закрепить на панели мониторинга** и щелкните **Создать**.
+Выполните инструкции по [созданию концентратора событий](../event-hubs/event-hubs-create.md).
 
-3. По завершении создания отобразятся сведения о концентраторах событий для пространства имен. В этой колонке выберите **+ Add Event Hub**(+ Добавить концентратор событий). В разделе **Создание концентратора событий** введите имя **sensordata**, а затем щелкните **Создать**. Оставьте в остальных полях значения по умолчанию.
-4. В представлении "Концентраторы событий" для пространства имен выберите **Концентраторы событий**. Выберите запись **sensordata** .
-5. В представлении для sensordata концентратора событий выберите **Политики общего доступа**. Воспользуйтесь ссылкой **+ Добавить** , чтобы добавить следующие политики.
+> [!IMPORTANT]
+> Запишите имя, пространство имен и ключ концентратора событий для RootManageSharedAccessKey. Эти сведения используются для настройки топологии Storm.
 
-    | Имя политики | Claims |
-    | ----- | ----- |
-    | устройства | Отправка |
-    | storm | Прослушивание |
-
-1. Выберите обе политики и запишите значение параметра **Первичный ключ** . При выполнении следующих шагов понадобятся значения обеих политик.
+Вам не нужен кластер HDInsight. Выполнив действия, описанные в этом документе, вы получите шаблон Azure Resource Manager, который создаст ресурсы, необходимые для этого примера. Шаблон создает следующие ресурсы:
+ 
+* виртуальная сеть Azure;
+* кластер Storm в HDInsight (под управлением Linux, с двумя рабочими узлами);
+* кластер HBase в HDInsight (под управлением Linux, с двумя рабочими узлами);
+* веб-приложение Azure, в котором размещается панель мониторинга.
 
 ## <a name="download-and-configure-the-project"></a>Скачивание и настройка проекта
 
@@ -157,8 +134,7 @@ ms.lasthandoff: 10/11/2017
 Чтобы настроить проект для чтения из концентратора событий, откройте файл `hdinsight-eventhub-example/TemperatureMonitor/dev.properties` и добавьте сведения о концентраторе событий в следующие строки:
 
 ```bash
-eventhub.read.policy.name: your_read_policy_name
-eventhub.read.policy.key: your_key_here
+eventhub.policy.key: the_key_for_RootManageSharedAccessKey
 eventhub.namespace: your_namespace_here
 eventhub.name: your_event_hub_name
 eventhub.partitions: 2
@@ -168,9 +144,6 @@ eventhub.partitions: 2
 
 > [!IMPORTANT]
 > Для локального использования топологии требуется рабочая среда разработки Storm. См. дополнительные сведения о [настройке среды разработки Storm](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html) на сайте Apache.org.
-
-> [!WARNING]
-> Если вы используете среду разработки Windows, при локальном выполнении топологии может возникнуть исключение `java.io.IOException`. В таком случае переключитесь на выполнение в HDInsight.
 
 Перед началом тестирования вам необходимо запустить панель мониторинга, чтобы просмотреть выходные данные топологии и создать данные для хранения в концентраторе событий.
 
@@ -216,16 +189,16 @@ eventhub.partitions: 2
    
     ```javascript
     // ServiceBus Namespace
-    var namespace = 'YourNamespace';
+    var namespace = 'Your-eventhub-namespace';
     // Event Hub Name
-    var hubname ='sensordata';
+    var hubname ='Your-eventhub-name';
     // Shared access Policy name and key (from Event Hub configuration)
-    var my_key_name = 'devices';
-    var my_key = 'YourKey';
+    var my_key_name = 'RootManageSharedAccessKey';
+    var my_key = 'Your-Key';
     ```
    
    > [!NOTE]
-   > В этом примере предполагается, что вы использовали `sensordata` как имя концентратора событий и `devices` как имя политики с утверждением `Send`.
+   > В этом примере предполагается, что вы используете `RootManageSharedAccessKey` для доступа к концентратору событий.
 
 3. Для добавления новых записей в концентратор событий используйте следующую команду.
    

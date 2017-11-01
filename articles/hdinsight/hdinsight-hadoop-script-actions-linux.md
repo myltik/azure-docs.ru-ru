@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>Разработка действий сценариев с помощью HDInsight
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="bps10"></a> Выбор версии ОС
 
-HDInsight под управлением Linux основан на дистрибутиве Ubuntu под управлением Linux. Для разных версий HDInsight используются разные версии Ubuntu. Это может изменить поведение сценария. Например, HDInsight версии 3.4 и более ранних версий основан на версии Ubuntu, в которой используется Upstart. Версия 3.5 основана на Ubuntu версии 16.04, в которой используется Systemd. Systemd и Upstart используют разные команды, поэтому сценарий нужно написать таким образом, чтобы он был совместим и с тем, и с другим.
+HDInsight под управлением Linux основан на дистрибутиве Ubuntu под управлением Linux. Для разных версий HDInsight используются разные версии Ubuntu. Это может изменить поведение сценария. Например, HDInsight версии 3.4 и более ранних версий основан на версии Ubuntu, в которой используется Upstart. Версия 3.5 и более поздние версии основана на Ubuntu версии 16.04, в которой используется Systemd. Systemd и Upstart используют разные команды, поэтому сценарий нужно написать таким образом, чтобы он был совместим и с тем, и с другим.
 
 Еще одно важное различие между HDInsight версии 3.4 и 3.5 заключается в том, что теперь `JAVA_HOME` указывает на Java 8.
 

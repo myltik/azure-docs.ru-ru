@@ -1,6 +1,6 @@
 ---
 title: "Многофакторная идентификация для SQL Azure | Документация Майкрософт"
-description: "Использование Многофакторной идентификации с SSMS для базы данных SQL и хранилища данных SQL."
+description: "База данных SQL Azure и хранилище данных SQL Azure поддерживают подключения из SQL Server Management Studio (SSMS) с использованием универсальной проверки подлинности Active Directory."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/29/2017
 ms.author: rickbyh
-ms.openlocfilehash: e710f0cdfec9c0a4ded4072c6ed8b2647a401633
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd27dbd5e725748efcca23096273f1a2d526c2b5
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Универсальная проверка подлинности для Базы данных SQL и хранилища данных SQL (поддержка SSMS для MFA)
 База данных SQL Azure и хранилище данных SQL Azure поддерживают подключения из SQL Server Management Studio (SSMS) с использованием *универсальной проверки подлинности Active Directory*. 
@@ -63,4 +63,4 @@ ms.lasthandoff: 10/11/2017
 - [Импорт BACPAC-файла в новую базу данных SQL Azure](../sql-database/sql-database-import.md)  
 - [Экспорт базы данных SQL Azure в BACPAC-файл](../sql-database/sql-database-export.md)  
 - Интерфейс C# [IUniversalAuthProvider](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
-- При использовании универсальной аутентификации **Active Directory с MFA** трассировка ADAL доступна начиная с версии [SSMS 17.3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Трассировка ADAL по умолчанию отключена. Включите ее в меню**Средства**, **Параметры** в разделе **Службы Azure**, **Облако Azure**, **Уровень трассировки для окна вывода ADAL** после включения **Вывод** в меню **Представление**. Данные трассировки доступны в окне вывода при выборе **параметра Azure Active Directory**.  
+- При использовании универсальной аутентификации **Active Directory с MFA** трассировка ADAL доступна начиная с версии [SSMS 17.3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Трассировка ADAL по умолчанию отключена. Включите ее в меню**Средства**, **Параметры** в разделе **Службы Azure**, **Облако Azure**, **Уровень трассировки для окна вывода ADAL** после включения **Вывод** в меню **Представление**. Эти трассировки доступны в окне вывода при выборе **параметра Azure Active Directory**.  

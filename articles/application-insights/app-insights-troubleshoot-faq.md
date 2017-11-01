@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: 0b6f9e8192a4c6808beb61acb0f93ef5ec73e956
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff3a0b5f64adff535123cf0ea8ca766ed2b8d5be
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: вопросы и ответы
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 10/11/2017
 * HTTP-запросы;
 * [зависимости](app-insights-asp-net-dependencies.md); вызовы к базам данных SQL, Azure Cosmos DB, таблице, хранилищу BLOB-объектов и очереди; HTTP-вызовы к внешним службам; 
 * [исключения](app-insights-asp-net-exceptions.md) и трассировки стека;
-* [счетчики производительности](app-insights-performance-counters.md) — если вы используете [монитор состояния](app-insights-monitor-performance-live-website-now.md), мониторинг Azure (app-insights-azure-web-apps.md) или [средство записи collectd Application Insights](app-insights-java-collectd.md);
+* [счетчики производительности](app-insights-performance-counters.md) — если вы используете [монитор состояния](app-insights-monitor-performance-live-website-now.md), [мониторинг Azure](app-insights-azure-web-apps.md) или [средство записи collectd Application Insights](app-insights-java-collectd.md);
 * [пользовательские события и метрики](app-insights-api-custom-events-metrics.md), которые вы создаете в коде;
 * [журналы трассировки](app-insights-asp-net-trace-logs.md), если вы настраиваете соответствующий сборщик.
 
@@ -186,7 +186,7 @@ ms.lasthandoff: 10/11/2017
 * Пакет SDK для JavaScript создает файл cookie пользователя в веб-клиенте для определения возвращающихся пользователей и файл cookie сеанса для группировки действий.
 * Если скрипт на стороне клиента отсутствует, вы можете [задать файлы cookie на сервере](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Если один реальный пользователь работает с вашим сайтом в разных браузерах, на разных компьютерах либо использует конфиденциальный режим просмотра или режим инкогнито, то он будет учитываться несколько раз.
-* Для определения вошедшего в систему пользователя на разных компьютерах и в разных браузерах добавьте вызов [setAuthenticatedUserContect()](app-insights-api-custom-events-metrics.md#authenticated-users).
+* Для определения вошедшего в систему пользователя на разных компьютерах и в разных браузерах добавьте вызов [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Все ли активировано в Application Insights?
 | Что вы должны видеть | Как это получить | Для чего это нужно |

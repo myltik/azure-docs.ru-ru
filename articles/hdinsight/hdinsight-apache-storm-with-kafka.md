@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/21/2017
+ms.date: 10/12/2017
 ms.author: larryfr
-ms.openlocfilehash: e8895ef3c11aea48513e4060a20f5f49b11fc961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41afdbb019f8533a49db3ebd37ff144186f956
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Совместное использование Apache Kafka (предварительная версия) и Storm в HDInsight
 
@@ -79,7 +79,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
   > [!WARNING]
   > Чтобы обеспечить доступность Kafka в HDInsight, кластер должен содержать не менее трех рабочих узлов. Этот шаблон создает кластер Kafka, содержащий три рабочих узла.
 
-2. Используйте следующие инструкции для заполнения колонки **Настраиваемое развертывание**.
+2. Используйте приведенные ниже инструкции для заполнения раздела **Настраиваемое развертывание**.
    
     ![Настраиваемое развертывание в HDInsight](./media/hdinsight-apache-storm-with-kafka/parameters.png)
 
@@ -101,9 +101,9 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 
 4. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Приобрести**. Процесс создания кластеров занимает около 20 минут.
 
-После создания ресурсов отобразится колонка для группы ресурсов.
+После создания ресурсов отобразится раздел группы ресурсов.
 
-![Колонка группы ресурсов для виртуальной сети и кластеров](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
+![Раздел группы ресурсов для виртуальной сети и кластеров](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Обратите внимание, что кластерам HDInsight присвоены имена **storm-BASENAME** и **kafka-BASENAME**, где BASENAME — имя, указанное в шаблоне. Эти имена будут использоваться позже при подключении к кластерам.
@@ -294,7 +294,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
   ```
 
-2. После запуска топологии откройте пользовательский интерфейс Storm. Этот веб-интерфейс расположен по адресу https://storm-BASENAME.azurehdinsight.net/stormui. Замените __BASENAME__ базовым именем, которое использовалось при создании кластера. 
+2. После запуска топологии откройте пользовательский интерфейс Storm. Этот пользовательский веб-интерфейс находится по адресу `https://storm-BASENAME.azurehdinsight.net/stormui`. Замените __BASENAME__ базовым именем, которое использовалось при создании кластера. 
 
     При появлении запроса введите имя администратора для входа (по умолчанию `admin`) и пароль, который использовался при создании кластера. Появится примерно такая веб-страница:
 

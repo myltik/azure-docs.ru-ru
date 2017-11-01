@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7e05c469260a445578c80cdf77fab2d5ffb48022
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771741fd7da8c9b6932851851aaca148f9596643
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Сквозная проверка подлинности Azure Active Directory: смарт-блокировка
 
@@ -42,6 +42,9 @@ Azure AD обеспечивает защиту от атак методом по
 
 1.  Пороговое значение блокировки Azure AD _меньше_, чем пороговое значение блокировки учетных записей AD. Рекомендуется устанавливать значения таким образом, чтобы пороговое значение блокировки учетных записей AD как минимум в два-три раза превышало пороговое значение блокировки Azure AD.
 2.  Продолжительность блокировки Azure AD (в секундах) _больше_, чем период сброса счетчика блокировки учетных записей AD (в минутах).
+
+>[!IMPORTANT]
+>В настоящее время администратор не может разблокировать учетные записи пользователей в облаке, если они заблокированы с помощью смарт-блокировки. Пользователи должны подождать, пока не завершится срок действия блокировки.
 
 ## <a name="verify-your-ad-account-lockout-policies"></a>Проверка политик блокировки учетных записей AD
 

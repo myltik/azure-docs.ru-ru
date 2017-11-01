@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 668fc5ae4f964bd776904c3a9dbc2b203689d50c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3d9c2c08a3b23530ab772e5f0532ac2f9dcc9a3
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Руководство по интеграции Azure Active Directory с Skillport
 
@@ -110,20 +110,23 @@ ms.lasthandoff: 10/11/2017
 
     ![Настройка единого входа](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url.png)
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате:
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес:
       
-      Центр обработки данных в ЕС: `https://<subdomain>.skillport.eu`
+      Центр обработки данных в ЕС: `https://adfs.skillport.eu`
    
-      Центр обработки данных в США: `https://<subdomain>.skillport.com`
-   
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:
-    
-      Центр обработки данных в ЕС: `https://<subdomain>.skillport.eu/adfs/ls/`
-    
-      Центр обработки данных в США: `https://<subdomain>.skillport.com/sp/ACS.saml2`
+      Центр обработки данных в США: `https://sso.skillport.com`
 
-    > [!NOTE] 
-    > Эти значения приведены в качестве примера. Измените их на фактические значения URL-адреса ответа и URL-адреса входа. Чтобы получить их, обратитесь в [службу поддержки клиентов Skillport](https://www.skillsoft.com/contact.asp).
+    b. В текстовом поле **Идентификатор** введите URL-адрес:
+      
+      Центр обработки данных в ЕС: `http://adfs.skillport.eu/adfs/services/trust`
+   
+      Центр обработки данных в США: `https://sso.skillport.com`
+   
+    c. В текстовом поле **URL-адрес ответа** введите URL-адрес:
+    
+      Центр обработки данных в ЕС: ` https://adfs.skillport.eu/adfs/ls/`
+    
+      Центр обработки данных в США: `https://sso.skillport.com/sp/ACS.saml2`
  
 4. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
 

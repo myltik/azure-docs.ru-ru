@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ad25663f97b83f11f14eeb8bb07dac46f6c080d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Доменные службы Azure Active Directory: часто задаваемые вопросы
 На этой странице вы найдете ответы на часто задаваемые вопросы о доменных службах Azure Active Directory. Следите за обновлениями.
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 Автоматическое развертывание доменных служб AD Azure или развертывание с помощью PowerShell в настоящее время недоступны.
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Доступны ли доменные службы Azure AD на новом портале Azure?
-Да. Доменные службы Azure AD можно настроить на [портале Azure](https://portal.azure.com). В будущем поддержка [классического портала Azure](https://manage.windowsazure.com) будет прекращена.
+Да. Доменные службы Azure AD можно настроить на [портале Azure](https://portal.azure.com). [Классический портал Azure](https://manage.windowsazure.com) больше не поддерживается.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Можно ли включить доменные службы Azure AD с помощью шаблона Resource Manager?
 Нет. Некоторые задачи должны быть выполнены во время включения доменных служб Azure AD. Эти задачи невозможно выполнить с помощью шаблона Resource Manager. Включите доменные службы для своего каталога на новом портале Azure.

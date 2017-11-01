@@ -5,14 +5,14 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/18/2017
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 02d73a3d843ee7cd3cdfbf6b137908e03d7306a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d15252079b62f6a74a1279309fb9b1b3ed5711e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Интеграция центра обработки данных Azure Stack. Публикация конечных точек
 
@@ -38,15 +38,15 @@ Azure Stack настраивает несколько разных конечн�
 |Конечная точка (виртуальный IP-адрес)|Запись A на узле DNS|Протокол|порты;|
 |---------|---------|---------|---------|
 |AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|Портал (для администратора)|`Adminportal.[Region].[External FQDN]`|HTTPS|443|
+|Портал (для администратора)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
 |Azure Resource Manager (для администратора)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
 |Портал (для пользователя)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (для пользователя)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
 |График|`Graph.[Region].[External FQDN]`|HTTPS|443|
 |Список отзыва сертификатов|`Crl.[Region].[External FQDN]`|HTTP|80|
 |DNS|`*.[Region].[External FQDN]`|TCP или UDP|53|
-|Хранилище ключей (для пользователя)|`*.vault.[Region].[External FQDN]`|TCP<br>TCP|443<br>12490|
-|Хранилище ключей (для администратора)|`*.adminvault.[Region].[External FQDN]`|TCP<br>TCP|443<br>12492|
+|Хранилище ключей (для пользователя)|`*.vault.[Region].[External FQDN]`|TCP|443|
+|Хранилище ключей (для администратора)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
 |Очередь службы хранилища|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 |Таблица службы хранилища|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 |Большой двоичный объект хранилища|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
@@ -109,4 +109,4 @@ Azure Stack настраивает несколько разных конечн�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Интеграция центра обработки данных Azure Stack — DNS](azure-stack-integrate-dns.md)
+[Интеграция центра обработки данных Azure Stack. Безопасность](azure-stack-integrate-security.md)

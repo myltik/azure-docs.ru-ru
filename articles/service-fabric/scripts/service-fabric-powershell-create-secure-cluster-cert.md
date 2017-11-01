@@ -15,11 +15,11 @@ ms.topic: sample
 ms.date: 09/29/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a6d44d810fa9f9a4660afbaa4cbb0af37c5e0d13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc0412b7595e9a84049223561c7695a86480fe4a
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="create-a-service-fabric-cluster"></a>Создание кластера Service Fabric
 

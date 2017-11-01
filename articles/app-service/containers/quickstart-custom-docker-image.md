@@ -1,6 +1,6 @@
 ---
-title: "Использование пользовательского образа Docker Hub для веб-приложения Azure для контейнеров | Документация Майкрософт"
-description: "Как применять пользовательский образ Docker для веб-приложений Azure для контейнеров."
+title: "Использование пользовательского образа Docker Hub для платформы \"Веб-приложения для контейнеров\" | Документация Майкрософт"
+description: "Использование пользовательского образа Docker для платформы \"Веб-приложения для контейнеров\"."
 keywords: "служба приложений azure, веб-приложение, docker, контейнер"
 services: app-service
 documentationcenter: 
@@ -16,25 +16,25 @@ ms.topic: quickstart
 ms.date: 09/05/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 28b0b50c68fa7c16a354fd16b7dfd930436c6b4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eadc0f7eb20b9e8d1cacc79b2907559e2b2535a2
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Использование пользовательского образа Docker Hub для веб-приложения Azure для контейнеров #
+# <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Использование пользовательского образа Docker Hub для платформы "Веб-приложения для контейнеров"
 
-Служба приложений включает предопределенные стеки приложений на платформе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Вы также можете использовать пользовательский образ Docker для развертывания веб-приложения в стек приложений, который еще не определен в Azure. В этом кратком руководстве показано, как создать веб-приложение и развернуть в нем образ Python. Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Служба приложений включает предопределенные стеки приложений на платформе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Вы также можете использовать пользовательский образ Docker для развертывания веб-приложения в стек приложений, который еще не определен в Azure. В этом кратком руководстве показано, как создать веб-приложение и развернуть в нем образ Docker на основе Python. Создайте веб-приложение с помощью [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Создание веб-приложения
+## <a name="create-a-web-app-for-container"></a>Создание платформы "Веб-приложения для контейнеров"
 
 Создайте [веб-приложение](../app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). Не забудьте указать уникальное имя приложения вместо `<app name>`.
 

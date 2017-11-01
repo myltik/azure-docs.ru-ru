@@ -1,6 +1,6 @@
 ---
 title: "Портал Azure: создание базы данных SQL | Документация Майкрософт"
-description: "Вы узнаете, как создать логический сервер базы данных SQL, правило брандмауэра на уровне сервера и базы данных на портале Azure, Вы также научитесь отправлять запрос к базе данных SQL Azure с помощью портала Azure."
+description: "Создайте логический сервер базы данных SQL, правило брандмауэра на уровне сервера и базу данных на портале Azure, а также выполняйте запросы к базе данных."
 keywords: "руководство по базам данных SQL, создание базы данных SQL"
 services: sql-database
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: e1e9dcd5b2b58e02b0c320c808f9042f7e032d50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a97ff8cbd05eb3cd94b557b4dbeb63634a94ccf8
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Создание базы данных SQL Azure на портале Azure
 

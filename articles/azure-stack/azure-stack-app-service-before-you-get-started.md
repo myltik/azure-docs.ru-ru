@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 8ebac8ca3bed6825ff9170a305a44ad58ec0da31
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: f2e7b5b96b70333ae4ee92d24c354960008c7f00
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Подготовка к работе со службой приложений в Azure Stack
 
@@ -32,15 +32,18 @@ ms.lasthandoff: 10/12/2017
 - Создание приложения Azure Active Directory
 - Создание приложения служб федерации Active Directory (AD FS)
 
-## <a name="download-the-azure-app-service-on-azure-stack-helper-scripts"></a>Скачивание службы приложений Azure во вспомогательных скриптах Azure Stack
+## <a name="download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts"></a>Скачивание установщика и вспомогательных скриптов для развертывания службы приложений Azure в Azure Stack
 
-1. Скачайте [службу приложений Azure для вспомогательных скриптов Azure Stack](http://aka.ms/appsvconmasrc1helper).
-2. Извлеките файлы из ZIP-файла вспомогательных скриптов. Вы увидите следующие файлы и структуру папок:
-  - Create-AppServiceCerts.ps1
+1. Скачайте [службу приложений Azure для вспомогательных скриптов Azure Stack](https://aka.ms/appsvconmashelpers).
+2. Скачайте [установщик для развертывания службы приложений Azure в Azure Stack](https://aka.ms/appsvconmasinstaller).
+3. Извлеките файлы из ZIP-файла вспомогательных скриптов. Вы увидите следующие файлы и структуру папок:
+  - Common.ps1;
   - Create-AADIdentityApp.ps1
   - Create-ADFSIdentityApp.ps1
+  - Create-AppServiceCerts.ps1
+  - Get-AzureStackRootCert.ps1;
+  - Remove-AppService.ps1;
   - модули
-    - AzureStack.Identity.psm1
     - GraphAPI.psm1
     
 ## <a name="high-availability"></a>высокую доступность;
@@ -63,10 +66,10 @@ ms.lasthandoff: 10/12/2017
 | ftp.appservice.local.azurestack.external.pfx | SSL-сертификат издателя службы приложений |
 | Sso.appservice.local.azurestack.external.pfx | Сертификат приложения идентификации службы приложений |
 
-Запустите скрипт в расположении комплекта разработки Azure Stack и убедитесь, что PowerShell выполняется с правами azurestack\AzureStackAdmin.
+Запустите скрипт в расположении пакета SDK Azure Stack и убедитесь, что вы работаете в PowerShell с правами azurestack\CloudAdmin.
 
-1. В сеансе PowerShell, который выполняется с правами azurestack\AzureStackAdmin, запустите скрипт Create-AppServiceCerts.ps1 из папки, в которую были извлечены вспомогательные скрипты. Скрипт создает четыре сертификата в той же папке, что и скрипт создания сертификатов, который требуется службе приложений.
-2. Введите пароль для защиты PFX-файлов и запишите его. Его будет необходимо ввести в службе приложений в программе установки Azure Stack.
+1. В сеансе PowerShell, который выполняется с правами azurestack\CloudAdmin, запустите скрипт Create-AppServiceCerts.ps1 из папки, в которую были извлечены вспомогательные скрипты. Скрипт создает четыре сертификата в той же папке, что и скрипт создания сертификатов, который требуется службе приложений.
+2. Введите пароль для защиты PFX-файлов и запишите его. Его необходимо ввести в установщике службы приложений для Azure Stack.
 
 #### <a name="create-appservicecertsps1-parameters"></a>Параметры Create-AppServiceCerts.ps1
 
@@ -74,7 +77,6 @@ ms.lasthandoff: 10/12/2017
 | --- | --- | --- | --- |
 | pfxPassword | Обязательно | Null | Пароль, используемый для защиты закрытого ключа сертификата |
 | DomainName | Обязательно | local.azurestack.external | Суффикс региона и домена для Azure Stack |
-| CertificateAuthority | Обязательно | AzS-CA01.azurestack.local | Конечная точка центра сертификации |
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Сертификаты, необходимые для развертывания в рабочей среде службы приложений Azure в Azure Stack
 
@@ -97,7 +99,7 @@ ms.lasthandoff: 10/12/2017
 
 | Формат | Пример |
 | --- | --- |
-| api.appservice.\<регион\>.\<имя домена\>.\<расширение\> | api.appservice.redmond.azurestack.external |
+| api.appservice.\<регион\>.\<доменное_имя\>.\<расширение\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Сертификат для публикации
 
@@ -120,21 +122,24 @@ ms.lasthandoff: 10/12/2017
 
 #### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Извлечение корневого сертификата Azure Resource Manager Azure Stack
 
-В сеансе PowerShell, который выполняется с правами azurestack\AzureStackAdmin, запустите скрипт Get-AzureStackRootCert.ps1 из папки, в которую были извлечены вспомогательные скрипты. Скрипт создает четыре сертификата в той же папке, что и скрипт создания сертификатов, который требуется службе приложений.
+В сеансе PowerShell, который выполняется с правами azurestack\CloudAdmin, запустите скрипт Get-AzureStackRootCert.ps1 из папки, в которую были извлечены вспомогательные скрипты. Скрипт создает четыре сертификата в той же папке, что и скрипт создания сертификатов, который требуется службе приложений.
 
 | Параметр Get-AzureStackRootCert.ps1 | Обязательный/необязательный | Значение по умолчанию | Описание |
 | --- | --- | --- | --- |
-| EmergencyConsole | Обязательно | AzS-ERCS01 | Привилегированная конечная точка аварийной консоли |
-| CloudAdminCredential | Обязательно | AzureStack\AzureStackAdmin | Учетные данные домена администратора облака Azure Stack |
+| PrivelegedEndpoint | Обязательно | AzS-ERCS01 | Привилегированная конечная точка. |
+| CloudAdminCredential | Обязательно | AzureStack\CloudAdmin | Учетные данные домена администратора облака Azure Stack. |
 
 
 ## <a name="prepare-the-file-server"></a>Подготовка файлового сервера
 
-Служба приложений Azure требует использования файлового сервера. Для развертываний в рабочей среде он должен быть настроен так, чтобы обеспечивать высокую доступность и обрабатывать сбои.
+Служба приложений Azure требует использования файлового сервера. Для развертываний в рабочей среде файловый сервер должен быть настроен так, чтобы обеспечивать высокую доступность и обрабатывать сбои.
 
-Этот пример шаблона развертывания ARM для развертывания файлового сервера на одном узле можно использовать только при развертываниях комплекта разработки Azure Stack: https://aka.ms/appsvconmasdkfstemplate.
+Этот пример шаблона развертывания Azure Resource Manager для развертывания настроенного файлового сервера на одном узле можно использовать только при развертываниях пакета SDK Azure Stack: https://aka.ms/appsvconmasdkfstemplate.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Подготовка групп и учетных записей в Active Directory
+
+>[!NOTE]
+> При настройке файлового сервера выполняйте все приведенные ниже команды в сеансе командной строки администратора.  **НЕ используйте PowerShell.**
 
 1. Создайте следующие группы глобальной безопасности Active Directory:
     - FileShareOwners
@@ -157,16 +162,22 @@ ms.lasthandoff: 10/12/2017
 В рабочей группе выполните команды net и WMIC, чтобы подготовить группы и учетные записи.
 
 1. Выполните следующие команды, чтобы создать учетные записи FileShareOwner и FileShareUser. Замените <password> собственными значениями.
-    - net user FileShareOwner <password> /add /expires:never /passwordchg:no
-    - net user FileShareUser <password> /add /expires:never /passwordchg:no
+``` DOS
+net user FileShareOwner <password> /add /expires:never /passwordchg:no
+net user FileShareUser <password> /add /expires:never /passwordchg:no
+```
 2. Задайте неограниченный срок действия паролей для учетных записей, выполнив следующие команды WMIC:
-    - WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-    - WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+``` DOS
+WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+```
 3. Создайте локальные группы FileShareUsers и FileShareOwners и добавьте в них учетные записи с первого шага.
-    - net localgroup FileShareUsers /add
-    - net localgroup FileShareUsers FileShareUser /add
-    - net localgroup FileShareOwners /add
-    - net localgroup FileShareOwners FileShareOwner /add
+``` DOS
+net localgroup FileShareUsers /add
+net localgroup FileShareUsers FileShareUser /add
+net localgroup FileShareOwners /add
+net localgroup FileShareOwners FileShareOwner /add
+```
 
 ### <a name="provision-the-content-share"></a>Подготовка общей папки содержимого
 
@@ -176,7 +187,7 @@ ms.lasthandoff: 10/12/2017
 
 На одном файловом сервере выполните следующие команды в командной строке с повышенными привилегиями. Замените значение < C:\WebSites > соответствующими путями в своей среде.
 
-```powershell
+```DOS
 set WEBSITES_SHARE=WebSites
 set WEBSITES_FOLDER=<C:\WebSites>
 md %WEBSITES_FOLDER%
@@ -192,7 +203,7 @@ net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 
 Выполните следующие команды в командной строке с повышенными привилегиями на файловом сервере или на каждом узле отказоустойчивого кластера файлового сервера. Замените значение <DOMAIN> доменным именем, которое необходимо использовать.
 
-```powershell
+```DOS
 set DOMAIN=<DOMAIN>
 net localgroup Administrators %DOMAIN%\FileShareOwners /add
 ```
@@ -201,7 +212,7 @@ net localgroup Administrators %DOMAIN%\FileShareOwners /add
 
 Выполните следующую команду в командной строке с повышенными привилегиями на файловом сервере.
 
-```powershell
+```DOS
 net localgroup Administrators FileShareOwners /add
 ```
 
@@ -210,7 +221,7 @@ net localgroup Administrators FileShareOwners /add
 Выполните следующие команды в командной строке с повышенными привилегиями на файловом сервере или на узле отказоустойчивого кластера файлового сервера, который является текущим владельцем кластерного ресурса. Замените значения, выделенные курсивом, значениями для конкретной среды.
 
 #### <a name="active-directory"></a>Active Directory
-```powershell
+```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=<C:\WebSites>
 icacls %WEBSITES_FOLDER% /reset
@@ -222,7 +233,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>Рабочая группа
-```powershell
+```DOS
 set WEBSITES_FOLDER=<C:\WebSites>
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
@@ -258,13 +269,13 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 Выполните следующие действия.
 
-1. Откройте экземпляр PowerShell с правами azurestack\azurestackadmin.
-2. Перейдите к расположению скриптов, скачанных и извлеченных на [этапе подготовки](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy#download-required-components).
-3. [Установите](azure-stack-powershell-install.md) и [настройте среду Azure Stack PowerShell](azure-stack-powershell-configure-admin.md).
-4. В том же сеансе PowerShell запустите скрипт **Create-AADIdentityApp.ps1**. Когда появится запрос на ввод идентификатора клиента Azure AD, введите идентификатор клиента Azure AD, используемый для развертывания Azure Stack, например myazurestack.onmicrosoft.com.
+1. Откройте экземпляр PowerShell с правами azurestack\cloudadmin.
+2. Перейдите к расположению скриптов, скачанных и извлеченных на [этапе подготовки](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+3. [Установите PowerShell для Azure Stack](azure-stack-powershell-install.md).
+4. Запустите скрипт **Create-AADIdentityApp.ps1**. Когда появится запрос на ввод идентификатора клиента Azure AD, введите идентификатор клиента Azure AD, используемый для развертывания Azure Stack, например myazurestack.onmicrosoft.com.
 5. В окне **Учетные данные** введите учетную запись администратора службы Azure AD и пароль. Нажмите кнопку **ОК**.
-6. Введите путь к файлу сертификата и пароль для [сертификата, созданного ранее](azure-stack-app-service-deploy.md). Для этого шага по умолчанию создается сертификат sso.appservice.local.azurestack.external.pfx.
-7. Этот скрипт создает новое приложение в Azure AD клиента и создает скрипт PowerShell с именем **UpdateConfigOnController.ps1**. Запишите идентификатор приложения, который возвращается в выходных данных PowerShell. Эта информация нужна для выполнения поиска на шаге 11.
+6. Введите путь к файлу сертификата и пароль для [сертификата, созданного ранее](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Для этого шага по умолчанию создается сертификат sso.appservice.local.azurestack.external.pfx.
+7. Скрипт создаст приложение в клиенте Azure AD. Запишите идентификатор приложения, который возвращается в выходных данных PowerShell. Он вам понадобится при установке.
 8. Откройте новое окно в браузере и войдите на портал Azure (portal.azure.com) в качестве **администратора службы Azure Active Directory**.
 9. Откройте поставщик ресурсов Azure AD.
 10. Щелкните **Регистрация приложений**.
@@ -272,11 +283,12 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 12. Щелкните **Приложение** в списке.
 13. Щелкните **Необходимые разрешения** > **Предоставление разрешений** > **Да**.
 
-| Параметр CreateIdentityApp.ps1 | Обязательный/необязательный | Значение по умолчанию | Описание |
+| Параметр Create-AADIdentityApp.ps1 | Обязательный/необязательный | Значение по умолчанию | Описание |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Обязательно | Null | Идентификатор клиента Azure AD. Укажите идентификатор GUID или строку, например myazureaaddirectory.onmicrosoft.com. |
-| TenantAzure Resource ManagerEndpoint | Обязательно | management.local.azurestack.external | Конечная точка Azure Resource Manager клиента. |
-| AzureStackCredential | Обязательно | Null | Администратор Azure AD |
+| AdminArmEndpoint | Обязательно | Null | Конечная точка Azure Resource Manager для администратора, например adminmanagement.local.azurestack.external. |
+| TenantARMEndpoint | Обязательно | Null | Конечная точка Azure Resource Manager для клиента, например management.local.azurestack.external. |
+| AzureStackAdminCredential | Обязательно | Null | Учетные данные администратора службы Azure AD |
 | CertificateFilePath | Обязательно | Null | Путь к файлу сертификата приложения идентификации, созданному ранее. |
 | CertificatePassword | Обязательно | Null | Пароль, используемый для защиты закрытого ключа сертификата. |
 
@@ -294,16 +306,16 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 Выполните следующие действия.
 
 1. Откройте экземпляр PowerShell с правами azurestack\azurestackadmin.
-2. Перейдите к расположению скриптов, скачанных и извлеченных на [этапе подготовки](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy#download-required-components).
-3. [Установите](azure-stack-powershell-install.md) и [настройте среду Azure Stack PowerShell](azure-stack-powershell-configure-admin.md).
-4.  В том же сеансе PowerShell запустите скрипт **Create-ADFSIdentityApp.ps1**.
+2. Перейдите к расположению скриптов, скачанных и извлеченных на [этапе подготовки](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+3. [Установите PowerShell для Azure Stack](azure-stack-powershell-install.md).
+4.  Запустите скрипт **Create-ADFSIdentityApp.ps1**.
 5.  В окне **Учетные данные** укажите учетную запись администратора облака AD FS и пароль. Нажмите кнопку **ОК**.
-6.  Предоставьте путь к файлу сертификата и пароль для [сертификата, созданного ранее](azure-stack-app-service-deploy.md). Для этого шага по умолчанию создается сертификат sso.appservice.local.azurestack.external.pfx.
+6.  Предоставьте путь к файлу сертификата и пароль для [сертификата, созданного ранее](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Для этого шага по умолчанию создается сертификат sso.appservice.local.azurestack.external.pfx.
 
-| Параметр CreateIdentityApp.ps1 | Обязательный/необязательный | Значение по умолчанию | Описание |
+| Параметр Create-ADFSIdentityApp.ps1 | Обязательный/необязательный | Значение по умолчанию | Описание |
 | --- | --- | --- | --- |
-| AdminARMEndpoint | Обязательно | Null | Конечная точка Azure Resource Manager администратора. Например, adminmanagement.local.azurestack.external. |
-| PrivilegedEndpoint | Обязательно | Null | Привилегированная конечная точка аварийной консоли. Например, AzD-ERCS01. |
+| AdminArmEndpoint | Обязательно | Null | Конечная точка Azure Resource Manager администратора. Например, adminmanagement.local.azurestack.external. |
+| PrivilegedEndpoint | Обязательно | Null | Привилегированная конечная точка. Например, AzS-ERCS01. |
 | CloudAdminCredential | Обязательно | Null | Учетные данные домена администратора облака Azure Stack. Например, Azurestack\CloudAdmin. |
 | CertificateFilePath | Обязательно | Null | Путь к PFX-файлу сертификата приложения идентификации. |
 | CertificatePassword | Обязательно | Null | Пароль, используемый для защиты закрытого ключа сертификата. |

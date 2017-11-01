@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: fc1152f1431474b6625f389a1290a121e86fbdac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13de6daabf2b6d83cc703ae6b3f0a30a1dfa34d6
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Как использовать веб-службу машинного обучения Azure
 
@@ -90,12 +90,12 @@ ms.lasthandoff: 10/11/2017
 
 **Просмотр справки по API машинного обучения для новой веб-службы**
 
-На портале веб-служб Машинного обучения Azure:
+На [портале веб-служб машинного обучения Azure](https://services.azureml.net/) сделайте следующее:
 
 1. В верхнем меню щелкните **WEB SERVICES** (ВЕБ-СЛУЖБЫ).
 2. Щелкните веб-службу, для которой требуется получить ключ.
 
-Щелкните **Consume** (Использование), чтобы получить URI для службы "запрос-ответ" и службы пакетного выполнения, а также для примера кода на C#, R и Python.
+Щелкните **Use Web Service** (Использовать веб-службу), чтобы получить значения URI для службы "запрос и ответ" и службы пакетного выполнения, а также для примеров кода на C#, R и Python.
 
 Щелкните **Swagger API**, чтобы получить документацию на основе Swagger для интерфейсов API, вызываемых из передаваемых URI.
 
@@ -116,8 +116,95 @@ ms.lasthandoff: 10/11/2017
 2. Назначьте apiKey ключ из веб-службы. См. раздел **Получение ключа авторизации Машинного обучения Azure** выше.
 3. Назначьте serviceUri универсальный код ресурса запроса.
 
+**Вот как будет выглядеть полный запрос:**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CallRequestResponseService
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            InvokeRequestResponseService().Wait();
+        }
+
+        static async Task InvokeRequestResponseService()
+        {
+            using (var client = new HttpClient())
+            {
+                var scoreRequest = new
+                {
+                    Inputs = new Dictionary<string, List<Dictionary<string, string>>> () {
+                        {
+                            "input1",
+                            // Replace columns labels with those used in your dataset
+                            new List<Dictionary<string, string>>(){new Dictionary<string, string>(){
+                                    {
+                                        "column1", "value1"
+                                    },
+                                    {
+                                        "column2", "value2"
+                                    },
+                                    {
+                                        "column3", "value3"
+                                    }
+                                }
+                            }
+                        },
+                    },
+                    GlobalParameters = new Dictionary<string, string>() {}
+                };
+
+                // Replace these values with your API key and URI found on https://services.azureml.net/
+                const string apiKey = "<your-api-key>"; 
+                const string apiUri = "<your-api-uri>";
+                
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
+                client.BaseAddress = new Uri(apiUri);
+
+                // WARNING: The 'await' statement below can result in a deadlock
+                // if you are calling this code from the UI thread of an ASP.Net application.
+                // One way to address this would be to call ConfigureAwait(false)
+                // so that the execution does not attempt to resume on the original context.
+                // For instance, replace code such as:
+                //      result = await DoSomeTask()
+                // with the following:
+                //      result = await DoSomeTask().ConfigureAwait(false)
+
+                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("Result: {0}", result);
+                }
+                else
+                {
+                    Console.WriteLine(string.Format("The request failed with status code: {0}", response.StatusCode));
+
+                    // Print the headers - they include the requert ID and the timestamp,
+                    // which are useful for debugging the failure
+                    Console.WriteLine(response.Headers.ToString());
+
+                    string responseContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine(responseContent);
+                }
+            }
+        }
+    }
+}
+```
+
 ### <a name="python-sample"></a>Пример на Python
-Для подключения к веб-службе машинного обучения воспользуйтесь библиотекой **urllib2**, передав ScoreData. Данные набора содержат FeatureVector, n-мерный вектор числовых параметров, представляющий ScoreData. Службу машинного обучения можно аутентифицировать с помощью ключа API.
+Чтобы подключиться к веб-службе машинного обучения, используйте библиотеку **urllib2** для Python 2.X и библиотеку **urllib.request** для Python 3.X. Вы передадите данные ScoreData, содержащие FeatureVector — n-мерный вектор числовых параметров, представляющий ScoreData. Службу машинного обучения можно аутентифицировать с помощью ключа API.
 
 **Для запуска примера выполните следующие действия:**
 
@@ -125,3 +212,146 @@ ms.lasthandoff: 10/11/2017
 2. Назначьте apiKey ключ из веб-службы. См. раздел **Получение ключа авторизации Машинного обучения Azure** в начале этой статьи.
 3. Назначьте serviceUri универсальный код ресурса запроса.
 
+**Вот как будет выглядеть полный запрос:**
+```python
+import urllib2 # urllib.request for Python 3.X
+import json
+
+data = {
+    "Inputs": {
+        "input1":
+        [
+            {
+                'column1': "value1",   
+                'column2': "value2",   
+                'column3': "value3"
+            }
+        ],
+    },
+    "GlobalParameters":  {}
+}
+
+body = str.encode(json.dumps(data))
+
+# Replace this with the URI and API Key for your web service
+url = '<your-api-uri>'
+api_key = '<your-api-key>'
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+
+# "urllib.request.Request(uri, body, headers)" for Python 3.X
+req = urllib2.Request(url, body, headers)
+
+try:
+    # "urllib.request.urlopen(req)" for Python 3.X
+    response = urllib2.urlopen(req)
+
+    result = response.read()
+    print(result)
+# "urllib.error.HTTPError as error" for Python 3.X
+except urllib2.HTTPError, error: 
+    print("The request failed with status code: " + str(error.code))
+
+    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    print(error.info())
+    print(json.loads(error.read())) 
+```
+
+### <a name="r-sample"></a>Пример на языке R
+
+Чтобы подключиться к веб-службе машинного обучения, используйте для выполнения запроса и обработки ответа в формате JSON библиотеки **RCurl** и **rjson**. Вы передадите данные ScoreData, содержащие FeatureVector — n-мерный вектор числовых параметров, представляющий ScoreData. Службу машинного обучения можно аутентифицировать с помощью ключа API.
+
+**Вот как будет выглядеть полный запрос:**
+```r
+library("RCurl")
+library("rjson")
+
+# Accept SSL certificates issued by public Certificate Authorities
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+
+h = basicTextGatherer()
+hdr = basicHeaderGatherer()
+
+req = list(
+    Inputs = list(
+            "input1" = list(
+                list(
+                        'column1' = "value1",
+                        'column2' = "value2",
+                        'column3' = "value3"
+                    )
+            )
+        ),
+        GlobalParameters = setNames(fromJSON('{}'), character(0))
+)
+
+body = enc2utf8(toJSON(req))
+api_key = "<your-api-key>" # Replace this with the API key for the web service
+authz_hdr = paste('Bearer', api_key, sep=' ')
+
+h$reset()
+curlPerform(url = "<your-api-uri>",
+httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
+postfields=body,
+writefunction = h$update,
+headerfunction = hdr$update,
+verbose = TRUE
+)
+
+headers = hdr$value()
+httpStatus = headers["status"]
+if (httpStatus >= 400)
+{
+print(paste("The request failed with status code:", httpStatus, sep=" "))
+
+# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+print(headers)
+}
+
+print("Result:")
+result = h$value()
+print(fromJSON(result))
+```
+
+### <a name="javascript-sample"></a>Пример на языке JavaScript
+
+Чтобы подключиться к веб-службе машинного обучения, используйте в своем проекте пакет npm **request**. Кроме того, для форматирования входных данных и анализа результата вы будете использовать объект `JSON`. Выполните установку с помощью `npm install request --save` или добавьте `"request": "*"` в файл package.json в разделе `dependencies` и запустите `npm install`.
+
+**Вот как будет выглядеть полный запрос:**
+```js
+let req = require("request");
+
+const uri = "<your-api-uri>";
+const apiKey = "<your-api-key>";
+
+let data = {
+    "Inputs": {
+        "input1":
+        [
+            {
+                'column1': "value1",
+                'column2': "value2",
+                'column3': "value3"
+            }
+        ],
+    },
+    "GlobalParameters": {}
+}
+
+const options = {
+    uri: uri,
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+    },
+    body: JSON.stringify(data)
+}
+
+req(options, (err, res, body) => {
+    if (!err && res.statusCode == 200) {
+        console.log(body);
+    } else {
+        console.log("The request failed with status code: " + res.statusCode);
+    }
+});
+```

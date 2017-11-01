@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: sethm
-ms.openlocfilehash: 470246469297d5fa95eba2b147d5304e74c0003f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="duplicate-detection"></a>Обнаружение дубликатов
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 Можно программно установить флаг с помощью свойства [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection), воспользовавшись API полнофункциональной платформы .NET Framework. При использовании API Azure Resource Manager это значение задается с помощью свойства [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 
-По умолчанию интервал, на котором осуществляется поиск повторяющихся сообщений для очередей и разделов, составляет 30 секунд. Максимальное значение составляет 40 минут. Можно изменить этот параметр в окне свойств очереди или раздела на портале Azure.
+По умолчанию интервал, в течение которого осуществляется поиск повторяющихся сообщений для очередей и разделов, составляет 30 секунд. Максимальное значение составляет 7 дней. Можно изменить этот параметр в окне свойств очереди или раздела на портале Azure.
 
 ![][2]
 

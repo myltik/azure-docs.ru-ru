@@ -11,15 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 10/11/2017
 ms.author: bwren
-ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28b2402cefa38ef3bfca68f2ff70e56b649c72f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Фильтрование поиска по журналам в Log Analytics с помощью регулярных выражений
+
+>[!NOTE]
+> В этой статье описаны регулярные выражения с использованием устаревшего языка запросов в Log Analytics.  Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), ознакомьтесь с [разделом о регулярных выражениях в документации по языкам](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax).
+
 
 [Поиск по журналам](log-analytics-log-searches.md) позволяет извлекать сведения из репозитория Log Analytics.  [Выражения фильтра](log-analytics-search-reference.md#filter-expressions) позволяют фильтровать результаты поиска в соответствии с определенными критериями.  Ключевое слово **RegEx** позволяет указать регулярное выражение для фильтра.  
 

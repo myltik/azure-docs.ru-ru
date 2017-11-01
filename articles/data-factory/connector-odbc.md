@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 4acc29dc74a37d16a9e90101aa9b7706c55af58e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e65735ed6d19c8b94496fc3d3445e3a9dca2b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Копирование данных из хранилищ данных ODBC и обратно с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 | Свойство | Описание | Обязательно |
 |:--- |:--- |:--- |
 | type | Для свойства type необходимо задать значение **Odbc** | Да |
-| connectionString | Строка подключения, исключающая учетные данные. Примеры приведены в следующем разделе. | Да |
+| connectionString | Строка подключения, исключающая учетные данные. Можно указать строку подключения вида `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` или использовать системное имя источника данных (DSN), которое вы настроили на компьютере Integration Runtime с помощью `"DSN=<name of the DSN on IR machine>;"` (вы все равно должны указать соответствующие учетные данные в связанной службе).| Да |
 | authenticationType | Тип проверки подлинности, используемый для подключения к хранилищу данных ODBC.<br/>Допустимые значения: **Basic**, **Anonymous**. | Да |
 | userName | При использовании обычной проверки подлинности укажите имя пользователя. | Нет |
 | пароль | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. Пометьте это поле в качестве SecureString. | Нет |
@@ -71,11 +71,11 @@ ms.lasthandoff: 10/11/2017
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -100,11 +100,11 @@ ms.lasthandoff: 10/11/2017
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Anonymous",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Anonymous",
             "credential": {
                 "type": "SecureString",
                 "value": "RefreshToken=<secret refresh token>;"
@@ -240,9 +240,93 @@ ms.lasthandoff: 10/11/2017
 ]
 ```
 
+## <a name="ibm-informix-source"></a>Источник IBM Informix
+
+Вы можете копировать данные из базы данных IBM Informix, используя универсальный соединитель ODBC.
+
+Настройте локальную среду IR на компьютере с доступом к хранилищу данных. Integration Runtime использует драйвер ODBC для Informix, чтобы подключаться к хранилищу данных. Поэтому необходимо установить драйвер на том же компьютере. Например, можно использовать драйвер IBM INFORMIX ODBC DRIVER (64-bit). Дополнительные сведения см. в разделе [Предварительные требования](#prerequisites).
+
+Прежде чем использовать источник Informix в решении фабрики данных, убедитесь, что Integration Runtime может подключаться к хранилищу данных, выполнив инструкции из раздела [Устранение проблем подключения](#troubleshoot-connectivity-issues).
+
+Создайте связанную службу ODBC для связи хранилища данных IBM Informix с фабрикой данных Azure, как показано в следующем примере.
+
+```json
+{
+    "name": "InformixLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "<Informix connection string or DSN>"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+В начале статьи приводится подробный обзор использования хранилищ данных ODBC в качестве исходных и целевых хранилищ данных (источников и приемников) в ходе операции копирования.
+
+## <a name="microsoft-access-source"></a>Источник Microsoft Access
+
+Вы можете копировать данные из базы данных Microsoft Access, используя универсальный соединитель ODBC.
+
+Настройте локальную среду IR на компьютере с доступом к хранилищу данных. Среда выполнения интеграции использует драйвер ODBC для Microsoft Access, чтобы подключаться к хранилищу данных. Поэтому необходимо установить драйвер на том же компьютере. Дополнительные сведения см. в разделе [Предварительные требования](#prerequisites).
+
+Прежде чем использовать источник Microsoft Access в решении фабрики данных, убедитесь, что Integration Runtime может подключаться к хранилищу данных, выполнив инструкции из раздела [Устранение проблем подключения](#troubleshoot-connectivity-issues).
+
+Создайте связанную службу ODBC для связи базы данных Microsoft Access с фабрикой данных Azure, как показано в следующем примере:
+
+```json
+{
+    "name": "MicrosoftAccessLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+В начале статьи приводится подробный обзор использования хранилищ данных ODBC в качестве исходных и целевых хранилищ данных (источников и приемников) в ходе операции копирования.
+
 ## <a name="ge-historian-source"></a>Источник GE Historian
 
-Создание связанной службы ODBC для связи хранилища данных [Proficy Historian GE (теперь GE Historian)](http://www.geautomation.com/products/proficy-historian) с фабрикой данных Azure выполняется, как показано в следующем примере:
+Вы можете копировать данные из GE Historian, используя универсальный соединитель ODBC.
+
+Настройте локальную среду IR на компьютере с доступом к хранилищу данных. Среда выполнения интеграции использует драйвер ODBC для GE Historian, чтобы подключаться к хранилищу данных. Поэтому необходимо установить драйвер на том же компьютере. Дополнительные сведения см. в разделе [Предварительные требования](#prerequisites).
+
+Прежде чем использовать источник GE Historian в решении фабрики данных, убедитесь, что Integration Runtime может подключаться к хранилищу данных, выполнив инструкции из раздела [Устранение проблем подключения](#troubleshoot-connectivity-issues).
+
+Создайте связанную службу ODBC для связи базы данных Microsoft Access с фабрикой данных Azure, как показано в следующем примере:
 
 ```json
 {
@@ -252,11 +336,11 @@ ms.lasthandoff: 10/11/2017
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<GE Historian store connection string or DSN>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -270,10 +354,6 @@ ms.lasthandoff: 10/11/2017
     }
 }
 ```
-
-Настройте локальную среду IR на компьютере с доступом к хранилищу данных. Среда выполнения интеграции использует драйвер ODBC для GE Historian, чтобы подключаться к хранилищу данных. Поэтому необходимо установить драйвер на том же компьютере. Дополнительные сведения см. в разделе [Предварительные требования](#prerequisites).
-
-Прежде чем использовать хранилище GE Historian в решении фабрики данных, убедитесь, что интегрированная среда выполнения может подключаться к хранилищу данных с помощью инструкций в следующем разделе.
 
 В начале статьи приводится подробный обзор использования хранилищ данных ODBC в качестве исходных и целевых хранилищ данных (источников и приемников) в ходе операции копирования.
 
@@ -283,7 +363,13 @@ ms.lasthandoff: 10/11/2017
 >Чтобы скопировать данные из хранилища данных SAP HANA, см. статью [Копирование данных из SAP HANA с помощью фабрики данных Azure](connector-sap-hana.md). Для копирования данных в SAP HANA следуйте этой инструкции по использованию соединителя ODBC. Обратите внимание, что связанные службы для соединителя SAP HANA и соединитель ODBC нельзя использовать повторно, так как они имеют разные типы.
 >
 
-Создание связанной службы ODBC для связи хранилища данных SAP HANA с фабрикой данных Azure выполняется, как показано в следующем примере:
+Вы можете копировать данные в базу данных SAP HANA, используя универсальный соединитель ODBC.
+
+Настройте локальную среду IR на компьютере с доступом к хранилищу данных. Среда выполнения интеграции использует драйвер ODBC для SAP HANA, чтобы подключаться к хранилищу данных. Поэтому необходимо установить драйвер на том же компьютере. Дополнительные сведения см. в разделе [Предварительные требования](#prerequisites).
+
+Прежде чем использовать приемник SAP HANA в решении фабрики данных, убедитесь, что Integration Runtime может подключаться к хранилищу данных, выполнив инструкции из раздела [Устранение проблем подключения](#troubleshoot-connectivity-issues).
+
+Создайте связанную службу ODBC для связи хранилища данных SAP HANA с фабрикой данных Azure, как показано в следующем примере.
 
 ```json
 {
@@ -293,11 +379,11 @@ ms.lasthandoff: 10/11/2017
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -311,10 +397,6 @@ ms.lasthandoff: 10/11/2017
     }
 }
 ```
-
-Настройте локальную среду IR на компьютере с доступом к хранилищу данных. Среда выполнения интеграции использует драйвер ODBC для SAP HANA, чтобы подключаться к хранилищу данных. Поэтому необходимо установить драйвер на том же компьютере. Дополнительные сведения см. в разделе [Предварительные требования](#prerequisites).
-
-Прежде чем использовать приемник SAP HANA в решении фабрики данных, убедитесь, что интегрированная среда выполнения может подключаться к хранилищу данных с помощью инструкций в следующем разделе.
 
 В начале статьи приводится подробный обзор использования хранилищ данных ODBC в качестве исходных и целевых хранилищ данных (источников и приемников) в ходе операции копирования.
 

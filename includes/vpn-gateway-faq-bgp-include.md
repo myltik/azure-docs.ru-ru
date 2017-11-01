@@ -1,5 +1,5 @@
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>VPN-шлюзы Azure поддерживают BGP для всех классов SKU?
-Нет, Azure поддерживает BGP только для VPN-шлюзов класса **Standard** и **HighPerformance**. **Basic** не поддерживается.
+Нет, BGP поддерживается в VPN-шлюзах Azure класса **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** и **HighPerformance**. **Basic** не поддерживается.
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>Можно ли использовать BGP с VPN-шлюзами Azure с управлением на основе политик?
 Нет, BGP поддерживают только VPN-шлюзы с управлением на основе маршрута.

@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 30ab634620cbb38315bd331b38d47c26cdd1eb8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c74eea3a121c35689add6cd835f6a7bbe95f595
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Использование баз данных MySQL в Microsoft Azure Stack
 
+*Область применения: интегрированные системы Azure Stack и комплект разработки Azure Stack*
 
 Вы можете развернуть поставщик ресурсов MySQL в Azure Stack. После этого вы можете создать серверы и базы данных MySQL, используя шаблоны развертывания Azure Resource Manager, а затем предоставить эти базы данных как услуги. Базы данных MySQL, которые обычно используются на веб-сайтах, поддерживают множество сайтовых платформ. В качестве примера после развертывания поставщика ресурсов вы можете создать веб-сайты WordPress с помощью надстройки PaaS веб-приложений Azure для Azure Stack.
 
@@ -53,10 +54,12 @@ ms.lasthandoff: 10/11/2017
 
 
 2. Войдите на узел, на котором доступна виртуальная машина привилегированной конечной точки.
+
     а. Если используется комплект разработки для Azure Stack (ASDK), войдите на физический узел.
+
     b. Если в системе несколько узлов, нужно использовать тот, который предоставляет доступ к привилегированной конечной точке.
 
-3. [Скачайте двоичный файл поставщика ресурсов MySQL](https://aka.ms/azurestackmysqlrp) и извлеките его во временный каталог.
+3. [Скачайте двоичный файл поставщика ресурсов MySQL](https://aka.ms/azurestackmysqlrp) и запустите самоизвлечение содержимого во временный каталог.
 
 4.  Корневой сертификат Azure Stack можно получить из привилегированной конечной точки. Для ASDK в рамках этого процесса создается самозаверяющий сертификат. Для системы с несколькими узлами вам нужно предоставить подходящий сертификат.
 
@@ -90,39 +93,41 @@ ms.lasthandoff: 10/11/2017
 
 
 ```
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = "AzureStack"
-# Extract the downloaded file by executing it and pointing to a temp directory
-$tempDir = "C:\TEMP\MySQLRP"
-# The service admin (can be AAD or ADFS)
-$serviceAdmin = "admin@mydomain.onmicrosoft.com"
-
-# Install the AzureRM.Bootstrapper module
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
 Install-Module -Name AzureRm.BootStrapper -Force
-
-# Install and imports the API Version Profile required by Azure Stack into the current PowerShell session.
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Create the credentials needed for the deployment - local VM
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+$domain = 'AzureStack'
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\MYSQLRP'
 
-# and the Service Admin credential
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# and the cloud admin credential required for Privleged Endpoint access
+# Set the credentials for the Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privleged Endpoint access
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
 # change the following as appropriate
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change directory to the folder where you extracted the installation files
-# and adjust the endpoints
-$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath <path to certificate and other dependencies> -AcceptLicense
-
+# Run the installation script from the folder where you extracted the installation files
+# Find the ERCS01 IP address first and make sure the certificate
+# file is in the specified directory
+$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint '10.10.10.10' `
+  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
 
  ```
 
@@ -143,7 +148,7 @@ $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $v
 | **DefaultSSLCertificatePassword** | Пароль для PFX-файла сертификата. | _обязательный параметр_ |
 | **MaxRetryCount** | Укажите, сколько раз нужно повторять каждую операцию в случае сбоя.| 2 |
 | **RetryDuration** | Укажите время ожидания между повторными попытками в секундах. | 120 |
-| **Удаление** | Удаляет поставщик ресурсов и все связанные с ним ресурсы (см. примечания ниже). | Нет |
+| **Удаление** | Удаление поставщика ресурсов и всех связанных с ним ресурсов (см. примечания ниже) | Нет |
 | **DebugMode** | Отключает автоматическую очистку в случае ошибки. | Нет |
 | **AcceptLicense** | Пропуск запроса на принятие условий лицензии GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html). | |
 
@@ -163,7 +168,7 @@ $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $v
 
 1. Войдите на портал администрирования в качестве администратора служб.
 
-2. Проверьте, успешно ли выполнено развертывание. Найдите **Группы ресурсов**&gt;, щелкните группу **system.<location>.mysqladapter** и убедитесь, что все пять развертываний завершены успешно.
+2. Проверьте, успешно ли выполнено развертывание. Найдите **Группы ресурсов**&gt;, щелкните группу **system.\<location\>.mysqladapter** и убедитесь, что все четыре развертывания завершены успешно.
 
       ![Проверка развертывания поставщика ресурсов MySQL](./media/azure-stack-mysql-rp-deploy/mysqlrp-verify.png)
 

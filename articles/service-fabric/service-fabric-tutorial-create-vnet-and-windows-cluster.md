@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 7cee4f8d68062dcfd2b6f61d55319160a2a80a98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1eabaa1a2f1f8ba8102d567fee97c65d04ca5f7
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Развертывание кластера Service Fabric на платформе Windows в виртуальной сети Azure
 Это руководство представляет первую часть цикла. Вы узнаете, как развернуть кластер Service Fabric на платформе Windows в подсети существующей виртуальной сети с помощью PowerShell. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения.  Создание кластера Linux с помощью Azure CLI описывается в разделе [Развертывание безопасного кластера Service Fabric на платформе Linux в виртуальной сети Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -61,8 +61,9 @@ Set-AzureRmContext -SubscriptionId <guid>
 Создайте группу ресурсов для развертывания и задайте для нее имя и расположение.
 
 ```powershell
-$ResourceGroupName = "sfclustertutorialgroup"
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location centralus
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"
+New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 ```
 
 ## <a name="deploy-the-network-topology"></a>Развертывание топологии сети
@@ -77,122 +78,50 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location centralus
 Используйте следующую команду PowerShell для развертывания шаблона Resource Manager и файла параметров для настройки сети:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
 ```
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
-## <a name="create-a-key-vault-and-upload-a-certificate"></a>создание хранилища ключей и передача сертификата;
-Шаблон Resource Manager кластера Service Fabric, используемый на следующем шаге, настроен для создания безопасного кластера с сертификатом безопасности. Сертификат используется, чтобы обеспечить для кластера безопасный обмен данными между узлами, а также чтобы управлять доступом пользователя к кластеру Service Fabric. Служба управления API также использует этот сертификат, чтобы получить доступ к службе именования Service Fabric для обнаружения служб. Для этого требуется наличие сертификата в хранилище ключей для обеспечения безопасности кластера.
-
-Приведенный ниже сценарий создает хранилище ключей в Azure, создает самозаверяющий сертификат и отправляет этот сертификат в хранилище ключей.  Если вы хотите использовать существующий сертификат, задайте для параметра **$CreateSelfSignedCertificate** значение $false и укажите расположение сертификата в параметре **$ExistingPfxFilePath**.
-
-```powershell
-$VaultResourceGroupName = 'ryanwikeyvaultgroup'
-$VaultName= 'ryanwikeyvault'
-$Location = "westus"
-$CertificateName = "ryanwicertificate1"
-$Password = 'mypa$$word!'
-$DnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
-$OutputPath = "C:\MyCertificates" # location where you want the .PFX to be stored
-$CreateSelfSignedCertificate = $true
-$ExistingPfxFilePath = 'C:\MyCertificates\ryanwicertificate1.pfx'
-
-$ErrorActionPreference = 'Stop'
-
-Write-Host "Switching context to SubscriptionId $SubscriptionId"
-Set-AzureRmContext -SubscriptionId $SubscriptionId | Out-Null
-
-# New-AzureRmResourceGroup is idempotent as long as the location matches
-Write-Host "Ensuring ResourceGroup $VaultResourceGroupName in $Location"
-New-AzureRmResourceGroup -Name $VaultResourceGroupName -Location $Location -Force | Out-Null
-$resourceId = $null
-
-try
-{
-    $existingKeyVault = Get-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $VaultResourceGroupName
-    $resourceId = $existingKeyVault.ResourceId
-
-    Write-Host "Using existing vault $VaultName in $($existingKeyVault.Location)"
-}
-catch
-{
-}
-
-if(!$existingKeyVault)
-{
-    Write-Host "Creating new vault $VaultName in $location"
-    $newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $VaultResourceGroupName -Location $Location -EnabledForDeployment
-    $resourceId = $newKeyVault.ResourceId
-}
-
-if($CreateSelfSignedCertificate)
-{
-    $securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
-
-    $NewPfxFilePath = Join-Path $OutputPath $($CertificateName+".pfx")
-
-    Write-Host "Creating new self signed certificate at $NewPfxFilePath"
-    
-    ## Changes to PSPKI version 3.5.2 New-SelfSignedCertificate replaced by New-SelfSignedCertificateEx
-    $PspkiVersion = (Get-Module PSPKI).Version
-    if($PSPKIVersion.Major -ieq 3 -And $PspkiVersion.Minor -ieq 2 -And $PspkiVersion.Build -ieq 5) {
-        New-SelfsignedCertificateEx -Subject "CN=$DnsName" -EKU "Server Authentication", "Client authentication" -KeyUsage "KeyEncipherment, DigitalSignature" -Path $NewPfxFilePath -Password $securePassword -Exportable
-    }
-    else {
-        New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName $DnsName | Export-PfxCertificate -FilePath $NewPfxFilePath -Password $securePassword | Out-Null
-    }
-
-    $ExistingPfxFilePath = $NewPfxFilePath
-}
-
-Write-Host "Reading pfx file from $ExistingPfxFilePath"
-$cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $ExistingPfxFilePath, $Password
-
-$bytes = [System.IO.File]::ReadAllBytes($ExistingPfxFilePath)
-$base64 = [System.Convert]::ToBase64String($bytes)
-
-$jsonBlob = @{
-   data = $base64
-   dataType = 'pfx'
-   password = $Password
-   } | ConvertTo-Json
-
-    $contentbytes = [System.Text.Encoding]::UTF8.GetBytes($jsonBlob)
-    $content = [System.Convert]::ToBase64String($contentbytes)
-
-    $secretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
-
-Write-Host "Writing secret to $CertificateName in vault $VaultName"
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $CertificateName -SecretValue $secretValue
-
-$output = @{};
-$output.SourceVault = $resourceId;
-$output.CertificateURL = $secret.Id;
-$output.CertificateThumbprint = $cert.Thumbprint;
-
-Write-Host "Source vault: " $output.SourceVault
-Write-Host "Certificate URL: " $output.CertificateURL
-Write-Host "Certificate Thumbprint: " $output.CertificateThumbprint
-```
-
 ## <a name="deploy-the-service-fabric-cluster"></a>Развертывание кластера Service Fabric
 Когда сетевые ресурсы развернуты, необходимо развернуть кластер Service Fabric в виртуальной сети в подсети и группе безопасности сети, используемых для кластера Service Fabric. Для развертывания кластера в существующих виртуальной сети и подсети (развернутых ранее в этой статье) требуется шаблон Resource Manager.  Дополнительные сведения см. в разделе [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). В рамках этого цикла руководств шаблон предварительно настроен для использования имен виртуальной сети, подсети и группы безопасности сети, настроенных на предыдущем шаге.  Скачайте шаблон Resource Manager и файл параметров:
 - [cluster.json][cluster-arm]
 - [cluster.parameters.json][cluster-parameters-arm]
 
-Заполните пустые параметры **clusterName**, **adminUserName**, **adminPassword**, **certificateThumbprint**,  **certificateUrlValue** и **sourceVaultValue** в файле *cluster.parameters.json* для развертывания.  Если у вас есть сертификат, переданный ранее в хранилище ключей, заполните значения **certificateThumbprint**, **certificateUrlValue** и **sourceVaultValue** для этого сертификата.
+Сертификат используется, чтобы обеспечить для кластера безопасный обмен данными между узлами, а также чтобы управлять доступом пользователя к кластеру Service Fabric. Служба управления API также использует этот сертификат, чтобы получить доступ к службе именования Service Fabric для обнаружения служб. 
 
-Используйте следующую команду PowerShell для развертывания шаблона Resource Manager и файла параметров для создания кластера Service Fabric:
+В приведенном ниже скрипте используется командлет [New AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster), который позволяет развернуть в Azure новый кластер. Кроме того, при помощи командлета создается хранилище ключей в Azure. Также создается самозаверяющий сертификат. Файл сертификата загружается локально.   
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
+# Certificate variables.
+$certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
+$certfolder="c:\mycertificates\"
+
+# Variables for VM admin.
+$adminuser="vmadmin"
+$adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+
+# Variables for common values
+$clustername = "mysfcluster"
+$vmsku = "Standard_D2_v2"
+$vaultname = "clusterkeyvault"
+$vaultgroupname="clusterkeyvaultgroup"
+$subname="$clustername.$clusterloc.cloudapp.azure.com"
+
+# Set the number of cluster nodes. Possible values: 1, 3-99
+$clustersize=5 
+
+# Create the Service Fabric cluster.
+New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
+-ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
+-CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
+-OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Подключение к безопасному кластеру
 Подключитесь к кластеру с помощью модуля Service Fabric PowerShell, который установлен вместе с пакетом SDK для Service Fabric.  Сначала установите сертификат в личное хранилище (Мое хранилище) текущего пользователя компьютера.  Выполните следующую команду PowerShell:
 
 ```powershell
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+$certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
         -FilePath C:\mycertificates\mysfcluster20170531104310.pfx `
         -Password $certpwd
@@ -217,16 +146,13 @@ Get-ServiceFabricClusterHealth
 ```
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
-Кластер, который вы только что создали, используется в других статьях этого цикла руководств. Если вы не собираетесь немедленно приступить к следующей статье, то можете удалить кластер, чтобы за него не взималась плата. Чтобы удалить кластер и все ресурсы, который он использует, проще всего удалить группу ресурсов.
+Кластер, который вы только что создали, используется в других статьях этого цикла руководств. Если вы не планируете сразу же переходить к следующей статье, можете удалить кластер и хранилище ключей, чтобы не платить за их использование. Чтобы удалить кластер и все ресурсы, который он использует, проще всего удалить группу ресурсов.
 
-Войдите в Azure и выберите идентификатор подписки, в которой вы хотите удалить кластер.  Идентификатор подписки можно узнать, войдя на [портал Azure](http://portal.azure.com). Удалите группу ресурсов и все ресурсы кластера с помощью командлета [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Удалите группу ресурсов и все ресурсы кластера с помощью командлета [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).  Также удалите группу ресурсов, которая содержит хранилище ключей.
 
 ```powershell
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId "Subcription ID"
-
-$ResourceGroupName = "sfclustertutorialgroup"
-Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
+Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия

@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/11/2017
 ms.author: bwren
-ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Поиск данных по журналам в Log Analytics
 
 >[!NOTE]
-> В этой статье описывается поиск по журналам с использованием текущего языка запросов в Log Analytics.  Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), ознакомьтесь с описанием [функции поиска по журналам в Log Analytics (новая версия)](log-analytics-log-search-new.md).
+> В этой статье описана функция поиска по журналам с использованием языка запросов прежней версии в Log Analytics.  Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), ознакомьтесь с описанием [функции поиска по журналам в Log Analytics (новая версия)](log-analytics-log-search-new.md).
 
 
 Основой Log Analytics является функция поиска по журналам, которая позволяет объединять и сопоставлять данные компьютеров из нескольких источников в существующей среде. Функция поиска журналов также дополняет решения, позволяя получать сводные показатели по определенной проблемной области.

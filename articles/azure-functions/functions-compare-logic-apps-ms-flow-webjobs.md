@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bc801ed3dac213dacac5ee14e1b4e73b87ecc7bd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: ab0aa377f9803d74d8a7a94bdb4c7b780e3ae41d
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure
 В этой статье сравниваются следующие службы Microsoft Cloud, используемые для настройки интеграции и автоматизации бизнес-процессов:
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 | Аудитория |Офисные сотрудники, бизнес-пользователи |ИТ-специалисты, разработчики |
 | Сценарии |Самообслуживание |Критически важные интеграции |
 | Средство разработки |В браузере и мобильном приложении, только пользовательский интерфейс |В браузере и [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md) доступно [представление кода](../logic-apps/logic-apps-author-definitions.md). |
-| Разработка и операции |Ad-hoc, разработка в рабочей среде |Система управления версиями, тестирование, поддержка, автоматизация и управление в [Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md) |
+| Разработка и операции |Ad-hoc, разработка в рабочей среде |Система управления версиями, тестирование, поддержка, автоматизация и управление в [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Административные функции |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | Безопасность |Стандартные методы безопасности: [независимость данных](https://wikipedia.org/wiki/Technological_Sovereignty), [шифрование при хранении](https://wikipedia.org/wiki/Data_at_rest#Encryption) для конфиденциальных данных и т. д. |Обеспечение безопасности Azure: [безопасность Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [центр безопасности](https://azure.microsoft.com/services/security-center/), [журналы аудита](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) и многое другое. |
 
@@ -66,6 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 Функции были созданы на основе веб-заданий. В них сочетаются все лучшие возможности веб-заданий, а также добавлены некоторые улучшения, среди которых: 
 
+* Модель [бессерверных](https://azure.microsoft.com/overview/serverless-computing/) приложений.
 * Упрощенная разработка, тестирование и выполнение кода непосредственно в браузере.
 * Встроенная интеграция с большим количеством служб Azure и сторонних служб, таких как [Объекты Webhook GitHub](https://developer.github.com/webhooks/creating/).
 * Оплата за использование, не требуется платить за [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
@@ -106,7 +107,7 @@ ms.lasthandoff: 10/11/2017
 
 * Для оптимизации простых бизнес-процессов используйте Flow.
 * Если сценарий интеграции слишком сложный для Flow или требуются возможности разработки и операций и обеспечения соответствия требованиям безопасности, то используйте Logic Apps.
-* Если в рамках сценария интеграции требуется выполнить значительные преобразования или написать специализированный код, нужно написать функцию, а затем активировать ее в качестве действия в приложении логики.
+* Если в рамках сценария интеграции требуется выполнить значительные преобразования или написать специализированный код, напишите функцию, а затем активируйте ее в качестве действия в приложении логики.
 
 Приложение логики можно вызвать в потоке. Функцию также можно вызвать в приложении логики, а приложение логики — в функции. Интеграция между Flow, Logic Apps и функциями со временем улучшается. Вы можете создать что-нибудь в одной службе, а использовать в других. Поэтому все вложенные в эти три технологии средства оправданы.
 

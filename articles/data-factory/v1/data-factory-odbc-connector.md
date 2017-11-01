@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/16/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e49539e0ca3fb841f282b988bdf0db12068ebd5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 650a7c5c6472e36a15988e1875634f31f0edfee0
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Перемещение данных из хранилищ данных ODBC с помощью фабрики данных Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,8 +67,8 @@ ms.lasthandoff: 10/11/2017
 | Свойство | Описание | Обязательно |
 | --- | --- | --- |
 | type |Для свойства type необходимо задать значение **OnPremisesOdbc** |Да |
-| connectionString |Учетные данные в строке подключения, не используемые для получения доступа, а также дополнительные зашифрованные учетные данные. Примеры приведены в следующих разделах. |Да |
-| credential |Учетные данные в строке подключения, используемые для получения доступа и указанные в формате "драйвер-определенное свойство-значение". Пример: “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. |Нет |
+| connectionString |Учетные данные в строке подключения, не используемые для получения доступа, а также дополнительные зашифрованные учетные данные. Примеры приведены в следующих разделах. <br/><br/>Можно указать строку подключения с шаблоном `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` или использовать системное имя DSN (имя источника данных), которое вы настроили на компьютере шлюза с помощью `"DSN=<name of the DSN>;"` (вы все равно должны указать соответствующие учетные данные в связанной службе). |Да |
+| credential |Учетные данные в строке подключения, используемые для получения доступа и указанные в формате "драйвер-определенное свойство-значение". Пример: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Нет |
 | authenticationType |Тип проверки подлинности, используемый для подключения к хранилищу данных ODBC. Возможными значениями являются: "Анонимная" и "Обычная". |Да |
 | Имя пользователя |При использовании обычной проверки подлинности укажите имя пользователя. |Нет |
 | пароль |Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. |Нет |
@@ -367,7 +367,7 @@ ms.lasthandoff: 10/11/2017
         "type": "OnPremisesOdbc",
         "typeProperties":
         {
-            "connectionString": "DSN=<name of the GE Historian store>",
+            "connectionString": "DSN=<name of the GE Historian store>;",
             "gatewayName": "<gateway name>",
             "authenticationType": "Basic",
             "userName": "<user name>",

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: e0c93cefb135d3ea1c5f0a3797602124aed85c5c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1bd58797124210f7c31e90fb20d728289a04ba2
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Сквозная проверка подлинности Azure Active: ответы на часто задаваемые вопросы
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>Функция сквозной проверки подлинности является бесплатной?
 
-Функция сквозной проверки подлинности является бесплатной, и для ее использования не требуются платные выпуски Azure AD. Она останется бесплатной после выхода общедоступной версии.
+Функция сквозной проверки подлинности является бесплатной, и для ее использования не требуются платные выпуски Azure AD.
 
 ## <a name="is-pass-through-authentication-available-in-microsoft-cloud-germanyhttpwwwmicrosoftdecloud-deutschland-and-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Доступна ли сквозная проверка подлинности в [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) и [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/)?
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Действует ли синхронизация хэша паролей как переход на резервный ресурс при сквозной проверке подлинности?
 
-Нет, синхронизация хэша паролей не является универсальным вариантом перехода на резервный ресурс при сквозной проверке подлинности. Она является резервным действием для [сценариев, не поддерживаемых сквозной проверкой подлинности](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Чтобы избежать ошибок входа пользователей, следует настроить [высокий уровень доступности](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) сквозной проверки подлинности.
+Нет, сквозная проверка подлинности _не_ переходит на синхронизацию хэшей паролей автоматически. Она является резервным действием для [сценариев, не поддерживаемых сквозной проверкой подлинности](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Чтобы избежать ошибок входа пользователей, следует настроить [высокий уровень доступности](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) сквозной проверки подлинности.
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Можно ли установить соединитель [прокси приложения Azure AD](../active-directory-application-proxy-get-started.md) на одном сервере с агентом сквозной проверки подлинности?
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Сколько агентов сквозной аутентификации следует установить?
 
-Установка нескольких агентов сквозной аутентификации обеспечивает [высокий уровень доступности](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Однако это не обеспечивает балансировку нагрузки. Один или два агента проверки подлинности могут выполнять массовую обработку запросов на вход.
+Установка нескольких агентов сквозной аутентификации обеспечивает [высокий уровень доступности](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Но эта установка не поддерживает детерминированную балансировку нагрузки между агентами проверки подлинности.
 
 Рассмотрим ожидаемую пиковую и среднюю нагрузку запросов на вход для клиента. В качестве измерения производительности один агент аутентификации может обрабатывать от 300 000 до 400 000 операций аутентификации в секунду на стандартном сервере с четырехъядерным ЦП и 16 ГБ ОЗУ. Для большинства клиентов двух или трех агентов аутентификации будет достаточно, чтобы обеспечить высокий уровень доступности и емкость.
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 - [**Текущие ограничения**](active-directory-aadconnect-pass-through-authentication-current-limitations.md). Сведения о том, какие сценарии поддерживаются, а какие нет.
 - [**Краткое руководство по сквозной проверке подлинности Azure Active Directory**](active-directory-aadconnect-pass-through-authentication-quick-start.md). Настройка и подготовка к работе сквозной проверки подлинности Azure Active Directory.
-- [**Интеллектуальная блокировка.**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) Настройте возможность интеллектуальной блокировки в клиенте для защиты учетных записей пользователей.
+- [**Интеллектуальная блокировка**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md). Настройте возможность интеллектуальной блокировки на клиенте для защиты учетных записей пользователей.
 - [**Техническое руководство по сквозной проверке подлинности Azure Active Directory**](active-directory-aadconnect-pass-through-authentication-how-it-works.md). Сведения о том, как работает эта функция.
 - [**Устранение неполадок**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md). Узнайте, как устранить самые распространенные проблемы с этой функцией.
 - [**Руководство по безопасности**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md). Дополнительные технические сведения об этом компоненте.

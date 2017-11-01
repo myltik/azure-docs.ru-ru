@@ -14,18 +14,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3d9e7a4eb6d94067af6b5c64e71910694d5a6077
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 016179372d69dc63f5e5226723d87ac6e74b31fd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Создание первой функции с помощью Visual Studio
 
-Функции Azure позволяют вам выполнять свой код в бессерверной среде без необходимости создавать виртуальную машину или публиковать веб-приложение.
+Решение "Функции Azure" позволяет выполнять код в [бессерверной](https://azure.microsoft.com/overview/serverless-computing/) среде без необходимости создавать виртуальную машину или публиковать веб-приложение.
 
 Изучив эту статью, вы научитесь использовать инструменты Visual Studio 2017 для Функций Azure и локально тестировать функцию hello world. Затем вы опубликуете код функции в Azure. Эти средства доступны как часть рабочей нагрузки Azure для разработки в Visual Studio 2017 версии 15.3 или более поздней.
 
@@ -35,12 +35,11 @@ ms.lasthandoff: 10/11/2017
 
 Для работы с этим руководством установите следующие компоненты.
 
-* [Visual Studio 2017 версия 15.3](https://www.visualstudio.com/vs/preview/), включая рабочую нагрузку**разработки в Azure**.
+* [Visual Studio 2017 15.3](https://www.visualstudio.com/vs/preview/) или более поздней версии, в том числе рабочая нагрузка **разработки в Azure**.
 
     ![Установка Visual Studio 2017 с рабочей нагрузкой разработки в Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-    >[!NOTE]  
-    >Установив Visual Studio 2017 версии 15.3 или обновившись до этой версии, вы должны вручную обновить инструменты Visual Studio 2017 для решения "Функции Azure". Для обновления инструментов можно воспользоваться меню **Инструменты** в разделе **Расширения и обновления...** > **Обновления** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** (Инструменты для функций и веб-заданий Azure)  > **Обновление**. 
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

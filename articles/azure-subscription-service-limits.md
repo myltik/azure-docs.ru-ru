@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: e2c67bed2162773156ebf1f0f99593aeb2adf019
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2cdf7ad766fe47f2d2848815860ad545b43aec72
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Подписка Azure, границы, квоты и ограничения службы
 В этом документе указаны некоторые из наиболее распространенных ограничений Microsoft Azure, которые иногда называются квотами. Этот документ на текущий момент охватывает не все службы Azure. Со временем список будет расширен и обновлен, чтобы охватить больше платформ.
@@ -140,9 +140,28 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="storage-limits"></a>Ограничения хранилища
 Дополнительные сведения об ограничениях учетных записей хранения см. в статье [Целевые показатели по производительности и масштабируемости для хранилища Azure](storage/common/storage-scalability-targets.md).
+
 <!--like # storage accts --> 
-#### <a name="storage-service-limits"></a>Ограничения службы хранения
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
+
+#### <a name="azure-blob-storage-limits"></a>Ограничения хранилища BLOB-объектов Azure
+[!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
+
+#### <a name="azure-files-limits"></a>Ограничения службы "Файлы Azure"
+Дополнительные сведения об ограничениях службы "Файлы Azure" см. в статье [Azure Files scalability and performance targets](storage/files/storage-files-scale-targets.md) (Целевые показатели по производительности и масштабируемости для службы "Файлы Azure").
+
+[!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
+
+#### <a name="azure-file-sync-limits"></a>Ограничения службы "Синхронизация файлов Azure"
+[!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
+
+#### <a name="azure-queue-storage-limits"></a>Ограничения для службы Azure "Хранилище очередей"
+[!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]
+
+#### <a name="azure-table-storage-limits"></a>Ограничения для службы Azure "Хранилище таблиц"
+[!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 #### <a name="virtual-machine-disk-limits"></a>Ограничения для дисков виртуальной машины 
@@ -159,9 +178,6 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
-
-#### <a name="storage-resource-provider-limits"></a>Ограничения поставщика ресурсов хранилища
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ### <a name="cloud-services-limits"></a>Ограничения облачных служб
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
@@ -289,4 +305,3 @@ Azure Cosmos DB — это глобальная база данных, проп�
 [Размеры виртуальных машин и облачных служб для Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md)
-

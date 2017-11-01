@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 19b1d772236c14c8403d1056e5c9dcda7b741501
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Устранение распространенных проблем службы автоматизации Azure 
 Эта статья содержит сведения о распространенных ошибках, которые могут возникнуть в службе автоматизации Azure, и возможных решениях по их устранению.
@@ -101,8 +101,8 @@ ms.lasthandoff: 10/11/2017
 
 1. Войдите в свою подписку Azure.  
 2. Выберите учетную запись службы автоматизации, которую вы хотите обновить.  
-3. Щелкните **Параметры** > **Ценовая категория и использование** > **Ценовая категория**.  
-4. На странице **Выбор ценовой категории** выберите **Базовый**.    
+3. Щелкните **Параметры** > **Цены**.
+4. Нажмите кнопку **Включить** в нижней части страницы, чтобы обновить свою учетную запись до уровня **Базовый**.
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>Сценарий: не удается распознать командлет при выполнении модуля Runbook
 **Ошибка:** задание модуля Runbook завершается ошибкой "``<cmdlet name>``: выражение ``<cmdlet name>`` не распознано как имя командлета, функции, файла сценария или исполняемой программы".

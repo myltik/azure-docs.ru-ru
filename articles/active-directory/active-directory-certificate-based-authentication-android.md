@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 10/13/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 239d2e1724f2759a52cccdac11fc781d57393125
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 728bf4caf97fdb742cc1560cb06e4b0c85614020
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Аутентификация на основе сертификата в Azure Active Directory на устройстве Android
 
 
-Аутентификация на основе сертификата (CBA) позволяет Azure Active Directory выполнять аутентификацию с помощью сертификата клиента на устройстве Windows, Android или iOS при подключении учетной записи Exchange Online к: 
+Аутентификация на основе сертификата (CBA) позволяет Azure Active Directory выполнять аутентификацию с помощью сертификата клиента на устройстве Windows, Android или iOS при подключении учетной записи Exchange Online к:
 
 * мобильным приложениям Office, таким как Microsoft Outlook и Microsoft Word;   
-* клиентам Exchange ActiveSync (EAS). 
+* клиентам Exchange ActiveSync (EAS).
 
-Настройка данной функции избавляет от необходимости ввода имени пользователя и пароля в определенных почтовых клиентах и приложениях Microsoft Office на мобильных устройствах. 
+Настройка данной функции избавляет от необходимости ввода имени пользователя и пароля в определенных почтовых клиентах и приложениях Microsoft Office на мобильных устройствах.
 
 В этой статье приведены требования и поддерживаемые сценарии для настройки CBA на устройстве iOS (Android) для пользователей клиентов в тарифных планах Office 365 корпоративный, бизнес, для образования, для государственных организаций США, Китая и Германии.
 
@@ -37,10 +37,11 @@ ms.lasthandoff: 10/11/2017
 В тарифных планах Office 365 US Government Defense и Federal доступна предварительная версия этой функции.
 
 
-## <a name="office-mobile-applications-support"></a>Поддержка мобильных приложений Office
+## <a name="microsoft-mobile-applications-support"></a>Поддержка мобильных приложений Microsoft
 | Приложения | Поддержка |
 | --- | --- |
 | Приложение Azure Information Protection |![Проверка][1] |
+| Корпоративный портал Intune |![Проверка][1] |
 | Microsoft Teams |![Проверка][1] |
 | OneNote |![Проверка][1] |
 | OneDrive |![Проверка][1] |
@@ -53,30 +54,31 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="implementation-requirements"></a>Требования к реализации
 
-На устройстве должна быть установлена ОС Android версии 5.0 (Lollipop) и выше. 
+На устройстве должна быть установлена ОС Android версии 5.0 (Lollipop) и выше.
 
 Необходимо настроить сервер федерации.  
 
 Чтобы служба Azure Active Directory могла отзывать сертификат клиента, маркер AD FS должен иметь следующие утверждения:  
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
-  (серийный номер сертификата клиента); 
+  (серийный номер сертификата клиента);
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
-  (строка для издателя сертификата клиента). 
+  (строка для издателя сертификата клиента).
 
-Azure Active Directory добавляет эти утверждения в маркер обновления, если они доступны в маркере AD FS (или любом другом токене SAML). Когда требуется проверить маркер обновления, эта информация используется для проверки отзыва. 
+Azure Active Directory добавляет эти утверждения в маркер обновления, если они доступны в маркере AD FS (или любом другом токене SAML). Когда требуется проверить маркер обновления, эта информация используется для проверки отзыва.
 
 Рекомендуется обновить страницы ошибок AD FS инструкциями о получении сертификата пользователя.  
 Дополнительные сведения см. в разделе [Настройка страниц входа AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
 
-Некоторые приложения Office (с поддержкой современной проверки подлинности) отправляют в Azure AD запрос с текстом *prompt=login*. По умолчанию Azure AD преобразует этот текст в запросе к службам AD FS в текст *wauth=usernamepassworduri* (запрашивает у AD FS выполнение проверки подлинности с помощью имени пользователя и пароля) и *wfresh=0* (запрашивает у AD FS игнорировать состояние единого входа и выполнять проверку подлинности заново). Чтобы включить проверку подлинности на основе сертификатов для этих приложений, необходимо изменить поведение Azure AD по умолчанию. Просто задайте для параметра *PromptLoginBehavior* в настройках федеративного домена значение *Отключено*. Для выполнения этой задачи можно использовать командлет [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0):
+Некоторые приложения Office (с поддержкой современной проверки подлинности) отправляют в Azure AD запрос с текстом *prompt=login*. По умолчанию Azure AD преобразует этот текст в запросе к службам AD FS в текст *wauth=usernamepassworduri* (запрашивает у AD FS выполнение проверки подлинности с помощью имени пользователя и пароля) и *wfresh=0* (запрашивает у AD FS игнорировать состояние единого входа и выполнять проверку подлинности заново). Чтобы включить проверку подлинности на основе сертификатов для этих приложений, необходимо изменить поведение Azure AD по умолчанию. Просто задайте для параметра *PromptLoginBehavior* в настройках федеративного домена значение *Отключено*.
+Для выполнения этой задачи можно использовать командлет [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0):
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 
 
 
 ## <a name="exchange-activesync-clients-support"></a>Поддержка клиентов Exchange ActiveSync
-Поддерживаются некоторые приложения Exchange ActiveSync, работающие на Android 5.0 (Lollipop) или более поздней версии. Чтобы определить, поддерживает ли почтовая программа эту функцию, обратитесь к разработчику приложения. 
+Поддерживаются некоторые приложения Exchange ActiveSync, работающие на Android 5.0 (Lollipop) или более поздней версии. Чтобы определить, поддерживает ли почтовая программа эту функцию, обратитесь к разработчику приложения.
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

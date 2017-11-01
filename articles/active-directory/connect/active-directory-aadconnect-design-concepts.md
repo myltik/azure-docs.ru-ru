@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: f23443d438c95a784f655fb9a5f20dfcf37be189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: принципы проектирования
 В этой статье приведено описание факторов, которые должны учитываться при проектировании реализации Azure AD Connect. Здесь подробно рассмотрены некоторые вопросы, но часть из них вкратце рассмотрена в других статьях.
@@ -150,9 +150,15 @@ Azure AD Connect (версии 1.1.524.0 и более поздних верси
 
    ![Включение ConsistencyGuid для существующего развертывания — шаг 6](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
-Во время анализа (шаг 4), если атрибут настроен в одном объекте в каталоге или нескольких, то мастер делает вывод, что он используется другими приложениями и возвращает ошибку, как показано на снимке экрана ниже. Если вы уверены, что атрибут не используется существующими приложениями, то необходимо обратиться в службу поддержки для получения сведений об устранении этой ошибки.
+Во время анализа (шаг 4), если атрибут настроен в одном объекте в каталоге или нескольких, то мастер делает вывод, что он используется другими приложениями и возвращает ошибку, как показано на снимке экрана ниже. Кроме того, эта ошибка может произойти, если вы ранее включили функцию ConsistencyGuid на сервере-источнике Azure AD Connect и пытаетесь сделать то же самое на промежуточном сервере.
 
 ![Включение ConsistencyGuid для существующего развертывания — ошибка](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeploymenterror.png)
+
+ Если вы уверены, что атрибут не используется другими приложениями, можно отменить вывод сообщения об ошибке. Для этого перезапустите мастер Azure AD Connect, указав **/SkipLdapSearchcontact**. Выполните следующую команду в командной строке:
+
+```
+"c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
+```
 
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>Влияние на конфигурацию AD FS или федерацию сторонних поставщиков
 Если вы используете Azure AD Connect для управления локальным развертыванием AD FS, то Azure AD Connect автоматически обновляет правила утверждений для использования в качестве sourceAnchor того же атрибута AD. Это гарантирует, что утверждение ImmutableID, созданное ADFS, будет согласовано со значениями sourceAnchor, экспортированными в Azure AD.

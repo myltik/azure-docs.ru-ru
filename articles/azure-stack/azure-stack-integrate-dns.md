@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 0a5a783751e4f0fa9f5fb43b22fa221dd9bf3444
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Интеграция центра обработки данных Azure Stack — DNS
 
@@ -140,4 +140,4 @@ Azure Stack содержит и полномочный, и рекурсивны�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Интеграция центра обработки данных Azure Stack. Публикация конечных точек](azure-stack-integrate-endpoints.md)
+[Azure Stack datacenter integration - Identity](azure-stack-integrate-identity.md) (Интеграция центра обработки данных Azure Stack — удостоверение)

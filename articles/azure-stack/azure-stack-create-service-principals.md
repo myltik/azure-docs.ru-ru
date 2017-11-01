@@ -11,35 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 10/17/2017
 ms.author: helaw
-ms.openlocfilehash: 5787b25fb1dd7331e561798152678ed187e24d54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Предоставление приложениям доступа к Azure Stack
 
-*Область применения: интегрированные системы Azure Stack и пакет средств разработки Azure Stack*
+*Область применения: интегрированные системы Azure Stack и пакет SDK для Azure Stack*
 
-Если приложению требуется доступ для развертывания или настройки ресурсов Azure Stack с помощью Azure Resource Manager, вам следует создать субъект-службу, который будет выполнять роль учетных данных для этого приложения.  Этому субъекту-службе вы сможете делегировать только минимально необходимые разрешения.  
+Если приложению нужен доступ для развертывания или настройки ресурсов Azure Stack через Azure Resource Manager, вам следует создать субъект-службу, который будет использоваться как учетные данные для этого приложения.  Этому субъекту-службе вы сможете делегировать только минимально необходимые разрешения.  
 
 Например, можно создать средство управления конфигурацией, которое использует Azure Resource Manager для создания списка ресурсов Azure.  Чтобы реализовать этот сценарий, вам нужно создать субъект-службу, назначить ему роль читателя и предоставить средству управления конфигурацией доступ только для чтения. 
 
-Использовать субъект-службу предпочтительнее, чем выполнять приложение с вашими учетными данными по нескольким причинам:
+Субъекты-службы предпочтительнее использовать для запуска приложения с вашими учетными данными по следующим причинам:
 
-* Для субъекта-службы можно назначить разрешения, которые отличаются от ваших разрешений. Как правило, приложение получает именно те разрешения, которые требуются для его работы.
+* Для субъекта-службы можно назначить разрешения, которые отличаются от ваших разрешений учетной записи. Как правило, приложение получает именно те разрешения, которые требуются для его работы.
 * Не требуется изменять учетные данные приложения в случае изменения ваших обязанностей.
 * Можно использовать сертификат, чтобы автоматизировать аутентификацию при выполнении автоматического сценария.  
 
 ## <a name="getting-started"></a>Приступая к работе
 
-Прежде всего нужно создать субъект-службу. Процесс будет разным в зависимости от способа развертывания Azure Stack.  Этот документ описывает создание субъекта-службы для [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) и [службы федерации Active Directory (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Создав субъект-службу, вы [делегируете разрешения](azure-stack-create-service-principals.md#assign-role-to-service-principal) для этой роли, используя единый процесс для AD FS и Azure AD.     
+Прежде всего нужно создать субъект-службу. Процесс будет разным в зависимости от способа развертывания Azure Stack.  В этом документе описывается создание субъекта-службы для [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) и [службы федерации Active Directory (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Создав субъект-службу, вы [делегируете разрешения](azure-stack-create-service-principals.md#assign-role-to-service-principal) для этой роли, используя единый процесс для AD FS и Azure AD.     
 
 ## <a name="create-service-principal-for-azure-ad"></a>Создание субъекта-службы для Azure AD
 
-Если Azure Stack развернут с Azure AD в качестве хранилища идентификаторов, субъект-службы создается точно так же, как и для Azure.  В этом разделе описан процесс с использованием портала.  Прежде чем начать, проверьте [необходимые разрешения Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
+Если Azure Stack развернут с использованием Azure AD в качестве хранилища идентификаторов, создание субъекта-службы выполняется точно так же, как для Azure.  В этом разделе описан процесс с использованием портала.  Прежде чем начать, проверьте [необходимые разрешения Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
 
 ### <a name="create-service-principal"></a>Создание субъекта-службы
 В этом разделе вы создадите в Azure AD приложение (субъект-службу), которое будет представлять ваше приложение.
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 Субъект-служба для приложения создан.
 
 ### <a name="get-credentials"></a>Получение учетных данных
-Если вход выполняется с помощью программных средств, вам потребуются идентификатор приложения и ключ аутентификации. Получить эти значения можно следующим образом.
+Если вход выполняется программными средствами, вам потребуются идентификатор приложения и ключ аутентификации. Получить эти значения можно следующим образом.
 
 1. В Active Directory в разделе **регистрации приложений** выберите нужное приложение.
 
@@ -70,34 +70,57 @@ ms.lasthandoff: 10/11/2017
 После этого [назначьте приложению роль](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Создание субъекта-службы для AD FS
-Если вы развернули Azure Stack с AD FS, для создания субъекта-службы, назначения роли для доступа и входа с этим идентификатором можно использовать PowerShell.
+Когда вы развернете Azure Stack с использованием AD FS, для создания субъекта-службы, назначения роли для доступа и входа с этим идентификатором можно использовать PowerShell.
 
-### <a name="before-you-begin"></a>Перед началом работы
+Этот скрипт выполняется из привилегированной конечной точки на виртуальной машине ERCS.
 
-[Скачайте на локальный компьютер средства, необходимые для работы с Azure Stack](azure-stack-powershell-download.md).
 
-### <a name="import-the-identity-powershell-module"></a>Импортируйте модуль PowerShell Identity.
-Когда скачивание завершится, перейдите в созданную папку средств и импортируйте модуль PowerShell Identity с помощью следующей команды:
+Требования:
+- Наличие сертификата.
 
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
+**Параметры**
 
-При импорте модуля может появиться сообщение об ошибке: "Файл AzureStack.Connect.psm1 не имеет цифровой подписи. Скрипт не будет выполнен в системе". Чтобы устранить эту проблему, создайте политику выполнения, которая разрешает запуск скрипта. Для этого в сеансе PowerShell с повышенными привилегиями выполните следующую команду:
+Необходимо указать следующие сведения в качестве входных для параметров службы автоматизации:
 
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
 
-### <a name="create-the-service-principal"></a>Создание субъекта-службы
-Чтобы создать субъект-службу, выполните следующую команду, указав требуемое значение для параметра *DisplayName*:
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-```
+|Параметр|Описание|Пример|
+|---------|---------|---------|
+|Имя|Имя учетной записи имени субъекта-службы|MyAPP|
+|ClientCertificates|Массив объектов сертификата|Сертификат X509|
+|ClientRedirectUris<br>(необязательный параметр)|URI перенаправления приложения|         |
+
+**Пример**
+
+1. Откройте сеанс Windows PowerShell с повышенными привилегиями и выполните следующие команды:
+
+   > [!NOTE]
+   > Этот пример создает самозаверяющий сертификат. При выполнении этих команд в рабочей среде используйте команду Get-Certificate, чтобы получить объект сертификата для сертификата, который вы хотите использовать.
+
+   ```
+   $creds = Get-Credential
+
+   $session = New-PSSession -ComputerName <IP Address of ECRS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=testspn2" -KeySpec KeyExchange
+
+   Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name 'MyApp' -ClientCertificates $using:cert}
+
+   $session|remove-pssession
+
+   ```
+
+2. Когда работа службы автоматизации завершится, будут отображены необходимые сведения для использования имени субъекта-службы. 
+
+   Например:
+
+   ```
+   ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+   ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+   Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+   ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+   PSComputerName        : azs-ercs01
+   RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+   ```
 ### <a name="assign-a-role"></a>Назначение роли
 Созданному субъекту-службе необходимо [назначить роль](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 

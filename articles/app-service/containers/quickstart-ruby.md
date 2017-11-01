@@ -1,6 +1,6 @@
 ---
-title: "Создание приложения Ruby с помощью веб-приложений Azure на платформе Linux | Документация Майкрософт"
-description: "Узнайте, как создать приложения Ruby с помощью веб-приложений на платформе Linux."
+title: "Создание приложения Ruby и его развертывание в службе приложений Azure на платформе Linux | Документация Майкрософт"
+description: "Узнайте, как создать приложения Ruby с помощью службы приложений на платформе Linux."
 keywords: "служба приложений azure, linux, oss, ruby"
 services: app-service
 documentationcenter: 
@@ -13,18 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2017
+ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 7080a655040918c6cc059023ad3d62389dd6ab71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55ff4dc168ca6f8b2bdbb7c5743515691e8ac92d
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-ruby-app-with-web-apps-on-linux"></a>Создание приложения Ruby с помощью веб-приложений на платформе Linux
+# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Создание приложения Ruby в службе приложений на платформе Linux
 
-[Веб-приложения Azure](../app-service-web-overview.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом кратком руководстве показано, как создать базовое приложение Ruby on Rails и развернуть его в Azure в качестве веб-приложения на платформе Linux.
+[Служба приложений на платформе Linux](app-service-linux-intro.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом кратком руководстве показано, как создать базовое приложение Ruby on Rails и развернуть его в Azure в качестве веб-приложения на платформе Linux.
 
 ![Приложение Hello World](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 * [Ruby 2.4.1 или более поздней версии](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller).
 * [Git](https://git-scm.com/downloads).
-* [Активная подписка Azure](https://azure.microsoft.com/pricing/free-trial/).
+* [Активная подписка Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -60,7 +60,7 @@ rails server
 ## <a name="modify-app-to-display-welcome-message"></a>Изменение приложения для отображения приветственного сообщения
 
 Измените приложение, чтобы оно отображало приветственное сообщение. Во-первых, вам нужно настроить маршрут, включив в файл *~/workspace/ruby-docs-hello-world/config/routes.rb* маршрут с именем `hello`.
-    
+
   ```ruby
   Rails.application.routes.draw do
       #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -170,4 +170,4 @@ http://<app name>.azurewebsites.net
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Вопросы и ответы о веб-приложении службы приложений Azure на платформе Linux](app-service-linux-faq.md)
+[Служба приложений Azure на платформе Linux: вопросы и ответы](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)

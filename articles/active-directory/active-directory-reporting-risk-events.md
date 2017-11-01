@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>События риска Azure Active Directory
 
@@ -29,10 +29,9 @@ ms.lasthandoff: 10/11/2017
 - [Пользователи с потерянными учетными данными](#leaked-credentials) 
 - [Входы в систему с анонимных IP-адресов](#sign-ins-from-anonymous-ip-addresses) 
 - [Невозможно переместиться в нетипичные расположения](#impossible-travel-to-atypical-locations) 
-- [Входы в систему из необычного расположения](#sign-in-from-unfamiliar-locations)
 - [Входы в систему с зараженных устройств](#sign-ins-from-infected-devices) 
 - [Входы с IP-адресов с подозрительными действиями](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-
+- [Входы из незнакомых расположений](#sign-in-from-unfamiliar-locations) (только для выпусков **Azure Active Directory Premium P2**)
 
 ![События риска](./media/active-directory-reporting-risk-events/91.png)
 

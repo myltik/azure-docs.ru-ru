@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 756565b3da6e0a818d1ee3d5e17f942d96be14f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31f5a11cda1827a0a50fd2be0b7260daedf26e24
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 в служебной шине Microsoft Azure: операции c запросами и ответами
 
 В этой статье приводится список операций с запросами и ответами в служебной шине Microsoft Azure. Эта информация основана на использовании рабочего проекта службы управления AMQP версии 1.0.  
   
-Подробные инструкции по работе с протоколом AMQP 1.0 на уровне соединения, которые объясняют, как служебная шина реализует и использует техническую спецификацию OASIS AMQP, см. в статье [Руководство по использованию протокола AMQP 1.0 в служебной шине и концентраторах событий Azure](service-bus-amqp-protocol-guide.md).  
+Подробные инструкции по работе с протоколом AMQP 1.0 на уровне соединения, в которых объясняется, как служебная шина реализует и использует техническую спецификацию OASIS AMQP, см. в руководствах по [использованию протокола AMQP 1.0 в служебной шине и концентраторах событий Azure] и [использованию протокола AMQP 1.0].  
   
 ## <a name="concepts"></a>Основные понятия  
   
 ### <a name="entity-description"></a>Описание сущности  
 
-Описание сущности касается таких объектов служебной шины, как [QueueDescription Class](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription Class](/dotnet/api/microsoft.servicebus.messaging.topicdescription) и [SubscriptionDescription Class](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription).  
+Описание сущности касается таких объектов служебной шины, как [класс QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [класс TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) и [класс SubscriptionDescription](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription).  
   
 ### <a name="brokered-message"></a>Сообщение в брокере  
 
@@ -618,9 +618,9 @@ properties: {
 Сведения о служебной шине и AMQP см. по следующим ссылкам.
 
 * [Протокол AMQP служебной шины — обзор]
-* [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]
+* [Руководство по использованию протокола AMQP 1.0]
 * [Протокол AMQP служебной шины для Windows Server]
 
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
-[Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[Руководство по использованию протокола AMQP 1.0]: service-bus-amqp-protocol-guide.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.asp
