@@ -19,6 +19,7 @@
     - name: Инфраструктура CLI Azure
       href: cli-samples.md
     - name: Azure PowerShell
+      href: powershell-samples.md
     - name: Решения для управляемых приложений
       href: sample-projects.md
 - name: Практические руководства
