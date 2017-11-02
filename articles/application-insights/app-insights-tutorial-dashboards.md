@@ -3,18 +3,18 @@ title: "Создание настраиваемых панелей монито�
 description: "Руководство по созданию настраиваемых панелей мониторинга ключевых показателей эффективности с помощью Azure Application Insights."
 keywords: 
 services: application-insights
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 3ad1bfe2c45fd087f094aad5b2028ab488dbb2a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Создание настраиваемых панелей мониторинга ключевых показателей эффективности с помощью Azure Application Insights
 
