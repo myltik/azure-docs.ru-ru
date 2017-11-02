@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Настройка хранилища для виртуальных машин SQL Server
 При настройке образа виртуальной машины SQL Server на портале Azure некоторые процессы конфигурации хранилища выполняются автоматически. К этим процессам относится подключение хранилища к виртуальной машине, предоставление SQL Server доступа к нему и настройка параметров, которые позволяют оптимизировать производительность хранилища.
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 * быть подготовлена с помощью [коллекции образов SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing);
 * использовать [модель развертывания с помощью Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md);
-* использовать [хранилище класса Premium](../../../storage/common/storage-premium-storage.md).
+* использовать [хранилище класса Premium](../premium-storage.md).
 
 ## <a name="new-vms"></a>Новые виртуальные машины
 В следующих разделах описаны действия по настройке хранилища для новых виртуальных машин SQL Server.
@@ -104,7 +104,7 @@ Azure создает диск на основе ваших параметров.
 
 * Если для виртуальной машины выбрано хранилище объемом менее 2 ТБ, Azure не создает пул носителей,
 * а если 2 ТБ или больше — пул носителей создается. В следующем разделе этой статьи приведены сведения о конфигурации пула носителей.
-* При автоматической настройке хранилища всегда используются диски данных P30 [хранилища класса Premium](../../../storage/common/storage-premium-storage.md) . Следовательно, между выбранным числом терабайт и количеством дисков, прикрепленных к виртуальной машине, существует полноценное сопоставление.
+* При автоматической настройке хранилища всегда используются диски данных P30 [хранилища класса Premium](../premium-storage.md) . Следовательно, между выбранным числом терабайт и количеством дисков, прикрепленных к виртуальной машине, существует полноценное сопоставление.
 
 Сведения о ценах см. на странице [Цены на хранилища Azure](https://azure.microsoft.com/pricing/details/storage) на вкладке **Хранилище дисков**.
 

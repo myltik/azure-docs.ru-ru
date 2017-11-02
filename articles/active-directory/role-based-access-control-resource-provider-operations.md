@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Операции поставщиков ресурсов Azure Resource Manager
 
@@ -167,31 +167,6 @@ ms.lasthandoff: 10/11/2017
 |/service/reports/byTime/read|Возвращает отчет, объединенный по временным периодам.|
 |/service/reports/byApi/read|Возвращает отчет, объединенный по интерфейсам API.|
 |/service/reports/byProduct/read|Возвращает отчет, объединенный по продуктам.|
-
-## <a name="microsoftappservice"></a>Microsoft.AppService
-
-| Операция | Описание |
-|---|---|
-|/appidentities/Read|Возвращает ресурс (веб-узел), зарегистрированный в шлюзе.|
-|/appidentities/Write|Создает удостоверение приложения.|
-|/appidentities/Delete|Удаляет существующее удостоверение приложения.|
-|/deploymenttemplates/listMetadata/Action|Отображает метаданные пользовательского интерфейса, связанные с пакетом приложения API.|
-|/deploymenttemplates/generate/Action|Возвращает шаблон развертывания для подготовки экземпляров приложения API.|
-|/gateways/Read|Возвращает экземпляр шлюза.|
-|/gateways/Write|Создает новый шлюз или обновляет существующий.|
-|/gateways/Delete|Удаляет существующий экземпляр шлюза.|
-|/gateways/listLoginUris/Action|Заполняет хранилище маркеров и возвращает универсальные коды ресурса (URI) имени для входа OAuth.|
-|/gateways/listKeys/Action|Возвращает секреты шлюза.|
-|/gateways/tokens/Write|Создает маркер Zumo с заданным именем.|
-|/gateways/registrations/Read|Возвращает ресурс (веб-узел), зарегистрированный в шлюзе.|
-|/gateways/registrations/Write|Регистрирует ресурс (веб-сайт) в шлюзе.|
-|/gateways/registrations/Delete|Отменяет регистрацию ресурса (веб-сайт) в шлюзе.|
-|/apiapps/Read|Возвращает экземпляр приложения API.|
-|/apiapps/Write|Создает новое приложение API или обновляет существующее.|
-|/apiapps/Delete|Удаляет существующий экземпляр приложения API.|
-|/apiapps/listStatus/Action|Возвращает состояние приложения API.|
-|/apiapps/listKeys/Action|Возвращает секреты приложения API.|
-|/apiapps/apidefinitions/Read|Возвращает определение API для приложения API.|
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
