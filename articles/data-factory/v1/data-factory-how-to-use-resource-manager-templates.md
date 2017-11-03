@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d0c047c17608635b0d5fb0fb1353c6f8515d7a71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80281a520159965066c6cd166f47ecac66e552b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Создание сущностей фабрики данных Azure с помощью шаблонов
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. 
+
 ## <a name="overview"></a>Обзор
 Пользуясь фабрикой данных Azure для интеграции данных, возможно, вы захотите повторно использовать один и тот же шаблон в разных средах или несколько раз реализовать одну задачу в том же самом решении. Шаблоны помогают реализовать эти сценарии и с легкостью управлять ими. Шаблоны в фабрике данных Azure идеально подходят для сценариев, включающих возможность многократного использования и повторения.
 

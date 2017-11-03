@@ -3,7 +3,7 @@ title: "Просмотр журналов трассировки .NET в Applica
 description: "Поиск журналов, созданных с помощью Trace, Log4Net или NLog."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: bwren
-ms.openlocfilehash: 21e4ae78653977efc7a47f984bc309afac870a59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 6da0bf009fa71885d7d8e3bd5376c5a7c9d4a344
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Просмотр журналов трассировки .NET в Application Insights
 Если вы используете NLog, log4Net или System.Diagnostics.Trace для диагностической трассировки в приложении ASP.NET, журналы трассировки можно передавать в [Azure Application Insights][start] для поиска и просмотра. Журналы будут объединены с другими данными телеметрии, поступающими из вашего приложения, давая возможность определять трассировки, связанные с обработкой каждого запроса пользователя, и сопоставлять их с другими событиями и отчетами об исключениях.

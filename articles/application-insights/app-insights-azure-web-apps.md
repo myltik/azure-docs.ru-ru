@@ -3,7 +3,7 @@ title: "Мониторинг производительности веб-при�
 description: "Мониторинг производительности веб-приложений Azure. Диаграммы времени загрузки и ответа, информация о зависимостях и настройка оповещений о производительности."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: bwren
-ms.openlocfilehash: dd6c2a1acdcd3b933bed536fd2bb1d83e1e593c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: e3615280ec902833248d9acc1c9348d68e5c5e82
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-azure-web-app-performance"></a>Мониторинг производительности веб-приложения Azure
 На [портале Azure](https://portal.azure.com) можно настроить мониторинг производительности [веб-приложений Azure](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) инструментируют ваше приложение для отправки данных телеметрии о действиях в службу Application Insights, где эти данные хранятся и анализируются. В этой службе диаграммы метрик и инструменты поиска могут использоваться для диагностики неисправностей, улучшения производительности и анализа использования приложения.
