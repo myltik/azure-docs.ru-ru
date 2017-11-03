@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 3ff1b0bdd2397387910c31e25ddbc50ffc0bd1c4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Создание веб-приложения PHP в службе приложений на платформе Linux
 
@@ -73,7 +73,7 @@ php -S localhost:8080
 
 ## <a name="create-a-web-app-with-built-in-image"></a>Создание веб-приложения со встроенным образом
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
 Перейдите на сайт, чтобы просмотреть созданное веб-приложение со встроенным образом. Замените _&lt;app name>_ уникальным именем приложения.
 
@@ -83,9 +83,7 @@ http://<app name>.azurewebsites.net
 
 ![Пустая страница веб-приложения](media/quickstart-php/app-service-web-service-created.png)
 
-Вы создали пустое веб-приложение со встроенным образом и включенным развертыванием Git.
-
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 2, done.

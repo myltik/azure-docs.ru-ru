@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 10/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6d65480c53f905b393409dfdd9952618ab6cb64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Добавление действий в правила оповещений в Log Analytics
 При [создании оповещения в Log Analytics](log-analytics-alerts.md) можно [настроить правила оповещений](log-analytics-alerts.md) для выполнения одного или нескольких действий.  В этой статье описываются различные доступные действия и сведения о том, как их настроить.
@@ -112,10 +112,10 @@ ms.lasthandoff: 10/11/2017
 
 Действия Runbook запускают модуль Runbook с помощью [webhook](../automation/automation-webhooks.md).  При создании правила генерации оповещений автоматически создается новое действие webhook для модуля Runbook с именем **OMS Alert Remediation** , за которым следует GUID.  
 
-Нельзя напрямую заполнять параметры Runbook. Однако в [параметре $WebhookData](../automation/automation-webhooks.md) будут содержаться подробные сведения о предупреждении, включая результаты поиска по журналам,из-за которого оно возникло.  Для доступа к свойствам предупреждения модулю Runbook потребуется определить **$WebhookData** в качестве параметра.  Данные предупреждения доступны в формате Json в свойстве **SearchResults** свойства **RequestBody** параметра **$WebhookData**.  Свойства этого параметра приведены в таблице ниже.
+Нельзя напрямую заполнять параметры Runbook. Однако в [параметре $WebhookData](../automation/automation-webhooks.md) будут содержаться подробные сведения о предупреждении, включая результаты поиска по журналам,из-за которого оно возникло.  Для доступа к свойствам предупреждения модулю Runbook потребуется определить **$WebhookData** в качестве параметра.  Данные оповещений доступны в формате JSON в одном свойстве **SearchResult** (для действий runbook и действий веб-перехватчика со стандартными полезными данными) или **SearchResults** (действия веб-перехватчика с пользовательскими полезными данными, включая **IncludeSearchResults":true**) в свойстве **RequestBody** параметра **$WebhookData**.  Свойства этого параметра приведены в таблице ниже.
 
 >[!NOTE]
-> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), полезные данные runbook будут работать по-другому.  Подробные сведения о формате см. в документации [API REST Log Analytics Azure](https://aka.ms/loganalyticsapiresponse).  Пример см. в разделе [Пример полезной нагрузки](#sample-payload) ниже.
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), полезные данные runbook будут работать по-другому.  Подробные сведения о формате см. в документации [API REST Log Analytics Azure](https://aka.ms/loganalyticsapiresponse).  Пример см. в разделе [Пример полезной нагрузки](#sample-payload) ниже.  
 
 | Узел | Описание |
 |:--- |:--- |
@@ -123,14 +123,19 @@ ms.lasthandoff: 10/11/2017
 | __metadata |Сведения об оповещении, включая количество записей и состояние результатов поиска. |
 | value |Отдельная запись для каждой записи в результатах поиска.  Подробные сведения о записи будут соответствовать свойствам и значениям записи. |
 
-Например, следующий модуль Runbook извлечет записи, возвращенные в результате поиска по журналам, и назначит разные свойства на основе типа каждой записи.  Обратите внимание, что сначала модуль Runbook преобразовывает формат **RequestBody** из Json, чтобы с этим параметром можно было работать в качестве объекта в PowerShell.
+Например, следующий модули runbook извлечет записи, возвращенные в результате поиска по журналам, и назначит разные свойства на основе типа каждой записи.  Обратите внимание, что сначала модуль Runbook преобразовывает формат **RequestBody** из Json, чтобы с этим параметром можно было работать в качестве объекта в PowerShell.
+
+>[!NOTE]
+> Оба модуля runbook используют свойство **SearchResult**, которое содержит результаты действий runbook и веб-перехватчиков со стандартными полезными данными.  Если модуль runbook вызван из ответа веб-перехватчика с использованием пользовательских полезных данных, потребуется изменить это свойство на **SearchResults**.
+
+Следующий модуль runbook будет работать с использованием полезных данных из [устаревшей рабочей области Log Analytics](log-analytics-log-search-upgrade.md).
 
     param ( 
         [object]$WebhookData
     )
 
     $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResults.value
+    $Records     = $RequestBody.SearchResult.value
 
     foreach ($Record in $Records)
     {
@@ -152,11 +157,61 @@ ms.lasthandoff: 10/11/2017
         }
     }
 
+Следующий модуль runbook будет работать с использованием полезных данных из [обновленной рабочей области Log Analytics](log-analytics-log-search-upgrade.md).
+
+    param ( 
+        [object]$WebhookData
+    )
+
+    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
+
+    # Get all metadata properties    
+    $AlertRuleName = $RequestBody.AlertRuleName
+    $AlertThresholdOperator = $RequestBody.AlertThresholdOperator
+    $AlertThresholdValue = $RequestBody.AlertThresholdValue
+    $AlertDescription = $RequestBody.Description
+    $LinktoSearchResults =$RequestBody.LinkToSearchResults
+    $ResultCount =$RequestBody.ResultCount
+    $Severity = $RequestBody.Severity
+    $SearchQuery = $RequestBody.SearchQuery
+    $WorkspaceID = $RequestBody.WorkspaceId
+    $SearchWindowStartTime = $RequestBody.SearchIntervalStartTimeUtc
+    $SearchWindowEndTime = $RequestBody.SearchIntervalEndtimeUtc
+    $SearchWindowInterval = $RequestBody.SearchIntervalInSeconds
+
+    # Get detailed search results
+    if($RequestBody.SearchResult -ne $null)
+    {
+        $SearchResultRows    = $RequestBody.SearchResult.tables[0].rows 
+        $SearchResultColumns = $RequestBody.SearchResult.tables[0].columns;
+
+        foreach ($SearchResultRow in $SearchResultRows)
+        {   
+            $Column = 0
+            $Record = New-Object –TypeName PSObject 
+        
+            foreach ($SearchResultColumn in $SearchResultColumns)
+            {
+                $Name = $SearchResultColumn.name
+                $ColumnValue = $SearchResultRow[$Column]
+                $Record | Add-Member –MemberType NoteProperty –Name $name –Value $ColumnValue -Force
+                        
+                $Column++
+            }
+
+            # Include code to work with the record. 
+            # For example $Record.Computer to get the computer property from the record.
+            
+        }
+    }
+
+
 
 ## <a name="sample-payload"></a>Пример полезных данных
 В этом разделе показан пример полезных данных для действий веб-перехватчика и runbook в предыдущей и [обновленной рабочей области Log Analytics](log-analytics-log-search-upgrade.md).
 
 ### <a name="webhook-actions"></a>Действия webhook
+В обоих примерах используется свойство **SearchResult**, которое содержит результаты действий веб-перехватчиков со стандартными полезными данными.  Если веб-перехватчик использует пользовательские полезные данные, включающие результаты поиска, это свойство будет **SearchResults**.
 
 #### <a name="legacy-workspace"></a>Рабочая область прежней версии.
 Ниже приведен пример полезных данных для действия веб-перехватчика в рабочей области прежней версии.
@@ -376,7 +431,7 @@ ms.lasthandoff: 10/11/2017
 Ниже приведен пример полезных данных для действия runbook в рабочей области прежней версии.
 
     {
-        "SearchResults": {
+        "SearchResult": {
             "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
             "__metadata": {
                 "resultType": "raw",

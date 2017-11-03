@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/23/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 65dac529df15d2dd43eec17673d82a2832f7692e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bacd40627b815c949491b70f8290e40b79e488c
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Удаление кластера HDInsight с помощью браузера, PowerShell или Azure CLI
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
    
     ![поиск по порталу](./media/hdinsight-delete-cluster/navbar.png)
 
-2. Открыв колонку кластера, выберите значок **Удалить**. При появлении запроса выберите **Да**, чтобы удалить кластер.
+2. В параметрах кластера выберите значок **Удалить**. При появлении запроса выберите **Да**, чтобы удалить кластер.
    
     ![значок удаления](./media/hdinsight-delete-cluster/deletecluster.png)
 
@@ -55,4 +55,4 @@ ms.lasthandoff: 10/11/2017
 Замените **CLUSTERNAME** именем кластера HDInsight.
 
 > [!NOTE]
-> Сейчас Azure CLI 2.0 не поддерживает удаление кластеров HDInsight (31 июля 2017 г.).
+> Сейчас Azure CLI 2.0 не поддерживает удаление кластеров HDInsight (23 октября 2017 г.).

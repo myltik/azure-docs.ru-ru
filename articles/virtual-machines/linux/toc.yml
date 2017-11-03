@@ -63,6 +63,27 @@
       href: regions-and-availability.md
     - name: Типы и размеры виртуальных машин
       href: sizes.md
+      items:
+        - name: Универсальные
+          href: sizes-general.md
+          items:
+            - name: Серия B с накапливаемыми ресурсами
+              href: b-series-burstable.md
+        - name: Оптимизированные для вычислений
+          href: sizes-compute.md
+        - name: Оптимизированные для памяти
+          href: sizes-memory.md
+        - name: Оптимизированные для хранилища
+          href: sizes-storage.md
+        - name: Оптимизированные для GPU
+          href: sizes-gpu.md
+          items:
+            - name: Настройка драйверов GPU
+              href: n-series-driver-setup.md
+        - name: Для высокопроизводительных вычислений
+          href: sizes-hpc.md
+        - name: Единицы вычислений Azure (ACU)
+          href: sizes-general.md
     - name: Рекомендуемые дистрибутивы
       href: endorsed-distros.md
     - name: Обслуживание и обновления

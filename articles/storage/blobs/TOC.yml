@@ -18,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Работа с большими двоичными объектами с помощью .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Работа с большими двоичными объектами с использованием Java
+      href: storage-quickstart-blobs-java.md
     - name: Работа с большими двоичными объектами с помощью Python
       href: storage-quickstart-blobs-python.md
 - name: Учебники

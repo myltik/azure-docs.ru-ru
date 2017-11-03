@@ -112,24 +112,23 @@
 #### [Примеры входа](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Использование сертификатов](active-directory-reporting-api-with-certificates.md)
 
-## [Управление паролями](active-directory-passwords-overview.md)
+## Управление паролями
+### [Общие сведения о паролях](active-directory-passwords-overview.md)
 ### Документы пользователя
 #### [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
 #### [Рекомендации по паролям](active-directory-secure-passwords.md)
 #### [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
-### [Лицензия SSPR](active-directory-passwords-licensing.md)
-### [Развертывание SSPR](active-directory-passwords-best-practices.md)
+### [Принципы работы SSPR](active-directory-passwords-how-it-works.md)
+### [Руководство по развертыванию SSPR](active-directory-passwords-best-practices.md)
+### [Политики SSPR](active-directory-passwords-policy.md)
+### [Настройка SSPR](active-directory-passwords-customize.md)
+### [Требования к данным SSPR](active-directory-passwords-data.md)
+### [Отчеты SSPR](active-directory-passwords-reporting.md)
 ### ИТ-администрирование. Сброс паролей
 #### [Портал Azure](active-directory-users-reset-password-azure-portal.md)
-#### [Классический портал Azure](active-directory-create-users-reset-password.md)
-### [Общие сведения о политиках SSPR](active-directory-passwords-policy.md)
-### [Общие сведения о сбросе паролей](active-directory-passwords-how-it-works.md)
-### [Настройка SSPR](active-directory-passwords-customize.md)
-### [Данные, используемые SSPR](active-directory-passwords-data.md)
-### [Отчеты в SSPR](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+#### [классическом портале Azure](active-directory-create-users-reset-password.md)
+### [Лицензия SSPR](active-directory-passwords-licensing.md)
 ### [Обратная запись паролей](active-directory-passwords-writeback.md)
-### [Синхронизации хэша паролей](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Устранение неполадок](active-directory-passwords-troubleshoot.md)
 ### [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](active-directory-passwords-faq.md)
 
@@ -313,8 +312,6 @@
 ##### [Исправление](active-directory-conditional-access-device-remediation.md)
 #### [Технический справочник: условный доступ к приложениям Azure AD](active-directory-conditional-access-technical-reference.md)
 #### [Часто задаваемые вопросы](active-directory-conditional-faqs.md)
-#### [Классический портал.](active-directory-conditional-access.md)
-##### [Начало работы](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Проверка подлинности без использования паролей](active-directory-azureadjoin-passport.md)
@@ -369,7 +366,7 @@
 ## [Ограничения службы](active-directory-service-limits-restrictions.md)
 
 # Сопутствующие материалы
-## [Многофакторная идентификация Microsoft Azure](/azure/multi-factor-authentication/)
+## [Многофакторная идентификация](/azure/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Информация для разработчиков об Azure AD](./develop/active-directory-how-to-integrate.md)

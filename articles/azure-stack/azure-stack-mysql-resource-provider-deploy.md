@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 0c74eea3a121c35689add6cd835f6a7bbe95f595
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: badaefb4986f573362babea81d704bf2be067d6b
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Использование баз данных MySQL в Microsoft Azure Stack
 
@@ -122,7 +122,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint '10.10.10.10' `
@@ -133,9 +133,6 @@ $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
 
 ### <a name="deploymysqlproviderps1-parameters"></a>Параметры DeployMySqlProvider.ps1
 
-Эти параметры можно указать в командной строке. Если вы не зададите нужные параметры или их значения не пройдут проверку, вам будет предложено указать необходимые данные.
-
-### <a name="deploysqlproviderps1-parameters"></a>Параметры DeploySqlProvider.ps1
 Эти параметры можно указать в командной строке. Если вы не зададите нужные параметры или их значения не пройдут проверку, вам будет предложено указать необходимые данные.
 
 | Имя параметра | Описание | Комментарий или значение по умолчанию |

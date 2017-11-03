@@ -31,7 +31,7 @@
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
 - name: Выполнение проекта
   href: project-execution.md
-- name: Учебники
+- name: Примеры
   href: walkthroughs.md
   items:
     - name: Машинное обучение Azure
@@ -60,6 +60,12 @@
       href: walkthroughs-sql-server.md
     - name: T-SQL и Python с хранилищем данных SQL
       href: walkthroughs-sql-data-warehouse.md
+- name: Обучение
+  items:
+    - name: TDSP для специалистов по обработке и анализу данных
+      href: team-data-science-process-for-data-scientists.md
+    - name: TDSP для DevOps
+      href: team-data-science-process-for-devops.md
 - name: Практическое руководство
   items:
     - name: Использование TDSP в службе "Машинное обучение Azure"

@@ -6,7 +6,7 @@
 | Свободное место на диске (кэш сервера обработки) | 600 ГБ
 | Свободное место на диске (диск хранения) | 600 ГБ|
 | **Программное обеспечение** | |
-| Версия операционной системы | Windows Server 2012 R2 |
+| Версия операционной системы | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Язык операционной системы | Английский (en-us)|
 | Версия VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Роли Windows Server | Не включайте такие роли, как: <br> — доменные службы Active Directory; <br>— службы IIS; <br> — Hyper-V. |

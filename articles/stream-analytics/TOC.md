@@ -24,6 +24,7 @@
 ### [Использование эталонных данных](stream-analytics-use-reference-data.md)
 ### [Тестовые запросы](stream-analytics-test-query.md)
 ### [Интеграция определяемых пользователем функций JavaScript](stream-analytics-javascript-user-defined-functions.md)
+### [Интеграция JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Интеграция машинного обучения и REST API](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Формирование выходных данных](stream-analytics-define-outputs.md)
 ### [Вывод в Data Lake Store](stream-analytics-data-lake-output.md)

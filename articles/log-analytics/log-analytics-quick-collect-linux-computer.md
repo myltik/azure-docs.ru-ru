@@ -1,0 +1,124 @@
+---
+title: "Сбор данных с локальных компьютеров Linux с помощью Azure Log Analytics | Документация Майкрософт"
+description: "Узнайте, как развернуть агент Log Analytics для Linux и включить сбор данных из этой ОС с помощью Log Analytics."
+services: log-analytics
+documentationcenter: log-analytics
+author: MGoedtel
+manager: carmonm
+editor: 
+ms.assetid: 
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: quickstart
+ms.date: 10/13/2017
+ms.author: magoedte
+ms.custom: mvc
+ms.openlocfilehash: d22fe6456c3bd886f8f8863d362c0084fbe03da3
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/24/2017
+---
+# <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>Сбор данных с компьютеров Linux, размещенных в вашей среде
+[Azure Log Analytics](log-analytics-overview.md) может собирать данные напрямую c физических компьютеров или виртуальных машин Linux и других ресурсов в вашей среде в один репозиторий для подробного анализа и корреляции.  В этом кратком руководстве показано, как настроить и собирать данные c компьютера Linux с помощью нескольких простых действий.  Сведения о виртуальных машинах Linux в Azure приведены далее в разделе [Сбор данных о виртуальных машинах Azure](log-analytics-quick-collect-azurevm.md).  
+ 
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
+
+## <a name="log-in-to-azure-portal"></a>Вход на портал Azure
+Войдите на портал Azure по адресу [https://portal.azure.com](https://portal.azure.com). 
+
+## <a name="create-a-workspace"></a>Создание рабочей области
+1. На портале Azure щелкните **Другие службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.<br><br> ![Портал Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Щелкните **Создать** и задайте следующие параметры:
+
+  * Введите имя для новой **рабочей области OMS**, например *DefaultLAWorkspace*. 
+  * Выберите в раскрывающемся списке **подписку**, с которой нужно связать рабочую область, если выбранная по умолчанию не подходит.
+  * В разделе **Группа ресурсов** выберите имеющуюся группу ресурсов, в которой содержится одна или несколько виртуальных машин Azure.  
+  * Выберите **Расположение**, в котором развернуты виртуальные машины.  Дополнительные сведения о доступности службы Log Analytics в регионах см. в [этой статье](https://azure.microsoft.com/regions/services/).
+  * Вы можете выбрать одну из трех различных **ценовых категорий** Log Analytics, но в этом руководстве необходимо выбрать ценовую категорию **Бесплатный**.  Дополнительные сведения о конкретной ценовой категории см. в статье [Цены на Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+        ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
+3. После ввода необходимых сведений в области **Рабочая область OMS** щелкните **Создать**.  
+
+Пока проверяются данные, ход создания рабочей области можно проверить в разделе **Уведомления** в меню. 
+
+## <a name="obtain-workspace-id-and-key"></a>Получение идентификатора и ключа рабочей области
+Перед установкой OMS для Linux требуется получить идентификатор и ключ для рабочей области Log Analytics.  Эта информация необходима сценарию оболочки агента для правильной настройки агента и обеспечения его взаимодействия с Log Analytics.  
+
+1. На портале Azure щелкните **Другие службы** в нижнем левом углу. В списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Выберите **Log Analytics**.
+2. В списке рабочих областей Log Analytics выберите рабочую область *DefaultLAWorkspace*, созданную ранее.
+3. Выберите **Дополнительные параметры**.<br><br> ![Дополнительные параметры Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+4. Выберите **Подключенные источники**, а затем выберите **Серверы с Linux**.   
+5. Необходимые значения указаны справа от полей **Идентификатор рабочей области** и **Первичный ключ**. Скопируйте их и вставьте в любой удобный для вас редактор.   
+
+## <a name="install-the-agent-for-linux"></a>Установка агента для Linux
+Ниже приведены инструкции по настройке установки агента для Log Analytics в Azure и облаке Azure для государственных организаций.  
+
+1. Чтобы настроить компьютер Linux для подключения к Log Analytics, выполните следующую команду, указав идентификатор рабочей области и первичный ключ, скопированные ранее.  Эта команда скачивает агент, проверяет его контрольную сумму и устанавливает его. 
+    
+    ```
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
+    ```
+
+2. Чтобы настроить компьютер Linux для подключения к Log Analytics в облаке Azure для государственных организаций, выполните следующую команду, указав идентификатор рабочей области и первичный ключ, скопированные ранее.  Эта команда скачивает агент, проверяет его контрольную сумму и устанавливает его. 
+
+    ```
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
+    ``` 
+
+## <a name="configure-agent-to-communicate-with-a-proxy-server"></a>Настройка агента для обмена данными с прокси-сервером
+
+Если компьютерам Linux требуется обмениваться данными с Log Analytics через прокси-сервер, выполните следующие действия.  Значение конфигурации прокси-сервера имеет следующий синтаксис: `[protocol://][user:password@]proxyhost[:port]`.
+
+1. Измените файл `/etc/opt/microsoft/omsagent/proxy.conf`, выполнив следующие команды и указав собственные значения параметров.
+
+    ```
+    proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
+    sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
+    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf 
+    ```
+
+2. Перезапустите агент, выполнив следующую команду. 
+
+    ```
+    sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
+    ``` 
+
+## <a name="collect-event-and-performance-data"></a>Сбор данных событий и производительности
+Log Analytics может собирать события из системного журнала и счетчиков производительности Linux, указанных для долгосрочного анализа и формирования отчетов, а также предпринимать действия при обнаружении определенного условия.  Сначала выполните приведенные ниже действия для настройки сбора событий из системного журнала Linux, а также нескольких стандартных счетчиков производительности.  
+
+1. Выберите **Системный журнал**.  
+2. Чтобы добавить журнал событий, введите его имя.  Введите **Системный журнал** и щелкните знак "плюс" **+**.  
+3. В таблице снимите флажок для степеней серьезности **Информация**, **Уведомление** и **Отладить**. 
+4. В верхней части страницы щелкните **Сохранить**, чтобы сохранить конфигурацию.
+5. Выберите **Linux Performance Data** (Данные производительности Linux), чтобы включить сбор данных счетчиков производительности на компьютере Windows. 
+6. При первой настройке счетчиков производительности Linux для новой рабочей области Log Analytics вы можете быстро создать несколько распространенных счетчиков. Рядом с каждым счетчиком в списке есть флажок.<br><br> ![Выбраны счетчики производительности Windows умолчанию](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).<br><br> Щелкните **Add the selected performance counters** (Добавить выбранные счетчики производительности).  Они добавляются и устанавливаются с десятисекундным интервалом сбора.  
+7. В верхней части страницы щелкните **Сохранить**, чтобы сохранить конфигурацию.
+
+## <a name="view-data-collected"></a>Просмотр собранных данных
+Теперь, когда сбор данных включен, можно запустить простой пример поиска по журналам, чтобы просмотреть некоторые данные с целевого компьютера.  
+
+1. На портале Azure перейдите к Log Analytics и выберите рабочую область, созданную ранее.
+2. Щелкните плитку **Log Search** (Поиск по журналам) и в соответствующей области в поле запроса введите `Perf`, а затем нажмите клавишу ВВОД и нажмите кнопку "Поиск" справа от поля запроса.<br><br> ![Пример запроса поиска по журналам Log Analytics](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> Например, запрос на следующем рисунке вернул 735 записей производительности.<br><br> ![Результат поиска по журналам Log Analytics](media/log-analytics-quick-collect-linux-computer/log-analytics-search-perf.png)
+
+## <a name="clean-up-resources"></a>Очистка ресурсов
+Когда агент больше не нужен, его можно удалить с компьютера Linux, а также можно удалить рабочую область Log Analytics.  
+
+Чтобы удалить агент, выполните указанные ниже действия.
+
+1. Скачайте [универсальный сценарий](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) агента Linux на компьютер.
+2. Запустите SH-файл пакета с аргументом *--purge* на компьютере. Агент и его конфигурация будут полностью удалены.
+
+    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+
+Чтобы удалить рабочую область Log Analytics, созданную ранее, выберите ее, затем на странице ресурсов щелкните **Удалить**.<br><br> ![Удаление ресурса Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+
+## <a name="next-steps"></a>Дальнейшие действия
+Теперь, когда вы собираете данные о работе и производительности со своих локальных компьютеров Linux, можно легко начать изучение и анализ собранных данных, а также работать с ними *бесплатно*.  
+
+Чтобы узнать, как просматривать и анализировать данные, перейдите к следующему руководству.   
+
+> [!div class="nextstepaction"]
+> [Просмотр и анализ данных, собранных с помощью поиска по журналам Log Analytics](log-analytics-tutorial-viewdata.md)

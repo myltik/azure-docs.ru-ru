@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/14/2017
+ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 9599752c649acb191344fc32d1606adf888b44f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39ac9aa678464c497d9f7963bab802141ce9e854
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Руководство по проектированию для использования реплицированных таблиц в хранилище данных SQL Azure
 В данной статье представлены рекомендации по проектированию реплицированных таблиц в схеме хранилища данных SQL Azure. Данные рекомендации позволяют повысить производительность запросов за счет уменьшения перемещения данных и упрощения запросов.
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-В этой статье предполагается, что вы знакомы с распределением данных и основными понятиями перемещения данных в хранилище данных SQL.  Дополнительные сведения см. в статье [Распределенные данные](sql-data-warehouse-distributed-data.md). 
+В этой статье предполагается, что вы знакомы с распределением данных и основными понятиями перемещения данных в хранилище данных SQL.  Дополнительные сведения см. в статье об [архитектуре](massively-parallel-processing-mpp-architecture.md). 
 
 При проектировании таблиц необходимо максимально четко понять, как устроены данные и как выполняются запросы к данным.  Например, для этого можно использовать следующие вопросы:
 

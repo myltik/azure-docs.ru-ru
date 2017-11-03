@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 06/13/2017
-ms.openlocfilehash: cf536fce8925f9173b541b845af25a8d8c38eabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d753772adeb9064f391f1e3846de654bdb60facf
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Проектирование первой базы данных Azure для PostgreSQL с помощью Azure CLI 
 Из этого руководства вы узнаете, как с помощью Azure CLI (интерфейса командной строки) и других служебных программ выполнять следующие операции:
 > [!div class="checklist"]
-> * создание базы данных Azure для PostgreSQL;
+> * Создание сервера базы данных Azure для PostgreSQL
 > * настройка брандмауэра сервера;
 > * использование служебной программы [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) для создания базы данных;
 > * Загрузка примера данных
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > * Обновление данных
 > * восстановление данных.
 
-Вы можете использовать Azure Cloud Shell в браузере или [установить Azure CLI 2.0]( /cli/azure/install-azure-cli) на компьютере, чтобы запустить блоки кода в этом руководстве.
+Вы можете использовать Azure Cloud Shell в браузере или [установить Azure CLI 2.0]( /cli/azure/install-azure-cli) на компьютере, чтобы запускать команды, присутствующие в этом руководстве.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -63,7 +63,10 @@ az postgres server create --resource-group myresourcegroup --name mypgserver-201
 
 Создайте правило брандмауэра на уровне сервера Azure PostgreSQL, выполнив команду [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create). Правило брандмауэра на уровне сервера позволяет внешним приложениям, таким как [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) или [PgAdmin](https://www.pgadmin.org/), подключаться к серверу через брандмауэр службы Azure PostgreSQL. 
 
-Вы можете задать правило брандмауэра, охватывающее диапазон IP-адресов, которые могут подключаться из сети. В указанном ниже примере для создания правила брандмауэра `AllowAllIps` для диапазона IP-адресов используется команда [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create). Чтобы открыть все IP-адреса, используйте 0.0.0.0 как начальный IP-адрес, а 255.255.255.255 — как конечный.
+Вы можете задать правило брандмауэра, охватывающее диапазон IP-адресов, чтобы иметь возможность подключаться из сети. В следующем примере используется команда [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) для создания правила брандмауэра `AllowAllIps`, позволяющего подключаться из любого IP-адреса. Чтобы открыть все IP-адреса, используйте 0.0.0.0 как начальный IP-адрес, а 255.255.255.255 — как конечный.
+
+Чтобы доступ к серверу PostgreSQL Azure был ограничен только вашей сетью, можно настроить правило брандмауэра таким образом, чтобы оно охватывало диапазон IP-адресов только вашей корпоративной сети.
+
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
@@ -107,7 +110,7 @@ az postgres server show --resource-group myresourcegroup --name mypgserver-20170
 ## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>Подключение к базе данных Azure для PostgreSQL с помощью psql
 Если на клиентском компьютере установлено PostgreSQL, вы можете использовать локальный экземпляр [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) или консоль облачной службы Azure, чтобы подключиться к серверу Azure PostgreSQL. Теперь подключимся к серверу базы данных Azure для PostgreSQL с помощью служебной программы командной строки psql.
 
-1. Чтобы подключиться к серверу базы данных Azure для PostgreSQL, выполните следующую команду psql:
+1. Чтобы подключиться к базе данных Azure для базы данных PostgreSQL, выполните следующую команду psql:
 ```azurecli-interactive
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
@@ -118,7 +121,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
 psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
 ```
 
-2.  Подключившись к серверу, создайте пустую базу данных с помощью командной строки.
+2.  Подключившись к серверу, создайте пустую базу данных с помощью командной строки:
 ```sql
 CREATE DATABASE mypgsqldb;
 ```
@@ -145,34 +148,35 @@ CREATE TABLE inventory (
 \dt
 ```
 
-## <a name="load-data-into-the-tables"></a>Загрузка данных в таблицу
+## <a name="load-data-into-the-table"></a>Загрузка данных в таблицу
 Теперь, когда таблица создана, мы можем вставить в нее данные. Чтобы вставить некоторые строки данных, в открытом окне командной строки выполните следующий запрос:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Итак, в созданной ранее таблице содержится две строки данных.
+Итак, в созданной ранее таблице добавлено две строки демонстрационных данных.
 
 ## <a name="query-and-update-the-data-in-the-tables"></a>Запрос и обновление данных в таблицах
-Чтобы извлечь сведения из таблицы базы данных, выполните приведенный ниже запрос. 
+Чтобы извлечь сведения из таблицы inventory, выполните приведенный ниже запрос: 
 ```sql
 SELECT * FROM inventory;
 ```
 
-Вы можете также обновить данные в таблицах, выполнив следующую команду:
+Вы можете также обновить данные в таблице inventory:
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-При извлечении данных строка будет обновляться соответствующим образом.
+При извлечении данных вы увидите обновленные значения:
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Восстановление базы данных до предыдущей точки во времени
-Представьте, что вы случайно удалили таблицу. Восстановить ее будет не просто. База данных Azure для PostgreSQL позволяет вернуться в любой момент времени (в течение последних 7 дней (для уровня "Базовый") и 35 дней (для уровня "Стандартный")) и восстановить данные на определенный момент времени на новом сервере. Вы можете восстановить удаленные данные с помощью нового сервера. Указанные ниже шаги позволяют восстановить сервер до точки во времени, когда была создана таблица.
+Представьте, что вы случайно удалили таблицу. Восстановить ее будет не просто. База данных Azure для PostgreSQL позволяет вернуться в любую точку во времени (до 7 дней (для уровня "Базовый") и 35 дней (для уровня "Стандартный")) и восстановить данные на эту точку во времени на новом сервере. Вы можете восстановить удаленные данные с помощью нового сервера. 
 
+Указанная ниже команда позволяет восстановить демонстрационный сервер до точки во времени, когда таблица еще не была создана:
 ```azurecli-interactive
 az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
 ```
@@ -185,7 +189,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 | restore-point-in-time | 2017-04-13T13:59:00Z | Выберите точку во времени, до которой необходимо выполнить восстановление. Значения даты и времени должны находиться в пределах срока хранения резервной копии исходного сервера. Используйте формат даты и времени ISO8601. Например, вы можете использовать свой местный часовой пояс, например `2017-04-13T05:59:00-08:00`, или использовать формат UTC Zulu `2017-04-13T13:59:00Z`. |
 | --source-server | mypgserver-20170401 | Имя или идентификатор исходного сервера, с которого необходимо выполнить восстановление. |
 
-При восстановлении сервера до определенной точки во времени создается сервер путем копирования исходного сервера на заданный момент времени. Значения расположения и ценовой категории для восстановленного сервера совпадают со значениями исходного сервера.
+При восстановлении сервера до определенной точки во времени создается новый сервер путем копирования той точки во времени исходного сервера, которую вы задали. Значения расположения и ценовой категории для восстановленного сервера совпадают со значениями исходного сервера.
 
 Команда выполняется в синхронном режиме и будет возвращена после восстановления сервера. После завершения восстановления найдите созданный сервер. Убедитесь, что данные восстановлены надлежащим образом.
 
@@ -193,7 +197,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 ## <a name="next-steps"></a>Дальнейшие действия
 Из этого руководства вы узнали, как с помощью Azure CLI (интерфейса командной строки) и других служебных программ выполнить следующие операции:
 > [!div class="checklist"]
-> * создание базы данных Azure для PostgreSQL;
+> * Создание сервера базы данных Azure для PostgreSQL
 > * настройка брандмауэра сервера;
 > * использование служебной программы [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) для создания базы данных;
 > * Загрузка примера данных

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9d9f5950f7e692181e59870e6e508486131517ce
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 10/25/2017
 
 Если запрос сертификата был создан с помощью OpenSSL, то вы создали файл закрытого ключа. Чтобы экспортировать сертификат в PFX-файл, выполните следующую команду. Замените заполнители _&lt;private-key-file>_ и _&lt;merged-certificate-file>_ путями к закрытому ключу и объединенному файлу сертификатов.
 
-```
+```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 

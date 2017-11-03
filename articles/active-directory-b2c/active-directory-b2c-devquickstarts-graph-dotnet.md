@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: 79cb886a076a08c9817efda40e9750c69ad00187
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccd8bf902f707390f80e3c377e60dd35d535b4b5
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
-# <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: использование API Graph
+# <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C. Использование API Graph Azure AD
+
+>[!NOTE]
+>Сейчас необходимо использовать [API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) для управления пользователями в каталоге Azure AD B2C.
+
 Как правило, клиенты Azure AD B2C (Azure AD) отличаются очень большими размерами. Это значит, что многие распространенные задачи управления клиентами необходимо решать программным путем. Основным примером может служить управление пользователями. Возможно, вам потребуется перенести существующее хранилище пользователя в клиент B2C. Кроме того, может потребоваться разместить регистрацию пользователей на своей странице и создавать учетные записи пользователей каталога Azure AD B2C в фоновом режиме. Для выполнения задач такого типа требуется возможность создавать, читать, обновлять и удалять учетные записи пользователей. Такую возможность предоставляет API Graph Azure AD.
 
 Для клиентов B2C используются в основном два режима обмена данными с API Graph.

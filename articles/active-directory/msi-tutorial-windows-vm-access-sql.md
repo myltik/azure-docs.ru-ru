@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 10/27/2017
 ms.author: skwan
-ms.openlocfilehash: f2cfef1c2aed90e111d06fc3090973e093fd7a4f
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 1b13255c2bbb0d97c33851b89d071036c47e9cfa
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Доступ к SQL Azure с помощью управляемого удостоверения службы виртуальной машины Windows
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-В этом руководстве описывается доступ к серверу SQL Azure с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows. Управляемыми удостоверениями службы автоматически управляет Azure. Они позволяют проходить аутентификацию в службах, поддерживающих аутентификацию Azure AD, не указывая учетные данные в коде. Вы узнаете, как выполнять следующие задачи:
+В этом руководстве описывается доступ к серверу SQL Azure с помощью управляемого удостоверения службы (MSI) виртуальной машины Windows. Управляемыми удостоверениями службы автоматически управляет Azure. Они позволяют проходить проверку подлинности в службах, поддерживающих аутентификацию Azure AD, без указания учетных данных в коде. Вы узнаете, как выполнять следующие задачи:
 
 > [!div class="checklist"]
 > * Активация MSI на виртуальной машине Windows. 
@@ -133,7 +133,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Включение аутентификации Azure AD для сервера SQL
 
-Теперь, когда вы создали группу и добавили MSI виртуальной машины как участника группы, можно [настроить аутентификацию Azure AD для сервера SQL](/azure/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) следующим образом:
+Теперь, когда вы создали группу и добавили MSI виртуальной машины как участника группы, можно [настроить аутентификацию Azure AD для сервера SQL](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) следующим образом:
 
 1.  На портале Azure выберите **SQL servers** (Серверы SQL Server) на левой панели навигации.
 2.  Щелкните сервер SQL, для которого нужно включить аутентификацию Azure AD.
