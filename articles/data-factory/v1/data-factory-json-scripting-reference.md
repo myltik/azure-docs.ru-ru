@@ -11,16 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f07c4ddd59942889e9fe9c65343da2df59b64a1b
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a437c369ac48fd4ac71dee2a85547d787d9dd210
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Справочник по написанию скриптов JSON фабрики данных Azure
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией.
+
+
 Эта статья содержит схемы JSON и примеры для определения сущностей фабрики данных Azure (конвейер, действие, набор данных и связанная служба).  
 
 ## <a name="pipeline"></a>Конвейер 

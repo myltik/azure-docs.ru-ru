@@ -3,7 +3,7 @@ title: "Настройка параметров предварительной �
 description: "Команда разработчиков Azure Application Insights развертывает новые возможности. На портале Azure можно настроить новые возможности, для которых следует создать предварительные версии."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
-ms.author: bwren
-ms.openlocfilehash: d3929698cb3f3520b838bcaf88da6dca0c93c806
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: f39ed880003c6ead0e720b730e6b70a4287b5f3f
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="preview-upcoming-changes-to-azure-application-insights"></a>Предварительные версии будущих изменений Azure Application Insights 
 
