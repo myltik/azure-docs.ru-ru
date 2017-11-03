@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdf078a0cebf3c36d5916035fb5fd7e47d231abe
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Схема языка определения рабочих процессов в Azure Logic Apps
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 10/11/2017
 |Expression|Оценка|  
 |----------------|----------------|  
 |"@function('Hello')"|Вызывает функцию-элемент определения со строковым литералом Hello в качестве первого параметра.|  
-|"@function('It's Cool!')"|Вызывает функцию-элемент определения со строковым литералом 'It's Cool!' в качестве первого параметра.|  
+|"@function('It''s Cool!')"|Вызывает функцию-элемент определения со строковым литералом 'It's Cool!' в качестве первого параметра.|  
 |"@function().prop1"|Возвращает значение свойства prop1 элемента `myfunction` определения.|  
 |"@function('Hello').prop1"|Вызывает функцию-элемент определения со строковым литералом Hello в качестве первого параметра и возвращает свойство prop1 объекта.|  
 |"@function(parameters('Hello'))"|Вычисляет параметр Hello и передает значение функции.|  

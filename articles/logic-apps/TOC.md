@@ -25,7 +25,8 @@
 #### [Защита соединителей с помощью Azure AD](custom-connector-azure-active-directory-authentication.md)
 #### [Описание интерфейсов API с помощью Postman](custom-connector-api-postman-collection.md)
 #### [Расширение OpenAPI для пользовательских соединителей](custom-connector-openapi-extensions.md)
-#### [Регистрация соединителя](logic-apps-custom-connector-register.md)
+#### [Создание и регистрация соединителя OpenAPI](logic-apps-custom-connector-register.md)
+#### [Создание и регистрация соединителя SOAP](logic-apps-soap-connector-create-register.md)
 #### [Сертификация соединителя](custom-connector-submit-certification.md)
 #### [Часто задаваемые вопросы о настраиваемых соединителях](custom-connector-faq.md)
 ### Разработка настраиваемых интерфейсов API
@@ -108,7 +109,7 @@
 # Справочные материалы
 ## [Язык определения рабочего процесса](logic-apps-workflow-definition-language.md)
 ## [Действия и триггеры рабочего процесса](logic-apps-workflow-actions-triggers.md)
-## [REST API](/rest/api/logic/)
+## [ИНТЕРФЕЙС REST API](/rest/api/logic/)
 ## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Соединители: подробные сведения
 ### [AS2](logic-apps-enterprise-integration-as2.md)

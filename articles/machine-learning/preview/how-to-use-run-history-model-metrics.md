@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 1a4f2d69907d220a8bbec5087ba431dc243c46d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 920155b2e70409fe1c7c3569326cc5a1fa01b222
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Как использовать компоненты "Журнал выполнения" и "Метрики модели" в Azure Machine Learning Workbench
 
@@ -30,7 +30,7 @@ Azure Machine Learning Workbench поддерживает выполнение �
 
 
 ## <a name="azure-ml-logging-api-overview"></a>Обзор API ведения журналов службы "Машинное обучение Azure"
-Доступ к API ведения журналов службы "Машинное обучение Azure" можно получить через модуль **azureml.logging** в Python (который устанавливается вместе с Azure ML Workbench). Импортировав этот модуль, можно использовать метод **get_azureml_logger** для создания экземпляра объекта **logger**.
+Доступ к API ведения журналов службы [Машинное обучение Azure](reference-logging-api.md) можно получить через модуль **azureml.logging** в Python (который устанавливается вместе с Azure ML Workbench). Импортировав этот модуль, можно использовать метод **get_azureml_logger** для создания экземпляра объекта **logger**.
 Затем можно использовать метод **log** объекта logger для хранения пар "ключ — значение", полученных при выполнении скриптов Python.
 Сейчас ведение журнала метрик модели типов скаляр, словарь, список, кадр данных поддерживается, как показано ниже.
 
@@ -42,16 +42,9 @@ logger = get_azureml_logger()
 # log scalar (any integer or floating point type is fine)
 logger.log("simple value", 7)
 
-# log dictionary
-logger.log("range", {"min":5, "max":7})
 
 # log list
 logger.log("all values", [5, 6, 7])
-
-# log dataframe
-import pandas
-df = pandas.DataFrame.from_records([(1,2),(3,4)],columns=["a","b"])
-logger.log("dataframe", df)
 ```
 Средство ведения журнала можно легко использовать в проектах Azure ML Workbench. Соответствующие сведения представлены в этой статье.
 

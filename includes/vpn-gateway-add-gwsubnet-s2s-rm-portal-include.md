@@ -2,8 +2,8 @@
 2. На странице виртуальной сети в разделе **Параметры** щелкните **Подсети**, чтобы открыть страницу "Подсети".
 3. На странице **Подсети** щелкните **+Подсеть шлюза** в верхней части страницы. Откроется страница **Добавление подсети**.
 
-  ![Добавить подсеть шлюза](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/add-gw-subnet.png "Add the gateway subnet")
+  ![Добавить подсеть шлюза](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/addgwsub.png "Add the gateway subnet")
 4. В поле **Имя** автоматически добавляется значение GatewaySubnet. Значение GatewaySubnet необходимо для Azure при идентификации подсети в качестве подсети шлюза. Замените автоматически заполненное значение **диапазона адресов** в соответствии с требованиями к конфигурации.
 
-  ![Добавление подсети шлюза](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnetip.png "Adding the gateway subnet")
+  ![Добавление подсети шлюза](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/addsub2.png "Adding the gateway subnet")
 5. Чтобы создать подсеть, в нижней части страницы щелкните **ОК**.

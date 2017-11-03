@@ -13,14 +13,14 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-design
+ms.workload: Active
 ms.date: 02/01/2017
 ms.author: srinia
-ms.openlocfilehash: 3d8e3a05ae067fc9b2d52e47c4c49759c940477e
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: eef48cfcbc7d6c241b5ece863df0be6ecad78ca7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Шаблоны разработки для мультитенантных приложений SaaS и база данных SQL Azure
 В этой статье рассматриваются требования и общие шаблоны архитектуры данных для мультитенантных приложений базы данных программного обеспечения как услуги (SaaS), работающих в облачной среде. Здесь также описываются факторы, которые необходимо учесть, и компромиссы различных шаблонов разработки. Пулы эластичных БД и инструменты эластичных баз данных в Базе данных SQL Azure помогают обеспечить соответствие конкретным требованиям без ущерба для других целей.

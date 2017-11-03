@@ -3,7 +3,7 @@ title: "Настройка системы диагностики для обла
 description: "Узнайте, как настраивать систему диагностики для отладки облачных служб и виртуальных машин Azure в Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 8e8cef539ef69d75642c43121202d3b713ddc8f7
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.author: mikejo
+ms.openlocfilehash: f00771d89749e7507d7f303f366fe63f537900ff
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Настройка системы диагностики для облачных служб и виртуальных машин Azure
 Чтобы устранить неполадки в облачных службах или виртуальных машинах Azure, можно использовать Visual Studio для быстрой настройки системы диагностики Azure. Система диагностики собирает системные данные и данные журналов, поступающие от виртуальных машин и их экземпляров, на которых работает ваша облачная служба. Данные диагностики переносятся в указанную вами учетную запись хранения. Дополнительные сведения о ведении журнала диагностики см. в статье [Включение ведения журнала диагностики для веб-приложений в службе приложений Azure](app-service/web-sites-enable-diagnostic-log.md).

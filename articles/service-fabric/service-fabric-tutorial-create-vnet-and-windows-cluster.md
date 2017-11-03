@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: d1eabaa1a2f1f8ba8102d567fee97c65d04ca5f7
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: b3bab57f5ca6627b4532284376a9809d5ab543f2
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Развертывание кластера Service Fabric на платформе Windows в виртуальной сети Azure
 Это руководство представляет первую часть цикла. Вы узнаете, как развернуть кластер Service Fabric на платформе Windows в подсети существующей виртуальной сети с помощью PowerShell. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения.  Создание кластера Linux с помощью Azure CLI описывается в разделе [Развертывание безопасного кластера Service Fabric на платформе Linux в виртуальной сети Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -114,7 +114,8 @@ $clustersize=5
 New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
 -ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
 -CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
--OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname
+-OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname `
+-TemplateFile .\cluster.json -ParameterFile .\cluster.parameters.json
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Подключение к безопасному кластеру

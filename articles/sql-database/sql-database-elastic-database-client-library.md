@@ -9,17 +9,17 @@ editor:
 ms.assetid: 1f11c52d-13c1-4994-b9b1-5b1ae2f9255f
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: 0128b333f04847ab646dcb0759fcef5f7e86ffd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Создание масштабируемых облачных баз данных
 Масштабирование баз данных можно легко выполнить с помощью средств и функций масштабирования для базы данных SQL Azure. В частности, для создания и управления масштабируемыми базами данных можно использовать **клиентскую библиотеку эластичных баз данных** . Она позволяет легко разрабатывать сегментированные приложения с сотнями — или даже тысячами — баз данных SQL Azure. [задания обработки эластичных БД](sql-database-elastic-jobs-powershell.md) , чтобы упростить управление этими базами данных.

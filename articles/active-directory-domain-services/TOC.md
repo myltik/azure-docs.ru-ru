@@ -1,6 +1,8 @@
 # Обзор
 ## [Что такое доменные службы Azure AD?](active-directory-ds-overview.md)
-## [Подходит ли это вам?](active-directory-ds-comparison.md)
+## Вам это подходит?
+### [Сравнение с Windows Server AD](active-directory-ds-comparison.md)
+### [Сравнение с присоединением Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
 ## [Функции](active-directory-ds-features.md)
 ## [Сценарии](active-directory-ds-scenarios.md)
 ## [Как работает синхронизация](active-directory-ds-synchronization.md)
@@ -36,6 +38,7 @@
 ### [Настройка поддержки синхронизации профилей для сервера SharePoint](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Настройка ограниченного делегирования Kerberos](active-directory-ds-enable-kcd.md)
 ### [Развертывание прокси-службы приложения Azure AD](active-directory-ds-deploy-azure-app-proxy.md)
+## [Удаление управляемого домена](active-directory-ds-disable-aadds.md)
 ## Устранение неполадок
 ### [Часто задаваемые вопросы](active-directory-ds-faqs.md)
 ### [Руководство по устранению неполадок](active-directory-ds-troubleshooting.md)
@@ -47,7 +50,7 @@
 # Сопутствующие материалы
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
-## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Многофакторная идентификация](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Ресурсы
 ## [Форум по Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory)

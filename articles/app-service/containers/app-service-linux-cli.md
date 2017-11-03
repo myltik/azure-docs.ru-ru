@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 28dfa62c3408c43d3919a9657339bb8d25f6dcdf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 903fbe376cb3d75eb5ddc1eed4838cd10f3c6a28
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Управление веб-приложением для контейнеров с помощью Azure CLI
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/25/2017
 Чтобы создать план службы приложений Linux, выполните следующую команду:
 
 ```azurecli-interactive
-az appservice plan create -n appname -g rgname --islinux -l "South Central US" --sku S1 --number-of-workers 1
+az appservice plan create -n appname -g rgname --is-linux -l "South Central US" --sku S1 --number-of-workers 1
 ```
 
 ## <a name="create-a-custom-docker-container-web-app"></a>Создание пользовательского веб-приложения контейнера Docker
@@ -103,8 +103,8 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Общие сведения о службе приложений на платформе Linux](app-service-linux-intro.md)
+* [Общие сведения о службе приложений на платформе Linux](app-service-linux-intro.md).
 * [Установите Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 * [Обзор Azure Cloud Shell (предварительная версия)](../../cloud-shell/overview.md)
 * [Настройка промежуточных сред в службе приложений Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Непрерывное развертывание с использованием платформы Azure "Веб-приложения для контейнеров"](app-service-linux-ci-cd.md)
+* [Непрерывное развертывание с использованием платформы Azure "Веб-приложения для контейнеров"](app-service-linux-ci-cd.md).

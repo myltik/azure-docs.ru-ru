@@ -1,6 +1,9 @@
 # [Обзор](active-directory-b2c-overview.md)
 
 # Начало работы
+## [Тестовый выпуск веб-приложения Azure AD B2C](active-directory-b2c-quickstarts-web-app.md)
+## [Тестовый выпуск классического приложения Azure AD B2C](active-directory-b2c-quickstarts-desktop-app.md)
+## [Тестовый выпуск одностраничного приложения Azure AD B2C](active-directory-b2c-quickstarts-spa.md)
 ## [Создание каталога Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Регистрация приложения](active-directory-b2c-app-registration.md)
 ## [Встроенные политики](active-directory-b2c-reference-policies.md)

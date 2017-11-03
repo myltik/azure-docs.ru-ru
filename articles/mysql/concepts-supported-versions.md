@@ -1,5 +1,19 @@
-7-- title: Поддерживаемые версии в службе "База данных Azure для MySQL" | Документация Майкрософт description: Описание поддерживаемых версий в службе "База данных Azure для MySQL".
-services: mysql author: v-chenyh ms.author: v-chenyh manager: jhubbard editor: jasonwhowell ms.service: mysql-database ms.topic: article ms.date: 05/10/2017
+---
+title: "Поддерживаемые версии в базе данных Azure для MySQL | Документация Майкрософт"
+description: "Описываются поддерживаемые версии в базе данных Azure для MySQL."
+services: mysql
+author: v-chenyh
+ms.author: v-chenyh
+manager: jhubbard
+editor: jasonwhowell
+ms.service: mysql-database
+ms.topic: article
+ms.date: 05/10/2017
+ms.openlocfilehash: da7a5b48a68626f06aef23729f55ba52029779d7
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Поддерживаемые версии сервера базы данных Azure для MySQL
 База данных Azure для MySQL была разработана на базе выпуска MySQL Community Edition [MySQL Community Edition](https://www.mysql.com/products/community/) с использованием подсистемы InnoDB.  В настоящее время база данных Azure для MySQL поддерживает перечисленные ниже версии.

@@ -11,11 +11,11 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/15/2017
-ms.openlocfilehash: 342e7dfd35ce890cda4a1d98613592353a63d7e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью Python
 Это краткое руководство демонстрирует, как использовать [Python](https://python.org) для подключения к базе данных Azure для PostgreSQL. Здесь также используются инструкции по использованию инструкций SQL для вставки, обновления и удаления данных в базе данных с платформ Windows, Mac OS и Ubuntu Linux. В этой статье предполагается, что у вас уже есть опыт разработки на Python и вы только начали работу с базой данных Azure для PostgreSQL.
@@ -61,8 +61,8 @@ ms.lasthandoff: 10/11/2017
 
 - С помощью предпочитаемого текстового редактора создайте файл.
 - Скопируйте и вставьте пример кода, показанный ниже, в текстовый файл. Замените значения параметров **Host**, **dbname**, **User** и **Password** значениями, указанными при создании сервера и базы данных.
-- Сохраните PY-файл (например, postgres.py) в папку проекта. При сохранении файла в ОС Windows убедитесь, что выбрали кодировку UTF-8. 
-- Запустите командную строку или оболочку Bash и затем перейдите в каталог вашей папки проекта, например `cd postgres`.
+- Сохраните PY-файл (например, postgres.py) в папку проекта. При сохранении файла в Windows убедитесь, что выбрали кодировку UTF-8. 
+- Запустите командную строку, терминал или оболочку Bash и затем перейдите в каталог вашей папки проекта, например `cd postgres`.
 -  Чтобы запустить код, введите команду Python, за которой следует имя файла, например `Python postgres.py`
 
 > [!NOTE]

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/22/2017
+ms.date: 3/23/2017
 ms.author: elbutter
-ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Управление вычислительными ресурсами в хранилище данных SQL Azure (обзор)
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 Архитектура хранилища данных SQL разделяет хранилище и вычислительные ресурсы, что позволяет масштабировать их независимо друг от друга. В результате можно масштабировать вычислительные ресурсы в соответствии с требованиями к производительности независимо от объема данных. При такой архитектуре [выставление счетов][billed] за ресурсы вычисления и хранения осуществляется отдельно. 
 
-В этом обзоре рассматриваются возможности масштабирования для хранилища данных SQL и сведения о том, как использовать возможности приостановления, возобновления и масштабирования хранилища данных SQL. Сведения о том, как связаны единицы DWU и производительность, см. в разделе [Прогнозируемая и масштабируемая производительность и единицы использования хранилища данных][data warehouse units (DWUs)]. 
+В этом обзоре рассматриваются возможности масштабирования для хранилища данных SQL и сведения о том, как использовать возможности приостановления, возобновления и масштабирования хранилища данных SQL. 
 
 ## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Как работают операции управления вычислениями в хранилище данных SQL
 Архитектура хранилища данных SQL состоит из управляющего узла, вычислительных узлов и уровня хранилища, разделенного между 60 распределениями. 
@@ -86,10 +86,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="scale-compute"></a>Масштабирование вычислительных ресурсов
 
-Производительность в хранилище данных SQL измеряется в [единицах использования хранилища данных (DWU)][data warehouse units (DWUs)], которые являются абстрактной мерой вычислительных ресурсов, таких как ЦП, память и пропускная способность ввода-вывода. Вы можете масштабировать производительность системы с помощью различных средств, таких как портал, T-SQL и REST API. 
+Производительность в хранилище данных SQL измеряется в единицах использования хранилища данных (DWU), которые являются абстрактной мерой вычислительных ресурсов, таких как ЦП, память и пропускная способность ввода-вывода. Вы можете масштабировать производительность системы с помощью различных средств, таких как портал, T-SQL и REST API. 
 
 ### <a name="how-do-i-scale-compute"></a>Как масштабировать вычислительные ресурсы
-Масштабирование вычислительных ресурсов в хранилище данных SQL осуществляется путем изменения параметра DWU. При добавлении дополнительных DWU для некоторых операций производительность будет повышаться [линейно][linearly].  Мы разработали предложения DWU, благодаря которым ваша производительность заметно изменится при уменьшении или увеличении масштаба системы. 
+Масштабирование вычислительных ресурсов в хранилище данных SQL осуществляется путем изменения параметра DWU. При добавлении дополнительных DWU для некоторых операций производительность будет повышаться линейно.  Мы разработали предложения DWU, благодаря которым ваша производительность заметно изменится при уменьшении или увеличении масштаба системы. 
 
 Для настройки DWU можно использовать любые из следующих отдельных методов:
 
@@ -181,9 +181,7 @@ ms.lasthandoff: 10/11/2017
 <!--Image reference-->
 
 <!--Article references-->
-[data warehouse units (DWUs)]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
-[billed]: https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/
-[linearly]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
+[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
 [Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
 [Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk

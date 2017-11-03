@@ -12,14 +12,14 @@ ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 07/12/2016
 ms.author: sstein
-ms.openlocfilehash: 22cff47444306e599325ba3035d83a0266d69c72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8622bddc809c9d95f7acf359ff708d5ab31cf620
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Как повысить производительность приложений базы данных SQL с помощью пакетной обработки
 Пакетная обработка операций базы данных SQL значительно повышает производительность и масштабируемость приложений. В рамках объяснений преимуществ в первой части этой статьи рассматриваются некоторые примеры результатов проверки, в которых сравниваются последовательные и пакетные запросы к базе данных SQL. В оставшейся части статьи описаны методы, сценарии и рекомендации, позволяющие успешно использовать пакетную обработку в приложениях Azure.

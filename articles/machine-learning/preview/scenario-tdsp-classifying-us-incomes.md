@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: c0fbd9b3e6f9f9f4f7a5d3e6bda18ce1312650e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Проект по классификации доходов с использованием командного процесса обработки и анализа данных (TDSP)
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 10/11/2017
 * [Часто задаваемые вопросы: как приступить к работе](frequently-asked-questions.md).
 * [Обзор](overview-what-is-azure-ml.md)
 * [Установка](quickstart-installation.md)
-* [Выполнение](experiment-execution-configuration.md).
+* [Выполнение](experimentation-service-configuration.md).
 * [Использование TDSP](https://aka.ms/how-to-use-tdsp-in-aml).
 * [Чтение и запись файлов](how-to-read-write-files.md).
 * [Использование Git со службой "Машинное обучение Microsoft Azure"](using-git-ml-project.md).
@@ -108,7 +108,7 @@ ms.lasthandoff: 10/11/2017
 <img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
 
 ### <a name="execution"></a>Выполнение
-В этом примере мы выполняем код в **локальной вычислительной среде**. Дополнительные сведения о [параметрах выполнения](experiment-execution-configuration.md) вы найдете в документации по службе "Машинное обучение Microsoft Azure".
+В этом примере мы выполняем код в **локальной вычислительной среде**. Дополнительные сведения о [параметрах выполнения](experimentation-service-configuration.md) вы найдете в документации по службе "Машинное обучение Microsoft Azure".
 
 Выполнить скрипт Python в локальной среде вычислений Python очень легко:
 

@@ -15,24 +15,25 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 778fe746f1e8dff1d1c80b6ba7d8f10cc2bfacee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Развертывание в службе приложений Azure с помощью подключаемого модуля Jenkins 
+
 Для развертывания веб-приложения Java в Azure можно использовать Azure CLI в [конвейере Jenkins](/azure/jenkins/execute-cli-jenkins-pipeline) или [подключаемый модуль Jenkins службы приложений Azure](https://plugins.jenkins.io/azure-app-service). Подключаемый модуль Jenkins версии 1.0 поддерживает непрерывное развертывание с помощью функции "Веб-приложения" службы приложений Azure, используя следующие инструменты:
 * Git и FTP.
 * Docker для веб-приложений в Linux.
 
 Из этого руководства вы узнаете, как выполнять такие задачи:
 > [!div class="checklist"]
-> * Настройка Jenkins для развертывания веб-приложений по протоколу FTP и через Git. 
-> * Настройка Jenkins для развертывания веб-приложений для контейнеров. 
-
+> * Настройка Jenkins для развертывания веб-приложений по протоколу FTP и через Git.
+> * Настройка Jenkins для развертывания веб-приложений для контейнеров.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Создание и настройка экземпляра Jenkins
+
 Если у вас нет главного экземпляра Jenkins, воспользуйтесь [шаблоном решений](install-jenkins-solution-template.md), который содержит комплект разработчиков Java (JDK) версии 8 и следующие необходимые подключаемые модули Jenkins:
 
 * [подключаемый модуль Jenkins клиента Git](https://plugins.jenkins.io/git-client) версии 2.4.6; 
@@ -128,7 +129,7 @@ sudo apt-get install -y maven
 6. Измените значение **пути к сценарию** на **Jenkinsfile_ftp_plugin**.
 7. Нажмите кнопку **Сохранить** (Сохранить) и запустите задание.
 
-## <a name="configure-jenkins-to-deploy-web-apps-for-containers"></a>Настройка Jenkins для развертывания веб-приложений для контейнеров
+## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Настройка Jenkins для развертывания веб-приложений для контейнеров
 
 Веб-приложения в Linux поддерживают развертывание с помощью Docker. Чтобы развернуть веб-приложение с помощью Docker, необходимо предоставить файл Dockerfile, который упаковывает веб-приложение со службой среды выполнения в образ Docker. Затем подключаемый модуль Jenkins создаст образ, отправит его в реестр Docker и развернет в веб-приложении.
 
@@ -168,7 +169,7 @@ sudo apt-get install -y maven
 12. Кроме того, можно выбрать имя **слота**, отличное от **рабочего**. Этот способ аналогичный способу передачи файла.
 13. Сохраните и создайте проект. После этого образ контейнера помещается в реестр, а веб-приложение развертывается.
 
-### <a name="deploy-web-apps-for-containers-by-using-jenkins-pipeline"></a>Развертывание веб-приложения для контейнеров с помощью конвейера Jenkins
+### <a name="deploy-web-app-for-containers-by-using-jenkins-pipeline"></a>Развертывание веб-приложения для контейнеров с помощью конвейера Jenkins
 
 1. В интерфейсе GitHub откройте файл **Jenkinsfile_container_plugin**. Чтобы изменить файл, щелкните значок карандаша. Обновите определения **resourceGroup** и **webAppName** для веб-приложения в строках 11 и 12 соответственно:
     ```java
@@ -176,15 +177,15 @@ sudo apt-get install -y maven
     def webAppName = '<myAppName>'
     ```
 
-2. Измените строку 13 на сервер контейнера реестра:   
+2. Измените строку 13 на сервер контейнера реестра:
     ```java
     def registryServer = '<registryURL>'
-    ```    
+    ```
 
-3. Измените строку 16 для использования идентификатора учетных данных в вашем экземпляре Jenkins:  
+3. Измените строку 16 для использования идентификатора учетных данных в вашем экземпляре Jenkins:
     ```java
     azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
-    ```    
+    ```
 
 ### <a name="create-a-jenkins-pipeline"></a>Создание конвейера Jenkins    
 
@@ -234,4 +235,4 @@ sudo apt-get install -y maven
 
 > [!div class="checklist"]
 > * Настройка Jenkins для развертывания в службе приложений Azure по протоколу FTP. 
-> * Настройка Jenkins для развертывания веб-приложений для контейнеров. 
+> * Настаивать Jenkins для развертывания веб-приложений для контейнеров. 

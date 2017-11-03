@@ -12,49 +12,26 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/19/2017
 ms.author: sutalasi
-ms.openlocfilehash: 5a6e00877b0a2b139d5322f610c1901ad76a710f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c978c2e31e775f56824d765491f6d7b73648b8ae
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-powershell-resource-manager"></a>Репликация виртуальных машин Hyper-V из облаков VMM на вторичный сайт VMM с помощью PowerShell (Resource Manager)
-> [!div class="op_single_selector"]
-> * [Портал Azure](site-recovery-vmm-to-vmm.md)
-> * [Классический портал](site-recovery-vmm-to-vmm-classic.md)
-> * [PowerShell — Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
->
->
 
-Вас приветствует служба Azure Site Recovery! Эта статья поможет вам выполнить репликацию локальных виртуальных машин Hyper-V, управляемых в облаках System Center Virtual Machine Manager (VMM), на дополнительный сайт.
+В этой статье показано, как использовать PowerShell для автоматизации распространенных задач при настройке Azure Site Recovery для репликации виртуальных машин Hyper-V из облаков VMM System Center в облака VMM System Center на вторичном сайте.
 
-В этой статье показано, как использовать PowerShell для автоматизации распространенных задач, которые необходимо выполнять при настройке Azure Site Recovery для репликации виртуальных машин Hyper-V из облаков VMM System Center в облака VMM System Center на вторичном сайте.
 
-В этой статье рассматриваются необходимые условия для реализации сценария, а также описываются следующие действия.
-
-* Настройка хранилища служб восстановления.
-* Установка на исходном и целевом серверах VMM поставщика Azure Site Recovery.
-* Регистрация серверов VMM в хранилище.
-* Настройка политики репликации для облака VMM. Параметры репликации в политике будут применены ко всем защищенным виртуальным машинам.
-* Включение защиты виртуальных машин.
-* Тестирование отработки отказа виртуальных машин по отдельности или по плану восстановления, позволяющее убедиться в том, что все работает ожидаемым образом.
-* Выполнение плановой или внеплановой отработки отказа виртуальных машин по отдельности или по плану восстановления, позволяющее убедиться в том, что все работает ожидаемым образом.
-
-Если у вас возникают проблемы, опубликуйте свои вопросы на [форуме по Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-> [!NOTE]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Azure Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md) . Кроме того, Azure предоставляет два портала — классический портал Azure, поддерживающий классическую модель развертывания, и портал Azure, поддерживающий обе модели развертывания. В этой статье описывается модель развертывания с использованием менеджера ресурсов.
->
->
 
 ## <a name="on-premises-prerequisites"></a>Предварительные требования для локальной среды
 Вот что потребуется на первичных и вторичных локальных сайтах для развертывания этого сценария.
 
 | **Предварительные требования** | **Дополнительные сведения** |
 | --- | --- |
-| **VMM** |Рекомендуется развернуть по серверу VMM на первичном и вторичном сайтах.<br/><br/> Вы можете также [выполнять репликацию между облаками на отдельном сервере VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). Для этого вам потребуется, чтобы на сервере VMM было настроено по крайней мере два облака.<br/><br/> На серверах VMM должен выполняться как минимум System Center 2012 с пакетом обновления 1 (SP1) с последними обновлениями.<br/><br/> Для каждого сервера VMM должно быть настроено одно или несколько облаков, и для каждого облака должен быть задан профиль загрузки Hyper-V. <br/><br/>Облака должны содержать одну или несколько групп узлов VMM.<br/><br/>Дополнительные сведения о настройке облаков VMM см. в разделах [Настройка структуры облака VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) и [Пошаговое руководство. Создание частных облаков с помощью VMM в System Center 2012 с пакетом обновления 1](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).<br/><br/> Серверы VMM должны иметь доступ к Интернету. |
+| **VMM** |Рекомендуется развернуть по серверу VMM на первичном и вторичном сайтах.<br/><br/> Вы можете также выполнять репликацию между облаками на отдельном сервере VMM. Для этого вам потребуется, чтобы на сервере VMM было настроено по крайней мере два облака.<br/><br/> На серверах VMM должен выполняться как минимум System Center 2012 с пакетом обновления 1 (SP1) с последними обновлениями.<br/><br/> Для каждого сервера VMM должно быть настроено одно или несколько облаков, и для каждого облака должен быть задан профиль загрузки Hyper-V. <br/><br/>Облака должны содержать одну или несколько групп узлов VMM. Серверы VMM должны иметь доступ к Интернету. |
 | **Hyper-V** |Серверы Hyper-V должны работать под управлением Windows Server 2012 (или более поздних версий) с ролью Hyper-V и установленными последними обновлениями.<br/><br/> Сервер Hyper-V должен содержать одну или несколько виртуальных машин.<br/><br/>  Серверы узлов Hyper-V должны быть размещены в первичном и вторичном облаках VMM.<br/><br/> Если вы используете Hyper-V в кластере на платформе Windows Server 2012 R2, то необходимо установить [обновление 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Если вы используете Hyper-V в кластере на платформе Windows Server 2012, то учтите, что брокер кластера не создается автоматически при использовании кластера на основе статических IP-адресов. Вам потребуется настроить брокер кластера вручную. [Подробная информация](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
 | **Поставщик** |Во время развертывания службы Site Recovery установите на серверы VMM поставщик Azure Site Recovery. Поставщик обменивается данными со службой Site Recovery через порт HTTPS 443 для управления репликацией. Репликация данных осуществляется между сервером-источником и сервером-приемником Hyper-V через локальную сеть или VPN-подключение.<br/><br/> Поставщику, запущенному на сервере VMM, нужен доступ к следующим URL-адресам: *.hypervrecoverymanager.windowsazure.com, *.accesscontrol.windows.net, *.backup.windowsazure.com, *.blob.core.windows.net, *.store.core.windows.net.<br/><br/> Кроме того, разрешите в брандмауэре обмен данными между серверами VMM и [диапазонами IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) , а также разрешите использовать протокол HTTPS (443). |
 
@@ -74,7 +51,6 @@ ms.lasthandoff: 10/11/2017
 * [Настройка логических сетей в VMM](http://go.microsoft.com/fwlink/p/?LinkId=386307)
 * [Настройка сетей виртуальных машин и шлюзов в VMM](http://go.microsoft.com/fwlink/p/?LinkId=386308)
 
-[Узнайте больше](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) о принципе действия сетевого сопоставления.
 
 ### <a name="powershell-prerequisites"></a>Необходимые компоненты PowerShell
 Перед началом работы убедитесь, что среда Azure PowerShell готова к работе. Если вы уже используете PowerShell, необходимо выполнить обновление до версии 0.8.10 или более поздней версии. Дополнительные сведения о настройке PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). После установки и настройки PowerShell все доступные командлеты для службы можно просмотреть [здесь](/powershell/azure/overview).
@@ -100,7 +76,7 @@ ms.lasthandoff: 10/11/2017
 1. Если у вас еще нет группы ресурсов Azure Resource Manager, создайте ее.
 
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
-2. Создайте новое хранилище служб восстановления и сохраните созданный объект хранилища ASR в переменной, которая будет использоваться далее. Объект хранилища ASR также можно получить после создания с помощью командлета Get-AzureRMRecoveryServicesVault:-
+2. Создайте хранилище служб восстановления и сохраните объект хранилища служб восстановления в переменной, которая будет использоваться далее. Объект хранилища также можно получить после создания с помощью командлета Get-AzureRMRecoveryServicesVault:-
 
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
@@ -155,7 +131,7 @@ ms.lasthandoff: 10/11/2017
         $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
 
     > [!NOTE]
-    > Облако VMM может содержать узлы Hyper-V под управлением разных версий Windows Server (как уже упоминалось в предварительных требованиях к Hyper-V), но политика репликации зависит от версии ОС. Если вы используете узлы с разными версиями операционных систем, то создайте отдельные политики репликации для каждого типа версии ОС. Пример. Если у вас есть пять узлов с Windows Server 2012 и три с Windows Server 2012 R2, то создайте две политики репликации — по одной для каждого типа версии ОС.
+    > Облако VMM может содержать узлы Hyper-V под управлением разных версий Windows Server (как уже упоминалось в предварительных требованиях к Hyper-V), но политика репликации зависит от версии ОС. Если вы используете узлы с разными версиями операционных систем, то создайте отдельные политики репликации для каждого типа версии ОС. Например, если у вас есть пять узлов, работающих с Windows Server 2012, и три — с Windows Server 2012 R2, то создайте две политики репликации — по одной для каждого типа версии ОС.
 
 1. Получите первичный контейнер защиты (основного облака VMM) и контейнер защиты для восстановления (облако VMM восстановления), выполнив следующие команды.
 

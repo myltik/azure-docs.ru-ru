@@ -9,17 +9,18 @@ editor:
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-ms.openlocfilehash: 1943e87ffd991d099ab655af5a7d16d7f1608d22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: douglasl
+ms.openlocfilehash: 64b95142eb5b7086b070585a359bf81e7397c3e5
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Приступая к работе с синхронизацией данных SQL Azure (предварительная версия)
 В этом руководстве вы узнаете, как для настроить синхронизацию данных SQL Azure, создав гибридную группу синхронизации, содержащую экземпляры базы данных SQL Azure и SQL Server. Новая группа синхронизации полностью настраивается и синхронизируется по заданному расписанию.
@@ -31,9 +32,6 @@ ms.lasthandoff: 10/11/2017
 Полные примеры PowerShell, которые демонстрируют, как настроить синхронизацию данных SQL, приведены в следующих статьях:
 -   [Использование PowerShell для синхронизации данных между несколькими базами данных SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
 -   [Использование PowerShell для синхронизации данных между базой данных SQL Azure и локальной базой данных SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
-
-> [!NOTE]
-> Полная техническая документация по синхронизации данных SQL Azure, которая ранее располагалась на сайте MSDN, доступна в виде PDF-файла. Его можно скачать [здесь](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
 ## <a name="step-1---create-sync-group"></a>Шаг 1. Создание группы синхронизации
 
@@ -200,7 +198,6 @@ ms.lasthandoff: 10/11/2017
 
 Дополнительные сведения о базе данных SQL и синхронизации данных SQL:
 
--   [Загрузка технической документации по синхронизации данных SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 -   [Документация по REST API синхронизации данных SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 -   [Обзор Базы данных SQL](sql-database-technical-overview.md)
 -   [Управление жизненным циклом базы данных](https://msdn.microsoft.com/library/jj907294.aspx)

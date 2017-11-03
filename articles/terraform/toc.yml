@@ -19,6 +19,8 @@
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Подготовка масштабируемого набора виртуальных машин с инфраструктурой
       href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Подготовка масштабируемого набора виртуальных машин из пользовательского образа Packer
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Основные понятия
   items:
     - name: Интеграция Cloud Shell

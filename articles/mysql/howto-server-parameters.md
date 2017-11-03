@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: a18f163cbea0dac0d8272eaa24d0d2e03542c6ca
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 06c7f9f6bd49ebfaf03b04cb6e30b963593bfb35
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Как настроить параметры сервера в базе данных Azure для MySQL с помощью портала Azure
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/12/2017
 | Базовый, 100  | 2560 | 100 | 
 | Стандартный, 100 | 2560 | 200 | 
 | Стандартный, 200 | 5120 | 400 | 
-| Стандартный, 400 | 10240 | 400 | 
+| Стандартный, 400 | 10240 | 800 | 
 | Стандартный, 800 | 20480 | 1600 |
 
 Другие значения по умолчанию параметров сервера для версии [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) и [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).

@@ -14,14 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 04/25/2017
+ms.date: 10/26/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01057dd7832cab6121a22e3bb7d0dc4cd7e9b35d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eea55735d0e17de4fe543847d0d521b0e8c0c3f7
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Скачивание или просмотр счета на оплату и данных о ежедневном использовании в Azure
 Счет можно скачать на [портале Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) или получить по электронной почте. Чтобы скачать данные о ежедневном использовании, перейдите в [Центр управления учетной записью Azure](https://account.azure.com/Subscriptions). Получать сведения о выставлении счетов и использовании разрешено только определенным ролям, например администратору учетной записи. Дополнительные сведения о доступе к сведениям о выставлении счетов см. в статье [Управление доступом для выставления счетов Azure с помощью ролей](billing-manage-access.md).

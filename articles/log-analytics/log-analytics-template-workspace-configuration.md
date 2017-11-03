@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 10/16/2017
 ms.author: richrund
-ms.openlocfilehash: 37ecfe2762bd239a0abf6015ef6ffd6a5132bb7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Управление Log Analytics с помощью шаблонов Azure Resource Manager
 [Шаблоны Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) можно использовать, чтобы создавать и настраивать рабочие области Log Analytics. Примеры задач, которые можно выполнять с помощью шаблонов.
@@ -36,6 +36,17 @@ ms.lasthandoff: 10/11/2017
 * Настройка Log Analytics для индексирования данных, собранных системой диагностики Azure
 
 Эта статья содержит примеры кода, иллюстрирующие некоторые конфигурации, которые можно выполнить с помощью шаблонов.
+
+## <a name="api-versions"></a>Версии API
+Пример в этой статье приведен для [обновленной рабочей области Log Analytics](log-analytics-log-search-upgrade.md).  Чтобы использовать устаревшую рабочую область, потребуется изменить синтаксис запросов в соответствии с прежними версиями языка и изменить версию API для каждого ресурса.  В следующей таблице перечислены версии API для ресурсов, используемых в этом примере.
+
+| Ресурс | Тип ресурса | Устаревшая версия API | Обновленная версия API |
+|:---|:---|:---|:---|
+| Рабочая область   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
+| Поиск      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| Источник данных | datasources   | 2015-11-01-preview | 2015-11-01-preview |
+| Решение    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Создание и настройка рабочей области Log Analytics
 Этот пример шаблона иллюстрирует следующие задачи.
@@ -122,7 +133,7 @@ ms.lasthandoff: 10/11/2017
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -134,7 +145,7 @@ ms.lasthandoff: 10/11/2017
       },
       "resources": [
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2017-03-15-preview",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -144,7 +155,7 @@ ms.lasthandoff: 10/11/2017
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Type:Event Source=ServiceFabricNodeBootstrapAgent | dedup Computer | measure count () by Computer",
+            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },

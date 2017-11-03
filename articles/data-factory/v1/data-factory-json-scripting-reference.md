@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 2424aa2cd5b6c7935338a593fa25a6a5772f4e62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f07c4ddd59942889e9fe9c65343da2df59b64a1b
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Справочник по написанию скриптов JSON фабрики данных Azure
 Эта статья содержит схемы JSON и примеры для определения сущностей фабрики данных Azure (конвейер, действие, набор данных и связанная служба).  
@@ -82,9 +82,9 @@ ms.lasthandoff: 10/11/2017
 | Тег | Описание | Обязательно |
 | --- | --- | --- |
 | name |Имя действия. Укажите имя, представляющее операцию, для выполнения которой настроено действие.<br/><ul><li>Максимальное количество знаков: 260.</li><li>Должно начинаться с буквы, цифры или символа подчеркивания (_).</li><li>Следующие знаки не допускаются: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\".</li></ul> |Да |
-| Описание |Текст, описывающий для чего используется действие |Да |
+| Описание |Текст, описывающий для чего используется действие |Нет |
 | type |Задает тип действия. Разные типы действий описаны в разделах [ХРАНИЛИЩА ДАННЫХ](#data-stores) и [Действия преобразования данных](#data-transformation-activities). |Да |
-| inputs |Входные таблицы, используемые действием:<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Да |
+| inputs |Входные таблицы, используемые действием:<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |"Нет" для действий HDInsightStreaming и SqlServerStoredProcedure <br/> <br/> "Да" — для всех остальных |
 | outputs |Выходные таблицы, используемые действием.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Да |
 | linkedServiceName (имя связанной службы) |Имя связанной службы, используемой действием. <br/><br/>Для действия может потребоваться указать службу, связанную с обязательной вычислительной средой. |Да, для действий HDInsight, Машинного обучения Azure и действия хранимой процедуры. <br/><br/>Нет — для всех остальных |
 | typeProperties |Свойства в разделе typeProperties зависят от типа действия. |Нет |

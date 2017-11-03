@@ -108,5 +108,6 @@
 #### [Учетные данные сертификата](active-directory-certificate-credentials.md)
 ### [Области действия](active-directory-v2-scopes.md)
 # Ресурсы
+## [Получение справки](active-directory-develop-help-support.md)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

@@ -13,25 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/03/2017
+ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: dc268bce48a42607d4404758e744a006dfbd6c19
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Использование пользовательского образа Docker для платформы "Веб-приложения для контейнеров".
 
-Платформа [Веб-приложения для контейнеров](app-service-linux-intro.md) предоставляет встроенные образы Docker на базе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Платформа "Веб-приложения для контейнеров" использует технологию контейнеров Docker для размещения встроенных образов и пользовательских образов в качестве платформы как услуги. В этом руководстве описано, как создать пользовательский образ Docker для веб-приложений для контейнеров, если нет встроенного образа для нужного языка или в случае, если для приложения требуется определенная конфигурация, которую не предоставляет встроенный образ.
+Платформа [Веб-приложения для контейнеров](app-service-linux-intro.md) предоставляет встроенные образы Docker на базе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Платформа "Веб-приложения для контейнеров" использует технологию контейнеров Docker для размещения встроенных и пользовательских образов в качестве платформы как услуги. Из этого руководства вы узнаете, как создать пользовательский образ Docker и развернуть его на платформе "Веб-приложения для контейнеров". Этот шаблон используется, если встроенные образы не содержат нужный язык или для приложения требуется определенная конфигурация, которую не предоставляют встроенные образы.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 Для работы с этим руководством необходимы указанные ниже компоненты.
 
 * [Git.](https://git-scm.com/downloads)
-* Активная [подписка Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Активная [подписка Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * [Docker](https://docs.docker.com/get-started/#setup)
 * [Учетная запись Docker Hub](https://docs.docker.com/docker-id/).
 
@@ -42,51 +42,38 @@ ms.lasthandoff: 10/25/2017
 В окне терминала выполните следующую команду, чтобы клонировать репозиторий с примером приложения на локальный компьютер, а затем перейдите в каталог, в котором содержится образец кода.
 
 ```bash
-git clone https://github.com/Azure-Samples/use-custom-docker-image.git
-cd use-custom-docker-image
+git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --config core.autocrlf=input
+cd docker-django-webapp-linux
 ```
-
-[!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="build-the-image-from-the-docker-file"></a>Создание образа на основе файла Docker
 
-Следующий файл Docker содержит среду Python, необходимую для запуска приложения. Образ также настраивает сервер [SSH](https://www.ssh.com/ssh/protocol/) для обеспечения безопасного взаимодействия между контейнером и узлом.
+В репозитории Git просмотрите файл _Dockerfile_. Этот файл описывает среду Python, необходимую для запуска приложения. Образ также настраивает сервер [SSH](https://www.ssh.com/ssh/protocol/) для обеспечения безопасного взаимодействия между контейнером и узлом.
 
 ```docker
-# Use an official Python runtime as a parent image
-FROM python
+FROM python:3.4
 
-# Set the working directory to /app
-WORKDIR /app
+RUN mkdir /code
+WORKDIR /code
+ADD requirements.txt /code/
+RUN pip install -r requirements.txt
+ADD . /code/
 
-# Copy the current directory contents into the container at /app
-ADD . /app
-
-# Run python's package manager and install the flask package
-RUN pip install flask
-
-# Configure ports
-EXPOSE 2222 80
-
-# Run apt-get, to install the SSH server
-RUN apt-get update \ 
+# ssh
+ENV SSH_PASSWD "root:Docker!"
+RUN apt-get update \
+        && apt-get install -y --no-install-recommends dialog \
+        && apt-get update \
     && apt-get install -y --no-install-recommends openssh-server \
-    && echo "root:Docker!" | chpasswd
+    && echo "$SSH_PASSWD" | chpasswd 
 
-#Copy the sshd_config file to its new location
 COPY sshd_config /etc/ssh/
-
-# Start the SSH service
-RUN service ssh start
-
-# Copy init_container.sh to the /bin directory
-COPY init_container.sh /bin/
+COPY init.sh /usr/local/bin/
     
-# Run the chmod command to change permissions on above file in the /bin directory
-RUN chmod 755 /bin/init_container.sh 
-
-# run commands in init_container.sh
-CMD ["/bin/init_container.sh"]
+RUN chmod u+x /usr/local/bin/init.sh
+EXPOSE 8000 2222
+#CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
+ENTRYPOINT ["init.sh"]
 ```
 
 Чтобы создать образ Docker, выполните команду `docker build`, указав имя `mydockerimage` и тег `v1.0.0`. Замените `<docker-id>` идентификатором вашей учетной записи Docker Hub.
@@ -100,60 +87,37 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```bash
 # The output from the commands in this article has been shortened for brevity.
 
-Sending build context to Docker daemon  23.04kB
-Step 1/13 : FROM python
- ---> 968120d8cbe8
-Step 2/13 : WORKDIR /app
+Sending build context to Docker daemon  5.558MB
+Step 1/13 : FROM python:3.4
+ ---> 9ff45ddb54e9
+Step 2/13 : RUN mkdir /code
  ---> Using cache
- ---> dd6fdca5aa65
-Step 3/13 : ADD . /app
- ---> e05c8f4beeae
-Get:1 http://security.debian.org jessie/updates InRelease [63.1 kB]
-Ign http://deb.debian.org jessie InRelease
-Get:2 http://deb.debian.org jessie-updates InRelease [145 kB]
-Get:3 http://deb.debian.org jessie Release.gpg [2373 B]
-Fetched 9988 kB in 7s (1266 kB/s)
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following extra packages will be installed:
-  init-system-helpers libwrap0 openssh-sftp-server
-Suggested packages:
-  ssh-askpass rssh molly-guard ufw monkeysphere
-Recommended packages:
-  tcpd xauth ncurses-term
-The following NEW packages will be installed:
-  init-system-helpers libwrap0 openssh-server openssh-sftp-server
-0 upgraded, 4 newly installed, 0 to remove and 3 not upgraded.
-Need to get 442 kB of archives.
-After this operation, 1138 kB of additional disk space will be used.
-Get:1 http://deb.debian.org/debian/ jessie/main libwrap0 amd64 7.6.q-25 [58.5 kB]
-Creating SSH2 RSA key; this may take some time ...
-2048 f0:e9:fb:69:de:62:a4:5c:a3:7c:b3:41:e9:2e:96:a3 /etc/ssh/ssh_host_rsa_key.pub (RSA)
-Creating SSH2 DSA key; this may take some time ...
-1024 4a:5e:89:bd:aa:2d:71:bb:0e:3a:32:94:fb:c0:b1:4d /etc/ssh/ssh_host_dsa_key.pub (DSA)
-Processing triggers for systemd (215-17+deb8u7) ...
- ---> 5b416a7dcdca
-Removing intermediate container 283b3b4623d7
-Step 13/13 : CMD python app.py
- ---> Running in 1c776e5e0772
- ---> 1bfc1bbc968d
-Removing intermediate container 1c776e5e0772
-Successfully built 1bfc1bbc968d
-Successfully tagged <docker-id>/myDockerImage:v1.0.0
+ ---> f3f3ac01db0a
+Step 3/13 : WORKDIR /code
+ ---> Using cache
+ ---> 38b32f15b442
+.
+.
+.
+Step 13/13 : ENTRYPOINT init.sh
+ ---> Running in 5904e4c70043
+ ---> e7cf08275692
+Removing intermediate container 5904e4c70043
+Successfully built e7cf08275692
+Successfully tagged cephalin/mydockerimage:v1.0.0
 ```
 
-Проверьте, работает ли сборка, запустив контейнер Docker. Выполните команду [​​docker run](https://docs.docker.com/engine/reference/commandline/run/), указав имя и тег образа. Необходимо также указать порт с помощью аргумента `-p`.
+Проверьте, работает ли сборка, запустив контейнер Docker. Выполните команду [​​docker run](https://docs.docker.com/engine/reference/commandline/run/), указав имя и тег образа. Обязательно укажите порт с помощью аргумента `-p`.
 
 ```bash
-docker run -p 80:2222 <docker-ID>/mydockerimage:v1.0.0
+docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Убедитесь, что веб-приложение и контейнер функционируют правильно, открыв веб-приложение локально.
+Убедитесь, что веб-приложение и контейнер функционируют правильно, перейдя по адресу `http://localhost:2222`.
 
 ![Локальное тестирование веб-приложения](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
-## <a name="push-a-docker-image-to-docker-hub"></a>Отправка образа Docker в центр Docker Hub
+## <a name="push-the-docker-image-to-docker-hub"></a>Отправка образа Docker в Docker Hub
 
 Реестр — это приложение, которое содержит образы и предоставляет образ служб и службы контейнеров. Чтобы сделать образ общедоступным, необходимо передать его в реестр. 
 
@@ -170,7 +134,7 @@ Docker Hub — это реестр образов Docker, который поз
 <docker-id>/image-name:tag
 ```
 
-Если вы не вошли в центр Docker Hub, сделайте это с помощью команды [​​docker login](https://docs.docker.com/engine/reference/commandline/login/), прежде чем передавать образ.
+Если вы не вошли в Docker Hub, сделайте это с помощью команды [​​docker login](https://docs.docker.com/engine/reference/commandline/login/), прежде чем отправлять образ.
 
 ```bash
 docker login --username <docker-id> --password <docker-hub-password>
@@ -185,19 +149,23 @@ docker push <docker-id>/mydockerimage:v1.0.0 .
 Убедитесь, что передача завершилось успешно, проверив выходные данные команды.
 
 ```bash
-The push refers to a repository [docker.io/<docker-id>/python-flask]
-e9aa2c6d0f34: Pushed
-0fdcb490aeec: Pushed
-08ae61c7869c: Pushed
-2548e7db2a94: Mounted from library/python
-325b9d6f2920: Pushed
-815acdffadff: Mounted from library/python
-97108d083e01: Mounted from library/python
-5616a6292c16: Mounted from library/python
-f3ed6cb59ab0: Mounted from library/python
-654f45ecb7e3: Mounted from library/python
-2c40c66f7667: Mounted from library/python
-v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59b60 size: 2632
+The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
+c33197c3f6d4: Pushed
+ccd2c850ee43: Pushed
+02dff2853466: Pushed
+6ce78153632a: Pushed
+efef3f03cc58: Pushed
+3439624d77fb: Pushed
+3a07adfb35c5: Pushed
+2fcec228e1b7: Mounted from library/python
+97d2d3bae505: Mounted from library/python
+95aadeabf504: Mounted from library/python
+b456afdc9996: Mounted from library/python
+d752a0310ee4: Mounted from library/python
+db64edce4b5b: Mounted from library/python
+d5d60fc34309: Mounted from library/python
+c01c63c6823d: Mounted from library/python
+v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974feced66 size: 3676
 ```
 
 <!--
@@ -208,117 +176,54 @@ v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59
 ---
 -->
 
-## <a name="create-web-app-for-containers"></a>Создание веб-приложения для контейнеров
+[!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
-С помощью службы приложений Azure на платформе Linux можно разместить собственные приложения Linux в облаке. Чтобы создать веб-приложение для контейнеров, выполните команды Azure CLI, которые создают группу, план обслуживания, а затем само веб-приложение. Сначала запустите команду [​​az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) и передайте расположение и уникальное имя.
+## <a name="deploy-app-to-azure"></a>Развертывание приложения в Azure
+
+С помощью веб-приложения Azure можно разместить собственные приложения Linux в облаке. Чтобы создать веб-приложение для контейнеров, выполните команды Azure CLI, которые создают группу, план обслуживания, а затем само веб-приложение. 
+
+### <a name="create-a-resource-group"></a>Создание группы ресурсов
+
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+
+### <a name="create-a-linux-app-service-plan"></a>Создание плана службы приложений Linux
+
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
+
+### <a name="create-a-web-app"></a>Создание веб-приложения
+
+В Cloud Shell создайте [веб-приложение](app-service-linux-intro.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). Не забудьте заменить `<app_name>` уникальным именем приложения, а <docker-ID> — идентификатором Docker.
 
 ```azurecli-interactive
-az group create --location "West Europe" --name myResourceGroup
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Должен появиться результат, аналогичный приведенному ниже.
+Когда веб-приложение будет создано, в Azure CLI отобразится примерно следующее:
 
 ```json
 {
-  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup",
-  "location": "westeurope",
-  "managedBy": null,
-  "name": "myResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
-
-Выполните команду [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create), указав имя группы, чтобы помочь создать план обслуживания приложения. Необходимо присвоить ему уникальное имя и задать параметр `--is-linux`.
-
-```azurecli-interactive
-az appservice plan create --name myServicePlan --resource-group myResourceGroup --is-linux
-```
-
-Должны отобразиться результаты, как в следующем примере:
-
-```json
-  {- Starting...
-  "adminSiteName": null,
-  "appServicePlanName": "myServicePlan",
-  "geoRegion": "West Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myServicePlan",
-  "kind": "linux",
-  "location": "West Europe", 
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "capabilities": null,
-    "capacity": 1,
-    "tier": "Basic"
-  },
-  "status": "Ready",
-  "subscription": "",
-  "tags": null,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
-}
-```
-
-Теперь, когда создана группа ресурсов и план обслуживания, запустите команду [​​az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) для создания веб-приложения. Обратите внимание, что стек времени выполнения имеет версию Python 3.4, а веб-приложение использует группу ресурсов и план обслуживания, настроенные ранее.
-
-```azurecli-interactive
-az webapp create -g myResourceGroup -p myServicePlan -n <web-app-name> --runtime "python|3.4" 
-```
-
-Результат выполнения команды для создания веб-приложения выглядит следующим образом:
-
-```json
-{- Starting ..
   "availabilityState": "Normal",
-   "enabled": true,
-  "enabledHostNames": [
-    "<web-app-name>.azurewebsites.net",
-    "<web-app-name>.scm.azurewebsites.net"
-  ],
-  "ftpPublishingUrl": "ftp://waws-prod-am2-085.ftp.azurewebsites.windows.net/site/wwwroot",
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "<web-app-name>.azurewebsites.net",
-    },
-  ],
-  "hostNames": [
-    "<web-app-name>.azurewebsites.net"
-  ],
-  "hostNamesDisabled": false,
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.
-Web/sites/<web-app-name>",
-  "lastModifiedTimeUtc": "2017-08-08T21:09:33.693333",
-  "location": "West Europe",
-  "name": "<web-app-name>",
-  "outboundIpAddresses": "13.81.108.99,52.232.76.83,52.166.73.203,52.233.173.39,52.233.159.48",
-  "resourceGroup": "myResourceGroup"
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
+  "enabled": true,
+  < JSON data removed for brevity. >
 }
-
 ```
 
-В большинстве веб-приложений есть параметры, которые необходимо настроить. Если вы используете существующий образ Docker, созданный кем-то другим, для образа может потребоваться порт, отличный от порта 80. Чтобы установить `WEBSITES_PORT`, выполните команду [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config/appsettings), как показано в следующем примере кода:
+### <a name="configure-environment-variables"></a>Настройка переменных среды
+
+В большинстве образов Docker есть переменные среды, которые нужно настроить. Если вы используете существующий образ Docker, созданный кем-то другим, образ может использовать порт, отличный от порта 80. Чтобы сообщить Azure, какой порт использует образ, примените параметр приложения `WEBSITES_PORT`. На странице GitHub с [примером кода Python в этом руководстве](https://github.com/Azure-Samples/docker-django-webapp-linux) показано, что для параметра `WEBSITES_PORT` необходимо задать значение _8000_.
+
+Чтобы задать параметры приложения, используйте команду [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) в Cloud Shell. Параметры приложения чувствительны к регистру и используются с разделителями-пробелами.
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <web-app-name> --settings WEBSITES_PORT=2222
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
 ```
-
-> [!NOTE]
-> Параметры приложения учитывают регистр.
->
-
-Убедитесь, что веб-приложение работает, открыв его. Не забудьте указать номер порта.
-
-![Тестирование настройки порта веб-приложения](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
-
-## <a name="configure-web-app-to-use-docker-container-from-docker-hub"></a>Настройка веб-приложения для использования контейнера Docker из Docker Hub
-
-Команда [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config) позволяет использовать пользовательский образ Docker.
 
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry, such as Azure Container Registry. Select the appropriate tab for your scenario below: -->
 
@@ -327,35 +232,6 @@ az webapp config appsettings set --resource-group myResourceGroup --name <web-ap
 
 <!-- # [Docker Hub](#tab/docker-hub)-->
 
-Чтобы настроить веб-приложение для использования общедоступного реестра Docker, передайте имя приложения, группу ресурсов, имя образа и URL-адрес с помощью команды [​​az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#az_webapp_config_container_set).
-
-```azurecli-interactive
-az webapp config container set --name <web-app-name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage
---docker-registry-server-url <docker-id>/myContainerRegistry
-```
-
-При успешном изменении конфигурации отобразятся общие сведения о контейнере.
-
-```bash
-[
-  {
-    "name": "DOCKER_CUSTOM_IMAGE_NAME",
-    "slotSetting": false,
-    "value": "{docker-id}/mydockerimage:v1.0.0"
-  },
-  {
-    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
-    "slotSetting": false,
-    "value": "{docker-id}"
-  },
-  {
-    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-    "slotSetting": false,
-    "value": null
-  }
-]
-```
-
 <!-- # [Private Registry](#tab/private-registry)
 
 // Place Private Registry text back here once Tabbed Conceptual bug is fixed
@@ -363,27 +239,27 @@ az webapp config container set --name <web-app-name> --resource-group myResource
 ---
 -->
 
-## <a name="test-the-application-in-azure"></a>Тестирование приложения в Azure
+### <a name="test-the-web-app"></a>Тестирование веб-приложения
 
-Перед началом тестирования необходимо перезапустить веб-приложение, используя команду [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart), чтобы изменения конфигурации вступили в силу.
+Убедитесь, что веб-приложение работает, открыв его (`http://<app_name>azurewebsites.net`). 
 
-```azurecli-interactive
-az webapp restart --name <web-app-name> --resource-group myResourceGroup
-```
-
-Команда перезапуска перезапускает веб-приложение без участия пользователя, поэтому вы не увидите обратной связи в терминале. После запуска веб-приложения проверьте веб-приложение, перейдя по его URL-адресу `http://<username>.azurewebsites.net`. Убедитесь, что в приложении отображается новое приветственное сообщение.
-
-![Тестирование веб-приложения в Azure](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
+![Тестирование настройки порта веб-приложения](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
 ## <a name="change-web-app-and-redeploy"></a>Изменение и повторное развертывание веб-приложения
 
-В каталоге `using-custom-docker-image` находится файл Python с именем `app.py`. Этот файл содержит строку кода, которая отображает сообщение `Hello World!`. Измените строку, чтобы отображалось сообщение `Hello World of Web Apps running in Docker Containers!`.
+Откройте файл app/templates/app/index.html в локальном репозитории Git. Найдите первый элемент HTML и измените его.
 
 ```python
-return "Hello World of Web Apps running in Docker Containers!"
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">         
+        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>       
+      </div>            
+    </div>
+  </nav> 
 ```
 
-После того как вы изменили и сохранили файл Python, необходимо перестроить и передать новый образ Docker. Затем перезапустите веб-приложение, чтобы изменения вступили в силу. Используйте те же команды, которые использовались ранее в этом руководстве. Можно перейти к разделам о [создании образа на основе файла Docker](#build-the-image-from-the-docker-file) и [передачи образа Docker](#push-docker-image). Протестируйте веб-приложение, выполнив инструкции, указанные в разделе [Тестирование приложения в Azure](#tTest-the-application-in-azure).
+После того как вы изменили и сохранили файл Python, необходимо перестроить и передать новый образ Docker. Затем перезапустите веб-приложение, чтобы изменения вступили в силу. Используйте те же команды, которые использовались ранее в этом руководстве. Можно перейти к разделам о [создании образа на основе файла Docker](#build-the-image-from-the-docker-file) и [отправки образа Docker в центр Docker Hub](#push-the-docker-image-to-docker-hub). [Протестируйте веб-приложение](#test-the-web-app).
 
 ## <a name="connect-to-web-app-for-containers-using-ssh"></a>Подключение к веб-приложению для контейнеров с помощью SSH
 
@@ -392,53 +268,45 @@ SSH обеспечивает безопасный обмен данными ме
 * Инструкция [RUN](https://docs.docker.com/engine/reference/builder/#run) вызывает `apt-get`, а затем устанавливает пароль `"Docker!"` для учетной записи root.
 
     ```docker
+    ENV SSH_PASSWD "root:Docker!"
     RUN apt-get update \
-        && apt-get install -y --no-install-recommends openssh-server \
-        && echo "root:Docker!" | chpasswd
+            && apt-get install -y --no-install-recommends dialog \
+            && apt-get update \
+      && apt-get install -y --no-install-recommends openssh-server \
+      && echo "$SSH_PASSWD" | chpasswd 
     ```
 
     > [!NOTE]
     > Эта конфигурация не разрешает внешние подключения к контейнеру. SSH доступен только на сайте Kudu и на сайте SCM. Сайты Kudu и SCM проходят проверку подлинности с учетными данными для публикации.
 
-* Инструкция [COPY](https://docs.docker.com/engine/reference/builder/#copy) указывает ядру Docker копировать файл [sshd_config](http://man.openbsd.org/sshd_config) в каталог */etc/ssh/*. Ваш файл конфигурации должен быть создан на основе нашего файла [sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config) из репозитория GitHub Azure-App-Service.
+* Инструкция [COPY](https://docs.docker.com/engine/reference/builder/#copy) указывает ядру Docker копировать файл [sshd_config](http://man.openbsd.org/sshd_config) в каталог */etc/ssh/*. Файл конфигурации должен быть создан на основе этого файла [sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+
+    ```docker
+    COPY sshd_config /etc/ssh/
+    ```
 
     > [!NOTE]
     > Файл *sshd_config* должен содержать приведенные ниже элементы. 
     > * `Ciphers` должен содержать по крайней мере один элемент в этом списке: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` должен содержать по крайней мере один элемент в этом списке: `hmac-sha1,hmac-sha1-96`.
 
-    ```docker
-    #Copy the sshd_config file to its new location
-    COPY sshd_config /etc/ssh/
-    ```
-
 * Инструкция [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) предоставляет порт 2222 в контейнере. Даже при указании пароля привилегированного пользователя порт 2222 недоступен из Интернета. Это внутренний порт, который доступен контейнерам внутри мостовой сети виртуальной частной сети. После этого команды скопируют сведения о конфигурации SSH и запустят службу `ssh`.
 
     ```docker
-    # Configure ports
-    EXPOSE 2222 80
+    EXPOSE 8000 2222
 
-    #Copy the sshd_config file to its new location
-    COPY sshd_config /etc/ssh/
-
-    # Start the SSH service
     RUN service ssh start
     ```
 
-Файл `init_container.sh` в образце кода содержит инструкции по инициализации контейнера при его запуске. Файл Dockerfile использует инструкции [COPY](https://docs.docker.com/engine/reference/builder/#copy), [RUN](https://docs.docker.com/engine/reference/builder/#run) и [CMD](https://docs.docker.com/engine/reference/builder/#cmd) для соответствующего запуска скрипта `init_container.sh`.
+### <a name="open-ssh-connection-to-container"></a>Открытие SSH-подключения к контейнеру
 
-```docker
-# Copy init_container.sh to the /bin directory
-COPY init_container.sh /bin/
+Платформа "Веб-приложения для контейнеров" не разрешает устанавливать внешние подключения к контейнеру. SSH можно использовать только на сайте Kudu, к которому можно перейти по адресу `https://<app_name>.scm.azurewebsites.net`.
 
-# Run the chmod command to change permissions on above file in the /bin directory
-RUN chmod 755 /bin/init_container.sh
+Чтобы установить подключение, перейдите по ссылке `https://<app_name>.scm.azurewebsites.net/webssh/host` и войдите, используя учетную запись Azure.
 
-# run commands in init_container.sh
-CMD ["/bin/init_container.sh"]
-```
+Затем вы будете перенаправлены на страницу с интерактивной консолью. 
 
-Вы можете проверить выполнение некоторых приложений в контейнере. Чтобы просмотреть контейнер и проверить выполняющиеся процессы, откройте браузер и перейдите по адресу `https://<app name>.scm.azurewebsites.net/webssh/host`. Затем вы будете перенаправлены на страницу с интерактивной консолью. Введите команду `top` в командной строке.
+Вы можете проверить выполнение некоторых приложений в контейнере. Чтобы просмотреть контейнер и проверить выполняющиеся процессы, выполните команду `top` в командной строке.
 
 ```bash
 top
@@ -463,11 +331,51 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 
 Поздравляем! Вы настроили пользовательский образ Docker для платформы "Веб-приложения для контейнеров".
 
-## <a name="push-a-docker-image-to-private-registry-optional"></a>Передача образа Docker в частный реестр (необязательно)
+## <a name="use-a-private-image-from-docker-hub-optional"></a>Использование частного образа из центра Docker Hub (необязательно)
 
-Реестр контейнеров Azure — это управляемая служба Docker из Azure для размещения частных образов. Развертывания могут быть любого типа, включая [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/) и контейнеры службы приложений Azure. Использование реестра контейнеров Azure аналогично использованию любого частного реестра, поэтому если вам нужно использовать свой собственный реестр, действия для выполнения этой задачи будут схожи.
+В разделе [Создание веб-приложения](#create-a-web-app) вы указали образ в Docker Hub с помощью команды `az webapp create`. Этот способ подходит для общедоступного образа. Чтобы использовать частный образ, нужно настроить идентификатор учетной записи Docker и пароль в веб-приложении Azure.
 
-Создайте реестр контейнеров Azure с помощью команды [az acr create](https://docs.microsoft.com/cli/azure/acr#az_acr_create). Передайте имя, группу ресурсов и `Basic` для SKU. Доступные номера SKU: `Classic`, `Basic`, `Standard` и `Premium`.
+В Cloud Shell после команды `az webapp create` выполните команду [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set). Замените *\<app_name>*, _<docker-id>_ и _<password>_, указав свой идентификатор Docker и пароль.
+
+```azurecli-interactive
+az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
+```
+
+Команда показывает вывод, похожий на следующую строку JSON, которая указывает на то, что изменение конфигурации выполнено успешно:
+
+```bash
+[
+  {
+    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+    "slotSetting": false,
+    "value": "false"
+  },
+  {
+    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+    "slotSetting": false,
+    "value": "<docker-id>"
+  },
+  {
+    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+    "slotSetting": false,
+    "value": null
+  },
+  {
+    "name": "DOCKER_CUSTOM_IMAGE_NAME",
+    "value": "DOCKER|<image-name-and-tag>"
+  }
+]
+```
+
+## <a name="use-a-docker-image-from-any-private-registry-optional"></a>Использование образа Docker из любого частного реестра (необязательно)
+
+Из этого раздела вы узнаете, как использовать образ Docker из частного реестра на платформе "Веб-приложения для контейнеров". В качестве примера мы будем использовать реестр контейнеров Azure. Действия по использованию других реестров идентичны. 
+
+Реестр контейнеров Azure — это управляемая служба Docker из Azure для размещения частных образов. Развертывания могут быть любого типа, включая [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/) и платформу "Веб-приложения для контейнеров". 
+
+### <a name="create-an-azure-container-registry"></a>Создание реестра контейнеров Azure
+
+В Cloud Shell создайте реестр контейнеров Azure с помощью команды [az acr create](https://docs.microsoft.com/cli/azure/acr#az_acr_create). Передайте имя, группу ресурсов и `Basic` для SKU. Доступные номера SKU: `Classic`, `Basic`, `Standard` и `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -503,10 +411,12 @@ Use an existing service principal and assign access:
 }
 ```
 
-Для передачи образа в реестр необходимо предоставить учетные данные, чтобы реестр принял образ. Эти учетные данные можно получить с помощью команды [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show). 
+### <a name="log-in-to-azure-container-registry"></a>Вход в реестр контейнеров Azure
+
+Для передачи образа в реестр необходимо предоставить учетные данные, чтобы реестр принял образ. Эти учетные данные можно получить, выполнив команду [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) в Cloud Shell. 
 
 ```azurecli-interactive
-az acr credential show --name {azure-container-registry-name}
+az acr credential show --name <azure-container-registry-name>
 ```
 
 Команда выведет два пароля, которые могут использоваться с именем пользователя.
@@ -523,17 +433,21 @@ az acr credential show --name {azure-container-registry-name}
       "value": "{password}"
     }
   ],
-  "username": "<azure-container-registry-name>"
+  "username": "<registry-username>"
 }
 ```
 
-Теперь, когда у вас есть необходимые учетные данные, войдите в реестр контейнеров Azure с помощью команды `docker login`. Для входа укажите имя сервера. Используйте формат `{azure-container-registry-name>.azurecr.io`.
+В окне терминала на локальном компьютере войдите в реестр контейнеров Azure с помощью команды `docker login`. Для входа укажите имя сервера. Используйте формат `{azure-container-registry-name>.azurecr.io`.
 
 ```bash
-docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
+docker login <azure-container-registry-name>.azurecr.io --username <registry-username> --password <password> 
 ```
 
-Убедитесь, что вход выполнен успешно. Передайте образ с помощью команды `docker push` и обозначьте образ именем реестра, за которым следует имя и тег образа.
+Убедитесь, что вход выполнен успешно. 
+
+### <a name="push-an-image-to-azure-container-registry"></a>Отправка образа в реестр контейнеров Azure
+
+Отправьте образ с помощью команды `docker push`. Присвойте образу имя реестра, за которым следует имя и тег образа.
 
 ```bash
 docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
@@ -553,11 +467,11 @@ az acr repository list -n <azure-container-registry-name>
 ]
 ```
 
-## <a name="configure-web-app-to-use-docker-container-from-a-private-registry-optional"></a>Настройка веб-приложения для использования контейнера Docker из частного реестра (необязательно)
+### <a name="configure-web-app-to-use-the-image-from-azure-container-registry-or-any-private-registry"></a>Настройка веб-приложения для использования образа из реестра контейнеров Azure (или любого частного реестра)
 
-Можно настроить веб-приложения на платформе Linux для запуска контейнера, хранящегося в реестре контейнеров Azure. Использование реестра контейнеров Azure аналогично использованию любого частного реестра, поэтому если вам нужно использовать свой собственный реестр, действия для выполнения этой задачи будут схожи.
+Можно настроить платформу "Веб-приложения для контейнеров" для запуска контейнера, хранящегося в реестре контейнеров Azure. Использование реестра контейнеров Azure идентично использованию любого частного реестра, включая ваш собственный.
 
-Получите учетные данные для реестра контейнеров с помощью команды [az acr credential show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show). Скопируйте имя пользователя и один из паролей, чтобы использовать их для настройки веб-приложения на следующем шаге.
+В Cloud Shell выполните команду [az acr credential show](/cli/azure/acr/credential#az_acr_credential_show), чтобы отобразить имя пользователя и пароль для реестра контейнеров Azure. Скопируйте имя пользователя и один из паролей, чтобы использовать их для настройки веб-приложения на следующем шаге.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -575,18 +489,18 @@ az acr credential show --name <azure-container-registry-name>
       "value": "password2"
     }
   ],
-  "username": "<azure-container-registry-name>"
+  "username": "<registry-username>"
 }
 ```
 
-Выполните команду [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#az_webapp_config_container_set). Эта команда назначает пользовательский образ Docker для веб-приложения. Обратите внимание, что URL-адрес должен быть в формате `https://{your-registry-username}.azurecr.io`. Кроме того, веб-приложению требуется имя пользователя и пароль, полученные на предыдущем шаге, чтобы получить доступ к реестру контейнеров.
+В Cloud Shell выполните команду [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set), чтобы назначить пользовательский образ Docker для веб-приложения. Замените значения *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_ и _<password>_. Для реестра контейнеров Azure значение *\<docker-registry-server-url>* указывается в формате `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
-az webapp config container set --name <web-app-name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
+az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
 ```
 
 > [!NOTE]
-> В URL-адресе реестра требуется `https`.
+> Обязательно укажите `https://` в *\<docker-registry-server-url>*.
 >
 
 Команда показывает вывод, похожий на следующую строку JSON, которая указывает на то, что изменение конфигурации выполнено успешно:
@@ -601,12 +515,12 @@ az webapp config container set --name <web-app-name> --resource-group myResource
   {
     "name": "DOCKER_REGISTRY_SERVER_URL",
     "slotSetting": false,
-    "value": "mycontainerregistry.azurecr.io"
+    "value": "<azure-container-registry-name>.azurecr.io"
   },
   {
     "name": "DOCKER_REGISTRY_SERVER_USERNAME",
     "slotSetting": false,
-    "value": "{azure-container-registry-name}"
+    "value": "<registry-username>"
   },
   {
     "name": "DOCKER_REGISTRY_SERVER_PASSWORD",

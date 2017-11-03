@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cd2b646f3715368d9caba216883afdf07b9d778e
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: db3be8068ef9e560614daa0e7f0dcf62467fd338
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Создание приложения ASP.NET в Azure с подключением к базе данных SQL
 
@@ -378,7 +378,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 В браузере снова перейдите к веб-приложению по адресу *http://&lt;имя вашего приложения>.azurewebsites.net*, а затем щелкните правой кнопкой приложение списка дел в Azure. Теперь сообщения трассировки передаются в окно **Выходные данные** в Visual Studio.
 
-```
+```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
 Application: 2017-04-06T23:30:43  PID[8132] Verbose     GET /Todos/Create
 Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create

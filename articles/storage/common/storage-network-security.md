@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: de52e9cb32e28d2f40a56743ed759b5d5d0a63f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8117a5ef9bc4f785256a7a7d70f459529c771a56
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Настройка брандмауэров службы хранилища Azure и виртуальных сетей (предварительная версия)
 Служба хранилища Azure предоставляет модель многоуровневой безопасности, которая обеспечивает безопасность учетных записей хранения, открывая к ним доступ только по определенным разрешенным сетям.  При настройке правил сети к учетной записи хранения могут получать доступ только приложения из разрешенных сетей.  Однако и из разрешенной сети доступ к учетной записи хранения имеют только приложения с надлежащим уровнем авторизации (допустимый ключ доступа или токен SAS).
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 После этого правила сети применяются ко всем запросам.  Токены SAS, позволяющие получить доступ к конкретной службе IP-адресов, **ограничивают** доступ владельца токена, но не предоставляют доступ к каким-либо новым ресурсам, не указанным в настроенных сетевых правилах. 
 
-Правила сети **не** распространяются на трафик дисков виртуальной машины (включая операции подключения и отключения, а также дисковые операции ввода-вывода).  Предварительная версия защищенных учетных записей хранения не поддерживает архивацию неуправляемых дисков.  Сетевые правила обеспечивают безопасность во время доступа REST к страничным BLOB-объектам (используется для дисков виртуальной машины).
+Правила сети **не** распространяются на трафик дисков виртуальной машины (включая операции подключения и отключения, а также дисковые операции ввода-вывода).  Сетевые правила обеспечивают безопасность во время доступа REST к страничным BLOB-объектам.
 
 Классические учетные записи хранения **не** поддерживают брандмауэры и виртуальные сети.
 
@@ -305,6 +305,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 |Azure HDInsight|Microsoft.HDInsight|Подготовка и установка кластеров.  [Подробнее](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Сеть Azure|Microsoft.Networking|Хранение и анализ журналов сетевого трафика.  [Подробнее](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Хранилище данных SQL Azure|Microsoft.Sql|Импорт и экспорт данных.  [Подробнее](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Служба архивации Azure|Microsoft.RecoveryServices|Архивация и восстановление неуправляемых дисков.  [Подробнее](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Доступ к данным аналитики хранилища

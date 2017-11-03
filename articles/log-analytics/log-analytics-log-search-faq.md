@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/17/2017
 ms.author: bwren
-ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Вопросы и ответы по новым возможностям поиска по журналам Log Analytics и известные проблемы
 
@@ -94,6 +94,18 @@ ms.lasthandoff: 10/11/2017
 Сравнение этих двух порталов см. в статье [Порталы для создания и изменения запросов к журналу в службе Azure Log Analytics](log-analytics-log-search-portals.md).  Каждый портал имеет свои преимущества, так что вы можете выбрать наиболее подходящий вариант в соответствии со своими требованиями.  Часто пользователи пишут запросы на портале углубленной аналитики, а затем вставляют их в другие расположения, например конструктор представлений.  При использовании этого варианта вам стоит ознакомиться с [потенциальными проблемами](log-analytics-log-search-portals.md#advanced-analytics-portal).
 
 
+### <a name="question--after-upgrade-i-get-an-error-trying-to-run-queries-and-am-also-seeing-errors-in-my-views"></a>Вопрос. После обновления при попытке выполнить запросы появляется сообщение об ошибке. Кроме того, я вижу ошибки в представлениях.
+
+Ваш браузер запрашивает доступ к следующим адресам для выполнения запросов Log Analytics после обновления.  Если браузер обращается к порталу Azure через брандмауэр, необходимо разрешить доступ для этих адресов.
+
+| URI | IP-адрес | порты; |
+|:---|:---|:---|
+| portal.loganalytics.io | Динамический | 80, 443 |
+| api.loganalytics.io    | Динамический | 80, 443 |
+| docs.loganalytics.io   | Динамический | 80, 443 |
+
+
+
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Вопрос. Затронут ли эти изменения интеграцию с Power BI?
@@ -103,10 +115,12 @@ ms.lasthandoff: 10/11/2017
 В настоящее время размер запроса Log Analytics, который можно экспортировать в Power BI, ограничивается 8 МБ.  Мы планируем увеличить это ограничение.
 
 
-##<a name="powershell-cmdlets"></a>Командлеты PowerShell
+## <a name="powershell-cmdlets"></a>Командлеты PowerShell
 
 ### <a name="question-does-the-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>Вопрос. Обновляется ли командлет PowerShell поиска по журналам после обновления рабочей области?
-Обновление языка поиска командлета [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) пока не предусмотрено.  Продолжайте использовать прежний язык запросов с этим командлетом даже после обновления рабочей области.  После обновления командлета мы обновим соответствующую документацию.
+Командлет [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) будет считаться нерекомендуемым после завершения обновления всех рабочих областей.  Используйте [командлет Invoke-LogAnalyticsQuery](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets) для выполнения поиска по журналам в обновленных рабочих областях.
+
+
 
 
 ## <a name="resource-manager-templates"></a>Шаблоны диспетчера ресурсов
@@ -159,11 +173,9 @@ ms.lasthandoff: 10/11/2017
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Вопрос. Что произойдет, если не обновлять рабочую область?  
 Старая версия поиска по журналам будет считаться устаревшей через несколько месяцев. Рабочие области, которые вы не обновите к этому времени, будут обновлены автоматически.
 
-### <a name="question-i-didnt-choose-to-upgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>Вопрос. Рабочая область обновилась самостоятельно. Что произошло?  
-Возможно, вашу рабочую область обновил другой администратор. Также обратите внимание, что после выхода общедоступной версии нового языка все рабочие области обновятся автоматически.  
+### <a name="question-can-i-revert-back-after-i-upgrade"></a>Вопрос. Можно ли отменить изменения после обновления?
+До выпуска общедоступной версии изменения, внесенные в рабочие области после обновления, можно было отменить.  Теперь, когда новый язык перешел на этап общедоступной версии, эта возможность удалена, так как мы прекращаем использование платформы прежних версий.
 
-### <a name="question-i-have-upgraded-by-mistake-and-now-need-to-cancel-it-and-restore-everything-back-what-should-i-do"></a>Вопрос: Я случайно обновил рабочую область, а теперь хочу отменить обновление. Что мне делать?  
-Не беспокойтесь.  Мы создали моментальный снимок рабочей области перед обновлением, и вы можете ее восстановить. Но учтите, что при этом будут утрачены все поиски, оповещения и представления, которые вы успели сохранить после обновления.  Чтобы восстановить среду рабочей области, воспользуйтесь процедурой из раздела [Можно ли вернуться обратно после обновления?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)
 
 
 ## <a name="views"></a>Views

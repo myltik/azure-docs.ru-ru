@@ -10,13 +10,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/25/2017
 ms.author: johnkem
-ms.openlocfilehash: a4ceb822e0ec3e1c1dc31ece1db761834e795f6c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91129da9ef7791a506292d9e13e386a25ee341a8
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-activity-log-event-schema"></a>Схема событий журнала действий Azure
 **Журнал действий Azure** — это журнал с подробными сведениями о событиях на уровне подписки, которые произошли в Azure. В этой статье описывается схема событий по категориям данных.
@@ -407,6 +407,93 @@ Properties.communicationId | Сообщение, с которым связан�
 | properties.LastScaleActionTime | Метка времени, когда произошло действие автоматического масштабирования. |
 | status |Строка, описывающая состояние операции. Обычные значения: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus | Обычно для автоматического масштабирования имеет значение null. |
+| eventTimestamp |Метка времени, когда служба Azure создала событие при обработке соответствующего этому событию запроса. |
+| submissionTimestamp |Метка времени, когда событие стало доступно для запросов. |
+| subscriptionId |Идентификатор подписки Azure. |
+
+## <a name="security"></a>Безопасность
+Эта категория содержит запись любых предупреждений, созданных центром безопасности Azure. Примером типа события в этой категории является "Выполнен подозрительный файл с двойным расширением".
+
+### <a name="sample-event"></a>Пример события
+```json
+{
+    "channels": "Operation",
+    "correlationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "description": "Suspicious double extension file executed. Machine logs indicate an execution of a process with a suspicious double extension.\r\nThis extension may trick users into thinking files are safe to be opened and might indicate the presence of malware on the system.",
+    "eventDataId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "eventName": {
+        "value": "Suspicious double extension file executed",
+        "localizedValue": "Suspicious double extension file executed"
+    },
+    "category": {
+        "value": "Security",
+        "localizedValue": "Security"
+    },
+    "eventTimestamp": "2017-10-18T06:02:18.6179339Z",
+    "id": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
+    "level": "Informational",
+    "operationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "operationName": {
+        "value": "Microsoft.Security/locations/alerts/activate/action",
+        "localizedValue": "Microsoft.Security/locations/alerts/activate/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Security",
+        "localizedValue": "Microsoft.Security"
+    },
+    "resourceType": {
+        "value": "Microsoft.Security/locations/alerts",
+        "localizedValue": "Microsoft.Security/locations/alerts"
+    },
+    "resourceId": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": null
+    },
+    "submissionTimestamp": "2017-10-18T06:02:52.2176969Z",
+    "subscriptionId": "d4742bb8-c279-4903-9653-9858b17d0c2e",
+    "properties": {
+        "accountLogonId": "0x2r4",
+        "commandLine": "c:\\mydirectory\\doubleetension.pdf.exe",
+        "domainName": "hpc",
+        "parentProcess": "unknown",
+        "parentProcess id": "0",
+        "processId": "6988",
+        "processName": "c:\\mydirectory\\doubleetension.pdf.exe",
+        "userName": "myUser",
+        "UserSID": "S-3-2-12",
+        "ActionTaken": "Detected",
+        "Severity": "High"
+    },
+    "relatedEvents": []
+}
+
+```
+
+### <a name="property-descriptions"></a>Описания свойств
+| Имя элемента | Описание |
+| --- | --- |
+| каналов | Всегда значение Operation. |
+| correlationId | Глобальный уникальный идентификатор (GUID) в строковом формате. |
+| Описание |Статическое текстовое описание события безопасности. |
+| eventDataId |Уникальный идентификатор события безопасности. |
+| eventName |Понятное имя события безопасности. |
+| id |Уникальный идентификатор ресурса события безопасности. |
+| level |Уровень события. Одно из следующих значений: Critical, Error, Warning, Informational или Verbose. |
+| имя_группы_ресурсов |Имя группы ресурсов для ресурса. |
+| resourceProviderName |Имя поставщика ресурсов для центра безопасности Azure. Всегда значение Microsoft.Security. |
+| тип_ресурса |Тип ресурса, создавшего событие безопасности, например Microsoft.Security/locations/alerts. |
+| resourceId |Идентификатор ресурса оповещения системы безопасности. |
+| operationId |События, относящиеся к одной операции, совместно используют один GUID. |
+| operationName |Имя операции. |
+| properties |Набор пар `<Key, Value>` (например, Dictionary) c подробным описанием события. Эти свойства будут различаться в зависимости от типа оповещения системы безопасности. [Здесь](../security-center/security-center-alerts-type.md) описаны типы предупреждений, поступающих из центра безопасности. |
+| properties.Severity |Уровень серьезности. Возможные значения: High, Medium или Low. |
+| status |Строка, описывающая состояние операции. Обычные значения: Started, In Progress, Succeeded, Failed, Active, Resolved. |
+| subStatus | Обычно имеет значение null для событий безопасности. |
 | eventTimestamp |Метка времени, когда служба Azure создала событие при обработке соответствующего этому событию запроса. |
 | submissionTimestamp |Метка времени, когда событие стало доступно для запросов. |
 | subscriptionId |Идентификатор подписки Azure. |

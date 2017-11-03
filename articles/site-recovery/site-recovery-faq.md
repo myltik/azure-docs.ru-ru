@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/22/2017
+ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 95e31d0ca5983e0946ad6fb993e7a89a6a63d2c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: вопросы и ответы
 Данная статья содержит часто задаваемые вопросы об Azure Site Recovery. Если после прочтения статьи у вас возникли какие-либо вопросы, вы можете задать их на [форуме, посвященном службам восстановления Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -33,8 +33,7 @@ ms.lasthandoff: 10/11/2017
 * **Физические серверы**. Служба Site Recovery позволяет защитить физические серверы под управлением Windows или Linux.
 * **Виртуальные машины VMware**. Служба Site Recovery позволяет защитить любую рабочую нагрузку, запущенную на виртуальной машине VMware.
 
-### <a name="does-site-recovery-support-the-azure-resource-manager-model"></a>Поддерживает ли Site Recovery модель Azure Resource Manager?
-Служба Site Recovery доступна на портале Azure с поддержкой Resource Manager. Site Recovery поддерживает устаревшие развертывания на классическом портале Azure. Тем не менее вы не можете создавать новые хранилища на классическом портале, и новые функции не поддерживаются.
+
 
 ### <a name="can-i-replicate-azure-vms"></a>Можно ли выполнить репликацию виртуальных машин Azure?
 Да, поддерживаемые виртуальные машины Azure можно реплицировать между регионами Azure. [Подробнее](site-recovery-azure-to-azure.md).
@@ -55,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 Службу Site Recovery можно использовать для защиты большинства рабочих нагрузок, запущенных на поддерживаемой виртуальной машине или физическом сервере. Служба Site Recovery также поддерживает репликацию уровня приложения, позволяя восстанавливать приложения до программируемого состояния. Она интегрируется с приложениями Майкрософт, включая SharePoint, Exchange, Dynamics, SQL Server и Active Directory, а также тесно взаимодействует с решениями ведущих производителей, в том числе Oracle, SAP, IBM и Red Hat. [Подробнее](site-recovery-workload.md) о защите рабочей нагрузки.
 
 ### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Должны ли узлы Hyper-V размещаться в облаках VMM?
-Если требуется репликация во вторичный центр обработки данных, то виртуальные машины Hyper-V должны быть расположены на серверах узлов Hyper-V в облаке VMM. Но если предполагается репликация в Azure, ее можно выполнить, реплицировав виртуальные машины на серверах узлов Hyper-V как с использованием облаков VMM, так и без них. [Подробная информация](site-recovery-hyper-v-site-to-azure.md).
+Если требуется репликация во вторичный центр обработки данных, то виртуальные машины Hyper-V должны быть расположены на серверах узлов Hyper-V в облаке VMM. Но если предполагается репликация в Azure, ее можно выполнить, реплицировав виртуальные машины как с использованием облаков VMM, так и без них. [Узнайте больше](tutorial-hyper-v-to-azure.md) о репликации Hyper-V в Azure.
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Можно ли развернуть службу Site Recovery с помощью VMM при наличии только одного сервера VMM?
 
@@ -132,8 +131,7 @@ Azure Site Recovery реплицирует данные в учетную зап
 * [Репликация виртуальных машин Hyper-V (без VMM) в Azure с помощью PowerShell (модель Resource Manager)](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Какая учетная запись хранения требуется при репликации в Azure?
-* **Классический портал Azure**. Если вы развертываете Site Recovery с помощью классического портала Azure, то вам потребуется [учетная запись хранения GRS уровня "Стандартный"](../storage/common/storage-redundancy.md#geo-redundant-storage). Хранилище класса Premium в настоящее время не поддерживается. Учетная запись должна находиться в том же регионе, что и хранилище Site Recovery.
-* **Портал Azure**. Если вы развертываете Site Recovery с помощью портала Azure, то вам потребуется учетная запись хранения LRS или GRS. Рекомендуется использовать учетную запись хранения GRS, чтобы обеспечить устойчивость данных в случае отключения электричества в регионе или при отсутствии возможности восстановления основного региона. Учетная запись должна находиться в том же регионе, что и хранилище служб восстановления. При развертывании Site Recovery на портале Azure хранилище класса Premium теперь поддерживается для репликации виртуальных машин VMware, Hyper-V и физических серверов.
+Требуется учетная запись хранения LRS или GRS. Рекомендуется использовать учетную запись хранения GRS, чтобы обеспечить устойчивость данных в случае отключения электричества в регионе или при отсутствии возможности восстановления основного региона. Учетная запись должна находиться в том же регионе, что и хранилище служб восстановления. При развертывании Site Recovery на портале Azure хранилище класса Premium поддерживается для репликации виртуальных машин VMware, Hyper-V и физических серверов.
 
 ### <a name="how-often-can-i-replicate-data"></a>Как часто можно реплицировать данные?
 * **Hyper-V.** Виртуальные машины Hyper-V можно реплицировать каждые 30 секунд (но не для хранилища класса Premium), 5 или 15 минут. При настройке репликации сети SAN репликация является синхронной.
@@ -160,8 +158,7 @@ Azure Site Recovery реплицирует данные в учетную зап
 Да. Дополнительные сведения о регулировании пропускной способности можно прочитать в приведенных ниже статьях о развертывании.
 
 * [Планирование ресурсов для репликации виртуальных машин VMware и физических серверов](site-recovery-plan-capacity-vmware.md)
-* [Планирование ресурсов для репликации виртуальных машин Hyper-V в облаках VMM](site-recovery-vmm-to-azure.md#capacity-planning)
-* [Планирование ресурсов для репликации виртуальных машин Hyper-V без VMM](site-recovery-hyper-v-site-to-azure.md)
+* [Запуск планировщика ресурсов Hyper-V для Site Recovery](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 ## <a name="failover"></a>Отработка отказа
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Как получить доступ к виртуальным машинам Azure после отработки отказа в Azure?

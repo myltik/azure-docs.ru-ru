@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Подключение данных: узнайте о потоках входных данных из событий в Stream Analytics
 Подключение данных к заданию Stream Analytics — это поток событий из источника данных, который называется *входными данными* задания. Stream Analytics полностью интегрируется с источниками потоков данных Azure, включая [Концентраторы событий Azure](https://azure.microsoft.com/services/event-hubs/), [Центр Интернета вещей Azure](https://azure.microsoft.com/services/iot-hub/) и [хранилище BLOB-объектов Azure](https://azure.microsoft.com/services/storage/blobs/). Эти источники входных данных могут быть из той же подписки Azure, что и задание аналитики, или из другой подписки.
@@ -37,7 +37,7 @@ Stream Analytics также поддерживает входные данные
 
 ## <a name="compression"></a>Сжатие
 
-В ближайшее время Azure Stream Analytics будет развертывать функцию сжатия во всех источниках входных данных потока (концентраторах событий, центрах интернета вещей и хранилищ больших двоичных объектов). Эта возможность добавляет новый параметр раскрывающегося списка в колонке **Новые входные данные** на портале Azure, позволяя при необходимости выбрать потоки данных для сжатия. В настоящее время поддерживаются типы сжатия None, GZip и Deflate. 
+Azure Stream Analytics поддерживает функцию сжатия во всех источниках входных данных потока (концентраторах событий, Центрах Интернета вещей и хранилищ BLOB-объектов). Эта возможность добавляет новый параметр раскрывающегося списка в колонке **Новые входные данные** на портале Azure, позволяя при необходимости выбрать потоки данных для сжатия. В настоящее время поддерживаются типы сжатия None, GZip и Deflate. 
 
 Сжатие не поддерживается в сочетании с сериализацией Avro и не применяется для эталонных данных. 
 
@@ -81,6 +81,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> При использовании концентратора события в качестве конечной точки для маршрутов Центра Интернета вещей вы можете получить доступ к метаданным Центра Интернета вещей с помощью [функции GetMetadataPropertyValue](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
+> 
 
 ## <a name="create-data-stream-input-from-iot-hub"></a>Создание входного потока данных из Центра Интернета вещей
 Центр Azure IoT — это высокомасштабируемая служба приема данных о событиях публикации и подписки, оптимизированная под сценарии "Интернет вещей".

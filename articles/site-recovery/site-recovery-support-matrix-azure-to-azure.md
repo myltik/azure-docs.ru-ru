@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: f52520f88d36914d4cad7c8aea4fb21e44b3cc9d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 34255e8ada8dfb00b3c02ca2ab22f94bd3e0954d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Таблица поддержки Azure Site Recovery для репликации из одного региона Azure в другой
 
@@ -145,8 +145,8 @@ ms.lasthandoff: 10/11/2017
 
 **Конфигурация** | **Поддержка** | **Примечания**
 --- | --- | ---
-Максимальный размер диска ОС | 1023 ГБ | Дополнительные сведения см.в разделе [Диски, используемые виртуальными машинами](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
-Максимальный размер данных на диске | 1023 ГБ | Дополнительные сведения см.в разделе [Диски, используемые виртуальными машинами](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
+Максимальный размер диска ОС | 2048 ГБ | Дополнительные сведения см.в разделе [Диски, используемые виртуальными машинами](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
+Максимальный размер данных на диске | 4095 ГБ | Дополнительные сведения см.в разделе [Диски, используемые виртуальными машинами](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
 Количество дисков данных | До 64 (поддерживается определенными размерами виртуальных машин Azure) | Дополнительные сведения см.в статье [Размеры виртуальных машин Azure](../virtual-machines/windows/sizes.md)
 Временный диск | Всегда исключается из репликации | Временный диск всегда исключается из репликации. Согласно руководству по Azure, постоянные данные не следует помещать на временный диск. Дополнительные сведения см. в разделе [Временный диск](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
 Частота изменения данных на диске | Максимум 6 Мбит/с на диск | Если средняя частота изменения данных на диске постоянно превышает 6 Мбит/с, репликация может занять некоторое время. Если же это эпизодический случай, и частота изменения данных только на некоторое время превышает 6 Мбит/с, репликация завершится вовремя. В этом случае вы можете увидеть немного отложенные точки восстановления.

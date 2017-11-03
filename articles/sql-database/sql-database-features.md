@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/22/2017
+ms.date: 10/23/2017
 ms.author: carlrab
-ms.openlocfilehash: 5824347cbfd80ce2d21e256f4ce6e6fe2201792f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5853b7f4af02e096a0678de14abd5c0b3d7ab0c
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-sql-database-features"></a>Возможности базы данных SQL Azure
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 | **Функция SQL Server** | **Поддержка в базе данных SQL Azure** | 
 | --- | --- |  
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Да. Дополнительные сведения см. в статье [Always Encrypted: защита конфиденциальных данных в Базе данных SQL и хранение ключей шифрования в хранилище сертификатов Windows](sql-database-always-encrypted.md) и [Always Encrypted: защита конфиденциальных данных в Базе данных SQL и хранение ключей шифрования в хранилище ключей Azure](sql-database-always-encrypted-azure-key-vault.md).|
-| [Группы доступности AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Нет. Дополнительные сведения см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md). |
+| [Группы доступности AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Функция высокого уровня доступности включается в каждой базе данных. Сведения об аварийном восстановлении см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md). |
 | [Присоединение базы данных](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Нет |
 | [Роли приложений](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Да |
 | [BACPAC-файл (экспорт)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Да. Дополнительные сведения см. в статье [Экспорт базы данных SQL Azure в BACPAC-файл](sql-database-export.md). |
@@ -63,15 +63,15 @@ ms.lasthandoff: 10/11/2017
 | [Моментальные снимки базы данных](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | Нет |
 | [Типы данных](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) | Да |  
 | [Инструкции DBCC](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | Большинство. Дополнительные сведения см. в разделах по отдельным инструкциям. |
-| [Инструкции языка DDL](https://docs.microsoft.com/sql/t-sql/statements/statements) | Большинство. Дополнительные сведения см. в разделах по отдельным инструкциям.
+| [Инструкции языка DDL](https://docs.microsoft.com/sql/t-sql/statements/statements) | Да |
 | [Триггеры DDL](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Только база данных |
 | [Распределенные транзакции — MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Нет. Дополнительные сведения см. статье [Распределенные транзакции по облачным базам данных](sql-database-elastic-transactions-overview.md). |
-| [Инструкции языка DML](https://docs.microsoft.com/sql/t-sql/queries/queries) | Большинство. Дополнительные сведения см. в разделах по отдельным инструкциям. |
-| [Триггеры DML](https://docs.microsoft.com/sql/relational-databases/triggers/dml-triggers) |
+| [Инструкции языка DML](https://docs.microsoft.com/sql/t-sql/queries/queries) | Да |
+| [Триггеры DML](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | Большинство. Дополнительные сведения см. в разделах по отдельным инструкциям. | 
 | [Динамические административные представления](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Некоторые. Дополнительные сведения см. в разделах по отдельным динамическим административным представлениям. |
 | [Уведомления о событиях](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Нет. Дополнительные сведения см. в статье [Создание оповещений для базы данных SQL Azure и хранилища данных с помощью портала Azure](sql-database-insights-alerts-portal.md). |
 | [Выражения](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Да |
-| [Расширенные события](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Некоторые. Дополнительные сведения см. в разделах по отдельным событиям. |
+| [Расширенные события](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Некоторые дополнительные сведения см. в статье [Расширенные события в Базе данных SQL](sql-database-xevent-db-diff-from-svr.md) |
 | [Расширенные хранимые процедуры](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Нет |
 | [Файлы и группы файлов](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Только первичная группа файлов |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Нет |
@@ -82,16 +82,16 @@ ms.lasthandoff: 10/11/2017
 | [Поддержка данных JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Да |
 | [Элементы языка](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Большинство. Дополнительные сведения см. в разделах по отдельным элементам. |  
 | [Связанные серверы](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Нет. Дополнительные сведения см. в статье [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-horizontal-partitioning.md). |
-| [Доставка журналов](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Нет. Дополнительные сведения см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md). |
+| [Доставка журналов](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Функция высокого уровня доступности включается в каждой базе данных. Сведения об аварийном восстановлении см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md). |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Нет |
 | [Минимальное ведение журнала при массовом импорте](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Нет |
 | [Изменение системных данных](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Нет |
-| [Операции с индексом в сети](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Поддерживается. Размер транзакции ограничен уровнем службы. |
+| [Операции с индексом в сети](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Да |
 | [Операторы](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | Большинство. Дополнительные сведения см. в разделах по отдельным операторам. |
 | [Восстановление базы данных до точки во времени](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Да. Дополнительные сведения см. в разделе [Восстановление до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore). |
 | [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Нет |
 | [Управление на основе политик](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Нет |
-| [Предикаты](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Большинство. Дополнительные сведения см. в разделах по отдельным предикатам. |
+| [Предикаты](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Да |
 | [Службы R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Предварительная версия. Ознакомьтесь с разделом [Новые возможности службы обучения машины в SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services).  |
 | [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Нет |
 | [Инструкции RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Нет | 
@@ -104,9 +104,9 @@ ms.lasthandoff: 10/11/2017
 | [Инструкции SET](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Большинство. Дополнительные сведения см. в разделах по отдельным инструкциям. 
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Да |
 | [Агент SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Нет. Дополнительные сведения см. в статье [Начало работы с заданиями обработки эластичных баз данных](sql-database-elastic-jobs-getting-started.md) |
-| [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Нет. Дополнительные сведения см. на странице [служб Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/). |
+| [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Дополнительные сведения см. на странице [служб Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/). |
 | [Аудит SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Нет. Дополнительные сведения см. в статье [Приступая к работе с аудитом базы данных SQL](sql-database-auditing.md). |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Нет. Дополнительные сведения см. на странице [о фабрике данных Azure](https://azure.microsoft.com/services/data-factory/). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Дополнительные сведения см. на странице [о фабрике данных Azure](https://azure.microsoft.com/services/data-factory/). |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Да |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Нет. Дополнительные сведения см. в статье о [расширенных событиях](sql-database-xevent-db-diff-from-svr.md). |
 | [Репликация SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Только для подписчиков репликации транзакций и репликации моментального снимка](sql-database-cloud-migrate.md) |
@@ -121,7 +121,7 @@ ms.lasthandoff: 10/11/2017
 | [Временные таблицы](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Да |
 | [Переменные](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Да | 
 | [Прозрачное шифрование данных (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Да |
-| [Отказоустойчивая кластеризация Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Нет. Дополнительные сведения см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md). |
+| [Отказоустойчивая кластеризация Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Функция высокого уровня доступности включается в каждой базе данных. Сведения об аварийном восстановлении см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md). |
 | [XML-индексы](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Да |
 
 ## <a name="next-steps"></a>Дальнейшие действия
