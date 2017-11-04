@@ -12,106 +12,131 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2017
-ms.author: ryanwi
+ms.date: 10/03/2017
+ms.author: cristyg
 ms.custom: mvc
-ms.openlocfilehash: 86c01a55304c5f5179e0e94d67f318e42075fd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29a8d5cf9a59a08dc63df1dbd601aa1f509cad95
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
-# <a name="create-a-windows-cluster-in-azure-using-powershell"></a>Создание кластера Windows в Azure с помощью PowerShell
-В этом руководстве показано, как создать кластер Service Fabric на платформе Windows в Azure. После окончания этого учебника у вас будет кластер в облаке, в который можно разворачивать приложения.
-
-Из этого руководства вы узнаете, как выполнять такие задачи:
-
-> [!div class="checklist"]
-> * Создание защищенного кластера Service Fabric в Azure с помощью PowerShell
-> * Защита кластера с помощью сертификата X.509
-> * Подключение к кластеру с помощью PowerShell
-> * Удаление кластера
+# <a name="create-a-secure-cluster-on-azure-using-powershell"></a>Создание безопасного кластера в Azure с помощью PowerShell
+Это первое руководство в серии, в котором показано, как переместить приложение .NET в облако с помощью кластеров и контейнеров Service Fabric. В следующих разделах вы узнаете, как создать кластер Service Fabric (с Windows или Linux) в Azure. После выполнения всех указаний из этого руководства у вас будет безопасный кластер, запущенный в облаке, в котором можно развертывать приложения.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим руководством выполните следующие действия:
 - Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Установите [пакет SDK для Service Fabric и модуль PowerShell](service-fabric-get-started.md)
-- Установите модуль [Azure PowerShell версии 4.1 или более поздней](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+- Установите [пакет SDK для Service Fabric](service-fabric-get-started.md).
+- Установите [модуль Azure Powershell 4.1 или более поздней версии](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (при необходимости [установите службу Azure PowerShell](/powershell/azure/overview) или [обновите ее до новой версии](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0#update-azps)).
 
-В следующей процедуре создается кластер предварительной версии Service Fabric с одним узлом (одной виртуальной машиной). Кластер защищен с помощью самозаверяющего сертификата, который создается вместе с кластером и помещается в хранилище ключей. Кластеры из одного узла не поддерживают масштабирование за пределы одной виртуальной машины, кроме того, кластеры предварительной версии нельзя обновить до последующих версий.
+
+# <a name="create-a-service-fabric-cluster"></a>Создание кластера Service Fabric
+
+Этот сценарий создает предварительную версию кластера с одним узлом в Service Fabric. Кластер защищен с помощью самозаверяющего сертификата, который создается вместе с кластером и помещается в хранилище ключей. Кластеры из одного узла не поддерживают масштабирование за пределы одной виртуальной машины, кроме того, кластеры предварительной версии нельзя обновить до последующих версий.
 
 Чтобы рассчитать затраты, связанные с запуском кластера Service Fabric в Azure, используйте [калькулятор цен Azure](https://azure.microsoft.com/pricing/calculator/).
 Дополнительные сведения о создании кластеров Service Fabric см. в статье [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
-## <a name="create-the-cluster-using-azure-powershell"></a>Создание кластера с помощью Azure PowerShell
-1. Скачайте локальную копию шаблона Azure Resource Manager и файл параметров из репозитория GitHub [шаблон Azure Resource Manager для Service Fabric](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial).  *azuredeploy.json* — шаблон Azure Resource Manager, который определяет кластер Service Fabric. *azuredeploy.parameters.json* — файл параметров для настройки развертывания кластера.
-
-2. Настройте следующие параметры в файле параметров *azuredeploy.parameters.json*:
-
-   | Параметр       | Описание | Рекомендуемое значение |
-   | --------------- | ----------- | --------------- |
-   | clusterLocation | Регион Azure, в котором развертывается кластер. | *Например, westeurope, eastasia, eastus* |
-   | clusterName     | Имя создаваемого кластера. | *Например, bobs-sfpreviewcluster* |
-   | adminUserName   | Учетная запись локального администратора виртуальных машин кластера. | *Любое допустимое имя пользователя Windows Server* |
-   | adminPassword   | Пароль локального администратора виртуальных машин кластера. | *Любой допустимый пароль Windows Server* |
-   | clusterCodeVersion | Выполняемая версия Service Fabric. (255.255.X.255 — предварительные версии). | **5.7.198.9494** |
-   | vmInstanceCount | Число виртуальных машин в кластере (может быть 1 или 3–99). | **1** | *Для предварительной версии кластера укажите только одну виртуальную машину* |
-
-3. Откройте консоль Windows PowerShell, войдите в Azure и выберите подписку, в которую нужно развернуть кластер:
+## <a name="log-in-to-azure"></a>Вход в Azure
+Откройте консоль PowerShell, войдите в Azure и выберите подписку, в которую нужно развернуть кластер:
 
    ```powershell
    Login-AzureRmAccount
    Select-AzureRmSubscription -SubscriptionId <subscription-id>
    ```
-4. Создайте и зашифруйте пароль для сертификата, который будет использовать платформа Service Fabric.
 
-   ```powershell
-   $pwd = "<your password>" | ConvertTo-SecureString -AsPlainText -Force
-   ```
-5. Создайте кластер с сертификатом, выполнив следующую команду:
+## <a name="cluster-parameters"></a>Параметры кластера
 
-   ```powershell
-      New-AzureRmServiceFabricCluster `
-          -TemplateFile C:\Users\me\Desktop\azuredeploy.json `
-          -ParameterFile C:\Users\me\Desktop\azuredeploy.parameters.json `
-          -CertificateOutputFolder C:\Users\me\Desktop\ `
-          -CertificatePassword $pwd `
-          -CertificateSubjectName "mycluster.westeurope.cloudapp.azure.com" `
-          -ResourceGroupName myclusterRG
-   ```
+   Этот сценарий использует следующие параметры и основные понятия. Настройте параметры в соответствии с требованиями.
 
-   >[!NOTE]
-   >Параметр `-CertificateSubjectName` должен соответствовать параметру clusterName, указанному в файле параметров, а домен необходимо привязать к выбранному региону Azure, например `clustername.eastus.cloudapp.azure.com`.
+   | Параметр       | Описание | Рекомендуемое значение |
+   | --------------- | ----------- | --------------- |
+   | Расположение | Регион Azure, в котором развертывается кластер. | *Например, westeurope, eastasia, eastus* |
+   | Имя     | Имя создаваемого кластера. Имя должно содержать от 4 до 23 знаков и может иметь только строчные буквы, цифры и дефисы. | *Например, bobs-sfpreviewcluster* |
+   | ResourceGroupName   | Имя группы ресурсов, в которой будет создан кластер. | *Например, myresourcegroup* |
+   | VmSku  | Номер SKU виртуальной машины, используемый для узлов. | *Любой допустимый номер SKU виртуальной машины* |
+   | ОС  | ОС виртуальной машины, используемая для узлов. | *Любая допустимая ОС виртуальной машины* |
+   | keyVaultName | Имя нового хранилища ключей KeyVault для связывания с кластером. | *Например, mykeyvault* |
+   | ClusterSize (размер кластера) | Число виртуальных машин в кластере (может быть 1 или 3–99).| *Укажите только одну виртуальную машину для предварительной версии кластера* |
+   | CertificateSubjectName | Имя субъекта создаваемого сертификата. | *Указывается в формате <name>.<location>.cloudapp.azure.com* |
 
-По завершении настройки отобразятся сведения о кластере, созданном в Azure. А сертификат кластера будет скопирован в каталог -CertificateOutputFolder в пути, указанном для этого параметра. Этот сертификат понадобится вам для доступа к Service Fabric Explorer и просмотра сведений о работоспособности кластера.
+## <a name="default-parameter-values"></a>Значения параметров по умолчанию
+Параметры **виртуальной машины** являются необязательными. Если вы не укажете их, будет задано имя администратора по умолчанию (vmadmin) и PowerShell предложит вам ввести пароль виртуальной машины до создания кластера.
 
-Запишите URL-адрес кластера, который выглядит примерно так: *https://mycluster.westeurope.cloudapp.azure.com:19080*.
+**Порты.** По умолчанию будут использоваться порты 80 и 8081. Вы можете указать дополнительные порты, следуя указаниям для [портов в кластерах Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/create-load-balancer-rule).
 
-## <a name="modify-the-certificate--access-service-fabric-explorer"></a>Изменение сертификата и параметров доступа к Service Fabric Explorer ##
+**Диагностика** включена по умолчанию.
 
-1. Дважды щелкните сертификат, чтобы запустить мастер импорта сертификатов.
+**Служба DNS** по умолчанию не включена.
 
-2. Используйте параметры по умолчанию, но не забудьте установить флажок **Пометить этот ключ как экспортируемый** в шаге **Защита закрытого ключа**. Visual Studio необходимо экспортировать сертификат при настройке реестра контейнеров Azure, чтобы выполнить проверку подлинности кластера Service Fabric далее в этом руководстве.
+**Обратный прокси-сервер** также не включен по умолчанию.
 
-3. Теперь можно открыть обозреватель Service Fabric в браузере. Для этого в браузере перейдите к URL-адресу, указанному в значении параметра **ManagementEndpoint** для кластера, и выберите сертификат, сохраненный на компьютере.
+## <a name="create-the-cluster-with-your-parameters"></a>Создание кластера с использованием параметров
+
+Определившись с параметрами, соответствующими требованиям, выполните следующую команду для создания безопасного кластера Service Fabric и его сертификата.
+
+Этот сценарий можно изменить, чтобы включить дополнительные параметры. Дополнительные сведения о параметрах для создания кластера см. в статье о командлете [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster.md).
+
+>[!NOTE]
+>Перед выполнением этой команды необходимо создать папку для вывода сертификата кластера.
+
+```powershell
+
+    # Certificate variables. This will create and encrypt a password to be used by Service Fabric.
+    $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+
+    # You must create the folder where you want to output the certificate on your machine before executing this step.
+    $certfolder="c:\mycertificates\"
+
+    # Variables for common values. Change the values to fit your needs.
+    $clusterloc="WestUS"
+    $clustername = "mysfcluster"
+    $groupname="mysfclustergroup"       
+    $vmsku = "Standard_D2_v2"
+    $vaultname = "mykeyvault"
+    $subname="$clustername.$clusterloc.cloudapp.azure.com"
+
+    # Set the number of cluster nodes. Possible values: 1, 3-99
+    $clustersize=1
+
+    # Create the Service Fabric cluster and its self-signed certificate. The OS specified here allows you use this cluster with any applications that are also leveraging containers.
+    New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
+    -ClusterSize $clustersize -CertificateSubjectName $subname `
+    -CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
+    -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
+```
+
+Этот процесс может занять несколько минут. По завершении настройки отобразятся сведения о кластере, созданном в Azure. А сертификат кластера будет скопирован в каталог -CertificateOutputFolder в пути, указанном для этого параметра.
+
+Запишите URL-адрес кластера **ManagementEndpoint**, который выглядит примерно так: *https://mycluster.westeurope.cloudapp.azure.com:19080*.
+
+## <a name="import-the-certificate"></a>Импорт сертификата
+
+Если создание кластера завершилось успешно, выполните следующую команду, чтобы убедиться, что можно использовать самозаверяющий сертификат.
+
+```powershell
+
+    # Connect to the cluster using by installing the certificate into the Personal (My) store of the current user on your computer.
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\mycertificates\mysfclustergroup20170531104310.pfx `
+            -Password $certpwd
+```
+
+Эта команда устанавливает сертификат для текущего пользователя компьютера.  Этот сертификат понадобится вам для доступа к Service Fabric Explorer и просмотра сведений о работоспособности кластера.
+
+
+## <a name="view-your-cluster-optional"></a>Просмотр кластера (необязательно)
+
+После получения кластера и импортированного сертификата можно подключиться к кластеру и просмотреть его работоспособность. Есть множество способов подключения через Service Fabric Explorer или PowerShell.
+
+### <a name="service-fabric-explorer"></a>Service Fabric Explorer
+Сведения о работоспособности кластера можно просмотреть, открыв Service Fabric Explorer. Для этого в браузере перейдите по URL-адресу **ManagementEndpoint** для кластера, а затем выберите сертификат, сохраненный на компьютере.
 
 >[!NOTE]
 >При открытии обозревателя Service Fabric появится сообщение об ошибке сертификата, так как используется самозаверяющий сертификат. В браузере Edge необходимо щелкнуть *Сведения*, а затем ссылку *Перейти на веб-страницу*. В браузере Chrome нужно щелкнуть *Дополнительно*, а затем ссылку *Продолжить*.
 
->[!NOTE]
->В случае сбоя создания кластера можно повторно запустить команду, которая обновляет уже развернутые ресурсы. Если сертификат создан в ходе неудачного развертывания, создается новый сертификат. Сведения об устранении неполадок при создании кластера см. в статье [Создание кластера Service Fabric с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
-
-## <a name="connect-to-the-secure-cluster"></a>Подключение к безопасному кластеру
-Подключитесь к кластеру с помощью модуля Service Fabric PowerShell, который установлен вместе с пакетом SDK для Service Fabric.  Сначала установите сертификат в личное хранилище (Мое хранилище) текущего пользователя компьютера.  Выполните следующую команду PowerShell:
-
-```powershell
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\mycertificates\mysfcluster20170531104310.pfx `
-        -Password $certpwd
-```
-
-Теперь все готово для подключения к защищенному кластеру.
+### <a name="powershell"></a>PowerShell
 
 Модуль PowerShell **Service Fabric** предоставляет многие командлеты для управления кластерами, приложениями и службами Service Fabric.  Для подключения к безопасному кластеру используйте командлет [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster). Сведения об отпечатке сертификата и конечной точке подключения можно найти в выходных данных из предыдущего шага.
 
@@ -123,35 +148,17 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.clou
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Убедитесь, что подключение установлено и кластер находится в работоспособном состоянии, выполнив командлет [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth).
+Вы также можете убедиться, что подключение установлено и кластер находится в работоспособном состоянии, выполнив командлет [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth).
 
 ```powershell
 Get-ServiceFabricClusterHealth
 ```
 
-## <a name="clean-up-resources"></a>Очистка ресурсов
-
-Помимо собственных ресурсов кластер содержит другие ресурсы Azure. Чтобы удалить кластер и все ресурсы, который он использует, проще всего удалить группу ресурсов.
-
-Войдите в Azure и выберите идентификатор подписки, в которой вы хотите удалить кластер.  Идентификатор подписки можно узнать, войдя на [портал Azure](http://portal.azure.com). Удалите группу ресурсов и все ресурсы кластера с помощью командлета [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
-
-```powershell
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId "Subcription ID"
-
-$groupname="mysfclustergroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
-```
-
 ## <a name="next-steps"></a>Дальнейшие действия
-Из этого руководства вы узнали, как выполнять такие задачи:
-
-> [!div class="checklist"]
-> * Создание кластера Service Fabric в Azure
-> * Защита кластера с помощью сертификата X.509
-> * Подключение к кластеру с помощью PowerShell
-> * Удаление кластера
+В этом руководстве вы узнали, как создать защищенный кластер Service Fabric в Azure с помощью PowerShell.
 
 Теперь перейдите к следующему руководству, из которого вы узнаете, как развернуть существующее приложение.
 > [!div class="nextstepaction"]
 > [Развертывание существующего приложения .NET с помощью Docker Compose](service-fabric-host-app-in-a-container.md)
+
+---

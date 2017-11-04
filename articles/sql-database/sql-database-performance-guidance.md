@@ -1,6 +1,6 @@
 ---
 title: "Руководство по настройке производительности базы данных SQL Azure | Документация Майкрософт"
-description: "С помощью этой статьи вы сможете определить, какой уровень служб подходит для вашего приложения. Здесь также описываются рекомендованные способы настройки приложения для эффективного использования Базы данных SQL Azure."
+description: "Сведения об использовании рекомендаций для повышения производительности запросов базы данных SQL Azure."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -12,14 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 02/09/2017
 ms.author: carlrab
-ms.openlocfilehash: dc0244f0e0949b172c391825057f5c14893a5158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Настройка производительности в Базе данных SQL Azure
 

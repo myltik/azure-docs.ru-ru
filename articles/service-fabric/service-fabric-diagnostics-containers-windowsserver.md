@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/10/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 874c1a5c4b399ff2254072b7282f05d83a005cc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 319ee2c0f7492389bc1767aa2669dd273f8cfa1b
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="monitoring-windows-server-containers-with-oms"></a>Отслеживание контейнеров Windows Server с помощью OMS
 
 ## <a name="oms-containers-solution"></a>Решение OMS "Контейнеры"
 
-Команда разработчиков Operations Management Suite (OMS) опубликовала решение "Контейнеры", с помощью которого можно отслеживать и диагностировать контейнеры. Это решение в комбинации с Service Fabric представляет собой отличное средство для отслеживания развертываний контейнеров, управляемых в Service Fabric. Ниже показано, как выглядит панель мониторинга этого решения.
+Log Analytics в Operations Management Suite (OMS) содержит решение "Контейнеры", которое можно использовать для наблюдения за контейнерами. Это решение в комбинации с Service Fabric представляет собой отличное средство для отслеживания развертываний контейнеров, управляемых в Service Fabric. Ниже показано, как выглядит панель мониторинга этого решения.
 
 ![Основная панель мониторинга OMS](./media/service-fabric-diagnostics-containers-windowsserver/oms-containers-dashboard.png)
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="1-set-up-a-service-fabric-cluster"></a>1. Настройка кластера Service Fabric
 
-Создайте кластер с помощью шаблона Azure Resource Manager, который можно скачать [здесь](https://github.com/dkkapur/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample). Обязательно добавьте уникальное имя рабочей области OMS. Этот шаблон также по умолчанию развертывает кластер в предварительной версии сборки Service Fabric (255.255). Это означает, что его нельзя использовать в рабочей среде и нельзя обновить до другой версии Service Fabric. Если этот шаблон нужен вам для долгосрочных целей или вы хотите использовать его в рабочей среде, измените его версию на стабильную.
+Создайте кластер с помощью шаблона Azure Resource Manager, который можно скачать [здесь](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows). Обязательно добавьте уникальное имя рабочей области OMS. Этот шаблон также по умолчанию развертывает кластер в предварительной версии сборки Service Fabric (255.255). Это означает, что его нельзя использовать в рабочей среде и нельзя обновить до другой версии Service Fabric. Если этот шаблон нужен вам для долгосрочных целей или вы хотите использовать его в рабочей среде, измените его версию на стабильную.
 
 После настройки кластера убедитесь, что вы установили соответствующий сертификат и что вы можете подключиться к кластеру.
 

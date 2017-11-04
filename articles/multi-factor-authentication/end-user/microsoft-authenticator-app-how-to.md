@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: e1e979319e53d222be33032acd0a79697dd09ab6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cae11f53df768daf5846ac719a45715709326d76
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Начало работы с приложением Microsoft Authenticator
 Приложение Microsoft Authenticator обеспечивает дополнительный уровень безопасности для рабочей учетной записи (например, bsimon@contoso.com) или для учетной записи Майкрософт (например, bsimon@outlook.com).
@@ -91,10 +91,10 @@ Microsoft Authenticator также можно использовать со ст
 
     ![Окно с учетными записями](./media/authenticator-app-how-to/accounts.png)
 
-### <a name="add-an-account-to-the-app-using-touch-id"></a>Добавление учетной записи в приложение с использованием Touch ID
-Приложение Microsoft Authenticator на iOS поддерживает Touch ID.  Многофакторная идентификация Azure позволяет организациям запрашивать ПИН-код для устройств. При использовании Touch ID пользователям iOS не нужно вводить ПИН-код. Вместо этого можно просканировать отпечатки пальцев и нажать кнопку **Утвердить**.
+### <a name="add-an-account-to-the-app-using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>Добавление учетной записи в приложение с помощью функции считывания отпечатка пальца или распознавания лиц на устройстве
+Ваша организация может требовать ввода ПИН-кода для выполнения проверочного запроса защиты. Приложение Microsoft Authenticator может использовать функцию считывания отпечатка пальца или распознавания лиц на устройстве вместо ПИН-кода. Чтобы настроить это для первой проверки в приложении, отображается параметр, позволяющий использовать идентификацию по Touch ID (iOS) или отпечатку пальца. 
 
-Настройка Touch ID в приложении Microsoft Authenticator выполняется очень просто. Обычная проверка заканчивается вводом ПИН-кода. Если устройство поддерживает Touch ID, Microsoft Authenticator автоматически настроит его для учетной записи.
+Чтобы настроить Touch ID для Microsoft Authenticator, необходимо выполнить обычный проверочный запрос защиты с помощью ПИН-кода. Microsoft Authenticator автоматически настроит Touch ID для устройств, которые его поддерживают. 
 
 ![Проверка настройки Touch ID](./media/authenticator-app-how-to/touchid1.png)
 
