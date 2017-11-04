@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 10/20/2017
 ms.author: tamram
-ms.openlocfilehash: 0c36679fd9128613cb4a7e54786ab09eb3a1fc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe8023729bd1294dedd2a4e4723a8be0976731d6
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Шифрование на стороне клиента для службы хранилища Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -146,10 +146,11 @@ ms.lasthandoff: 10/11/2017
   * Сопоставитель ключа вызывается, если он нужен для получения ключа. Если сопоставитель указан, но он не имеет данных, сопоставимых с идентификатором ключа, возникает ошибка.
   * Если сопоставитель не указан, но указан ключ, ключ используется, если его идентификатор соответствует требуемому идентификатору ключа. Если идентификатор не совпадает, выдается ошибка.
 
-В статье с [примерами шифрования](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) показан подробный комплексный сценарий для больших двоичных объектов, очередей, таблиц и интеграции хранилища ключей.
+В примерах кода в этой статье показана настройка политики шифрования и работа с зашифрованными данными, а не работа с Azure Key Vault. В статье с [примерами шифрования](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) на GitHub показан подробный комплексный сценарий для больших двоичных объектов, очередей, таблиц и интеграции хранилища ключей.
 
 ### <a name="requireencryption-mode"></a>Режим RequireEncryption
 При необходимости можно включить режим работы, где все передачи и загрузки должны быть зашифрованы. В этом режиме все попытки клиента передать данные без политики шифрования или загрузить данные, которые не зашифрованы в службе, закончатся ошибкой. Это поведение контролирует свойство **RequireEncryption** объекта параметров запроса. Если приложение будет шифровать все объекты из службы хранилища Azure, то можно задать свойство **requireEncryption** в параметрах запроса по умолчанию для объекта клиента службы. Например, задайте для **CloudBlobClient.DefaultRequestOptions.RequireEncryption** значение **true**, чтобы требовать шифрования всех операций с большими двоичными объектами, выполненных посредством этого объекта клиента.
+
 
 ### <a name="blob-service-encryption"></a>Шифрование службы BLOB-объектов
 Создайте объект **BlobEncryptionPolicy** и задайте его в параметрах запроса (для каждого API или на уровне клиента с помощью параметра **DefaultRequestOptions**). Все остальные задачи решаются клиентской библиотекой.

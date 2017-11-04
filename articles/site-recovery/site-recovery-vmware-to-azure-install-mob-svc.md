@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.openlocfilehash: eb2fbd16980eadfce15227b6ba07f00c47b672ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3b26c7f34a8fd3d027464cb7a3704c7960b67c6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Установка службы Mobility Service (из виртуальных машин VMware или физических серверов в Azure)
 Служба Mobility Service Azure Site Recovery фиксирует операции записи данных, выполняемые на компьютере, и передает их на сервер обработки. Разверните службу Mobility Service на каждом компьютере (виртуальная машина или физический сервер VMware), который требуется реплицировать в Azure. Службы Mobility Service можно развернуть на серверах, которые необходимо защитить, следующими способами:
@@ -93,8 +93,12 @@ ms.lasthandoff: 10/11/2017
 
 1. На портале Azure перейдите к представлению <Your Vault> > "Реплицированные элементы".
 2. Если **сервер конфигурации** уже обновлен до последней версии, то вы увидите уведомление *Доступно обновление для агента репликации Site Recovery. Щелкните, чтобы установить его.*
+   
+     ![Реплицированные элементы](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
 3. Щелкните это уведомление, чтобы открыть страницу выбора виртуальной машины.
 4. Выберите виртуальные машины, на которых нужно обновить службу Mobility Service, и нажмите кнопку "ОК".
+
+     ![Список виртуальных машин реплицированных элементов](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
 5. Для каждой выбранной виртуальной машины будет запущено задание обновления службы Mobility Service.
 
 > [!NOTE]

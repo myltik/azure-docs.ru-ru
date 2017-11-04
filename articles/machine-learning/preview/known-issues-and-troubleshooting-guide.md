@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f79910ba4fea81e88fce90dd67ba7cb4db2e8220
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: руководство по устранению неполадок и описание известных проблем 
 С помощью сведений в этой статье можно найти и исправить ошибки или сбои, обнаруженные при использовании приложения Azure Machine Learning Workbench. 
@@ -83,6 +83,9 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
 - Преобразования кластеризации текста не поддерживается на компьютере Mac.
 
 - Библиотека RevoScalePy поддерживается только в Windows и Linux (в контейнерах Docker). Она не поддерживается в macOS.
+
+## <a name="file-name-too-long-on-windows"></a>Имя файла слишком длинное для Windows
+Если используется Workbench для Windows, вы можете столкнуться с используемым по умолчанию ограничением длины имени файла в 260 знаков. Признаком этого может быть вводящее в заблуждение сообщение об ошибке, например "Системе не удается найти указанный путь". Можно изменить параметр раздела реестра, чтобы разрешить гораздо более длинные пути к файлам. Прочитайте [эту статью](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath), чтобы узнать больше о том, как настроить раздел реестра _MAX_PATH_.
 
 ## <a name="docker-error-read-connection-refused"></a>Ошибка Docker "read: connection refused" (Чтение: в подключении отказано)
 Иногда при выполнении в локальном контейнере Docker может произойти следующая ошибка: 
