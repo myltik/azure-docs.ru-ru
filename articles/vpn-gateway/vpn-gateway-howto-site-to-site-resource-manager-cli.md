@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: 070805ed4cd7e2d03a47fc04c01ea331c664e2cb
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 832cb92f07696ac5ea4df74467899adcc0de0903
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Создание виртуальной сети с VPN типа "сеть — сеть" с помощью интерфейса командной строки
 
@@ -87,6 +87,11 @@ az group create --name TestRG1 --location eastus
 ## <a name="VNet"></a>3. Создать виртуальную сеть
 
 Если у вас еще нет виртуальной сети, создайте ее, используя команду [az network vnet create](/cli/azure/network/vnet#create). При создании виртуальной сети убедитесь, что указанные адресные пространства не перекрываются ни с одним из адресных пространств, которые используются в локальной сети.
+
+>[!NOTE]
+>Для подключения этой виртуальной сети к локальному расположению вам необходимо обратиться к администратору локальной сети, чтобы выделить диапазон IP-адресов, который будет использоваться специально для этой виртуальной сети. В противном случае, если повторяющийся диапазон адресов существует на обеих сторонах VPN-подключения, трафик будет маршрутизироваться неправильно.
+>
+>
 
 В следующем примере создаются виртуальная сеть TestVNet1 и подсеть Subnet1.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 4e243189bc26566f9ca0850e95f98731ba4d97b6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 6ea08dc4a3082ead9e18fb6c0c30f2ed1df765d8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Руководство по планированию использования центра безопасности Azure и работе в нем
 Это руководство предназначено для ИТ-специалистов, ИТ-архитекторов, аналитиков в сфере информационной безопасности и администраторов облака, организации которых планируют использовать центр безопасности Azure.

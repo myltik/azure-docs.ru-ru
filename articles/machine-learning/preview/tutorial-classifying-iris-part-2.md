@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
-ms.openlocfilehash: 5d86f3bdf19603d2f92fc1a704376beefd7323c0
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 976407daee45e2f3a8360c1316227cc3399ad43e
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-2-build-a-model"></a>Часть 2. Классификация цветков ириса: создание модели
 Служба "Машинное обучение Azure" (предварительная версия) — это полнофункциональное интегрированное аналитическое решение для специалистов по обработке данных. Оно помогает подготавливать данные, разрабатывать эксперименты и развертывать модели в масштабе облака.
@@ -198,11 +198,11 @@ Azure ML позволяет легко настраивать дополните
 
 5. Теперь поработаем со Spark. Базовый образ Docker содержит предварительно установленный и настроенный экземпляр Spark. Поэтому вы можете выполнять в нем скрипт PySpark. Это простой способ разработки и тестирования программы Spark, не тратя время на самостоятельные установку и настройку Spark. 
 
-   Откройте файл `iris_pyspark.py` . Этот скрипт загружает файл данных `iris.csv` и использует алгоритм логистической регрессии из библиотеки Spark ML для классификации набора данных ирисов Фишера. Теперь измените среду выполнения на **docker spark**, а скрипт — на **iris_pyspark.py** и выполните еще один запуск. Это займет больше времени, так как сеанс Spark должен быть создан и запущен в контейнере Docker. Как видите, stdout отличается от stdout из `iris_pyspark.py`.
+   Откройте файл `iris_spark.py` . Этот скрипт загружает файл данных `iris.csv` и использует алгоритм логистической регрессии из библиотеки Spark ML для классификации набора данных ирисов Фишера. Теперь измените среду выполнения на **docker-spark**, а скрипт — на **iris_pyspark.py** и выполните еще один запуск. Это займет больше времени, так как сеанс Spark должен быть создан и запущен в контейнере Docker. Как видите, stdout отличается от stdout из `iris_spark.py`.
 
 6. Выполните еще несколько запусков, используя разные аргументы. 
 
-7. Откройте файл `iris_pyspark.py`, чтобы просмотреть простую модель логистической регрессии, созданную с использованием библиотеки Spark ML. 
+7. Откройте файл `iris_spark.py`, чтобы просмотреть простую модель логистической регрессии, созданную с использованием библиотеки Spark ML. 
 
 8. Поработайте с панелью **Задания**, представлением списка журналов запусков и представлением сведений о запусках в разных средах выполнения.
 
@@ -249,8 +249,8 @@ Azure ML позволяет легко настраивать дополните
    REM Execute iris_sklearn.py in local Docker container Python environment.
    az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
    
-   REM Execute iris_pyspark.py in local Docker container Spark environment.
-   az ml experiment submit -c docker-spark .\iris_pyspark.py 0.1
+   REM Execute iris_spark.py in local Docker container Spark environment.
+   az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
 6. В Azure Machine Learning Workbench щелкните значок папки на левой панели инструментов, чтобы открыть список файлов проекта. Затем откройте скрипт Python с именем **run.py**. 
 
@@ -320,8 +320,8 @@ Azure ML позволяет легко настраивать дополните
 
 5. Введите следующую команду, чтобы выполнить запуск в экземпляре Spark в удаленном контейнере Docker:
    ```azureli
-   REM execute iris_pyspark.py in Spark instance on remote Docker container
-   az ml experiment submit -c myvm-spark .\iris_pyspark.py
+   REM execute iris_spark.py in Spark instance on remote Docker container
+   az ml experiment submit -c myvm-spark .\iris_spark.py
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Выполнение скрипта в кластере HDInsight
@@ -345,8 +345,8 @@ Azure ML позволяет легко настраивать дополните
 2. Выполните следующую команду, чтобы запустить скрипт в кластере HDInsight:
 
    ```azurecli
-   REM execute iris_pyspark on the HDI cluster
-   az ml experiment submit -c myhdi .\iris_pyspark.py
+   REM execute iris_spark on the HDI cluster
+   az ml experiment submit -c myhdi .\iris_spark.py
    ```
 
    >[!NOTE]

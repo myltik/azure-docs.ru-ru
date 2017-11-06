@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: b49a894365dd344afb2f3cab51e7cfd28d930b1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6232459326599d244c6d3f055bf890e78ecf631e
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: регистрация приложения
 
-Из этого краткого руководства вы узнаете, как зарегистрировать приложение в клиенте Microsoft Azure Active Directory (Azure AD) B2C за несколько минут. Ознакомившись с этим руководством, вы зарегистрируете приложение для использования в клиенте Azure AD B2C.
+Из этого краткого руководства вы узнаете, как зарегистрировать приложение в клиенте Microsoft Azure Active Directory (Azure AD) B2C за несколько минут. Ознакомившись руководством, вы зарегистрируете приложение для использования в клиенте Azure AD B2C.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
