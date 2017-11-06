@@ -50,6 +50,7 @@
 ### [Настройка с помощью Git](api-management-configuration-repository-git.md)
 ### [Мониторинг с помощью Azure Monitor](api-management-howto-use-azure-monitor.md)
 ### [Использование контроля доступа на основе ролей](api-management-role-based-access-control.md)
+### [Использование удостоверения управляемой службы](api-management-howto-use-managed-service-identity.md)
 ### Интеграция с Service Fabric
 #### [Обзор](../service-fabric/service-fabric-api-management-overview.md)
 #### [Краткое руководство](../service-fabric/service-fabric-api-management-quick-start.md)
