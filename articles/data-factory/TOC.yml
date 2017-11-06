@@ -71,6 +71,8 @@
               href: connector-azure-cosmos-db.md
             - name: Хранилище озера данных Azure
               href: connector-azure-data-lake-store.md
+            - name: Хранилище файлов Azure
+              href: connector-azure-file-storage.md
             - name: поиск Azure;
               href: connector-azure-search.md
             - name: База данных SQL Azure

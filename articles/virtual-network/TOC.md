@@ -1,14 +1,14 @@
 # Обзор
 ## [Виртуальные сети](virtual-networks-overview.md)
-## [Определяемые пользователем маршруты и IP-пересылка](virtual-networks-udr-overview.md)
+## [Маршрутизация](virtual-networks-udr-overview.md)
 ## [Пиринг между виртуальными сетями](virtual-network-peering-overview.md)
 ## [Конечные точки службы виртуальной сети](virtual-network-service-endpoints-overview.md)
 ## [Виртуальная сеть для служб Azure](virtual-network-for-azure-services.md)
 ## [Безопасность](security-overview.md)
 ## [Непрерывность бизнес-процессов](virtual-network-disaster-recovery-guidance.md)
-## [Часто задаваемые вопросы](virtual-networks-faq.md)
 ## [Назначение IP-адресов](virtual-network-ip-addresses-overview-arm.md)
 ## [Защита от атак DDoS](ddos-protection-overview.md)
+## [Часто задаваемые вопросы](virtual-networks-faq.md)
 ## Классический
 ### [Назначение IP-адресов](virtual-network-ip-addresses-overview-classic.md)
 ### [Списки управления доступом](virtual-networks-acl.md)

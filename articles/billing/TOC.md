@@ -35,9 +35,9 @@
 ### [Привязывание клиента Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Оплата подписок по счету](billing-how-to-pay-by-invoice.md)
 ## Устранение неполадок
-### [Проблемы при регистрации](billing-troubleshoot-azure-sign-up-issues.md)
-### [Карта не принимается](billing-credit-card-fails-during-azure-sign-up.md)
-### [Проблемы при входе](billing-cannot-login-subscription.md)
+### [Проблемы при регистрации](https://support.microsoft.com/en-us/help/4042959)
+### [Карта не принимается](https://support.microsoft.com/en-us/help/4042960)
+### [Проблемы при входе](https://support.microsoft.com/en-us/help/4042961)
 ### [Подписки не найдены](billing-no-subscriptions-found.md)
 ### [Просмотр стоимости Enterprise отключен](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

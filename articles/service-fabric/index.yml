@@ -98,6 +98,6 @@ sections:
           - title: Командная строка
             html: '<p><a href="/cli/azure/sf">Интерфейс командной строки Azure</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Интерфейс командной строки Service Fabric</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
           - title: Языки
-            html: <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
+            html: <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">Схема XML для модели службы</a></p>
           - title: REST
             html: <p><a href="/rest/api/servicefabric">справочник по API REST</a></p>

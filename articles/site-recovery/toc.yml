@@ -79,8 +79,6 @@
   items:
     - name: Аварийное восстановление
       items:
-        - name: Виртуальных машин VMware с поддержкой мультитенантности в Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Виртуальных машин Hyper-V в Azure
           href: tutorial-hyper-v-to-azure.md
         - name: Физические серверы в Azure
@@ -99,6 +97,8 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Выполнение отработки отказа и восстановления размещения между локальными сайтами
           href: tutorial-vmm-to-vmm-failover-failback.md
+        - name: Виртуальных машин VMware с поддержкой мультитенантности в Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Емкость и масштабирование
       items:
         - name: Планирование емкости для репликации VMware в Azure
@@ -203,6 +203,8 @@
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
+        - name: Файловый сервер
+          href: file-server-disaster-recovery.md
         - name: Веб-приложения на платформе IIS
           href: site-recovery-iis.md
         - name: Citrix XenApp и XenDesktop

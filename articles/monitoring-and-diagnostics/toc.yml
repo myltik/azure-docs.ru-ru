@@ -134,6 +134,8 @@
       items:
         - name: Архив
           href: monitoring-archive-diagnostic-logs.md
+        - name: '"Отправить в Log Analytics".'
+          href: monitor-stream-diagnostic-logs-log-analytics.md
         - name: Потоковая передача в концентраторы событий
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Включение параметров диагностики с помощью шаблонов Resource Manager
