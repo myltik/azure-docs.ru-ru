@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5535433c478b989e255451a0bf882dfb8ba8f8fe
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="what-is-azure-machine-learning"></a>Что такое служба "Машинное обучение Microsoft Azure"?
 
@@ -105,7 +105,7 @@ Azure Machine Learning Workbench — это классическое прило
 
 Служба "Экспериментирование" создает виртуальные среды для изолированного выполнения скрипта с воспроизводимостью результатов. Она записывает сведения в журнал выполнения и обеспечивает их визуальное отображение. Вы можете без труда выбрать лучшую модель на основе данных нескольких запусков эксперимента. 
 
-Дополнительные сведения см. в статье о [настройке выполнения экспериментов](experiment-execution-configuration.md).
+Дополнительные сведения см. в статье [Настройка службы "Экспериментирование в Машинном обучении Azure"](experimentation-service-configuration.md).
 
 ## <a name="azure-machine-learning-model-management-service"></a>Служба Azure "Управление моделями Машинного обучения"
 

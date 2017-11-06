@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
+ms.date: 10/26/2017
 ms.author: yurid
-ms.openlocfilehash: 847a872661bea31b774814188c7707260a16e620
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Интеграция решений по обеспечению безопасности в центре безопасности Azure
 В этом документе описана процедура управления решениями по обеспечению безопасности, подключенными к центру безопасности Azure, и добавления новых решений.
@@ -32,10 +32,24 @@ ms.lasthandoff: 10/24/2017
 
 Сейчас к интегрированным решениям безопасности относятся следующие решения:
 
-- Защита конечных точек ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, [антивредоносные программы Майкрософт для облачных служб и виртуальных машин Azure](https://docs.microsoft.com/azure/security/azure-security-antimalware), Защитник Windows и System Center Endpoint Protection (SCEP)).
+- Защита конечных точек ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Защитник Windows и System Center Endpoint Protection (SCEP)).
 - Брандмауэр веб-приложения ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) и [шлюз приложений Azure](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)).
 - Брандмауэр следующего поколения ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) и [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)).
 - Оценка уязвимостей ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/)).  
+
+Интеграция защиты конечных точек может различаться в зависимости от решения. В следующей таблице приведены дополнительные сведения о каждом решении:
+
+| Защита конечных точек               | Платформы                             | Установка центра безопасности | Обнаружение центра безопасности |
+|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
+| Защитник Windows (антивредоносное ПО Майкрософт)                  | Windows Server 2016                   | Нет, встроен в ОС           | Да                       |
+| System Center Endpoint Protection (антивредоносное ПО Майкрософт) | Windows Server 2012 R2, 2012, 2008 R2 | Через расширение                | Да                       |
+| Trend Micro — все версии         | Семейство Windows Server                 | Через расширение                | Да                       |
+| Symantec версии 12 и выше                     | Семейство Windows Server                 | Нет                           | Да                        |
+| MacAfee                           | Семейство Windows Server                 | Нет                           | Нет                        |
+| Kaspersky                         | Семейство Windows Server                 | Нет                           | Нет                        |
+| Sophos                            | Семейство Windows Server                 | Нет                           | Нет                        |
+
+
 
 ## <a name="how-security-solutions-are-integrated"></a>Как интегрируются решения по обеспечению безопасности
 Решения по обеспечению безопасности Azure, развертываемые из центра безопасности, подключены автоматически. Вы также можете подключить другие источники данных безопасности:
@@ -77,8 +91,8 @@ ms.lasthandoff: 10/24/2017
 Из этой статьи вы узнали, как интегрировать партнерские решения в центре безопасности. Дополнительные сведения о центре безопасности см. в следующих статьях:
 
 * [Руководство по планированию использования центра безопасности Azure и работе в нем](security-center-planning-and-operations-guide.md).
-* [Connecting Microsoft Advanced Threat Analytics to Azure Security Center](security-center-ata-integration.md) (Подключение Microsoft Advanced Threat Analytics к центру безопасности Azure)
-* [Connecting Azure Active Directory Identity Protection to Azure Security Center](security-center-aadip-integration.md) (Подключение службы "Защита идентификации Azure Active Directory" к центру безопасности Azure)
+* [Подключение Microsoft Advanced Threat Analytics к центру безопасности Azure](security-center-ata-integration.md)
+* [Подключение службы "Защита идентификации Azure Active Directory" к центру безопасности Azure](security-center-aadip-integration.md)
 * [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md). Узнайте, как отслеживать работоспособность ресурсов Azure.
 * [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md). Узнайте, как отслеживать работоспособность партнерских решений.
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Ознакомьтесь с ответами на часто задаваемые вопросы об использовании центра безопасности.

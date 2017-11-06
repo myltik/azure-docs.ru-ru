@@ -8,6 +8,7 @@
 * Windows 8.1 (32-разрядная и 64-разрядная версии)
 * Windows Server 2012 (только 64-разрядная версия)
 * Windows Server 2012 R2 (только 64-разрядная версия)
+* Windows Server 2016 (только 64-разрядная версия)
 * Windows 10
 * OSX версии 10.11 для Mac (El Capitan);
 * macOS версии 10.12 для Mac (Sierra).
