@@ -78,6 +78,7 @@
 ### [Предложения](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Фасетная навигация](search-faceted-navigation.md)
 ### [Предварительный просмотр синонимов](search-synonyms.md)
+### [moreLikeThis (предварительная версия)](search-more-like-this.md)
 
 # Справочные материалы
 
@@ -86,7 +87,7 @@
 ## [Python (управление)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (управление)](/rest/api/searchmanagement)
-## [REST для службы (предварительная версия)](search-api-2015-02-28-preview.md)
+## [REST для службы (предварительная версия)](search-api-2016-09-01-preview.md)
 
 # Ресурсы
 

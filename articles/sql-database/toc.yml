@@ -309,6 +309,10 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Служба автоматизации Azure
           href: sql-database-manage-automation.md
+        - name: Рекомендации по синхронизации данных SQL
+          href: sql-database-best-practices-data-sync.md
+        - name: Устранение неполадок синхронизации данных SQL
+          href: sql-database-troubleshoot-data-sync.md
     - name: Масштабирование
       items:
         - name: Создание сегментированного приложения

@@ -79,8 +79,8 @@
       href: concepts-monitoring.md
     - name: Разработка
       items:
-        - name: Библиотеки подключений
-          href: concepts-connection-libraries.md
+        - name: Совместимость драйверов и инструментов
+          href: concepts-compatibility.md
         - name: Разработка приложений
           href: concepts-database-application-development.md
     - name: Миграция базы данных

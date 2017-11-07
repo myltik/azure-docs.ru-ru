@@ -37,6 +37,8 @@
       href: kubernetes-helm.md
     - name: Разработка приложений с помощью Draft
       href: kubernetes-draft.md
+    - name: Сохранение данных в службе файлов Azure
+      href: azure-files.md
     - name: Использование панели мониторинга Kubernetes
       href: kubernetes-dashboard.md
     - name: Создание субъекта-службы

@@ -150,6 +150,12 @@
           href: log-analytics-alerts-webhooks.md
         - name: Решение по управлению оповещениями
           href: log-analytics-solution-alert-management.md
+    - name: Управление
+      items:
+        - name: Управление затратами на рабочую область
+          href: log-analytics-manage-cost-storage.md
+        - name: Удаление рабочей области
+          href: log-analytics-manage-del-workspace.md
     - name: Использование решений
       items:
         - name: Обзор решений
