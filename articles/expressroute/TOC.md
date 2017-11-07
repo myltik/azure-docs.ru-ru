@@ -41,6 +41,7 @@
 ## Настройка маршрутизатора для ExpressRoute
 ### [Настройка маршрутизатора](expressroute-config-samples-routing.md)
 ### [Примеры конфигурации маршрутизатора для NAT](expressroute-config-samples-nat.md)
+## [Настройка решения "Монитор производительности сети" для ExpressRoute](how-to-npm.md)
 
 ## Рекомендации
 ### [Рекомендации по безопасности сети и облачным службам](../best-practices-network-security.md)

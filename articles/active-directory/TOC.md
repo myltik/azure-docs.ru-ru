@@ -48,7 +48,6 @@
 #### [Примеры Azure PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 #### [Справочник по продуктам и планам службы в Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
-### [Сброс пароля](active-directory-users-reset-password-azure-portal.md)
 ### [Управление сведениями о работе пользователей](active-directory-users-work-info-azure-portal.md)
 ### [Совместное использование учетных записей](active-directory-sharing-accounts.md)
 
@@ -126,7 +125,6 @@
 ### [Отчеты SSPR](active-directory-passwords-reporting.md)
 ### ИТ-администрирование. Сброс паролей
 #### [Портал Azure](active-directory-users-reset-password-azure-portal.md)
-#### [классическом портале Azure](active-directory-create-users-reset-password.md)
 ### [Лицензия SSPR](active-directory-passwords-licensing.md)
 ### [Обратная запись паролей](active-directory-passwords-writeback.md)
 ### [Устранение неполадок](active-directory-passwords-troubleshoot.md)
@@ -242,6 +240,7 @@
 ### [Несколько каталогов](active-directory-licensing-directory-independence.md)
 ### [Каталоги Office 365](active-directory-manage-o365-subscription.md)
 ### [Самостоятельная регистрация](active-directory-self-service-signup.md)
+#### [Взятие под контроль неуправляемого каталога](domains-admin-takeover.md)
 ### [Enterprise State Roaming.](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Включение](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Параметры групповой политики](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

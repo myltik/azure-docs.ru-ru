@@ -84,8 +84,20 @@
         - name: Рабочая область службы "Машинное обучение Azure"
           href: ../studio/create-workspace.md
           maintainContext: true
-        - name: Настройка виртуальных машин
-          href: virtual-machines.md
+        - name: Настройка виртуальной машины для обработки и анализа данных
+          items:
+            - name: Создание виртуальной машины Windows для обработки и анализа данных
+              href: ../data-science-virtual-machine/provision-vm.md
+              maintainContext: true
+            - name: Создание виртуальной машины Ubuntu для обработки и анализа данных
+              href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
+              maintainContext: true
+            - name: Создание виртуальной машины CentOS для обработки и анализа данных
+              href: ../data-science-virtual-machine/linux-dsvm-intro.md
+              maintainContext: true
+            - name: Создание виртуальной машины для глубокого обучения
+              href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
+              maintainContext: true
     - name: Анализ потребностей бизнеса
       items:
         - name: Определение своего сценария

@@ -6,6 +6,7 @@
 ## [Создание приложения .NET](service-fabric-quickstart-dotnet.md)
 ## [Развертывание приложения-контейнера Linux](service-fabric-quickstart-containers-linux.md)
 ## [Развертывание приложения-контейнера Windows](service-fabric-quickstart-containers.md)
+## [Развертывание приложения Java](service-fabric-quickstart-java.md)
 
 # Учебники
 ## Развертывание приложения .NET
@@ -28,7 +29,9 @@
 ### 1. Создание кластера в Azure
 #### [1А. Создание кластера Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1Б. Создание кластера Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2. Развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [2. Масштабирование кластера](service-fabric-tutorial-scale-cluster.md)
+### [3. Развертывание службы управления API с помощью Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Примеры
 ## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=service-fabric)

@@ -90,6 +90,13 @@
       href: maintenance-and-updates.md
     - name: Хранилище
       href: azure-vm-storage-overview.md
+      items:
+        - name: Хранилище уровня "Премиум"
+          href: premium-storage.md
+        - name: Производительность хранилища класса Premium
+          href: premium-storage-performance.md
+        - name: Хранилище уровня "Стандартный"
+          href: standard-storage.md
     - name: Сеть
       href: network-overview.md
     - name: Автоматическое масштабирование приложений
@@ -310,6 +317,8 @@
           href: expand-disks.md
         - name: Моментальный снимок диска
           href: snapshot-copy-managed-disk.md
+        - name: Резервное копирование и аварийное восстановление дисков
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Резервное копирование неуправляемых дисков
           href: incremental-snapshots.md
         - name: Преобразование виртуальной машины для использования управляемых дисков
@@ -318,6 +327,8 @@
           href: convert-disk-storage.md
         - name: Копирование файлов на виртуальную машину
           href: copy-files-to-linux-vm-using-scp.md
+        - name: Миграция в хранилище класса Premium с помощью Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Использование хранилища файлов
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Развертывание дисков с помощью шаблона
