@@ -8,7 +8,6 @@
 ## [Функции и инструменты в Bash](features.md)
 ## [Функции и инструменты в PowerShell](features-powershell.md)
 ## [Ограничения](limitations.md)
-## [Устранение неполадок](troubleshooting.md)
 
 # Инструкции
 ## [Сохраняемое хранилище в Bash](persisting-shell-storage.md)
@@ -16,6 +15,8 @@
 ## [Использование окна](using-the-shell-window.md)
 
 # [Цены](pricing.md)
+
+# [Устранение неполадок](troubleshooting.md)
 
 # Справочные материалы
 ## [Интерфейс командной строки Azure](/cli/azure)
