@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: aab491f162fd4d24c6ff4d8858f2edd96dda30d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8d902b9170fee47afb038df739bbca6d2d025e0
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Руководство. Интеграция Azure Active Directory с Zoom
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 
     а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<companyname>.zoom.us`
 
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<companyname>.zoom.us`
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `<companyname>.zoom.us`
 
     > [!NOTE] 
     > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Zoom](https://support.zoom.us/hc). 
@@ -139,13 +139,13 @@ ms.lasthandoff: 10/11/2017
    
     ![Раздел единого входа](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single sign-on")
    
-    а. В текстовое поле **Sign-in page URL** (URL-адрес страницы входа) вставьте значение **URL-адреса службы единого входа SAML**, скопированное на портале Azure.
+    а. В текстовое поле **URL-адрес страницы входа** вставьте **URL-адрес службы единого входа SAML**, скопированный на портале Azure.
    
-    b. В текстовое поле **Sign-out page URL** (URL-адрес страницы выхода) вставьте значение **URL-адрес выхода**, скопированное на портале Azure.
+    b. В текстовое поле **URL-адрес страницы выхода** вставьте **URL-адрес выхода**, скопированный на портале Azure.
      
     c. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат поставщика удостоверений** .
 
-    d. В текстовое поле **Issuer** (Издатель) вставьте значение **идентификатора сущности SAML**, скопированное на портале Azure. 
+    d. В текстовое поле **Издатель** вставьте **идентификатор сущности SAML**, скопированный на портале Azure. 
 
     д. Щелкните **Сохранить**.
 
@@ -252,8 +252,6 @@ ms.lasthandoff: 10/11/2017
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

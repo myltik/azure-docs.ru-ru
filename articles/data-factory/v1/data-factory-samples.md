@@ -15,13 +15,17 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2e1024924b96cf2c86c9dec8d199a0b7ea2422c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 046358644abb5a83d7b8f586006e8db7ee95a453
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-data-factory---samples"></a>Фабрика данных Azure — примеры
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, см. [примеры PowerShell в фабрике данных версии 2](../samples-powershell.md) и [примеры кода в галерее Azure](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory).
+
+
 ## <a name="samples-on-github"></a>Примеры на GitHub
 В [репозитории GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) предлагается несколько примеров, которые помогут вам быстро приступить к работе со службой фабрики данных Azure или настроить сценарии для использования в собственном приложении. Папка Samples\JSON содержит фрагменты JSON для распространенных сценариев.
 

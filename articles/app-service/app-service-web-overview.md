@@ -15,14 +15,19 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c1b3feb79328269f4692d744e7a473397d0328c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8510bb6b412e9af8aad30ba32bc74206c22042f
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="web-apps-overview"></a>Обзор веб-приложений
-*Веб-приложения службы приложений* — это полностью управляемая вычислительная платформа, оптимизированная для размещения веб-сайтов и веб-приложений. Это предложение Microsoft Azure [платформа как услуга](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) позволяет сосредоточиться на бизнес-логике, так как инфраструктуру для запуска и масштабирования приложений предоставляет среда Azure.
+
+*Веб-приложения службы приложений Azure* (или просто "Веб-приложения") — это служба для размещения веб-приложений, интерфейсов REST API и серверной части мобильных решений. Вы можете выполнять разработку на привычном языке: .NET, .NET Core, Java, Ruby, Node.js, PHP или Python. Эта служба также позволяет легко запускать и масштабировать приложения на виртуальных машинах Windows или Linux (см. статью [Вводные сведения о службе приложений Azure на платформе Linux](containers/app-service-linux-intro.md)). 
+
+В службе "Веб-приложения" реализованы не только возможности Microsoft Azure для приложения, включая функции обеспечения безопасности, балансировки нагрузки, автоматического масштабирования и автоматизированного управления. Вы также можете воспользоваться такими преимуществами DevOps, как непрерывное развертывание из VSTS, GitHub, Docker Hub и других источников, управление пакетами, а также возможность использования промежуточных сред, личного домена и SSL-сертификатов. 
+
+В службе приложений плата начисляется за используемые вычислительные ресурсы Azure. Используемые вычислительные ресурсы определяются _планом службы приложений_, в котором выполняется служба "Веб-приложения". Дополнительные сведения см. в статье [Подробный обзор планов службы приложений Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 Это 5-минутное видео знакомит вас с веб-приложениями службы приложений Azure.
 
@@ -30,48 +35,40 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
-
-## <a name="what-is-a-web-app-in-app-service"></a>Что такое веб-приложение в службе приложений?
-В службе приложений *веб-приложение* — это вычислительные ресурсы, предоставляемые средой Azure для размещения веб-сайта или веб-приложения.  
-
-В зависимости от выбранной ценовой категории вычислительные ресурсы могут находиться на общих или выделенных виртуальных машинах. Код приложения выполняется на управляемой виртуальной машине, которая изолирована от других клиентов.
-
-Этот код может быть создан на любом языке или платформе, поддерживаемой службой приложений Azure, включая ASP.NET, Node.js, Java, PHP или Python. В веб-приложениях также можно запускать скрипты, которые используют [PowerShell и другие языки сценариев](web-sites-create-web-jobs.md#acceptablefiles) .
-
-Примеры типичных сценариев приложений, для которых можно использовать веб-приложения, см. в статье о [сценариях веб-приложений](https://azure.microsoft.com/documentation/scenarios/web-app/) и разделе **Сценарии и рекомендации** статьи [Сравнение службы приложений Azure, виртуальных машин, Service Fabric и облачных служб](choose-web-site-cloud-service-vm.md#scenarios).
-
 ## <a name="why-use-web-apps"></a>Зачем использовать веб-приложения?
-Ниже представлены некоторые ключевые функции службы приложений, которые применяются к веб-приложениям.
+Ниже представлены некоторые ключевые функции службы "Веб-приложения службы приложений".
 
-* **Поддержка нескольких языков и платформ.** Служба приложений превосходно поддерживает ASP.NET, Node.js, Java, PHP и Python. Кроме того, вы можете запустить [PowerShell и другие скрипты или исполняемые файлы](web-sites-create-web-jobs.md) в виртуальных машинах службы приложений.
-* **Оптимизация DevOps.** Настраивайте [непрерывную интеграцию и развертывание](app-service-continuous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](web-sites-staged-publishing.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [кроссплатформенного интерфейса командной строки (CLI)](../cli-install-nodejs.md).
+* **Поддержка нескольких языков и платформ**. Служба "Веб-приложения" полностью поддерживает ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP и Python. Кроме того, вы можете запускать [PowerShell и другие скрипты или исполняемые файлы](web-sites-create-web-jobs.md) в качестве фоновых служб.
+* **Оптимизация DevOps.** Настраивайте [непрерывную интеграцию и развертывание](app-service-continuous-deployment.md) в Visual Studio Team Services, GitHub, BitBucket, Docker Hub или службе контейнеров Azure. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](web-sites-staged-publishing.md). Управляйте приложениями в службе "Веб-приложения" с помощью оболочки [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [кроссплатформенного интерфейса командной строки (CLI)](/cli/azure/install-azure-cli).
 * **Высокодоступное глобальное масштабирование.** [Увеличивайте](web-sites-scale.md) либо [уменьшайте](../monitoring-and-diagnostics/insights-how-to-scale.md) размер вручную или автоматически. Храните приложения в любом месте глобальной инфраструктуры центра обработки данных. При этом [соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/app-service/) гарантирует высокую доступность.
-* **Подключение к платформам SaaS и локальным данным.** На выбор доступно более 50 [соединителей](../connectors/apis-list.md) для корпоративных систем (например, SAP, Siebel и Oracle), служб SaaS (например, Salesforce и Office 365) и популярных интернет-служб (например, Facebook и Twitter). Получайте доступ к локальным данным с помощью [гибридных подключений](../biztalk-services/integration-hybrid-connection-overview.md) и [виртуальных сетей Azure](web-sites-integrate-with-vnet.md).
-* **Безопасность и соответствие требованиям.** Служба приложений совместима со стандартами [ISO, SOC и PCI](https://www.microsoft.com/TrustCenter/).
-* **Шаблоны приложений.** Вы можете выбрать любой шаблон из обширного списка шаблонов приложений в [Azure Marketplace](https://azure.microsoft.com/marketplace/). Эти шаблоны позволяют устанавливать популярное программное обеспечение с открытым исходным кодом, например WordPress, Joomla и Drupal, с помощью мастера.
+* **Подключение к платформам SaaS и локальным данным.** Доступно более 50 [соединителей](../connectors/apis-list.md) для корпоративных систем (например, SAP), служб SaaS (например, Salesforce) и популярных интернет-служб (например, Facebook). Получайте доступ к локальным данным с помощью [гибридных подключений](../biztalk-services/integration-hybrid-connection-overview.md) и [виртуальных сетей Azure](web-sites-integrate-with-vnet.md).
+* **Безопасность и соответствие требованиям.** Служба приложений совместима со стандартами [ISO, SOC и PCI](https://www.microsoft.com/TrustCenter/). Выполняйте аутентификацию пользователей с помощью [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) или входа в учетные записи социальных сетей ([Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) и [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)). Создавайте [ограничения IP-адресов](app-service-ip-restrictions.md) и [управляйте удостоверениями службы](app-service-managed-service-identity.md).
+* **Шаблоны приложений.** Вы можете выбрать любой шаблон приложения из обширного списка в [Azure Marketplace](https://azure.microsoft.com/marketplace/), например WordPress, Joomla и Drupal.
 * **Интеграция с Visual Studio.** Выделенные инструменты в Visual Studio упрощают создание, развертывание и отладку приложений.
+* **Функции API и мобильных приложений.** Служба "Веб-приложения" обеспечивает полную поддержку CORS для работы с RESTful API. Также она упрощает использование мобильных приложений, обеспечивая аутентификацию, автономную синхронизацию данных, отправку push-уведомлений и многое другое.
+* **Независимый от сервера код.** Выполняйте фрагменты кода или скрипта по требованию без необходимости явно подготавливать и администрировать инфраструктуру. Платите только за время выполнения кода (см. статью [Документация по функциям Azure](/azure/azure-functions/)).
 
-Кроме того, веб-приложение может использовать преимущества функций, предлагаемых [приложениями API](app-service-web-tutorial-rest-api.md) (например, поддержку CORS) и [мобильными приложениями](../app-service-mobile/app-service-mobile-value-prop.md) (например, push-уведомления). 
+Помимо веб-приложений в службе приложений, Azure предлагает и другие службы, которые можно использовать для размещения веб-сайтов и веб-приложений. В большинстве случаев оптимальным вариантом являются веб-приложения.  Сведения об архитектуре микрослужб см. в статье о [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). См. дополнительные сведения о дополнительном контроле над [виртуальными машинами Azure, на которых выполняется код](https://azure.microsoft.com/documentation/services/virtual-machines/). Дополнительные сведения о выборе между этими службами Azure см. в статье [Сравнение службы приложений Azure, виртуальных машин, Service Fabric и облачных служб](choose-web-site-cloud-service-vm.md).
 
-Помимо веб-приложений в службе приложений, Azure предлагает и другие службы, которые можно использовать для размещения веб-сайтов и веб-приложений. В большинстве случаев оптимальным вариантом являются веб-приложения.  Сведения об архитектуре микрослужб см. в статье о [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), а если вам нужен дополнительный контроль над виртуальными машинами, на которых выполняется код, см. статью о [виртуальных машинах Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Дополнительные сведения о выборе между этими службами Azure см. в статье [Сравнение службы приложений Azure, виртуальных машин, Service Fabric и облачных служб](choose-web-site-cloud-service-vm.md).
+## <a name="next-steps"></a>Дальнейшие действия
 
-## <a name="getting-started"></a>Приступая к работе
-Инструкции по развертыванию примера кода для нового веб-приложения в службе приложений см. в одном из руководств из приведенного ниже раскрывающегося списка. Вам понадобится бесплатная учетная запись Azure
+Создайте первое веб-приложение.
 
-> [!div class="op_single_selector"]
-> * [Развертывание первого веб-приложения ASP.NET в Azure за пять минут](app-service-web-get-started-dotnet.md)
-> * [Развертывание первого веб-приложения PHP в Azure за пять минут](app-service-web-get-started-php.md)
-> * [Развертывание первого веб-приложения Node.js в Azure за пять минут](app-service-web-get-started-nodejs.md)
-> * [Развертывание первого веб-приложения Java в Azure за пять минут](app-service-web-get-started-java.md)
-> * [Развертывание первого веб-приложения Python в Azure за пять минут](app-service-web-get-started-python.md)
-> * [Развертывание первого HTML-сайта в Azure за пять минут](app-service-web-get-started-html.md)
-> 
-> 
+> [!div class="nextstepaction"]
+> [ASP.NET](app-service-web-get-started-dotnet.md)
 
-> [!NOTE]
-> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
-> 
-> 
+> [!div class="nextstepaction"]
+> [PHP](app-service-web-get-started-php.md)
+
+> [!div class="nextstepaction"]
+> [Node.js](app-service-web-get-started-nodejs.md)
+
+> [!div class="nextstepaction"]
+> [Java](app-service-web-get-started-java.md)
+
+> [!div class="nextstepaction"]
+> [Python](app-service-web-get-started-python.md)
+
+> [!div class="nextstepaction"]
+> [HTML](app-service-web-get-started-html.md)
+

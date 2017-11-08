@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: be9ffaac1f25068f1ad575c14ffb6666752159d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33562f5ac7acdf8f724ac2de68b9e66735af47b3
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Создание среды выполнения интеграции Azure SSIS в фабрике данных Azure
 В этой статье представлены шаги по подготовке среды выполнения интеграции Azure SSIS в фабрике данных Azure. Затем можно использовать SQL Server Data Tools (SSDT) ​​или SQL Server Management Studio (SSMS) для развертывания пакетов служб SSIS для этой среды выполнения в Azure.
+
+> [!NOTE]
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, см. [документацию по версии 1 фабрики данных](v1/data-factory-introduction.md).
 
 В руководстве [Развертывание пакетов служб интеграции SQL Server (SSIS) в Azure](tutorial-deploy-ssis-packages-azure.md) показано, как создать среду выполнения интеграции (IR) Azure SSIS, используя базу данных SQL Azure в качестве хранилища для каталога служб SSIS. Эта статья дополняет руководство и содержит инструкции по: 
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 10/30/2017
 ms.author: anoopkv
-ms.openlocfilehash: e3b26c7f34a8fd3d027464cb7a3704c7960b67c6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Установка службы Mobility Service (из виртуальных машин VMware или физических серверов в Azure)
 Служба Mobility Service Azure Site Recovery фиксирует операции записи данных, выполняемые на компьютере, и передает их на сервер обработки. Разверните службу Mobility Service на каждом компьютере (виртуальная машина или физический сервер VMware), который требуется реплицировать в Azure. Службы Mobility Service можно развернуть на серверах, которые необходимо защитить, следующими способами:
@@ -50,13 +50,16 @@ ms.lasthandoff: 10/19/2017
 
 | Имя шаблона файла установщика| операционная система |
 |---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 с пакетом обновления 1 (64-разрядная версия) </br> Windows Server 2012 (64-разрядная версия) </br> Windows Server 2012 R2 (64-разрядная версия) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8 (только 64-разрядная версия) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8 (только 64-разрядная версия) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2 (только 64-разрядная версия) </br> CentOS 7.0, 7.1, 7.2 (только 64-разрядная версия)</br> CentOs 7.3 (только миграция) |
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 с пакетом обновления 1 (64-разрядная версия) </br> Windows Server 2012 (64-разрядная версия) </br> Windows Server 2012 R2 (64-разрядная версия) </br> Windows Server 2016 (64-разрядная версия) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (только 64-разрядная версия) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (только 64-разрядная версия) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (только 64-разрядная версия) </br> CentOS 7.0, 7.1, 7.2, 7.3 (только 64-разрядная версия) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (только 64-разрядная версия)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (только 64-разрядная версия)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (только 64-разрядная версия)|
 |Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (только 64-разрядная версия)|
+|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Сервер Ubuntu Linux 16.04 LTS (только 64-разрядная версия)|
+|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (только 64-разрядная версия)|
+|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (только 64-разрядная версия)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Установка службы Mobility Service вручную с помощью графического пользовательского интерфейса
@@ -93,7 +96,7 @@ ms.lasthandoff: 10/19/2017
 
 1. На портале Azure перейдите к представлению <Your Vault> > "Реплицированные элементы".
 2. Если **сервер конфигурации** уже обновлен до последней версии, то вы увидите уведомление *Доступно обновление для агента репликации Site Recovery. Щелкните, чтобы установить его.*
-   
+
      ![Реплицированные элементы](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
 3. Щелкните это уведомление, чтобы открыть страницу выбора виртуальной машины.
 4. Выберите виртуальные машины, на которых нужно обновить службу Mobility Service, и нажмите кнопку "ОК".
@@ -102,7 +105,7 @@ ms.lasthandoff: 10/19/2017
 5. Для каждой выбранной виртуальной машины будет запущено задание обновления службы Mobility Service.
 
 > [!NOTE]
-> [Узнайте больше](site-recovery-vmware-to-azure-manage-configuration-server.md) о том, как обновить пароль учетной записи, используемой для установки службы Mobility Service. 
+> [Узнайте больше](site-recovery-vmware-to-azure-manage-configuration-server.md) о том, как обновить пароль учетной записи, используемой для установки службы Mobility Service.
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Удаление Mobility Service с компьютера Windows Server
 Воспользуйтесь одним из следующих методов для удаления службы Mobility Service на компьютере Windows Server.

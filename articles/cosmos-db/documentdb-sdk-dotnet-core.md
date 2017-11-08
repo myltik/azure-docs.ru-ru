@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 10/26/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7615074ce3f5098d5155dfc28ada567ea6361878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Пакет SDK .NET Core для Azure Cosmos DB: заметки о выпуске и ресурсы
 > [!div class="op_single_selector"]
@@ -56,6 +56,10 @@ ms.lasthandoff: 10/11/2017
 
 > [!NOTE] 
 > Пакет SDK .NET Core для Azure Cosmos DB пока несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* Добавлено несколько исправлений и улучшений для повышения надежности.
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1 
 
@@ -140,6 +144,7 @@ ms.lasthandoff: 10/11/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.6.0](#1.6.0) |17 октября 2017 г. |--- |
 | [1.5.1](#1.5.1) |2 октября 2017 г. |--- |
 | [1.5.0](#1.5.0) |10 августа 2017 г. |--- | 
 | [1.4.1](#1.4.1) |7 августа 2017 г. |--- |

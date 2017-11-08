@@ -1,6 +1,6 @@
 ---
 title: "Пример кода Python для создания столбцов с помощью средства подготовки данных в службе машинного обучения Azure | Документация Майкрософт"
-description: "В этой статье приведены примеры кода Python, позволяющие создавать столбцы с помощью средства подготовки данных в службе машинного обучения Azure."
+description: "В этой статье приведены примеры кода Python для создания столбцов с помощью средства подготовки данных в службе машинного обучения Azure."
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -12,19 +12,19 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 9a6e331e622b007232a62b34c2220d60d1d050ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 143031ce804f4a8dcd4e328c413478f5ea669090
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>Пример пользовательских преобразований столбцов (Python) 
-В меню этот сценарий преобразования имеет название Add Column (Script) (Добавить столбец (скрипт))
+В меню этот сценарий преобразования имеет название **Добавление столбца (скрипт)**.
 
-Перед ознакомлением с этим приложением прочтите статью [Расширения Python для подготовки данных](data-prep-python-extensibility-overview.md).
+Перед ознакомлением с этим приложением см. [общие сведения о расширяемости Python](data-prep-python-extensibility-overview.md).
 
 ## <a name="test-equivalence-and-replace-values"></a>Проверка эквивалентности и замена значений 
-Если значение Col1 меньше 4, тогда новый столбец должен иметь значение 1 (в противном случае — 2). 
+Если значение Col1 меньше 4, тогда новый столбец должен иметь значение 1. Если значение Col1 больше 4, тогда новый столбец должен иметь значение 2. 
 
 ```python
     1 if row["Col1"] < 4 else 2
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
     float(row["Col1"]) / float(row["Col2"] - 1)
 ```
 ## <a name="evaluate-for-nullness"></a>Оценка наличия значений Null 
-Если свойство Col1 имеет значение Null, пометьте новый столбец как недопустимый (в противном случае — как допустимый). 
+Если свойство Col1 имеет значение Null, отметьте новый столбец как **недопустимый**. В противном случае отметьте его как **допустимый**. 
 
 ```python
     'Bad' if pd.isnull(row["Col1"]) else 'Good'
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
     np.log(row["Col1"])
 ```
 ## <a name="epoch-computation"></a>Вычисление эпохи 
-Время в секундах с момента начала эпохи Unix (предполагается, что Col1 — дата). 
+Время в секундах с момента начала эпохи Unix (предполагается, что Col1 — это дата): 
 ```python
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```

@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/8/2017
-ms.openlocfilehash: dc5ad012398b7d07886cd22c20975e61f820d7e0
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.date: 10/26/2017
+ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="limitations-in-azure-database-for-mysql-preview"></a>Ограничения в базе данных Azure для MySQL (предварительная версия)
 Служба базы данных Azure для MySQL работает в режиме общедоступной предварительной версии. В следующих разделах описываются действующие ограничения емкости и функциональных возможностей в службе базы данных. Кроме того, ознакомьтесь с [общими ограничениями](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html), применимыми к ядру СУБД базы данных MySQL.
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/12/2017
 | Базовый, 100 единиц вычислений    | 100 подключений   |
 | Стандартный, 100 единиц вычислений | 200 подключений   |
 | Стандартный, 200 единиц вычислений | 400 подключений   |
-| Стандартный, 400 единиц вычислений | 400 подключений   |
+| Стандартный, 400 единиц вычислений | 800 подключений   |
 | Стандартный, 800 единиц вычислений | 1600 подключений  |
 | **Максимальное число единиц вычислений**      |                   |
 | Уровень службы "Базовый"         | 100 единиц вычислений |

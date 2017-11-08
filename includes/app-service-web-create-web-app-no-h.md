@@ -11,6 +11,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 После создания веб-приложения в Azure CLI отображаются следующие сведения:
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -19,24 +20,17 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
   "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
   "enabled": true,
-  "enabledHostNames": [
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "<app_name>.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
-    }
-    < JSON data removed for brevity. >
+  < JSON data removed for brevity. >
 }
 ```
+
+Вы создали пустое веб-приложение с включенным развертыванием Git.
+
+> [!NOTE]
+> URL-адрес удаленного репозитория Git отображается в свойстве `deploymentLocalGitUrl` в формате `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Сохраните этот URL-адрес для дальнейшего использования.
+>
 
 Перейдите на сайт, чтобы просмотреть только что созданное веб-приложение.
 

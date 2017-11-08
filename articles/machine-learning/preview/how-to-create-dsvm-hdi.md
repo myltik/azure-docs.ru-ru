@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7325d15cc4bec5f0df50be222e1f0988775ded2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ce1d32a2785bec1164d2a89dea9946fe113cb33
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Создание виртуальной машины для обработки и анализа данных и кластера HDInsight Spark как целевых объектов вычислений
 
-Вы можете без труда выполнять увеличение масштаба или развертывание эксперимента машинного обучения, добавляя дополнительные целевые объекты вычислений, такие как виртуальная машина для обработки и анализа данных под управлением Ubuntu и кластер Apache Spark для Azure HDInsight. В этой статье показано, как создать эти целевые объекты вычислений в Azure. Дополнительные сведения о целевых объектах вычислений Машинного обучения Azure см. в статье [Общие сведения о службе выполнения экспериментов в Машинном обучении Azure](experiment-execution-configuration.md).
+Вы можете без труда выполнять увеличение масштаба или развертывание эксперимента машинного обучения, добавляя дополнительные целевые объекты вычислений, такие как виртуальная машина для обработки и анализа данных под управлением Ubuntu и кластер Apache Spark для Azure HDInsight. В этой статье показано, как создать эти целевые объекты вычислений в Azure. Дополнительные сведения о целевых объектах вычислений Azure ML см. в [обзоре службы "Экспериментирование в Машинном обучении Azure"](experimentation-service-configuration.md).
 
 >[!NOTE]
 >Прежде чем продолжить, необходимо убедиться в наличии соответствующих разрешений для создания ресурсов, таких как виртуальная машина и кластеры HDI в Azure. Также оба этих ресурса могут использовать много вычислительных ядер в зависимости от конфигурации. Убедитесь, что ваша подписка обладает достаточной емкостью для ядер виртуального ЦП. Вы всегда можете обратиться в службу поддержки Azure, чтобы увеличить максимальное число ядер, допустимое в вашей подписке.
@@ -181,7 +181,7 @@ $ az ml experiment prepare -c <compute target name>
 ## <a name="next-steps"></a>Дальнейшие действия
 
 См. также:
-- [Общие сведения о службе выполнения экспериментов в Машинном обучении Azure](experiment-execution-configuration.md)
-- [Файлы конфигурации выполнения Azure Machine Learning Workbench](experiment-execution-configuration-reference.md)
+- [Обзор службы "Экспериментирование в Машинном обучении Azure"](experimentation-service-configuration.md).
+- [Файлы конфигурации службы экспериментирования Azure Machine Learning Workbench](experimentation-service-configuration-reference.md).
 - [Apache Spark для Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [Виртуальные машины для обработки и анализа данных](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

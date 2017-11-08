@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 09/05/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: eadc0f7eb20b9e8d1cacc79b2907559e2b2535a2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c85f79cc14cdcecd2a05fc0ff91c4864b9fba277
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Использование пользовательского образа Docker Hub для платформы "Веб-приложения для контейнеров"
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/25/2017
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
 ```
 
-В предыдущей команде `--deployment-container-image-name` указывает на общедоступный образ Docker Hub [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/). Здесь можно просмотреть его содержимое: [https://github.com/rachelappel/docker-image](https://github.com/rachelappel/docker-image).
+В предыдущей команде `--deployment-container-image-name` указывает на общедоступный образ Docker Hub [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/). Здесь можно просмотреть его содержимое: [https://github.com/ahmedelnably/dockerimagetest](https://github.com/ahmedelnably/dockerimagetest).
 
 Когда веб-приложение будет создано, в Azure CLI отобразится примерно следующее:
 

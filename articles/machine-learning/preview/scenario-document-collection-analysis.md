@@ -9,11 +9,11 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="document-collection-analysis"></a>Анализ коллекции документов
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 10/11/2017
 
 | Имя файла | Тип | Описание |
 |-----------|------|-------------|
-| `aml_config` | Папка | Папка конфигурации Azure Machine Learning Workbench. Дополнительные сведения о конфигурации для выполнения эксперимента см. [в этой документации](./experiment-execution-configuration-reference.md). |
+| `aml_config` | Папка | Папка конфигурации Azure Machine Learning Workbench. Дополнительные сведения о конфигурации для выполнения эксперимента см. [в этой документации](./experimentation-service-configuration-reference.md). |
 | `Code` | Папка | Папка с кодом для хранения скриптов Python и пакета Python. |
 | `Data` | Папка | Папка данных для хранения промежуточных файлов. |
 | `notebooks` | Папка | Папка для записных книжек Jupyter. |
@@ -120,6 +120,7 @@ ms.lasthandoff: 10/11/2017
 | `notebooks/3_Topic_Model_Training.ipynb` | Записная книжка IPython | Обучение тематической модели LDA. |
 | `notebooks/4_Topic_Model_Summarization.ipynb` | Записная книжка IPython | Обобщение содержимого коллекции документов на основе обученной тематической модели LDA. |
 | `notebooks/5_Topic_Model_Analysis.ipynb` | Записная книжка IPython | Анализ тематического содержимого коллекции текстовых документов и сопоставление тематической информации с другими метаданными, связанными с коллекцией документов. |
+| `notebooks/6_Interactive_Visualization.ipynb` | Записная книжка IPython | Интерактивная визуализация обученной тематической модели |
 | `notebooks/winprocess.py` | Файл Python | Скрипт Python для многопроцессной обработки, используемой в записных книжках. |
 | `README.md` | Файл Markdown | Файл сведений в формате Markdown |
 
@@ -224,6 +225,8 @@ perplex = topicmodeler.EvaluatePerplexity(lda)
 В файле `4_Topic_Model_Summarization.ipynb` показано, как обобщить содержимое документа на основе обученной тематической модели LDA. Обобщение применяется к тематической модели LDA, обученной на шаге 3. В этом примере показано, как измерить степень важности или качества темы, используя ее для документирования меры чистоты. Мера чистоты предполагает, что скрытые темы, которые часто встречаются в документах, имеют большую семантическую важность, чем скрытые темы, которые неравномерно распределены в большом количестве документов. Эта концепция была представлена в документе [Latent Topic Modeling for Audio Corpus Summarization](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf) (Моделирование скрытых тем для обобщения совокупности аудиоданных).
 
 В записной книжке `5_Topic_Model_Analysis.ipynb` показано, как анализировать тематическое содержимое коллекции документов и соотносить тематическую информацию с другими метаданными, связанными с коллекцией документов. В этой записной книжке представлены несколько графиков для лучшего понимания изученной темы и коллекции документов.
+
+В записной книжке `6_Interactive_Visualization.ipynb` показано, как интерактивно визуализировать обученную тематическую модель. Она включает четыре задачи интерактивной визуализации.
 
 ## <a name="conclusion"></a>Заключение
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 08/25/2017
+ms.date: 10/26/2017
 ms.author: danlep
-ms.openlocfilehash: b82cb6cc3724af9306bc3b23125cf7cfa03df8ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dd00d4fb0d334e836256e66207358c034fc005a
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-windows-hpc-workloads-in-azure"></a>Варианты создания и администрирования кластера HPC для рабочих нагрузок Windows с помощью пакета HPC в Azure
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
@@ -27,9 +27,10 @@ ms.lasthandoff: 10/11/2017
 Эта статья посвящена вариантам создания кластеров HPC для обработки рабочих нагрузок Windows. Кластеры пакетов HPC дают возможность обрабатывать также [рабочие нагрузки HPC для Linux](../linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="hpc-pack-cluster-in-azure-vms"></a>Кластер пакета HPC на виртуальных машинах Azure
+## <a name="hpc-pack-cluster-in-azure-vms-and-vm-scale-sets"></a>Кластер пакета HPC на виртуальных машинах Azure и масштабируемые наборы виртуальных машин
 ### <a name="azure-templates"></a>Шаблоны Azure
 * (GitHub) [Шаблоны кластера пакета HPC 2016](https://github.com/MsHpcPack/HPCPack2016)
+* (GitHub) [Шаблоны кластера пакета HPC 2012 R2](https://github.com/MsHpcPack/HPCPack2012R2)
 * (Marketplace) [Кластер пакета HPC для рабочих нагрузок Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
 * (Marketplace) [Кластер пакета HPC для рабочих нагрузок Excel](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
 * (Краткое руководство) [Создание кластера HPC](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)

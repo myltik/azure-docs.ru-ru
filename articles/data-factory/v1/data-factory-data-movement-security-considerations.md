@@ -14,13 +14,17 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7535a21b80a753f7334bd99d4ac9dc8ca8d43f6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9deedb771cbf90ffc4dd61676e1364ae8db18dc0
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Вопросы безопасности при перемещении данных в фабрике данных Azure
+
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, см. [рекомендации по безопасному перемещению данных в фабрике данных версии 2](../data-movement-security-considerations.md).
+
 ## <a name="introduction"></a>Введение
 В этой статье описывается базовая инфраструктура безопасности, используемая службами перемещения данных в фабрике данных Azure для защиты данных. Ресурсы управления фабрики данных Azure созданы на основе инфраструктуры безопасности Azure и используют все возможные меры безопасности, предлагаемые Azure.
 

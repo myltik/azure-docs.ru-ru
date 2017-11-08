@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Создание конвейера для непрерывной интеграции с помощью Visual Studio Team Services и IIS
 Чтобы автоматизировать этапы создания, тестирования и развертывания проекта приложения, вы можете использовать конвейер для непрерывной интеграции и развертывания (CI/CD). В рамках этого руководства вы создадите конвейер CI/CD с помощью Visual Studio Team Services и виртуальной машины Windows в Azure, где выполняются службы IIS. Вы узнаете, как выполнять такие задачи.
@@ -230,7 +230,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 > * создавать определение выпуска для публикации новых пакетов веб-развертывания в IIS;
 > * Тестирование конвейера CI/CD
 
-Перейдите к следующему руководству, чтобы узнать, как защитить веб-сервер с помощью SSL-сертификата.
+Перейдите к следующему руководству, чтобы узнать, как установить стек SQL&#92;IIS&#92;.NET на двух виртуальных машинах Windows.
 
 > [!div class="nextstepaction"]
-> [Secure a web server with SSL certificates on a Linux virtual machine in Azure](tutorial-secure-web-server.md) (Защита веб-сервера на виртуальной машине Linux в облаке Azure с помощью SSL-сертификата)
+> [Стек SQL&#92;IIS&#92;.NET](tutorial-iis-sql.md)

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 07759a590e3a4e061a1c5727428d2c7c2a655f51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Как использовать записную книжку Jupyter в Azure Machine Learning Workbench
 
@@ -39,7 +39,7 @@ Azure Machine Learning Workbench поддерживает интерактивн
 В Azure ML Workbench вы можете получить доступ ко многим ядрам, просто настроив конфигурации запуска и целевые объекты вычислений в папке проекта `aml_config`. Добавление новой целевой среды вычислений путем выполнения команды `az ml computetarget attach` эквивалентно добавлению нового ядра.
 
 >[!NOTE]
->Дополнительные сведения о конфигурациях запуска и целевых объектах вычислений см. в статье [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md) (Обзор службы выполнения экспериментов службы "Машинное обучение Azure").
+>Дополнительные сведения о конфигурациях запуска и целевых объектах вычислений см. в статье [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md) (Обзор службы выполнения экспериментов службы "Машинное обучение Azure").
 
 ### <a name="kernel-naming-convention"></a>Соглашение об именовании ядер
 Имена ядер обычно имеют формат "\<имя проекта> \<имя конфигурации запуска>". Например, если у вас есть конфигурация запуска с именем _docker python_ в проекте _myIris_, при открытии записной книжки Jupyter можно найти ядро с именем myIris docker-python в списке ядер.
@@ -107,5 +107,5 @@ $ az ml notebook start
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - Дополнительные сведения об использовании записной книжки Jupyter см. в [официальной документации Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    
-- Более подробные сведения о среде выполнения экспериментов Azure ML см. в статье [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md) (Обзор службы выполнения экспериментов службы "Машинное обучение Azure").
+- Более подробные сведения о среде выполнения экспериментов Azure ML см. в [обзоре службы "Экспериментирование в Машинном обучении Azure"](experimentation-service-configuration.md).
 

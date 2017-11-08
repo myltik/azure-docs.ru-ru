@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: robinsh
-ms.openlocfilehash: a116b4c15046e704e374ca67c5695ff3f01ba7fb
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Использование Azure PowerShell со службой хранилища Azure
 
@@ -31,15 +31,14 @@ PowerShell используется для создания ресурсов Azu
 > * Создайте учетную запись хранения. 
 > * Настройка свойств учетной записи хранения.
 > * Получение и повторное создание ключей доступа.
-> * Защита доступа к учетной записи хранения. 
-> * Включение решения "Аналитика Службы хранилища".
+> * Защита доступа к учетной записи хранения 
+> * Включение Аналитики Службы хранилища
 
-В статье также содержатся ссылки на несколько других статей о PowerShell для службы хранилища, например о включении решения "Аналитика Службы хранилища" и получении к нему доступа, а также об использовании командлетов уровня данных.
-<!-- also how to access the china and government clouds  -->
+В этой статье приводятся ссылки на несколько других статей об использовании PowerShell со службой хранилища Azure. В них описывается, как включать Аналитику Службы хранилища и обращаться к ней, как использовать командлеты плоскости данных и как обращаться к независимым облакам Azure для Китая и Германии, а также к облаку для государственных организаций.
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-Для работы с этим упражнением требуется модуль Azure PowerShell 3.6 или более поздней версии. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Для работы с этим упражнением требуется модуль Azure PowerShell версии 4.4 и выше. Чтобы узнать версию, выполните команду `Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 Для этого упражнения команды можно вводить в обычное окно PowerShell или в редактор [интегрированной среды сценариев Windows PowerShell (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-), а затем протестировать одну или несколько из них во время выполнения этих примеров. Вы можете выделить строки, которые необходимо выполнить, и щелкнуть Run Selected (Запустить выделенные), чтобы выполнить эти команды.
 
@@ -94,7 +93,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 # Set the name of the storage account and the SKU name. 
 $storageAccountName = "testpshstorage"
-$skuName = "Standard\_LRS"
+$skuName = "Standard_LRS"
     
 # Create the storage account.
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -122,7 +121,7 @@ $ctx = $storageAccount.Context
 
 Теперь у вас есть учетная запись хранения и ссылка на нее. 
 
-## <a name="managing-the-storage-account"></a>Управление учетной записью хранения
+## <a name="manage-the-storage-account"></a>Управление учетной записью хранения
 
 В следующем разделе показаны некоторые команды, которые можно использовать для управления новой или имеющейся учетной записью хранения, имея на нее ссылку.
 
@@ -142,7 +141,7 @@ $ctx = $storageAccount.Context
 
 * Разрешение только трафика по протоколу HTTPS. 
 
-### <a name="managing-the-access-keys"></a>Управление ключами доступа
+### <a name="manage-the-access-keys"></a>Управление ключами доступа
 
 Учетная запись хранилища Azure предоставляется с двумя ключами учетной записи. Чтобы получить ключи, используйте командлет [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey). В этом примере извлекается первый ключ. Получите другой ключ, использовав `Value[1]` вместо `Value[0]`.
 
@@ -171,17 +170,17 @@ New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
 
 ### <a name="delete-a-storage-account"></a>Удаление учетной записи хранения 
 
-Чтобы удалить учетную запись хранения, используйте командлет [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount). 
-
-> [!IMPORTANT]
-> При удалении учетной записи хранения также удаляются все ресурсы, которые хранятся в ней. Если учетная запись удалена случайно, немедленно обратитесь в службу поддержки и создайте запрос на восстановление учетной записи хранения. Восстановление данных не гарантируется, но в некоторых случаях это возможно. Не создавайте учетную запись хранения с тем же именем, что и старая, до тех пор, пока не будет решена проблема по запросу в службе поддержки. 
->
+Чтобы удалить учетную запись хранения, используйте командлет [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount).
 
 ```powershell
 Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
-### <a name="protecting-your-storage-account-using-vnets-and-firewalls"></a>Защита учетной записи хранения с помощью виртуальных сетей и брандмауэров
+> [!IMPORTANT]
+> При удалении учетной записи хранения также удаляются все ресурсы, которые хранятся в ней. Если учетная запись удалена случайно, немедленно обратитесь в службу поддержки и создайте запрос на восстановление учетной записи хранения. Восстановление данных не гарантируется, но в некоторых случаях это возможно. Не создавайте учетную запись хранения с тем же именем, что и старая, до тех пор, пока не будет решена проблема по запросу в службе поддержки. 
+>
+
+### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>Защита учетной записи хранения с помощью виртуальных сетей и брандмауэров
 
 По умолчанию все учетные записи хранения можно получить с помощью сети с подключением к Интернету. Однако можно настроить сетевые правила, чтобы разрешить приложениям из определенных виртуальных сетей получать доступ к учетной записи хранения. Дополнительные сведения см. в статье [Настройка брандмауэров службы хранилища Azure и виртуальных сетей (предварительная версия)](storage-network-security.md). 
 
@@ -190,7 +189,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 * [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset);
 * [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule).
 
-## <a name="using-storage-analytics"></a>Использование решения "Аналитика Службы хранилища"  
+## <a name="use-storage-analytics"></a>Использование Аналитики Службы хранилища  
 
 [Решение "Аналитика Службы хранилища Azure"](storage-analytics.md) состоит из [метрик](/rest/api/storageservices/about-storage-analytics-metrics) и [ведения журнала](/rest/api/storageservices/about-storage-analytics-logging) аналитики службы хранилища. 
 
@@ -210,26 +209,34 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 
 * Подробнее об использовании метрик хранилища и ведения журнала для устранения неполадок хранилища см. в статье [Мониторинг, диагностика и устранение неполадок службы хранилища Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="managing-the-data-in-the-storage-account"></a>Управление данными в учетной записи хранения
+## <a name="manage-the-data-in-the-storage-account"></a>Управление данными в учетной записи хранения
 
-Вы узнали о том, как управлять учетной записью хранения с помощью PowerShell. Рассмотрите следующие статьи, в которых показано, как получить доступ к объектам данных в учетной записи хранения с помощью PowerShell.
+Вы узнали о том, как управлять учетной записью хранения с помощью PowerShell. Изучите следующие статьи, в которых описано, как получить доступ к объектам данных в учетной записи хранения.
 
 * [Выполнение операций в хранилище BLOB-объектов Azure с помощью Azure PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Как использовать PowerShell для управления службой файлов Azure](../files/storage-how-to-use-files-powershell.md)
 * [Выполнение операций хранилища очередей Azure с помощью Azure PowerShell](../queues/storage-powershell-how-to-use-queues.md)
 
-<!--## Government Cloud and China Cloud
+## <a name="azures-independently-deployed-clouds"></a>Облака Azure, развернутые независимо
 
-ROBINROBINROBIN 
+Большинство людей используют общедоступное облако Azure для глобального развертывания Azure. Но есть и независимые развертывания Microsoft Azure для обеспечения автономности и других целей. Такие независимые развертывания называются средами. Эти доступные среды включают:
 
-To access the Government cloud of the China datacenters, you have to use some special steps. The following article shows how to access these special cloud accounts using PowerShell.
+* [Облако Azure для государственных организаций](https://azure.microsoft.com/features/gov/)
+* [Облако Azure для Китая, обслуживаемое 21Vianet в Китае](http://www.windowsazure.cn/)
+* [Облако Azure для Германии](../../germany/germany-welcome.md)
 
-* [How to manage storage accounts in Government Cloud and China](storage-powershell-govt-china.md)
--->
+Дополнительные сведения о доступе к эти облакам и связанным службам хранилища с помощью PowerShell см. в руководстве по [управлению службой хранилища в независимых облаках Azure с помощью PowerShell](storage-powershell-independent-clouds.md).
 
+## <a name="clean-up-resources"></a>Очистка ресурсов
+
+Если вы создали группу ресурсов и учетную запись хранения для этого примера, удалите их, удалив группу ресурсов. При этом будут также удалены все ресурсы, содержащиеся в группе. В этом случае происходит удаление созданной учетной записи хранения и самой группы ресурсов.
+
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В этом практическом руководстве описаны стандартные операции с использованием командлетов уровня управления для учетных записей хранения. Вы узнаете, как выполнять следующие задачи: 
+В этом практическом руководстве описаны стандартные операции с использованием командлетов уровня управления для учетных записей хранения. Вы научились выполнять следующие задачи: 
 
 > [!div class="checklist"]
 > * Вывод списка учетных записей хранения.
@@ -237,12 +244,10 @@ To access the Government cloud of the China datacenters, you have to use some sp
 > * Создайте учетную запись хранения. 
 > * Настройка свойств учетной записи хранения.
 > * Получение и повторное создание ключей доступа.
-> * Защита доступа к учетной записи хранения. 
-> * Включение решения "Аналитика Службы хранилища".
+> * Защита доступа к учетной записи хранения 
+> * Включение Аналитики Службы хранилища
 
-Имеются также ссылки на несколько других статей (например, об управлении объектами данных или включении решения "Аналитика Службы хранилища"). Ниже приведены некоторые связанные статьи и ресурсы для получения дополнительной информации: 
-<!--, and how to access storage with PowerShell using the Government Cloud and the China Cloud.
--->
+В этой статье также приводятся ссылки на несколько других статей. В них описывается, как управлять объектами данных, как включать Аналитику Службы хранилища и как обращаться к независимым облакам Azure для Китая и Германии, а также к облаку для государственных организаций. Ниже приведены дополнительные связанные статьи и ресурсы:
 
 * [AzureRM.Storage](/powershell/module/AzureRM.Storage/)
 * [Azure.Storage](/powershell/module/azure.storage/)

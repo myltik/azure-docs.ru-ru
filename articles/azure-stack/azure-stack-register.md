@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/27/2017
 ms.author: erikje
-ms.openlocfilehash: 3282b9d4cdf67035d966cf934a7d8574eae6ae34
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 24cde66a132ae2e1ba0eb9b1564915746e5ca448
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Регистрация Azure Stack в подписке Azure
 
@@ -72,7 +72,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 4. Запустите модуль Add-AzsRegistration из скрипта RegisterWithAzure.psm1. Замените следующие заполнители: 
     - *YourCloudAdminCredential* — обозначает объект PowerShell, который содержит учетные данные в локальном домене для domain\cloudadmin (для пакета разработки это azurestack\cloudadmin).
     - *YourAzureSubscriptionID* — обозначает идентификатор подписки Azure, которую вы намерены использовать для регистрации Azure Stack.
-    - *YourAzureDirectoryTenantName* — обозначает имя каталога клиента Azure, в котором вы создаете ресурс регистрации.
+    - *YourAzureDirectoryTenantName* — имя каталога клиента Azure, связанного с подпиской Azure. В этом клиенте в каталоге будет создан ресурс регистрации. 
     - *YourPrivilegedEndpoint* — это имя [привилегированной конечной точки](azure-stack-privileged-endpoint.md).
 
     ```powershell

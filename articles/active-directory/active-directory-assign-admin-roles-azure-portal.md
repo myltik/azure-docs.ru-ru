@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/26/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 3cce18d7a5cb67a53a90bd7e13c9f4c7b8c2da89
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 260462e57c53d2d41bb2bfd8381a1c184303eea1
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Назначение ролей администратора в Azure Active Directory
 
@@ -33,7 +33,9 @@ ms.lasthandoff: 10/11/2017
 * **Администратор соответствия требованиям.** Пользователи с этой ролью имеют разрешения на управление в центре безопасности и соответствия требованиям Office 365 и центре администрирования Exchange. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Администратор условного доступа**: у пользователей с этой ролью есть возможность управления параметрами условного доступа Azure Active Directory.
-
+  > [!NOTE]
+  > Чтобы развернуть политику условного доступа Exchange ActiveSync в Azure, у пользователя должны быть права глобального администратора.
+  
 * **Администратор службы CRM.** Пользователи с этой ролью имеют глобальные разрешения в Microsoft CRM Online при наличии этой службы, а также возможность управлять запросами в службу поддержки и отслеживать работоспособность служб. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Администраторы устройств.** Пользователи с этой ролью становятся администраторами локальных компьютеров всех устройств с Windows 10, присоединенных к Azure Active Directory. Они не могут управлять объектами устройств в Azure Active Directory.

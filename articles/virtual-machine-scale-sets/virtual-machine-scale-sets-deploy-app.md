@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 0ff8a178d883e3b51294485e556e65da52dbf327
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Развертывание приложения в масштабируемых наборах виртуальных машин
 Для запуска приложений в экземплярах виртуальных машин в масштабируемом наборе необходимо сначала установить компоненты и необходимые файлы этих приложений. В этой статье описано, как создать настраиваемый образ виртуальной машины для экземпляров в масштабируемом наборе или автоматически запустить сценарии установки на существующих экземплярах виртуальных машин. Вы также узнаете, как управлять приложением или обновлениями ОС в масштабируемом наборе.
@@ -172,7 +172,7 @@ Update-AzureRmVmss `
 
 Дополнительные сведения, включая пример файла *cloud-init.txt*, доступны в разделе [Настройка виртуальной машины Linux в Azure с помощью cloud-init](../virtual-machines/linux/using-cloud-init.md).
 
-Чтобы создать масштабируемый набор и использовать cloud-init файл, добавьте параметр `--custom-data` в команду [az vmss create](/cli/azure/vmss#create) и укажите имя файла cloud-init. Следующий пример создает масштабируемый набор *myScaleSet* в группе ресурсов *myResourceGroup* и настраивает экземпляры виртуальных машин, используя файл *cloud-init.txt*. Введите свои имена следующим образом.
+Чтобы создать масштабируемый набор и использовать файл cloud-init, добавьте параметр `--custom-data` в команду [az vmss create](/cli/azure/vmss#create) и укажите имя файла cloud-init. Следующий пример создает масштабируемый набор *myScaleSet* в группе ресурсов *myResourceGroup* и настраивает экземпляры виртуальных машин, используя файл *cloud-init.txt*. Введите свои имена следующим образом.
 
 ```azurecli
 az vmss create \

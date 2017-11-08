@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 3254fdd57cfcd170f22374c1e3b058e6081d8e8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b587f299e7b11effd05cbbc4b15976fee3f83ffd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-powershell-samples"></a>Примеры сценариев Azure PowerShell.
 
@@ -29,8 +29,8 @@ ms.lasthandoff: 10/11/2017
 | | |
 |-|-|
 |**Создание приложения**||
-| [Создание веб-приложения с непрерывным развертыванием из GitHub](./scripts/app-service-powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Создает веб-приложение Azure, получающее код из GitHub. |
-| [Создание веб-приложения с непрерывным развертыванием из GitHub](./scripts/app-service-powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Создает веб-приложение Azure, непрерывно развертывающее код из GitHub. |
+| [Создание веб-приложения с непрерывным развертыванием из GitHub](./scripts/app-service-powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Создание веб-приложения Azure, которое вытягивает код из GitHub. |
+| [Создание веб-приложения с непрерывным развертыванием из GitHub](./scripts/app-service-powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Создание веб-приложения Azure, которое непрерывно развертывает код из GitHub. |
 | [Создание веб-приложения и развертывание кода с помощью протокола FTP](./scripts/app-service-powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает веб-приложение Azure и передает файлы из локального каталога с помощью протокола FTP. |
 | [Создание веб-приложения и развертывание кода из локального репозитория Git](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает веб-приложение Azure и настраивает отправку кода из локального репозитория Git. |
 | [Создание веб-приложения и развертывание кода в промежуточной среде](./scripts/app-service-powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает веб-приложение Azure со слотом развертывания для изменений промежуточного кода. |
@@ -43,6 +43,10 @@ ms.lasthandoff: 10/11/2017
 |**Подключение приложения к ресурсам**||
 | [Подключение веб-приложения к базе данных SQL](./scripts/app-service-powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Создает веб-приложение Azure и базу данных SQL, а затем добавляет строку подключения базы данных к параметрам приложения. |
 | [Подключение веб-приложения к учетной записи хранения](./scripts/app-service-powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Создает веб-приложение Azure и учетную запись хранения, а затем добавляет строку подключения хранилища к параметрам приложения. |
+|**Резервное копирование и восстановление приложения**||
+| [Резервное копирование веб-приложения](./scripts/app-service-powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создание веб-приложения Azure и однократное создание его резервной копии. |
+| [Создание резервной копии веб-приложения по расписанию](./scripts/app-service-powershell-backup-scheduled.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создание веб-приложения Azure и запланированное создание его резервной копии. |
+| [Удаление резервной копии веб-приложения](./scripts/app-service-powershell-backup-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Удаление существующей резервной копии веб-приложения. |
 |**Мониторинг приложения**||
 | [Мониторинг веб-приложения с помощью журналов веб-сервера](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает веб-приложение Azure, включает ведение журналов и скачивает их на локальный компьютер. |
 | | |

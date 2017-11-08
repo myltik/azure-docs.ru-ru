@@ -3,8 +3,8 @@ title: "Создание веб-приложения PHP в Azure | Докум�
 description: "Разверните свое первое приложение Hello World на языке PHP в веб-приложении службы приложений Azure за считаные минуты."
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/21/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: a91f9b6693476f68ef0e64fb0283ded2cedec29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 929c8e3bd8e180148897c4a7808a90f5ca614c4e
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Создание веб-приложения PHP в Azure
 
@@ -71,13 +71,17 @@ php -S localhost:8080
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
+## <a name="create-a-web-app"></a>Создание веб-приложения
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
+
+Перейдите к только что созданному веб-приложению. Замените _&lt;app name>_ уникальным именем приложения.
+
+```bash
+http://<app name>.azurewebsites.net
+```
 
 ![Пустая страница веб-приложения](media/app-service-web-get-started-php/app-service-web-service-created.png)
-
-Вы создали пустое веб-приложение в Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -128,7 +132,7 @@ http://<app_name>.azurewebsites.net
 echo "Hello Azure!";
 ```
 
-Зафиксируйте изменения в Git, а затем отправьте изменения кода в Azure.
+В окне терминала на локальном компьютере зафиксируйте изменения в Git, а затем отправьте изменение кода в Azure.
 
 ```bash
 git commit -am "updated output"

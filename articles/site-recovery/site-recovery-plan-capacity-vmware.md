@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/24/2017
+ms.date: 10/30/2017
 ms.author: rayne
-ms.openlocfilehash: 8b580ac239bfb6d7b633fb03d4cfb91b168b0610
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f4d82d450a6ca2e73c68452a409f300841dbf32
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Планирование загрузки и масштабирования для репликации из VMware с помощью Azure Site Recovery
 
@@ -82,8 +82,8 @@ ms.lasthandoff: 10/11/2017
 
 * **Регулирование пропускной способности**. Трафик VMware, который реплицируется в Azure, проходит через определенный сервер обработки. Пропускную способность можно регулировать на компьютерах, которые служат серверами обработки.
 * **Изменение пропускной способности.** Пропускную способность, используемую для репликации, можно изменить с помощью нескольких разделов реестра:
-  * Значение реестра **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\UploadThreadsPerVM** задает количество потоков, используемых для передачи данных диска (для начальной или разностной репликации данных). Если задать высокое значение, пропускная способность сети, используемая для репликации, увеличивается.
-  * Значение **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** задает количество потоков, используемых для передачи данных при восстановлении размещения.
+  * Значение реестра **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** задает количество потоков, используемых для передачи данных диска (для начальной или разностной репликации данных). Если задать высокое значение, пропускная способность сети, используемая для репликации, увеличивается.
+  * Значение **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** задает количество потоков, используемых для передачи данных при восстановлении размещения.
 
 ### <a name="throttle-bandwidth"></a>Регулирование пропускной способности
 

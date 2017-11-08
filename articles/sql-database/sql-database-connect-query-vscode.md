@@ -11,17 +11,17 @@ editor:
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: carlrab
-ms.openlocfilehash: cb6eefa2e1cb67d4864344d63a635def371659b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d07194d4f92b2b32b506813a4b1bb5c84e2f98ac
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>База данных SQL Azure: подключение и запрос данных с помощью Visual Studio Code
 
@@ -189,4 +189,5 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о подключении к базе данных SQL с помощью SQL Server Management Studio и выполнении запроса к ней см. [здесь](sql-database-connect-query-ssms.md).
+- Чтобы подключиться и выполнять запросы при помощи портала Azure, см. статью о [подключении и выполнении запросов с использованием редактора SQL-запросов на портале Azure](sql-database-connect-query-portal.md).
 - Статью из журнала MSDN, посвященную использованию кода Visual Studio, можно просмотреть в записи блога о [создании базы данных IDE с помощью расширения MSSQL](https://msdn.microsoft.com/magazine/mt809115).

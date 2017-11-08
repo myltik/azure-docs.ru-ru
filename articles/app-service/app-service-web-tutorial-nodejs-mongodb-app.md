@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d4ef794106b27b812bfc0c5a7975fad23da1898
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 0c3f9b49c7931371bf3a4eaf1a5a3c6261dad839
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Разработка веб-приложения на основе Node.js и MongoDB в Azure
 
@@ -90,7 +90,7 @@ npm start
 
 После полной загрузки приложения вы увидите следующее сообщение:
 
-```
+```console
 --
 MEAN.JS - Development Environment
 
@@ -122,17 +122,7 @@ MEAN.JS version: 0.5.0
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create).
-
-[!INCLUDE [Resource group intro](../../includes/resource-group.md)]
-
-В следующем примере показано создание группы ресурсов в регионе "Западная Европа".
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West Europe"
-```
-
-Чтобы вывести список доступных расположений, используйте команду Azure CLI [az appservice list-locations](/cli/azure/appservice#list-locations). 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
 ### <a name="create-a-cosmos-db-account"></a>Создание учетной записи Cosmos DB
 
@@ -192,20 +182,16 @@ az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Настройка строки подключения в приложении Node.js
 
-В репозитории MEAN.js откройте файл _config/env/production.js_.
+В локальном репозитории MEAN.js создайте файл с именем _local-production.js_ в папке _config/env/_. Чтобы этот файл хранился вне репозитория, настраивается _.gitignore_. 
 
-В объекте `db` обновите значение `uri`:
-
-* Замените два заполнителя *\<cosmosdb_name>* именем своей базы данных Cosmos DB.
-* Замените заполнитель *\<primary_master_key>* ключом, скопированным на предыдущем шаге.
-
-В следующем коде приведен объект `db`:
+Скопируйте в него следующий код: Замените два заполнителя *\<cosmosdb_name>* именем базы данных Cosmos DB, а заполнитель *\<primary_master_key>* — ключом, скопированным на предыдущем шаге.
 
 ```javascript
-db: {
-  uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
-  ...
-},
+module.exports = {
+  db: {
+    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
+  }
+};
 ```
 
 Параметр `ssl=true` обязателен, так как для [Cosmos DB требуется протокол SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
@@ -220,7 +206,7 @@ db: {
 gulp prod
 ```
 
-Выполните следующую команду, чтобы использовать строку подключения, которая была настроена в _config/env/production.js_.
+Выполните следующую команду, чтобы использовать строку подключения, которая была настроена в _config/env/local-production.js_.
 
 ```bash
 NODE_ENV=production node server.js
@@ -230,7 +216,7 @@ NODE_ENV=production node server.js
 
 Когда приложение будет загружено, убедитесь, что оно запущено в рабочей среде:
 
-```
+```console
 --
 MEAN.JS
 
@@ -249,70 +235,23 @@ MEAN.JS version: 0.5.0
 
 На этом шаге вы развернете приложение Node.js, подключенное к MongoDB, в службе приложений Azure.
 
+### <a name="configure-a-deployment-user"></a>Настойка пользователя развертывания
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+
 ### <a name="create-an-app-service-plan"></a>Создание плана службы приложений
 
-В Cloud Shell создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan#create). 
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-В следующем примере создается план службы приложений _myAppServicePlan_ в ценовой категории **Бесплатный**.
-
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
-```
-
-После создания плана службы приложений в Azure CLI отображаются следующие сведения:
-
-```json 
-{ 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "North Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-  "kind": "app",
-  "location": "North Europe",
-  "maximumNumberOfWorkers": 1,
-  "name": "myAppServicePlan",
-  ...
-  < Output has been truncated for readability >
-} 
-```
+[!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 ### <a name="create-a-web-app"></a>Создание веб-приложения
 
-В Cloud Shell создайте веб-приложение в рамках плана службы приложений `myAppServicePlan` с помощью команды [az webapp create](/cli/azure/webapp#create). 
-
-Веб-приложение предоставляет место для размещения и развертывания кода, а также URL-адрес для просмотра развернутого приложения. Создайте веб-приложение. 
-
-В следующей команде замените заполнитель *\<app_name>* уникальным именем приложения. Это имя используется в URL-адресе по умолчанию для веб-приложения, поэтому оно должно быть уникальным для всех приложений в службе приложений Azure. 
-
-```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
-```
-
-После создания веб-приложения в Azure CLI отображаются следующие сведения: 
-
-```json 
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  ...
-  < Output has been truncated for readability >
-}
-```
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Настройка переменной среды
 
-Ранее в этом руководстве вы жестко запрограммировали строку подключения в файле _config/env/production.js_. По соображениям безопасности конфиденциальные данные не следует хранить в репозитории Git. При запуске приложения в Azure строка подключения будет храниться в переменной среды.
+По умолчанию _config/env/local-production.js_ хранится в проекте MEAN.js вне репозитория Git. Поэтому для веб-приложения Azure вам нужно использовать параметры приложения, чтобы определить строку подключения MongoDB.
 
-В Cloud Shell переменные среды устанавливаются как _параметры приложения_ с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set). 
+Чтобы задать параметры приложения, используйте команду [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) в Cloud Shell. 
 
 В следующем примере настраивается параметр приложения `MONGODB_URI` в веб-приложении Azure. Замените заполнители *\<app_name>*, *\<cosmosdb_name>* и *\<primary_master_key>*.
 
@@ -322,13 +261,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 В коде Node.js для доступа к этому параметру приложения, как и к любой переменной среды, используется `process.env.MONGODB_URI`. 
 
-Теперь отмените изменения в файле _config/env/production.js_, выполнив следующую команду.
-
-```bash
-git checkout -- .
-```
-
-Повторно откройте файл _config/env/production.js_. Обратите внимание, что приложение MEAN.js по умолчанию уже настроено для использования созданной переменной среды `MONGODB_URI`.
+В локальном репозитории MEAN.js откройте файл _config/env/production.js_ (не _config/env/local-production.js_), который содержит конфигурацию для конкретной рабочей среды. Обратите внимание, что приложение MEAN.js по умолчанию уже настроено для использования созданной переменной среды `MONGODB_URI`.
 
 ```javascript
 db: {
@@ -337,49 +270,9 @@ db: {
 },
 ```
 
-### <a name="configure-local-git-deployment"></a>Настройка локального развертывания Git 
-
-В Cloud Shell создайте учетные данные развертывания с помощью команды [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
-
-Для развертывания веб-приложения в службе приложений Azure можно использовать FTP, локальный репозиторий Git, GitHub, Visual Studio Team Services и BitBucket. Для использования FTP и локального репозитория Git на сервере необходимо настроить пользователя развертывания, который потребуется, чтобы выполнить проверку подлинности развертывания. Этот пользователь развертывания уровня учетной записи, которая отличается от учетной записи подписки Azure. Пользователя развертывания нужно настроить только один раз.
-
-В следующей команде замените *\<имя_пользователя>* и *\<пароль>* новым именем пользователя и паролем. Имя пользователя должно быть уникальным. Пароль должен содержать не менее восьми символов и включать два из трех следующих элементов: буквы, цифры и символы. Если появляется сообщение об ошибке ` 'Conflict'. Details: 409`, измените имя пользователя. Если появляется сообщение об ошибке ` 'Bad Request'. Details: 400`, используйте более надежный пароль.
-
-```azurecli-interactive
-az webapp deployment user set --user-name <username> --password <password>
-```
-
-Запишите имя пользователя и пароль, так как эти данные потребуются при развертывании приложения.
-
-Чтобы настроить доступ локального репозитория Git к веб-приложению Azure, выполните команду [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#config-local-git). 
-
-```azurecli-interactive
-az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
-```
-
-После настройки пользователя развертывания в Azure CLI будет показан URL-адрес развертывания для веб-приложения Azure в следующем формате:
-
-```bash 
-https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git 
-``` 
-
-Скопируйте выходные данные из терминала, так как они понадобятся на следующем этапе. 
-
 ### <a name="push-to-azure-from-git"></a>Публикация в Azure из Git
 
-В окне терминала (в локальном расположении) добавьте удаленное приложение Azure в локальный репозиторий Git. 
-
-```bash
-git remote add azure <paste_copied_url_here> 
-```
-
-Чтобы развернуть приложение Node.js, опубликуйте его в удаленную службу приложений Azure. После этого введите пароль, указанный ранее в процессе создания пользователя развертывания. 
-
-```bash
-git push azure master
-```
-
-Во время развертывания служба приложений Azure будет взаимодействовать с Git.
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash
 Counting objects: 5, done.

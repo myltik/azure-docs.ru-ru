@@ -13,14 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: shlo
-ms.openlocfilehash: dbf0a12ec1a5348e7c73248cc389ec1a5a5d4a75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 274c003e0697ba08d010c3bf13724461a4b624ee
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Системные переменные, поддерживаемые в фабрике данных Azure
 В этой статье описаны системные переменные, поддерживаемые фабрикой данных Azure. Вы можете использовать эти переменные в выражениях при определении сущностей фабрики данных. 
+
+> [!NOTE]
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, см. статью о [функциях и переменных в фабрике данных Azure версии 1](v1/data-factory-functions-variables.md).
+
 
 ## <a name="pipeline-scope"></a>Область конвейера:
 

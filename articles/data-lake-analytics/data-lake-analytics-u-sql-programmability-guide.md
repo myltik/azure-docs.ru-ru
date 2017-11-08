@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: db49780e359258898a62f3b95e87f54b78055c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="u-sql-programmability-guide"></a>Руководство по программированию U-SQL
 
@@ -33,94 +33,91 @@ U-SQL — это специальный язык запросов для раб
 
 ```
 @a  = 
-    SELECT * FROM 
-        (VALUES
-            ("Contoso",   1500.0, "2017-03-39"),
-            ("Woodgrove", 2700.0, "2017-04-10")
-        ) AS 
-              D( customer, amount );
+  SELECT * FROM 
+    (VALUES
+       ("Contoso",   1500.0, "2017-03-39"),
+       ("Woodgrove", 2700.0, "2017-04-10")
+    ) AS D( customer, amount );
+
 @results =
-    SELECT
-        customer,
+  SELECT
+    customer,
     amount,
     date
-    FROM @a;    
+  FROM @a;    
 ```
 
-Он определяет набор строк, который называется @a, и создает набор строк, который называется @results, из @a.
+Этот скрипт определяет два набора строк: `@a` и `@results`. Набор строк `@results` определяется из `@a`.
 
 ## <a name="c-types-and-expressions-in-u-sql-script"></a>Типы и выражения C# в скрипте U-SQL
 
-Выражение U-SQL — это выражение C# в сочетании с логическими операциями U-SQL, такими как `AND`, `OR`, и `NOT`. Выражения U-SQL можно использовать с инструкциями SELECT, EXTRACT, WHERE, HAVING, GROUP BY и DECLARE.
-
-Например, следующий скрипт анализирует значение строки даты и времени (DateTime) в предложении SELECT.
+Выражение U-SQL — это выражение C# в сочетании с логическими операциями U-SQL, такими как `AND`, `OR`, и `NOT`. Выражения U-SQL можно использовать с инструкциями SELECT, EXTRACT, WHERE, HAVING, GROUP BY и DECLARE. Например, следующий скрипт анализирует строку как значение даты и времени (DateTime).
 
 ```
 @results =
-    SELECT
-        customer,
+  SELECT
+    customer,
     amount,
     DateTime.Parse(date) AS date
-    FROM @a;    
+  FROM @a;    
 ```
 
-Следующий скрипт анализирует значение строки даты и времени (DateTime) в предложении DECLARE.
+Следующий фрагмент кода анализирует значение строки даты и времени (DateTime) в предложении DECLARE.
 
 ```
-DECLARE @d DateTime = ToDateTime.Date("2016/01/01");
+DECLARE @d = DateTime.Parse("2016/01/01");
 ```
 
 ### <a name="use-c-expressions-for-data-type-conversions"></a>Использование выражений C# для преобразования типов данных
+
 В примере ниже описывается преобразование данных datetime с помощью выражений C#. В этом конкретном случае строковые данные о дате и времени преобразуются в стандартное значение datetime использованием формата времени полуночи (00:00:00).
 
 ```
-DECLARE @dt String = "2016-07-06 10:23:15";
+DECLARE @dt = "2016-07-06 10:23:15";
 
 @rs1 =
-    SELECT 
-        Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
-        dt AS olddt
-    FROM @rs0;
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+  SELECT 
+    Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
+    dt AS olddt
+  FROM @rs0;
+
+OUTPUT @rs1 
+  TO @output_file 
+  USING Outputters.Text();
 ```
 
 ### <a name="use-c-expressions-for-todays-date"></a>Использование выражений C# для получения текущей даты
-Получить текущую дату можно с помощью следующего выражения C#:
 
-```
-DateTime.Now.ToString("M/d/yyyy")
-```
+Получить текущую дату можно с помощью следующего выражения C#: `DateTime.Now.ToString("M/d/yyyy")`
 
 Ниже приведен пример использования этого выражения в скрипте.
 
 ```
 @rs1 =
-    SELECT
-        MAX(guid) AS start_id,
-        MIN(dt) AS start_time,
-        MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
-        MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
-        DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
-        user,
-        des
-    FROM @rs0
-    GROUP BY user, des;
+  SELECT
+    MAX(guid) AS start_id,
+    MIN(dt) AS start_time,
+    MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
+    MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
+    DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
+    user,
+    des
+  FROM @rs0
+  GROUP BY user, des;
 ```
-
-
-
 ## <a name="using-net-assemblies"></a>Использование сборок .NET
-Модель расширяемости U-SQL реализована как возможность добавлять пользовательский код. В настоящее время U-SQL предоставляет простые способы добавления собственного кода на базе Microsoft .NET (в частности, C#). Однако вы также можете добавить пользовательский код, написанный на других языках .NET, например на VB.NET или F#. 
+
+Модель расширяемости U-SQL реализована как возможность добавлять пользовательский код из сборок .NET. 
 
 ### <a name="register-a-net-assembly"></a>Регистрация сборки .NET
 
-Используйте инструкции CREATE ASSEMBLY, чтобы поместить сборку в базу данных U-SQL. Когда сборка попадает в базу данных, скрипты U-SQL могут использовать эти сборки с помощью инструкции REFERENCE ASSEMBLY. 
+Используйте инструкцию `CREATE ASSEMBLY`, чтобы поместить сборку .NET в базу данных U-SQL. После этого скрипты U-SQL смогут применять эти сборки, используя инструкцию `REFERENCE ASSEMBLY`. 
 
 Следующий код показывает, как зарегистрировать сборку:
 
 ```
 CREATE ASSEMBLY MyDB.[MyAssembly]
-    FROM "/myassembly.dll";
+   FROM "/myassembly.dll";
 ```
 
 Следующий код показывает, как сослаться на сборку:
@@ -140,7 +137,6 @@ REFERENCE ASSEMBLY MyDB.[MyAssembly];
 Любой передаваемый в хранилище файл (библиотеки DLL, файлы ресурсов, включая другие среды выполнения, машинные сборки, файлы конфигурации и т. д.) не может быть более 400 МБ. Общий размер всех ресурсов, развернутых с помощью инструкции DEPLOY RESOURCE или с использованием ссылок на сборки и связанные файлы, не может превышать 3 ГБ.
 
 И наконец, важно помнить, что в каждой базе данных U-SQL может быть только одна версия любой сборки. Например, если вам одновременно нужны версии 7 и 8 библиотеки NewtonSoft Json.Net, их следует зарегистрировать в разных базах данных. Кроме того, каждый скрипт может ссылаться только на одну версию библиотеки DLL для каждой сборки. В этом отношении U-SQL соблюдает семантику C# управления сборками и версиями.
-
 
 ## <a name="use-user-defined-functions-udf"></a>Использование определяемых пользователем функций
 В языке U-SQL концепция определяемых пользователем функций обозначает подпрограммы, которые принимают параметры, выполняют действия (например, сложные вычисления) и возвращают результат этого действия в виде определенного значения. Определяемая пользователем функция может возвращать только одно скалярное значение. Основной скрипт U-SQL может вызывать такие функции, как и любую другую скалярную функцию C#.
@@ -245,9 +241,7 @@ namespace USQL_Programmability
 
             return "Q" + FiscalQuarter.ToString() + ":" + FiscalMonth.ToString();
         }
-
     }
-
 }
 ```
 
@@ -552,7 +546,7 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 Как и обычный тип C#, определение определяемого пользователем типа данных в U-SQL может переопределять такие операторы, как +/==/!=. Также оно может содержать статические методы. Например, если мы собираемся использовать этот определяемый пользователем тип данных в качестве параметра агрегатной функции MIN U-SQL, нужно переопределить оператор <.
 
-Ранее в этой статье мы привели пример, в котором определяли финансовый период для конкретной даты в формате Qn:Pn (Q1:P10). Следующий пример показывает, как использовать определяемый пользователем тип данных для значений финансового периода.
+Ранее в этой статье мы привели пример, в котором определяли финансовый период для конкретной даты в формате `Qn:Pn (Q1:P10)`. Следующий пример показывает, как использовать определяемый пользователем тип данных для значений финансового периода.
 
 Ниже приведен пример раздела кода программной части с определяемым пользователем типом данных и интерфейсом IFormatter.
 
@@ -655,9 +649,9 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-Определяемый тип содержит два числа: квартал и месяц. Здесь определены операторы ==, ! =, >, < и статический метод ToString().
+Определяемый тип содержит два числа: квартал и месяц. Здесь определены операторы `==/!=/>/<` и статический метод `ToString()`.
 
-Как упоминалось выше, определяемый пользователем тип данных можно использовать в выражениях SELECT, но нельзя — в средствах OUTPUTTER и EXTRACTOR без настраиваемой сериализации. Нужно сериализовать его в строку с помощью метода ToString() или использовать пользовательское средство OUTPUTTER или EXTRACTOR.
+Как упоминалось выше, определяемый пользователем тип данных можно использовать в выражениях SELECT, но нельзя — в средствах OUTPUTTER и EXTRACTOR без настраиваемой сериализации. Нужно сериализовать его в строку с помощью метода `ToString()` или использовать пользовательское средство OUTPUTTER или EXTRACTOR.
 
 Теперь давайте рассмотрим, как можно применять определяемый пользователем тип данных. В разделе кода программной части мы изменили функцию GetFiscalPeriod следующим образом:
 

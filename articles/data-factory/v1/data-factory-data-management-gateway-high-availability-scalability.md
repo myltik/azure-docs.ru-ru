@@ -14,13 +14,17 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1e8c2248c064a7ec934dd8ef3e926f3325a05395
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: eb026d44eedf3b393408c8453a8ed1cfed3ce415
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Шлюз управления данными: высокий уровень доступности и масштабируемость (предварительная версия)
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, см. статью о [среде выполнения интеграции с локальным размещением в версии 2](../create-self-hosted-integration-runtime.md). 
+
+
 Эта статья поможет вам настроить решение по обеспечению высокого уровня доступности и масштабируемости с помощью шлюза управления данными (Integration Runtime).    
 
 > [!NOTE]

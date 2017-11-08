@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: chackdan
-ms.openlocfilehash: 04964175f06675a486fcf252f194f0d790acea4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7c4a00d2c9be2d6b4d3d0b4dfb152deb2d0e217
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Рекомендации по планированию загрузки кластера Service Fabric
 Для любой рабочей развернутой службы важным шагом является планирование загрузки. Ниже приведено несколько факторов, которые необходимо учитывать при этом.
@@ -92,6 +92,11 @@ ms.lasthandoff: 10/11/2017
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Рекомендации по использованию уровней устойчивости Silver или Gold
 
 Используйте уровни устойчивости Silver или Gold для всех типов узлов со службами с отслеживанием состояния, предполагающими частое свертывание (уменьшение числа экземпляров виртуальных машин), если вам предпочтительнее задержка операций развертывания за счет упрощения этих операций масштабирования. Сценарии развертывания (добавления экземпляров виртуальных машин) не влияют на выбор уровня устойчивости, только сценарии свертывания.
+
+### <a name="changing-durability-levels"></a>Изменение уровней надежности
+- Для типов узлов нельзя изменить уровни устойчивости с Silver или Gold на Bronze.
+- Обновление с Bronze до Silver или Gold может занять несколько часов.
+- Изменяя уровень устойчивости, не забудьте обновить его в конфигурации расширения Service Fabric в ресурсе VMSS и определении типа узла в ресурсе кластера Service Fabric. Эти значения должны совпадать.
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Рекомендации по эксплуатации для типа узла, для которого установлен уровень устойчивости Silver или Gold
 
