@@ -166,6 +166,8 @@
           href: compute-linked-services.md
     - name: Поток управления
       items:
+        - name: Действие условия If
+          href: control-flow-if-condition-activity.md
         - name: Веб-действие
           href: control-flow-web-activity.md
         - name: Действие поиска

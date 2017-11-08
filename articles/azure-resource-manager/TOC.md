@@ -45,7 +45,7 @@
 ### Портал Azure
 #### [Развертывание ресурсов](resource-group-template-deploy-portal.md)
 #### [Экспорт шаблона](resource-manager-export-template.md)
-### [REST API](resource-group-template-deploy-rest.md)
+### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
 ### [Развертывание в нескольких группах ресурсов](resource-manager-cross-resource-group-deployment.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
@@ -71,7 +71,6 @@
 
 ## Задание политик ресурсов
 ### [Что представляют собой политики ресурсов?](resource-manager-policy.md)
-### [Назначение политик с помощью скриптов](resource-manager-policy-create-assign.md)
 ### Примеры
 #### [Теги](resource-manager-policy-tags.md)
 #### [Соглашения об именовании](resource-manager-policy-naming-convention.md)

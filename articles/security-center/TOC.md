@@ -1,6 +1,5 @@
 # Обзор
 ## [Что такое центр безопасности Azure?](security-center-intro.md)
-## [Получение аналитики с помощью Power BI](security-center-powerbi.md)
 ## [Защита данных](security-center-data-security.md)
 ## Сценарии
 ### [Реагирование на инциденты](security-center-incident-response.md)
