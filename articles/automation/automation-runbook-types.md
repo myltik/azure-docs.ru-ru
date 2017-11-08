@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 4bf4a3d755afeee9930204a2dbae9ff9fada3517
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Типы модулей Runbook в службе автоматизации Azure
 Служба автоматизации Azure поддерживает несколько типов модулей Runbook, кратко описанных в приведенной ниже таблице.  Следующие разделы содержат дополнительную информацию о каждом типе, включая рекомендацию по использованию.
@@ -85,8 +85,19 @@ Runbook рабочих процессов PowerShell представляют с
 * Runbook PowerShell можно включать только как дочерние Runbook с помощью командлета Start-AzureAutomationRunbook, который создает задание.
 
 ## <a name="python-runbooks"></a>Модули Runbook Python
+Модули Runbook Python компилируются в среде Python 2.  Вы можете отредактировать код модуля Runbook с помощью текстового редактора на портале Azure. Также можно использовать любой текстовый редактор в автономном режиме, а затем [импортировать модуль Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) в службу автоматизации Azure.
 
-## <a name="bash-runbooks"></a>Модули Runbook Bash
+### <a name="advantages"></a>Преимущества
+* Используйте надежную стандартную библиотеку Python.
+
+### <a name="limitations"></a>Ограничения
+* Требуется знание скриптов Python.
+* Сейчас поддерживается только версия Python 2. Это значит, что определенные функции Python 3 завершатся ошибкой.
+
+### <a name="known-issues"></a>Известные проблемы
+Ниже перечислены известные проблемы с модулями Runbook Python.
+
+* Чтобы использовать библиотеки сторонних производителей, модуль Runbook должен выполняться в [гибридной рабочей роли Runbook для Windows](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) или [гибридной рабочей ролью Runbook для Linux](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) с библиотеками, которые уже установлены на компьютере перед запуском модуля.
 
 ## <a name="considerations"></a>Рекомендации
 Выбирая тип модуля Runbook, принимайте во внимание следующие факторы:

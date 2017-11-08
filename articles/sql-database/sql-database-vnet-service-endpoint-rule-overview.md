@@ -13,20 +13,27 @@ ms.custom: VNet Service endpoints
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 10/13/2017
+ms.workload: On Demand
+ms.date: 10/30/2017
 ms.author: genemi
-ms.openlocfilehash: b15727ae6c7b4d0f1595d506cb8d0f66ec3abfe4
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Использование конечных точек службы и правил виртуальной сети для базы данных SQL Azure
 
 *Правила виртуальной сети* — это одна из функций безопасности брандмауэра, обеспечивающая управление приемом сервером базы данных SQL Azure подключений из определенных подсетей в виртуальных сетях. В этой статье объясняется, почему правила виртуальной сети иногда являются лучшим вариантом для защиты подключений к базе данных SQL Azure.
 
 Чтобы создать правило виртуальной сети, требуется [конечная точка службы виртуальной сети][vm-virtual-network-service-endpoints-overview-649d], используемая для ссылки.
+
+
+> [!NOTE]
+> Для Базы данных SQL Azure эта функция доступна в предварительной версии в следующих регионах Azure:
+>
+> - западно-центральная часть США, западная часть США 2 и восточная часть США.
+
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Как создать правило виртуальной сети
 

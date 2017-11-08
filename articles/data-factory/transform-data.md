@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: b224f5b32c9a46f797e78644c731a9cd9341da2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 832c4f232a3821225c8086b636de713da2b967a0
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Преобразование данных в фабрике данных Azure
 > [!div class="op_single_selector"]
@@ -35,6 +35,9 @@ ms.lasthandoff: 10/11/2017
 В этой статье объясняются действия преобразования данных в фабрике данных Azure, с помощью которых можно обрабатывать необработанные данные и преобразовывать их в прогнозы и аналитику. Действие преобразования выполняется в вычислительной среде, например в кластере Azure HDInsight или пакетной службе Azure. Статья содержит ссылки на статьи с подробными сведениями о каждом действии преобразования.
 
 Фабрика данных поддерживает указанные ниже действия преобразования, которые вы можете добавлять в [конвейеры](concepts-pipelines-activities.md) как по отдельности, так и в цепочке с другим действием.
+
+> [!NOTE]
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, см. статью о [действиях по преобразованию в фабрике данных версии 1](v1/data-factory-data-transformation-activities.md).
  
 
 ## <a name="hdinsight-hive-activity"></a>Действие Hive HDInsight

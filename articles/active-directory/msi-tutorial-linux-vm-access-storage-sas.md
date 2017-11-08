@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2017
+ms.date: 10/30/2017
 ms.author: bryanla
-ms.openlocfilehash: 5a10b2314e7086800d87362156ed3efb1a21efa7
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 6e52896f0d03661eab033c5b58b86360ce346b55
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Использование управляемого удостоверения службы виртуальной машины Linux для доступа к службе хранилища Azure с учетными данными SAS
 
@@ -111,7 +111,7 @@ MSI на виртуальной машине позволяет получить
 
 Далее в этом руководстве мы будем работать с виртуальной машиной, которую только что создали.
 
-Для выполнения этих действий вам потребуется клиент SSH. Если вы используете Windows, можно использовать клиент SSH в [подсистеме Windows для Linux](https://msdn.microsoft.com/commandline/wsl/install_guide).
+Для выполнения этих действий вам потребуется клиент SSH. Если вы используете Windows, можно использовать клиент SSH в [подсистеме Windows для Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Если вам нужна помощь в настройке ключей SSH-клиента, см. раздел [Использование ключей SSH с Windows в Azure](../virtual-machines/linux/ssh-from-windows.md) или [Как создать и использовать пару из открытого и закрытого ключей SSH для виртуальных машин Linux в Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. На портале Azure перейдите к разделу **Виртуальные машины**, выберите свою виртуальную машину Linux и вверху в разделе **Обзор** щелкните **Подключить**. Скопируйте строку подключения к виртуальной машине. 
 2. Подключитесь к виртуальной машине c помощью клиента SSH.  

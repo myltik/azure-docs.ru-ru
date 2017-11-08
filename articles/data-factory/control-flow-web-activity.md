@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: dec7a446251545461f32cddea4d8c3e433dc21e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b5661dea3a63f6e7e5b67261bc9704061ae9c5b6
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Веб-действие в фабрике данных Azure
 Веб-действие можно использовать для вызова из конвейера фабрики данных пользовательской конечной точки REST. Вы можете передать наборы данных и связанные службы, которые будет использовать это действие и к которым оно будет обращаться. 
+
+> [!NOTE]
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, см. [документацию по версии 1 фабрики данных](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Синтаксис
 

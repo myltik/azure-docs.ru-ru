@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5dcc6bf5d8c2cdbfadbbe5170b57c8e9a611b2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b179444738584e7033f0872d8ef5b721af1d3970
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Преобразование данных с помощью действия Pig в фабрике данных Azure
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,6 +33,10 @@ ms.lasthandoff: 10/11/2017
 > * [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
 > * [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
 > * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, см. статью о [преобразовании данных с использованием действий Pig в фабрике данных версии 2](../transform-data-using-hadoop-pig.md).
+
 
 Действие Pig HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет запросы Pig к [вашему собственному](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) кластеру HDInsight или кластеру HDInsight [по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) под управлением Windows или Linux. Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md) , в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
 

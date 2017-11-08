@@ -3,8 +3,8 @@ title: "Создание веб-приложений Node.js в Azure | Док�
 description: "Быстрое развертывание первого приложения Hello World на Node.js в веб-приложении службы приложений Azure."
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/05/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 09d925ab33800ac71e5fb6def916a6748d1d02a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5193460bf46c2b826cad371e4549a9690180f17
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Создание веб-приложений Node.js в Azure
 
@@ -48,8 +48,6 @@ ms.lasthandoff: 10/11/2017
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
-
-Используйте это окно терминала для выполнения всех команд в рамках этого руководства.
 
 Перейдите в каталог, в котором содержится образец кода.
 
@@ -84,10 +82,6 @@ npm start
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![Пустая страница веб-приложения](media/app-service-web-get-started-php/app-service-web-service-created.png)
-
-Вы создали пустое веб-приложение в Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -147,7 +141,7 @@ http://<app_name>.azurewebsites.net
 response.end("Hello Azure!");
 ```
 
-Зафиксируйте изменения в Git, а затем отправьте изменения кода в Azure.
+В окне терминала на локальном компьютере зафиксируйте изменения в Git, а затем отправьте изменение кода в Azure.
 
 ```bash
 git commit -am "updated output"

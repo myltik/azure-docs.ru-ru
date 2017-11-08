@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/31/2017
 ms.author: danlep
-ms.openlocfilehash: 8a1097353d24ad4c807803511e93c90394816138
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 7624a905f81024fa87f15164efc56a300843972d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Использование экземпляров с поддержкой RDMA или графического процессора (GPU) в пулах пакетной службы
 
@@ -49,11 +49,11 @@ ms.lasthandoff: 10/11/2017
 
 | Размер | Функция | Операционные системы | Необходимое программное обеспечение | Параметры пула |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | SUSE Linux Enterprise Server 12 HPC или<br/>Экземпляр HPC на платформе CentOS<br/>(Microsoft Azure Marketplace) | Intel MPI 5 | Включение связи между узлами, отключение параллельного выполнения задач |
-| [Серия NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | Графический процессор NVIDIA Tesla K80 | Ubuntu 16.04 LTS.<br/>Red Hat Enterprise Linux 7.3 или<br/>Версия 7.3 на основе CentOS<br/>(Microsoft Azure Marketplace) | Драйверы для набора средств NVIDIA CUDA Toolkit 8.0 | Недоступно | 
-| [Серия NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | Графический процессор NVIDIA Tesla M60 | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3<br/>Версия 7.3 на основе CentOS<br/>(Microsoft Azure Marketplace) | Драйверы для NVIDIA GRID 4.3 | Недоступно |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS<br/>SUSE Linux Enterprise Server 12 HPC или<br/>Экземпляр HPC на платформе CentOS<br/>(Microsoft Azure Marketplace) | Intel MPI 5 | Включение связи между узлами, отключение параллельного выполнения задач |
+| [Серия NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | Графический процессор NVIDIA Tesla K80 | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3 или<br/>Версия 7.3 на основе CentOS<br/>(Microsoft Azure Marketplace) | Драйверы для набора средств NVIDIA CUDA Toolkit 9.0 | Недоступно | 
+| [Серия NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | Графический процессор NVIDIA Tesla M60 | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3 или<br/>Версия 7.3 на основе CentOS<br/>(Microsoft Azure Marketplace) | Драйверы для NVIDIA GRID 4.3 | Недоступно |
 
-* Подключение RDMA на виртуальных машинах NC24r поддерживается в экземпляре HPC на платформе CentOS 7.3 с Intel MPI.
+* Подключение RDMA на виртуальных машинах NC24r поддерживается в экземпляре HPC на платформе Ubuntu 16.04 LTS или CentOS-based 7.3 (из Azure Marketplace) с Intel MPI.
 
 
 
@@ -62,10 +62,10 @@ ms.lasthandoff: 10/11/2017
 | Размер | Функция | Операционные системы | Необходимое программное обеспечение | Параметры пула |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 или<br/>Windows Server 2012 (Microsoft Azure Marketplace) | Microsoft MPI 2012 R2 или более поздней версии либо<br/> Intel MPI 5<br/><br/>Расширение виртуальных машин Azure HpcVMDrivers | Включение связи между узлами, отключение параллельного выполнения задач |
-| [Серия NC*](../virtual-machines/windows/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla K80 | Windows Server 2016 или <br/>Windows Server 2012 R2 (Microsoft Azure Marketplace) | Драйверы NVIDIA Tesla или драйверы набора средств CUDA Toolkit 8.0| Недоступно | 
+| [Серия NC*](../virtual-machines/windows/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla K80 | Windows Server 2016 или <br/>Windows Server 2012 R2 (Microsoft Azure Marketplace) | Драйверы NVIDIA Tesla или драйверы набора средств CUDA Toolkit 9.0| Недоступно | 
 | [Серия NV](../virtual-machines/windows/n-series-driver-setup.md) | Графический процессор NVIDIA Tesla M60 | Windows Server 2016 или<br/>Windows Server 2012 R2 (Microsoft Azure Marketplace) | Драйверы для NVIDIA GRID 4.3 | Недоступно |
 
-* Подключение RDMA на виртуальных машинах NC24r поддерживается на Windows Server 2012 R2 с расширением HpcVMDrivers и Microsoft MPI или Intel MPI.
+* Подключение RDMA на виртуальных машинах NC24r поддерживается на Windows Server 2012 R2 (из Azure Marketplace) с расширением HpcVMDrivers и Microsoft MPI или Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Пулы Windows — конфигурация облачных служб
 
@@ -119,11 +119,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="example-nvidia-tesla-drivers-on-nc-vm-pool"></a>Пример: драйверы NVIDIA Tesla в пуле виртуальных машин NC
 
-Чтобы запустить приложения CUDA в пуле узлов NC под управлением Linux, необходимо установить на узлах набор средств CUDA Toolkit 8.0. Этот набор средств позволяет установить необходимые драйверы графического процессора NVIDIA Tesla. Далее приведены примеры действий для развертывания пользовательского образа Ubuntu 16.04 LTS с драйверами графического процессора.
+Чтобы запустить приложения CUDA в пуле узлов NC под управлением Linux, необходимо установить на узлах набор средств CUDA Toolkit 9.0. Этот набор средств позволяет установить необходимые драйверы графического процессора NVIDIA Tesla. Далее приведены примеры действий для развертывания пользовательского образа Ubuntu 16.04 LTS с драйверами графического процессора.
 
-1. Разверните виртуальную машину Azure NC6 под управлением Ubuntu 16.04 LTS. Например, создайте виртуальную машину в юго-центральном регионе США. Убедитесь, что вы создали виртуальную машину с хранилищем класса Standard и *без* управляемых дисков.
+1. Разверните виртуальную машину Azure NC6 под управлением Ubuntu 16.04 LTS. Например, создайте виртуальную машину в юго-центральном регионе США. Виртуальная машина должна быть создана с помощью управляемого диска.
 2. Выполните соответствующие инструкции, чтобы подключить виртуальную машину и [установить драйверы CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
-3. Отзовите агент Linux, а затем [запишите образ виртуальной машины Linux](../virtual-machines/linux/capture-image.md).
+3. Отмените подготовку агента Linux, а затем [запишите образ виртуальной машины Linux](../virtual-machines/linux/capture-image.md).
 4. Создайте учетную запись пакетной службы в регионе, поддерживающем виртуальные машины NC.
 5. Используйте API пакетной службы или портал Azure для создания пула [с помощью пользовательского образа](batch-custom-images.md) с нужным числом узлов и в нужном масштабе. В следующей таблице приведены примеры параметров пула для образа:
 

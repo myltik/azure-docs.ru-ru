@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6d7e9be25badbd83ee613518ba768d98334a5f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c506ee95281e1250a721a9c150bd839b4c1fcdb
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Фабрика данных Azure — функции и системные переменные
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, см. статью о [системных переменных в фабрике данных версии 2](../control-flow-system-variables.md).
+
 В этой статье содержатся сведения о функциях и переменных, поддерживаемых фабрикой данных Azure.
 
 ## <a name="data-factory-system-variables"></a>Системные переменные фабрики данных

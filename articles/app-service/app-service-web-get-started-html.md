@@ -3,8 +3,8 @@ title: "Создание статического веб-приложения HT
 description: "Узнайте, как запускать веб-приложения в службе приложений Azure, развернув пример статического HTML-приложения."
 services: app-service\web
 documentationcenter: 
-author: rick-anderson
-manager: wpickett
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
-ms.author: riande
+ms.date: 10/26/2017
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a4b6e0578bb0b45b6be5bdf28af5936d627b1c74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd1b3ad946274bfa6a312d7c2373d45dbcb44541
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Создание статического веб-приложения HTML в Azure
 
@@ -45,7 +45,11 @@ ms.lasthandoff: 10/11/2017
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-Используйте это окно терминала для выполнения всех команд в рамках этого руководства.
+Перейдите в каталог, в котором содержится образец кода.
+
+```bash
+cd html-docs-hello-world
+```
 
 ## <a name="view-the-html"></a>Просмотр HTML
 
@@ -64,10 +68,6 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![Пустая страница веб-приложения](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-Вы создали пустое веб-приложение в Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -99,11 +99,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>Переход в приложение
 
-В браузере перейдите по URL-адресу веб-приложения Azure:
-
-```
-http://<app_name>.azurewebsites.net
-```
+В браузере перейдите по URL-адресу веб-приложения Azure: `http://<app_name>.azurewebsites.net`.
 
 Страница выполняется как веб-приложение службы приложений Azure.
 
@@ -115,7 +111,7 @@ http://<app_name>.azurewebsites.net
 
 Откройте файл *index.html* в текстовом редакторе и измените разметку. Например, измените заголовок H1 "Служба приложений Azure — пример статического HTML-сайта" на "Служба приложений Azure".
 
-Зафиксируйте изменения в Git, а затем отправьте изменения кода в Azure.
+В окне терминала на локальном компьютере зафиксируйте изменения в Git, а затем отправьте изменение кода в Azure.
 
 ```bash
 git commit -am "updated HTML"

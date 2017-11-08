@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
-ms.openlocfilehash: 0514710606b74db7c13f04e961347d215d2d283d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9caea4191a2ca99e6e98cc8ce7ca9ca0c7b8dc87
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Вопросы безопасности при перемещении данных в фабрике данных Azure
 В этой статье описывается базовая инфраструктура безопасности, используемая службами перемещения данных в фабрике данных Azure для защиты данных. Ресурсы управления фабрики данных Azure созданы на основе инфраструктуры безопасности Azure и используют все возможные меры безопасности, предлагаемые Azure.
+
+> [!NOTE]
+> Эта статья относится к версии 2 фабрики данных, которая в настоящее время доступна в предварительной версии. Если вы используете общедоступную версию 1 службы фабрики данных, см. статью [рекомендации по безопасному перемещению данных в фабрике данных версии 1](v1/data-factory-data-movement-security-considerations.md).
 
 С помощью фабрики данных можно создать один или несколько [конвейеров](concepts-pipelines-activities.md)данных. Конвейеры — это логические группы действий, которые вместе отвечают за выполнение задачи. Эти конвейеры реализуются в регионе, где была создана фабрика данных. 
 

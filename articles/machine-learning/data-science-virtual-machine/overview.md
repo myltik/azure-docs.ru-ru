@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8398af10d4826373e16420be3309c6ae8246ca4b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a8b9efffd6373ee33026e915b0a14e15d41295b3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Общие сведения о виртуальных машинах Linux и Windows для обработки и анализа данных
 
@@ -46,30 +46,30 @@ ms.lasthandoff: 10/11/2017
 Интенсивная работа и соревнования по обработке и анализу данных, моделирование и изучение данных большого масштаба обычно требуют использования мощного оборудования в течение короткого периода. Виртуальная машина для обработки и анализа данных помогает быстро и по требованию реплицировать среду обработки данных на развернутые серверы. Это позволяет проводить эксперименты, требующие мощных вычислительных ресурсов для репликации.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Краткосрочные эксперименты и оценка
-Виртуальную машину для обработки и анализа данных можно использовать для оценки таких средств, как Microsoft R Server, SQL Server, инструментов Visual Studio, Jupyter, наборов средств глубокого и машинного обучения, новых средств, популярных в сообществе, а также обучения им при минимальной необходимости в настройке. Так как виртуальную машину для обработки и анализа данных можно быстро настроить, ее можно использовать и в других краткосрочных сценариях, к примеру для репликации опубликованных экспериментов, демонстрации, выполнения пошаговых учебников в рамках онлайн-сеансов или руководств на конференциях.
+Виртуальную машину для обработки и анализа данных можно использовать для оценки таких средств, как Microsoft ML Server, SQL Server, инструментов Visual Studio, Jupyter, наборов средств глубокого и машинного обучения, новых средств, популярных в сообществе, а также обучения им при минимальной необходимости в настройке. Так как виртуальную машину для обработки и анализа данных можно быстро настроить, ее можно использовать и в других краткосрочных сценариях, к примеру для репликации опубликованных экспериментов, демонстрации, выполнения пошаговых учебников в рамках онлайн-сеансов или руководств на конференциях.
 
 ### <a name="deep-learning"></a>Глубокое обучение
 ВМ для обработки и анализа данных можно применять в модели обучения, использующей алгоритмы глубокого обучения на оборудовании с GPU (графическими процессорами). DSVM использует возможности облака Azure по масштабированию виртуальных машин, что позволяет предоставлять вам оборудование GPU в таких объемах, которые требуются в конкретный момент. Вы можете переключаться на виртуальные машины с GPU, когда обучаете большие модели или выполняете высокоскоростные вычисления, не меняя диск операционной системы.  Версия DSVM для Windows Server 2016 содержит предустановленные драйверы GPU, платформы и версии GPU для алгоритмов глубокого обучения. В Linux глубокое обучение на GPU включено только в [выпуске виртуальной машины для анализа и обработки данных для Linux (Ubuntu)](http://aka.ms/dsvm/ubuntu). Версию DSVM для Ubuntu или Windows 2016 можно развернуть на виртуальной машине Azure без GPU. В этом случае все платформы глубокого обучения будут переведены в режим ЦП. Ранее мы публиковали [набор инструментов для глубокого обучения](http://aka.ms/dsvm/deeplearning) для Windows Server 2012. Теперь же мы рекомендуем использовать Windows Server 2016 для рабочих нагрузок глубокого обучения на платформе Windows. Выпуск DSVM для Linux на основе CentOS содержит сборки некоторых инструментов глубокого обучения, использующих только ЦП (Microsoft Cognitive Toolkit (CNTK), TensorFlow, MXNet), но в нем отсутствуют предварительно установленные платформы и драйверы GPU. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Что предусмотрено в виртуальной машине для обработки и анализа данных?
-В этой виртуальной машине уже установлено и настроено множество популярных средств для обработки и анализа данных, а также глубокого обучения. Среди них также есть средства, упрощающие работу с различными данными и продуктами для анализа Azure. Вы можете просматривать и создавать прогнозные модели на основе наборов данных большого масштаба, используя Microsoft R Server или SQL Server 2016. Эта виртуальная машина включает в себя узел других средств, предоставленных корпорацией Майкрософт и сообществом открытого исходного кода, а также здесь предусмотрены приложения Notebook и образец кода. В следующей таблице перечислены основные компоненты выпусков Windows и Linux виртуальной машины для обработки и анализа данных.
+В этой виртуальной машине уже установлено и настроено множество популярных средств для обработки и анализа данных, а также глубокого обучения. Среди них также есть средства, упрощающие работу с различными данными и продуктами для анализа Azure. Вы можете просматривать и создавать прогнозные модели на основе наборов данных большого масштаба, используя Microsoft ML Server (R, Python) или SQL Server 2017. Эта виртуальная машина включает в себя узел других средств, предоставленных корпорацией Майкрософт и сообществом открытого исходного кода, а также здесь предусмотрены приложения Notebook и образец кода. В следующей таблице перечислены основные компоненты выпусков Windows и Linux виртуальной машины для обработки и анализа данных.
 
 
 | **Средство**                                                           | **Выпуск для Windows** | **Выпуск для Linux** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) с предустановленными популярными пакетами   |Да                      | Да             |
-| [Microsoft R Server](https://msdn.microsoft.com/microsoft-r/) Developer Edition включает в себя: <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-getting-started) — параллельную и распределенную высокопроизводительную платформу R;<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml-introduction) — новые передовые алгоритмы ML от Майкрософт; <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [средства операционализации R](https://msdn.microsoft.com/microsoft-r/operationalize/about).                                            |Да                      | Да <br/> (пакет MicrosoftML пока недоступен)|
+| [Microsoft ML Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition включает: <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) — параллельная распределенная платформа высокой производительности (R и Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) — новые передовые алгоритмы ML от Майкрософт; <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [Ввод в эксплуатацию R и Python](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |Да                      | Да |
 | [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro Plus с общей активацией — Excel, Word и PowerPoint   |Да                      |Нет              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 с предустановленными популярными пакетами    |Да                      |Да              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) с предварительно установленными популярными пакетами для языка Julia                         |Да                      |Да              |
-| Реляционные базы данных                                                            | [SQL Server 2016 SP1](https://www.microsoft.com/sql-server/sql-server-2016) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(только CentOS) |
+| Реляционные базы данных                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(только CentOS) |
 | Инструменты базы данных                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * Драйверы ODBC и JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (инструмент запросов), <br /> * bcp, sqlcmd <br /> * Драйверы ODBC и JDBC|
-| Масштабируемое аналитическое решение в базе данных со службами SQL Server R | Да     |Нет              |
+| Масштабируемое аналитическое решение в базе данных со службами ML SQL Server (R, Python) | Да     |Нет              |
 | **[Jupyter Notebook Server](http://jupyter.org/) со следующими ядрами**                                  | Да     | Да |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | Да | Да |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python 2.7 и 3.5 | Да | Да |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | Да | Да |
-|     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | Нет | Да |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | Да | Да |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | Нет | Да (только Ubuntu) |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | Нет | Да |
 | JupyterHub (многопользовательский сервер блокнотов)| Нет | Да |

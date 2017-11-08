@@ -3,7 +3,7 @@ title: "Создание веб-приложения Python в Azure | Доку
 description: "Разверните свое первое приложение Hello World на языке Python в веб-приложении службы приложений Azure за считаные минуты."
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
+author: cephalin
 manager: cfowler
 editor: 
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/17/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b3908aa6534d08c5f3bd41d439556f48067dc466
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: ae410c7fabac6d23a69922804a0a87fde63594a2
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Создание веб-приложения Python в Azure
 
@@ -45,8 +45,6 @@ ms.lasthandoff: 10/17/2017
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-Используйте это окно терминала для выполнения всех команд в рамках этого руководства.
 
 Перейдите в каталог, в котором содержится образец кода.
 
@@ -84,23 +82,17 @@ python main.py
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
+## <a name="create-a-web-app"></a>Создание веб-приложения
 
-![Пустая страница веб-приложения](media/app-service-web-get-started-python/app-service-web-service-created.png)
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-Вы создали пустое веб-приложение в Azure.
+Перейдите к только что созданному веб-приложению. Замените _&lt;app name>_ уникальным именем приложения.
 
-## <a name="configure-to-use-python"></a>Настройка использования Python
-
-Используйте команду [az webapp config set](/cli/azure/webapp/config#set), чтобы настроить в веб-приложении использование языка Python версии `3.4`.
-
-```azurecli-interactive
-az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
+```bash
+http://<app name>.azurewebsites.net
 ```
 
-При такой настройке версии Python будет использоваться контейнер по умолчанию, предоставляемый платформой. Чтобы использовать собственный контейнер, см. сведения о команде [az webapp config container set](/cli/azure/webapp/config/container#set) в справочнике по интерфейсу командной строки.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)]
+![Пустая страница веб-приложения](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)]
 
@@ -168,7 +160,7 @@ http://<app_name>.azurewebsites.net
 return 'Hello, Azure!'
 ```
 
-Зафиксируйте изменения в Git, а затем отправьте изменения кода в Azure.
+В окне терминала на локальном компьютере зафиксируйте изменения в Git, а затем отправьте изменение кода в Azure.
 
 ```bash
 git commit -am "updated output"

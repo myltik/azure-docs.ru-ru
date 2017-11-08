@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: 39f687a4de9a79e88d11e246cd0097dd9346c0ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 413d7ddf1e5b87f64c0d8e14c0ef4bdefd2890a7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Действие выполнения конвейера в фабрике данных Azure
 Действие выполнения конвейера позволяет конвейеру фабрики данных вызвать другой конвейер.
@@ -105,8 +105,6 @@ waitOnCompletion | Определяет, будет ли при выполнен
         "name": "MyExecutePipelineActivity"
       }
     ],
-    "datasets": [],
-    "linkedServices": [],
     "parameters": {
       "masterSourceBlobContainer": {
         "type": "String"
@@ -152,55 +150,6 @@ waitOnCompletion | Определяет, будет ли при выполнен
         ]
       }
     ],
-    "datasets": [
-      {
-        "name": "SourceBlobDataset",
-        "properties": {
-          "type": "AzureBlob",
-          "typeProperties": {
-            "folderPath": {
-              "value": "@pipeline().parameters.sourceBlobContainer",
-              "type": "Expression"
-            },
-            "fileName": "salesforce.txt"
-          },
-          "linkedServiceName": {
-            "referenceName": "BlobStorageLinkedService",
-            "type": "LinkedServiceReference"
-          }
-        }
-      },
-      {
-        "name": "sinkBlobDataset",
-        "properties": {
-          "type": "AzureBlob",
-          "typeProperties": {
-            "folderPath": {
-              "value": "@pipeline().parameters.sinkBlobContainer",
-              "type": "Expression"
-            }
-          },
-          "linkedServiceName": {
-            "referenceName": "BlobStorageLinkedService",
-            "type": "LinkedServiceReference"
-          }
-        }
-      }
-    ],
-    "linkedServices": [
-      {
-        "name": "BlobStorageLinkedService",
-        "properties": {
-          "type": "AzureStorage",
-          "typeProperties": {
-            "connectionString": {
-              "value": "DefaultEndpointsProtocol=https;AccountName=*****",
-              "type": "SecureString"
-            }
-          }
-        }
-      }
-    ],
     "parameters": {
       "sourceBlobContainer": {
         "type": "String"
@@ -212,6 +161,64 @@ waitOnCompletion | Определяет, будет ли при выполнен
   }
 }
 
+```
+
+**Связанная служба**
+
+```json
+{
+    "name": "BlobStorageLinkedService",
+    "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": {
+        "value": "DefaultEndpointsProtocol=https;AccountName=*****",
+        "type": "SecureString"
+      }
+    }
+  }
+}
+```
+
+**Исходный набор данных**
+```json
+{
+    "name": "SourceBlobDataset",
+    "properties": {
+    "type": "AzureBlob",
+    "typeProperties": {
+      "folderPath": {
+        "value": "@pipeline().parameters.sourceBlobContainer",
+        "type": "Expression"
+      },
+      "fileName": "salesforce.txt"
+    },
+    "linkedServiceName": {
+      "referenceName": "BlobStorageLinkedService",
+      "type": "LinkedServiceReference"
+    }
+  }
+}
+```
+
+**Набор данных приемника**
+```json
+{
+    "name": "sinkBlobDataset",
+    "properties": {
+    "type": "AzureBlob",
+    "typeProperties": {
+      "folderPath": {
+        "value": "@pipeline().parameters.sinkBlobContainer",
+        "type": "Expression"
+      }
+    },
+    "linkedServiceName": {
+      "referenceName": "BlobStorageLinkedService",
+      "type": "LinkedServiceReference"
+    }
+  }
+}
 ```
 
 ### <a name="running-the-pipeline"></a>Запуск конвейера

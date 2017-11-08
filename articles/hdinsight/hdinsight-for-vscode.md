@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2017
+ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: fdf1911f4f5b515592b6197ea738d808104cb43e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ce117076ed5c15ddff850485d8f8912ec53caf
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>Использование средств Azure HDInsight для Visual Studio Code
 
@@ -48,18 +48,6 @@ ms.lasthandoff: 10/11/2017
 5. Щелкните **Перезагрузить окно** для подтверждения. **Средства Azure HDInsight** появятся в области "Расширения".
 
    ![Установка расширения Python средств HDInsight для Visual Studio Code](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
-
-Для пользователей Spark рекомендуется расширение Python, которое обеспечивает более удобную среду работы. Расширение Python не является обязательным для пользователей Hive. 
-
-**Установка Python**
-
-1. Откройте **Visual Studio Code**.
-2. Щелкните **Расширения** в левой области. В поле поиска введите **python**. Вы увидите список расширений python. Одно из них — **Python**.
-3. Щелкните **Установить** рядом с расширением **Python**. Через несколько секунд вместо кнопки **Установить** появится кнопка **Перезагрузить**.
-4. Щелкните **Перезагрузить**, чтобы активировать расширение **Python**.
-5. Щелкните **Перезагрузить окно** для подтверждения. Вы увидите **Python** в области расширений.
-
-     ![Установка расширения Python средств HDInsight для Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 ## <a name="open-hdinsight-workspace"></a>Откройте рабочую область HDInsight
 
@@ -90,21 +78,19 @@ ms.lasthandoff: 10/11/2017
 
     После подключения в строке состояния в левом нижнем углу окна VSCode будет отображаться имя учетной записи Azure. 
 
-    > [!NOTE] 
-    > Если для учетной записи Azure используется двухфакторная проверка подлинности, мы рекомендуем выбрать проверку подлинности через телефон, а не ПИН-код.
-    > Известна проблема, связанная с входом в Azure с помощью Google Chrome.
+    > [!NOTE]
+    > Из-за известной проблемы с проверкой подлинности в Azure браузер следует открывать в режиме конфиденциальности или в режиме инкогнито. Если для учетной записи Azure используется двухфакторная проверка подлинности, мы рекомендуем выбрать проверку подлинности через телефон, а не ПИН-код.
+  
 
-4. Щелкните правой кнопкой мыши редактор сценариев, чтобы открыть контекстное меню:
-
-    ![Контекстное меню редактора сценариев средств HDInsight для Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-context-menu.png)
-
-    В контекстном меню можно выполнять следующие задачи:
+4. Щелкните правой кнопкой мыши редактор сценариев, чтобы открыть контекстное меню. В контекстном меню можно выполнять следующие задачи:
 
     - logout
     - получение списка кластеров;
     - задание кластера по умолчанию;
     - отправка интерактивных запросов Hive;
     - отправка пакетного сценария Hive;
+    - отправка интерактивных запросов PySpark;
+    - отправка пакетного сценария PySpark;
     - задание конфигурации.
 
 ## <a name="list-hdinsight-clusters"></a>Получение списка кластеров HDInsight
@@ -144,7 +130,7 @@ ms.lasthandoff: 10/11/2017
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-3. Щелкните правой кнопкой мыши редактор сценариев и выберите пункт **HDInsight: Interactive Hive**, чтобы отправить запрос. Средства также позволяют отправить блок кода вместо целого файла сценария с помощью контекстного меню. Вскоре после этого результат запроса будет выведен на новой вкладке:
+3. Щелкните правой кнопкой мыши редактор сценариев и выберите пункт **HDInsight: Hive Interactive** (HDInsight: интерактивный запрос Hive), чтобы отправить запрос. Средства также позволяют отправить блок кода вместо целого файла сценария с помощью контекстного меню. Вскоре после этого результат запроса будет выведен на новой вкладке:
 
    ![результат Interactive Hive](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -162,7 +148,7 @@ ms.lasthandoff: 10/11/2017
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-3. Щелкните правой кнопкой мыши редактор сценариев и выберите пункт **HDInsight: отправить пакетный сценарий Hive**, чтобы отправить задание Hive. 
+3. Щелкните правой кнопкой мыши редактор сценариев и выберите пункт **HDInsight: Hive Batch** (HDInsight: пакет Hive), чтобы отправить задание Hive. 
 4. Выберите кластер, в которой вы хотите отправить задание.  
 
     После отправки задания Hive сведения о состоянии отправки и идентификатор задания отображаются в области **вывода**. Открывается **веб-браузер**, в котором отображается состояние и журналы заданий в реальном времени.
@@ -171,11 +157,44 @@ ms.lasthandoff: 10/11/2017
 
 По сравнению с [отправкой интерактивных запросов Hive](#submit-interactive-hive-queries) отправка задания занимает гораздо больше времени.
 
+## <a name="submit-interactive-pyspark-queries"></a>Отправка интерактивных запросов PySpark
+Средства HDInsight для VSCode также позволяют отправлять интерактивные запросы PySpark в кластеры Spark.
+1. Создайте рабочую папку и файл сценария с разрешением PY, если их еще нет.
+2. Подключитесь к учетной записи Azure, если вы еще этого не сделали.
+3. Скопируйте следующий код и вставьте его в файл сценария:
+   ```python
+   from operator import add
+   lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
+   counters = lines.flatMap(lambda x: x.split(' ')) \
+                .map(lambda x: (x, 1)) \
+                .reduceByKey(add)
 
-## <a name="submit-pyspark-job"></a>Отправка задания PySpark
+   coll = counters.collect()
+   sortedCollection = sorted(coll, key = lambda r: r[1], reverse = True)
+
+   for i in range(0, 5):
+        print(sortedCollection[i])
+   ```
+4. Выделите эти сценарии и щелкните правой кнопкой мыши в редакторе сценариев, а затем выберите пункт **HDInsight: PySpark Interactive** (HDInsight: интерактивный запрос PySpark).
+5. Нажмите показанную ниже кнопку **Установить**, если вы еще не установили расширение **Python** в VSCode.
+    ![Установка расширения Python средств HDInsight для Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
+
+6. Настройте среду Python в своей системе, если она еще не установлена. 
+   - Для Windows скачайте и установите [Python](https://www.python.org/downloads/). Затем убедитесь, что `Python` и `pip` добавлены в системную переменную PATH.
+   - Инструкции по установке в MacOS и Linux см. в статье [Настройка интерактивной среды PySpark для Visual Studio Code](set-up-pyspark-interactive-environment.md).
+7. Выберите кластер, чтобы отправить запрос PySpark. Вскоре после этого результат запроса отобразится на новой вкладке справа:
+
+   ![отправка результата задания python](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
+8. Наше средство также поддерживает запросы в виде **SQL-предложений**.
+
+   ![Отправка результата задания Python](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) При выполнении запросов состояние отправки отображается слева в строке состояния внизу. Если отображается состояние **PySpark Kernel (busy)** (Ядро PySpark (занято)), вы не можете отправлять другие запросы. В противном случае средство перестанет отвечать на запросы.
+9. Сеанс может сохраняться на наших кластерах. Например, если отображается **a=100**, этот сеанс уже сохранен на кластере. Вам нужно только запустить команду **print a** для кластера.
+ 
+
+## <a name="submit-pyspark-batch-job"></a>Отправка пакетного задания PySpark
 
 1. Создайте рабочую папку и файл сценария с разрешением PY, если их еще нет.
-2. Подключитесь к учетной записи Azure, а затем настройте кластер по умолчанию, если вы еще не сделали этого.
+2. Подключитесь к учетной записи Azure, если вы еще этого не сделали.
 3. Скопируйте следующий код и вставьте его в файл сценария:
 
     ```python
@@ -198,7 +217,7 @@ ms.lasthandoff: 10/11/2017
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. Щелкните правой кнопкой мыши редактор сценариев и выберите пункт **HDInsight: отправить задание PySpark**. 
+4. Щелкните правой кнопкой мыши редактор сценариев и выберите пункт **HDInsight: PySpark Batch** (HDInsight: пакет PySpark). 
 5. Выберите кластер, чтобы отправить задание PySpark. 
 
    ![отправка результата задания python](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
@@ -224,10 +243,12 @@ HDInsight для VSCode поддерживает перечисленные ни
 * HDInsight для VScode: [видео](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Средства и расширения
-* [Удаленная отладка приложений Spark через VPN с помощью набора средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Настройка интерактивной среды PySpark для Visual Studio Code](set-up-pyspark-interactive-environment.md)
+* [Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Удаленная отладка приложений Spark через SSH с помощью набора средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Использование инструментов HDInsight для IntelliJ с песочницей Hortonworks](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [Удаленная отладка приложений Spark через VPN с помощью набора средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Использование средств HDInsight в наборе средств Azure для Eclipse для создания приложений Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Использование инструментов HDInsight для IntelliJ с песочницей Hortonworks](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)

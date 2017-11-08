@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 9dfeff7aea50db2cbaacacdbac724d6f9dfd7019
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 845e459a0c829ed8e737d687108e3bda48dab9ad
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Обновление приложения Service Fabric с помощью PowerShell
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Service Fabric выполняет отслеживаемое последова�
 > 
 > 
 
-Создав проект в Visual Studio, вы можете использовать команду PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) , чтобы скопировать пакет приложения в ImageStore. Если вы хотите проверить пакет приложения локально, используйте командлет [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage). Следующий шаг — регистрация приложения в среде выполнения Service Fabric с помощью командлета [Register-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) . Завершающий шаг — запуск экземпляра приложения с помощью командлета [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) .  Эти три шага аналогичны действиям при использовании меню **Развертывание** в Visual Studio.
+Создав проект в Visual Studio, вы можете использовать команду PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) , чтобы скопировать пакет приложения в ImageStore. Если вы хотите проверить пакет приложения локально, используйте командлет [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage). Следующий шаг — регистрация приложения в среде выполнения Service Fabric с помощью командлета [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). Следующий шаг — запуск экземпляра приложения с помощью командлета [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Эти три шага аналогичны действиям при использовании меню **Развертывание** в Visual Studio.  После завершения подготовки следует удалить скопированный пакет приложения из хранилища образов, чтобы сократить потребление ресурсов.  Если тип приложения больше не требуется, необходимо отменить его регистрацию. См. дополнительные сведения о [развертывании и удалении приложений с помощью PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
 
 Теперь можно использовать [обозреватель структуры служб для просмотра кластера и приложения](service-fabric-visualizing-your-cluster.md). Приложение имеет веб-службу, к которой можно перейти, введя в адресной строке браузера Internet Explorer следующее: [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) .  Вы сможете увидеть несколько плавающих визуальных объектов, перемещающихся по экрану.  Кроме того, можно использовать командлет [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) , чтобы проверить состояние приложения.
 

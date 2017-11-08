@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d64425d067df92998538c78d1ca3a1650502b77a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47ebebbd838d245c2559bff8d8750e80dbcc3fd8
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Фабрика данных Azure — часто задаваемые вопросы
+> [!NOTE]
+> Статья относится к версии 1 фабрики данных, которая является общедоступной версией. Если вы используете версию 2 службы фабрики данных, которая находится на этапе предварительной версии, см. [часто задаваемые вопросы о фабрике данных версии 2](../frequently-asked-questions.md).
+
 ## <a name="general-questions"></a>Общие вопросы
 ### <a name="what-is-azure-data-factory"></a>Что такое фабрика данных Azure?
 Фабрика данных представляет собой облачную службу интеграции информации, которая **автоматизирует перемещение и преобразование данных**. Как на фабрике сырье превращается в готовую продукцию с помощью оборудования, так и в фабриках данных необработанные данные собираются и преобразовываются в готовые к использованию сведения с помощью специальных служб.

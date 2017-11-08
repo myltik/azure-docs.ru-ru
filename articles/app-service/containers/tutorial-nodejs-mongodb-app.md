@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a92b2875df3ceaeb4de21f24aa484196a82d825d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a9b321fcf8a8d1234989a9433da227142d954cb4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Разработка веб-приложения на основе Node.js и MongoDB в службе приложений Azure на платформе Linux
 
@@ -207,7 +207,7 @@ module.exports = {
 gulp prod
 ```
 
-В окне терминала на локальном компьютере выполните команду ниже, чтобы использовать строку подключения, которая была настроена в _config/env/production.js_. Игнорируйте сообщение об ошибке сертификата и предупреждение config.domain.
+В окне терминала на локальном компьютере выполните команду ниже, чтобы использовать строку подключения, которая была настроена в _config/env/local-production.js_. Игнорируйте сообщение об ошибке сертификата и предупреждение config.domain.
 
 ```bash
 NODE_ENV=production node server.js
@@ -246,11 +246,11 @@ MEAN.JS version: 0.5.0
 
 ### <a name="create-a-linux-based-web-app"></a>Создание веб-приложения на основе Linux
 
-[!INCLUDE [Create a linux based web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Настройка переменной среды
 
-Файл _config/env/local-production.js_ не находится в репозитории Git. Поэтому для веб-приложения Azure вам нужно использовать параметры приложения, чтобы определить строку подключения MongoDB.
+По умолчанию _config/env/local-production.js_ хранится в проекте MEAN.js вне репозитория Git. Поэтому для веб-приложения Azure вам нужно использовать параметры приложения, чтобы определить строку подключения MongoDB.
 
 Чтобы задать параметры приложения, используйте команду [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) в Cloud Shell.
 
@@ -262,7 +262,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 В коде Node.js для доступа к этому параметру приложения, как и к любой переменной среды, используется `process.env.MONGODB_URI`. 
 
-В локальном репозитории MEAN.js снова откройте файл _config/env/production.js_, который содержит конфигурацию для конкретной рабочей среды. Обратите внимание, что приложение MEAN.js по умолчанию уже настроено для использования созданной переменной среды `MONGODB_URI`.
+В локальном репозитории MEAN.js откройте файл _config/env/production.js_ (не _config/env/local-production.js_), который содержит конфигурацию для конкретной рабочей среды. Обратите внимание, что приложение MEAN.js по умолчанию уже настроено для использования созданной переменной среды `MONGODB_URI`.
 
 ```javascript
 db: {

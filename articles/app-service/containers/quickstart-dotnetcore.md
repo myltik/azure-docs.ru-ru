@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 95383554d3fd8a1770a37a5396224c39b4f34c81
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a8000cadd6f6d7204e1790df62443a7ac7598c9
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Создание веб-приложения .NET Core в службе приложений на платформе Linux
 
@@ -87,19 +87,15 @@ git commit -m "first commit"
 
 ## <a name="create-a-web-app-with-built-in-image"></a>Создание веб-приложения со встроенным образом
 
-Создайте [веб-приложение](../app-service-web-overview.md) в рамках плана `myAppServicePlan` службы приложений с помощью команды [az webapp create](/cli/azure/webapp#create). Не забудьте указать уникальное имя приложения вместо `<app name>`.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-Для среды выполнения в следующей команде задано значение `DOTNETCORE|1.1`. Чтобы просмотреть все поддерживаемые среды выполнения, выполните команду [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
+Перейдите к только что созданному веб-приложению. Замените _&lt;app name>_ уникальным именем приложения.
 
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1" --deployment-local-git
+```bash
+http://<app name>.azurewebsites.net
 ```
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)]
-
 ![Пустая страница веб-приложения](media/quickstart-dotnetcore/dotnet-browse-created.png)
-
-Вы создали пустое веб-приложение со встроенным образом и включенным развертыванием Git.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0dc0d15c64d8951c3c457df73588c37418a3c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Автоматическое изменение размера ресурсов кластера пакета HPC в Azure в соответствии с рабочей нагрузкой кластера
 Если вы развертываете в кластере пакета HPC "расширительные" узлы Azure или создаете кластер пакета HPC на виртуальных машинах Azure, может потребоваться способ автоматического увеличения или сжатия ресурсов кластера (например, узлов или ядер) в соответствии с рабочей нагрузкой в кластере. Такой способ масштабирования ресурсов позволяет более эффективно использовать ресурсы Azure и управлять затратами на них.
@@ -178,7 +178,7 @@ Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
 ### <a name="soa-example"></a>Пример SOA
-По умолчанию для параметра **SoaJobGrowThreshold** задано значение 50 000, а для **SoaRequestsPerCore** — 200 000. Если отправить одно задание SOA с 70 000 запросов, будет существовать одна задача, поставленная в очередь, и 70 000 входящих запросов. В данном случае пакет HPC увеличит 1 ядро для задачи в очереди и 1 ядро для входящих запросов (по формуле (70 000 – 50 000)/20 000 = 1), поэтому в итоге для этого задания SOA увеличатся 2 ядра.
+По умолчанию для параметра **SoaJobGrowThreshold** задано значение 50000, а для **SoaRequestsPerCore** — 20000. Если отправить одно задание SOA с 70 000 запросов, будет существовать одна задача, поставленная в очередь, и 70 000 входящих запросов. В данном случае пакет HPC увеличит 1 ядро для задачи в очереди и 1 ядро для входящих запросов (по формуле (70 000 – 50 000)/20 000 = 1), поэтому в итоге для этого задания SOA увеличатся 2 ядра.
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>Запуск скрипта AzureAutoGrowShrink.ps1
 ### <a name="prerequisites"></a>Предварительные требования

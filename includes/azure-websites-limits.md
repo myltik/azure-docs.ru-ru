@@ -15,11 +15,11 @@
 | Количество одновременных [подключений к отладчику](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) для каждого приложения |1 |1 |1 |5 |5 |
 | [Поддомен azurewebsites.net с доступом по FTP/S и SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |X |X |X |X |X |
 | [личных доменов](../articles/app-service/app-service-web-tutorial-custom-domain.md)  | |X |X |X |X |
-| личных доменов [Поддержка SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Без ограничений |Без ограничений, включено 5 подключений SNI SSL и 1 подключение SSL на основе IP |Без ограничений, включено 5 подключений SNI SSL и 1 подключение SSL на основе IP |
+| личных доменов [Поддержка SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Неограниченное количество подключений SSL на основе SNI |Включено неограниченное количество подключений SSL на основе SNI и 1 подключение SSL на основе IP |Включено неограниченное количество подключений SSL на основе SNI и 1 подключение SSL на основе IP |
 | Интегрированная подсистема балансировки нагрузки | |X |X |X |X |
 | [Всегда включено](../articles/app-service/web-sites-configure.md) | | |X |X |X |
 | [Архивация по расписанию](../articles/app-service/web-sites-backup.md) | | | |Один раз в день |Каждые 5 минут<sup>8</sup> |
-| [Автоматическое масштабирование](../articles/app-service/web-sites-scale.md) | | |X |X |X |
+| [Автоматическое масштабирование](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [Веб-задания](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [планировщика Azure](https://azure.microsoft.com/services/scheduler/)  | |X |X |X |X |
 | [Мониторинг конечных точек](../articles/app-service/web-sites-monitor.md) | | |X |X |X |

@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 07/21/2017
+ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 64baee04c43442a73dbb9ef657c091f307204ce4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08e9f58cc81122ae36db67d916cf2550490ec4ef
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Создание веб-приложения PHP в Azure с подключением к базе данных MySQL
 
@@ -324,23 +324,18 @@ git commit -m "database.php updates"
 
 На этом шаге вы развернете приложение PHP, подключенное к базе данных MySQL, в службе приложений Azure.
 
+### <a name="configure-a-deployment-user"></a>Настойка пользователя развертывания
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+
 ### <a name="create-an-app-service-plan"></a>Создание плана службы приложений
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
+<a name="create"></a>
 ### <a name="create-a-web-app"></a>Создание веб-приложения
 
-[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)]
-
-### <a name="set-the-php-version"></a>Задание версии PHP
-
-В Cloud Shell задайте версию PHP, которая необходима для приложения, с помощью команды [az webapp config set](/cli/azure/webapp/config#set).
-
-Следующая команда задает версию PHP _7.0_.
-
-```azurecli-interactive
-az webapp config set --name <app_name> --resource-group myResourceGroup --php-version 7.0
-```
+[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Настройка параметров базы данных
 
@@ -397,17 +392,9 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 По умолчанию служба приложений Azure указывает корневой путь виртуального приложения (_/_) к корневому каталогу файлов развернутого приложения (_sites\wwwroot_).
 
-### <a name="configure-a-deployment-user"></a>Настойка пользователя развертывания
-
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
-
-### <a name="configure-local-git-deployment"></a>Настройка локального развертывания Git
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git-no-h.md)]
-
 ### <a name="push-to-azure-from-git"></a>Публикация в Azure из Git
 
-В окне терминала (в локальном расположении) добавьте удаленное приложение Azure в локальный репозиторий Git.
+В окне терминала (в локальном расположении) добавьте удаленное приложение Azure в локальный репозиторий Git. Замените фразу _&lt;paste\_copied\_url\_here>_ (вставьте скопированный url-адрес сюда) URL-адресом удаленного репозитория Git, который вы сохранили при [создании веб-приложения](#create).
 
 ```bash
 git remote add azure <paste_copied_url_here>

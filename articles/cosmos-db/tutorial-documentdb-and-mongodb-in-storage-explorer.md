@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: 2cd3656156b77c71be85a1a18567232f4466fc68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e695cdd7c51e18a386764ab8444d3336366ae265
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Управление Azure DB Cosmos в Обозревателе службы хранилища Azure (предварительная версия)
 
@@ -32,8 +32,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-- Учетная запись Azure Cosmos DB для базы данных SQL (DocumentDB) или MongoDB. Если у вас нет учетной записи, вы можете создать ее на портале Azure, как описано в разделе [Azure Cosmos DB. Создание веб-приложения API DocumentDB с использованием языка .NET и портала Azure](create-documentdb-dotnet.md).
-- Установите последнюю версию Обозревателя службы хранилища Azure. Для этого воспользуйтесь следующими ссылками для указанных операционных систем: [Linux](https://go.microsoft.com/fwlink/?linkid=858559), [Mac](https://go.microsoft.com/fwlink/?linkid=858561), [Windows](https://go.microsoft.com/fwlink/?linkid=858562).
+Учетная запись Azure Cosmos DB для базы данных SQL (DocumentDB) или MongoDB. Если у вас нет учетной записи, вы можете создать ее на портале Azure, как описано в разделе [Azure Cosmos DB. Создание веб-приложения API DocumentDB с использованием языка .NET и портала Azure](create-documentdb-dotnet.md).
+
+## <a name="installation"></a>Установка
+
+Скачать новейшие версии обозревателя службы хранилища Azure можно отсюда: [обозреватель хранилищ Azure](https://azure.microsoft.com/features/storage-explorer/), теперь мы поддерживаем версии для Windows, MAC и Linux.
 
 ## <a name="connect-to-an-azure-subscription"></a>Подключение к подписке Azure
 
@@ -146,10 +149,8 @@ ms.lasthandoff: 10/11/2017
 
 * Операции для **триггеров** и **определяемых пользователем функций** аналогичны соответствующим операциям для **хранимых процедур**.
 
-## <a name="demo"></a>Демонстрация
-* Чтобы узнать, как использовать Azure Cosmos DB в Обозревателе службы хранилища Azure, просмотрите это видео: [Использование Azure Cosmos DB в Обозревателе службы хранилища Azure](https://go.microsoft.com/fwlink/?linkid=858710).
-
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Теперь когда вы связали Обозреватель службы хранилища Azure и учетную запись Azure Cosmos DB, ознакомьтесь с дополнительными сведениями об Обозревателе службы хранилища и подключите дополнительные службы в разделе [Приступая к работе с Обозревателем службы хранилища (предварительная версия)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Чтобы узнать, как использовать Azure Cosmos DB в Обозревателе службы хранилища Azure, просмотрите это видео: [Использование Azure Cosmos DB в Обозревателе службы хранилища Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* Дополнительные сведения об обозревателе службы хранилища и подключении дополнительных служб см. в статье [Приступая к работе с обозревателем службы хранилища (предварительная версия)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

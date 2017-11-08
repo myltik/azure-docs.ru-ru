@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5445a479fd6893048eb8ff356fa829a3dcd5f7d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db849cd1e9da634064f79fbc041098542580ad02
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Требования к лицензированию самостоятельного сброса пароля в Azure AD
 
 Для работы функции сброса пароля Azure AD **в вашей организации должна быть назначена по крайней мере одна лицензия**. Лицензирование каждого пользователя при сбросе пароля необязательно. Для соблюдения лицензионного соглашения Майкрософт вам необходимо назначить лицензии для всех пользователей, которые используют функции уровня "Премиум".
 
-* **Полностью облачные пользователи.** Любой платный номер SKU Office 365 (O365) или Azure AD Basic.
+* **Полностью облачные пользователи.** Любой платный номер SKU Office 365 (O365) или Azure AD Basic.
 * **Облачные пользователи** или **локальные пользователи.** Azure AD Premium P1 или P2, Enterprise Mobility + Security (EMS) или Secure Productive Enterprise (SPE).
 
 ## <a name="licenses-required-for-password-writeback"></a>Лицензии, необходимые для компонента обратной записи паролей
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 * Microsoft 365 E3
 * Microsoft 365 E5
 
-> [!NOTE]
+> [!WARNING]
 > Автономные планы лицензирования Office 365 **не поддерживают компонент обратной записи паролей**. Для работы этой функции необходим один из указанных выше планов.
 
 Дополнительные сведения о лицензировании, включая расходы, можно найти на следующих страницах:
@@ -58,13 +58,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих источниках:
-
-* [**Приступая к работе с компонентами управления паролями**](active-directory-passwords-getting-started.md). Запуск и выполнение службы самостоятельного управления паролями Azure AD. 
-* [**Deploy password reset without requiring end-user registration**](active-directory-passwords-data.md) (Развертывание сброса пароля без регистрации пользователя). Сведения о необходимых данных и их использовании для управления паролями.
-* [**Развертывание компонентов управления паролями и обучение пользователей их использованию**](active-directory-passwords-best-practices.md). Рекомендации по планированию и развертыванию SSPR для пользователей.
-* [**Настройка компонентов управления паролями в соответствии с требованиями организации**](active-directory-passwords-customize.md). Сведения о настройке интерфейса и параметров использования SSPR для организации.
-* [**Параметры отчетов для управления паролями Azure AD**](active-directory-passwords-reporting.md). Определяйте, кто и когда использовал функцию SSPR.
-* [**Как работает управление паролями в Azure Active Directory**](active-directory-passwords-how-it-works.md). Сведения о принципе работы управления паролями.
-* [**Вопросы и ответы об управлении паролями**](active-directory-passwords-faq.md). Как? Почему? Что? Где? Кто? Когда? Здесь приведены ответы на интересующие вас вопросы.
-* [**Устранение неполадок, связанных с управлением паролями**](active-directory-passwords-troubleshoot.md). Сведения об устранении распространенных проблем с SSPR.
+* [Как развернуть самостоятельный сброс пароля](active-directory-passwords-best-practices.md)
+* [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
+* [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
+* [Какие данные используются для SSPR и какие сведения нужно указывать для пользователей](active-directory-passwords-data.md)
+* [Доступные пользователям методы проверки подлинности](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Параметры политики для SSPR](active-directory-passwords-policy.md)
+* [Что такое обратная запись паролей и каково ее назначение](active-directory-passwords-writeback.md)
+* [Как сообщать о действиях в SSPR](active-directory-passwords-reporting.md)
+* [Обзор всех параметров SSPR и их значение](active-directory-passwords-how-it-works.md)
+* [Как устранить неполадки самостоятельного сброса пароля](active-directory-passwords-troubleshoot.md)
+* [Вопросы, не вошедшие в другие статьи](active-directory-passwords-faq.md)
